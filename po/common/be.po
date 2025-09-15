@@ -7572,16 +7572,16 @@ msgid "Unwanted ingredients"
 msgstr "Непажаданыя інгрэдыенты"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Гэты выбар заснаваны на разуменні спісу інгрэдыентаў Open Food Facts і можа быць недакладным, заўсёды правярайце прадукт самастойна."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Гэтая перавага заснавана на разуменні Open Food Facts спісу інгрэдыентаў і можа быць недакладнай, заўсёды правярайце прадукт самастойна."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Наяўнасць непажаданых інгрэдыентаў невядомая"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Няма непажаданых інгрэдыентаў"
+msgid "No unwanted ingredients detected"
+msgstr "Не выяўлена непажаданых інгрэдыентаў"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7590,4 +7590,16 @@ msgstr "Змяшчае непажаданыя інгрэдыенты"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Некаторыя інгрэдыенты не былі распазнаныя"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Мы не выявілі: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Мы не выявілі: {unwanted_ingredients}. Магчыма, мы прапусцілі некаторыя інгрэдыенты, калі ласка, заўсёды правярайце спіс інгрэдыентаў."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Гэтыя перавагі заснаваныя на разуменні Open Food Facts спісу інгрэдыентаў, і заўсёды існуе верагоднасць таго, што ён можа быць недакладным або няпоўным, заўсёды правярайце прадукт самастойна."
 
