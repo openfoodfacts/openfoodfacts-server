@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Fɛn minnu tɛ fɛn ye"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Nin fɛɛrɛ in sinsinnen bɛ Open Food Facts faamuyali kan fɛnw lisɛli kan wa a bɛ se ka kɛ a tɛ tiɲɛ ye, aw bɛ fura in sɛgɛsɛgɛ tuma bɛɛ aw yɛrɛ ye."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Nin fɛɛrɛ in sinsinnen bɛ Open Food Facts ka faamuyali kan fɛnw lisɛli kan wa a bɛ se ka kɛ a tɛ tiɲɛ ye, aw yɛrɛ bɛ fura in lajɛ tuma bɛɛ."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Fɛn minnu man ɲi, olu sɔrɔli dɔnbali"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Fɛn minnu tɛ kɛ ka ɲɛ, olu tɛ yen"
+msgid "No unwanted ingredients detected"
+msgstr "Fɛn minnu tɛ a fɛ, olu si ma sɔrɔ"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Fɛn minnu man ɲi, olu bɛ sɔrɔ a kɔnɔ"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Fɛn dɔw tun tɛ dɔn"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "An ma dete: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "An ma a kɔlɔsi: {unwanted_ingredients}. N’a sɔrɔ an ye fɛn dɔw to yen, aw ka fɛnw lisɛli lajɛ tuma bɛɛ."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "O fɛɛrɛw bɛ bɔ Open Food Facts ka faamuyali la fɛnw lisɛli kan ani a bɛ se ka kɛ tuma bɛɛ ko a tɛ tiɲɛ ye walima ko a tɛ dafa, tuma bɛɛ aw yɛrɛ ye fura in lajɛ."
 
