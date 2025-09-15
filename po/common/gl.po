@@ -7570,16 +7570,16 @@ msgid "Unwanted ingredients"
 msgstr "Ingredientes non desexados"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Esta preferencia baséase na comprensión da lista de ingredientes de Open Food Facts e pode non ser precisa; verifique sempre o produto vostede mesmo."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Esta preferencia baséase na comprensión que fai Open Food Facts da lista de ingredientes e pode non ser precisa; comproba sempre o produto ti mesmo."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Presenza descoñecida de ingredientes indesexados"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Sen ingredientes non desexados"
+msgid "No unwanted ingredients detected"
+msgstr "Non se detectaron ingredientes non desexados"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7588,4 +7588,16 @@ msgstr "Contén ingredientes non desexados"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Algúns ingredientes non foron recoñecidos"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Non detectamos: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Non detectamos: {unwanted_ingredients}. Pode que nos pasasen por alto algúns ingredientes. Consulta sempre a lista de ingredientes."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Esas preferencias baséanse na comprensión que fai Open Food Facts da lista de ingredientes e sempre existe a posibilidade de que non sexa precisa ou completa; comproba sempre o produto ti mesmo."
 
