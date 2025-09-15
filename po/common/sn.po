@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Zvisikwa zvisingadiwi"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Sarudzo iyi yakavakirwa paOpen Food Chokwadi manzwisisiro ezvinyorwa zvinyorwa uye zvinogona kunge zvisiri izvo, gara uchisimbisa chigadzirwa uri wega."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Sarudzo iyi yakavakirwa paOpen Food Chokwadi 'kunzwisisa kweiyo emukati rondedzero uye inogona kunge isiri iyo chaiyo, gara uchitarisa chigadzirwa iwe pachako."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Kuvapo kwezvinhu zvisingadiwi zvisingazivikanwe"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Hapana zvisingadiwe zvinosanganisa"
+msgid "No unwanted ingredients detected"
+msgstr "Hapana zvigadzirwa zvisingadiwe zvakaonekwa"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Iine zvigadzirwa zvisingadiwe"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Zvimwe zvinosanganiswa hazvina kuzivikanwa"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Hatina kuona: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Hatina kuona: {unwanted_ingredients}. Tinogona kunge takapotsa zvimwe zvinongedzo, ndapota gara uchitarisa iyo ingredient rondedzero."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Izvo zvaunofarira zvakavakirwa paOpen Food Chokwadi 'kunzwisisa kweiyo inongedzo rondedzero uye pane nguva dzose mukana wekuti inogona kunge isiri iyo chaiyo kana yakakwana, gara uchitarisa chigadzirwa iwe pachako."
 
