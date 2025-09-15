@@ -7568,7 +7568,7 @@ msgid "Unwanted ingredients"
 msgstr "Кирлӗ мар япаласем"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
 msgstr "Ку суйласа илӳ Open Food Facts ингредиентсен списокне ӑнланни ҫинче никӗсленет тата тӗрӗс мар пулма пултарать, яланах продукта хӑвӑр тӗрӗслӗр."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
@@ -7576,8 +7576,8 @@ msgid "Presence of unwanted ingredients unknown"
 msgstr "Кирлӗ мар япаласем пурри паллӑ мар"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Кирлӗ мар япаласем ҫук"
+msgid "No unwanted ingredients detected"
+msgstr "Кирлӗ мар япаласем тупӑнман"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Кирлӗ мар япаласем пур"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Хӑш-пӗр ингредиентсене палламан"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Эпир тупаймарӑмӑр: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Эпир тупаймарӑмӑр: {unwanted_ingredients}. Эпир хӑш-пӗр ингредиентсене сиктерсе хӑварнӑ пулӗ, тархасшӑн, ингредиентсен списокне яланах тӗрӗслесе тӑрӑр."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Ҫав кӑмӑл-туйӑмсем Open Food Facts компанийӗн ингредиентсен списокне ӑнланни ҫинче никӗсленеҫҫӗ, ҫавӑнпа та вӑл тӗрӗс мар е тулли пулма пултараймасть, яланах продукта хӑвӑр тӗрӗслӗр."
 
