@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Engredyan endezirab"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Preferans sa a baze sou konpreyansyon Open Food Facts sou lis engredyan yo epi li ka pa egzak, toujou verifye pwodwi a tèt ou."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Preferans sa a baze sou konpreyansyon Open Food Facts genyen sou lis engredyan yo e li ka pa egzak, toujou verifye pwodwi a tèt ou."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Prezans engredyan endezirab yo enkoni"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Pa gen engredyan endezirab"
+msgid "No unwanted ingredients detected"
+msgstr "Pa gen okenn engredyan endezirab detekte"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Gen engredyan endezirab"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Gen kèk engredyan yo pa t rekonèt"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Nou pa detekte: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Nou pa detekte: {unwanted_ingredients}. Nou ka rate kèk engredyan, tanpri toujou tcheke lis engredyan yo."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Preferans sa yo baze sou konpreyansyon Open Food Facts genyen sou lis engredyan yo epi toujou gen yon posibilite ke li ka pa egzak oswa konplè, toujou verifye pwodwi a tèt ou."
 
