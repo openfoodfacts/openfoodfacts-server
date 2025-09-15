@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "არასასურველი ინგრედიენტები"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "ეს უპირატესობა ეფუძნება Open Food Facts-ის ინგრედიენტების სიის გაგებას და შესაძლოა ზუსტი არ იყოს, ამიტომ პროდუქტი ყოველთვის თავად გადაამოწმეთ."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "ეს უპირატესობა ეფუძნება Open Food Facts-ის მიერ ინგრედიენტების სიის გაგებას და შესაძლოა ზუსტი არ იყოს, ამიტომ პროდუქტი ყოველთვის თავად შეამოწმეთ."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "არასასურველი ინგრედიენტების არსებობა უცნობია"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "არასასურველი ინგრედიენტები არ არის"
+msgid "No unwanted ingredients detected"
+msgstr "არასასურველი ინგრედიენტები არ აღმოჩნდა"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "შეიცავს არასასურველ ინგრე�
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "ზოგიერთი ინგრედიენტი არ იყო ამოცნობილი"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "ჩვენ ვერ აღმოვაჩინეთ: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "ჩვენ ვერ აღმოვაჩინეთ: {unwanted_ingredients}. შესაძლოა, ზოგიერთი ინგრედიენტი გამოგვრჩა, გთხოვთ, ყოველთვის შეამოწმოთ ინგრედიენტების სია."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "ეს პრეფერენციები ეფუძნება Open Food Facts-ის მიერ ინგრედიენტების სიის გაგებას და ყოველთვის არსებობს შესაძლებლობა, რომ ის არ იყოს ზუსტი ან სრული, ამიტომ ყოველთვის თავად შეამოწმეთ პროდუქტი."
 
