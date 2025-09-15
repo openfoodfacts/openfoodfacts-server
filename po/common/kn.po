@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "ಬೇಡದ ಪದಾರ್ಥಗಳು"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "ಈ ಆದ್ಯತೆಯು ಪದಾರ್ಥಗಳ ಪಟ್ಟಿಯ ಮುಕ್ತ ಆಹಾರ ಸಂಗತಿಗಳ ತಿಳುವಳಿಕೆಯನ್ನು ಆಧರಿಸಿದೆ ಮತ್ತು ಅದು ನಿಖರವಾಗಿಲ್ಲದಿರಬಹುದು, ಯಾವಾಗಲೂ ಉತ್ಪನ್ನವನ್ನು ನೀವೇ ಪರಿಶೀಲಿಸಿ."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "ಈ ಆದ್ಯತೆಯು ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್‌ನ ಪದಾರ್ಥಗಳ ಪಟ್ಟಿಯ ತಿಳುವಳಿಕೆಯನ್ನು ಆಧರಿಸಿದೆ ಮತ್ತು ಅದು ನಿಖರವಾಗಿಲ್ಲದಿರಬಹುದು, ಯಾವಾಗಲೂ ಉತ್ಪನ್ನವನ್ನು ನೀವೇ ಪರಿಶೀಲಿಸಿ."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "ಅನಗತ್ಯ ಪದಾರ್ಥಗಳ ಉಪಸ್ಥಿತಿ ತಿಳಿದಿಲ್ಲ."
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "ಯಾವುದೇ ಅನಗತ್ಯ ಪದಾರ್ಥಗಳಿಲ್ಲ"
+msgid "No unwanted ingredients detected"
+msgstr "ಯಾವುದೇ ಅನಗತ್ಯ ಅಂಶಗಳು ಪತ್ತೆಯಾಗಿಲ್ಲ."
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "ಅನಗತ್ಯ ಪದಾರ್ಥಗಳನ್ನು ಒಳಗೊಂ�
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "ಕೆಲವು ಪದಾರ್ಥಗಳನ್ನು ಗುರುತಿಸಲಾಗಿಲ್ಲ."
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "ನಮಗೆ ಇದು ಪತ್ತೆಯಾಗಲಿಲ್ಲ: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "ನಮಗೆ ಇದು ಪತ್ತೆಯಾಗಲಿಲ್ಲ: {unwanted_ingredients}. ನಮಗೆ ಕೆಲವು ಪದಾರ್ಥಗಳು ತಪ್ಪಿಹೋಗಿರಬಹುದು, ದಯವಿಟ್ಟು ಯಾವಾಗಲೂ ಪದಾರ್ಥಗಳ ಪಟ್ಟಿಯನ್ನು ಪರಿಶೀಲಿಸಿ."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "ಆ ಆದ್ಯತೆಗಳು ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್‌ನ ಪದಾರ್ಥಗಳ ಪಟ್ಟಿಯ ತಿಳುವಳಿಕೆಯನ್ನು ಆಧರಿಸಿವೆ ಮತ್ತು ಅದು ನಿಖರವಾಗಿ ಅಥವಾ ಪೂರ್ಣವಾಗಿರದಿರುವ ಸಾಧ್ಯತೆ ಯಾವಾಗಲೂ ಇರುತ್ತದೆ, ಯಾವಾಗಲೂ ಉತ್ಪನ್ನವನ್ನು ನೀವೇ ಪರಿಶೀಲಿಸಿ."
 
