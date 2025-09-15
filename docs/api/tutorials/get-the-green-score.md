@@ -30,7 +30,7 @@
 - The API is adding a new ecoscore_grade field from A to F. Technically wise, it behaves like the Nutri-Score, so you can clone part of your Nutri-Score implementation
 - If (and only if) the server sends back a proper value (a+, a, b, c, d, e or f), display the new score, otherwise, display our gray placeholder
 - [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade](https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade)
--  Response: {"status_verbose":"product found","product":{"ecoscore_grade":"b"},"status":1,"code":"3414280980209"}
+- Response: `{"status_verbose":"product found","product":{"ecoscore_grade":"b"},"status":1,"code":"3414280980209"}`
 - https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade
 - Here are the visuals.
   - [A+ Green Score visual](https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg)
@@ -54,28 +54,28 @@
 
 ### Ensuring a good user experience (even with data gaps)
 
-_We can compute the Green-Score for most of the database, but we’re missing some data on some products to make the computation exact, and it won’t be computed on some products. <span style="text-decoration:underline;">In any case, you need to make sure your users won’t be frustrated by implementing the following points:</span>_
+_We can compute the Green-Score for most of the database, but we're missing some data on some products to make the computation exact, and it won't be computed on some products. <span style={{textDecoration: 'underline'}}>In any case, you need to make sure your users won't be frustrated by implementing the following points:</span>_
 
 - Adding disclaimers when we can’t display the Green-Score
-  - **<span style="text-decoration:underline;">Add a message if we have a category but no Green-Score</span>**
-    - _if “en:categories-completed” \_in states_tags_ **<span style="text-decoration:underline;">AND</span>** ecoscore*grade=Null*
+  - **<span style={{textDecoration: 'underline'}}>Add a message if we have a category but no Green-Score</span>**
+    - _if "en:categories-completed" \_in states_tags_ **<span style={{textDecoration: 'underline'}}>AND</span>** ecoscore*grade=Null*
       - We could not compute an Green-Score for this product. It might be that the category is not specific enough or that we don't have supporting data for this category. If you believe this is an error, you can email [contact@example.com](mailto:contact@example.com)
       - You can get states with [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags ](https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags)
-  - **<span style="text-decoration:underline;">Help the user add the category if it is missing</span>**
+  - **<span style={{textDecoration: 'underline'}}>Help the user add the category if it is missing</span>**
     - You can use our Robotoff API to get your users to validate a prediction
       - [Robotoff Questions](https://docs.google.com/document/d/1IoDy0toQrrqtWHvDYp2rEVw84Yq1J0x2pt-0RGTm7h0/edit)
 - Adding disclaimers when the Green-Score is computed with a data gap + Asking the users to photograph and/or complete missing information
-  - **<span style="text-decoration:underline;">Add a message if no labels are available</span>**
+  - **<span style={{textDecoration: 'underline'}}>Add a message if no labels are available</span>**
     - if "en:labels-to-be-completed" in states_tags
       - `"The Green-Score takes into account environmental labels. Please take them into photo or edit the product so that they can be taken into account"`
     - Asking your users for a photo should be enough
     - You can otherwise add toggles for Explicit labels (please add a photo of them to avoid mistakes)
     - You can get states with [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags ](https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags)
-  - **<span style="text-decoration:underline;">Add a message if no origins are available</span>**
+  - **<span style={{textDecoration: 'underline'}}>Add a message if no origins are available</span>**
     - if "en:origins-to-be-completed" in states_tags
       - `"The Green-Score takes into account the origins of the ingredients. Please take them into a photo (ingredient list and/or any geographic claim or edit the product so that they can be taken into account. If it is not clear, you can contact the food producer."`
       - You can get states with [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags ](https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags)
-  - **<span style="text-decoration:underline;">Add a message if recycling information is missing</span>**
+  - **<span style={{textDecoration: 'underline'}}>Add a message if recycling information is missing</span>**
     - if "en:packaging-photo-to-be-selected" in states_tags
       - [Add a button to take a picture of the recycling instructions · Issue #3531 · openfoodfacts/openfoodfacts-androidapp](https://github.com/openfoodfacts/openfoodfacts-androidapp/issues/3531)
     - if "en:packaging-to-be-completed" in states_tags
@@ -83,7 +83,7 @@ _We can compute the Green-Score for most of the database, but we’re missing so
       - The field to input raw recycling instructions eg: “Plastic bottle to recycle, Plastic cap to recycle” is “packaging_text_en” (change the language code accordingly)
       - It will get automatically parsed and get used to compute the Green-Score
     - You can get states with [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,ecoscore_alpha,states_tags](https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=ecoscore_grade,environmental_score_alpha,states_tags)
-  - **<span style="text-decoration:underline;">Sharing some of your code</span>**
+  - **<span style={{textDecoration: 'underline'}}>Sharing some of your code</span>**
     - You are very welcome to implement data contribution in one of our SDKs. The more apps let their user add photos and data, the more Green-Scores we get.
 
 ### Adding value by explaining
