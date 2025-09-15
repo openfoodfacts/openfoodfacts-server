@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "Walxaha aan la rabin"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Xulashadani waxay ku salaysan tahay Xaqiiqooyinka Cuntada Furan ee fahamka liiska maaddooyinka waxaana laga yaabaa inaanay sax ahayn, had iyo jeer iska hubi badeecada."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Doorashadani waxay ku salaysan tahay Xaqiiqooyinka Cuntada Furan ee fahamka liiska maaddooyinka waxaana laga yaabaa inaanay sax ahayn, had iyo jeer iska hubi badeecada."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Jiritaanka maaddooyinka aan la rabin ee aan la garanayn"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Ma jiraan waxyaabo aan la rabin"
+msgid "No unwanted ingredients detected"
+msgstr "Ma jiraan waxyaabo aan loo baahnayn oo la ogaaday"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "Waxa ku jira walxo aan loo baahnayn"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Waxyaabaha qaarkood lama aqoonsan"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Ma aanan ogaanin: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Ma aanan ogaanin: {unwanted_ingredients}. Waxa laga yaabaa in aanu seegnay maaddooyinka qaarkood, fadlan had iyo jeer hubi liiska maaddooyinka."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Dookhyadaas waxay ku saleysan yihiin Xaqiiqooyinka Cuntada Furan ee fahamka liiska walxaha waxaana mar walba jirta suurtagalnimada inaysan sax ahayn ama aysan dhammaystirnayn, had iyo jeer iska hubi badeecada."
 
