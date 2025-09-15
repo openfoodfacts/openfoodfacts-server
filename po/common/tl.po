@@ -7578,16 +7578,16 @@ msgid "Unwanted ingredients"
 msgstr "Mga hindi gustong sangkap"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "Nakabatay ang kagustuhang ito sa pag-unawa sa Open Food Facts sa listahan ng mga sangkap at maaaring hindi tumpak, palaging i-verify ang produkto nang mag-isa."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Ang kagustuhang ito ay batay sa pag-unawa ng Open Food Facts sa listahan ng mga sangkap at maaaring hindi tumpak, palaging suriin ang produkto sa iyong sarili."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "Hindi alam ang pagkakaroon ng mga hindi gustong sangkap"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "Walang mga hindi gustong sangkap"
+msgid "No unwanted ingredients detected"
+msgstr "Walang nakitang mga hindi gustong sangkap"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7596,4 +7596,16 @@ msgstr "Naglalaman ng mga hindi gustong sangkap"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "Ang ilang mga sangkap ay hindi nakilala"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Hindi namin nakita ang: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Hindi namin nakita ang: {unwanted_ingredients}. Maaaring may napalampas kaming mga sangkap, mangyaring palaging suriin ang listahan ng mga sangkap."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Ang mga kagustuhang iyon ay batay sa pag-unawa ng Open Food Facts sa listahan ng mga sangkap at palaging may posibilidad na hindi ito tumpak o kumpleto, palaging suriin ang produkto sa iyong sarili."
 
