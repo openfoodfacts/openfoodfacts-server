@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "אומגעוואונטשע אינגרעדיענטן"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "די פּרעפֿערענץ איז באַזירט אויף Open Food Facts פֿאַרשטאַנד פֿון די אינהאַלטן־ליסטע און איז מעגלעך נישט פּינקטלעך, שטענדיק וועריפֿיצירן דעם פּראָדוקט אַליין."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "די פּרעפֿערענץ איז באַזירט אויף Open Food Facts' פֿאַרשטאַנד פֿון דער אינגרעדיענט־ליסטע און איז מעגלעך נישט פּינקטלעך, קאָנטראָלירט שטענדיק דעם פּראָדוקט אַליין."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "די אנוועזנהייט פון אומגעוואונטשע אינגרעדיענטן אומבאַקאַנט"
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "קיין אומגעוואונטשע אינגרעדיענטן"
+msgid "No unwanted ingredients detected"
+msgstr "קיין אומגעוואונטשע אינגרעדיענטן נישט דעטעקטירט"
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "אנטהאלט אומגעוואונטשע אינגרעדיענטן"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "עטלעכע אינגרעדיענטן זענען נישט דערקענט געוואָרן"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "מיר האָבן נישט דעטעקטירט: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "מיר האָבן נישט דעטעקטירט: {unwanted_ingredients}. מיר האָבן מעגלעך איבערגעזען עטלעכע אינהאַלטן, ביטע קאָנטראָלירט שטענדיק די אינהאַלטן־ליסטע."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "יענע פּרעפֿערענצן זענען באַזירט אויף Open Food Facts' פֿאַרשטאַנד פֿון דער אינגרעדיענטן־ליסטע און עס איז שטענדיק פֿאַראַן אַ מעגלעכקייט אַז זי איז נישט פּינקטלעך אָדער פֿולשטענדיק, קאָנטראָלירט שטענדיק דעם פּראָדוקט אַליין."
 
