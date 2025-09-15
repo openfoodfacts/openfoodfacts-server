@@ -7568,16 +7568,16 @@ msgid "Unwanted ingredients"
 msgstr "தேவையற்ற பொருட்கள்"
 
 msgctxt "attribute_unwanted_ingredients_note"
-msgid "This preference is based on Open Food Facts understanding of ingredients list and might not be accurate, always verify the product by yourself."
-msgstr "இந்த விருப்பம் பொருட்கள் பட்டியலைப் பற்றிய திறந்த உணவு உண்மைகள் புரிதலை அடிப்படையாகக் கொண்டது மற்றும் துல்லியமாக இருக்காது, எப்போதும் தயாரிப்பை நீங்களே சரிபார்க்கவும்."
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "இந்த விருப்பம் மூலப்பொருள் பட்டியலைப் பற்றிய ஓபன் ஃபுட் ஃபேக்ட்ஸின் புரிதலை அடிப்படையாகக் கொண்டது மற்றும் துல்லியமாக இருக்காது, எப்போதும் தயாரிப்பை நீங்களே சரிபார்க்கவும்."
 
 msgctxt "presence_of_unwanted_ingredients_unknown"
 msgid "Presence of unwanted ingredients unknown"
 msgstr "தேவையற்ற பொருட்களின் இருப்பு தெரியவில்லை."
 
 msgctxt "no_unwanted_ingredients"
-msgid "No unwanted ingredients"
-msgstr "தேவையற்ற பொருட்கள் இல்லை"
+msgid "No unwanted ingredients detected"
+msgstr "தேவையற்ற பொருட்கள் எதுவும் கண்டறியப்படவில்லை."
 
 msgctxt "contains_unwanted_ingredients"
 msgid "Contains unwanted ingredients"
@@ -7586,4 +7586,16 @@ msgstr "தேவையற்ற பொருட்கள் உள்ளன"
 msgctxt "too_many_unknown_ingredients"
 msgid "Some ingredients were not recognized"
 msgstr "சில பொருட்கள் அங்கீகரிக்கப்படவில்லை."
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "நாங்கள் இதைக் கண்டறியவில்லை: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "எங்களுக்கு இது தெரியவில்லை: {unwanted_ingredients}. சில பொருட்களை நாங்கள் தவறவிட்டிருக்கலாம், தயவுசெய்து எப்போதும் மூலப்பொருள் பட்டியலைச் சரிபார்க்கவும்."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "அந்த விருப்பத்தேர்வுகள் மூலப்பொருள் பட்டியலைப் பற்றிய ஓபன் ஃபுட் ஃபேக்ட்ஸின் புரிதலை அடிப்படையாகக் கொண்டவை, மேலும் அது துல்லியமாகவோ அல்லது முழுமையாகவோ இல்லாமல் இருக்க எப்போதும் வாய்ப்பு உள்ளது, எப்போதும் தயாரிப்பை நீங்களே சரிபார்க்கவும்."
 
