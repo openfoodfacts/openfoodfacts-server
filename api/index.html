@@ -532,7 +532,7 @@
   
   
   <span class="md-ellipsis">
-    Tutorial dev journey
+    Tutorials for Common developer journeys
     
   </span>
   
@@ -785,7 +785,7 @@
   
   
   <span class="md-ellipsis">
-    Leveraging links to wikidata
+    How to leverage links to Wikidata (and Wikipedia)
     
   </span>
   
@@ -892,7 +892,7 @@
   
   
   <span class="md-ellipsis">
-    Contributing to image refresh api
+    Using the Image Refresh API
     
   </span>
   
@@ -915,7 +915,7 @@
   
   
   <span class="md-ellipsis">
-    Creating a local cache of open food facts data
+    Open Food Facts Local Caching: A Tutorial
     
   </span>
   
@@ -938,7 +938,7 @@
   
   
   <span class="md-ellipsis">
-    Finding healthy cereals
+    Finding healthy breakfast cereals
     
   </span>
   
@@ -961,7 +961,7 @@
   
   
   <span class="md-ellipsis">
-    Folksonomy engine
+    Folksonomy Engine
     
   </span>
   
@@ -984,7 +984,7 @@
   
   
   <span class="md-ellipsis">
-    Get in touch with openfoodfacts
+    Get in touch with OpenFoodFacts
     
   </span>
   
@@ -1007,7 +1007,7 @@
   
   
   <span class="md-ellipsis">
-    Get ingredient related analysis
+    Get ingredient related analysis on new or existing products
     
   </span>
   
@@ -1053,7 +1053,7 @@
   
   
   <span class="md-ellipsis">
-    Get the nutriscore
+    Get the Nutri-Score
     
   </span>
   
@@ -1099,7 +1099,7 @@
   
   
   <span class="md-ellipsis">
-    License be on the legal side
+    License - be on the legal side
     
   </span>
   
@@ -1145,7 +1145,7 @@
   
   
   <span class="md-ellipsis">
-    Reporting issues with nutripatrol
+    Reporting issues with NutriPatrol
     
   </span>
   
@@ -1168,7 +1168,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning barcodes
+    Implementing a World-Class Barcode Scan Experience for Your App
     
   </span>
   
@@ -1191,7 +1191,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning cosmetics pet food and other products
+    Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs
     
   </span>
   
@@ -2127,9 +2127,9 @@
 <h1 id="introduction-to-open-food-facts-api-documentation">Introduction to Open Food Facts API documentation<a class="headerlink" href="#introduction-to-open-food-facts-api-documentation" title="Permanent link">#</a></h1>
 <p>Everything you need to know about Open Food Facts API.</p>
 <blockquote>
-<p>[!CAUTION]
+<p>[CAUTION]
 👮‍♂️🚥Are you going to use our API?
-Please <strong>read this documentation entirely</strong> before using it. </p>
+Please <strong>read this documentation entirely</strong> before using it.</p>
 </blockquote>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>Open Food Facts is a food products database made by everyone, for everyone, that can help you make better choices about what you eat. Being open data, anyone can reuse it for any purpose.</p>
@@ -2148,12 +2148,12 @@ Please <strong>read this documentation entirely</strong> before using it. </p>
 <li>The individual contents of the database are available under the <a href="https://opendatacommons.org/licenses/dbcl/1.0/">Database Contents License</a>.</li>
 <li>Product images are available under the <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike</a> license. They may contain graphical elements subject to copyright or other rights that may, in some cases, be reproduced (quotation rights or fair use).</li>
 </ul>
-<p>Before using the API, please : </p>
+<p>Before using the API, please :</p>
 <ol>
-<li>Read the <a href="https://world.openfoodfacts.org/terms-of-use">Terms and conditions of use and reuse</a> </li>
+<li>Read the <a href="https://world.openfoodfacts.org/terms-of-use">Terms and conditions of use and reuse</a></li>
 <li><strong>Tell us how you'll use it</strong> by filling out this short form:<br />
-👉 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIE3D8qvjC_zRJw1W8OmuHhsWJ_NSckiiniAHlfaVwUZCziQ/viewform">Fill out the API usage form</a>
-This helps us understand real-world uses of the API and prioritize improvements. </li>
+   👉 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIE3D8qvjC_zRJw1W8OmuHhsWJ_NSckiiniAHlfaVwUZCziQ/viewform">Fill out the API usage form</a>
+   This helps us understand real-world uses of the API and prioritize improvements.</li>
 </ol>
 <h2 id="how-to-best-use-the-api">How to Best Use the API<a class="headerlink" href="#how-to-best-use-the-api" title="Permanent link">#</a></h2>
 <h3 id="general-principles">General principles<a class="headerlink" href="#general-principles" title="Permanent link">#</a></h3>
@@ -2185,24 +2185,24 @@ This helps us understand real-world uses of the API and prioritize improvements.
 <ul>
 <li>If you submit the product's <strong>nutritional values</strong> and <strong>category</strong>, you'll get the <strong>Nutri-Score</strong>.</li>
 <li>If you submit the product <strong>ingredients</strong>, you'll get the <strong>NOVA group</strong> (about food ultra-processing), <strong>additives</strong>, <strong>allergens</strong>, <strong>normalized ingredients</strong>, <strong>vegan</strong>, <strong>vegetarian</strong>…</li>
-<li>If you submit the product's  <strong>category</strong> and <strong>labels</strong>, you'll get the <strong>Eco-Score</strong> (a rating of the product's environmental impact)</li>
+<li>If you submit the product's <strong>category</strong> and <strong>labels</strong>, you'll get the <strong>Eco-Score</strong> (a rating of the product's environmental impact)</li>
 </ul>
 <h2 id="api-deployments">API Deployments<a class="headerlink" href="#api-deployments" title="Permanent link">#</a></h2>
 <p>The OpenFoodFacts API has two deployments.</p>
 <ul>
-<li>Production: <a href="https://world.openfoodfacts.org">https://world.openfoodfacts.org</a></li>
-<li>Staging: <a href="https://world.openfoodfacts.net">https://world.openfoodfacts.net</a></li>
+<li>Production: https://world.openfoodfacts.org</li>
+<li>Staging: https://world.openfoodfacts.net</li>
 </ul>
-<p>Consider using the <a href="https://world.openfoodfacts.net">staging environment</a> if you are not in a production scenario. </p>
+<p>Consider using the <a href="https://world.openfoodfacts.net">staging environment</a> if you are not in a production scenario.</p>
 <p>While testing your applications, <strong>make all API requests to the staging environment</strong>. This way, we can ensure the product database is safe.</p>
-<p>Staging require an http basic auth to avoid search engine indexing. The username is <code>off</code>, and the password <code>off</code>. Here is a small javascript code that you can test in your browser console:
-<div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://world.openfoodfacts.net/api/v2/product/3274080005003.json&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Authorization</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Basic &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">btoa</span><span class="p">(</span><span class="s1">&#39;off:off&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
+<p>Staging require an http basic auth to avoid search engine indexing. The username is <code>off</code>, and the password <code>off</code>. Here is a small javascript code that you can test in your browser console:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://world.openfoodfacts.net/api/v2/product/3274080005003.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Authorization</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Basic &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">btoa</span><span class="p">(</span><span class="s2">&quot;off:off&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
 <span class="p">})</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
-<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">json</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">));</span>
-</code></pre></div></p>
+<span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">json</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">));</span>
+</code></pre></div>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
 <p>We ask you to <strong>always use a custom User-Agent to identify your app</strong> (to not risk being identified as a bot). The User-Agent should be in the form of <code>AppName/Version (ContactEmail)</code>. For example,
 <code>MyApp/1.0 (myapp@example.com)</code>.</p>
@@ -2217,10 +2217,10 @@ This helps us understand real-world uses of the API and prioritize improvements.
 <li>If session conditions are too restrictive for your use case, include your account credentials as parameters for authenticated requests where <code>user_id</code>^[user_id_not_email] is your username and <code>password</code> is your password (do this on POST / PUT / DELETE requests, not on GET).</li>
 </ul>
 <p>You can create a global account to allow your app users to contribute without registering individual accounts on the Open Food Facts website. This way, we know that these contributions came from your application.</p>
-<p>We however ask that you send the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl"><code>app_name</code>, <code>app_version</code> and <code>app_uuid</code> parameters</a> in your write queries. </p>
+<p>We however ask that you send the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl"><code>app_name</code>, <code>app_version</code> and <code>app_uuid</code> parameters</a> in your write queries.</p>
 <ul>
-<li><code>app_name=MyApp</code> </li>
-<li><code>app_version=1.1</code> </li>
+<li><code>app_name=MyApp</code></li>
+<li><code>app_version=1.1</code></li>
 <li><code>app_uuid=xxxx</code>: a salted random uuid for the user so that Open Food Facts moderators can selectively ban any problematic user without banning your whole app account.</li>
 </ul>
 <blockquote>
@@ -2248,8 +2248,7 @@ This helps us understand real-world uses of the API and prioritize improvements.
 <li><a href="https://github.com/openfoodfacts/openfoodfacts-server/issues/new/choose">Report Bugs</a> on the Open Food Facts GitHub repository.</li>
 <li>Do you have an issue or feature request? You can submit it <a href="https://github.com/openfoodfacts/openfoodfacts-server/issues/new">on GitHub</a> too.</li>
 <li>Are you interested in contributing to this project? See our <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/CONTRIBUTING.md">Contribution Guidelines</a>.
- <!-- Embed contribution guideline link.-->
-</li>
+  {/<em> <!-- Embed contribution guideline link.--> </em>/}</li>
 </ul>
 <h2 id="sdks">SDKs<a class="headerlink" href="#sdks" title="Permanent link">#</a></h2>
 <p>SDKs are available for specific languages for easier use of the API. We may have a wrapper for your favourite programming language. If we do, you can use it and improve it. However, If we don't, you can help us create it!</p>

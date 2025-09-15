@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ensuring-data-quality-for-open-food-facts-contributions" class="md-skip">
+        <a href="#how-to-create-data-quality-controls-in-your-app" class="md-skip">
           Skip to content
         </a>
       
@@ -367,7 +367,7 @@
   
   
   <span class="md-ellipsis">
-    Tutorial dev journey
+    Tutorials for Common developer journeys
     
   </span>
   
@@ -620,7 +620,7 @@
   
   
   <span class="md-ellipsis">
-    Leveraging links to wikidata
+    How to leverage links to Wikidata (and Wikipedia)
     
   </span>
   
@@ -729,7 +729,7 @@
   
   
   <span class="md-ellipsis">
-    Contributing to image refresh api
+    Using the Image Refresh API
     
   </span>
   
@@ -752,7 +752,7 @@
   
   
   <span class="md-ellipsis">
-    Creating a local cache of open food facts data
+    Open Food Facts Local Caching: A Tutorial
     
   </span>
   
@@ -775,7 +775,7 @@
   
   
   <span class="md-ellipsis">
-    Finding healthy cereals
+    Finding healthy breakfast cereals
     
   </span>
   
@@ -798,7 +798,7 @@
   
   
   <span class="md-ellipsis">
-    Folksonomy engine
+    Folksonomy Engine
     
   </span>
   
@@ -821,7 +821,7 @@
   
   
   <span class="md-ellipsis">
-    Get in touch with openfoodfacts
+    Get in touch with OpenFoodFacts
     
   </span>
   
@@ -844,7 +844,7 @@
   
   
   <span class="md-ellipsis">
-    Get ingredient related analysis
+    Get ingredient related analysis on new or existing products
     
   </span>
   
@@ -890,7 +890,7 @@
   
   
   <span class="md-ellipsis">
-    Get the nutriscore
+    Get the Nutri-Score
     
   </span>
   
@@ -913,6 +913,8 @@
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
+      
+        
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -945,6 +947,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1016,7 +1020,7 @@
   
   
   <span class="md-ellipsis">
-    License be on the legal side
+    License - be on the legal side
     
   </span>
   
@@ -1062,7 +1066,7 @@
   
   
   <span class="md-ellipsis">
-    Reporting issues with nutripatrol
+    Reporting issues with NutriPatrol
     
   </span>
   
@@ -1085,7 +1089,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning barcodes
+    Implementing a World-Class Barcode Scan Experience for Your App
     
   </span>
   
@@ -1108,7 +1112,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning cosmetics pet food and other products
+    Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs
     
   </span>
   
@@ -1885,6 +1889,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1958,18 +1964,21 @@
   
 
 
-  <h1>How to create data quality controls in your app</h1>
-
+<h1 id="how-to-create-data-quality-controls-in-your-app">How to create data quality controls in your app<a class="headerlink" href="#how-to-create-data-quality-controls-in-your-app" title="Permanent link">#</a></h1>
 <h2 id="ensuring-data-quality-for-open-food-facts-contributions">Ensuring Data Quality for Open Food Facts Contributions<a class="headerlink" href="#ensuring-data-quality-for-open-food-facts-contributions" title="Permanent link">#</a></h2>
 <p>This tutorial will guide you through best practices for maintaining high-quality data contributions to Open Food Facts through your app. As you know, Open Food Facts (and your app, since you have implemented or are implementing contributing back to Open Food Facts) leverages crowdsourcing, which is a fantastic way to gather a vast amount of information. However, it also necessitates measures to ensure data accuracy.</p>
 <h3 id="prevention-is-key">Prevention is Key<a class="headerlink" href="#prevention-is-key" title="Permanent link">#</a></h3>
 <p>The most effective approach lies in prevention. Here's how your app's interface can play a crucial role:</p>
 <ul>
-<li><strong>Instant Feedback:</strong><p>-   Nutritional values: Implement checks that flag inconsistencies and prompt users to verify their entries.
-  -   Ingredient language compatibility: Ensure users take legible photos of the ingredient list, and send them in the actual language they are written in.
-  -   Selfie detection: On-device libraries <a href="https://developers.google.com/ml-kit/vision/face-detection/android">like MLKit</a> can detect whether the user is taking a selfie instead of a product, and can warn them about it. 
--   <strong>Data Quality Facets:</strong> Utilize the data quality facets established by Open Food Facts and recode some (or all of) them within your app. These facets act as guidelines for your users to ensure comprehensive and accurate data collection.</p>
+<li><strong>Instant Feedback:</strong><ul>
+<li>Nutritional values: Implement checks that flag inconsistencies and prompt users to verify their entries.</li>
+<li>Ingredient language compatibility: Ensure users take legible photos of the ingredient list, and send them in the actual language they are written in.</li>
+<li>Selfie detection: On-device libraries <a href="https://developers.google.com/ml-kit/vision/face-detection/android">like MLKit</a> can detect whether the user is taking a selfie instead of a product, and can warn them about it.</li>
+</ul>
 </li>
+</ul>
+<ul>
+<li><strong>Data Quality Facets:</strong> Utilize the data quality facets established by Open Food Facts and recode some (or all of) them within your app. These facets act as guidelines for your users to ensure comprehensive and accurate data collection.</li>
 </ul>
 <ul>
 <li><strong>Non-Food Item Prevention:</strong> Implement functionalities that routes non-food items like cosmetics to the right database (just ask your users if it's a food or a cosmetic).</li>
@@ -1980,24 +1989,24 @@
 </ul>
 <ul>
 <li><strong>Versioning and User Anonymization:</strong>\
-    When sending data to Open Food Facts, include the app version used for the contribution along with an anonymized user identifier. This allows Open Food Facts to block repeat offenders (and not your app's global account) individually if necessary, without the need for them to create an Open Food Facts account.</li>
+  When sending data to Open Food Facts, include the app version used for the contribution along with an anonymized user identifier. This allows Open Food Facts to block repeat offenders (and not your app's global account) individually if necessary, without the need for them to create an Open Food Facts account.</li>
 </ul>
 <ul>
 <li><strong>Collaboration:</strong>\
-    If you suspect recurring issues with user-generated data potentially stemming from app functionalities, don't hesitate to reach out to the Open Food Facts team. We're happy to assist in troubleshooting, UI feedback…</li>
+  If you suspect recurring issues with user-generated data potentially stemming from app functionalities, don't hesitate to reach out to the Open Food Facts team. We're happy to assist in troubleshooting, UI feedback…</li>
 </ul>
 <h3 id="cater-for-the-complexity-in-food-nutrition-data">Cater for the complexity in Food &amp; Nutrition Data<a class="headerlink" href="#cater-for-the-complexity-in-food-nutrition-data" title="Permanent link">#</a></h3>
 <ul>
 <li><strong>Edge Cases:</strong>\
-    Food and nutrition data can be intricate. Consider edge cases like dehydrated products that require rehydration for accurate nutritional value representation.</li>
+  Food and nutrition data can be intricate. Consider edge cases like dehydrated products that require rehydration for accurate nutritional value representation.</li>
 </ul>
 <ul>
 <li><strong>Global Variations:</strong>\
-    Nutritional facts tables differ internationally. Be mindful of these variations (e.g., US vs. European formats) and the need for appropriate labeling within your app.</li>
+  Nutritional facts tables differ internationally. Be mindful of these variations (e.g., US vs. European formats) and the need for appropriate labeling within your app.</li>
 </ul>
 <ul>
 <li><strong>"As Sold" vs. "As Prepared" Values:</strong>\
-    Nutritional information can be presented based on the product's state, "as sold" or "as prepared." Ensure clarity within your app regarding these variations.</li>
+  Nutritional information can be presented based on the product's state, "as sold" or "as prepared." Ensure clarity within your app regarding these variations.</li>
 </ul>
 <ul>
 <li><strong>A photo is better than nothing at all or bad data alone</strong>

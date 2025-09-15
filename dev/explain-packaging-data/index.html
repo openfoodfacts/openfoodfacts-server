@@ -365,7 +365,7 @@
   
   
   <span class="md-ellipsis">
-    Tutorial dev journey
+    Tutorials for Common developer journeys
     
   </span>
   
@@ -618,7 +618,7 @@
   
   
   <span class="md-ellipsis">
-    Leveraging links to wikidata
+    How to leverage links to Wikidata (and Wikipedia)
     
   </span>
   
@@ -725,7 +725,7 @@
   
   
   <span class="md-ellipsis">
-    Contributing to image refresh api
+    Using the Image Refresh API
     
   </span>
   
@@ -748,7 +748,7 @@
   
   
   <span class="md-ellipsis">
-    Creating a local cache of open food facts data
+    Open Food Facts Local Caching: A Tutorial
     
   </span>
   
@@ -771,7 +771,7 @@
   
   
   <span class="md-ellipsis">
-    Finding healthy cereals
+    Finding healthy breakfast cereals
     
   </span>
   
@@ -794,7 +794,7 @@
   
   
   <span class="md-ellipsis">
-    Folksonomy engine
+    Folksonomy Engine
     
   </span>
   
@@ -817,7 +817,7 @@
   
   
   <span class="md-ellipsis">
-    Get in touch with openfoodfacts
+    Get in touch with OpenFoodFacts
     
   </span>
   
@@ -840,7 +840,7 @@
   
   
   <span class="md-ellipsis">
-    Get ingredient related analysis
+    Get ingredient related analysis on new or existing products
     
   </span>
   
@@ -886,7 +886,7 @@
   
   
   <span class="md-ellipsis">
-    Get the nutriscore
+    Get the Nutri-Score
     
   </span>
   
@@ -932,7 +932,7 @@
   
   
   <span class="md-ellipsis">
-    License be on the legal side
+    License - be on the legal side
     
   </span>
   
@@ -978,7 +978,7 @@
   
   
   <span class="md-ellipsis">
-    Reporting issues with nutripatrol
+    Reporting issues with NutriPatrol
     
   </span>
   
@@ -1001,7 +1001,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning barcodes
+    Implementing a World-Class Barcode Scan Experience for Your App
     
   </span>
   
@@ -1024,7 +1024,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning cosmetics pet food and other products
+    Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs
     
   </span>
   
@@ -2531,26 +2531,26 @@
 <h3 id="how-the-resulting-packagings-data-structure-is-created">How the resulting packagings data structure is created<a class="headerlink" href="#how-the-resulting-packagings-data-structure-is-created" title="Permanent link">#</a></h3>
 <h4 id="extract-attributes-that-relate-to-different-packaging-components">Extract attributes that relate to different packaging components<a class="headerlink" href="#extract-attributes-that-relate-to-different-packaging-components" title="Permanent link">#</a></h4>
 <p>The values for each input field ("packaging" tag field and "packaging_text_[language code]" packaging information text field) are analyzed<sup id="fnref:parse_packaging_from_text_phrase"><a class="footnote-ref" href="#fn:parse_packaging_from_text_phrase">1</a></sup> to recognize packaging components and their attributes. One product may have multiple "packaging_text_[language code]" values in different languages. Only the value for the main language ("lang" field) of the product is currently analyzed.</p>
-<p>For instance, if the "packaging" field contains "Plastic bottle, box, cardboard", we will use the packaging shapes, materials and recycling taxonomies to create a list of 3 packaging components: {shape:"en:bottle", material:"en:plastic"}, {shape:"en:box"}, {material:"en:cardboard"}.</p>
-<p>And if the "packaging_text_en" field contains "PET bottle to recycle, box to reuse", we will create 2 more packaging components: {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"}, {shape:"box", recycling:"reuse"}.</p>
+<p>For instance, if the "packaging" field contains "Plastic bottle, box, cardboard", we will use the packaging shapes, materials and recycling taxonomies to create a list of 3 packaging components: <code>{shape:"en:bottle", material:"en:plastic"}, {shape:"en:box"}, {material:"en:cardboard"}</code>.</p>
+<p>And if the "packaging_text_en" field contains "PET bottle to recycle, box to reuse", we will create 2 more packaging components: <code>{shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"}, {shape:"box", recycling:"reuse"}</code>.</p>
 <h4 id="merge-packaging-components">Merge packaging components<a class="headerlink" href="#merge-packaging-components" title="Permanent link">#</a></h4>
-<p>The 3 + 2 = 5 resulting packaging components are then added one by one in the packagings structure. When their attributes are compatible, the packaging units are merged<sup id="fnref:analyze_and_combine_packaging_data"><a class="footnote-ref" href="#fn:analyze_and_combine_packaging_data">2</a></sup>. For instance {shape:"en:box"} and {material:"en:cardboard"} have non conflicting attributes, so they are merged into {shape:"en:box", material:"en:cardboard"}. Note that it is possible that this is a mistake, and that the "box" and "cardboard" tags concern in fact different components.</p>
-<p>Similarly, as "en:plastic" is a parent of "en:pet-polyethylene-terephthalate" in the packaging_materials taxonomy, we can merge {shape:"en:bottle", material:"en:plastic"} with {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"} into {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"}.</p>
+<p>The 3 + 2 = 5 resulting packaging components are then added one by one in the packagings structure. When their attributes are compatible, the packaging units are merged<sup id="fnref:analyze_and_combine_packaging_data"><a class="footnote-ref" href="#fn:analyze_and_combine_packaging_data">2</a></sup>. For instance <code>{shape:"en:box"} and {material:"en:cardboard"} have non conflicting attributes, so they are merged into {shape:"en:box", material:"en:cardboard"}</code>. Note that it is possible that this is a mistake, and that the "box" and "cardboard" tags concern in fact different components.</p>
+<p>Similarly, as "en:plastic" is a parent of "en:pet-polyethylene-terephthalate" in the packaging_materials taxonomy, we can merge <code>{shape:"en:bottle", material:"en:plastic"} with {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"} into {shape:"en:bottle", material:"en:pet-polyethylene-terephthalate", recycling:"en:recycle"}</code>.</p>
 <p>The resulting structure is:</p>
-<div class="highlight"><pre><span></span><code>packagings: [
-    {
-        material: &quot;en:pet-polyethylene-terephthalate&quot;,
-        recycling: &quot;en:recycle&quot;,
-        shape: &quot;en:bottle&quot;
-    },
-    {
-        recycling: &quot;en:reuse&quot;,
-        shape: &quot;en:box&quot;
-    },
-    {
-        shape: &quot;en:container&quot;
-    }
-]
+<div class="highlight"><span class="filename">How the resulting packagings data structure is created</span><pre><span></span><code><span class="err">packagi</span><span class="kc">n</span><span class="err">gs</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="err">ma</span><span class="kc">ter</span><span class="err">ial</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en:pet-polyethylene-terephthalate&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="err">recycli</span><span class="kc">n</span><span class="err">g</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en:recycle&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="err">shape</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en:bottle&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="err">recycli</span><span class="kc">n</span><span class="err">g</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en:reuse&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="err">shape</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en:box&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="err">shape</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en:container&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">]</span>
 </code></pre></div>
 <h3 id="taxonomies">Taxonomies<a class="headerlink" href="#taxonomies" title="Permanent link">#</a></h3>
 <p>We have created a number of multilingual taxonomies related to packagings:</p>
@@ -2574,7 +2574,7 @@
 <p>We could have a way (e.g. a checkbox) that users could use to indicate all components are accounted for. And we could also do the reverse, and indicate that it is very likely that we are missing some packaging components (e.g. if we have a "cap" but no other component to put the cap on).</p>
 <h3 id="deprecate-the-packaging-tags-field">Deprecate the "packaging" tags field<a class="headerlink" href="#deprecate-the-packaging-tags-field" title="Permanent link">#</a></h3>
 <p>We could discard the existing "packaging" tags field, and replace it with an API to allow clients to add partial information about packaging components.</p>
-<p>For instance, if Robotoff detects that the product is in a plastic bottle by analyzing a product photo, it could send {shape:"bottle", material:"en:plastic"} and it would be added / combined with the existing "packagings" data.</p>
+<p>For instance, if Robotoff detects that the product is in a plastic bottle by analyzing a product photo, it could send <code>{shape:"bottle", material:"en:plastic"}</code> and it would be added / combined with the existing "packagings" data.</p>
 <h3 id="keep-the-packaging_text_language-code-field">Keep the "packaging_text_[language code]" field<a class="headerlink" href="#keep-the-packaging_text_language-code-field" title="Permanent link">#</a></h3>
 <p>It is important to keep this field, as we can display it as-is, use it as input data, and it may contain interesting data that we do not analyze yet.</p>
 <p>When filled, the values for this field can be analyzed and added to / combined with the "packagings" data structure. Similarly to ingredient text analysis, we could keep information about which parts of the text were recognized as attributes of a packaging component, and which parts were not recognized and were therefore ignored.</p>

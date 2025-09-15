@@ -365,7 +365,7 @@
   
   
   <span class="md-ellipsis">
-    Tutorial dev journey
+    Tutorials for Common developer journeys
     
   </span>
   
@@ -618,7 +618,7 @@
   
   
   <span class="md-ellipsis">
-    Leveraging links to wikidata
+    How to leverage links to Wikidata (and Wikipedia)
     
   </span>
   
@@ -725,7 +725,7 @@
   
   
   <span class="md-ellipsis">
-    Contributing to image refresh api
+    Using the Image Refresh API
     
   </span>
   
@@ -748,7 +748,7 @@
   
   
   <span class="md-ellipsis">
-    Creating a local cache of open food facts data
+    Open Food Facts Local Caching: A Tutorial
     
   </span>
   
@@ -771,7 +771,7 @@
   
   
   <span class="md-ellipsis">
-    Finding healthy cereals
+    Finding healthy breakfast cereals
     
   </span>
   
@@ -794,7 +794,7 @@
   
   
   <span class="md-ellipsis">
-    Folksonomy engine
+    Folksonomy Engine
     
   </span>
   
@@ -817,7 +817,7 @@
   
   
   <span class="md-ellipsis">
-    Get in touch with openfoodfacts
+    Get in touch with OpenFoodFacts
     
   </span>
   
@@ -840,7 +840,7 @@
   
   
   <span class="md-ellipsis">
-    Get ingredient related analysis
+    Get ingredient related analysis on new or existing products
     
   </span>
   
@@ -886,7 +886,7 @@
   
   
   <span class="md-ellipsis">
-    Get the nutriscore
+    Get the Nutri-Score
     
   </span>
   
@@ -932,7 +932,7 @@
   
   
   <span class="md-ellipsis">
-    License be on the legal side
+    License - be on the legal side
     
   </span>
   
@@ -978,7 +978,7 @@
   
   
   <span class="md-ellipsis">
-    Reporting issues with nutripatrol
+    Reporting issues with NutriPatrol
     
   </span>
   
@@ -1001,7 +1001,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning barcodes
+    Implementing a World-Class Barcode Scan Experience for Your App
     
   </span>
   
@@ -1024,7 +1024,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning cosmetics pet food and other products
+    Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs
     
   </span>
   
@@ -2255,14 +2255,14 @@
 <p>This page describes how to test and debug your changes once you have set up the project, Product Opener with Docker using <a href="../how-to-quick-start-guide/">dev environment quick start guide</a>.</p>
 <h2 id="checking-logs">Checking logs<a class="headerlink" href="#checking-logs" title="Permanent link">#</a></h2>
 <h3 id="tail-docker-compose-logs">Tail Docker Compose logs<a class="headerlink" href="#tail-docker-compose-logs" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code>make log
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>log
 </code></pre></div>
 <p>You will get logs from nginx, mongodb, postgres, etc.</p>
 <h3 id="tail-other-logs">Tail other logs<a class="headerlink" href="#tail-other-logs" title="Permanent link">#</a></h3>
 <p>Most logs from perl are not (yet ?) displayed on the docker logs,
 but are instead available in specific directories.</p>
 <p>To see them use:</p>
-<div class="highlight"><pre><span></span><code>make tail
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>tail
 </code></pre></div>
 <p>It will <code>tail -f</code> all the files present in the <code>logs/</code> directory:</p>
 <ul>
@@ -2274,7 +2274,7 @@ but are instead available in specific directories.</p>
 <li><code>nginx/error.log</code></li>
 </ul>
 <p>You can also simply run:
-<div class="highlight"><pre><span></span><code>tail -f &lt;FILEPATH&gt;
+<div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-f<span class="w"> </span>&lt;FILEPATH&gt;
 </code></pre></div>
 to check a specific log.</p>
 <p>One of the most important is <code>log4perl.log</code>.</p>
@@ -2283,34 +2283,34 @@ to check a specific log.</p>
 settings. You can tweak that file with your own dev configuration settings and
 run <code>make restart</code> to reload the changes.</p>
 <p>A setting useful for local environments is to set <code>TRACE</code> log level:
-<div class="highlight"><pre><span></span><code>log4perl.rootLogger=TRACE, LOGFILE
+<div class="highlight"><pre><span></span><code>log4perl.rootLogger<span class="o">=</span>TRACE,<span class="w"> </span>LOGFILE
 </code></pre></div></p>
 <h2 id="opening-a-shell-in-a-docker-container">Opening a shell in a Docker container<a class="headerlink" href="#opening-a-shell-in-a-docker-container" title="Permanent link">#</a></h2>
 <p>Run the following to open a bash shell within the <code>backend</code> container:</p>
-<div class="highlight"><pre><span></span><code>docker compose exec backend bash
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>backend<span class="w"> </span>bash
 </code></pre></div>
 <p>You should see <code>root@&lt;CONTAINER_ID&gt;:/#</code> (opened root shell): you are now within the Docker container and can begin typing some commands!</p>
 <h3 id="checking-permissions">Checking permissions<a class="headerlink" href="#checking-permissions" title="Permanent link">#</a></h3>
 <p>Navigate to the specific directory and run</p>
-<p><div class="highlight"><pre><span></span><code>ls -lrt
+<p><div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-lrt
 </code></pre></div>
 It will list all directories and their permissions.</p>
 <h3 id="creating-directory">Creating directory<a class="headerlink" href="#creating-directory" title="Permanent link">#</a></h3>
 <p>Navigate to your specific directory using <code>cd</code> and run</p>
-<div class="highlight"><pre><span></span><code>mkdir directory-name
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>directory-name
 </code></pre></div>
 <h3 id="running-minion-jobs">Running minion jobs<a class="headerlink" href="#running-minion-jobs" title="Permanent link">#</a></h3>
 <p><a href="https://docs.mojolicious.org/Minion">Minion</a> is a high-performance job queue for Perl, used in <a href="https://github.com/openfoodfacts/openfoodfacts-server">openfoodfacts-server</a> for time-consuming import and export tasks. These tasks are processed and queued using the minion jobs queue. Therefore, they are called minion jobs.</p>
 <p>Go to <code>/opt/product-opener/scripts</code> and run</p>
-<div class="highlight"><pre><span></span><code>./minion_producers.pl minion job
+<div class="highlight"><pre><span></span><code>./minion_producers.pl<span class="w"> </span>minion<span class="w"> </span>job
 </code></pre></div>
 <p>The above command will show the status of minion jobs. Run the following command to launch the minion jobs.</p>
-<div class="highlight"><pre><span></span><code>./minion_producers.pl minion worker -m production -q pro.openfoodfacts.org
+<div class="highlight"><pre><span></span><code>./minion_producers.pl<span class="w"> </span>minion<span class="w"> </span>worker<span class="w"> </span>-m<span class="w"> </span>production<span class="w"> </span>-q<span class="w"> </span>pro.openfoodfacts.org
 </code></pre></div>
 <h3 id="restarting-apache">Restarting Apache<a class="headerlink" href="#restarting-apache" title="Permanent link">#</a></h3>
 <p>Sometimes restarting the whole <code>backend</code> container is overkill, and you can just
 restart <code>Apache</code> from inside the container:</p>
-<div class="highlight"><pre><span></span><code>apache2ctl -k restart
+<div class="highlight"><pre><span></span><code>apache2ctl<span class="w"> </span>-k<span class="w"> </span>restart
 </code></pre></div>
 <h3 id="exiting-the-container">Exiting the container<a class="headerlink" href="#exiting-the-container" title="Permanent link">#</a></h3>
 <p>Use <code>exit</code> to exit the container.</p>
@@ -2342,15 +2342,15 @@ when-changed -r html/ Dockerfile Dockerfile.frontend package.json -c &quot;make 
 </code></pre></div></p>
 <p>An alternative to <code>when-changed</code> is <code>inotifywait</code>.</p>
 <h2 id="run-queries-on-mongodb-database">Run queries on MongoDB database<a class="headerlink" href="#run-queries-on-mongodb-database" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code>docker compose exec mongodb mongo
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>mongodb<span class="w"> </span>mongo
 </code></pre></div>
 <p>The above command will open a MongoDB shell, allowing you to use all the <code>mongo</code> 
 commands to interact with the database:</p>
-<div class="highlight"><pre><span></span><code>show dbs
-use off
-db.products.count()
-db.products.find({_id: &quot;5053990155354&quot;})
-db.products.deleteOne({_id: &quot;5053990155354&quot;})
+<div class="highlight"><pre><span></span><code>show<span class="w"> </span>dbs
+use<span class="w"> </span>off
+db.products.count<span class="o">()</span>
+db.products.find<span class="o">({</span>_id:<span class="w"> </span><span class="s2">&quot;5053990155354&quot;</span><span class="o">})</span>
+db.products.deleteOne<span class="o">({</span>_id:<span class="w"> </span><span class="s2">&quot;5053990155354&quot;</span><span class="o">})</span>
 </code></pre></div>
 <p>See the <a href="https://www.mongodb.com/products/shell"><code>mongo</code> shell docs</a> for more commands.</p>
 <h2 id="adding-environment-variables">Adding environment variables<a class="headerlink" href="#adding-environment-variables" title="Permanent link">#</a></h2>
@@ -2419,62 +2419,62 @@ script.</p>
 </ul>
 <p>To switch between configurations, set <code>ENV_FILE</code> before running <code>make</code> commands,
 (or <code>docker compose</code> command):</p>
-<div class="highlight"><pre><span></span><code>ENV_FILE=.env.off-pro make up # starts the OFF Producer&#39;s Platform containers.
-ENV_FILE=.env.obf     make up # starts the OBF containers.
-ENV_FILE=.env.opff    make up # starts the OPFF containers.
+<div class="highlight"><pre><span></span><code><span class="nv">ENV_FILE</span><span class="o">=</span>.env.off-pro<span class="w"> </span>make<span class="w"> </span>up<span class="w"> </span><span class="c1"># starts the OFF Producer&#39;s Platform containers.</span>
+<span class="nv">ENV_FILE</span><span class="o">=</span>.env.obf<span class="w">     </span>make<span class="w"> </span>up<span class="w"> </span><span class="c1"># starts the OBF containers.</span>
+<span class="nv">ENV_FILE</span><span class="o">=</span>.env.opff<span class="w">    </span>make<span class="w"> </span>up<span class="w"> </span><span class="c1"># starts the OPFF containers.</span>
 </code></pre></div>
 <p>or export it to keep it for a while:</p>
-<div class="highlight"><pre><span></span><code>export ENV_FILE=.env.off # going to work on OFF for a while
-make up
-make restart
-make down
-make log
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ENV_FILE</span><span class="o">=</span>.env.off<span class="w"> </span><span class="c1"># going to work on OFF for a while</span>
+make<span class="w"> </span>up
+make<span class="w"> </span>restart
+make<span class="w"> </span>down
+make<span class="w"> </span>log
 </code></pre></div>
 <p>A good strategy is to have multiple terminals open, one for each deployment:</p>
 <ul>
 <li><code>off</code> [Terminal 1]:
-  <div class="highlight"><pre><span></span><code>export ENV_FILE=.env.off
-make up
+  <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ENV_FILE</span><span class="o">=</span>.env.off
+make<span class="w"> </span>up
 </code></pre></div></li>
 </ul>
 <ul>
 <li><code>off-pro</code> [Terminal 2]:
-  <div class="highlight"><pre><span></span><code>export ENV_FILE=.env.off-pro
-make up
+  <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ENV_FILE</span><span class="o">=</span>.env.off-pro
+make<span class="w"> </span>up
 </code></pre></div></li>
 </ul>
 <ul>
 <li><code>obf</code> [Terminal 3]:
-  <div class="highlight"><pre><span></span><code>export ENV_FILE=.env.obf
-make up
+  <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ENV_FILE</span><span class="o">=</span>.env.obf
+make<span class="w"> </span>up
 </code></pre></div></li>
 </ul>
 <ul>
 <li><code>opff</code> [Terminal 3]:
-  <div class="highlight"><pre><span></span><code>export ENV_FILE=.env.opff
-make up
+  <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ENV_FILE</span><span class="o">=</span>.env.opff
+make<span class="w"> </span>up
 </code></pre></div></li>
 </ul>
 <p><strong>Note:</strong> the above case of 4 deployments is <strong><em>a bit ambitious</em></strong>, since ProductOpener's <code>backend</code> container takes about ~6GB of RAM to run, meaning that the above 4 deployments would require a total of 24GB of RAM available.</p>
 <p><strong>Example:</strong> if you already have Open Food Facts up and running and you would like to have Open Beauty Facts as well. Then, copy <code>.env</code> to <code>.env.obf</code> and modify the following variables:
-<div class="highlight"><pre><span></span><code>COMPOSE_PROJECT_NAME=po_off
-COMPOSE_PROFILES=off
-PRODUCT_OPENER_DOMAIN=openfoodfacts.localhost
-PRODUCT_OPENER_PORT=80
-PRODUCT_OPENER_FLAVOR=openfoodfacts
-PRODUCT_OPENER_FLAVOR_SHORT=off
+<div class="highlight"><pre><span></span><code><span class="nv">COMPOSE_PROJECT_NAME</span><span class="o">=</span>po_off
+<span class="nv">COMPOSE_PROFILES</span><span class="o">=</span>off
+<span class="nv">PRODUCT_OPENER_DOMAIN</span><span class="o">=</span>openfoodfacts.localhost
+<span class="nv">PRODUCT_OPENER_PORT</span><span class="o">=</span><span class="m">80</span>
+<span class="nv">PRODUCT_OPENER_FLAVOR</span><span class="o">=</span>openfoodfacts
+<span class="nv">PRODUCT_OPENER_FLAVOR_SHORT</span><span class="o">=</span>off
 </code></pre></div>
 to
-<div class="highlight"><pre><span></span><code>COMPOSE_PROJECT_NAME=po_obf
-COMPOSE_PROFILES=obf
-PRODUCT_OPENER_DOMAIN=openbeautyfacts.localhost
-PRODUCT_OPENER_PORT=81
-PRODUCT_OPENER_FLAVOR=openbeautyfacts
-PRODUCT_OPENER_FLAVOR_SHORT=obf
+<div class="highlight"><pre><span></span><code><span class="nv">COMPOSE_PROJECT_NAME</span><span class="o">=</span>po_obf
+<span class="nv">COMPOSE_PROFILES</span><span class="o">=</span>obf
+<span class="nv">PRODUCT_OPENER_DOMAIN</span><span class="o">=</span>openbeautyfacts.localhost
+<span class="nv">PRODUCT_OPENER_PORT</span><span class="o">=</span><span class="m">81</span>
+<span class="nv">PRODUCT_OPENER_FLAVOR</span><span class="o">=</span>openbeautyfacts
+<span class="nv">PRODUCT_OPENER_FLAVOR_SHORT</span><span class="o">=</span>obf
 </code></pre></div>
 Run:
-<div class="highlight"><pre><span></span><code>export ENV_FILE=.env.obf
-make dev
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ENV_FILE</span><span class="o">=</span>.env.obf
+make<span class="w"> </span>dev
 </code></pre></div>
 If you have error like <code>Errors in the labels taxonomy definition at /opt/product-opener/lib/ProductOpener/Tags.pm line 1622.</code>, due to conflict between taxonomies, a small hack is to comment the lines (it appears 2 times in the file) raising error in the <strong>Tags.pm</strong> file. </p>
 

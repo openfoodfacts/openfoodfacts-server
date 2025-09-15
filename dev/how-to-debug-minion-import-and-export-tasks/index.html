@@ -365,7 +365,7 @@
   
   
   <span class="md-ellipsis">
-    Tutorial dev journey
+    Tutorials for Common developer journeys
     
   </span>
   
@@ -618,7 +618,7 @@
   
   
   <span class="md-ellipsis">
-    Leveraging links to wikidata
+    How to leverage links to Wikidata (and Wikipedia)
     
   </span>
   
@@ -725,7 +725,7 @@
   
   
   <span class="md-ellipsis">
-    Contributing to image refresh api
+    Using the Image Refresh API
     
   </span>
   
@@ -748,7 +748,7 @@
   
   
   <span class="md-ellipsis">
-    Creating a local cache of open food facts data
+    Open Food Facts Local Caching: A Tutorial
     
   </span>
   
@@ -771,7 +771,7 @@
   
   
   <span class="md-ellipsis">
-    Finding healthy cereals
+    Finding healthy breakfast cereals
     
   </span>
   
@@ -794,7 +794,7 @@
   
   
   <span class="md-ellipsis">
-    Folksonomy engine
+    Folksonomy Engine
     
   </span>
   
@@ -817,7 +817,7 @@
   
   
   <span class="md-ellipsis">
-    Get in touch with openfoodfacts
+    Get in touch with OpenFoodFacts
     
   </span>
   
@@ -840,7 +840,7 @@
   
   
   <span class="md-ellipsis">
-    Get ingredient related analysis
+    Get ingredient related analysis on new or existing products
     
   </span>
   
@@ -886,7 +886,7 @@
   
   
   <span class="md-ellipsis">
-    Get the nutriscore
+    Get the Nutri-Score
     
   </span>
   
@@ -932,7 +932,7 @@
   
   
   <span class="md-ellipsis">
-    License be on the legal side
+    License - be on the legal side
     
   </span>
   
@@ -978,7 +978,7 @@
   
   
   <span class="md-ellipsis">
-    Reporting issues with nutripatrol
+    Reporting issues with NutriPatrol
     
   </span>
   
@@ -1001,7 +1001,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning barcodes
+    Implementing a World-Class Barcode Scan Experience for Your App
     
   </span>
   
@@ -1024,7 +1024,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning cosmetics pet food and other products
+    Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs
     
   </span>
   
@@ -1942,11 +1942,11 @@
 <li>minion_log4perl.log - debug messages from the Perl code that implements the Minion tasks</li>
 </ul>
 <h2 id="checking-the-status-of-minion-tasks-jobs">Checking the status of Minion tasks (jobs)<a class="headerlink" href="#checking-the-status-of-minion-tasks-jobs" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code>off@off:/srv/off$ (off) ./scripts/minion_producers.pl minion job 
-[..]
-132132  inactive  pro.openfoodfacts.org  update_export_status_for_csv_file
-132131  failed    openfoodfacts.org      import_csv_file
-132130  finished  pro.openfoodfacts.org  export_csv_file
+<div class="highlight"><pre><span></span><code>off@off:/srv/off$<span class="w"> </span><span class="o">(</span>off<span class="o">)</span><span class="w"> </span>./scripts/minion_producers.pl<span class="w"> </span>minion<span class="w"> </span>job<span class="w"> </span>
+<span class="o">[</span>..<span class="o">]</span>
+<span class="m">132132</span><span class="w">  </span>inactive<span class="w">  </span>pro.openfoodfacts.org<span class="w">  </span>update_export_status_for_csv_file
+<span class="m">132131</span><span class="w">  </span>failed<span class="w">    </span>openfoodfacts.org<span class="w">      </span>import_csv_file
+<span class="m">132130</span><span class="w">  </span>finished<span class="w">  </span>pro.openfoodfacts.org<span class="w">  </span>export_csv_file
 </code></pre></div>
 <h2 id="debugging-failed-import-of-pro-platform-data-on-public-platform">Debugging failed import of pro platform data on public platform<a class="headerlink" href="#debugging-failed-import-of-pro-platform-data-on-public-platform" title="Permanent link">#</a></h2>
 <p>The following are notes on how a specific issue was debugged in production:</p>
@@ -1955,15 +1955,15 @@
 <p>We can launch the export and import manually:</p>
 <p>off@off-pro:/srv/off-pro$ (off-pro) scripts/export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-systeme-u</p>
 <p>And we can see the details of the corresponding minion jobs:</p>
-<div class="highlight"><pre><span></span><code>off@off-pro:/srv/off-pro$ (off-pro) ./scripts/minion_producers.pl minion job
-[..]
-132132  inactive  pro.openfoodfacts.org  update_export_status_for_csv_file
-132131  failed    openfoodfacts.org      import_csv_file
-132130  finished  pro.openfoodfacts.org  export_csv_file
+<div class="highlight"><pre><span></span><code>off@off-pro:/srv/off-pro$<span class="w"> </span><span class="o">(</span>off-pro<span class="o">)</span><span class="w"> </span>./scripts/minion_producers.pl<span class="w"> </span>minion<span class="w"> </span>job
+<span class="o">[</span>..<span class="o">]</span>
+<span class="m">132132</span><span class="w">  </span>inactive<span class="w">  </span>pro.openfoodfacts.org<span class="w">  </span>update_export_status_for_csv_file
+<span class="m">132131</span><span class="w">  </span>failed<span class="w">    </span>openfoodfacts.org<span class="w">      </span>import_csv_file
+<span class="m">132130</span><span class="w">  </span>finished<span class="w">  </span>pro.openfoodfacts.org<span class="w">  </span>export_csv_file
 </code></pre></div>
 <p>In the off container, there is little useful information in the logs:</p>
 <p>/srv/off/logs/minion.log:</p>
-<div class="highlight"><pre><span></span><code>import_csv_file_task - job: 132131 started - args: {&quot;comment&quot;:&quot;Import from producers platform&quot;,&quot;csv_file&quot;:&quot;/srv/off-pro/export_files/org-systeme-u/export.1741792171.exported.csv&quot;,&quot;global_values&quot;:{&quot;data_sources&quot;:&quot;Producers, Producer - systeme-u&quot;},&quot;query&quot;:{&quot;owner&quot;:&quot;org-systeme-u&quot;,&quot;states_tags&quot;:&quot;en:to-be-exported&quot;,&quot;data_quality_errors_producers_tags.0&quot;:{&quot;$exists&quot;:false},&quot;code&quot;:&quot;3256221408515&quot;},&quot;export_job_id&quot;:132130,&quot;source_id&quot;:&quot;org-systeme-u&quot;,&quot;manufacturer&quot;:1,&quot;org_id&quot;:&quot;systeme-u&quot;,&quot;export_id&quot;:1741792171,&quot;include_images_paths&quot;:1,&quot;user_id&quot;:&quot;org-systeme-u&quot;,&quot;source_name&quot;:&quot;systeme-u&quot;,&quot;include_obsolete_products&quot;:1,&quot;exported_t&quot;:1741792171,&quot;owner_id&quot;:&quot;org-systeme-u&quot;}
+<div class="highlight"><pre><span></span><code>import_csv_file_task<span class="w"> </span>-<span class="w"> </span>job:<span class="w"> </span><span class="m">132131</span><span class="w"> </span>started<span class="w"> </span>-<span class="w"> </span>args:<span class="w"> </span><span class="o">{</span><span class="s2">&quot;comment&quot;</span>:<span class="s2">&quot;Import from producers platform&quot;</span>,<span class="s2">&quot;csv_file&quot;</span>:<span class="s2">&quot;/srv/off-pro/export_files/org-systeme-u/export.1741792171.exported.csv&quot;</span>,<span class="s2">&quot;global_values&quot;</span>:<span class="o">{</span><span class="s2">&quot;data_sources&quot;</span>:<span class="s2">&quot;Producers, Producer - systeme-u&quot;</span><span class="o">}</span>,<span class="s2">&quot;query&quot;</span>:<span class="o">{</span><span class="s2">&quot;owner&quot;</span>:<span class="s2">&quot;org-systeme-u&quot;</span>,<span class="s2">&quot;states_tags&quot;</span>:<span class="s2">&quot;en:to-be-exported&quot;</span>,<span class="s2">&quot;data_quality_errors_producers_tags.0&quot;</span>:<span class="o">{</span><span class="s2">&quot;</span><span class="nv">$exists</span><span class="s2">&quot;</span>:false<span class="o">}</span>,<span class="s2">&quot;code&quot;</span>:<span class="s2">&quot;3256221408515&quot;</span><span class="o">}</span>,<span class="s2">&quot;export_job_id&quot;</span>:132130,<span class="s2">&quot;source_id&quot;</span>:<span class="s2">&quot;org-systeme-u&quot;</span>,<span class="s2">&quot;manufacturer&quot;</span>:1,<span class="s2">&quot;org_id&quot;</span>:<span class="s2">&quot;systeme-u&quot;</span>,<span class="s2">&quot;export_id&quot;</span>:1741792171,<span class="s2">&quot;include_images_paths&quot;</span>:1,<span class="s2">&quot;user_id&quot;</span>:<span class="s2">&quot;org-systeme-u&quot;</span>,<span class="s2">&quot;source_name&quot;</span>:<span class="s2">&quot;systeme-u&quot;</span>,<span class="s2">&quot;include_obsolete_products&quot;</span>:1,<span class="s2">&quot;exported_t&quot;</span>:1741792171,<span class="s2">&quot;owner_id&quot;</span>:<span class="s2">&quot;org-systeme-u&quot;</span><span class="o">}</span>
 </code></pre></div>
 <p>To get more data (debug level) in minion_log4perl.log:</p>
 <p>We can stop the minion daemon</p>
@@ -1973,25 +1973,29 @@
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash
 <span class="nb">source</span><span class="w"> </span>env/setenv<span class="w"> </span>off
 <span class="nv">TAP_LOG_FILTER</span><span class="o">=</span>none<span class="w"> </span>perl<span class="w"> </span>scripts/minion_producers.pl<span class="w"> </span>minion<span class="w"> </span>worker<span class="w"> </span>-m<span class="w"> </span>production
+<span class="sb">```</span><span class="w"> </span>bash
+
+The<span class="w"> </span><span class="sb">`</span>TAP_LOG_FILTER<span class="sb">`</span><span class="w"> </span>environment<span class="w"> </span>variable<span class="w"> </span>is<span class="w"> </span>used<span class="w"> </span>to<span class="w"> </span><span class="nb">set</span><span class="w"> </span>the<span class="w"> </span>log<span class="w"> </span>level<span class="w"> </span><span class="k">for</span><span class="w"> </span>Log4Perl.<span class="w"> </span>Setting<span class="w"> </span>it<span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>none<span class="sb">`</span><span class="w"> </span>prints<span class="w"> </span>messages<span class="w"> </span><span class="k">for</span><span class="w"> </span>all<span class="w"> </span>log<span class="w"> </span>levels.
+
+I<span class="w"> </span>added<span class="w"> </span>a<span class="w"> </span>print<span class="w"> </span>STDERR<span class="w"> </span><span class="k">in</span><span class="w"> </span>Import.pm<span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span><span class="k">if</span><span class="w"> </span>a<span class="w"> </span>specific<span class="w"> </span>product<span class="w"> </span>is<span class="w"> </span>causing<span class="w"> </span>the<span class="w"> </span>problem:
+
+<span class="sb">```</span><span class="w"> </span>bash
+Import.pm<span class="w"> </span>-<span class="w"> </span>org:<span class="w"> </span>systeme-u<span class="w"> </span>-<span class="w"> </span>code:<span class="w"> </span><span class="m">3256221408515</span>
 </code></pre></div></p>
-<p>The <code>TAP_LOG_FILTER</code> environment variable is used to set the log level for Log4Perl. Setting it to <code>none</code> prints messages for all log levels.</p>
-<p>I added a print STDERR in Import.pm to see if a specific product is causing the problem:</p>
-<div class="highlight"><pre><span></span><code>Import.pm - org: systeme-u - code: 3256221408515
-</code></pre></div>
 <p>Trying to export this single product indeed fails.</p>
 <p>Last lines in minion_log4perl.log:</p>
-<div class="highlight"><pre><span></span><code>[24193] /srv/off/lib/ProductOpener/TaxonomiesEnhancer.pm 257 ProductOpener.TaxonomiesEnhancer {} check_ingredients_between_languages &gt; detect_missing_stop_words_before_list -   first ingredient in ingredients1 (fr:ble-dur-precuit-concasse) is unknown (is_in_taxonomy =&gt; 1) or first ingredient in ingredients2 is known (is_in_taxonomy =&gt; 1)
-[24193] /srv/off/lib/ProductOpener/TaxonomiesEnhancer.pm 356 ProductOpener.TaxonomiesEnhancer {} check_ingredients_between_languages &gt; detect_missing_stop_words_after_list - start, lang1: fr, lang2: en
-[60104] scripts/minion_producers.pl 87 main {minion_backend =&gt; [..] minion producers workers stopped
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="m">24193</span><span class="o">]</span><span class="w"> </span>/srv/off/lib/ProductOpener/TaxonomiesEnhancer.pm<span class="w"> </span><span class="m">257</span><span class="w"> </span>ProductOpener.TaxonomiesEnhancer<span class="w"> </span><span class="o">{}</span><span class="w"> </span>check_ingredients_between_languages<span class="w"> </span>&gt;<span class="w"> </span>detect_missing_stop_words_before_list<span class="w"> </span>-<span class="w">   </span>first<span class="w"> </span>ingredient<span class="w"> </span><span class="k">in</span><span class="w"> </span>ingredients1<span class="w"> </span><span class="o">(</span>fr:ble-dur-precuit-concasse<span class="o">)</span><span class="w"> </span>is<span class="w"> </span>unknown<span class="w"> </span><span class="o">(</span><span class="nv">is_in_taxonomy</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>or<span class="w"> </span>first<span class="w"> </span>ingredient<span class="w"> </span><span class="k">in</span><span class="w"> </span>ingredients2<span class="w"> </span>is<span class="w"> </span>known<span class="w"> </span><span class="o">(</span><span class="nv">is_in_taxonomy</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="m">1</span><span class="o">)</span>
+<span class="o">[</span><span class="m">24193</span><span class="o">]</span><span class="w"> </span>/srv/off/lib/ProductOpener/TaxonomiesEnhancer.pm<span class="w"> </span><span class="m">356</span><span class="w"> </span>ProductOpener.TaxonomiesEnhancer<span class="w"> </span><span class="o">{}</span><span class="w"> </span>check_ingredients_between_languages<span class="w"> </span>&gt;<span class="w"> </span>detect_missing_stop_words_after_list<span class="w"> </span>-<span class="w"> </span>start,<span class="w"> </span>lang1:<span class="w"> </span>fr,<span class="w"> </span>lang2:<span class="w"> </span>en
+<span class="o">[</span><span class="m">60104</span><span class="o">]</span><span class="w"> </span>scripts/minion_producers.pl<span class="w"> </span><span class="m">87</span><span class="w"> </span>main<span class="w"> </span><span class="o">{</span><span class="nv">minion_backend</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="o">[</span>..<span class="o">]</span><span class="w"> </span>minion<span class="w"> </span>producers<span class="w"> </span>workers<span class="w"> </span>stopped
 </code></pre></div>
 <p>Unfortunately there's no clearer error message.</p>
 <p>To debug it, I added print STDERR statements in TaxonomiesEnhancer.pm, to try to see where it stopped.</p>
 <p>The following line is the error:</p>
-<div class="highlight"><pre><span></span><code>                $log-&gt;debug(
-                        &quot;check_ingredients_between_languages &gt; detect_missing_stop_words_after_list -   too much difference between languages to raise warning. diff/total &gt; tolerance: $translation_difference_count / $#$ingredients1 = &quot;
-                                . $translation_difference_count / $#$ingredients1 . &quot; &gt; &quot;
-                                . $translation_difference_accepted_percentage)
-                        if $log-&gt;is_debug();
+<div class="highlight"><pre><span></span><code><span class="w">                </span><span class="nv">$log</span>-&gt;debug<span class="o">(</span>
+<span class="w">                        </span><span class="s2">&quot;check_ingredients_between_languages &gt; detect_missing_stop_words_after_list -   too much difference between languages to raise warning. diff/total &gt; tolerance: </span><span class="nv">$translation_difference_count</span><span class="s2"> / </span><span class="nv">$#$ingredients1</span><span class="s2"> = &quot;</span>
+<span class="w">                                </span>.<span class="w"> </span><span class="nv">$translation_difference_count</span><span class="w"> </span>/<span class="w"> </span><span class="nv">$#$ingredients1</span><span class="w"> </span>.<span class="w"> </span><span class="s2">&quot; &gt; &quot;</span>
+<span class="w">                                </span>.<span class="w"> </span><span class="nv">$translation_difference_accepted_percentage</span><span class="o">)</span>
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="nv">$log</span>-&gt;is_debug<span class="o">()</span><span class="p">;</span>
 </code></pre></div>
 <p><code>$#array</code> is equal to <code>0</code> when <code>@array</code> contains 1 element, so it makes a <code>division by 0 error</code> and the task fails. But unfortunately I could not find any log where this division by zero error was reported, the only thing we get from Minion is that the task failed...</p>
 <p><strong>Finally:</strong> don't forget to <strong>restart the minion service</strong> !</p>

@@ -367,7 +367,7 @@
   
   
   <span class="md-ellipsis">
-    Tutorial dev journey
+    Tutorials for Common developer journeys
     
   </span>
   
@@ -797,7 +797,7 @@
   
   
   <span class="md-ellipsis">
-    Leveraging links to wikidata
+    How to leverage links to Wikidata (and Wikipedia)
     
   </span>
   
@@ -904,7 +904,7 @@
   
   
   <span class="md-ellipsis">
-    Contributing to image refresh api
+    Using the Image Refresh API
     
   </span>
   
@@ -927,7 +927,7 @@
   
   
   <span class="md-ellipsis">
-    Creating a local cache of open food facts data
+    Open Food Facts Local Caching: A Tutorial
     
   </span>
   
@@ -950,7 +950,7 @@
   
   
   <span class="md-ellipsis">
-    Finding healthy cereals
+    Finding healthy breakfast cereals
     
   </span>
   
@@ -973,7 +973,7 @@
   
   
   <span class="md-ellipsis">
-    Folksonomy engine
+    Folksonomy Engine
     
   </span>
   
@@ -996,7 +996,7 @@
   
   
   <span class="md-ellipsis">
-    Get in touch with openfoodfacts
+    Get in touch with OpenFoodFacts
     
   </span>
   
@@ -1019,7 +1019,7 @@
   
   
   <span class="md-ellipsis">
-    Get ingredient related analysis
+    Get ingredient related analysis on new or existing products
     
   </span>
   
@@ -1065,7 +1065,7 @@
   
   
   <span class="md-ellipsis">
-    Get the nutriscore
+    Get the Nutri-Score
     
   </span>
   
@@ -1111,7 +1111,7 @@
   
   
   <span class="md-ellipsis">
-    License be on the legal side
+    License - be on the legal side
     
   </span>
   
@@ -1157,7 +1157,7 @@
   
   
   <span class="md-ellipsis">
-    Reporting issues with nutripatrol
+    Reporting issues with NutriPatrol
     
   </span>
   
@@ -1180,7 +1180,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning barcodes
+    Implementing a World-Class Barcode Scan Experience for Your App
     
   </span>
   
@@ -1203,7 +1203,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning cosmetics pet food and other products
+    Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs
     
   </span>
   
@@ -2163,9 +2163,8 @@
 <p>The <code>{barcode}</code> is the barcode number of the product you are trying to get. The barcode for <strong>Nutella Ferrero</strong> is <strong>3017624010701</strong>. Then the request path to get product data for <strong>Nutella Ferrero</strong> will look like this:</p>
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/api/v2/product/3017624010701
 </code></pre></div>
-<p>The response returns every data about Nutella Ferrero on the database. To get the nutriscore, we need to limit the response by specifying the nutriscore field, which is the <code>nutrition_grades</code> and <code>product_name</code>.</p>
-<!--Is it only nutriscore_data -->
-
+<p>The response returns every data about Nutella Ferrero on the database. To get the nutriscore, we need to limit the response by specifying the nutriscore field, which is the <code>nutrition_grades</code> and <code>product_name</code>.
+{/<em> <!--Is it only nutriscore_data --> </em>/}</p>
 <h3 id="query-parameters">Query Parameters<a class="headerlink" href="#query-parameters" title="Permanent link">#</a></h3>
 <p>To limit the response of the Get A Product By Barcode response, use query parameters to specify the product fields to be returned. In this example, you need one query parameter called <code>field</code> with the value <code>product_name,nutrition_grades</code>.</p>
 <p>The request path will now look like this:</p>
@@ -2225,14 +2224,12 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-">Get A Product By Barcode</a>.</p>
-<!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
-
+<p>{/<em> <!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc--> </em>/}</p>
 <h2 id="completing-products-to-get-the-nutri-score">Completing products to get the Nutri-Score<a class="headerlink" href="#completing-products-to-get-the-nutri-score" title="Permanent link">#</a></h2>
 <h3 id="products-without-a-nutri-score">Products without a Nutri-Score<a class="headerlink" href="#products-without-a-nutri-score" title="Permanent link">#</a></h3>
 <p>When these fields are missing in a nutriscore computation response, it signifies that the product does not have a Nutri-Score computation due to some missing nutrition data.
 Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/0180411000803/100-real-orange-juice?product_name,nutriscore_data,nutriments,nutrition_grades">100% Real Orange Juice</a>. If the product nutrition data is missing some fields, you can volunteer and contribute to it by getting the missing tags and writing to the OFF API to add them.</p>
-<!-- I dont know if using 100% Real Orange Juice is a good approach for now , should we state that it was not computed at the time of writing this article just incase it gets computed in future or there is a product we can use to test this that wont change in future ? -->
-
+<p>{/<em> <!-- I dont know if using 100% Real Orange Juice is a good approach for now , should we state that it was not computed at the time of writing this article just incase it gets computed in future or there is a product we can use to test this that wont change in future ? --> </em>/}</p>
 <p>To know the missing tags, check the <code>misc-tags</code> field from the product response.</p>
 <p><code>https://world.openfoodfacts.net/api/v2/product/0180411000803/100-real-orange-juice?fields=misc_tags</code></p>
 <p>The response shows the missing fields and category needed to compute the Nutri-Score.</p>
@@ -2304,9 +2301,13 @@ Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/018041
 <td style="text-align: center;">Orange Juice</td>
 <td style="text-align: right;">Category of the Product</td>
 </tr>
+<tr>
+<td>Using curl:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
+</tr>
 </tbody>
 </table>
-<p>Using curl:</p>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-XPOST<span class="w"> </span>-x<span class="w"> </span>POST<span class="w"> </span>https://world.openfoodfacts.net/cgi/product_jqm2.pl<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-F<span class="w"> </span><span class="nv">user_id</span><span class="o">=</span>your_user_id<span class="w"> </span>-F<span class="w"> </span><span class="nv">password</span><span class="o">=</span>your_password<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-F<span class="w"> </span><span class="nv">code</span><span class="o">=</span><span class="m">0180411000803</span><span class="w"> </span>-F<span class="w"> </span><span class="nv">nutriment_sodium</span><span class="o">=</span><span class="m">0</span>.015<span class="w"> </span>-F<span class="w"> </span><span class="nv">nutriment_sodium_unit</span><span class="o">=</span>g<span class="w"> </span>-F<span class="w"> </span><span class="nv">categories</span><span class="o">=</span><span class="s2">&quot;Orange Juice&quot;</span>
@@ -2349,8 +2350,7 @@ Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/018041
 </code></pre></div>
 <p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl">Add or Edit A Product</a></p>
 <p>You can also check the reference cheatsheet to know how to add/edit other types of product data.</p>
-<!-- Include the link of the cheatsheet once it is published. -->
-
+<p>{/<em> <!-- Include the link of the cheatsheet once it is published. --> </em>/}</p>
 <h2 id="search-for-a-product-by-nutri-score">Search for a Product by Nutri-score<a class="headerlink" href="#search-for-a-product-by-nutri-score" title="Permanent link">#</a></h2>
 <p>Using the Open Food Facts API, you can filter products based on different criteria. To search for products in the Orange Juice category with a nutrition_grade of <code>c</code>, query the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search">Search for Products endpoint</a>.</p>
 <p><strong>Note:</strong> we describe here the v2 search API, but beware that only <a href="https://wiki.openfoodfacts.org/API/Read/Search">v1 search API</a> supports full text search.</p>

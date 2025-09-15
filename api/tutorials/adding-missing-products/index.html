@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#authentication-and-header" class="md-skip">
+        <a href="#adding-missing-products" class="md-skip">
           Skip to content
         </a>
       
@@ -367,7 +367,7 @@
   
   
   <span class="md-ellipsis">
-    Tutorial dev journey
+    Tutorials for Common developer journeys
     
   </span>
   
@@ -620,7 +620,7 @@
   
   
   <span class="md-ellipsis">
-    Leveraging links to wikidata
+    How to leverage links to Wikidata (and Wikipedia)
     
   </span>
   
@@ -684,6 +684,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -715,6 +717,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -884,7 +888,7 @@
   
   
   <span class="md-ellipsis">
-    Contributing to image refresh api
+    Using the Image Refresh API
     
   </span>
   
@@ -907,7 +911,7 @@
   
   
   <span class="md-ellipsis">
-    Creating a local cache of open food facts data
+    Open Food Facts Local Caching: A Tutorial
     
   </span>
   
@@ -930,7 +934,7 @@
   
   
   <span class="md-ellipsis">
-    Finding healthy cereals
+    Finding healthy breakfast cereals
     
   </span>
   
@@ -953,7 +957,7 @@
   
   
   <span class="md-ellipsis">
-    Folksonomy engine
+    Folksonomy Engine
     
   </span>
   
@@ -976,7 +980,7 @@
   
   
   <span class="md-ellipsis">
-    Get in touch with openfoodfacts
+    Get in touch with OpenFoodFacts
     
   </span>
   
@@ -999,7 +1003,7 @@
   
   
   <span class="md-ellipsis">
-    Get ingredient related analysis
+    Get ingredient related analysis on new or existing products
     
   </span>
   
@@ -1045,7 +1049,7 @@
   
   
   <span class="md-ellipsis">
-    Get the nutriscore
+    Get the Nutri-Score
     
   </span>
   
@@ -1091,7 +1095,7 @@
   
   
   <span class="md-ellipsis">
-    License be on the legal side
+    License - be on the legal side
     
   </span>
   
@@ -1137,7 +1141,7 @@
   
   
   <span class="md-ellipsis">
-    Reporting issues with nutripatrol
+    Reporting issues with NutriPatrol
     
   </span>
   
@@ -1160,7 +1164,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning barcodes
+    Implementing a World-Class Barcode Scan Experience for Your App
     
   </span>
   
@@ -1183,7 +1187,7 @@
   
   
   <span class="md-ellipsis">
-    Scanning cosmetics pet food and other products
+    Open Beauty Facts, Open Pet Food Facts, Open Products Facts experimental and specific APIs
     
   </span>
   
@@ -1960,6 +1964,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2108,8 +2114,7 @@
   
 
 
-  <h1>Adding missing products</h1>
-
+<h1 id="adding-missing-products">Adding missing products<a class="headerlink" href="#adding-missing-products" title="Permanent link">#</a></h1>
 <p><strong>Dave</strong> regularly adds new products to the database and completes missing information via API calls. He has described the process below to show other developers how easy it is to contribute.</p>
 <hr />
 <h2 id="authentication-and-header">Authentication and Header<a class="headerlink" href="#authentication-and-header" title="Permanent link">#</a></h2>
@@ -2123,11 +2128,11 @@
 </ul>
 <hr />
 <h2 id="adding-images-to-support-your-edit-and-get-machine-learning-predictions">Adding images to support your edit, and get machine learning predictions<a class="headerlink" href="#adding-images-to-support-your-edit-and-get-machine-learning-predictions" title="Permanent link">#</a></h2>
-<p>If you ask your users just one thing, it would be to send photos of the packaging (front, ingredients, nutrition, recycling, the more the better)<br>
+<p>If you ask your users just one thing, it would be to send photos of the packaging (front, ingredients, nutrition, recycling, the more the better)
 Please refer to our <a href="../../tutorial-uploading-photo-to-a-product/">comprehensive tutorial on uploading images</a></p>
 <hr />
 <h2 id="sending-the-right-country-and-language-parameters-based-on-the-country-your-user-is-located-in-and-the-language-the-product-is-in">Sending the right country and language parameters, based on the country your user is located in, and the language the product is in.<a class="headerlink" href="#sending-the-right-country-and-language-parameters-based-on-the-country-your-user-is-located-in-and-the-language-the-product-is-in" title="Permanent link">#</a></h2>
-<p>Traditionaly we advised to define the subdomain for the query as <code>us</code>. The subdomain automatically defines the country code (<code>cc</code>) and language of the interface (<code>lc</code>). The country code determines that only the products sold in the US are displayed. The language of the interface for the country code US is English.<br>
+<p>Traditionaly we advised to define the subdomain for the query as <code>us</code>. The subdomain automatically defines the country code (<code>cc</code>) and language of the interface (<code>lc</code>). The country code determines that only the products sold in the US are displayed. The language of the interface for the country code US is English.
 In this case:
 <a href="https://us.openfoodfacts.org/cgi/product_jqm2.pl?​​​​​​​">https://us.openfoodfacts.org/cgi/product_jqm2.pl?​​​​​​​</a></p>
 <p>We now advise to pass the cc and lc parameters within the query, and to limit assumptions as much as you can, especially in bilingual countries (e.g. Belgium, the US…) but also other countries (some products can be imported).
