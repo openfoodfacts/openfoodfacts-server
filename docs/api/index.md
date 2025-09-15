@@ -75,8 +75,8 @@ If you need to fetch a significant fraction of the database, we recommend [downl
 
 The OpenFoodFacts API has two deployments.
 
-- Production: <https://world.openfoodfacts.org>
-- Staging: <https://world.openfoodfacts.net>
+- Production: https://world.openfoodfacts.org
+- Staging: https://world.openfoodfacts.net
 
 Consider using the [staging environment](https://world.openfoodfacts.net) if you are not in a production scenario.
 
