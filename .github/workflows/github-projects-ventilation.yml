@@ -39,6 +39,12 @@ on:
     - review_request_removed
     - auto_merge_enabled
     - auto_merge_disabled
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
 jobs:
   add-to-projects:
     name: Ventilate issues to the right GitHub projects

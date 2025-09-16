@@ -10,6 +10,9 @@ on:
     paths:
       - 'docs/api/ref/**/*.yaml'
 
+permissions:
+  contents: read
+
 jobs:
   lint-api:
     name: Lint OpenAPI Spec Files
