@@ -277,7 +277,8 @@
                }
             ],
             "id" : "ingredients_analysis",
-            "name" : "Ingredients"
+            "name" : "Ingredients",
+            "warning" : "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
          },
          {
             "attributes" : [
@@ -604,7 +605,8 @@
                }
             ],
             "id" : "ingredients_analysis",
-            "name" : "Ingredients"
+            "name" : "Ingredients",
+            "warning" : "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
          },
          {
             "attributes" : [
@@ -2508,7 +2510,7 @@
                   }
                }
             ],
-            "expanded" : true,
+            "expanded" : false,
             "level" : "info",
             "title_element" : {
                "title" : "Ingredient information"
@@ -2607,7 +2609,7 @@
                "grade" : "unknown",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-en.svg",
                "subtitle" : "Missing nutrition facts",
-               "title" : "Nutri-Score UNKNOWN",
+               "title" : "Nutri-Score unknown",
                "type" : "grade"
             },
             "topics" : [
@@ -3064,6 +3066,43 @@
                "environment"
             ]
          },
+         "product_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "raw_labels"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Product information"
+            },
+            "topics" : [
+               "product"
+            ],
+            "type" : "card"
+         },
+         "raw_labels" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n        <ul>\n            \n                <li><a href=\"http://world.openfoodfacts.localhost/facets/labels/organic\">Organic</a></li>\n            \n        </ul>\n        "
+                  }
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "title" : "Labels, certifications, awards"
+            },
+            "topics" : [
+               "product"
+            ]
+         },
          "recommendation_ultra_processed_foods" : {
             "elements" : [
                {
@@ -3126,6 +3165,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "report_problem_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "product_card"
                   }
                }
             ],
@@ -3422,7 +3467,7 @@
       "popularity_key" : 0,
       "product_name" : "Some product",
       "product_name_en" : "Some product",
-      "product_quantity" : "100",
+      "product_quantity" : 100,
       "product_quantity_unit" : "g",
       "product_type" : "food",
       "quantity" : "100 g",

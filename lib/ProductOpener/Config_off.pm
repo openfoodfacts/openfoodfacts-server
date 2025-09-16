@@ -46,6 +46,7 @@ BEGIN {
 		$admin_email
 		$producers_email
 
+		$tesseract_ocr_available
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
 
@@ -63,6 +64,11 @@ BEGIN {
 
 		$facets_kp_url
 		$redis_url
+		$folksonomy_url
+		$process_global_redis_events
+
+		$recipe_estimator_url
+		$recipe_estimator_scipy_url
 
 		$mongodb
 		$mongodb_host
@@ -80,6 +86,7 @@ BEGIN {
 
 		%options
 		%server_options
+		%oidc_options
 
 		@product_fields
 		@product_other_fields
@@ -97,6 +104,7 @@ BEGIN {
 		@edit_rules
 
 		$build_cache_repo
+		$serialize_to_json
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -404,7 +412,25 @@ $options{users_who_can_upload_small_images} = {
 			)
 		],
 	},
-
+	# 2025-08-25 prevent municorn-calorie-counter-app from editing nutrients
+	# see https://github.com/openfoodfacts/contributor-quality-issues/issues/18
+	{
+		name => "municorn-calorie-counter-app nutrients edition",
+		conditions => [["user_id", "municorn-calorie-counter-app"],],
+		actions => [
+			["ignore_nutriment_energy-kj"], ["ignore_nutriment_energy-kcal"],
+			["ignore_nutriment_fat"], ["ignore_nutriment_saturated-fat"],
+			["ignore_nutriment_trans-fat"], ["ignore_nutriment_monounsaturated-fat"],
+			["ignore_nutriment_polyunsaturated-fat"], ["ignore_nutriment_cholesterol"],
+			["ignore_nutriment_carbohydrates"], ["ignore_nutriment_carbohydrates-total"],
+			["ignore_nutriment_sugars"], ["ignore_nutriment_added_sugars"],
+			["ignore_nutriment_fiber"], ["ignore_nutriment_proteins"],
+			["ignore_nutriment_salt"], ["ignore_nutriment_sodium"],
+			["ignore_nutriment_alcohol"], ["ignore_nutriment_vitamin-d"],
+			["ignore_nutriment_calcium"], ["ignore_nutriment_potassium"],
+			["ignore_serving_size"],
+		],
+	},
 );
 
 # server constants
@@ -423,6 +449,7 @@ $sftp_root = $ProductOpener::Config2::sftp_root;    # might be undef
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
+$tesseract_ocr_available = $ProductOpener::Config2::tesseract_ocr_available;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 $google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
@@ -433,6 +460,14 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $query_url = $ProductOpener::Config2::query_url;
+
+# recipe-estimator product service
+# To test a locally running recipe-estimator with product opener in a docker dev environment:
+# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+
+$recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
+$recipe_estimator_scipy_url = $ProductOpener::Config2::recipe_estimator_scipy_url;
 
 # do we want to send emails
 $log_emails = $ProductOpener::Config2::log_emails;
@@ -445,9 +480,15 @@ $events_password = $ProductOpener::Config2::events_password;
 
 # Redis is used to push updates to the search server
 $redis_url = $ProductOpener::Config2::redis_url;
+# Only the OFF instance processes the global events
+$process_global_redis_events = 1;
 
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
+
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ProductOpener::Config2::folksonomy_url;
 
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
@@ -458,6 +499,9 @@ $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_
 %server_options = %ProductOpener::Config2::server_options;
 
 $build_cache_repo = $ProductOpener::Config2::build_cache_repo;
+
+#11901: Remove once production is migrated
+$serialize_to_json = $ProductOpener::Config2::serialize_to_json;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -964,7 +1008,7 @@ $options{attribute_groups} = [
 			"allergens_no_molluscs", "allergens_no_sulphur_dioxide_and_sulphites",
 		],
 	],
-	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free",]],
+	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free", "unwanted_ingredients",]],
 	["labels", ["labels_organic", "labels_fair_trade"]],
 	# Note: before 2025, the Environmental-Score was called the Eco-Score,
 	# as the id of the attribute is stored inside clients, we keep the
@@ -1081,7 +1125,10 @@ $options{import_export_fields_importance} = {
 );
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates";
+$options{redis_stream_name_product_updates} = "product_updates";
+# Name of the Redis stream where we notify that OCR results
+# are ready
+$options{redis_stream_name_ocr_ready} = "ocr_ready";
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {

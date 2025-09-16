@@ -1,6 +1,6 @@
 title: Packaging component material
 type: object
-description: The material property is canonicalized using the packaging_materials taxonomy.
+description: The material property is canonicalized using the packaging_materials taxonomy. Taxonomized values are available using the partial taxonomy API, the autosuggest API or the full packaging_material taxonomy JSON export.
 examples:
   - id: 'en:bottle'
     lc_name: bouteille

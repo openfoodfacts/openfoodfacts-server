@@ -1037,7 +1037,7 @@
                   }
                }
             ],
-            "expanded" : true,
+            "expanded" : false,
             "level" : "info",
             "title_element" : {
                "title" : "Ingredient information"
@@ -1136,7 +1136,7 @@
                "grade" : "unknown",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-en.svg",
                "subtitle" : "Missing nutrition facts",
-               "title" : "Nutri-Score UNKNOWN",
+               "title" : "Nutri-Score unknown",
                "type" : "grade"
             },
             "topics" : [
@@ -1653,8 +1653,7 @@
             ],
             "type" : "inline"
          }
-      },
-      "schema_version" : 999
+      }
    },
    "result" : {
       "id" : "product_found",

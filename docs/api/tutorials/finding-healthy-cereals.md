@@ -1,3 +1,5 @@
+# Finding healthy breakfast cereals
+
 **Dave** wants his app to make an API call to provide Stefano healthy plant-based breakfast cereals.
 --- 
 - **This is a search usecase.** Please note that search is not a good way to extract info from the database, and anyone trying to do that will be rate-limited and banned. Please use the https://world.openfoodfacts.org/data](https://world.openfoodfacts.org/data) for super convenient data export of the whole database and images that you can slice and dice easily.

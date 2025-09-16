@@ -49,6 +49,10 @@
 
 	[% analytics %]
 
+	[% INCLUDE web/common/includes/off_webcomponents_configuration.tt.html language_code = lc country_code = cc
+	robotoff_domain = robotoff_url images_domain = images_subdomain api_domain = formatted_subdomain folksonomy_uri =
+	folksonomy_uri %]
+	
 	[% IF ! content_only %]
 	<div class="skip"><a href="#content" tabindex="0">[% lang('skip_to_content') %]</a></div>
 	[% END %]
@@ -134,7 +138,7 @@
 					<ul class="right">
 						[% IF not user_id.defined %]
 							<li class="h-space-tiny has-form">
-								<a href="/cgi/session.pl" class="round button secondary">
+								<a href=[% IF oidc_implementation_level < 3 %]"/cgi/session.pl"[% ELSE %]"/cgi/oidc_signin.pl?return_url=[% uri_escape(canon_url) %]"[% END %] class="round button secondary">
 									<span class="material-icons material-symbols-button">account_circle</span>
 									[% lang('sign_in') %]
 								</a>
@@ -148,7 +152,8 @@
 									[% user.name %]
 								</a>
 								<ul class="dropdown">
-									<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> [% lang('edit_user') %]</a></li>
+									[% IF oidc_implementation_level < 5 %]<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> [% lang('edit_user') %]</a></li>[% ELSE %]<li><a href="[% keycloak_account_link %]" target="_blank" rel="noopener"><span class="material-icons">account_box</span> [% lang('edit_user') %]</a></li>
+										<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> [% lang('edit_user_preferences') %]</a></li>[% END %]
 
 									[% IF org_id %]
 										<li class="divider"></li>			
@@ -170,8 +175,8 @@
 									[% END %]
 									<li class="divider"></li>			
 									<li class="has-form">
-										<form method="post" action="/cgi/session.pl">
-											<input type="hidden" name="length" value="logout">
+										<form method="post" action=[% IF oidc_implementation_level < 3 %]"/cgi/session.pl"[% ELSE %]"/cgi/oidc_signout.pl"[% END %]>
+											[% IF oidc_implementation_level < 3 %]<input type="hidden" name="length" value="logout">[% END %]
 											<input type="submit" name=".submit" value="[% edq(lang('sign_out')) %]" class="button small">
 										</form>
 									</li>
