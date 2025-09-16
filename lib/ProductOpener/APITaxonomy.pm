@@ -124,8 +124,8 @@ sub taxonomy_canonicalize_tags_api ($request_ref) {
 
 		# Also return the canonical tags as an array, and indicate if they exist in the taxonomy
 		$response_ref->{canonical_tags}
-			= map {{tag => $_, exists_in_taxonomy => exists_taxonomy_tag($tagtype, $_) ? JSON::true : JSON::false}}
-			@canonical_tags;
+			= [map {{tag => $_, exists_in_taxonomy => exists_taxonomy_tag($tagtype, $_) ? JSON::true : JSON::false}}
+				@canonical_tags];
 	}
 
 	return;
