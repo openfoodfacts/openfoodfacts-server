@@ -1496,6 +1496,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#parallel-execution-with-make" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel execution with make
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#going-further" class="md-nav__link">
     <span class="md-ellipsis">
       Going further
@@ -2281,6 +2290,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#parallel-execution-with-make" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel execution with make
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#going-further" class="md-nav__link">
     <span class="md-ellipsis">
       Going further
@@ -2443,7 +2461,7 @@ to instantly provision a ready-to-code development environment in the cloud.</p>
 <ul>
 <li>GIT version &gt;= 2.25.0</li>
 <li><a href="https://docs.docker.com/engine/install/">Install Docker CE</a><blockquote>
-<p>If you run e.g. Debian, don't forget to add your user to the <code>docker</code> group!  </p>
+<p>If you run e.g. Debian, don't forget to add your user to the <code>docker</code> group!</p>
 </blockquote>
 </li>
 </ul>
@@ -2659,6 +2677,15 @@ On linux and macOS, you can automatically do it if you <a href="../how-to-use-di
 <p>From the repository root, run:</p>
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>dev
 </code></pre></div>
+<h3 id="parallel-execution-with-make">Parallel execution with make<a class="headerlink" href="#parallel-execution-with-make" title="Permanent link">#</a></h3>
+<p>By default, GNU make runs one recipe at a time, sequentially. You may choose to run <code>make dev</code> with multiple jobs in parallel to speed up the build process, particularly operations that involve many network calls (such as building dependencies and downloading assets). Use either:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>dev<span class="w"> </span>--jobs<span class="o">=</span><span class="m">32</span>
+</code></pre></div>
+<p>or set the <code>MAKEFLAGS</code> environment variable before running <code>make dev</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MAKEFLAGS</span><span class="o">=</span>--jobs<span class="o">=</span><span class="m">32</span>
+make<span class="w"> </span>dev
+</code></pre></div>
+<p>Choosing a higher job count than the number of CPU cores is safe for Product Opener because most of the time the tasks are network-bound rather than CPU-bound. A good starting point is 2-4 times your CPU core count, but monitor system performance and adjust accordingly to match your available bandwidth and system responsiveness.</p>
 <blockquote>
 <p><strong>Note:</strong></p>
 <p>If you are using Windows, you may encounter issues regarding this command. Take a look at the <strong>Troubleshooting</strong> section further in this tutorial.</p>
@@ -2676,7 +2703,12 @@ It can be solved by adding <code>{"base": "172.80.0.0/16","size": 24}, {"base": 
 </ul>
 <p><strong><em>Notes:</em></strong></p>
 <ul>
-<li>The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).</li>
+<li>
+<p>The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).</p>
+<ul>
+<li>Note: see the "Parallel execution with make" section above for guidance on running <code>make dev</code> with multiple jobs in parallel.</li>
+</ul>
+</li>
 </ul>
 <ul>
 <li>You might not immediately see the test products: create an account, login, and they should appear.</li>
@@ -2838,7 +2870,7 @@ failed<span class="w"> </span>to<span class="w"> </span>solve:<span class="w"> <
 make:<span class="w"> </span>***<span class="w"> </span><span class="o">[</span>Makefile:147:<span class="w"> </span>build<span class="o">]</span><span class="w"> </span>Error<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
 <p><strong>Solution:</strong></p>
-<p>Reason for the error: 
+<p>Reason for the error:
 "usermod: UID '0' already exists" means that the user is being assigned UID 0, which is already used by the root user.</p>
 <p>To solve it create an environment variable(USER_UID=1000) inside .envrc using direnv. Steps to do that:</p>
 <p>Install direnv
