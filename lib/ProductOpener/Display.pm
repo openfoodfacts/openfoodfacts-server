@@ -875,6 +875,13 @@ CSS
 	}
 
 	$attributes_options_ref = {};
+
+	# Some attributes can have parameters sent in the request parameters (usually in cookies)
+	my $attribute_unwanted_ingredients_tags = request_param($request_ref, "attribute_unwanted_ingredients_tags");
+	if ($attribute_unwanted_ingredients_tags) {
+		$attributes_options_ref->{attribute_unwanted_ingredients_tags} = $attribute_unwanted_ingredients_tags;
+	}
+
 	$knowledge_panels_options_ref = {};
 
 	if (not feature_enabled("environmental_score")) {
@@ -5321,7 +5328,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		};
 
 		# If the user has selected some unwanted ingredients, we need the ingredients_tags field to compute the corresponding attribute
-		if (defined cookie("attribute_unwanted_ingredients_tags")) {
+		if (defined $attributes_options_ref->{attribute_unwanted_ingredients_tags}) {
 			$fields_ref->{"ingredients_tags"} = 1;
 		}
 	}

@@ -71,7 +71,6 @@ use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 use Data::DeepAccess qw(deep_get);
-use CGI qw/:cgi/;
 
 =head1 CONFIGURATION
 
@@ -1691,6 +1690,8 @@ Needed for some country specific attributes like the Environmental-Score.
 Defines how some attributes should be computed (or not computed)
 
 - skip_[attribute_id] : do not compute a specific attribute
+- attribute_unwanted_ingredients_tags : a comma separated list of unwanted ingredients
+  (e.g. "palm oil, titanium dioxide") to compute the unwanted ingredients attribute
 
 =head3 Return values
 
@@ -1742,8 +1743,9 @@ sub compute_attributes ($product_ref, $target_lc, $target_cc, $options_ref) {
 			add_attribute_to_group($product_ref, $target_lc, "ingredients_analysis", $attribute_ref);
 		}
 		# Unwanted ingredients
-		if (defined cookie("attribute_unwanted_ingredients_tags")) {
-			my @unwanted_ingredients = map {s/^\s+|\s+$//gr} split /,/, cookie("attribute_unwanted_ingredients_tags");
+		my $unwanted_ingredients_tags = $options_ref->{"attribute_unwanted_ingredients_tags"};
+		if (defined $unwanted_ingredients_tags) {
+			my @unwanted_ingredients = map {s/^\s+|\s+$//gr} split /,/, $unwanted_ingredients_tags;
 			# Only compute the unwanted ingredients attribute if we do have unwanted ingredients
 			if (scalar(@unwanted_ingredients) > 0) {
 				$attribute_ref

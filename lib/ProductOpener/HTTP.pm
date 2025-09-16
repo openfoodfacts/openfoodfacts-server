@@ -64,7 +64,7 @@ use vars @EXPORT_OK;
 use Apache2::RequestIO();
 use Apache2::RequestRec();
 use Encode;
-use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
+use CGI qw(:cgi :cgi-lib :form escapeHTML charset cookie);
 use Data::DeepAccess qw(deep_get);
 use LWP::UserAgent;
 
@@ -323,7 +323,8 @@ sub single_param ($param_name) {
 =head2 request_param ($request_ref, $param_name)
 
 Return a request parameter. The parameter can be passed in the query string,
-as a POST multipart form data parameter, or in a POST JSON body
+as a POST multipart form data parameter, in a POST JSON body, or in cookies
+for some parameters like product attribute parameters
 
 =head3 Arguments
 
@@ -341,8 +342,21 @@ sub request_param ($request_ref, $param_name) {
 		return decode utf8 => $cgi_param;
 	}
 	else {
-		return deep_get($request_ref, "body_json", $param_name);
+		my $body_json_param = deep_get($request_ref, "body_json", $param_name);
+		if (defined $body_json_param) {
+			return $body_json_param;
+		}
+		else {
+			# For product attributes parameters, we allow cookies so that we do not have parameters
+			# included in the URL and in logs
+			# e.g. cookie("attribute_unwanted_ingredients_tags")
+			my $cookie_param = cookie($param_name);
+			if (defined $cookie_param) {
+				return $cookie_param;
+			}
+		}
 	}
+	return;
 }
 
 =head2 create_user_agent([$args])
