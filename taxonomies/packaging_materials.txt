@@ -5,6 +5,7 @@ synonyms:fr: biosourcé, bio-sourcé
 
 synonyms:fr: transparent, transparente
 
+synonyms:en: colored, coloured
 synonyms:fr: coloré, colorée
 
 synonyms:it: materiale, materiali
@@ -14,6 +15,8 @@ synonyms:it: mista, misto, miste, misti
 synonyms:it: riciclabili, riciclabile
 
 synonyms:it: riciclato, riciclata, riciclati, riciclate
+
+synonyms:da: genbrugt, genanvendt
 
 stopwords:en: 100%
 stopwords:fr: 100%
@@ -77,7 +80,7 @@ be: пластма́са
 bg: Пластмаса
 ca: plàstic
 cs: umělá hmota
-da: Plast
+da: plastik, plastic, plast, plaststof, formstof
 de: Kunststoff, Kunstoff, plastik
 el: πλαστικό
 es: Plástico
@@ -101,7 +104,7 @@ pt: Plástico
 ru: Пластик
 sk: plast
 sl: plastika
-sv: plast
+sv: plast, plaster, plastic
 tr: plastik
 uk: пластма́са
 zh: 塑料
@@ -166,7 +169,6 @@ et: Töödeldav materjal
 eu: Material birziklagarri
 fi: Kierrätettävä materiaali
 fr: Matériau recyclable
-he: חומר ממוחזר
 hr: Reciklabilni materijal
 hu: Újrahasznosítható anyag
 is: Endurvinnanlegt efni
@@ -211,7 +213,6 @@ et: Töödeldav plastik
 eu: Plastiko birziklagarria
 fi: Kierrätettävä muovi
 fr: Plastique recyclable
-he: פלסטיק ממוחזר
 hr: Reciklabilna plastika
 hu: Újrahasznosítható műanyag
 it: Plastica riciclabile
@@ -241,15 +242,37 @@ description:nl: Recyclebaar plastic wordt geproduceerd uit aardolieproducten en 
 description:pt: O plástico reciclável é produzido a partir de produtos petrolíferos e pode ser derretido e remodelado em novos produtos plásticos. A embalagem de alimentos é um uso comum para o plástico reciclável, fornecendo uma barreira para proteger os alimentos da contaminação e prolongar a vida útil. A reciclagem de plástico envolve coletar e classificar o plástico, limpá-lo e triturá-lo e, em seguida, derretê-lo para fazer novos produtos ou materiais.
 
 en: Recycled material
+ar: مادة معاد تدويرها
 bg: Рециклиран материал
-da: Genbrugsmateriale
+ca: Material reciclat
+cs: Recyklovaný materiál
+da: Genbrugt materiale
 de: wiederverwertetes Material
+el: Ανακυκλωμένο υλικό
 es: Material reciclado
+et: Taaskasutatud materjal
+eu: Material birziklatua
+fi: Kierrätetty materiaali
 fr: Matériau recyclé
+hr: Reciklirani materijal
 hu: Újrahasznosított anyag, Újrahasznosított anyagból
 it: Materiale riciclato
+ja: リサイクル材
+ko: 재활용 재료
+lt: Perdirbta medžiaga
+lv: Pārstrādāts materiāls
 nl: Hergebruikt materiaal
+pl: Materiał z recyklingu
 pt: Material reciclado
+ro: Material reciclat
+ru: Переработанный материал
+sk: Recyklovaný materiál
+sl: Recikliran material
+sq: Material i ricikluar
+sv: Återvunnet material
+tr: Geri dönüştürülmüş malzeme
+uk: Перероблений матеріал
+zh: 回收材料
 description:en: Recycled materials are produced by collecting and processing waste materials, such as paper, glass, or plastic, and transforming them into new products. Recycled materials can be used in food packaging, such as containers and wraps, to reduce the amount of waste generated and minimize the impact on the environment. The process of recycling helps conserve resources, reduce greenhouse gas emissions, and saves energy compared to producing materials from raw materials.
 description:de: Recycelte Materialien werden hergestellt, indem Abfallstoffe wie Papier, Glas oder Kunststoff gesammelt und verarbeitet und in neue Produkte umgewandelt werden. Recycelte Materialien können in Lebensmittelverpackungen wie Behältern und Verpackungen verwendet werden, um die Menge an erzeugtem Abfall zu reduzieren und die Auswirkungen auf die Umwelt zu minimieren. Der Prozess des Recyclings hilft, Ressourcen zu schonen, Treibhausgasemissionen zu reduzieren und spart Energie im Vergleich zur Herstellung von Materialien aus Rohstoffen.
 description:es: Los materiales reciclados se producen recolectando y procesando materiales de desecho, como papel, vidrio o plástico, y transformándolos en nuevos productos. Los materiales reciclados se pueden utilizar en envases de alimentos, como envases y envolturas, para reducir la cantidad de residuos generados y minimizar el impacto en el medio ambiente. El proceso de reciclaje ayuda a conservar los recursos, reduce las emisiones de gases de efecto invernadero y ahorra energía en comparación con la producción de materiales a partir de materias primas.
@@ -262,15 +285,36 @@ wikidata:en: Q37328535
 < en:Plastic
 < en:Recycled material
 en: Recycled plastic
+ar: البلاستيك المعاد تدويره
 bg: Рециклирана пластмаса
-da: Genbrugsplast
+ca: Plàstic reciclat
+cs: Recyklovaný plast
+da: Genbrugt plastik
 de: wiederverwerteter Kunststoff
+el: Ανακυκλωμένο πλαστικό
 es: Plástico reciclado
+et: Taaskasutatud plast
+fi: Kierrätetty muovi
 fr: Plastique recyclé
+hr: Reciklirana plastika
 hu: Újrahasznosított műanyag, Újrahasznosított műanyagból
 it: Plastica riciclata
+ja: リサイクルプラスチック
+ko: 재활용 플라스틱
+lt: Perdirbtas plastikas
+lv: Pārstrādāta plastmasa
 nl: Hergebruikt plastic, Hergebruikt plastiek
+pl: Plastik z recyklingu
 pt: Plástico reciclado
+ro: Plastic reciclat
+ru: Переработанный пластик
+sk: Recyklovaný plast
+sl: Reciklirana plastika
+sq: Plastikë e ricikluar
+sv: Återvunnen plast
+tr: Geri dönüştürülmüş plastik
+uk: Перероблений пластик
+zh: 再生塑料
 description:en: Used plastic that has been processed and reused
 description:de: Gebrauchtes Kunststoff, das verarbeitet und wiederverwendet wurde
 description:es: Material usado que ha sido procesado y reutilizado
@@ -292,10 +336,40 @@ it: Cellophane, cellofan, cellofane, cellofano
 # all abbreviations, symbols etc. go in the xx: entry, and do not need to be added to the translations in other languages
 # (unless the abbreviation is different: e.g. "PEBD" = "Polyéthylène basse densité" in French instead of PELD)
 
-
+< en:Plastic
 en: Mixed plastics
+ar: البلاستيك المختلط
+bg: Смесени пластмаси
+ca: Plàstics mixtos
+cs: Směsné plasty
+da: Blandet plastik
+de: Mischkunststoffe
+el: Μικτά πλαστικά
+es: Plásticos mixtos
+et: Segaplastid
+eu: Plastiko mistoak
+fi: Sekamuovit
 fr: Plastiques mixtes
+hr: Miješana plastika
+hu: Kevert műanyagok
 it: Plastica mista
+ja: 混合プラスチック
+ko: 혼합 플라스틱
+lt: Mišrios plastmasės
+lv: Jauktas plastmasas
+nl: Gemengde plastics
+pl: Tworzywa mieszane
+pt: Plásticos misturados
+ro: Materiale plastice amestecate
+ru: Смешанные пластмассы
+sk: Zmiešané plasty
+sl: Mešana plastika
+sq: Plastika të përziera
+sr: Мешана пластика
+sv: Blandade plaster
+tr: Karışık plastikler
+uk: Змішані пластмаси
+zh: 混合塑料
 
 < en:Plastic
 en: PET 1 - Polyethylene terephthalate, PET - Polyethylene terephthalate, Polyethylene terephthalate
@@ -398,6 +472,7 @@ fr: Silicone, Plastique / Silicone
 it: Silicone, Plastica / Silicone
 nl: Silicone, Kunststof / Silicone
 pt: Silicone, Plástico / Silicone
+sv: Silikon, Plast / Silikon
 
 < en:Plastic
 en: Biobased plastic
@@ -408,16 +483,19 @@ fr: Plastique biosourcé, Plastiques / Autres plastiques Biosourcés (base amido
 hu: Biobázisú műanyag
 it: Plastica biologica, bioplastica
 pt: Plástico biobaseado
+sv: Biobaserad plast
 
 < xx:PET
 en: bPET - Biobased PET, Biobased PET
 xx: bPET, bio-PET
+da: bPET - biobaseret PET, biobaseret PET
 de: bPET - Biobasiertes PET, Biobasiertes PET
 fr: bPET - PET biosourcé, PET biosourcé
 hu: bPET - Biobázisú PET, Biobázisú PET
 it: bPET - PET biologico, bioPET
 nl: bPET - Biobased PET, Biobased PET
 pt: bPET - Bioplástico PET, Bioplástico PET
+sv: bPET - biobaserad PET, biobaserad PET
 description:en: Biobased PET is plastic partially produced using annually renewable biomass like different sugars obtained from agricultural activities.
 description:de: Biobasiertes PET ist Kunststoff, der teilweise aus jährlich nachwachsender Biomasse wie verschiedenen Zuckern aus landwirtschaftlichen Aktivitäten hergestellt wird.
 description:es: El PET de base biológica es un plástico producido parcialmente a partir de biomasa renovable anualmente como diferentes azúcares obtenidos de actividades agrícolas.
@@ -428,13 +506,14 @@ description:pt: O PET de base biológica é um plástico parcialmente produzido 
 
 < xx:PET
 en: PET - Transparent, Clear PET, transparent PET
-da: Pet - Gennemsigtig
+da: PET - gennemsigtig, gennemsigtig PET
 de: PET - Transparentes
 fr: PET - transparent
 hu: PET - Átlátszó
 it: PET - trasparente
 nl: PET - transparant, Transparant PET
 pt: PET - transparente
+sv: PET - genomskinlig, genomskinlig PET
 description:en: Transparant PET (polyethylene terephthalate)
 description:de: Transparentes PET (Polyethylenterephthalat)
 description:es: PET transparente (tereftalato de polietileno)
@@ -449,7 +528,7 @@ ar: rPET - شفاف
 bg: rPET - Прозрачен
 ca: rPET - Transparent
 cs: rPET - Transparentní
-da: rPET - Gennemsigtig
+da: rPET - gennemsigtig, gennemsigtig rPET
 de: rPET - Transparentes
 el: rPET - Διαφανές
 es: rPET - Transparente
@@ -471,7 +550,7 @@ ru: rPET - Прозрачный
 sk: rPET - Priehľadný
 sl: rPET - Transparenten
 sq: rPET - Transparent
-sv: rPET - Transparent
+sv: rPET - genomskinlig, genomskinlig rPET
 tr: rPET - Şeffaf
 uk: rPET - Прозорий
 zh: rPET - 透明
@@ -485,7 +564,7 @@ description:pt: rPET transparente (tereftalato de polietileno)
 
 < xx:PET
 en: PET - Colored, Colored PET
-da: PET - Farvet
+da: PET - farvet, farvet PET
 de: PET - Gefärbtes, Farbiges PET
 es: PET - coloreado, PET coloreado
 fr: PET - coloré, PET coloré
@@ -493,6 +572,7 @@ hu: PET - Színezet, színes PET
 it: PET - colorato, PET colorato
 nl: PET - gekleurd, Gekleurd PET
 pt: PET - colorido
+sv: PET - färgat, färgat PET
 description:en: Colored PET (polyethylene terephthalate), which requires additional recycling processes
 description:de: Farbiges PET (Polyethylenterephthalat), das zusätzliche Recyclingprozesse erfordert
 description:es: PET coloreado (tereftalato de polietileno), que requiere procesos de reciclaje adicionales
@@ -504,6 +584,7 @@ description:pt: PET colorido (tereftalato de polietileno), que requer processos 
 
 < xx:PET
 en: PET - Opaque, Opaque PET
+da: PET - ugennemsigtig, ugennemsigtig PET
 de: PET - Undurchsichtiges, Intransparentes PET
 es: PET - opaco
 fr: PET - opaque
@@ -1318,6 +1399,11 @@ fr: Papier ou carton
 it: Carta o cartone
 
 < en:Paper or cardboard
+en: Paper packaging
+sv: Pappersförpackning
+description:en: “Paper packaging” is a category used in Sweden to denote both cardboard and non-cardboard forms of paper used for packaging food and other types of products.
+
+< en:Paper or cardboard
 en: Cardboard, fiberboard, fibreboard
 bg: Картон
 ca: cartó
@@ -1737,12 +1823,12 @@ description:pt: Aço estanhado (contra ferrugem) é usado para latas de alimento
 wikidata:en: Q2556927
 
 < en:Recyclable Metals
-en: Aluminium
-xx: 41 ALU, ALU 41, ALU, ALU41, 41ALU
+en: Aluminium, aluminum
+xx: 41 ALU, ALU 41, ALU, ALU41, 41ALU, aluminium
 bg: Алуминий
 ca: alumini
 cs: hliník
-da: Aluminium
+da: aluminium
 de: Aluminium
 el: αργίλιο
 es: aluminio

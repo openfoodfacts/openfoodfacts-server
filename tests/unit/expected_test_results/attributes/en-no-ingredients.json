@@ -241,7 +241,8 @@
             }
          ],
          "id" : "ingredients_analysis",
-         "name" : "Ingredients"
+         "name" : "Ingredients",
+         "warning" : "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
       },
       {
          "attributes" : [
@@ -357,7 +358,6 @@
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown"
@@ -367,7 +367,6 @@
       "en:code-missing",
       "en:created-missing",
       "en:no-packaging-data",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown",

@@ -255,7 +255,7 @@ br: Druzoni
 ca: greix
 cs: Tuky, tuk
 cy: Braster
-da: Fedt, Fedtstof, fed
+da: Fedt, Fedtstof, fed, lipider
 de: Fett
 el: Λιπαρά, λίπος, λιπαρός
 eo: graso
@@ -337,8 +337,8 @@ ar: دهن مشبع
 bg: Наситени мастни киселини
 ca: àcid gras saturat
 cs: Nasycené mastné kyseliny
-da: Mættede fedtsyrer
-de: gesättigte Fettsäuren, Mættet fedt
+da: Mættet fedt, Mættede fedtsyrer
+de: gesättigte Fettsäuren
 dv: ފެޓް
 el: Κορεσμένα λιπαρά
 eo: Saturita graso
@@ -735,9 +735,9 @@ unit:en: g
 wikidata:en: Q209727
 wikipedia:en: https://en.wikipedia.org/wiki/Palmitic_acid
 
-zz: Allulose, Psicose
-xx: Allulose, Psicose
-en: Allulose, Psicose
+zz: Psicose
+xx: Psicose (Allulose), allulose, psicose
+en: Psicose (Allulose), allulose, psicose
 ar: بسايكوز
 be: Псікоза
 bg: Псикоза
@@ -1938,6 +1938,61 @@ unit:en: mg
 wikidata:en: Q43656
 wikipedia:en: https://en.wikipedia.org/wiki/Cholesterol
 
+zz: gamma-oryzanol
+xx: γ-oryzanol, oryzanol, gamma-oryzanol
+en: oryzanol, gamma-orizanol
+de: γ-Oryzanol, Oryzanol, Gamma-Oryzanol
+unit:en: mg
+wikidata:en: Q423972
+wikipedia:en: https://en.wikipedia.org/wiki/%CE%93-Oryzanol
+
+# total carbohydrates include fiber
+zz: carbohydrates-total
+xx: Total carbohydrates (includes fiber), total carbohydrates, total carbohydrate
+en: Total carbohydrates (includes fiber), total carbohydrates, total carbohydrate
+ar: الكربوهيدرات الكلية (تشمل الألياف)، الكربوهيدرات الكلية
+bg: Общи въглехидрати (включващи влакна), общи въглехидрати
+ca: Hidrats de carboni totals (inclou fibra), hidrats de carboni totals, glúcids totals, carbohidrats totals
+cs: Celkové sacharidy (včetně vlákniny), celkové sacharidy
+da: Totalt kulhydrat (inkluderer kostfiber), totalt kulhydrat
+de: Gesamtkohlenhydrate (enthält Ballaststoffe), Gesamtkohlenhydrate
+el: Συνολικοί υδατάνθρακες (περιλαμβάνουν ίνες), συνολικοί υδατάνθρακες
+es: Hidratos de carbono totales (incluye fibra), hidratos de carbono totales, glúcidos totales, carbohidratos totales
+et: Kogu süsivesikud (sisaldab kiudaineid), kogu süsivesikud
+fa: کربوهیدرات های کل (شامل فیبر), کربوهیدرات های کل
+fi: Kokonais-hiilihydraatit (sisältää kuitua), kokonais-hiilihydraatit, kokonais-hiilihydraatti
+fr: Glucides totaux (inclut les fibres), glucides totaux
+ga: Carbaihiodráit iomlán (cuimsíonn siúcra), carbaihiodráit iomlán
+he: פחמימות כוללות (כולל סיבים), פחמימות כוללות
+hr: Ukupni ugljikohidrati (uključuje vlakna), ukupni ugljikohidrati
+hu: Teljes szénhidrát (tartalmaz rostokat), teljes szénhidrát
+id: Total karbohidrat (termasuk serat), total karbohidrat
+it: Carboidrati totali (inclusi fibre), carboidrati totali
+ja: 総炭水化物（食物繊維を含む）、総炭水化物
+lt: Bendrieji angliavandeniai (įskaitant skaidulines medžiagas), bendrieji angliavandeniai
+lv: Kopējie ogļhidrāti (iekļauj šķiedru), kopējie ogļhidrāti
+mt: Karboidrati ġenerali (jinkludu l-fibra), karboidrati ġenerali
+nb: Totalt karbohydrat (inkluderer fiber), totalt karbohydrat
+nl: Totale koolhydraten (inclusief vezels), totale koolhydraten
+nl_be: Totale koolhydraten (inclusief vezels), totale koolhydraten
+pl: Całkowite węglowodany (zawiera błonnik), całkowite węglowodany
+pt: Carboidratos totais (inclui fibras), carboidratos totais, glicídios totais, glícidos totais, glucídios totais, glúcides totais, hidratos de carbono totais
+pt_br: Carboidratos totais (inclui fibras), carboidratos totais
+pt_pt: Hidratos de carbono totais (inclui fibras), hidratos de carbono totais, glícidos totais
+ro: Glucide totale (include fibre), glucide totale
+rs: Ukupni ugljeni hidrati (uključuje vlakna), ukupni ugljeni hidrati
+ru: Общие углеводы (включая клетчатку), общие углеводы
+sk: Celkové sacharidy (vrátane vlákniny), celkové sacharidy
+sl: Skupni ogljikovi hidrati (vključuje vlakna), skupni ogljikovi hidrati
+sv: Totalt kolhydrat (inkluderar fibrer), totalt kolhydrat
+tr: Toplam karbonhidratlar (lif içerir), toplam karbonhidratlar
+zh: 总碳水化合物（包括纤维），总碳水化合物
+zh_CN: 总碳水化合物（包括纤维），总碳水化合物
+zh_HK: 總碳水化合物（包括纖維），總碳水化合物
+zh_TW: 總碳水化合物（包括纖維），總碳水化合物
+unit:en: g
+
+# carbohydrates or net carbohydrates DO NOT include fiber
 zz: carbohydrates
 xx: Carbohydrates, carbohydrate
 en: Carbohydrates, carbohydrate
@@ -2117,6 +2172,7 @@ pl: Cukry dodane, Dodany cukier
 pt: Açúcares adicionados, Açúcar adicionado
 evaluation:en: bad
 unit:en: g
+unit_se:en: %
 
 zz: sucrose
 xx: Sucrose
@@ -2675,7 +2731,8 @@ zh_HK: 多元醇
 zh_TW: 多元醇
 unit:en: g
 
-zz: erythritol
+zz: Erythritol
+xx: Erythritol
 en: Erythritol
 de: Erythrit
 es: Eritritol
@@ -2686,9 +2743,127 @@ pt: Eritritol
 unit:en: g
 wikidata:en: Q421873
 
+zz: Isomalt
+xx: Isomalt
+en: Isomalt
+af: Isomalt
+ar: إسومالت
+ca: Isomalt
+cs: Isomalt
+da: Isomalt
+de: Isomalt
+es: Isomalt
+fa: ایزومالت
+fi: Isomalti
+fr: Isomalt
+gl: Isomalt
+it: Isomalto
+ja: イソマルト
+nl: Isomalt
+no: Isomalt
+pl: Izomalt
+ru: Изомальтит
+sh: Izomalt
+sr: Izomalt
+sv: Isomalt
+uk: Ізомальт
+zh: 異麥芽酮糖醇
+unit:en: g
+wikidata:en: Q412068
+wikipedia:en: https://en.wikipedia.org/wiki/Isomalt
+
+zz: Maltitol
+xx: Maltitol
+en: Maltitol
+ar: مالتيتول
+bg: Малтитол
+ca: Maltitol
+cs: Maltitol
+de: Maltit
+eo: Maltitolo
+es: Maltitol
+fa: مالتیتول
+fi: Maltitoli
+fr: Maltitol
+he: מלטיטול
+id: Maltitol
+it: Maltitolo
+ja: マルチトール
+ko: 말티톨
+lt: Maltitas
+nl: Maltitol
+no: Maltitol
+pl: Maltitol
+pt: Maltitol
+ru: Мальтит
+sh: Maltitol
+si: මෝල්ටිටෝල්
+sr: Maltitol
+sv: Maltitol
+uk: Мальтитол
+vi: Maltitol
+zh: 麦芽糖醇
+unit:en: g
+wikidata:en: Q423882
+wikipedia:en: https://en.wikipedia.org/wiki/Maltitol
+
+zz: Sorbitol
+xx: Sorbitol
+en: Sorbitol
+af: Sorbitol
+ar: سوربيتول
+be: Сарбіт
+bg: Сорбитол
+bn: সরবিটল
+ca: Sorbitol
+cs: Sorbitol
+cy: Sorbitol
+da: Sorbitol
+de: Sorbit
+el: Σορβιτόλη
+eo: Sorbitolo
+es: Sorbitol
+eu: Sorbitol
+fa: سوربیتول
+fi: Sorbitoli
+fr: Sorbitol
+gl: Sorbitol
+he: סורביטול
+hi: सॉर्बिटॉल
+hr: Sorbitol
+hu: Szorbit
+id: Sorbitol
+it: Sorbitolo
+ja: ソルビトール
+kk: Сорбит
+ko: 솔비톨
+lt: Sorbitolis
+mk: Сорбитол
+ms: Sorbitol
+nl: Sorbitol
+no: Sorbitol
+pl: Sorbitol
+pt: Sorbitol
+ro: Sorbitol
+ru: Сорбит
+sh: Sorbitol
+sk: Sorbitol
+sl: Sorbitol
+sr: Sorbitol
+su: Sorbitol
+sv: Sorbitol
+th: ซอร์บิทอล
+tr: Sorbitol
+uk: Сорбіт
+vi: Sorbitol
+zh: 山梨醇
+unit:en: g
+wikidata:en: Q245280
+wikipedia:en: https://en.wikipedia.org/wiki/Sorbitol
+
 zz: fiber
-xx: Fiber, Dietary fiber, Fiber, fibers, dietary fibers, fibers aoac, fibre, fibres, fibres aoac
-en: Fiber, Dietary fiber, Fiber, fibers, dietary fibers, fibers aoac, fibre, fibres, fibres aoac
+xx: Fiber, Dietary fiber, fibers, dietary fibers, fibre, fibres, dietary fibre, dietary fibres, fibers aoac, fibres aoac
+en: Fiber, Dietary fiber, fibers, dietary fibers, fibre, fibres, dietary fibre, dietary fibres, fibers aoac, fibres aoac
 bg: Влакнини
 cs: Vláknina
 da: Kostfibre
@@ -3731,7 +3906,7 @@ sl: Vitamin C, Askorbinska kislina
 sq: Vitamina C
 sr: витамин Ц
 su: Vitamin C
-sv: Askorbinsyra
+sv: C-vitamin, Askorbinsyra
 sw: Vitamini C
 ta: உயிர்ச்சத்து சி
 te: విటమిన్ సి
@@ -3784,14 +3959,14 @@ dv_value:en: 1.2
 unit:en: mg
 
 zz: vitamin-b2
-xx: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin
+xx: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin, Riboflavin (B2)
 en: Vitamin B2 (Riboflavin), Vitamin B2, Riboflavin
 bg: Витамин B2 (Рибофлавин)
 de: Vitamin B2 (Riboflavin)
 el: Βιταμίνη B2 (Ριβοφλαβίνη)
 es: Vitamina B2 (Riboflavina)
 et: Vitamiin B2 (Riboflaviin)
-fi: B2-vitamiini (Riboflaviini), B2-vitamiini, Riboflaviini
+fi: B2-vitamiini (Riboflaviini), B2-vitamiini, Riboflaviini, Riboflaviini (B2)
 fr: Vitamine B2 (Riboflavine), Vitamine B2, Riboflavine
 ga: Vitimín B2 (Ribeaflaivin)
 he: ויטמין B2 (ריבופלבין)
@@ -3933,6 +4108,7 @@ pl: Witamina B9 (Kwas foliowy)
 pt: Vitamina B9 (Ácido Fólico), Folacina, Ácido pteroil-L-glutâmico
 ro: Vitamina B9 (Acid folic)
 sk: Vitamín B9 (Kyselina listová)
+sv: Vitamin B9 (Folsyra), Folsyra
 zh: 维生素B9(叶酸)
 dv_2016_value:en: 400
 dv_value:en: 400
@@ -3970,6 +4146,7 @@ pl: Witamina B12
 pt: Vitamina B12 (Cobalamina)
 ro: Vitamina B12
 sk: Vitamín B12
+sv: Vitamin B12
 zh: 维生素B12
 dv_2016_value:en: 2.4
 dv_value:en: 6
@@ -6196,6 +6373,13 @@ zh: 水果\，蔬菜\，豆类（根据成分清单分析估算）
 automatically_computed:en: yes
 unit:en: %
 
+zz: whole-grain
+xx: Whole grain
+en: Whole grain
+da: Fuldkorn
+sv: Fullkorn
+unit:en: %
+
 zz: collagen-meat-protein-ratio
 xx: Collagen/Meat protein ratio (maximum)
 en: Collagen/Meat protein ratio (maximum)
@@ -6613,6 +6797,20 @@ unit:en: g
 wikidata:en: Q243309
 wikipedia:en: https://en.wikipedia.org/wiki/Carnitine
 
+zz: melatonin
+xx: Melatonin
+unit:en: µg
+wikidata:en: Q180912
+wikipedia:en: https://en.wikipedia.org/wiki/Melatonin
+
+zz: methylsulfonylmethane
+xx: MSM, OptiMSM
+en: Methylsulfonylmethane, Dimethyl sulfone, Methyl sulfone
+sv: Metylsulfonylmetan
+unit:en: mg
+wikidata:en: Q423842
+wikipedia:en: https://en.wikipedia.org/wiki/Methylsulfonylmethane
+
 # NOVA group is not a nutrient, but we also store it in the nutrition facts table (as we do for the Nutri-Score)
 # to enable some features like statistics per category
 
@@ -6736,6 +6934,7 @@ zz: l-leucine
 en: L-Leucine, Leucine
 ca: L-Leucina, Leucina
 es: L-Leucina, Leucina
+sv: L-leucin
 unit:en: mg
 wikidata:en: Q483745
 wikipedia:en: https://en.wikipedia.org/wiki/Leucine
@@ -6744,6 +6943,7 @@ zz: l-isoleucine
 en: L-Isoleucine, Isoleucine
 ca: L-Isoleucina, Isoleucina
 es: L-Isoleucina, Isoleucina
+sv: L-isoleucin
 unit:en: mg
 wikidata:en: Q484940
 wikipedia:en: https://en.wikipedia.org/wiki/Isoleucine
@@ -6775,9 +6975,10 @@ unit:en: mg
 wikidata:en: Q116907
 wikipedia:en: https://en.wikipedia.org/wiki/Glutathione
 
-# following nutrients are for pet food 
+# following nutrients are for pet food
 # https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
 # I- analytical constituents
+# crude fat ~ similar to human food fat
 zz: crude fat
 xx: crude fat
 en: crude fat, Fat Content
@@ -6806,6 +7007,8 @@ sl: surove maščobe, Vsebnost maščob
 sv: råfett, fettinnehåll
 unit:en: %
 
+# crude protein ~ similar to human food protein
+# protein value ~ how much the animal can actually use
 zz: crude protein
 xx: crude protein
 en: crude protein
@@ -7003,3 +7206,33 @@ fr: chlorure de choline
 hr: kolin klorid
 unit:en: mg
 
+
+# crude protein ~ similar to human food protein
+# protein value ~ how much the animal can actually use
+zz: protein value
+xx: protein value
+en: protein value
+bg: Протеинова стойност
+cs: hodnota proteinu
+da: proteinværdi
+de: Eiweißwert, Proteinwert
+el: Πρωτεϊνική αξία
+es: Valor proteico
+et: valgusisaldusväärtus
+fi: proteiiniarvo
+fr: valeur protéique
+hr: proteinska vrijednost
+hu: fehérjeérték
+it: valore proteico
+lt: baltymų vertė
+lv: proteīna vērtība
+mt: valur tal-proteina
+nl: eiwitwaarde
+pl: wartość białka
+pt: valor proteico
+ro: valoare proteică
+ru: Протеиновая ценность
+sk: hodnota bielkovín
+sl: beljakovinska vrednost
+sv: proteinvärde
+unit:en: g/kg

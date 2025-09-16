@@ -337,6 +337,13 @@
                   },
                   {
                      "display_in_edit_form" : false,
+                     "id" : "galactose",
+                     "important" : false,
+                     "name" : "Galactose",
+                     "unit" : "g"
+                  },
+                  {
+                     "display_in_edit_form" : false,
                      "id" : "lactose",
                      "important" : false,
                      "name" : "Lactose",
@@ -361,6 +368,13 @@
             },
             {
                "display_in_edit_form" : false,
+               "id" : "psicose",
+               "important" : false,
+               "name" : "Psicose (Allulose)",
+               "unit" : "g"
+            },
+            {
+               "display_in_edit_form" : false,
                "id" : "starch",
                "important" : false,
                "name" : "Starch",
@@ -377,6 +391,27 @@
                      "id" : "erythritol",
                      "important" : false,
                      "name" : "Erythritol",
+                     "unit" : "g"
+                  },
+                  {
+                     "display_in_edit_form" : false,
+                     "id" : "isomalt",
+                     "important" : false,
+                     "name" : "Isomalt",
+                     "unit" : "g"
+                  },
+                  {
+                     "display_in_edit_form" : false,
+                     "id" : "maltitol",
+                     "important" : false,
+                     "name" : "Maltitol",
+                     "unit" : "g"
+                  },
+                  {
+                     "display_in_edit_form" : false,
+                     "id" : "sorbitol",
+                     "important" : false,
+                     "name" : "Sorbitol",
                      "unit" : "g"
                   }
                ],
@@ -701,6 +736,13 @@
       },
       {
          "display_in_edit_form" : false,
+         "id" : "methylsulfonylmethane",
+         "important" : false,
+         "name" : "Methylsulfonylmethane",
+         "unit" : "mg"
+      },
+      {
+         "display_in_edit_form" : false,
          "id" : "ph",
          "important" : false,
          "name" : "PH",
@@ -845,6 +887,13 @@
          "important" : false,
          "name" : "Acidity",
          "unit" : "% vol"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "carbohydrates-total",
+         "important" : false,
+         "name" : "Total carbohydrates (includes fiber)",
+         "unit" : "g"
       }
    ]
 }

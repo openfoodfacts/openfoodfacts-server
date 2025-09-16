@@ -119,6 +119,28 @@ my @tests = (
 		}
 	],
 
+	[
+		'en-nutriscore-serving-size-error',
+		{
+			lc => "en",
+			categories => "biscuits",
+			categories_tags => ["en:biscuits"],
+			nutrition_data_per => "serving",
+			serving_size => "20",
+			ingredients_text => "100% fruits",
+			nutriments => {
+				"energy_serving" => 2591,
+				"fat_serving" => 50,
+				"saturated-fat_serving" => 9.7,
+				"sugars_serving" => 5.1,
+				"salt_serving" => 0,
+				"sodium_serving" => 0,
+				"proteins_serving" => 29,
+				"fiber_serving" => 5.5,
+			},
+		}
+	],
+
 	# Maybe vegan: attribute score should be 50
 	[
 		'en-maybe-vegan',
@@ -235,7 +257,7 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
-		print STDERR "testid: $testid\n";
+		# print STDERR "testid: $testid\n";
 		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 	}
 	else {

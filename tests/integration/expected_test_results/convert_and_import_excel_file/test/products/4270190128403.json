@@ -15,9 +15,13 @@
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "brands" : "Test",
+   "brands_hierarchy" : [
+      "xx:Test"
+   ],
    "brands_imported" : "Test",
+   "brands_lc" : "xx",
    "brands_tags" : [
-      "test"
+      "xx:test"
    ],
    "categories" : "Test category",
    "categories_hierarchy" : [
@@ -71,7 +75,6 @@
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -79,7 +82,6 @@
    "data_quality_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
@@ -396,10 +398,6 @@
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
-   "ingredients_hierarchy" : [
-      "fr:white-peaches",
-      "fr:high-fructose-corn-syrup"
-   ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
@@ -600,6 +598,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
+   "schema_version" : 1002,
    "sources" : [
       {
          "fields" : [

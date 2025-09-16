@@ -17,6 +17,7 @@
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
       "en:fruits-and-vegetables-based-foods",
+      "en:vegetable-based-foods-and-beverages",
       "en:canned-foods",
       "en:vegetables-based-foods",
       "en:canned-plant-based-foods",
@@ -39,6 +40,7 @@
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
       "en:fruits-and-vegetables-based-foods",
+      "en:vegetable-based-foods-and-beverages",
       "en:canned-foods",
       "en:vegetables-based-foods",
       "en:canned-plant-based-foods",
@@ -130,20 +132,6 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:daikon",
-      "en:vegetable",
-      "en:root-vegetable",
-      "en:taproot-vegetable",
-      "en:radish",
-      "en:water",
-      "en:dill",
-      "en:herb",
-      "en:garlic",
-      "en:onion-family-vegetable",
-      "en:salt",
-      "en:horseradish"
-   ],
    "ingredients_lc" : "pl",
    "ingredients_n" : 6,
    "ingredients_n_tags" : [
@@ -189,7 +177,7 @@
       "en:salt"
    ],
    "ingredients_without_ecobalyse_ids_n" : 4,
-   "known_ingredients_n" : 12,
+   "known_ingredients_n" : 6,
    "lc" : "pl",
    "minerals_tags" : [],
    "misc_tags" : [
@@ -494,6 +482,7 @@
       "d"
    ],
    "nutriscore_version" : "2023",
+   "nutrition_data" : "on",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "d",

@@ -36,13 +36,14 @@
       {
          "ciqual_proxy_food_code" : "19051",
          "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
-         "id" : "en:fresh-milk",
+         "id" : "en:milk",
          "is_in_taxonomy" : 1,
          "percent" : 80,
          "percent_estimate" : 80,
          "percent_max" : 80,
          "percent_min" : 80,
-         "text" : "Fresh milk",
+         "processing" : "en:fresh",
+         "text" : "milk",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
@@ -61,21 +62,13 @@
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
-         "en:fresh-milk"
+         "en:milk"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
       "en:vegetarian"
-   ],
-   "ingredients_hierarchy" : [
-      "en:fresh-milk",
-      "en:dairy",
-      "en:milk",
-      "en:sugar",
-      "en:added-sugar",
-      "en:disaccharide"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 2,
@@ -85,15 +78,14 @@
    ],
    "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
-      "en:fresh-milk",
+      "en:milk",
       "en:sugar"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
-      "en:fresh-milk",
-      "en:dairy",
       "en:milk",
+      "en:dairy",
       "en:sugar",
       "en:added-sugar",
       "en:disaccharide"
@@ -107,7 +99,7 @@
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [],
    "ingredients_without_ecobalyse_ids_n" : 0,
-   "known_ingredients_n" : 6,
+   "known_ingredients_n" : 2,
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
@@ -454,6 +446,7 @@
       "e"
    ],
    "nutriscore_version" : "2023",
+   "nutrition_data" : "on",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "e",

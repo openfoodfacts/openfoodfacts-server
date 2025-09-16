@@ -31,6 +31,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/lang/;

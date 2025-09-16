@@ -29,7 +29,10 @@ ifeq ($(OS), Darwin)
 else
   export CPU_COUNT=$(shell nproc || echo 1)
 endif
-
+# Limit CPU count to 8 as otherwise can run out of memory
+ifeq ($(shell test $(CPU_COUNT) -gt 8; echo $$?),0)
+  export CPU_COUNT=8
+endif
 
 # tell gitbash not to complete path
 export MSYS_NO_PATHCONV=1
@@ -58,20 +61,25 @@ DOCKER_COMPOSE_BUILD=COMPOSE_FILE="${COMPOSE_FILE_BUILD}" ${DOCKER_COMPOSE}
 # We keep web-default for web contents
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
-DOCKER_COMPOSE_TEST=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" \
+DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://backend:8881/" \
 	GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" \
 	ODOO_CRM_URL="" \
 	MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 \
 	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
-	COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
-	PO_COMMON_PREFIX=test_  \
+	PO_COMMON_PREFIX=test_ \
 	docker compose --env-file=${ENV_FILE}
-# Enable Redis only for integration tests
-DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
-TEST_CMD ?= yath test -PProductOpener::LoadData
+DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
+	${DOCKER_COMPOSE_TEST_BASE}
+# Enable Redis only for integration tests.
+# Note the integration-test.yml file contains references to the docker-compose files from shared-services and auth
+DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-test.yml" \
+	REDIS_URL="redis:6379" \
+	${DOCKER_COMPOSE_TEST_BASE}
+
+TEST_CMD ?= yath test
 
 # Space delimited list of dependant projects
-DEPS=openfoodfacts-shared-services
+DEPS=openfoodfacts-shared-services openfoodfacts-auth
 # Set the DEPS_DIR if it hasn't been set already
 ifeq (${DEPS_DIR},)
 	export DEPS_DIR=${PWD}/deps
@@ -146,7 +154,7 @@ build:
 	@echo "🥫 Building containers …"
 	${DOCKER_COMPOSE_BUILD} build ${args} ${container} 2>&1
 
-_up:run_deps
+_up: run_deps
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
@@ -161,7 +169,7 @@ prod_up: build create_folders
 
 down:
 	@echo "🥫 Bringing down containers …"
-	${DOCKER_COMPOSE} down
+	${DOCKER_COMPOSE} down  --remove-orphans
 
 # Note: we use it in deploy, so we must not use --remove-orphans as it would remove shared-net services
 hdown:
@@ -170,12 +178,16 @@ hdown:
 
 reset: hdown up
 
-restart:run_deps
+restart: run_deps
 	@echo "🥫 Restarting frontend & backend containers …"
 	${DOCKER_COMPOSE} restart backend frontend
 	@echo "🥫  started service at http://openfoodfacts.localhost"
 
-status:run_deps
+stop: stop_deps
+	@echo "🥫 Stopping containers …"
+	${DOCKER_COMPOSE} stop
+
+status: run_deps
 	@echo "🥫 Getting container status …"
 	${DOCKER_COMPOSE} ps
 
@@ -224,9 +236,9 @@ reset_owner:
 	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
 	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
-init_backend: build_taxonomies build_lang
+init_backend: build_taxonomies build_lang build_pro_platform
 
-create_mongodb_indexes:run_deps
+create_mongodb_indexes: run_deps
 	@echo "🥫 Creating MongoDB indexes …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
@@ -241,12 +253,12 @@ import_sample_data: run_deps
 	else \
 	 	echo "🥫 Not importing sample data into MongoDB (only for po_off project)"; \
 	fi
-	
+
 import_more_sample_data: run_deps
 	@echo "🥫 Importing sample data (~2000 products) into MongoDB …"
 	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/import_more_sample_data.sh
 
-refresh_mongodb:run_deps
+refresh_mongodb: run_deps
 	@echo "🥫 Refreshing mongoDB from product files …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/update_all_products_from_dir_in_mongodb.pl
 
@@ -258,11 +270,14 @@ import_prod_data: run_deps
 # Checks #
 #--------#
 
+update_package_lock:
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose run --rm dynamicfront npm install --package-lock-only
+
 front_npm_update:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm update
 
 front_lint:
-	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint --fix
 
 front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run build
@@ -272,28 +287,36 @@ checks: front_build front_lint check_perltidy check_perl_fast check_critic check
 
 lint: lint_perltidy lint_taxonomies
 
-tests: build_taxonomies_test build_lang_test unit_test integration_test
+tests: build_taxonomies_test build_lang_test build_pro_platform_test unit_test integration_test brands_sort_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} -PProductOpener::LoadData  tests/unit
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
 integration_test: create_folders
 	@echo "🥫 Running integration tests …"
 	mkdir -p tests/integration/outputs/
-# we launch the server and run tests within same container
-# we also need dynamicfront for some assets to exists
+# we launch the server and run tests within same container.
 # this is the place where variables are important
-	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
+# note that we don't launch the frontend because it causes issues,
+# as we use localhost in tests (which is the backend)
+# Need to start dynamicfront explicitly so it is built on-demand. Just listing it as a depends_on for backend doesn't seem to do this
+	${DOCKER_COMPOSE_INT_TEST} up -d dynamicfront
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
 # note: we need the -T option for ci (non tty environment)
-	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -e PO_EAGER_LOAD_DATA=1 -T backend yath --renderer=Formatter --renderer=JUnit -PProductOpener::LoadData tests/integration
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -T backend yath --renderer=Formatter --renderer=JUnit tests/integration
 	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 integration tests success"
+
+brands_sort_test:
+	@echo "🥫 checking order of brands.txt"
+	@diff -u <(git grep -ih '^xx:' taxonomies/brands.txt) <(git grep -ih '^xx:' taxonomies/brands.txt|LANG='C.UTF-8' sort -bf)
+	@echo "🥫 brands.txt ordered as expected"
 
 # stop all tests dockers
 test-stop:
@@ -306,7 +329,7 @@ test-stop:
 test-unit: guard-test create_folders
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/unit/${test}
+	${DOCKER_COMPOSE_TEST} run --rm backend ${TEST_CMD} ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
 # to update expected results: make test-int test="test-name.t :: --update-expected-results"
@@ -314,30 +337,43 @@ test-unit: guard-test create_folders
 # you can also add args= to pass more options to your test command
 test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
-	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
-	${DOCKER_COMPOSE_INT_TEST} exec -e PO_EAGER_LOAD_DATA=1 backend ${TEST_CMD} ${args} tests/integration/${test}
+	mkdir -p tests/integration/outputs/
+# we launch the server and run tests within same container
+# we also need dynamicfront for some assets to exists
+# this is the place where variables are important
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	${DOCKER_COMPOSE_INT_TEST} exec backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
-	${DOCKER_COMPOSE_INT_TEST} stop backend
+	${DOCKER_COMPOSE_INT_TEST} stop
 
 # stop all docker tests containers
 stop_tests:
+	@echo "🥫 Stopping test dockers"
 	${DOCKER_COMPOSE_TEST} stop
+	${DOCKER_COMPOSE_INT_TEST} stop
 
 # clean tests, remove containers and volume (useful if you changed env variables, etc.)
 clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
+	${DOCKER_COMPOSE_INT_TEST} down -v --remove-orphans
 
-update_tests_results: build_taxonomies_test build_lang_test
-	@echo "🥫 Updated expected test results with actuals for easy Git diff"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
-	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
-	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
+update_tests_results: build_taxonomies_test build_lang_test build_pro_platform_test update_unit_tests_results update_integration_tests_results
+
+update_unit_tests_results:
+	@echo "🥫 Updated expected unit test results with actuals for easy Git diff"
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener/tests backend bash update_unit_tests_results.sh
 	${DOCKER_COMPOSE_TEST} stop
+
+update_integration_tests_results:
+	@echo "🥫 Updated expected integration test results with actuals for easy Git diff"
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	${DOCKER_COMPOSE_INT_TEST} exec -w /opt/product-opener/tests backend bash update_integration_tests_results.sh
+	${DOCKER_COMPOSE_INT_TEST} stop
 
 bash:
 	@echo "🥫 Open a bash shell in the backend container"
-	${DOCKER_COMPOSE} run --rm -w /opt/product-opener backend bash
+	${DOCKER_COMPOSE_BUILD} run --rm -w /opt/product-opener backend bash
 
 bash_test:
 	@echo "🥫 Open a bash shell in the test container"
@@ -415,14 +451,24 @@ lint_taxonomies:
 check_openapi_v2:
 	docker run --rm \
 		-v ${PWD}:/local openapitools/openapi-generator-cli validate --recommend \
-		-i /local/docs/api/ref/api.yml
+		-i /local/docs/api/ref/api.yaml
 
 check_openapi_v3:
 	docker run --rm \
 		-v ${PWD}:/local openapitools/openapi-generator-cli validate --recommend \
-		-i /local/docs/api/ref/api-v3.yml
+		-i /local/docs/api/ref/api-v3.yaml
 
-check_openapi: check_openapi_v2 check_openapi_v3
+check_openapi_spectral:
+# Currently, Spectral does not support Mac with m3 chip, for more details: https://github.com/stoplightio/spectral/issues/2636
+	@if [ "$(OS)" = "Darwin" ]; then \
+		echo "🥫 Linting OpenAPI is not supported on macOS"; \
+	else \
+		echo "🥫 Linting OpenAPI files"; \
+		docker run --rm -v $$(pwd):/app stoplight/spectral lint -r /app/.spectral.yaml /app/docs/api/ref/api.yaml /app/docs/api/ref/api-v3.yaml; \
+	fi
+
+check_openapi: check_openapi_v2 check_openapi_v3 check_openapi_spectral
+
 
 #-------------#
 # Compilation #
@@ -450,6 +496,17 @@ build_taxonomies_test: create_folders
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+
+build_pro_platform: create_folders
+	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
+	@echo "🥫 build pro platform"
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm backend /opt/product-opener/scripts/build_pro_platform_fields_columns_names.pl
+
+build_pro_platform_test: create_folders
+	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
+	@echo "🥫 build pro platform"
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm backend /opt/product-opener/scripts/build_pro_platform_fields_columns_names.pl
+
 
 
 _clean_old_external_volumes:
@@ -479,6 +536,10 @@ else
 	docker volume rm ${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX}_${MOUNT_VOLUME} || true
 	docker volume create --label com.docker.compose.project=${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX} --label com.docker.compose.version=$(shell docker compose version --short) --label com.docker.compose.volume=${MOUNT_VOLUME} --driver=local -o type=none -o o=bind -o "device=${DOCKER_LOCAL_DATA}/${MOUNT_FOLDER}" ${COMPOSE_PROJECT_NAME}${PROJECT_SUFFIX}_${MOUNT_VOLUME}
 endif
+
+build_asyncapi:
+	npm list -g @asyncapi/cli || npm install -g @asyncapi/cli
+	cd docs/events && asyncapi generate fromTemplate openfoodfacts-server.yaml @asyncapi/html-template@3.0.0 --use-new-generator --param singleFile=true outFilename=openfoodfacts-server.html --force-write --output=.
 
 #------------#
 # Production #
@@ -517,7 +578,7 @@ prune:
 
 prune_cache:
 	@echo "🥫 Pruning Docker builder cache …"
-	docker builder prune -f --filter "label=com.docker.compose.project=${COMPOSE_PROJECT_NAME}" 
+	docker builder prune -f --filter "label=com.docker.compose.project=${COMPOSE_PROJECT_NAME}"
 
 clean_folders: clean_logs
 	( rm html/images/products || true )
@@ -529,6 +590,7 @@ clean_folders: clean_logs
 
 clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
+	echo "" > logs/apache2/log4perl.log
 
 clean: goodbye hdown prune prune_deps prune_cache clean_folders
 
@@ -550,7 +612,9 @@ clone_deps:
 				https://github.com/openfoodfacts/$$dep.git ${DEPS_DIR}/$$dep; \
 			echo "Cloned $$dep"; \
 		else \
-			cd ${DEPS_DIR}/$$dep && git pull; \
+			cd ${DEPS_DIR}/$$dep; \
+			git pull || \
+	                  1>&2 echo "Warning: unable to pull latest $$dep; are you online?"; \
 		fi; \
 	done
 
@@ -559,6 +623,11 @@ prune_deps: clone_deps
 	@for dep in ${DEPS} ; do \
 		echo "🥫 Pruning $$dep..."; \
 		cd ${DEPS_DIR}/$$dep && $(MAKE) prune; \
+	done
+
+stop_deps:
+	@for dep in ${DEPS} ; do \
+		cd ${DEPS_DIR}/$$dep && ( $(MAKE) stop || env -i docker compose stop ) ; \
 	done
 
 #-----------#
@@ -570,4 +639,3 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		echo "Environment variable '$*' is not set"; \
    		exit 1; \
 	fi;
-

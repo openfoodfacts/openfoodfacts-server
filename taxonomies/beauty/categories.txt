@@ -5,6 +5,7 @@ synonyms:en: flavoured, flavored
 en: Incorrect product type
 bg: Неправилен product type
 ca: Tipus de producte incorrecte
+da: Forkert produkttype
 de: Falscher product type
 es: Tipo de producto incorrecto
 fi: Väärä product type
@@ -14,6 +15,7 @@ it: Tipo di prodotto errato
 nl: Verkeerd product type
 pt: Tipo de produto incorreto
 ru: Неправильный product type
+sv: Fel produkttyp
 
 < en: Incorrect product type
 en: Non beauty products
@@ -480,6 +482,14 @@ zh: 肥皂
 wikidata:en: Q34396
 
 < en:Soaps
+en: Scented soaps
+incompatible_with:en: categories:en:unscented-soaps
+
+< en:Soaps
+en: Unscented soaps
+incompatible_with:en: categories:en:scented-soaps
+
+< en:Soaps
 en: Marseille soaps, Marseille soap
 fr: Savons de Marseille, Savon de Marseille
 wikidata:en: Q908677
@@ -587,7 +597,17 @@ uk: Рідке мило
 uz: Suyuq sovunlar
 vi: Xà phòng lỏng
 zh: 液体皂
+incompatible_with:en: categories:en:bar-soaps
 wikidata:en: Q97925317
+
+< en:Soaps
+en: Bar soaps
+incompatible_with:en: categories:en:liquid-soaps
+wikidata:en: Q27883554
+
+< en:Bar soaps
+< en:Scented soaps
+en: Scented bar soaps
 
 < en:Hygiene
 en: Hydro-alcoholic gels, alcohol-based gels
@@ -2709,7 +2729,7 @@ bg: Балсами за устни
 bn: লিপ বাম, লিপ কেয়ার
 ca: Bàlsams labials
 cs: Balzámy na rty
-da: Læbepomader
+da: Læbepomader, Læbebalsam
 de: Lippenpflegestifte, Lippenschutzstifte, Lippenpflegestift
 el: Βάλσαμα για χείλη
 es: Bálsamos labiales
@@ -3147,6 +3167,7 @@ en: Face lotions
 fr: Lotions visage, Lotion visage
 
 ###### CATEGORIE CHEVEUX
+###### HAIR
 
 en: Hair, Hair products
 ar: شعر، منتجات الشعر
@@ -3621,7 +3642,7 @@ uz: Bolalar uchun soch kremlari
 vi: Dầu xả cho trẻ em
 zh: 儿童护发素
 
-#### Shampoings 
+#### Shampoings
 
 < en:Hair
 en: Shampoos
@@ -4963,8 +4984,17 @@ uz: Makiyaj
 vi: Trang điểm
 zh: 化妆品
 
-#### Maquillage pour les yeux
+######## CATEGORIE YEUX
+######## EYES
 
+en: Eyes
+da: Øjne
+sv: Ögon
+
+#### Maquillage pour les yeux
+#### Eye makeup
+
+< en:Eyes
 < en:Makeup
 en: Eyes makeup
 ar: مكياج العيون
@@ -5191,6 +5221,19 @@ ur: کاجل پنسل
 uz: Ko'mirli qalamlar
 vi: Bút chì Kohl
 zh: 煤精铅笔
+
+#### Eye non-makeup
+
+< en:Eyes
+en: Eyewash
+da: Øjenskyl
+sv: Ögonskölj
+
+< en:Eyes
+en: Eye drops
+da: Øjendråber
+sv: Ögondroppar
+wikidata:xx: Q552308
 
 #### Maquillage pour le teint
 
@@ -5839,6 +5882,15 @@ ur: سن سکرین
 uz: Quyoshdan himoya kremi
 vi: Kem chống nắng
 wikidata:en: Q827658
+
+< en:Lip balms
+< en:Sunscreen
+en: Lip balms with sun protection
+
+< en:Facial creams
+< en:Sunscreen
+en: Facial sunscreens, Face sunscreens
+sv: Ansiktssolkrämer
 
 < en:Suncare
 fr: Après-solaires
@@ -6873,4 +6925,15 @@ ur: بچوں کے لیے گیلے مسح
 uz: Bolalar uchun nam salfetkalar
 vi: Khăn ướt cho bé
 zh: 婴儿湿巾
+
+en: Cotton buds, Cotton swabs
+da: Vatpinde
+de: Wattestäbchen
+nb: Bomullspinner
+sv: Bomullspinnar
+wikidata:en: Q12201
+
+en: Petroleum jellies, Vaseline
+sv: Petroleumgeléer, Vaselin
+wikidata:en: Q457239
 

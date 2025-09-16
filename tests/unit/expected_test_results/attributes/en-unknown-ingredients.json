@@ -71,6 +71,7 @@
          "attributes" : [
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/gluten-content-unknown.svg",
                "id" : "allergens_no_gluten",
@@ -81,6 +82,7 @@
             },
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/milk-content-unknown.svg",
                "id" : "allergens_no_milk",
@@ -91,6 +93,7 @@
             },
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/eggs-content-unknown.svg",
                "id" : "allergens_no_eggs",
@@ -101,6 +104,7 @@
             },
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/nuts-content-unknown.svg",
                "id" : "allergens_no_nuts",
@@ -111,6 +115,7 @@
             },
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/peanuts-content-unknown.svg",
                "id" : "allergens_no_peanuts",
@@ -121,6 +126,7 @@
             },
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/sesame-seeds-content-unknown.svg",
                "id" : "allergens_no_sesame_seeds",
@@ -131,6 +137,7 @@
             },
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/soybeans-content-unknown.svg",
                "id" : "allergens_no_soybeans",
@@ -141,6 +148,7 @@
             },
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/celery-content-unknown.svg",
                "id" : "allergens_no_celery",
@@ -151,6 +159,7 @@
             },
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/mustard-content-unknown.svg",
                "id" : "allergens_no_mustard",
@@ -161,6 +170,7 @@
             },
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/lupin-content-unknown.svg",
                "id" : "allergens_no_lupin",
@@ -171,6 +181,7 @@
             },
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/fish-content-unknown.svg",
                "id" : "allergens_no_fish",
@@ -181,6 +192,7 @@
             },
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/crustaceans-content-unknown.svg",
                "id" : "allergens_no_crustaceans",
@@ -191,6 +203,7 @@
             },
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/molluscs-content-unknown.svg",
                "id" : "allergens_no_molluscs",
@@ -201,6 +214,7 @@
             },
             {
                "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
+               "description_short" : "Some ingredients were not recognized",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/sulphur-dioxide-and-sulphites-content-unknown.svg",
                "id" : "allergens_no_sulphur_dioxide_and_sulphites",
@@ -245,7 +259,8 @@
             }
          ],
          "id" : "ingredients_analysis",
-         "name" : "Ingredients"
+         "name" : "Ingredients",
+         "warning" : "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
       },
       {
          "attributes" : [
@@ -360,7 +375,6 @@
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown"
@@ -372,7 +386,6 @@
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown",
@@ -817,9 +830,6 @@
       "en:palm-oil-content-unknown",
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
-   ],
-   "ingredients_hierarchy" : [
-      "en:some-ingredient-that-we-do-not-recognize"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 1,

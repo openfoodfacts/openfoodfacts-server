@@ -1,6 +1,6 @@
-## Tell us about your reuse
+# Get in touch with OpenFoodFacts
 
-------------------------
+## Tell us about your reuse
 
 * We are very interested in learning what the Open Food Facts data is used for. It is not mandatory, but we would very much appreciate it if you [tell us about your re-uses](mailto:reuse@openfoodfacts.org?subject=Open%20Food%20Facts%20Data%20reuse) so that we can share them with the Open Food Facts community.
 
@@ -19,4 +19,4 @@
 
 * You can [open a thread on our API documentation repository](https://github.com/openfoodfacts/api-documentation/discussions)
 
-* For any question regarding the data, you can contact us at <reuse@openfoodfacts.org>
+* For any question regarding the data, you can contact us at reuse@openfoodfacts.org

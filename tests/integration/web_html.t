@@ -424,6 +424,12 @@ my $tests_ref = [
 		expected_type => 'html',
 	},
 	{
+		test_case => 'fr-product-raw-panel',
+		subdomain => 'fr',
+		path => '/produit/3300000000002/tarte-aux-pommes-et-aux-framboise-bio-les-tartes-de-robert?raw_panel=1',
+		expected_type => 'html',
+	},
+	{
 		test_case => 'world-product-not-found',
 		path => '/product/1000000000001/apple-pie',
 		expected_type => 'html',
@@ -568,6 +574,11 @@ my $tests_ref = [
 	{
 		test_case => 'world-product-smoothie',
 		path => '/product/3300000000001/apple-pie-bob-s-pies?user_agent=smoothie',
+		expected_type => 'html',
+	},
+	{
+		test_case => 'report-image-button',
+		path => '/cgi/product_image.pl?code=3300000000013&id=front_fr',
 		expected_type => 'html',
 	},
 ];

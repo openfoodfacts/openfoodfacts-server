@@ -1,4 +1,6 @@
 <!-- start templates/[% template.name %] -->
+<!-- #11866: Can be deleted after Keycloak Migration -->
+<h1>[% page_title %]</h1>
 
 [% INCLUDE 'web/common/includes/error_list.tt.html' %]
 
@@ -50,8 +52,8 @@
 </form>
 
 <p>[% lang('login_not_registered_yet') %]
-    <a href="/cgi/user.pl">[% lang('login_create_your_account') %] </a><br>
-    <a href="/cgi/reset_password.pl">[% lang('forgotten_password') %] </a>
+    <a class="button small" href="/cgi/user.pl">[% lang('login_create_your_account') %]</a><br>
+    <a class="button small" href="/cgi/reset_password.pl">[% lang('forgotten_password') %]</a>
 </p>
 
 <!-- end templates/[% template.name %] -->

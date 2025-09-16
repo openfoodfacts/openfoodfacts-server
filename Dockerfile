@@ -54,6 +54,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libcache-memcached-fast-perl \
         libjson-pp-perl \
         libclone-perl \
+        #11866: Delete following after Keycloak Migration:
         libcrypt-passwdmd5-perl \
         libencode-detect-perl \
         libgraphics-color-perl \
@@ -70,6 +71,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         liburi-escape-xs-perl \
         libxml-libxslt-perl \
         libdata-table-perl \
+        libanyevent-redis-perl \
         # NB: not available in ubuntu 1804 LTS:
         libmath-random-secure-perl \
         libfile-copy-recursive-perl \
@@ -166,6 +168,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libperl-dev \
         # needed to build Apache2::Connection::XForwardedFor
         libapache2-mod-perl2-dev \
+        # OpenSSL dev needed by OIDC::Lite
+        libssl-dev \
         # needed for  Imager::File::WEBP
         libwebpmux3 \
         # Imager::zxing - build deps
@@ -181,18 +185,19 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libx265-dev
 
 # Install zxing-cpp from source until 2.1 or higher is available in Debian: https://github.com/openfoodfacts/openfoodfacts-server/pull/8911/files#r1322987464
+ARG ZXING_VERSION=2.3.0
 RUN set -x && \
     cd /tmp && \
-    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v2.1.0.tar.gz && \
-    tar xfz v2.1.0.tar.gz && \
-    cmake -S zxing-cpp-2.1.0 -B zxing-cpp.release \
+    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v${ZXING_VERSION}.tar.gz && \
+    tar xfz v${ZXING_VERSION}.tar.gz && \
+    cmake -S zxing-cpp-${ZXING_VERSION} -B zxing-cpp.release \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_WRITERS=OFF -DBUILD_READERS=ON -DBUILD_EXAMPLES=OFF && \
     cmake --build zxing-cpp.release -j8 && \
     cmake --install zxing-cpp.release && \
     cd / && \
-    rm -rf /tmp/v2.1.0.tar.gz /tmp/zxing-cpp*
+    rm -rf /tmp/v${ZXING_VERSION}.tar.gz /tmp/zxing-cpp*
 
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID

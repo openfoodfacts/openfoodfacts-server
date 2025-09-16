@@ -248,7 +248,8 @@
             }
          ],
          "id" : "ingredients_analysis",
-         "name" : "Ingrédients"
+         "name" : "Ingrédients",
+         "warning" : "Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
       },
       {
          "attributes" : [
@@ -281,8 +282,7 @@
       {
          "attributes" : [
             {
-               "description" : "",
-               "description_short" : "Impact environnemental inconnu",
+               "description_short" : "Catégorie précise manquante",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/green-score-unknown.svg",
                "id" : "ecoscore",
@@ -352,7 +352,6 @@
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -363,7 +362,6 @@
       "en:created-missing",
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
@@ -663,16 +661,6 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:potato",
-      "en:vegetable",
-      "en:root-vegetable",
-      "en:tuber",
-      "en:palm-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:palm-oil-and-fat"
-   ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
@@ -705,7 +693,7 @@
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [],
    "ingredients_without_ecobalyse_ids_n" : 0,
-   "known_ingredients_n" : 8,
+   "known_ingredients_n" : 2,
    "languages" : {},
    "languages_codes" : {},
    "languages_hierarchy" : [],

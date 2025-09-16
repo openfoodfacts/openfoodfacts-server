@@ -11,11 +11,11 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
+wait_application_ready();
+
 remove_all_users();
 
 remove_all_products();
-
-wait_application_ready();
 
 my $ua = new_client();
 
@@ -265,6 +265,16 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3.1/product/4260392550101',
 		query_string => '?fields=environmental_score_score,environmental_score_grade,environmental_score_data',
+		expected_status_code => 200,
+	},
+
+	# Get attributes with unwanted_ingredients
+	{
+		test_case => 'get-attributes-unwanted-ingredients-milk',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=attribute_groups',
+		cookies => [{name => "attribute_unwanted_ingredients_tags", value => "en:milk,en:chocolate"}],
 		expected_status_code => 200,
 	},
 

@@ -14,15 +14,51 @@ const sass = gulpSass(sassLib);
 const jsSrc = [
   "./html/js/display*.js",
   "./html/js/product-*.js",
+  "./html/js/tagify-init.js",  
   "./html/js/search.js",
   "./html/js/hc-sticky.js",
   "./html/js/stikelem.js",
   "./html/js/scrollNav.js",
+  "./html/js/barcode-scanner*.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";
 
-const imagesSrc = ["./node_modules/leaflet/dist/**/*.png"];
+const jsLibSrc = [
+  "./node_modules/@webcomponents/**/webcomponentsjs/**/*.js",
+  "./node_modules/@openfoodfacts/openfoodfacts-webcomponents/dist/**/*.js",
+  "./node_modules/foundation-sites/js/vendor/*.js",
+  "./node_modules/foundation-sites/js/foundation.js",
+  "./node_modules/papaparse/papaparse.js",
+  "./node_modules/osmtogeojson/osmtogeojson.js",
+  "./node_modules/leaflet/dist/leaflet.js",
+  "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
+  "./node_modules/blueimp-tmpl/js/tmpl.js",
+  "./node_modules/blueimp-load-image/js/load-image.all.min.js",
+  "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
+  "./node_modules/blueimp-file-upload/js/*.js",
+  "./node_modules/@yaireo/tagify/dist/tagify.js",
+  "./node_modules/cropperjs/dist/cropper.js",
+  "./node_modules/jquery-cropper/dist/jquery-cropper.js",
+  "./node_modules/jquery-form/src/jquery.form.js",
+  "./node_modules/highcharts/highcharts.js",
+  "./node_modules/jsvectormap/dist/jsvectormap.js",
+  "./node_modules/jsvectormap/dist/maps/world-merc.js",
+  "./node_modules/select2/dist/js/select2.min.js",
+  "./node_modules/jsbarcode/dist/JsBarcode.all.min.js",
+  "./node_modules/jquery/dist/jquery.js",
+];
+
+// Added function to handle multiple image formats
+function handleMultipleImageFormats(path: string) {
+  return [".png", ".jpg", ".jpeg", ".webp", ".svg"].map((ext) => path + ext);
+}
+const imagesSrc = [
+  "./node_modules/leaflet/dist/**/*.png",
+  ...handleMultipleImageFormats(
+    "./node_modules/@openfoodfacts/openfoodfacts-webcomponents/dist/assets/**/*"
+  ),
+];
 
 // nginx needs both uncompressed and compressed files as we use try_files with gzip_static always & gunzip
 
@@ -79,29 +115,10 @@ export function css() {
 }
 
 export function copyJs() {
-  const processed = src([
-    "./node_modules/@webcomponents/**/webcomponentsjs/**/*.js",
-    "./node_modules/@openfoodfacts/openfoodfacts-webcomponents/dist/**/*.js",
-    "./node_modules/foundation-sites/js/vendor/*.js",
-    "./node_modules/foundation-sites/js/foundation.js",
-    "./node_modules/papaparse/papaparse.js",
-    "./node_modules/osmtogeojson/osmtogeojson.js",
-    "./node_modules/leaflet/dist/leaflet.js",
-    "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
-    "./node_modules/blueimp-tmpl/js/tmpl.js",
-    "./node_modules/blueimp-load-image/js/load-image.all.min.js",
-    "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
-    "./node_modules/blueimp-file-upload/js/*.js",
-    "./node_modules/@yaireo/tagify/dist/tagify.js",
-    "./node_modules/cropperjs/dist/cropper.js",
-    "./node_modules/jquery-cropper/dist/jquery-cropper.js",
-    "./node_modules/jquery-form/src/jquery.form.js",
-    "./node_modules/highcharts/highcharts.js",
-    "./node_modules/jsvectormap/dist/jsvectormap.js",
-    "./node_modules/jsvectormap/dist/maps/world-merc.js",
-    "./node_modules/select2/dist/js/select2.min.js",
-    "./node_modules/jsbarcode/dist/JsBarcode.all.min.js",
-  ]).
+  const processed = src(jsLibSrc, {
+    // prefer jquery from package.json to foundation-vendored copy
+    ignore: "./node_modules/foundation-sites/js/vendor/jquery.js",
+  }).
     pipe(init()).
     pipe(terser()).
     pipe(write(".")).
@@ -138,7 +155,6 @@ function buildjQueryUi() {
     "./node_modules/jquery-ui/ui/position.js",
     "./node_modules/jquery-ui/ui/keycode.js",
     "./node_modules/jquery-ui/ui/unique-id.js",
-    "./node_modules/jquery-ui/ui/safe-active-element.js",
     "./node_modules/jquery-ui/ui/widgets/autocomplete.js",
     "./node_modules/jquery-ui/ui/widgets/menu.js",
   ]).
@@ -218,6 +234,7 @@ function watchAll() {
   watch(jsSrc, { delay: 500 }, buildJs);
   watch(sassSrc, { delay: 500 }, css);
   watch(imagesSrc, { delay: 500 }, copyImages);
+  watch(jsLibSrc, { delay: 500 }, copyJs);
   // do we want to watch everything to support checkout of a branch with new libs ?
 }
 export { watchAll as watch };

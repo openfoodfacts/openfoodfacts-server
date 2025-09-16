@@ -71,7 +71,6 @@
          "data_quality_info_tags" : [
             "en:packaging-data-incomplete",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown"
@@ -79,7 +78,6 @@
          "data_quality_tags" : [
             "en:packaging-data-incomplete",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown",
@@ -524,7 +522,7 @@
          "ingredients_without_ecobalyse_ids_n" : 0,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
-         "known_ingredients_n" : 10,
+         "known_ingredients_n" : 4,
          "lang" : "en",
          "languages" : {
             "en:english" : 5
@@ -933,6 +931,7 @@
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
+         "schema_version" : 996,
          "serving_quantity" : 10,
          "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
@@ -1040,7 +1039,6 @@
          "data_quality_info_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown"
@@ -1048,7 +1046,6 @@
          "data_quality_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown",
@@ -1553,6 +1550,7 @@
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
+         "schema_version" : 996,
          "serving_quantity" : 10,
          "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
@@ -1669,7 +1667,6 @@
          "data_quality_info_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown"
@@ -1677,7 +1674,6 @@
          "data_quality_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown",
@@ -2068,7 +2064,7 @@
          "ingredients_without_ecobalyse_ids_n" : 0,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
-         "known_ingredients_n" : 6,
+         "known_ingredients_n" : 3,
          "lang" : "en",
          "languages" : {
             "en:english" : 4
@@ -2435,6 +2431,7 @@
          "quantity" : "100 ml",
          "removed_countries_tags" : [],
          "rev" : 1,
+         "schema_version" : 996,
          "serving_quantity" : 10,
          "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
@@ -2541,7 +2538,6 @@
          "data_quality_info_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown"
@@ -2549,7 +2545,6 @@
          "data_quality_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown",
@@ -2924,7 +2919,7 @@
          "ingredients_without_ecobalyse_ids_n" : 0,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
-         "known_ingredients_n" : 8,
+         "known_ingredients_n" : 3,
          "lang" : "es",
          "languages" : {
             "en:english" : 4
@@ -3271,6 +3266,7 @@
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
+         "schema_version" : 996,
          "serving_quantity" : 10,
          "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
@@ -3394,7 +3390,6 @@
          "data_quality_info_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-known",
             "en:food-groups-2-known",
             "en:food-groups-3-unknown"
@@ -3402,7 +3397,6 @@
          "data_quality_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-known",
             "en:food-groups-2-known",
             "en:food-groups-3-unknown",
@@ -3902,7 +3896,7 @@
          "ingredients_without_ecobalyse_ids_n" : 0,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
-         "known_ingredients_n" : 4,
+         "known_ingredients_n" : 2,
          "lang" : "es",
          "languages" : {
             "en:english" : 5
@@ -4273,6 +4267,7 @@
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
+         "schema_version" : 996,
          "serving_quantity" : 10,
          "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
@@ -4412,7 +4407,6 @@
          "data_quality_info_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-known",
             "en:food-groups-2-known",
             "en:food-groups-3-unknown"
@@ -4420,7 +4414,6 @@
          "data_quality_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
-            "en:environmental-score-extended-data-not-computed",
             "en:food-groups-1-known",
             "en:food-groups-2-known",
             "en:food-groups-3-unknown",
@@ -4921,7 +4914,7 @@
          "ingredients_without_ecobalyse_ids_n" : 0,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
-         "known_ingredients_n" : 4,
+         "known_ingredients_n" : 2,
          "lang" : "en",
          "languages" : {
             "en:english" : 4
@@ -5293,6 +5286,7 @@
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
+         "schema_version" : 996,
          "serving_quantity" : 10,
          "serving_quantity_unit" : "g",
          "serving_size" : "10 g",

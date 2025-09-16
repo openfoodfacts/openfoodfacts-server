@@ -56,6 +56,7 @@ BEGIN {
 		&write_off_csv_file
 		&print_unknown_entries_in_gs1_maps
 		&convert_gs1_xml_file_to_json
+		&load_gpc_category_codes_from_categories_taxonomy
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -64,7 +65,8 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/%language_fields canonicalize_taxonomy_tag exists_taxonomy_tag/;
+use ProductOpener::Tags
+	qw/%language_fields canonicalize_taxonomy_tag exists_taxonomy_tag create_property_to_tag_mapping_table/;
 use ProductOpener::Display qw/$tt process_template display_date_iso/;
 
 use JSON::MaybeXS;
@@ -134,6 +136,44 @@ my %gs1_maps = (
 		"X99" => "None",
 	},
 
+	# https://gs1.se/en/guides/documentation/code-lists/t4066-diet-type-code/
+	dietTypeCode => {
+		"COELIAC" => "en:coeliac",
+		"DIABETIC" => "en:diabetic",
+		"DIETETIC" => "en:dietetic",
+		"FREE_FROM_GLUTEN" => "en:free-from-gluten",
+		"GRAIN_FREE" => "en:grain-free",
+		"HALAL" => "en:halal",
+		"HIGH_CARB" => "en:high-carb",
+		"HIGH_PROTEIN" => "en:high-protein",
+		"INFANT_FORMULA" => "en:infant-formula",
+		"KETO" => "en:keto",
+		"KOSHER" => "en:kosher",
+		"LACTASE_ENZYME" => "en:lactase-enzyme",
+		"LACTOSE_FREE" => "en:lactose-free",
+		"LOW_CALORIE" => "en:low-calorie",
+		"LOW_CARB" => "en:low-carb",
+		"LOW_FAT" => "en:low-fat",
+		"LOW_PROTEIN" => "en:low-protein",
+		"LOW_SALT" => "en:low-salt",
+		"MEAL_REPLACEMENT" => "en:meal-replacement",
+		"MOTHERS_MILK_SUBSTITUTE" => "en:mothers-milk-substitute",
+		"NUTRITION_SUPPLEMENT" => "en:nutrition-supplement",
+		"ORGANIC" => "en:organic",
+		"PALEO" => "en:paleo",
+		"PESCATARIAN" => "en:pescatarian",
+		"PLANT_BASED" => "en:plant-based",
+		"POLLOTARIAN" => "en:pollotarian",
+		"PROBIOTICS" => "en:probiotics",
+		"RAW" => "en:raw-food-diet",
+		"TOTAL_DIET_REPLACEMENT" => "en:total-diet-replacement",
+		"VEGAN" => "en:vegan",
+		"VEGETARIAN" => "en:vegetarian",
+		"WITHOUT_BEEF" => "en:without-beef",
+		"WITHOUT_PORK" => "en:without-pork",
+	},
+
+	# https://gs1.se/en/guides/documentation/code-lists/t3780-measurement-unit-code/
 	measurementUnitCode => {
 		"GRM" => "g",
 		"KGM" => "kg",
@@ -145,6 +185,7 @@ my %gs1_maps = (
 		"E14" => "kcal",
 		"KJO" => "kJ",
 		"H87" => "pièces",
+		"P1" => "%",
 	},
 
 	# reference: GS1 T4073 Nutrient type code
@@ -295,6 +336,7 @@ my %gs1_maps = (
 		"ŒUFS_DE_FRANCE" => "en:french-eggs",
 		"OEUFS_DE_FRANCE" => "en:french-eggs",
 		"ORIGINE_FRANCE_GARANTIE" => "fr:origine-france",
+		"PME_PLUS" => "fr:pme-plus",
 		"POMMES_DE_TERRES_DE_FRANCE" => "en:potatoes-from-france",
 		"PRODUIT_EN_BRETAGNE" => "en:produced-in-brittany",
 		"PROTECTED_DESIGNATION_OF_ORIGIN" => "en:pdo",
@@ -326,6 +368,10 @@ my %gs1_maps = (
 	timeMeasurementUnitCode => {
 		"MON" => "month",
 		"DAY" => "day",
+	},
+
+	claimElementCode => {
+		"SUGARS" => "en:no-added-sugars",
 	},
 );
 
@@ -520,6 +566,29 @@ my %gs1_message_to_off = (
 	],
 );
 
+=head2 %gs1_gpc_category_codes_to_off
+
+Maps GPC category codes to OFF categories.
+
+=cut
+
+my %gs1_gpc_category_codes_to_off = ();
+
+=head2 load_gpc_category_codes_from_categories_taxonomy()
+
+Loads the GPC category codes from the categories taxonomy (in the gpc_category_code:en: property) and stores them in %gs1_gpc_category_codes_to_off.
+
+=cut
+
+sub load_gpc_category_codes_from_categories_taxonomy() {
+
+	# exit if already loaded
+	return if %gs1_gpc_category_codes_to_off;
+
+	%gs1_gpc_category_codes_to_off = %{create_property_to_tag_mapping_table("categories", "gpc_category_code:en")};
+	return;
+}
+
 =head2 %gs1_product_to_off
 
 Defines the structure of the GS1 product data and how it maps to the OFF data.
@@ -551,7 +620,8 @@ my %gs1_product_to_off = (
 			"gdsnTradeItemClassification",
 			{
 				fields => [
-					["gpcCategoryCode", "sources_fields:org-gs1:gpcCategoryCode"],
+					# check if we have a category with the corresponding gpc property
+					["gpcCategoryCode", "sources_fields:org-gs1:gpcCategoryCode, +categories%gpc_category_codes"],
 					# not always present and could be in different languages
 					["gpcCategoryName", "sources_fields:org-gs1:gpcCategoryName, +categories_if_match_in_taxonomy"],
 				],
@@ -694,6 +764,27 @@ my %gs1_product_to_off = (
 								],
 
 								[
+									"diet_information:dietInformationModule",
+									{
+										fields => [
+											[
+												"dietInformation",
+												{
+													fields => [
+														[
+															"dietTypeInformation",
+															{
+																fields => [["dietTypeCode", "+labels%dietTypeCode"],],
+															},
+														],
+													],
+												},
+											],
+										],
+									},
+								],
+
+								[
 									"food_and_beverage_ingredient:foodAndBeverageIngredientModule",
 									{
 										fields => [["ingredientStatement", "ingredients_text"],],
@@ -736,6 +827,24 @@ my %gs1_product_to_off = (
 									},
 								],
 
+								# See https://navigator.gs1.org/gdsn/class-details?name=NutritionalProgramIngredientTypeCode&version=12
+								# As of 2025/06/01, the nutritionalProgramIngredients values seem to refer to the old Nutri-Score formula
+								# There seems to be new fields for the new formula:
+								# https://www.gs1.nl/kennisbank/gs1-data-source/levensmiddelen-drogisterij/welke-data/nutri-score/ (in Dutch)
+
+								# <health_related_information:healthRelatedInformationModule xmlns:health_related_information="urn:gs1:gdsn:health_related_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:health_related_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/HealthRelatedInformationModule.xsd">
+								#  <healthRelatedInformation>
+								#   <nutritionalProgram>
+								#    <nutritionalProgramCode>8</nutritionalProgramCode>
+								#    <nutritionalScore>A</nutritionalScore>
+								#    <nutritionalProgramIngredients>
+								#     <nutritionalProgramIngredientMeasurement measurementUnitCode="P1">59</nutritionalProgramIngredientMeasurement>
+								#     <nutritionalProgramIngredientTypeCode>FRUITS_VEGETABLES_LEGUMES_AND_NUTS</nutritionalProgramIngredientTypeCode>
+								#    </nutritionalProgramIngredients>
+								#   </nutritionalProgram>
+								#  </healthRelatedInformation>
+								# </health_related_information:healthRelatedInformationModule>
+
 								# 2021-12-20: it looks like the nutritionalProgramCode is now in an extra nutritionProgram field
 								[
 									"health_related_information:healthRelatedInformationModule",
@@ -751,6 +860,69 @@ my %gs1_product_to_off = (
 																match => [["nutritionalProgramCode", "8"],],
 																fields => [
 																	["nutritionalScore", "nutriscore_grade_producer"],
+																	[
+																		"nutritionalProgramIngredients",
+																		[
+																			# New Nutri-Score formula (2023)
+																			{
+																				match => [
+																					[
+																						"nutritionalProgramIngredientTypeCode",
+																						"FRUITS_VEGETABLES_LEGUMES_AND_NUTS"
+																					],
+																				],
+																				fields => [
+																					[
+																						'nutritionalProgramIngredientMeasurement',
+																						'fruits-vegetables-nuts_100g_value_unit'
+																					],
+																				],
+																			},
+																			{
+																				match => [
+																					[
+																						"nutritionalProgramIngredientTypeCode",
+																						"FRUITS_VEGETABLES_LEGUMES_AND_NUTS"
+																					],
+																				],
+																				fields => [
+																					[
+																						'nutritionalProgramIngredientMeasurement',
+																						'fruits-vegetables-nuts_100g_value_unit'
+																					],
+																				],
+																			},
+																			# Old Nutri-Score formula (2021)
+																			{
+																				match => [
+																					[
+																						"nutritionalProgramIngredientTypeCode",
+																						"FRUITS_VEGETABLES_LEGUMES_AND_NUTS"
+																					],
+																				],
+																				fields => [
+																					[
+																						'nutritionalProgramIngredientMeasurement',
+																						'fruits-vegetables-nuts_100g_value_unit'
+																					],
+																				],
+																			},
+																			{
+																				match => [
+																					[
+																						"nutritionalProgramIngredientTypeCode",
+																						"CONCENTRATED_FRUITS_AND_VEGETABLES"
+																					],
+																				],
+																				fields => [
+																					[
+																						'nutritionalProgramIngredientMeasurement',
+																						'fruits-vegetables-nuts-dried_100g_value'
+																					],
+																				],
+																			},
+																		],
+																	],
 																],
 															},
 														],
@@ -903,6 +1075,37 @@ my %gs1_product_to_off = (
 										],
 									},
 								],
+								[
+									"product_information:productInformationModule",
+									{
+										fields => [
+											[
+												"productInformationDetail",
+												{
+													fields => [
+														[
+															"claimDetail",
+															[
+																{
+																	match => [
+																		["claimMarkedOnPackage", "TRUE"],
+																		["claimTypeCode", "NO_ADDED"],
+																	],
+																	fields => [
+																		[
+																			"claimElementCode",
+																			"+labels%claimElementCode"
+																		],
+																	],
+																}
+															]
+														]
+													]
+												}
+											]
+										]
+									}
+								]
 							],
 						},
 					],
@@ -1419,6 +1622,32 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 							)
 						{
 
+							# special look up to see if we have a category with the corresponding property
+							if ($target_field eq '+categories%gpc_category_codes') {
+								if (defined $gs1_gpc_category_codes_to_off{$source_value}) {
+									$source_value = $gs1_gpc_category_codes_to_off{$source_value};
+									$target_field = '+categories';
+								}
+								else {
+									$log->debug(
+										"gs1_to_off - unknown gpc source value",
+										{
+											code => $results_ref->{code},
+											source_field => $source_field,
+											source_value => $source_value,
+											target_field => $target_field
+										}
+									) if $log->is_error();
+									defined $unknown_entries_in_gs1_maps{gpcCategoryCode}
+										or $unknown_entries_in_gs1_maps{gpcCategoryCode} = {};
+									defined $unknown_entries_in_gs1_maps{gpcCategoryCode}{$source_value}
+										or $unknown_entries_in_gs1_maps{gpcCategoryCode}{$source_value} = 0;
+									$unknown_entries_in_gs1_maps{gpcCategoryCode}{$source_value}++;
+									# Skip the entry
+									next;
+								}
+							}
+
 							# allergenTypeCode => '+traces%allergens',
 							# % sign means we will use a map to transform the source value
 							if ($target_field =~ /\%/) {
@@ -1703,7 +1932,7 @@ sub convert_gs1_json_message_to_off_products_csv ($json_ref, $products_ref, $mes
 		)
 	{
 		if (defined $json_ref->{$field}) {
-			print STDERR "removing encapsulating field $field\n";
+			# print STDERR "removing encapsulating field $field\n";
 			# If it is an array (e.g. catalogue_item_notification:catalogueItemNotification is an array in Alnatura GmbH messages),
 			# call convert_gs1_json_message_to_off_products_csv() for every child
 			if (ref($json_ref->{$field}) eq 'ARRAY') {

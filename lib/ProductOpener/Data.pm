@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -42,6 +42,9 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&init_data_debug
+		&can_use_off_query
+		&can_use_cache_results
 		&execute_query
 		&execute_aggregate_tags_query
 		&execute_count_tags_query
@@ -64,6 +67,7 @@ use experimental 'smartmatch';
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Cursor;
+use ProductOpener::HTTP qw/request_param single_param get_http_request_header create_user_agent/;
 
 use Storable qw(freeze);
 use MongoDB;
@@ -78,6 +82,80 @@ my $client;
 my $action = Action::CircuitBreaker->new();
 
 =head1 FUNCTIONS
+
+=head2 init_data_debug ($request_ref)
+
+Initializes the data_debug variable that will list parameters and info related to data queries
+
+=cut
+
+sub init_data_debug () {
+
+	my $data_debug = "data_debug start\n";
+
+	return $data_debug;
+}
+
+=head2 can_use_off_query ($data_debug_ref)
+
+Determine if we can use off_query backend:
+- off_query URL needs to be set in the configuration
+- off_query parameter is 1 (defaults to 1, pass off_query=0 to disable off_query)
+- we are not on the producers platform
+
+=cut
+
+sub can_use_off_query ($data_debug_ref) {
+
+	# TODO: pass parameters inside $request_ref instead, so that we don't have to call single_param() here
+	my $param_off_query = single_param("off_query") || 1;
+	my $platform = $server_options{producers_platform} ? "producers" : "public";
+
+	$$data_debug_ref .= "off_query: $param_off_query\n";
+	$$data_debug_ref .= "platform: $platform\n";
+	$$data_debug_ref .= "query_url: " . ($query_url || '') . "\n";
+
+	# use !! operator to convert to boolean
+	my $can_use_off_query
+		= !!(($param_off_query) and (not $platform eq 'producers') and ($query_url));
+
+	$$data_debug_ref .= "can_use_off_query: $can_use_off_query\n";
+	return $can_use_off_query;
+}
+
+=head2 can_use_cache_results ($data_debug_ref)
+
+Determine if we can use cached results:
+- no_cache parameter is not set
+- we are not on the producers platform
+- Cache-Control header is not set to no-cache
+
+=head3 parameters
+
+=head4 $data_debug_ref - ref string
+
+This parameter is modified to add debug information.
+
+=cut
+
+sub can_use_cache_results ($data_debug_ref) {
+
+	my $param_no_cache = single_param("no_cache");
+	my $cache_control = get_http_request_header("Cache-Control");
+	my $platform = $server_options{producers_platform} ? "producers" : "public";
+
+	$$data_debug_ref .= "Cache-Control: $cache_control\n" if defined $cache_control;
+	$$data_debug_ref .= "no_cache: $param_no_cache\n" if defined $param_no_cache;
+	$$data_debug_ref .= "platform: $platform\n";
+
+	my $can_use_cache = not(($platform eq 'producers')
+		or ($param_no_cache)
+		or ((defined $cache_control) and ($cache_control =~ /no-cache/i)));
+
+	$$data_debug_ref .= "can_use_cache: $can_use_cache\n";
+
+	return $can_use_cache;
+}
 
 =head2 execute_query( $subroutine )
 
@@ -122,14 +200,23 @@ sub execute_count_tags_query ($query) {
 	return execute_tags_query('count', $query);
 }
 
-sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref = undef, $limit = undef, $skip = undef) {
-	# Currently only send descending popularity_key sorts to off-query
-	# Note that $sort_ref is a Tie::IxHash so can't use $sort_ref->{popularity_key}
-	if ($parameters_ref->{off_query} && $sort_ref && $sort_ref->FETCH('popularity_key') == -1) {
+sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref, $limit, $skip, $data_debug_ref) {
+
+	defined $$data_debug_ref or $$data_debug_ref = "data_debug start\n";
+
+	# If possible, send to off-query, unless off_query is set to 0
+	if (can_use_off_query($data_debug_ref)) {
+
+		$$data_debug_ref .= "using off_query\n";
+
 		# Convert sort into an array so that the order of keys is not ambiguous
+		# Note: some queries may not have a sort (currently the case for the experimental recipe stats queries for parent_ingredients)
+		# e.g. https://world.openfoodfacts.org/search?categories_tags=en:pizzas&parent_ingredients=cheese,flour,tomato,olive%20oil
 		my @sort_array = ();
-		foreach my $k ($sort_ref->Keys) {
-			push(@sort_array, [$k, $sort_ref->FETCH($k)]);
+		if (defined $sort_ref) {
+			foreach my $k ($sort_ref->Keys) {
+				push(@sort_array, [$k, $sort_ref->FETCH($k)]);
+			}
 		}
 
 		my $results = execute_tags_query(
@@ -144,8 +231,15 @@ sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref =
 		);
 
 		if (defined $results) {
+			$$data_debug_ref .= "got results from off_query\n";
 			return ProductOpener::Cursor->new($results);
 		}
+		else {
+			$$data_debug_ref .= "no results from off_query\n";
+		}
+	}
+	else {
+		$$data_debug_ref .= "not using off_query\n";
 	}
 
 	my $cursor = get_products_collection($parameters_ref)->query($query_ref)->fields($fields_ref);
@@ -158,6 +252,9 @@ sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref =
 	if ($skip) {
 		$cursor = $cursor->skip($skip);
 	}
+
+	$$data_debug_ref .= "got results from MongoDB\n";
+
 	return $cursor;
 }
 
@@ -173,7 +270,7 @@ sub execute_tags_query ($type, $query) {
 		$log->debug('Executing PostgreSQL ' . $type . ' query on ' . $url, {query => $query})
 			if $log->is_debug();
 
-		my $ua = LWP::UserAgent->new();
+		my $ua = create_user_agent();
 		# Add a timeout to the HTTP query
 		$ua->timeout(15);
 		my $resp = $ua->post(

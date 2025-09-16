@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Link Config.pm and Config2.pm
-ln -sfT /opt/product-opener/lib/ProductOpener/Config2_docker.pm /opt/product-opener/lib/ProductOpener/Config2.pm
+ln -sfT Config2_docker.pm /opt/product-opener/lib/ProductOpener/Config2.pm
 
 # 2023-08-16 migration for build-cache… should be in a volume
 if [[ -L /mnt/podata/build-cache ]]
