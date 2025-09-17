@@ -806,7 +806,9 @@ paths:
                                         type:
                                           type: string
                                           description: The type of the parameter. "tags" indicates a comma-separated list of canonical tags is expected.
-                                          example: "tags"                                                 
+                                          enum:
+                                            - "tags"
+                                          example: "tags"                                             
 components:
   parameters:
     cc:
