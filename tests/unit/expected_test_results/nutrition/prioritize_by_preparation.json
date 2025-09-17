@@ -1,0 +1,65 @@
+{
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "sodium" : {
+               "source" : "packaging",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.1
+            },
+            "sugars" : {
+               "source" : "packaging",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 5.2
+            }
+         },
+         "per" : "100g",
+         "preparation" : "prepared"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "protein" : {
+                  "unit" : "g",
+                  "value" : 6.2,
+                  "value_string" : "6.2"
+               },
+               "sodium" : {
+                  "modifier" : "<=",
+                  "unit" : "g",
+                  "value" : 2,
+                  "value_string" : "2.0"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         },
+         {
+            "nutrients" : {
+               "sodium" : {
+                  "unit" : "g",
+                  "value" : 0.1,
+                  "value_string" : "0.1"
+               },
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : 5.2,
+                  "value_string" : "5.2"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "prepared",
+            "source" : "packaging"
+         }
+      ]
+   }
+}

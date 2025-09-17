@@ -29,7 +29,7 @@ https://world.openfoodfacts.net/api/v2/product/3017624010701
 ```
 
 The response returns every data about Nutella Ferrero on the database. To get the nutriscore, we need to limit the response by specifying the nutriscore field, which is the `nutrition_grades` and `product_name`.
-<!--Is it only nutriscore_data -->
+{/* <!--Is it only nutriscore_data --> */}
 
 ### Query Parameters
 
@@ -108,7 +108,7 @@ The `product` object in the response now contains the extra fields to show how t
 
 For more details, see the reference documentation for [Get A Product By Barcode](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-).
 
-<!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
+{/* <!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc--> */}
 
 ## Completing products to get the Nutri-Score
 
@@ -117,7 +117,7 @@ For more details, see the reference documentation for [Get A Product By Barcode]
 When these fields are missing in a nutriscore computation response, it signifies that the product does not have a Nutri-Score computation due to some missing nutrition data.
 Let's look at the [100% Real Orange Juice](https://world.openfoodfacts.net/api/v2/product/0180411000803/100-real-orange-juice?product_name,nutriscore_data,nutriments,nutrition_grades). If the product nutrition data is missing some fields, you can volunteer and contribute to it by getting the missing tags and writing to the OFF API to add them.
 
-<!-- I dont know if using 100% Real Orange Juice is a good approach for now , should we state that it was not computed at the time of writing this article just incase it gets computed in future or there is a product we can use to test this that wont change in future ? -->
+{/* <!-- I dont know if using 100% Real Orange Juice is a good approach for now , should we state that it was not computed at the time of writing this article just incase it gets computed in future or there is a product we can use to test this that wont change in future ? --> */}
 
 To know the missing tags, check the `misc-tags` field from the product response.
 
@@ -163,15 +163,14 @@ Add your valid `user_id` and `password` as body parameters to your request for a
 
 To write `sodium` and `category` to 100% Real Orange Juice so that the Nutri-Score can be computed, the request body should contain these fields:
 
-| Key        | Value           | Description  |
-| ------------- |:-------------:| -----:|
-| user_id     | *** | A valid user_id |
-| password      | ***     |   A valid password |
-| code | 0180411000803      |    The barcode of the product to be added/edited |
-| nutriment_sodium | 0.015      |    Amount of sodium |
-| nutriment_sodium_unit | g      |   Unit of sodium relative to the amount |
-| categories | Orange Juice     |   Category of the Product |
-
+| Key                   |     Value     |                                   Description |
+| --------------------- | :-----------: | --------------------------------------------: |
+| user_id               |    \*\*\*     |                               A valid user_id |
+| password              |    \*\*\*     |                              A valid password |
+| code                  | 0180411000803 | The barcode of the product to be added/edited |
+| nutriment_sodium      |     0.015     |                              Amount of sodium |
+| nutriment_sodium_unit |       g       |         Unit of sodium relative to the amount |
+| categories            | Orange Juice  |                       Category of the Product |
 Using curl:
 
 ```bash
@@ -228,7 +227,7 @@ For more details, see the reference documentation for [Add or Edit A Product](ht
 
 You can also check the reference cheatsheet to know how to add/edit other types of product data.
 
-<!-- Include the link of the cheatsheet once it is published. -->
+{/* <!-- Include the link of the cheatsheet once it is published. --> */}
 
 ## Search for a Product by Nutri-score
 

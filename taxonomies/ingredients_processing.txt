@@ -246,6 +246,7 @@ sr: list
 # the ends/small amounts cut off, e.g. beans.
 # possible false positive "trimmed with"="garnished with", but no instances in the data currently.
 en: trimmed
+sv: klippt
 
 en: cut, steel cut, regular cut
 #en:false_positives:cuttlefish, cutlet
@@ -1244,7 +1245,7 @@ de: getrocknet, getrocknete, getrockneter, getrocknetes, getrockneten, getrockne
 es: seco, seca, secos, secas, secados, secadas, desecado, desecada, desecados, desecadas
 et: kuivatatud
 fi: kuivattu, kuivatut
-fr: séché, séchée, séchés, séchées, sèches
+fr: séché, séchée, séchés, séchées, sèches, sec, secs, sèche, sèches
 he: מיובשים, מיובש, יבש
 hr: sušena, sušene, sušeni, sušeno, suha, suhe, suhi, suho, suhog
 hu: szárított
@@ -1269,7 +1270,7 @@ uk: сушена, сухе
 en: semi-dried
 de: halbgetrocknet, halbgetrocknete, halbgetrockneter, halbgetrocknetes, halbgetrockneten, halbgetrocknetem, halb getrocknet
 es: semiseco
-fr: semi séché, semi-séchée, semi-séchés, semi-séchées, mi-séché, mi-séchée, mi-séchés, mi-séchées
+fr: semi séché, semi-séchée, semi-séchés, semi-séchées, mi-séché, mi-séchée, mi-séchés, mi-séchées, semi-sec, semi-secs, semi-sèche, semi-sèches, demi-sec, demi-secs, demi-sèche, demi-sèches
 nl: halfgedroogd, halfgedroogde
 pl: podsuszany, podsuszana, podsuszane
 pt: semi-seco, semi-seca, semi-secos, semi-secas
@@ -2411,6 +2412,7 @@ fr: confit, confite, confits, confites, confit de, confit d'
 hr: kandirana, kandirane, kandiranog
 hu: kandírozott, konfitált
 it: candito, candita, canditi, candite
+ja: 甘露煮
 nl: gekonfijt, gekonfijte
 pl: kandyzowany, kandyzowana, kandyzowane, kandyzowanych, kandyzowanego, kandyzowanej
 pt: confitado, confitada, confitados, confitadas
@@ -2632,8 +2634,8 @@ ro: omogenizat
 wikidata:en: Q1165158
 wikipedia:en: https://en.wikipedia.org/wiki/Homogenization_(chemistry)
 
-# for ingredients, lactose-free is not a processing but involves a chemical process, 
-# use of enzyme lactase to break down lactose into simpler sugars (glucose and galactose), 
+# for ingredients, lactose-free is not a processing but involves a chemical process,
+# use of enzyme lactase to break down lactose into simpler sugars (glucose and galactose),
 # which are easier to digest for those with lactose intolerance.
 en: lactose-free
 bg: без лактоза, безлактозно
@@ -2656,7 +2658,7 @@ it: filtrato
 ru: Фильтрат
 sl: filtrat
 
-# microfiltration: filtration process where a contaminated fluid is passed through a special 
+# microfiltration: filtration process where a contaminated fluid is passed through a special
 # pore-sized membrane filter to separate microorganisms and suspended particles from process liquid
 en: microfiltrated
 fr: microfiltré

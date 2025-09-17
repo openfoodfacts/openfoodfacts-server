@@ -101,6 +101,22 @@
 
 
 
+	<off-webcomponents-configuration
+  language-code="en"
+  country-code="world"
+  robotoff-configuration='{
+    "apiUrl": "//backend:8881//api/v1",
+    "imgUrl": "//images.openfoodfacts.localhost/images/products"
+  }'
+  
+  folksonomy-configuration='{
+  "apiUrl": "//api.folksonomy.openfoodfacts.localhost"
+  }'
+  
+  openfoodfacts-api-url="//world.openfoodfacts.localhost"
+  assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
+  ></off-webcomponents-configuration>
+	
 	
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
 	
@@ -355,7 +371,10 @@
 
 								
 
+
+
 <section id="donation-banner-top" class="donation-banner row">
+
   <div class="donation-banner__left-aside">
     <div class="donation-banner__hook-section">
       <p>Help us inform millions of consumers around the world about what they eat</p>
@@ -409,6 +428,8 @@
       </div>
     </div>
   </div>
+
+
   <div class="donation-banner__close">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -441,11 +462,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2024_a', 1, 180);
+    setBannerCookie('off_days_2025', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
+  if (getBannerCookie('off_days_2025') !== '') {
     bannerID.style.display = 'none';
   } else {
     bannerID.style.display = 'flex';
@@ -2551,6 +2572,22 @@ You accept to be credited by re-users by a link to the product your are contribu
                                 
 
                                     
+
+                                
+
+                                    
+
+                                
+
+                                    
+
+                                
+
+                                    
+
+                                
+
+                                    
                                         <tr id="nutriment_fiber_tr" class="nutriment_main">
 
                                     <td>
@@ -2797,6 +2834,10 @@ You accept to be credited by re-users by a link to the product your are contribu
                                             
                                                     </td>
                                             </tr>
+
+                                    
+
+                                
 
                                     
 
@@ -4053,6 +4094,7 @@ $(document).on("focus", ".select2", function (e) {
 <script type="text/javascript">
 var admin = 0;
 </script>
+<script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/tagify-init.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/product-multilingual.js?v=--ignore--"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/product-history.js"></script>
 
@@ -4103,9 +4145,13 @@ var nutriments = {
 "Lactose" : "lactose",
 "Maltose" : "maltose",
 "Maltodextrins" : "maltodextrins",
+"Psicose (Allulose)" : "psicose",
 "Starch" : "starch",
 "Polyols (sugar alcohols)" : "polyols",
 "Erythritol" : "erythritol",
+"Isomalt" : "isomalt",
+"Maltitol" : "maltitol",
+"Sorbitol" : "sorbitol",
 "Soluble fiber" : "soluble-fiber",
 "Insoluble fiber" : "insoluble-fiber",
 "Casein" : "casein",
@@ -4145,6 +4191,7 @@ var nutriments = {
 "Iodine" : "iodine",
 "Caffeine" : "caffeine",
 "Taurine" : "taurine",
+"Methylsulfonylmethane" : "methylsulfonylmethane",
 "PH" : "ph",
 "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils" : "fruits-vegetables-nuts",
 "Fruits‚ vegetables and nuts - dried" : "fruits-vegetables-nuts-dried",
@@ -4212,9 +4259,13 @@ var otherNutriments = [
 { "value" : "Lactose", "unit" : "g", "iu": false  },
 { "value" : "Maltose", "unit" : "g", "iu": false  },
 { "value" : "Maltodextrins", "unit" : "g", "iu": false  },
+{ "value" : "Psicose (Allulose)", "unit" : "g", "iu": false  },
 { "value" : "Starch", "unit" : "g", "iu": false  },
 { "value" : "Polyols (sugar alcohols)", "unit" : "g", "iu": false  },
 { "value" : "Erythritol", "unit" : "g", "iu": false  },
+{ "value" : "Isomalt", "unit" : "g", "iu": false  },
+{ "value" : "Maltitol", "unit" : "g", "iu": false  },
+{ "value" : "Sorbitol", "unit" : "g", "iu": false  },
 { "value" : "Soluble fiber", "unit" : "g", "iu": false  },
 { "value" : "Insoluble fiber", "unit" : "g", "iu": false  },
 { "value" : "Casein", "unit" : "g", "iu": false  },
@@ -4254,6 +4305,7 @@ var otherNutriments = [
 { "value" : "Iodine", "unit" : "µg", "iu": false  },
 { "value" : "Caffeine", "unit" : "mg", "iu": false  },
 { "value" : "Taurine", "unit" : "g", "iu": false  },
+{ "value" : "Methylsulfonylmethane", "unit" : "mg", "iu": false  },
 { "value" : "PH", "unit" : "", "iu": false  },
 { "value" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils", "unit" : "%", "iu": false  },
 { "value" : "Fruits‚ vegetables and nuts - dried", "unit" : "%", "iu": false  },

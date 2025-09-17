@@ -58,6 +58,10 @@
 
 	[% analytics %]
 
+	[% INCLUDE web/common/includes/off_webcomponents_configuration.tt.html language_code = lc country_code = cc
+	robotoff_domain = robotoff_url images_domain = images_subdomain api_domain = formatted_subdomain folksonomy_uri =
+	folksonomy_uri %]
+	
 	[% IF ! content_only %]
 	<div class="skip"><a href="#content" tabindex="0">[% lang('skip_to_content') %]</a></div>
 	[% END %]

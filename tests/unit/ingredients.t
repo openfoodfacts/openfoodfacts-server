@@ -915,6 +915,15 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "vegetabilisk olja (solros, raps i varierande proportion)",
 		},
 	],
+
+	# FR - demi-secs processing + "garden peas medium" (official name in French for some peas)
+	[
+		"fr-haricots-blancs-demi-secs-garden-peas-medium",
+		{
+			lc => "fr",
+			ingredients_text => "haricots blancs demi-secs, garden peas medium, carottes parisiennes",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

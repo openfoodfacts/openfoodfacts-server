@@ -86,6 +86,7 @@ use ProductOpener::APIProductRevert qw/revert_product_api/;
 use ProductOpener::APIProductServices qw/product_services_api/;
 use ProductOpener::APITagRead qw/read_tag_api/;
 use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
+use ProductOpener::APITaxonomy qw/taxonomy_canonicalize_tags_api taxonomy_display_tags_api/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Apache2::RequestIO();
@@ -358,6 +359,7 @@ sub send_api_response ($request_ref) {
 	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || "200";
 	delete $request_ref->{api_response}{status_code};
 
+	# Make sure we include convert_blessed to cater for blessed objects, like booleans
 	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
 	# add headers
@@ -425,6 +427,18 @@ my $dispatch_table = {
 	taxonomy_suggestions => {
 		GET => \&taxonomy_suggestions_api,
 		HEAD => \&taxonomy_suggestions_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Taxonomy canonicalize tags
+	taxonomy_canonicalize_tags => {
+		GET => \&taxonomy_canonicalize_tags_api,
+		HEAD => \&taxonomy_canonicalize_tags_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Taxonomy diplay tags
+	taxonomy_display_tags => {
+		GET => \&taxonomy_display_tags_api,
+		HEAD => \&taxonomy_display_tags_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 	},
 	# Tag read

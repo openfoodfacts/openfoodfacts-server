@@ -1315,7 +1315,7 @@ en: E141, Copper complexes of chlorophylls and chlorophyllins, Copper complexes 
 xx: E141
 bg: E141, E141 food additive
 ca: E141, Complexos cúprics de clorofil i clorofilines
-cs: E141, E141 food additive
+cs: E141, Mědnaté komplexy chlorofylů a chlorofylinů
 da: E141, E141 food additive
 de: E141, Kupferhaltigen Komplexe der Chlorophylle und Chlorophylline, Kupferhaltige Komplexe der Chlorophylle und Chlorophylline
 el: E141, E141 food additive
@@ -3213,7 +3213,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q27145212
 
-en: E164, saffron
+en: E164, saffron, Gardenia Yellow
 xx: E164
 af: E164, saffraan
 an: E164, zafrán
@@ -3296,6 +3296,7 @@ ciqual_food_name:fr: Safran
 # sco:E164, saffron
 # yue:E164, 藏紅花
 e_number:en: 164
+mandatory_additive_class:en: en:colour
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q25434
@@ -4410,7 +4411,7 @@ en: E213, Calcium benzoate
 xx: E213
 bg: E213, Калциев бензоат
 ca: E213, Benzoat de calci
-cs: E213, Calcium benzoate, Benzoát vápenatý, E 213, Benzoan vápenatý
+cs: E213, Benzoát vápenatý, E 213, Benzoan vápenatý, Calcium benzoate
 da: E213, Calciumbenzoat
 de: E213, Calciumbenzoat, E 213
 el: E213, Βενζοϊκο ασβεστιο
@@ -8570,6 +8571,7 @@ en: E331, Sodium citrates
 xx: E331
 bg: E331, натриеви цитрати
 ca: E331, Citrats de sodi
+cs: E331, Citronany sodné
 da: E331, Natriumcitrater
 de: E331, Natriumcitrate, Natriumcitraten
 es: E331, Citratos de sodio
@@ -8811,7 +8813,7 @@ en: E333, Calcium citrates, Calcium citrate, Calcium salts of citric acid
 xx: E333
 bg: E333, Калциев цитрат
 ca: E333, Citrats de calci
-cs: E333, Citrát vápenatý
+cs: E333, Citronany vápenaté
 de: E333, Calciumcitrat, Kalziumzitrat, Calciumcitrate, Calciumsalze der Zitronensäure
 el: E333, Κιτρικο ασβεστιο
 es: E333, Citratos de calcio, citrato cálcico, citrato de calcio, Sal amarga
@@ -9006,7 +9008,7 @@ en: E335, Sodium tartrates
 xx: E335
 bg: E335, Натриеви тартарати
 ca: E335, Tartrats de sodi
-cs: E335, Sodné soli kyseliny vinné
+cs: E335, Vinany sodné, Sodné soli kyseliny vinné
 da: E335, Natriumtartrater
 de: E335, Natriumtartrate
 el: E335, Ταρτρικά αλάτα νατρίου
@@ -9097,11 +9099,12 @@ wikidata:en: Q17997701
 en: E336, Potassium tartrates
 xx: E336
 ca: E336, Tartrat de potassi
+cs: E336, Vinany draselné
 de: E336, Kaliumtartrate
 eo: E336, Kalia tartrato
 es: E336, tartratos de potasio
 fi: E336, kaliumtartraatit, Kaliumtartraatti, Kaliumtartraattia
-fr: E336, Tartrates de potassium, Tartrate de potassium, argol, crème de tartre
+fr: E336, Tartrates de potassium, Tartrate de potassium, argol
 hu: E336, Kálium-tartarát
 it: E336, tartrati di potassio, Tartrato di potassio
 nl: E336, Kaliumtartraten
@@ -9124,14 +9127,14 @@ wikipedia:en: https://en.wikipedia.org/wiki/Potassium_tartrate
 en: E336(i), Monopotassium tartrate, monopotassic tartrate, Potassium bitartrate, potassium hydrogen tartrate, cream of tartar
 xx: E336(i)
 bg: E336(i), Монокалиев тартарат
-cs: E336(i), Monopotassium tartrate
+cs: E336(i), Vinan monodraselný, Hydrogenvinan draselný, Monopotassium tartrate
 da: E336(i), Monokaliumtartrat
 de: E336(i), Monokaliumtartrat, Kaliumtartrat - einbasig
 el: E336(i), Οξινο τρυγικο καλιο
 es: E336(i), Tartrato monopotásico, bitartrato de potasio
 et: E336(i), Kaaliumvesiniktartraat
 fi: E336(i), Monokaliumtartraatti, Monokaliumtartraattia
-fr: E336(i), Tartrate monopotassique, bitartrate de potassium
+fr: E336(i), Tartrate monopotassique, bitartrate de potassium, crème de tartre
 hr: E336(i), monokalijev tartarat
 hu: E336(i), Monokálium-tartarát
 it: E336(i), Tartrato monopotassico, bitartrato di potassio
@@ -11275,7 +11278,7 @@ bg: E405, Пропан-1\,2-диол алгинат
 ca: E405, Alginat d'1\,2-propà-diol, alginat de propilenglicol
 cs: E405, Propan-1\,2-diol-alginát
 da: E405, Propylenglycolalginat
-de: E405, Propylenglycol-alginat, Hydroxypropyl-Alginat
+de: E405, Propylenglycolalginat, Propylenglykolalginat, Hydroxypropyl-Alginat
 el: E405, Αλγινικη προπανοδιολη-1\,2
 es: E405, Alginato de propilenglicol, Alginato de propano-1\,2-diol, Alginato propilenglicol, Alginato de propilenoglicol, E 405
 et: E405, 1\,2-propaandioolalginaat
@@ -16877,7 +16880,7 @@ en: E503, Ammonium carbonates
 xx: E503
 bg: E503, Амониеви карбонати
 ca: E503, carbonatos de amonio, carbonats d'amoni
-cs: E503, Amoniakální uhličitany
+cs: E503, Uhličitany amonné
 da: E503, ammoniumkarbonater, ammoniumcarbonater
 de: E503, Ammoniumcarbonate
 el: E503, Αμμωνιακά άλατα
@@ -17454,7 +17457,7 @@ en: E512, Stannous chloride, Tin chloride, Tin(II) chloride
 xx: E512
 bg: E512, Калаен хлорид, Стано хлорид
 ca: E512, Clorur estannós, chlorur estannos
-cs: E512, Stannous chloride, Chlorid cínatý
+cs: E512, Chlorid cínatý, Stannous chloride
 da: E512, Stannochlorid, Tinchlorid
 de: E512, Zinn(ii)-chlorid, Zinnchlorid
 el: E512, Χλωριουχος κασσιτερος(ιι), Χλωριούχος κασσίστερος
@@ -17521,7 +17524,7 @@ ar: E514, كبريتات الصوديوم
 az: E514, Natrium sulfatlar
 bg: E514, Натриеви сулфати
 ca: E514, Sulfats de sodi
-cs: E514, sírany sodné
+cs: E514, Sírany sodné
 da: E514, Natriumsulfater
 de: E514, Natriumsulfater
 el: E514, Θειικά άλατα νατρίου
@@ -17559,13 +17562,15 @@ sk: E514, sirany sodné
 sl: E514, Natrijevi sulfati
 sq: E514, Sulfatet e natriumit
 sr: E514, Натријум сулфати
-sv: E514, Natriumsulfater
+sv: E514, natriumsulfater
 th: E514, โซเดียมซัลเฟต
 tr: E514, Sodyum sülfatlar
 uk: E514, Сульфати натрію
 vi: E514, Natri sulfat
 zh: E514, 硫酸钠
 e_number:en: 514
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q211737
 
 < en:E514
@@ -17592,7 +17597,7 @@ pt: E514(i), Sulfato de sódio, Sal de Glauber
 ro: E514(i), Sulfat de sodiu
 sk: E514(i), Síran sodný, siran sodný
 sl: E514(i), Natrijev sulfat
-sv: E514(i), Natriumsulfat, Glaubersalt
+sv: E514(i), natriumsulfat, Glaubersalt
 e_number:en: 514
 wikidata:en: Q211737
 
@@ -17619,7 +17624,7 @@ pt: E514(ii), Hidrogenossulfato de sódio, Sulfato ácido de sódio
 ro: E514(ii), Bisulfat de sodiu, Sulfat acid de sodiu
 sk: E514(ii), Hydrogensíran sodný, Kyslý síran sodný, bisulfát sodný
 sl: E514(ii), Natrijev hidrogensulfat, kisli natrijev sulfat, natrijev bisulfat
-sv: E514(ii), Natriumvätesulfat, Surt natriumsulfat
+sv: E514(ii), natriumvätesulfat, surt natriumsulfat
 e_number:en: 514
 wikidata:en: Q211737
 
@@ -26494,6 +26499,12 @@ uk: Йодид калію
 zh: 碘化钾
 wikidata:en: Q121874
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium_iodide
+
+en: methylsulfonylmethane, dimethyl sulfone, methyl sulfone
+xx: MSM, OptiMSM
+sv: metylsulfonylmetan
+wikidata:en: Q423842
+wikipedia:en: https://en.wikipedia.org/wiki/Methylsulfonylmethane
 
 # Japanese additives can be listed only with their type (e.g. amino acids), without the specific additive name
 
