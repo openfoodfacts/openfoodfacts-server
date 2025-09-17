@@ -339,16 +339,15 @@ function displayFolksonomyPropertyValues() {
             return;
         }
         console.log("FEUS - displayFolksonomyPropertyValues() - " + JSON.stringify(data));
-        const index = data.length;
         let content = "";
         // Sort by property
         const d = data.sort(function(a,b){ return a.k <b.k ? 1 :-1; });
-        for (let i = index - 1; i >= 0; i -= 1) {
+        for (let index = data.length - 1; index >= 0; index -= 1) {
             content += ('<tr>' +
-                        '<td class="version" data-version="' + d[i].version + '"> </td>' +
-                        '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+d[i].k+'">🛈</a></td>' +
-                        '<td class="property"><a href="/property/' + d[i].k + '">'                      + d[i].k + '</a></td>' +
-                        '<td class="value"><a href="/property/' + d[i].k + '/value/' + d[i].v +'">' + d[i].v + '</a></td>' +
+                        '<td class="version" data-version="' + d[index].version + '"> </td>' +
+                        '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+d[index].k+'">🛈</a></td>' +
+                        '<td class="property"><a href="/property/' + d[index].k + '">'                      + d[index].k + '</a></td>' +
+                        '<td class="value"><a href="/property/' + d[index].k + '/value/' + d[index].v +'">' + d[index].v + '</a></td>' +
                         '<td>'+
                         '<span class="button tiny fe_save_kv" style="display: none">Save</span> '+
                         '<span class="button tiny fe_edit_kv">Edit</span> '+
@@ -621,14 +620,13 @@ function displayFolksonomyForm() {
     $.getJSON(feAPIProductURL, function(data) {
         console.log("FEUS - displayFolksonomyForm() - URL: " + feAPIProductURL);
         console.log("FEUS - displayFolksonomyForm() - " + JSON.stringify(data));
-        const index = data.length;
         let content = "";
         const d = data.sort(function(a,b){ return a.k <b.k ?1 :-1; });
-        for (let i = index - 1; i >= 0; i -= 1) {
+        for (let index = data.length - 1; index >= 0; index -= 1) {
             content += ('<form class="free_properties_form">' +
                         '<p class="property_value">' +
-                        '<label for="feus-' + d[i].k + '" class="property">' + d[i].k + '</label> ' +
-                        '<input id="feus-' + d[i].k + '" name="'+ d[i].k + '" class="value text" value="'+ d[i].v + '">' +
+                        '<label for="feus-' + d[index].k + '" class="property">' + d[index].k + '</label> ' +
+                        '<input id="feus-' + d[index].k + '" name="'+ d[index].k + '" class="value text" value="'+ d[index].v + '">' +
                         '</p>' +
                         '</form>');
         }
