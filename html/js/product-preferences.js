@@ -249,8 +249,8 @@ function initialize_unwanted_ingredients_tagify() {
 
 // Populate the input field for unwanted ingredients and initialize tagify on it
 // As it calls several JS, CSS and APIs, we do it only when the preferences form is shown
-var unwanted_ingredients_preferences_initalized = false;
-var attribute_unwanted_ingredients_enabled = false;
+let unwanted_ingredients_preferences_initalized = false;
+let attribute_unwanted_ingredients_enabled = false;
 
 // We use jQuery to load the CSS file dynamically
 function loadCSS(href) {

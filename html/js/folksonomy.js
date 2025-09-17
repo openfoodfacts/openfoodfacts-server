@@ -40,7 +40,7 @@ const corsProxy = "";                                        // For production
 const docURL = new URL(document.URL);
 const feHost = "api.folksonomy." + docURL.hostname.split(".").slice(1).join(".");
 const feAPI = corsProxy + docURL.protocol + "//" + feHost;
-var feAPIProductURL, code, bearer, prop;
+let feAPIProductURL, code, bearer, prop;
 const authrenewal = 1 * 5 * 60 * 60 * 1000;
 //folksonomy_engine_init();
 
@@ -343,7 +343,8 @@ function displayFolksonomyPropertyValues() {
         let content = "";
         // Sort by property
         const d = data.sort(function(a,b){ return a.k <b.k ? 1 :-1; });
-        while (index--) {
+        while (index > 0) {
+            index -= 1;
             content += ('<tr>' +
                         '<td class="version" data-version="' + d[index].version + '"> </td>' +
                         '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+d[index].k+'">🛈</a></td>' +
@@ -624,7 +625,8 @@ function displayFolksonomyForm() {
         let index = data.length;
         let content = "";
         const d = data.sort(function(a,b){ return a.k <b.k ?1 :-1; });
-        while (index--) {
+        while (index > 0) {
+            index -= 1;
             content += ('<form class="free_properties_form">' +
                         '<p class="property_value">' +
                         '<label for="feus-' + d[index].k + '" class="property">' + d[index].k + '</label> ' +
@@ -925,7 +927,7 @@ function findOcc(arr, key) {
         // If yes! then increase the occurrence by 1
         arr2.forEach((k) => {
         if (k[key] === x[key]) {
-            k.occurrence++;
+            k.occurrence += 1;
         }
         });
     } else {
