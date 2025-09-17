@@ -56,7 +56,6 @@ use Tie::IxHash;
 
 use Encode;
 
-
 =head2 display_preferences_api ( $target_lc )
 
 Only for API V0 to V2
@@ -82,11 +81,11 @@ sub display_preferences_api ($request_ref, $target_lc) {
 		$target_lc = $lc;
 	}
 
-    $request_ref->{lc} = $target_lc;
+	$request_ref->{lc} = $target_lc;
 
-    # We use the V3 API function to get the list of preferences
+	# We use the V3 API function to get the list of preferences
 	$request_ref->{api_response} = {};
-    preferences_api($request_ref);
+	preferences_api($request_ref);
 
 	$request_ref->{structured_response} = $request_ref->{api_response}{preferences};
 
@@ -118,7 +117,7 @@ sub preferences_api ($request_ref) {
 
 	my $target_lc = $request_ref->{lc};
 
-    $response_ref->{preferences} = [];
+	$response_ref->{preferences} = [];
 
 	foreach my $preference ("not_important", "important", "very_important", "mandatory") {
 
@@ -139,13 +138,12 @@ sub preferences_api ($request_ref) {
 		}
 
 		push @{$response_ref->{preferences}}, $preference_ref;
-	} 
+	}
 
-    set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
+	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
 
 	return;
 }
-
 
 =head2 display_attribute_groups_api ( $request_ref, $target_lc )
 
@@ -221,11 +219,9 @@ sub attribute_groups_api ($request_ref) {
 
 	$response_ref->{attribute_groups} = list_attributes($target_lc, $request_ref->{api_version});
 
-    set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
+	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
 
 	return;
 }
-
-
 
 return 1;
