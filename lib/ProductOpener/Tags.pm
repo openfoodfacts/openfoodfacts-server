@@ -1259,7 +1259,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	binmode STDOUT, ":encoding(UTF-8)";
 
 	my $result_dir = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result/";
-	ensure_dir_created_or_die("$result_dir");
+	ensure_dir_created_or_die($result_dir);
 
 	# Some taxonomy tag types include other tag types (e.g. origins includes countries)
 	my @tagtypes = ($tagtype);
@@ -1467,7 +1467,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				$line =~ s/^\s+//;
 
 				# Make sure we don't have empty entries
-				if ($line eq "") {
+				if (!length($line)) {
 					die("Empty entry at line $line_number in $file_path\n");
 				}
 				# split on comma
@@ -2661,11 +2661,11 @@ sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 			chomp($line);
 			$line =~ s/\s+$//s;
 
-			next if (($line =~ /^#/) or ($line eq ""));
+			next if (($line =~ /^#/) or (!length($line)));
 			my $type = "with";
-			if ($line =~ /^-/) {
+			if ($line =~ /^-(.*)/) {
 				$type = "without";
-				$line = $';
+				$line = $1;
 			}
 			my $tag = canonicalize_taxonomy_tag("en", $tagtype, $line);
 			my $tagid = get_taxonomyid("en", $tag);
@@ -4742,7 +4742,7 @@ sub add_users_translations_to_taxonomy ($tagtype) {
 				my $l = $1;
 				my $tag = $2;
 
-				if ($first_lc eq "") {
+				if (!length($first_lc)) {
 					$first_language_tag = $tag;
 					$first_lc = $l;
 					$tag =~ s/,.*//;

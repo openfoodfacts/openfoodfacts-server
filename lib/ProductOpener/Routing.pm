@@ -722,7 +722,7 @@ sub match_route ($request_ref) {
 
 	my $tmp_query_string = join("/", @{$request_ref->{components}});
 	# components can be gradually eaten by handlers recusively.
-	# We can't rely on the full query string sanitized at the begining.
+	# We can't rely on the full query string sanitized at the beginning.
 	# e.g.
 	# (_analyze_request_impl)
 	# 	-> (match_route) 'org/[orgid]/product/1234'

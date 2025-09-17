@@ -59,7 +59,7 @@ function display_selected_preferences(target_selected_summary, product_preferenc
         $.each(attribute_group.attributes, function(key, attribute) {
 
             if ((product_preferences[attribute.id]) && (product_preferences[attribute.id] != "not_important")) {
-                var attribute_html = '<li>' + attribute.setting_name + '</li>';
+                const attribute_html = '<li>' + attribute.setting_name + '</li>';
                 selected_preference_groups[product_preferences[attribute.id]].push(attribute_html);
             }
         });
