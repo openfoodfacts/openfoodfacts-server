@@ -443,10 +443,8 @@ paths:
                   - type: object
                     properties:
                       canonical_tags_list:
-                        type: array
-                        items:
-                          type: string
-                          example: "en:sugar,en:water"
+                        type: string
+                        example: "en:sugar,en:water"
   /api/v3/taxonomy_display_tags:
     get:
       summary: Get display tags in a specific language for a list of taxonomy tags
@@ -466,7 +464,7 @@ paths:
           description: A comma-separated list of canonical taxonomy tags to retrieve display tags for.
           schema:
             type: string
-            example: "Sugar, Water"
+            example: "en:sugar,en:water"
         - name: lc
           in: query
           required: false
