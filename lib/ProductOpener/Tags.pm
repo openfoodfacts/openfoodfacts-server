@@ -354,8 +354,8 @@ sub get_property_with_fallbacks ($tagtype, $tagid, $property, $fallback_lcs = ["
 	my $property_value = get_property($tagtype, $tagid, $property);
 	if (!defined $property_value) {
 		# is it language dependent ?
-		if ($property =~ /:..$/) {
-			my $bare_name = $`;
+		if ($property =~ /(.+):..$/) {
+			my $bare_name = $1;
 			# try fallbacks
 			foreach my $lc (@$fallback_lcs) {
 				$property_value = get_property($tagtype, $tagid, "$bare_name:$lc");
@@ -591,8 +591,8 @@ sub get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fa
 				my $property_value = deep_get(\%properties, $tagtype, $tagid, $property);
 				if (!defined $property_value) {
 					# is it language dependent ?
-					if ($property =~ /:..$/) {
-						my $bare_name = $`;
+					if ($property =~ /(.+):..$/) {
+						my $bare_name = $1;
 						# try fallbacks
 						foreach my $lang (@fallback_langs) {
 							$property_value = deep_get(\%properties, $tagtype, $tagid, "$bare_name:$lang");
@@ -1439,12 +1439,13 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				# Parent
 				# Ignore in first pass as it may be a synonym, or a translation, for the canonical parent
 			}
-			elsif ($line =~ /^stopwords:(\w\w):(\s*)/) {
+			elsif ($line =~ /^stopwords:(\w\w):(\s*)(.*)/) {
 				# stop words definition
 				my $lc = $1;
+				my $rest = $3;
 				# store an orig version as is (but spaces)
-				$stopwords{$tagtype}{$lc . ".orig"} .= "stopwords:$lc:$'\n";
-				$line = $';
+				$stopwords{$tagtype}{$lc . ".orig"} .= "stopwords:$lc:$rest\n";
+				$line = $rest;
 				$line =~ s/^\s+//;    # normalize spaces
 				my @tags = split(/\s*,\s*/, $line);    # split on comma
 				foreach my $tag (@tags) {
@@ -1458,11 +1459,11 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					push @{$stopwords{$tagtype}{$lc . ".strings"}}, $tag;
 				}
 			}
-			elsif ($line =~ /^(synonyms:)?(\w\w):/) {
+			elsif ($line =~ /^(synonyms:)?(\w\w):(.*)/) {
 				# line with regular entry or a synonyms entry
 				my $qualifier = $1;    # eventual synonyms prefix
 				my $lc = $2;
-				$line = $';
+				$line = $3;
 				$line =~ s/^\s+//;
 
 				# Make sure we don't have empty entries
@@ -2867,10 +2868,10 @@ sub gen_tags_hierarchy_taxonomy ($tag_lc, $tagtype, $tags_list) {
 
 		# Try to split unrecognized tags (e.g. "known tag and other known tag" -> "known tag, other known tag"
 
-		if (($tag =~ /$and/i) and (not exists_taxonomy_tag($tagtype, $canon_tag))) {
+		if (($tag =~ /^(.*)$and(.*)$/i) and (not exists_taxonomy_tag($tagtype, $canon_tag))) {
 
-			my $tag1 = $`;
-			my $tag2 = $';
+			my $tag1 = $1;
+			my $tag2 = $2;
 
 			my $canon_tag1 = canonicalize_taxonomy_tag($l, $tagtype, $tag1);
 			my $canon_tag2 = canonicalize_taxonomy_tag($l, $tagtype, $tag2);

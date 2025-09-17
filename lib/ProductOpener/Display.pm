@@ -1411,14 +1411,16 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 		my $current_level = -1;
 		my $nb_headers = 0;
 
-		while ($text =~ /<h(\d)([^<]*)>(.*?)<\/h(\d)>/si) {
-			my $level = $1;
-			my $h_attributes = $2;
-			my $header = $3;
+		while ($text =~ /^(.*?)<h(\d)([^<]*)>(.*?)<\/h(\d)>(.*)$/si) {
+			my $before = $1;
+			my $level = $2;
+			my $h_attributes = $3;
+			my $header = $4;
+			my $after = $6;
 
-			$text = $';
-			$new_text .= $`;
-			my $match = $&;
+			$text = $after;
+			$new_text .= $before;
+			my $match = "<h$level$h_attributes>$header</h$level>";
 
 			# Skip h1
 			if ($level == 1) {
