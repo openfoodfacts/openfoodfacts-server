@@ -706,7 +706,7 @@ function isPageType() {
 
 function loginProcess(callback) {
     // Try to authenticate using the Open Food Facts cookie first
-    var cookie = $.cookie('session') ? $.cookie('session') : "";
+    const cookie = $.cookie('session') ? $.cookie('session') : "";
     if (cookie) {
         console.log("FEUS - loginProcess(callback) => getCredentialsFromCookie()");
         getCredentialsFromCookie(cookie, callback);
