@@ -33,6 +33,7 @@ use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Users qw/$Owner_id init_user/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::API qw/decode_json_request_body init_api_response process_api_request read_request_body/;
+use ProductOpener::APIAttributeGroups qw/display_preferences_api display_attribute_groups_api/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;

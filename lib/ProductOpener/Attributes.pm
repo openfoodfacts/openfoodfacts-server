@@ -143,7 +143,7 @@ The return value is cached for each language in the %localized_attribute_groups 
 # Global structure to cache the return structure for each language
 my %localized_attribute_groups = ();
 
-sub list_attributes ($target_lc) {
+sub list_attributes ($target_lc, $api_version) {
 
 	$log->debug("list attributes", {target_lc => $target_lc}) if $log->is_debug();
 
@@ -164,11 +164,34 @@ sub list_attributes ($target_lc) {
 
 				foreach my $attribute_id (@{$attributes_ref}) {
 
+					# If API version is < 3.4, do not return attributes that have parameters
+					# (currently only unwanted_ingredients)
+					if (($api_version < 3.4) and ($attribute_id eq "unwanted_ingredients")) {
+						next;
+					}
+
 					my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 
 					# Add the possible values for the attribute
 					$attribute_ref->{values}
 						= deep_get(\%options, "attribute_values", $attribute_id) || $options{attribute_values_default};
+
+					# Default preference
+					if (defined $options{attribute_default_preferences}{$attribute_ref->{id}}) {
+						$attribute_ref->{default} = $options{attribute_default_preferences}{$attribute_ref->{id}};
+					}
+
+					# Add parameters for attributes that have them
+					if ($attribute_id eq "unwanted_ingredients") {
+						$attribute_ref->{parameters} = [
+							{
+								id => "attribute_unwanted_ingredients_tags",
+								name => lang_in_other_lc($target_lc, "attribute_unwanted_ingredients_name"),
+								type => "tags",
+								tagtype => "ingredients",
+							}
+						];
+					}
 
 					push @{$group_ref->{attributes}}, $attribute_ref;
 				}

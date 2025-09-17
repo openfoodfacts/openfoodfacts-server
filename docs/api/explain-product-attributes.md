@@ -39,13 +39,15 @@ Product Attributes are organized in sections:
   - Vegan
   - Vegetarian
   - Palm oil
+  - Unwanted ingredients (unwanted ingredients are specified by the user)
 - Labels
   - Organic
   - Fair trade
 - Environment
-  - Eco-Score
+  - Green-Score
+  - Forest Footprint
 
-The list can be quite long and new Product Attributes can be added over time.
+New Product Attributes can be added over time.
 
 ## API
 
@@ -68,6 +70,12 @@ Attributes keys:
 - name - e.g. Nutri-Score"
 - setting_name - e.g. "Good nutritional quality (Nutri-Score)" (in the form of a requirement)
 - setting_note (optional) - e.g. extra detail that can be shown in user preferences
+- parameters (optional, for some attributes like Unwanted ingredients that can be configured by the user)
+  - array of parameters
+    - id: parameter id (e.g. unwanted_ingredients_tags)
+    - name: name of the parameter, to be displayed to users
+    - type: "tags" indicate the parameter expects a comma separated list of canonical tags
+    - tagtype: e.g. "ingredients" (for the "tags" type)
 
 ### Request
 
@@ -106,73 +114,73 @@ For each product returned, the corresponding field is added, containing an array
 - Request: https://world.openfoodfacts.org/api/v2/product/3700214614266?fields=product_name,code,attribute_groups_en
 - Response:
 
-<pre>
+```json
 {
-status: 1,
-code: "3700214614266",
-status_verbose: "product found",
-product: {
-product_name: "Chocolat noir Pérou 90% fruité et boisé",
-code: "3700214614266",
-attribute_groups_en: [
-{
-attributes: [
-{
-status: "known",
-name: "Nutri-Score",
-match: 30,
-id: "nutriscore",
-title: "Nutri-Score D",
-description: "",
-description_short: "Poor nutritional quality"
+    "status": 1,
+    "code": "3700214614266",
+    "status_verbose": "product found",
+    "product": {
+        "product_name": "Chocolat noir Pérou 90% fruité et boisé",
+        "code": "3700214614266",
+        "attribute_groups_en": [
+            {
+                "attributes": [
+                    {
+                        "status": "known",
+                        "name": "Nutri-Score",
+                        "match": 30,
+                        "id": "nutriscore",
+                        "title": "Nutri-Score D",
+                        "description": "",
+                        "description_short": "Poor nutritional quality"
+                    }
+                ],
+                "name": "Nutritional quality",
+                "id": "nutritional_quality"
+            },
+            {
+                "id": "processing",
+                "name": "Food processing",
+                "attributes": [
+                    {
+                        "id": "nova",
+                        "match": 50,
+                        "name": "NOVA group",
+                        "status": "known",
+                        "description_short": "Processed foods",
+                        "description": "",
+                        "title": "NOVA 3"
+                    }
+                ]
+            },
+            {
+                "id": "labels",
+                "name": "Labels",
+                "attributes": [
+                    {
+                        "title": "Organic product",
+                        "description_short": "Promotes ecological sustainability and biodiversity.",
+                        "description": "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.",
+                        "name": "Organic farming",
+                        "match": 100,
+                        "status": "known",
+                        "id": "labels_organic"
+                    },
+                    {
+                        "id": "labels_fair_trade",
+                        "match": 100,
+                        "name": "Fair trade",
+                        "status": "known",
+                        "description_short": "Fair trade products help producers in developing countries.",
+                        "description": "When you buy fair trade products, producers in developing countries are paid a higher and fairer price, which helps them improve and sustain higher social and often environmental standards.",
+                        "title": "Fair trade product"
+                    }
+                ]
+            }
+        ]
+    }
 }
-],
-name: "Nutritional quality",
-id: "nutritional_quality"
-},
-{
-id: "processing",
-name: "Food processing",
-attributes: [
-{
-id: "nova",
-match: 50,
-name: "NOVA group",
-status: "known",
-description_short: "Processed foods",
-description: "",
-title: "NOVA 3"
-}
-]
-},
-{
-id: "labels",
-name: "Labels",
-attributes: [
-{
-title: "Organic product",
-description_short: "Promotes ecological sustainability and biodiversity.",
-description: "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.",
-name: "Organic farming",
-match: 100,
-status: "known",
-id: "labels_organic"
-},
-{
-id: "labels_fair_trade",
-match: 100,
-name: "Fair trade",
-status: "known",
-description_short: "Fair trade products help producers in developping countries.",
-description: "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.",
-title: "Fair trade product"
-}
-]
-}
-]
-}
-}
-</pre>
+```
 
 ## Example uses
 

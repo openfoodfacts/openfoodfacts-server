@@ -74,8 +74,7 @@ BEGIN {
 		&display_product
 		&display_product_api
 		&display_product_history
-		&display_preferences_api
-		&display_attribute_groups_api
+
 		&get_search_field_path_components
 		&get_search_field_title_and_details
 		&search_and_display_products
@@ -10401,108 +10400,6 @@ sub display_nutrition_table ($product_ref, $comparisons_ref, $request_ref) {
 		|| return "template error: " . $tt->error();
 
 	return $html;
-}
-
-=head2 display_preferences_api ( $target_lc )
-
-Return a JSON structure with all available preference values for attributes.
-
-This is used by clients that ask for user preferences to personalize
-filtering and ranking based on product attributes.
-
-=head3 Arguments
-
-=head4 request object reference $request_ref
-
-=head4 language code $target_lc
-
-Sets the desired language for the user facing strings.
-
-=cut
-
-sub display_preferences_api ($request_ref, $target_lc) {
-
-	if (not defined $target_lc) {
-		$target_lc = $lc;
-	}
-
-	$request_ref->{structured_response} = [];
-
-	foreach my $preference ("not_important", "important", "very_important", "mandatory") {
-
-		my $preference_ref = {
-			id => $preference,
-			name => lang("preference_" . $preference),
-		};
-
-		if ($preference eq "important") {
-			$preference_ref->{factor} = 1;
-		}
-		elsif ($preference eq "very_important") {
-			$preference_ref->{factor} = 2;
-		}
-		elsif ($preference eq "mandatory") {
-			$preference_ref->{factor} = 4;
-			$preference_ref->{minimum_match} = 20;
-		}
-
-		push @{$request_ref->{structured_response}}, $preference_ref;
-	}
-
-	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
-
-	display_structured_response($request_ref);
-
-	return;
-}
-
-=head2 display_attribute_groups_api ( $request_ref, $target_lc )
-
-Return a JSON structure with all available attribute groups and attributes,
-with strings (names, descriptions etc.) in a specific language,
-and return them in an array of attribute groups.
-
-This is used in particular for clients of the API to know which
-preferences they can ask users for, and then use for personalized
-filtering and ranking.
-
-=head3 Arguments
-
-=head4 request object reference $request_ref
-
-=head4 language code $target_lc
-
-Returned attributes contain both data and strings intended to be displayed to users.
-This parameter sets the desired language for the user facing strings.
-
-=cut
-
-sub display_attribute_groups_api ($request_ref, $target_lc) {
-
-	if (not defined $target_lc) {
-		$target_lc = $lc;
-	}
-
-	my $attribute_groups_ref = list_attributes($target_lc);
-
-	# Add default preferences
-	if (defined $options{attribute_default_preferences}) {
-		foreach my $attribute_group_ref (@$attribute_groups_ref) {
-			foreach my $attribute_ref (@{$attribute_group_ref->{attributes}}) {
-				if (defined $options{attribute_default_preferences}{$attribute_ref->{id}}) {
-					$attribute_ref->{default} = $options{attribute_default_preferences}{$attribute_ref->{id}};
-				}
-			}
-		}
-	}
-
-	$request_ref->{structured_response} = $attribute_groups_ref;
-
-	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
-
-	display_structured_response($request_ref);
-
-	return;
 }
 
 =head2 display_taxonomy_api ( $request_ref )
