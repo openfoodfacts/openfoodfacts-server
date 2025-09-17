@@ -53,9 +53,12 @@ New Product Attributes can be added over time.
 
 ### List and descriptions of available product attributes
 
-Apps can get the list of all available product attributes at the `/api/v2/attribute_groups` or `/api/v2/attribute_groups_[language code]` endpoints.
+Apps can get the list of all available product attributes at the `/api/v3.4/attribute_groups` endpoint for API v3,
+or at the `/api/v2/attribute_groups` or `/api/v2/attribute_groups_[language code]` endpoints for API v2.
 
-e.g. [https://world.openfoodfacts.org/api/v0/attribute_groups]
+e.g. [https://world.openfoodfacts.org/api/v3.4/attribute_groups]
+
+Note that API < 3.4 does not support product attributes with parameters (such as the "Unwanted ingredients" attribute that requires a list of unwanted ingredients).
 
 It returns a JSON array of attribute groups that each contain an array of attributes.
 
@@ -81,9 +84,44 @@ Attributes keys:
 
 Apps can request Product Attributes through API queries (`/api/v3/product` or `/api/v2/search`) by including `attribute_groups` or `attribute_groups_[language code]` (or `attribute_groups_data` to get only the machine-readable data) in the `fields` parameter.
 
+#### Product Attributes with Parameters (e.g. Unwanted ingredients)
+
+In September 2025, we introduced support for attributes that can be configured with parameters. The first is the **Unwanted ingredients** attribute that takes a list of canonical ingredients as a parameter.
+
+In order not to break existing clients, this attribute is listed in the response of the API `/api/v3.4/attribute_groups` only when the version is at least 3.4:
+
+```json
+{
+  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/contains-unwanted-ingredients.svg",
+  "id": "unwanted_ingredients",
+  "name": "Unwanted ingredients",
+  "parameters": [
+    {
+      "id": "attribute_unwanted_ingredients_tags",
+      "name": "Unwanted ingredients",
+      "tagtype": "ingredients",
+      "type": "tags"
+    }
+  ],
+  "setting_name": "Unwanted ingredients",
+  "values": [
+    "not_important",
+    "important",
+    "very_important",
+    "mandatory"
+  ]
+}
+```
+
+The response above indicates that the **Unwanted ingredients** attribute needs a `attribute_unwanted_ingredients_tags` parameter which is a list of comma separated canonical ingredients tags (e.g. "en:garlic,en:kiwi")
+
+This parameter can be sent in product read and search requests in 2 ways:
+- as a cookie with the name `attribute_unwanted_ingredients_tags`: this is used in particular on the website so that we do not have URLs with an extra query parameter.
+- as a query parameter in the URL (e.g. ?attribute_unwanted_ingredients_tags=en:garlic,en:kiwi)
+
 ### Response
 
-For each product returned, the corresponding field is added, containing an array of groups (to regroup attributes, like all allergens) that each contain an array of attributes.
+For each product returned, the corresponding field is added, containing an array of groups (to regroup attributes, like all allergens) that each contains an array of attributes.
 
 #### Attribute group format
 
@@ -179,6 +217,7 @@ For each product returned, the corresponding field is added, containing an array
             }
         ]
     }
+    [..]
 }
 ```
 
