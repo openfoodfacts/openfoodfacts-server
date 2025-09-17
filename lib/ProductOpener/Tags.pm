@@ -3327,7 +3327,7 @@ sub display_tags_hierarchy ($tagtype, $tags_ref) {
 				# print STDERR "abbio - lc: $lc - tagtype: $tagtype - tag: $tag - img: $img\n";
 				my $alt = display_taxonomy_tag_name($lc, $tagtype, $tag);
 				$images .= <<HTML
-<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline" atl="$alt">
+<img src="/images/lang/$lc/$tagtype/$img"$size/ style="display:inline" alt="$alt">
 HTML
 					;
 			}
