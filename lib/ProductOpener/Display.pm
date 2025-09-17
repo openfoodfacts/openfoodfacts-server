@@ -10505,7 +10505,7 @@ and return it as a JSON object.
 
 Accessed through the /api/v2/taxonomy API
 
-e.g. https://world.openfoodfacts.org/api/v2/taxonomy?type=labels&tags=en:organic,en:fair-trade&fields=name,description,children&include_children=1&lc=en,fr
+e.g. https://world.openfoodfacts.org/api/v2/taxonomy?tagtype=labels&tags=en:organic,en:fair-trade&fields=name,description,children&include_children=1&lc=en,fr
 
 =head3 Arguments
 
@@ -10519,12 +10519,6 @@ sub display_taxonomy_api ($request_ref) {
 	my $tags = single_param('tags');
 	my @tags = split(/,/, $tags);
 
-	# If the canonicalize parameter is set to 1, canonicalize the tags to their canonical form
-	my $canonicalize = 0;
-	if (defined single_param('canonicalize') and (single_param('canonicalize') == 1)) {
-		$canonicalize = 1;
-	}
-
 	my $options_ref = {};
 
 	foreach my $field (qw(fields include_children include_parents include_root_entries)) {
@@ -10533,7 +10527,7 @@ sub display_taxonomy_api ($request_ref) {
 		}
 	}
 
-	my $taxonomy_ref = generate_tags_taxonomy_extract($tagtype, \@tags, $options_ref, \@lcs, $canonicalize);
+	my $taxonomy_ref = generate_tags_taxonomy_extract($tagtype, \@tags, $options_ref, \@lcs);
 
 	$request_ref->{structured_response} = $taxonomy_ref;
 
