@@ -60,8 +60,8 @@ The final match status is computed as follow:
 * good_match		score >= 50
 * poor_match		score < 50
 * unknown_match		at least one mandatory attribute is unknown, or unknown attributes weigh more than 50% of the total weight
-* may_not_match		at least one mandatory attribute score is <= 50 (e.g. may contain traces of an allergen)
-* does_not_match	at least one mandatory attribute score is <= 10 (e.g. contains an allergen, is not vegan)
+* may_not_match		at least one mandatory attribute score is `<=` 50 (e.g. may contain traces of an allergen)
+* does_not_match	at least one mandatory attribute score is `<=` 10 (e.g. contains an allergen, is not vegan)
 
 For the web, this is implemented in `product-search.js`, in function `match_product_to_preferences`
 

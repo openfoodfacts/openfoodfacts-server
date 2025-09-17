@@ -138,7 +138,7 @@ on 'test' => sub {
   requires 'Log::Any::Adapter::TAP'; # liblog-any-adapter-tap-perl
   requires 'IO::Capture::Stdout::Extended';
   requires 'IO::Capture::Stderr::Extended';
-  requires 'HTTP::CookieJar::LWP';
+  requires 'HTTP::Cookies';
   requires 'File::Tail';
   requires 'Test2::Plugin::UTF8';
   requires 'Devel::Cover';
