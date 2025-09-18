@@ -6,15 +6,12 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 use Log::Any qw($log);
 
-use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready construct_test_url/;
+use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_user_form/;
 use ProductOpener::Auth qw/get_token_using_password_credentials/;
 
 use File::Basename qw/dirname/;
-use HTTP::Request::Common;
-use Encode qw/encode_utf8/;
-use JSON::MaybeXS qw/decode_json/;
 
 use Storable qw/dclone/;
 
@@ -46,8 +43,6 @@ my $tests_ref = [
 		path => '/api/v3/product/1234567890003',
 		body => 'not json',
 		expected_status_code => 400,
-		# Skip snapshot comparison due to volatile line numbers in error messages
-		expected_type => 'none',
 	},
 	{
 		test_case => 'patch-no-product',
@@ -753,69 +748,5 @@ my $tests_ref = [
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
-
-# Manual verification for patch-broken-json-body test
-# We check the essential functionality without relying on exact error messages that contain volatile line numbers
-{
-	my $ua = new_client();
-	my $url = construct_test_url('/api/v3/product/1234567890003', 'world');
-
-	my $request = HTTP::Request::Common::PATCH(
-		$url,
-		Content => encode_utf8('not json'),
-		"Content-Type" => "application/json; charset=utf-8",
-	);
-	my $response = $ua->request($request);
-
-	# Check status code
-	is($response->code, 400, 'patch-broken-json-body - HTTP status code is 400');
-
-	# Check that we got a JSON response
-	my $response_content = $response->decoded_content;
-	my $decoded_json;
-	eval {
-		$decoded_json = decode_json($response_content);
-		1;
-	} or do {
-		fail('patch-broken-json-body - Response is not valid JSON');
-		diag("Response content: " . $response_content);
-	};
-
-	if ($decoded_json) {
-		# Check essential response structure
-		is($decoded_json->{status}, 'failure', 'patch-broken-json-body - Status is failure');
-
-		# Check that we have errors array with at least one error
-		ok(
-			ref($decoded_json->{errors}) eq 'ARRAY' && @{$decoded_json->{errors}} > 0,
-			'patch-broken-json-body - Errors array is present and not empty'
-		);
-
-		if (@{$decoded_json->{errors}} > 0) {
-			my $error = $decoded_json->{errors}[0];
-
-			# Check error message ID (this should be stable)
-			is(
-				$error->{message}{id},
-				'invalid_json_in_request_body',
-				'patch-broken-json-body - Error message ID is correct'
-			);
-
-			# Check error impact
-			is($error->{impact}{id}, 'failure', 'patch-broken-json-body - Error impact is failure');
-
-			# Check that field information is present
-			ok(defined $error->{field}, 'patch-broken-json-body - Error field information is present');
-			is($error->{field}{id}, 'body', 'patch-broken-json-body - Error field ID is body');
-			is($error->{field}{value}, 'not json', 'patch-broken-json-body - Error field value is correct');
-
-			# We deliberately don't check the exact error message since it contains volatile line numbers
-			ok(defined $error->{field}{error}, 'patch-broken-json-body - Error details are present');
-		}
-
-		# Check that warnings array exists
-		ok(ref($decoded_json->{warnings}) eq 'ARRAY', 'patch-broken-json-body - Warnings array is present');
-	}
-}
 
 done_testing();
