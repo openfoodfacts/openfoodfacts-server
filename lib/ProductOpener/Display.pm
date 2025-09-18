@@ -1411,12 +1411,12 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 		my $current_level = -1;
 		my $nb_headers = 0;
 
-		while ($text =~ /^(.*?)<h(\d)([^<]*)>(.*?)<\/h(\d)>(.*)$/si) {
-			my $before = $1;
-			my $level = $2;
-			my $h_attributes = $3;
-			my $header = $4;
-			my $after = $6;
+		while ($text =~ /^(?<before>.*?)<h(?<level>\d)(?<h_attributes>[^<]*)>(?<header>.*?)<\/h(?<end_level>\d)>(?<after>.*)$/si) {
+			my $before = $+{before};
+			my $level = $+{level};
+			my $h_attributes = $+{h_attributes};
+			my $header = $+{header};
+			my $after = $+{after};
 
 			$text = $after;
 			$new_text .= $before;

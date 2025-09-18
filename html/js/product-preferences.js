@@ -362,7 +362,7 @@ function display_user_product_preferences(target_selected, target_selection_form
 
         displayed_user_product_preferences = true;
 
-        const user_product_preferences = get_user_product_preferences();
+        let user_product_preferences = get_user_product_preferences();
 
         const attribute_groups_html = [];
 
