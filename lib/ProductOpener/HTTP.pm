@@ -334,6 +334,19 @@ for some parameters like product attribute parameters
 
 A scalar value for the parameter, or undef if the parameter is not defined.
 
+Note that we really want to return undef, and not use an empty return statement,
+as otherwise code like
+
+	my $options_ref = {
+		limit => request_param($request_ref, 'limit'),
+		get_synonyms => request_param($request_ref, 'get_synonyms')
+	};
+
+will result in 'limit' being set to 'get_synonyms' value when the 'limit' parameter is not passed.
+
+This goes against https://metacpan.org/pod/Perl::Critic::Policy::Subroutines::ProhibitExplicitReturnUndef
+but we are not using return undef to indicate an error, but to indicate that the parameter is not defined.
+
 =cut
 
 sub request_param ($request_ref, $param_name) {
@@ -351,12 +364,10 @@ sub request_param ($request_ref, $param_name) {
 			# included in the URL and in logs
 			# e.g. cookie("attribute_unwanted_ingredients_tags")
 			my $cookie_param = cookie($param_name);
-			if (defined $cookie_param) {
-				return $cookie_param;
-			}
+			return $cookie_param; # returns undef if there's no cookie
 		}
 	}
-	return;
+	# We should have returned before reaching this line
 }
 
 =head2 create_user_agent([$args])
