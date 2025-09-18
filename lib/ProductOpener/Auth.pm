@@ -180,7 +180,6 @@ sub signin_callback ($request_ref) {
 		code => $code,
 		redirect_uri => $callback_uri,
 	) or display_error_and_exit($request_ref, $current_client->errstr, 500);
-	$log->info('got access token during callback', {access_token => $access_token}) if $log->is_info();
 
 	my %cookie_ref = cookie($cookie_name);
 	# verify we are in the right sign-in process, thanks to the randomly generated token
@@ -345,7 +344,6 @@ sub refresh_access_token ($refresh_token) {
 	my $access_token = $current_client->refresh_access_token(refresh_token => $refresh_token,)
 		or die $current_client->errstr;
 
-	$log->info('refreshed access token', {access_token => $access_token}) if $log->is_info();
 	return (
 		$access_token->{refresh_token}, $time + $access_token->{refresh_expires_in},
 		$access_token->{access_token}, $time + $access_token->{expires_in}
@@ -536,7 +534,6 @@ sub get_token_using_password_credentials ($username, $password) {
 	}
 
 	my $access_token = decode_json($token_response->content);
-	$log->info('got access token from password credentials', {access_token => $access_token}) if $log->is_info();
 	return $access_token;
 }
 
@@ -574,7 +571,6 @@ sub get_token_using_client_credentials () {
 	}
 
 	my $access_token = decode_json($token_response->content);
-	$log->info('got access token client credentials', {access_token => $access_token}) if $log->is_info();
 	return $access_token;
 }
 
@@ -627,8 +623,6 @@ sub verify_access_token ($access_token_string) {
 	get_oidc_configuration();
 
 	my $access_token_verified = decode_jwt(token => $access_token_string, kid_keys => $jwks);
-	$log->debug('access_token found', {access_token => $access_token_string, access_token => $access_token_verified})
-		if $log->is_debug();
 	unless ($access_token_verified) {
 		return;
 	}
