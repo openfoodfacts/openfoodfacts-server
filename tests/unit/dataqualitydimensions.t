@@ -31,7 +31,7 @@ sub compute_and_test_completeness($product_ref, $score, $with) {
 sub check_tags($product_ref, $field, %expectations) {
 	for my $tag (keys %expectations) {
 		my $expected = $expectations{$tag};
-		is(has_tag($product_ref, "data_quality_info", $tag), $expected, "$field - tag $tag expected $expected");
+		is(has_tag($product_ref, "data_quality_completeness", $tag), $expected, "$field - tag $tag expected $expected");
 	}
 	return;
 }
