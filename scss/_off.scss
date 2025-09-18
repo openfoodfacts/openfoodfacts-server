@@ -904,7 +904,8 @@ html[dir="rtl"] {
 }
 
 .tabs a:focus {
-  outline: none;
+  outline: 2px solid #0078d4; /* WCAG AA compliant focus indicator */
+  outline-offset: 2px;
 }
 
 .tabs a:hover {
@@ -2013,4 +2014,44 @@ div.form-field-with-btn {
 
 .is_hidden {
   display: none;
+}
+
+// Screen reader only text - WCAG accessibility utility
+.screen-reader-text {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden;
+  word-wrap: normal !important;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+// Enhanced focus styles for accessibility compliance
+*:focus {
+  outline: 2px solid #0078d4; /* High contrast blue */
+  outline-offset: 2px;
+}
+
+// Specific focus styles for interactive elements
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+a:focus {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+}
+
+// Focus-visible for modern browsers (removes focus outline for mouse users)
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
 }
