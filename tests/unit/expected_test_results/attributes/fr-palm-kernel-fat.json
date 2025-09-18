@@ -347,6 +347,20 @@
       "en:code-missing",
       "en:created-missing"
    ],
+   "data_quality_completeness_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-to-be-completed",
+      "en:nutriments-to-be-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:emb-codes-to-be-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed"
+   ],
    "data_quality_dimensions" : {
       "accuracy" : {
          "overall" : "0.00"
@@ -366,30 +380,12 @@
       "en:all-but-one-ingredient-with-specified-percent",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
-      "en:food-groups-3-unknown",
-      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
-      "en:nutrition-photo-to-be-selected",
-      "en:categories-to-be-completed",
-      "en:nutriments-to-be-completed",
-      "en:packaging-photo-to-be-selected",
-      "en:packagings-completed",
-      "en:emb-codes-to-be-completed",
-      "en:front-photo-to-be-selected",
-      "en:product-name-to-be-completed",
-      "en:quantity-to-be-completed",
-      "en:brands-to-be-completed",
-      "en:expiration-date-to-be-completed"
+      "en:food-groups-3-unknown"
    ],
    "data_quality_tags" : [
       "en:main-language-missing",
       "en:code-missing",
       "en:created-missing",
-      "en:no-packaging-data",
-      "en:ingredients-percent-analysis-ok",
-      "en:all-but-one-ingredient-with-specified-percent",
-      "en:food-groups-1-unknown",
-      "en:food-groups-2-unknown",
-      "en:food-groups-3-unknown",
       "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
       "en:nutrition-photo-to-be-selected",
       "en:categories-to-be-completed",
@@ -402,6 +398,12 @@
       "en:quantity-to-be-completed",
       "en:brands-to-be-completed",
       "en:expiration-date-to-be-completed",
+      "en:no-packaging-data",
+      "en:ingredients-percent-analysis-ok",
+      "en:all-but-one-ingredient-with-specified-percent",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label"
