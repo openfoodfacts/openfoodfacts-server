@@ -20,7 +20,7 @@
 
 =head1 NAME
 
-ProductOpener::APITaxonomy - implementation of APIs to return the list of available attribute groups and preferenes
+ProductOpener::APITaxonomy - implementation of APIs to return the list of available attribute groups and preferences
 
 =head1 DESCRIPTION
 
