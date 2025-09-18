@@ -105,6 +105,7 @@ sub check_quality ($product_ref) {
 
 	# Initialize the data_quality arrays
 	$product_ref->{data_quality_bugs_tags} = [];
+	$product_ref->{data_quality_completeness_tags} = [];
 	$product_ref->{data_quality_info_tags} = [];
 	$product_ref->{data_quality_warnings_tags} = [];
 	$product_ref->{data_quality_errors_tags} = [];

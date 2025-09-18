@@ -278,10 +278,7 @@ $options{users_who_can_upload_small_images} = {
 
 	{
 		name => "Yuka - checked",
-		conditions => [
-			["user_id", "kiliweb"],
-			["data_quality_info_tags", "en:photo-and-data-checked-by-an-experienced-contributor"],
-		],
+		conditions => [["user_id", "kiliweb"], ["in_states_tags", "en:checked"],],
 		actions => [["ignore"],],
 		notifications => [
 			qw (
@@ -738,12 +735,13 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 # packaging_shapes: packaging_materials, packaging_recycling
 # packaging (packaging_materials, packaging_shapes, packaging_recycling, preservation): labels
 # periods_after_opening:
+# states:
 # traces (allergens)
 # vitamins
 
 @taxonomy_fields = qw(
 	units
-	languages countries
+	languages states countries
 	allergens origins additives_classes ingredients
 	packaging_shapes packaging_materials packaging_recycling packaging
 	labels food_groups categories
@@ -917,6 +915,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	data_quality_errors_tags
 	unique_scans_n
 	popularity_tags
+	completeness
 	last_image_t
 );
 

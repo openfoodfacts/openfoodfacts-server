@@ -53,17 +53,26 @@ Stores:
 
 # Taxonomies are compiled before they can be used.
 🧬 Taxonomies - Rebuild:
-- changed-files:
-  - any-glob-to-any-file: 'taxonomies/additives.result.sto'
-  - any-glob-to-any-file: 'taxonomies/additives.result.txt'
-  - any-glob-to-any-file: 'taxonomies/allergens.result.sto'
-  - any-glob-to-any-file: 'taxonomies/allergens.result.txt'
-  - any-glob-to-any-file: 'taxonomies/categories.result.sto'
-  - any-glob-to-any-file: 'taxonomies/categories.result.txt'
-  - any-glob-to-any-file: 'taxonomies/countries.result.sto'
-  - any-glob-to-any-file: 'taxonomies/countries.result.txt'
-  - any-glob-to-any-file: 'taxonomies/ingredients.result.sto'
-  - any-glob-to-any-file: 'taxonomies/ingredients.result.txt'
+  - changed-files:
+      - any-glob-to-any-file: "taxonomies/additives.result.sto"
+      - any-glob-to-any-file: "taxonomies/additives.result.txt"
+      - any-glob-to-any-file: "taxonomies/allergens.result.sto"
+      - any-glob-to-any-file: "taxonomies/allergens.result.txt"
+      - any-glob-to-any-file: "taxonomies/categories.result.sto"
+      - any-glob-to-any-file: "taxonomies/categories.result.txt"
+      - any-glob-to-any-file: "taxonomies/countries.result.sto"
+      - any-glob-to-any-file: "taxonomies/countries.result.txt"
+      - any-glob-to-any-file: "taxonomies/ingredients.result.sto"
+      - any-glob-to-any-file: "taxonomies/ingredients.result.txt"
+      - any-glob-to-any-file: "taxonomies/states.result.sto"
+      - any-glob-to-any-file: "taxonomies/states.result.txt"
+
+# Products have a number of completion states, eg: https://world.openfoodfacts.org/states
+status system:
+  - changed-files:
+      - any-glob-to-any-file: "taxonomies/states.result.sto"
+      - any-glob-to-any-file: "taxonomies/states.result.txt"
+      - any-glob-to-any-file: "taxonomies/states.txt"
 
 # We link taxonomies to Wikidata (& back) - https://wiki.openfoodfacts.org/Structured_Data/Wikidata
 # Tracking issue:
