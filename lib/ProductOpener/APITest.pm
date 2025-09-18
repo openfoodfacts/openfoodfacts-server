@@ -527,10 +527,8 @@ to prevent tests from breaking when code is refactored.
 =cut
 
 sub normalize_api_response_for_test_comparison ($response_ref) {
-	my %specification = (
-		fields_ignore_content => ["errors.*.field.error"],
-	);
-	
+	my %specification = (fields_ignore_content => ["errors.*.field.error"],);
+
 	normalize_object_for_test_comparison($response_ref, \%specification);
 	return;
 }
@@ -739,7 +737,7 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 			if (ref($decoded_json) eq 'HASH') {
 				# Normalize API error responses to ignore volatile line numbers in stack traces
 				normalize_api_response_for_test_comparison($decoded_json);
-				
+
 				if (defined $decoded_json->{'products'}) {
 					normalize_products_for_test_comparison($decoded_json->{'products'});
 					if (defined $test_ref->{sort_products_by}) {
