@@ -87,7 +87,7 @@ function display_selected_preferences(target_selected_summary, product_preferenc
     });
 
     // dropdown link to see a preferences summary
-    var html = '<a id="preferences_link" data-dropdown="selected_preferences">' +
+    const html = '<a id="preferences_link" data-dropdown="selected_preferences">' +
         lang().see_your_preferences + '</a></p>' +
         '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' +
         selected_preferences_html +
@@ -101,12 +101,12 @@ function display_selected_preferences(target_selected_summary, product_preferenc
 
 function generate_preferences_switch_button(preferences_text, checkbox_id) {
 
-	var checked = '';
+	let checked = '';
 	if (use_user_product_preferences_for_ranking) {
 		checked = " checked";
 	}	
 
-	var html = '<div class="flex-grid direction-row toggle_food_preferences" style="margin-right:2rem;margin-bottom:1rem;align-items: center;">' +
+	const html = '<div class="flex-grid direction-row toggle_food_preferences" style="margin-right:2rem;margin-bottom:1rem;align-items: center;">' +
     '<fieldset class="switch round success unmarged" tabindex="0" id="' + checkbox_id +'_switch" style="align-items:center;margin-right:0.5rem;padding-top:0.1rem;padding-bottom:0.1rem;">' +
     '<input class="preferences_checkboxes" id="' + checkbox_id + '" type="checkbox"' + checked + '>' +
     '<label for="' + checkbox_id +'" class="h-space-tiny" style="margin-top:0"></label></fieldset>' +
@@ -138,9 +138,9 @@ function activate_preferences_switch_buttons(change) {
 
 function display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change) {
 	
-	var html = '';
+	let html = '';
 	
-	var html_edit_preferences = '<div><a id="show_selection_form" class="button small round secondary" role="button" tabindex="0">' +
+	const html_edit_preferences = '<div><a id="show_selection_form" class="button small round secondary" role="button" tabindex="0">' +
         '<span class="material-icons size-20">&#xE556;</span>' +
         "&nbsp;<span>" + lang().preferences_edit_your_preferences + '</span></a></div>';
 	
@@ -171,9 +171,9 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
 
 // set a cookie with a name, value and expiration in days
 function setCookie(name, value, days) {
-    var expires = "";
+    let expires = "";
     if (days) {
-        var date = new Date();
+        const date = new Date();
         date.setTime(date.getTime() + (days*24*60*60*1000));
         expires = "; expires=" + date.toUTCString();
     }
@@ -238,7 +238,7 @@ function unwanted_ingredients_change_callback(e) {
 // initialize the Tagify autocomplete suggestions on the unwanted ingredients input field
 function initialize_unwanted_ingredients_tagify() {
 
-    var input = document.querySelector('input[name=attribute_unwanted_ingredients_names]');
+    const input = document.querySelector('input[name=attribute_unwanted_ingredients_names]');
     // initialize Tagify on the input field using the autocomplete URL from the data-autocomplete attribute
     // we use the initializeTagifyInput function from tagify-init.js
     // as it does a lot of things to handle suggestions, synonyms etc.
@@ -249,8 +249,8 @@ function initialize_unwanted_ingredients_tagify() {
 
 // Populate the input field for unwanted ingredients and initialize tagify on it
 // As it calls several JS, CSS and APIs, we do it only when the preferences form is shown
-var unwanted_ingredients_preferences_initalized = false;
-var attribute_unwanted_ingredients_enabled = false;
+let unwanted_ingredients_preferences_initalized = false;
+let attribute_unwanted_ingredients_enabled = false;
 
 // We use jQuery to load the CSS file dynamically
 function loadCSS(href) {
@@ -271,14 +271,14 @@ function loadCSS(href) {
 function localize_unwanted_ingredients_tags() {
 
     return new Promise(function(resolve, reject) {
-        var tags = localStorage.getItem('attribute_unwanted_ingredients_tags');
+        const tags = localStorage.getItem('attribute_unwanted_ingredients_tags');
         if (tags && tags.length > 0) {
             $.ajax({
                 url: "/api/v3/taxonomy_display_tags?tagtype=ingredients&canonical_tags_list=" + encodeURIComponent(tags),
                 type: "GET",
                 dataType: "json",
                 success: function(data) {
-                    var local_tags_list = data.local_tags_list;
+                    const local_tags_list = data.local_tags_list;
                     // store the local ingredient names in the input field
                     $('input[name=attribute_unwanted_ingredients_names]').val(local_tags_list);
                     resolve();
@@ -362,14 +362,14 @@ function display_user_product_preferences(target_selected, target_selection_form
 
         displayed_user_product_preferences = true;
 
-        var user_product_preferences = get_user_product_preferences();
+        const user_product_preferences = get_user_product_preferences();
 
-        var attribute_groups_html = [];
+        const attribute_groups_html = [];
 
         // Iterate over attribute groups
         $.each(attribute_groups, function(key, attribute_group) {
 
-            var attribute_group_html = "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group accordion-navigation'>" +
+            let attribute_group_html = "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group accordion-navigation'>" +
                 "<a href='#attribute_group_" + attribute_group.id + "_a' style='color:black;'>" +
                 "<span class='attribute_group_name'>" + attribute_group.name + "</span></a>"
                 // I can't get the dynamically created accordion to work, making all content active until we find a way to make it work
@@ -386,7 +386,7 @@ function display_user_product_preferences(target_selected, target_selection_form
 
             $.each(attribute_group.attributes, function(key, attribute) {
 
-                var attribute_name_and_parameters_html = '';
+                let attribute_name_and_parameters_html = '';
 
                 if (attribute.id == "unwanted_ingredients") {
 
@@ -417,7 +417,7 @@ function display_user_product_preferences(target_selected, target_selection_form
                 
                 $.each(preferences, function(key, preference) {
 
-                    var checked = '';
+                    let checked = '';
 
                     if ((!user_product_preferences[attribute.id] && preference.id == "not_important") || (user_product_preferences[attribute.id] == preference.id)) {
                         checked = ' checked';
