@@ -184,6 +184,11 @@ restart: run_deps
 	${DOCKER_COMPOSE} restart backend frontend
 	@echo "🥫  started service at http://openfoodfacts.localhost"
 
+restart_backend:
+	@echo "🥫 Restarting backend container …"
+	${DOCKER_COMPOSE} restart backend
+	@echo "🥫 Apache restarted successfully at http://openfoodfacts.localhost"
+
 stop: stop_deps
 	@echo "🥫 Stopping containers …"
 	${DOCKER_COMPOSE} stop
@@ -278,7 +283,7 @@ front_npm_update:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm update
 
 front_lint:
-	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint --fix
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint
 
 front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run build
