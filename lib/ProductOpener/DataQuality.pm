@@ -121,8 +121,9 @@ sub check_quality ($product_ref) {
 
 	# Also combine all sub facets in a data-quality facet
 	$product_ref->{data_quality_tags} = [
-		@{$product_ref->{data_quality_bugs_tags}}, @{$product_ref->{data_quality_info_tags}},
-		@{$product_ref->{data_quality_warnings_tags}}, @{$product_ref->{data_quality_errors_tags}},
+		@{$product_ref->{data_quality_bugs_tags}}, @{$product_ref->{data_quality_completeness_tags}},
+		@{$product_ref->{data_quality_info_tags}}, @{$product_ref->{data_quality_warnings_tags}},
+		@{$product_ref->{data_quality_errors_tags}},
 	];
 
 	# If we are on the producers platform, also populate facets with the values that exist
