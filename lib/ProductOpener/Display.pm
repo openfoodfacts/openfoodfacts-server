@@ -1411,7 +1411,9 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 		my $current_level = -1;
 		my $nb_headers = 0;
 
-		while ($text =~ /^(?<before>.*?)<h(?<level>\d)(?<h_attributes>[^<]*)>(?<header>.*?)<\/h(?<end_level>\d)>(?<after>.*)$/si) {
+		while ($text
+			=~ /^(?<before>.*?)<h(?<level>\d)(?<h_attributes>[^<]*)>(?<header>.*?)<\/h(?<end_level>\d)>(?<after>.*)$/si)
+		{
 			my $before = $+{before};
 			my $level = $+{level};
 			my $h_attributes = $+{h_attributes};
