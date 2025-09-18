@@ -719,6 +719,9 @@ fields_ignore_content - array of fields which content should be ignored
 because they vary from test to test.
 Stars means there is a table of elements and we want to run through all (hash not supported yet)
 
+fields_ignore_line_numbers_in_content - array of fields where line numbers in content should be replaced with --ignore--
+This is useful for error messages that contain file names and line numbers that change when code is refactored.
+
 fields_sort - array of fields which content needs to be sorted to have predictable results
 
 =cut
@@ -736,6 +739,27 @@ sub normalize_object_for_test_comparison ($object_ref, $specification_ref) {
 				@key = split(/\./, $final_field);
 				if (deep_exists($item, @key)) {
 					deep_set($item, @key, "--ignore--");
+				}
+			}
+		}
+	}
+	if (defined($specification_ref->{fields_ignore_line_numbers_in_content})) {
+		my @fields_ignore_line_numbers = @{$specification_ref->{fields_ignore_line_numbers_in_content}};
+
+		my @key;
+		for my $field_iln (@fields_ignore_line_numbers) {
+			# stars permits to loop subitems
+			my @subfield = split(/\.\*\./, $field_iln);
+			my $final_field = pop @subfield;
+			for my $item (_sub_items($object_ref, \@subfield)) {
+				@key = split(/\./, $final_field);
+				if (deep_exists($item, @key)) {
+					my $content = deep_get($item, @key);
+					if (defined $content && $content ne "") {
+						# Replace line numbers with --ignore-- while keeping the rest of the error message
+						$content =~ s/\bline\s+\d+/line --ignore--/g;
+						deep_set($item, @key, $content);
+					}
 				}
 			}
 		}

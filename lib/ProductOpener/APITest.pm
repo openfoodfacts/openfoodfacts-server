@@ -517,7 +517,7 @@ Note: this setting can be overriden for each test case by specifying a "ua" fiel
 
 Normalize an API response to be able to compare them across test runs.
 
-We replace volatile parts like line numbers in stack traces with --ignore--
+We replace volatile parts like line numbers in stack traces with --ignore-- 
 to prevent tests from breaking when code is refactored.
 
 =head3 Arguments
@@ -527,7 +527,7 @@ to prevent tests from breaking when code is refactored.
 =cut
 
 sub normalize_api_response_for_test_comparison ($response_ref) {
-	my %specification = (fields_ignore_content => ["errors.*.field.error"],);
+	my %specification = (fields_ignore_line_numbers_in_content => ["errors.*.field.error"],);
 
 	normalize_object_for_test_comparison($response_ref, \%specification);
 	return;
