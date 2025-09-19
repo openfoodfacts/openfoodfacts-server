@@ -364,7 +364,7 @@ sub request_param ($request_ref, $param_name) {
 			# included in the URL and in logs
 			# e.g. cookie("attribute_unwanted_ingredients_tags")
 			my $cookie_param = cookie($param_name);
-			return $cookie_param; # returns undef if there's no cookie
+			return $cookie_param;    # returns undef if there's no cookie
 		}
 	}
 	# We should have returned before reaching this line
