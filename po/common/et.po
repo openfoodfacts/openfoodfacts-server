@@ -153,7 +153,7 @@ msgstr "Nüüd saad tooteid lisada või muuta veebirakenduses või meie tasuta <
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Liitu meiega Slackis"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
@@ -161,7 +161,7 @@ msgstr ""
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "Kasutame vestlusrakendust nimega Slack, kus kõik projektis osalejad saavad mõtteid vahetada ja koostööd teha. Liitu julgelt! Meil oleks hea meel sind tundma õppida!"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -177,7 +177,7 @@ msgstr ""
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr ""
+msgstr "Sinu organisatsiooniga liitumise päring ootab organisatsiooni haldaja kinnitust."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -271,7 +271,7 @@ msgstr ""
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr ""
+msgstr "Palun arvesta, et sinu Pro kasutajakonto kehtib ainult siis, kui kasutad oma tööalast e-posti aadressi. Meie modereerimismeeskond kontrollib, kas domeeninimi vastab organisatsioonile, millega soovid liituda."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -661,7 +661,7 @@ msgstr ""
 
 msgctxt "edit_user_preferences_result"
 msgid "Your preferences have been changed."
-msgstr "Teie eelistused on muutunud."
+msgstr "Sinu eelistused on muudetud."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -974,7 +974,7 @@ msgstr "https://ee.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr ""
+msgstr "Open Food Facts tootjatele"
 
 msgctxt "for"
 msgid "for"
@@ -1318,11 +1318,11 @@ msgstr ""
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr ""
+msgstr "Loo endale kasutajakonto."
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr ""
+msgstr "Sa pole veel registreerunud?"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -1408,7 +1408,7 @@ msgstr ""
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr ""
+msgstr "Tee kaastööd"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
@@ -1764,15 +1764,15 @@ msgstr ""
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "Salasõna"
 
 msgctxt "password_new"
 msgid "New password"
-msgstr ""
+msgstr "Uus salasõna"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "Korda salasõna"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
@@ -1996,7 +1996,7 @@ msgstr ""
 
 msgctxt "product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Toote nimi"
 
 msgctxt "product_name_example"
 msgid "Kinder Bueno White"
@@ -2064,15 +2064,15 @@ msgstr ""
 
 msgctxt "remember_me"
 msgid "Remember me"
-msgstr ""
+msgstr "Jäta mind meelde"
 
 msgctxt "remember_purchase_places_and_stores"
 msgid "Remember the place of purchase and store for the next product adds"
-msgstr ""
+msgstr "Pea ostukoht meeles järgmiste toodete lisamiseks"
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "Lähtesta salasõna"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2084,27 +2084,35 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr ""
+msgstr "Tere <NAME>,\n\n"
+"Sa soovisid oma salasõna lähtestamist teenuses https://openfoodfacts.org\n\n"
+"Sinu kasutajanimi on: <USERID>\n\n"
+"Jätkamaks lähtestamisega klõpsi järgnevat linki.\n"
+"Kui sa lähtestamist ei soovinud, siis palun ära tee midagi ja eira seda kirja.\n\n"
+"<RESET_URL>\n\n"
+"Jällenägemiseni,\n\n"
+"Stephane\n"
+"https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr ""
+msgstr "Salasõna lähtestamine veebiteenuses <<site_name>>"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
-msgstr ""
+msgstr "Sinu salasõna on muudetud ja saad seda nüüd sisselogimisel kasutada."
 
 msgctxt "reset_password_reset_msg"
 msgid "Enter a new password."
-msgstr ""
+msgstr "Sisesta uus salasõna."
 
 msgctxt "reset_password_send_email"
 msgid "An email with a link to reset your password has been sent to the e-mail address associated with your account."
-msgstr ""
+msgstr "Sinu kasutajakontoga seotud e-posti aadressile on saadetud e-kiri salasõna lähtestamise lingiga."
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr ""
+msgstr "Kui oled oma salasõna unustanud, sisesta oma kasutajanimi või e-posti aadress ning saad juhised salasõna lähtestamiseks."
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -2148,7 +2156,7 @@ msgstr "Otsi"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
-msgstr ""
+msgstr "Otsi toodet"
 
 msgctxt "search_button"
 msgid "Search"
@@ -2277,7 +2285,7 @@ msgstr ""
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
-msgstr ""
+msgstr "Kaardil kuvatakse ainult tooted, mille tootmiskoht on teada."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
@@ -2309,7 +2317,7 @@ msgstr ""
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr ""
+msgstr "Kasutage järgmiste toodete puhul erinevat värvi:"
 
 msgctxt "search_series_default"
 msgid "Other products"
@@ -2353,7 +2361,7 @@ msgstr ""
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr ""
+msgstr "Otsi sõnu, mis esinevad toote nimes, üldnimetuses, kaubamärkides, kategooriates, päritoludes ja siltidel"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
@@ -2393,7 +2401,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Riik"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2477,7 +2485,7 @@ msgstr ""
 
 msgctxt "sort_product_name"
 msgid "Product name"
-msgstr ""
+msgstr "Toote nimi"
 
 msgctxt "state"
 msgid "State"
@@ -2885,7 +2893,7 @@ msgstr ""
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "Partnerid"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
@@ -3222,7 +3230,7 @@ msgstr ""
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
-msgstr ""
+msgstr "Oluline märkus: seda toodet enam ei müüda. Andmeid hoitakse ainult varasema viite kontekstis. See toode ei ilmu tavalistes otsingutes ja seda ei arvestata statistikas."
 
 # This will be on a button and needs to be as short as possible
 # So instead of something like "Install the mobile application"
@@ -3230,19 +3238,19 @@ msgstr ""
 # Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr ""
+msgstr "Laadi rakendus alla"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr ""
+msgstr "Laadi alla Androidi rakendus"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr ""
+msgstr "Laadi alla iPhone'i rakendus"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
-msgstr ""
+msgstr "Laadi alla iPadi rakendus"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
@@ -3629,17 +3637,17 @@ msgstr ""
 
 msgctxt "producers_platform"
 msgid "Platform for producers"
-msgstr ""
+msgstr "Platvorm tootjatele"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr ""
+msgstr "Tootjatele mõeldud platvorm võimaldab tootjatel hõlpsalt hallata oma tootefotosid ja -andmeid Open Food Factsis."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr ""
+msgstr "Tootjatele mõeldud platvormi tooteandmed ja fotod salvestatakse privaatsesse andmebaasi. Enne avalikus Open Food Factsi andmebaasis avaldamist saad kontrollida, kas kõik andmed on õiged."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
@@ -4165,7 +4173,7 @@ msgstr ""
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "Toiduainete andmed rahvatervist parandavate uuringute jaoks?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
@@ -4407,7 +4415,7 @@ msgstr "https://ee.pro.openfoodfacts.org/"
 
 msgctxt "footer_producers"
 msgid "Producers"
-msgstr ""
+msgstr "Tootjad"
 
 # %s will be replaced by the language name
 msgctxt "add_ingredients_in_language"
@@ -4465,7 +4473,7 @@ msgstr ""
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
-msgstr ""
+msgstr "Kategooria lisamine on väga oluline, et toodet oleks lihtne otsida ja et Nutri-Score'i arvutada"
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
@@ -4509,7 +4517,7 @@ msgstr ""
 
 msgctxt "recommended_field_note"
 msgid "If this information exists and is relevant for the product, it is recommended to provide it to make the product easier to search for and the product data more useful."
-msgstr ""
+msgstr "Kui see teave on olemas ja toote puhul asjakohane, siis toote lihtsama otsimise ja täpsemate tooteandmete nime palun lisa see."
 
 msgctxt "optional_field"
 msgid "Optional field"
@@ -5081,7 +5089,7 @@ msgstr ""
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
-msgstr ""
+msgstr "Muuda oma eelistusi"
 
 msgctxt "preferences_your_preferences"
 msgid "Your preferences"
@@ -5362,7 +5370,7 @@ msgstr ""
 
 msgctxt "sort_by_popularity"
 msgid "Most scanned products"
-msgstr ""
+msgstr "Enim skeeritud tooted"
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
@@ -5408,11 +5416,11 @@ msgstr "https://ee.openfoodfacts.org/open-food-facts-vision-mission-values-and-p
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
-msgstr ""
+msgstr "Kas unustasid salasõna?"
 
 msgctxt "reset_password_error"
 msgid "We could not reinitialize your password, please contact us for assistance."
-msgstr ""
+msgstr "Sinu salasõna lähtestamine ei õnnestunud. Abi saamiseks palun võta meiega ühendust."
 
 msgctxt "remove_all_nutrient_values"
 msgid "Remove all nutrient values"
@@ -6539,7 +6547,7 @@ msgstr ""
 
 msgctxt "your_contributions"
 msgid "Your contributions"
-msgstr "Sinu panused"
+msgstr "Sinu kaastööd"
 
 msgctxt "products_added"
 msgid "Products added"
@@ -6561,7 +6569,7 @@ msgstr ""
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr ""
+msgstr "Liitu meiega <a href=\"{url}\">Slackis</a>"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
@@ -6582,7 +6590,7 @@ msgstr ""
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "Skaneeri oma <span id=\"everyday\">igapäevaseid</span> <span id=\"foods\">toiduaineid</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6751,7 +6759,7 @@ msgstr ""
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "Vigane kasutajatunnus ja salasõna"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -6790,7 +6798,7 @@ msgstr ""
 
 msgctxt "add_products"
 msgid "Add products"
-msgstr ""
+msgstr "Lisa tooteid"
 
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
@@ -7239,7 +7247,7 @@ msgstr ""
 
 msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
 msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
-msgstr ""
+msgstr "Open Food Facts osaleb Euroopa projektis <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (rahastatud Euroopa Liidu teadusuuringute ja innovatsiooni programmist „Horisont 2020“). DIVINFOODi eesmärk on arendada toiduahelaid, mis väärtustavad alakasutatud põllumajanduslikku bioloogilist mitmekesisust, et võidelda bioloogilise mitmekesisuse vähenemise vastu ja rahuldada tarbijate kasvavaid ootusi tervislike ja kohalike toodete järele, mis aitavad kaasa jätkusuutlike toidusüsteemide toimimisele."
 
 msgctxt "deny"
 msgid "Deny"
