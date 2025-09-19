@@ -670,6 +670,10 @@ paths:
   /api/v3/preferences:
     get:
       summary: Get List of Preference Importance Values
+      description: |
+        These parameters are used to compute the product preferences score.
+
+        for an overview see [Explanation on Product Attributes](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/explain-product-attributes/)"
       tags:
         - Product Attributes
       responses:
@@ -707,6 +711,8 @@ paths:
   /api/v3.4/attribute_groups:
     get:
       summary: Get List of Attribute Groups and Attributes
+      description: |
+        for an overview see [Explanation on Product Attributes](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/explain-product-attributes/)"
       tags:
         - Product Attributes
       responses:

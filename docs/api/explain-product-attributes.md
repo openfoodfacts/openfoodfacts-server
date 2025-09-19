@@ -62,6 +62,8 @@ Note that API < 3.4 does not support product attributes with parameters (such as
 
 It returns a JSON array of attribute groups that each contain an array of attributes.
 
+For a complete and accurate documentation refers to OpenAPI specification for v3.
+
 Attribute groups keys:
 - id - e.g. nutritional_quality
 - name - e.g. Nutritional quality
