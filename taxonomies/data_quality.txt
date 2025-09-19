@@ -6005,7 +6005,17 @@ description:en: In EU, a claim that a food is high in unsaturated fat may only b
 
 ## --------------- Then data quality completeness
 en: Data quality completeness
+ar: اكتمال البيانات
+de: Vollständigkeit der Daten
+es: Completitud de los datos
 fr: Exhaustivité des données
+hi: डेटा की संपूर्णता
+it: Completezza dei dati
+ja: データの完全性
+nl: Volledigheid van de gegevens
+pt: Completude dos dados
+ru: Полнота данных
+zh: 数据完整性
 
 < en:Data quality completeness
 en: Data quality completeness ingredients
@@ -7031,50 +7041,50 @@ description:en: The packaging information needs to be completed.
 fix_action:en: add_packaging_text
 
 < en:Data quality completeness packaging
-en: EMB codes completed
-ca: Codis EMB completats
-cs: Kódy EMB dokončeny
-de: EMB-Codes ausgefüllt
-el: Οι κωδικοί EMB συμπληρώθηκαν
-es: Códigos EMB completados
-fi: EMB-koodit täytetty
-fr: Codes EMB complétés
-he: קודי EMB הושלמו
-hu: EMB-kódok teljes
-it: Codici EMB completati
-ja: EMBコードが完成しました
-nl: EMB-codes voltooid
-pl: Kody EMB uzupełnione
-pt: Códigos EMB completados
-ro: Coduri EMB completate
-rs: EMB kodovi potpunjeni
-ru: Коды EMB заполнены
-sv: EMB-koder fullständiga
-vi: Mã EMB đã hoàn thành
-description:en: The EMB codes are fully completed.
+en: Traceability codes completed
+ca: Codis de traçabilitat completats
+cs: Kódy sledovatelnosti dokončeny
+de: Rückverfolgbarkeitscodes ausgefüllt
+el: Οι κωδικοί ιχνηλασιμότητας συμπληρώθηκαν
+es: Códigos de trazabilidad completados
+fi: Seurattavuuskoodit täytetty
+fr: Codes de traçabilité complétés
+he: קודי מעקב הושלמו
+hu: Nyomonkövethető kódok teljes
+it: Codici di rintracciabilità completati
+ja: トレーサビリティコードが完成しました
+nl: Traceerbaarheidscodes voltooid
+pl: Kody śledzenia uzupełnione
+pt: Códigos de rastreabilidade completados
+ro: Coduri de trasabilitate completate
+rs: Kodovi tragovanja potpunjeni
+ru: Коды трассируемости заполнены
+sv: Spårbarhetskoder fullständiga
+vi: Mã theo dõi đã hoàn thành
+description:en: The traceability codes are fully completed. These codes are in an ellipse.
 
 < en:Data quality completeness packaging
-en: EMB codes to be completed
-ca: Codis EMB per completar
-cs: Kódy EMB je třeba dokončit
-de: EMB-Codes müssen ausgefüllt werden
-el: Οι κωδικοί EMB πρέπει να συμπληρωθούν
-es: Códigos EMB por completar
-fi: EMB-koodit täytettävä
-fr: Codes EMB à compléter
-he: קודי EMB להשלים
-hu: EMB-kódok ki kell tölteni
-it: Codici EMB da completare
-ja: EMBコードを完成させる必要があります
-nl: EMB-codes moeten worden voltooid
-pl: Kody EMB do uzupełnienia
-pt: Códigos EMB a serem completados
-ro: Coduri EMB de completat
-rs: EMB kodovi treba popuniti
-ru: Коды EMB нужно заполнить
-sv: EMB-koder att slutföra
-vi: Mã EMB cần được hoàn thành
-description:en: The EMB codes need to be completed.
+en: Traceability codes to be completed
+ca: Codis de traçabilitat per completar
+cs: Kódy sledovatelnosti je třeba dokončit
+de: Rückverfolgbarkeitscodes müssen ausgefüllt werden
+el: Οι κωδικοί ιχνηλασιμότητας πρέπει να συμπληρωθούν
+es: Códigos de trazabilidad por completar
+fi: Seurattavuuskoodit täytettävä
+fr: Codes de traçabilité à compléter
+he: קודי מעקב להשלים
+hu: Nyomonkövethető kódok ki kell tölteni
+it: Codici di rintracciabilità da completare
+ja: トレーサビリティコードを完成させる必要があります
+nl: Traceerbaarheidscodes moeten worden voltooid
+pl: Kody śledzenia do uzupełnienia
+pt: Códigos de rastreabilidade a serem completados
+ro: Coduri de trasabilitate de completat
+rs: Kodovi tragovanja treba popuniti
+ru: Коды трассируемости нужно заполнить
+sv: Spårbarhetskoder att slutföra
+vi: Mã theo dõi cần được hoàn thành
+description:en: The traceability codes need to be completed. These codes are in an ellipse.
 fix_action:en: edit_product
 
 # < en:Data quality completeness - general information

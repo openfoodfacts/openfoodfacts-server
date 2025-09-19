@@ -214,11 +214,11 @@ sub compute_completeness_score($product_ref) {
 	# 3-3- emb_codes
 	my $european_product = is_european_product($product_ref);
 	if ($european_product && defined $product_ref->{emb_codes} && $product_ref->{emb_codes} ne '') {
-		add_tag($product_ref, "data_quality_completeness", "en:emb-codes-completed");
+		add_tag($product_ref, "data_quality_completeness", "en:traceability-codes-completed");
 		$completeness_packaging_count++;
 	}
 	else {
-		add_tag($product_ref, "data_quality_completeness", "en:emb-codes-to-be-completed");
+		add_tag($product_ref, "data_quality_completeness", "en:traceability-codes-to-be-completed");
 	}
 	$completeness_packaging_total++;
 
