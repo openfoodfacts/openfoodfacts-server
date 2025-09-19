@@ -40,6 +40,7 @@ jobs:
         echo "INFLUXDB_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "FACETS_KP_URL=https://facets-kp.openfoodfacts.net/render-to-html" >> $GITHUB_ENV
         echo "NUTRIPATROL_URL=nutripatrol.openfoodfacts.net" >> $GITHUB_ENV
+        echo "FOLKSONOMY_URL=https://api.folksonomy.openfoodfacts.net" >> $GITHUB_ENV
 
         echo "OIDC_IMPLEMENTATION_LEVEL=2" >> $GITHUB_ENV
         echo "OIDC_DISCOVERY_URL=https://auth.openfoodfacts.net/realms/openfoodfacts/.well-known/openid-configuration" >> $GITHUB_ENV
@@ -174,6 +175,7 @@ jobs:
           echo "REDIS_URL=${{ env.REDIS_URL }}" >> .env
           echo "FACETS_KP_URL=${{ env.FACETS_KP_URL }}" >> .env
           echo "NUTRIPATROL_URL=${{ env.NUTRIPATROL_URL }}" >> .env
+          echo "FOLKSONOMY_URL=${{ env.FOLKSONOMY_URL }}" >> .env
           echo "GOOGLE_CLOUD_VISION_API_KEY=${{ secrets.GOOGLE_CLOUD_VISION_API_KEY }}" >> .env
           echo "CROWDIN_PROJECT_IDENTIFIER=${{ env.CROWDIN_PROJECT_IDENTIFIER }}" >> .env
           echo "CROWDIN_PROJECT_KEY=${{ secrets.CROWDIN_PROJECT_KEY }}" >> .env
