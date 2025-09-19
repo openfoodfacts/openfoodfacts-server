@@ -71,7 +71,7 @@ use ProductOpener::Config qw/%oidc_options/;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
-use HTTP::CookieJar::LWP;
+use HTTP::Cookies;
 use HTTP::Request::Common;
 use Encode;
 use JSON::MaybeXS;
@@ -191,7 +191,7 @@ Return a user agent
 =cut
 
 sub new_client () {
-	my $jar = HTTP::CookieJar::LWP->new;
+	my $jar = HTTP::Cookies->new;
 	my $ua = create_user_agent(cookie_jar => $jar);
 	# set a neutral user-agent, for it may appear in some results
 	$ua->agent("Product-opener-tests/1.0");
@@ -491,6 +491,7 @@ my $tests_ref = (
 			headers_in => {header1 => value1},  # optional, headers to add to request
 			body => '{"some_json_field": "some_value"}',  # optional, will be fetched in file in needed
 			ua => a LWP::UserAgent object, if a specific user is needed (e.g. with moderator status)
+			cookies => [{ name => 'cookie_name', value => 'cookie_value'}, ..] # optional, cookies to add to request
 
 			# expected return
 			expected_status_code => 200,	# optional. Defaults to 200
@@ -529,6 +530,13 @@ sub execute_request ($test_ref, $ua) {
 	if (defined $test_ref->{headers_in}) {
 		# combine with computed headers
 		$headers_in = {%$headers_in, %{$test_ref->{headers_in}}};
+	}
+
+	# Add cookies if needed
+	if (defined $test_ref->{cookies}) {
+		foreach my $cookie_ref (@{$test_ref->{cookies}}) {
+			$test_ua->cookie_jar->set_cookie(0, $cookie_ref->{name}, $cookie_ref->{value}, "/", ".${TEST_MAIN_DOMAIN}");
+		}
 	}
 
 	my $response;
@@ -617,6 +625,13 @@ sub execute_request ($test_ref, $ua) {
 	my $final_url = $response->request->uri;
 	if ($url ne $final_url) {
 		diag("Warning: redirects are not supported by APITest.pm!!! Got a redirect to " . $final_url);
+	}
+
+	# Remove cookies set in the test request (but not other cookies like session cookies)
+	if (defined $test_ref->{cookies}) {
+		foreach my $cookie_ref (@{$test_ref->{cookies}}) {
+			$test_ua->cookie_jar->set_cookie(0, $cookie_ref->{name}, "", "/", ".${TEST_MAIN_DOMAIN}");
+		}
 	}
 
 	return $response;

@@ -453,7 +453,6 @@ sub push_ocr_ready_to_redis ($code, $image_id, $json_url, $timestamp = time()) {
 	if (defined $redis_client) {
 		$log->debug("Pushing `ocr_ready` event to Redis", {code => $code}) if $log->is_debug();
 		eval {
-			my $cv = AE::cv;
 			$redis_client->xadd(
 				# name of the Redis stream
 				$options{redis_stream_name_ocr_ready},
@@ -480,11 +479,9 @@ sub push_ocr_ready_to_redis ($code, $image_id, $json_url, $timestamp = time()) {
 						$log->debug("Data added to stream with ID", {reply => $reply}) if $log->is_info();
 					}
 
-					$cv->send;
 					return;
 				}
 			);
-			$cv->recv;
 		};
 		$error = $@;
 	}

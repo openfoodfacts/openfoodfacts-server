@@ -5319,6 +5319,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"traces_tags" => 1,
 			"unknown_ingredients_n" => 1
 		};
+
+		# If the user has selected some unwanted ingredients, we need the ingredients_tags field to compute the corresponding attribute
+		if (defined cookie("attribute_unwanted_ingredients_tags")) {
+			$fields_ref->{"ingredients_tags"} = 1;
+		}
 	}
 	else {
 		# For HTML, limit the fields we retrieve from MongoDB
@@ -10500,7 +10505,7 @@ and return it as a JSON object.
 
 Accessed through the /api/v2/taxonomy API
 
-e.g. https://world.openfoodfacts.org/api/v2/taxonomy?type=labels&tags=en:organic,en:fair-trade&fields=name,description,children&include_children=1&lc=en,fr
+e.g. https://world.openfoodfacts.org/api/v2/taxonomy?tagtype=labels&tags=en:organic,en:fair-trade&fields=name,description,children&include_children=1&lc=en,fr
 
 =head3 Arguments
 
