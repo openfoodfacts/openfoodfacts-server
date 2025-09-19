@@ -74,7 +74,7 @@ use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
 use List::Util qw/any/;
 
-$current_schema_version = 1002;
+$current_schema_version = 1003;
 
 my (%upgrade_functions, %downgrade_functions);
 
