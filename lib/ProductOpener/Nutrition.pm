@@ -41,6 +41,8 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&generate_nutrient_aggregated_set_from_sets
+		&get_specific_input_set
+		&get_input_sets_in_a_hash
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -305,6 +307,83 @@ sub convert_nutrient_to_100g ($nutrient_ref, $original_per, $original_per_quanti
 
 	}
 	return;
+}
+
+=head2 get_specific_input_set ($product_ref, $source, $preparation, $per)
+
+Returns the input set matching the given source, preparation and per values.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+Reference to the product hash
+
+=head4 $source
+
+Source of the input set to find
+
+=head4 $preparation
+
+Preparation state of the input set to find
+
+=head4 $per
+
+Per reference of the input set to find
+
+=head3 Return values
+
+The input set hash reference if found, undef otherwise
+
+=cut
+
+sub get_specific_input_set($product_ref, $source, $preparation, $per) {
+
+	my $input_sets = deep_get($product_ref, qw/nutrition input_sets/);
+	if (exists $input_sets and ref $input_sets eq 'ARRAY') {
+		foreach my $set_ref (@{$input_sets}) {
+			if (   exists $set_ref->{source}
+				and $set_ref->{source} eq $source
+				and exists $set_ref->{preparation}
+				and $set_ref->{preparation} eq $preparation
+				and exists $set_ref->{per}
+				and $set_ref->{per} eq $per)
+			{
+				return $set_ref;
+			}
+		}
+	}
+	return;
+}
+
+=head2 get_input_sets_in_a_hash ($product_ref)
+
+Returns the input sets of a product in a hash reference for easier access,
+so that we can use $input_sets_hash_ref->{$source}{$preparation}{$per} to get a specific input set.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+Reference to the product hash
+
+=head3 Return values
+
+The hash reference of input sets
+
+=cut
+
+sub get_input_sets_in_a_hash($product_ref) {
+	my $input_sets = deep_get($product_ref, qw/nutrition input_sets/);
+	my $input_sets_hash_ref = {};
+	if (exists $input_sets and ref $input_sets eq 'ARRAY') {
+		foreach my $set_ref (@{$input_sets}) {
+			if (exists $set_ref->{source} and exists $set_ref->{preparation} and exists $set_ref->{per}) {
+				$input_sets_hash_ref->{$set_ref->{source}}{$set_ref->{preparation}}{$set_ref->{per}} = $set_ref;
+			}
+		}
+	}
+	return $input_sets_hash_ref;
 }
 
 1;

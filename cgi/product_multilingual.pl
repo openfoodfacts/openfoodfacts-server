@@ -1096,29 +1096,43 @@ CSS
 
 	my $hidden_inputs = '';
 
-	#<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lc}</p>
+	# Nutrition data
+	#
+	# With the new nutrition data model introduced in 2025, the product edit form on the web
+	# will only allow to edit input sets for a single source:
+	# - the "packaging" source on the public platform
+	# - the "manufacturer" source for most organizations on the producers platform
+	# - the "database-[name]" source for organizations with an id org-database-[name] (e.g. org-database-usda)
+	#
+	# 6 input sets will be writable for the selected source:
+	# - as sold per 100g
+	# - as sold per 100ml
+	# - as sold per serving
+	# - prepared per 100g
+	# - prepared per 100ml
+	# - prepared per serving
+	#
+	# The API v2 will be extended to allow editing those input sets
 
 	# We first go through all nutrients, so that we can see the ones for which we have data
 	# as we will check the nutrition_data checkbox if we have data for at least one nutrient
 
-	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
-
-	my @unknown_nutriments = ();
-	my %seen_unknown_nutriments = ();
-	foreach my $nid (keys %{$product_ref->{nutriments}}) {
-
-		next if (($nid =~ /_/) and ($nid !~ /_prepared$/));
-
-		$nid =~ s/_prepared$//;
-
-		$log->trace("detect unknown nutriment", {nid => $nid}) if $log->is_trace();
-
-		if (    (not exists_taxonomy_tag("nutrients", "zz:$nid"))
-			and (defined $product_ref->{nutriments}{$nid . "_label"})
-			and (not defined $seen_unknown_nutriments{$nid}))
-		{
-			push @unknown_nutriments, $nid;
-			$log->debug("unknown nutriment detected", {nid => $nid}) if $log->is_debug();
+	my $source = "packaging";
+	if ($server_options{producers_platform}) {
+		$source = "manufacturer";
+		if (defined $Org_id) {
+			# e.g. org-database-usda
+			if ($Org_id =~ /^org-database-(.+)$/) {
+				$source = "database-" . $1;
+			}
+			# e.g. org-label-gmo-project (in practice labels should not send nutrition data)
+			if ($Org_id =~ /^org-label-(.+)$/) {
+				$source = "label-" . $1;
+			}
+			# At some point we used the pro platform to allow users to bulk enter data (e.g. for scan parties)
+			elsif ($Org_id =~ /^user-(.+)$/) {
+				$source = "packaging";
+			}
 		}
 	}
 
@@ -1126,7 +1140,7 @@ CSS
 
 	my %nutrition_data_exists = ();
 	my @nutriments;
-	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, 'new_0', 'new_1') {
+	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, 'new_0', 'new_1') {
 
 		my $nutriment_ref = {};
 
@@ -1147,13 +1161,7 @@ CSS
 
 		if (
 			   ($nutriment !~ /-$/)
-			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
-			or (    (defined $product_ref->{nutriments}{$nid . "_prepared"})
-				and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
-			or (    (defined $product_ref->{nutriments}{$nid . "_modifier"})
-				and ($product_ref->{nutriments}{$nid . "_modifier"} eq '-'))
-			or (    (defined $product_ref->{nutriments}{$nid . "_prepared_modifier"})
-				and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-'))
+			# FIXME: add an or condition that is true if we have a value or modifier in any of the input sets for the selected source
 			or ($nid eq 'new_0')
 			or ($nid eq 'new_1')
 			)
@@ -1185,45 +1193,34 @@ CSS
 		$nutriment_ref->{product_add_nutrient} = $Lang{product_add_nutrient}{$lc};
 		$nutriment_ref->{prefix} = $prefix;
 
-		my $unit = "g";
+		my $default_unit = "g";
 
 		if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 			# We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
-			$unit = get_nutrient_unit($nid, $request_ref->{cc});
+			$default_unit = get_nutrient_unit($nid, $request_ref->{cc});
 		}
 		else {
-			if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
-				$unit = $product_ref->{nutriments}{$nid . "_unit"};
-			}
+			# Unknown nutrients are now unsupported in the new nutrition schema introduced in 2025, skip
+			$log->debug("skipping unknown nutrient", {nid => $nid}) if $log->is_debug();
 		}
 
-		my $value;    # product as sold
-		my $valuep;    # prepared product
+		# Loop through all the possible input sets for the selected source to populate the values for the corresponding columns
 
-		if ($nid eq 'water-hardness') {
-			$value = mmoll_to_unit($product_ref->{nutriments}{$nid}, $unit);
-			$valuep = mmoll_to_unit($product_ref->{nutriments}{$nidp}, $unit);
-		}
-		elsif ($nid eq 'energy-kcal') {
-			# energy-kcal is already in kcal
-			$value = $product_ref->{nutriments}{$nid};
-			$valuep = $product_ref->{nutriments}{$nidp};
-		}
-		else {
-			$value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
-			$valuep = g_to_unit($product_ref->{nutriments}{$nidp}, $unit);
-		}
+		my $input_sets_hash_ref = get_input_sets_in_a_hash($product_ref);
 
-		# If we have a user specified unit and value, use it instead of the default unit of the field
-		if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
-			$unit = $product_ref->{nutriments}{$nid . "_unit"};
-			if (defined $product_ref->{nutriments}{$nid . "_value"}) {
-				$value = $product_ref->{nutriments}{$nid . "_value"};
-			}
+		foreach my $preparation ("as_sold", "prepared") {
 
-			if (defined $product_ref->{nutriments}{$nidp . "_value"}) {
-				$valuep = $product_ref->{nutriments}{$nidp . "_value"};
+			foreach my $per ("100g", "100ml", "serving") {
+
+				my $unit = $default_unit;
+				my $value_string;
+
+				my $nutrient_ref = deep_get($input_sets_hash_ref, $source, $preparation, $per, $nid);
+				if (defined $nutrient_ref) {
+					$value_string = $nutrient_ref->{value_string};
+					$unit = $nutrient_ref->{unit};
+				}
 			}
 		}
 
