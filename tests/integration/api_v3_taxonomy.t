@@ -11,11 +11,9 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-wait_application_ready();
-
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
+remove_all_users();
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
