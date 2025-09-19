@@ -261,6 +261,7 @@ sub org_route($request_ref) {
 		my @errors = ();
 		my $moderator;
 		if ($request_ref->{admin} or $User{pro_moderator}) {
+			# Could probably just do retrieve_user_preferences here but we may be moving the moderator flag into Keycloak at some point...
 			$moderator = retrieve_user($request_ref->{user_id});
 			ProductOpener::Users::check_edit_owner($moderator, \@errors, $orgid);
 		}
@@ -273,7 +274,7 @@ sub org_route($request_ref) {
 		if (scalar @errors eq 0) {
 			set_owner_id($request_ref);
 			# will save the pro_moderator_owner field
-			store_user($moderator);
+			store_user_preferences($moderator);
 		}
 		else {
 			$request_ref->{status_code} = 404;

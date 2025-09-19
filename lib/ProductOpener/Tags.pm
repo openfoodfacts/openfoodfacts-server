@@ -148,6 +148,7 @@ BEGIN {
 		%Languages
 
 		&country_to_cc
+		&cc_to_country
 
 		&add_user_translation
 		&load_users_translations_for_lc
@@ -2697,6 +2698,13 @@ sub country_to_cc ($country) {
 	}
 
 	return;
+}
+
+sub cc_to_country($cc) {
+	if (not defined $cc) {
+		return 'en:world';
+	}
+	return $country_codes{$cc} // 'en:world';
 }
 
 sub init_languages() {

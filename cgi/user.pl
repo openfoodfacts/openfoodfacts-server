@@ -74,20 +74,9 @@ if (defined single_param('userid')) {
 
 	# The userid looks like an e-mail
 	if ($request_ref->{admin} and ($userid =~ /\@/)) {
-		if (get_oidc_implementation_level() < 2) {
-			# Use legacy method until we have fully synced users into Keycloak
-			my $user_by_email = retrieve_user_by_email($userid);
-			if (defined $user_by_email) {
-				$userid = $user_by_email->{userid};
-			}
-		}
-		else {
-			#11866: Might be able to do this unconditionally
-			my $mail_based_userid = is_email_has_off_account($userid);
-			if (defined $mail_based_userid) {
-				$userid = $mail_based_userid;
-
-			}
+		my $user_by_email = retrieve_user_by_email($userid);
+		if (defined $user_by_email) {
+			$userid = $user_by_email->{userid};
 		}
 	}
 }
@@ -190,7 +179,7 @@ if ($action eq 'display') {
 
 	if ($user_ref) {
 		if (get_oidc_implementation_level() < 5) {
-			# Keep legacy method until we have moved account management to Keycloak
+			# Keep legacy display fields until we have moved account management to Keycloak
 			my $selected_language = $user_ref->{preferred_language}
 				// (remove_tags_and_quote(single_param('preferred_language')) || "$lc");
 			my $selected_country = $user_ref->{country} // (remove_tags_and_quote(single_param('country')) || $country);

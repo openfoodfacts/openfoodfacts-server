@@ -818,7 +818,7 @@ const maximumRecentEntriesPerTag = 10;
     };
 
     $('#back-btn').click(function () {
-        window.location.href = window.location.origin + '/product/' + window.code;
+        window.location.href = window.location.origin + '/product/' + code;
     });
 
     initLanguageAdding();
