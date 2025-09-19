@@ -86,6 +86,7 @@ use ProductOpener::APIProductRevert qw/revert_product_api/;
 use ProductOpener::APIProductServices qw/product_services_api/;
 use ProductOpener::APITagRead qw/read_tag_api/;
 use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
+use ProductOpener::APITaxonomy qw/taxonomy_canonicalize_tags_api taxonomy_display_tags_api/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Apache2::RequestIO();
@@ -426,6 +427,18 @@ my $dispatch_table = {
 	taxonomy_suggestions => {
 		GET => \&taxonomy_suggestions_api,
 		HEAD => \&taxonomy_suggestions_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Taxonomy canonicalize tags
+	taxonomy_canonicalize_tags => {
+		GET => \&taxonomy_canonicalize_tags_api,
+		HEAD => \&taxonomy_canonicalize_tags_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Taxonomy diplay tags
+	taxonomy_display_tags => {
+		GET => \&taxonomy_display_tags_api,
+		HEAD => \&taxonomy_display_tags_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 	},
 	# Tag read
@@ -1078,18 +1091,13 @@ sub process_auth_header ($request_ref, $r) {
 	}
 
 	$request_ref->{access_token} = $token;
-	my $user_id = get_user_id_using_token($access_token, $request_ref);
-	unless (defined $user_id) {
+	#12279 TODO: We probably shouldn't do this as it will call out to Keycloak for every request
+	my $user_ref = retrieve_user_using_token($access_token, $request_ref);
+	unless (defined $user_ref) {
 		$log->info('User not found and not created') if $log->is_info();
 		display_error_and_exit($request_ref, 'Internal error', 500);
 	}
-
-	my $user_ref = retrieve_user($user_id);
-	unless (defined $user_ref) {
-		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
-		display_error_and_exit($request_ref, 'Internal error', 500);
-	}
-
+	my $user_id = $user_ref->{userid};
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
 
 	$request_ref->{oidc_user_id} = $user_id;

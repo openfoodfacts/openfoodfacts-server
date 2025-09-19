@@ -2012,7 +2012,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 			foreach my $users_field (@users_fields) {
 				if (defined $product_ref->{$users_field}) {
 					for (my $i = 0; $i < scalar @{$product_ref->{$users_field}}; $i++) {
-						if ($product_ref->{$users_field}[$i] eq $user_id) {
+						if (($product_ref->{$users_field}[$i] // '') eq $user_id) {
 							$product_ref->{$users_field}[$i] = $new_user_id;
 							$changes++;
 						}

@@ -1,5 +1,49 @@
 # Changelog
 
+## [2.79.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.78.1...v2.79.0) (2025-09-12)
+
+
+### Features
+
+* unwanted ingredients attribute for personal search ([#12321](https://github.com/openfoodfacts/openfoodfacts-server/issues/12321)) ([209a733](https://github.com/openfoodfacts/openfoodfacts-server/commit/209a7338bd7567e60cbaf5fce57af1f1685014f9))
+
+
+### Bug Fixes
+
+* add energy and proteins for pet food nutrition ([#12346](https://github.com/openfoodfacts/openfoodfacts-server/issues/12346)) ([93ceee9](https://github.com/openfoodfacts/openfoodfacts-server/commit/93ceee92ef3366dd02d28cb9939bf6b9b7da1ffe))
+* **docs:** add imgid to api v2 image schema ([#12349](https://github.com/openfoodfacts/openfoodfacts-server/issues/12349)) ([9f74d5e](https://github.com/openfoodfacts/openfoodfacts-server/commit/9f74d5e02a7ee5d06ceff364793e8a66de92422b))
+* free space during workflow ([#12350](https://github.com/openfoodfacts/openfoodfacts-server/issues/12350)) ([4951aaf](https://github.com/openfoodfacts/openfoodfacts-server/commit/4951aaf4f4c321ad2215684c041023b65dee664c))
+* **openapi:** Required fields in product_base.yml ([35e64cf](https://github.com/openfoodfacts/openfoodfacts-server/commit/35e64cf792b25623a42a5a32be542b351b6eadae))
+
+## [2.78.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.78.0...v2.78.1) (2025-09-05)
+
+
+### Bug Fixes
+
+* webcomponents library version ([#12341](https://github.com/openfoodfacts/openfoodfacts-server/issues/12341)) ([58b7142](https://github.com/openfoodfacts/openfoodfacts-server/commit/58b7142ff2a72435cd9bfe5cb9447329d4d050a6))
+
+## [2.78.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.77.0...v2.78.0) (2025-09-03)
+
+
+### Features
+
+* upgrade webcomponents to 1.13.0 ([#12336](https://github.com/openfoodfacts/openfoodfacts-server/issues/12336)) ([ae0b32b](https://github.com/openfoodfacts/openfoodfacts-server/commit/ae0b32b8744785892afe05f51deb0f557749f8a9))
+
+## [2.77.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.76.0...v2.77.0) (2025-09-03)
+
+
+### Features
+
+* adds folksonomy-properties-webcomponent ([#12277](https://github.com/openfoodfacts/openfoodfacts-server/issues/12277)) ([a28cd5c](https://github.com/openfoodfacts/openfoodfacts-server/commit/a28cd5c932bd92413e14c940d3592d4fb5bca177))
+
+
+### Bug Fixes
+
+* Fix templates.t test to exclude README.md files from .tt. extension validation ([#12320](https://github.com/openfoodfacts/openfoodfacts-server/issues/12320)) ([07a953e](https://github.com/openfoodfacts/openfoodfacts-server/commit/07a953ee306a7f02451ac64ec3bf48f9ba776032))
+* minion service name in verify-deployment.sh ([#12315](https://github.com/openfoodfacts/openfoodfacts-server/issues/12315)) ([6f823b3](https://github.com/openfoodfacts/openfoodfacts-server/commit/6f823b3dc906e2497c519c98ad4ff11aa101eb40))
+* Not able to add products without a bar code ([#12333](https://github.com/openfoodfacts/openfoodfacts-server/issues/12333)) ([98b1156](https://github.com/openfoodfacts/openfoodfacts-server/commit/98b11562d7504f11e58c29f3af53e7b80570ab14))
+* use added sugars value from nutrition facts in knowledge panel ([#12332](https://github.com/openfoodfacts/openfoodfacts-server/issues/12332)) ([2e4c97f](https://github.com/openfoodfacts/openfoodfacts-server/commit/2e4c97f595e4dd06cf98a954505def97b040c97e))
+
 ## [2.76.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.75.0...v2.76.0) (2025-08-29)
 
 

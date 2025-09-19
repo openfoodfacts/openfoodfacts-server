@@ -6978,6 +6978,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Glutathione
 # following nutrients are for pet food
 # https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
 # I- analytical constituents
+# crude fat ~ similar to human food fat
 zz: crude fat
 xx: crude fat
 en: crude fat, Fat Content
@@ -7006,6 +7007,8 @@ sl: surove maščobe, Vsebnost maščob
 sv: råfett, fettinnehåll
 unit:en: %
 
+# crude protein ~ similar to human food protein
+# protein value ~ how much the animal can actually use
 zz: crude protein
 xx: crude protein
 en: crude protein
@@ -7203,3 +7206,33 @@ fr: chlorure de choline
 hr: kolin klorid
 unit:en: mg
 
+
+# crude protein ~ similar to human food protein
+# protein value ~ how much the animal can actually use
+zz: protein value
+xx: protein value
+en: protein value
+bg: Протеинова стойност
+cs: hodnota proteinu
+da: proteinværdi
+de: Eiweißwert, Proteinwert
+el: Πρωτεϊνική αξία
+es: Valor proteico
+et: valgusisaldusväärtus
+fi: proteiiniarvo
+fr: valeur protéique
+hr: proteinska vrijednost
+hu: fehérjeérték
+it: valore proteico
+lt: baltymų vertė
+lv: proteīna vērtība
+mt: valur tal-proteina
+nl: eiwitwaarde
+pl: wartość białka
+pt: valor proteico
+ro: valoare proteică
+ru: Протеиновая ценность
+sk: hodnota bielkovín
+sl: beljakovinska vrednost
+sv: proteinvärde
+unit:en: g/kg
