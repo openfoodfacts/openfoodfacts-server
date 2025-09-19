@@ -1160,10 +1160,9 @@ CSS
 		my $shown = 0;
 
 		if (
-			   ($nutriment !~ /-$/)
+			($nutriment !~ /-$/)
 			# FIXME: add an or condition that is true if we have a value or modifier in any of the input sets for the selected source
-			or ($nid eq 'new_0')
-			or ($nid eq 'new_1')
+			or ($nid eq 'new_0') or ($nid eq 'new_1')
 			)
 		{
 			$shown = 1;

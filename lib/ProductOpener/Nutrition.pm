@@ -342,7 +342,7 @@ sub get_specific_input_set($product_ref, $source, $preparation, $per) {
 	my $input_sets = deep_get($product_ref, qw/nutrition input_sets/);
 	if (exists $input_sets and ref $input_sets eq 'ARRAY') {
 		foreach my $set_ref (@{$input_sets}) {
-			if (   exists $set_ref->{source}
+			if (    exists $set_ref->{source}
 				and $set_ref->{source} eq $source
 				and exists $set_ref->{preparation}
 				and $set_ref->{preparation} eq $preparation
