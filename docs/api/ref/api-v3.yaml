@@ -403,6 +403,91 @@ paths:
           description: User not authenticated or not allowed to delete the image
         "404":
           description: Product or image not found                 
+  /api/v3/taxonomy_canonicalize_tags:
+    get:
+      summary: Get canonical tags for a list of local tags
+      tags:
+        - Taxonomy
+      parameters:
+        - name: tagtype
+          in: query
+          required: true
+          description: The type of taxonomy to canonicalize tags for (e.g., ingredients, categories).
+          schema:
+            type: string
+            example: "ingredients"
+        - name: local_tags_list
+          in: query
+          required: true
+          description: A comma-separated list of local tags to canonicalize.
+          schema:
+            type: string
+            example: "sucre,eau"
+        - name: lc
+          in: query
+          required: false
+          description: |
+            2-letter code of the language of the user. Used for localizing some fields in returned values.
+            If not passed, the language may be inferred by the subdomain of the request.
+          schema:
+            type: string
+            example: "fr"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      canonical_tags_list:
+                        type: string
+                        example: "en:sugar,en:water"
+  /api/v3/taxonomy_display_tags:
+    get:
+      summary: Get display tags in a specific language for a list of taxonomy tags
+      tags:
+        - Taxonomy
+      parameters:
+        - name: tagtype
+          in: query
+          required: true
+          description: The type of taxonomy to retrieve display tags for (e.g., ingredients, categories).
+          schema:
+            type: string
+            example: "ingredients"
+        - name: canonical_tags_list
+          in: query
+          required: true
+          description: A comma-separated list of canonical taxonomy tags to retrieve display tags for.
+          schema:
+            type: string
+            example: "en:sugar,en:water"
+        - name: lc
+          in: query
+          required: false
+          description: |
+            2-letter code of the language to return display tags in.
+          schema:
+            type: string
+            example: "fr"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      display_tags:
+                        type: array
+                        items:
+                          type: string
+                          example: "sucre, eau"
   /api/v3/taxonomy_suggestions:
     parameters: []
     get:
