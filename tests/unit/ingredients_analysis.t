@@ -15,7 +15,10 @@ use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 
 my @tests = (
 	[{lc => "fr", ingredients_text => ""}, undef],
-	[{lc => "fr", ingredients_text => "eau, sucre, noisettes"}, ["en:palm-oil-free", "en:vegan", "en:vegetarian"]],
+	[
+		{lc => "fr", ingredients_text => "eau, sucre, noisettes"},
+		["en:palm-oil-free", "en:maybe-vegan", "en:vegetarian"]
+	],
 	[{lc => "fr", ingredients_text => "lait demi-écrémé 67%"}, ["en:palm-oil-free", "en:non-vegan", "en:vegetarian"]],
 	[
 		{lc => "fr", ingredients_text => "viande de boeuf, lait, sel"},
@@ -40,7 +43,10 @@ my @tests = (
 		{lc => "fr", ingredients_text => "sucre, unknown ingredient"},
 		["en:palm-oil-content-unknown", "en:vegan-status-unknown", "en:vegetarian-status-unknown"]
 	],
-	[{lc => "fr", ingredients_text => "sucre, colorant: e150"}, ["en:palm-oil-free", "en:vegan", "en:vegetarian"]],
+	[
+		{lc => "fr", ingredients_text => "sucre, colorant: e150"},
+		["en:palm-oil-free", "en:maybe-vegan", "en:vegetarian"]
+	],
 	[
 		{lc => "en", ingredients_text => "fat, proteins"},
 		["en:may-contain-palm-oil", "en:maybe-vegan", "en:maybe-vegetarian"]
@@ -112,11 +118,11 @@ my @tests = (
 	],
 	[
 		{lc => "en", ingredients_text => "coagulating enzyme (vegetal)"},
-		["en:palm-oil-free", "en:vegan", "en:vegetarian"]
+		["en:palm-oil-free", "en:maybe-vegan", "en:vegetarian"]
 	],
 	[
 		{lc => "en", ingredients_text => "something unknown (vegetal)"},
-		["en:palm-oil-content-unknown", "en:vegan", "en:vegetarian"]
+		["en:palm-oil-content-unknown", "en:maybe-vegan", "en:vegetarian"]
 	],
 
 );
