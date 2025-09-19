@@ -1467,7 +1467,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				$line =~ s/^\s+//;
 
 				# Make sure we don't have empty entries
-				if (!length($line)) {
+				if ($line eq "") {
 					die("Empty entry at line $line_number in $file_path\n");
 				}
 				# split on comma
@@ -2661,7 +2661,7 @@ sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 			chomp($line);
 			$line =~ s/\s+$//s;
 
-			next if (($line =~ /^#/) or (!length($line)));
+			next if (($line =~ /^#/) or ($line eq ""));
 			my $type = "with";
 			if ($line =~ /^-(.*)/) {
 				$type = "without";
@@ -4742,7 +4742,7 @@ sub add_users_translations_to_taxonomy ($tagtype) {
 				my $l = $1;
 				my $tag = $2;
 
-				if (!length($first_lc)) {
+				if ($first_lc eq "") {
 					$first_language_tag = $tag;
 					$first_lc = $l;
 					$tag =~ s/,.*//;
