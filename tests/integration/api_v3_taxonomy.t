@@ -15,7 +15,6 @@ wait_application_ready(__FILE__);
 remove_all_products();
 remove_all_users();
 
-
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
 	# taxonomy_canonicalize_tags
