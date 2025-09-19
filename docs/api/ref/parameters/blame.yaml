@@ -1,0 +1,15 @@
+components:
+  parameters:
+    Blame:
+      name: blame
+      in: query
+      description: |
+        Include blame information in the response showing who last modified each field of the product.
+        The blame information contains the user ID, timestamp, revision number, and value for each field.
+        Can be set to any value (1, true, etc.) - the presence of the parameter is what matters.
+      required: false
+      schema:
+        type: string
+        examples:
+          - "1"
+          - "true"
