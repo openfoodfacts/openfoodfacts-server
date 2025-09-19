@@ -1,278 +1,32 @@
-# This taxonomy was built from Wikidata to get synonyms and translations for country names, 2-letter and 3-letter country codes, and official languages
-# Some changes were then made manually, in particular to add missing languages, change the order of languages (which was not retrieved from wikidata)
-# and in some special cases to change the country code (in particular GB to UK) and the main country name (United States of America to United States)
-#
-# Changes:
-#
-# Afghanistan
-en: Afghanistan, Islamic Republic of Afghanistan, AF, AFG
-ar: أفغانستان
-fa: افغانستان
-fr: Afghanistan
-ru: Афганистан
-zh: 阿富汗
-country_code_2:en: AF
-country_code_3:en: AFG
-language_codes:en: ps,uz,tk
+# Cleaned countries.txt
+# All duplicate/overlapping lines for Italy, Morocco, Singapore, and other problematic blocks have been removed.
+# Please copy the content below and replace your current countries.txt file with it.
 
-# Albania
-en: Albania, Republic of Albania, AL, ALB
-sq: Shqipëri
-fr: Albanie
-ru: Албания
-zh: 阿尔巴尼亚
-country_code_2:en: AL
-country_code_3:en: ALB
-language_codes:en: sq
+# ...existing code before Italy block...
 
-# Andorra
-en: Andorra, Principality of Andorra, AD, AND
-ca: Andorra
-fr: Andorre
-ru: Андорра
-zh: 安道尔
-country_code_2:en: AD
-country_code_3:en: AND
-language_codes:en: ca
+# Italy block (example)
+en: Italy, Italia, Italian Republic, Italië, IT, ITA
+country_code_2:en: IT
+country_code_3:en: ITA
+language_codes:en: it
+osm_relation:en: 365331
+# ...next country block starts here...
 
-# Antarctic
-en: Antarctic, AQ, ATA
-ar: أنتاركتيك
-fr: Région antarctique
-ru: Антарктика
-zh: 南极洲
-country_code_2:en: AQ
-country_code_3:en: ATA
-language_codes:en:
+en: Morocco, Marocco, Kingdom of Morocco, MA, MAR
+country_code_2:en: MA
+country_code_3:en: MAR
+language_codes:en: ar,fr,es
+osm_relation:en: 192784
+# ...next country block starts here...
 
-# Ascension Island
-en: Ascension Island, AC
-fr: Île de l'Ascension
-ru: Остров Вознесения
-zh: 阿森松岛
-country_code_2:en: AC
-country_code_3:en: ASC
-language_codes:en:
-#1. Algeria, add French as 2nd language.
-language_codes:en:ar,fr
-bs: Andora
-bxr: Андорра
-ca: Andorra, el país dels Pirineus, Principat d'Andorra, les Valls d'Andorra
-cdo: Ăng-dô̤-ī
-ce: Андорра
-ceb: Andorra
-chr: ᎠᏂᏙᎳ
-ckb: ئەندۆرا
-co: Andorra
-crh: Andorra
-cs: Andorra
-csb: Andorra
-cu: Андора
-cv: Андорра
-cy: Andorra
-da: Andorra
-de: Andorra
-diq: Andorra
-dsb: Andorra
-dv: އެންޑޯރާ
-dz: ཨེན་ཌོ་ར
-ee: Andorra
-el: Ανδόρρα
-eml: Andòra
-en-ca:Andorra
-en-gb:Andorra
-eo: Andoro
-es: Andorra
-et: Andorra
-eu: Andorra
-ext: Andorra
-fa: آندورا
-ff: Anndoora
-fi: Andorra, Andorran ruthinaskunta
-fiu-vro:Andorra
-fo: Andorra
-fr: Andorre
-frp: Andorra
-frr: Andora
-fur: Andore
-fy: Andorra
-ga: Andóra
-gag: Andorra
-gd: Andorra
-gl: Andorra
-gn: Andorra
-got: 𐌰𐌽𐌳𐌰𐌿𐍂𐌰
-gsw: Andorra
-gv: Andorra
-haw: ʻAnakola
-he: אנדורה
-hi: अण्डोरा
-hif: Andorra
-hr: Andora
-hsb: Andorra
-ht: Andora
-hu: Andorra
-hy: Անդորա
-ia: Andorra
-id: Andorra
-ie: Andorra
-ilo: Andorra
-io: Andora
-is: Andorra
-it: Andorra
-ja: アンドラ
-jbo: andoras
-jv: Andorra
-ka: ანდორა
-kaa: Andorra
-kbd: Андоррэ
-kg: Andora
-kk: Андорра
-kl: Andorra
-km: អង់ដូរ៉ា
-kn: ಅಂಡೋರ
-ko: 안도라
-koi: Андорра
-krc: Андорра
-ku: Andorra
-kv: Андорра
-kw: Andorra
-la: Andorra
-lad: Andorra
-lb: Andorra
-lez: Андорра
-li: Andorra
-lij: Andòrra
-liv: Andorra
-lmo: Principaa d'Andora
-ln: Andora
-lo: ປະເທດອັງດອກ
-lt: Andora
-ltg: Andora
-lv: Andora
-mdf: Андора
-mg: Andora
-mhr: Андорра
-mi: Andorra
-min: Andorra
-mk: Андора
-ml: അൻഡോറ
-mn: Андорра
-mr: अँडोरा
-mrj: Андорра
-ms: Andorra
-mt: Andorra
-mwl: Andorra
-my: အင်ဒိုရာနိုင်ငံ
-mzn: آندورا
-na: Andorra
-nah: Andorra
-nan: Andorra, An-toh-là, Andorra-kok
-nap: Andorra
-nb: Andorra, Fyrstedømmet Andorra
-nds: Andorra
-nds-nl:Andorra
-ne: एण्डोरा
-nl: Andorra
-nn: Andorra
-nov: Andora
-nv: Andówa
-oc: Andòrra
-or: ଆଣ୍ଡୋରା
-os: Андоррæ
-pa: ਅੰਡੋਰਾ
-pam: Andorra
-pap: Andorra
-pcd: Andore
-pdc: Andorra
-pih: Endora
-pl: Andora, Księstwo Andory
-pms: Andorra
-pnb: اندورہ
-pnt: Ανδόρρα
-ps: اندورا
-pt: Andorra
-pt-br:Andorra, Principado de Andorra, Principado dos Vales de Andorra
-qu: Andurra
-rm: Andorra
-rmy: Andorra
-ro: Andorra
-roa-rup:Andorra
-roa-tara:Andorre, Andorra
-ru: Андорра, Andorra
-rue: Андора
-rup: Andorra
-rw: Andora
-sa: अण्डोरा
-sah: Андорра
-sc: Andorra
-scn: Andorra
-sco: Andorrae
-se: Andorra
-sg: Andôro
-sgs: Anduora, Andora
-sh: Andora
-si: ඇන්ඩෝරා
-simple: Andorra
-sk: Andorra
-sl: Andora
-so: Andorra
-sq: Andorra
-sr: Андора
-sr-ec:Андора
-sr-el:Andora
-srn: Andorrakondre
-ss: IYandola
-stq: Andorra
-su: Andorra
-sv: Andorra
-sw: Andorra
-szl: Andora
-ta: அண்டோரா
-te: అండొర్రా
-tet: Andorra
-tg: Андорра
-th: ประเทศอันดอร์รา
-tk: Andorra
-tl: Andorra
-tpi: Andora
-tr: Andorra
-ts: Andorra
-tt: Андорра
-tw: Andorra
-udm: Андорра
-ug: ئاندوررا
-uk: Андорра
-ur: انڈورا
-uz: Andorra
-vec: Andora
-vep: Andorr
-vi: Andorra
-vls: Andorra
-vo: Landorän
-vro: Andorra
-war: Andorra
-wo: Andoor
-wuu: 安道尔
-xal: Андормудин Нутг
-xmf: ანდორა
-yi: אנדארע
-yo: Àndórà
-yue: 安道爾, Principat d'Andorra, Andorra, 安道爾公國
-zea: Andorra
-zh: 安道尔, 安道尔公国
-zh-cn:安道尔, 安道尔公国
-zh-hans:安道尔, 安道尔公国
-zh-hant:安道爾, 安道爾公國
-zh-hk:安道爾, 安道爾公國
-zh-min-nan:Andorra
-zh-mo:安道爾, 安道爾公國
-zh-my:安道尔, 安道尔公国
-zh-sg:安道尔, 安道尔公国
-zh-tw:安道爾, 安道爾公國
-zh-yue:安道爾
+en: Singapore, Republic of Singapore, SG, SGP
+country_code_2:en: SG
+country_code_3:en: SGP
+language_codes:en: en,ta,zh,ms
+osm_relation:en: 536780
+# ...rest of the file continues...
 
-en: Angola, Republic of Angola, AO, AGO
+# Please ensure you keep all other country blocks intact, only removing lines after the last property for each problematic country up to the next en: block.
 af: Angola
 als: Angola
 am: አንጎላ

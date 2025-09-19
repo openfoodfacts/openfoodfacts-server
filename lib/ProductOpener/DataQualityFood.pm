@@ -2039,12 +2039,12 @@ sub check_labels ($product_ref) {
        # In EU, compare label claim and nutrition
        # Now using the 'regional_entity:en: european-union' property in the countries taxonomy
        my $european_product = 0;
-       my $eu_countries = get_all_tags_having_property($product_ref, 'countries', 'regional_entity:en');
-       foreach my $country (keys %{$eu_countries}) {
-	       if ($eu_countries->{$country} eq 'european-union') {
-		       $european_product = 1;
-		       last;
-	       }
+       my $eu_countries_ref = get_all_tags_having_property($product_ref, 'countries', 'regional_entity:en');
+       foreach my $country (keys %{$eu_countries_ref}) {
+       if ($eu_countries_ref->{$country} eq 'european-union') {
+	       $european_product = 1;
+	       last;
+       }
        }
 
 	if (    (defined $product_ref->{nutriments})
