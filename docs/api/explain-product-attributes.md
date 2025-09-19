@@ -150,7 +150,7 @@ For each product returned, the corresponding field is added, containing an array
 #### Example
 
 - Request: https://world.openfoodfacts.org/api/v2/product/3700214614266?fields=product_name,code,attribute_groups_en
-- Response:
+- Response (excerpt with only a few product attributes):
 
 ```json
 {
@@ -215,9 +215,9 @@ For each product returned, the corresponding field is added, containing an array
                     }
                 ]
             }
+            // Actual response contains many more attribute, showing only a small excerpt here
         ]
     }
-    [..]
 }
 ```
 
