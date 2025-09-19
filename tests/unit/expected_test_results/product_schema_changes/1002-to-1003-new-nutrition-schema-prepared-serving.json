@@ -1,0 +1,76 @@
+{
+   "nutrition": {
+      "aggregated_set": {
+         "nutrients": {
+            "calcium": {
+               "source": "packaging",
+               "source_index": 0,
+               "source_per": "serving",
+               "unit": "g",
+               "value": 0.118
+            },
+            "energy": {
+               "source": "packaging",
+               "source_index": 0,
+               "source_per": "serving",
+               "unit": "kJ",
+               "value": 304
+            },
+            "energy-kcal": {
+               "source": "packaging",
+               "source_index": 0,
+               "source_per": "serving",
+               "unit": "kcal",
+               "value": 72
+            },
+            "energy-kj": {
+               "source": "packaging",
+               "source_index": 0,
+               "source_per": "serving",
+               "unit": "kJ",
+               "value": 304
+            }
+         },
+         "per": "100g",
+         "preparation": "prepared"
+      },
+      "input_sets": [
+         {
+            "last_updated_t": "--ignore--",
+            "nutrients": {
+               "calcium": {
+                  "unit": "g",
+                  "value": 0.295,
+                  "value_string": "0.295"
+               },
+               "energy": {
+                  "unit": "kJ",
+                  "value": 760,
+                  "value_string": "760"
+               },
+               "energy-kcal": {
+                  "unit": "kcal",
+                  "value": 180,
+                  "value_string": "180"
+               },
+               "energy-kj": {
+                  "unit": "kJ",
+                  "value": 760,
+                  "value_string": "760"
+               }
+            },
+            "per": "serving",
+            "per_quantity": 250,
+            "per_unit": "g",
+            "preparation": "prepared",
+            "source": "packaging"
+         }
+      ],
+      "unspecified_nutrients": [
+         "added-sugars"
+      ]
+   },
+   "schema_version": 1003,
+   "serving_quantity": 250,
+   "serving_quantity_unit": "g"
+}
