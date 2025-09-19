@@ -112,7 +112,6 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
     input.on("change", function () {
         value = "";
         updateSuggestions(false);
-        console.log("Tagify: change", el, input.value);
         if (changeCallback) {
             changeCallback(el);
         }

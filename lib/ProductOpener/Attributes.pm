@@ -71,7 +71,6 @@ use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 use Data::DeepAccess qw(deep_get);
-use CGI qw/:cgi/;
 
 =head1 CONFIGURATION
 
@@ -144,7 +143,7 @@ The return value is cached for each language in the %localized_attribute_groups 
 # Global structure to cache the return structure for each language
 my %localized_attribute_groups = ();
 
-sub list_attributes ($target_lc) {
+sub list_attributes ($target_lc, $api_version) {
 
 	$log->debug("list attributes", {target_lc => $target_lc}) if $log->is_debug();
 
@@ -165,11 +164,34 @@ sub list_attributes ($target_lc) {
 
 				foreach my $attribute_id (@{$attributes_ref}) {
 
+					# If API version is < 3.4, do not return attributes that have parameters
+					# (currently only unwanted_ingredients)
+					if (($api_version < 3.4) and ($attribute_id eq "unwanted_ingredients")) {
+						next;
+					}
+
 					my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 
 					# Add the possible values for the attribute
 					$attribute_ref->{values}
 						= deep_get(\%options, "attribute_values", $attribute_id) || $options{attribute_values_default};
+
+					# Default preference
+					if (defined $options{attribute_default_preferences}{$attribute_ref->{id}}) {
+						$attribute_ref->{default} = $options{attribute_default_preferences}{$attribute_ref->{id}};
+					}
+
+					# Add parameters for attributes that have them
+					if ($attribute_id eq "unwanted_ingredients") {
+						$attribute_ref->{parameters} = [
+							{
+								id => "attribute_unwanted_ingredients_tags",
+								name => lang_in_other_lc($target_lc, "attribute_unwanted_ingredients_name"),
+								type => "tags",
+								tagtype => "ingredients",
+							}
+						];
+					}
 
 					push @{$group_ref->{attributes}}, $attribute_ref;
 				}
@@ -1691,6 +1713,8 @@ Needed for some country specific attributes like the Environmental-Score.
 Defines how some attributes should be computed (or not computed)
 
 - skip_[attribute_id] : do not compute a specific attribute
+- attribute_unwanted_ingredients_tags : a comma separated list of unwanted ingredients
+  (e.g. "palm oil, titanium dioxide") to compute the unwanted ingredients attribute
 
 =head3 Return values
 
@@ -1742,8 +1766,9 @@ sub compute_attributes ($product_ref, $target_lc, $target_cc, $options_ref) {
 			add_attribute_to_group($product_ref, $target_lc, "ingredients_analysis", $attribute_ref);
 		}
 		# Unwanted ingredients
-		if (defined cookie("attribute_unwanted_ingredients_tags")) {
-			my @unwanted_ingredients = map {s/^\s+|\s+$//gr} split /,/, cookie("attribute_unwanted_ingredients_tags");
+		my $unwanted_ingredients_tags = $options_ref->{"attribute_unwanted_ingredients_tags"};
+		if (defined $unwanted_ingredients_tags) {
+			my @unwanted_ingredients = map {s/^\s+|\s+$//gr} split /,/, $unwanted_ingredients_tags;
 			# Only compute the unwanted ingredients attribute if we do have unwanted ingredients
 			if (scalar(@unwanted_ingredients) > 0) {
 				$attribute_ref

@@ -338,9 +338,9 @@ function display_user_product_preferences(target_selected, target_selection_form
 
     if (!attribute_groups) {
 
-        $.getJSON("/api/v0/attribute_groups", function(data) {
+        $.getJSON("/api/v3.4/attribute_groups", function(data) {
 
-            attribute_groups = data;
+            attribute_groups = data.attribute_groups;
             display_user_product_preferences(target_selected, target_selection_form, change);
         });
 
@@ -349,9 +349,9 @@ function display_user_product_preferences(target_selected, target_selection_form
 
     if (!preferences) {
 
-        $.getJSON("/api/v0/preferences", function(data) {
+        $.getJSON("/api/v3.4/preferences", function(data) {
 
-            preferences = data;
+            preferences = data.preferences;
             display_user_product_preferences(target_selected, target_selection_form, change);
         });
         
