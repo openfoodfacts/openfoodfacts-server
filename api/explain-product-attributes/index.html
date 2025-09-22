@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-barcode-normalization/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/explain-product-attributes/">
       
       
-        <link rel="prev" href="../ref-api-and-product-schema-change-log/">
+        <link rel="prev" href="../explain-knowledge-panels/">
       
       
-        <link rel="next" href="../ref-cheatsheet/">
+        <link rel="next" href="../ref-api-and-product-schema-change-log/">
       
       
       <link rel="icon" href="https://static.openfoodfacts.org/images/logos/off-logo-favicon-light.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Reference: Barcode Normalization - Product Opener (Open Food Facts Server)</title>
+        <title>Explanation on Product Attributes - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reference-barcode-normalization" class="md-skip">
+        <a href="#explanation-on-product-attributes" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reference: Barcode Normalization
+              Explanation on Product Attributes
             
           </span>
         </div>
@@ -474,10 +474,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../explain-product-attributes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Explanation on Product Attributes
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -488,6 +510,209 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      What it is
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-list-of-available-product-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current list of available Product Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-and-descriptions-of-available-product-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      List and descriptions of available product attributes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#product-attributes-with-parameters-eg-unwanted-ingredients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product Attributes with Parameters (e.g. Unwanted ingredients)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attribute-group-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute group format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-uses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example uses
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example uses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#personalized-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personalized search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#information-and-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Information and recommendations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Information and recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#possible-display" class="md-nav__link">
+    <span class="md-ellipsis">
+      Possible display
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personalized-information-and-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personalized information and recommendations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -520,32 +745,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Reference: Barcode Normalization
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ref-barcode-normalization/" class="md-nav__link">
         
   
   
@@ -556,59 +759,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem-barcodes-may-be-prefixed-by-a-varying-number-of-0s" class="md-nav__link">
-    <span class="md-ellipsis">
-      The problem: barcodes may be prefixed by a varying number of 0s
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-solution-barcode-normalization" class="md-nav__link">
-    <span class="md-ellipsis">
-      The solution: barcode normalization
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The solution: barcode normalization">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#normalization-of-barcodes-in-the-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      Normalization of barcodes in the API
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1934,28 +2084,178 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-problem-barcodes-may-be-prefixed-by-a-varying-number-of-0s" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      The problem: barcodes may be prefixed by a varying number of 0s
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-solution-barcode-normalization" class="md-nav__link">
+  <a href="#what-it-is" class="md-nav__link">
     <span class="md-ellipsis">
-      The solution: barcode normalization
+      What it is
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The solution: barcode normalization">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-list-of-available-product-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current list of available Product Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#normalization-of-barcodes-in-the-api" class="md-nav__link">
+  <a href="#list-and-descriptions-of-available-product-attributes" class="md-nav__link">
     <span class="md-ellipsis">
-      Normalization of barcodes in the API
+      List and descriptions of available product attributes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#product-attributes-with-parameters-eg-unwanted-ingredients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product Attributes with Parameters (e.g. Unwanted ingredients)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attribute-group-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute group format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-uses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example uses
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example uses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#personalized-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personalized search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#information-and-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Information and recommendations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Information and recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#possible-display" class="md-nav__link">
+    <span class="md-ellipsis">
+      Possible display
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personalized-information-and-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personalized information and recommendations
     </span>
   </a>
   
@@ -1982,7 +2282,7 @@
 
 
   
-    <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/main/docs/api/ref-barcode-normalization.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/main/docs/api/explain-product-attributes.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1990,28 +2290,251 @@
   
 
 
-<h1 id="reference-barcode-normalization">Reference: Barcode Normalization<a class="headerlink" href="#reference-barcode-normalization" title="Permanent link">#</a></h1>
-<p>This reference describes how barcodes are normalized in Open Food Facts.</p>
-<h2 id="the-problem-barcodes-may-be-prefixed-by-a-varying-number-of-0s">The problem: barcodes may be prefixed by a varying number of 0s<a class="headerlink" href="#the-problem-barcodes-may-be-prefixed-by-a-varying-number-of-0s" title="Permanent link">#</a></h2>
-<p>Different types of barcodes can be found on products. The most common are:</p>
+<h1 id="explanation-on-product-attributes">Explanation on Product Attributes<a class="headerlink" href="#explanation-on-product-attributes" title="Permanent link">#</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
+<p>Product Attributes is a way to query the Open Food Facts API to make it easier for clients (like apps but also the OFF website) to filter and rank search results according to user preferences, and to explain to users how well the products match their preferences.</p>
+<p>The Product Attributes were introduced to support <a href="https://world.openfoodfacts.org/project/personalized-search">Project:Personalized Search</a>, but they enable many more uses.</p>
+<h2 id="what-it-is">What it is<a class="headerlink" href="#what-it-is" title="Permanent link">#</a></h2>
+<p>Product Attributes is a standardized way to get information on how well a product matches a given requirement (for instance: the product has good nutritional quality, it is vegetarian, does not contain eggs, is organic, etc.). The information is available as machine-readable data (e.g. 100% match) and internationalized human-friendly data ("This product has Nutri-Score E, it is recommended to reduce your consumption of products graded D and E"). For both the machine-readable and the human-friendly data, the format of the data is always the same for all requirements.</p>
+<p>The machine-readable data makes it easy for apps to filter and rank search results in their own way, or according to the preferences of users.</p>
+<p>The human-friendly data makes it easy to present the information to users, with translations.</p>
+<h2 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">#</a></h2>
+<p>Product Attributes greatly simplify how apps can use and display product information, while at the same time offering more flexibility.</p>
 <ul>
-<li>EAN-13 / GTIN-13: 13 digit barcode</li>
-<li>EAN-8: 8 digit barcode, short version of EAN-13 barcodes that have 5 leading 0s</li>
-<li>UPC-A / UPC-12: 12 digit barcode that were used mostly in the US and Canada. A leading 0 can be added to get the corresponding EAN-13.</li>
-<li>UPC-E: 7 digit barcode, short version of UPC-A</li>
-<li>EAN-14 / GTIN-14: used for non-consumer facing products (e.g. a case of individal products). a leading 0 can be added to EAN-13 to get the corresponding EAN-14.</li>
+<li>Apps don't have to add special code to process each type of requirement (e.g. looking at the array of ingredients and additives, the values of nutrients, etc.).</li>
+<li>Apps don't need to load and update taxonomies to interpret the returned data.</li>
+<li>Translations are managed by the server, and we can use Crowdin to crowdsource them in many languages.</li>
+<li>If desired, apps can decide to use new product attributes added on the server without requiring app changes.</li>
 </ul>
-<p>The same code could be printed on products with a different number of leading 0s.
-Additionally, some barcode scanners may add or remove leading 0s.</p>
-<p>As the barcode is used as the key in Open Food Facts, we can end up with duplicate products that just differ by the number of leading 0s.</p>
-<h2 id="the-solution-barcode-normalization">The solution: barcode normalization<a class="headerlink" href="#the-solution-barcode-normalization" title="Permanent link">#</a></h2>
-<p>In Open Food Facts, we choose to fix the number of leading 0s in this way:</p>
-<p>All barcodes with 7 digits or less (after leading 0s are removed) are padded with leading 0s so that they have 8 digits.</p>
-<p>All barcodes with 9 to 12 digits are padded with leading 0s so that they have 13 digits.</p>
-<p>The "code" field in the product database, database dumps and exports is normalized in this way.</p>
-<h3 id="normalization-of-barcodes-in-the-api">Normalization of barcodes in the API<a class="headerlink" href="#normalization-of-barcodes-in-the-api" title="Permanent link">#</a></h3>
-<p>The Open Food Facts API automatically normalize the barcode passed in the "code" field for both READ and WRITE requests.</p>
-<p>So a request for the 12 digit barcode 034000470693 will return the product saved with "code" 0034000470693.</p>
+<h2 id="current-list-of-available-product-attributes">Current list of available Product Attributes<a class="headerlink" href="#current-list-of-available-product-attributes" title="Permanent link">#</a></h2>
+<p>Product Attributes are organized in sections:</p>
+<ul>
+<li>Nutritional quality<ul>
+<li>Nutri-Score (A = 100%, E = 0%)</li>
+<li>Low salt / Low sugar / Low fat / Low saturated fat (based on the Nutrition Traffic Lights): 1 product attribute for each so that users who are concerned only by salt can specify it.</li>
+</ul>
+</li>
+<li>Transformation<ul>
+<li>No ultra-processed foods (NOVA 1 &amp; 2 = 100%, 4 = 0%)</li>
+<li>Few additives (0 additives = 100%)</li>
+</ul>
+</li>
+<li>Allergens<ul>
+<li>For each allergen (not present = 100%, present = 0%, traces = 20% (low threshold that will exclude products if "No [allergen]" is marked as mandatory by the user)</li>
+</ul>
+</li>
+<li>Ingredients<ul>
+<li>Vegan</li>
+<li>Vegetarian</li>
+<li>Palm oil</li>
+<li>Unwanted ingredients (unwanted ingredients are specified by the user)</li>
+</ul>
+</li>
+<li>Labels<ul>
+<li>Organic</li>
+<li>Fair trade</li>
+</ul>
+</li>
+<li>Environment<ul>
+<li>Green-Score</li>
+<li>Forest Footprint</li>
+</ul>
+</li>
+</ul>
+<p>New Product Attributes can be added over time.</p>
+<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">#</a></h2>
+<h3 id="list-and-descriptions-of-available-product-attributes">List and descriptions of available product attributes<a class="headerlink" href="#list-and-descriptions-of-available-product-attributes" title="Permanent link">#</a></h3>
+<p>Apps can get the list of all available product attributes at the <code>/api/v3.4/attribute_groups</code> endpoint for API v3,
+or at the <code>/api/v2/attribute_groups</code> or <code>/api/v2/attribute_groups_[language code]</code> endpoints for API v2.</p>
+<p>e.g. [https://world.openfoodfacts.org/api/v3.4/attribute_groups]</p>
+<p>Note that API &lt; 3.4 does not support product attributes with parameters (such as the "Unwanted ingredients" attribute that requires a list of unwanted ingredients).</p>
+<p>It returns a JSON array of attribute groups that each contain an array of attributes.</p>
+<p>For a complete and accurate documentation refers to OpenAPI specification for v3.</p>
+<p>Attribute groups keys:</p>
+<ul>
+<li>id - e.g. nutritional_quality</li>
+<li>name - e.g. Nutritional quality</li>
+<li>warning (optional)</li>
+<li>attributes: array of attributes</li>
+</ul>
+<p>Attributes keys:</p>
+<ul>
+<li>id - e.g. "nutriscore",</li>
+<li>name - e.g. Nutri-Score"</li>
+<li>setting_name - e.g. "Good nutritional quality (Nutri-Score)" (in the form of a requirement)</li>
+<li>setting_note (optional) - e.g. extra detail that can be shown in user preferences</li>
+<li>parameters (optional, for some attributes like Unwanted ingredients that can be configured by the user)<ul>
+<li>array of parameters<ul>
+<li>id: parameter id (e.g. unwanted_ingredients_tags)</li>
+<li>name: name of the parameter, to be displayed to users</li>
+<li>type: "tags" indicate the parameter expects a comma separated list of canonical tags</li>
+<li>tagtype: e.g. "ingredients" (for the "tags" type)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="request">Request<a class="headerlink" href="#request" title="Permanent link">#</a></h3>
+<p>Apps can request Product Attributes through API queries (<code>/api/v3/product</code> or <code>/api/v2/search</code>) by including <code>attribute_groups</code> or <code>attribute_groups_[language code]</code> (or <code>attribute_groups_data</code> to get only the machine-readable data) in the <code>fields</code> parameter.</p>
+<h4 id="product-attributes-with-parameters-eg-unwanted-ingredients">Product Attributes with Parameters (e.g. Unwanted ingredients)<a class="headerlink" href="#product-attributes-with-parameters-eg-unwanted-ingredients" title="Permanent link">#</a></h4>
+<p>In September 2025, we introduced support for attributes that can be configured with parameters. The first is the <strong>Unwanted ingredients</strong> attribute that takes a list of canonical ingredients as a parameter.</p>
+<p>In order not to break existing clients, this attribute is listed in the response of the API <code>/api/v3.4/attribute_groups</code> only when the version is at least 3.4:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;icon_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://static.openfoodfacts.localhost/images/attributes/dist/contains-unwanted-ingredients.svg&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unwanted_ingredients&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Unwanted ingredients&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;attribute_unwanted_ingredients_tags&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Unwanted ingredients&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;tagtype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ingredients&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tags&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;setting_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Unwanted ingredients&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;values&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;not_important&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;important&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;very_important&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;mandatory&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The response above indicates that the <strong>Unwanted ingredients</strong> attribute needs a <code>attribute_unwanted_ingredients_tags</code> parameter which is a list of comma separated canonical ingredients tags (e.g. "en:garlic,en:kiwi")</p>
+<p>This parameter can be sent in product read and search requests in 2 ways:</p>
+<ul>
+<li>as a cookie with the name <code>attribute_unwanted_ingredients_tags</code>: this is used in particular on the website so that we do not have URLs with an extra query parameter.</li>
+<li>as a query parameter in the URL (e.g. ?attribute_unwanted_ingredients_tags=en:garlic,en:kiwi)</li>
+</ul>
+<h3 id="response">Response<a class="headerlink" href="#response" title="Permanent link">#</a></h3>
+<p>For each product returned, the corresponding field is added, containing an array of groups (to regroup attributes, like all allergens) that each contains an array of attributes.</p>
+<h4 id="attribute-group-format">Attribute group format<a class="headerlink" href="#attribute-group-format" title="Permanent link">#</a></h4>
+<ul>
+<li>id - e.g. nutritional_quality</li>
+<li>name - Name of the group of attributes e.g. "Nutritional quality"</li>
+<li>attributes - Array of attributes</li>
+</ul>
+<h4 id="attribute-format">Attribute format<a class="headerlink" href="#attribute-format" title="Permanent link">#</a></h4>
+<ul>
+<li>id - e.g. nutriscore</li>
+<li>name - e.g. "Nutri-Score"</li>
+<li>status - known, unknown, not-applicable: indicate if we have enough data to decide if the requirement is met</li>
+<li>match - 0 to 100 - indicate how well the product matches the requirement (100 = 100% match) </li>
+<li>icon_url (optional)</li>
+<li>title - short title corresponding to the value of the attribute - e.g. "Nutri-Score D"</li>
+<li>details (optional) - explains how the match was computed, what triggered the match value (e.g. for vegan, list of ingredients that may not be vegan)</li>
+<li>description_short (optional) - very short description - e.g. "Bad nutritional quality"</li>
+<li>description (optional) - small text (1 or 2 paragraphs, possibly with bullet points introduced by dashes) - intended to be displayed under the description_short</li>
+<li>recommendation_short (optional) - "Reduce"</li>
+<li>recommendation_long (optional)</li>
+<li>official_link_title (optional) - "Nutri-Score page on Santé publique France"</li>
+<li>official_link_url (optional)</li>
+<li>off_link_title (optional)</li>
+<li>off_link_url (optional)</li>
+</ul>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
+<ul>
+<li>Request: https://world.openfoodfacts.org/api/v2/product/3700214614266?fields=product_name,code,attribute_groups_en</li>
+<li>Response (excerpt with only a few product attributes):</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3700214614266&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Chocolat noir Pérou 90% fruité et boisé&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3700214614266&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;attribute_groups_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;known&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutri-Score&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nutriscore&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutri-Score D&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;description_short&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Poor nutritional quality&quot;</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutritional quality&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nutritional_quality&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;processing&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Food processing&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nova&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NOVA group&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;known&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;description_short&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Processed foods&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NOVA 3&quot;</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">]</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;labels&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Labels&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organic product&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;description_short&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Promotes ecological sustainability and biodiversity.&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organic farming&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;known&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;labels_organic&quot;</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                    </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;labels_fair_trade&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fair trade&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;known&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;description_short&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fair trade products help producers in developing countries.&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;When you buy fair trade products, producers in developing countries are paid a higher and fairer price, which helps them improve and sustain higher social and often environmental standards.&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fair trade product&quot;</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="c1">// Actual response contains many more attribute, showing only a small excerpt here</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="example-uses">Example uses<a class="headerlink" href="#example-uses" title="Permanent link">#</a></h2>
+<h3 id="personalized-search">Personalized search<a class="headerlink" href="#personalized-search" title="Permanent link">#</a></h3>
+<p>On the client, users are being asked to enter preferences for each attribute (or a specific subset of attributes), for instance:</p>
+<ul>
+<li>The product is vegetarian - [ ] Not important, [ ] Important, [ ] Very important, [ ] Mandatory.</li>
+</ul>
+<p>Based on the users preferences and the <code>match</code> key of the Product Attributes, apps can exclude some results (e.g., if a mandatory requirement is not fully met) and re-rank search results.</p>
+<p>For each attribute, the server computes a match that goes from 0 to 100 (perfect match).</p>
+<p>The filtering and ranking is done on the client, the preferences are not sent to the server.</p>
+<p>Client-side (used in the Open Food Facts website and mobile app) algorithm to compute a user-defined sort key:</p>
+<ul>
+<li>For each requirement in user preferences:<ul>
+<li>If requirement is mandatory, score = score + match * 4<ul>
+<li>And exclude product if match is less than 20%</li>
+</ul>
+</li>
+<li>If requirement is very important, score = score + match * 2</li>
+<li>If requirement is important, score = score + match</li>
+</ul>
+</li>
+</ul>
+<h3 id="information-and-recommendations">Information and recommendations<a class="headerlink" href="#information-and-recommendations" title="Permanent link">#</a></h3>
+<p>Apps can use the returned human-friendly data of each attribute to show some explanations and/or recommendations to users.</p>
+<p>As the data is always returned in the same format for each attribute, apps can also decide to display all product attributes returned by the API (even if the app is not aware of them).</p>
+<p>Apps can also decide to display some attributes in their own way (using the more attribute-specific data that is returned by other fields in the API).</p>
+<h4 id="possible-display">Possible display<a class="headerlink" href="#possible-display" title="Permanent link">#</a></h4>
+<p>Apps can display the attribute icon (that depends on both the attribute type and on how well the product matches the requirement) + the attribute short descriptions and recommendation, with an easy way to display the longer descriptions, recommendations, and links.</p>
+<p>Attributes icons should be cached if possible (and apps could also pre-cache existing icons in the install package).</p>
+<h3 id="personalized-information-and-recommendations">Personalized information and recommendations<a class="headerlink" href="#personalized-information-and-recommendations" title="Permanent link">#</a></h3>
+<p>Based on users preferences, apps can filter and/or re-order the product attributes to first show the information that the user is the most interested in.</p>
+<p>Apps can decide to keep the sections of attribute groups (e.g., keeping all allergens together) or not. In the former case, apps would thus first reorder the sections, and then the attributes in each section.</p>
 
 
 
