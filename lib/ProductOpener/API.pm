@@ -79,6 +79,7 @@ use ProductOpener::GeoIP qw/get_country_for_ip_api/;
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 
+use ProductOpener::APIAttributeGroups qw/attribute_groups_api preferences_api/;
 use ProductOpener::APIProductRead qw/read_product_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
 use ProductOpener::APIProductImagesUpload qw/upload_product_image_api delete_product_image_api/;
@@ -449,7 +450,19 @@ my $dispatch_table = {
 	},
 	geoip => {
 		GET => \&get_country_for_ip_api,
-	}
+	},
+	# Attribute groups
+	attribute_groups => {
+		GET => \&attribute_groups_api,
+		HEAD => \&attribute_groups_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Attributes preferences
+	preferences => {
+		GET => \&preferences_api,
+		HEAD => \&preferences_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
 
 };
 
