@@ -4764,7 +4764,6 @@ ciqual_food_code:en: 19415
 ciqual_food_name:en: Liquid cream 30% fat, UHT
 ciqual_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
 
-
 #processing:en: en:pasteurised # see ingredients_processing.txt
 #<en:cream
 #en:pasteurized cream
@@ -4941,6 +4940,11 @@ it: panna intera
 nl: volle room
 # ingredient/whole-cream has 66 products in 4 languages @2019-07-12
 
+# cream with a high percentage of fat. similar/synonym to whipping cream
+< en:cream
+en: heavy cream
+nb: kremfløte
+
 #this is cream that can be used for whipping
 < en:cream
 en: whipping cream
@@ -4989,7 +4993,7 @@ it: latte scremato e panna pastorizzata
 # ingredient/fr:lait-écrémé-et-crème-pasteurisés has 64 products in 4 languages @2019-02-03
 
 < en:cream
-en: fresh cream, heavy cream
+en: fresh cream
 ca: nata fresca, crema de llet fresca
 da: frisk fløde
 de: Frische Sahne
@@ -60401,7 +60405,7 @@ la: Prunis dulcis
 lt: migdolai, migdolų
 lv: mandeles
 mt: lewż
-nb: mandel
+nb: mandel, mandler
 nl: amandel, amandelen
 oc: Almendra
 pl: migdały, orzechy migdałowe, migdał
