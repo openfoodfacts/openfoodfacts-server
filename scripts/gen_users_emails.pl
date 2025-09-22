@@ -28,12 +28,13 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Users qw/retrieve_user retrieve_userids/;
+use ProductOpener::Users qw/retrieve_user retrieve_user_preference_ids/;
 
+#11866: This script will become redundant once Keycloak becomes the source of truth
 my @userids;
 
 if (scalar $#userids < 0) {
-	@userids = retrieve_userids();
+	@userids = retrieve_user_preference_ids();
 }
 
 my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
