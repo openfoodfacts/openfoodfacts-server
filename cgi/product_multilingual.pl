@@ -1136,6 +1136,10 @@ CSS
 		}
 	}
 
+	$template_data_ref_display->{source} = $source;
+	$template_data_ref_display->{preparations} = ["as_sold", "prepared"];
+	$template_data_ref_display->{pers} = ["100g", "100ml", "serving"];
+
 	# Go through all nutrients
 
 	my %nutrition_data_exists = ();
@@ -1213,175 +1217,152 @@ CSS
 			foreach my $per ("100g", "100ml", "serving") {
 
 				my $unit = $default_unit;
-				my $value_string;
+				my $value_string = '';
 
-				my $nutrient_ref = deep_get($input_sets_hash_ref, $source, $preparation, $per, $nid);
-				if (defined $nutrient_ref) {
-					$value_string = $nutrient_ref->{value_string};
-					$unit = $nutrient_ref->{unit};
-				}
-			}
-		}
+				my $input_set_ref = deep_get($input_sets_hash_ref, $source, $preparation, $per);
+				if (defined $input_set_ref) {
 
-		# Record that we have a value for at least one nutrient for the product as sold or prepared
-		if (defined $value) {
-			$nutrition_data_exists{""} = 1;
-		}
-		if (defined $valuep) {
-			$nutrition_data_exists{"_prepared"} = 1;
-		}
-
-		# Add modifiers
-		if (defined $product_ref->{nutriments}{$nid . "_modifier"}) {
-
-			if ($value ne '') {
-				$product_ref->{nutriments}{$nid . "_modifier"} eq '<' and $value = "&lt; $value";
-				$product_ref->{nutriments}{$nid . "_modifier"} eq "\N{U+2264}" and $value = "&le; $value";
-				$product_ref->{nutriments}{$nid . "_modifier"} eq '>' and $value = "&gt; $value";
-				$product_ref->{nutriments}{$nid . "_modifier"} eq "\N{U+2265}" and $value = "&ge; $value";
-				$product_ref->{nutriments}{$nid . "_modifier"} eq '~' and $value = "~ $value";
-			}
-			elsif ($product_ref->{nutriments}{$nid . "_modifier"} eq '-') {
-				# The - minus sign indicates that there is no value specified on the product
-				$value = '-';
-			}
-		}
-
-		if (defined $product_ref->{nutriments}{$nidp . "_modifier"}) {
-
-			if ($valuep ne '') {
-				$product_ref->{nutriments}{$nidp . "_modifier"} eq '<' and $valuep = "&lt; $valuep";
-				$product_ref->{nutriments}{$nidp . "_modifier"} eq "\N{U+2264}" and $valuep = "&le; $valuep";
-				$product_ref->{nutriments}{$nidp . "_modifier"} eq '>' and $valuep = "&gt; $valuep";
-				$product_ref->{nutriments}{$nidp . "_modifier"} eq "\N{U+2265}" and $valuep = "&ge; $valuep";
-				$product_ref->{nutriments}{$nidp . "_modifier"} eq '~' and $valuep = "~ $valuep";
-			}
-			elsif ($product_ref->{nutriments}{$nidp . "_modifier"} eq '-') {
-				# The - minus sign indicates that there is no value specified on the product
-				$valuep = '-';
-			}
-		}
-
-		if (lc($unit) eq "mcg") {
-			$unit = "µg";
-		}
-
-		my $disabled_backup = $disabled;
-		if ($nid eq 'carbon-footprint') {
-			# Workaround, so that the carbon footprint, that could be in a location different from actual nutrition facts,
-			# will never be disabled.
-			$disabled = '';
-		}
-
-		if (($nid eq 'alcohol') or ($nid eq 'energy-kj') or ($nid eq 'energy-kcal')) {
-			$unit = '';
-
-			if (($nid eq 'alcohol')) {$unit = '% vol / °';}    # alcohol in % vol / °
-			elsif (($nid eq 'energy-kj')) {$unit = 'kJ';}
-			elsif (($nid eq 'energy-kcal')) {$unit = 'kcal';}
-
-			$nutriment_ref->{nutriment_unit} = $unit;
-
-		}
-		# make sure pet nutrients (analytical_constituents) are always in percent
-		elsif (($nid eq 'crude-fat')
-			or ($nid eq 'crude-protein')
-			or ($nid eq 'crude-ash')
-			or ($nid eq 'crude-fibre')
-			or ($nid eq 'moisture'))
-		{
-			$nutriment_ref->{nutriment_unit} = '%';
-		}
-		else {
-
-			my @units = ('g', 'mg', 'µg');
-			my @units_arr;
-
-			if ($nid =~ /^energy/) {
-				@units = ('kJ', 'kcal');
-			}
-			elsif ($nid eq 'water-hardness') {
-				@units = (
-					'mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH",
-					"\N{U+00B0}e", "\N{U+00B0}dH", 'gpg'
-				);
-			}
-
-			if (   (defined get_property("nutrients", "zz:$nid", "dv_value:en"))
-				or ($nid =~ /^new_/)
-				or (uc($unit) eq '% DV'))
-			{
-				push @units, '% DV';
-			}
-			if (   (defined get_property("nutrients", "zz:$nid", "iu_value:en"))
-				or ($nid =~ /^new_/)
-				or (uc($unit) eq 'IU')
-				or (uc($unit) eq 'UI'))
-			{
-				push @units, 'IU';
-			}
-
-			my $hide_percent = '';
-			my $hide_select = '';
-
-			if ($unit eq '') {
-				$hide_percent = ' style="display:none"';
-				$hide_select = ' style="display:none"';
-
-			}
-			elsif ($unit eq '%') {
-				$hide_select = ' style="display:none"';
-			}
-			else {
-				$hide_percent = ' style="display:none"';
-			}
-
-			$nutriment_ref->{hide_select} = $hide_select;
-			$nutriment_ref->{hide_percent} = $hide_percent;
-			$nutriment_ref->{nutriment_unit_disabled} = $disabled;
-
-			$disabled = $disabled_backup;
-
-			foreach my $u (@units) {
-				my $selected = '';
-				if (lc($unit) eq lc($u)) {
-					$selected = 'selected="selected" ';
-				}
-				my $label = $u;
-				# Display both mcg and µg as different food labels show the unit differently
-				if ($u eq 'µg') {
-					$label = "mcg/µg";
-				}
-
-				push(
-					@units_arr,
-					{
-						u => $u,
-						label => $label,
-						selected => $selected,
+					my $nutrient_ref = deep_get($input_set_ref, "nutrients", $nid);
+					if (defined $nutrient_ref) {
+						$value_string = $nutrient_ref->{value_string};
+						$unit = $nutrient_ref->{unit};
+						# If we have a modifier, include it in the value_string
+						if (defined $nutrient_ref->{modifier}) {
+							$nutrient_ref->{modifier} eq '<' and $value_string = "&lt; $value_string";
+							$nutrient_ref->{modifier} eq "\N{U+2264}" and $value_string = "&le; $value_string";
+							$nutrient_ref->{modifier} eq '>' and $value_string = "&gt; $value_string";
+							$nutrient_ref->{modifier} eq "\N{U+2265}" and $value_string = "&ge; $value_string";
+							$nutrient_ref->{modifier} eq '~' and $value_string = "~ $value_string";
+							$nutrient_ref->{modifier} eq '-' and $value_string = '-';
+						}
 					}
-				);
+					# The - minus sign indicates that there is no value specified on the product
+					# Check if the nutrient is in the unspecified_nutrients array for this input set
+					elsif ( (defined $input_set_ref->{unspecified_nutrients})
+						and (ref($input_set_ref->{unspecified_nutrients}) eq 'ARRAY')
+						and (grep {$_ eq $nid} @{$input_set_ref->{unspecified_nutrients}}))
+					{
+						$value_string = '-';
+					}
+				}
+
+				if (lc($unit) eq "mcg") {
+					$unit = "µg";
+				}
+
+				if (($nid eq 'alcohol') or ($nid eq 'energy-kj') or ($nid eq 'energy-kcal')) {
+					$unit = '';
+
+					if (($nid eq 'alcohol')) {$unit = '% vol / °';}    # alcohol in % vol / °
+					elsif (($nid eq 'energy-kj')) {$unit = 'kJ';}
+					elsif (($nid eq 'energy-kcal')) {$unit = 'kcal';}
+
+					$nutriment_ref->{nutriment_unit} = $unit;
+
+				}
+				# make sure pet nutrients (analytical_constituents) are always in percent
+				elsif (($nid eq 'crude-fat')
+					or ($nid eq 'crude-protein')
+					or ($nid eq 'crude-ash')
+					or ($nid eq 'crude-fibre')
+					or ($nid eq 'moisture'))
+				{
+					$nutriment_ref->{nutriment_unit} = '%';
+				}
+				else {
+
+					my @units = ('g', 'mg', 'µg');
+					my @units_arr;
+
+					if ($nid =~ /^energy/) {
+						@units = ('kJ', 'kcal');
+					}
+					elsif ($nid eq 'water-hardness') {
+						@units = (
+							'mol/l', 'mmol/l', 'mval/l', 'ppm',
+							"\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH",
+							'gpg'
+						);
+					}
+
+					if (   (defined get_property("nutrients", "zz:$nid", "dv_value:en"))
+						or ($nid =~ /^new_/)
+						or (uc($unit) eq '% DV'))
+					{
+						push @units, '% DV';
+					}
+					if (   (defined get_property("nutrients", "zz:$nid", "iu_value:en"))
+						or ($nid =~ /^new_/)
+						or (uc($unit) eq 'IU')
+						or (uc($unit) eq 'UI'))
+					{
+						push @units, 'IU';
+					}
+
+					my $hide_percent = '';
+					my $hide_select = '';
+
+					if ($unit eq '') {
+						$hide_percent = ' style="display:none"';
+						$hide_select = ' style="display:none"';
+
+					}
+					elsif ($unit eq '%') {
+						$hide_select = ' style="display:none"';
+					}
+					else {
+						$hide_percent = ' style="display:none"';
+					}
+
+					$nutriment_ref->{hide_select} = $hide_select;
+					$nutriment_ref->{hide_percent} = $hide_percent;
+					$nutriment_ref->{nutriment_unit_disabled} = $disabled;
+
+					#$disabled = $disabled_backup;
+
+					foreach my $u (@units) {
+						my $selected = '';
+						if (lc($unit) eq lc($u)) {
+							$selected = 'selected="selected" ';
+						}
+						my $label = $u;
+						# Display both mcg and µg as different food labels show the unit differently
+						if ($u eq 'µg') {
+							$label = "mcg/µg";
+						}
+
+						push(
+							@units_arr,
+							{
+								u => $u,
+								label => $label,
+								selected => $selected,
+							}
+						);
+					}
+
+					$nutriment_ref->{units_arr} = \@units_arr;
+
+				}
+
+				# Determine which field has a value from the manufacturer and if it is protected
+				$nutriment_ref->{owner_field} = is_owner_field($product_ref, $nid);
+				$nutriment_ref->{protected_field} = skip_protected_field($product_ref, $nid, $User{moderator});
+				$nutriment_ref->{protected_field_prepared}
+					= skip_protected_field($product_ref, $nid . "_prepared", $User{moderator});
+
+				$nutriment_ref->{shown} = $shown;
+				$nutriment_ref->{enid} = $enid;
+				$nutriment_ref->{enidp} = $enidp;
+				$nutriment_ref->{nid} = $nid;
+				$nutriment_ref->{class} = $class;
+				$nutriment_ref->{display} = $display;
+				$nutriment_ref->{disabled} = $disabled;
+
+				# Record the values to pass to the template
+				deep_set($nutriment_ref, "input_sets", $preparation, $per, {value_string => $value_string, unit => $unit});
 			}
-
-			$nutriment_ref->{units_arr} = \@units_arr;
-
 		}
-
-		# Determine which field has a value from the manufacturer and if it is protected
-		$nutriment_ref->{owner_field} = is_owner_field($product_ref, $nid);
-		$nutriment_ref->{protected_field} = skip_protected_field($product_ref, $nid, $User{moderator});
-		$nutriment_ref->{protected_field_prepared}
-			= skip_protected_field($product_ref, $nid . "_prepared", $User{moderator});
-
-		$nutriment_ref->{shown} = $shown;
-		$nutriment_ref->{enid} = $enid;
-		$nutriment_ref->{enidp} = $enidp;
-		$nutriment_ref->{nid} = $nid;
-		$nutriment_ref->{class} = $class;
-		$nutriment_ref->{value} = $value;
-		$nutriment_ref->{valuep} = $valuep;
-		$nutriment_ref->{display} = $display;
-		$nutriment_ref->{disabled} = $disabled;
 
 		push(@nutriments, $nutriment_ref);
 	}

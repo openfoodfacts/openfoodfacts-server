@@ -339,9 +339,9 @@ The input set hash reference if found, undef otherwise
 
 sub get_specific_input_set($product_ref, $source, $preparation, $per) {
 
-	my $input_sets = deep_get($product_ref, qw/nutrition input_sets/);
-	if (exists $input_sets and ref $input_sets eq 'ARRAY') {
-		foreach my $set_ref (@{$input_sets}) {
+	my $input_sets_ref = deep_get($product_ref, qw/nutrition input_sets/);
+	if ((defined $input_sets_ref) and (ref $input_sets_ref eq 'ARRAY')) {
+		foreach my $set_ref (@{$input_sets_ref}) {
 			if (    exists $set_ref->{source}
 				and $set_ref->{source} eq $source
 				and exists $set_ref->{preparation}
@@ -374,10 +374,10 @@ The hash reference of input sets
 =cut
 
 sub get_input_sets_in_a_hash($product_ref) {
-	my $input_sets = deep_get($product_ref, qw/nutrition input_sets/);
+	my $input_sets_ref = deep_get($product_ref, qw/nutrition input_sets/);
 	my $input_sets_hash_ref = {};
-	if (exists $input_sets and ref $input_sets eq 'ARRAY') {
-		foreach my $set_ref (@{$input_sets}) {
+	if ((defined $input_sets_ref) and (ref $input_sets_ref eq 'ARRAY')) {
+		foreach my $set_ref (@{$input_sets_ref}) {
 			if (exists $set_ref->{source} and exists $set_ref->{preparation} and exists $set_ref->{per}) {
 				$input_sets_hash_ref->{$set_ref->{source}}{$set_ref->{preparation}}{$set_ref->{per}} = $set_ref;
 			}
