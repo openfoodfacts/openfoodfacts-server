@@ -8585,16 +8585,12 @@ JS
 
 	my $html_display_product;
 
-	use JSON;
+	$template_data_ref->{categories}      = $product_ref->{categories_tags} || [];
+	$template_data_ref->{product_type_tag} = $product_ref->{product_type} // "";
 
-	my $categories_json = encode_json($product_ref->{categories_tags});
-
-	$template_data_ref->{category} = $categories_json;
-	$template_data_ref->{product_type} = $product_ref->{product_type};
-
-	use ProductOpener::Users qw/%User is_admin_user/;
-	my $is_moderator = is_admin_user($User_id) || $User{moderator};
-	$template_data_ref->{is_moderator} = $is_moderator ? 1 : 0;
+	my $is_moderator = (is_admin_user($User_id) || $User{moderator}) ? 1 : 0;
+	$template_data_ref->{is_moderator} = $is_moderator;
+	$template_data_ref->{is_user}      = defined($User_id) ? 1 : 0;
 
 	process_template('web/pages/product/product_page.tt.html', $template_data_ref, \$html_display_product, $request_ref)
 		|| ($html_display_product = "template error: " . $tt->error());
