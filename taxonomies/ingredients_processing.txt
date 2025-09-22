@@ -71,6 +71,7 @@ nl: verse, vers
 pl: świeży, świeża, świeże
 pt: fresco, fresca, frescos, frescas
 sv: färsk, färskt, färska
+uk: свіжий, свіжа, свіже, свіжі
 
 # Often in combination with flavour. It does not seem that it has much meaning.
 #en:natural
@@ -140,6 +141,10 @@ sv: vald, valda, valt, valda
 en: filtered
 da: filtreret
 sv: filtrerad
+uk: фільтрований, фільтрована, фільтроване, фільтровані
+
+< en:filtered
+en: microfiltered
 
 en: unfiltered
 bg: непречистен, нефилтриран
@@ -156,6 +161,7 @@ nl: ongefilterd
 pl: nieoczyszczony
 pt: não filtrado
 sv: ofiltrerad
+uk: нефільтрований, нефільтроване, нефільтрована, нефільтровані
 
 en: non-homogenized
 bg: нехомогенизиран, нехомогенизирано
@@ -202,6 +208,7 @@ pl: ziarna, pestki, nasiona, ziarno
 pt: sementes
 sl: zrna
 sv: frön
+uk: насіння
 zh: 籽
 
 #en:fillet
@@ -234,6 +241,7 @@ nl: blad, bladeren
 pl: natka, liść, liście, nać, liście z
 ro: frunze de
 sr: list
+uk: листя
 
 #######################################################################
 #
@@ -264,6 +272,7 @@ nl: gesneden
 pl: cięty, cięta, cięte, krojony, krojone, krojona, pokrojony, pokrojone, pokrojona
 pt: cortado, cortada, cortados, cortadas
 sv: skuren
+uk: різаний, різана, різане, різані, нарізаний, нарізана, нарізане, нарізані, порізаний, порізана, порізане, порізані
 
 # <en:cut
 en: thick cut
@@ -310,6 +319,7 @@ de: feinst zerkleinert
 #<de:feinst zerkleinert
 de: überwiegend feinst zerkleinert
 
+< en:cut
 en: sliced
 ca: llàmina, llaminat, rodanxes, rodanxes de, en rodanxes
 de: gehobelt, gehobelte, in scheiben geschnitten
@@ -323,6 +333,7 @@ nl: schijfjesamande émondée
 pt: laminado, laminada, laminados, laminadas, em lâminas, em lâmina, em rodela, em rodelas, rodela de, rodelas de
 
 # en:description:Cut or diced into small pieces
+< en:cut
 en: chopped
 ca: picat, picada, picats, picades, trossejat, trossejada, trossejades
 da: hakket, hakkede
@@ -340,6 +351,7 @@ nn: hakkede
 pl: siekany, siekana, siekane, szatkowany, szatkowana, szatkowane
 pt: picado, picada, picados, picadas
 sv: hackad, hackade
+uk: рублений, рублена, рублене, рублені
 # nl:parse:gehakte_$
 # en:wiktionary:chopped
 
@@ -358,6 +370,7 @@ en: segment, segments
 ca: segment, segments
 es: segmento, segmenta, segmentos, segmentas
 
+< en:cut
 en: diced
 bg: на кубчета, кубчета от
 ca: a daus, a dauets
@@ -528,6 +541,7 @@ pl: przecier, przeciery, przecier z, przeciery z, piure z, przetarty, przetarta,
 pt: puré, em puré, puré de, puré da
 sk: pyré
 sv: puré
+uk: пюре
 # da:parsing:$pure
 # de:parsing:$püree, püree$
 # fi:parsing:$sose
@@ -536,6 +550,8 @@ sv: puré
 
 # <en:concentrated
 # <en:pureed
+< en:pureed
+< en:concentrated
 en: concentrated puree
 bg: концентрирано пюре, пюре от концентрирано
 ca: puré concentrat, puré de concentrat
@@ -552,6 +568,7 @@ ms: pekat
 pl: puree skoncentrowane, puree z skoncentrowane
 pt: pure concentrado, pure de concentrado
 sv: koncentrerad puré, puré av koncentrerad
+uk: концентроване пюре, пюре концентроване
 
 
 hu: lapított
@@ -633,6 +650,7 @@ pt: pedaço, pedaços
 ro: bucățele, bucățele de
 sl: kosmiči
 sv: bitar, i bitar
+uk: шматочки, шматки
 # de:false-positive:früchstück
 
 en: crumb, crumbs
@@ -677,6 +695,7 @@ nl: vlokken
 pl: płatki, grys, wiórki
 pt: floco, flocos, em floco, em flocos, floco de, flocos de
 sv: flingor, flakes
+uk: пластівці
 
 en: chips, slices
 cs: lupínků
@@ -798,6 +817,7 @@ sl: moka
 sr: пиринчано брашно
 sv: mjöl
 th: แป้ง
+uk: борошно, висівки
 wikidata:en: Q36465
 
 #######################################################################
@@ -872,6 +892,7 @@ hr: strojno otkošteno
 it: disossato meccanicamente
 
 #en:description:To remove the outer covering or shell of something
+< en:peeled
 en: shelled
 ca: sense closca, pelat, pelats, pelada, pelades
 cs: loupaná
@@ -882,6 +903,7 @@ hr: oljuštene, oljušteni, golice, bez opne
 it: decorticato, decorticati, decorticata, decorticate, sbucciati, sgusciato, sgusciati, sgusciata, sgusciate
 pl: łuskany, łuskana, łuskane, obłuskany, obłuskana, obłuskane
 pt: descascado, descascada, descascados, descascadas, sem casca, sem cascas
+uk: лущений, лущена, лущене, лущені
 
 en: unshelled, in shell
 
@@ -901,6 +923,7 @@ nl: gepeld, gepelde
 pl: obrany, obrana, obrane
 pt: pelado, pelada, pelados, peladas, sem pele, sem peles
 sv: skalade
+uk: чищений, чищена, чищене, чищені, очищені, очищена, очищений, очищене
 # en:wiktionary:peeled
 
 en: scalding
@@ -926,6 +949,7 @@ nl: ontpit, ontpitte
 pl: drylowany, drylowana, drylowane, bez pestek
 #pt:sem caroço, sem caroco
 sv: urkärnad
+uk: без кісточки, без кісточок
 # en:wiktionary:pitted
 
 en: peel, peels, peel of
@@ -981,6 +1005,7 @@ pl: pulpa, pulpa z, miąższ, miąższ z, miazga, miazga z
 pt: polpa, polpas, polpa de, polpas de
 sk: Dužnina
 sv: fruktkött
+uk: м'якоть, польпа
 wikidata:en: Q1470757
 
 #<en:pulp
@@ -1008,6 +1033,7 @@ hu: szitált
 it: setacciato, setacciati, setacciata, setacciate
 nl: gezeefd, gezeefde
 pt: peneirado, peneirada, peneirados, peneiradas
+uk: просіяний, просіяне, просіяна, просіяні, сіяний, сіяна, сіяне, сіяні
 
 de: extrahiert, extrahierte, extrahierter, extrahiertes
 # en:extracted
@@ -1118,6 +1144,7 @@ it: liquido
 ja: 液
 nl: vloeibaar, vloeibare
 pl: płyn, płyn z, masa z, masa, w płynie, płynny, płynna
+uk: рідкий
 
 # en:description:To increase the strength and diminish the bulk of, as of a liquid or an ore; to intensify, by getting rid of useless material.
 en: concentrated, concentrate, concentrates
@@ -1183,6 +1210,8 @@ de: 200fach konzentriertes
 
 # <en:concentrated
 # <en:extract
+< en:extract
+< en:concentrated
 en: concentrated extract
 ca: extracte concentrat
 de: konzentrierter Extrakt
@@ -1195,6 +1224,7 @@ ja: 濃縮エキス
 nl: geconcentreerd extract
 pl: ekstrakt skoncentrowany
 sv: koncentrerad extrakt
+uk: екстракт концентрований, концентрований екстракт
 
 #pl:NFC
 
@@ -1237,6 +1267,7 @@ pt: a partir de concentrado, à base de concentrado
 ro: din concentrat
 sk: z koncentrátu
 sv: från koncentrat
+uk: з концентрату
 
 #en:description:Dehydration by artificial or natural processes
 # anhydrous: No water, dehydrated: Water removed, dried: Less water.
@@ -1312,6 +1343,7 @@ nl: zongedroogd, zongedroogde
 pl: suszone w słońcu, suszone na słońcu
 pt: seco ao sol, seca ao sol, secos ao sol, secas ao sol
 sv: soltorkad, soltorkade
+uk: в'ялений, в'ялена, в'ялене, в'ялені
 
 #<en:dried
 en: air dried
@@ -1368,6 +1400,7 @@ it: sciroppo, sciroppo di, sciroppo d', melassa, melassa di, melassa d'
 pl: syrop
 pt: Xarope
 sv: sirap
+uk: сироп
 
 # anhydrous: No water, dehydrated: Water removed, dried: Less water.
 en: anhydrous
@@ -1434,6 +1467,7 @@ nl: gerehydrateerde
 pl: uwodnione, uwodniony, uwodniona
 pt: reidratado, reidratada, reidratados, reidratadas
 sv: rehydrerat, rehydrerad, rehydrerade
+uk: регідратований, регідратована, регідратоване, регідратовані
 
 en: partially rehydrated
 bg: частично рехидратиран, частично рехидратирано, частично рехидратирана, частично рехидратирани
@@ -1828,6 +1862,7 @@ pl: mrożony, mrożona, mrożone
 pt: congelado, congelada, congelados, congeladas, ultracongelado, ultracongelada, ultracongelados, ultracongeladas
 ro: congelat
 sv: fryst, frossad
+uk: морожений, морожена, морожене, морожені, заморожене, заморожена, заморожений, заморожені
 wikidata:en: Q11838314
 
 < en:frozen
@@ -1835,6 +1870,7 @@ en: deep frozen
 da: dybfrossen, dybfrosne
 nb: dybfryst
 sv: djupfryst, djupfrysta
+uk: глибокої заморозки
 
 # “pieces” here can either be whole pieces (like individual berries) or cut up pieces like `en:chopped`, `en:pieces`, etc.
 < en:frozen
@@ -1858,6 +1894,7 @@ nb: ufrosne
 nl: ontdooid
 pt: descongelado, descongelada, descongelados, descongeladas
 sv: ofryst, ofrossad
+uk: розморожений, розморожена, розморожене, розморожені
 
 #en:description:Sterilization (or sterilisation) refers to any process that removes, kills, or deactivates all forms of life and other biological agents present in or on a specific surface, object, or fluid. Sterilization can be achieved through various means, including heat, chemicals, irradiation, high pressure, and filtration.
 # Sterilized: higher temperature (more than 100'C) than pasteurised, kills spores, longer conservation
@@ -1957,6 +1994,7 @@ pl: niepasteryzowana, niepasteryzowane, niepasteryzowany
 pt: não pasteurizado, não pasteurizados, não pasteurizada, não pasteurizadas
 sv: opastöriserad
 tr: pastörize edilmemiş
+uk: непастеризований, непастеризована, непастеризоване, непастеризовані
 
 en: pre-cooked, precooked
 ca: precuit
@@ -1993,6 +2031,7 @@ hu: blansírozott
 it: sbollentato, sbollentata, sbollentati, sbollentate
 nl: geblancheerd
 pl: blanszowany, blanszowana, blanszowane, blanszowanych, blanszowanego, blanszowanej
+uk: бланшований, бланшована, бланшоване, бланшовані
 
 en: thermally processed
 hr: termički obrađena
@@ -2031,6 +2070,7 @@ it: distillato, distillata, distillati, distillate
 nl: gedestilleerd, gedestilleerde
 pl: destylowany, destylowana, destylowane, destylowanych, destylowanego, destylowanej
 pt: destilado, destilada, destilados, destiladas
+uk: дистильований, дистильована, дистильоване, дистильовані
 wikidata:en: Q101017
 
 #<en:cooked
@@ -2118,6 +2158,7 @@ nb: stekt
 pl: smażony, smażona, smażone
 pt: frito, frita, fritos, fritas
 sv: friterad, friterade, stekt
+uk: смажений, смажена, смажене, смажені, обсмажений, обсмажена, обсмажене, обсмажені, засмажений, засмажена, засмажене, засмажені
 # nl:gefrituurd
 # en:wikitionary:To cook food by heating in an oven or over a fire without covering, resulting in a crisp, possibly even slightly charred appearance.
 
@@ -2138,6 +2179,7 @@ nl: gebraden
 pt: assado, assada, assados, assadas
 sk: pražené
 sv: rostad, rostat, rostade, bakad
+uk: печений, печена, печене, печені, запечений, запечена, запечене, запечені
 
 #<en:roasted
 en: dry roasted
@@ -2227,6 +2269,7 @@ sv: smält, smälta, smälta, smälta
 # Processes that add another ingredient
 
 # Is mainly used for rice/flour and pasta
+< en:fortified
 en: enriched
 #en:false_positive:enriched with thiamin
 de: angereichert, angereicherte, angereichertes, angereicherten
@@ -2250,6 +2293,7 @@ es: fortificado, fortificada, fortificados, fortificadas
 fr: fortifié, fortifiée, fortifiés, fortifiées
 it: fortificato, fortificata, fortificati, fortificate
 pt: fortificado, fortificada, fortificados, fortificadas
+uk: збагачений, збагачена, збагачене, збагачені
 
 # <en:condensed
 en: thickened
@@ -2286,6 +2330,7 @@ es: mezcla, mezcla de
 hr: mješavina, miješano, melanž od, mješavina za
 it: miscela, misto, mix
 pl: mieszanka, mieszanki
+uk: суміш, суміш з, суміші, суміші з
 
 #en:comment:salt has been added to the ingredient
 #<en:added
@@ -2302,17 +2347,22 @@ nl: gezouten
 pl: solony, solona, solone, solonego, solonej, solonych, słony, słone, słona
 pt: salgado, salgada, salgados, salgadas, com sal
 sv: saltat
+uk: солоний, солона, солоне, солоні, солений, солена, солене, солені, засолений, засолена, засолене, засолені
 
 #<en:salted
+< en:salted
 en: sea salted
 it: con sale marino, salato con sale marino, salata con sale marino, salati con sale marino, salate con sale marino
 pt: com sal marinho, sem sal marinho
 
 #<en:sea salted
 #<en:lightly salted
+< en:sea salted
+< en:lightly salted
 en: lightly sea salted
 
 #<en:salted
+< en:salted
 en: lightly salted
 it: leggermente salato, leggeremente salata, leggeremente salati, leggeremente salate
 nl: lichtgezouten, licht gezouten
@@ -2320,6 +2370,7 @@ pl: lekko solone
 pt: levemente salgado, levemente salgada, levemente salgados, levemente salgadas, com pouco sal
 
 #<en:salted
+< en:salted
 en: half salted, half-salted
 ca: mitja sal, mitja-sal
 de: halb gesalzen, halb-gesalzen
@@ -2374,6 +2425,7 @@ ro: indulcit, îndulcite
 sl: sladkano
 sv: sötad, söt
 th: หวาน
+uk: підсолоджений, підсолоджена, підсолоджене, підсолоджені
 
 < en:concentrated
 < en:sweetened
@@ -2679,11 +2731,13 @@ hu: szűrlet
 it: filtrato
 ru: Фильтрат
 sl: filtrat
+uk: фільтрат
 
 # microfiltration: filtration process where a contaminated fluid is passed through a special
 # pore-sized membrane filter to separate microorganisms and suspended particles from process liquid
-en: microfiltrated
+en: microfiltered, microfiltrated
 fr: microfiltré
+uk: мікрофільтрований, мікрофільтрована, мікрофільтроване, мікрофільтровані
 
 #######################################################################
 #
@@ -2707,6 +2761,7 @@ ja: 発酵
 pl: fermentowany, fermentowana, fermentowane, kiszony, kiszona, kiszone, kiszonych, kiszonego, kiszonej
 pt: fermentado, fermentada, fermentados, fermentadas
 sv: fermenterat
+uk: ферментований, ферментована, ферментоване, ферментовані, квашений, квашена, квашене, квашені
 wikidata:en: Q6950796
 
 < en:fermented
@@ -2731,6 +2786,7 @@ pt: lactofermentado, lactofermentada, lactofermentados, lactofermentadas
 sv: laktofermenterad
 tr: laktofermente, laktofermente edilmiş
 
+< en:pickled
 en: marinated
 bg: мариновано, маринован, маринована, мариновани
 ca: marinat, marinada, marinats, marinades
@@ -2759,6 +2815,7 @@ pt: maceradas, macerada, macerados
 
 # pickled can be in vinegar or salt
 
+< en:canned
 en: pickled
 da: syltede
 de: eingelegt, eingelegte, eingelegter, eingelegtes
@@ -2773,6 +2830,8 @@ sv: picklad, inlagd
 wikidata:en: Q1361741
 
 # en:description:Marinated in salt (note different from en:salted)
+< en:salted
+< en:pickled
 en: brined
 de: gepökelt, gepökelte, gepökelter, gepökeltes
 #de:comment:do not add pökel
@@ -2782,6 +2841,7 @@ it: salamoia, in salamoia
 nl: gepekeld
 pl: w zalewie, solankowy
 pt: em salmoura
+uk: засолений, засолена, засолене, засолені
 wikidata:en: Q29560
 
 de: ungepökelt
@@ -2799,6 +2859,7 @@ ja: 調味
 nl: gearomatiseerd, gearomatiseerde
 pl: aromatyzowany, aromatyzowana, aromatyzowane, przyprawiony, przyprawiona, przyprawione, smakowy, smakowe, smakowa
 pt: aromatizado, aromatizada, aromatizados, aromatizadas
+uk: ароматизований, ароматизована, ароматизоване, ароматизовані
 
 en: unflavoured, unflavoured
 bg: без аромат, без аромат
@@ -3029,6 +3090,7 @@ hr: hidrolizat, hidrolizirane, hidrolizirano, hidrolizirani
 nl: gehydrolyseerd, gehydrolyseerde
 pl: hydrolizat, hydrolizowane
 sv: hydrolyserat
+uk: гідролізований, гідролізована, гідролізоване, гідролізовані
 nova:en: 4
 
 #en:description:Transformation of unsaturated glycerides into saturated glycerides (of oils and fats)
@@ -3046,9 +3108,11 @@ it: idrogenato, idrogenati, idrogenata, idrogenate
 nl: Gehydrogeneerde
 pl: uwodorniony, uwodorniona, uwodornione, utwardzony, utwardzone, utwardzona
 sv: hårdat
+uk: гідрогенований, гідрогенована, гідрогеноване, гідрогеновані
 nova:en: 4
 
 #<en:hydrogenated
+< en:hydrogenated
 en: fully hydrogenated
 bg: напълно хидрогениран, напълно хидрогенирано
 ca: totalment hidrogenat, totalment hidrogenada
@@ -3064,6 +3128,7 @@ sv: fullhärdad, fullhärdat
 nova:en: 4
 
 #<en:hydrogenated
+< en:hydrogenated
 en: partially hydrogenated
 bg: частично хидрогениран, частично хидрогенирано
 ca: parcialment hidrogenat, parcialment hidrogenada
@@ -3103,6 +3168,7 @@ pl: przetworzone z alkalicznym
 pt: processado com álcali
 ro: prelucrat cu alcali
 sv: behandlad med alkali
+uk: алкалізований, алкалізована, алкалізоване, алкалізовані
 nova:en: 4
 
 en: modified
@@ -3121,6 +3187,7 @@ pl: zmodyfikowany, zmodyfikowana, zmodyfikowani, zmodyfikowane
 pt: modificado, modificada, modificados, modificadas
 ro: modificat, modificată, modificați, modificate
 sv: modifierad, modifierad, modifierade, modifierade
+uk: модифікований, модифікована, модифіковане, модифіковані
 nova:en: 4
 
 
@@ -3163,3 +3230,9 @@ zh: 粉
 en: concentrated or powder
 fr: concentré ou en poudre
 
+
+en: preserved
+
+< en:preserved
+en: canned
+uk: консервований, консервована, консервоване, консервовані
