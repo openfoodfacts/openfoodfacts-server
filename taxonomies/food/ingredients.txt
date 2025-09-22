@@ -22799,7 +22799,7 @@ it: farina di crusca
 en: cereal, cereal grains
 bg: зърнени продукти
 ca: Cereal, cereals
-cs: Cereálie
+cs: obilovina, obiloviny
 da: Korn
 de: Getreide
 el: δημητριακό, δημητριακά
@@ -22831,22 +22831,9 @@ de: Getreideextrudat
 fr: extrudat de céréales
 it: estruso di cereali
 
-#probably more for mixed cereals
-< en:cereal
-en: crunchy cereals
-de: knusprige Cerealien
-el: Τραγανοί κόκκοι δημητριακών
-es: cereales crujientes
-hr: hrskave žitarice
-it: Cereali croccante
-
-# <en:compound
-< en:cereal
-fr: billes de céréales
-# usage:fr:billes de céréales 2.7% (farine de riz 2.3%, sucre, sel, beurre de cacao)
-
 < en:cereal
 en: wholemeal cereal, wholegrain cereal
+cs: celozrnné obiloviny
 de: Vollkorngetreide
 el: Δημητριακά ολικής άλεσης
 es: Cereal integral, cereales integrales
@@ -22868,20 +22855,6 @@ hu: glutént tartalmazó gabonafélék, glutént tartalmazó gabona
 it: Cereali contenenti glutine
 pl: zboża zawierające gluten
 allergens:en: en:gluten
-
-< en:cereal
-fr: céréales biscuitées
-
-# note this is a subproduct, which contains other ingredients
-
-< en:cereal
-en: cereal crispies
-de: Getreide Crispies
-fi: viljamuro
-fr: crispies de céréales, céréales croustillantes
-hr: hrskavice od žitarica
-hu: gabonapehely, gabonapelyhek
-it: crispies di cereali
 
 < en:cereal
 en: puffed cereal
@@ -22952,7 +22925,6 @@ es: mezcla de cereales y semillas, mix de cereales y semillas
 hr: mješavina žitarica i sjemenki
 it: miscela di cereali e semi
 
-
 < en:cereal
 en: hydrolysed cereal, hydrolysed cereals
 fr: céréales hydrolysées
@@ -22964,6 +22936,31 @@ nova:en: 4
 en: cereal with cocoa
 hr: žitarica s kakaom
 it: cereali con cacao
+
+# <en:compound
+fr: céréales biscuitées
+
+# <en:compound
+en: cereal crispies
+de: Getreide Crispies
+fi: viljamuro
+fr: crispies de céréales, céréales croustillantes
+hr: hrskavice od žitarica
+hu: gabonapehely, gabonapelyhek
+it: crispies di cereal
+
+#probably more for mixed cereals
+# <en:compound
+en: crunchy cereals
+de: knusprige Cerealien
+el: Τραγανοί κόκκοι δημητριακών
+es: cereales crujientes
+hr: hrskave žitarice
+it: Cereali croccante
+
+# <en:compound
+fr: billes de céréales
+# usage:fr:billes de céréales 2.7% (farine de riz 2.3%, sucre, sel, beurre de cacao)
 
 ##################################################################################
 #
@@ -23426,6 +23423,7 @@ en: wheat bran
 af: koringsemels
 bg: пшенични трици, пшеничени трици
 ca: segó de blat
+cs: pšeničné otruby
 da: vetekli
 de: Weizenkleie, Weizenspeisekleie
 el: πίτουρο σταριού, σταροπίτουρο
@@ -26513,7 +26511,7 @@ fr: farine d'épeautre type 110, Farine de blé d'épeautre T110
 en: wholemeal spelt flour, whole grain spelt flour, wholegrain spelt flour
 bg: пълнозърнесто брашно от спелта
 ca: farina de blat d'espelta integral, farina integral de blat d'espelta
-cs: celozrnná špaldová mouka
+cs: celozrnná špaldová mouka, celozrnná mouka z pšenice špaldy
 de: Dinkelvollkornmehl, dinkel vollkornmehl, Dinkelweizenvollkornmehl
 es: harina de espelta integral, harina integral de espelta, harina integral de trigo de espelta
 fi: täysjyväspelttijauho, täysjyväspelttivehnäjauho
@@ -34266,6 +34264,7 @@ ciqual_food_name:en: Cocoa or chocolate powder, for beverages, with sugar
 en: chocolate chunk, chocolate chunks, chocolate pieces, chocolate chips, semisweet Chocolate Chips
 bg: парченца шоколад, шоколадов чипс, шоколадови парчета
 ca: xips de xocolata
+cs: kousky čokolády
 da: Chokoladestykker, stykker af chokolade
 de: Schokoladenstücke, Schokoladenstückchen
 es: copos de chocolate, pepitas de chocolate, gotas de chocolate, chips de chocolate
