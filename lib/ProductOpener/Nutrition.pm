@@ -41,8 +41,10 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&generate_nutrient_aggregated_set_from_sets
-		&get_specific_input_set
-		&get_input_sets_in_a_hash
+		&get_specific_nutrition_input_set
+		&get_nutrition_input_sets_in_a_hash
+		&get_preparations_for_product_type
+		&get_pers_for_product_type
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -54,6 +56,8 @@ use Clone qw/clone/;
 use ProductOpener::Food qw/default_unit_for_nid/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_standard_unit/;
+
+use Data::DeepAccess qw(deep_get deep_set);
 
 =head1 FUNCTIONS
 
@@ -309,7 +313,7 @@ sub convert_nutrient_to_100g ($nutrient_ref, $original_per, $original_per_quanti
 	return;
 }
 
-=head2 get_specific_input_set ($product_ref, $source, $preparation, $per)
+=head2 get_specific_nutrition_input_set ($product_ref, $source, $preparation, $per)
 
 Returns the input set matching the given source, preparation and per values.
 
@@ -337,7 +341,7 @@ The input set hash reference if found, undef otherwise
 
 =cut
 
-sub get_specific_input_set($product_ref, $source, $preparation, $per) {
+sub get_specific_nutrition_input_set($product_ref, $source, $preparation, $per) {
 
 	my $input_sets_ref = deep_get($product_ref, qw/nutrition input_sets/);
 	if ((defined $input_sets_ref) and (ref $input_sets_ref eq 'ARRAY')) {
@@ -356,7 +360,7 @@ sub get_specific_input_set($product_ref, $source, $preparation, $per) {
 	return;
 }
 
-=head2 get_input_sets_in_a_hash ($product_ref)
+=head2 get_nutrition_input_sets_in_a_hash ($product_ref)
 
 Returns the input sets of a product in a hash reference for easier access,
 so that we can use $input_sets_hash_ref->{$source}{$preparation}{$per} to get a specific input set.
@@ -373,7 +377,7 @@ The hash reference of input sets
 
 =cut
 
-sub get_input_sets_in_a_hash($product_ref) {
+sub get_nutrition_input_sets_in_a_hash($product_ref) {
 	my $input_sets_ref = deep_get($product_ref, qw/nutrition input_sets/);
 	my $input_sets_hash_ref = {};
 	if ((defined $input_sets_ref) and (ref $input_sets_ref eq 'ARRAY')) {
@@ -385,5 +389,60 @@ sub get_input_sets_in_a_hash($product_ref) {
 	}
 	return $input_sets_hash_ref;
 }
+
+=head2 get_preparations_for_product_type
+
+Returns the list of valid preparation states for a given product type.
+
+=head3 Arguments
+
+=head4 $product_type
+
+Type of the product (food, petfood, etc)
+
+=head3 Return values
+
+List of valid preparation states for the given product type
+
+=cut
+
+sub get_preparations_for_product_type ($product_type) {
+
+	my @preparations = ("as_sold", "prepared");
+
+	# Pet food only has "as_sold"
+	if ($product_type eq "petfood") {
+		@preparations = ("as_sold");
+	}
+	return @preparations;
+}
+
+=head2 get_pers_for_product_type
+
+Returns the list of valid per quantities for a given product type.
+
+=head3 Arguments
+
+=head4 $product_type
+
+Type of the product (food, petfood, etc)
+
+=head3 Return values
+
+List of valid per references for the given product type
+
+=cut
+
+sub get_pers_for_product_type ($product_type) {
+
+	my @pers = ("100g", "100ml", "serving");
+
+	# Pet food only has "per1kg"
+	if ($product_type eq "petfood") {
+		@pers = ("1kg");
+	}
+	return @pers;
+}
+
 
 1;

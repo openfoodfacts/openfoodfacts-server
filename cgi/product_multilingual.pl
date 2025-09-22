@@ -60,6 +60,7 @@ use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use ProductOpener::Orgs qw/update_import_date update_last_import_type/;
 use ProductOpener::APIProductWrite
 	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one/;
+use ProductOpener::Nutrition qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -1136,9 +1137,14 @@ CSS
 		}
 	}
 
+	my @preparations = get_preparations_for_product_type($product_ref->{product_type});
+	my @pers = get_pers_for_product_type($product_ref->{product_type});
+
 	$template_data_ref_display->{source} = $source;
-	$template_data_ref_display->{preparations} = ["as_sold", "prepared"];
-	$template_data_ref_display->{pers} = ["100g", "100ml", "serving"];
+	$template_data_ref_display->{preparations} = \@preparations;
+	$template_data_ref_display->{pers} = \@pers;
+
+	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
 
 	# Go through all nutrients
 
@@ -1210,11 +1216,9 @@ CSS
 
 		# Loop through all the possible input sets for the selected source to populate the values for the corresponding columns
 
-		my $input_sets_hash_ref = get_input_sets_in_a_hash($product_ref);
+		foreach my $preparation (@preparations) {
 
-		foreach my $preparation ("as_sold", "prepared") {
-
-			foreach my $per ("100g", "100ml", "serving") {
+			foreach my $per (@pers) {
 
 				my $unit = $default_unit;
 				my $value_string = '';
@@ -1368,6 +1372,10 @@ CSS
 	}
 
 	$template_data_ref_display->{nutriments} = \@nutriments;
+
+	# We display checkboxes for each possible nutrition input set (for each preparation and for each per)
+	# to indicate which nutrition facts columns should be displayed on the product page
+	# 
 
 	# Display 2 checkbox to indicate the nutrition values present on the product
 
