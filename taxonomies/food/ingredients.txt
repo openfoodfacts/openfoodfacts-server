@@ -200,6 +200,7 @@ it: fritto, frittura
 en: caramel syrup
 bg: карамелен сироп
 ca: xarop de carmel, caramel liquid
+cs: karamelový sirup
 da: karamelsukkersirup
 de: Karamellsirup, Caramelsirup, Karamell-Sirup
 es: jarabe de caramelo, sirope de caramelo, caramelo líquido
@@ -1004,6 +1005,7 @@ nl: maïsdextrine
 en: modified potato starch
 bg: модифицирано картофено нишесте
 ca: midó modificat de patata
+cs: modifikovaný bramborový škrob
 da: modificeret kartoffelstivelse
 de: modifizierte Kartoffelstärke
 es: almidón modificado de patata, almidon de patata modificado
@@ -1150,7 +1152,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Microbiological_culture
 en: lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, live yoghurt cultures, culture of acid-lactic bacteria, lactic acid bacteria, lactic acid culture, yogurt lactic ferment, cheese culture, cheese cultures, yogurt ferments
 bg: Млечни ферментации, млечна закваска, млечни закваски, млечни култури, закваски за кисело мляко, закваска за кисело мляко, млечни ферменти
 ca: Ferments làctics
-cs: Mléčné ferminty
+cs: bakterie mléčného kvašení, mléčné ferminty 
 da: yoghurtkultur, starterkultur, mælkesyrekultur, ostekulturer
 de: Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen
 el: γαλακτικά ένζυμα
@@ -1848,6 +1850,7 @@ vegetarian:en: yes
 
 < en:vegetarian rennet
 en: microbial rennet
+cs: mikrobiální syřidlo
 da: mikrobiel osteløbe, mikrobiel løbe
 de: mikrobielles Lab, mikrobiologisches Lab
 es: cuajo microbial, Cuajo microbiano
@@ -22837,12 +22840,6 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en:cereal
-en: cereal extrudate
-de: Getreideextrudat
-fr: extrudat de céréales
-it: estruso di cereali
-
-< en:cereal
 en: wholemeal cereal, wholegrain cereal
 cs: celozrnné obiloviny
 de: Vollkorngetreide
@@ -22876,9 +22873,6 @@ hr: napuhane žitarice
 hu: puffasztott gabona, puffasztott gabonák
 it: cereali soffiati
 
-< en:cereal
-fr: billettes de céréales
-
 < en:puffed cereal
 en: extruded cereals
 de: extrudiertes Getreide
@@ -22892,6 +22886,22 @@ pl: ziarna ekstrudowane, ekstrudat zbożowy
 pt: cereais extrudados
 ru: экструдированные злаки
 sv: extruderade spannmål
+
+< en:cereal
+en: cereal extrudate
+de: Getreideextrudat
+fr: extrudat de céréales
+it: estruso di cereal
+
+< en:cereal
+en: hydrolysed cereal, hydrolysed cereals
+fr: céréales hydrolysées
+hr: hidrolizirane žitarice
+it: idrolizzato
+nova:en: 4
+
+< en:cereal
+fr: billettes de céréales
 
 # see ingredients_processing.txt
 < en:cereal
@@ -22935,13 +22945,6 @@ de: Getreide- und Saatenmischung, Getreide-Saaten-Mischung, Getreide-Saatenmisch
 es: mezcla de cereales y semillas, mix de cereales y semillas
 hr: mješavina žitarica i sjemenki
 it: miscela di cereali e semi
-
-< en:cereal
-en: hydrolysed cereal, hydrolysed cereals
-fr: céréales hydrolysées
-hr: hidrolizirane žitarice
-it: idrolizzato
-nova:en: 4
 
 #<en:compound
 en: cereal with cocoa
@@ -33196,6 +33199,7 @@ vegetarian:en: no
 < en:animal protein
 en: pork protein
 bg: свински протеин, свински белтък
+cs: vepřová bílkovina
 de: Schweineprotein
 es: proteina de cerdo
 fi: sianlihaproteiini
@@ -65612,7 +65616,7 @@ nl: Engelse mosterd
 en: mustard seed
 bg: синапено семе, синапени семена, синапени зърна
 ca: llavors de mostassa, grans de mostassa
-cs: hořčičné semínko, hořčičné semeno
+cs: hořčičné semínko, hořčičné semeno, hořčičná semena
 da: sennepsfrø
 de: Senfsaaten, Senfkörner, Senfsaat, Senfsamen, Senfschrot, Senfkorn
 el: σιναπόσπορος
