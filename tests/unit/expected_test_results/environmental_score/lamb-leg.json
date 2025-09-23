@@ -408,21 +408,23 @@
          "percent_max" : 100,
          "percent_min" : 100,
          "processing" : "en:fresh",
-         "text" : "lamb leg"
+         "text" : "lamb leg",
+         "vegan" : "no",
+         "vegetarian" : "no"
       }
    ],
    "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
+      "en:non-vegan" : [
          "en:lamb-leg"
       ],
-      "en:vegetarian-status-unknown" : [
+      "en:non-vegetarian" : [
          "en:lamb-leg"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:non-vegan",
+      "en:non-vegetarian"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 1,

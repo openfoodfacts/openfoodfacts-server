@@ -23,7 +23,7 @@
          "percent_max" : 29.1479820627803,
          "percent_min" : 29.1479820627803,
          "text" : "Orange",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       },
       {
@@ -36,14 +36,19 @@
          "percent_max" : 15.695067264574,
          "percent_min" : 15.695067264574,
          "text" : "Pomme",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:orange",
+         "en:apple"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
    ],
    "ingredients_lc" : "fr",

@@ -60,7 +60,7 @@
                "percent_max" : 16.6666666666667,
                "percent_min" : 0,
                "text" : "砂糖",
-               "vegan" : "yes",
+               "vegan" : "maybe",
                "vegetarian" : "yes"
             }
          ],
@@ -69,10 +69,11 @@
          "percent_max" : 50,
          "percent_min" : 0,
          "text" : "糖類",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "1026",
          "id" : "en:mirin",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 11.25,
@@ -219,6 +220,8 @@
       "en:added-sugar",
       "en:disaccharide",
       "en:mirin",
+      "en:alcohol",
+      "en:rice-wine",
       "en:salt",
       "en:katsuobushi",
       "en:fish",
@@ -231,7 +234,6 @@
       "en:algae",
       "en:seaweed",
       "en:condiment",
-      "en:alcohol",
       "en:honjozo",
       "en:high-fructose-corn-syrup",
       "en:monosaccharide",
@@ -251,11 +253,10 @@
    "ingredients_without_ciqual_codes" : [
       "en:amino-acids",
       "en:condiment",
-      "en:mirin",
       "ja:さば節",
       "ja:たん白加水分解物混合物"
    ],
-   "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ciqual_codes_n" : 4,
    "ingredients_without_ecobalyse_ids" : [
       "en:alcohol",
       "en:amino-acids",

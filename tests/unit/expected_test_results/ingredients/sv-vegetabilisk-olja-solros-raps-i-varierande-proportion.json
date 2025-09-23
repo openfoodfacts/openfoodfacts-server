@@ -2,7 +2,7 @@
    "ingredients" : [
       {
          "from_palm_oil" : "maybe",
-         "id" : "en:oil",
+         "id" : "en:vegetable-oil",
          "ingredients" : [
             {
                "ecobalyse_code" : "sunflower-non-eu",
@@ -28,11 +28,10 @@
             }
          ],
          "is_in_taxonomy" : 1,
-         "labels" : "en:vegan",
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "text" : "olja",
+         "text" : "vegetabilisk olja",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }
@@ -50,14 +49,15 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:oil",
+      "en:vegetable-oil",
       "en:sunflower",
       "en:rapeseed"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:oil",
+      "en:vegetable-oil",
       "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
       "en:sunflower",
       "en:plant",
       "en:rapeseed",
@@ -70,13 +70,13 @@
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:oil",
       "en:rapeseed",
-      "en:sunflower"
+      "en:sunflower",
+      "en:vegetable-oil"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
-      "en:oil"
+      "en:vegetable-oil"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 3,

@@ -118,15 +118,22 @@
          "percent_max" : 0,
          "percent_min" : 0,
          "text" : "vitamine D",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:vitamin-d"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:vitamin-d"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
-      "en:vegetarian"
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 5,
