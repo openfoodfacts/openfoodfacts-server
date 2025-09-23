@@ -1435,8 +1435,9 @@ pl: odwodniony, odwodnione, odwodniona
 pt: desidratado, desidratada, desidratados, desidratadas
 ro: deshidratată
 sv: dehydrerat, dehydrerad, dehydrerade
-uk: зневоднений, зневоднена, зневоднене, зневоднені
+uk: дегідратований, зневоднений, зневоднена, зневоднене, зневоднені, дегідратована, дегідратоване, дегідратовані, дегідрований, дегідрована, дегідроване, дегідровані
 
+< en:dehydrated
 en: partially dehydrated
 bg: частично дехидратиран, частично дехидратирано, частично дехидратирана, частично дехидратирани
 ca: parcialment deshidratat, parcialment deshidratada
@@ -1450,6 +1451,7 @@ nb: delvis dehydrerte, delvis dehydrert
 pl: częściowo odwodnione, częściowo odwodniony, częściowo odwodniona
 pt: parcialmente desidratado, parcialmente desidratada, parcialmente desidratados, parcialmente desidratadas
 sv: delvis dehydrerat, delvis dehydrerad, delvis dehydrerade
+uk: частково дегідратований, частково дегідратована, частково дегідратоване, частково дегідратовані, частково зневоднений, частково зневоднена, частково зневоднене, частково зневоднені, частково дегідрована, частково дегідрований, частково дегідроване, частково дегідровані
 
 en: rehydrated
 bg: рехидратиран, рехидратирано, рехидратирана, рехидратирани
@@ -1467,8 +1469,9 @@ nl: gerehydrateerde
 pl: uwodnione, uwodniony, uwodniona
 pt: reidratado, reidratada, reidratados, reidratadas
 sv: rehydrerat, rehydrerad, rehydrerade
-uk: регідратований, регідратована, регідратоване, регідратовані
+uk: регідратований, регідратована, регідратоване, регідратовані, регідрований, регідрована, регідроване, регідровані
 
+< en:rehydrated
 en: partially rehydrated
 bg: частично рехидратиран, частично рехидратирано, частично рехидратирана, частично рехидратирани
 ca: parcialment rehidratat, parcialment rehidratada
@@ -1482,6 +1485,7 @@ nb: delvis rehydrert, delvis rehydrerte
 pl: częściowo uwodnione, częściowo uwodniony, częściowo uwodniona
 pt: parcialmente reidratado, parcialmente reidratada, parcialmente reidratados, parcialmente reidratadas
 sv: delvis rehydrerat, delvis rehydrerad, delvis rehydrerade
+uk: частково регідратований, частково регідратована, частково регідратоване, частково регідратовані, частково регідрована, частково регідрований, частково регідроване, частково регідровані
 
 en: hydrated
 bg: хидратирано, хидратирана, хидратиран, хидратирани
@@ -1494,7 +1498,9 @@ hu: hidratált
 it: idratato, idratata, idratati, idratate
 pt: idratado, idratada, idratados, idratadas
 sv: hydrerat, hydrerad, hydrerade
+uk: гідратований, гідратована, гідратоване, гідратовані, гідрований, гідрована, гідроване, гідровані
 
+< en:hydrated
 en: partially hydrated
 bg: частично хидратиран, частично хидратирано, частично хидратирана, частично хидратирани
 ca: parcialment hidratat, parcialment hidratada
@@ -1507,6 +1513,7 @@ it: parzialmente idratato, parzialmente idratata, parzialmente idratati, parzial
 nb: delvis hydrert, delvis hydrerte
 pt: parcialmente hidratado, parcialmente hidratada, parcialmente hidratados, parcialmente hidratadas
 sv: delvis hydrerad, delvis hydrerade
+uk: частково гідратований, частково гідратована, частково гідратоване, частково гідратовані, частково гідрований, частково гідрована, частково гідроване, частково гідровані
 
 en: reconstituted
 bg: реконституиран, реконституирано, реконституирана, реконституирани, възстановено, възтановено, възстановео
@@ -2786,7 +2793,6 @@ pt: lactofermentado, lactofermentada, lactofermentados, lactofermentadas
 sv: laktofermenterad
 tr: laktofermente, laktofermente edilmiş
 
-< en:pickled
 en: marinated
 bg: мариновано, маринован, маринована, мариновани
 ca: marinat, marinada, marinats, marinades
@@ -2815,6 +2821,7 @@ pt: maceradas, macerada, macerados
 
 # pickled can be in vinegar or salt
 
+< en:marinated
 < en:canned
 en: pickled
 da: syltede
@@ -2831,7 +2838,6 @@ wikidata:en: Q1361741
 
 # en:description:Marinated in salt (note different from en:salted)
 < en:salted
-< en:pickled
 en: brined
 de: gepökelt, gepökelte, gepökelter, gepökeltes
 #de:comment:do not add pökel
@@ -2841,7 +2847,6 @@ it: salamoia, in salamoia
 nl: gepekeld
 pl: w zalewie, solankowy
 pt: em salmoura
-uk: засолений, засолена, засолене, засолені
 wikidata:en: Q29560
 
 de: ungepökelt
