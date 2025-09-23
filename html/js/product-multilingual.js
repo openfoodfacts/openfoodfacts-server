@@ -1337,54 +1337,23 @@ $("#move_images").click({}, function (event) {
 // Nutrition facts
 
 $(function () {
-    $('#nutrition_data').change(function() {
+
+    // Nutrition input set checkboxes
+    // For each element with the class nutrition_input_set,
+    // we use the id of the checkbox nutrition_input_sets_${preparation}_${per}_shown
+    // to show or hide the input set column cells with the class nutrition_input_sets_${preparation}_${per}
+
+    $('.nutrition_input_set').on('change', function() {
+        const id = $(this).attr('id');
+        // remove _shown at the end
+        const input_set_class = id.replace(/_shown$/, '');
         if ($(this).prop('checked')) {
-            $('#nutrition_data_instructions').show();
-            $('.nutriment_col').show();
+            $('.' + input_set_class).show();
         } else {
-            $('#nutrition_data_instructions').hide();
-            $('.nutriment_col').hide();
-            $('.nutriment_value_as_sold').val('');
+            $('.' + input_set_class).hide();
+            // clear the values: inputs with class nutrient_value that are inside a cell with the input_set_class
+            $('.' + input_set_class + ' input.nutrient_value').val('');
         }
-        update_nutrition_image_copy();
-        $(document).foundation('equalizer', 'reflow');
-    });
-
-    $('input[name=nutrition_data_per]').change(function() {
-        if ($('input[name=nutrition_data_per]:checked').val() == '100g') {
-            $('#nutrition_data_100g').show();
-            $('#nutrition_data_serving').hide();
-        } else {
-            $('#nutrition_data_100g').hide();
-            $('#nutrition_data_serving').show();
-        }
-        update_nutrition_image_copy();
-        $(document).foundation('equalizer', 'reflow');
-    });
-
-    $('#nutrition_data_prepared').change(function() {
-        if ($(this).prop('checked')) {
-            $('#nutrition_data_prepared_instructions').show();
-            $('.nutriment_col_prepared').show();
-        } else {
-            $('#nutrition_data_prepared_instructions').hide();
-            $('.nutriment_col_prepared').hide();
-            $('.nutriment_value_prepared').val('');
-        }
-        update_nutrition_image_copy();
-        $(document).foundation('equalizer', 'reflow');
-    });
-
-    $('input[name=nutrition_data_prepared_per]').change(function() {
-        if ($('input[name=nutrition_data_prepared_per]:checked').val() == '100g') {
-            $('#nutrition_data_prepared_100g').show();
-            $('#nutrition_data_prepared_serving').hide();
-        } else {
-            $('#nutrition_data_prepared_100g').hide();
-            $('#nutrition_data_prepared_serving').show();
-        }
-        update_nutrition_image_copy();
-        $(document).foundation('equalizer', 'reflow');
     });
 
     $('#no_nutrition_data').change(function() {

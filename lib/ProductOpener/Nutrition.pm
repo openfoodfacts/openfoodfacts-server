@@ -45,6 +45,7 @@ BEGIN {
 		&get_nutrition_input_sets_in_a_hash
 		&get_preparations_for_product_type
 		&get_pers_for_product_type
+		&get_default_per_for_product
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -54,7 +55,7 @@ use vars @EXPORT_OK;
 use Clone qw/clone/;
 
 use ProductOpener::Food qw/default_unit_for_nid/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/:all get_inherited_property_from_categories_tags/;
 use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_standard_unit/;
 
 use Data::DeepAccess qw(deep_get deep_set);
@@ -444,5 +445,24 @@ sub get_pers_for_product_type ($product_type) {
 	return @pers;
 }
 
+sub get_default_per_for_product ($product_ref, $preparation = "as_sold") {
+	my $product_type = deep_get($product_ref, qw/product_type/);
+	if (!defined $product_type) {
+		$product_type = "food";
+	}
+
+	my $default_per = "100g";
+	if ($product_type eq "petfood") {
+		$default_per = "1kg";
+	}
+
+	# beverage, sauces etc. default per is 100ml
+	my $category_default_per
+		= get_inherited_property_from_categories_tags($product_ref, "default_nutrition_${preparation}_per:en");
+	if (defined $category_default_per) {
+		$default_per = $category_default_per;
+	}
+	return $default_per;
+}
 
 1;
