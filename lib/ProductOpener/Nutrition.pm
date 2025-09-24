@@ -46,6 +46,7 @@ BEGIN {
 		&get_preparations_for_product_type
 		&get_pers_for_product_type
 		&get_default_per_for_product
+		&get_unit_options_for_nutrient
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -463,6 +464,162 @@ sub get_default_per_for_product ($product_ref, $preparation = "as_sold") {
 		$default_per = $category_default_per;
 	}
 	return $default_per;
+}
+
+=head2 get_unit_options_for_nutrient ($nid)
+
+Returns the list of valid unit options for a given nutrient.
+
+=head3 Arguments
+
+=head4 $nid
+
+Nutrient id
+
+=head3 Return values
+
+Reference to an array of valid unit options for the given nutrient
+
+=cut
+
+sub get_unit_options_for_nutrient ($nid) {
+
+	my @units = ();
+
+	if (($nid eq 'alcohol')) {
+		@units = ('% vol');
+	}    # alcohol in % vol / °
+	elsif (($nid eq 'energy-kj')) {@units = ('kJ');}
+	elsif (($nid eq 'energy-kcal')) {@units = ('kcal');}
+	elsif ($nid =~ /^energy/) {
+		@units = ('kJ', 'kcal');
+	}
+	elsif ($nid eq 'water-hardness') {
+		@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH",
+			'gpg');
+	}
+	# pet nutrients (analytical_constituents) are always in percent
+	elsif (($nid eq 'crude-fat')
+		or ($nid eq 'crude-protein')
+		or ($nid eq 'crude-ash')
+		or ($nid eq 'crude-fibre')
+		or ($nid eq 'moisture'))
+	{
+		@units = ('%');
+	}
+	else {
+
+		@units = ('g', 'mg', 'µg');
+	}
+
+	my @units_options;
+
+	if (   (defined get_property("nutrients", "zz:$nid", "dv_value:en"))
+		or ($nid =~ /^new_/))
+	{
+		push @units, '% DV';
+	}
+	if (   (defined get_property("nutrients", "zz:$nid", "iu_value:en"))
+		or ($nid =~ /^new_/))
+	{
+		push @units, 'IU';
+	}
+
+	foreach my $unit (@units) {
+		my $label = $unit;
+		# Display both mcg and µg as different food labels show the unit differently
+		if ($unit eq 'µg') {
+			$label = "mcg/µg";
+		}
+		elsif ($unit eq '% vol') {
+			$label = "% vol/°";
+		}
+
+		push(
+			@units_options,
+			{
+				id => $unit,
+				label => $label,
+			}
+		);
+	}
+
+	return \@units_options;
+}
+
+=head2 assign_nutrient_modifier_value_and_unit ($input_sets_hash_ref, $source, $preparation, $per, $nid, $modifier, $value_string, $unit)
+
+Assign a value with a unit and an optional modifier (< or ~) to a nutrient in the nutriments structure.
+
+If a modifier, value_string or unit is undef or empty, the corresponding field is set to undef.
+
+=head3 Parameters
+
+=head4 $input_sets_hash_ref
+
+Reference to the hash of input sets, as returned by get_nutrition_input_sets_in_a_hash
+
+=head4 $source
+
+Source of the nutrition data: e.g. "packaging", "manufacturer"
+
+=head4 $preparation
+
+"as_sold" or "prepared"
+
+=head4 $per
+
+"100g", "100ml", "serving", "1kg" (for pet food)
+
+=head4 $nid
+
+Nutrient id
+
+=head4 value_string
+
+=head4 unit
+
+=cut
+
+sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $source, $preparation, $per, $nid, $modifier,
+	$value_string, $unit)
+{
+
+	# Get the nutrient id in the nutrients taxonomy from the nid (without a prefix)
+	my $nutrient_id = "zz:" . $nid;
+	if (not exists_taxonomy_tag("nutrients", $nutrient_id)) {
+		$log->error("assign_nutrient_modifier_value_string_and_unit: nutrient does not exist in the nutrients taxonomy",
+			{nutrient_id => $nutrient_id, nid => $nid})
+			if $log->is_error();
+		return;
+	}
+
+	# We can have only a modifier with value '-' to indicate that we have no value
+	# FIXME: need to be recorded in the unspecified_nutrients array
+
+	if ($modifier eq '') {
+		$modifier = undef;
+	}
+
+	deep_set($input_sets_hash_ref, [$source, $preparation, $per, "nutrients", $nid, "modifier"], $modifier);
+
+	if ($value_string eq '') {
+		$value_string = undef;
+	}
+
+	if (defined $value_string) {
+		$value_string = convert_string_to_number($value_string);
+		$value_string = remove_insignificant_digits($value_string);
+
+		# empty unit?
+		if ((not defined $unit) or ($unit eq "")) {
+			$unit = default_unit_for_nid($nid);
+		}
+	}
+
+	deep_set($input_sets_hash_ref, [$source, $preparation, $per, "nutrients", $nid, "value_string"], $value_string);
+
+	return;
 }
 
 1;

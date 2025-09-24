@@ -1201,6 +1201,9 @@ CSS
 			$display = ' style="display:none"';
 		}
 
+		$nutrient_ref->{nid} = $nid;
+		$nutrient_ref->{class} = $class;
+		$nutrient_ref->{display} = $display;
 		$nutrient_ref->{label_value} = $product_ref->{nutrients}{$nid . "_label"};
 		$nutrient_ref->{product_add_nutrient} = $Lang{product_add_nutrient}{$lc};
 		$nutrient_ref->{prefix} = $prefix;
@@ -1219,6 +1222,14 @@ CSS
 
 		# Loop through all the possible input sets for the selected source to populate the values for the corresponding columns
 
+		# We record all the units we have for this nutrient in the different input sets
+		# If all the sets have the same unit, we will hide the unit selectors for each input set,
+		# and instead add one global selector for the nutrient
+
+		my %nutrient_units = ();
+
+		$nutrient_ref->{units_options} = get_unit_options_for_nutrient($nid);
+
 		foreach my $preparation (@preparations) {
 
 			foreach my $per (@pers) {
@@ -1229,18 +1240,21 @@ CSS
 				my $input_set_ref = deep_get($input_sets_hash_ref, $source, $preparation, $per);
 				if (defined $input_set_ref) {
 
-					my $nutrient_ref = deep_get($input_set_ref, "nutrients", $nid);
-					if (defined $nutrient_ref) {
-						$value_string = $nutrient_ref->{value_string};
-						$unit = $nutrient_ref->{unit};
+					my $input_set_nutrient_ref = deep_get($input_set_ref, "nutrients", $nid);
+					if (defined $input_set_nutrient_ref) {
+						$value_string = $input_set_nutrient_ref->{value_string};
+						$unit = $input_set_nutrient_ref->{unit};
+						$nutrient_units{$unit} = 1;
 						# If we have a modifier, include it in the value_string
-						if (defined $nutrient_ref->{modifier}) {
-							$nutrient_ref->{modifier} eq '<' and $value_string = "&lt; $value_string";
-							$nutrient_ref->{modifier} eq "\N{U+2264}" and $value_string = "&le; $value_string";
-							$nutrient_ref->{modifier} eq '>' and $value_string = "&gt; $value_string";
-							$nutrient_ref->{modifier} eq "\N{U+2265}" and $value_string = "&ge; $value_string";
-							$nutrient_ref->{modifier} eq '~' and $value_string = "~ $value_string";
-							$nutrient_ref->{modifier} eq '-' and $value_string = '-';
+						if (defined $input_set_nutrient_ref->{modifier}) {
+							$input_set_nutrient_ref->{modifier} eq '<' and $value_string = "&lt; $value_string";
+							$input_set_nutrient_ref->{modifier} eq "\N{U+2264}"
+								and $value_string = "&le; $value_string";
+							$input_set_nutrient_ref->{modifier} eq '>' and $value_string = "&gt; $value_string";
+							$input_set_nutrient_ref->{modifier} eq "\N{U+2265}"
+								and $value_string = "&ge; $value_string";
+							$input_set_nutrient_ref->{modifier} eq '~' and $value_string = "~ $value_string";
+							$input_set_nutrient_ref->{modifier} eq '-' and $value_string = '-';
 						}
 						# Record that we have nutrition data for this input set and this nutrient
 						# so that we can display the corresponding input set column and nutrient row
@@ -1262,122 +1276,19 @@ CSS
 					}
 				}
 
-				if (lc($unit) eq "mcg") {
-					$unit = "µg";
-				}
-
-				if (($nid eq 'alcohol') or ($nid eq 'energy-kj') or ($nid eq 'energy-kcal')) {
-					$unit = '';
-
-					if (($nid eq 'alcohol')) {$unit = '% vol / °';}    # alcohol in % vol / °
-					elsif (($nid eq 'energy-kj')) {$unit = 'kJ';}
-					elsif (($nid eq 'energy-kcal')) {$unit = 'kcal';}
-
-					$nutrient_ref->{nutrient_unit} = $unit;
-
-				}
-				# make sure pet nutrients (analytical_constituents) are always in percent
-				elsif (($nid eq 'crude-fat')
-					or ($nid eq 'crude-protein')
-					or ($nid eq 'crude-ash')
-					or ($nid eq 'crude-fibre')
-					or ($nid eq 'moisture'))
-				{
-					$nutrient_ref->{nutrient_unit} = '%';
-				}
-				else {
-
-					my @units = ('g', 'mg', 'µg');
-					my @units_arr;
-
-					if ($nid =~ /^energy/) {
-						@units = ('kJ', 'kcal');
-					}
-					elsif ($nid eq 'water-hardness') {
-						@units = (
-							'mol/l', 'mmol/l', 'mval/l', 'ppm',
-							"\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH",
-							'gpg'
-						);
-					}
-
-					if (   (defined get_property("nutrients", "zz:$nid", "dv_value:en"))
-						or ($nid =~ /^new_/)
-						or (uc($unit) eq '% DV'))
-					{
-						push @units, '% DV';
-					}
-					if (   (defined get_property("nutrients", "zz:$nid", "iu_value:en"))
-						or ($nid =~ /^new_/)
-						or (uc($unit) eq 'IU')
-						or (uc($unit) eq 'UI'))
-					{
-						push @units, 'IU';
-					}
-
-					my $hide_percent = '';
-					my $hide_select = '';
-
-					if ($unit eq '') {
-						$hide_percent = ' style="display:none"';
-						$hide_select = ' style="display:none"';
-
-					}
-					elsif ($unit eq '%') {
-						$hide_select = ' style="display:none"';
-					}
-					else {
-						$hide_percent = ' style="display:none"';
-					}
-
-					$nutrient_ref->{hide_select} = $hide_select;
-					$nutrient_ref->{hide_percent} = $hide_percent;
-					$nutrient_ref->{nutrient_unit_disabled} = $disabled;
-
-					#$disabled = $disabled_backup;
-
-					foreach my $u (@units) {
-						my $selected = '';
-						if (lc($unit) eq lc($u)) {
-							$selected = 'selected="selected" ';
-						}
-						my $label = $u;
-						# Display both mcg and µg as different food labels show the unit differently
-						if ($u eq 'µg') {
-							$label = "mcg/µg";
-						}
-
-						push(
-							@units_arr,
-							{
-								u => $u,
-								label => $label,
-								selected => $selected,
-							}
-						);
-					}
-
-					$nutrient_ref->{units_arr} = \@units_arr;
-
-				}
-
-				# Determine which field has a value from the manufacturer and if it is protected
-				$nutrient_ref->{owner_field} = is_owner_field($product_ref, $nid);
-				$nutrient_ref->{protected_field} = skip_protected_field($product_ref, $nid, $User{moderator});
-				$nutrient_ref->{protected_field_prepared}
-					= skip_protected_field($product_ref, $nid . "_prepared", $User{moderator});
-
-				$nutrient_ref->{shown} = $nutrient_shown;
-				$nutrient_ref->{nid} = $nid;
-				$nutrient_ref->{class} = $class;
-				$nutrient_ref->{display} = $display;
-				$nutrient_ref->{disabled} = $disabled;
-
 				# Record the values to pass to the template
 				deep_set($nutrient_ref, "input_sets", $preparation, $per,
 					{value_string => $value_string, unit => $unit});
 			}
 		}
+
+		# If we have only one unit for the nutrient, set it as the nutrient unit
+		my @units = keys %nutrient_units;
+		if (scalar @units == 1) {
+			$nutrient_ref->{unit} = $units[0];
+		}
+
+		$nutrient_ref->{shown} = $nutrient_shown;
 
 		push(@nutrients, $nutrient_ref);
 	}

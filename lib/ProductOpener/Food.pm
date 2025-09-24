@@ -88,6 +88,7 @@ BEGIN {
 
 		&assign_categories_properties_to_product
 
+		&assign_nutriments_values_from_old_request_parameters
 		&assign_nutriments_values_from_request_parameters
 
 		&check_nutriscore_categories_exist_in_taxonomy
@@ -308,89 +309,12 @@ sub default_unit_for_nid ($nid) {
 	}
 }
 
-=head2 assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit)
-
-Assign a value with a unit and an optional modifier (< or ~) to a nutrient in the nutriments structure.
-
-=head3 Parameters
-
-=head4 $product_ref
-
-=head4 $nid
-
-Nutrient id, possibly suffixed with "_prepared"
-
-=head4 value
-
-=head4 unit
-
-=cut
-
 sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit) {
 
-	# Get the nutrient id in the nutrients taxonomy from the nid (without a prefix and possibly suffixed by _prepared)
-	my $nutrient_id = "zz:" . $nid;
-	$nutrient_id =~ s/_prepared$//;
-
-	# We can have only a modifier with value '-' to indicate that we have no value
-
-	if ((defined $modifier) and ($modifier ne '')) {
-		$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
-	}
-	else {
-		delete $product_ref->{nutriments}{$nid . "_modifier"};
-	}
-
-	if ((defined $value) and ($value ne '')) {
-
-		# empty unit?
-		if ((not defined $unit) or ($unit eq "")) {
-			$unit = default_unit_for_nid($nid);
-		}
-
-		$value = convert_string_to_number($value);
-
-		$value = remove_insignificant_digits($value);
-
-		$product_ref->{nutriments}{$nid . "_unit"} = $unit;
-		$product_ref->{nutriments}{$nid . "_value"} = $value;
-		# Convert values passed in international units IU or % of daily value % DV to the default unit for the nutrient
-		if (    ((uc($unit) eq 'IU') or (uc($unit) eq 'UI'))
-			and (defined get_property("nutrients", $nutrient_id, "iu_value:en")))
-		{
-			$value = $value * get_property("nutrients", $nutrient_id, "iu_value:en");
-			$unit = get_property("nutrients", $nutrient_id, "unit:en");
-		}
-		elsif ((uc($unit) eq '% DV') and (defined get_property("nutrients", $nutrient_id, "dv_value:en"))) {
-			$value = $value / 100 * get_property("nutrients", $nutrient_id, "dv_value:en");
-			$unit = get_property("nutrients", $nutrient_id, "unit:en");
-		}
-
-		if ($nid =~ /^water-hardness(_prepared)?$/) {
-			$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
-		}
-		elsif ($nid =~ /^energy-kcal(_prepared)?/) {
-
-			# energy-kcal is stored in kcal
-			$product_ref->{nutriments}{$nid} = unit_to_kcal($value, $unit) + 0;
-		}
-		else {
-			$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
-		}
-
-	}
-	else {
-		# We do not have a value for the nutrient
-		delete $product_ref->{nutriments}{$nid . "_value"};
-		# Delete other fields dervied from the value
-		delete $product_ref->{nutriments}{$nid};
-		delete $product_ref->{nutriments}{$nid . "_100g"};
-		delete $product_ref->{nutriments}{$nid . "_serving"};
-		# Delete modifiers (e.g. < sign), unless it is '-' which indicates that the field does not exist on the packaging
-		if ((defined $modifier) and ($modifier ne '-')) {
-			delete $product_ref->{nutriments}{$nid . "_modifier"};
-		}
-	}
+	## FIX ME
+	## This is an old function called by code that was written for the old nutrition schema
+	## It does nothing for now as we are migrating the code to use the new schema
+	## It needs to be removed once the migration is complete
 
 	return;
 }
@@ -3139,14 +3063,30 @@ sub assign_categories_properties_to_product ($product_ref) {
 	return;
 }
 
-=head2 assign_nutriments_values_from_request_parameters ( $product_ref, $nutriment_table, $can_edit_owner_fields )
+=head2 assign_nutriments_values_from_old_request_parameters ( $product_ref, $nutriment_table, $source )
 
-This function reads the nutriment values passed to the product edit form, or the product edit API,
-and assigns them to the product.
+This function provides backward compatibility for apps that use product edit API v2 (/cgi/product_jqm_multingual.pl)
+before the introduction of the new nutrition data schema.
+
+It reads the old nutrition data parameters from the request, and assigns them to the new product nutrition structure.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to the product hash where the nutrition data will be stored.
+
+=head4 $nutriment_table
+
+The nutriment table to use. It should be one of the keys of %nutriments_tables in Config.pm
+
+=head4 $source
+
+The source of the nutrition data. e.g. "packaging" or "manufacturer"
 
 =cut
 
-sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_table, $can_edit_owner_fields = 0) {
+sub assign_nutriments_values_from_old_request_parameters ($product_ref, $nutriment_table, $source) {
 
 	# Nutrition data
 
@@ -3254,11 +3194,6 @@ sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_t
 		# We can have nutrient values for the product as sold, or prepared
 		foreach my $product_type ("", "_prepared") {
 
-			# Only moderators can update values for fields sent by the producer
-			if (skip_protected_field($product_ref, $nid . $product_type, $can_edit_owner_fields)) {
-				next;
-			}
-
 			my $unit = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_unit"));
 			my $label = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_label"));
 
@@ -3350,6 +3285,87 @@ sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_t
 			delete $product_ref->{nutriments}{$key . "_label"};
 			delete $product_ref->{nutriments}{$key . "_100g"};
 			delete $product_ref->{nutriments}{$key . "_serving"};
+		}
+	}
+	return;
+}
+
+=head2 assign_nutriments_values_from_request_parameters ( $product_ref, $nutriment_table, $source )
+
+This function is used by the web product edit form and apps that use product edit API v2
+(/cgi/product_jqm_multingual.pl) after the introduction of the new nutrition data schema.
+
+It reads the new nutrition data parameters from the request, and assigns them to the new product nutrition structure.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to the product hash where the nutrition data will be stored.
+
+=head4 $nutriment_table
+
+The nutriment table to use. It should be one of the keys of %nutriments_tables in Config.pm
+
+=head4 $source
+
+The source of the nutrition data. e.g. "packaging" or "manufacturer"
+
+=cut
+
+sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_table, $source) {
+
+	# Nutrition data
+
+	$log->debug("Nutrition data") if $log->is_debug();
+
+	# Assign all the nutrient values
+
+	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
+
+	foreach my $nutrient (@{$nutriments_tables{$nutriment_table}}) {
+		next if $nutrient =~ /^\#/;
+
+		my $nid = $nutrient;
+		$nid =~ s/^(-|!)+//g;
+		$nid =~ s/-$//g;
+
+		next if $nid =~ /^nutrition-score/;
+
+		# nutrient values and units are passed for the different input sets (for each preparation type and for each per quantity)
+		# with parameters like:
+		#
+		# nutrition_input_sets_prepared_100ml_nutrients_saturated-fat_value_string
+		# nutrition_input_sets_prepared_100ml_nutrients_saturated-fat_unit
+		#
+		# Note: the parameters are long because they mimic the structure of the product nutrition hash
+		# with _ instead of . so that they can be passed as HTML form parameters without escaping.
+
+		my @preparations = get_preparations_for_product_type($product_ref->{product_type});
+		my @pers = get_pers_for_product_type($product_ref->{product_type});
+
+		my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
+
+		# Go through all the possible input sets
+		foreach my $preparation (@preparations) {
+			foreach my $per (@pers) {
+
+				my $input_set_nutrient_id = "nutrition_input_sets_${preparation}_${per}_nutrients_${nid}";
+
+				my $value_string
+					= remove_tags_and_quote(decode utf8 => single_param("${input_set_nutrient_id}_value_string"));
+
+				if (defined $value_string) {
+					my $value = remove_tags_and_quote(
+						decode utf8 => single_param("${input_set_key}_nutrients_${nid}_value_string"));
+					my $unit
+						= remove_tags_and_quote(decode utf8 => single_param("${input_set_key}_nutrients_${nid}_unit"));
+					my $modifier = undef;
+					normalize_nutriment_value_and_modifier(\$value, \$modifier);
+					assign_nid_modifier_value_and_unit($product_ref, $nid, $modifier, $value, $unit,
+						$preparation, $per);
+				}
+			}
 		}
 	}
 	return;

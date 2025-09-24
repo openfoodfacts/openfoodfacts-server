@@ -236,6 +236,9 @@
                                     [% END %]
                                 [% END %]
 
+                                <!-- extra global unit selector for each nutrient -->
+                                <th id="col_unit" class="nutrient_unit_col">[% lang('unit') %]</th>
+
                             </thead>
 
                             <tbody>
@@ -245,63 +248,72 @@
                                     [% IF nutrient.shown %]
                                         <tr id="nutrient_[% nutrient.nid %]_tr" class="nutrient_[% nutrient.class %]"[% nutrient.display %]>
 
-                                    <td>
-                                        <!--label starts-->
-                                        [% IF nutrient.name.defined %]
-                                            <label class="nutrient_label" for="nutrient_[% nutrient.nid %]">
-                                                [% nutrient.prefix %][% nutrient.name %]
-                                                [% IF nutrient.nid == 'energy-kj' || nutrient.nid == 'saturated-fat' || nutrient.nid == 'salt'|| nutrient.nid =='sugars' || nutrient.nid == 'fiber' || nutrient.nid =='fat' || nutrient.nid =='proteins' %]
-                                                *
-                                                [% END %]
-                                                [% IF nutrient.owner_field %]
-                                                    <span class="material-icons size-20" title="[% edq(lang("information_provided_by_the_manufacturer")) %]">factory</span>
-                                                [% END %]
-                                            </label>
-                                        [% ELSIF nutrient.label_value.defined %]
-                                            <input class="nutrient_label" id="nutrient_[% nutrient.nid %]_label" name="nutrient_[% nutrient.nid %]_label" value="[% nutrient.label_value %]" />
-                                        [% ELSE %]
-                                            <input class="nutrient_label" id="nutrient_[% nutrient.nid %]_label" name="nutrient_[% nutrient.nid %]_label" placeholder="[% nutrient.product_add_nutrient %]"/>
-                                        [% END %]
-                                        <!--label ends-->
-                                    </td>
-
-
-                                    <!-- loop on preparation and per to get the input sets for the selected source -->
-                                    [% FOREACH preparation IN preparations %]
-                                        [% FOREACH per IN pers %]
-
-                                        <td class="nutrient_col nutrition_input_sets_${preparation}_${per}" [% IF NOT input_sets.$preparation.$per.shown %]style="display:none"[% END %]>
-                                            [% SET nutrient_id = "nutrition_input_sets_" _ preparation _ "_" _ per _ "_nutrients_" _  nutrient.nid %]
-                                            <input [% IF nutrient.protected_field %]disabled [% END %] class="nutrient_value soft-background" id="[% nutrient_id %]_value_string" name="[% nutrient_id %]_value_string" value="[% nutrient.input_sets.$preparation.$per.value_string %]" [% nutrient.disabled %] autocomplete="off"/>
-                                            <span id="nutrient_question_mark_[% nutrient.nid %]" class="question_mark">?</span>
-                                            <span id="nutrient_sugars_warning_[% nutrient.nid %]" class="sugars_warning">Please enter a valid value.</span>
-
-                                       <!-- food -->
-                                            <!-- petfood -->
-                                            [% IF 
-                                            nutrient.nid == 'alcohol' || nutrient.nid == 'energy-kj' || nutrient.nid == 'energy-kcal' 
-                                            || nutrient.nid == 'crude-fat' || nutrient.nid == 'crude-protein' || nutrient.nid == 'crude-ash' || nutrient.nid == 'crude-fibre' || nutrient.nid == 'moisture'
-                                             %]
-                                                    <span class="nutrient_unit">[% nutrient.input_sets.$preparation.$per.unit %]</span>
-
-                                            [% ELSE %]
-                                                    <span class="nutrient_unit_percent" id="nutrient_[% nutrient.nid %]_unit_percent"[% nutrient.hide_percent %]>%</span>
-                                                    <select class="nutrient_unit" id="nutrient_[% nutrient.nid %]_unit" name="nutrient_[% nutrient.nid %]_unit"[% nutrient.hide_select %] [% nutrient.nutrient_unit_disabled %]>
-                                                        [% FOREACH unit IN nutrient.units_arr %]
-                                                            <option value="[% unit.u %]" [% unit.selected %]>[% unit.label %]</option>
+                                            <td>
+                                                <!--label starts-->
+                                                [% IF nutrient.name.defined %]
+                                                    <label class="nutrient_label" for="nutrient_[% nutrient.nid %]">
+                                                        [% nutrient.prefix %][% nutrient.name %]
+                                                        [% IF nutrient.nid == 'energy-kj' || nutrient.nid == 'saturated-fat' || nutrient.nid == 'salt'|| nutrient.nid =='sugars' || nutrient.nid == 'fiber' || nutrient.nid =='fat' || nutrient.nid =='proteins' %]
+                                                        *
                                                         [% END %]
-                                                        </select>
+                                                        [% IF nutrient.owner_field %]
+                                                            <span class="material-icons size-20" title="[% edq(lang("information_provided_by_the_manufacturer")) %]">factory</span>
+                                                        [% END %]
+                                                    </label>
+                                                [% ELSIF nutrient.label_value.defined %]
+                                                    <input class="nutrient_label" id="nutrient_[% nutrient.nid %]_label" name="nutrient_[% nutrient.nid %]_label" value="[% nutrient.label_value %]" />
+                                                [% ELSE %]
+                                                    <input class="nutrient_label" id="nutrient_[% nutrient.nid %]_label" name="nutrient_[% nutrient.nid %]_label" placeholder="[% nutrient.product_add_nutrient %]"/>
+                                                [% END %]
+                                                <!--label ends-->
+                                            </td>
+
+
+                                            <!-- loop on preparation and per to get the input sets for the selected source -->
+                                            [% FOREACH preparation IN preparations %]
+                                                [% FOREACH per IN pers %]
+
+                                                    <td class="nutrient_col nutrition_input_sets_${preparation}_${per}" [% IF NOT input_sets.$preparation.$per.shown %]style="display:none"[% END %]>
+                                                        [% SET nutrient_id = "nutrition_input_sets_" _ preparation _ "_" _ per _ "_nutrients_" _  nutrient.nid %]
+                                                        <input [% IF nutrient.protected_field %]disabled [% END %] class="nutrient_value soft-background" id="[% nutrient_id %]_value_string" name="[% nutrient_id %]_value_string" value="[% nutrient.input_sets.$preparation.$per.value_string %]" [% nutrient.disabled %] autocomplete="off"/>
+                                                        <span id="nutrient_question_mark_[% nutrient.nid %]" class="question_mark">?</span>
+                                                        <span id="nutrient_sugars_warning_[% nutrient.nid %]" class="sugars_warning">Please enter a valid value.</span>
+
+                                                        <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                        <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                        <span class="nutrient_unit_hidden">
+
+                                                        [% IF nutrient.units_options.size < 2 %]
+                                                            <span class="nutrient_unit">[% nutrient.input_sets.$preparation.$per.unit %]</span>
+                                                        [% ELSE %]
+                                                            <select class="nutrient_unit nutrient_[% nutrient.nid %]_unit" id="[% nutrient_id %]_unit" name="[% nutrient_id %]_unit">
+                                                                [% FOREACH unit IN nutrient.units_options %]
+                                                                    <option value="[% unit.id %]" [% IF unit.id == nutrient.input_sets.$preparation.$per.unit %]selected="selected"[% END %] >[% unit.label %]</option>
+                                                                [% END %]
+                                                            </select>
+                                                        [% END %]
+                                                        </span>
+                                                    </td>                                        
+
+                                                [% END %]
                                             [% END %]
-                                        </td>                                        
 
-                                        [% END %]
-                                    [% END %]
+                                            <!-- Global nutrient unit column-->
+                                            <td class="nutrient_unit_col">
+                                                [% IF nutrient.unit.defined %]
+                                                    [% IF nutrient.units_options.size < 2 %]
+                                                        <span class="nutrient_unit">[% nutrient.input_sets.$preparation.$per.unit %]</span>
+                                                    [% ELSE %]
+                                                        <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_[% nutrient.nid %]_unit" name="[% nutrient_id %]_unit">
+                                                            [% FOREACH unit IN nutrient.units_options %]
+                                                                <option value="[% unit.id %]" [% IF unit.id == nutrient.unit %]selected="selected"[% END %] >[% unit.label %]</option>
+                                                            [% END %]
+                                                        </select>
+                                                    [% END %]
+                                                [% END %]
+                                            </td>
 
-
-
-
-     
-                                            </tr>
+                                        </tr>
 
                                     [% END %]
 

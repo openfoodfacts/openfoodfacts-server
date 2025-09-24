@@ -1356,12 +1356,24 @@ $(function () {
         }
     });
 
-    $('#no_nutrition_data').change(function() {
+    $('#no_nutrition_data').on('change', function() {
         if ($(this).prop('checked')) {
             $('#nutrition_data_div').hide();
         } else {
             $('#nutrition_data_div').show();
         }
+    });
+
+    // If we have global nutrient unit select boxes, when their value changes, we update all the nutrient unit select boxes for all input sets
+    // The global unit selectors have the class global_nutrient_unit and an id of the form global_nutrient_[% nutrient.nid %]_unit
+    // The input set unit selectors have a class of the form nutrient_[% nutrient.nid %]_unit
+    $('.global_nutrient_unit').on('change', function() {
+        const id = $(this).attr('id');
+        const nutrient_id = id.replace(/^global_nutrient_/, '').replace(/_unit$/, '');
+        const new_unit = $(this).val();
+        $('.nutrient_' + nutrient_id + '_unit').val(new_unit);
+        // trigger a change event on the unit select boxes so that any dependent code is executed
+        $('.nutrient_' + nutrient_id + '_unit').trigger('change');
     });
 
 });
