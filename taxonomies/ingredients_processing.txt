@@ -275,6 +275,7 @@ sv: skuren
 uk: різаний, різана, різане, різані, нарізаний, нарізана, нарізане, нарізані, порізаний, порізана, порізане, порізані
 
 # <en:cut
+< en:cut
 en: thick cut
 es: cortada gruesa, cortado grueso, cortados gruesos, cortadas gruesas
 hu: vastagon vágott, vastag vágás
@@ -384,8 +385,10 @@ nl: blokjes, in blokjes, blokje
 pl: pokrojony w kostkę, pokrojone w kostkę, pokrojona w kostkę, krojony w kostkę, krojone w kostkę, krojona w kostkę
 sv: tärnad
 
+< en:ground
 en: minced
 it: macinato, macinata, macinate, macinati
+uk: фарш, фарш з
 
 # en:description:nuts cut into small pointed pieces
 en: nibbed
@@ -485,10 +488,12 @@ pt: moído, moída, moídos, moídas
 ru: дробленое
 sl: mleti
 sv: mald, malda, malen
+uk: мелений, мелена, мелене, мелені, дроблений, дроблена, дроблене, дроблені
 # nl:parse:gemalen_$
 # en:wiktionary:grind
 
 # <en:ground
+< en:ground
 en: finely ground
 de: fein gemahlen, fein gemahlene, fein gemahlener, fein gemahlenes
 hr: fino mljeveno
@@ -497,6 +502,7 @@ pl: drobno mielona, drobno mielone, drobno mielony
 sv: finmalen
 
 # <en:ground
+< en:ground
 en: coarsely ground
 de: grob gemahlen, grob gemahlene, grob gemahlener, grob gemahlenes
 hr: grublje mljeveno, grubo mljeveni
@@ -513,6 +519,7 @@ hu: pépesített
 pl: tłuczone
 sv: mosad, mosat, mosade
 
+< en:mashed
 en: pureed, purée, puréed, puree
 xx: puré
 be: Пюрэ
@@ -923,7 +930,7 @@ nl: gepeld, gepelde
 pl: obrany, obrana, obrane
 pt: pelado, pelada, pelados, peladas, sem pele, sem peles
 sv: skalade
-uk: чищений, чищена, чищене, чищені, очищені, очищена, очищений, очищене
+uk: чищений, чищена, чищене, чищені
 # en:wiktionary:peeled
 
 en: scalding
@@ -970,6 +977,7 @@ nl: schil, schillen
 pl: skórka z
 pt: pele, peles, pele de, peles de, raspas
 ro: piele de
+uk: цедра
 #sv:skal
 #sv:false:skallops, skalade, skalfrugi
 # fi:parse:$kuori
@@ -1963,7 +1971,8 @@ en: high-pasteurized
 sv: högpastöriserad
 
 < en:pasteurised
-< en:sterilised
+< en:heat treated
+< en:sterilized
 en: UHT, UHT pasteurised, UHT sterilised, ultra heat treated
 xx: UHT
 bg: UHT, UHT пастьоризирано
@@ -1987,6 +1996,7 @@ it: termizzato
 nl: thermisch behandeld, gestremde
 pt: termizado
 
+< en:thermally processed
 en: heat treated
 da: varmebehandlet
 de: wärmebehandelt
@@ -2040,6 +2050,7 @@ nl: geblancheerd
 pl: blanszowany, blanszowana, blanszowane, blanszowanych, blanszowanego, blanszowanej
 uk: бланшований, бланшована, бланшоване, бланшовані
 
+< en:processed
 en: thermally processed
 hr: termički obrađena
 
@@ -2573,6 +2584,7 @@ de: gewürzter, gewuerzter, gewürzter, gewuerzter, flüssig gewürzt
 #######################################################################
 # Processes used during production, but do not add something
 
+< en:processed
 en: treated
 de: behandelt, behandelte, behandelter, behandeltes, behandelten, behandeltem
 es: tratada, tratado, tratadas, tratados
@@ -2618,6 +2630,7 @@ nl: gemout, gemoute
 pl: słodowana, słodowany, słodowane
 pt: maltado, maltada
 sv: mältat
+uk: солодовий, солодова, солодове, солодові
 #nl:falsePositive:moutmeel
 
 fr: non-maltées
@@ -2686,6 +2699,7 @@ pt: não irradiado, não tratado com irradiação, sem irradiação
 
 
 #en:description:complete or partial removal of impurities in sugars, oils, fats and other natural materials by chemical/physical treatment
+< en:purified
 en: refined, partially refined
 fr: raffiné, partiellement raffiné, raffinée, partiellement raffinée, raffinés, partiellement raffinés, raffinées, partiellement raffinées
 hr: rafinirano, djelomično rafinirano
@@ -2905,6 +2919,7 @@ uk: копчений, копчена, копчене, копчені
 #en:false-positive:en:sweet smoked paprike
 
 #<en:smoked
+< en:smoked
 en: double smoked
 es: doble ahumado, doble ahumada, doble ahumados, doble ahumadas, doblemente ahumado
 fr: doublement fumé, fumé deux fois
@@ -2912,12 +2927,14 @@ hu: duplán füstölt
 pt: defumado duplo, defumada dupla
 
 #<en:smoked
+< en:smoked
 en: naturally smoked, natural smoked, all natural smoked
 fr: fumé naturellement, fumés naturellement, fumée naturellement, fumées naturellement
 hu: természetes módon füstölt, természetes úton füstölt
 pt: fumado ao natural, fumada ao natural, fumados ao natural, fumadas ao natural, defumado ao natural, defumada ao natural, defumados ao natural, defumadas ao natural
 
 #<en:smoked
+< en:smoked
 en: lightly smoked
 fr: légèrement fumés
 nb: lettrøkt, lettrøkte
@@ -2925,6 +2942,7 @@ pl: podwędzany, podwędzane, podwędzana
 pt: levemente fumado, levemente fumada, levemente fumados, levemente fumadas, levemente defumado, levemente defumada, levemente defumados, levemente defumadas
 
 #<en:smoked
+< en:smoked
 en: dry smoked
 de: trocken geräuchert, trocken geräucherte, trocken geräuchertes, trocken geräucherten
 es: ahumado en seco, ahumada en seco, ahumados en seco, ahumadas en seco
@@ -2933,20 +2951,28 @@ it: affumicato a secco, affumicata a secco, affumicati a secco, affumicate a sec
 nl: droog gerookt, droog gerookte, droog gerooktes, droog gerookten
 pl: wędzony na sucho, wędzona na sucho, wędzone na sucho, wędzone na sucho
 pt: fumado a seco, fumada a seco, fumados a seco, fumadas a seco, defumado a seco, defumada a seco, defumados a seco, defumadas a seco
+uk: холодного копчення
 
 #<en:smoked
+< en:smoked
 en: wood smoked
 es: humo de leña
 pt: fumado a lenha, fumada a lenha, fumados a lenha, fumadas a lenha, defumado a lenha, defumada a lenha, defumados a lenha, defumadas a lenha
 
+< en:wood smoked
+en: hardwood smoked
+
 #<en:wood smoked
+< en:hardwood smoked
 en: natural hardwood smoked, naturally wood smoked
 es: humo natural, humo de maderas nobles
 
 #<en:smoked
+< en:smoked
 en: chardonnay smoked
 
 #<en:smoked
+< en:smoked
 en: cold smoked with cabernet wine
 bg: студено пушен с каберне совиньон
 ca: fred fumat amb vi cabernet
@@ -2962,12 +2988,15 @@ pt: defumado a frio com vinho Cabernet
 sv: kallrökt med cabernetvin
 
 #<en:wood smoked
+< en:wood smoked
 en: alderwood smoked, smoked over alderwood
 
 # <en:wood smoked
+< en:wood smoked
 en: apple wood smoked
 
 #<en:wood smoked
+< en:wood smoked
 en: beech smoked
 es: ahumado de haya
 fr: fumé au bois de hêtre, fumée au bois de hêtre, fumés au bois de hêtre, fumées au bois de hêtre
@@ -2978,9 +3007,11 @@ pt: defumado de faia
 sv: bokspånsrökt
 
 #<en:beech smoked
+< en:beech smoked
 en: natural beech smoked
 
 #<en:wood smoked
+< en:wood smoked
 en: cherrywood smoked
 es: ahumado de madera de cerezo
 fr: fumé au bois de cerisier
@@ -2992,22 +3023,28 @@ pt: defumado de madeira de cerejeira
 de: edelholzrauch
 
 #<en:wood smoked
+< en:wood smoked
 en: fruitwood smoked
 
 #<en:wood smoked
+< en:wood smoked
 en: hickory smoked, hot smoked from hickory
 fr: fumé au bois de caryer
 
 #<en:hickory smoked
+< en:hickory smoked
 en: natural hickory smoked
 
 #<en:hickory smoked
+< en:hickory smoked
 en: hickory smoked cured with water
 
 # <en:wood smoked
+< en:wood smoked
 en: maple smoked
 
 # <en:wood smoked
+< en:wood smoked
 en: mesquite smoked
 de: mesquite geräuchert
 es: ahumado de mezquite
@@ -3018,6 +3055,7 @@ pt: defumado de mesquite
 sv: rökt över mesquiteved
 
 # <en:wood smoked
+< en:wood smoked
 en: oak smoked
 de: eichenholzgeräuchert
 es: ahumado de roble
@@ -3157,6 +3195,7 @@ de: texturiert, texturierte, texturierter, texturiertes, texturierten, texturier
 fr: texturé, texturée
 nova:en: 4
 
+< en:processed
 en: processed with alkali
 bg: обработено с щелоч
 ca: processat amb àlcali
@@ -3235,6 +3274,12 @@ zh: 粉
 en: concentrated or powder
 fr: concentré ou en poudre
 
+
+en: purified
+uk: очищений, очищена, очищене, очищені
+
+en: processed
+uk: оброблений, оброблена, оброблене, оброблені
 
 en: preserved
 
