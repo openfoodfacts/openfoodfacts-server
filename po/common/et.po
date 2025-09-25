@@ -730,7 +730,7 @@ msgstr "Viga"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "Vale kasutajanimi või parool. <a href=\"/cgi/reset_password.pl\">Unustasid parooli?</a>"
+msgstr "Vale kasutajanimi või salasõna. <a href=\"/cgi/reset_password.pl\">Kas unustasid salasõna?</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
@@ -738,7 +738,7 @@ msgstr "Andmete lugemisel tekkis viga, palun proovi lehte värskendada."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr "Parool ja selle kinnitus ei kattu."
+msgstr "Salasõna ja selle kinnitus ei kattu."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
@@ -766,7 +766,7 @@ msgstr "Kasutajanimes võivad olla vaid ilma täppdeta tähed, numbrid ja kriips
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
-msgstr ""
+msgstr "Liiga pikk kasutajanimi (lubatud on kuni 40 tähemärki)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -1339,7 +1339,7 @@ msgstr ""
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr ""
+msgstr "Kasutajanimi või e-posti aadress:"
 
 msgctxt "low"
 msgid "low"
@@ -2574,7 +2574,7 @@ msgstr ""
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
-msgstr ""
+msgstr "Twitteri kasutajanimi (valikuline)"
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -2598,19 +2598,19 @@ msgstr ""
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr ""
+msgstr "Kasutajanimi või e-posti aadress: "
 
 msgctxt "username"
 msgid "User name"
-msgstr ""
+msgstr "Kasutajanimi"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
-msgstr ""
+msgstr "(täppideta tähed, numbrid ja/või kriipsud)"
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr ""
+msgstr "Kasutajanimi või e-posti aadress"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
@@ -6338,32 +6338,32 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Väga hea vaste"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "Hea vaste"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Kehv vaste"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "Vaste pole teada"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "Ei pruugi sobida"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "Ei sobi"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -7139,7 +7139,7 @@ msgstr ""
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
-msgstr ""
+msgstr "Sisesta põhilisekontakti kasutajanimi:"
 
 msgctxt "change_main_contact"
 msgid "Change main contact"
