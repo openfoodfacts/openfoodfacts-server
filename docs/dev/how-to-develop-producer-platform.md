@@ -39,13 +39,13 @@ An explanation of the setup can be found at [explain-pro-dev-setup.md](explain-p
 
 - If you want to see the state of tasks, you can run:
 
-```
+``` sh
 docker compose exec minion /opt/product-opener/scripts/minion_producers.pl  minion job
 ```
 (add --help to see all options), or refer to https://docs.mojolicious.org/Minion/Command/minion/job
 
 - You may also inspect the database by running:
-```
+``` sh
 docker compose exec  postgres psql -U productopener -W minion
 ```
 The password is given by the `POSTGRES_PASSWORD` variable in the `.env` file and defaults to `productopener`. 
