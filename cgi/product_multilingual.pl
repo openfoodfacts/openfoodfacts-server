@@ -39,7 +39,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food
-	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_nutrition_data_per_100g_and_per_serving get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
+	qw/%nutriments_tables %other_nutriments_lists compute_nutrition_data_per_100g_and_per_serving get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -208,6 +208,9 @@ local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
 my $template_data_ref = {};
+
+# Nutrition source: packaging on public platform, manufacturer on producers platform
+my $source = get_source_for_site_and_org($request_ref->{org_id});
 
 $log->debug("product_multilingual - start", {code => $code, type => $type, action => $action}) if $log->is_debug();
 
@@ -665,8 +668,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 
 	# Update the nutrients
-
-	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table, $User{moderator});
+	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutriment_table, $source);
 
 	# Process packaging components
 	create_packaging_components_from_request_parameters($product_ref);
@@ -1118,25 +1120,6 @@ CSS
 	# We first go through all nutrients, so that we can see the ones for which we have data
 	# as we will check the nutrition_data checkbox if we have data for at least one nutrient
 
-	my $source = "packaging";
-	if ($server_options{producers_platform}) {
-		$source = "manufacturer";
-		if (defined $Org_id) {
-			# e.g. org-database-usda
-			if ($Org_id =~ /^org-database-(.+)$/) {
-				$source = "database-" . $1;
-			}
-			# e.g. org-label-gmo-project (in practice labels should not send nutrition data)
-			if ($Org_id =~ /^org-label-(.+)$/) {
-				$source = "label-" . $1;
-			}
-			# At some point we used the pro platform to allow users to bulk enter data (e.g. for scan parties)
-			elsif ($Org_id =~ /^user-(.+)$/) {
-				$source = "packaging";
-			}
-		}
-	}
-
 	my @preparations = get_preparations_for_product_type($product_ref->{product_type});
 	my @pers = get_pers_for_product_type($product_ref->{product_type});
 
@@ -1244,7 +1227,11 @@ CSS
 					if (defined $input_set_nutrient_ref) {
 						$value_string = $input_set_nutrient_ref->{value_string};
 						$unit = $input_set_nutrient_ref->{unit};
-						$nutrient_units{$unit} = 1;
+						# If we have a value, record the unit
+						if ((defined $value_string) and ($value_string ne '')) {
+							$nutrient_units{$unit} = 1;;
+						}
+						
 						# If we have a modifier, include it in the value_string
 						if (defined $input_set_nutrient_ref->{modifier}) {
 							$input_set_nutrient_ref->{modifier} eq '<' and $value_string = "&lt; $value_string";
@@ -1282,10 +1269,14 @@ CSS
 			}
 		}
 
-		# If we have only one unit for the nutrient, set it as the nutrient unit
+		# If we have only one unit set for the nutrient (across all input sets), set it as the nutrient unit
 		my @units = keys %nutrient_units;
 		if (scalar @units == 1) {
 			$nutrient_ref->{unit} = $units[0];
+		}
+		# Otherwise if we don't have any value, set the default unit
+		elsif (scalar @units == 0) {
+			$nutrient_ref->{unit} = $default_unit;
 		}
 
 		$nutrient_ref->{shown} = $nutrient_shown;

@@ -124,7 +124,7 @@ function add_language_tab(lc, language) {
     $(document).foundation('tab', 'reflow');
 }
 
-function select_nutriment(event, ui) {
+function select_nutrient(event, ui) {
 
 
     //alert(ui.item.id + ' = ' + ui.item.value);
@@ -166,6 +166,7 @@ function select_nutriment(event, ui) {
     }
 }
 
+// Selecting a new nutrient line
 function add_line() {
 
     $(this).unbind("change");
@@ -173,25 +174,25 @@ function add_line() {
     const id = parseInt($("#new_max").val(), 10) + 1;
     $("#new_max").val(id);
 
-    const newline = $("#nutriment_new_0_tr").clone();
-    const newid = "nutriment_new_" + id;
+    const newline = $("#nutrient_new_0_tr").clone();
+    const newid = "nutrient_new_" + id;
     newline.attr('id', newid + "_tr");
-    newline.find(".nutriment_label").attr("id", newid + "_label").attr("name", newid + "_label");
-    newline.find(".nutriment_unit").attr("id", newid + "_unit").attr("name", newid + "_unit");
-    newline.find(".nutriment_unit_percent").attr("id", newid + "_unit_percent").attr("name", newid + "_unit_percent");
-    newline.find("#nutriment_new_0").attr("id", newid).attr("name", newid);
-    newline.find("#nutriment_new_0_prepared").attr("id", newid + "_prepared").attr("name", newid + "_prepared");
+    newline.find(".nutrient_label").attr("id", newid + "_label").attr("name", newid + "_label");
+    newline.find(".nutrient_unit").attr("id", newid + "_unit").attr("name", newid + "_unit");
+    newline.find(".nutrient_unit_percent").attr("id", newid + "_unit_percent").attr("name", newid + "_unit_percent");
+    newline.find("#nutrient_new_0").attr("id", newid).attr("name", newid);
+    newline.find("#nutrient_new_0_prepared").attr("id", newid + "_prepared").attr("name", newid + "_prepared");
 
     $('#nutrition_data_table > tbody:last').append(newline);
     newline.show();
 
-    newline.find(".nutriment_label").autocomplete({
+    newline.find(".nutrient_label").autocomplete({
         source: otherNutriments,
-        select: select_nutriment,
+        select: select_nutrient,
         //change: add_line
     });
 
-    newline.find(".nutriment_label").change(add_line);
+    newline.find(".nutrient_label").change(add_line);
 
     $(document).foundation('equalizer', 'reflow');
 }
@@ -1113,9 +1114,9 @@ $(function () {
     });
 
 
-    $(".nutriment_label").autocomplete({
+    $(".nutrient_label").autocomplete({
         source: otherNutriments,
-        select: select_nutriment,
+        select: select_nutrient,
         //change: add_line
     });
 
@@ -1161,8 +1162,8 @@ $(function () {
         $("#nutriment_sodium_unit").val($("#nutriment_salt_unit").val());
     });
 
-    $("#nutriment_new_0_label").change(add_line);
-    $("#nutriment_new_1_label").change(add_line);
+    $("#nutrient_new_0_label").change(add_line);
+    $("#nutrient_new_1_label").change(add_line);
 
 });
 
