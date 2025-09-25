@@ -21,7 +21,7 @@ Our users are inside the "openfoodfacts" realm.
 
 To login as a keycloak administrator (that is administrator of all realms),
 you can log to https://auth.openfoodfacts.org/admin/
-with a specific account (which is distinct from your Open Food Fact Account)
+with a specific account (which is distinct from your Open Food Facts Account)
 
 ### How to register an OIDC client
 
@@ -51,11 +51,11 @@ At the mom
 
 ### Users main informations
 
-The main users informations are stored in Keycloak using the PostgreSQL database.
+The main user information is stored in Keycloak using the PostgreSQL database.
 
 ### Users preferences
 
-Keycloak store users information, but not application specific preferences
+Keycloak stores user's information, but not application specific preferences
 which are deferred to a file on disk. (see `User.pm`, `retrieve_user` and `store_user`)
 
 Those files are in a users dataset which is shared between all OxF websites.
