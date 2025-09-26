@@ -1141,7 +1141,7 @@ CSS
 	$template_data_ref_display->{nutrients} = \@nutrients;
 	$template_data_ref_display->{input_sets} = \%input_sets;
 
-	foreach my $nutrient (@{$nutriments_tables{$nutriment_table}}, 'new_0', 'new_1') {
+	foreach my $nutrient (@{$nutriments_tables{$nutriment_table}}) {
 
 		my $nutrient_ref = {};
 
@@ -1179,14 +1179,8 @@ CSS
 			}
 		}
 
-		my $display = '';
-		if ($nid eq 'new_0') {
-			$display = ' style="display:none"';
-		}
-
 		$nutrient_ref->{nid} = $nid;
 		$nutrient_ref->{class} = $class;
-		$nutrient_ref->{display} = $display;
 		$nutrient_ref->{label_value} = $product_ref->{nutrients}{$nid . "_label"};
 		$nutrient_ref->{product_add_nutrient} = $Lang{product_add_nutrient}{$lc};
 		$nutrient_ref->{prefix} = $prefix;
@@ -1229,9 +1223,9 @@ CSS
 						$unit = $input_set_nutrient_ref->{unit};
 						# If we have a value, record the unit
 						if ((defined $value_string) and ($value_string ne '')) {
-							$nutrient_units{$unit} = 1;;
+							$nutrient_units{$unit} = 1;
 						}
-						
+
 						# If we have a modifier, include it in the value_string
 						if (defined $input_set_nutrient_ref->{modifier}) {
 							$input_set_nutrient_ref->{modifier} eq '<' and $value_string = "&lt; $value_string";
@@ -1243,6 +1237,7 @@ CSS
 							$input_set_nutrient_ref->{modifier} eq '~' and $value_string = "~ $value_string";
 							$input_set_nutrient_ref->{modifier} eq '-' and $value_string = '-';
 						}
+
 						# Record that we have nutrition data for this input set and this nutrient
 						# so that we can display the corresponding input set column and nutrient row
 						deep_set($input_sets{$preparation}, $per, 'shown', 1);
@@ -1270,6 +1265,7 @@ CSS
 		}
 
 		# If we have only one unit set for the nutrient (across all input sets), set it as the nutrient unit
+		# and we won't display individual unit selectors for each input set
 		my @units = keys %nutrient_units;
 		if (scalar @units == 1) {
 			$nutrient_ref->{unit} = $units[0];
@@ -1299,47 +1295,33 @@ CSS
 		}
 	}
 
-	# Compute a list of nutrients that will not be displayed in the nutrition facts table in the product edit form
+	# Create a list of the nutrients that are hidden in the displayed in the nutrition facts table in the product edit form
 	# because they are not set for the product, and are not displayed by default in the user's country.
-	# Users will be allowed to add those nutrients, and this list will be used for nutrient name autocompletion.
+	# Users will be allowed to add those nutrients, and the list will be used for selecting nutrients to add.
 
-	my $other_nutriments = '';
-	my $nutriments = '';
+	my $other_nutrients = '';
+	# Add an empty value for the select2 placeholder
+	$other_nutrients .= '{ "id" : "", "text" : ""},' . "\n";
 	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
-		my $other_nutriment_value = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 
 		# Some nutrients cannot be entered directly by users, so don't suggest them
 		my $automatically_computed = get_property("nutrients", "zz:$nid", "automatically_computed:en");
 		next if ((defined $automatically_computed) and ($automatically_computed eq "yes"));
 
-		if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq '')) {
-			my $supports_iu = "false";
-			if (defined get_property("nutrients", "zz:$nid", "iu_value:en")) {
-				$supports_iu = "true";
-			}
+		# Do not display the energy field without a unit, as we display energy-kcal or energy-kj instead
+		next if $nid eq "energy";
 
-			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en") || '';
-			$other_nutriments
-				.= '{ "value" : "'
-				. $other_nutriment_value
-				. '", "unit" : "'
-				. $other_nutriment_unit
-				. '", "iu": '
-				. $supports_iu . '  },' . "\n";
-		}
-		$nutriments .= '"' . $other_nutriment_value . '" : "' . $nid . '",' . "\n";
+		my $other_nutrient_label = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
+
+		$other_nutrients .= '{ "id" : "' . $nid . '", "text" : "' . $other_nutrient_label . '"},' . "\n";
 	}
-	$nutriments =~ s/,\n$//s;
-	$other_nutriments =~ s/,\n$//s;
+	$other_nutrients =~ s/,\n$//s;
 
 	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript">
-var nutriments = {
-$nutriments
-};
 
-var otherNutriments = [
-$other_nutriments
+var other_nutrients = [
+$other_nutrients
 ];
 </script>
 

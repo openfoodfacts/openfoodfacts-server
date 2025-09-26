@@ -21,7 +21,7 @@
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
 /*global lang admin otherNutriments Tagify*/
-/*exported add_line upload_image update_image update_nutrition_image_copy*/
+/*exported upload_image update_image update_nutrition_image_copy*/
 
 //Polyfill, just in case
 if (!Array.isArray) {
@@ -39,12 +39,6 @@ var angles = {};
 var imagefield_imgid = {};
 var imagefield_url = {};
 var use_low_res_images = false;
-
-var units = [
-    ['g', 'mg', "\u00B5g", '% DV'],
-    ['mol/l', 'moll/l', 'mmol/l', 'mval/l', 'ppm', "\u00B0rH", "\u00B0fH", "\u00B0e", "\u00B0dH", 'gpg'],
-    ['kJ', 'kcal'],
-];
 
 function stringStartsWith(string, prefix) {
     return string.slice(0, prefix.length) == prefix;
@@ -122,79 +116,6 @@ function add_language_tab(lc, language) {
     update_move_data_and_images_to_main_language_message();
 
     $(document).foundation('tab', 'reflow');
-}
-
-function select_nutrient(event, ui) {
-
-
-    //alert(ui.item.id + ' = ' + ui.item.value);
-    //alert($("#add_nutriment").val());
-    let id = $(this).attr('id');
-    id = id.replace("_label", "");
-    $('#' + id).focus();
-    $('#' + id + '_unit').val(ui.item.unit);
-    const unit = (ui.item.unit == '%' ? '%' : ui.item.unit).toLowerCase();
-    const unitElement = $('#' + id + '_unit');
-    const percentElement = $('#' + id + '_unit_percent');
-    if (unit === '') {
-        unitElement.hide();
-        percentElement.hide();
-    } else if (unit == '%') {
-        unitElement.hide();
-        percentElement.show();
-    } else {
-        unitElement.show();
-        percentElement.hide();
-
-        for (const entry of units) {
-            for (const unitEntry of entry) {
-                if (unitEntry.toLowerCase() == unit) {
-                    const domElement = unitElement[0];
-                    domElement.options.length = 0; // Remove current entries.
-                    for (const unitValue of entry) {
-                        domElement.options[domElement.options.length] = new Option(unitValue, unitValue, false, unitValue.toLowerCase() == unit);
-                    }
-        
-                    if (ui.item.iu) {
-                        domElement.options[domElement.options.length] = new Option('IU', 'IU', false, 'iu' == unit);
-                    }
-        
-                    return;
-                }
-            }
-        }
-    }
-}
-
-// Selecting a new nutrient line
-function add_line() {
-
-    $(this).unbind("change");
-
-    const id = parseInt($("#new_max").val(), 10) + 1;
-    $("#new_max").val(id);
-
-    const newline = $("#nutrient_new_0_tr").clone();
-    const newid = "nutrient_new_" + id;
-    newline.attr('id', newid + "_tr");
-    newline.find(".nutrient_label").attr("id", newid + "_label").attr("name", newid + "_label");
-    newline.find(".nutrient_unit").attr("id", newid + "_unit").attr("name", newid + "_unit");
-    newline.find(".nutrient_unit_percent").attr("id", newid + "_unit_percent").attr("name", newid + "_unit_percent");
-    newline.find("#nutrient_new_0").attr("id", newid).attr("name", newid);
-    newline.find("#nutrient_new_0_prepared").attr("id", newid + "_prepared").attr("name", newid + "_prepared");
-
-    $('#nutrition_data_table > tbody:last').append(newline);
-    newline.show();
-
-    newline.find(".nutrient_label").autocomplete({
-        source: otherNutriments,
-        select: select_nutrient,
-        //change: add_line
-    });
-
-    newline.find(".nutrient_label").change(add_line);
-
-    $(document).foundation('equalizer', 'reflow');
 }
 
 function update_image(imagefield) {
@@ -1113,58 +1034,32 @@ $(function () {
         $(document).foundation('equalizer', 'reflow');
     });
 
+    // Select2 for adding nutrients
 
-    $(".nutrient_label").autocomplete({
-        source: otherNutriments,
-        select: select_nutrient,
-        //change: add_line
+    $('#add_nutrient_select').select2({
+      placeholder: lang().product_js_add_a_nutrient,
+      data: other_nutrients, // Use the other_nutrients array to populate the dropdown
+      allowClear: true
+    }); 
+    $('#add_nutrient_select').val(null).trigger('change');
+
+    $("#add_nutrient_select").on("select2:select", function (e) {
+        // get the selected id, and show the corresponding line with id "nutrient_<id>_tr"
+        const id = e.params.data.id;
+        $("#nutrient_" + id + "_tr").show();
+
+        // remove the selected nutrient from the other_nutrients array
+        other_nutrients = other_nutrients.filter(function (item) {
+            return item.id !== id;
+        });
+        // update the select2 dropdown
+        $(this).empty().select2({
+            placeholder: lang().product_js_add_a_nutrient,,
+            data: other_nutrients, // Use the other_nutrients array to populate the dropdown
+            allowClear: true
+        });
+        $('#add_nutrient_select').val(null).trigger('change');
     });
-
-    $("#nutriment_sodium").change(function () {
-        swapSalt($("#nutriment_sodium"), $("#nutriment_salt"), 2.5);
-    });
-
-    $("#nutriment_salt").change(function () {
-        swapSalt($("#nutriment_salt"), $("#nutriment_sodium"), 1 / 2.5);
-    });
-
-    $("#nutriment_sodium_prepared").change(function () {
-        swapSalt($("#nutriment_sodium_prepared"), $("#nutriment_salt_prepared"), 2.5);
-    });
-
-    $("#nutriment_salt_prepared").change(function () {
-        swapSalt($("#nutriment_salt_prepared"), $("#nutriment_sodium_prepared"), 1 / 2.5);
-    });
-
-    function swapSalt(from, to, multiplier) {
-        const source = from.val().replace(",", ".");
-        const regex = /^(.*?)(\d+(?:\.\d+)?)(.*?)$/g;
-        const match = regex.exec(source);
-        let target = match[1] + (parseFloat(match[2]) * multiplier) + match[3];
-
-        if (match) {
-            if (match[1] == ".") {
-                const number = "0." + match[2];
-                target = (parseFloat(number) * multiplier) + match[3];
-            }
-
-            to.val(target);
-        } else {
-            to.val(from.val());
-        }
-    }
-
-    $("#nutriment_sodium_unit").change(function () {
-        $("#nutriment_salt_unit").val($("#nutriment_sodium_unit").val());
-    });
-
-    $("#nutriment_salt_unit").change(function () {
-        $("#nutriment_sodium_unit").val($("#nutriment_salt_unit").val());
-    });
-
-    $("#nutrient_new_0_label").change(add_line);
-    $("#nutrient_new_1_label").change(add_line);
-
 });
 
 $(function () {
