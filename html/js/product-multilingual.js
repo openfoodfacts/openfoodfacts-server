@@ -739,7 +739,7 @@ const maximumRecentEntriesPerTag = 10;
                             $("#imgsearchbutton_" + imagefield).show();
                             $("#imgsearchmsg_" + imagefield).hide();
 
-                            // showing the message "image recieved" once user uploads the image
+                            // showing the message "image received" once user uploads the image
                             if (typeof data_info === "string" && stringStartsWith(data_info, "protect")) {
                                 $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
                                 $("#imgsearchmsg_" + imagefield).show();
