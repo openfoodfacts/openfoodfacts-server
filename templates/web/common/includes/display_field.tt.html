@@ -1,8 +1,8 @@
 <!-- start templates/[% template.name %] -->
 
-<p id="field_[% field %]">
-    <span class="field">[% name %][% sep %]: </span>
-    <span class="field_value" id="field_[% field %]_value">[% value %]</span>
-</p>
+<div id="field_[% field %]" class="field-wrapper">
+    <span class="field" id="field_[% field %]_label">[% name %][% sep %]: </span>
+    <span class="field_value" id="field_[% field %]_value" aria-labelledby="field_[% field %]_label">[% value %]</span>
+</div>
 
 <!-- end templates/[% template.name %] -->
