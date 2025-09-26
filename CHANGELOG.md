@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.80.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.80.0...v2.80.1) (2025-09-26)
+
+
+### Bug Fixes
+
+* use /js/dist/ for preferences JS files (hot fix applied in prod) ([#12411](https://github.com/openfoodfacts/openfoodfacts-server/issues/12411)) ([78a584c](https://github.com/openfoodfacts/openfoodfacts-server/commit/78a584c20acab241e98faf5f5f7f1f2beb0250db))
+
 ## [2.80.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.79.0...v2.80.0) (2025-09-22)
 
 
