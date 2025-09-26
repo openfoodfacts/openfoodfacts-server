@@ -1,6 +1,6 @@
 # Explain User Management and Authentication
 
-> :pencil: **Note:** this document explain the target configuration,
+> :pencil: **Note:** this document explains the target configuration,
 > we are currently in the process of migrating towards it
 
 User management mostly happens in keycloak.
