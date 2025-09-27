@@ -57,3 +57,13 @@ updates:
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 300
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    allow:
+      - dependency-type: "all"
+    groups:
+      devcontainers:
+        patterns:
+          - "*"

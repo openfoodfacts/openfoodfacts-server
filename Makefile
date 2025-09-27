@@ -66,6 +66,7 @@ DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://b
 	ODOO_CRM_URL="" \
 	MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 \
 	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
+	OIDC_IMPLEMENTATION_LEVEL=2 \
 	PO_COMMON_PREFIX=test_ \
 	docker compose --env-file=${ENV_FILE}
 DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
@@ -183,6 +184,11 @@ restart: run_deps
 	${DOCKER_COMPOSE} restart backend frontend
 	@echo "🥫  started service at http://openfoodfacts.localhost"
 
+restart_backend:
+	@echo "🥫 Restarting backend container …"
+	${DOCKER_COMPOSE} restart backend
+	@echo "🥫 Apache restarted successfully at http://openfoodfacts.localhost"
+
 stop: stop_deps
 	@echo "🥫 Stopping containers …"
 	${DOCKER_COMPOSE} stop
@@ -236,7 +242,7 @@ reset_owner:
 	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root backend chown www-data:www-data -R /opt/product-opener/ /mnt/podata /var/log/apache2 /var/log/httpd  || true
 	${DOCKER_COMPOSE_BUILD} run --rm --no-deps --user root frontend chown www-data:www-data -R /opt/product-opener/html/images/icons/dist /opt/product-opener/html/js/dist /opt/product-opener/html/css/dist
 
-init_backend: build_taxonomies build_lang
+init_backend: build_taxonomies build_lang build_pro_platform
 
 create_mongodb_indexes: run_deps
 	@echo "🥫 Creating MongoDB indexes …"
@@ -270,6 +276,9 @@ import_prod_data: run_deps
 # Checks #
 #--------#
 
+update_package_lock:
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose run --rm dynamicfront npm install --package-lock-only
+
 front_npm_update:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm update
 
@@ -284,7 +293,7 @@ checks: front_build front_lint check_perltidy check_perl_fast check_critic check
 
 lint: lint_perltidy lint_taxonomies
 
-tests: build_taxonomies_test build_lang_test unit_test integration_test brands_sort_test
+tests: build_taxonomies_test build_lang_test build_pro_platform_test unit_test integration_test brands_sort_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test: create_folders
@@ -354,7 +363,7 @@ clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
 	${DOCKER_COMPOSE_INT_TEST} down -v --remove-orphans
 
-update_tests_results: build_taxonomies_test build_lang_test update_unit_tests_results update_integration_tests_results
+update_tests_results: build_taxonomies_test build_lang_test build_pro_platform_test update_unit_tests_results update_integration_tests_results
 
 update_unit_tests_results:
 	@echo "🥫 Updated expected unit test results with actuals for easy Git diff"
@@ -493,6 +502,17 @@ build_taxonomies_test: create_folders
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+
+build_pro_platform: create_folders
+	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
+	@echo "🥫 build pro platform"
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm backend /opt/product-opener/scripts/build_pro_platform_fields_columns_names.pl
+
+build_pro_platform_test: create_folders
+	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
+	@echo "🥫 build pro platform"
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm backend /opt/product-opener/scripts/build_pro_platform_fields_columns_names.pl
+
 
 
 _clean_old_external_volumes:

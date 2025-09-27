@@ -4,13 +4,6 @@ description: |
 
   (per 100g, per 100ml or per serving) in a standard unit (g or ml)
 properties:
-  value_string:
-    type: string
-    description: |
-        A string representing the value of the quantity.
-    examples:
-      - "2.0"
-      - "4.1"
   value:
     type: number
     description: |

@@ -19,28 +19,3 @@ properties:
       The nutrition data on the package can be per serving, per 100g or per 100ml.
 
       This is essential to understand if values in the `nutrients` object apply for a serving, for 100g or for 100ml.
-  per_quantity:
-    type: number
-    minimum: 0
-    description: |
-      The nutrition data on the package can be per serving, per 100g or per 100ml.
-      When the data is given per serving, 
-      the actual quantity that defines one serving may vary between products 
-      and is stored in this field.
-
-      This is essential to understand to which quantity values in `nutrients` apply for.
-
-      For example, if the label states "per 250g", then this field should be *250*.
-    example: 250
-  per_unit:
-    type: string
-    description: |
-      The nutrition data on the package can be per serving, per 100g or per 100ml.
-      When the data is given per serving, 
-      the actual unit that defines one serving may vary between products 
-      and is stored in this field.
-
-      This is essential to understand to which quantity values in `nutrients` apply for.
-
-      For example, if the label states "per 250g", then this field should be *g*.
-    example: "g"
