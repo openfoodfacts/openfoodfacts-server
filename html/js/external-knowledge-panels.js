@@ -1,27 +1,75 @@
+/* eslint valid-jsdoc: "error" */
+
 let allPanelsBySection = [];
 
 /**
+ * Create a safe anchor id slug from a string.
+ * Keeps [a-z0-9_-], replaces others by '-'.
+ * @param {string} str
+ * @returns {string}
+ */
+function safeId(str) {
+  return String(str).toLowerCase().replace(/[^a-z0-9_-]/g, "-");
+}
+
+/**
  * Pretty label for section ids like "animal_welfare" -> "Animal Welfare".
+ * NOTE: Proper i18n is tracked separately; this is a fallback.
+ * @param {string} sectionId
+ * @returns {string}
  */
 function prettySectionName(sectionId) {
   return sectionId.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 /**
- * localStorage opt-in (default = true).
+ * Small i18n helper for a few UI strings.
+ * @param {string} key
+ * @param {string} lc
+ * @returns {string}
+ */
+function t(key, lc) {
+  const lang = (lc || (window.productData && window.productData.language) || "en").slice(0, 2);
+  const dict = {
+    en: { external_panels: "External Knowledge Panels" },
+    fr: { external_panels: "Panneaux d’information externes" },
+    es: { external_panels: "Paneles de información externos" },
+    de: { external_panels: "Externe Informations-Panels" }
+  };
+  return (dict[lang] && dict[lang][key]) || dict.en[key] || key;
+}
+
+/**
+ * Read localStorage opt-in (default = true).
+ * @param {string} sectionId
+ * @param {string} panelId
+ * @returns {boolean}
  */
 function getExternalKnowledgePanelsOptin(sectionId, panelId) {
   const val = localStorage.getItem("external_panel_" + sectionId + "_" + panelId);
   return val === null ? true : val === "true";
 }
 
+/**
+ * Set localStorage opt-in value.
+ * @param {string} sectionId
+ * @param {string} panelId
+ * @param {boolean} enabled
+ * @returns {void}
+ */
 function setExternalKnowledgePanelsOptin(sectionId, panelId, enabled) {
-  localStorage.setItem("external_panel_" + sectionId + "_" + panelId, enabled ? "true" : "false");
+  localStorage.setItem(
+    "external_panel_" + sectionId + "_" + panelId,
+    enabled ? "true" : "false"
+  );
 }
 
 /**
  * Expand URL templates with productData variables.
  * Supported: $code, $lc (language), $cc (country)
+ * @param {string} urlTemplate
+ * @param {{code:string, language:string, country:string}} productData
+ * @returns {string}
  */
 function interpolateUrl(urlTemplate, productData) {
   return urlTemplate
@@ -34,6 +82,8 @@ function interpolateUrl(urlTemplate, productData) {
  * Scope checking: public | users | moderators
  * - users: logged-in users AND moderators
  * - moderators: moderators only
+ * @param {object} panel
+ * @returns {boolean}
  */
 function canSeeByScope(panel) {
   const scope = panel.scope || "public";
@@ -49,22 +99,27 @@ function canSeeByScope(panel) {
 
 /**
  * Filter matching against current product context.
- * categories: array equality (any match)
+ * categories: at least one match
  * country/language/product_type: strict equality
+ * @param {object} panel
+ * @param {{categories:string[], country:string, language:string, product_type:string}} ctx
+ * @returns {boolean}
  */
 function matchesFilters(panel, ctx) {
   const f = panel.filters || {};
-  const catOk =
-    !f.categories?.length || f.categories.some((c) => ctx.categories.includes(c));
+  const catOk = !f.categories?.length || f.categories.some((c) => ctx.categories.includes(c));
   const countryOk = !f.countries?.length || f.countries.includes(ctx.country);
   const langOk = !f.languages?.length || f.languages.includes(ctx.language);
-  const typeOk =
-    !f.product_types?.length || f.product_types.includes(ctx.product_type);
+  const typeOk = !f.product_types?.length || f.product_types.includes(ctx.product_type);
   return catOk && countryOk && langOk && typeOk;
 }
 
 /**
  * Visibility for a panel (scope + filters + opt-in).
+ * @param {string} sectionId
+ * @param {object} panel
+ * @param {object} ctx
+ * @returns {boolean}
  */
 function isPanelVisible(sectionId, panel, ctx) {
   return (
@@ -76,6 +131,7 @@ function isPanelVisible(sectionId, panel, ctx) {
 
 /**
  * Loads external-sources.json and builds the section/panel mapping with order preserved.
+ * @returns {Promise<void>}
  */
 async function loadPanelsMapping() {
   const response = await fetch("/resources/files/external-sources.json");
@@ -89,7 +145,7 @@ async function loadPanelsMapping() {
       const sectionObj = {
         sectionId: panel.section,
         label: prettySectionName(panel.section),
-        panels: [],
+        panels: []
       };
       sectionMap[panel.section] = sectionObj;
       sections.push(sectionObj);
@@ -99,9 +155,9 @@ async function loadPanelsMapping() {
   allPanelsBySection = sections;
 }
 
-
 /**
  * Remove all rendered external sections.
+ * @returns {void}
  */
 function clearExternalSections() {
   document.querySelectorAll(".external-section").forEach((el) => el.remove());
@@ -109,6 +165,9 @@ function clearExternalSections() {
 
 /**
  * Keep navbar in sync with actually visible sections (order preserved).
+ * Avoid innerHTML for XSS safety.
+ * @param {{sectionId:string,label:string}[]} visibleSectionsOrdered
+ * @returns {void}
  */
 function syncNavbarExternalSections(visibleSectionsOrdered) {
   const navbar = document.querySelector("#navbar ul.inline-list");
@@ -126,9 +185,18 @@ function syncNavbarExternalSections(visibleSectionsOrdered) {
   visibleSectionsOrdered.forEach(({ sectionId, label }) => {
     const li = document.createElement("li");
     li.className = "product-section-button";
-    li.innerHTML = `<a class="nav-link scrollto button small round white-button" href="#external_section_${sectionId}"><span>${label}</span></a>`;
 
-    if (insertAfter && insertAfter.nextSibling) {
+    const a = document.createElement("a");
+    a.className = "nav-link scrollto button small round white-button";
+    const id = "external_section_" + safeId(sectionId);
+    a.setAttribute("href", "#" + id);
+    const span = document.createElement("span");
+    span.textContent = String(label);
+    a.appendChild(span);
+
+    li.appendChild(a);
+
+    if (insertAfter?.nextSibling) {
       insertAfter.parentNode.insertBefore(li, insertAfter.nextSibling);
     } else if (insertAfter) {
       insertAfter.parentNode.appendChild(li);
@@ -141,6 +209,7 @@ function syncNavbarExternalSections(visibleSectionsOrdered) {
 
 /**
  * Smooth scroll + active link highlight.
+ * @returns {void}
  */
 function enableSmoothScrollAndHighlight() {
   const navbar = document.querySelector("#navbar ul.inline-list");
@@ -149,7 +218,7 @@ function enableSmoothScrollAndHighlight() {
   navbar.querySelectorAll(".nav-link").forEach((link) => {
     link.addEventListener("click", function (e) {
       const hash = this.getAttribute("href");
-      if (hash && hash.startsWith("#") && document.querySelector(hash)) {
+      if (hash?.startsWith("#") && document.querySelector(hash)) {
         e.preventDefault();
         document.querySelector(hash).scrollIntoView({ behavior: "smooth" });
         navbar.querySelectorAll(".nav-link").forEach((l) => l.classList.remove("active"));
@@ -176,6 +245,7 @@ function enableSmoothScrollAndHighlight() {
 /**
  * Render all external sections (only if they have at least 1 visible panel)
  * and sync the navbar. Order strictly follows JSON order.
+ * @returns {Promise<void>}
  */
 async function renderExternalKnowledgeSections() {
   if (!allPanelsBySection.length) {
@@ -183,11 +253,12 @@ async function renderExternalKnowledgeSections() {
   }
   clearExternalSections();
 
-  const { code, categories, country, language, product_type } = window.productData || {};
-  const ctx = { code, categories: categories || [], country, language, product_type };
+  const { categories, country, language, product_type } = window.productData || {};
+  const ctx = { categories: categories || [], country, language, product_type };
 
   const matchSection = document.getElementById("match");
-  if (!matchSection || !matchSection.parentNode) {
+  if (!matchSection?.parentNode) {
+    // eslint-disable-next-line no-console
     console.error("Cannot find #match section to insert external panels");
     return;
   }
@@ -205,12 +276,14 @@ async function renderExternalKnowledgeSections() {
     );
 
     // Skip empty sections (no header, no navbar link)
-    if (!visiblePanels.length) return;
+    if (!visiblePanels.length) {
+      return;
+    }
 
     // --- Section UI ---
     const sectionDiv = document.createElement("section");
     sectionDiv.className = "row external-section";
-    sectionDiv.id = "external_section_" + section.sectionId;
+    sectionDiv.id = "external_section_" + safeId(section.sectionId);
 
     const colDiv = document.createElement("div");
     colDiv.className = "large-12 column";
@@ -276,7 +349,7 @@ async function renderExternalKnowledgeSections() {
       knowledgePanel.setAttribute("url", url);
       knowledgePanel.setAttribute("path", "panels");
       knowledgePanel.setAttribute("heading-level", "h4");
-      // If/when your component supports these:
+      // Future support when available in webcomponent:
       // knowledgePanel.setAttribute("top-panels", "main,root");
       // knowledgePanel.setAttribute("external-badge", "");
       // knowledgePanel.setAttribute("external-badge-url", "/help/external-panels");
@@ -284,11 +357,10 @@ async function renderExternalKnowledgeSections() {
       details.appendChild(knowledgePanel);
       providerCard.appendChild(details);
       cardSection.appendChild(providerCard);
-
     });
 
     // Insert the section in DOM keeping original order
-    if (insertAfter.nextSibling) {
+    if (insertAfter?.nextSibling) {
       parent.insertBefore(sectionDiv, insertAfter.nextSibling);
     } else {
       parent.appendChild(sectionDiv);
@@ -305,18 +377,22 @@ async function renderExternalKnowledgeSections() {
 
 /**
  * Render opt-in preferences grouped by section.
- * Show checkboxes only for panels the user could potentially see
- * (scope + filters). If none, hide the whole container.
+ * Show checkboxes only for panels the user could potentially see (scope + filters).
+ * If none, hide the whole container.
+ * @param {HTMLElement} container
+ * @returns {void}
  */
 function renderExternalPanelsOptinPreferences(container) {
-  if (!container) return;
+  if (!container) {
+    return;
+  }
 
   const ensureMapping = () =>
     allPanelsBySection.length ? Promise.resolve() : loadPanelsMapping();
 
   ensureMapping().then(() => {
-    const { code, categories, country, language, product_type } = window.productData || {};
-    const ctx = { code, categories: categories || [], country, language, product_type };
+    const { categories, country, language, product_type } = window.productData || {};
+    const ctx = { categories: categories || [], country, language, product_type };
 
     let sectionsHtml = "";
     let anyItem = false;
@@ -326,10 +402,12 @@ function renderExternalPanelsOptinPreferences(container) {
         (panel) => canSeeByScope(panel) && matchesFilters(panel, ctx)
       );
 
-      if (!scoppablePanels.length) return;
+      if (!scoppablePanels.length) {
+        return;
+      }
 
       anyItem = true;
-      let html = `<div class="external-pref-section" style="margin-bottom:2em;">`;
+      let html = '<div class="external-pref-section" style="margin-bottom:2em;">';
       html += `<h3 style="margin-bottom:0.5em;">${section.label}</h3>`;
 
       scoppablePanels.forEach((panel) => {
@@ -373,7 +451,7 @@ function renderExternalPanelsOptinPreferences(container) {
     // Global header only if there is at least one section rendered
     container.innerHTML =
       '<div class="card" style="background:#fff;margin-top:2em;margin-bottom:2em;padding:2em 2em 1em 2em;">' +
-      `<h2 style="margin-bottom:1em;">External Knowledge Panels</h2>` +
+      `<h2 style="margin-bottom:1em;">${t("external_panels", language)}</h2>` +
       sectionsHtml +
       "</div>";
 
@@ -392,4 +470,9 @@ function renderExternalPanelsOptinPreferences(container) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", renderExternalKnowledgeSections);
+// Expose globally for product-preferences.js to call it safely
+window.renderExternalPanelsOptinPreferences = renderExternalPanelsOptinPreferences;
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderExternalKnowledgeSections();
+});

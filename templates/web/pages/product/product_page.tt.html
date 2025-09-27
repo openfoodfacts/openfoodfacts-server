@@ -2,12 +2,13 @@
 <script src="[% static_subdomain %]/js/dist/JsBarcode.all.min.js"></script>
 
 <script>
+  // this is used to filter external knowledge panels
   window.productData = {
-    code: "[% code %]",
+    code: "[% code | html %]",
     categories: [% encode_json(categories) %],
-    country: "[% cc %]",
-    language: "[% lc %]",
-    product_type: "[% product_type_tag %]"
+    country: "[% cc | html %]",
+    language: "[% lc | html %]",
+    product_type: "[% product_type_tag | html %]"
   };
   window.isModerator = [% is_moderator %];
   window.isUser = [% is_user %];

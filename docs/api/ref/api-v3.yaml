@@ -112,7 +112,7 @@ paths:
       operationId: get-product-by-barcode
     patch:
       tags:
-        - Products     
+        - Products
       summary: Create or Update Product
       operationId: patch-api-v3-product-barcode
       description: |-
@@ -189,7 +189,7 @@ paths:
                         recycling:
                           id: "en:recycle"
                         quantity_per_unit: 25 cl
-                        weight_measured: 10                      
+                        weight_measured: 10
                     product:
                       $ref: ./schemas/product_update_api_v3.yaml
           application/xml:
@@ -202,7 +202,7 @@ paths:
           For complex structures such as the packagings object, it is possible to replace pre-existing data, or completing it:
 
           - an object sent in the packagings field will replace any pre-existing data.
-          - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.       
+          - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.
       responses:
         "200":
           description: |-
@@ -274,14 +274,14 @@ paths:
   "/api/v3/product/{barcode}/images":
     post:
       tags:
-        - Images         
+        - Images
       summary: Upload Product Image
       operationId: post-api-v3-product-barcode-images
       description: |-
-        
+
         This endpoint allows to upload an image for a product. The image is uploaded in the request body as a base64 encoded string.
         Optionally, it is possible to select the uploaded image for specific information (e.g. front, ingredients, nutrition, packaging) for specific languages. Each selected image is a cropped version of the uploaded image.
-       
+
         If the product does not exist, it will be created.
       parameters:
         - name: barcode
@@ -312,7 +312,7 @@ paths:
                     password:
                       type: string
                       description: Password for login
-                      format: password                      
+                      format: password
                     image_data_base64:
                       type: string
                       description: |-
@@ -360,7 +360,7 @@ paths:
                                   '(?<imgid>\d+)':
                                     $ref: "./schemas/image_uploaded.yaml#/components/schemas/ImageUploaded"
   "/api/v3/product/{barcode}/images/uploaded/{imgid}":
-    delete: 
+    delete:
       tags:
         - Images
       summary: Delete Product Image
@@ -402,7 +402,7 @@ paths:
         "403":
           description: User not authenticated or not allowed to delete the image
         "404":
-          description: Product or image not found                 
+          description: Product or image not found
   /api/v3/taxonomy_suggestions:
     parameters: []
     get:
@@ -582,6 +582,50 @@ paths:
         description: |
           The code and rev fields are mandatory.
       parameters: []
+  /resources/files/external-sources.json:
+    get:
+      tags:
+        - Knowledge Panels
+      summary: List external knowledge panel sources (JSON)
+      description: |
+        Returns the ordered list of external knowledge panel sources configured on the server.
+
+        Providers can use the `knowledge_panel_url` field to point to their own API.
+        The URL may contain **template variables** that the frontend will expand before calling:
+
+        - `$code` → product barcode
+        - `$lc`   → UI language (2 letters)
+        - `$cc`   → user/device country (2 letters)
+
+        Example:
+        `https://provider.example.com/off/v1/knowledge-panel/$code?lang=$lc&country=$cc`
+
+        The frontend percent-encodes the variable values when substituting them into the URL.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalKnowledgePanelList"
+              examples:
+                example:
+                  value:
+                    - id: "empreinte_souffrance"
+                      name: "Empreinte Souffrance"
+                      description: "Indicator of the amount of animal suffering calculated per product."
+                      icon_url: "https://example.org/logo.png"
+                      knowledge_panel_url: "https://provider.example.com/off/v1/knowledge-panel/$code?lang=$lc&country=$cc"
+                      provider_name: "Empreinte Souffrance"
+                      provider_website: "https://empreinte-souffrance.org/"
+                      section: "animal_welfare"
+                      filters:
+                        categories: ["en:chicken-eggs"]
+                        countries: ["fr", "world"]
+                        languages: ["fr", "en"]
+                        product_types: ["food"]
+                      privacy_policy_url: "https://provider.example.com/privacy"
+                      scope: "moderators"
 components:
   parameters:
     cc:
@@ -600,6 +644,106 @@ components:
       name: lc
       required: false
       description: "2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request."
+  schemas: # 👈 ajoute cette section si elle n’existe pas encore
+    ExternalKnowledgePanelList:
+      type: array
+      description: Ordered list of external knowledge panel sources.
+      items:
+        $ref: "#/components/schemas/ExternalKnowledgePanel"
+
+    ExternalKnowledgePanel:
+      type: object
+      required:
+        - id
+        - name
+        - knowledge_panel_url
+        - section
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the external panel within the file.
+          example: "empreinte_souffrance"
+        name:
+          type: string
+          description: End-user display name of the panel or provider.
+          example: "Empreinte Souffrance"
+        description:
+          type: string
+          description: Short description shown in preferences and provider header.
+          example: "Indicator of the amount of animal suffering calculated per product."
+        icon_url:
+          type: string
+          format: uri
+          description: URL to a square logo (PNG/SVG).
+          example: "https://example.org/logo.png"
+        knowledge_panel_url:
+          type: string
+          format: uri
+          description: |
+            Base URL to fetch knowledge panels **from the external provider**.
+
+            The URL can contain the following **template variables**, replaced by the frontend:
+            - `$code` → product barcode
+            - `$lc`   → UI language (2 letters)
+            - `$cc`   → user/device country (2 letters)
+
+            Example:
+            `https://provider.example.com/off/v1/knowledge-panel/$code?lang=$lc&country=$cc`
+
+            Notes:
+            - The frontend substitutes variables with percent-encoded values.
+            - The web component does not auto-append language anymore: include `?lang=$lc` yourself if needed.
+        provider_name:
+          type: string
+          description: Provider organization display name.
+          example: "Empreinte Souffrance"
+        provider_website:
+          type: string
+          format: uri
+          description: Public website of the provider (linked in UI).
+          example: "https://empreinte-souffrance.org/"
+        privacy_policy_url:
+          type: string
+          format: uri
+          description: Link to privacy notice for the external service (optional).
+          example: "https://provider.example.com/privacy"
+        section:
+          type: string
+          description: Machine id of the section this panel belongs to (e.g. `animal_welfare`).
+          example: "animal_welfare"
+        scope:
+          type: string
+          description: Visibility scope of the panel.
+          enum: [ public, users, moderators ]
+          default: public
+        filters:
+          type: object
+          description: Display filters applied on the current product context.
+          properties:
+            categories:
+              type: array
+              items:
+                type: string
+              description: List of category tags; panel is shown if any matches the product categories.
+              example: [ "en:chicken-eggs" ]
+            countries:
+              type: array
+              items:
+                type: string
+              description: Two-letter country codes (or "world"); strict equality with current user/device country.
+              example: [ "fr", "world" ]
+            languages:
+              type: array
+              items:
+                type: string
+              description: Two-letter language codes; strict equality with current UI language.
+              example: [ "fr", "en" ]
+            product_types:
+              type: array
+              items:
+                type: string
+              description: Product types (e.g. "food"); strict equality with current product type.
+              example: [ "food" ]
 tags:
   - name: Products
     description: Endpoints for managing product data, creating, updating, and reverting products.

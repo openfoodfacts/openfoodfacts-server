@@ -466,8 +466,10 @@ function display_user_product_preferences(target_selected, target_selection_form
 		);
 
     $('.edit_button.close_food_preferences:last', target_selection_form).before('<div id="external_panels_prefs"></div>');
-    renderExternalPanelsOptinPreferences($(target_selection_form).find('#external_panels_prefs')[0]);
-
+    const prefEl = $(target_selection_form).find('#external_panels_prefs')[0];
+    if (prefEl && typeof window.renderExternalPanelsOptinPreferences === "function") {
+      window.renderExternalPanelsOptinPreferences(prefEl);
+    }
 		activate_preferences_switch_buttons(change);
 
         $(".attribute_radio").change(function() {
