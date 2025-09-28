@@ -1,168 +1,122 @@
-/* External Knowledge Panels — OFF-aligned with a subtle distinct touch */
-.external-section {
-  /* Container: on reste dans les cartes/blanc natifs OFF */
-  .provider-card {
-    margin: 1rem 0 1.5rem;
-    border-radius: 12px;
-    border: 1px solid #e8e8e8;
-    background: #fff;
-    padding: 0;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-    position: relative;
-    transition: box-shadow .15s ease;
-  }
+/* External Knowledge Panels */
+.external-section .provider-card {
+  margin: 1rem 0 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e8e8e8;
+  background: #fff;
+  padding: 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  position: relative;
+  transition: box-shadow .15s ease;
+}
 
-  .provider-card:focus-within {
-    box-shadow: 0 0 0 3px rgba(76,159,254,.18); /* léger halo accessibilité */
-  }
+.external-section details {
+  border-radius: 12px;
+  background: none;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  overflow: hidden;
+}
+.external-section details[open] {
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(to bottom, #fff, #f8f8f8) border-box;
+}
+.external-section details > *:not(summary) {
+  padding: 0 1rem 1rem 1rem;
+}
 
-  details {
-    border-radius: 12px;
-    background: none;
-    padding: 0;
-    border: 0;
-    margin: 0;
-    overflow: hidden;
+/* Header (summary) */
+.external-section summary.provider-summary {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .7rem .8rem .35rem 1rem;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2a2a2a;
+  user-select: none;
+  position: relative;
+  transition: background-color .12s ease, box-shadow .12s ease, border-radius .12s ease;
+}
+.external-section summary.provider-summary:hover {
+  background-color: #fafafa;
+}
 
-    &[open] {
-      /* teinte de fond ultra légère pour “ouvert” */
-      background: linear-gradient(#fff, #fff) padding-box,
-                  linear-gradient(to bottom, #fff, #f8f8f8) border-box;
-    }
+.external-section summary.provider-summary:active {
+  box-shadow: 0 0 0 3px rgba(76,159,254,.18);
+  border-radius: 8px;
+}
 
-    > *:not(summary) {
-      padding: 0 1rem 1rem 1rem;
-    }
-  }
+.external-section .provider-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  margin-inline: 0 .35rem;
+}
 
-  /* Header (summary) */
-  summary.provider-summary {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: .7rem .8rem .35rem 1rem;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    outline: none;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #2a2a2a;
-    user-select: none;
-    position: relative;
-    transition: background-color .12s ease;
+.external-section .provider-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1f1f1f;
+  letter-spacing: .01em;
+  margin-inline-end: .4rem;
+}
 
-    /* hover/focus subtils */
-    &:hover { background-color: #fafafa; }
-    &:focus-visible {
-      outline: 2px solid #4c9ffe;
-      outline-offset: 2px;
-      border-radius: 8px;
-    }
-  }
+.external-section .provider-desc {
+  color: #555;
+  font-size: .95rem;
+  margin-inline-start: .5rem;
+  font-weight: 400;
+  flex: 1;
+}
 
-  /* Logo + textes */
-  .provider-logo {
-    width: 32px; height: 32px;
-    object-fit: contain;
-    border-radius: 50%;
-    background: #fff;
-    border: 1px solid #e6e6e6;
-    margin-inline: 0 .35rem; /* LTR/RTL friendly */
-  }
+.external-section .provider-arrow {
+  margin-inline-start: auto;
+  inline-size: 1.1rem;
+  text-align: center;
+  font-size: 1.05rem;
+  color: #666;
+  transition: transform .18s ease, color .12s ease;
+  transform-origin: 50% 45%;
+  pointer-events: none;
+}
+.external-section details[open] > summary .provider-arrow {
+  transform: rotate(180deg) translateY(1px);
+  color: #333;
+}
 
-  .provider-name {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #1f1f1f;
-    letter-spacing: .01em;
-    margin-inline-end: .4rem;
-  }
+.external-section .provider-separator {
+  border: 0;
+  border-top: 1px solid #eee;
+  box-shadow: 0 1px 0 #f7f7f7 inset;
+  margin: .35rem 0 .8rem;
+}
 
-  .provider-desc {
-    color: #555;
-    font-size: .95rem;
-    margin-inline-start: .5rem;
-    font-weight: 400;
-    flex: 1;
-  }
+/* Fallback/error */
+.external-section .kp-error,
+.external-section .kp-fallback {
+  margin-top: .5rem;
+  font-size: .9rem;
+  color: #666;
+  background: #fafafa;
+  border: 1px dashed #e2e2e2;
+  border-radius: 8px;
+  padding: .75rem;
+}
 
-  /* Chevron: légère rotation + translation au toggle */
-  .provider-arrow {
-    margin-inline-start: auto;
-    inline-size: 1.1rem; /* largeur logique */
-    text-align: center;
-    font-size: 1.05rem;
-    color: #666;
-    transition: transform .18s ease, color .12s ease;
-    transform-origin: 50% 45%;
-    pointer-events: none;
-  }
-  details[open] > summary .provider-arrow {
-    transform: rotate(180deg) translateY(1px);
-    color: #333;
-  }
-
-  /* Double ligne ultra discrète */
-  .provider-separator {
-    border: 0;
-    border-top: 1px solid #eee;
-    box-shadow: 0 1px 0 #f7f7f7 inset;
-    margin: .35rem 0 .8rem;
-  }
-
-  /* Optional badge “External” (si tu l’injectes en HTML/JS) */
-  .kp-external-badge {
-    margin-inline-start: .5rem;
-    font-size: .72rem;
-    font-weight: 700;
-    line-height: 1;
-    padding: .22rem .42rem;
-    border-radius: 999px;
-    border: 1px solid #cfd8dc;
-    background: #f4f7f9;
-    color: #455a64;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: .25rem;
-    transition: background-color .12s ease, border-color .12s ease;
-
-    /* petit point “external” */
-    &::before {
-      content: "";
-      inline-size: .35rem;
-      block-size: .35rem;
-      border-radius: 50%;
-      background: currentColor;
-      opacity: .6;
-    }
-
-    &:hover, &:focus {
-      text-decoration: none;
-      background: #eef2f5;
-      border-color: #bfc9cf;
-    }
-  }
-
-  /* Fallback if needed */
-  .kp-error, .kp-fallback {
-    margin-top: .5rem;
-    font-size: .9rem;
-    color: #666;
-    background: #fafafa;
-    border: 1px dashed #e2e2e2;
-    border-radius: 8px;
-    padding: .75rem;
-  }
-
-  /* RTL */
-  html[dir="rtl"] & {
-    .provider-arrow { transform-origin: 50% 45%; }
-  }
-
-  /* Print: clean */
-  @media print {
-    .provider-card { box-shadow: none !important; border-color: #ccc; }
+/* Print */
+@media print {
+  .external-section .provider-card {
+    box-shadow: none !important;
+    border-color: #ccc;
   }
 }

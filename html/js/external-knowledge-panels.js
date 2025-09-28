@@ -349,10 +349,6 @@ async function renderExternalKnowledgeSections() {
       knowledgePanel.setAttribute("url", url);
       knowledgePanel.setAttribute("path", "panels");
       knowledgePanel.setAttribute("heading-level", "h4");
-      // Future support when available in webcomponent:
-      // knowledgePanel.setAttribute("top-panels", "main,root");
-      // knowledgePanel.setAttribute("external-badge", "");
-      // knowledgePanel.setAttribute("external-badge-url", "/help/external-panels");
 
       details.appendChild(knowledgePanel);
       providerCard.appendChild(details);
