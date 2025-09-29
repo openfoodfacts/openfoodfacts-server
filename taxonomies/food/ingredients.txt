@@ -3747,14 +3747,14 @@ ciqual_food_code:en: 19021
 ciqual_food_name:en: Milk, powder, whole
 ciqual_food_name:fr: Lait en poudre, entier
 
+# < en:compound
 < en:coating
-< en:milk
 < en:preparation
 en: milk coating
 hr: mliječni preljev
 it: rivestimento al latte
 
-< en:milk
+# < en:compound
 < en:preparation
 en: milk preparation
 hr: mliječni pripravak
@@ -4204,8 +4204,8 @@ xx: skyr
 # en:Filtrated whey
 # fr:Perméat de lactosérum
 
+# < en:compound
 < en:coating
-< en:yogurt
 en: yogurt coating
 hr: jogurt preljev
 it: rivestimento allo yogurt
@@ -89196,19 +89196,20 @@ en: white chocolate coating
 hr: bijeli čokoladni preljev, preljev s bijelom čokoladom
 it: rivestimento di cioccolato bianco
 
-< en:hazelnut
+# < en:compound
+< en:coating
 en: hazelnut coating
 hr: preljev s lješnjacíma
 it: copertura di nocciole
 
-< en:chocolate coating
-< en:hazelnut coating
+# < en:compound
+< en:coating
 en: chocolate and hazelnut coating
 hr: preljev s čokoladom i lješnjacima
 it: copertura al cioccolato e nocciole
 
-< en:hazelnut coating
-< en:milk
+# < en:compound
+< en:coating
 en: milk and hazelnut coating
 hr: preljev s mlijekom i lješnjacima
 it: copertura al latte e nocciole
