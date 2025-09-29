@@ -188,6 +188,122 @@ my $tests_ref = [
 		expected_type => "html",
 		expected_status_code => 403,
 	},
+	# Nutrition facts: test that we provide backward compatibility for the old field names
+	# that were used before we restructured the nutrition data in 2025.
+
+# From the documentation (ref-cheatsheet.md)
+# 
+# ### Indicate the absence of nutrition facts
+
+# ```text
+# no_nutrition_data=on (indicates if the nutrition facts are not indicated on the food label)
+# ```
+
+# ### Add nutrition facts values, units and base
+
+# ```text
+# nutrition_data_per=100g
+
+# OR
+
+# nutrition_data_per=serving
+# serving_size=38g
+# ```
+
+# ```text
+# nutriment_energy=450
+# nutriment_energy_unit=kJ
+# ```
+
+# ### Adding values to a field that is already filled
+
+# > You just have to prefix `add_` before the name of the field
+
+# ```text
+# add_categories
+# add_labels
+# add_brands
+# ```
+
+# ### Adding nutrition facts for the prepared product
+# You can send prepared nutritional values
+# * nutriment_energy-kj (regular)
+# * nutriment_energy-kj_prepared (prepared)
+
+
+	{
+		test_case => 'post-product-nutrition-no_nutrition_data-on',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			code => "1234567890007",
+			product_name_en => "Test no_nutrition_data on",
+			no_nutrition_data => 'on',
+		}
+	},
+	{
+		test_case => 'get-product-nutrition-no_nutrition_data-on',
+		method => 'GET',
+		path => '/api/v2/product/1234567890007',
+	},
+	{
+		test_case => 'post-product-nutrition-no_nutrition_data-empty',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			code => "1234567890007",
+			product_name_en => "Test no_nutrition_data empty",
+			no_nutrition_data => '',
+		}
+	},
+	{
+		test_case => 'get-product-nutrition-no_nutrition_data-empty',
+		method => 'GET',
+		path => '/api/v2/product/1234567890007',
+	},
+	# Old fields for nutrition facts
+	{
+		test_case => 'post-product-nutrition-old-fields-nutrition_data_per-100g',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			code => "1234567890008",
+			product_name_en => "Test old nutrition fields",
+			nutrition_data_per => '100g',
+			nutriment_energy => '450',
+			nutriment_energy_unit => 'kJ',
+			nutriment_fat => '12.5',
+			nutriment_fat_unit => 'g',
+			"nutriment_saturated-fat" => '3.1',
+			"nutriment_saturated-fat_unit" => 'g',
+			nutriment_carbohydrates => '67.4',
+			nutriment_carbohydrates_unit => 'g',
+			nutriment_fiber => '4.5',
+			nutriment_fiber_unit => 'g',
+			nutriment_proteins => '8.2',
+			nutriment_proteins_unit => 'g',
+			nutriment_salt => '1.2',
+			nutriment_salt_unit => 'g',
+			nutriment_sodium => '0.472',
+			nutriment_sodium_unit => 'g',
+			nutriment_alcohol => '0.0',
+			nutriment_alcohol_unit => 'g',
+			nutriment_water => '10.0',
+			nutriment_water_unit => 'g',
+		}
+	},
+	{
+		test_case => 'get-product-nutrition-nutrition_data_per-100g',
+		method => 'GET',
+		path => '/api/v2/product/1234567890008',
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref, undef, 0);
