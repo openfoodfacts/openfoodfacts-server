@@ -54,6 +54,7 @@ use ProductOpener::Ingredients
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 use ProductOpener::Food
 	qw/compute_nutrition_data_per_100g_and_per_serving assign_categories_properties_to_product compute_estimated_nutrients compute_unknown_nutrients compute_nova_group/;
+use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set/;
 
 use Hash::Util;
 use Encode;
@@ -91,8 +92,9 @@ sub specific_processes_for_pet_food_product ($product_ref) {
 	# Category analysis
 
 	# Nutrition data
+	generate_nutrient_aggregated_set($product_ref);
 	compute_nutrition_data_per_100g_and_per_serving($product_ref);
-
+	
 	# Nutrients
 	compute_unknown_nutrients($product_ref);
 

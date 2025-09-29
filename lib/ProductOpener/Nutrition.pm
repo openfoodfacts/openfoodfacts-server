@@ -40,6 +40,7 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&generate_nutrient_aggregated_set
 		&generate_nutrient_aggregated_set_from_sets
 		&get_specific_nutrition_input_set
 		&get_nutrition_input_sets_in_a_hash
@@ -78,6 +79,39 @@ use Encode;
 use Data::DeepAccess qw(deep_get deep_set);
 
 =head1 FUNCTIONS
+
+
+=cut
+
+=head2 generate_nutrient_aggregated_set
+
+Generates the aggregated nutrient set for a product from its input sets and stores it in the product hash.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+Reference to the product hash
+
+=head3 Return values
+
+None
+
+=cut
+
+sub generate_nutrient_aggregated_set ($product_ref) {
+	if (!defined $product_ref) {
+		return;
+	}
+
+	my $input_sets_ref = deep_get($product_ref, qw/nutrition input_sets/);
+	my $aggregated_set_ref = generate_nutrient_aggregated_set_from_sets($input_sets_ref);
+	if (defined $aggregated_set_ref) {
+		deep_set($product_ref, qw/nutrition aggregated_set/, $aggregated_set_ref);
+	}
+	return;
+}
+
 
 =head2 generate_nutrient_aggregated_set_from_sets
 
@@ -449,7 +483,7 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref) {
 
 					my $input_set_ref = $input_sets_hash_ref->{$source}{$preparation}{$per};
 
-					remove_empty_nutrient_values_and_normalize_input_set($input_set_ref);
+					remove_empty_nutrient_values_and_set_unspecified_nutrients($input_set_ref);
 
 					# Empty input sets are not stored
 					if (!exists $input_set_ref->{nutrients} or (keys %{$input_set_ref->{nutrients}}) == 0) {
@@ -457,9 +491,29 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref) {
 					}
 
 					# Set the source, preparation and per as they may be only in the keys
+					# if we just created the input set from nutrient values
 					$input_set_ref->{source} = $source;
 					$input_set_ref->{preparation} = $preparation;
 					$input_set_ref->{per} = $per;
+
+					# Set the per quantity and unit for 100g, 100ml, 1l and 1kg
+					if ($per eq "100g") {
+						$input_set_ref->{per_quantity} = 100;
+						$input_set_ref->{per_unit} = "g";
+					}
+					elsif ($per eq "100ml") {
+						$input_set_ref->{per_quantity} = 100;
+						$input_set_ref->{per_unit} = "ml";
+					}
+					elsif ($per eq "1kg") {
+						$input_set_ref->{per_quantity} = 1000;
+						$input_set_ref->{per_unit} = "g";
+					}					
+					elsif ($per eq "1l") {
+						$input_set_ref->{per_quantity} = 1000;
+						$input_set_ref->{per_unit} = "ml";
+					}					
+
 					push(@{$input_sets_ref}, $input_set_ref);
 				}
 			}
@@ -714,7 +768,7 @@ sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $sourc
 	}
 
 	# We can have a modifier with value '-' to indicate that we have no value
-	# It will be recorded in the unspecified_nutrients array by the remove_empty_nutrient_values_and_normalize_input_set() function
+	# It will be recorded in the unspecified_nutrients array by the remove_empty_nutrient_values_and_set_unspecified_nutrients() function
 
 	if ($modifier eq '') {
 		$modifier = undef;
@@ -804,151 +858,78 @@ sub assign_nutrition_values_from_old_request_parameters ($product_ref, $nutrimen
 		}
 	}
 
-	# Assign all the nutrient values
-
-	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
-
-	my @unknown_nutriments = ();
-	my %seen_unknown_nutriments = ();
-	foreach my $nid (keys %{$product_ref->{nutriments}}) {
-
-		next if (($nid =~ /_/) and ($nid !~ /_prepared$/));
-
-		$nid =~ s/_prepared$//;
-
-		if (    (not exists_taxonomy_tag("nutrients", "zz:$nid"))
-			and (defined $product_ref->{nutriments}{$nid . "_label"})
-			and (not defined $seen_unknown_nutriments{$nid}))
-		{
-			push @unknown_nutriments, $nid;
-			$log->debug("unknown_nutriment", {nid => $nid}) if $log->is_debug();
-		}
-	}
-
-	# It is possible to add nutrients that we do not know about
-	# by using parameters like new_0, new_1 etc.
-	my @new_nutriments = ();
-	my $new_max = single_param('new_max') || 0;
-	for (my $i = 1; $i <= $new_max; $i++) {
-		push @new_nutriments, "new_$i";
-	}
-
-	# If we have only 1 of the salt and sodium values,
-	# delete any existing values for the other one,
-	# and it will be computed from the one we have
-	foreach my $product_type ("", "_prepared") {
-		my $saltnid = "salt${product_type}";
-		my $sodiumnid = "sodium${product_type}";
-
-		my $salt = single_param("nutriment_${saltnid}");
-		my $sodium = single_param("nutriment_${sodiumnid}");
-
-		if ((defined $sodium) and (not defined $salt)) {
-			delete $product_ref->{nutriments}{$saltnid};
-			delete $product_ref->{nutriments}{$saltnid . "_unit"};
-			delete $product_ref->{nutriments}{$saltnid . "_value"};
-			delete $product_ref->{nutriments}{$saltnid . "_modifier"};
-			delete $product_ref->{nutriments}{$saltnid . "_label"};
-			delete $product_ref->{nutriments}{$saltnid . "_100g"};
-			delete $product_ref->{nutriments}{$saltnid . "_serving"};
-		}
-		elsif ((defined $salt) and (not defined $sodium)) {
-			delete $product_ref->{nutriments}{$sodiumnid};
-			delete $product_ref->{nutriments}{$sodiumnid . "_unit"};
-			delete $product_ref->{nutriments}{$sodiumnid . "_value"};
-			delete $product_ref->{nutriments}{$sodiumnid . "_modifier"};
-			delete $product_ref->{nutriments}{$sodiumnid . "_label"};
-			delete $product_ref->{nutriments}{$sodiumnid . "_100g"};
-			delete $product_ref->{nutriments}{$sodiumnid . "_serving"};
-		}
-	}
-
-	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
-		next if $nutriment =~ /^\#/;
-
-		my $nid = $nutriment;
-		$nid =~ s/^(-|!)+//g;
-		$nid =~ s/-$//g;
-
-		next if $nid =~ /^nutrition-score/;
-
-		# Unit and label are the same for as sold and prepared nutrition table
-		my $enid = encodeURIComponent($nid);
-
-		# We can have nutrient values for the product as sold, or prepared
-		foreach my $product_type ("", "_prepared") {
-
-			my $unit = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_unit"));
-			my $label = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_label"));
-
-			# do not delete values if the nutriment is not provided
-			next if (not defined single_param("nutriment_${enid}${product_type}"));
-
-			my $value = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}${product_type}"));
-
-			# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
-			# 1. if energy-kcal or energy-kj is set, delete existing energy data
-			if (($nid eq "energy-kj") or ($nid eq "energy-kcal")) {
-				delete $product_ref->{nutriments}{"energy${product_type}"};
-				delete $product_ref->{nutriments}{"energy_unit"};
-				delete $product_ref->{nutriments}{"energy_label"};
-				delete $product_ref->{nutriments}{"energy${product_type}_value"};
-				delete $product_ref->{nutriments}{"energy${product_type}_modifier"};
-				delete $product_ref->{nutriments}{"energy${product_type}_100g"};
-				delete $product_ref->{nutriments}{"energy${product_type}_serving"};
-			}
-			# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
-			elsif (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
-				$nid = $nid . "-" . lc($unit);
-				$log->debug("energy without unit, set nid with unit instead", {nid => $nid, unit => $unit})
-					if $log->is_debug();
-			}
-
-			if ($nid eq 'alcohol') {
-				$unit = '% vol';
-			}
-
-			# pet nutrients (analytical_constituents) are always in percent
-			if (   ($nid eq 'crude-fat')
-				or ($nid eq 'crude-protein')
-				or ($nid eq 'crude-ash')
-				or ($nid eq 'crude-fibre')
-				or ($nid eq 'moisture'))
-			{
-				$unit = '%';
-			}
-
-			# Set the nutrient values
-			my $modifier;
-			normalize_nutriment_value_and_modifier(\$value, \$modifier);
-			assign_nid_modifier_value_and_unit($product_ref, $nid . ${product_type}, $modifier, $value, $unit);
-		}
-
-		# If we don't have a value for the product and the prepared product, delete the unit and label
-		if (    (not defined $product_ref->{nutriments}{$nid})
-			and (not defined $product_ref->{nutriments}{$nid . "_prepared"}))
-		{
-			delete $product_ref->{nutriments}{$nid . "_unit"};
-			delete $product_ref->{nutriments}{$nid . "_label"};
-		}
-	}
+	# We use a temporary input sets hash to ease setting values
+	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
 
 	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
 
-		# Delete all non-carbon-footprint nids.
-		foreach my $key (keys %{$product_ref->{nutriments}}) {
-			next if $key =~ /_/;
-			next if $key eq 'carbon-footprint';
+		# Delete all nutrition input sets for the source
+		delete $input_sets_hash_ref->{$source};
 
-			delete $product_ref->{nutriments}{$key};
-			delete $product_ref->{nutriments}{$key . "_unit"};
-			delete $product_ref->{nutriments}{$key . "_value"};
-			delete $product_ref->{nutriments}{$key . "_modifier"};
-			delete $product_ref->{nutriments}{$key . "_label"};
-			delete $product_ref->{nutriments}{$key . "_100g"};
-			delete $product_ref->{nutriments}{$key . "_serving"};
+	}
+	else {
+
+		# Assign all the nutrient values
+
+		# We can have nutrient values for the product as sold, or prepared
+		foreach my $preparation ("as_sold", "_prepared") {
+
+			my $preparation_suffix = ($preparation eq "as_sold") ? "" : "_prepared";
+
+			# If nutrition_data_per or nutrition_data_prepared_per is passed, use it for the per of the nutrient
+			# otherwise default to 100g, 100ml or 1kg (for pet food)
+			my $per = get_default_per_for_product($product_ref, $preparation);
+
+			foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}) {
+				next if $nutriment =~ /^\#/;
+
+				my $nid = $nutriment;
+				$nid =~ s/^(-|!)+//g;
+				$nid =~ s/-$//g;
+
+				next if $nid =~ /^nutrition-score/;
+
+				my $unit = remove_tags_and_quote(decode utf8 => single_param("nutriment_${nid}_unit"));
+				my $value_string
+					= remove_tags_and_quote(decode utf8 => single_param("nutriment_${nid}${preparation_suffix}"));
+
+				# do not delete values if the nutriment is not provided
+				next if (not defined $value_string);
+
+				# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
+				# if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
+				if (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+					$nid = $nid . "-" . lc($unit);
+					$log->debug("energy without unit, set nid with unit instead", {nid => $nid, unit => $unit})
+						if $log->is_debug();
+				}
+
+				if ($nid eq 'alcohol') {
+					$unit = '% vol';
+				}
+
+				# pet nutrients (analytical_constituents) are always in percent
+				if (   ($nid eq 'crude-fat')
+					or ($nid eq 'crude-protein')
+					or ($nid eq 'crude-ash')
+					or ($nid eq 'crude-fibre')
+					or ($nid eq 'moisture'))
+				{
+					$unit = '%';
+				}
+
+				# Set the nutrient values
+				my $modifier;
+				normalize_nutriment_value_and_modifier(\$value_string, \$modifier);
+				assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation, $per,
+					$nid, $modifier, $value_string, $unit);
+			}
 		}
 	}
+
+	# Convert back the input sets hash to array
+	deep_set($product_ref, "nutrition", "input_sets", convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref));
+
 	return;
 }
 
@@ -1037,7 +1018,7 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 	return;
 }
 
-=head2 remove_empty_nutrient_values_and_normalize_input_set ($input_set_ref)
+=head2 remove_empty_nutrient_values_and_set_unspecified_nutrients ($input_set_ref)
 
 Removes nutrients with empty values from an input set.
 
@@ -1053,7 +1034,7 @@ Reference to the input set hash
 
 =cut
 
-sub remove_empty_nutrient_values_and_normalize_input_set ($input_set_ref) {
+sub remove_empty_nutrient_values_and_set_unspecified_nutrients ($input_set_ref) {
 
 	if (exists $input_set_ref->{nutrients} and ref $input_set_ref->{nutrients} eq 'HASH') {
 		foreach my $nid (sort keys %{$input_set_ref->{nutrients}}) {

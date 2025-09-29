@@ -2,7 +2,12 @@
    "code" : "1234567890008",
    "product" : {
       "_id" : "1234567890008",
-      "_keywords" : [],
+      "_keywords" : [
+         "field",
+         "nutrition",
+         "old",
+         "test"
+      ],
       "added_countries_tags" : [],
       "allergens" : "",
       "allergens_from_ingredients" : "",
@@ -34,7 +39,7 @@
          "1xxxxxxxxxxxx"
       ],
       "complete" : 0,
-      "completeness" : 0,
+      "completeness" : 0.1,
       "correctors_tags" : [],
       "created_t" : "--ignore--",
       "creator" : "tests",
@@ -317,7 +322,6 @@
       "editors_tags" : [
          "tests"
       ],
-      "empty" : 1,
       "entry_dates_tags" : "--ignore--",
       "food_groups_tags" : [],
       "id" : "1234567890008",
@@ -327,11 +331,18 @@
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "lang" : "en",
-      "languages" : {},
-      "languages_codes" : {},
-      "languages_hierarchy" : [],
+      "languages" : {
+         "en:english" : 1
+      },
+      "languages_codes" : {
+         "en" : 1
+      },
+      "languages_hierarchy" : [
+         "en:english"
+      ],
       "languages_tags" : [
-         "en:0"
+         "en:english",
+         "en:1"
       ],
       "last_edit_dates_tags" : "--ignore--",
       "last_editor" : "tests",
@@ -360,7 +371,6 @@
          "en:packagings-number-of-components-0",
          "en:main-countries-new-product"
       ],
-      "no_nutrition_data" : "on",
       "nova_group_debug" : "no nova group when the product does not have ingredients",
       "nova_group_error" : "missing_ingredients",
       "nova_groups_tags" : [
@@ -368,7 +378,26 @@
       ],
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
-      "nutriments" : {},
+      "nutriments" : {
+         "alcohol_100g" : 0,
+         "alcohol_unit" : "% vol",
+         "carbohydrates_100g" : 67.4,
+         "carbohydrates_unit" : "g",
+         "energy-kj_100g" : 450,
+         "energy-kj_unit" : "kJ",
+         "fat_100g" : 12.5,
+         "fat_unit" : "g",
+         "fiber_100g" : 4.5,
+         "fiber_unit" : "g",
+         "proteins_100g" : 8.2,
+         "proteins_unit" : "g",
+         "salt_100g" : 1.2,
+         "salt_unit" : "g",
+         "saturated-fat_100g" : 3.1,
+         "saturated-fat_unit" : "g",
+         "sodium_100g" : 0.472,
+         "sodium_unit" : "g"
+      },
       "nutriscore" : {
          "2021" : {
             "category_available" : 0,
@@ -423,6 +452,7 @@
          "unknown"
       ],
       "nutriscore_version" : "2023",
+      "nutrition_data" : "on",
       "nutrition_data_per" : "100g",
       "nutrition_data_prepared_per" : "100g",
       "nutrition_grade_fr" : "unknown",
@@ -451,13 +481,14 @@
          "missing-category"
       ],
       "popularity_key" : 0,
+      "product_name" : "Test old nutrition fields",
+      "product_name_en" : "Test old nutrition fields",
       "product_type" : "food",
       "removed_countries_tags" : [],
       "rev" : 1,
       "schema_version" : 998,
-      "states" : "en:empty, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
+      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
-         "en:empty",
          "en:to-be-completed",
          "en:nutrition-facts-to-be-completed",
          "en:ingredients-to-be-completed",
@@ -469,11 +500,10 @@
          "en:brands-to-be-completed",
          "en:packaging-to-be-completed",
          "en:quantity-to-be-completed",
-         "en:product-name-to-be-completed",
+         "en:product-name-completed",
          "en:photos-to-be-uploaded"
       ],
       "states_tags" : [
-         "en:empty",
          "en:to-be-completed",
          "en:nutrition-facts-to-be-completed",
          "en:ingredients-to-be-completed",
@@ -485,7 +515,7 @@
          "en:brands-to-be-completed",
          "en:packaging-to-be-completed",
          "en:quantity-to-be-completed",
-         "en:product-name-to-be-completed",
+         "en:product-name-completed",
          "en:photos-to-be-uploaded"
       ],
       "traces" : "",

@@ -314,6 +314,8 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 	## It does nothing for now as we are migrating the code to use the new schema
 	## It needs to be removed once the migration is complete
 
+	die;
+
 	return;
 }
 

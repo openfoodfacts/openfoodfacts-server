@@ -191,45 +191,44 @@ my $tests_ref = [
 	# Nutrition facts: test that we provide backward compatibility for the old field names
 	# that were used before we restructured the nutrition data in 2025.
 
-# From the documentation (ref-cheatsheet.md)
-# 
-# ### Indicate the absence of nutrition facts
+	# From the documentation (ref-cheatsheet.md)
+	#
+	# ### Indicate the absence of nutrition facts
 
-# ```text
-# no_nutrition_data=on (indicates if the nutrition facts are not indicated on the food label)
-# ```
+	# ```text
+	# no_nutrition_data=on (indicates if the nutrition facts are not indicated on the food label)
+	# ```
 
-# ### Add nutrition facts values, units and base
+	# ### Add nutrition facts values, units and base
 
-# ```text
-# nutrition_data_per=100g
+	# ```text
+	# nutrition_data_per=100g
 
-# OR
+	# OR
 
-# nutrition_data_per=serving
-# serving_size=38g
-# ```
+	# nutrition_data_per=serving
+	# serving_size=38g
+	# ```
 
-# ```text
-# nutriment_energy=450
-# nutriment_energy_unit=kJ
-# ```
+	# ```text
+	# nutriment_energy=450
+	# nutriment_energy_unit=kJ
+	# ```
 
-# ### Adding values to a field that is already filled
+	# ### Adding values to a field that is already filled
 
-# > You just have to prefix `add_` before the name of the field
+	# > You just have to prefix `add_` before the name of the field
 
-# ```text
-# add_categories
-# add_labels
-# add_brands
-# ```
+	# ```text
+	# add_categories
+	# add_labels
+	# add_brands
+	# ```
 
-# ### Adding nutrition facts for the prepared product
-# You can send prepared nutritional values
-# * nutriment_energy-kj (regular)
-# * nutriment_energy-kj_prepared (prepared)
-
+	# ### Adding nutrition facts for the prepared product
+	# You can send prepared nutritional values
+	# * nutriment_energy-kj (regular)
+	# * nutriment_energy-kj_prepared (prepared)
 
 	{
 		test_case => 'post-product-nutrition-no_nutrition_data-on',
@@ -298,10 +297,17 @@ my $tests_ref = [
 			nutriment_water_unit => 'g',
 		}
 	},
+	# API v2 will get the nutrition data in the old nutriments structure
 	{
 		test_case => 'get-product-nutrition-nutrition_data_per-100g',
 		method => 'GET',
 		path => '/api/v2/product/1234567890008',
+	},
+	# Get the new nutrition schema
+	{
+		test_case => 'get-product-nutrition-nutrition_data_per-100g-v3',
+		method => 'GET',
+		path => '/api/v3.5/product/1234567890008',
 	},
 
 ];

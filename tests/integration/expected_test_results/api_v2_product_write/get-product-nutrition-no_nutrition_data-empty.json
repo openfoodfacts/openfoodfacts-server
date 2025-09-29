@@ -2,7 +2,11 @@
    "code" : "1234567890007",
    "product" : {
       "_id" : "1234567890007",
-      "_keywords" : [],
+      "_keywords" : [
+         "empty",
+         "no-nutrition-data",
+         "test"
+      ],
       "added_countries_tags" : [],
       "allergens" : "",
       "allergens_from_ingredients" : "",
@@ -34,8 +38,10 @@
          "1xxxxxxxxxxxx"
       ],
       "complete" : 0,
-      "completeness" : 0,
-      "correctors_tags" : [],
+      "completeness" : 0.1,
+      "correctors_tags" : [
+         "tests"
+      ],
       "created_t" : "--ignore--",
       "creator" : "tests",
       "data_quality_bugs_tags" : [],
@@ -317,7 +323,6 @@
       "editors_tags" : [
          "tests"
       ],
-      "empty" : 1,
       "entry_dates_tags" : "--ignore--",
       "food_groups_tags" : [],
       "id" : "1234567890007",
@@ -327,11 +332,18 @@
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "lang" : "en",
-      "languages" : {},
-      "languages_codes" : {},
-      "languages_hierarchy" : [],
+      "languages" : {
+         "en:english" : 1
+      },
+      "languages_codes" : {
+         "en" : 1
+      },
+      "languages_hierarchy" : [
+         "en:english"
+      ],
       "languages_tags" : [
-         "en:0"
+         "en:english",
+         "en:1"
       ],
       "last_edit_dates_tags" : "--ignore--",
       "last_editor" : "tests",
@@ -360,7 +372,7 @@
          "en:packagings-number-of-components-0",
          "en:main-countries-new-product"
       ],
-      "no_nutrition_data" : "on",
+      "no_nutrition_data" : "",
       "nova_group_debug" : "no nova group when the product does not have ingredients",
       "nova_group_error" : "missing_ingredients",
       "nova_groups_tags" : [
@@ -451,13 +463,14 @@
          "missing-category"
       ],
       "popularity_key" : 0,
+      "product_name" : "Test no_nutrition_data empty",
+      "product_name_en" : "Test no_nutrition_data empty",
       "product_type" : "food",
       "removed_countries_tags" : [],
       "rev" : 2,
       "schema_version" : 998,
-      "states" : "en:empty, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
+      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
-         "en:empty",
          "en:to-be-completed",
          "en:nutrition-facts-to-be-completed",
          "en:ingredients-to-be-completed",
@@ -469,11 +482,10 @@
          "en:brands-to-be-completed",
          "en:packaging-to-be-completed",
          "en:quantity-to-be-completed",
-         "en:product-name-to-be-completed",
+         "en:product-name-completed",
          "en:photos-to-be-uploaded"
       ],
       "states_tags" : [
-         "en:empty",
          "en:to-be-completed",
          "en:nutrition-facts-to-be-completed",
          "en:ingredients-to-be-completed",
@@ -485,7 +497,7 @@
          "en:brands-to-be-completed",
          "en:packaging-to-be-completed",
          "en:quantity-to-be-completed",
-         "en:product-name-to-be-completed",
+         "en:product-name-completed",
          "en:photos-to-be-uploaded"
       ],
       "traces" : "",
