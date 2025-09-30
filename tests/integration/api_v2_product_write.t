@@ -309,6 +309,53 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3.5/product/1234567890008',
 	},
+	# Removing a value
+	{
+		test_case => 'post-product-nutrition-old-fields-nutrition_data_per-100g-remove-value',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			code => "1234567890008",
+			product_name_en => "Test old nutrition fields - remove value",
+			nutrition_data_per => '100g',
+			# will not work as the client should pass energy-kj or energy-kcal
+			nutriment_energy => '',
+			nutriment_fat => '',
+			nutriment_salt => '',
+		}
+	},
+	{
+		test_case => 'get-product-nutrition-nutrition_data_per-100g-remove-value-v3',
+		method => 'GET',
+		path => '/api/v3.5/product/1234567890008',
+	},
+	# Set some values per serving
+	{
+		test_case => 'post-product-nutrition-old-fields-nutrition_data_per-serving',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			code => "1234567890008",
+			product_name_en => "Test old nutrition fields - per serving",
+			nutrition_data_per => 'serving',
+			serving_size => '10g',
+			nutriment_energy => '5',
+			nutriment_energy_unit => 'kcal',
+			# We pass the fat that has been removed for the per 100g
+			# it should be used in the aggregated set
+			nutriment_fat => '2',
+			nutriment_fat_unit => 'g',
+		}
+	},
+	{
+		test_case => 'get-product-nutrition-nutrition_data_per-serving-v3',
+		method => 'GET',
+		path => '/api/v3.5/product/1234567890008',
+	},
 
 ];
 

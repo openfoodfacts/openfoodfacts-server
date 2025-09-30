@@ -72,6 +72,7 @@ use ProductOpener::HTTP qw/single_param request_param/;
 
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Numbers qw/convert_string_to_number remove_insignificant_digits/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 
 use Log::Any qw($log);
 
@@ -111,7 +112,6 @@ sub generate_nutrient_aggregated_set ($product_ref) {
 	}
 	return;
 }
-
 
 =head2 generate_nutrient_aggregated_set_from_sets
 
@@ -508,11 +508,11 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref) {
 					elsif ($per eq "1kg") {
 						$input_set_ref->{per_quantity} = 1000;
 						$input_set_ref->{per_unit} = "g";
-					}					
+					}
 					elsif ($per eq "1l") {
 						$input_set_ref->{per_quantity} = 1000;
 						$input_set_ref->{per_unit} = "ml";
-					}					
+					}
 
 					push(@{$input_sets_ref}, $input_set_ref);
 				}
@@ -783,6 +783,8 @@ sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $sourc
 	my $value;
 
 	if (defined $value_string) {
+		# Clean the value string
+		$value_string = remove_tags_and_quote($value_string);
 		$value_string = convert_string_to_number($value_string);
 		$value_string = remove_insignificant_digits($value_string);
 
@@ -879,6 +881,46 @@ sub assign_nutrition_values_from_old_request_parameters ($product_ref, $nutrimen
 			# If nutrition_data_per or nutrition_data_prepared_per is passed, use it for the per of the nutrient
 			# otherwise default to 100g, 100ml or 1kg (for pet food)
 			my $per = get_default_per_for_product($product_ref, $preparation);
+			my $per_param = single_param("nutrition_data${preparation_suffix}_per");
+			if (defined $per_param) {
+				$per_param = decode utf8 => $per_param;
+				if ($per_param =~ /^(100g|100ml|1kg|1l|serving)$/) {
+					$per = $per_param;
+				}
+			}
+
+			# If we have nutrition per serving, get the serving_size field from the product (or from the request if passed)
+			# so that we can set the serving_quantity and serving_unit fields on the input set
+			if ($per eq "serving") {
+				my $serving_size_param = single_param("serving_size");
+				if (defined $serving_size_param) {
+					$product_ref->{serving_size} = decode utf8 => $serving_size_param;
+					# Make sure we have a normalized serving size and unit
+					normalize_product_quantity_and_serving_size($product_ref);
+				}
+
+				if (defined $product_ref->{serving_quantity}) {
+					# set the per_quantity and per_unit fields of the input set
+					$log->debug(
+						"serving size for per serving",
+						{
+							serving_size => $product_ref->{serving_size},
+							serving_quantity => $product_ref->{serving_quantity},
+							serving_unit => $product_ref->{serving_unit}
+						}
+					) if $log->is_debug();
+					deep_set($input_sets_hash_ref, $source, $preparation, $per, "per_quantity",
+						$product_ref->{serving_quantity});
+					deep_set($input_sets_hash_ref, $source, $preparation, $per, "per_unit",
+						$product_ref->{serving_unit});
+				}
+				else {
+					# no valid serving size, we will record the per serving values but without serving size
+					$log->debug("no valid serving size for per serving nutrition data in API call",
+						{serving_size => $product_ref->{serving_size}})
+						if $log->is_debug();
+				}
+			}
 
 			foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}) {
 				next if $nutriment =~ /^\#/;
@@ -889,9 +931,8 @@ sub assign_nutrition_values_from_old_request_parameters ($product_ref, $nutrimen
 
 				next if $nid =~ /^nutrition-score/;
 
-				my $unit = remove_tags_and_quote(decode utf8 => single_param("nutriment_${nid}_unit"));
-				my $value_string
-					= remove_tags_and_quote(decode utf8 => single_param("nutriment_${nid}${preparation_suffix}"));
+				my $unit = decode utf8 => single_param("nutriment_${nid}_unit");
+				my $value_string = decode utf8 => single_param("nutriment_${nid}${preparation_suffix}");
 
 				# do not delete values if the nutriment is not provided
 				next if (not defined $value_string);

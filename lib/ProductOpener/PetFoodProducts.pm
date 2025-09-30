@@ -94,7 +94,7 @@ sub specific_processes_for_pet_food_product ($product_ref) {
 	# Nutrition data
 	generate_nutrient_aggregated_set($product_ref);
 	compute_nutrition_data_per_100g_and_per_serving($product_ref);
-	
+
 	# Nutrients
 	compute_unknown_nutrients($product_ref);
 
