@@ -448,13 +448,6 @@
                   "unit" : "% vol",
                   "value" : 0
                },
-               "carbohydrates" : {
-                  "source" : "packaging",
-                  "source_index" : 0,
-                  "source_per" : "100g",
-                  "unit" : "g",
-                  "value" : 8
-               },
                "energy" : {
                   "source" : "packaging",
                   "source_index" : 0,
@@ -517,18 +510,13 @@
                      "value" : 0,
                      "value_string" : "0"
                   },
-                  "carbohydrates" : {
-                     "unit" : "KG",
-                     "value" : 0.008,
-                     "value_string" : "0.008"
-                  },
                   "energy" : {
-                     "unit" : " kJ ",
+                     "unit" : "kJ",
                      "value" : 450,
                      "value_string" : "450"
                   },
                   "fat" : {
-                     "unit" : " g ",
+                     "unit" : "g",
                      "value" : 12.5,
                      "value_string" : "12.5"
                   },
@@ -544,17 +532,17 @@
                      "value_string" : "8.2"
                   },
                   "salt" : {
-                     "unit" : " g ",
+                     "unit" : "g",
                      "value" : 1.2,
                      "value_string" : "1.2"
                   },
                   "saturated-fat" : {
-                     "unit" : "G",
+                     "unit" : "g",
                      "value" : 3.1,
                      "value_string" : "3.1"
                   },
                   "sodium" : {
-                     "unit" : " g ",
+                     "unit" : "g",
                      "value" : 0.472,
                      "value_string" : "0.472"
                   }

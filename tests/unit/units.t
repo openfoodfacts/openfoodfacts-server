@@ -202,6 +202,4 @@ is(get_normalized_unit("some unknown unit"), undef);
 is(get_normalized_unit(""), "");
 is(get_normalized_unit(undef), undef);
 
-
-
 done_testing();

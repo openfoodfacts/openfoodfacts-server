@@ -72,7 +72,7 @@ use ProductOpener::HTTP qw/single_param request_param/;
 
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Numbers qw/convert_string_to_number remove_insignificant_digits/;
-use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Units qw/get_normalized_unit normalize_product_quantity_and_serving_size/;
 
 use Log::Any qw($log);
 
@@ -684,14 +684,10 @@ sub get_unit_options_for_nutrient ($nid) {
 
 	my @units_options;
 
-	if (   (defined get_property("nutrients", "zz:$nid", "dv_value:en"))
-		or ($nid =~ /^new_/))
-	{
+	if (defined get_property("nutrients", "zz:$nid", "dv_value:en")) {
 		push @units, '% DV';
 	}
-	if (   (defined get_property("nutrients", "zz:$nid", "iu_value:en"))
-		or ($nid =~ /^new_/))
-	{
+	if (defined get_property("nutrients", "zz:$nid", "iu_value:en")) {
 		push @units, 'IU';
 	}
 
@@ -791,6 +787,28 @@ sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $sourc
 		# empty unit?
 		if ((not defined $unit) or ($unit eq "")) {
 			$unit = default_unit_for_nid($nid);
+		}
+		else {
+			# Check the unit is one of the unit options for the nutrient
+			my $valid_units_ref = get_unit_options_for_nutrient($nid);
+			my $recognized_unit = 0;
+			my $lc_unit = lc($unit);
+			$lc_unit =~ s/^\s+|\s+$//g;    # trim spaces
+			foreach my $unit_option_ref (@{$valid_units_ref}) {
+				if (lc($unit_option_ref->{id}) eq $lc_unit) {
+					$recognized_unit = 1;
+					$unit = $unit_option_ref->{id};
+					last;
+				}
+			}
+			# If we did not recognize the unit, add an error and skip the value
+			if (not $recognized_unit) {
+				# FIXME: for API v3, we need to return an error to the caller
+				$log->error("assign_nutrient_modifier_value_string_and_unit: unrecognized unit",
+					{unit => $unit, nid => $nid})
+					if $log->is_error();
+				return;
+			}
 		}
 
 		$value = convert_string_to_number($value_string);

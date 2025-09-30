@@ -407,12 +407,12 @@ my $tests_ref = [
 			code => "1234567890010",
 			product_name_en => "Test old nutrition fields - formatting",
 			nutrition_data_per => '100g',
-			nutriment_energy => ' 450 ',	# extra spaces
+			nutriment_energy => ' 450 ',    # extra spaces
 			nutriment_energy_unit => ' kJ ',
-			nutriment_fat => '12,5',	# comma as decimal separator
-			nutriment_fat_unit => ' g ',	# extra spaces
+			nutriment_fat => '12,5',    # comma as decimal separator
+			nutriment_fat_unit => ' g ',    # extra spaces
 			"nutriment_saturated-fat" => ' 3.1 ',
-			"nutriment_saturated-fat_unit" => 'G', # uppercase unit
+			"nutriment_saturated-fat_unit" => 'G',    # uppercase unit
 			nutriment_carbohydrates => '0,008',
 			nutriment_carbohydrates_unit => 'KG',
 			nutriment_fiber => '~0',
@@ -434,7 +434,6 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3.5/product/1234567890010',
 	},
-
 
 	# Nutrition facts - new fields for new nutrition schema (October 2025)
 	#
@@ -488,7 +487,7 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3.5/product/2234567890001',
 	},
-		
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref, undef, 0);
