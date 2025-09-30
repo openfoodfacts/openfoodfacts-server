@@ -275,7 +275,7 @@ if ($type eq 'search_or_add') {
 			else {
 				$log->info("product does not exist, creating product", {code => $code, product_id => $product_id})
 					if $log->is_info();
-				$product_ref = init_product($User_id, $Org_id, $code, $country);
+				$product_ref = init_product($User_id, $Org_id, $code, $request_ref->{country});
 				$product_ref->{interface_version_created} = $interface_version;
 				store_product($User_id, $product_ref, 'product_created');
 
@@ -878,7 +878,7 @@ CSS
 		and (defined $Org_id))
 	{
 		# Display a link to the producers platform
-		$template_data_ref_display->{producers_platform_url} = $producers_platform_url;
+		$template_data_ref_display->{producers_platform_url} = $request_ref->{producers_platform_url};
 	}
 
 	$template_data_ref_display->{errors_index} = $#errors;

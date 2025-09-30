@@ -48,7 +48,6 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/$country/;
 use ProductOpener::Users qw/$Org_id $Owner_id/;
 use ProductOpener::Lang qw/$lc %Langs/;
 use ProductOpener::Products qw/:all/;
@@ -673,8 +672,12 @@ sub write_product_api ($request_ref) {
 
 		# The product does not exist yet, or the requested code is "test"
 		if (not defined $product_ref) {
-			$product_ref = init_product($request_ref->{user_id}, $Org_id, $code, $country,
-				get_azp($request_ref->{access_token}));
+			$product_ref = init_product(
+				$request_ref->{user_id},
+				$Org_id, $code,
+				$request_ref->{country},
+				get_azp($request_ref->{access_token})
+			);
 			$product_ref->{interface_version_created} = "20221102/api/v3";
 		}
 		else {

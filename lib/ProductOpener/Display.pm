@@ -105,11 +105,9 @@ BEGIN {
 
 		$images_subdomain
 		$static_subdomain
-		$producers_platform_url
-		$public_platform_url
+
 		$test
 		@lcs
-		$country
 		$tt
 
 		$nutriment_table
@@ -333,8 +331,8 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	$template_data_ref->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
-	$template_data_ref->{producers_platform_url} = $producers_platform_url;
-	$template_data_ref->{public_platform_url} = $public_platform_url;
+	$template_data_ref->{producers_platform_url} = $request_ref->{producers_platform_url};
+	$template_data_ref->{public_platform_url} = $request_ref->{public_platform_url};
 	$template_data_ref->{server_domain} = $server_domain;
 	$template_data_ref->{static_subdomain} = $static_subdomain;
 	$template_data_ref->{images_subdomain} = $images_subdomain;
@@ -546,7 +544,7 @@ sub init_request ($request_ref = {}) {
 	my $cc = 'world';
 	$lc = 'en';
 	@lcs = ();
-	$country = 'en:world';
+	my $country = 'en:world';
 
 	$r->headers_out->set(Server => "Product Opener");
 	# temporarily remove X-Frame-Options: DENY, needed for graphs - 2023/11/23
@@ -749,8 +747,8 @@ sub init_request ($request_ref = {}) {
 	$request_ref->{original_subdomain} = $original_subdomain;
 	$request_ref->{subdomain} = $subdomain;
 	$request_ref->{formatted_subdomain} = format_subdomain($subdomain);
-	$producers_platform_url = $request_ref->{formatted_subdomain} . '/';
-	$public_platform_url = $request_ref->{formatted_subdomain} . '/';
+	my $producers_platform_url = $request_ref->{formatted_subdomain} . '/';
+	my $public_platform_url = $request_ref->{formatted_subdomain} . '/';
 
 	# If we are not already on the producers platform: add .pro
 	if ($producers_platform_url !~ /\.pro\.open/) {
@@ -1306,7 +1304,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	my $html = join('', (<$IN>));
 	close($IN);
 
-	my $country_name = display_taxonomy_tag($lc, "countries", $country);
+	my $country_name = display_taxonomy_tag($lc, "countries", $request_ref->{country});
 
 	$html =~ s/<cc>/$request_ref->{cc}/g;
 	$html =~ s/<country_name>/$country_name/g;
@@ -3054,7 +3052,7 @@ sub display_points ($request_ref) {
 
 	if ($request_ref->{cc} ne 'world') {
 		$tagtype = 'countries';
-		$tagid = $country;
+		$tagid = $request_ref->{country};
 		$title = display_taxonomy_tag($lc, $tagtype, $tagid);
 	}
 
@@ -4271,7 +4269,7 @@ HTML
 				my $tag_ref = {};    # Object to store the knowledge panels
 				my $panels_created
 					= create_tag_knowledge_panels($tag_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref,
-					$tagtype, $canon_tagid);
+					$tagtype, $canon_tagid, $request_ref);
 				if ($panels_created) {
 					$tag_template_data_ref->{tag_panels}
 						= display_knowledge_panel($tag_ref, $tag_ref->{"knowledge_panels_" . $lc}, "root");
@@ -4280,11 +4278,11 @@ HTML
 		}
 	}    # end of if (defined $tagtype)
 
-	$tag_template_data_ref->{country} = $country;
+	$tag_template_data_ref->{country} = $request_ref->{country};
 	$tag_template_data_ref->{country_code} = $request_ref->{cc};
 	$tag_template_data_ref->{facets_kp_url} = $facets_kp_url;
 
-	if ($country ne 'en:world') {
+	if ($request_ref->{cc} ne 'world') {
 
 		my $world_link = "";
 		if (defined $request_ref->{groupby_tagtype}) {
@@ -4335,7 +4333,7 @@ HTML
 		else {
 			${$request_ref->{content_ref}} .= $tag_html . display_list_of_tags($request_ref, $query_ref);
 		}
-		$request_ref->{title} .= ' – ' . display_taxonomy_tag($lc, "countries", $country);
+		$request_ref->{title} .= ' – ' . display_taxonomy_tag($lc, "countries", $request_ref->{country});
 		$request_ref->{page_type} = "list_of_tags";
 	}
 	else {
@@ -4435,7 +4433,8 @@ sub display_search_results ($request_ref) {
 
 	my $html = '';
 
-	$request_ref->{title} = lang("search_results") . ' – ' . display_taxonomy_tag($lc, "countries", $country);
+	$request_ref->{title}
+		= lang("search_results") . ' – ' . display_taxonomy_tag($lc, "countries", $request_ref->{country});
 
 	my $current_link = '';
 
@@ -4544,18 +4543,18 @@ sub add_country_and_owner_filters_to_query ($request_ref, $query_ref) {
 
 	# Country filter
 
-	if (defined $country) {
+	if (defined $request_ref->{country}) {
 
 		# Do not add a country restriction if the query specifies a list of codes
 
-		if (($country ne 'en:world') and (not defined $query_ref->{code})) {
+		if (($request_ref->{cc} ne 'world') and (not defined $query_ref->{code})) {
 			# we may already have a condition on countries (e.g. from the URL /country/germany )
 			if (not defined $query_ref->{countries_tags}) {
-				$query_ref->{countries_tags} = $country;
+				$query_ref->{countries_tags} = $request_ref->{country};
 			}
 			else {
 				my $field = "countries_tags";
-				my $value = $country;
+				my $value = $request_ref->{country};
 				my $and;
 				# we may also have a $and list of conditions (on countries_tags or other fields)
 				if (defined $query_ref->{"\$and"}) {
@@ -5501,7 +5500,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	}
 
 	$template_data_ref->{jqm} = single_param("jqm");
-	$template_data_ref->{country} = $country;
+	$template_data_ref->{country} = $request_ref->{country};
 	$template_data_ref->{world_subdomain} = get_world_subdomain();
 	$template_data_ref->{current_link} = $request_ref->{current_link};
 	$template_data_ref->{sort_by} = $sort_by;
@@ -5619,7 +5618,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				}
 
 				my @current_drilldown_fields = @ProductOpener::Config::drilldown_fields;
-				if ($country eq 'en:world') {
+				if ($request_ref->{country} eq 'en:world') {
 					unshift(@current_drilldown_fields, "countries");
 				}
 
@@ -8123,6 +8122,7 @@ JS
 					if ($database_id eq "codeonline") {
 						$template_data_ref->{"data_source_database_note_about_the_producers_platform"}
 							= lang("data_source_database_note_about_the_producers_platform");
+						my $producers_platform_url = $request_ref->{producers_platform_url};
 						$template_data_ref->{"data_source_database_note_about_the_producers_platform"}
 							=~ s/<producers_platform_url>/$producers_platform_url/g;
 					}

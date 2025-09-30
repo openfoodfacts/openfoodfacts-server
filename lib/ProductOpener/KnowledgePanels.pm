@@ -276,7 +276,8 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$product_ref,
 		$target_lc,
 		$target_cc,
-		$options_ref
+		$options_ref,
+		$request_ref
 	);
 
 	return;
@@ -327,7 +328,7 @@ sub convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces 
 	return '"' . $line . '"';
 }
 
-=head2 create_panel_from_json_template ( $panel_id, $panel_template, $panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_panel_from_json_template ( $panel_id, $panel_template, $panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel from a JSON template.
 The template is passed both the full product data + optional panel specific data.
@@ -483,7 +484,7 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 	return;
 }
 
-=head2 create_environmental_score_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_environmental_score_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel to describe the Environmental-Score, including sub-panels
 for the different components of the Environmental-Score.
@@ -629,7 +630,7 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 		create_panel_from_json_template(
 			"environmental_score_agribalyse",
 			"api/knowledge-panels/environment/environmental_score/agribalyse.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
 		);
 
 		create_panel_from_json_template("carbon_footprint",
@@ -645,7 +646,12 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 			create_panel_from_json_template(
 				"environmental_score_" . $adjustment,
 				"api/knowledge-panels/environment/environmental_score/" . $adjustment . ".tt.json",
-				$adjustment_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref
+				$adjustment_panel_data_ref,
+				$product_ref,
+				$target_lc,
+				$target_cc,
+				$options_ref,
+				$request_ref
 			);
 		}
 
@@ -718,14 +724,14 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 			create_panel_from_json_template(
 				"environment_label_" . $labelid,
 				"api/knowledge-panels/environment/label.tt.json",
-				$label_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref
+				$label_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
 			);
 		}
 	}
 	return;
 }
 
-=head2 create_environment_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_environment_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains all knowledge panels related to the environment.
 
@@ -805,7 +811,7 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	return 1;
 }
 
-=head2 create_secondhand_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_secondhand_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains all knowledge panels related to the circular economy:
 - sharing, buying, selling etc.
@@ -897,7 +903,7 @@ sub create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options
 	return;
 }
 
-=head2 create_manufacturing_place_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_manufacturing_place_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel when we know the location of the manufacturing place,
 usually through a packaging code.
@@ -950,7 +956,7 @@ sub create_manufacturing_place_panel ($product_ref, $target_lc, $target_cc, $opt
 	return;
 }
 
-=head2 create_health_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_health_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains all knowledge panels related to health.
 
@@ -1041,7 +1047,7 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	return 1;
 }
 
-=head2 create_nutriscore_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_nutriscore_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates knowledge panels to describe the Nutri-Score.
 
@@ -1168,7 +1174,8 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 					$product_ref,
 					$target_lc,
 					$target_cc,
-					$options_ref
+					$options_ref,
+					$request_ref
 				);
 			}
 
@@ -1195,7 +1202,7 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 	return;
 }
 
-=head2 create_nutrient_levels_panels ( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_nutrient_levels_panels ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates knowledge panels for nutrient levels for fat, saturated fat, sugars and salt.
 
@@ -1240,7 +1247,7 @@ sub create_nutrient_levels_panels ($product_ref, $target_lc, $target_cc, $option
 	return;
 }
 
-=head2 create_nutrition_facts_table_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_nutrition_facts_table_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel with the nutrition facts table.
 
@@ -1281,7 +1288,7 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 	return;
 }
 
-=head2 create_serving_size_panel( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_serving_size_panel( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel with portion size.
 
@@ -1321,7 +1328,7 @@ sub create_serving_size_panel ($product_ref, $target_lc, $target_cc, $options_re
 	return;
 }
 
-=head2 create_physical_activities_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_physical_activities_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel to indicate how much time is needed to burn the calories of a product
 for various activities.
@@ -1509,7 +1516,7 @@ sub add_taxonomy_properties_in_target_languages_to_object ($object_ref, $tagtype
 	return;
 }
 
-=head2 create_recommendation_panels ( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_recommendation_panels ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates knowledge panels with recommendations (e.g. related to health or the environment).
 Recommendations can depend on product properties (e.g. categories or ingredients)
@@ -1589,7 +1596,7 @@ sub create_recommendation_panels ($product_ref, $target_lc, $target_cc, $options
 	return;
 }
 
-=head2 create_nova_panel ( $product_ref, $target_lc, $target_cc, $options_ref )
+=head2 create_nova_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates knowledge panels to describe the NOVA groups / processing / ultra-processing
 

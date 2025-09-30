@@ -182,7 +182,8 @@ if ($action eq 'display') {
 			# Keep legacy display fields until we have moved account management to Keycloak
 			my $selected_language = $user_ref->{preferred_language}
 				// (remove_tags_and_quote(single_param('preferred_language')) || "$lc");
-			my $selected_country = $user_ref->{country} // (remove_tags_and_quote(single_param('country')) || $country);
+			my $selected_country = $user_ref->{country}
+				// (remove_tags_and_quote(single_param('country')) || $request_ref->{country});
 			if ($selected_country eq "en:world") {
 				$selected_country = "";
 			}

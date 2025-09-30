@@ -45,7 +45,6 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/$country/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
@@ -200,7 +199,7 @@ sub upload_product_image_api ($request_ref) {
 
 		if (not defined $product_ref) {
 			# The product does not exist yet, we initialize it and it will be saved with the uploaded image
-			$product_ref = init_product($User_id, $Org_id, $code, $country);
+			$product_ref = init_product($User_id, $Org_id, $code, $request_ref->{country});
 		}
 		else {
 			# There is an existing product
