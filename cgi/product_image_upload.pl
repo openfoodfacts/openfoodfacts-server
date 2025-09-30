@@ -70,8 +70,8 @@ my $request_ref = ProductOpener::Display::init_request();
 $log->debug(
 	"parsing code",
 	{
-		subdomain => $subdomain,
-		original_subdomain => $original_subdomain,
+		subdomain => $request_ref->{subdomain},
+		original_subdomain => $request_ref->{original_subdomain},
 		user => $User_id,
 		code => $code,
 		previous_code => $previous_code,

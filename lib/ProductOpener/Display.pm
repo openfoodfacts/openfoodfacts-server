@@ -103,9 +103,6 @@ BEGIN {
 
 		@search_series
 
-		$original_subdomain
-		$subdomain
-		$formatted_subdomain
 		$images_subdomain
 		$static_subdomain
 		$producers_platform_url
@@ -341,7 +338,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{server_domain} = $server_domain;
 	$template_data_ref->{static_subdomain} = $static_subdomain;
 	$template_data_ref->{images_subdomain} = $images_subdomain;
-	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
+	$template_data_ref->{formatted_subdomain} = $request_ref->{formatted_subdomain};
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
 	#12279 TODO: Rather than use %User we should add specific fields so that templates don't assume they can access every single user field
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
@@ -568,7 +565,7 @@ sub init_request ($request_ref = {}) {
 	# (especially for the API so that we can use only one subdomain : api.openfoodfacts.org)
 
 	my $hostname = $r->hostname;
-	$subdomain = lc($hostname);
+	my $subdomain = lc($hostname);
 
 	local $log->context->{hostname} = $hostname;
 	local $log->context->{ip} = remote_addr();
@@ -576,7 +573,7 @@ sub init_request ($request_ref = {}) {
 
 	$subdomain =~ s/\..*//;
 
-	$original_subdomain = $subdomain;    # $subdomain can be changed if there are cc and/or lc overrides
+	my $original_subdomain = $subdomain;    # $subdomain can be changed if there are cc and/or lc overrides
 
 	$log->debug("initializing request", {subdomain => $subdomain}) if $log->is_debug();
 
@@ -746,6 +743,27 @@ sub init_request ($request_ref = {}) {
 		$subdomain =~ s/\.openfoodfacts/.test.openfoodfacts/;
 	}
 
+	# Note: the variables below are used in the templates to display web pages
+	# They must be set before any call to display a page (including error pages when there is an authentication error)
+	# call format_subdomain($subdomain) only once
+	$request_ref->{original_subdomain} = $original_subdomain;
+	$request_ref->{subdomain} = $subdomain;
+	$request_ref->{formatted_subdomain} = format_subdomain($subdomain);
+	$producers_platform_url = $request_ref->{formatted_subdomain} . '/';
+	$public_platform_url = $request_ref->{formatted_subdomain} . '/';
+
+	# If we are not already on the producers platform: add .pro
+	if ($producers_platform_url !~ /\.pro\.open/) {
+		$producers_platform_url =~ s/\.open/\.pro\.open/;
+	}
+	# and the contrary for public platform
+	if ($public_platform_url =~ /\.pro\.open/) {
+		$public_platform_url =~ s/\.pro\.open/\.open/;
+	}
+
+	$request_ref->{producers_platform_url} = $producers_platform_url;
+	$request_ref->{public_platform_url} = $public_platform_url;
+
 	$log->debug(
 		"URI parsed for additional information",
 		{
@@ -849,20 +867,6 @@ CSS
 .show-when-logged-in {display:none}
 CSS
 			;
-	}
-
-	# call format_subdomain($subdomain) only once
-	$formatted_subdomain = format_subdomain($subdomain);
-	$producers_platform_url = $formatted_subdomain . '/';
-	$public_platform_url = $formatted_subdomain . '/';
-
-	# If we are not already on the producers platform: add .pro
-	if ($producers_platform_url !~ /\.pro\.open/) {
-		$producers_platform_url =~ s/\.open/\.pro\.open/;
-	}
-	# and the contrary for public platform
-	if ($public_platform_url =~ /\.pro\.open/) {
-		$public_platform_url =~ s/\.pro\.open/\.open/;
 	}
 
 	# Enable or disable user food preferences: used to compute attributes and to display
@@ -1332,7 +1336,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 		if (get_oidc_implementation_level() >= 3) {
 			# Use the Keycloak login link once we have migrated the Login user interface
 			#11867: Should be full URL
-			my $escaped_canon_url = uri_escape($formatted_subdomain);
+			my $escaped_canon_url = uri_escape($request_ref->{formatted_subdomain});
 			$html =~ s/<escaped_subdomain>/$escaped_canon_url/g;
 		}
 	}
@@ -2191,7 +2195,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			my $tagentry = {
 				id => $tagid,
 				name => $display,
-				url => $formatted_subdomain . $tag_link,
+				url => $request_ref->{formatted_subdomain} . $tag_link,
 				products => $products + 0,    # + 0 to make the value numeric
 				known => $known,    # 1 if the ingredient exists in the taxonomy, 0 if not
 			};
@@ -2381,7 +2385,7 @@ HTML
 					text: '$request_ref->{title}'
 				},
 				subtitle: {
-					text: '$Lang{data_source}{$lc}$sep: $formatted_subdomain'
+					text: '$Lang{data_source}{$lc}$sep: $request_ref->{formatted_subdomain}'
 				},
 				xAxis: {
 					title: {
@@ -3029,7 +3033,7 @@ sub display_points ($request_ref) {
 	$request_ref->{current_link} .= "/points";
 
 	if ((defined $tagid) and ($new_tagid ne $tagid)) {
-		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
+		$request_ref->{redirect} = $request_ref->{formatted_subdomain} . $request_ref->{current_link};
 		$log->debug(
 			"new_tagid does not equal the original tagid, redirecting",
 			{new_tagid => $new_tagid, redirect => $request_ref->{redirect}}
@@ -3173,7 +3177,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 	# If the query contained tags in non-canonical form, redirect to the form with the canonical tags
 	# The redirect is temporary (302), as the canonicalization could change if the corresponding taxonomies change
 	if ($redirect_to_canonical_url) {
-		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
+		$request_ref->{redirect} = $request_ref->{formatted_subdomain} . $request_ref->{current_link};
 		$request_ref->{redirect} .= extension_and_query_parameters_to_redirect_url($request_ref);
 
 		$log->debug("one or more tagids mismatch, redirecting to correct url", {redirect => $request_ref->{redirect}})
@@ -4467,7 +4471,7 @@ sub display_search_results ($request_ref) {
 
 		# The results will be filtered and ranked on the client side
 
-		my $search_api_url = $formatted_subdomain . "/api/v0" . $current_link;
+		my $search_api_url = $request_ref->{formatted_subdomain} . "/api/v0" . $current_link;
 		$search_api_url =~ s/(\&|\?)(page|page_size|limit)=(\d+)//;
 		$search_api_url .= "&fields=code,product_display_name,url,image_front_small_url,attribute_groups";
 		$search_api_url .= "&page_size=" . $options{default_web_products_page_size};
@@ -5415,7 +5419,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 				# Add a url field to the product, with the subdomain and path
 				my $url_path = product_url($product_ref);
-				$product_ref->{url} = $formatted_subdomain . $url_path;
+				$product_ref->{url} = $request_ref->{formatted_subdomain} . $url_path;
 				# Compute HTML to display the small front image, currently embedded in the HTML of web queries
 				if (not $api) {
 					$product_ref->{image_front_small_html}
@@ -5650,10 +5654,12 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	# if cc and/or lc have been overridden, change the relative paths to absolute paths using the new subdomain
 
-	if ($subdomain ne $original_subdomain) {
-		$log->debug("subdomain not equal to original_subdomain, converting relative paths to absolute paths",
-			{subdomain => $subdomain, original_subdomain => $original_subdomain})
-			if $log->is_debug();
+	if ($request_ref->{subdomain} ne $request_ref->{original_subdomain}) {
+		$log->debug(
+			"subdomain not equal to original_subdomain, converting relative paths to absolute paths",
+			{subdomain => $request_ref->{subdomain}, original_subdomain => $request_ref->{original_subdomain}}
+		) if $log->is_debug();
+		my $formatted_subdomain = $request_ref->{formatted_subdomain};
 		$html =~ s/(href|src)=("\/)/$1="$formatted_subdomain\//g;
 	}
 
@@ -6235,7 +6241,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		$series{$seriesid} = $series{$seriesid} // '';
 
 		$data{product_name} = $product_ref->{product_name};
-		$data{url} = $formatted_subdomain . product_url($product_ref->{code});
+		$data{url} = $request_ref->{formatted_subdomain} . product_url($product_ref->{code});
 		$data{img} = display_image($product_ref, "front", $request_ref->{lc}, $thumb_size);
 
 		# create data entry for series
@@ -6362,7 +6368,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$sep: $formatted_subdomain'
+                text: '$Lang{data_source}{$lc}$sep: $request_ref->{formatted_subdomain}'
             },
             xAxis: {
 				$axis_details{x}{allow_decimals}
@@ -6732,7 +6738,7 @@ JS
                 text: '$graph_ref->{graph_title}'
             },
             subtitle: {
-                text: '$Lang{data_source}{$lc}$sep: $formatted_subdomain'
+                text: '$Lang{data_source}{$lc}$sep: $request_ref->{formatted_subdomain}'
             },
             xAxis: {
                 title: {
@@ -7056,7 +7062,7 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 	my @pointers = ();
 
 	while (my $product_ref = $products_iter->()) {
-		my $url = $formatted_subdomain . product_url($product_ref->{code});
+		my $url = $request_ref->{formatted_subdomain} . product_url($product_ref->{code});
 
 		my $manufacturing_places = escape_single_quote_and_newlines($product_ref->{"manufacturing_places"});
 		$manufacturing_places =~ s/,( )?/, /g;
@@ -7353,7 +7359,7 @@ sub display_page ($request_ref) {
 		$canon_description = lang("site_description_$flavor");
 	}
 
-	my $canon_url = $formatted_subdomain;
+	my $canon_url = $request_ref->{formatted_subdomain};
 	if (defined $request_ref->{canon_url}) {
 		if ($request_ref->{canon_url} =~ /^(http|https):/) {
 			$canon_url = $request_ref->{canon_url};
@@ -7410,7 +7416,7 @@ sub display_page ($request_ref) {
 	$template_data_ref->{options_favicons} = $options{favicons};
 	$template_data_ref->{static_subdomain} = $static_subdomain;
 	$template_data_ref->{images_subdomain} = $images_subdomain;
-	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
+	$template_data_ref->{formatted_subdomain} = $request_ref->{formatted_subdomain};
 	$template_data_ref->{css_timestamp}
 		= $file_timestamps{'css/dist/app-' . lang_in_other_lc($request_lc, 'text_direction') . '.css'};
 	$template_data_ref->{header} = $request_ref->{header};
@@ -7850,7 +7856,7 @@ JS
 		and ($product_ref->{product_type} ne $options{product_type}))
 	{
 		redirect_to_url($request_ref, 302,
-			format_subdomain($subdomain, $product_ref->{product_type}) . product_url($product_ref));
+			format_subdomain($request_ref->{subdomain}, $product_ref->{product_type}) . product_url($product_ref));
 	}
 
 	$title = product_name_brand_quantity($product_ref);
@@ -7977,7 +7983,7 @@ JS
 	# On the producers platform, show a link to the public platform
 
 	if ($server_options{producers_platform}) {
-		my $public_product_url = $formatted_subdomain . $product_url;
+		my $public_product_url = $request_ref->{formatted_subdomain} . $product_url;
 		$public_product_url =~ s/\.pro\./\./;
 		# Also remove the /org/[org-id]
 		$public_product_url =~ s/\/org\/[^\/]+//;
@@ -10537,7 +10543,7 @@ sub display_product_api ($request_ref) {
 				$status_code = 307;
 			}
 			redirect_to_url($request_ref, $status_code,
-				format_subdomain($subdomain, $product_ref->{product_type}) . "/"
+				format_subdomain($request_ref->{subdomain}, $product_ref->{product_type}) . "/"
 					. $request_ref->{original_query_string});
 		}
 		else {
@@ -10851,7 +10857,8 @@ sub display_structured_response_opensearch_rss ($request_ref) {
 
 	$long_name = $xs->escape_value(encode_utf8($long_name));
 	$short_name = $xs->escape_value(encode_utf8($short_name));
-	my $query_link = $xs->escape_value(encode_utf8($formatted_subdomain . $request_ref->{current_link} . "&rss=1"));
+	my $query_link
+		= $xs->escape_value(encode_utf8($request_ref->{formatted_subdomain} . $request_ref->{current_link} . "&rss=1"));
 	my $description
 		= $xs->escape_value(encode_utf8($options{site_name} . ' – ' . lang("search_description_opensearch")));
 
@@ -10873,7 +10880,7 @@ sub display_structured_response_opensearch_rss ($request_ref) {
      <opensearch:totalResults>$count</opensearch:totalResults>
      <opensearch:startIndex>$skip</opensearch:startIndex>
      <opensearch:itemsPerPage>${page_size}</opensearch:itemsPerPage>
-     <atom:link rel="search" type="application/opensearchdescription+xml" href="$formatted_subdomain/cgi/opensearch.pl"/>
+     <atom:link rel="search" type="application/opensearchdescription+xml" href="$request_ref->{formatted_subdomain}/cgi/opensearch.pl"/>
      <opensearch:Query role="request" searchTerms="${search_terms}" startPage="$page" />
 XML
 		;
@@ -10884,7 +10891,8 @@ XML
 			$item_title = $product_ref->{code} unless $item_title;
 			my $item_description = $xs->escape_value(encode_utf8(sprintf(lang("product_description"), $item_title)));
 			$item_title = $xs->escape_value(encode_utf8($item_title));
-			my $item_link = $xs->escape_value(encode_utf8($formatted_subdomain . product_url($product_ref)));
+			my $item_link
+				= $xs->escape_value(encode_utf8($request_ref->{formatted_subdomain} . product_url($product_ref)));
 
 			$xml .= <<XML
      <item>

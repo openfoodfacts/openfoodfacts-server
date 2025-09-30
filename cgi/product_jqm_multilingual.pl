@@ -131,7 +131,9 @@ else {
 			and ($product_ref->{product_type} ne $options{product_type}))
 		{
 			redirect_to_url($request_ref, 307,
-				format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product_jqm.pl?code=' . $code);
+					  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
+					. '/cgi/product_jqm.pl?code='
+					. $code);
 		}
 	}
 

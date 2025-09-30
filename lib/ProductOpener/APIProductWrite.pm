@@ -48,7 +48,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/$subdomain $country/;
+use ProductOpener::Display qw/$country/;
 use ProductOpener::Users qw/$Org_id $Owner_id/;
 use ProductOpener::Lang qw/$lc %Langs/;
 use ProductOpener::Products qw/:all/;
@@ -687,7 +687,9 @@ sub write_product_api ($request_ref) {
 				and ($product_ref->{product_type} ne $options{product_type}))
 			{
 				redirect_to_url($request_ref, 307,
-					format_subdomain($subdomain, $product_ref->{product_type}) . '/api/v3/product/' . $code);
+						  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
+						. '/api/v3/product/'
+						. $code);
 			}
 		}
 

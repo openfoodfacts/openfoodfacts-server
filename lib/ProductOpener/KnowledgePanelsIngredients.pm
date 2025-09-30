@@ -181,7 +181,7 @@ sub create_ingredients_rare_crops_panel ($product_ref, $target_lc, $target_cc, $
 	return;
 }
 
-sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	# Go through the ingredients structure, and check if they have the added_sugar:en:yes property
 	my @added_sugars_ingredients = get_ingredients_with_parent($product_ref->{ingredients}, "en:added-sugar");
@@ -229,7 +229,7 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 				$no_added_sugars_link =~ s/\/([^\/]+)$/\/-$1/;
 
 				my $category_without_added_sugars_url
-					= format_subdomain($subdomain)
+					= $request_ref->{formatted_subdomain}
 					. "/facets"
 					. canonicalize_taxonomy_tag_link($target_lc, 'categories', $category_id)
 					. canonicalize_taxonomy_tag_link($target_lc, 'states', "en:ingredients-completed")
