@@ -188,6 +188,7 @@ my $tests_ref = [
 		expected_type => "html",
 		expected_status_code => 403,
 	},
+
 	# Nutrition facts: test that we provide backward compatibility for the old field names
 	# that were used before we restructured the nutrition data in 2025.
 
@@ -356,7 +357,138 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3.5/product/1234567890008',
 	},
+	# Test modifiers
+	{
+		test_case => 'post-product-nutrition-old-fields-nutrition_data_per-100g-modifiers',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			code => "1234567890009",
+			product_name_en => "Test old nutrition fields - modifiers",
+			nutrition_data_per => '100g',
+			nutriment_energy => '<450',
+			nutriment_energy_unit => 'kJ',
+			nutriment_fat => '~12.5',
+			nutriment_fat_unit => 'g',
+			"nutriment_saturated-fat" => '> 3.1',
+			"nutriment_saturated-fat_unit" => 'g',
+			nutriment_carbohydrates => '67.4',
+			nutriment_carbohydrates_unit => 'g',
+			# - is accepted as a value to indicate that the value is not specified
+			nutriment_fiber => '-',
+			# empty value: used to remove an existing value, no effect if it's not there
+			nutriment_proteins => '',
+			nutriment_proteins_unit => 'g',
+			nutriment_salt => '<=1.2',
+			nutriment_salt_unit => 'g',
+			nutriment_sodium => '≤0.472',
+			nutriment_sodium_unit => 'g',
+			nutriment_alcohol => '0.0',
+			nutriment_alcohol_unit => 'g',
+			nutriment_water => '10.0',
+			nutriment_water_unit => 'g',
+		}
+	},
+	{
+		test_case => 'get-product-nutrition-nutrition_data_per-100g-modifiers-v3',
+		method => 'GET',
+		path => '/api/v3.5/product/1234567890009',
+	},
+	# Test values with different formatting
+	{
+		test_case => 'post-product-nutrition-old-fields-nutrition_data_per-100g-formatting',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			code => "1234567890010",
+			product_name_en => "Test old nutrition fields - formatting",
+			nutrition_data_per => '100g',
+			nutriment_energy => ' 450 ',	# extra spaces
+			nutriment_energy_unit => ' kJ ',
+			nutriment_fat => '12,5',	# comma as decimal separator
+			nutriment_fat_unit => ' g ',	# extra spaces
+			"nutriment_saturated-fat" => ' 3.1 ',
+			"nutriment_saturated-fat_unit" => 'G', # uppercase unit
+			nutriment_carbohydrates => '0,008',
+			nutriment_carbohydrates_unit => 'KG',
+			nutriment_fiber => '~0',
+			nutriment_fiber_unit => 'g',
+			nutriment_proteins => '8.2000',
+			nutriment_proteins_unit => 'g',
+			nutriment_salt => ' 1.2 ',
+			nutriment_salt_unit => ' g ',
+			nutriment_sodium => ' 0.472 ',
+			nutriment_sodium_unit => ' g ',
+			nutriment_alcohol => ' 0.0 ',
+			nutriment_alcohol_unit => ' g ',
+			nutriment_water => ' 10.0 ',
+			nutriment_water_unit => ' g ',
+		}
+	},
+	{
+		test_case => 'get-product-nutrition-nutrition_data_per-100g-formatting-v3',
+		method => 'GET',
+		path => '/api/v3.5/product/1234567890010',
+	},
 
+
+	# Nutrition facts - new fields for new nutrition schema (October 2025)
+	#
+	# nutrient values and units are passed for the different input sets (for each preparation type and for each per quantity)
+	# with parameters like:
+	#
+	# nutrition_input_sets_prepared_100ml_nutrients_saturated-fat_value_string
+	# nutrition_input_sets_prepared_100ml_nutrients_saturated-fat_unit
+
+	{
+		test_case => 'post-product-nutrition-new-fields-nutrition_data_per-100g',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			code => "2234567890001",
+			product_name_en => "Test new nutrition fields",
+			# As sold per 100g
+			nutrition_input_sets_regular_100g_nutrients_energy_value_string => '450',
+			nutrition_input_sets_regular_100g_nutrients_energy_unit => 'kJ',
+			nutrition_input_sets_regular_100g_nutrients_fat_value_string => '12.5',
+			nutrition_input_sets_regular_100g_nutrients_fat_unit => 'g',
+			"nutrition_input_sets_regular_100g_nutrients_saturated-fat_value_string" => '3.1',
+			"nutrition_input_sets_regular_100g_nutrients_saturated-fat_unit" => 'g',
+			nutrition_input_sets_regular_100g_nutrients_carbohydrates_value_string => '67.4',
+			nutrition_input_sets_regular_100g_nutrients_carbohydrates_unit => 'g',
+			# Test a string value with a 0 after the decimal point
+			nutrition_input_sets_regular_100g_nutrients_fiber_value_string => '4.0',
+			nutrition_input_sets_regular_100g_nutrients_fiber_unit => 'g',
+			nutrition_input_sets_regular_100g_nutrients_proteins_value_string => '8.2',
+			nutrition_input_sets_regular_100g_nutrients_proteins_unit => 'g',
+			nutrition_input_sets_regular_100g_nutrients_salt_value_string => '1.2',
+			nutrition_input_sets_regular_100g_nutrients_salt_unit => 'g',
+			nutrition_input_sets_regular_100g_nutrients_sodium_value_string => '0.472',
+			nutrition_input_sets_regular_100g_nutrients_sodium_unit => 'g',
+			nutrition_input_sets_regular_100g_nutrients_alcohol_value_string => '0.0',
+			nutrition_input_sets_regular_100g_nutrients_alcohol_unit => 'g',
+			nutrition_input_sets_regular_100g_nutrients_water_value_string => '10.0',
+			nutrition_input_sets_regular_100g_nutrients_water_unit => 'g',
+			# Prepared per 100g
+			nutrition_input_sets_prepared_100g_nutrients_energy_value_string => '400',
+			nutrition_input_sets_prepared_100g_nutrients_energy_unit => 'kJ',
+			nutrition_input_sets_prepared_100g_nutrients_fat_value_string => '10.5',
+			nutrition_input_sets_prepared_100g_nutrients_fat_unit => 'g',
+		}
+	},
+	# Get the new nutrition schema
+	{
+		test_case => 'get-product-nutrition-new-fields-nutrition_data_per-100g-v3',
+		method => 'GET',
+		path => '/api/v3.5/product/2234567890001',
+	},
+		
 ];
 
 execute_api_tests(__FILE__, $tests_ref, undef, 0);
