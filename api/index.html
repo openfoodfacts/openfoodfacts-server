@@ -2173,9 +2173,8 @@
 <h1 id="introduction-to-open-food-facts-api-documentation">Introduction to Open Food Facts API documentation<a class="headerlink" href="#introduction-to-open-food-facts-api-documentation" title="Permanent link">#</a></h1>
 <p>Everything you need to know about Open Food Facts API.</p>
 <blockquote>
-<p>[CAUTION]
-👮‍♂️🚥Are you going to use our API?
-Please <strong>read this documentation entirely</strong> before using it.</p>
+<p>[!CAUTION]
+Are you going to use our API? Please <strong>read this documentation <ins>entirely</ins></strong> before using it.</p>
 </blockquote>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>Open Food Facts is a food products database made by everyone, for everyone, that can help you make better choices about what you eat. Being open data, anyone can reuse it for any purpose.</p>
@@ -2256,7 +2255,7 @@ Please <strong>read this documentation entirely</strong> before using it.</p>
 <li>READ operations (getting info about a product, etc...) do not require authentication other than the custom User-Agent.</li>
 <li>WRITE operations (Editing an Existing Product, Uploading images…) <strong>require authentication</strong>. We do this as another layer of protection against spam.</li>
 </ul>
-<p>Create an account on the <a href="https://world.openfoodfacts.org/">Open Food Facts app</a> for your app (and notify reuse@openfoodfacts.org of the account name, so that we grant it special app privileges). From there, you have two options:</p>
+<p>Create an account on the <a href="https://world.openfoodfacts.org/">Open Food Facts app</a> for your app and fill out the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIE3D8qvjC_zRJw1W8OmuHhsWJ_NSckiiniAHlfaVwUZCziQ/viewform">API usage form</a> so that we can identify your usage and prevent potential bans. From there, you have two options:</p>
 <ul>
 <li><strong>The preferred one</strong>:
   Use the login API to get a session cookie and use this cookie for authentication in your subsequent requests. However, the session must always be used from the same IP address, and there's a limit on sessions per user (currently 10) with older sessions being automatically logged out to stay within the limit.</li>
