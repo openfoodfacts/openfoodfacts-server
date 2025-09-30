@@ -49,8 +49,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc %lang_lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Nutrition
-	qw/get_source_for_site_and_org assign_nutrition_values_from_old_request_parameters assign_nutrition_values_from_request_parameters/;
+use ProductOpener::Nutrition qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
@@ -431,8 +430,8 @@ else {
 
 	# Nutrition data
 
-	assign_nutrition_values_from_old_request_parameters($product_ref, $nutriment_table, $source);
-	# assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table, $source
+	assign_nutrition_values_from_old_request_parameters($request_ref, $product_ref, $nutriment_table, $source);
+	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutriment_table, $source);
 
 	analyze_and_enrich_product_data($product_ref, $response_ref);
 

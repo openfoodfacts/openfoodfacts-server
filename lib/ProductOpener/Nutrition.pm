@@ -821,7 +821,7 @@ sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $sourc
 	return;
 }
 
-=head2 assign_nutrition_values_from_old_request_parameters ( $product_ref, $nutriment_table, $source )
+=head2 assign_nutrition_values_from_old_request_parameters ( $request_ref, $product_ref, $nutriment_table, $source )
 
 This function provides backward compatibility for apps that use product edit API v2 (/cgi/product_jqm_multingual.pl)
 before the introduction of the new nutrition data schema.
@@ -829,6 +829,10 @@ before the introduction of the new nutrition data schema.
 It reads the old nutrition data parameters from the request, and assigns them to the new product nutrition structure.
 
 =head3 Parameters
+
+=head4 $request_ref
+
+Reference to the request parameters hash
 
 =head4 $product_ref
 
@@ -844,7 +848,7 @@ The source of the nutrition data. e.g. "packaging" or "manufacturer"
 
 =cut
 
-sub assign_nutrition_values_from_old_request_parameters ($product_ref, $nutriment_table, $source) {
+sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_ref, $nutriment_table, $source) {
 
 	# Nutrition data
 
@@ -864,8 +868,8 @@ sub assign_nutrition_values_from_old_request_parameters ($product_ref, $nutrimen
 
 	foreach my $checkbox ("no_nutrition_data", "nutrition_data", "nutrition_data_prepared") {
 
-		if (defined single_param($checkbox)) {
-			my $checkbox_value = decode utf8 => single_param($checkbox);
+		if (defined request_param($request_ref, $checkbox)) {
+			my $checkbox_value = request_param($request_ref, $checkbox);
 			if (($checkbox_value eq '1') or ($checkbox_value eq "on")) {
 				$product_ref->{$checkbox} = "on";
 			}
@@ -873,7 +877,7 @@ sub assign_nutrition_values_from_old_request_parameters ($product_ref, $nutrimen
 				$product_ref->{$checkbox} = "";
 			}
 		}
-		elsif (defined single_param($checkbox . "_displayed")) {
+		elsif (defined request_param($request_ref, $checkbox . "_displayed")) {
 			$product_ref->{$checkbox} = "";
 		}
 	}
@@ -899,7 +903,7 @@ sub assign_nutrition_values_from_old_request_parameters ($product_ref, $nutrimen
 			# If nutrition_data_per or nutrition_data_prepared_per is passed, use it for the per of the nutrient
 			# otherwise default to 100g, 100ml or 1kg (for pet food)
 			my $per = get_default_per_for_product($product_ref, $preparation);
-			my $per_param = single_param("nutrition_data${preparation_suffix}_per");
+			my $per_param = request_param($request_ref, "nutrition_data${preparation_suffix}_per");
 			if (defined $per_param) {
 				$per_param = decode utf8 => $per_param;
 				if ($per_param =~ /^(100g|100ml|1kg|1l|serving)$/) {
@@ -910,7 +914,7 @@ sub assign_nutrition_values_from_old_request_parameters ($product_ref, $nutrimen
 			# If we have nutrition per serving, get the serving_size field from the product (or from the request if passed)
 			# so that we can set the serving_quantity and serving_unit fields on the input set
 			if ($per eq "serving") {
-				my $serving_size_param = single_param("serving_size");
+				my $serving_size_param = request_param($request_ref, "serving_size");
 				if (defined $serving_size_param) {
 					$product_ref->{serving_size} = decode utf8 => $serving_size_param;
 					# Make sure we have a normalized serving size and unit
@@ -949,8 +953,8 @@ sub assign_nutrition_values_from_old_request_parameters ($product_ref, $nutrimen
 
 				next if $nid =~ /^nutrition-score/;
 
-				my $unit = decode utf8 => single_param("nutriment_${nid}_unit");
-				my $value_string = decode utf8 => single_param("nutriment_${nid}${preparation_suffix}");
+				my $unit = request_param($request_ref, "nutriment_${nid}_unit");
+				my $value_string = request_param($request_ref, "nutriment_${nid}${preparation_suffix}");
 
 				# do not delete values if the nutriment is not provided
 				next if (not defined $value_string);

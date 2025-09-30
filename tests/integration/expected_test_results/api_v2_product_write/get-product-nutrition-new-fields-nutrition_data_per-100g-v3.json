@@ -438,8 +438,47 @@
       ],
       "nutriscore_version" : "2023",
       "nutrition" : {
-         "aggregated_set" : {},
-         "input_sets" : []
+         "aggregated_set" : {
+            "nutrients" : {
+               "energy" : {
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "kJ",
+                  "value" : 400
+               },
+               "fat" : {
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "g",
+                  "value" : 10.5
+               }
+            },
+            "per" : "100g",
+            "preparation" : "prepared"
+         },
+         "input_sets" : [
+            {
+               "nutrients" : {
+                  "energy" : {
+                     "unit" : "kJ",
+                     "value" : 400,
+                     "value_string" : "400"
+                  },
+                  "fat" : {
+                     "unit" : "g",
+                     "value" : 10.5,
+                     "value_string" : "10.5"
+                  }
+               },
+               "per" : "100g",
+               "per_quantity" : 100,
+               "per_unit" : "g",
+               "preparation" : "prepared",
+               "source" : "packaging"
+            }
+         ]
       },
       "nutrition_data_per" : "100g",
       "nutrition_data_prepared_per" : "100g",
