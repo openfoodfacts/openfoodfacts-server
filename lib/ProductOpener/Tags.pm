@@ -2689,7 +2689,9 @@ sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 }
 
 sub country_to_cc ($country) {
-
+	if (not defined $country) {
+		return;
+	}
 	if ($country eq 'en:world') {
 		return 'world';
 	}
