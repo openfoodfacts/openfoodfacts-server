@@ -80544,10 +80544,6 @@ hr: Jela s konjskim mesom
 lt: Patiekalai su arkliena
 nl: Paardenvleesgerechten
 
-< en:Meals with horse meat
-it: Bresaloa Equina
-fr: Bresaola de cheval
-
 < en:Meals with meat
 en: Meals with rabbit or hare
 fr: Plats au lapin ou lièvre, plats à base de lapin ou lièvre, Plats à base de viande de lapin ou lièvre, plats à base de lapin ou de lièvre
@@ -80666,17 +80662,6 @@ ciqual_food_code:en: 25001
 ciqual_food_name:en: Veal stew in white sauce
 ciqual_food_name:fr: Blanquette de veau
 wikidata:en: Q1191278
-
-< en:Beef dishes
-en: Corned-beef
-de: Corned Beef
-fr: Corned-beef, Corned-beef appertisé, Corned-beef en conserve
-hr: Usoljena govedina
-ja: コーンビーフ
-ciqual_food_code:en: 28505
-ciqual_food_name:en: Corned-beef
-ciqual_food_name:fr: Corned-beef, appertisé
-wikidata:en: Q1133209
 
 < en:Beef dishes
 en: Beef Wellington
@@ -85048,7 +85033,7 @@ ciqual_food_code:en: 25172
 ciqual_food_name:en: Meat in sauce (average)
 ciqual_food_name:fr: Viande en sauce (aliment moyen)
 
-< en:Meats
+< en:Prepared meats
 en: Dried meats
 bg: Сушено месо
 ca: Carns assecades
@@ -85064,6 +85049,7 @@ nl: Gedroogd vlees
 pt: Carnes secas
 
 < en:Dried meats
+< en:Prepared beef meats
 en: Beef jerkies, beef jerky
 de: Trockenfleisch vom Rind
 fi: kuivalihat
@@ -85404,9 +85390,6 @@ nl: Vleesbrood
 wikidata:en: Q3807565
 
 < en:Meat preparations
-de: Fleischkäse
-
-< en:Meat preparations
 en: Frikandel
 fr: Fricadelles, fricandelles
 hr: Frikandel
@@ -85415,7 +85398,7 @@ nl: Frikandel
 wikidata:en: Q1464898
 
 < en:Meat analogues
-en: Fleischkäse substitutes
+en: Fleischkäse substitutes, Leberkäse substitutes
 
 < en:Meat alternatives
 en: Vegetarian balls
@@ -86790,8 +86773,11 @@ fr: Tartares de boeuf
 hr: Tartar od goveđeg mesa
 pl: Tatar wołowy
 
+< en:Beef preparations
 < en:Ground meat preparations
 fr: Américains préparés, hâchés américains
+nl: Filet Americain
+wikidata:en: Q22348764
 
 < en:Beef
 < en:Steaks
@@ -86841,11 +86827,8 @@ lt: Jautienos ruošiniai
 nl: Rundvleesproducten
 pt: Preparados de bife
 
-< en:Ground beef preparations
-nl: Filet Americain
-
-< en:Beef preparations
 < en:Dried meats
+< en:Prepared beef meats
 en: Meat of the grisons, Viande des Grisons, Bündnerfleisch, Dried beef meat
 de: Bündnerfleisch
 es: Bindenfleisch
@@ -86863,8 +86846,12 @@ wikidata:en: Q390726
 nl: Rundvleeskroketten
 fr: Croquettes hollandaises au bœuf
 
-< en:Beef preparations
+< en:Prepared meats
+it: Bresaloa Equina
+fr: Bresaola de cheval
+
 < en:Dried meats
+< en:Prepared beef meats
 en: Bresaola
 xx: Bresaola
 bg: Брезаола
@@ -86882,9 +86869,14 @@ tr: pastırma
 < en:Beef pastrami
 xx: Suho meso
 
-< en:Beef preparations
-en: Cooked beef ham
-fr: Jambon de bœuf cuit
+< en:Prepared beef meats
+en: Cured beef hams
+de: Rinder-Rohschinken
+fr: Jambons de bœuf crus
+
+< en:Prepared beef meats
+en: Cooked beef hams, cooked beef ham
+fr: Jambons de bœuf cuits, jambon de bœuf cuit
 
 < en:Beef steaks
 < en:Ground steaks
@@ -89781,6 +89773,26 @@ food_groups:en: en:processed-meat
 nova:en: 3
 pnns_group_2:en: Processed meat
 
+< en:Beef and its products
+< en:Prepared meats
+en: Prepared beef meats
+fr: Charcuteries de bœuf
+
+< en:Pork and its products
+< en:Prepared meats
+en: Prepared pork meats
+fr: Charcuteries de porc
+
+< en:Chicken and its products
+< en:Prepared meats
+en: Prepared chicken meats
+fr: Charcuteries de poulet
+
+< en:Prepared meats
+< en:Turkey and its products
+en: Prepared turkey meats
+fr: Charcuteries de dinde
+
 < fr:Charcuteries cuites
 fr: Andouillettes
 agribalyse_food_code:en: 8550
@@ -89847,6 +89859,16 @@ ciqual_food_name:en: Chitterling sausage, sautéed/pan-fried
 ciqual_food_name:fr: Andouillette, sautée/poêlée
 
 < en:Prepared meats
+de: Fleischkäse, Leberkäse
+xx: Fleischkäse, Leberkäse
+wikidata:en: Q681841
+
+< en:Prepared pork meats
+de: Kasseler, Kassler
+xx: Kasseler, Kassler
+wikidata:en: Q650685
+
+< en:Prepared pork meats
 en: Porchetta
 es: Porchetta
 fr: Porchetta
@@ -89855,14 +89877,25 @@ it: Porchetta
 ja: ポルケッタ
 wikidata:en: Q1106345
 
-< en:Prepared meats
+< en:Prepared beef meats
 en: Beef pastrami
 fr: Pastrami de bœuf
 hr: Goveđa pastrama
 ja: パストラミ
 nl: Rundvleespastrami
 
-< en:Prepared meats
+< en:Prepared beef meats
+en: Corned beef
+de: Corned Beef
+fr: Corned-beef, Corned-beef appertisé, Corned-beef en conserve
+hr: Usoljena govedina
+ja: コーンビーフ
+ciqual_food_code:en: 28505
+ciqual_food_name:en: Corned-beef
+ciqual_food_name:fr: Corned-beef, appertisé
+wikidata:en: Q1133209
+
+< en:Prepared pork meats
 en: Coppa, Capicola, Capocollo
 fr: Coppa
 hr: Coppa
@@ -89886,6 +89919,11 @@ origins:en: en:france, en:corsica
 protected_name_file_number:en: PDO-FR-0992
 protected_name_type:en: pdo
 wikidata:en: Q21007645
+
+# Lachschinken is a piece of cured smoked pork cutlet, this is not ham despite its name
+< en:Prepared pork meats
+de: Lachsschinken
+wikidata:en: Q1265899
 
 # don't put under sausages since it also exists in spread form
 # don't confused the "French" style and the "German" style liver sausages. The French ones are cured and the German ones are precooked and usually spreadable
@@ -90089,6 +90127,7 @@ ciqual_food_code:en: 28803
 ciqual_food_name:en: Cooked ham, smoked
 
 < en:Hams
+< en:Prepared pork meats
 en: White hams, white ham, cooked hams, cooked ham
 ca: Pernil dolç, pernil cuit
 de: Kochschinken
@@ -90231,6 +90270,7 @@ en: Game hams
 fr: Jambons de gibier
 
 < en:Hams
+< en:Prepared pork meats
 en: Cured hams, cured ham
 de: Unbehandelte Schinken
 es: jamón de país, jamón salado
@@ -90483,7 +90523,6 @@ agribalyse_food_code:en: 8025
 ciqual_food_code:en: 8025
 ciqual_food_name:en: Rillettes, pure goose
 
-< en:Ducks
 < en:Poultry rillettes
 en: Duck rillettes
 de: Entenfleischaufstriche
@@ -90500,10 +90539,12 @@ wikidata:en: Q47325346
 fr: Grillons de canard
 
 < en:Poultry rillettes
+< en:Prepared turkey meats
 en: Turkey rillettes
 fr: Rillettes de dinde
 
 < en:Poultry rillettes
+< en:Prepared chicken meats
 en: chicken rillettes
 de: Hühnchen-Rillettes, Hühnchen Rillettes, Hühnchenrillettes
 fi: Kanarilletet
@@ -90525,6 +90566,7 @@ fr: Rillettes de viande rouge
 en: Lamb rillettes
 fr: Rillettes d’agneau
 
+< en:Prepared beef meats
 < fr:Rillettes de viande rouge
 en: Beef rillettes
 fr: Rillettes de bœuf
@@ -90542,6 +90584,7 @@ fr: Rillettes de sanglier
 en: Mutton rillettes
 fr: Rillettes de mouton
 
+< en:Prepared pork meats
 < fr:Rillettes de viande rouge
 en: Pork rillettes
 de: Schweinefleisch Rillettes
@@ -90553,7 +90596,6 @@ ciqual_food_code:en: 8000
 ciqual_food_name:en: Rillettes, pork
 
 < en:Pork rillettes
-< en:Prepared meats
 en: Rillettes pure pork
 fr: Rillettes pur porc
 agribalyse_food_code:en: 8001
@@ -90678,7 +90720,7 @@ agribalyse_food_code:en: 8081
 ciqual_food_code:en: 8081
 ciqual_food_name:en: Rillettes, salmon
 
-< en:Salmon Rillettes
+< en:Salmon rillettes
 en: Pink salmon rillettes
 fr: Rillettes de saumon rose
 
@@ -90729,6 +90771,7 @@ ciqual_food_name:en: Sausage (average)
 ciqual_food_name:fr: Saucisse (aliment moyen)
 intake24_category_code:en: SSGS
 
+< en:Prepared beef meats
 < en:Sausages
 en: Beef sausages, Beef sausage
 fr: Saucisses de bœuf, Saucisse de bœuf
@@ -90752,6 +90795,7 @@ agribalyse_food_code:en: 30050
 ciqual_food_code:en: 30050
 ciqual_food_name:en: Sausage meat, raw
 
+< en:Prepared pork meats
 < en:Sausages
 en: Pork sausages
 bg: Свински колбаси
@@ -90880,8 +90924,8 @@ ciqual_food_code:en: 30778
 ciqual_food_name:en: Tongue sausage w pistachios
 ciqual_food_name:fr: Saucisse de langue à la pistache
 
+< en:Prepared beef meats
 < en:Sausages
-< en:Veal meat
 en: Veal sausages, Veal Sausage
 bg: Телешки колбаси
 de: Kalbswürste
@@ -90892,12 +90936,10 @@ hr: Teleće kobasice
 pl: Kiełbasy cielęce, Kiełbasa cielęca
 wikidata:en: Q107261757
 
-< en:Horse fresh meat
 < en:Sausages
 en: Horse sausages
 fr: Saucisses de cheval
 
-< en:Cooked meats
 < en:Horse sausages
 en: Cooked horse sausages
 fr: Saucisses de cheval cuites
@@ -90909,8 +90951,8 @@ agribalyse_proxy_food_name:fr: Cheval, viande, rôtie/cuite au four
 en: Laap Coeng
 zh-hk: 臘腸
 
-< en:Chicken preparations
 < en:Poultry sausages
+< en:Prepared chicken meats
 en: Chicken sausages
 bg: Пилешки колбаси
 de: Hühnerwürste
@@ -90929,9 +90971,8 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Chicken Sausages - Prepared/Processed
 wikidata:en: Q47472153
 
-
 < en:Poultry sausages
-< en:Turkey preparations
+< en:Prepared turkey meats
 en: Turkey sausages
 bg: Пуешки колбаси
 de: Truthahnwurst
@@ -90971,6 +91012,7 @@ fr: Merguez de mouton
 hr: Ovčetina merguez
 nl: Schaapsvlees-merguez
 
+< en:Prepared beef meats
 < fr:Merguez
 en: Beef merguez
 fr: Merguez de bœuf
@@ -91048,7 +91090,7 @@ ciqual_food_code:en: 30732
 ciqual_food_name:en: Saveloy or cervelat, pure pork with garlic
 ciqual_food_name:fr: Cervelas à l'ail, pur porc
 
-< en:Cervelat
+< en:Pork
 en: Pork brain
 fr: Cervelle de porc
 agribalyse_food_code:en: 40005
@@ -91076,7 +91118,7 @@ it: Salsicce tedesche
 nl: Duitse worsten
 pl: Kiełbasa Niemiecka
 
-< en:German sausages
+< en:Sausages
 en: Frankfurter sausages, Frankfurter sausage
 de: Frankfurter Würstchen
 es: salchichas Frankfurt, frankfurt
@@ -91118,7 +91160,7 @@ fr: Saucisses sèches de foie, Saucisses de foie
 wikidata:en: Q111211562
 
 < en:Liver sausages
-< en:Pork preparations
+< en:Prepared pork meats
 en: Pork liver sausages
 de: Schweineleberwürste, Schweineleberwurst
 fr: Saucisses de foie de porc
@@ -91498,6 +91540,7 @@ it: Prosciutti di pollame
 nl: Gevogelte bilvlees
 
 < en:Poultry hams
+< en:Prepared chicken meats
 en: Cooked chicken breast slices, chicken ham
 de: Hähnchen-brustfilet in Scheiben
 es: Fiambre de pechuga de pollo, Pechuga de pollo cocida en lonchas
@@ -91532,6 +91575,7 @@ en: Reconstituted chicken breast slices
 fr: Blancs de poulet reconstitués
 
 < en:Poultry hams
+< en:Prepared turkey meats
 en: Cooked turkey breast slices, Turkey ham, cooked turkey breast
 es: Fiambre de pechuga de pavo, Pechuga de pavo cocida en lonchas
 fr: Blancs de dinde en tranches, blanc de dinde en tranche, jambon de dinde
@@ -91597,6 +91641,11 @@ ciqual_food_name:en: Mortadella
 wikidata:en: Q169757
 
 < en:Mortadella
+en: Poultry mortadella
+de: Geflügel-Mortadella
+fr: Mortadelle de volaille
+
+< en:Mortadella
 en: Mortadella pure pork
 fr: Mortadelle pur porc
 hr: Mortadela čista svinjska
@@ -91635,6 +91684,20 @@ origins:en: en:italy
 protected_name_file_number:en: PGI-IT-01333, PGI-IT-01333-AM01
 protected_name_type:en: pgi
 #wikidata:en:
+
+< fr:Charcuteries cuites
+en: Lyoner
+xx: Lyoner
+de: Lyoner
+
+< en:Lyoner
+< en:Prepared pork meats
+en: Pork lyoner
+de: Schweine Lyoner
+
+< en:Lyoner
+en: Poultry lyoner
+de: Geflügel Lyoner
 
 < en:Prepared meats
 fr: Charcuteries diverses
@@ -114309,7 +114372,7 @@ ciqual_food_name:fr: Tempeh
 wikidata:en: Q120096
 
 < en:Legumes and their products
-< en:Meat analogues
+< en:Meat alternatives
 en: Textured vegetable protein
 de: Strukturiertes Pflanzenprotein, Geformtes Pflanzenprotein
 fr: Protéine végétale texturée
@@ -118357,9 +118420,15 @@ ciqual_food_name:en: Plant-based ham, prepacked
 ciqual_food_name:fr: Spécialité végétale type jambon cuit, préemballée
 
 < en:Prepared meat cuts substitutes
-en: Vegan salami
+en: Salami substitutes, Vegan salami
 da: Vegansk salami
 sv: Vegansk salami
+
+< en:Prepared meat cuts substitutes
+en: Mortadella substitutes
+
+< en:Prepared meat cuts substitutes
+en: Lyoner substitutes
 
 < en:Meat analogues
 en: Foie gras substitutes
