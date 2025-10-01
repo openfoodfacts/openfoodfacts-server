@@ -42,6 +42,7 @@ BEGIN {
 		&compare_csv_file_to_expected_results
 		&create_sto_from_json
 		&init_expected_results
+		&normalize_object_for_test_comparison
 		&normalize_org_for_test_comparison
 		&normalize_product_for_test_comparison
 		&normalize_products_for_test_comparison
