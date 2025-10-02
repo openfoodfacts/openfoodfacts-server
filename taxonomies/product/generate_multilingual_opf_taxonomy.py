@@ -53,7 +53,7 @@ def generate_multilingual_taxonomy(language_urls):
                         
                         # Store the full path for the first language processed (optional, but good for reference)
                         if 'full_path' not in merged_taxonomy[category_id]:
-                           merged_taxonomy[category_id]['full_path'] = category_path
+                            merged_taxonomy[category_id]['full_path'] = category_path
 
 
                     except ValueError:
