@@ -126,6 +126,7 @@ $request_ref->{initjs} = "";
 $request_ref->{cc} = $cc;
 $request_ref->{subdomain} = $subdomain;
 $request_ref->{formatted_subdomain} = $formatted_subdomain;
+my $country;
 
 if ((not defined $cc) or (not defined $lc)) {
 	die("$usage\nError: Pass country code (or world) and language code as arguments.\n");
