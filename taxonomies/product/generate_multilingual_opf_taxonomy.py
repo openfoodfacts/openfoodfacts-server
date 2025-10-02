@@ -80,16 +80,16 @@ if __name__ == '__main__':
         # 'it-IT': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.it-IT.txt',
         # 'ar-AR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt', # contains en-US
         'au-AU': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-GB.txt',
-        'at-AT': 'http://www.google.com/basepages/producttype/taxonomy-with-ids.de-DE.txt',
+        'at-AT': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.de-DE.txt',
         'be-FR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.fr-FR.txt',
-        'be-NL': 'http://www.google.com/basepages/producttype/taxonomy-with-ids.nl-NL.txt',
+        'be-NL': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.nl-NL.txt',
         'br-BR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt',
         # 'ca-EN': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt', # contains en-US
         'ca-FR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.fr-FR.txt',
         # 'cl-CL': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt', # contains en-US
         # 'cn-CN': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt', # contains en-US
         'co-CO': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.es-ES.txt',
-        'cz-CZ': 'http://www.google.com/basepages/producttype/taxonomy-with-ids.cs-CZ.txt',
+        'cz-CZ': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.cs-CZ.txt',
         'dk-DK': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.da-DK.txt',
         # 'fi-FI': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt', # contains en-US
         'fr-FR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.fr-FR.txt',
