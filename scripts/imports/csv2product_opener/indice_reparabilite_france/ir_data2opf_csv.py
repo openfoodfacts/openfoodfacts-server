@@ -1,3 +1,5 @@
+#!/usr/bin/env -S uv run --script
+
 # /// script
 # requires-python = ">=3.11"
 # ///
@@ -9,12 +11,28 @@ import configparser
 import os
 
 # Paths to the files
-SOURCE_CSV = 'source.csv'
 MAPPING_CSV = 'mapping.csv'
 
-# Build CSV to be imported in openfoodfacts; the mapping file is used to map the columns from source to the expected columns by OpenFoodFacts
-with open(SOURCE_CSV, mode='r', encoding='utf-8') as source, \
-     open(MAPPING_CSV, mode='r', encoding='utf-8') as mapping:
+# Parse command line arguments
+parser = argparse.ArgumentParser(description="Convert products from CSV to Open Food Facts' CSV.")
+parser.add_argument('source_csv', nargs='?', default=None, help='Source CSV file (default: stdin)')
+parser.add_argument('--limit', type=int, default=None, help='Limit the number of products to process')
+args = parser.parse_args()
+
+# Open source CSV from argument or stdin
+if args.source_csv:
+    source = open(args.source_csv, mode='r', encoding='utf-8')
+else:
+    source = sys.stdin
+
+# Check if source is empty
+first_char = source.read(1)
+if not first_char:
+    parser.print_help()
+    sys.exit("Source CSV is empty.")
+
+
+with source, open(MAPPING_CSV, mode='r', encoding='utf-8') as mapping:
     source_reader = csv.DictReader(source)
     mapping_reader = csv.DictReader(mapping)
     
@@ -47,13 +65,6 @@ with open(SOURCE_CSV, mode='r', encoding='utf-8') as source, \
             products_to_import.append(product)
     
     # Print products as CSV data, limited by --limit flag if provided
-
-    # Determine limit from command line arguments
-    limit = None
-    parser = argparse.ArgumentParser(description="Convert products from CSV to Open Food Facts' CSV.")
-    parser.add_argument('--limit', type=int, default=None, help='Limit the number of products to process')
-    args = parser.parse_args()
-
     limit = args.limit
 
     # Get the list of fieldnames from the first product, if any

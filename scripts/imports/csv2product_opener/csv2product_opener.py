@@ -1,3 +1,5 @@
+#!/usr/bin/env -S uv run --script
+
 '''
 Import products from standardized CSV to Open X Facts. Credentials are read from config.ini file.
 
