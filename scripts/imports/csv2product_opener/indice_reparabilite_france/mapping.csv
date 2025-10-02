@@ -6,7 +6,7 @@
 "categorie_produit","categories","Product Opener","French language"
 "id_metteur_sur_le_marche","france:reparability_index:company:id:syderep or company:id:gln","Folksonomy Engine",
 "referentiel_id_metteur_sur_marche","-",,"Merged with the previous one"
-"nom_metteur_sur_le_marche","france:reparability_index:company:name","Folksonomy Engine",
+"nom_metteur_sur_le_marche","brands","Product Opener",
 "date_calcul","france:reparability_index:calculation_date","Folksonomy Engine",
 "url_tableau_detail_notation","france:reparability_index:scoring_details_url","Folksonomy Engine",
 "note_ir","labels","Product Opener","We should prefer Product Opener labels of the following serie: repairability-index-8-2-france"
@@ -25,7 +25,7 @@
 "note_c5.1","-",,
 "note_c5.2","-",,
 "note_c5.3","-",,
-"lien_documentation","france:reparability_index:documentation:url","Folksonomy Engine","Sometimes its leads to the documentation, sometimes to the producers' website"
+"lien_documentation","link","Product Opener","Sometimes its leads to the documentation, sometimes to the producers' website"
 "nom_piece_detachee_1_reparateur","france:reparability_index:spare_part:name:repairer:fr","Folksonomy Engine","Nested values. Eg. bla|bli|blo"
 "delai_jours_piece_detachee_1_reparateur","france:reparability_index:spare_part:delivery_days:repairer","Folksonomy Engine","Nested values. Eg. <3|<3|<3"
 "nb_annees_disponibilite_piece_detachee_1_reparateur","france:reparability_index:spare_part:availability_years:repairer","Folksonomy Engine","Nested values. Eg. >13|>13|>13"
