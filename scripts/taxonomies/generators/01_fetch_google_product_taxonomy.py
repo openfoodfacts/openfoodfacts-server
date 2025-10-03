@@ -84,30 +84,35 @@ def fetch_json_taxonomy() -> Dict:
     return response.json()
 
 
-def parse_translation_line(line: str) -> Tuple[str, str, str]:
+def parse_translation_line(line: str) -> Tuple[str, str, int]:
     """
     Parse a line from Google's taxonomy-with-ids file.
     
-    Format: " - Category Name [ID: 123]"
+    Format: "123 - Category > Subcategory"
     Returns: (id, name, level) where level is the hierarchy depth
     """
     line = line.rstrip('\n')
     
-    # Count leading spaces/dashes to determine hierarchy level
-    level = 0
-    stripped = line.lstrip(' ')
-    if stripped.startswith('-'):
-        level = (len(line) - len(stripped) + 1) // 2
-        stripped = stripped[1:].strip()
+    # Skip comments
+    if line.startswith('#'):
+        return None, None, None
     
-    # Extract ID and name
-    match = re.match(r'^(.+?)\s+\[ID:\s*(\d+)\]$', stripped)
-    if match:
-        name = match.group(1).strip()
-        cat_id = match.group(2)
-        return cat_id, name, level
+    # Format: ID - Full > Path > To > Category
+    match = re.match(r'^(\d+)\s*-\s*(.+)$', line)
+    if not match:
+        return None, None, None
     
-    return None, None, None
+    cat_id = match.group(1)
+    full_path = match.group(2).strip()
+    
+    # The hierarchy level is the number of ' > ' separators plus 1
+    parts = full_path.split(' > ')
+    level = len(parts)
+    
+    # The actual category name is the last part
+    name = parts[-1].strip()
+    
+    return cat_id, name, level
 
 
 def fetch_translations(locale: str, url: str) -> Dict[str, str]:
@@ -121,8 +126,15 @@ def fetch_translations(locale: str, url: str) -> Dict[str, str]:
         response = requests.get(url)
         response.raise_for_status()
         
+        # Try to detect encoding - Google's files might be in Latin-1
+        # First try UTF-8, fall back to Latin-1 if that fails
+        try:
+            text = response.content.decode('utf-8')
+        except UnicodeDecodeError:
+            text = response.content.decode('latin-1')
+        
         translations = {}
-        for line in response.text.split('\n'):
+        for line in text.split('\n'):
             if not line.strip() or line.startswith('#'):
                 continue
             

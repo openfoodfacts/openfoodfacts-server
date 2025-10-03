@@ -75,10 +75,14 @@ def build_category_hierarchy(taxonomy_structure: Dict) -> Dict[str, Dict]:
     
     def process_node(node: Dict, parent_id: Optional[str] = None):
         """Recursively process taxonomy nodes."""
-        cat_id = node.get('id')
+        cat_id = str(node.get('google_id', node.get('id', '')))
         name = node.get('name', '')
         
-        if not cat_id:
+        if not cat_id or cat_id == '0':  # Skip root node
+            # Process children of root
+            if 'children' in node:
+                for child in node['children']:
+                    process_node(child, None)
             return
         
         categories[cat_id] = {
@@ -91,8 +95,10 @@ def build_category_hierarchy(taxonomy_structure: Dict) -> Dict[str, Dict]:
         # Process children
         if 'children' in node:
             for child in node['children']:
-                process_node(child, cat_id)
-                categories[cat_id]['children'].append(child.get('id'))
+                child_id = str(child.get('google_id', child.get('id', '')))
+                if child_id and child_id != '0':
+                    process_node(child, cat_id)
+                    categories[cat_id]['children'].append(child_id)
     
     # Process all root nodes
     if isinstance(taxonomy_structure, list):
