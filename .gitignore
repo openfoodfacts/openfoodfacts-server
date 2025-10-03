@@ -108,9 +108,6 @@ taxonomies/*.all.txt
 /build-cache/taxonomies/*.json
 /build-cache/taxonomies/*.result.txt
 
-# Taxonomy generator data (temporary)
-scripts/taxonomies/generators/google_product_taxonomy_data/
-
 # Shared services and other dependencies
 /deps
 /deps/*
