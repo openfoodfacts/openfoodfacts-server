@@ -443,7 +443,10 @@ jobs:
         else
           echo "🥫 No JUnit XML files found, skipping timing update"
         fi
-    
+      unit_tests:
+    # ... your existing matrix job ...
+    # matrix: test-group: ${{ ... }}
+
     # TODO: Coverage reporting is disabled for now as it won't be effective after splitting tests.
     # We should upload test coverage as artifacts and have a separate action that collects
     # all coverage files and sends the coverage report. We can live without it for some time.
@@ -572,7 +575,18 @@ jobs:
     #   with:
     #     token: ${{ secrets.CODECOV_TOKEN }}
     #     files: ./tests/integration/outputs/junit_group_${{ matrix.test-group }}.xml
-    
+
+  unit_tests_summary:
+    # if all tests did run correctly acknowledge the branch protection rule
+    # use the name that is settled in branch protection rules, although it's not fully correct
+    name: Perl unit tests
+    needs: [unit_tests, integration_tests]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Acknozledge tests succeded
+        run: |
+          echo "All Perl unit and integration test groups finished."
+
   tests_dev:
     name: 🧪 Test make dev
     needs: [filter, build_backend]  # build_backend - only to avoid building taxonomies
