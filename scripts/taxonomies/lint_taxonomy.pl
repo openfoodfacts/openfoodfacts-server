@@ -211,7 +211,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 							severity => "Error",
 							type => "Correctness",
 							line => $line_num,
-							message => ("duplicate language line for $lc:\n" . "- $previous_lc_line" . "- $line")
+							message => ("duplicate language line for $lc:\n" . "- $previous_lc_line" . "\n- $line")
 							};
 					}
 					# but try to do our best and continue
@@ -240,7 +240,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 							message => (
 									  "duplicate property language line for $prop:$lc:\n" . "- "
 									. $props{"$prop:$lc"}->{line}
-									. "- $line"
+									. "\n- $line"
 							)
 						}
 					);
