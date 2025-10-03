@@ -234,6 +234,7 @@ def filter_taxonomy(
     skip_current = False
     categories_written = 0
     categories_skipped = 0
+    pending_parent_line = None  # Hold parent relationship for next entry
     
     with open(input_file, 'r', encoding='utf-8') as fin:
         with open(output_file, 'w', encoding='utf-8') as fout:
@@ -250,15 +251,51 @@ def filter_taxonomy(
             fout.write("# - wikidata:en: Wikidata Q-ID for the category\n")
             fout.write("#\n\n")
             
+            in_header = True
             for line in fin:
-                # Skip header
-                if line.startswith('#') or not line.strip():
+                # Skip header comments
+                if line.startswith('#'):
+                    continue
+                
+                # First non-comment line means header is over
+                if line.strip() and in_header:
+                    in_header = False
+                
+                # Skip empty lines in header section
+                if in_header and not line.strip():
+                    continue
+                
+                # Check for parent relationship - hold it for next entry
+                if line.startswith('<'):
+                    # Extract parent category name
+                    match = re.match(r'^<+\s*([a-z]{2}):?\s*(.+)$', line)
+                    if match:
+                        parent_name = match.group(2).strip()
+                        
+                        # Find parent ID
+                        parent_id = None
+                        for cat_id, cat_name in translations.get('en', {}).items():
+                            if cat_name == parent_name:
+                                parent_id = cat_id
+                                break
+                        
+                        # If parent is excluded, the next category should be skipped
+                        if parent_id and parent_id in excluded_ids:
+                            pending_parent_line = None  # Don't carry forward excluded parent
+                            skip_current = True  # Mark to skip next category
+                        else:
+                            # Hold parent line with its preceding blank line for next entry
+                            pending_parent_line = line
                     continue
                 
                 # Check if this is a new category (starts with "en:")
                 if line.startswith('en:'):
                     # Process previous block if any
                     if current_block and not skip_current:
+                        # Remove trailing blank lines temporarily
+                        while current_block and current_block[-1].strip() == '':
+                            current_block.pop()
+                        
                         # Add carbon impact data if matched
                         if current_category_id and current_category_id in carbon_matches:
                             carbon = carbon_matches[current_category_id]
@@ -269,16 +306,24 @@ def filter_taxonomy(
                             for lang, unit in carbon.get('unit_name', {}).items():
                                 current_block.append(f"unit_name:{lang}: {unit}\n")
                         
+                        # Add back a single blank line at the end
+                        current_block.append('\n')
+                        
                         # Write the block
                         fout.writelines(current_block)
-                        fout.write('\n')
                         categories_written += 1
                     elif skip_current:
                         categories_skipped += 1
                     
                     # Start new block
                     current_block = []
-                    skip_current = False
+                    
+                    # Add pending parent line if any
+                    if pending_parent_line:
+                        # Don't add extra blank line - it's already in previous block
+                        current_block.append(pending_parent_line)
+                        current_block.append('\n')  # Blank line after parent
+                        pending_parent_line = None
                     
                     # Extract category name to find its ID
                     en_name = line.split(':', 1)[1].strip().split(',')[0].strip()
@@ -294,32 +339,20 @@ def filter_taxonomy(
                     if current_category_id in excluded_ids:
                         skip_current = True
                         continue
+                    else:
+                        skip_current = False  # Reset skip flag for new category
                 
-                # Check for parent relationship
-                if line.startswith('<'):
-                    # Extract parent category name
-                    match = re.match(r'^<+\s*([a-z]{2}):?\s*(.+)$', line)
-                    if match:
-                        parent_name = match.group(2).strip()
-                        
-                        # Find parent ID
-                        parent_id = None
-                        for cat_id, cat_name in translations.get('en', {}).items():
-                            if cat_name == parent_name:
-                                parent_id = cat_id
-                                break
-                        
-                        # If parent is excluded, skip this category too
-                        if parent_id and parent_id in excluded_ids:
-                            skip_current = True
-                            continue
-                
-                # Add line to current block
-                if not skip_current:
+                # Add line to current block (except blank lines before parent relationships)
+                if not skip_current and not line.startswith('<'):
                     current_block.append(line)
             
             # Don't forget the last block
             if current_block and not skip_current:
+                # Remove trailing blank lines temporarily
+                while current_block and current_block[-1].strip() == '':
+                    current_block.pop()
+                
+                # Add carbon impact data if matched
                 if current_category_id and current_category_id in carbon_matches:
                     carbon = carbon_matches[current_category_id]
                     if carbon['impact']:
@@ -328,6 +361,9 @@ def filter_taxonomy(
                         current_block.append(f"carbon_impact_fr_impactco2_link:en: {carbon['link']}\n")
                     for lang, unit in carbon.get('unit_name', {}).items():
                         current_block.append(f"unit_name:{lang}: {unit}\n")
+                
+                # Add back a single blank line at the end
+                current_block.append('\n')
                 
                 fout.writelines(current_block)
                 categories_written += 1
