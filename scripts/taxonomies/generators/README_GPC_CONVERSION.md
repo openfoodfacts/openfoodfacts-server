@@ -2,14 +2,47 @@
 
 This directory contains scripts to generate an Open Products Facts category taxonomy based on the Google Product Taxonomy.
 
-## Overview
+## Quick Start
 
-The conversion process consists of 4 main steps:
+```bash
+cd scripts/taxonomies/generators
+python3 00_run_all.py
+```
 
-1. **Fetch Google Product Taxonomy** - Downloads the hierarchical structure and translations
-2. **Fetch Wikidata Mappings** - Retrieves mappings from Google Product Category IDs to Wikidata Q-IDs
-3. **Extract Existing Data** - Parses the current OPF categories.txt to preserve existing data
-4. **Generate Taxonomy** - Combines all data sources to create the new taxonomy file
+Output: `google_product_taxonomy_data/new_categories.txt` with 5,595 categories in 15 languages
+
+## What This Does
+
+The conversion process:
+
+1. **Fetches Google Product Taxonomy** - Downloads hierarchical structure and translations in 15 languages
+2. **Fetches Wikidata Mappings** - Retrieves 5,593 mappings from Google Product Category IDs to Wikidata Q-IDs  
+3. **Extracts Existing Data** - Parses current OPF categories.txt to preserve existing data (wikidata, carbon impact, etc.)
+4. **Generates Taxonomy** - Combines all data sources into OPF taxonomy format
+
+## Generated Taxonomy Features
+
+- **5,595 categories** from Google Product Taxonomy
+- **15 languages**: English, French, German, Spanish, Italian, Dutch, Portuguese, Czech, Danish, Japanese, Norwegian, Polish, Russian, Swedish, Turkish
+- **5,593 Wikidata mappings** (99.9% coverage via property P11302)
+- **Preserved data** from existing taxonomy: carbon impact (51 categories), custom properties
+- **Hierarchical structure** with parent-child relationships
+- **OPF format** compatible with existing taxonomy system
+
+## Scripts
+
+- **00_run_all.py** - Master script to run entire pipeline
+- **01_fetch_google_product_taxonomy.py** - Fetch taxonomy structure and translations
+- **02_fetch_wikidata_mappings.py** - Query Wikidata for category mappings
+- **03_extract_existing_data.py** - Parse existing OPF categories.txt
+- **04_generate_opf_taxonomy.py** - Generate final taxonomy file
+
+## Documentation
+
+- **README_GPC_CONVERSION.md** - Original detailed overview
+- **USAGE_GUIDE.md** - Comprehensive guide with examples and customization
+- **EXAMPLE_OUTPUT.txt** - Sample of generated taxonomy
+- **IMPLEMENTATION_CHECKLIST.md** - Production deployment checklist
 
 ## Prerequisites
 
@@ -17,176 +50,101 @@ The conversion process consists of 4 main steps:
 pip install requests
 ```
 
-## Usage
+## Usage Examples
 
-### Quick Start - Run All Steps
-
+### Generate Full Taxonomy
 ```bash
-cd scripts/taxonomies/generators
 python3 00_run_all.py
 ```
 
-This will:
-- Fetch all required data
-- Generate the new taxonomy
-- Save output to `google_product_taxonomy_data/new_categories.txt`
-
-### Run Individual Steps
-
-You can also run scripts individually:
-
-```bash
-# Step 1: Fetch Google Product Taxonomy
-python3 01_fetch_google_product_taxonomy.py
-
-# Step 2: Fetch Wikidata mappings
-python3 02_fetch_wikidata_mappings.py
-
-# Step 3: Extract existing OPF data
-python3 03_extract_existing_data.py
-
-# Step 4: Generate new taxonomy
-python3 04_generate_opf_taxonomy.py
-```
-
-### Using Cached Data
-
-If you've already fetched the data and just want to regenerate the taxonomy:
-
+### Use Cached Data (skip network fetch)
 ```bash
 python3 00_run_all.py --skip-fetch
 ```
 
+### Run Individual Steps
+```bash
+python3 01_fetch_google_product_taxonomy.py
+python3 02_fetch_wikidata_mappings.py
+python3 03_extract_existing_data.py
+python3 04_generate_opf_taxonomy.py
+```
+
+### Test Installation
+```bash
+./test_scripts.sh
+```
+
 ## Output Files
 
-All output files are saved in the `google_product_taxonomy_data/` directory:
+All files are saved in `google_product_taxonomy_data/`:
 
-### Intermediate Data Files
+**Intermediate data:**
+- `taxonomy_structure.json` - Hierarchical structure
+- `translations.json` - Translations by language
+- `wikidata_mappings.json` - GPC ID to Wikidata Q-ID
+- `existing_*.json` - Data from current taxonomy
 
-- `taxonomy_structure.json` - Hierarchical structure from Google Product Taxonomy
-- `translations.json` - Translations in multiple languages organized by language code
-- `wikidata_mappings.json` - Mapping from Google Product Category ID to Wikidata Q-ID
-- `wikidata_mappings_detailed.json` - Same as above but with labels
-- `wikidata_labels.json` - Multilingual labels for Wikidata entities
-- `existing_categories_data.json` - Parsed data from current OPF taxonomy
-- `existing_wikidata_mappings.json` - Wikidata mappings from current taxonomy
-- `existing_carbon_impact_data.json` - Carbon impact data from current taxonomy
-- `existing_properties.json` - All properties from current taxonomy
+**Final output:**
+- `new_categories.txt` - Generated taxonomy (3MB, 112k lines)
 
-### Final Output
+## Example Output
 
-- `new_categories.txt` - The generated taxonomy file in OPF format
+```text
+en: Animals & Pet Supplies
+cs: Chovatelství
+de: Tiere & Tierbedarf
+fr: Animaux et articles pour animaux de compagnie
+...
+wikidata:en: Q116957923
+
+< en: Animals & Pet Supplies
+
+en: Pet Supplies
+...
+wikidata:en: Q115921084
+```
 
 ## Data Sources
 
-### Google Product Taxonomy
+- **Google Product Taxonomy**: https://raw.githubusercontent.com/lubianat/google_product_taxonomy_reference/refs/heads/master/data/taxonomy.json
+- **Google Translations**: https://www.google.com/basepages/producttype/
+- **Wikidata**: https://query.wikidata.org/ (property P11302)
+- **Current OPF Taxonomy**: taxonomies/product/categories.txt
 
-- **Hierarchical JSON**: https://raw.githubusercontent.com/lubianat/google_product_taxonomy_reference/refs/heads/master/data/taxonomy.json
-- **Translations**: Multiple language files from https://www.google.com/basepages/producttype/
+## Known Limitations
 
-Supported languages: English, French, German, Spanish, Italian, Dutch, Portuguese, Czech, Danish, Japanese, Norwegian, Polish, Russian, Swedish, Turkish
+1. **Large Size**: 5,595 categories (vs 136 current) - may need filtering for OPF use
+2. **Encoding Issues**: Some Google source files have Latin-1 encoding
+3. **Missing Categories**: Some OPF-specific categories (e.g., "Smartphones" subcategories) not in Google taxonomy
+4. **Basic Matching**: Simple string matching may miss some existing data correlations
 
-### Wikidata
+See USAGE_GUIDE.md for details and solutions.
 
-Wikidata entities with property P11302 (Google Product Category ID):
-- **SPARQL Query**: https://query.wikidata.org/
-- **Mappings**: Approximately 5,599 categories have Wikidata mappings
+## Next Steps
 
-### Existing OPF Data
+1. Review generated taxonomy
+2. Filter categories relevant to Open Products Facts
+3. Enhance with OPF-specific subcategories
+4. Test with sample products
+5. Plan migration from current taxonomy
 
-The scripts preserve data from the current `taxonomies/product/categories.txt`:
-- Wikidata IDs
-- Carbon impact data (from ImpactCO2.fr)
-- Additional translations
-- Custom properties
-
-## Taxonomy Format
-
-The generated taxonomy follows the OPF taxonomy format:
-
-```
-en: mobile phones, cell phones
-de: Mobiltelefone, Handys
-es: teléfonos móviles, celulares
-fr: téléphones portables, téléphones mobiles
-
-< en: mobile phones
-en: Smartphones
-xx: Smartphones
-de: Smartphones
-es: Teléfonos inteligentes
-fr: Smartphones
-carbon_impact_fr_impactco2:en: 85.9
-carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/smartphone
-unit_name:xx: smartphone
-unit_name:en: smartphone
-wikidata:en: Q22645
-```
-
-### Format Rules
-
-- `< en: parent` - Indicates parent category
-- `lang: name1, name2` - Translations with synonyms
-- `xx:` - International/universal terms
-- `property:lang: value` - Properties like wikidata, carbon_impact, etc.
-
-## Customization
-
-### Adding More Languages
-
-Edit `LANGUAGE_URLS` in `01_fetch_google_product_taxonomy.py` to add more language sources.
-
-### Modifying Matching Logic
-
-Edit `find_matching_existing_category()` in `04_generate_opf_taxonomy.py` to adjust how existing categories are matched with Google Product Taxonomy entries.
-
-### Adding Properties
-
-The scripts preserve all properties from the existing taxonomy. To add new properties, update the extraction logic in `03_extract_existing_data.py`.
-
-## Testing
-
-After generating the taxonomy:
-
-1. Review the output file for correctness
-2. Run taxonomy validation tests (if available)
-3. Compare with the original taxonomy to ensure important data is preserved
-
-## Troubleshooting
-
-### Network Errors
-
-If fetching data fails:
-- Check internet connection
-- Verify URLs are still valid
-- Try running individual fetch scripts with delays
-
-### Missing Data
-
-If some categories lack translations or properties:
-- Check the source data files in `google_product_taxonomy_data/`
-- Verify Wikidata mappings are complete
-- Review matching logic for existing categories
-
-### Large Output File
-
-The Google Product Taxonomy is extensive (6000+ categories). The generated file may be large. Consider:
-- Filtering categories relevant to Open Products Facts
-- Focusing on specific product types
-- Creating separate taxonomy files by product category
-
-## License
-
-These scripts are part of the Open Products Facts project and follow the same license as the main repository (AGPL-3.0).
+See IMPLEMENTATION_CHECKLIST.md for full deployment guide.
 
 ## Contributing
 
-To improve the conversion process:
-1. Test the scripts with the latest data sources
-2. Improve matching algorithms
-3. Add validation checks
-4. Document edge cases
+To improve the conversion:
+- Enhance category matching algorithms
+- Add more language translations
+- Improve filtering logic
+- Add validation checks
 
-## Contact
+## License
 
-For questions or issues, please open an issue on the Open Products Facts GitHub repository.
+Part of Open Products Facts - AGPL-3.0 license
+
+## Support
+
+- Documentation: See USAGE_GUIDE.md
+- Issues: GitHub issue tracker
+- Questions: Open Products Facts community
