@@ -1236,7 +1236,7 @@ sub create_nutrient_levels_panels ($product_ref, $target_lc, $target_cc, $option
 			create_panel_from_json_template(
 				"nutrient_level_" . $nid,
 				"api/knowledge-panels/health/nutrition/nutrient_level.tt.json",
-				$nutrient_level_ref, $product_ref, $target_lc, $target_cc, $options_ref
+				$nutrient_level_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref,
 			);
 		}
 
@@ -1589,7 +1589,7 @@ sub create_recommendation_panels ($product_ref, $target_lc, $target_cc, $options
 		create_panel_from_json_template(
 			"recommendation_ultra_processed_foods",
 			"api/knowledge-panels/recommendations/health/world/ultra_processed_foods.tt.json",
-			{}, $product_ref, $target_lc, $target_cc, $options_ref
+			{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
 		);
 	}
 
