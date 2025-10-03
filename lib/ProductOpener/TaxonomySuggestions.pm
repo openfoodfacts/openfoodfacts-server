@@ -81,7 +81,7 @@ sub load_categories_packagings_stats_for_suggestions() {
 	return $categories_packagings_stats_for_suggestions_ref;
 }
 
-=head2 get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $context_ref, $options_ref )
+=head2 get_taxonomy_suggestions_with_synonyms ($country, $tagtype, $search_lc, $string, $context_ref, $options_ref )
 
 Generate taxonomy suggestions with matched synonyms information.
 
@@ -160,10 +160,10 @@ sub get_taxonomy_suggestions_with_synonyms ($country, $tagtype, $search_lc, $str
 	return @$results_ref;
 }
 
-sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
+sub get_taxonomy_suggestions ($country, $tagtype, $search_lc, $string, $context_ref, $options_ref) {
 	return
 		map {$_->{tag}}
-		get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_ref);
+		get_taxonomy_suggestions_with_synonyms($country, $tagtype, $search_lc, $string, $context_ref, $options_ref);
 }
 
 =head2 generate_sorted_list_of_taxonomy_entries($couuntry, $tagtype, $search_lc, $context_ref)
