@@ -20,7 +20,7 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 **Installation steps:**
 - GIT version >= 2.25.0
 - [Install Docker CE](https://docs.docker.com/engine/install/)
-> If you run e.g. Debian, don't forget to add your user to the `docker` group!  
+> If you run e.g. Debian, don't forget to add your user to the `docker` group!
 
 ### MacOS Prerequisites: Installing GNU grep for Full Regex Support
 
@@ -247,6 +247,23 @@ From the repository root, run:
 make dev
 ```
 
+### Parallel execution with make
+
+By default, GNU make runs one recipe at a time, sequentially. You may choose to run `make dev` with multiple jobs in parallel to speed up the build process, particularly operations that involve many network calls (such as building dependencies and downloading assets). Use either:
+
+```bash
+make dev --jobs=32
+```
+
+or set the `MAKEFLAGS` environment variable before running `make dev`:
+
+```bash
+export MAKEFLAGS=--jobs=32
+make dev
+```
+
+Choosing a higher job count than the number of CPU cores is safe for Product Opener because most of the time the tasks are network-bound rather than CPU-bound. A good starting point is 2-4 times your CPU core count, but monitor system performance and adjust accordingly to match your available bandwidth and system responsiveness.
+
 > **Note:**
 >
 > If you are using Windows, you may encounter issues regarding this command. Take a look at the **Troubleshooting** section further in this tutorial.
@@ -267,6 +284,8 @@ The command will run 2 subcommands:
 ***Notes:***
 
 * The first build can take between 10 and 30 minutes depending on your machine and internet connection (broadband connection heavily recommended, as this will download Docker base images, install Debian and Perl modules in preparation of the final container image).
+
+  * Note: see the "Parallel execution with make" section above for guidance on running `make dev` with multiple jobs in parallel.
 
 * You might not immediately see the test products: create an account, login, and they should appear.
 
@@ -494,7 +513,7 @@ make: *** [Makefile:147: build] Error 1
 
 **Solution:**
 
-Reason for the error: 
+Reason for the error:
 "usermod: UID '0' already exists" means that the user is being assigned UID 0, which is already used by the root user.
 
 

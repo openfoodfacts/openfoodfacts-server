@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.80.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.79.0...v2.80.0) (2025-09-22)
+
+
+### Features
+
+* Make Keycloak the master source of user data at implementation level 2  - M1 ([#12279](https://github.com/openfoodfacts/openfoodfacts-server/issues/12279)) ([0c58118](https://github.com/openfoodfacts/openfoodfacts-server/commit/0c581189ec67a6871b07dfe7c84594e1c6b66281))
+* New Unwanted Ingredients product attribute + related APIs and documentation ([#12383](https://github.com/openfoodfacts/openfoodfacts-server/issues/12383)) ([116126a](https://github.com/openfoodfacts/openfoodfacts-server/commit/116126a3d8d460b14e5604dd65237850373ca97d))
+* Update nova_groups.txt for more countries ([#12245](https://github.com/openfoodfacts/openfoodfacts-server/issues/12245)) ([0dcb826](https://github.com/openfoodfacts/openfoodfacts-server/commit/0dcb8260f1aa0d3aa77f9ddd1804303ba67d630c))
+
+
+### Bug Fixes
+
+* add new make restart_backend ([#12384](https://github.com/openfoodfacts/openfoodfacts-server/issues/12384)) ([d152d0f](https://github.com/openfoodfacts/openfoodfacts-server/commit/d152d0fce040072e57126300932276621eeda171))
+* deactivate OFF Days banner ([#12372](https://github.com/openfoodfacts/openfoodfacts-server/issues/12372)) ([49accdb](https://github.com/openfoodfacts/openfoodfacts-server/commit/49accdbf0e6dd0c30c9321475288a4df7ff160d2))
+* do not consider microbial cultures and enzymes NOVA 3 markers ([#12371](https://github.com/openfoodfacts/openfoodfacts-server/issues/12371)) ([3a20ccd](https://github.com/openfoodfacts/openfoodfacts-server/commit/3a20ccd32870b8bed2ebae512327fb7428afcd36))
+* ESLint issues reported by make front_lint ([#12386](https://github.com/openfoodfacts/openfoodfacts-server/issues/12386)) ([ba8293d](https://github.com/openfoodfacts/openfoodfacts-server/commit/ba8293d8338d97b5cbd1d52370a4854fd01e097c))
+* HTML element ID attribute on file import page ([#12402](https://github.com/openfoodfacts/openfoodfacts-server/issues/12402)) ([2c0d0b3](https://github.com/openfoodfacts/openfoodfacts-server/commit/2c0d0b3cae5646051eaa9aae66a571b5c1a184f1))
+* list which unwanted ingredients were not detected ([#12362](https://github.com/openfoodfacts/openfoodfacts-server/issues/12362)) ([89f06c8](https://github.com/openfoodfacts/openfoodfacts-server/commit/89f06c810cd27bf1067f966561a07f21e72ea5e3))
+* product edit cancel button ([#12397](https://github.com/openfoodfacts/openfoodfacts-server/issues/12397)) ([4817290](https://github.com/openfoodfacts/openfoodfacts-server/commit/4817290a6aa4569c940672abbca205c7adb25923)), closes [#12392](https://github.com/openfoodfacts/openfoodfacts-server/issues/12392)
+* remove reference to AE::cv in push_ocr_ready_to_redis function ([#12364](https://github.com/openfoodfacts/openfoodfacts-server/issues/12364)) ([f136f0f](https://github.com/openfoodfacts/openfoodfacts-server/commit/f136f0f21339d5e9f3944503f8fc3af00acb6aeb))
+* taxonomy API error, fixes [#12380](https://github.com/openfoodfacts/openfoodfacts-server/issues/12380) ([#12387](https://github.com/openfoodfacts/openfoodfacts-server/issues/12387)) ([6160621](https://github.com/openfoodfacts/openfoodfacts-server/commit/61606219584782e6e7b88a85e2b0a2512c73baf0))
+* Upgrade openfoodfacts-webcomponents to 1.14.2 ([#12408](https://github.com/openfoodfacts/openfoodfacts-server/issues/12408)) ([be03cdc](https://github.com/openfoodfacts/openfoodfacts-server/commit/be03cdcc390507448468d2927f870a90085e0326))
+
 ## [2.79.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.78.1...v2.79.0) (2025-09-12)
 
 
