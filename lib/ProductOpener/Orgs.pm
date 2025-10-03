@@ -224,7 +224,7 @@ Identifier for the org (without the "org-" prefix), or org name.
 
 =head4 $country_code
 
-Optional country code. Will default to request country if not supplied.
+Optional country code. Will default to "world" if not supplied.
 
 =head3 Return values
 
@@ -232,7 +232,7 @@ This function returns a hash ref for the org.
 
 =cut
 
-sub create_org ($creator, $org_id_or_name, $country_code = undef) {
+sub create_org ($creator, $org_id_or_name, $country_code = "world") {
 
 	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
 
@@ -250,7 +250,7 @@ sub create_org ($creator, $org_id_or_name, $country_code = undef) {
 		admins => {},
 		members => {},
 		main_contact => undef,
-		country => $country_code // $country,
+		country => $country_code,
 	};
 
 	store_org($org_ref);

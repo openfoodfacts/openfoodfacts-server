@@ -825,7 +825,8 @@ HTML
 		${$request_ref->{content_ref}}
 			.= $html . search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page);
 
-		$request_ref->{title} = lang("search_results") . " - " . display_taxonomy_tag($lc, "countries", $country);
+		$request_ref->{title}
+			= lang("search_results") . " - " . display_taxonomy_tag($lc, "countries", $request_ref->{country});
 
 		#This is used to have a special share button on some browsers
 		if (not defined $request_ref->{jqm}) {

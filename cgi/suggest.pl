@@ -55,7 +55,8 @@ my $context_ref = {country => $request_ref->{country},};
 # Options define how many suggestions should be returned, in which format etc.
 my $options_ref = {limit => request_param($request_ref, 'limit')};
 
-my @suggestions = get_taxonomy_suggestions($tagtype, $search_lc, $string, $context_ref, $options_ref);
+my @suggestions
+	= get_taxonomy_suggestions($request_ref->{country}, $tagtype, $search_lc, $string, $context_ref, $options_ref);
 
 my $data = encode_json(\@suggestions);
 

@@ -34,7 +34,6 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Mail qw/send_email/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
-use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Auth qw/get_oidc_implementation_level get_oidc_configuration/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -149,7 +148,7 @@ else {
 				my $userid = $user_ref->{userid};
 
 				my $url
-					= format_subdomain($subdomain)
+					= $request_ref->{formatted_subdomain}
 					. "/cgi/reset_password.pl?type=reset&resetid=$userid&token="
 					. $user_ref->{token};
 

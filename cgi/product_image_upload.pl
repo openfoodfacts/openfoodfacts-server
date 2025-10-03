@@ -70,8 +70,8 @@ my $request_ref = ProductOpener::Display::init_request();
 $log->debug(
 	"parsing code",
 	{
-		subdomain => $subdomain,
-		original_subdomain => $original_subdomain,
+		subdomain => $request_ref->{subdomain},
+		original_subdomain => $request_ref->{original_subdomain},
 		user => $User_id,
 		code => $code,
 		previous_code => $previous_code,
@@ -206,7 +206,7 @@ if ($imagefield) {
 
 	if (not $product_ref) {
 		$log->info("product code does not exist yet, creating product", {code => $code});
-		$product_ref = init_product($User_id, $Org_id, $code, $country);
+		$product_ref = init_product($User_id, $Org_id, $code, $request_ref->{country});
 		$product_ref->{interface_version_created} = $interface_version;
 		$product_ref->{lc} = $lc;
 		store_product($User_id, $product_ref, "Creating product (image upload)");

@@ -72,7 +72,8 @@ foreach my $test_ref (@tests) {
 	create_contribution_card_panel(
 		\%product,
 		$test_ref->{"lc"} // $default_lc,
-		$test_ref->{"cc"} // $default_cc, \%options
+		$test_ref->{"cc"} // $default_cc,
+		\%options, {}
 	);
 	# we are only interested in knowledge_panels
 	my $panels_ref = $product{knowledge_panels_en};

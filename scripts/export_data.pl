@@ -25,7 +25,7 @@ use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Export qw/:all/;
-use ProductOpener::Display qw/$nutriment_table $subdomain search_and_export_products/;
+use ProductOpener::Display qw/$nutriment_table search_and_export_products/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Food qw/%cc_nutriment_table/;
 
@@ -156,7 +156,7 @@ $nutriment_table = $cc_nutriment_table{off_default};
 if (exists $cc_nutriment_table{"off_" . $cc}) {
 	$nutriment_table = $cc_nutriment_table{"off_" . $cc};
 }
-$subdomain = $cc;
+$request_ref->{subdomain} = $cc . '.' . $server_domain;
 
 search_and_export_products($request_ref, $query_ref, undef);
 
