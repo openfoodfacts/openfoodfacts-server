@@ -50,7 +50,7 @@ function t(key, lc) {
 function getExternalKnowledgePanelsOptin(sectionId, panelId) {
   const val = localStorage.getItem("external_panel_" + sectionId + "_" + panelId);
 
-  return val === null ? true : val === "true";
+  return val === null ? false : val === "true";
 }
 
 /**
@@ -139,11 +139,15 @@ function isPanelVisible(sectionId, panel, ctx) {
  * @returns {Promise<void>} Promise that resolves when mapping is loaded.
  */
 async function loadPanelsMapping() {
-  const response = await fetch("/resources/files/external-sources.json");
+  const response = await fetch("/api/v3/external-sources.json");
   if (!response.ok) {
-    throw new Error("Failed to load external-sources.json");
+    throw new Error("Failed to load external-sources");
   }
-  const sources = await response.json();
+  const sources_response = await response.json();
+  if (sources_response.status !== "success") {
+    throw new Error("Failed to load external-sources: " + sources_response.errors.join(", "));
+  }
+  const sources = sources_response.external_sources;
 
   const sections = [];
   const sectionMap = {};

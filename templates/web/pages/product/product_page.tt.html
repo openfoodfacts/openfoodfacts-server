@@ -1,20 +1,7 @@
 <!-- start templates/[% template.name %] -->
 <script src="[% static_subdomain %]/js/dist/JsBarcode.all.min.js"></script>
 
-<script>
-  // this is used to filter external knowledge panels
-  window.productData = {
-    code: "[% code | html %]",
-    categories: [% encode_json(categories) %],
-    country: "[% cc | html %]",
-    language: "[% lc | html %]",
-    product_type: "[% product_type_tag | html %]"
-  };
-  window.isModerator = [% is_moderator %];
-  window.isUser = [% is_user %];
-</script>
-
-<script src="[% static_subdomain %]/js/external-knowledge-panels.js"></script>
+[% INCLUDE web/common/includes/external_sources_scripts.tt.html %]
 
 [% IF product_changes_saved %]
     <div data-alert class="alert-box info">
