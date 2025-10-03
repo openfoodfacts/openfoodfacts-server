@@ -53,6 +53,7 @@ BEGIN {
 		&assign_nutrient_modifier_value_string_and_unit
 		&assign_nutrition_values_from_old_request_parameters
 		&assign_nutrition_values_from_request_parameters
+		&assign_nutrition_values_from_request_object
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -66,6 +67,7 @@ use ProductOpener::Tags qw/:all get_inherited_property_from_categories_tags/;
 use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_standard_unit/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::API qw/add_error add_warning/;
 
 # FIXME: remove single_param and use request_param
 use ProductOpener::HTTP qw/single_param request_param/;
@@ -766,7 +768,7 @@ sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $sourc
 	# We can have a modifier with value '-' to indicate that we have no value
 	# It will be recorded in the unspecified_nutrients array by the remove_empty_nutrient_values_and_set_unspecified_nutrients() function
 
-	if ($modifier eq '') {
+	if ((defined $modifier) and ($modifier eq '')) {
 		$modifier = undef;
 	}
 
@@ -1078,6 +1080,262 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 	# Convert back the input sets hash to array
 	deep_set($product_ref, "nutrition", "input_sets", convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref));
 
+	return;
+}
+
+=head2 assign_nutrition_values_from_request_object ( $request_ref, $product_ref )
+
+This function is used by the product edit API v3 (/api/v3/product) to write the nutrition data.
+Nutrition data is passed in nutrition.input_sets as an array of input sets.
+
+It reads the nutrition data from the request, and assigns them to the new product nutrition structure.
+
+=head3 Parameters
+
+=head4 $request_ref
+
+Reference to the request object
+
+=head4 $product_ref
+
+Reference to the product hash where the nutrition data will be stored.
+
+=cut
+
+sub assign_nutrition_values_from_request_object ($request_ref, $product_ref) {
+
+	my $request_body_ref = $request_ref->{body_json};
+	my $response_ref = $request_ref->{api_response};
+
+	$request_ref->{updated_product_fields}{nutrition} = 1;
+
+	if (ref($request_body_ref->{product}{nutrition}) ne 'HASH') {
+		add_error(
+			$response_ref,
+			{
+				message => {id => "invalid_type_must_be_object"},
+				field => {id => "nutrition"},
+				impact => {id => "field_ignored"},
+			},
+			200
+		);
+	}
+	else {
+		# We use a temporary input sets hash to ease setting values
+		my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
+
+		# Go through every input set passed in the request
+		if (exists $request_body_ref->{product}{nutrition}{input_sets}
+			and ref($request_body_ref->{product}{nutrition}{input_sets}) eq 'ARRAY')
+		{
+			my $input_set_index = -1;
+			foreach my $input_set_ref (@{$request_body_ref->{product}{nutrition}{input_sets}}) {
+
+				$input_set_index++;
+
+				my $ignore_set = 0;
+
+				if (ref($input_set_ref) ne 'HASH') {
+					add_error(
+						$response_ref,
+						{
+							message => {id => "invalid_type_must_be_object"},
+							field => {id => "nutrition.inputs_sets[$input_set_index]"},
+							impact => {id => "input_set_ignored"},
+						},
+						200
+					);
+					next;
+				}
+
+				my $source = $input_set_ref->{source};
+				my $preparation = $input_set_ref->{preparation};
+				my $per = $input_set_ref->{per};
+
+				if ((not defined $source) or ($source eq "")) {
+					add_error(
+						$response_ref,
+						{
+							message => {id => "missing_field"},
+							field => {id => "nutrition.inputs_sets[$input_set_index].source"},
+							impact => {id => "input_set_ignored"},
+						},
+						200
+					);
+					$ignore_set = 1;
+				}
+				if ((not defined $preparation) or ($preparation eq "")) {
+					add_error(
+						$response_ref,
+						{
+							message => {id => "missing_field"},
+							field => {id => "nutrition.inputs_sets[$input_set_index].preparation"},
+							impact => {id => "input_set_ignored"},
+						},
+						200
+					);
+					$ignore_set = 1;
+				}
+				if ((not defined $per) or ($per eq "")) {
+					add_error(
+						$response_ref,
+						{
+							message => {id => "missing_field"},
+							field => {id => "nutrition.inputs_sets[$input_set_index].per"},
+							impact => {id => "input_set_ignored"},
+						},
+						200
+					);
+					$ignore_set = 1;
+				}
+
+				if ($ignore_set) {
+					next;
+				}
+
+				# If we are passed unspecified_nutrients, set them in the input set
+				# If unspecified_nutrients is undef, we delete the field
+				if (exists $input_set_ref->{unspecified_nutrients}) {
+
+					# If unspecified_nutrients exists but is undef, we delete the field
+					if (not defined $input_set_ref->{unspecified_nutrients}) {
+						if (exists $input_sets_hash_ref->{$source}{$preparation}{$per}{unspecified_nutrients}) {
+							delete $input_sets_hash_ref->{$source}{$preparation}{$per}{unspecified_nutrients};
+						}
+					}
+					elsif (ref($input_set_ref->{unspecified_nutrients}) eq 'ARRAY') {
+						# We only keep valid nutrient ids
+						my @unspecified_nutrients = ();
+						foreach my $nid (@{$input_set_ref->{unspecified_nutrients}}) {
+							if (exists $valid_nutrients{$nid}) {
+								push @unspecified_nutrients, $nid;
+							}
+							else {
+								add_error(
+									$response_ref,
+									{
+										message => {id => "unknown_nutrient"},
+										field => {
+											id => "nutrition.inputs_sets[$input_set_index].unspecified_nutrients",
+											value => $nid
+										},
+										impact => {id => "nutrient_ignored"},
+									},
+									200
+								);
+							}
+						}
+						if (scalar(@unspecified_nutrients) > 0) {
+							deep_set($input_sets_hash_ref, $source, $preparation, $per, "unspecified_nutrients",
+								\@unspecified_nutrients);
+						}
+						else {
+							if (exists $input_sets_hash_ref->{$source}{$preparation}{$per}{unspecified_nutrients}) {
+								delete $input_sets_hash_ref->{$source}{$preparation}{$per}{unspecified_nutrients};
+							}
+						}
+					}
+					else {
+						add_error(
+							$response_ref,
+							{
+								message => {id => "invalid_type_must_be_array_or_null"},
+								field => {id => "nutrition.inputs_sets[$input_set_index].unspecified_nutrients"},
+								impact => {id => "field_ignored"},
+							},
+							200
+						);
+					}
+				}
+
+				if (exists $input_set_ref->{nutrients}) {
+
+					# If nutrients exists but is undef, we delete the set completely
+					if (not defined $input_set_ref->{nutrients}) {
+						delete $input_sets_hash_ref->{$source}{$preparation}{$per};
+						next;
+					}
+
+					if (ref($input_set_ref->{nutrients}) eq 'HASH') {
+						foreach my $nid (sort keys %{$input_set_ref->{nutrients}}) {
+
+							# Check the nutrient id is valid
+							if (not exists $valid_nutrients{$nid}) {
+								add_error(
+									$response_ref,
+									{
+										message => {id => "unknown_nutrient"},
+										field => {id => "nutrition.inputs_sets[$input_set_index].nutrients.$nid"},
+										impact => {id => "nutrient_ignored"},
+									},
+									200
+								);
+								next;
+							}
+
+							# If the nutrient exists but is undef, we delete it from the input set
+							if (not defined $input_set_ref->{nutrients}{$nid}) {
+								if (exists $input_sets_hash_ref->{$source}{$preparation}{$per}{nutrients}{$nid}) {
+									delete $input_sets_hash_ref->{$source}{$preparation}{$per}{nutrients}{$nid};
+								}
+								next;
+							}
+
+							my $nutrient_ref = $input_set_ref->{nutrients}{$nid};
+							if (ref($nutrient_ref) ne 'HASH') {
+								add_error(
+									$response_ref,
+									{
+										message => {id => "invalid_type_must_be_object"},
+										field => {id => "nutrition.inputs_sets[$input_set_index].nutrients.$nid"},
+										impact => {id => "nutrient_ignored"},
+									},
+									200
+								);
+								next;
+							}
+							my $modifier = $nutrient_ref->{modifier};
+							my $value_string = $nutrient_ref->{value_string};
+							my $unit = $nutrient_ref->{unit};
+							if (not defined $value_string) {
+								add_error(
+									$response_ref,
+									{
+										message => {id => "missing_field"},
+										field => {
+											id => "nutrition.inputs_sets[$input_set_index].nutrients.$nid.value_string"
+										},
+										impact => {id => "nutrient_ignored"},
+									},
+									200
+								);
+								next;
+							}
+							normalize_nutriment_value_and_modifier(\$value_string, \$modifier);
+							assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
+								$per, $nid, $modifier, $value_string, $unit);
+
+						}
+					}
+					else {
+						add_error(
+							$response_ref,
+							{
+								message => {id => "invalid_type_must_be_object_or_null"},
+								field => {id => "nutrition.inputs_sets[$input_set_index].nutrients"},
+								impact => {id => "field_ignored"},
+							},
+							200
+						);
+					}
+				}
+			}
+		}
+
+		# Convert back the input sets hash to array
+		deep_set($product_ref, "nutrition", "input_sets",
+			convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref));
+	}
 	return;
 }
 

@@ -46,6 +46,7 @@ BEGIN {
 
 		%cc_nutriment_table
 		%nutriments_tables
+		%valid_nutrients
 
 		%other_nutriments_lists
 		%nutriments_lists
@@ -859,6 +860,20 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 		)
 	]
 );
+
+# Compute a hash of all nutrients that are valid in at least one region for the site flavor (opf, off, ...)
+%valid_nutrients = ();
+
+foreach my $region (keys %nutriments_tables) {
+	# Use the flavor (off, opff) to select regions that start with the flavor
+	next if $region !~ /^$flavor\_/;
+	foreach (@{$nutriments_tables{$region}}) {
+		my $nutriment = $_;    # copy instead of alias
+		$nutriment =~ s/^(-|!)+//g;
+		$nutriment =~ s/-$//g;
+		$valid_nutrients{$nutriment} = 1 unless $nutriment =~ /\#/;
+	}
+}
 
 # Compute the list of nutriments that are not shown by default so that they can be suggested
 
