@@ -360,10 +360,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Manuál správcu producentov"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> vytvorilo neziskové združenie nezávislé od odvetvia. Je vyrobený pre všetkých, všetkými a je financovaný všetkými. Našu prácu môžete podporiť <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">príspevkom na Open Food Facts</a> a tiež <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">pomocou vyhľadávača Lilo</a>.<br/><b>Ďakujeme!</b></p>"
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "Prispejte na podporu našej práce"
@@ -4635,17 +4631,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr ""
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score sa neuplatňuje"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "Nevzťahuje sa na kategóriu: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5120,6 +5116,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Chýbajúce nutričné hodnoty pre pripravený výrobok"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr "Eko-skóre"
@@ -5462,6 +5462,10 @@ msgstr ""
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Chýba presná kategória"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -6108,6 +6112,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Chýbajúce nutričné hodnoty pre pripravený výrobok:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
@@ -6195,6 +6203,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Chýbajúce pripravené nutričné hodnoty"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6380,6 +6392,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Kategória, ktorú máme pre tento produkt, nie je dostatočne presná na výpočet Green-Score. Mohli by ste pridať presnejšiu kategóriu produktu?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7359,11 +7375,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "Index opraviteľnosti sa neuplatňuje"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7509,9 +7525,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Nahlásiť tento obrázok našim moderátorom"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Chýba nám hodnota veľkosti porcie a/alebo jednotka na výpočet Nutri-Score."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> je vytvorený neziskovým združením, nezávislým od odvetvia. Je vytvorený pre všetkých, všetkými a je financovaný všetkými. Našu prácu môžete podporiť darovaním organizácii Open Food Facts.<br/><b>Ďakujeme!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> je vytvorený neziskovým združením, nezávislým od odvetvia. Je vytvorený pre všetkých, všetkými a je financovaný všetkými. Našu prácu môžete podporiť darovaním pre Open Food Facts a tiež pomocou vyhľadávača Lilo.<br/><b>Ďakujeme!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Vyhľadávač Lilo"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Z dôvodu silného zneužívania zo strany robotov nemôžeme túto stránku zobraziť neidentifikovaným používateľom. Vytvorte si bezplatný účet Open Food Facts, aby ste mali prístup ku všetkým stránkam Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Pôvod surovín"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "Pôvod produktu"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Informácie o produkte"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Informácie o surovom produkte"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7525,7 +7573,47 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Odhadované množstvo pridaných cukrov v zložkách"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Množstvo pridaných cukrov"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Hľadať produkty v rovnakej kategórii bez pridaného cukru:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Nežiaduce zložky"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Táto preferencia je založená na tom, ako Open Food Facts chápe zoznam zložiek, a nemusí byť presná, vždy si produkt overte sami."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Prítomnosť nežiaducich zložiek nie je známa"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Žiadne nežiaduce zložky neboli zistené"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Obsahuje nežiaduce zložky"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Niektoré zložky neboli rozpoznané"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Nezistili sme: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Nezistili sme: {unwanted_ingredients}. Možno sme niektoré ingrediencie vynechali, vždy si, prosím, skontrolujte zoznam ingrediencií."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Tieto preferencie sú založené na tom, ako Open Food Facts chápe zoznam zložiek, a vždy existuje možnosť, že nemusí byť presný alebo úplný, preto si produkt vždy skontrolujte sami."
 

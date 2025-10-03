@@ -360,10 +360,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Manual de administrare pentru producători"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> se face de o asociatie nonprofit, independenta de industrie. Este făcut pentru toți, de toți și este finanțat de toți. Ne puteți susține munca <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donând la Open Food Facts</a> și, de asemenea, până la <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">folosind motorul de căutare Lilo</a>.<br/><b>Mulțumesc!</b></p>"
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "Donează pentru a sprijini efortul nostru"
@@ -4634,16 +4630,16 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Lipsesc date pentru a calcula Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Nutri-Scor nu este aplicabil"
+msgid "Nutri-Score not applicable"
+msgstr "Scorul Nutri nu este aplicabil"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Nu se aplică categoriei"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
+msgid "Not applicable for the category: {category}"
 msgstr "Nu se aplică pentru categoria: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
@@ -5119,6 +5115,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Date nutriționale lipsă"
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Informații nutriționale lipsă pentru produsul preparat"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr "Scor Ecologic"
@@ -5461,6 +5461,10 @@ msgstr "Green-Score nu a fost calculat"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Impact necunoscut asupra mediului"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Lipsește o categorie precisă"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -6107,6 +6111,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Informații nutriționale lipsă pentru produsul preparat:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Categoria și valorile nutriționale ale produsului trebuie specificate pentru a calcula Nutri-Score."
@@ -6194,6 +6202,10 @@ msgstr "Lipsește categoria"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Date nutriționale lipsă"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Lipsa informațiilor nutriționale preparate"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6379,6 +6391,10 @@ msgstr "Ați putea adăuga informațiile necesare pentru a calcula Nutri-Score?"
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "Ați putea adăuga o categorie de produse precisă, astfel încât să putem calcula Scorul Eco?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Categoria pe care o avem pentru acest produs nu este suficient de precisă pentru a calcula Green-Score. Ați putea adăuga o categorie de produs mai precisă?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7358,12 +7374,12 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "Indicele de reparabilitate nu este aplicabil"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Nu se aplică categoriei"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
@@ -7508,9 +7524,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Raportează această imagine moderatorilor noștri"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Ne lipsește valoarea porției și/sau unitatea de măsură pentru calcularea Nutri-Score-ului."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> este realizat de o asociație non-profit, independentă de industrie. Este realizat pentru toți, de către toți și este finanțat de toți. Puteți sprijini munca noastră donând către Open Food Facts.<br/><b>Mulțumim!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> este realizat de o asociație non-profit, independentă de industrie. Este realizat pentru toți, de către toți și este finanțat de toți. Puteți sprijini munca noastră donând către Open Food Facts și utilizând motorul de căutare Lilo.<br/><b>Mulțumesc!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Motorul de căutare Lilo"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Din cauza utilizării abuzive intense din partea roboților, nu putem servi această pagină utilizatorilor neidentificați. Vă rugăm să creați un cont gratuit Open Food Facts pentru a accesa întregul Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Originea ingredientelor"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "Originea produsului"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Informații despre produs"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Informații despre produsul brut"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7524,7 +7572,47 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Cantitatea estimată de zaharuri adăugate în ingrediente"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Cantitatea de zaharuri adăugate"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Căutați produse din aceeași categorie fără zaharuri adăugate:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Ingrediente nedorite"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Această preferință se bazează pe înțelegerea de către Open Food Facts a listei de ingrediente și este posibil să nu fie exactă; verificați întotdeauna produsul dumneavoastră."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Prezența ingredientelor nedorite este necunoscută"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Nu au fost detectate ingrediente nedorite"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Conține ingrediente nedorite"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Unele ingrediente nu au fost recunoscute"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Nu am detectat: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Nu am detectat: {unwanted_ingredients}. Este posibil să fi omis unele ingrediente, vă rugăm să verificați întotdeauna lista de ingrediente."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Aceste preferințe se bazează pe înțelegerea de către Open Food Facts a listei de ingrediente și există întotdeauna posibilitatea ca aceasta să nu fie exactă sau completă; verificați întotdeauna produsul dumneavoastră."
 

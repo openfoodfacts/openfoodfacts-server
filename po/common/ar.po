@@ -363,10 +363,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "دليل الإدارة للمنتجين"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "تبرع لدعم عملنا"
@@ -4639,16 +4635,16 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "بيانات مفقودة لحساب درجة الجودة الغذائية"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "درجة الجودة الغذائية غير قابل للتطبيق"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score غير قابل للتطبيق"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "غير قابل للتطبيق على الفئة"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
+msgid "Not applicable for the category: {category}"
 msgstr "غير قابل للتطبيق على الفئة: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
@@ -5124,6 +5120,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "حقائق غذائية مفقودة"
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "معلومات غذائية مفقودة للمنتج المُحضر"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr "النتيجة البيئية"
@@ -5466,6 +5466,10 @@ msgstr "لم يتم حساب الدرجة البيئية"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "التأثير البيئي غير المعروف"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "فقدان فئة دقيقة"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -6112,6 +6116,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr "حقائق غذائية مفقودة:"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "معلومات غذائية مفقودة للمنتج المُحضر:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "يجب تحديد فئة المنتج والحقائق الغذائية الخاصة به حتى تتمكن من حساب درجة الجودة الغذائية."
@@ -6199,6 +6207,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "حقائق غذائية مفقودة"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "معلومات غذائية مفقودة"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6384,6 +6396,10 @@ msgstr "هل بإمكانك إضافة المعلومات اللازمة لحس�
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "هل بإمكانك إضافة فئة منتج محددة حتى نتمكن من حساب النتيجة البيئية؟"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "تصنيف هذا المنتج ليس دقيقًا بما يكفي لحساب درجة الجودة الخضراء. هل يمكنك إضافة تصنيف أكثر دقة؟"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7363,11 +7379,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "مؤشر قابلية الإصلاح غير قابل للتطبيق"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "غير قابل للتطبيق على الفئة"
 
 # variable names between { } must not be translated
@@ -7513,9 +7529,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "أبلغ المشرفين لدينا عن هذه الصورة"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "نحن نفتقد قيمة حجم الحصة و/أو الوحدة لحساب النتيجة الغذائية"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> من إنتاج جمعية غير ربحية، مستقلة عن قطاع الأغذية. صُنع للجميع، من قِبل الجميع، وبتمويل من الجميع. يمكنك دعم عملنا بالتبرع لـ Open Food Facts.<br/><b>شكرًا لك!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> من إنتاج جمعية غير ربحية، مستقلة عن قطاع الأغذية. صُنع للجميع، من قِبل الجميع، وبتمويل من الجميع. يمكنك دعم عملنا بالتبرع لـ Open Food Facts، وكذلك باستخدام محرك بحث Lilo.<br/><b>شكرًا لك!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "محرك بحث ليلو"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "بسبب سوء استخدام الروبوتات، لا يمكننا عرض هذه الصفحة للمستخدمين المجهولين. يُرجى إنشاء حساب مجاني على Open Food Facts للوصول إلى جميع محتويات Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "أصل المكونات"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "أصل المنتج"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "معلومات المنتج"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "معلومات المنتج الخام"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7529,7 +7577,47 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "الكمية المقدرة للسكريات المضافة في المكونات"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "كمية السكريات المضافة"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "ابحث عن المنتجات في نفس الفئة بدون إضافة سكريات:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "المكونات غير المرغوب فيها"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "يعتمد هذا التفضيل على فهم Open Food Facts لقائمة المكونات وقد لا يكون دقيقًا، لذا تحقق دائمًا من المنتج بنفسك."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "وجود مكونات غير مرغوب فيها غير معروفة"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "لم يتم الكشف عن أي مكونات غير مرغوب فيها"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "يحتوي على مكونات غير مرغوب فيها"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "لم يتم التعرف على بعض المكونات"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "لم نكتشف: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "لم نكتشف: {unwanted_ingredients}. ربما فاتتنا بعض المكونات، لذا يُرجى مراجعة قائمة المكونات دائمًا."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "تعتمد هذه التفضيلات على فهم Open Food Facts لقائمة المكونات، وهناك دائمًا احتمال ألا تكون دقيقة أو كاملة، لذا تحقق دائمًا من المنتج بنفسك."
 
