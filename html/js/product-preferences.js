@@ -26,11 +26,11 @@ function get_user_product_preferences() {
 
 
 
-if (typeof product_type === 'undefined') { // product_type is not defined 
+if (typeof product_type === 'undefined') { // product_type is not defined
     reset_message = lang().reset_preferences_details_food; // default to food
 }
 else {
-    reset_message = lang()["reset_preferences_details_" + product_type]; 
+    reset_message = lang()["reset_preferences_details_" + product_type];
 }
 
 
@@ -104,13 +104,13 @@ function generate_preferences_switch_button(preferences_text, checkbox_id) {
 	let checked = '';
 	if (use_user_product_preferences_for_ranking) {
 		checked = " checked";
-	}	
+	}
 
 	const html = '<div class="flex-grid direction-row toggle_food_preferences" style="margin-right:2rem;margin-bottom:1rem;align-items: center;">' +
     '<fieldset class="switch round success unmarged" tabindex="0" id="' + checkbox_id +'_switch" style="align-items:center;margin-right:0.5rem;padding-top:0.1rem;padding-bottom:0.1rem;">' +
     '<input class="preferences_checkboxes" id="' + checkbox_id + '" type="checkbox"' + checked + '>' +
     '<label for="' + checkbox_id +'" class="h-space-tiny" style="margin-top:0"></label></fieldset>' +
-    '<label for="' + checkbox_id +'" class="v-space-tiny h-space-tiny" style="margin-top:0">' + preferences_text + '</label></div>';    
+    '<label for="' + checkbox_id +'" class="v-space-tiny h-space-tiny" style="margin-top:0">' + preferences_text + '</label></div>';
 
 	return html;
 }
@@ -119,17 +119,17 @@ function generate_preferences_switch_button(preferences_text, checkbox_id) {
 function activate_preferences_switch_buttons(change) {
 
 	$(".preferences_checkboxes").change(function() {
-			
+
 		localStorage.setItem('use_user_product_preferences_for_ranking', this.checked);
 		use_user_product_preferences_for_ranking = this.checked;
 
 		// Update the other checkbox value
 		$(".preferences_checkboxes").prop('checked',use_user_product_preferences_for_ranking);
-			
+
 		// Call the change callback if we have one (e.g. to update search results)
 		if (change) {
 			change();
-		}	
+		}
 	});
 }
 
@@ -137,19 +137,19 @@ function activate_preferences_switch_buttons(change) {
 // display a switch to use preferences (on list of products pages) and a button to edit preferences
 
 function display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change) {
-	
+
 	let html = '';
-	
+
 	const html_edit_preferences = '<div><a id="show_selection_form" class="button small round secondary" role="button" tabindex="0">' +
         '<span class="material-icons size-20">&#xE556;</span>' +
         "&nbsp;<span>" + lang().preferences_edit_your_preferences + '</span></a></div>';
-	
-	// Display a switch for scoring and ranking products according to the user preferences 
-			
+
+	// Display a switch for scoring and ranking products according to the user preferences
+
 	html += generate_preferences_switch_button(preferences_text, "preferences_switch_in_list_of_products") + html_edit_preferences;
-			
+
 	$( target_selected ).html(html);
-	
+
 	activate_preferences_switch_buttons(change);
 
     $("#show_selection_form").on("click", function() {
@@ -354,7 +354,7 @@ function display_user_product_preferences(target_selected, target_selection_form
             preferences = data.preferences;
             display_user_product_preferences(target_selected, target_selection_form, change);
         });
-        
+
         return;
     }
 
@@ -414,7 +414,7 @@ function display_user_product_preferences(target_selected, target_selection_form
                     attribute_name_and_parameters_html +
                     "</div>" +
                     "<div class='attribute_group'>";
-                
+
                 $.each(preferences, function(key, preference) {
 
                     let checked = '';
@@ -465,7 +465,12 @@ function display_user_product_preferences(target_selected, target_selection_form
 			+ '</div>'
 		);
 
-		activate_preferences_switch_buttons(change);        
+    $('.edit_button.close_food_preferences:last', target_selection_form).before('<div id="external_panels_prefs"></div>');
+    const prefEl = $(target_selection_form).find('#external_panels_prefs')[0];
+    if (prefEl && typeof window.renderExternalPanelsOptinPreferences === "function") {
+      window.renderExternalPanelsOptinPreferences(prefEl);
+    }
+		activate_preferences_switch_buttons(change);
 
         $(".attribute_radio").change(function() {
             if (this.checked) {
@@ -489,11 +494,11 @@ function display_user_product_preferences(target_selected, target_selection_form
 		$( "#reset_preferences_button").on("click", function() {
 			user_product_preferences = default_preferences;
 			localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
-			
+
 			// Redisplay user preferences
 			displayed_user_product_preferences = false;
 			display_user_product_preferences(target_selected, target_selection_form, change);
-			
+
 			// Call the change callback if we have one (e.g. to update search results)
 			if (change) {
 				change();
