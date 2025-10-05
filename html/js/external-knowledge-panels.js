@@ -14,13 +14,13 @@ function safeId(str) {
 }
 
 /**
- * Pretty label for section ids like "animal_welfare" -> "Animal Welfare".
- * NOTE: Proper i18n is tracked separately; this is a fallback.
+ * Pretty label fallback for section ids like "animal_welfare" -> "Animal Welfare".
+ * NOTE: Proper i18n is provided by the API (section_title); this is a fallback.
  * @param {string} sectionId - Raw section identifier.
  * @returns {string} Human readable section label.
  */
 function prettySectionName(sectionId) {
-  return sectionId.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  return sectionId.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 /**
@@ -30,39 +30,38 @@ function prettySectionName(sectionId) {
  * @returns {string} Localized string for the given key.
  */
 function t(key, lc) {
-  const lang = (lc || (window.productData && window.productData.language) || "en").slice(0, 2);
+  const lang = (lc || globalThis.productData?.language || "en").slice(0, 2);
   const dict = {
     en: { external_panels: "External Knowledge Panels" },
     fr: { external_panels: "Panneaux d’information externes" },
     es: { external_panels: "Paneles de información externos" },
     de: { external_panels: "Externe Informations-Panels" }
   };
-
   return (dict[lang] && dict[lang][key]) || dict.en[key] || key;
 }
 
 /**
- * Read localStorage opt-in (default = true).
- * @param {string} sectionId - Section identifier.
- * @param {string} panelId - Panel identifier.
- * @returns {boolean} True when panel is enabled for this user.
+ * Read localStorage opt-in (true only if explicitly "true").
+ * Default (unknown) => false
+ * @param {string} sectionId
+ * @param {string} panelId
+ * @returns {boolean}
  */
 function getExternalKnowledgePanelsOptin(sectionId, panelId) {
-  const val = localStorage.getItem("external_panel_" + sectionId + "_" + panelId);
-
-  return val === null ? false : val === "true";
+  const val = globalThis.localStorage.getItem(`external_panel_${sectionId}_${panelId}`);
+  return val === "true";
 }
 
 /**
  * Set localStorage opt-in value.
- * @param {string} sectionId - Section identifier.
- * @param {string} panelId - Panel identifier.
- * @param {boolean} enabled - Whether the panel is enabled.
+ * @param {string} sectionId
+ * @param {string} panelId
+ * @param {boolean} enabled
  * @returns {void}
  */
 function setExternalKnowledgePanelsOptin(sectionId, panelId, enabled) {
-  localStorage.setItem(
-    "external_panel_" + sectionId + "_" + panelId,
+  globalThis.localStorage.setItem(
+    `external_panel_${sectionId}_${panelId}`,
     enabled ? "true" : "false"
   );
 }
@@ -70,28 +69,29 @@ function setExternalKnowledgePanelsOptin(sectionId, panelId, enabled) {
 /**
  * Expand URL templates with productData variables.
  * Supported: $code, $lc (language), $cc (country)
- * @param {string} urlTemplate - URL pattern possibly containing placeholders.
- * @param {Object} productData - Product context with code/language/country fields.
- * @returns {string} Concrete URL with placeholders replaced.
+ * @param {string} urlTemplate
+ * @param {Object} productData
+ * @returns {string}
  */
 function interpolateUrl(urlTemplate, productData) {
-  return urlTemplate.replace(/\$code\b/g, encodeURIComponent(productData.code || "")).replace(
-    /\$lc\b/g,
-    encodeURIComponent(productData.language || "")
-  ).replace(/\$cc\b/g, encodeURIComponent(productData.country || ""));
+  const pd = productData || {};
+  return String(urlTemplate)
+    .replaceAll("$code", encodeURIComponent(pd.code || ""))
+    .replaceAll("$lc", encodeURIComponent(pd.language || ""))
+    .replaceAll("$cc", encodeURIComponent(pd.country || ""));
 }
 
 /**
  * Scope checking: public | users | moderators.
  * - users: logged-in users AND moderators
  * - moderators: moderators only
- * @param {Object} panel - Panel object with optional "scope" field.
- * @returns {boolean} True if the current user can see the panel by scope.
+ * @param {Object} panel
+ * @returns {boolean}
  */
 function canSeeByScope(panel) {
   const scope = panel.scope || "public";
-  const isModerator = window.isModerator === 1;
-  const isUser = window.isUser === 1;
+  const isModerator = globalThis.isModerator === 1;
+  const isUser = globalThis.isUser === 1;
 
   return (
     scope === "public" ||
@@ -104,9 +104,9 @@ function canSeeByScope(panel) {
  * Filter matching against current product context.
  * categories: at least one match
  * country/language/product_type: strict equality
- * @param {Object} panel - Panel with optional "filters" object.
- * @param {Object} ctx - Current product context (categories, country, language, product_type).
- * @returns {boolean} True when the panel matches the product filters.
+ * @param {Object} panel
+ * @param {Object} ctx
+ * @returns {boolean}
  */
 function matchesFilters(panel, ctx) {
   const f = panel.filters || {};
@@ -115,16 +115,15 @@ function matchesFilters(panel, ctx) {
   const langOk = !f.languages?.length || (ctx.language ? f.languages.includes(ctx.language) : true);
   const typeOk =
     !f.product_types?.length || (ctx.product_type ? f.product_types.includes(ctx.product_type) : true);
-
   return catOk && countryOk && langOk && typeOk;
 }
 
 /**
  * Visibility for a panel (scope + filters + opt-in).
- * @param {string} sectionId - Section identifier.
- * @param {Object} panel - Panel object.
- * @param {Object} ctx - Product context (categories, country, language, product_type).
- * @returns {boolean} True when the panel should be displayed.
+ * @param {string} sectionId
+ * @param {Object} panel
+ * @param {Object} ctx
+ * @returns {boolean}
  */
 function isPanelVisible(sectionId, panel, ctx) {
   return (
@@ -135,34 +134,37 @@ function isPanelVisible(sectionId, panel, ctx) {
 }
 
 /**
- * Loads external-sources.json and builds the section/panel mapping with order preserved.
- * @returns {Promise<void>} Promise that resolves when mapping is loaded.
+ * Fetch external sources (translated) and build ordered sections mapping.
+ * Accepts both array response or { external_sources: [...] } wrapper.
+ * @returns {Promise<void>}
  */
 async function loadPanelsMapping() {
-  const response = await fetch("/api/v3/external-sources.json");
-  if (!response.ok) {
-    throw new Error("Failed to load external-sources");
+  const lc = globalThis.productData?.language || "en";
+  const resp = await fetch(`/api/v3/external_sources?lc=${encodeURIComponent(lc)}`);
+  if (!resp.ok) {
+    throw new Error("Failed to load external sources");
   }
-  const sources_response = await response.json();
-  if (sources_response.status !== "success") {
-    throw new Error("Failed to load external-sources: " + sources_response.errors.join(", "));
-  }
-  const sources = sources_response.external_sources;
+  const raw = await resp.json();
+
+  // Flexible parsing: array or wrapped {status, external_sources, errors}
+  const sources =
+    Array.isArray(raw) ? raw :
+    Array.isArray(raw?.external_sources) ? raw.external_sources :
+    [];
 
   const sections = [];
-  const sectionMap = {};
-  sources.forEach((panel) => {
-    if (!sectionMap[panel.section]) {
-      const sectionObj = {
-        sectionId: panel.section,
-        label: prettySectionName(panel.section),
-        panels: []
-      };
-      sectionMap[panel.section] = sectionObj;
-      sections.push(sectionObj);
+  const sectionMap = Object.create(null);
+
+  for (const panel of sources) {
+    const sid = panel.section;
+    if (!sectionMap[sid]) {
+      const label = panel.section_title || prettySectionName(sid);
+      sectionMap[sid] = { sectionId: sid, label, panels: [] };
+      sections.push(sectionMap[sid]);
     }
-    sectionMap[panel.section].panels.push(panel);
-  });
+    sectionMap[sid].panels.push(panel);
+  }
+
   allPanelsBySection = sections;
 }
 
@@ -171,35 +173,35 @@ async function loadPanelsMapping() {
  * @returns {void}
  */
 function clearExternalSections() {
-  document.querySelectorAll(".external-section").forEach((el) => el.remove());
+  for (const el of document.querySelectorAll(".external-section")) {
+    el.remove();
+  }
 }
 
 /**
  * Keep navbar in sync with actually visible sections (order preserved).
- * Avoid innerHTML for XSS safety.
- * @param {Array<Object>} visibleSectionsOrdered - Items with sectionId and label.
+ * @param {Array<{sectionId:string,label:string}>} visibleSectionsOrdered
  * @returns {void}
  */
 function syncNavbarExternalSections(visibleSectionsOrdered) {
   const navbar = document.querySelector("#navbar ul.inline-list");
-  if (!navbar) {
+  if (!navbar) return;
 
-    return;
+  for (const link of navbar.querySelectorAll("a[href^='#external_section_']")) {
+    link.parentElement?.remove();
   }
 
-  navbar.querySelectorAll("a[href^='#external_section_']").forEach((link) => link.parentElement.remove());
+  const after = navbar.querySelector('[href="#match"]')?.parentElement || null;
+  let insertAfter = after;
 
-  const after = navbar.querySelector('[href="#match"]')?.parentElement;
-  let insertAfter = after || null;
-
-  visibleSectionsOrdered.forEach(({ sectionId, label }) => {
+  for (const { sectionId, label } of visibleSectionsOrdered) {
     const li = document.createElement("li");
     li.className = "product-section-button";
 
     const a = document.createElement("a");
     a.className = "nav-link scrollto button small round white-button";
-    const id = "external_section_" + safeId(sectionId);
-    a.setAttribute("href", "#" + id);
+    const id = `external_section_${safeId(sectionId)}`;
+    a.setAttribute("href", `#${id}`);
 
     const span = document.createElement("span");
     span.textContent = String(label);
@@ -215,7 +217,7 @@ function syncNavbarExternalSections(visibleSectionsOrdered) {
       navbar.appendChild(li);
     }
     insertAfter = li;
-  });
+  }
 }
 
 /**
@@ -224,44 +226,47 @@ function syncNavbarExternalSections(visibleSectionsOrdered) {
  */
 function enableSmoothScrollAndHighlight() {
   const navbar = document.querySelector("#navbar ul.inline-list");
-  if (!navbar) {
+  if (!navbar) return;
 
-    return;
-  }
-
-  navbar.querySelectorAll(".nav-link").forEach((link) => {
+  for (const link of navbar.querySelectorAll(".nav-link")) {
     link.addEventListener("click", function (e) {
       const hash = this.getAttribute("href");
       if (hash?.startsWith("#") && document.querySelector(hash)) {
         e.preventDefault();
         document.querySelector(hash).scrollIntoView({ behavior: "smooth" });
-        navbar.querySelectorAll(".nav-link").forEach((l) => l.classList.remove("active"));
+        for (const l of navbar.querySelectorAll(".nav-link")) l.classList.remove("active");
         this.classList.add("active");
       }
     });
-  });
+  }
 
-  window.addEventListener("scroll", function () {
+  globalThis.addEventListener("scroll", function () {
     const sections = Array.from(document.querySelectorAll("section[id]"));
-    const scrollY = window.scrollY + 100;
+    const scrollY = globalThis.scrollY + 100;
     let currentId = "";
     for (const section of sections) {
-      if (section.offsetTop <= scrollY) {
-        currentId = section.id;
-      }
+      if (section.offsetTop <= scrollY) currentId = section.id;
     }
     if (currentId) {
-      navbar.querySelectorAll(".nav-link").forEach((link) => {
+      for (const link of navbar.querySelectorAll(".nav-link")) {
         link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
-      });
+      }
     }
   });
 }
 
 /**
+ * Ensure mapping is loaded (outer-scope function for Sonar).
+ * @returns {Promise<void>}
+ */
+function ensureMapping() {
+  return allPanelsBySection.length ? Promise.resolve() : loadPanelsMapping();
+}
+
+/**
  * Render all external sections (only if they have at least 1 visible panel)
  * and sync the navbar. Order strictly follows JSON order.
- * @returns {Promise<void>} Promise that resolves when rendering finishes.
+ * @returns {Promise<void>}
  */
 async function renderExternalKnowledgeSections() {
   if (!allPanelsBySection.length) {
@@ -269,14 +274,13 @@ async function renderExternalKnowledgeSections() {
   }
   clearExternalSections();
 
-  const { categories, country, language, product_type } = window.productData || {};
+  const { categories, country, language, product_type } = globalThis.productData || {};
   const ctx = { categories: categories || [], country, language, product_type };
 
   const matchSection = document.getElementById("match");
   if (!matchSection?.parentNode) {
     // eslint-disable-next-line no-console
     console.error("Cannot find #match section to insert external panels");
-
     return;
   }
 
@@ -285,17 +289,13 @@ async function renderExternalKnowledgeSections() {
 
   const visibleSectionsOrdered = [];
 
-  allPanelsBySection.forEach((section) => {
+  for (const section of allPanelsBySection) {
     const visiblePanels = section.panels.filter((panel) => isPanelVisible(section.sectionId, panel, ctx));
-
-    if (!visiblePanels.length) {
-
-      return;
-    }
+    if (!visiblePanels.length) continue;
 
     const sectionDiv = document.createElement("section");
     sectionDiv.className = "row external-section";
-    sectionDiv.id = "external_section_" + safeId(section.sectionId);
+    sectionDiv.id = `external_section_${safeId(section.sectionId)}`;
 
     const colDiv = document.createElement("div");
     colDiv.className = "large-12 column";
@@ -313,7 +313,7 @@ async function renderExternalKnowledgeSections() {
     sectionTitle.textContent = section.label;
     cardSection.appendChild(sectionTitle);
 
-    visiblePanels.forEach((panel) => {
+    for (const panel of visiblePanels) {
       const providerCard = document.createElement("div");
       providerCard.className = "provider-card";
 
@@ -354,7 +354,7 @@ async function renderExternalKnowledgeSections() {
       hr.className = "provider-separator";
       details.appendChild(hr);
 
-      const url = interpolateUrl(panel.knowledge_panel_url, window.productData || {});
+      const url = interpolateUrl(panel.knowledge_panel_url, globalThis.productData || {});
       const knowledgePanel = document.createElement("knowledge-panels");
       knowledgePanel.setAttribute("url", url);
       knowledgePanel.setAttribute("path", "panels");
@@ -363,7 +363,7 @@ async function renderExternalKnowledgeSections() {
       details.appendChild(knowledgePanel);
       providerCard.appendChild(details);
       cardSection.appendChild(providerCard);
-    });
+    }
 
     if (insertAfter?.nextSibling) {
       parent.insertBefore(sectionDiv, insertAfter.nextSibling);
@@ -373,7 +373,7 @@ async function renderExternalKnowledgeSections() {
     insertAfter = sectionDiv;
 
     visibleSectionsOrdered.push({ sectionId: section.sectionId, label: section.label });
-  });
+  }
 
   syncNavbarExternalSections(visibleSectionsOrdered);
   enableSmoothScrollAndHighlight();
@@ -383,30 +383,14 @@ async function renderExternalKnowledgeSections() {
  * Render opt-in preferences grouped by section.
  * Show checkboxes only for panels the user could potentially see (scope + filters).
  * If none, hide the whole container.
- * @param {HTMLElement} container - Target element that will contain the preferences.
+ * @param {HTMLElement} container
  * @returns {void}
  */
 function renderExternalPanelsOptinPreferences(container) {
-  if (!container) {
-
-    return;
-  }
-
-  /**
-   * Ensure mapping is loaded.
-   * @returns {Promise<void>} Promise that resolves when mapping is present.
-   */
-  function ensureMapping() {
-    if (allPanelsBySection.length) {
-
-      return Promise.resolve();
-    }
-
-    return loadPanelsMapping();
-  }
+  if (!container) return;
 
   ensureMapping().then(function onReady() {
-    const { categories, country, language, product_type } = window.productData || {};
+    const { categories, country, language, product_type } = globalThis.productData || {};
     const ctx = { categories: categories || [], country, language, product_type };
 
     let anyItem = false;
@@ -423,15 +407,11 @@ function renderExternalPanelsOptinPreferences(container) {
     h2.textContent = t("external_panels", language || "");
     card.appendChild(h2);
 
-    allPanelsBySection.forEach((section) => {
+    for (const section of allPanelsBySection) {
       const scoppablePanels = section.panels.filter(
         (panel) => canSeeByScope(panel) && matchesFilters(panel, ctx)
       );
-
-      if (!scoppablePanels.length) {
-
-        return;
-      }
+      if (!scoppablePanels.length) continue;
 
       anyItem = true;
 
@@ -444,7 +424,7 @@ function renderExternalPanelsOptinPreferences(container) {
       h3.textContent = section.label;
       sectionWrap.appendChild(h3);
 
-      scoppablePanels.forEach((panel) => {
+      for (const panel of scoppablePanels) {
         const row = document.createElement("div");
         row.setAttribute(
           "style",
@@ -484,7 +464,7 @@ function renderExternalPanelsOptinPreferences(container) {
 
           const small = document.createElement("small");
           small.textContent = "Provided by ";
-          if (panel.provider_website && (/^https?:\/\//i).test(panel.provider_website)) {
+          if (panel.provider_website && /^https?:\/\//i.test(panel.provider_website)) {
             const a = document.createElement("a");
             a.href = panel.provider_website;
             a.target = "_blank";
@@ -502,15 +482,14 @@ function renderExternalPanelsOptinPreferences(container) {
         label.appendChild(textWrap);
         row.appendChild(label);
         sectionWrap.appendChild(row);
-      });
+      }
 
       card.appendChild(sectionWrap);
-    });
+    }
 
     if (!anyItem) {
       container.innerHTML = "";
       container.style.display = "none";
-
       return;
     }
 
@@ -518,16 +497,20 @@ function renderExternalPanelsOptinPreferences(container) {
     container.innerHTML = "";
     container.appendChild(card);
 
-    container.querySelectorAll(".optin_external_panel").forEach((cb) => {
+    for (const cb of container.querySelectorAll(".optin_external_panel")) {
       cb.addEventListener("change", function () {
         setExternalKnowledgePanelsOptin(this.dataset.sectionId, this.dataset.panelId, this.checked);
         renderExternalKnowledgeSections();
       });
-    });
+    }
   });
 }
 
-window.renderExternalPanelsOptinPreferences = renderExternalPanelsOptinPreferences;
+globalThis.renderExternalPanelsOptinPreferences = renderExternalPanelsOptinPreferences;
+globalThis.ensureMapping = ensureMapping;
+globalThis.allPanelsBySection = allPanelsBySection;
+globalThis.canSeeByScope = canSeeByScope;
+globalThis.matchesFilters = matchesFilters;
 
 document.addEventListener("DOMContentLoaded", () => {
   renderExternalKnowledgeSections();
