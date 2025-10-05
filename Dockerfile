@@ -10,6 +10,21 @@ ARG CPANMOPTS=
 ######################
 FROM debian:bullseye-slim AS modperl
 
+# BEGIN zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
+
+# Install ca-certificates, so that apt can connect to github pages with HTTPS
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
+    ca-certificates
+
+# Add backport repo
+ADD docker/zxing-cpp-backport.gpg /usr/share/keyrings/
+ADD docker/zxing-cpp-backport.sources /etc/apt/sources.list.d/
+
+# END zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
+
 # Install cpm to install cpanfile dependencies
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
@@ -172,8 +187,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # needed for  Imager::File::WEBP
         libwebpmux3 \
         # Imager::zxing - build deps
-        cmake \
         pkg-config \
+        libzxing-dev \
         # Imager::zxing - decoders
         libavif-dev \
         libde265-dev \
@@ -182,21 +197,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libpng-dev \
         libwebp-dev \
         libx265-dev
-
-# Install zxing-cpp from source until 2.1 or higher is available in Debian: https://github.com/openfoodfacts/openfoodfacts-server/pull/8911/files#r1322987464
-ARG ZXING_VERSION=2.3.0
-RUN set -x && \
-    cd /tmp && \
-    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v${ZXING_VERSION}.tar.gz && \
-    tar xfz v${ZXING_VERSION}.tar.gz && \
-    cmake -S zxing-cpp-${ZXING_VERSION} -B zxing-cpp.release \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DBUILD_WRITERS=OFF -DBUILD_READERS=ON -DBUILD_EXAMPLES=OFF && \
-    cmake --build zxing-cpp.release -j8 && \
-    cmake --install zxing-cpp.release && \
-    cd / && \
-    rm -rf /tmp/v${ZXING_VERSION}.tar.gz /tmp/zxing-cpp*
 
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
