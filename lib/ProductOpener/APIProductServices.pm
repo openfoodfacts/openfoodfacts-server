@@ -430,6 +430,7 @@ sub external_sources_api ($request_ref) {
 		$external_sources_cache{$target_lc} = \@translated_sources;
 	}
 	$response_ref->{external_sources} = %external_sources_cache{$target_lc};
+	$response_ref->{result} = {id => "ok", name => "External services found"};
 	# 1 hour cache
 	set_http_response_header($request_ref, "Cache-Control", "public, max-age=3600");
 	return;
