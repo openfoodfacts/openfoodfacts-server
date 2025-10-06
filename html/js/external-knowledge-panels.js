@@ -2,6 +2,7 @@
 /* exported renderExternalPanelsOptinPreferences */
 
 let allPanelsBySection = [];
+let mappingPromise = null;
 
 /**
  * Create a safe anchor id slug from a string.
@@ -91,7 +92,7 @@ function interpolateUrl(urlTemplate, productData) {
 function canSeeByScope(panel) {
   const scope = panel.scope || "public";
   const isModerator = globalThis.isModerator === 1;
-  const isUser = globalThis.isUser === 1;
+  const isUser = Number(globalThis.isUser) === 1;
 
   return (
     scope === "public" ||
@@ -165,7 +166,8 @@ async function loadPanelsMapping() {
     sectionMap[sid].panels.push(panel);
   }
 
-  allPanelsBySection = sections;
+  allPanelsBySection.length = 0;
+  Array.prototype.push.apply(allPanelsBySection, sections);
 }
 
 /**
@@ -256,11 +258,14 @@ function enableSmoothScrollAndHighlight() {
 }
 
 /**
- * Ensure mapping is loaded (outer-scope function for Sonar).
+ * Ensure mapping is loaded
  * @returns {Promise<void>}
  */
 function ensureMapping() {
-  return allPanelsBySection.length ? Promise.resolve() : loadPanelsMapping();
+  if (allPanelsBySection.length) return Promise.resolve();
+  if (mappingPromise) return mappingPromise;
+  mappingPromise = loadPanelsMapping().finally(() => { mappingPromise = null; });
+  return mappingPromise;
 }
 
 /**
@@ -402,11 +407,6 @@ function renderExternalPanelsOptinPreferences(container) {
       "background:#fff;margin-top:2em;margin-bottom:2em;padding:2em 2em 1em 2em;"
     );
 
-    const h2 = document.createElement("h2");
-    h2.setAttribute("style", "margin-bottom:1em;");
-    h2.textContent = t("external_panels", language || "");
-    card.appendChild(h2);
-
     for (const section of allPanelsBySection) {
       const scoppablePanels = section.panels.filter(
         (panel) => canSeeByScope(panel) && matchesFilters(panel, ctx)
@@ -421,7 +421,7 @@ function renderExternalPanelsOptinPreferences(container) {
 
       const h3 = document.createElement("h3");
       h3.setAttribute("style", "margin-bottom:0.5em;");
-      h3.textContent = section.label;
+      h3.textContent = section.label || prettySectionName(section.sectionId);
       sectionWrap.appendChild(h3);
 
       for (const panel of scoppablePanels) {

@@ -549,14 +549,21 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
 
     $(target_selection_form).html(wrapper).show();
 
-    if (typeof window.renderExternalPanelsOptinPreferences === "function") {
+    const mount = () => window.renderExternalPanelsOptinPreferences &&
       window.renderExternalPanelsOptinPreferences(document.getElementById("external_panels_prefs"));
+
+    if (!window.renderExternalPanelsOptinPreferences) {
+      const s = document.createElement("script");
+      s.src = "/js/dist/external-knowledge-panels.js";
+      s.onload = mount;
+      document.body.appendChild(s);
+    } else {
+      mount();
     }
 
     $(".show_selected").off(".extsrcclose").on("click.extsrcclose", function () {
       $(target_selection_form).hide();
       $(target_selected).show();
-      // Réinjecte proprement les 2 boutons
       display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
     });
     $(".show_selected").off("keydown.extsrcclose").on("keydown.extsrcclose", (e) => {
@@ -564,8 +571,6 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
     });
   });
 }
-
-
 
 function display_user_product_preferences(target_selected, target_selection_form, change) {
 
