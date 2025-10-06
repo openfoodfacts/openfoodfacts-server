@@ -45,7 +45,24 @@ Keycloak also handles password reset.
 
 ### Wiki
 
-At the mom
+At the moment the wiki uses a plugin
+to read the authentication cookie from Open Food Facts
+(it's possible because we are on the same domain)
+to authenticate users in the wiki.
+
+### Hunger game
+
+Reads the authentication cookie from Open Food Facts.
+and use the `auth.pl?body=1` to get users info and roles.
+
+### Taxonomy editor and Nutripatrol
+
+The backend reads the authentication cookie from Open Food Facts,
+
+Reads the authentication cookie from openfoodfacts.
+and use the `auth.pl?body=1` to get users info and roles.
+
+They both cache the results.
 
 ## Users information
 
@@ -92,5 +109,8 @@ you just need to create a user using one of the account listed in `admins`,
 like `stephane`.
 With this account you can eventually give any role to other accounts.
 
-**FIXME:** how can one create an keycloak admin user ?
-
+On keycloak side,
+the `openfoodfacts-auth` container sets up the `root:test` admin user by default,
+Although it's not strictly necessary during development
+you may use it to gain admin access to keycloak as admin
+on http://auth.openfoodfacts.localhost:5600/admin/.
