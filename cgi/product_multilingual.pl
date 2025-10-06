@@ -377,7 +377,7 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 
 	if (not defined $User_id) {
 
-		if (get_oidc_implementation_level() < 5) {
+		if (get_oidc_implementation_level() < 3) {
 			# Keep legacy method until we have moved the login process to Keycloak
 			my $submit_label = "login_and_" . $type . "_product";
 			$action = 'login';
@@ -840,6 +840,7 @@ HTML
 <script type="text/javascript">
 var admin = $moderator;
 </script>
+<script type="text/javascript" src="$static_subdomain/js/dist/tagify-init.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/product-history.js"></script>
 

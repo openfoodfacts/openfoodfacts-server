@@ -42,6 +42,7 @@ BEGIN {
 		&compare_csv_file_to_expected_results
 		&create_sto_from_json
 		&init_expected_results
+		&normalize_object_for_test_comparison
 		&normalize_org_for_test_comparison
 		&normalize_product_for_test_comparison
 		&normalize_products_for_test_comparison
@@ -67,7 +68,8 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Data qw/execute_query get_orgs_collection get_products_collection get_recent_changes_collection/;
 use ProductOpener::Store "store";
-use ProductOpener::Auth qw/get_token_using_client_credentials/;
+use ProductOpener::Auth qw/get_token_using_client_credentials get_oidc_implementation_level/;
+use ProductOpener::APITest qw/get_minion_jobs/;
 
 use Carp qw/confess/;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
@@ -257,6 +259,10 @@ This function should only be called by tests, and never on production environmen
 sub remove_all_users () {
 	# Important: check we are not on a prod database
 	check_not_production();
+
+	my $before_delete_ts = time();
+	my $keycloak_users_affected = 0;
+
 	# clean files
 	remove_tree($BASE_DIRS{USERS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
@@ -267,8 +273,16 @@ sub remove_all_users () {
 	foreach (@users) {
 		foreach (@{$_}) {
 			_delete_user_from_keycloak($_);
+			# print STDERR "[" . localtime() . "] Deleted user " . $_->{username} . " from keycloak\n";
+			$keycloak_users_affected = 1;
 		}
 	}
+
+	# Wait for minion jobs triggered by Redis complete as otherwise can get race conditions with the main test
+	if ($keycloak_users_affected and get_oidc_implementation_level() > 1) {
+		my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts);
+	}
+
 	return;
 }
 
@@ -719,6 +733,9 @@ fields_ignore_content - array of fields which content should be ignored
 because they vary from test to test.
 Stars means there is a table of elements and we want to run through all (hash not supported yet)
 
+fields_ignore_line_numbers_in_content - array of fields where line numbers in content should be replaced with --ignore--
+This is useful for error messages that contain file names and line numbers that change when code is refactored.
+
 fields_sort - array of fields which content needs to be sorted to have predictable results
 
 =cut
@@ -736,6 +753,27 @@ sub normalize_object_for_test_comparison ($object_ref, $specification_ref) {
 				@key = split(/\./, $final_field);
 				if (deep_exists($item, @key)) {
 					deep_set($item, @key, "--ignore--");
+				}
+			}
+		}
+	}
+	if (defined($specification_ref->{fields_ignore_line_numbers_in_content})) {
+		my @fields_ignore_line_numbers = @{$specification_ref->{fields_ignore_line_numbers_in_content}};
+
+		my @key;
+		for my $field_iln (@fields_ignore_line_numbers) {
+			# stars permits to loop subitems
+			my @subfield = split(/\.\*\./, $field_iln);
+			my $final_field = pop @subfield;
+			for my $item (_sub_items($object_ref, \@subfield)) {
+				@key = split(/\./, $final_field);
+				if (deep_exists($item, @key)) {
+					my $content = deep_get($item, @key);
+					if (defined $content && $content ne "") {
+						# Replace line numbers with --ignore-- while keeping the rest of the error message
+						$content =~ s/\bline\s+\d+/line --ignore--/g;
+						deep_set($item, @key, $content);
+					}
 				}
 			}
 		}
