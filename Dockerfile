@@ -20,8 +20,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     ca-certificates
 
 # Add backport repo
-ADD docker/zxing-cpp-backport.gpg /usr/share/keyrings/
-ADD docker/zxing-cpp-backport.sources /etc/apt/sources.list.d/
+COPY ./docker/zxing-cpp-backport.gpg /usr/share/keyrings/
+COPY ./docker/zxing-cpp-backport.sources /etc/apt/sources.list.d/
 
 # END zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
 
