@@ -1713,7 +1713,8 @@ MAIL
 		$knowledge_panels_options_ref = {};
 		initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 		$knowledge_panels_options_ref->{knowledge_panels_client} = "web";
-		create_contribution_card_panel($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref);
+		create_contribution_card_panel($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref,
+			$request_ref);
 		$template_data_ref_process->{contribution_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}
