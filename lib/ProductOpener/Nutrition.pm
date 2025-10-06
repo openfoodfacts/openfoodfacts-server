@@ -54,6 +54,7 @@ BEGIN {
 		&assign_nutrition_values_from_old_request_parameters
 		&assign_nutrition_values_from_request_parameters
 		&assign_nutrition_values_from_request_object
+		&add_nutrition_fields_from_product_to_populated_fields
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -1382,6 +1383,129 @@ sub remove_empty_nutrient_values_and_set_unspecified_nutrients ($input_set_ref) 
 			}
 		}
 	}
+	return;
+}
+
+=head2 add_nutrition_fields_from_product_to_populated_fields($product_ref, \%populated_fields, $sort_key)
+
+This function is used by Export.pm to generate the list of populated nutrition fields for a product.
+Export.pm can then create a CSV file with columns that have data for at least one product.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+Reference to the product hash
+
+=head4 \%populated_fields
+
+Reference to the hash of populated fields
+
+=head4 $sort_key
+
+A string used to sort the fields in the CSV file.
+The nutrition fields sort keys will be prefixed by this sort key.
+
+=cut
+
+sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populated_fields_ref, $sort_key) {
+
+	if (not defined $product_ref->{nutrition}) {
+		return;
+	}
+
+	# Fields at the root of nutrition
+	my $item_number = 0;
+	foreach my $field ("no_nutrition_data_on_packaging") {
+		if (defined deep_get($product_ref, "nutrition", $field)) {
+			$populated_fields_ref->{$field} = $sort_key . '_0-root_' . sprintf("%02d", $item_number);
+		}
+		$item_number++;
+	}
+
+	# Aggregated set: not needed for exporting and importing data as it is generated from the input sets
+	# TODO: export anyway for other uses?
+
+	# Input sets
+
+	# Get the sets in a hash to ease processing
+	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
+	if (defined $input_sets_hash_ref) {
+		foreach my $source (sort keys %{$input_sets_hash_ref}) {
+			foreach my $preparation (sort keys %{$input_sets_hash_ref->{$source}}) {
+				foreach my $per (sort keys %{$input_sets_hash_ref->{$source}{$preparation}}) {
+
+					my $input_set_ref = $input_sets_hash_ref->{$source}{$preparation}{$per};
+
+					my $input_set_sort_key
+						= $sort_key . '_'
+						. sprintf("%02d", $item_number) . '-'
+						. $source . '_'
+						. $preparation . '_'
+						. $per;
+
+					# Fields at the root of the input set
+					foreach my $field ("per_quantity", "per_unit") {
+						if (defined $input_set_ref->{$field}) {
+							$populated_fields_ref->{"nutrition.input_sets.${source}.${preparation}.${per}.${field}"}
+								= $input_set_sort_key . '_0-root_' . $field;
+						}
+					}
+
+					# unspecified_nutrients
+					if (    defined $input_set_ref->{unspecified_nutrients}
+						and ref($input_set_ref->{unspecified_nutrients}) eq 'ARRAY'
+						and scalar(@{$input_set_ref->{unspecified_nutrients}}) > 0)
+					{
+						$populated_fields_ref->{"nutrition.input_sets.${source}.${preparation}.${per}.unspecified_nutrients"}
+							= $input_set_sort_key . '_1-unspecified_nutrients';
+					}
+
+					# nutrients
+					if ((defined $input_set_ref->{nutrients})
+						and ref($input_set_ref->{nutrients}) eq 'HASH')
+					{
+						my $nutrients_ref = $input_set_ref->{nutrients};
+
+						# We go through nutrients in the order of the off_europe nutrients table
+						# Go through the nutriment table
+						my $nutrient_number = 0;
+
+						foreach my $nutriment (@{$nutriments_tables{off_europe}}) {
+
+							next if $nutriment =~ /^\#/;
+							my $nid = $nutriment;
+
+							$nutrient_number++;
+
+							$nid =~ s/^(-|!)+//g;
+							$nid =~ s/-$//g;
+
+							next if $nid =~ /^nutrition-score/;
+
+							my $nutrient_ref = $nutrients_ref->{$nid};
+
+							if ((defined $nutrient_ref) and (ref($nutrient_ref) eq 'HASH')) {
+								foreach my $field ("modifier", "value_string", "value", "unit") {
+									if (defined $nutrient_ref->{$field}) {
+										$populated_fields_ref->{
+											"nutrition.input_sets.${source}.${preparation}.${per}.nutrients.${nid}.${field}"
+											}
+											= $input_set_sort_key
+											. '_2-nutrients_'
+											. sprintf("%03d", $nutrient_number) . '-'
+											. $nid . '_'
+											. $field;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 	return;
 }
 
