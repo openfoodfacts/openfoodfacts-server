@@ -2035,11 +2035,11 @@
 <h3 id="shell-setup">Shell Setup:<a class="headerlink" href="#shell-setup" title="Permanent link">#</a></h3>
 <p>You will need two types of shells:</p>
 <ul>
-<li>Shell for OpenFoodFacts:<ul>
+<li><strong>Shell for OpenFoodFacts</strong>:<ul>
 <li>Use this shell for general development on the OpenFoodFacts platform.</li>
 </ul>
 </li>
-<li>Shell for OpenFoodFacts-Pro: Use this shell when working on the OpenFoodFacts-Pro platform.<ul>
+<li><strong>Shell for OpenFoodFacts-Pro</strong>: Use this shell when working on the OpenFoodFacts-Pro platform.<ul>
 <li>To set up the shell, run the command: <code>. env/setenv.sh off-pro</code> (this simply sets some environment variables that will override the ones in <code>.env</code>).</li>
 <li>Once the shell is set up, your prompt will show <code>(pro)</code> to indicate that you are in the producers environment.</li>
 </ul>
@@ -2055,9 +2055,9 @@
 </li>
 </ul>
 <h3 id="working-with-product-importexport-and-interacting-with-the-public-platform">Working with Product Import/Export and Interacting with the Public Platform:<a class="headerlink" href="#working-with-product-importexport-and-interacting-with-the-public-platform" title="Permanent link">#</a></h3>
-<p>If you need to work on product import/export or interact with the public platform, you must start the following services: <code>PostgreSQL</code>, <code>MongoDB</code>, and the <code>Minion</code>. Here's how:</p>
+<p>If you need to work on product import/export or interact with the public platform, you must start the following services: <code>PostgreSQL</code>, and the <code>Minion</code>. Here's how:</p>
 <ul>
-<li>In a <em>non-pro</em> shell (OpenFoodFacts shell), run the command <code>docker compose up postgres minion mongodb</code>.<ul>
+<li>In a <em>non-pro</em> shell (OpenFoodFacts shell), run the command <code>docker compose up postgres minion</code>.<ul>
 <li>This command starts the necessary services in the background.</li>
 </ul>
 </li>
