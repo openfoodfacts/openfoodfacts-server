@@ -12,11 +12,10 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-wait_application_ready();
-
+wait_application_ready(__FILE__);
+remove_all_products();
 remove_all_users();
 
-remove_all_products();
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/upload_images";
 
 # Create an owner

@@ -74,8 +74,7 @@ BEGIN {
 		&display_product
 		&display_product_api
 		&display_product_history
-		&display_preferences_api
-		&display_attribute_groups_api
+
 		&get_search_field_path_components
 		&get_search_field_title_and_details
 		&search_and_display_products
@@ -344,9 +343,13 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{images_subdomain} = $images_subdomain;
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	(not defined $template_data_ref->{user_id}) and $template_data_ref->{user_id} = $User_id;
+	#12279 TODO: Rather than use %User we should add specific fields so that templates don't assume they can access every single user field
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path($Owner_id);
+	# webcomponents configuration
+	$template_data_ref->{robotoff_url} = $robotoff_url;
+	$template_data_ref->{folksonomy_uri} = $folksonomy_url;
 
 	my $oidc_implementation_level = get_oidc_implementation_level();
 	$template_data_ref->{oidc_implementation_level} = $oidc_implementation_level;
@@ -381,7 +384,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
 	$template_data_ref->{lang_sprintf} = \&lang_sprintf;
 	$template_data_ref->{lc} = $lc;
-	$template_data_ref->{cc} = $request_ref->{cc};
+	$template_data_ref->{cc} //= $request_ref->{cc};
 	$template_data_ref->{display_icon} = \&display_icon;
 	$template_data_ref->{time_t} = time();
 	$template_data_ref->{display_date_without_time} = \&display_date_without_time;
@@ -872,6 +875,13 @@ CSS
 	}
 
 	$attributes_options_ref = {};
+
+	# Some attributes can have parameters sent in the request parameters (usually in cookies)
+	my $attribute_unwanted_ingredients_tags = request_param($request_ref, "attribute_unwanted_ingredients_tags");
+	if ($attribute_unwanted_ingredients_tags) {
+		$attributes_options_ref->{attribute_unwanted_ingredients_tags} = $attribute_unwanted_ingredients_tags;
+	}
+
 	$knowledge_panels_options_ref = {};
 
 	if (not feature_enabled("environmental_score")) {
@@ -1319,8 +1329,8 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 			$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 		}
 
-		if (get_oidc_implementation_level() >= 5) {
-			# Use the Keycloak login link once we have fully mirgrated the Login user interface
+		if (get_oidc_implementation_level() >= 3) {
+			# Use the Keycloak login link once we have migrated the Login user interface
 			#11867: Should be full URL
 			my $escaped_canon_url = uri_escape($formatted_subdomain);
 			$html =~ s/<escaped_subdomain>/$escaped_canon_url/g;
@@ -4487,8 +4497,8 @@ JS
 			;
 
 		$request_ref->{scripts} .= <<JS
-<script src="$static_subdomain/js/product-preferences.js"></script>
-<script src="$static_subdomain/js/product-search.js"></script>
+<script src="$static_subdomain/js/dist/product-preferences.js"></script>
+<script src="$static_subdomain/js/dist/product-search.js"></script>
 JS
 			;
 
@@ -5316,6 +5326,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"traces_tags" => 1,
 			"unknown_ingredients_n" => 1
 		};
+
+		# If the user has selected some unwanted ingredients, we need the ingredients_tags field to compute the corresponding attribute
+		if (defined $attributes_options_ref->{attribute_unwanted_ingredients_tags}) {
+			$fields_ref->{"ingredients_tags"} = 1;
+		}
 	}
 	else {
 		# For HTML, limit the fields we retrieve from MongoDB
@@ -5671,8 +5686,8 @@ JS
 		;
 
 	$request_ref->{scripts} .= <<JS
-<script src="$static_subdomain/js/product-preferences.js"></script>
-<script src="$static_subdomain/js/product-search.js"></script>
+<script src="$static_subdomain/js/dist/product-preferences.js"></script>
+<script src="$static_subdomain/js/dist/product-search.js"></script>
 JS
 		;
 
@@ -7989,11 +8004,6 @@ JS
 
 	$request_ref->{bodyabout} = " about=\"" . product_url($product_ref) . "\" typeof=\"food:foodProduct\"";
 
-	$template_data_ref->{user_id} = $User_id;
-	$template_data_ref->{robotoff_url} = $robotoff_url;
-	$template_data_ref->{folksonomy_uri} = $folksonomy_url;
-	$template_data_ref->{lc} = $lc;
-
 	my $itemtype = 'https://schema.org/Product';
 	if (has_tag($product_ref, 'categories', 'en:dietary-supplements')) {
 		$itemtype = 'https://schema.org/DietarySupplement';
@@ -8567,8 +8577,8 @@ var product = $product_attribute_groups_json;
 var product_type = "$options{product_type}";
 </script>
 
-<script src="$static_subdomain/js/product-preferences.js"></script>
-<script src="$static_subdomain/js/product-search.js"></script>
+<script src="$static_subdomain/js/dist/product-preferences.js"></script>
+<script src="$static_subdomain/js/dist/product-search.js"></script>
 JS
 			;
 
@@ -10393,108 +10403,6 @@ sub display_nutrition_table ($product_ref, $comparisons_ref, $request_ref) {
 	return $html;
 }
 
-=head2 display_preferences_api ( $target_lc )
-
-Return a JSON structure with all available preference values for attributes.
-
-This is used by clients that ask for user preferences to personalize
-filtering and ranking based on product attributes.
-
-=head3 Arguments
-
-=head4 request object reference $request_ref
-
-=head4 language code $target_lc
-
-Sets the desired language for the user facing strings.
-
-=cut
-
-sub display_preferences_api ($request_ref, $target_lc) {
-
-	if (not defined $target_lc) {
-		$target_lc = $lc;
-	}
-
-	$request_ref->{structured_response} = [];
-
-	foreach my $preference ("not_important", "important", "very_important", "mandatory") {
-
-		my $preference_ref = {
-			id => $preference,
-			name => lang("preference_" . $preference),
-		};
-
-		if ($preference eq "important") {
-			$preference_ref->{factor} = 1;
-		}
-		elsif ($preference eq "very_important") {
-			$preference_ref->{factor} = 2;
-		}
-		elsif ($preference eq "mandatory") {
-			$preference_ref->{factor} = 4;
-			$preference_ref->{minimum_match} = 20;
-		}
-
-		push @{$request_ref->{structured_response}}, $preference_ref;
-	}
-
-	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
-
-	display_structured_response($request_ref);
-
-	return;
-}
-
-=head2 display_attribute_groups_api ( $request_ref, $target_lc )
-
-Return a JSON structure with all available attribute groups and attributes,
-with strings (names, descriptions etc.) in a specific language,
-and return them in an array of attribute groups.
-
-This is used in particular for clients of the API to know which
-preferences they can ask users for, and then use for personalized
-filtering and ranking.
-
-=head3 Arguments
-
-=head4 request object reference $request_ref
-
-=head4 language code $target_lc
-
-Returned attributes contain both data and strings intended to be displayed to users.
-This parameter sets the desired language for the user facing strings.
-
-=cut
-
-sub display_attribute_groups_api ($request_ref, $target_lc) {
-
-	if (not defined $target_lc) {
-		$target_lc = $lc;
-	}
-
-	my $attribute_groups_ref = list_attributes($target_lc);
-
-	# Add default preferences
-	if (defined $options{attribute_default_preferences}) {
-		foreach my $attribute_group_ref (@$attribute_groups_ref) {
-			foreach my $attribute_ref (@{$attribute_group_ref->{attributes}}) {
-				if (defined $options{attribute_default_preferences}{$attribute_ref->{id}}) {
-					$attribute_ref->{default} = $options{attribute_default_preferences}{$attribute_ref->{id}};
-				}
-			}
-		}
-	}
-
-	$request_ref->{structured_response} = $attribute_groups_ref;
-
-	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
-
-	display_structured_response($request_ref);
-
-	return;
-}
-
 =head2 display_taxonomy_api ( $request_ref )
 
 Generate an extract of a taxonomy for specific tags, fields and languages,
@@ -10502,7 +10410,7 @@ and return it as a JSON object.
 
 Accessed through the /api/v2/taxonomy API
 
-e.g. https://world.openfoodfacts.org/api/v2/taxonomy?type=labels&tags=en:organic,en:fair-trade&fields=name,description,children&include_children=1&lc=en,fr
+e.g. https://world.openfoodfacts.org/api/v2/taxonomy?tagtype=labels&tags=en:organic,en:fair-trade&fields=name,description,children&include_children=1&lc=en,fr
 
 =head3 Arguments
 

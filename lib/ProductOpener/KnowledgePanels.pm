@@ -421,6 +421,7 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 		$panel_json =~ s/href="\//href="$formatted_subdomain\//g;
 
 		# Convert multilines strings between backticks `` into single line strings
+		# We use two backticks `` to remove line breaks and extra spaces
 		# In the template, we use multiline strings for readability
 		# e.g. when we want to generate HTML
 

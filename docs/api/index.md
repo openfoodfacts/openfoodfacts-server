@@ -3,8 +3,7 @@
 Everything you need to know about Open Food Facts API.
 
 > [!CAUTION]
-> 👮‍♂️🚥Are you going to use our API?
-> Please **read this documentation entirely** before using it. 
+> Are you going to use our API? Please **read this documentation <ins>entirely</ins>** before using it.
 
 ## Overview
 
@@ -13,9 +12,11 @@ Open Food Facts is a food products database made by everyone, for everyone, that
 The Open Food Facts API enables developers to get information like ingredients and nutritional values of products, and even add more _facts_ to the products database. You can use the API to build applications that allow users to contribute to the database and make healthier food choices.
 
 **The current version of the API is `2`.**
+
 > Data in the Open Food Facts database is provided voluntarily by users who want to support the program. As a result, there are no assurances that the data is accurate, complete, or reliable. The user assumes the entire risk of using the data.
 
 **The next version of the API is `3`.**
+
 > This version is in active development and may be subject to frequent changes.
 
 ## Before You Start
@@ -24,11 +25,12 @@ The Open Food Facts API enables developers to get information like ingredients a
 - The individual contents of the database are available under the [Database Contents License](https://opendatacommons.org/licenses/dbcl/1.0/).
 - Product images are available under the [Creative Commons Attribution ShareAlike](https://creativecommons.org/licenses/by-sa/3.0/deed.en) license. They may contain graphical elements subject to copyright or other rights that may, in some cases, be reproduced (quotation rights or fair use).
 
-Before using the API, please : 
-1. Read the [Terms and conditions of use and reuse](https://world.openfoodfacts.org/terms-of-use) 
+Before using the API, please :
+
+1. Read the [Terms and conditions of use and reuse](https://world.openfoodfacts.org/terms-of-use)
 2. **Tell us how you'll use it** by filling out this short form:  
-👉 [Fill out the API usage form](https://docs.google.com/forms/d/e/1FAIpQLSdIE3D8qvjC_zRJw1W8OmuHhsWJ_NSckiiniAHlfaVwUZCziQ/viewform)
-This helps us understand real-world uses of the API and prioritize improvements. 
+   👉 [Fill out the API usage form](https://docs.google.com/forms/d/e/1FAIpQLSdIE3D8qvjC_zRJw1W8OmuHhsWJ_NSckiiniAHlfaVwUZCziQ/viewform)
+   This helps us understand real-world uses of the API and prioritize improvements.
 
 ## How to Best Use the API
 
@@ -66,27 +68,28 @@ If you need to fetch a significant fraction of the database, we recommend [downl
 
 - If you submit the product's **nutritional values** and **category**, you'll get the **Nutri-Score**.
 - If you submit the product **ingredients**, you'll get the **NOVA group** (about food ultra-processing), **additives**, **allergens**, **normalized ingredients**, **vegan**, **vegetarian**…
-- If you submit the product's  **category** and **labels**, you'll get the **Eco-Score** (a rating of the product's environmental impact)
+- If you submit the product's **category** and **labels**, you'll get the **Eco-Score** (a rating of the product's environmental impact)
 
 ## API Deployments
 
 The OpenFoodFacts API has two deployments.
 
-- Production: <https://world.openfoodfacts.org>
-- Staging: <https://world.openfoodfacts.net>
+- Production: https://world.openfoodfacts.org
+- Staging: https://world.openfoodfacts.net
 
-Consider using the [staging environment](https://world.openfoodfacts.net) if you are not in a production scenario. 
+Consider using the [staging environment](https://world.openfoodfacts.net) if you are not in a production scenario.
 
 While testing your applications, **make all API requests to the staging environment**. This way, we can ensure the product database is safe.
 
 Staging require an http basic auth to avoid search engine indexing. The username is `off`, and the password `off`. Here is a small javascript code that you can test in your browser console:
-```js
-fetch('https://world.openfoodfacts.net/api/v2/product/3274080005003.json', {
-  method: 'GET',
-  headers: { Authorization: 'Basic ' + btoa('off:off') },
+
+```js 
+fetch("https://world.openfoodfacts.net/api/v2/product/3274080005003.json", {
+  method: "GET",
+  headers: { Authorization: "Basic " + btoa("off:off") },
 })
-.then(response => response.json())
-.then(json => console.log(json));
+  .then((response) => response.json())
+  .then((json) => console.log(json));
 ```
 
 ## Authentication
@@ -97,7 +100,7 @@ We ask you to **always use a custom User-Agent to identify your app** (to not ri
 - READ operations (getting info about a product, etc...) do not require authentication other than the custom User-Agent.
 - WRITE operations (Editing an Existing Product, Uploading images…) **require authentication**. We do this as another layer of protection against spam.
 
-Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/) for your app (and notify reuse@openfoodfacts.org of the account name, so that we grant it special app privileges). From there, you have two options:
+Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/) for your app and fill out the [API usage form](https://docs.google.com/forms/d/e/1FAIpQLSdIE3D8qvjC_zRJw1W8OmuHhsWJ_NSckiiniAHlfaVwUZCziQ/viewform) so that we can identify your usage and prevent potential bans. From there, you have two options:
 
 - **The preferred one**:
   Use the login API to get a session cookie and use this cookie for authentication in your subsequent requests. However, the session must always be used from the same IP address, and there's a limit on sessions per user (currently 10) with older sessions being automatically logged out to stay within the limit.
@@ -105,10 +108,11 @@ Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/)
 
 You can create a global account to allow your app users to contribute without registering individual accounts on the Open Food Facts website. This way, we know that these contributions came from your application.
 
-We however ask that you send the [`app_name`, `app_version` and `app_uuid` parameters](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl) in your write queries. 
-* `app_name=MyApp` 
-* `app_version=1.1` 
-* `app_uuid=xxxx`: a salted random uuid for the user so that Open Food Facts moderators can selectively ban any problematic user without banning your whole app account.
+We however ask that you send the [`app_name`, `app_version` and `app_uuid` parameters](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl) in your write queries.
+
+- `app_name=MyApp`
+- `app_version=1.1`
+- `app_uuid=xxxx`: a salted random uuid for the user so that Open Food Facts moderators can selectively ban any problematic user without banning your whole app account.
 
 > Production and staging have different account databases, so **the account you create in the production environment will only work for production requests**. If you want to query (WRITE requests) the staging environment, you'll need to create another account there too.
 
@@ -137,7 +141,7 @@ We are building a complete OpenAPI reference. Here is a list of the current API 
 - [Report Bugs][report_bugs] on the Open Food Facts GitHub repository.
 - Do you have an issue or feature request? You can submit it [on GitHub](https://github.com/openfoodfacts/openfoodfacts-server/issues/new) too.
 - Are you interested in contributing to this project? See our [Contribution Guidelines][contribution_guidelines].
- <!-- Embed contribution guideline link.-->
+  {/* <!-- Embed contribution guideline link.--> */}
 
 [slack_url]: https://slack.openfoodfacts.org/
 [report_bugs]: https://github.com/openfoodfacts/openfoodfacts-server/issues/new/choose
@@ -154,20 +158,20 @@ Open-source contributors develop our SDKs, and more contributions are welcome to
 >
 > Also, remember to check the [API Reference Documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/) first to verify if the problem is in SDK implementation or in the API itself.
 
-*   Cordova: [GitHub (old Open Food Facts official app)](https://github.com/openfoodfacts/openfoodfacts-cordova-app)
-*   DART: [GitHub](https://github.com/openfoodfacts/openfoodfacts-dart) - [Package on pub.dev](https://pub.dev/packages/openfoodfacts)
-*   Elixir: [GitHub](https://github.com/openfoodfacts/openfoodfacts-elixir) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C758AFX0S)
-*   Go: [GitHub](https://github.com/openfoodfacts/openfoodfacts-go) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C14LGGCUV)
-*   Java: [GitHub](https://github.com/openfoodfacts/openfoodfacts-java) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
-*   Spring Boot: [GitHub](https://github.com/openfoodfacts/openfoodfacts-springboot-starter) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
-*   Kotlin: [GitHub](https://github.com/openfoodfacts/openfoodfacts-kotlin) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C045VU7NXS9)
-*   NodeJS: [GitHub](https://github.com/openfoodfacts/openfoodfacts-nodejs) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1JQQ28P8)
-*   PHP: [GitHub](https://github.com/openfoodfacts/openfoodfacts-php) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3GTJNM)
-*   PHP (Laravel): [GitHub](https://github.com/openfoodfacts/openfoodfacts-laravel) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3GTJNM)
-*   Python: [GitHub](https://github.com/openfoodfacts/openfoodfacts-python), published on [pypi](https://pypi.org/project/openfoodfacts/) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C13993JDD)
-*   React Native: [GitHub](https://github.com/openfoodfacts/openfoodfacts-react-native) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/CL29QEBPY)
-*   Ruby: [GitHub](https://github.com/openfoodfacts/openfoodfacts-ruby) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C0ZALLH61)
-*   Rust: [GitHub](https://github.com/openfoodfacts/openfoodfacts-rust) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C010J616CKV)
-*   R: [GitHub](https://github.com/openfoodfacts/r-dashboard) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C2CR356NR)
-*   Swift: [GitHub](https://github.com/openfoodfacts/openfoodfacts-swift) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/CE2A1E7MH)
-*   .NET/C#: [GitHub](https://github.com/openfoodfacts/openfoodfacts-csharp) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1JHT98HJ)
+- Cordova: [GitHub (old Open Food Facts official app)](https://github.com/openfoodfacts/openfoodfacts-cordova-app)
+- DART: [GitHub](https://github.com/openfoodfacts/openfoodfacts-dart) - [Package on pub.dev](https://pub.dev/packages/openfoodfacts)
+- Elixir: [GitHub](https://github.com/openfoodfacts/openfoodfacts-elixir) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C758AFX0S)
+- Go: [GitHub](https://github.com/openfoodfacts/openfoodfacts-go) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C14LGGCUV)
+- Java: [GitHub](https://github.com/openfoodfacts/openfoodfacts-java) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
+- Spring Boot: [GitHub](https://github.com/openfoodfacts/openfoodfacts-springboot-starter) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3J5RT3)
+- Kotlin: [GitHub](https://github.com/openfoodfacts/openfoodfacts-kotlin) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C045VU7NXS9)
+- NodeJS: [GitHub](https://github.com/openfoodfacts/openfoodfacts-nodejs) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1JQQ28P8)
+- PHP: [GitHub](https://github.com/openfoodfacts/openfoodfacts-php) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3GTJNM)
+- PHP (Laravel): [GitHub](https://github.com/openfoodfacts/openfoodfacts-laravel) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1G3GTJNM)
+- Python: [GitHub](https://github.com/openfoodfacts/openfoodfacts-python), published on [pypi](https://pypi.org/project/openfoodfacts/) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C13993JDD)
+- React Native: [GitHub](https://github.com/openfoodfacts/openfoodfacts-react-native) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/CL29QEBPY)
+- Ruby: [GitHub](https://github.com/openfoodfacts/openfoodfacts-ruby) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C0ZALLH61)
+- Rust: [GitHub](https://github.com/openfoodfacts/openfoodfacts-rust) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C010J616CKV)
+- R: [GitHub](https://github.com/openfoodfacts/r-dashboard) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C2CR356NR)
+- Swift: [GitHub](https://github.com/openfoodfacts/openfoodfacts-swift) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/CE2A1E7MH)
+- .NET/C#: [GitHub](https://github.com/openfoodfacts/openfoodfacts-csharp) - [Discussion channel](https://app.slack.com/client/T02KVRT1Q/C1JHT98HJ)

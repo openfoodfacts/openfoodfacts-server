@@ -641,6 +641,7 @@ hr: želatina
 it: gelatina
 ja: ゼラチン
 lt: želatina, želatinos
+pl: żelatyna, żelatyna spożywcza
 # ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
 description:en: GELATIN or GELATINE is a translucent, colorless, brittle (when dry), flavorless food ingredient that is derived from collagen obtained from various animal body parts.
 vegan:en: no
@@ -725,7 +726,7 @@ hu: sertészselatin
 it: gelatina di maiale
 lt: kiaulienos želatina
 nl: varkensgelatine
-pl: żelatyna wieprzowa, żelatynę wieprzową
+pl: żelatyna wieprzowa, żelatynę wieprzową, żelatyna spożywcza wieprzowa
 pt: Gelatina de porco
 # ingredient/fr:gélatine-de-porc has 891 products in 8 languages @2019-02-10
 vegan:en: no
@@ -1135,7 +1136,7 @@ pt: Cultura microbial
 ro: Culturi microbiene
 sv: mikrobiell kultur, kultur, aktiva kulturer, levande kulturer, bakteriekultur
 # ingredient/culture has 683 products in 3 languages @2018-12-27
-nova:en: 3
+# note: microbial culture is not a NOVA 3 marker, it is contained in plain yoghurts that are NOVA 1
 vegan:en: maybe
 vegetarian:en: maybe
 wikipedia:en: https://en.wikipedia.org/wiki/Microbiological_culture
@@ -1163,7 +1164,7 @@ it: fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fe
 lt: jogurtinės bakterijos
 nb: melkesyrekultur, starterkultur, yoghurtkultur, yoghurtbakterier, syrekultur
 nl: melkfermenten, melkkiemen, Melkzuurbacteriën, zuursel, yoghurtcultuur, yoghurtculturen
-pl: żywe kultury bakterii jogurtowych, bakterie fermentacji mlekowej, kultury bakterii mlekowych, kultury bakterii kwasu mlekowego, kultury bakterii jogurtowych, bakterie fermentacji kwasu mlekowego, bakterie kwasu mlekowego, żywe kultury bakterii mlekowych, kultury bakterii fermentacji mlekowej, kultury mleczarskie
+pl: żywe kultury bakterii jogurtowych, bakterie fermentacji mlekowej, kultury bakterii mlekowych, kultury bakterii kwasu mlekowego, kultury bakterii jogurtowych, bakterie fermentacji kwasu mlekowego, bakterie kwasu mlekowego, żywe kultury bakterii mlekowych, kultury bakterii fermentacji mlekowej, kultury mleczarskie, żywe bakterie jogurtowe
 pt: fermentos lácteos, culturas lácteas, leveduras lacteas, fermentos láticos, fermentos lácticos
 ro: culturi lactice, culturi lactice selecționate, culturi lactice selectionate, fermenți de iaurt, fermenti de iaurt, fermenți lactici, fermenti lactici
 ru: Молочные ферменты, пробиотические микроорганизм
@@ -1445,7 +1446,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lactobacillus_acidophilus
 
 < en:Lactobacillus
 en: Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus, L. delbrueckii subsp. bulgaricus
-xx: Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii ssp. bulgaricus, Lactobacillus delbruecki ssp. bulgaricus
+xx: Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii ssp. bulgaricus, Lactobacillus delbruecki ssp. bulgaricus, L. delbrueckii ssp. bulgaricus
 bg: Лактобацилус булгарикус, Lactobacillus bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus, L. delbrueckii subsp. bulgaricus, Lactobacillus delbrueskii subsp. bulgaricus
 es: lactobacilus delbrueckii sp Bulgaricus, Lactobacillus delbrueckii subspecies bulgaricus
 fr: L bulgaricus, bulgaricus
@@ -1703,7 +1704,8 @@ ur: خامرہ
 vi: enzym
 yi: ענזים
 zh: 酶
-nova:en: 3
+# enzymes should not be a NOVA 3 marker, commenting line below
+# nova:en: 3
 vegan:en: maybe
 vegetarian:en: maybe
 # als:Enzym
@@ -2170,7 +2172,6 @@ ko: 발효유
 lv: Skābpiena produkti
 ru: Кисломолочные продукты
 uk: Кисломолочний продукт
-# nova:en:4 should be set by children
 vegan:en: no
 vegetarian:en: maybe
 wikidata:en: Q3506176
@@ -2195,8 +2196,6 @@ ciqual_food_name:fr: Lait 2e âge, poudre soluble (préparation de suite)
 # description:en:BUTTER is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk. It is generally used as a spread on plain or toasted bread products and a condiment on cooked vegetables, as well as in cooking, such as baking, sauce making, and pan frying.
 # comment:en:Butter is not added to the fat section (to much water?)
 
-# nova:en:butter
-# from:en:milk
 < en:dairy
 en: butter
 am: ቅቤ
@@ -3615,7 +3614,7 @@ hr: laktozu i mliječne bjelančevine
 hu: laktóz és tejfehérje, tejcukor és tejfehérje
 it: lattosio e proteine del latte
 nl: lactose en melkeiwitten
-pl: Białka mleczne i laktoza
+pl: Białka mleczne i laktoza, białka mleka łącznie z laktozą
 pt: lactose e proteínas do leite, lactose e proteínas lácteas
 vegan:en: no
 vegetarian:en: yes
@@ -3623,7 +3622,6 @@ vegetarian:en: yes
 
 ################################ MILK POWDERS ##################################
 
-# nova:en:milk-powder
 #process:en: en:powder
 < en:dairy
 en: milk powder, powdered milk, dry milk
@@ -3749,14 +3747,14 @@ ciqual_food_code:en: 19021
 ciqual_food_name:en: Milk, powder, whole
 ciqual_food_name:fr: Lait en poudre, entier
 
+# < en:compound
 < en:coating
-< en:milk
 < en:preparation
 en: milk coating
 hr: mliječni preljev
 it: rivestimento al latte
 
-< en:milk
+# < en:compound
 < en:preparation
 en: milk preparation
 hr: mliječni pripravak
@@ -3876,7 +3874,7 @@ nb: Laktose, melkesukker
 nl: Lactose, melksuiker
 nn: Laktose, mjølkesukker
 oc: Lactòsa
-pl: Laktoza, laktozą, laktozę, laktozy
+pl: Laktoza, laktozą, laktozę, laktozy, laktoza z mleka
 pt: Lactose, lactéos
 ro: Lactoză, lactoza
 ru: Лактоза
@@ -4206,8 +4204,8 @@ xx: skyr
 # en:Filtrated whey
 # fr:Perméat de lactosérum
 
+# < en:compound
 < en:coating
-< en:yogurt
 en: yogurt coating
 hr: jogurt preljev
 it: rivestimento allo yogurt
@@ -8886,7 +8884,7 @@ nv: Áshįįh
 oc: Sal alimentària
 or: ଲୁଣ
 pa: ਲੂਣ
-pl: sól, sól kuchenna, sól spożywcza
+pl: sól, sól kuchenna, sól spożywcza, sól biała
 ps: مالگه
 pt: sal, sal de cozinha, sal de cosina, sal de taula
 ro: sare, Sare de bucătărie, sare de masă
@@ -8996,6 +8994,10 @@ ciqual_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignig
 < en: rock salt
 en: salt from Salies de Béarn
 fr: sel de Salies de Béarn
+
+< en: rock salt
+en: salt from Kłodawa
+pl: sól kłodawska, sól z Kłodawy, naturalna sól kamienna kłodawska
 
 < en:salt
 en: Smoked salt
@@ -9401,6 +9403,7 @@ en: non-iodised salt
 de: salz unjodiert, Speisesalz unjodiert
 fr: sel non iodé
 hr: nejodirana sol
+pl: sól niejodowana
 sl: nejodirana sol
 
 < en:non-iodised salt
@@ -11684,7 +11687,7 @@ bg: свинско месо
 ca: Carn de porc
 cs: Vepřové maso
 da: Svinekød
-de: Schweinefleisch
+de: Schweinefleisch, Schweinfleisch
 es: carne de cerdo
 fi: sianliha, sianlihaa, porsaanliha, porsaanlihaa, viljaporsaanliha
 fr: viande de porc, viande porc
@@ -17787,20 +17790,6 @@ es: vinagre blanco destilado
 fr: Vinaigre blanc distillé
 hr: bijeli destilirani ocat
 it: aceto bianco distillato
-
-< en:vinegar
-en: buffered vinegar
-hr: puferirani ocat
-it: aceto tamponato
-nl: gebufferde azijn, gebufferd azijn
-pl: ocet buforowany
-
-< en:buffered vinegar
-en: buffered vinegar powder
-hr: puferirani ocat u prahu
-it: aceto in polvere tamponato
-nl: gebufferde azijnpoeder
-pl: ocet buforowany w proszku
 
 #<en:vinegar
 #en:vinegar powder
@@ -25526,7 +25515,7 @@ hr: integralna zob
 hu: teljes kiőrlésű zab
 it: Avena integrale
 nl: volkoren haver
-pl: pełnoziarnisty owies, owsiane pełnoziarniste
+pl: pełnoziarnisty owies, owsiane pełnoziarniste, owies pełnoziarnisty
 sv: fullkornshavre
 
 < en:oat
@@ -27008,7 +26997,7 @@ hu: búzamaláta liszt
 it: farina di grano maltato, farina di malto di frumento
 lt: salykliniai kviečių miltai, salykliniai kvietiniai miltai, salykliniai kvietinės miltai, salykliniai kvietinis miltai
 nl: gemout tarwemeel, tarwemoutmeel, tarwemoutbloem
-pl: mąka słodowa pszenna, mąka pszenna słodowana, mąka pszenna słodowa
+pl: mąka słodowa pszenna, mąka pszenna słodowana, mąka pszenna słodowa, mąka ze słodu pszennego
 pt: farinha de malte de trigo
 sv: vetemaltmjöl
 
@@ -31029,6 +31018,7 @@ fi: maltoosisiirappi
 fr: Sirop de maltose
 hr: maltozni sirup
 it: sciroppo di maltosio
+pl: syrop maltozowy
 pt: xarope de maltose
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:maltoosisiirappi
 # 1 entry @ 2019-10-31
@@ -32741,7 +32731,7 @@ vegetarian:en: maybe
 < en:protein
 en: hydrolysed proteins, hydrolysed protein
 da: hydrolyseret protein, hydrolyserede proteiner
-de: Proteinhydrolysat
+de: Proteinhydrolysat, Eiweißhydrolysat
 es: proteína hidrolizada
 fi: proteiinihydrosylaatit, proteiinihydrosylaatti
 fr: protéine hydrolysée
@@ -32837,7 +32827,7 @@ ro: izolat proteic de mazăre
 < en:textured plant protein
 en: textured pea protein, textured pea proteins
 de: texturiertes Erbseneiweiß
-fr: protéines de pois texturées, protéine de pois texturée
+fr: protéines de pois texturées, protéine de pois texturée, protéines texturées de pois
 hr: teksturirani proteini graška, teksturiranog proteina graška
 it: proteine di pisello testurizzate
 pl: teksturat białka grochu, teksturowane białko grochu
@@ -33052,7 +33042,7 @@ fi: soijaproteiini-isolaatti
 fr: isolat de protéine de soja
 hr: izolat proteina soje, izolat sojinih bjelančevina
 it: proteine isolate di soia, proteine di soia isolate
-pl: izolowane białko sojowe, izolat białka sojowego
+pl: izolowane białko sojowe, izolat białka sojowego, izolat sojowy
 ru: изолированный белок сои
 
 < en:hydrolysed vegetable protein
@@ -34811,7 +34801,7 @@ om: Bishaan
 or: ଜଳ
 os: Дон
 pa: ਪਾਣੀ
-pl: Woda, wody, wodny
+pl: Woda, wody, wodny, woda pitna
 ps: اوبه
 pt: Água
 qu: Yaku
@@ -36249,7 +36239,7 @@ hu: sörélesztő
 it: lievito di birra
 la: Saccharomyces cerevisiae
 nl: biergist
-pl: drożdże winiarskie Saccharomyces Cerevisiae, drożdże Saccharomyces Cerevisiae, drożdże piwowarskie
+pl: drożdże winiarskie Saccharomyces Cerevisiae, drożdże Saccharomyces Cerevisiae, drożdże piwowarskie, drożdże piwne
 pt: levedura de cerveja
 sv: bryggerijäst
 wikidata:en: Q719725
@@ -39058,7 +39048,7 @@ or: ସେଓ
 os: Фæткъуы
 pa: ਸੇਬ
 pi: sītāphala
-pl: jabłko, jabłka, jabłek, jabłkowy
+pl: jabłko, jabłka, jabłek, jabłkowy, owoc jabłka
 ps: مڼه
 pt: Maçã, maçãs
 qu: Mansana
@@ -39370,7 +39360,7 @@ hr: sušene jabuke
 hu: szárított almadarabkák
 it: mele secche
 nl: gedroogde appel
-pl: liofilizowane jabłka
+pl: liofilizowane jabłka, suszony owoc jabłka
 pt: maçãs desidratadas
 ru: Сушеное яблоко
 sk: sušené jablká
@@ -39644,7 +39634,7 @@ hu: sűrített almalé, almalé koncentrátum, almalé koncentrátumból
 it: succo di mele a base di concentrato
 nb: eplejuice fra konsentrat
 nl: appelsap uit concentraat
-pl: sok jabłkowy z koncentratu, sok jabłkowy z zagęszczonego soku jabłkowego, sok z koncentratu z jabłek, sok jabłkowy z zagęszczonego soku, sok jabłkowy z soku zagęszczonego
+pl: sok jabłkowy z koncentratu, sok jabłkowy z zagęszczonego soku jabłkowego, sok z koncentratu z jabłek, sok jabłkowy z zagęszczonego soku, sok jabłkowy z soku zagęszczonego, sok jabłkowy z koncentratu soku jabłkowego
 pt: Suco de maçã obtido a partir de um produto concentrado, sumo de maçã obtido a partir de um produto concentrado, suco de maçã reconstituído, sumo de maçã reconstituído, suco de maçã verde reconstituído, sumo de maçã verde reconstituído
 ro: suc de mere obţinut din suc concentrat
 sv: äppeljuice från koncentrat
@@ -41086,6 +41076,7 @@ fr: jus de citron vert à base de concentré
 hr: rekonstituirani sok od limete
 it: succo di lime ricostituito
 nl: limoensap uit concentraat
+pl: sok z limonki z zagęszczonego soku z limonki, sok z limonki z zagęszczonego soku z limonek, sok limonkowy z zagęszczonego soku limonkowego
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert-à-base-de-concentré
 # 74 products in 3 languages @2018-10-01
 
@@ -42937,6 +42928,7 @@ bg: сок от череши от концентрат
 de: Kirschsaft aus Kirschsaftkonzentrat
 hr: sok višnje od koncentriranog soka višnje
 it: succo di ciliegia da succo di ciliegia concentrato
+pl: sok wiśniowy z zagęszczonego soku wiśniowego
 ro: suc de cireșe din suc concentrat de cireș
 
 < en:cherry
@@ -43119,6 +43111,7 @@ fi: kirsikkapyree, kirsikkasose
 fr: Purée de cerises
 hr: pulpa višnja
 it: purea di ciliegie
+pl: przecier z wiśni
 # IN process de:Kirschpüree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/en:cherry-purée
 # 35 products @2018-09-29
@@ -43174,7 +43167,7 @@ lt: Aronija
 lv: Aronijas
 mk: Аронија
 nl: appelbes
-pl: aronia, aronii, aroniowa, aroniowy, aroniowe
+pl: aronia, aronii, aroniowa, aroniowy, aroniowe, owoc aronii, owoce aronii
 pt: aronia
 ro: Aronia
 ru: Арония
@@ -43215,6 +43208,7 @@ fi: marja-aroniamehu
 fr: jus d'aronia
 hr: sok od aronije
 it: succo d'aronia
+pl: sok z aronii, sok aroniowy
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'aronia
 # 20 products in 3 languages @2018-10-03
 
@@ -43225,6 +43219,7 @@ fi: marja-aroniamehutiiviste
 fr: Jus concentré d'aronia
 hr: koncentrirani sok od aronije
 it: succo concentrato di aronia
+pl: zagęszczony sok z aronii
 
 ###################################################################################################
 #
@@ -43513,6 +43508,7 @@ fr: pâte de noix de coco
 hr: pasta od kokosa
 it: pasta di cocco
 nl: kokospuree
+pl: pasta kokosowa
 
 
 ###################################################################################################
@@ -45639,7 +45635,7 @@ de: Granatapfelsaft aus Granatapfelsaftkonzentrat
 fr: jus de grenade à base de concentré, Jus de grenade à base de jus de grenade concentré
 hr: sok od nara iz koncentrata
 it: Succo di melagrana a base di succo concentrato
-pl: sok z granatów z koncentratu
+pl: sok z granatów z koncentratu, sok z granatów z zagęszczonego soku
 
 < en:pomegranate juice
 es: zumo de granada variedad Mollar de Elche, jugo de granada variedad Mollar de Elche
@@ -46114,7 +46110,7 @@ nl: aardbei, aardbeien
 nn: Hagejordbær
 nv: Dah woozh
 pa: ਸਟਰਾਬਰੀ
-pl: Truskawka, truskawki, truskawek, truskawkowy, truskawkowego, truskawkowa, truskawkowej, truskawkowe, truskawkowych
+pl: Truskawka, truskawki, truskawek, truskawkowy, truskawkowego, truskawkowa, truskawkowej, truskawkowe, truskawkowych, owoc truskawki, owoce truskawki
 pt: morango, morangos
 ro: căpșună
 ru: клубника
@@ -46966,6 +46962,7 @@ es: jugo de uva concentrado reconstituido
 fr: jus de raisin à base de concentré, jus de raisins à base de concentré
 hr: sok od grožđa iz koncentrata
 it: succo d'uva da concentrato
+pl: sok winogronowy z koncentratu soku winogronowego
 
 < en:concentrated grape juice
 fr: jus de raisin concentré rectifié
@@ -54670,7 +54667,7 @@ nl: aloe vera, Aloë vera
 oc: Àloe vera
 or: ଘିକୁଆଁରୀ
 pa: ਕੁਆਰ ਗੰਦਲ
-pl: Aloes zwyczajny
+pl: Aloes zwyczajny, aloes
 pt: babosa
 ro: Aloe vera
 ru: алоэ вера
@@ -57306,7 +57303,7 @@ de: Tomatensaft aus Konzentrat
 fi: tomaattimehu tiivisteestä
 it: succo di pomodoro ricavato da concentrato
 nl: tomatensap uit sapconcentraat
-pl: sok pomidorowy z zagęszczonego soku pomidorowego, sok pomidorowy z zagęszczonego soku, sok pomidorowy z koncentratu
+pl: sok pomidorowy z zagęszczonego soku pomidorowego, sok pomidorowy z zagęszczonego soku, sok pomidorowy z koncentratu, sok pomidorowy odtworzony z zagęszczonego soku pomidorowego
 # ingredient/fr:jus-de-tomate-à-partir-de-concentré has 149 products @2018-12-26
 
 < en:tomato juice
@@ -61748,6 +61745,7 @@ fi: pistaasitahna
 fr: pâte de pistache
 hr: pasta od pistacija, pasta s pistacijama
 it: pasta di pistacchio
+pl: pasta z pistacji, pasta pistacjowa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-pistache
 # 75 products @2018-10-05
 
@@ -64298,6 +64296,7 @@ ko: 메이스
 nb: muskatblomme
 nl: foelie
 oc: Macís
+pl: kwiat muszkatołowy, macis
 pt: Macis
 ru: Мацис
 sk: Muškátový kvet
@@ -65451,6 +65450,7 @@ fi: inkivääritahna
 fr: Pâte de gingembre
 hr: pasta od đumbira
 it: pasta di zenzero
+pl: pasta imbirowa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:inkiv%C3%A4%C3%A4ritahna
 # 1 entry @ 2019-10-31
 
@@ -84273,7 +84273,7 @@ it: collo di pollo
 < en:poultry skin
 en: chicken skin
 bg: пилешка кожа
-de: Hühnchenhaut
+de: Hähnchenhaut, Hühnchenhaut
 es: piel de pollo
 fi: kanannahka
 fr: peau de poulet
@@ -86707,7 +86707,7 @@ mk: Инулин
 nb: inulin
 nl: Inuline
 nn: Inulin
-pl: Inulina
+pl: Inulina, inulina z cykorii
 pt: Inulina
 ro: Inulina
 ru: инулин
@@ -89204,7 +89204,8 @@ en: white chocolate coating
 hr: bijeli čokoladni preljev, preljev s bijelom čokoladom
 it: rivestimento di cioccolato bianco
 
-< en:hazelnut
+# < en:compound
+< en:coating
 en: hazelnut coating
 hr: preljev s lješnjacíma
 it: copertura di nocciole
@@ -89215,8 +89216,7 @@ en: chocolate and hazelnut coating
 hr: preljev s čokoladom i lješnjacima
 it: copertura al cioccolato e nocciole
 
-< en:hazelnut coating
-< en:milk
+< en:coating
 en: milk and hazelnut coating
 hr: preljev s mlijekom i lješnjacima
 it: copertura al latte e nocciole
@@ -89227,8 +89227,7 @@ en: nougat coating
 hr: nougat preljev
 it: rivestimento al torrone
 
-
-< en:berries
+# < en:compound
 < en:coating
 en: berry coating
 hr: preljev od bobičastog voća
@@ -93056,13 +93055,11 @@ ciqual_food_name:fr: Houmous
 wikidata:en: Q241987
 wikipedia:en: https://en.wikipedia.org/wiki/Hummus
 
-< en:chili pepper
 < en:hummus
 en: chili hummus
 sv: hummus med chili, hummus chili
 
 < en:hummus
-< en:sundried tomatoes
 en: sundried tomato hummus
 sv: hummus med soltorkad tomat, hummus soltorkad tomat
 
@@ -93272,7 +93269,7 @@ it: gambero, gamberi
 < en:cucumber
 < en:gherkin
 en: cucumber or gherkin, cumcumber or gherkin
-de: Gurke
+de: Gurke, Gurken
 
 < en: bell pepper
 < en: paprika

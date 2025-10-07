@@ -44,7 +44,8 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-if (get_oidc_implementation_level() >= 5) {
+if (get_oidc_implementation_level() >= 3) {
+	# Use Keycloak to reset password if we are using Keycloak login
 	my $oidc_configuration = get_oidc_configuration();
 	unless (defined $oidc_configuration) {
 		die 'oidc_discovery_url not configured or Keycloak is no available';
@@ -144,7 +145,7 @@ else {
 				$user_ref->{token} = generate_token(64);
 				$user_ref->{token_ip} = remote_addr();
 
-				store_user_session($user_ref);
+				store_user_preferences($user_ref);
 				my $userid = $user_ref->{userid};
 
 				my $url
