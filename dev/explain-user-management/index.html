@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-user-management/">
       
       
-        <link rel="prev" href="../ref-perl-pod/">
+        <link rel="prev" href="../explain-taxonomy-build-cache/">
       
       
-        <link rel="next" href="../../events/">
+        <link rel="next" href="../ref-docker-commands/">
       
       
       <link rel="icon" href="https://static.openfoodfacts.org/images/logos/off-logo-favicon-light.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Reference Perl code documentation - Product Opener (Open Food Facts Server)</title>
+        <title>Explain User Management and Authentication - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reference-perl-code-documentation" class="md-skip">
+        <a href="#explain-user-management-and-authentication" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reference Perl code documentation
+              Explain User Management and Authentication
             
           </span>
         </div>
@@ -1692,10 +1692,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../explain-user-management/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Explain User Management and Authentication
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1706,6 +1728,152 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#keycloak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keycloak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keycloak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-register-an-oidc-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to register an OIDC client
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login-and-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login and registration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Login and registration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-product-opener-open-x-facts-websites" class="md-nav__link">
+    <span class="md-ellipsis">
+      In Product Opener (Open x Facts websites)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wiki" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wiki
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hunger-game" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hunger game
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxonomy-editor-and-nutripatrol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy editor and Nutripatrol
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#users-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Users information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Users information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#users-main-informations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Users main informations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#users-preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Users preferences
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      User roles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      In development
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1761,19 +1929,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ref-perl/" class="md-nav__link">
         
   
   
@@ -1784,7 +1943,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1885,6 +2043,140 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#keycloak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keycloak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keycloak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-register-an-oidc-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to register an OIDC client
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login-and-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login and registration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Login and registration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-product-opener-open-x-facts-websites" class="md-nav__link">
+    <span class="md-ellipsis">
+      In Product Opener (Open x Facts websites)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wiki" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wiki
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hunger-game" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hunger game
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxonomy-editor-and-nutripatrol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy editor and Nutripatrol
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#users-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Users information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Users information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#users-main-informations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Users main informations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#users-preferences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Users preferences
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      User roles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      In development
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1899,7 +2191,7 @@
 
 
   
-    <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/main/docs/dev/ref-perl.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/main/docs/dev/explain-user-management.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1907,10 +2199,92 @@
   
 
 
-<h1 id="reference-perl-code-documentation">Reference Perl code documentation<a class="headerlink" href="#reference-perl-code-documentation" title="Permanent link">#</a></h1>
-<p>The documentation in Plain Old Format (aka POD) for perl module
-is compiled from in file documentation.</p>
-<p><a href="../ref-perl-pod/">See the Perl reference documentation</a></p>
+<h1 id="explain-user-management-and-authentication">Explain User Management and Authentication<a class="headerlink" href="#explain-user-management-and-authentication" title="Permanent link">#</a></h1>
+<blockquote>
+<p>:pencil: <strong>Note:</strong> this document explains the target configuration,
+we are currently in the process of migrating towards it</p>
+</blockquote>
+<p>User management mostly happens in keycloak.</p>
+<h2 id="keycloak">Keycloak<a class="headerlink" href="#keycloak" title="Permanent link">#</a></h2>
+<p><a href="https://www.keycloak.org/">Keycloak</a>
+is an Open Source identity and access management platform.</p>
+<p>The <a href="https://github.com/openfoodfacts/openfoodfacts-auth">openfoodfacts-auth</a> project
+handles a specific deployment of keycloak fitted to our needs.</p>
+<p>You can refer to its documentation.</p>
+<p>In production, it is deployed as https://auth.openfoodfacts.org/</p>
+<p>Our users are inside the "openfoodfacts" realm.</p>
+<p>To login as a keycloak administrator (that is administrator of all realms),
+you can log to https://auth.openfoodfacts.org/admin/
+with a specific account (which is distinct from your Open Food Facts Account)</p>
+<h3 id="how-to-register-an-oidc-client">How to register an OIDC client<a class="headerlink" href="#how-to-register-an-oidc-client" title="Permanent link">#</a></h3>
+<ul>
+<li>Create a client id (e.g. "OFF") in Keycloak by following these instructions: https://github.com/openfoodfacts/openfoodfacts-auth?tab=readme-ov-file#internal-backend-client</li>
+<li>Set the $oidc_client_id and $oidc_client_secret values in Config2.pm</li>
+<li>Set the $oidc_implementation_level=1 in Config2.pm and export all of the variables</li>
+<li>Make sure the redis listener service is started for each instance</li>
+</ul>
+<h2 id="login-and-registration">Login and registration<a class="headerlink" href="#login-and-registration" title="Permanent link">#</a></h2>
+<p>Keycloak acts as a SSO to all dev platform.</p>
+<h3 id="in-product-opener-open-x-facts-websites">In Product Opener (Open x Facts websites)<a class="headerlink" href="#in-product-opener-open-x-facts-websites" title="Permanent link">#</a></h3>
+<p>The authentification is handled through <strong>FIXME explain OIDC and session cookie</strong></p>
+<p>When users come to one of our website,
+they are redirected to the login or registration forms of keycloak.</p>
+<p>Keycloak also handles password reset.</p>
+<h3 id="wiki">Wiki<a class="headerlink" href="#wiki" title="Permanent link">#</a></h3>
+<p>At the moment the wiki uses a plugin
+to read the authentication cookie from Open Food Facts
+(it's possible because we are on the same domain)
+to authenticate users in the wiki.</p>
+<h3 id="hunger-game">Hunger game<a class="headerlink" href="#hunger-game" title="Permanent link">#</a></h3>
+<p>Reads the authentication cookie from Open Food Facts.
+and use the <code>auth.pl?body=1</code> to get users info and roles.</p>
+<h3 id="taxonomy-editor-and-nutripatrol">Taxonomy editor and Nutripatrol<a class="headerlink" href="#taxonomy-editor-and-nutripatrol" title="Permanent link">#</a></h3>
+<p>The backend reads the authentication cookie from Open Food Facts,</p>
+<p>Reads the authentication cookie from openfoodfacts.
+and use the <code>auth.pl?body=1</code> to get users info and roles.</p>
+<p>They both cache the results.</p>
+<h2 id="users-information">Users information<a class="headerlink" href="#users-information" title="Permanent link">#</a></h2>
+<h3 id="users-main-informations">Users main informations<a class="headerlink" href="#users-main-informations" title="Permanent link">#</a></h3>
+<p>The main user information is stored in Keycloak using the PostgreSQL database.</p>
+<h3 id="users-preferences">Users preferences<a class="headerlink" href="#users-preferences" title="Permanent link">#</a></h3>
+<p>Keycloak stores user's information, but not application specific preferences
+which are deferred to a file on disk. (see <code>User.pm</code>, <code>retrieve_user</code> and <code>store_user</code>)</p>
+<p>Those files are in a users dataset which is shared between all OxF websites.</p>
+<blockquote>
+<p>Note: They are in STO format (Perl serialization), but we are transitioning to a JSON format. Also they could be better stored in a database like postgreSQL.</p>
+</blockquote>
+<h3 id="user-roles">User roles<a class="headerlink" href="#user-roles" title="Permanent link">#</a></h3>
+<p>Apart from simple users, there are important users roles:</p>
+<ul>
+<li>administrator</li>
+<li>moderator</li>
+<li>moderator for the producers platform</li>
+</ul>
+<p>There are also a series of informative flags on the user to specify that an account is:</p>
+<ul>
+<li>a producer account belonging a specific org</li>
+<li>a bot account</li>
+<li>an account used by an application to access the data, and so on</li>
+</ul>
+<p>User roles are specified:</p>
+<ul>
+<li>in the config file for administrators (<code>$admins</code> variable)</li>
+<li>through specific properties of user preferences for the other roles</li>
+</ul>
+<p>On producer platform, role within an org (administrator or user of an organization)
+is part of the organization information, stored in a file on disk (<code>orgs</code> dataset).</p>
+<h2 id="in-development">In development<a class="headerlink" href="#in-development" title="Permanent link">#</a></h2>
+<p>In development, the openfoodfacts-auth project is a service dependency of this project.
+See <a href="https://github.com/openfoodfacts/.github/blob/main/docs/service-dependencies.md">Service Dependencies</a></p>
+<p>If you want to become admin of the website,
+you just need to create a user using one of the account listed in <code>admins</code>,
+like <code>stephane</code>.
+With this account you can eventually give any role to other accounts.</p>
+<p>On keycloak side,
+the <code>openfoodfacts-auth</code> container sets up the <code>root:test</code> admin user by default,
+Although it's not strictly necessary during development
+you may use it to gain admin access to keycloak as admin
+on http://auth.openfoodfacts.localhost:5600/admin/.</p>
 
 
 
