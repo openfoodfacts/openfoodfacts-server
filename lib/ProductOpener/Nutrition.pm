@@ -1086,7 +1086,6 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 	return;
 }
 
-
 =head2 assign_nutrition_values_from_imported_csv_product ( $imported_csv_product_ref, $product_ref, $nutriment_table, $source )
 
 This function is used by Import.pm to import new nutrition data from an imported product (though a CSV file) to an existing product.
@@ -1115,7 +1114,9 @@ The source of the nutrition data. e.g. "packaging" or "manufacturer"
 
 =cut
 
-sub assign_nutrition_values_from_imported_csv_product ($imported_csv_product_ref, $product_ref, $nutriment_table, $source) {
+sub assign_nutrition_values_from_imported_csv_product ($imported_csv_product_ref, $product_ref, $nutriment_table,
+	$source)
+{
 
 	my @preparations = get_preparations_for_product_type($product_ref->{product_type});
 	my @pers = get_pers_for_product_type($product_ref->{product_type});
@@ -1172,8 +1173,6 @@ sub assign_nutrition_values_from_imported_csv_product ($imported_csv_product_ref
 	return;
 }
 
-
-
 =head2 import_nutrients_old_fields($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time)
 
 Import nutrient values from old style fields like fat_100g_value, fat_100g_unit, fat_prepared_100g_value, etc.
@@ -1183,8 +1182,9 @@ We consider the source to be "packaging" on the public platform, and "manufactur
 =cut
 
 sub assign_nutrition_values_from_imported_csv_product_old_fields (
-	$args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref,
-	$modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time, $source
+	$args_ref, $imported_product_ref, $product_ref, $stats_ref,
+	$modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref,
+	$nutrients_edited_ref, $time, $source
 	)
 {
 	# We use a temporary input sets hash to ease setting values
@@ -1288,62 +1288,58 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 						}
 					}
 				}
-			}
 
-			if ($nid eq 'alcohol') {
-				$unit = '% vol';
-			}
-
-			# Standardize units
-			if (defined $unit) {
-				if ($unit eq "kj") {
-					$unit = "kJ";
-				}
-				elsif ($unit eq "mcg") {
-					$unit = "µg";
-				}
-				elsif ($unit eq "iu") {
-					$unit = "IU";
-				}
-				elsif ($unit eq "percent") {
-					$unit = '%';
-				}
-			}
-
-			my $modifier = undef;
-
-			# Remove bogus values (e.g. nutrition facts for multiple nutrients): 1 digit followed by letters followed by more digits
-			if ((defined $values{$type}) and ($values{$type} =~ /\d.*[a-z].*\d/)) {
-				$log->debug("nutrient with strange value, skipping",
-					{nid => $nid, type => $type, value => $values{$type}, unit => $unit})
-					if $log->is_debug();
-				delete $values{$type};
-			}
-
-			(defined $values{$type}) and normalize_nutriment_value_and_modifier(\$values{$type}, \$modifier);
-
-			if ((defined $values{$type}) and ($values{$type} ne '')) {
-
-				if ($nid eq 'salt') {
-					$seen_salt = 1;
+				if ($nid eq 'alcohol') {
+					$unit = '% vol';
 				}
 
-				$log->debug("nutrient with defined and non empty value",
-					{nid => $nid, type => $type, value => $values{$type}, unit => $unit})
-					if $log->is_debug();
-				$stats_ref->{"products_with_nutrition" . $type}{$code} = 1;
-
-				# if the nid is "energy" and we have a unit, set "energy-kj" or "energy-kcal"
-				if (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
-					$nid = "energy-" . lc($unit);
+				# Standardize units
+				if (defined $unit) {
+					if ($unit eq "kj") {
+						$unit = "kJ";
+					}
+					elsif ($unit eq "mcg") {
+						$unit = "µg";
+					}
+					elsif ($unit eq "iu") {
+						$unit = "IU";
+					}
+					elsif ($unit eq "percent") {
+						$unit = '%';
+					}
 				}
 
-				my $preparation = ($type eq "") ? "as_sold" : "prepared";
-				my $new_per = ($per eq "_100g") ? "100g" : (($per eq "_serving") ? "serving" : "100g");
-				
-				assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation, $per,
+				my $modifier = undef;
+
+				# Remove bogus values (e.g. nutrition facts for multiple nutrients): 1 digit followed by letters followed by more digits
+				if ((defined $values{$type}) and ($values{$type} =~ /\d.*[a-z].*\d/)) {
+					$log->debug("nutrient with strange value, skipping",
+						{nid => $nid, type => $type, value => $values{$type}, unit => $unit})
+						if $log->is_debug();
+					delete $values{$type};
+				}
+
+				(defined $values{$type}) and normalize_nutriment_value_and_modifier(\$values{$type}, \$modifier);
+
+				if ((defined $values{$type}) and ($values{$type} ne '')) {
+
+					$log->debug("nutrient with defined and non empty value",
+						{nid => $nid, type => $type, value => $values{$type}, unit => $unit})
+						if $log->is_debug();
+					$stats_ref->{"products_with_nutrition" . $type}{$code} = 1;
+
+					# if the nid is "energy" and we have a unit, set "energy-kj" or "energy-kcal"
+					if (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+						$nid = "energy-" . lc($unit);
+					}
+
+					my $preparation = ($type eq "") ? "as_sold" : "prepared";
+					my $new_per = ($per eq "_100g") ? "100g" : (($per eq "_serving") ? "serving" : "100g");
+
+					assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation, $per,
 						$nid, $modifier, $values{$type}, $unit);
 
+				}
 			}
 		}
 
@@ -1399,7 +1395,6 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 
 	return;
 }
-
 
 =head2 assign_nutrition_values_from_request_object ( $request_ref, $product_ref )
 
@@ -1774,7 +1769,8 @@ sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populat
 						and ref($input_set_ref->{unspecified_nutrients}) eq 'ARRAY'
 						and scalar(@{$input_set_ref->{unspecified_nutrients}}) > 0)
 					{
-						$populated_fields_ref->{"nutrition.input_sets.${source}.${preparation}.${per}.unspecified_nutrients"}
+						$populated_fields_ref->{
+							"nutrition.input_sets.${source}.${preparation}.${per}.unspecified_nutrients"}
 							= $input_set_sort_key . '_1-unspecified_nutrients';
 					}
 

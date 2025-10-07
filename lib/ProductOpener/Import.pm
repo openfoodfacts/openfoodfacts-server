@@ -1098,14 +1098,13 @@ sub import_nutrients_old_fields (
 	my $source = get_source_for_site_and_org($Org_id);
 
 	assign_nutrition_values_from_imported_csv_product_old_fields(
-		$args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref,
-	$modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time,
-	$source
+		$args_ref, $imported_product_ref, $product_ref, $stats_ref,
+		$modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref,
+		$nutrients_edited_ref, $time, $source
 	);
 
 	return;
 }
-
 
 sub set_nutrition_data_per_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref) {
 

@@ -103,7 +103,8 @@ use ProductOpener::Products qw/product_path/;
 use ProductOpener::Images qw/add_images_urls_to_product $valid_image_types_regexp/;
 use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
-use ProductOpener::Nutrition qw/add_nutrition_fields_from_product_to_populated_fields get_nutrition_input_sets_in_a_hash/;
+use ProductOpener::Nutrition
+	qw/add_nutrition_fields_from_product_to_populated_fields get_nutrition_input_sets_in_a_hash/;
 
 use Text::CSV;
 use Excel::Writer::XLSX;
