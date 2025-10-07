@@ -4497,8 +4497,8 @@ JS
 			;
 
 		$request_ref->{scripts} .= <<JS
-<script src="$static_subdomain/js/product-preferences.js"></script>
-<script src="$static_subdomain/js/product-search.js"></script>
+<script src="$static_subdomain/js/dist/product-preferences.js"></script>
+<script src="$static_subdomain/js/dist/product-search.js"></script>
 JS
 			;
 
@@ -5686,8 +5686,8 @@ JS
 		;
 
 	$request_ref->{scripts} .= <<JS
-<script src="$static_subdomain/js/product-preferences.js"></script>
-<script src="$static_subdomain/js/product-search.js"></script>
+<script src="$static_subdomain/js/dist/product-preferences.js"></script>
+<script src="$static_subdomain/js/dist/product-search.js"></script>
 JS
 		;
 
@@ -8577,8 +8577,8 @@ var product = $product_attribute_groups_json;
 var product_type = "$options{product_type}";
 </script>
 
-<script src="$static_subdomain/js/product-preferences.js"></script>
-<script src="$static_subdomain/js/product-search.js"></script>
+<script src="$static_subdomain/js/dist/product-preferences.js"></script>
+<script src="$static_subdomain/js/dist/product-search.js"></script>
 JS
 			;
 

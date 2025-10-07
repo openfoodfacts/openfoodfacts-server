@@ -2,9 +2,8 @@
 
 Everything you need to know about Open Food Facts API.
 
-> [CAUTION]
-> 👮‍♂️🚥Are you going to use our API?
-> Please **read this documentation entirely** before using it.
+> [!CAUTION]
+> Are you going to use our API? Please **read this documentation <ins>entirely</ins>** before using it.
 
 ## Overview
 
@@ -101,7 +100,7 @@ We ask you to **always use a custom User-Agent to identify your app** (to not ri
 - READ operations (getting info about a product, etc...) do not require authentication other than the custom User-Agent.
 - WRITE operations (Editing an Existing Product, Uploading images…) **require authentication**. We do this as another layer of protection against spam.
 
-Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/) for your app (and notify reuse@openfoodfacts.org of the account name, so that we grant it special app privileges). From there, you have two options:
+Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/) for your app and fill out the [API usage form](https://docs.google.com/forms/d/e/1FAIpQLSdIE3D8qvjC_zRJw1W8OmuHhsWJ_NSckiiniAHlfaVwUZCziQ/viewform) so that we can identify your usage and prevent potential bans. From there, you have two options:
 
 - **The preferred one**:
   Use the login API to get a session cookie and use this cookie for authentication in your subsequent requests. However, the session must always be used from the same IP address, and there's a limit on sessions per user (currently 10) with older sessions being automatically logged out to stay within the limit.
