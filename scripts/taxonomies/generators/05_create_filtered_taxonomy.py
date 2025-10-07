@@ -268,7 +268,8 @@ def filter_taxonomy(
                 # Check for parent relationship - hold it for next entry
                 if line.startswith('<'):
                     # Extract parent category name
-                    match = re.match(r'^<+\s*([a-z]{2}):?\s*(.+)$', line)
+                    # Use non-backtracking pattern to avoid ReDoS vulnerability
+                    match = re.match(r'^<+\s*([a-z]{2}):?\s*(.+?)[\r\n]*$', line)
                     if match:
                         parent_name = match.group(2).strip()
                         

@@ -39,7 +39,8 @@ def parse_taxonomy_file(filepath: str) -> Dict[str, Dict]:
             # Check for parent indicator
             if line.startswith('<'):
                 # Parse parent relationship: "< en: Parent Category" or "< en:Parent Category"
-                match = re.match(r'^<+\s*([a-z]{2}(?:-[A-Z]{2})?):?\s*(.+)$', line)
+                # Use non-backtracking pattern to avoid ReDoS vulnerability
+                match = re.match(r'^<+\s*([a-z]{2}(?:-[A-Z]{2})?):?\s*(.+?)[\r\n]*$', line)
                 if match:
                     lang = match.group(1)
                     parent_name = match.group(2).strip()

@@ -98,7 +98,8 @@ def parse_translation_line(line: str) -> Tuple[str, str, int]:
         return None, None, None
     
     # Format: ID - Full > Path > To > Category
-    match = re.match(r'^(\d+)\s*-\s*(.+)$', line)
+    # Use non-backtracking pattern to avoid ReDoS vulnerability
+    match = re.match(r'^(\d+)\s*-\s*(.+?)[\r\n]*$', line)
     if not match:
         return None, None, None
     
