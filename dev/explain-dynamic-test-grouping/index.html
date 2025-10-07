@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/how-to-develop-producer-platform/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/explain-dynamic-test-grouping/">
       
       
-        <link rel="prev" href="../how-to-debug-minion-import-and-export-tasks/">
+        <link rel="prev" href="../how-to-write-and-run-tests/">
       
       
-        <link rel="next" href="../how-to-develop-using-docker/">
+        <link rel="next" href="../explain-javascript-usage-and-strategy/">
       
       
       <link rel="icon" href="https://static.openfoodfacts.org/images/logos/off-logo-favicon-light.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>How to develop on the producers platform - Product Opener (Open Food Facts Server)</title>
+        <title>Explain Dynamic Test Grouping System - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-develop-on-the-producers-platform" class="md-skip">
+        <a href="#explain-dynamic-test-grouping-system" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to develop on the producers platform
+              Explain Dynamic Test Grouping System
             
           </span>
         </div>
@@ -1232,32 +1232,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    How to develop on the producers platform
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../how-to-develop-producer-platform/" class="md-nav__link">
         
   
   
@@ -1268,77 +1246,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#shell-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      Shell Setup:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#development-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Development Workflow:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-product-importexport-and-interacting-with-the-public-platform" class="md-nav__link">
-    <span class="md-ellipsis">
-      Working with Product Import/Export and Interacting with the Public Platform:
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Working with Product Import/Export and Interacting with the Public Platform:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1647,10 +1554,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../explain-dynamic-test-grouping/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Explain Dynamic Test Grouping System
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1661,6 +1590,347 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithm-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm Details
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-group-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Group Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makefile-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Makefile Targets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ci-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#target-execution-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Target Execution Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-test-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Test Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-of-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number of Groups
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring &amp; Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring &amp; Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Reports
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automated-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cache-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-timing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Missing Timing Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-imbalance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Imbalance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ci-integration-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI Integration Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-invalidation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache Invalidation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Benefits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Benefits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-hardcoded-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before (Hardcoded Groups)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-dynamic-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      After (Dynamic Groups)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-new-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding New Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithm-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm Improvements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1998,46 +2268,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites:
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#shell-setup" class="md-nav__link">
+  <a href="#architecture" class="md-nav__link">
     <span class="md-ellipsis">
-      Shell Setup:
+      Architecture
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#development-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Development Workflow:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-product-importexport-and-interacting-with-the-public-platform" class="md-nav__link">
-    <span class="md-ellipsis">
-      Working with Product Import/Export and Interacting with the Public Platform:
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Working with Product Import/Export and Interacting with the Public Platform:">
+    <nav class="md-nav" aria-label="Architecture">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" class="md-nav__link">
+  <a href="#core-components" class="md-nav__link">
     <span class="md-ellipsis">
-      Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:
+      Core Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithm-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm Details
     </span>
   </a>
   
@@ -2045,6 +2306,285 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-group-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Group Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makefile-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Makefile Targets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ci-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#target-execution-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Target Execution Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-test-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Test Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-of-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number of Groups
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring &amp; Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring &amp; Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Reports
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automated-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cache-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-timing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Missing Timing Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-imbalance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Imbalance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ci-integration-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI Integration Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-invalidation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache Invalidation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Benefits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Benefits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-hardcoded-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before (Hardcoded Groups)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-dynamic-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      After (Dynamic Groups)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-new-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding New Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithm-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm Improvements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
   
 </li>
       
@@ -2064,7 +2604,7 @@
 
 
   
-    <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/main/docs/dev/how-to-develop-producer-platform.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/main/docs/dev/explain-dynamic-test-grouping.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2072,62 +2612,236 @@
   
 
 
-<h1 id="how-to-develop-on-the-producers-platform">How to develop on the producers platform<a class="headerlink" href="#how-to-develop-on-the-producers-platform" title="Permanent link">#</a></h1>
-<p>Here is how to develop for the producers platform using docker.</p>
-<h3 id="prerequisites">Prerequisites:<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h3>
+<h1 id="explain-dynamic-test-grouping-system">Explain Dynamic Test Grouping System<a class="headerlink" href="#explain-dynamic-test-grouping-system" title="Permanent link">#</a></h1>
+<p>This document describes the dynamic test grouping system that automatically optimizes test execution in CI by balancing test groups based on execution time and test count.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>The dynamic test grouping system replaces hardcoded test groups with an intelligent algorithm that:</p>
 <ul>
-<li>Docker should already be <a href="../how-to-quick-start-guide/">set up for development</a>.</li>
+<li><strong>Automatically discovers</strong> all test files in the repository</li>
+<li><strong>Uses a greedy algorithm</strong> to balance test execution times across groups</li>
+<li><strong>Caches results</strong> to avoid unnecessary regeneration</li>
+<li><strong>Learns from execution data</strong> to improve future groupings</li>
+<li><strong>Targets 10-13 minutes</strong> execution time per group</li>
 </ul>
-<h3 id="shell-setup">Shell Setup:<a class="headerlink" href="#shell-setup" title="Permanent link">#</a></h3>
-<p>You will need two types of shells:</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">#</a></h2>
+<h3 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p><strong>Dynamic Test Grouper</strong> (<code>scripts/dynamic_test_grouper.py</code>)</p>
 <ul>
-<li><strong>Shell for OpenFoodFacts</strong>:<ul>
-<li>Use this shell for general development on the OpenFoodFacts platform.</li>
+<li>Main script implementing the grouping algorithm</li>
+<li>Handles caching, timing collection, and group generation</li>
 </ul>
 </li>
-<li><strong>Shell for OpenFoodFacts-Pro</strong>: Use this shell when working on the OpenFoodFacts-Pro platform.<ul>
-<li>To set up the shell, run the command: <code>. env/setenv.sh off-pro</code> (this simply sets some environment variables that will override the ones in <code>.env</code>).</li>
-<li>Once the shell is set up, your prompt will show <code>(pro)</code> to indicate that you are in the producers environment.</li>
+<li>
+<p><strong>Makefile Integration</strong> </p>
+<ul>
+<li>Dynamic targets that replace hardcoded test groups</li>
+<li>Automatic cache invalidation and regeneration</li>
 </ul>
 </li>
-</ul>
-<h3 id="development-workflow">Development Workflow:<a class="headerlink" href="#development-workflow" title="Permanent link">#</a></h3>
-<p>To develop on the producers platform, follow these steps:</p>
+<li>
+<p><strong>CI Workflow Integration</strong></p>
 <ul>
-<li>Open a shell for OpenFoodFacts-Pro.</li>
-<li>Run the command <code>make dev</code> to start the development environment. This command functions as usual.<ul>
-<li>If you encounter any issues with CSS not showing up, you can run <code>make build_lang</code> in the <em>pro</em> shell.</li>
+<li>GitHub Actions steps for cache management</li>
+<li>Automatic timing data collection</li>
+<li>Performance monitoring and optimization</li>
 </ul>
 </li>
-</ul>
-<h3 id="working-with-product-importexport-and-interacting-with-the-public-platform">Working with Product Import/Export and Interacting with the Public Platform:<a class="headerlink" href="#working-with-product-importexport-and-interacting-with-the-public-platform" title="Permanent link">#</a></h3>
-<p>If you need to work on product import/export or interact with the public platform, you must start the following services: <code>PostgreSQL</code>, and the <code>Minion</code>. Here's how:</p>
+<li>
+<p><strong>Management Scripts</strong></p>
 <ul>
-<li>In a <em>non-pro</em> shell (OpenFoodFacts shell), run the command <code>docker compose up postgres minion</code>.<ul>
-<li>This command starts the necessary services in the background.</li>
+<li>Update script for CI environments</li>
+<li>Performance analysis and reporting</li>
 </ul>
 </li>
-</ul>
-<h4 id="note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps">Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:<a class="headerlink" href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-time-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" title="Permanent link">#</a></h4>
-<ul>
-<li>in your <em>pro shell</em>, run a <code>docker compose stop frontend</code></li>
-<li>in your <em>non pro shell</em>, run a <code>docker compose up frontend</code>
-Now, the public database can be accessed at <code>openfoodfacts.localhost</code>.If you need to access the <em>pro</em> HTTP server, reverse these steps.</li>
-</ul>
-<p>Note that if you <a href="../how-to-use-direnv/">use direnv</a>, the setup should work seamlessly without redefining the variables set by <code>setenv.sh</code>.</p>
-<p>An explanation of the setup can be found at <a href="../explain-pro-dev-setup/">explain-pro-dev-setup.md</a></p>
-<ul>
-<li>If you want to see the state of tasks, you can run:</li>
-</ul>
-<p><div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>minion<span class="w"> </span>/opt/product-opener/scripts/minion_producers.pl<span class="w">  </span>minion<span class="w"> </span>job
+</ol>
+<h3 id="algorithm-details">Algorithm Details<a class="headerlink" href="#algorithm-details" title="Permanent link">#</a></h3>
+<p>The system uses a <strong>greedy bin-packing algorithm</strong>:</p>
+<div class="highlight"><pre><span></span><code>1. Discover all test files automatically
+2. Load historical timing data (if available)
+3. Sort tests by execution time (descending)
+4. For each test:
+   - Find group with minimum total time
+   - Assign test to that group
+   - Update group&#39;s total time
+5. Cache results for future use
 </code></pre></div>
-(add --help to see all options), or refer to https://docs.mojolicious.org/Minion/Command/minion/job</p>
-<ul>
-<li>You may also inspect the database by running:
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w">  </span>postgres<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>productopener<span class="w"> </span>-W<span class="w"> </span>minion
+<h2 id="file-structure">File Structure<a class="headerlink" href="#file-structure" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code>.test_groups_cache/           # Cache directory (git-ignored)
+├── unit_groups.json         # Cached unit test groups
+├── unit_groups.mk          # Makefile format for unit groups
+├── unit_timings.json       # Historical timing data for unit tests
+├── integration_groups.json # Cached integration test groups
+├── integration_groups.mk  # Makefile format for integration groups
+└── integration_timings.json # Historical timing data for integration tests
+
+scripts/
+└── dynamic_test_grouper.py  # Main grouping algorithm
+
+.github/
+├── scripts/
+│   └── update_test_groups.sh # CI update script
+└── workflows/
+    ├── pull_request.yml      # Updated CI workflow
+    └── test-groups-management.yml # Management workflow
 </code></pre></div>
-The password is given by the <code>POSTGRES_PASSWORD</code> variable in the <code>.env</code> file and defaults to <code>productopener</code>. 
-Inspecting the minion table can be helpful in understanding the database structure and contents.</li>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
+<h3 id="manual-group-generation">Manual Group Generation<a class="headerlink" href="#manual-group-generation" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate unit test groups (6 groups)</span>
+python3<span class="w"> </span>scripts/dynamic_test_grouper.py<span class="w"> </span>--type<span class="o">=</span>unit<span class="w"> </span>--groups<span class="o">=</span><span class="m">6</span>
+
+<span class="c1"># Generate integration test groups (9 groups)  </span>
+python3<span class="w"> </span>scripts/dynamic_test_grouper.py<span class="w"> </span>--type<span class="o">=</span>integration<span class="w"> </span>--groups<span class="o">=</span><span class="m">9</span>
+
+<span class="c1"># Force regeneration (ignore cache)</span>
+python3<span class="w"> </span>scripts/dynamic_test_grouper.py<span class="w"> </span>--type<span class="o">=</span>unit<span class="w"> </span>--groups<span class="o">=</span><span class="m">6</span><span class="w"> </span>--force
+
+<span class="c1"># Update timing data from JUnit results</span>
+python3<span class="w"> </span>scripts/dynamic_test_grouper.py<span class="w"> </span>--type<span class="o">=</span>unit<span class="w"> </span>--update-timings<span class="w"> </span>--junit-dir<span class="o">=</span>tests/unit/outputs
+</code></pre></div>
+<h3 id="makefile-targets">Makefile Targets<a class="headerlink" href="#makefile-targets" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run a specific test group (uses dynamic groups)</span>
+make<span class="w"> </span>unit_test_group<span class="w"> </span><span class="nv">TEST_GROUP</span><span class="o">=</span><span class="m">1</span>
+make<span class="w"> </span>integration_test_group<span class="w"> </span><span class="nv">TEST_GROUP</span><span class="o">=</span><span class="m">3</span>
+
+<span class="c1"># Force regenerate all groups</span>
+make<span class="w"> </span>regenerate_test_groups
+
+<span class="c1"># Clean cache</span>
+make<span class="w"> </span>clean_test_groups
+</code></pre></div>
+<h3 id="ci-integration">CI Integration<a class="headerlink" href="#ci-integration" title="Permanent link">#</a></h3>
+<p>The system automatically:</p>
+<ol>
+<li><strong>Checks for new tests</strong> before each CI run</li>
+<li><strong>Updates groups</strong> if tests have been added/removed</li>
+<li><strong>Collects timing data</strong> after test execution</li>
+<li><strong>Improves groupings</strong> over time</li>
+</ol>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">#</a></h2>
+<h3 id="target-execution-time">Target Execution Time<a class="headerlink" href="#target-execution-time" title="Permanent link">#</a></h3>
+<p>The default target is 10-13 minutes per group. To modify:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In scripts/dynamic_test_grouper.py</span>
+<span class="n">MAX_GROUP_TIME</span> <span class="o">=</span> <span class="mi">13</span> <span class="o">*</span> <span class="mi">60</span>  <span class="c1"># 13 minutes in seconds</span>
+</code></pre></div>
+<h3 id="default-test-time">Default Test Time<a class="headerlink" href="#default-test-time" title="Permanent link">#</a></h3>
+<p>For new tests without timing data:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In scripts/dynamic_test_grouper.py</span>
+<span class="n">DEFAULT_TEST_TIME</span> <span class="o">=</span> <span class="mi">30</span>    <span class="c1"># 30 seconds</span>
+</code></pre></div>
+<h3 id="number-of-groups">Number of Groups<a class="headerlink" href="#number-of-groups" title="Permanent link">#</a></h3>
+<p>Configured in CI workflow and Makefile:</p>
+<ul>
+<li><strong>Unit tests</strong>: 6 groups</li>
+<li><strong>Integration tests</strong>: 9 groups</li>
+</ul>
+<p>To change, update:</p>
+<ul>
+<li><code>.github/workflows/pull_request.yml</code> (matrix strategy)</li>
+<li>Makefile calls to the grouper script</li>
+</ul>
+<h2 id="monitoring-analysis">Monitoring &amp; Analysis<a class="headerlink" href="#monitoring-analysis" title="Permanent link">#</a></h2>
+<h3 id="performance-reports">Performance Reports<a class="headerlink" href="#performance-reports" title="Permanent link">#</a></h3>
+<p>The system generates statistics showing:</p>
+<div class="highlight"><pre><span></span><code># Group Statistics:
+# Group 1: 12 tests, 8m 45s
+# Group 2: 10 tests, 9m 12s
+# Group 3: 11 tests, 8m 56s
+# ...
+# Max group time: 9.2m, Min: 8.7m, Avg: 9.0m
+</code></pre></div>
+<h3 id="automated-monitoring">Automated Monitoring<a class="headerlink" href="#automated-monitoring" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>Weekly optimization runs</strong> via GitHub Actions</li>
+<li><strong>Performance reports</strong> generated as artifacts</li>
+<li><strong>Automatic issue creation</strong> for balance problems</li>
+</ul>
+<h3 id="manual-analysis">Manual Analysis<a class="headerlink" href="#manual-analysis" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># View current group statistics</span>
+./.github/scripts/update_test_groups.sh<span class="w"> </span>--stats
+
+<span class="c1"># Force regeneration with analysis</span>
+make<span class="w"> </span>regenerate_test_groups
+</code></pre></div>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
+<h3 id="cache-issues">Cache Issues<a class="headerlink" href="#cache-issues" title="Permanent link">#</a></h3>
+<p>If groups seem incorrect:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clear cache and regenerate</span>
+make<span class="w"> </span>clean_test_groups
+make<span class="w"> </span>regenerate_test_groups
+</code></pre></div>
+<h3 id="missing-timing-data">Missing Timing Data<a class="headerlink" href="#missing-timing-data" title="Permanent link">#</a></h3>
+<p>For new repositories or after major changes:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># The system will use default times initially</span>
+<span class="c1"># After first CI run, timing data will be collected automatically</span>
+</code></pre></div>
+<h3 id="group-imbalance">Group Imbalance<a class="headerlink" href="#group-imbalance" title="Permanent link">#</a></h3>
+<p>If groups exceed target time:</p>
+<ol>
+<li><strong>Increase number of groups</strong> in CI configuration</li>
+<li><strong>Identify slow tests</strong> for optimization</li>
+<li><strong>Use the management workflow</strong> for analysis</li>
+</ol>
+<h3 id="ci-integration-issues">CI Integration Issues<a class="headerlink" href="#ci-integration-issues" title="Permanent link">#</a></h3>
+<p>Check that:</p>
+<ol>
+<li><strong>Cache keys</strong> in CI workflow match current setup</li>
+<li><strong>Python 3</strong> is available in the CI environment</li>
+<li><strong>File permissions</strong> allow script execution</li>
+</ol>
+<h2 id="cache-invalidation">Cache Invalidation<a class="headerlink" href="#cache-invalidation" title="Permanent link">#</a></h2>
+<p>The cache is invalidated when:</p>
+<ol>
+<li><strong>New tests are added</strong> or existing tests removed</li>
+<li><strong>Script is modified</strong> (<code>dynamic_test_grouper.py</code>)</li>
+<li><strong>Force regeneration</strong> is requested</li>
+<li><strong>Cache files are corrupted</strong> or missing</li>
+</ol>
+<h2 id="performance-benefits">Performance Benefits<a class="headerlink" href="#performance-benefits" title="Permanent link">#</a></h2>
+<h3 id="before-hardcoded-groups">Before (Hardcoded Groups)<a class="headerlink" href="#before-hardcoded-groups" title="Permanent link">#</a></h3>
+<ul>
+<li>Manual group assignment</li>
+<li>Unbalanced execution times</li>
+<li>New tests forgotten in CI</li>
+<li>No optimization over time</li>
+</ul>
+<h3 id="after-dynamic-groups">After (Dynamic Groups)<a class="headerlink" href="#after-dynamic-groups" title="Permanent link">#</a></h3>
+<ul>
+<li>Automatic test discovery</li>
+<li>Optimal load balancing</li>
+<li>Self-improving over time</li>
+<li>Target execution time control</li>
+<li>Zero maintenance required</li>
+</ul>
+<h2 id="development">Development<a class="headerlink" href="#development" title="Permanent link">#</a></h2>
+<h3 id="adding-new-features">Adding New Features<a class="headerlink" href="#adding-new-features" title="Permanent link">#</a></h3>
+<p>To extend the system:</p>
+<ol>
+<li><strong>Modify the Python script</strong> for algorithm changes</li>
+<li><strong>Update CI workflows</strong> for new caching strategies</li>
+<li><strong>Test with various scenarios</strong> before deployment</li>
+</ol>
+<h3 id="algorithm-improvements">Algorithm Improvements<a class="headerlink" href="#algorithm-improvements" title="Permanent link">#</a></h3>
+<p>Possible enhancements:</p>
+<ul>
+<li><strong>Machine learning</strong> for better time prediction</li>
+<li><strong>Dependency-aware grouping</strong> for related tests</li>
+<li><strong>Dynamic group sizing</strong> based on available runners</li>
+<li><strong>Test prioritization</strong> for faster feedback</li>
+</ul>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
+<ol>
+<li><strong>Initial runs</strong> use estimated times (30s default)</li>
+<li><strong>Perl dependency</strong> for the grouping script</li>
+<li><strong>Cache storage</strong> consumes some CI storage</li>
+<li><strong>JUnit XML format</strong> required for timing collection</li>
+</ol>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Bin_packing_problem">Bin Packing Algorithms</a></li>
+<li><a href="https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows">GitHub Actions Caching</a></li>
+<li><a href="https://github.com/testmoapp/junitxml">JUnit XML Format</a></li>
 </ul>
 
 
