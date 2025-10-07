@@ -555,10 +555,10 @@ uk: пюре
 # nb:parsing:$puré
 # sv:parsing:$puré
 
+< en:concentrated
 # <en:concentrated
 # <en:pureed
 < en:pureed
-< en:concentrated
 en: concentrated puree
 bg: концентрирано пюре, пюре от концентрирано
 ca: puré concentrat, puré de concentrat
@@ -1217,10 +1217,10 @@ de: 200fach konzentriertes
 
 #en:not from concentrate
 
+< en:concentrated
 # <en:concentrated
 # <en:extract
 < en:extract
-< en:concentrated
 en: concentrated extract
 ca: extracte concentrat
 de: konzentrierter Extrakt
@@ -1976,8 +1976,8 @@ sv: lågpastöriserad
 en: high-pasteurized
 sv: högpastöriserad
 
-< en:pasteurised
 < en:heat treated
+< en:pasteurised
 < en:sterilized
 en: UHT, UHT pasteurised, UHT sterilised, ultra heat treated
 xx: UHT
@@ -2382,10 +2382,10 @@ en: sea salted
 it: con sale marino, salato con sale marino, salata con sale marino, salati con sale marino, salate con sale marino
 pt: com sal marinho, sem sal marinho
 
+< en:lightly salted
 #<en:sea salted
 #<en:lightly salted
 < en:sea salted
-< en:lightly salted
 en: lightly sea salted
 
 #<en:salted
@@ -2847,8 +2847,8 @@ pt: maceradas, macerada, macerados
 
 # pickled can be in vinegar or salt
 
-< en:marinated
 < en:canned
+< en:marinated
 en: pickled
 da: syltede
 de: eingelegt, eingelegte, eingelegter, eingelegtes
@@ -3298,3 +3298,4 @@ en: preserved
 < en:preserved
 en: canned
 uk: консервований, консервована, консервоване, консервовані
+
