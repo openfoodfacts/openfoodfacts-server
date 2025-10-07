@@ -443,7 +443,6 @@ jobs:
         else
           echo "🥫 No JUnit XML files found, skipping timing update"
         fi
-      unit_tests:
     # ... your existing matrix job ...
     # matrix: test-group: ${{ ... }}
 
@@ -576,10 +575,10 @@ jobs:
     #     token: ${{ secrets.CODECOV_TOKEN }}
     #     files: ./tests/integration/outputs/junit_group_${{ matrix.test-group }}.xml
 
-  unit_tests_summary:
+  tests_summary:
     # if all tests did run correctly acknowledge the branch protection rule
     # use the name that is settled in branch protection rules, although it's not fully correct
-    name: Perl unit tests
+    name: 🐪 Perl unit tests
     needs: [unit_tests, integration_tests]
     runs-on: ubuntu-latest
     steps:
