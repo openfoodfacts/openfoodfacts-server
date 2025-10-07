@@ -9,6 +9,9 @@ off-pro is the producers platform (world.pro.openfoodfacts.org)
 When we work on the pro platform for development we want:
 * off containers to talk to each other, and have their own volumes
 * off-pro containers to talk to each other, and, generally, have their own volumes
+* off and off-pro containers to talk to shared containers
+  (from openfoodfacts-authentication and openfoodfacts-shared-services),
+  see [dependencies](https://github.com/openfoodfacts/.github/blob/main/docs/service-dependencies.md)
 * minion and backend from both apps to access the same postgres database
   (which stores tasks queues)
 * off and off-pro backends / minion needs to share some volumes:
