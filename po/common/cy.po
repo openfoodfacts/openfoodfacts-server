@@ -360,10 +360,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr ""
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr ""
@@ -4618,17 +4614,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr ""
+msgid "Nutri-Score not applicable"
+msgstr "Sgôr Maeth ddim yn berthnasol"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "Ddim yn berthnasol i'r categori: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5103,6 +5099,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Ffeithiau maeth ar goll ar gyfer cynnyrch parod"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr ""
@@ -5445,6 +5445,10 @@ msgstr ""
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Categori manwl gywir ar goll"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -6091,6 +6095,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Ffeithiau maeth ar goll ar gyfer cynnyrch parod:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
@@ -6178,6 +6186,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Ffeithiau maeth parod ar goll"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6363,6 +6375,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Nid yw'r categori sydd gennym ar gyfer y cynnyrch hwn yn ddigon manwl gywir i gyfrifo'r Sgôr Werdd. A allech chi ychwanegu categori cynnyrch mwy manwl gywir?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7342,11 +7358,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "Mynegai atgyweiriadedd ddim yn berthnasol"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7492,9 +7508,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Adroddwch y ddelwedd hon i'n cymedrolwyr"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Mae gwerth a/neu uned maint y dogn ar goll i gyfrifo'r Sgôr Maeth"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> wedi'i wneud gan gymdeithas ddi-elw, sy'n annibynnol ar y diwydiant. Fe'i gwneir ar gyfer pawb, gan bawb, ac fe'i hariennir gan bawb. Gallwch gefnogi ein gwaith trwy gyfrannu at Open Food Facts.<br/><b>Diolch!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "Gwneir <<site_name>> gan gymdeithas ddi-elw, sy'n annibynnol ar y diwydiant. Fe'i gwneir ar gyfer pawb, gan bawb, ac fe'i hariennir gan bawb. Gallwch gefnogi ein gwaith trwy gyfrannu at Open Food Facts a hefyd trwy ddefnyddio peiriant chwilio Lilo.<br/><b>Diolch!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Peiriant chwilio Lilo"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Oherwydd camdriniaeth ddifrifol gan robotiaid, ni allwn gyflwyno'r dudalen hon i ddefnyddwyr anhysbys. Crëwch gyfrif Open Food Facts am ddim i gael mynediad at holl Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr ""
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Gwybodaeth am y cynnyrch"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Gwybodaeth am y cynnyrch crai"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7508,7 +7556,47 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Amcangyfrif o faint o siwgrau ychwanegol mewn cynhwysion"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Maint y siwgrau ychwanegol"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Chwiliwch am gynhyrchion yn yr un categori heb siwgrau ychwanegol:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Cynhwysion diangen"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Mae'r dewis hwn yn seiliedig ar ddealltwriaeth Open Food Facts o'r rhestr gynhwysion ac efallai nad yw'n gywir, gwiriwch y cynnyrch eich hun bob amser."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Presenoldeb cynhwysion diangen yn anhysbys"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Ni chanfuwyd unrhyw gynhwysion diangen"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Yn cynnwys cynhwysion diangen"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Ni chafodd rhai cynhwysion eu hadnabod"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Ni chanfuwyd: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Ni chanfuwyd: {unwanted_ingredients}. Efallai ein bod wedi methu rhai cynhwysion, gwiriwch y rhestr gynhwysion bob amser."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Mae'r dewisiadau hynny'n seiliedig ar ddealltwriaeth Open Food Facts o'r rhestr gynhwysion ac mae yna bob amser bosibilrwydd nad yw'n gywir nac yn gyflawn, gwiriwch y cynnyrch eich hun bob amser."
 
