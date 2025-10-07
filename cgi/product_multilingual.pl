@@ -275,7 +275,7 @@ if ($type eq 'search_or_add') {
 			else {
 				$log->info("product does not exist, creating product", {code => $code, product_id => $product_id})
 					if $log->is_info();
-				$product_ref = init_product($User_id, $Org_id, $code, $country);
+				$product_ref = init_product($User_id, $Org_id, $code, $request_ref->{country});
 				$product_ref->{interface_version_created} = $interface_version;
 				store_product($User_id, $product_ref, 'product_created');
 
@@ -357,7 +357,9 @@ else {
 				and ($product_ref->{product_type} ne $options{product_type}))
 			{
 				redirect_to_url($request_ref, 302,
-					format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product.pl?code=' . $code);
+						  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
+						. '/cgi/product.pl?code='
+						. $code);
 			}
 		}
 	}
@@ -385,7 +387,9 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 		}
 		else {
 			$request_ref->{return_url}
-				= $formatted_subdomain . $request_ref->{script_name} . '?' . $request_ref->{original_query_string};
+				= $request_ref->{formatted_subdomain}
+				. $request_ref->{script_name} . '?'
+				. $request_ref->{original_query_string};
 			# Note: This su will either finish without a result if a good user/token is present, or redirect to the login page and stop the script
 			access_to_protected_resource($request_ref);
 		}
@@ -728,7 +732,7 @@ sub display_input_field ($product_ref, $field, $language, $request_ref) {
 	if (defined $tags_fields{$fieldtype}) {
 		$class = "tagify-me";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
-			$autocomplete = "$formatted_subdomain/api/v3/taxonomy_suggestions?tagtype=$fieldtype";
+			$autocomplete = "$request_ref->{formatted_subdomain}/api/v3/taxonomy_suggestions?tagtype=$fieldtype";
 		}
 	}
 
@@ -874,7 +878,7 @@ CSS
 		and (defined $Org_id))
 	{
 		# Display a link to the producers platform
-		$template_data_ref_display->{producers_platform_url} = $producers_platform_url;
+		$template_data_ref_display->{producers_platform_url} = $request_ref->{producers_platform_url};
 	}
 
 	$template_data_ref_display->{errors_index} = $#errors;
@@ -1659,7 +1663,8 @@ elsif ($action eq 'process') {
 	my $url_prefix = "";
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.
-		$url_prefix = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain};
+		$url_prefix
+			= "https://" . $request_ref->{subdomain} . "." . $options{other_servers}{$product_ref->{server}}{domain};
 	}
 	elsif ($type eq 'delete') {
 		my $email = <<MAIL
@@ -1708,7 +1713,8 @@ MAIL
 		$knowledge_panels_options_ref = {};
 		initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 		$knowledge_panels_options_ref->{knowledge_panels_client} = "web";
-		create_contribution_card_panel($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref);
+		create_contribution_card_panel($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref,
+			$request_ref);
 		$template_data_ref_process->{contribution_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}

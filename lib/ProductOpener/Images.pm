@@ -1409,7 +1409,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 
 		if (not $move_to_product_ref) {
 			$log->info("move_to product code does not exist yet, creating product", {code => $move_to_id});
-			$move_to_product_ref = init_product($user_id, $ownerid, $move_to_id, $country);
+			$move_to_product_ref = init_product($user_id, $ownerid, $move_to_id, "en:world");
 			$move_to_product_ref->{lc} = $lc;
 			store_product($user_id, $move_to_product_ref, "Creating product (image move)");
 		}
@@ -2267,9 +2267,9 @@ sub display_image ($product_ref, $image_type, $target_lc, $size) {
 	if (defined $image_url) {
 
 		my $alt
-			= remove_tags_and_quote($product_ref->{product_name}) . ' - '
+			= remove_tags_and_quote($product_ref->{product_name} || '') . ' - '
 			. lang($image_type . '_alt') . ' - '
-			. $image_lc;
+			. ($image_lc || '');
 
 		my $template_data_ref = {
 			'alt' => $alt,
@@ -2283,6 +2283,9 @@ sub display_image ($product_ref, $image_type, $target_lc, $size) {
 
 		if (defined $image_ref->{sizes}{$size2}) {
 			$template_data_ref->{srcset} = get_image_url($product_ref, $image_ref, $size2);
+		}
+		else {
+			$template_data_ref->{srcset} = '';
 		}
 
 		$html .= <<HTML
