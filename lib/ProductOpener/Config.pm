@@ -112,17 +112,16 @@ autoload("ProductOpener::Config_$flavor");
 
 %ProductOpener::Config::admins = map {$_ => 1} qw(
 	alex-off
-	cha-delh
 	charlesnepote
 	gala-nafikova
 	hangy
 	manoncorneille
+	mellie-mellow
 	raphael0202
 	stephane
 	tacinte
 	teolemon
 	g123k
-	valimp
 );
 
 =head2 Available product types and flavors
