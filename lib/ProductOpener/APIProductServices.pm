@@ -385,7 +385,6 @@ sub product_services_api ($request_ref) {
 	return;
 }
 
-
 my %external_sources_cache = ();
 
 =head2 external_sources
@@ -402,8 +401,9 @@ sub external_sources_api ($request_ref) {
 	if (not defined $external_sources_cache{$target_lc}) {
 
 		# read external-sources.json and decode
-		open (my $in, "<", "$BASE_DIRS{PUBLIC_RESOURCES}/files/external-sources.json") or die "cannot read external-sources.json : $! \n";
-		my $json_content = join("",(<$in>));
+		open(my $in, "<", "$BASE_DIRS{PUBLIC_RESOURCES}/files/external-sources.json")
+			or die "cannot read external-sources.json : $! \n";
+		my $json_content = join("", (<$in>));
 		close $in;
 		my $ext_sources = decode_json($json_content);
 		my @translated_sources = ();
