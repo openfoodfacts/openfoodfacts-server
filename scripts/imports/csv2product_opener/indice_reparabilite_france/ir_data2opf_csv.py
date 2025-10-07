@@ -1,5 +1,11 @@
 #!/usr/bin/env -S uv run --script
 
+'''
+Convert products from French Reparability indice dataset to Open Food Facts' CSV.
+
+Mapping is read from mapping.csv file.
+'''
+
 # /// script
 # requires-python = ">=3.11"
 # ///
@@ -14,14 +20,22 @@ import os
 MAPPING_CSV = 'mapping.csv'
 
 # Parse command line arguments
-parser = argparse.ArgumentParser(description="Convert products from CSV to Open Food Facts' CSV.")
+parser = argparse.ArgumentParser(description=__doc__,
+    formatter_class=argparse.RawDescriptionHelpFormatter)
 parser.add_argument('source_csv', nargs='?', default=None, help='Source CSV file (default: stdin)')
 parser.add_argument('--limit', type=int, default=None, help='Limit the number of products to process')
 args = parser.parse_args()
 
-# Open source CSV from argument or stdin
+# Open source CSV from argument or stdin, and check if it exists
 if args.source_csv:
+    if not os.path.isfile(args.source_csv):
+        print(f"Error: File '{args.source_csv}' does not exist.", file=sys.stderr)
+        sys.exit(1)
     source = open(args.source_csv, mode='r', encoding='utf-8')
+elif sys.stdin.isatty():
+    print("No source CSV file provided and stdin is not piped.")
+    parser.print_help()
+    sys.exit(1)
 else:
     source = sys.stdin
 
@@ -30,7 +44,6 @@ first_char = source.read(1)
 if not first_char:
     parser.print_help()
     sys.exit("Source CSV is empty.")
-
 
 with source, open(MAPPING_CSV, mode='r', encoding='utf-8') as mapping:
     source_reader = csv.DictReader(source)
