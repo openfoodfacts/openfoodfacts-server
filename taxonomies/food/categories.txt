@@ -4272,7 +4272,7 @@ en: Cherry Brandy
 fr: Brandy aux cerises
 
 < en:Fruit brandy
-fr: Brandy au coing
+fr: Brandy au coing, brandies au coing
 
 < en:Fruit brandy
 en: Portuguese fruit spirit
@@ -4281,9 +4281,6 @@ en: Portuguese fruit spirit
 en: Medronho
 pt: Medronho, Aquardente de Medronhos
 wikidata:en: Q175707
-
-< en:Fruit brandy
-fr: Brandy au coing, brandies au coing
 
 < en:Eaux de vie
 en: Whisky, whiskey
@@ -44736,18 +44733,95 @@ xx: Zakys
 < en:Fermented milk products
 xx: Zakvaska
 
-< en:Canned foods
-< en:Cheeses
-en: Canned cheeses
-de: Dosenkäse, Käsekonserve
-fr: Fromages en conserve
-hr: Konzervirani sirevi
-hu: Konzerv sajtok, Konzerves sajtok
-lt: Konservuoti sūriai
-nl: Kazen in blik/pot
-#wikidata:en:
+< en:Fermented milk products
+en: Cheese preparations
+fr: Spécialités fromagères, Préparations fromagères
+
+< en: Cheese preparations
+en: Preparations for fondue
+fr: Préparations pour fondue
+
+< en:Cheese preparations
+en: Processed cheeses, Processed cheese, Melted cheese
+bg: Преработени сирена, Топено сирене
+de: Schmelzkäse
+es: Queso procesado, Queso fundido
+fi: sulatejuusto, sulatettu juusto
+fr: Fromages fondus, Fromage fondu, Fromages à pâte fondue, snack à base de fromage fondu
+hr: Topljeni sir, Rastopljeni sir
+it: Formaggio fuso, Prodotti a base di formaggio trasformato
+ja: プロセスチーズ
+lt: Apdoroti sūriai, Lydyti sūriai
+nl: Smeltkazen
+pl: Sery topione, Ser topiony
+pt: Queijos derretidos, Queijo processado
+ro: Brânză topită
+ru: Плавленый сыр
+agribalyse_food_code:en: 12356
+ciqual_food_code:en: 12356
+ciqual_food_name:en: Processed cheese snack w breadsticks, for children
+wikidata:en: Q1570052
+
+< en:French cheeses
+< en:Processed cheese
+en: Cancoillottes, Cancoyottes, Processed cheese from cow's milk
+xx: Cancoillottes
+de: Kochkäse
+es: Cancoillottes, Cancoyottes
+fr: Cancoillottes, Cancoillotte, Spécialité fromagère fondue
+hr: Cancoillottes
+nl: Cancoillotes
+ciqual_food_code:en: 12325
+ciqual_food_name:en: Cancoillotte (processed cheese), from cow's milk
+ciqual_food_name:fr: Cancoillotte (spécialité fromagère fondue)
+oqali_family:en: fr:Fromages - Cancoillotte
+wikidata:en: Q688947
 
 
+#TODO: I don't know why the agb below was mapped initially with the above
+
+< en:Melted cheese
+en: Processed cheese with fresh cream cheese and walnuts
+fr: Spécialité fromagère fondante au fromage blanc et aux noix
+hr: Topljeni sir sa svježim krem ​​sirom i orasima
+pt: Queijo processado com creme de queijo fresco e nozes
+agribalyse_food_code:en: 12355
+ciqual_food_code:en: 12355
+ciqual_food_name:en: Processed cheese with fresh cream cheese and walnuts
+
+< en:Processed cheese
+en: Processed cheese in slices
+fr: Fromage fondu en tranchettes
+agribalyse_food_code:en: 12300
+ciqual_food_code:en: 12300
+ciqual_food_name:en: Processed cheese, in slices
+
+< en:Processed cheese
+en: Processed cheese double cream around 31% fat
+fr: Fromage fondu double crème environ 31% MG
+agribalyse_food_code:en: 12320
+ciqual_food_code:en: 12320
+ciqual_food_name:en: Processed cheese, double cream, around 31% fat
+
+# Vache qui rit
+< en:Processed cheese
+en: Processed cheese around 20% fat in wedges
+fr: Fromage fondu en portions environ 20% MG
+agribalyse_food_code:en: 12310
+ciqual_food_code:en: 12310
+ciqual_food_name:en: Processed cheese, around 20% fat, in wedges or cubes
+
+< en:Processed cheese
+en: Cubed appetizer cheese, Processed cheese around 20% fat in cubes
+fr: Fromages apéritif fondus en cubes, fromage apéritif en cube, fromage apéritif en cube type Apéricube, Fromage fondu en cubes environ 20% MG
+agribalyse_food_code:en: 12310
+ciqual_food_code:en: 12310
+ciqual_food_name:en: Processed cheese, around 20% fat, in wedges or cubes
+
+# not cheese because also contains cheese preparations
+< en:Fermented milk products
+en: Cheese appetizers
+fr: Fromages apéritif
 
 < en:Fermented milk products
 en: Cheeses
@@ -44839,6 +44913,17 @@ pnns_group_2:en: Cheese
 who_id:en: 8
 wikidata:en: Q10943
 # Most cheeses have the same Agribalyse scores, except specific cheeses for which we added the specific values
+
+< en:Canned foods
+< en:Cheeses
+en: Canned cheeses
+de: Dosenkäse, Käsekonserve
+fr: Fromages en conserve
+hr: Konzervirani sirevi
+hu: Konzerv sajtok, Konzerves sajtok
+lt: Konservuoti sūriai
+nl: Kazen in blik/pot
+#wikidata:en:
 
 < en:Cheeses
 en: Cheeses (perishable)
@@ -47081,41 +47166,6 @@ it: Pasta filata
 nl: Geknede kazen
 wikidata:en: Q1412505
 
-
-< en:Cheeses
-en: Processed cheese
-bg: Преработени сирена
-de: Schmelzkäse
-es: Queso procesado
-fi: sulatejuusto
-fr: Fromages à pâte fondue, snack à base de fromage fondu
-hr: Topljeni sir
-it: Prodotti a base di formaggio trasformato
-ja: プロセスチーズ
-lt: Apdoroti sūriai
-nl: Smeltkazen
-pt: Queijo processado
-ru: Плавленый сыр
-agribalyse_food_code:en: 12356
-ciqual_food_code:en: 12356
-ciqual_food_name:en: Processed cheese snack w breadsticks, for children
-wikidata:en: Q1570052
-
-< en:French cheeses
-< en:Processed cheese
-en: Cancoillottes, Cancoyottes, Processed cheese from cow's milk
-xx: Cancoillottes
-de: Kochkäse
-es: Cancoillottes, Cancoyottes
-fr: Cancoillottes, Cancoillotte, Spécialité fromagère fondue
-hr: Cancoillottes
-nl: Cancoillotes
-ciqual_food_code:en: 12325
-ciqual_food_name:en: Cancoillotte (processed cheese), from cow's milk
-ciqual_food_name:fr: Cancoillotte (spécialité fromagère fondue)
-oqali_family:en: fr:Fromages - Cancoillotte
-wikidata:en: Q688947
-
 < en:Cheeses
 en: Cream cheeses, cream cheese
 bg: Крема сирене
@@ -47915,25 +47965,10 @@ tr: Mihalic
 # TODO check the proxy above
 
 < en:Cheeses
-< en:Meals
 fr: Fondues, fondue, fondues de fromage, fondue de fromage
 ja: フォンデュ
 nl: Fondus, Kaasfondus
 wikidata:en: Q190531
-
-#TODO
-
-< en:Cheeses
-< fr:Fondues
-en: Cheese fondue from Savoy, Savoy-style fondue
-fr: Fondues savoyardes, fondue savoyarde
-hr: Fondue od savojskog sira
-it: Fonduta savoiarda
-nl: Kaasfondue uit de Savoie
-agribalyse_food_code:en: 25509
-ciqual_food_code:en: 25509
-ciqual_food_name:en: Savoy-style fondue (cheese wine and bread)
-wikidata:en: Q972682
 
 < en:sheep's-milk cheeses
 en: Cheese from ewe's whey
@@ -48576,76 +48611,6 @@ nl_be: Nederlandse kaas, Hollandse kaas
 pl: Sery niderlandzkie, Sery z Niderlandów, Sery holenderskie
 pt: Queijos dos países baixos
 ru: Голландские сыры
-
-< en:Cheeses
-en: Melted cheese
-bg: Топено сирене
-de: Fondue-Käse
-es: Queso fundido
-fi: sulatettu juusto
-fr: Fromages fondus, Fromage fondu
-hr: Rastopljeni sir
-it: Formaggio fuso
-lt: Lydyti sūriai
-nl: Funduekazen
-pl: Sery topione, Ser topiony
-pt: Queijos derretidos
-ro: Brânză topită
-agribalyse_food_code:en: 12355
-ciqual_food_code:en: 12355
-ciqual_food_name:en: Processed cheese with fresh cream cheese and walnuts
-wikidata:en: Q190531
-
-#TODO: I don't know why the agb below was mapped initially with the above
-
-< en:Melted cheese
-en: Processed cheese with fresh cream cheese and walnuts
-fr: Spécialité fromagère fondante au fromage blanc et aux noix
-hr: Topljeni sir sa svježim krem ​​sirom i orasima
-pt: Queijo processado com creme de queijo fresco e nozes
-agribalyse_food_code:en: 12355
-ciqual_food_code:en: 12355
-ciqual_food_name:en: Processed cheese with fresh cream cheese and walnuts
-
-< en:Processed cheese
-en: Processed cheese in slices
-fr: Fromage fondu en tranchettes
-agribalyse_food_code:en: 12300
-ciqual_food_code:en: 12300
-ciqual_food_name:en: Processed cheese, in slices
-
-< en:Processed cheese
-en: Processed cheese double cream around 31% fat
-fr: Fromage fondu double crème environ 31% MG
-agribalyse_food_code:en: 12320
-ciqual_food_code:en: 12320
-ciqual_food_name:en: Processed cheese, double cream, around 31% fat
-
-# Vache qui rit
-< en:Processed cheese
-en: Processed cheese around 20% fat in wedges
-fr: Fromage fondu en portions environ 20% MG
-agribalyse_food_code:en: 12310
-ciqual_food_code:en: 12310
-ciqual_food_name:en: Processed cheese, around 20% fat, in wedges or cubes
-
-< en:Processed cheese
-en: Cubed appetizer cheese
-fr: fromage apéritif en cube, fromage apéritif en cube type Apéricube
-agribalyse_proxy_food_code:en: 12310
-agribalyse_proxy_food_name:en: Processed cheese, around 20% fat, in wedges or cubes
-
-< en:Processed cheese
-fr: Fromages apéritif
-
-< en:Cubed appetizer cheese
-# Apéricube
-< en:Processed cheese
-en: Processed cheese around 20% fat in cubes
-fr: Fromage fondu en cubes environ 20% MG
-agribalyse_food_code:en: 12310
-ciqual_food_code:en: 12310
-ciqual_food_name:en: Processed cheese, around 20% fat, in wedges or cubes
 
 < en:Cheeses
 en: Industrial cheese
@@ -50127,6 +50092,10 @@ nl: Geraspte kazen
 pt: Queijos ralados
 ru: Тертый сыр
 wikidata:en: Q3088336
+
+< en:Grated cheese
+en: Grated cheeses for fondue
+fr: Fromages râpés pour fondue
 
 < en:Cow cheeses
 < en:French cheeses
@@ -62600,6 +62569,10 @@ hr: Mekinje od pira
 it: Crusche di farro spelta
 lt: Spelta sėlenos
 nl: Speltzemelen
+
+< en:Breakfasts
+en: Instant porridges with milk powder
+fr: Porridges instantanés avec du lait en poudre
 
 < en:Breakfasts
 < en:Cereals and their products
@@ -79925,9 +79898,8 @@ ciqual_food_name:en: Stuffed tomatoes
 ciqual_food_name:fr: Tomate farcie
 wikidata:en: Q6778637
 
-< en:Prepared vegetables
 < en:Rice dishes
-en: Rice stuffed tomatoes
+en: Stuffed tomatoes with rice, Rice stuffed tomatoes
 fr: Tomates farcies et riz, tomates farcies au riz, Tomate farcie au riz
 hr: Rižom punjene rajčice
 lt: Ryžiais įdaryti pomidorai
@@ -80460,10 +80432,6 @@ wikidata:en: Q612283
 < en:Meals
 en: Meals with falafels
 fr: Plats préparés aux falafels
-
-< en: Meals
-en: Meals with pasta
-nl: Kant-en-klaar pastamaaltijden
 
 # This category shouldn't be under en:Meats and their products (it is for products which main ingredient is meat)
 < en:Meals
@@ -91953,13 +91921,17 @@ fr: Pâtés de taureau
 < en:Fish preparations
 < en:Spreads
 en: Fish spreads, Fish spread
-fr: Préparations de poisson à tartiner
+fr: Tartinables au poisson, Préparations de poisson à tartiner
 hr: Riblji namazi
 nl: Vispastas
 
 < en:Fish spreads
+en: Salmon spreads
+fr: Tartinables au saumon
+
+< en:Fish spreads
 en: Tuna spreads
-fr: Préparations de thon à tartiner
+fr: Tartinables au thon, Préparations de thon à tartiner
 hr: Namazi od tune
 nl: Tonijnpastas
 
@@ -94995,9 +94967,9 @@ xx: Torti
 de: Spiralnudeln
 
 < en:Pastas
-af: Fusilli
-xx: fusilli
 en: Fusilli
+xx: fusilli
+af: Fusilli
 ar: فوزيلي
 bg: Фузили
 cs: Fusilli
@@ -95651,7 +95623,7 @@ pl: Makarony z pszenicy durum, Makaron z pszenicy durum
 ru: Макаронные изделия из муки твёрдой пшеницы, макаронные изделия из муки твердой пшеницы, макаронные изделия группы А, Макаронные изделия. Группа «А»
 sv: Durumvetepasta, Pasta av durumvete
 
-< en:Durum wheat pasta
+< en: Whole or semi-whole durum wheat pasta
 en: Whole durum wheat pasta, durum wholewheat pasta
 es: Pastas de trigo duro integrales
 fr: Pâtes de blé dur complet
@@ -95663,7 +95635,8 @@ nl: Volkoren durum pasta
 en: Durum wheat pasta vysshiy sort GOST
 ru: Макаронные изделия группы А высший сорт по ГОСТ, Макаронные изделия группы А высшего сорта по ГОСТ, макаронные изделия из муки твёрдой пшеницы высший сорт ГОСТ
 
-< en:Durum wheat pasta
+< en: Whole or semi-whole durum wheat pasta
+en: Semi-whole durum wheat pasta
 es: Pastas de trigo duro semi-integrales
 fr: Pâtes de blé dur semi-complet
 it: Pasta di grano duro semi integrale
@@ -95921,9 +95894,11 @@ fr: Cannelloni à la ricotta et aux épinards
 fr: Coquillettes, coquillette
 wikidata:en: Q2996948
 
+< en: Whole durum wheat pasta
 < fr:Coquillettes
 fr: Coquillettes complètes
 
+< en:Semi-whole durum wheat pasta
 < fr:Coquillettes
 fr: Coquillettes semi-complètes
 
@@ -96518,7 +96493,7 @@ ru: Спагетти из муки твёрдой пшеницы, спагетт
 
 < en:Durum wheat spaghetti
 < en:Whole durum wheat pasta
-en: Whole durm wheat spaghetti
+en: Whole durum wheat spaghetti
 bg: Пълнозърнести спагети от твърда пшеница
 de: Vollkorn-Hartweizenspaghetti, Vollkorn-Spaghetti, Vollkornspaghetti
 es: Spaghetti di grano duro integrali, Spaghetti integrali
@@ -97065,7 +97040,7 @@ en: Korean noodles, Guksu
 fr: Nouilles coréennes, Guksu
 
 < en:Meals
-en: Pasta dishes
+en: Pasta dishes, Meals with pasta
 ca: Plats de pasta
 de: Nudelgerichte, Nudelgericht
 es: Platos de pasta
@@ -97076,7 +97051,7 @@ hr: Jela od tjestenine
 hu: Tésztaételek
 it: Piatti a base di pasta
 ja: パスタ料理
-nl: Pastaschotels, Pastaschotel
+nl: Pastaschotels, Pastaschotel, Kant-en-klaar pastamaaltijden
 pl: Dania z makaronem
 pt: Pratos de massa
 ru: Блюда из макарон
