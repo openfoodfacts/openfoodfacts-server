@@ -296,13 +296,15 @@ lint: lint_perltidy lint_taxonomies
 tests: build_taxonomies_test build_lang_test build_pro_platform_test unit_test integration_test brands_sort_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
-unit_test: create_folders
+unit_test: create_folders build_pro_platform_test
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	@echo "🥫 Running tests with yath (parallel jobs: ${CPU_COUNT})"
 	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
+
 
 integration_test: create_folders
 	@echo "🥫 Running integration tests …"
@@ -640,3 +642,87 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		echo "Environment variable '$*' is not set"; \
    		exit 1; \
 	fi;
+
+# Dynamic unit test groups for parallel execution in CI
+# Usage: make unit_test_group TEST_GROUP=1
+# Groups are dynamically balanced by execution time using greedy algorithm
+
+# Generate dynamic test groups if not cached or if forced
+.test_groups_cache/unit_groups.mk: scripts/dynamic_test_grouper.py
+	@echo "🥫 Generating dynamic unit test groups (auto-calculated count)..."
+	@mkdir -p .test_groups_cache
+	@python3 scripts/dynamic_test_grouper.py --type=unit > .test_groups_cache/unit_groups.mk
+
+# Include the dynamically generated groups
+-include .test_groups_cache/unit_groups.mk
+
+# Get unit test group tests from dynamically generated groups
+get_unit_group_tests = $(UNIT_GROUP_$(1)_TESTS)
+
+# Unit test group runner for CI parallelization
+unit_test_group: create_folders build_pro_platform_test
+ifeq ($(TEST_GROUP),)
+	$(error TEST_GROUP is required. Usage: make unit_test_group TEST_GROUP=1)
+endif
+	@echo "🥫 Running unit test group $(TEST_GROUP) …"
+	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_unit_group_tests,$(TEST_GROUP))"
+	mkdir -p tests/unit/outputs/
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	@echo "🥫 Running all tests in group $(TEST_GROUP) with parallel execution and JUnit XML generation..."
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))
+	${DOCKER_COMPOSE_TEST} stop
+	@echo "🥫 Unit test group $(TEST_GROUP) completed successfully"
+	# Update timing data from test results
+	@python3 scripts/dynamic_test_grouper.py --type=unit --update-timings --junit-dir=tests/unit/outputs/
+
+# Force regeneration of unit test groups (ignores cache)
+regenerate_unit_groups:
+	@echo "🥫 Forcing regeneration of unit test groups (auto-calculated count)..."
+	@python3 scripts/dynamic_test_grouper.py --type=unit --force > .test_groups_cache/unit_groups.mk
+	@echo "🥫 Unit test groups regenerated"
+
+# Dynamic integration test groups for parallel execution in CI
+# Usage: make integration_test_group TEST_GROUP=1
+# Groups are dynamically balanced by execution time using greedy algorithm
+
+# Generate dynamic integration test groups if not cached or if forced
+.test_groups_cache/integration_groups.mk: scripts/dynamic_test_grouper.py
+	@echo "🥫 Generating dynamic integration test groups (auto-calculated count)..."
+	@mkdir -p .test_groups_cache
+	@python3 scripts/dynamic_test_grouper.py --type=integration > .test_groups_cache/integration_groups.mk
+
+# Include the dynamically generated groups
+-include .test_groups_cache/integration_groups.mk
+
+# Get the tests for a specific group from dynamically generated groups
+get_group_tests = $(INTEGRATION_GROUP_$(1)_TESTS)
+
+integration_test_group: create_folders
+ifeq ($(TEST_GROUP),)
+	$(error TEST_GROUP is required. Usage: make integration_test_group TEST_GROUP=1)
+endif
+	@echo "🥫 Running integration test group $(TEST_GROUP) …"
+	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_group_tests,$(TEST_GROUP))"
+	mkdir -p tests/integration/outputs/
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	@echo "🥫 Running all tests in group $(TEST_GROUP) with both console output and JUnit XML generation..."
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit_group_$(TEST_GROUP).xml" -T backend yath test --renderer=Formatter --renderer=JUnit $(addprefix tests/integration/,$(call get_group_tests,$(TEST_GROUP)))
+	${DOCKER_COMPOSE_INT_TEST} stop
+	@echo "🥫 Integration test group $(TEST_GROUP) completed successfully"
+	# Update timing data from test results
+	@python3 scripts/dynamic_test_grouper.py --type=integration --update-timings --junit-dir=tests/integration/outputs/
+
+# Force regeneration of integration test groups (ignores cache)
+regenerate_integration_groups:
+	@echo "🥫 Forcing regeneration of integration test groups (auto-calculated count)..."
+	@python3 scripts/dynamic_test_grouper.py --type=integration --force > .test_groups_cache/integration_groups.mk
+	@echo "🥫 Integration test groups regenerated"
+
+# Force regeneration of both unit and integration test groups
+regenerate_test_groups: regenerate_unit_groups regenerate_integration_groups
+
+# Clean test group cache
+clean_test_groups:
+	@echo "🥫 Cleaning test group cache..."
+	@rm -rf .test_groups_cache
+	@echo "🥫 Test group cache cleaned"
