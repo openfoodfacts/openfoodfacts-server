@@ -8,13 +8,13 @@ ARG CPANMOPTS=
 ######################
 # Base modperl image stage
 ######################
-FROM debian:bullseye AS modperl
+FROM debian:bullseye-slim AS modperl
 
 # Install cpm to install cpanfile dependencies
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
-    apt update && \
-    apt install -y \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
         apache2 \
         apt-utils \
         cpanminus \
@@ -45,6 +45,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # Packages from ./cpanfile:
         # If cpanfile specifies a newer version than apt has, cpanm will install the newer version.
         #
+        libfile-slurp-perl \
         libtie-ixhash-perl \
         libwww-perl \
         libimage-magick-perl \
@@ -87,9 +88,9 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     # rerun apt update, because last RUN might be in cache
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
-      apt update || true \
+      apt-get update || true \
     ) && \
-    apt install -y \
+    apt-get install -y --no-install-recommends \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
         #
@@ -221,7 +222,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     set -x && \
     # also run apt update if needed because some package might need to apt install
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
-      apt update || true \
+      apt-get update || true \
     ) && \
     # first install some dependencies that are not well handled
     cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
