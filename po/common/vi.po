@@ -360,10 +360,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Hướng dẫn cho Quản trị viên của các Nhà sản xuất"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "Đóng góp để hỗ trợ công việc của chúng tôi"
@@ -4636,16 +4632,16 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Thiếu dữ liệu để tính điểm dinh dưỡng"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Điểm dinh dưỡng không áp dụng"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score không áp dụng"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Không áp dụng cho danh mục"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
+msgid "Not applicable for the category: {category}"
 msgstr "Không áp dụng cho danh mục: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
@@ -5121,6 +5117,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Thiếu thông tin về dinh dưỡng"
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Thiếu thông tin dinh dưỡng cho sản phẩm đã chế biến"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr "Điểm sinh thái"
@@ -5463,6 +5463,10 @@ msgstr "Điểm sinh thái không được tính"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Tác động môi trường không xác định"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Thiếu một danh mục chính xác"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -6109,6 +6113,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Thông tin dinh dưỡng còn thiếu trong sản phẩm đã chế biến:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Danh mục và thông tin dinh dưỡng của sản phẩm phải được xác định để tính Điểm Dinh Dưỡng."
@@ -6196,6 +6204,10 @@ msgstr "Danh mục còn thiếu"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Thiếu thông tin về dinh dưỡng"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Thiếu thông tin dinh dưỡng đã chuẩn bị"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6381,6 +6393,10 @@ msgstr "Bạn có thể thêm thông tin cần thiết để tính toán Điểm
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "Bạn có thể thêm phân loại sản phẩm để chúng tôi có thể tính Điểm Sinh Thái không?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Danh mục chúng tôi có cho sản phẩm này không đủ chính xác để tính Điểm Xanh. Bạn có thể thêm danh mục sản phẩm chính xác hơn không?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7360,12 +7376,12 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "Chỉ số khả năng sửa chữa không áp dụng"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Không áp dụng cho danh mục"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
@@ -7510,9 +7526,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Báo cáo hình ảnh này cho người kiểm duyệt của chúng tôi"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Chúng tôi đang thiếu giá trị khẩu phần ăn và/hoặc đơn vị để tính Điểm dinh dưỡng"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> được thực hiện bởi một hiệp hội phi lợi nhuận, độc lập với ngành công nghiệp. Nó được thực hiện cho tất cả mọi người, bởi tất cả mọi người, và được tài trợ bởi tất cả mọi người. Bạn có thể ủng hộ công việc của chúng tôi bằng cách quyên góp cho Open Food Facts.<br/><b>Cảm ơn bạn!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> được thực hiện bởi một hiệp hội phi lợi nhuận, độc lập với ngành công nghiệp. Nó được thực hiện cho tất cả mọi người, bởi tất cả mọi người, và được tài trợ bởi tất cả mọi người. Bạn có thể hỗ trợ công việc của chúng tôi bằng cách quyên góp cho Open Food Facts và sử dụng công cụ tìm kiếm Lilo.<br/><b>Cảm ơn bạn!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Công cụ tìm kiếm Lilo"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Do bị robot lạm dụng quá mức, chúng tôi không thể phục vụ trang này cho người dùng không xác định. Vui lòng tạo tài khoản Open Food Facts miễn phí để truy cập tất cả Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Nguồn gốc của các thành phần"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "Nguồn gốc sản phẩm"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Thông tin sản phẩm"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Thông tin sản phẩm thô"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7526,7 +7574,47 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Lượng đường bổ sung ước tính trong thành phần"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Lượng đường bổ sung"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Tìm kiếm sản phẩm cùng danh mục không chứa đường bổ sung:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Thành phần không mong muốn"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Sở thích này dựa trên sự hiểu biết của Open Food Facts về danh sách thành phần và có thể không chính xác, hãy luôn tự mình kiểm tra sản phẩm."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Sự hiện diện của các thành phần không mong muốn chưa được biết"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Không phát hiện thành phần không mong muốn"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Chứa các thành phần không mong muốn"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Một số thành phần không được công nhận"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Chúng tôi không phát hiện: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Chúng tôi không phát hiện: {unwanted_ingredients}. Chúng tôi có thể đã bỏ sót một số thành phần, vui lòng luôn kiểm tra danh sách thành phần."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Những sở thích đó dựa trên sự hiểu biết của Open Food Facts về danh sách thành phần và luôn có khả năng danh sách này không chính xác hoặc không đầy đủ, hãy luôn tự mình kiểm tra sản phẩm."
 
