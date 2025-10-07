@@ -46,7 +46,6 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/$country/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::API qw/:all/;

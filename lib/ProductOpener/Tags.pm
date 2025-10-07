@@ -148,6 +148,7 @@ BEGIN {
 		%Languages
 
 		&country_to_cc
+		&cc_to_country
 
 		&add_user_translation
 		&load_users_translations_for_lc
@@ -2687,7 +2688,9 @@ sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 }
 
 sub country_to_cc ($country) {
-
+	if (not defined $country) {
+		return;
+	}
 	if ($country eq 'en:world') {
 		return 'world';
 	}
@@ -2696,6 +2699,13 @@ sub country_to_cc ($country) {
 	}
 
 	return;
+}
+
+sub cc_to_country($cc) {
+	if (not defined $cc) {
+		return 'en:world';
+	}
+	return $country_codes{$cc} // 'en:world';
 }
 
 sub init_languages() {

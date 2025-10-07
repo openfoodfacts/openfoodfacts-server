@@ -1,4 +1,4 @@
-## Tutorials for Common developer journeys
+# Tutorials for Common developer journeys
 
 ### READ only journeys
 
@@ -8,7 +8,7 @@
 ### READ and WRITE journeys
 
 - Dev Journey : [Adding missing products](./tutorials/adding-missing-products.md)
-- Dev Journey : [Get the Nutri-Score](./tutorials/get-the-nutri-score.md)
+- Dev Journey : [Get the Nutri-Score](./tutorials/get-the-nutriscore.md)
 - Dev Journey : [Get the Green-Score](./tutorials/get-the-green-score.md)
 - Dev Journey : [Get ingredient related analysis on new or existing products (Nova, allergens, additives…)](./tutorials/get-ingredient-related-analysis.md)
 - Dev Journey : [Adding non-standard fields to a food product using Folksonomy (coming soon for cosmetics, pet food, and other products)](./tutorials/folksonomy-engine.md)

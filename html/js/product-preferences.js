@@ -2,27 +2,26 @@
 /*global preferences_text*/ // depends on which type of page the preferences are shown on
 /*global default_preferences*/ // depends on flavor: OFF, OBF etc.
 /*global product_type */
+/*global initializeTagifyInput */
 
-var attribute_groups; // All supported attribute groups and attributes + translated strings
-var preferences; // All supported preferences + translated strings
-var use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
-var reset_message;
+let attribute_groups; // All supported attribute groups and attributes + translated strings
+let preferences; // All supported preferences + translated strings
+let use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
+let reset_message;
 
 function get_user_product_preferences() {
     // Retrieve user preferences from local storage
 
-    var user_product_preferences = {};
-    var user_product_preferences_string = localStorage.getItem('user_product_preferences');
+    let user_product_preferences = {};
+    const user_product_preferences_string = localStorage.getItem('user_product_preferences');
 
 	if (user_product_preferences_string) {
 		user_product_preferences = JSON.parse(user_product_preferences_string);
-	}
-	else {
-		// Default preferences
-		user_product_preferences = default_preferences;
-	}
-	
-	return user_product_preferences;
+    } else {
+        user_product_preferences = default_preferences;
+    }
+
+    return user_product_preferences;
 }
 
 
@@ -46,7 +45,7 @@ else {
 
 function display_selected_preferences(target_selected_summary, product_preferences) {
 
-    var selected_preference_groups = {
+    const selected_preference_groups = {
         "mandatory": [],
         "very_important": [],
         "important": [],
@@ -60,17 +59,17 @@ function display_selected_preferences(target_selected_summary, product_preferenc
         $.each(attribute_group.attributes, function(key, attribute) {
 
             if ((product_preferences[attribute.id]) && (product_preferences[attribute.id] != "not_important")) {
-                var attribute_html = '<li>' + attribute.setting_name + '</li>';
+                const attribute_html = '<li>' + attribute.setting_name + '</li>';
                 selected_preference_groups[product_preferences[attribute.id]].push(attribute_html);
             }
         });
     });
 
-    var selected_preferences_html = '';
+    let selected_preferences_html = '';
 
     $.each(selected_preference_groups, function(selected_preference, selected_preference_group) {
 
-        var selected_preference_name;
+        let selected_preference_name;
 
         $.each(preferences, function(key, preference) {
 
@@ -88,7 +87,7 @@ function display_selected_preferences(target_selected_summary, product_preferenc
     });
 
     // dropdown link to see a preferences summary
-    var html = '<a id="preferences_link" data-dropdown="selected_preferences">' +
+    const html = '<a id="preferences_link" data-dropdown="selected_preferences">' +
         lang().see_your_preferences + '</a></p>' +
         '<div id="selected_preferences" data-dropdown-content class="f-dropdown content medium">' +
         selected_preferences_html +
@@ -102,12 +101,12 @@ function display_selected_preferences(target_selected_summary, product_preferenc
 
 function generate_preferences_switch_button(preferences_text, checkbox_id) {
 
-	var checked = '';
+	let checked = '';
 	if (use_user_product_preferences_for_ranking) {
 		checked = " checked";
 	}	
 
-	var html = '<div class="flex-grid direction-row toggle_food_preferences" style="margin-right:2rem;margin-bottom:1rem;align-items: center;">' +
+	const html = '<div class="flex-grid direction-row toggle_food_preferences" style="margin-right:2rem;margin-bottom:1rem;align-items: center;">' +
     '<fieldset class="switch round success unmarged" tabindex="0" id="' + checkbox_id +'_switch" style="align-items:center;margin-right:0.5rem;padding-top:0.1rem;padding-bottom:0.1rem;">' +
     '<input class="preferences_checkboxes" id="' + checkbox_id + '" type="checkbox"' + checked + '>' +
     '<label for="' + checkbox_id +'" class="h-space-tiny" style="margin-top:0"></label></fieldset>' +
@@ -139,9 +138,9 @@ function activate_preferences_switch_buttons(change) {
 
 function display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change) {
 	
-	var html = '';
+	let html = '';
 	
-	var html_edit_preferences = '<div><a id="show_selection_form" class="button small round secondary" role="button" tabindex="0">' +
+	const html_edit_preferences = '<div><a id="show_selection_form" class="button small round secondary" role="button" tabindex="0">' +
         '<span class="material-icons size-20">&#xE556;</span>' +
         "&nbsp;<span>" + lang().preferences_edit_your_preferences + '</span></a></div>';
 	
@@ -154,6 +153,8 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
 	activate_preferences_switch_buttons(change);
 
     $("#show_selection_form").on("click", function() {
+        // Initialize and display unwanted ingredients preferences if needed
+        display_unwanted_ingredients_preferences();
         $(target_selected).hide();
         $(target_selection_form).show();
         $(document).foundation('equalizer', 'reflow');
@@ -168,12 +169,168 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
     $(document).foundation('reflow');
 }
 
+// set a cookie with a name, value and expiration in days
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (encodeURIComponent(value) || "")  + expires + "; path=/";
+}
+
+// callback function when the unwanted ingredients input field is changed
+function unwanted_ingredients_change_callback(e) {
+    let values_json = e.tagifyValue;
+    // If tagifyValue is empty and value is not an array and is a non-empty string, it is an initial call to initialize tagify, ignore it
+    if ((!values_json || values_json.length == 0) && (!Array.isArray(e.value) && e.value && e.value.length > 0)) {
+        return;
+    }
+    // The tagifyValue is a string like: [{"value":"Amidon de patate douce"},{"value":"test"}]
+    // Turn it into a comma separated string
+    // If the JSON is an empty string, turn it to an empty array
+    if (!values_json || values_json.length == 0) {
+        values_json = "[]";
+    }
+    const values_string = JSON.parse(values_json).map(function(v) {
+        return v.value;
+    }).join(", ");
+
+    // If there are no unwanted ingredients, remove the local storage item and cookie
+    if (values_string.length == 0) {
+        localStorage.removeItem('attribute_unwanted_ingredients_tags');
+        setCookie('attribute_unwanted_ingredients_tags', '', -1); // delete the cookie
+
+        // Also change the value of the unwanted_ingredients radio button to not_important if it is not already
+        if ($("input[name='unwanted_ingredients']:checked").val() != "not_important") {
+            $("input[name='unwanted_ingredients'][value='not_important']").prop("checked", true).trigger("change");
+        }
+    }
+    else
+    {
+        // Call the /api/v3/taxonomy_canonicalize_tags API to get the canonical tags for the entered ingredient names
+        $.ajax({
+            url: "/api/v3/taxonomy_canonicalize_tags?tagtype=ingredients&local_tags_list=" + encodeURIComponent(values_string),
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                const canonical_tags_list = data.canonical_tags_list;
+                // store the entered ingredient names in local storage
+                // Note: local storage is subdomain specific, so it will be different for each country / language subdomain
+                // It is already the case for the other preferences settings
+                localStorage.setItem('attribute_unwanted_ingredients_tags', canonical_tags_list);
+                // also set a cookie so that the server can access it when rendering product pages and product list pages
+                setCookie('attribute_unwanted_ingredients_tags', canonical_tags_list, 3650); // 10 years
+            }
+        });
+
+        // If the unwanted_ingredients attribute is currently set to not_important, change it to important
+        if ($("input[name='unwanted_ingredients']:checked").val() == "not_important") {
+            $("input[name='unwanted_ingredients'][value='important']").prop("checked", true).trigger("change");
+        }
+    }
+
+    // Ideally we should find a way to call the change callback to update search results attributes
+    // if unwanted ingredients are changed, but it's not easy to pass the change callback to this function
+}
+
+// initialize the Tagify autocomplete suggestions on the unwanted ingredients input field
+function initialize_unwanted_ingredients_tagify() {
+
+    const input = document.querySelector('input[name=attribute_unwanted_ingredients_names]');
+    // initialize Tagify on the input field using the autocomplete URL from the data-autocomplete attribute
+    // we use the initializeTagifyInput function from tagify-init.js
+    // as it does a lot of things to handle suggestions, synonyms etc.
+    // We pass 0 as maximumRecentEntriesPerTag to avoid storing recent entries
+
+    initializeTagifyInput(input, 0, unwanted_ingredients_change_callback);
+}
+
+// Populate the input field for unwanted ingredients and initialize tagify on it
+// As it calls several JS, CSS and APIs, we do it only when the preferences form is shown
+let unwanted_ingredients_preferences_initalized = false;
+let attribute_unwanted_ingredients_enabled = false;
+
+// We use jQuery to load the CSS file dynamically
+function loadCSS(href) {
+
+    return new Promise(function(resolve, reject) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = href;
+        link.onload = resolve;
+        link.onerror = reject;
+        document.head.appendChild(link);
+    });
+}
+
+// We also want to turn the canonical ingredient tags list into local ingredient names
+// using the /api/v3/taxonomy_display_tags API
+function localize_unwanted_ingredients_tags() {
+
+    return new Promise(function(resolve, reject) {
+        const tags = localStorage.getItem('attribute_unwanted_ingredients_tags');
+        if (tags && tags.length > 0) {
+            $.ajax({
+                url: "/api/v3/taxonomy_display_tags?tagtype=ingredients&canonical_tags_list=" + encodeURIComponent(tags),
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    const local_tags_list = data.local_tags_list;
+                    // store the local ingredient names in the input field
+                    $('input[name=attribute_unwanted_ingredients_names]').val(local_tags_list);
+                    resolve();
+                },
+                error: function(jqxhr, status, exception) {
+                    reject(exception);
+                }
+            });
+        }
+        else {
+            resolve();
+        }
+    });
+}
+
+function display_unwanted_ingredients_preferences() {
+
+    if (unwanted_ingredients_preferences_initalized) {
+        return;
+    }
+
+    // Initialize tagify on the unwanted ingredients input field if we have it
+    if (attribute_unwanted_ingredients_enabled) {
+        // We need to load tagify library if not already loaded
+        if (typeof Tagify === 'undefined') {
+            // Load tagify JS and CSS
+            // We use jQuery to load the CSS file dynamically
+            $.when(
+                $.getScript("/js/dist/tagify.js"), // FIX ME: use static subdomain
+                $.getScript("/js/dist/tagify-init.js"), // FIX ME: use static subdomain
+                loadCSS("/css/dist/tagify.css"),
+                localize_unwanted_ingredients_tags()
+            ).done(function() {
+                // Initialize tagify on the unwanted ingredients input field
+                initialize_unwanted_ingredients_tagify();
+            }).fail(function(jqxhr, settings, exception) {
+                console.error("Error loading tagify JS or CSS:", exception);
+            });
+        }
+        else {
+            initialize_unwanted_ingredients_tagify();
+        }
+    }
+
+    unwanted_ingredients_preferences_initalized = true;
+}
 
 // display_user_product_preferences can be called by other scripts
 /* exported display_user_product_preferences */
 
 // Make sure we display the preferences only once when we have both preferences and attribute_groups loaded
-var displayed_user_product_preferences = false;
+let displayed_user_product_preferences = false;
 
 function display_user_product_preferences(target_selected, target_selection_form, change) {
 
@@ -181,9 +338,9 @@ function display_user_product_preferences(target_selected, target_selection_form
 
     if (!attribute_groups) {
 
-        $.getJSON("/api/v0/attribute_groups", function(data) {
+        $.getJSON("/api/v3.4/attribute_groups", function(data) {
 
-            attribute_groups = data;
+            attribute_groups = data.attribute_groups;
             display_user_product_preferences(target_selected, target_selection_form, change);
         });
 
@@ -192,9 +349,9 @@ function display_user_product_preferences(target_selected, target_selection_form
 
     if (!preferences) {
 
-        $.getJSON("/api/v0/preferences", function(data) {
+        $.getJSON("/api/v3.4/preferences", function(data) {
 
-            preferences = data;
+            preferences = data.preferences;
             display_user_product_preferences(target_selected, target_selection_form, change);
         });
         
@@ -205,14 +362,14 @@ function display_user_product_preferences(target_selected, target_selection_form
 
         displayed_user_product_preferences = true;
 
-        var user_product_preferences = get_user_product_preferences();
+        let user_product_preferences = get_user_product_preferences();
 
-        var attribute_groups_html = [];
+        const attribute_groups_html = [];
 
         // Iterate over attribute groups
         $.each(attribute_groups, function(key, attribute_group) {
 
-            var attribute_group_html = "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group accordion-navigation'>" +
+            let attribute_group_html = "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group accordion-navigation'>" +
                 "<a href='#attribute_group_" + attribute_group.id + "_a' style='color:black;'>" +
                 "<span class='attribute_group_name'>" + attribute_group.name + "</span></a>"
                 // I can't get the dynamically created accordion to work, making all content active until we find a way to make it work
@@ -229,14 +386,38 @@ function display_user_product_preferences(target_selected, target_selection_form
 
             $.each(attribute_group.attributes, function(key, attribute) {
 
+                let attribute_name_and_parameters_html = '';
+
+                if (attribute.id == "unwanted_ingredients") {
+
+                    // Record that we have the unwanted ingredients attribute, so that we can initialize tagify on the input field once it's added to the DOM
+                    attribute_unwanted_ingredients_enabled = true;
+
+                    // We pass an empty input, as we will fill it later with the local ingredient names corresponding to the canonical ingredient tags we have in local storage
+
+                    attribute_name_and_parameters_html = `
+                    <div style="display: flex; flex-direction: column; align-items: flex-start;width: 100%;">
+                        <label for="attribute_unwanted_ingredients_names">
+                            <span class='attribute_name' style="margin-bottom: 0.5rem;">${attribute.setting_name}</span>
+                        </label>
+                        <input type="text" name="attribute_unwanted_ingredients_names" id="attribute_unwanted_ingredients_names" class="text" placeholder="Enter ingredients you cannot or do not want to eat" value="" data-autocomplete="/api/v3/taxonomy_suggestions?tagtype=ingredients" style="width: 100%;"/>
+                    </div>
+                `;
+                }
+                else {
+                    attribute_name_and_parameters_html = "<span class='attribute_name'>" + attribute.setting_name + "</span>";
+                }
+
                 attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'>" +
                     "<fieldset class='fieldset_attribute_group' style='margin:0;padding:0;border:none'>" +
                     "<div class='attribute_img'><div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>" +
-                    "<span class='attribute_name'>" + attribute.setting_name + "</span></div><div class='attribute_group'>";
-
+                    attribute_name_and_parameters_html +
+                    "</div>" +
+                    "<div class='attribute_group'>";
+                
                 $.each(preferences, function(key, preference) {
 
-                    var checked = '';
+                    let checked = '';
 
                     if ((!user_product_preferences[attribute.id] && preference.id == "not_important") || (user_product_preferences[attribute.id] == preference.id)) {
                         checked = ' checked';

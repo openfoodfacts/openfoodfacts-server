@@ -120,7 +120,7 @@ else {
 	my $product_ref = retrieve_product($product_id);
 
 	if (not defined $product_ref) {
-		$product_ref = init_product($User_id, $Org_id, $code, $country);
+		$product_ref = init_product($User_id, $Org_id, $code, $request_ref->{country});
 		$product_ref->{interface_version_created} = $interface_version;
 	}
 	else {
@@ -133,7 +133,9 @@ else {
 			and ($product_ref->{product_type} ne $options{product_type}))
 		{
 			redirect_to_url($request_ref, 307,
-				format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product_jqm.pl?code=' . $code);
+					  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
+					. '/cgi/product_jqm.pl?code='
+					. $code);
 		}
 	}
 
