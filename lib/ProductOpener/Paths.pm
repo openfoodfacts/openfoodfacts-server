@@ -272,13 +272,11 @@ $BASE_DIRS{PUBLIC_DUMP} = "$www_root/dump";
 
 $BASE_DIRS{PUBLIC_FILES} = "$www_root/files";
 
-
 =head2 $BASE_DIRS{PUBLIC_RESOURCES}
 
 =cut
 
 $BASE_DIRS{PUBLIC_RESOURCES} = "$www_root/resources";
-
 
 =head2 $BASE_DIRS{PUBLIC_EXPORTS}
 
