@@ -45,7 +45,6 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Display qw/$subdomain/;
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Lang qw/$lc/;
@@ -155,7 +154,7 @@ sub read_product_api ($request_ref) {
 			and (($requested_product_type eq "all") or ($requested_product_type eq $product_ref->{product_type})))
 		{
 			redirect_to_url($request_ref, 302,
-				format_subdomain($subdomain, $product_ref->{product_type}) . "/"
+				format_subdomain($request_ref->{subdomain}, $product_ref->{product_type}) . "/"
 					. $request_ref->{original_query_string});
 		}
 		else {
