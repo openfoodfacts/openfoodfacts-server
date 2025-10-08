@@ -881,7 +881,7 @@ $(function () {
         });
         // update the select2 dropdown
         $(this).empty().select2({
-            placeholder: lang().product_js_add_a_nutrient,,
+            placeholder: lang().product_js_add_a_nutrient,
             data: other_nutrients, // Use the other_nutrients array to populate the dropdown
             allowClear: true
         });
@@ -937,7 +937,7 @@ $(document).foundation({
 //		$("#fixed_bar").width(parent_width);
 //	}
 //);
-y
+
 // This function returns a comma separated list of the imgids of images selected in the manage images section
 function get_list_of_imgids() {
     let list_of_imgids = '';

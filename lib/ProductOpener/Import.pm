@@ -107,7 +107,7 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::HTTP qw/create_user_agent/;
-use ProductOpener::Nutrition qw/assign_nutrition_values_from_imported_csv_product get_source_for_site_and_org/;
+use ProductOpener::Nutrition qw/assign_nutrition_values_from_imported_csv_product_old_fields assign_nutrition_values_from_imported_csv_product get_source_for_site_and_org/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -1062,7 +1062,7 @@ sub set_field_value (
 	return;
 }
 
-=head2 import_nutrients($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time)
+=head2 import_nutrients_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time)
 
 Import nutrient values from new fields like nutrition.input_sets.prepared.100ml.nutrients.saturated-fat.value_string
 
@@ -1077,12 +1077,12 @@ sub import_nutrients_fields (
 {
 
 	my $source = get_source_for_site_and_org($Org_id);
-	assign_nutrition_values_from_imported_csv_product($imported_product_ref, $product_ref, $nutriment_table, $source);
+	assign_nutrition_values_from_imported_csv_product($imported_product_ref, $product_ref, $source);
 
 	return;
 }
 
-=head2 import_nutrients_old_fields($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time)
+=head2 import_nutrients_old_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time)
 
 Import nutrient values from old style fields like fat_100g_value, fat_100g_unit, fat_prepared_100g_value, etc.
 
@@ -2183,11 +2183,18 @@ sub import_csv_file ($args_ref) {
 
 		# Nutrients
 
-		import_nutrients(
+		import_nutrients_old_fields(
 			$args_ref, $imported_product_ref, $product_ref, $stats_ref,
 			\$modified, \@modified_fields, \$differing, \%differing_fields,
 			\%nutrients_edited, $time,
 		);
+
+		import_nutrients_fields(
+			$args_ref, $imported_product_ref, $product_ref, $stats_ref,
+			\$modified, \@modified_fields, \$differing, \%differing_fields,
+			\%nutrients_edited, $time,
+		);
+
 
 		set_nutrition_data_per_fields($args_ref, $imported_product_ref, $product_ref, $stats_ref, \$modified,);
 
