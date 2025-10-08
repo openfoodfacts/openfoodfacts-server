@@ -8,9 +8,9 @@ Here is how to develop for the producers platform using docker.
 
 ### Shell Setup:
 You will need two types of shells:
-- Shell for OpenFoodFacts:
+- **Shell for OpenFoodFacts**:
   - Use this shell for general development on the OpenFoodFacts platform.
-- Shell for OpenFoodFacts-Pro: Use this shell when working on the OpenFoodFacts-Pro platform.
+- **Shell for OpenFoodFacts-Pro**: Use this shell when working on the OpenFoodFacts-Pro platform.
   - To set up the shell, run the command: `. env/setenv.sh off-pro` (this simply sets some environment variables that will override the ones in `.env`).
   - Once the shell is set up, your prompt will show `(pro)` to indicate that you are in the producers environment.
 
@@ -22,9 +22,9 @@ To develop on the producers platform, follow these steps:
   - If you encounter any issues with CSS not showing up, you can run `make build_lang` in the *pro* shell.
 
 ### Working with Product Import/Export and Interacting with the Public Platform:
-If you need to work on product import/export or interact with the public platform, you must start the following services: `PostgreSQL`, `MongoDB`, and the `Minion`. Here's how:
+If you need to work on product import/export or interact with the public platform, you must start the following services: `PostgreSQL`, and the `Minion`. Here's how:
 
-- In a *non-pro* shell (OpenFoodFacts shell), run the command `docker compose up postgres minion mongodb`.
+- In a *non-pro* shell (OpenFoodFacts shell), run the command `docker compose up postgres minion`.
   - This command starts the necessary services in the background.
 
 #### Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:
@@ -39,13 +39,13 @@ An explanation of the setup can be found at [explain-pro-dev-setup.md](explain-p
 
 - If you want to see the state of tasks, you can run:
 
-```
+``` sh
 docker compose exec minion /opt/product-opener/scripts/minion_producers.pl  minion job
 ```
 (add --help to see all options), or refer to https://docs.mojolicious.org/Minion/Command/minion/job
 
 - You may also inspect the database by running:
-```
+``` sh
 docker compose exec  postgres psql -U productopener -W minion
 ```
 The password is given by the `POSTGRES_PASSWORD` variable in the `.env` file and defaults to `productopener`. 
