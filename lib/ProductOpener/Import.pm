@@ -107,7 +107,8 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::HTTP qw/create_user_agent/;
-use ProductOpener::Nutrition qw/assign_nutrition_values_from_imported_csv_product_old_fields assign_nutrition_values_from_imported_csv_product get_source_for_site_and_org/;
+use ProductOpener::Nutrition
+	qw/assign_nutrition_values_from_imported_csv_product_old_fields assign_nutrition_values_from_imported_csv_product get_source_for_site_and_org/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -1062,6 +1063,37 @@ sub set_field_value (
 	return;
 }
 
+=head2 compare_old_and_new_objects ($old_object_ref, $new_object_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref)
+
+We previously tried to keep track of all the fields and sub fields that were added, modified and deleted (e.g. specific nutrients),
+but as the data structure becomes more complex, this information becomes more difficult to maintain,
+while the benefit is limited: we get aggregated stats on fields updates for an import of products, but in practice it is not very useful.
+
+So we now just test if the information has changed or not, in order to know if we need to re-store the product or not.
+
+=cut
+
+sub compare_old_and_new_objects (
+	$code, $field, $old_object_ref, $new_object_ref, $stats_ref,
+	$modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref
+	)
+{
+
+	# See if the objects have changed by comparing their JSON representation (with sorted keys)
+	my $json = JSON->new->allow_nonref->canonical;
+
+	if ($json->encode($old_object_ref) ne $json->encode($new_object_ref)) {
+		$$differing_ref++;
+		$differing_fields_ref->{$field}++;
+
+		push @$modified_fields_ref, $field;
+		$$modified_ref++;
+		$stats_ref->{products_info_updated}{$code} = 1;
+		$stats_ref->{"products_${field}_updated"}{$code} = 1;
+	}
+	return;
+}
+
 =head2 import_nutrients_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time)
 
 Import nutrient values from new fields like nutrition.input_sets.prepared.100ml.nutrients.saturated-fat.value_string
@@ -1075,9 +1107,18 @@ sub import_nutrients_fields (
 	$modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time
 	)
 {
+	# Make a deep copy of $product_ref->{nutrition} before modifying it so that we can see if it changed
+	# and update $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref accordingly
+	my $old_nutrition_ref = dclone($product_ref->{nutrition});
 
 	my $source = get_source_for_site_and_org($Org_id);
 	assign_nutrition_values_from_imported_csv_product($imported_product_ref, $product_ref, $source);
+
+	compare_old_and_new_objects(
+		$imported_product_ref->{code}, "nutrition", $old_nutrition_ref,
+		$product_ref->{nutrition}, $stats_ref, $modified_ref,
+		$modified_fields_ref, $differing_ref, $differing_fields_ref
+	);
 
 	return;
 }
@@ -1095,12 +1136,21 @@ sub import_nutrients_old_fields (
 	$modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time
 	)
 {
+	# Make a deep copy of $product_ref->{nutrition} before modifying it so that we can see if it changed
+	my $old_nutrition_ref = dclone($product_ref->{nutrition});
+
 	my $source = get_source_for_site_and_org($Org_id);
 
 	assign_nutrition_values_from_imported_csv_product_old_fields(
 		$args_ref, $imported_product_ref, $product_ref, $stats_ref,
 		$modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref,
 		$nutrients_edited_ref, $time, $source
+	);
+
+	compare_old_and_new_objects(
+		$imported_product_ref->{code}, "nutrition", $old_nutrition_ref,
+		$product_ref->{nutrition}, $stats_ref, $modified_ref,
+		$modified_fields_ref, $differing_ref, $differing_fields_ref
 	);
 
 	return;
@@ -2195,7 +2245,6 @@ sub import_csv_file ($args_ref) {
 			\%nutrients_edited, $time,
 		);
 
-
 		set_nutrition_data_per_fields($args_ref, $imported_product_ref, $product_ref, $stats_ref, \$modified,);
 
 		# Packaging data
@@ -2221,7 +2270,7 @@ sub import_csv_file ($args_ref) {
 		{
 			$stats_ref->{products_nutrition_updated}{$code} = 1;
 		}
-		else {
+		elsif (not $stats_ref->{products_nutrition_updated}{$code}) {
 			$stats_ref->{products_nutrition_not_updated}{$code} = 1;
 		}
 

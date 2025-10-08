@@ -77,7 +77,6 @@ my $export_canonicalized_tags_fields = 0;
 
 my $query_params_ref = {};    # filters for mongodb query
 
-
 GetOptions(
 	"fields=s" => \$fields,
 	"extra_fields=s" => \$extra_fields,
