@@ -8961,19 +8961,6 @@ ciqual_food_code:en: 2032
 ciqual_food_name:en: Tomato juice, pure juice, salted : 6g/L
 ciqual_food_name:fr: Jus de tomate, pur jus, salé à 6g/L
 
-< en:Tomatoes and their products
-en: Strained tomatoes, Passata, Canned tomato coulis semi-reduced to 11%, Canned tomato puree semi-reduced to 11%
-de: Passierte Tomaten
-fr: Coulis de tomates, coulis de tomate, Coulis de tomate appertisé mi-réduit à 11%, Purée de tomates appertisée mi-réduite à 11%
-hr: Pasirane rajčice
-it: Passata
-nl: Gezeefde tomaten, Passata, Tomatencoulis
-pl: Przetarte pomidory, Passata
-agribalyse_food_code:en: 20260
-ciqual_food_code:en: 20260
-ciqual_food_name:en: Tomato coulis, canned (tomato puree semi-reduced 11%)
-ciqual_food_name:fr: Tomate, coulis, appertisé (purée de tomates mi-réduite à 11%)
-
 < en:Beverages
 en: Hot beverages, hot drinks
 bg: Топли напитки
@@ -78925,7 +78912,6 @@ ciqual_food_name:fr: Sauce tomate aux champignons, préemballée
 < en:Tomato sauces
 en: Pimented tomato sauces
 fr: Sauces tomates pimentées
-#wikidata:en:
 
 < en:Meal sauces
 < en:Tomato sauces
@@ -78942,7 +78928,6 @@ agribalyse_food_code:en: 11207
 ciqual_food_code:en: 11207
 ciqual_food_name:en: Tomato sauce, w vegetables, prepacked
 ciqual_food_name:fr: Sauce tomate aux petits légumes, préemballée
-#wikidata:en:
 
 < en:Meal sauces
 < en:Tomato sauces
@@ -79055,7 +79040,6 @@ fr: Sauces siciliennes
 hr: Sicilijanski umaci
 lt: Sicilietiški padažai
 nl: Siciliaanse sauzen
-#wikidata:en:
 
 < en:Meal sauces
 < en:Tomato sauces
@@ -79073,7 +79057,6 @@ wikidata:en: Q7818540
 < en:Tomato sauces
 en: Tumacas
 es: Tumacas
-#wikidata:en:
 
 < en:Tomato sauces
 < en:Tomatoes and their products
@@ -79082,10 +79065,26 @@ es: Tomate natural rallado
 hr: Prirodna ribana rajčica
 lt: Natūralus trintas pomidoras
 
+< en:Canned tomato products
+en: Strained tomatoes, Passata, Canned tomato coulis semi-reduced to 11%, Canned tomato puree semi-reduced to 11%
+de: Passierte Tomaten
+fr: Coulis de tomates, coulis de tomate, Coulis de tomate appertisé mi-réduit à 11%, Purée de tomates appertisée mi-réduite à 11%
+hr: Pasirane rajčice
+it: Passata
+nl: Gezeefde tomaten, Passata, Tomatencoulis
+pl: Przetarte pomidory, Passata
+sv: Passerade tomater
+agribalyse_food_code:en: 20260
+ciqual_food_code:en: 20260
+ciqual_food_name:en: Tomato coulis, canned (tomato puree semi-reduced 11%)
+ciqual_food_name:fr: Tomate, coulis, appertisé (purée de tomates mi-réduite à 11%)
+
+< en:Mashed vegetables
 < en:Tomato sauces
 < en:Tomatoes and their products
 en: Tomato purées, Tomato purees, Pureed tomato
 bg: Доматено пюре
+da: Tomatpuréer
 de: Tomatenpüree, pürierte Tomaten
 es: Tomate natural triturado
 fi: Tomaattisoseet, tomaattipyreet
@@ -79095,7 +79094,20 @@ it: Puree di pomodoro
 lt: Pomidorų tyrės, Pomidorų tyrė
 nl: Tomatenpurees
 pt: Purés de tomate
+# sv-note: svensk ”tomatpuré” är en:”tomato paste”
 agribalyse_food_code:en: 20170
+ciqual_food_code:en: 20170
+ciqual_food_name:en: Tomato puree, canned
+ciqual_food_name:fr: Tomate, purée, appertisée
+wikidata:en: Q1114674
+
+< en:Canned tomato products
+< en:Tomato purées
+en: Canned tomato purées, Canned tomato puree
+da: Tomatpuréer på dåse
+fr: Purée de tomates ap0pertisée, Purée de tomates en conserve
+hr: Pire od rajčice iz konzerve
+lt: Konservuota pomidorų tyrė
 ciqual_food_code:en: 20170
 ciqual_food_name:en: Tomato puree, canned
 ciqual_food_name:fr: Tomate, purée, appertisée
@@ -79106,11 +79118,11 @@ fr: Caviars de tomates, Caviar de tomates
 ciqual_food_code:en: 11215
 ciqual_food_name:en: Tomato caviar (a seasonned tomato puree)
 ciqual_food_name:fr: Caviar de tomates
-#wikidata:en:
 
-< en:Tomatoes and their products
+< en:Canned tomato products
 en: Tomato pastes, Canned concentrated tomato paste
 bg: Доматена паста
+da: Tomatkoncentrater, Tomatpastaer
 de: Tomatenmark
 es: Pastas de tomate
 fi: tomaattitahnat
@@ -79121,36 +79133,49 @@ ja: トマトペースト
 lt: Pomidorų pasta, Konservuota koncentruota pomidorų pasta
 nl: Tomatenpastas
 pl: Koncentrat pomidorowy
+sv: Tomatpuréer
 agribalyse_food_code:en: 20068
 ciqual_food_code:en: 20068
 ciqual_food_name:en: Tomato paste, concentrated, canned
 ciqual_food_name:fr: Tomate, concentré, appertisé
 wikidata:en: Q1499073
 
-< en:Tomatoes and their products
-en: Double concentrate tomato paste
+< en:Tomato pastes
+en: Double concentrate tomato paste, Tomato paste double concentrated
 bg: Двойно концентриана доматена паста
+da: Dobbeltkoncentreret tomatkoncentrat, Dobbeltkoncentreret tomatpasta
+de: Tomatenmark zweifach konzentriert
 fr: Double concentré de tomate
 hr: Dvostruki koncentrat paste od rajčice
+sv: Dubbelkoncentrerade tomatpuréer, Dubbelt koncentrerade tomatpuréer, Tomatpuréer dubbel koncentrerade
 agribalyse_food_code:en: 20268
 ciqual_food_code:en: 20268
 ciqual_food_name:en: Tomato paste, double concentrate, canned
 ciqual_food_name:fr: Tomate, double concentré, appertisé
-#wikidata:en:
 
 < en:Tomatoes and their products
 en: Tomato pulps
+da: Hakkede tomater
 es: Pulpa de tomate
 fr: Pulpes de tomates, pulpes de tomate, pulpe de tomates, pulpe de tomate
 hr: Pulpe rajčice
 it: Polpe di pomodoro, polpa di pomodoro, polpe di pomodori, polpa di pomodori
 lt: Pomidorų minkštimas
+nb: Hakkede tomater
 nl: Tomatenpulp
 pt: Polpas de tomate
+sv: Krossade tomater
 agribalyse_proxy_food_code:en: 20169
 agribalyse_proxy_food_name:en: Tomato pulp, canned
 agribalyse_proxy_food_name:fr: Tomate, pulpe, appertisée
-#wikidata:en:
+
+< en:Tomato pulps
+en: Fine tomato pulps
+da: Finthakkede tomater
+fi: Hieno tomaattimurska
+it: Polpa fine di pomodoro
+nb: Finhakkede tomater
+sv: Finkrossade tomater
 
 < en:Tomatoes and their products
 en: Boiled tomato pulp and peel, Tomato pulp and peel cooked in water
@@ -79159,16 +79184,6 @@ agribalyse_food_code:en: 20242
 ciqual_food_code:en: 20242
 ciqual_food_name:en: Tomato, pulp and peel, boiled/cooked in water
 ciqual_food_name:fr: Tomate, pulpe et peau, bouillie/cuite à l'eau
-
-< en:Tomato pulps
-en: Canned tomato pulp
-fr: Pulpe de tomate appertisée
-hr: Konzervirana pulpa rajčice
-lt: Konservuotas pomidorų minkštimas
-agribalyse_food_code:en: 20169
-ciqual_food_code:en: 20169
-ciqual_food_name:en: Tomato pulp, canned
-ciqual_food_name:fr: Tomate, pulpe, appertisée
 
 < en:Tomatoes and their products
 en: Roasted tomato with skin, Baked tomato with skin
@@ -107362,11 +107377,12 @@ ciqual_food_code:en: 20081
 ciqual_food_name:en: Salsify, canned, drained
 ciqual_food_name:fr: Salsifis, appertisé, égoutté
 
-
+< en:Canned tomato products
 < en:Canned vegetables
 < en:Tomatoes
 en: Canned tomatoes
 bg: Консервирани домати
+da: Dåsetomater, Tomater på dåse
 de: Dosentomaten, Tomaten in Dosen
 es: Tomates en conserva
 fi: purkitetut tomaatit
@@ -107376,6 +107392,8 @@ it: Pomodori in scatola
 nl: Tomaten in blik/pot
 pl: Pomidory w puszce
 pt: Tomates enlatados
+sv: Tomater på dås
+wikidata:en: Q5032643
 
 < en:Tomatoes
 en: Green tomatoes
@@ -111769,6 +111787,7 @@ ciqual_food_name:en: Tomato, raw
 ciqual_food_name:fr: Tomate, crue
 intake24_category_code:en: TMTO
 intake24_category_code:fr: TMTO
+wikidata:en: Q20638126
 
 #agribalyse_food_code:en:20047_3
 #ciqual_food_code:en:20047
@@ -111815,6 +111834,7 @@ it: Pomodori ciliegini
 ja: ミニトマト
 la: Solanum lycopersicum var. cerasiforme, Lycopersicon lycopersicum var. cerasiforme, Lycopersicon esculentum var. cerasiforme
 nl: Kerstomaten
+sv: Körsbärstomater
 #wikidata:en:Q67448115
 agribalyse_food_code:en: 20172
 ciqual_food_code:en: 20172
@@ -111840,6 +111860,47 @@ sv: Babyplommontomater, Baby plommontomater
 en: Fresh cherry plum tomatoes
 sv: Ferska babyplommontomater
 
+# Mini plum tomato variant
+< en:Tomatoes
+en: Datterini tomatoes
+da: Datterini-tomater
+it: Pomodoro datterini
+sv: Datterini-tomater
+
+< en:Canned tomatoes
+< en:Datterini tomatoes
+en: Canned datterini tomatoes
+da: Datterini-tomater på dås
+sv: Datterini-tomater på dås
+
+< en:Canned datterini tomatoes
+< en:Whole peeled tomatoes in tomato juice
+en: Whole peeled datterini tomatoes in tomato juice
+da: Flåede hele datterini-tomater i tomatsovs
+sv: Hela skalade datterini-tomater i tomatjuice
+
+< en:Tomatoes
+xx: Pomodoro San Marzano dell'Agro Sarnese-Nocerino
+en: San Marzano tomatoes
+it: Pomodoro San Marzano
+sv: San Marzano-tomater
+protected_name_file_number:en: PDO-IT-1524
+protected_name_type:en: pdo
+wikidata:en: Q1060347
+wikipedia:en: https://en.wikipedia.org/wiki/San_Marzano_tomato
+
+< en:Canned tomatoes
+< en:San Marzano tomatoes
+en: Canned San Marzano tomatoes
+da: San Marzano-tomater på dåse
+sv: San Marzano-tomater på dås
+
+< en:Canned San Marzano tomatoes
+< en:Whole peeled tomatoes in tomato juice
+en: Whole peeled San Marzano tomatoes in tomato juice
+da: Flåede hele San Marzano-tomater i tomatsovs
+sv: Hela skalade San Marzano-tomater i tomatjuice
+
 < en:Tomatoes
 en: Provencal-style tomatoes, Breaded tomatoes stuffed with garlic and parsley
 fr: Tomates à la provençale
@@ -111856,27 +111917,63 @@ wikidata:en: Q7259857
 < en:Canned tomatoes
 en: Peeled tomatoes, Canned peeled tomatoes
 bg: Белени домати, Белени домати в консерва
+da: Flåede tomater
 de: Geschälte Tomaten
 es: Tomates pelados
 fi: kuoritut tomaatit
 fr: Tomates pelées, Tomates pelées en conserve, Tomates pelées appertisées
 hr: Pelata
 it: Pelati, Pomodori pelati
+nb: Flådde tomater
 nl: Geschilde tomaten
 pt: Tomates pelados
+sv: Skalade tomater
 agribalyse_food_code:en: 20048
 ciqual_food_code:en: 20048
 ciqual_food_name:en: Tomato, peeled, canned, drained
 ciqual_food_name:fr: Tomate, pelée, appertisée, égouttée
 
 < en:Peeled tomatoes
+en: Whole peeled tomatoes in tomato juice
+da: Flåede hele tomater i tomatsovs
 fr: Tomates entières pelées au jus
+sv: Hela skalade tomater i tomatjuice
 agribalyse_proxy_food_code:en: 20048
 agribalyse_proxy_food_name:en: Tomato, peeled, canned, drained
 agribalyse_proxy_food_name:fr: Tomate, pelée, appertisée, égouttée
 
 < en:Canned tomatoes
+< en:Cherry tomatoes
+en: Canned cherry tomatoes
+da: Cherrytomater på dåse
+sv: Körsbärstomater på dås
+
+# Is this different from `fr:Pulpe de tomate`? How?
+< en:Canned tomatoes
 fr: Chair de tomates
+
+< en:Canned plant-based foods
+< en:Tomatoes and their products
+en: Canned tomato products
+
+< en:Canned tomato products
+< en:Tomato pulps
+en: Canned tomato pulp
+da: Hakkede tomater på dåse
+fr: Pulpe de tomate appertisée
+hr: Konzervirana pulpa rajčice
+lt: Konservuotas pomidorų minkštimas
+sv: Krossade tomater på dås
+agribalyse_food_code:en: 20169
+ciqual_food_code:en: 20169
+ciqual_food_name:en: Tomato pulp, canned
+ciqual_food_name:fr: Tomate, pulpe, appertisée
+
+< en:Canned tomato pulp
+< en:Fine tomato pulps
+en: Canned fine tomato pulps
+da: Finthakkede tomater på dåse
+sv: Finkrossade tomater på dås
 
 < en:Frozen vegetables
 < en:Tomatoes
@@ -119876,15 +119973,6 @@ agribalyse_food_code:en: 20284
 ciqual_food_code:en: 20284
 ciqual_food_name:en: Green peas, puree
 ciqual_food_name:fr: Petits pois, purée
-
-< en:Mashed vegetables
-en: Canned tomato puree
-fr: Purée de tomates appertisée, Purée de tomates en conserve
-hr: Pire od rajčice iz konzerve
-lt: Konservuota pomidorų tyrė
-ciqual_food_code:en: 20170
-ciqual_food_name:en: Tomato puree, canned
-ciqual_food_name:fr: Tomate, purée, appertisée
 
 < en:Mashed vegetables
 en: Mashed vegetables mix
