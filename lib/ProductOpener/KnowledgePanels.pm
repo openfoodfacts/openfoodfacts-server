@@ -1560,6 +1560,14 @@ sub create_recommendation_panels ($product_ref, $target_lc, $target_cc, $options
 			{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	# Tobacco / Cigarettes
+	if (has_tag($product_ref, "categories", "en:cigarettes")) {
+
+		create_panel_from_json_template("recommendation_health",
+			"api/knowledge-panels/recommendations/health/world/eu_tobacco.tt.json",
+			{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	# France - Santé publique France
 
 	if (($target_cc eq 'fr') and ($target_lc eq 'fr')) {

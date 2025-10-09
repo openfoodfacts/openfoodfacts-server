@@ -1,0 +1,28 @@
+{
+    "level" :"recommendation",
+    "topics": [
+        "health"
+    ],
+    "evaluation": "bad",
+    "title_element": {
+        "title": "[% edq(lang('recommendation_eu_tobacco_health_warning_title')) %]",
+        "subtitle": "[% edq(lang('recommendation_eu_tobacco_health_warning_subtitle')) %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/arrow-bottom-right-thick.svg",
+        "icon_color_from_evaluation": true,
+        "evaluation": "bad",                
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": `
+                    [% lang('recommendation_eu_tobacco_health_warning_text') %]
+                    `,
+                "source_text": "European Commission - Health Warnings on Tobacco Products",
+                "source_url": "https://health.ec.europa.eu/tobacco/product-regulation/health-warnings_en",
+                "source_language": "en",
+            }
+        },
+    ],
+}
