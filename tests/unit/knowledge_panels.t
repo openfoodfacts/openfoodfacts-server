@@ -61,6 +61,16 @@ my @tests = (
 		target_lc => 'fr',
 		target_cc => 'fr'
 	},
+	{
+		'id' => 'en-cigarettes-health-warning',
+		'product' => {
+			lc => "en",
+			categories => "cigarettes",
+			categories_tags => ["en:cigarettes"],
+		},
+		target_lc => 'en',
+		target_cc => 'world'
+	},
 );
 
 foreach my $test_ref (@tests) {
