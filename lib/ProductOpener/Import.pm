@@ -1109,7 +1109,7 @@ sub import_nutrients_fields (
 {
 	# Make a deep copy of $product_ref->{nutrition} before modifying it so that we can see if it changed
 	# and update $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref accordingly
-	my $old_nutrition_ref = dclone($product_ref->{nutrition});
+	my $old_nutrition_ref = dclone($product_ref->{nutrition} || {});
 
 	my $source = get_source_for_site_and_org($Org_id);
 	assign_nutrition_values_from_imported_csv_product($imported_product_ref, $product_ref, $source);
@@ -1137,7 +1137,7 @@ sub import_nutrients_old_fields (
 	)
 {
 	# Make a deep copy of $product_ref->{nutrition} before modifying it so that we can see if it changed
-	my $old_nutrition_ref = dclone($product_ref->{nutrition});
+	my $old_nutrition_ref = dclone($product_ref->{nutrition} || {});
 
 	my $source = get_source_for_site_and_org($Org_id);
 

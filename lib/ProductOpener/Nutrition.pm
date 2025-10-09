@@ -1346,8 +1346,8 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 					my $preparation = ($type eq "") ? "as_sold" : "prepared";
 					my $new_per = ($per eq "_100g") ? "100g" : (($per eq "_serving") ? "serving" : "100g");
 
-					assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation, $per,
-						$nid, $modifier, $values{$type}, $unit);
+					assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
+						$new_per, $nid, $modifier, $values{$type}, $unit);
 
 				}
 			}
@@ -1745,8 +1745,8 @@ sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populat
 		$item_number++;
 	}
 
-	# Aggregated set: not needed for exporting and importing data as it is generated from the input sets
-	# TODO: export anyway for other uses?
+	# Aggregated set: not needed at first for exporting and importing data as it is generated from the input sets
+	# TODO: export when $export_args_ref->{export_nutrition_aggregated_set} = 1;
 
 	# Input sets
 
