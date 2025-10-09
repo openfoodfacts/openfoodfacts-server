@@ -125,7 +125,7 @@ sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_re
 		};
 
 		create_panel_from_json_template("raw_$field_name", "api/knowledge-panels/product/product_panel.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 		push @taxonomy_panels,
 			{
@@ -142,7 +142,7 @@ sub create_product_card_panel ($product_ref, $target_lc, $target_cc, $options_re
 	$log->debug("Taxonomy panels: " . Dumper($panel_data_ref->{taxonomy_panels})) if $log->is_debug();
 
 	create_panel_from_json_template("product_card", "api/knowledge-panels/product/product_card.tt.json",
-		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	return 1;
 }

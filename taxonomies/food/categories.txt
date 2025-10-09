@@ -89751,12 +89751,16 @@ fr: Charcuteries de bœuf
 en: Prepared pork meats
 fr: Charcuteries de porc
 
-< en:Chicken and its products
 < en:Prepared meats
+en: Prepared poultry meats
+fr: Charcuteries de volaille
+
+< en:Chicken and its products
+< en:Prepared poultry meats
 en: Prepared chicken meats
 fr: Charcuteries de poulet
 
-< en:Prepared meats
+< en:Prepared poultry meats
 < en:Turkey and its products
 en: Prepared turkey meats
 fr: Charcuteries de dinde
@@ -89830,6 +89834,12 @@ ciqual_food_name:fr: Andouillette, sautée/poêlée
 de: Fleischkäse, Leberkäse
 xx: Fleischkäse, Leberkäse
 wikidata:en: Q681841
+
+# Despite its name, Bierschinken is not made of ham, neither of beer. It different to Bierwurst
+< en:Prepared meats
+de: Bierschinken
+xx: Bierschinken
+wikidata:en: Q857992
 
 < en:Prepared pork meats
 de: Kasseler, Kassler
@@ -91797,7 +91807,7 @@ agribalyse_food_code:en: 8201
 ciqual_food_code:en: 8201
 ciqual_food_name:en: Pâté w green pepper
 
-< en:Pork
+< en:Prepared pork meats
 < en:Pâté
 en: Pork Pâtés
 bg: Свински пастет
@@ -113091,7 +113101,9 @@ en: White kidney beans
 de: Weiße Kidneybohnen
 es: Alubias blancas de riñón, Judías blancas de riñón
 hr: Cannellini grah
+it: Fagioli cannellini, Cannellini
 nl: Witte nierbonen
+wikidata:en: Q74663825
 
 < en:French vegetables
 < en:White kidney beans
@@ -113593,11 +113605,12 @@ protected_name_file_number:en: PGI-IT-1531
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Vegetables
+< en:White kidney beans
 it: Fagiolo Cannellino di Atina
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-0681
 protected_name_type:en: pdo
+wikidata:en: Q118819104
 #wikidata:en:
 
 < en:Vegetables
