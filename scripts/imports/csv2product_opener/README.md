@@ -9,7 +9,7 @@ Import products from standardized CSV to Open X Facts. By standard we mean that 
 The order of the fields is not important.
 
 
-## Recommandations
+## Recommendations
 
 If you are importing more than 20-50 products, you should create a dedicated Open Food Facts account, ending with `-import`.
 
