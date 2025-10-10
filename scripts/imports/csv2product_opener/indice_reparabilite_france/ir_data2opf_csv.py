@@ -55,7 +55,7 @@ with source, open(MAPPING_CSV, mode='r', encoding='utf-8') as mapping:
         for row in mapping_reader
         if row.get('target_database') == "Product Opener"
     }
-    # Prepare the data for OpenFoodFacts
+    # Prepare the data for Open Products Facts
     products_to_import = []
     for row in source_reader:
         product = {}
@@ -66,6 +66,20 @@ with source, open(MAPPING_CSV, mode='r', encoding='utf-8') as mapping:
                 if source_col == "note_ir" and value:
                     # Replace '.' with '-' and build the string
                     value = f"repairability-index-{str(value).replace('.', '-')}-france"
+                # Add "Open Products Facts" value to categories, separated by commas, and wrap in double quotes
+                if target_col == "categories" and value:
+                    if "categories" in product and product["categories"]:
+                        value = f'{product["categories"]},{value}'
+                    # Replace "ordinateur portable" by "Ordinateur portable"
+                    value = value.replace("ordinateur portable", "Ordinateur portable")
+                    # Replace "Lave-linge à chargement frontal (ou Lave-linge hublot)" by "Lave-linge hublot"
+                    value = value.replace("Lave-linge à chargement frontal (ou Lave-linge hublot)", "Lave-linge hublot")
+                    # Replace "Lave-linge à chargement par le haut (ou Lave-linge top)" by "Lave-linge top"
+                    value = value.replace("Lave-linge à chargement par le haut (ou Lave-linge top)", "Lave-linge top")
+                    # Replace "Smartphone" by "Smartphones"
+                    value = value.replace("Smartphone", "Smartphones")
+                    # Always append "Open Products Facts" at the end
+                    value = f'{value},Open Products Facts'
                 # Don't import row if "id_modele" value isn't an EAN code
                 if target_col == "code":
                     if not (value.isdigit() and (len(value) == 8 or len(value) == 13)):
