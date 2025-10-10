@@ -80,7 +80,7 @@ options:
 
 The script should work if you install openfoodfacts python library by hand.
 
-If you want to play reproductible installation, first install [uv](https://docs.astral.sh/uv/) and:
+If you want to play reproducible installation, first install [uv](https://docs.astral.sh/uv/) and:
 
 ```
 cd /dir/of/the/script
