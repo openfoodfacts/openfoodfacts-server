@@ -1212,16 +1212,6 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 		# for prepared product
 		my $nidp = $nid . "_prepared";
 
-		# Save current values so that we can see if they have changed
-		my %original_values = (
-			$nid . "_modifier" => $product_ref->{nutriments}{$nid . "_modifier"},
-			$nidp . "_modifier" => $product_ref->{nutriments}{$nidp . "_modifier"},
-			$nid . "_value" => $product_ref->{nutriments}{$nid . "_value"},
-			$nidp . "_value" => $product_ref->{nutriments}{$nidp . "_value"},
-			$nid . "_unit" => $product_ref->{nutriments}{$nid . "_unit"},
-			$nidp . "_unit" => $product_ref->{nutriments}{$nidp . "_unit"},
-		);
-
 		# We may have nid_value, nid_100g_value or nid_serving_value. In the last 2 cases,
 		# we need to set $nutrition_data_per to 100g or serving
 		my %values = ();
@@ -1344,58 +1334,32 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 					}
 
 					my $preparation = ($type eq "") ? "as_sold" : "prepared";
-					my $new_per = ($per eq "_100g") ? "100g" : (($per eq "_serving") ? "serving" : "100g");
+
+					# If the per is "" (not specified in the field name), we use the value from the
+					# nutrition_data_per or nutrition_data_prepared_per field if it exists,
+					# otherwise we default to 100g
+					my $new_per;
+					if ($per eq "") {
+						my $nutrition_data_per = $imported_product_ref->{"nutrition_data" . $type . "_per"};
+						if (defined $nutrition_data_per) {
+							$nutrition_data_per = lc($nutrition_data_per);
+							if ($nutrition_data_per =~ /^(100g|100ml|1kg|1l|serving)$/) {
+								$new_per = $nutrition_data_per;
+							}
+						}
+					}
+					else {
+						$new_per = $per;
+						$new_per =~ s/^_//g;
+					}
+					if (not defined $new_per) {
+						$new_per = get_default_per_for_product($product_ref, $preparation);
+					}
 
 					assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
 						$new_per, $nid, $modifier, $values{$type}, $unit);
 
 				}
-			}
-		}
-
-		# See which fields have changed
-
-		foreach my $field (sort keys %original_values) {
-			if (    (defined $product_ref->{nutriments}{$field})
-				and ($product_ref->{nutriments}{$field} ne "")
-				and (defined $original_values{$field})
-				and ($original_values{$field} ne "")
-				and ($product_ref->{nutriments}{$field} ne $original_values{$field}))
-			{
-				$log->debug("differing nutrient value",
-					{field => $field, old => $original_values{$field}, new => $product_ref->{nutriments}{$field}})
-					if $log->is_debug();
-				$stats_ref->{products_nutrition_updated}{$code} = 1;
-				$stats_ref->{products_nutrition_changed}{$code} = 1;
-				$$modified_ref++;
-				$nutrients_edited_ref->{$code}++;
-				push @$modified_fields_ref, "nutrients.$field";
-			}
-			elsif (
-					(defined $product_ref->{nutriments}{$field})
-				and ($product_ref->{nutriments}{$field} ne "")
-				and (  (not defined $original_values{$field})
-					or ($original_values{$field} eq ''))
-				)
-			{
-				$log->debug("new nutrient value", {field => $field, new => $product_ref->{nutriments}{$field}})
-					if $log->is_debug();
-				$stats_ref->{products_nutrition_updated}{$code} = 1;
-				$stats_ref->{products_nutrition_added}{$code} = 1;
-				$$modified_ref++;
-				$nutrients_edited_ref->{$code}++;
-				push @$modified_fields_ref, "nutrients.$field";
-			}
-			elsif ( (not defined $product_ref->{nutriments}{$field})
-				and (defined $original_values{$field})
-				and ($original_values{$field} ne ''))
-			{
-				$log->debug("deleted nutrient value", {field => $field, old => $original_values{$field}})
-					if $log->is_debug();
-				$stats_ref->{products_nutrition_updated}{$code} = 1;
-				$$modified_ref++;
-				$nutrients_edited_ref->{$code}++;
-				push @$modified_fields_ref, "nutrients.$field";
 			}
 		}
 	}
