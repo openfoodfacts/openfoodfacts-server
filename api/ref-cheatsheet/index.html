@@ -647,6 +647,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#read-product-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read Product Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Read Product Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-product-with-blame-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get product with blame information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limit-response-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limit response fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#search-for-products" class="md-nav__link">
     <span class="md-ellipsis">
       Search for Products
@@ -2133,6 +2166,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#read-product-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read Product Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Read Product Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-product-with-blame-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get product with blame information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limit-response-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limit response fields
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#search-for-products" class="md-nav__link">
     <span class="md-ellipsis">
       Search for Products
@@ -2273,6 +2339,22 @@ add_brands
 <li>nutriment_energy-kj (regular)</li>
 <li>nutriment_energy-kj_prepared (prepared)</li>
 </ul>
+<h2 id="read-product-data">Read Product Data<a class="headerlink" href="#read-product-data" title="Permanent link">#</a></h2>
+<h3 id="get-product-with-blame-information">Get product with blame information<a class="headerlink" href="#get-product-with-blame-information" title="Permanent link">#</a></h3>
+<p>To get information about who last modified each field of a product, add the <code>blame</code> parameter:</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/product/3017620422003.json?blame=1
+</code></pre></div>
+<p>This returns additional <code>blame</code> information showing:</p>
+<ul>
+<li><code>userid</code>: Who last modified each field</li>
+<li><code>t</code>: Timestamp of the modification</li>
+<li><code>rev</code>: Revision number</li>
+<li><code>value</code>: Current value of the field</li>
+</ul>
+<h3 id="limit-response-fields">Limit response fields<a class="headerlink" href="#limit-response-fields" title="Permanent link">#</a></h3>
+<p>Use the <code>fields</code> parameter to get only specific product data:</p>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/product/3017620422003.json?fields=product_name,brands,nutriments
+</code></pre></div>
 <h2 id="search-for-products">Search for Products<a class="headerlink" href="#search-for-products" title="Permanent link">#</a></h2>
 <p><strong>Important:</strong> full text search currently works only for v1 API (or search-a-licious, which is in beta)</p>
 <ul>
