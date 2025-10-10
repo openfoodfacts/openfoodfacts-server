@@ -217,7 +217,6 @@ for (my $i = 0; defined single_param("nutriment_$i"); $i++) {
 my $sort_by = remove_tags_and_quote(decode utf8 => single_param("sort_by"));
 if (    ($sort_by ne 'created_t')
 	and ($sort_by ne 'last_modified_t')
-	and ($sort_by ne 'last_modified_t_complete_first')
 	and ($sort_by ne 'scans_n')
 	and ($sort_by ne 'unique_scans_n')
 	and ($sort_by ne 'product_name')
@@ -825,7 +824,8 @@ HTML
 		${$request_ref->{content_ref}}
 			.= $html . search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page);
 
-		$request_ref->{title} = lang("search_results") . " - " . display_taxonomy_tag($lc, "countries", $country);
+		$request_ref->{title}
+			= lang("search_results") . " - " . display_taxonomy_tag($lc, "countries", $request_ref->{country});
 
 		#This is used to have a special share button on some browsers
 		if (not defined $request_ref->{jqm}) {

@@ -553,10 +553,10 @@ Categories:
   - changed-files:
       - any-glob-to-any-file: "taxonomies/food/categories.txt"
 
-# Brands are not yet taxonomized, thus brands taxonomy is in the unused folder.
+# Brands are taxonomized. The taxonomy needs expansion.
 brands:
   - changed-files:
-      - any-glob-to-any-file: "taxonomies/unused/brands.txt"
+      - any-glob-to-any-file: "taxonomies/brands.txt"
 
 # Origins are used for Eco-Score computation. We want to have structured origins.
 # Tracking issue:
