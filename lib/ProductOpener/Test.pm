@@ -703,7 +703,6 @@ sub _sort_content($content) {
 	}
 }
 
-
 =head2 normalize_object_for_test_comparison($object_ref, $specification_ref)
 
 Normalize an object to be able to compare them across tests runs.
@@ -756,7 +755,7 @@ sub normalize_object_for_test_comparison ($object_ref, $specification_ref) {
 				}
 				else {
 					if (ref($item_ref) eq 'ARRAY') {
-						for my $index (0..(scalar @$item_ref)-1) {
+						for my $index (0 .. (scalar @$item_ref) - 1) {
 							$item_ref->[$index] = $transformation->($item_ref->[$index]);
 						}
 					}
@@ -773,20 +772,22 @@ sub normalize_object_for_test_comparison ($object_ref, $specification_ref) {
 	return;
 }
 
-
 sub _get_sub_fields($object_ref, @keys) {
 	if (scalar @keys == 0) {
 		# end of recursion
 		return $object_ref;
-	} else {
+	}
+	else {
 		my $key = shift(@keys);
 		if ($key eq "*") {
 			my @items = ();
 			if (ref($object_ref) eq 'ARRAY') {
 				@items = @$object_ref;
-			} elsif (ref($object_ref) eq 'HASH') {
+			}
+			elsif (ref($object_ref) eq 'HASH') {
 				@items = (values %$object_ref);
-			} else {
+			}
+			else {
 				return ();
 			}
 			# recurse on each element and cumulate result
@@ -802,7 +803,8 @@ sub _get_sub_fields($object_ref, @keys) {
 		else {
 			if (defined $object_ref->{$key}) {
 				return _get_sub_fields($object_ref->{$key}, @keys);
-			} else {
+			}
+			else {
 				return ();
 			}
 		}
