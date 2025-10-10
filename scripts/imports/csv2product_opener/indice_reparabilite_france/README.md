@@ -2,7 +2,7 @@
 
 ## Indice de réparabilité
 
-The `ir_data2opf_csv.py` script takes `source.csv` as input and convert it into a CSV file ready to be imported into Open Products Facts (thanks to csv2product_opener script).
+The `ir_data2opf_csv.py` script takes a CSV file as input, and convert it into another CSV file ready to be imported into Open Products Facts Pro Platform (recommanded) or through `csv2product_opener.py` script.
 
 
 ## Sources
