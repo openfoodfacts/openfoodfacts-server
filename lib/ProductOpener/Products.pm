@@ -1170,11 +1170,7 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 		$log->info("changing product type",
 			{old_product_type => $product_ref->{old_product_type}, product_type => $product_ref->{product_type}})
 			if $log->is_info();
-		# We need to remove the product from its previous collection, unless we are on the pro platform
-		# where we have only one collection for all product types
-		if (not $server_options{private_products}) {
-			$delete_from_previous_products_collection = 1;
-		}
+		$delete_from_previous_products_collection = 1;
 		delete $product_ref->{old_product_type};
 	}
 
