@@ -65,7 +65,7 @@ with source, open(MAPPING_CSV, mode='r', encoding='utf-8') as mapping:
                 # Special handling for "note_ir" column
                 if source_col == "note_ir" and value:
                     # Replace '.' with '-' and build the string
-                    value = f"repairability-index-{str(value).replace('.', '-')}-france"
+                    value = f"en:repairability-index-{str(value).replace('.', '-')}-france"
                 # Add "Open Products Facts" value to categories, separated by commas, and wrap in double quotes
                 if target_col == "categories" and value:
                     if "categories" in product and product["categories"]:
