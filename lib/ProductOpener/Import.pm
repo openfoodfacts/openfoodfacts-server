@@ -109,6 +109,7 @@ use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::Nutrition
 	qw/assign_nutrition_values_from_imported_csv_product_old_fields assign_nutrition_values_from_imported_csv_product get_source_for_site_and_org/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -2232,6 +2233,10 @@ sub import_csv_file ($args_ref) {
 		}
 
 		# Nutrients
+
+		# Normalize quantity and serving size before importing nutrients
+		# as we need serving_quantity and serving_size to assign it to nutrition input sets per serving
+		normalize_product_quantity_and_serving_size($product_ref);
 
 		import_nutrients_old_fields(
 			$args_ref, $imported_product_ref, $product_ref, $stats_ref,

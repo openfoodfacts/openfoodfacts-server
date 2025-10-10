@@ -453,7 +453,7 @@ sub get_nutrition_input_sets_in_a_hash($product_ref) {
 	return $input_sets_hash_ref;
 }
 
-=head2 convert_nutrition_input_sets_hash_to_array ($input_sets_hash_ref)
+=head2 convert_nutrition_input_sets_hash_to_array ($input_sets_hash_ref, $product_ref)
 
 Converts a hash reference of input sets back to an array reference, which is the format we store in the product structure
 
@@ -469,13 +469,17 @@ Input sets are normalized:
 
 Reference to hash of input sets
 
+=head4 $product_ref
+
+Used to get the serving size (quantity + unit) if needed for input sets with per = "serving"
+
 =head3 Return values
 
 Reference to array of input sets
 
 =cut
 
-sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref) {
+sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_ref) {
 
 	$log->debug("convert_nutrition_input_sets_hash_to_array: start", {input_sets_hash_ref => $input_sets_hash_ref})
 		if $log->is_debug();
@@ -517,6 +521,14 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref) {
 					elsif ($per eq "1l") {
 						$input_set_ref->{per_quantity} = 1000;
 						$input_set_ref->{per_unit} = "ml";
+					}
+					elsif ($per eq "serving") {
+						if (    (defined $product_ref->{serving_quantity})
+							and (defined $product_ref->{serving_quantity_unit}))
+						{
+							$input_set_ref->{per_quantity} = $product_ref->{serving_quantity};
+							$input_set_ref->{per_unit} = $product_ref->{serving_quantity_unit};
+						}
 					}
 
 					push(@{$input_sets_ref}, $input_set_ref);
@@ -996,7 +1008,8 @@ sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_
 	}
 
 	# Convert back the input sets hash to array
-	deep_set($product_ref, "nutrition", "input_sets", convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref));
+	deep_set($product_ref, "nutrition", "input_sets",
+		convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_ref));
 
 	return;
 }
@@ -1081,7 +1094,8 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 	}
 
 	# Convert back the input sets hash to array
-	deep_set($product_ref, "nutrition", "input_sets", convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref));
+	deep_set($product_ref, "nutrition", "input_sets",
+		convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_ref));
 
 	return;
 }
@@ -1091,6 +1105,8 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 This function is used by Import.pm to import new nutrition data from an imported product (though a CSV file) to an existing product.
 
 It reads the new nutrition data parameters from the imported product, and assigns them to the new product nutrition structure.
+
+Note: the serving_size fields need to be imported first, as we need it to set the per_quantity and per_unit fields of the "serving" input sets.
 
 =head3 Parameters
 
@@ -1173,7 +1189,8 @@ sub assign_nutrition_values_from_imported_csv_product ($imported_csv_product_ref
 	}
 
 	# Convert back the input sets hash to array
-	deep_set($product_ref, "nutrition", "input_sets", convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref));
+	deep_set($product_ref, "nutrition", "input_sets",
+		convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_ref));
 
 	$log->debug("assign_nutrition_values_from_imported_csv_product - done", {product_ref => $product_ref->{nutrition}})
 		if $log->is_debug();
@@ -1188,6 +1205,8 @@ sub assign_nutrition_values_from_imported_csv_product ($imported_csv_product_ref
 Import nutrient values from old style fields like fat_100g_value, fat_100g_unit, fat_prepared_100g_value, etc.
 
 We consider the source to be "packaging" on the public platform, and "manufacturer" on the producers platform
+
+Note: the serving_size fields need to be imported first, as we need it to set the per_quantity and per_unit fields of the "serving" input sets.
 
 =cut
 
@@ -1212,22 +1231,19 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 		# for prepared product
 		my $nidp = $nid . "_prepared";
 
-		# We may have nid_value, nid_100g_value or nid_serving_value. In the last 2 cases,
-		# we need to set $nutrition_data_per to 100g or serving
-		my %values = ();
-
-		my $unit;
+		# We may have nid_value, nid_100g_value or nid_serving_value.
 
 		foreach my $type ("", "_prepared") {
 
 			foreach my $per ("", "_100g", "_serving") {
 
-				next if (defined $values{$type});
+				my $value;
+				my $unit;
 
 				if (    (defined $imported_product_ref->{$nid . $type . $per . "_value"})
 					and ($imported_product_ref->{$nid . $type . $per . "_value"} ne ""))
 				{
-					$values{$type} = $imported_product_ref->{$nid . $type . $per . "_value"};
+					$value = $imported_product_ref->{$nid . $type . $per . "_value"};
 				}
 
 				if (    (defined $imported_product_ref->{$nid . $type . $per . "_unit"})
@@ -1239,7 +1255,7 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 				# Energy can be: 852KJ/ 203Kcal
 				# calcium_100g_value_unit = 50 mg
 				# 10g
-				if (not defined $values{$type}) {
+				if (not defined $value) {
 					if (defined $imported_product_ref->{$nid . $type . $per . "_value_unit"}) {
 
 						# Assign energy-kj and energy-kcal values from energy field
@@ -1264,7 +1280,7 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 						if ($imported_product_ref->{$nid . $type . $per . "_value_unit"}
 							=~ /^(~?<?>?=?\s?([0-9]*(\.|,))?[0-9]+)(\s*)([a-zµ%]+)$/i)
 						{
-							$values{$type} = $1;
+							$value = $1;
 							$unit = $5;
 						}
 						# We might have only a number even if the field is set to value_unit
@@ -1272,18 +1288,18 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 						elsif ($imported_product_ref->{$nid . $type . $per . "_value_unit"}
 							=~ /^(([0-9]*(\.|,))?[0-9]+)(\s*)$/i)
 						{
-							$values{$type} = $1;
+							$value = $1;
 						}
 					}
 				}
 
 				# calcium_100g_value_in_mcg
 
-				if (not defined $values{$type}) {
+				if (not defined $value) {
 					foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml', 'iu', 'percent') {
 						my $value_in_u = $imported_product_ref->{$nid . $type . $per . "_value" . "_in_" . $u};
 						if ((defined $value_in_u) and ($value_in_u ne "")) {
-							$values{$type} = $value_in_u;
+							$value = $value_in_u;
 							$unit = $u;
 						}
 					}
@@ -1312,19 +1328,19 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 				my $modifier = undef;
 
 				# Remove bogus values (e.g. nutrition facts for multiple nutrients): 1 digit followed by letters followed by more digits
-				if ((defined $values{$type}) and ($values{$type} =~ /\d.*[a-z].*\d/)) {
+				if ((defined $value) and ($value =~ /\d.*[a-z].*\d/)) {
 					$log->debug("nutrient with strange value, skipping",
-						{nid => $nid, type => $type, value => $values{$type}, unit => $unit})
+						{nid => $nid, type => $type, value => $value, unit => $unit})
 						if $log->is_debug();
-					delete $values{$type};
+					$value = undef;
 				}
 
-				(defined $values{$type}) and normalize_nutriment_value_and_modifier(\$values{$type}, \$modifier);
+				(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
 
-				if ((defined $values{$type}) and ($values{$type} ne '')) {
+				if ((defined $value) and ($value ne '')) {
 
 					$log->debug("nutrient with defined and non empty value",
-						{nid => $nid, type => $type, value => $values{$type}, unit => $unit})
+						{nid => $nid, type => $type, value => $value, unit => $unit})
 						if $log->is_debug();
 					$stats_ref->{"products_with_nutrition" . $type}{$code} = 1;
 
@@ -1357,7 +1373,7 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 					}
 
 					assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
-						$new_per, $nid, $modifier, $values{$type}, $unit);
+						$new_per, $nid, $modifier, $value, $unit);
 
 				}
 			}
@@ -1365,7 +1381,8 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 	}
 
 	# Convert back the input sets hash to array
-	deep_set($product_ref, "nutrition", "input_sets", convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref));
+	deep_set($product_ref, "nutrition", "input_sets",
+		convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_ref));
 
 	return;
 }
@@ -1621,7 +1638,7 @@ sub assign_nutrition_values_from_request_object ($request_ref, $product_ref) {
 
 		# Convert back the input sets hash to array
 		deep_set($product_ref, "nutrition", "input_sets",
-			convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref));
+			convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_ref));
 	}
 	return;
 }
