@@ -1,5 +1,5 @@
 # Categories taxonomy for Open Products Facts
-# Generated from Google Product Taxonomy (filtered version)
+# Generated from Wikidata and the Google Product Taxonomy (filtered version)
 # Excludes: Food\, Beverages & Tobacco; Animals & Pet Supplies; Health & Beauty
 #
 # Properties:
@@ -6731,7 +6731,7 @@ sv: Säkerhetslinor
 tr: Emniyet İpleri
 wikidata:en: Q116961617
 
-en: Toys & Games
+en: Toys & Games, Toys and games
 xx: Toys & Games
 cs: Hračky a hry
 da: Legetøj og spil
@@ -20809,7 +20809,7 @@ sv: USB-adaptrar
 tr: USB Adaptörler
 wikidata:en: Q7865904
 
-< en: Electronic products
+< en: Electronics
 en: USB cables
 ar: كابلات USB
 as: ইউএছবি কেবলসমূহ
@@ -23350,6 +23350,9 @@ sv: Batterier
 tr: Bataryalar
 wikidata:en: Q267298
 
+<en: Batteries
+en: CR2032 batteries
+
 < en:Batteries
 en: Camera Batteries
 xx: Camera Batteries
@@ -25770,7 +25773,7 @@ tr: Video Oyun Konsolları
 wikidata:en: Q8076
 
 #< en:Food\, Beverages & Tobacco
-en: Tobacco Products
+en: Tobacco Products, Tobacco-based products
 xx: Tobacco Products
 cs: Tabákové výrobky
 da: Tobaksprodukter
@@ -25787,6 +25790,9 @@ ru: Табачные изделия
 sv: Tobaksprodukter
 tr: Tütün Mamülleri
 wikidata:en: Q44106
+
+<en: Tobacco Products
+en: Cigarettes or cigars
 
 < en:Tobacco Products
 en: Chewing Tobacco
@@ -25905,6 +25911,10 @@ ru: Сигары
 sv: Cigarrer
 tr: Puro
 wikidata:en: Q1576
+
+< en:Tobacco Products
+en: Cigarillos
+
 
 < en:Tobacco Products
 en: Loose Tobacco
@@ -34252,6 +34262,9 @@ sv: Tvål och diskmedel
 tr: Bulaşık Deterjan ve Sabunları
 wikidata:en: Q117207772
 
+<en: Dish Detergent & Soap
+fr: Liquide vaisselle
+
 < en:Household Cleaning Products
 en: Dishwasher Cleaners
 xx: Dishwasher Cleaners
@@ -34865,7 +34878,7 @@ tr: Ev Termometreleri
 wikidata:en: Q117207795
 
 < en:Household Supplies
-en: Laundry Supplies
+en: Laundry Supplies, Laundry products
 xx: Laundry Supplies
 cs: Potřeby pro praní
 da: Vaskemidler
@@ -95106,6 +95119,9 @@ sv: Vitaminer och kosttillskott
 tr: Vitaminler ve Besin Takviyeleri
 wikidata:en: Q116221016
 
+<en: Vitamins & Supplements
+en: Dietary Supplements
+
 < en:Health Care
 en: Hearing Aids
 xx: Hearing Aids
@@ -98508,6 +98524,15 @@ tr: Kadın Hijyen Ürünleri
 wikidata:en: Q117207495
 
 <en: Feminine Sanitary Supplies
+fr: Produits menstruels
+
+<fr: Produits menstruels
+fr: Produits menstruels reutilisables
+
+<fr: Produits menstruels reutilisables
+fr: Culottes de règles
+
+<fr: Produits menstruels
 en: Sanitary napkins
 de: Damenbinden
 es: Compresas sanitarias
@@ -98551,7 +98576,7 @@ sv: Produkter för intimrengöring
 tr: Vajinal Duşlar ve Kremler
 wikidata:en: Q117207497
 
-< en:Feminine Sanitary Supplies
+< fr: Produits menstruels
 en: Feminine Pads & Protectors
 xx: Feminine Pads & Protectors
 cs: Dámské hygienické vložky
@@ -98570,7 +98595,7 @@ sv: Bindor och trosskydd
 tr: Kadın Pedleri
 wikidata:en: Q117207498
 
-< en:Feminine Sanitary Supplies
+< fr: Produits menstruels reutilisables
 en: Menstrual Cups
 xx: Menstrual Cups
 cs: Menstruační kalíšky
@@ -98589,7 +98614,7 @@ sv: Menskoppar
 tr: Menstrüasyon Kabı
 wikidata:en: Q216997
 
-< en:Feminine Sanitary Supplies
+< fr: Produits menstruels
 en: Tampons
 xx: Tampons
 cs: Tampóny
@@ -100204,6 +100229,9 @@ sv: Rakhyvlar och rakblad
 tr: Jiletler ve Usturalar
 wikidata:en: Q117207541
 
+<en: Razors & Razor Blades
+fr:rasoirs jetables
+
 < en:Shaving & Grooming
 en: Shaving Bowls & Mugs
 xx: Shaving Bowls & Mugs
@@ -101388,7 +101416,9 @@ unit_name:fr: Robe en viscose
 
 
 
+fr: Jeux de hasard, jeu de hasard
 
+fr: Jeux de grattage, jeu de grattage
 
 
 
