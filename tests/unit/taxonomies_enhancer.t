@@ -425,7 +425,7 @@ ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-cs-konzervanty-is-p
 	'cs-hr-hu-pl-ro-sk-sl, cs is missing a synonym or handle plural in product opener')
 	or diag Dumper $product_ref;
 ok(
-	has_tag($product_ref, "taxonomies_enhancer", "ingredients-cs-kypřici-latka-is-possible-typo-for-cs-kypřici-latka"),
+	has_tag($product_ref, "taxonomies_enhancer", "ingredients-cs-kypřoco-latka-is-possible-typo-for-cs-kypřici-latka"),
 	'cs-hr-hu-pl-ro-sk-sl, cs missing declension'
 ) or diag Dumper $product_ref;
 ok(
