@@ -101,6 +101,8 @@ services:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 10s
       timeout: 5s
+      start_interval: 1s
+      start_period: 60s
       retries: 2
     volumes:
       - pgdata:/var/lib/postgresql/data

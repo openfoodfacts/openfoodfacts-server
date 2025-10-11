@@ -182,7 +182,8 @@ if ($action eq 'display') {
 			# Keep legacy display fields until we have moved account management to Keycloak
 			my $selected_language = $user_ref->{preferred_language}
 				// (remove_tags_and_quote(single_param('preferred_language')) || "$lc");
-			my $selected_country = $user_ref->{country} // (remove_tags_and_quote(single_param('country')) || $country);
+			my $selected_country = $user_ref->{country}
+				// (remove_tags_and_quote(single_param('country')) || $request_ref->{country});
 			if ($selected_country eq "en:world") {
 				$selected_country = "";
 			}
@@ -447,7 +448,7 @@ elsif ($action eq 'process') {
 
 		$template_data_ref->{user_org} = $user_ref->{org};
 
-		my $pro_url = "https://" . $subdomain . ".pro." . $server_domain . "/";
+		my $pro_url = $request_ref->{producers_platform_url};
 		$template_data_ref->{add_user_pro_url} = sprintf(lang("add_user_you_can_edit_pro_promo"), $pro_url);
 
 		$template_data_ref->{add_user_you_can_edit} = sprintf(lang("add_user_you_can_edit"), lang("get_the_app_link"));
