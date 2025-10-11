@@ -9,10 +9,14 @@
     "provider_website": "https://empreinte-souffrance.org/",
     "section": "animal_welfare",
     "filters": {
-      "categories":  ["en:chicken-eggs"],
-      "countries": ["fr", "world"],
-      "languages": ["fr", "en"],
-      "product_types": ["food"]
+      "categories": [
+        "en:eggs"
+      ],
+      "countries": [],
+      "languages": [],
+      "product_types": [
+        "food"
+      ]
     },
     "privacy_policy_url": "",
     "scope": "moderators"

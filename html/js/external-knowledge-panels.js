@@ -327,31 +327,41 @@ function enableSmoothScrollAndHighlight() {
   const navbar = document.querySelector("#navbar ul.inline-list");
   if (!navbar) return;
 
-  for (const link of navbar.querySelectorAll(".nav-link")) {
-    link.addEventListener("click", function (e) {
-      const hash = this.getAttribute("href");
+  if (!navbar.__smoothBound) {
+    navbar.addEventListener("click", function (e) {
+      const a = e.target.closest("a.nav-link");
+      if (!a || !this.contains(a)) return;
+      const hash = a.getAttribute("href");
       if (hash?.startsWith("#") && document.querySelector(hash)) {
         e.preventDefault();
         document.querySelector(hash).scrollIntoView({ behavior: "smooth" });
-        for (const l of navbar.querySelectorAll(".nav-link")) l.classList.remove("active");
-        this.classList.add("active");
+        for (const l of this.querySelectorAll(".nav-link")) l.classList.remove("active");
+        a.classList.add("active");
       }
     });
+    navbar.__smoothBound = true;
   }
 
-  globalThis.addEventListener("scroll", function () {
-    const sections = Array.from(document.querySelectorAll("section[id]"));
-    const scrollY = globalThis.scrollY + 100;
-    let currentId = "";
-    for (const section of sections) {
-      if (section.offsetTop <= scrollY) currentId = section.id;
-    }
-    if (currentId) {
-      for (const link of navbar.querySelectorAll(".nav-link")) {
-        link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
-      }
-    }
-  });
+  if (!globalThis.__scrollSpyBound) {
+    globalThis.addEventListener(
+      "scroll",
+      function () {
+        const sections = Array.from(document.querySelectorAll("section[id]"));
+        const scrollY = globalThis.scrollY + 100;
+        let currentId = "";
+        for (const section of sections) {
+          if (section.offsetTop <= scrollY) currentId = section.id;
+        }
+        if (currentId) {
+          for (const link of navbar.querySelectorAll(".nav-link")) {
+            link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
+          }
+        }
+      },
+      { passive: true }
+    );
+    globalThis.__scrollSpyBound = true;
+  }
 }
 
 /**
@@ -394,7 +404,8 @@ async function buildSectionElement(section, ctx) {
   cardDiv.appendChild(cardSection);
 
   const sectionTitle = document.createElement("h2");
-  sectionTitle.textContent = section.label;
+  // Hardcoded beta label
+  sectionTitle.textContent = (section.label || "") + " (BETA)";
   cardSection.appendChild(sectionTitle);
 
   let hasAnyRenderedPanel = false;
@@ -427,6 +438,33 @@ async function buildSectionElement(section, ctx) {
       providerDesc.className = "provider-desc";
       providerDesc.textContent = panel.description;
       summary.appendChild(providerDesc);
+    }
+
+    if (panel.provider_website || panel.provider_name) {
+      const providedByText =
+        (typeof globalThis.lang === "function" && lang().provided_by) ||
+        t("provided_by", (globalThis.productData && globalThis.productData.language) || "en");
+      const sep = document.createElement("span");
+      sep.className = "provider-sep";
+      sep.textContent = " · ";
+      summary.appendChild(sep);
+
+      const small = document.createElement("small");
+      small.className = "provider-by";
+      small.textContent = providedByText + " ";
+      if (panel.provider_website && /^https?:\/\//i.test(panel.provider_website)) {
+        const a = document.createElement("a");
+        a.href = panel.provider_website;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = panel.provider_name || panel.provider_website;
+        small.appendChild(a);
+      } else if (panel.provider_name) {
+        const spanName = document.createElement("span");
+        spanName.textContent = panel.provider_name;
+        small.appendChild(spanName);
+      }
+      summary.appendChild(small);
     }
 
     const arrow = document.createElement("span");
@@ -549,6 +587,7 @@ async function renderExternalKnowledgeSections(opts) {
   }).filter(Boolean);
 
   syncNavbarExternalSections(currentVisible);
+  enableSmoothScrollAndHighlight();
 }
 
 /**
