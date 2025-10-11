@@ -14,8 +14,8 @@ use ProductOpener::Store qw/retrieve_object store_object link_object/;
 
 no warnings qw(experimental::signatures);
 
+wait_application_ready(__FILE__);
 remove_all_products();
-wait_application_ready();
 
 sub test_product_path ($code) {
 	my $path = product_path_from_id("$code");

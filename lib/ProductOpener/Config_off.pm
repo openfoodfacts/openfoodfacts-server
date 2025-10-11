@@ -480,7 +480,8 @@ $events_password = $ProductOpener::Config2::events_password;
 
 # Redis is used to push updates to the search server
 $redis_url = $ProductOpener::Config2::redis_url;
-$process_global_redis_events = $ProductOpener::Config2::process_global_redis_events;
+# Only the OFF instance processes the global events
+$process_global_redis_events = 1;
 
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
@@ -1007,7 +1008,7 @@ $options{attribute_groups} = [
 			"allergens_no_molluscs", "allergens_no_sulphur_dioxide_and_sulphites",
 		],
 	],
-	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free",]],
+	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free", "unwanted_ingredients",]],
 	["labels", ["labels_organic", "labels_fair_trade"]],
 	# Note: before 2025, the Environmental-Score was called the Eco-Score,
 	# as the id of the attribute is stored inside clients, we keep the

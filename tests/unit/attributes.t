@@ -193,6 +193,43 @@ my @tests = (
 			ingredients_text => "some ingredient that we do not recognize",
 		}
 	],
+	# Unwanted ingredients
+	[
+		'en-unwanted-ingredients',
+		{
+			lc => "en",
+			categories => "Cheeses",
+			categories_tags => ["en:cheeses"],
+			ingredients_text => "palm oil, soy lecithin, potassium sorbate, sea salt",
+		},
+		{
+			attribute_unwanted_ingredients_tags => "en:salt"
+		}
+	],
+	[
+		'en-no-unwanted-ingredients',
+		{
+			lc => "en",
+			categories => "Cheeses",
+			categories_tags => ["en:cheeses"],
+			ingredients_text => "palm oil, soy lecithin, potassium sorbate",
+		},
+		{
+			attribute_unwanted_ingredients_tags => "en:salt"
+		}
+	],
+	[
+		'en-no-unwanted-ingredients-but-many-unknown-ingredients',
+		{
+			lc => "en",
+			categories => "Cheeses",
+			categories_tags => ["en:cheeses"],
+			ingredients_text => "something, something else",
+		},
+		{
+			attribute_unwanted_ingredients_tags => "en:salt"
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

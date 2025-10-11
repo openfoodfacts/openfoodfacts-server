@@ -44,14 +44,14 @@
 use ProductOpener::HTTP qw/create_user_agent/;
 
 use Time::HiRes;    # sleep less than a second
-use HTTP::CookieJar::LWP;
+use HTTP::Cookies;
 use JSON qw(from_json);
 use Encode qw( encode );
 use Text::CSV qw( csv );
 use strict;
 use warnings;
 
-my $jar = HTTP::CookieJar::LWP->new;
+my $jar = HTTP::Cookies->new;
 my $ua = create_user_agent(cookie_jar => $jar);
 
 my $csv_file = 'hr-export.csv';    # this file should be in the same folder as this script
