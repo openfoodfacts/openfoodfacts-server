@@ -506,6 +506,29 @@ function renderExternalPanelsOptinPreferences(container) {
   });
 }
 
+/**
+ * Returns true if at least one panel could produce a preference line
+ * @returns {Promise<boolean>}
+ */
+async function hasAnyScoppablePanels() {
+  await ensureMapping();
+  const pd = globalThis.productData || {};
+  const ctx = {
+    categories: Array.isArray(pd.categories) ? pd.categories : [],
+    country: pd.country,
+    language: pd.language,
+    product_type: pd.product_type
+  };
+  for (const section of allPanelsBySection) {
+    if (!section || !Array.isArray(section.panels)) continue;
+    for (const p of section.panels) {
+      if (canSeeByScope(p) && matchesFilters(p, ctx)) return true;
+    }
+  }
+  return false;
+}
+
+globalThis.hasAnyScoppablePanels = hasAnyScoppablePanels;
 globalThis.renderExternalPanelsOptinPreferences = renderExternalPanelsOptinPreferences;
 globalThis.ensureMapping = ensureMapping;
 globalThis.allPanelsBySection = allPanelsBySection;

@@ -493,11 +493,14 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
       '<span>' + lang().preferences_edit_your_preferences + '</span>' +
     '</a></div>';
 
-  const html_external_sources =
+  const html_external_sources_button =
     '<div><a id="show_external_sources" class="button small round secondary" role="button" tabindex="0" style="display:inline-flex;align-items:center;gap:.35rem;margin-left:.5rem">' +
       '<span class="material-icons size-20">tune</span>' +
       '<span>External sources</span>' +
     '</a></div>';
+
+  const html_external_sources =
+    '<span id="external_sources_btn_wrap">' + html_external_sources_button + '</span>';
 
   const html =
     generate_preferences_switch_button(preferences_text, "preferences_switch_in_list_of_products") +
@@ -505,11 +508,32 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
     html_external_sources;
 
   $(target_selected).html(html);
-
   activate_preferences_switch_buttons(change);
 
-  $("#show_selection_form").off(".prefopen").on("click.prefopen", function () {
+  (function decideExternalBtnVisibility() {
+    function hideBtn() {
+      const wrap = document.getElementById("external_sources_btn_wrap");
+      if (wrap) wrap.remove();
+    }
+    function decide() {
+      if (typeof window.hasAnyScoppablePanels !== "function") { hideBtn(); return; }
+      window.hasAnyScoppablePanels().then(function(hasAny) {
+        if (!hasAny) hideBtn();
+      }).catch(function(){
+        hideBtn();
+      });
+    }
+    if (typeof window.hasAnyScoppablePanels === "function") {
+      decide();
+    } else {
+      const script = document.createElement("script");
+      script.src = "/js/dist/external-knowledge-panels.js";
+      script.onload = decide;
+      document.body.appendChild(script);
+    }
+  })();
 
+  $("#show_selection_form").off(".prefopen").on("click.prefopen", function () {
     const hasPrefsPanel = $(target_selection_form).find("#user_product_preferences").length > 0;
     if (!hasPrefsPanel) {
       if (typeof displayed_user_product_preferences !== "undefined") {
@@ -517,12 +541,9 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
       }
       display_user_product_preferences(target_selected, target_selection_form, change);
     }
-
-    // init Tagify if needed
     if (typeof display_unwanted_ingredients_preferences === "function") {
       display_unwanted_ingredients_preferences();
     }
-
     $(target_selected).hide();
     $(target_selection_form).show();
     $(document).foundation('equalizer', 'reflow');
@@ -534,7 +555,6 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
 
   $("#show_external_sources").off(".extsrc").on("click.extsrc", function () {
     $(target_selected).hide();
-
     const wrapper =
       '<div class="panel callout" id="external_sources_panel">' +
         '<div class="edit_button close_food_preferences">' +
@@ -546,12 +566,10 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
         '<h2 style="margin-bottom:1rem;">External sources</h2>' +
         '<div id="external_panels_prefs" class="v-space-small"></div>' +
       '</div>';
-
     $(target_selection_form).html(wrapper).show();
 
     const mount = () => window.renderExternalPanelsOptinPreferences &&
       window.renderExternalPanelsOptinPreferences(document.getElementById("external_panels_prefs"));
-
     if (!window.renderExternalPanelsOptinPreferences) {
       const s = document.createElement("script");
       s.src = "/js/dist/external-knowledge-panels.js";
