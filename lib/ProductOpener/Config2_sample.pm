@@ -52,6 +52,7 @@ BEGIN {
 		%server_options
 		$serialize_to_json
 		$oidc_implementation_level
+		$oidc_discovery_url
 		$oidc_client_id
 		$oidc_client_secret
 
@@ -115,5 +116,6 @@ $serialize_to_json = 1;
 $oidc_implementation_level = 1;
 $oidc_client_id = 'OFF';
 $oidc_client_secret = 'A secret';
+$oidc_discovery_url = 'http://10.1.0.104:5600/realms/openfoodfacts/.well-known/openid-configuration';
 
 1;
