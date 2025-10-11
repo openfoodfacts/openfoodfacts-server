@@ -5,16 +5,10 @@
          "description" : "Indicateur de la quantité de souffrance animale calculée par produit.",
          "filters" : {
             "categories" : [
-               "en:chicken-eggs"
+               "en:eggs"
             ],
-            "countries" : [
-               "fr",
-               "world"
-            ],
-            "languages" : [
-               "fr",
-               "en"
-            ],
+            "countries" : [],
+            "languages" : [],
             "product_types" : [
                "food"
             ]

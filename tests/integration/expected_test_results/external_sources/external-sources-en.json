@@ -5,16 +5,10 @@
          "description" : "Indicator of animal suffering computed by product",
          "filters" : {
             "categories" : [
-               "en:chicken-eggs"
+               "en:eggs"
             ],
-            "countries" : [
-               "fr",
-               "world"
-            ],
-            "languages" : [
-               "fr",
-               "en"
-            ],
+            "countries" : [],
+            "languages" : [],
             "product_types" : [
                "food"
             ]
