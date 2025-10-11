@@ -272,6 +272,8 @@ function clearExternalSections() {
 
 /**
  * Keep navbar in sync with actually visible sections (order preserved).
+ * Inserts external section links right after the “Environment” link,
+ * falling back to “Your criteria” then “Product” if needed.
  * @param {Array<{sectionId:string,label:string}>} visibleSectionsOrdered
  * @returns {void}
  */
@@ -283,7 +285,12 @@ function syncNavbarExternalSections(visibleSectionsOrdered) {
     link.parentElement?.remove();
   }
 
-  const after = navbar.querySelector('[href="#match"]')?.parentElement || null;
+  const after =
+    navbar.querySelector('[href="#environment"]')?.parentElement ||
+    navbar.querySelector('[href="#match"]')?.parentElement ||
+    navbar.querySelector('[href="#product"]')?.parentElement ||
+    null;
+
   let insertAfter = after;
 
   for (const { sectionId, label } of visibleSectionsOrdered) {
@@ -466,6 +473,8 @@ async function buildSectionElement(section, ctx) {
 /**
  * Render external sections. Full render by default.
  * Pass {only: Set<sectionId>} to rerender only specific sections.
+ * Places the sections after the “Environment” section, falling back to
+ * “Your criteria” or the first <section> if #environment is missing.
  * @param {{only?: Set<string>}} opts
  * @returns {Promise<void>}
  */
@@ -475,9 +484,13 @@ async function renderExternalKnowledgeSections(opts) {
   const { categories, country, language, product_type } = globalThis.productData || {};
   const ctx = { categories: categories || [], country, language, product_type };
 
-  const parentAnchor = document.getElementById("match");
+  const parentAnchor =
+    document.getElementById("environment") ||
+    document.getElementById("match") ||
+    document.querySelector("section.row");
+
   if (!parentAnchor?.parentNode) {
-    console.error("Cannot find #match section to insert external panels");
+    console.error("Cannot find anchor section to insert external panels");
     return;
   }
   const parent = parentAnchor.parentNode;
