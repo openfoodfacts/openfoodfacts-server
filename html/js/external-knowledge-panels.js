@@ -8,6 +8,15 @@
  * - Opt-in stored per (sectionId, panelId) in localStorage, default false.
  * - Hides a panel if its URL returns 404, and shows an availability message next to the opt-in checkbox when checked.
  * - Supports partial rerender by section to avoid full-page flashing.
+ *
+ * i18n note (temporary):
+ * The UI strings should come from the global `lang()` function. This file uses these keys:
+ *   - lang().external_panels
+ *   - lang().external_panel_unavailable
+ *   - lang().external_panel_unavailable_for_product
+ *   - lang().external_sources
+ *   - lang().provided_by
+ * A small local fallback `t(key, lc)` is provided and should be removed once all keys exist in `lang()`.
  */
 
 let allPanelsBySection = [];
@@ -37,7 +46,7 @@ function prettySectionName(sectionId) {
 }
 
 /**
- * Small i18n helper for a few UI strings.
+ * Small i18n helper for a few UI strings (fallback only).
  * @param {string} key - Translation key.
  * @param {string} lc - Language code (optional).
  * @returns {string} Localized string for the given key.
@@ -45,10 +54,34 @@ function prettySectionName(sectionId) {
 function t(key, lc) {
   const lang = (lc || globalThis.productData?.language || "en").slice(0, 2);
   const dict = {
-    en: { external_panels: "External Knowledge Panels", panel_unavailable: "Panel unavailable" },
-    fr: { external_panels: "Panneaux d’information externes", panel_unavailable: "Panel unavailable" },
-    es: { external_panels: "Paneles de información externos", panel_unavailable: "Panel unavailable" },
-    de: { external_panels: "Externe Informations-Panels", panel_unavailable: "Panel unavailable" }
+    en: {
+      external_panels: "External Knowledge Panels",
+      external_sources: "External sources",
+      provided_by: "Provided by",
+      panel_unavailable: "Panel unavailable",
+      panel_unavailable_for_product: "Panel unavailable for this product"
+    },
+    fr: {
+      external_panels: "Panneaux d’information externes",
+      external_sources: "Sources externes",
+      provided_by: "Fourni par",
+      panel_unavailable: "Panneau indisponible",
+      panel_unavailable_for_product: "Panneau indisponible pour ce produit"
+    },
+    es: {
+      external_panels: "Paneles de información externos",
+      external_sources: "Fuentes externas",
+      provided_by: "Proporcionado por",
+      panel_unavailable: "Panel no disponible",
+      panel_unavailable_for_product: "Panel no disponible para este producto"
+    },
+    de: {
+      external_panels: "Externe Informations-Panels",
+      external_sources: "Externe Quellen",
+      provided_by: "Bereitgestellt von",
+      panel_unavailable: "Panel nicht verfügbar",
+      panel_unavailable_for_product: "Panel für dieses Produkt nicht verfügbar"
+    }
   };
   return (dict[lang] && dict[lang][key]) || dict.en[key] || key;
 }
@@ -115,24 +148,33 @@ function canSeeByScope(panel) {
 
 /**
  * Filter matching against current product context.
- * categories: at least one match
+ * categories: at least one match (unless opts.ignoreCategory)
  * country/language/product_type: strict equality
  * @param {Object} panel
  * @param {Object} ctx
+ * @param {{ignoreCategory?: boolean}} [opts]
  * @returns {boolean}
  */
-function matchesFilters(panel, ctx) {
+function matchesFilters(panel, ctx, opts) {
   const f = panel.filters || {};
-  const catOk = !f.categories?.length || f.categories.some((c) => ctx.categories.includes(c));
-  const countryOk = !f.countries?.length || (ctx.country ? f.countries.includes(ctx.country) : true);
-  const langOk = !f.languages?.length || (ctx.language ? f.languages.includes(ctx.language) : true);
+  const ignoreCategory = Boolean(opts?.ignoreCategory);
+
+  const catOk = ignoreCategory
+    ? true
+    : (!f.categories?.length || f.categories.some((c) => ctx.categories.includes(c)));
+  const countryOk =
+    !f.countries?.length || (ctx.country ? f.countries.includes(ctx.country) : true);
+  const langOk =
+    !f.languages?.length || (ctx.language ? f.languages.includes(ctx.language) : true);
   const typeOk =
     !f.product_types?.length || (ctx.product_type ? f.product_types.includes(ctx.product_type) : true);
+
   return catOk && countryOk && langOk && typeOk;
 }
 
 /**
  * Visibility for a panel (scope + filters + opt-in).
+ * Strict filters. No ignoreCategory here.
  * @param {string} sectionId
  * @param {Object} panel
  * @param {Object} ctx
@@ -317,9 +359,10 @@ function ensureMapping() {
 }
 
 /**
- * Render all external sections (only if they have at least 1 visible panel)
- * and sync the navbar. Order strictly follows JSON order.
- * @returns {Promise<void>}
+ * Render one external section. Only if it has at least 1 visible panel.
+ * @param {{sectionId:string,label:string,panels:Array}} section
+ * @param {Object} ctx
+ * @returns {Promise<{sectionId:string,el:HTMLElement|null,hasAnyRenderedPanel:boolean}>}
  */
 async function buildSectionElement(section, ctx) {
   const visiblePanels = section.panels.filter((panel) => isPanelVisible(section.sectionId, panel, ctx));
@@ -498,6 +541,7 @@ async function renderExternalKnowledgeSections(opts) {
 /**
  * Render opt-in preferences grouped by section.
  * If a checked panel returned 404, append an availability message.
+ * Also show a per-line notice if category does not match the current product.
  * @param {HTMLElement} container
  * @returns {void}
  */
@@ -518,8 +562,9 @@ function renderExternalPanelsOptinPreferences(container) {
     );
 
     for (const section of allPanelsBySection) {
+      // Relax category only for the list
       const scoppablePanels = section.panels.filter(
-        (panel) => canSeeByScope(panel) && matchesFilters(panel, ctx)
+        (panel) => canSeeByScope(panel) && matchesFilters(panel, ctx, { ignoreCategory: true })
       );
       if (!scoppablePanels.length) continue;
 
@@ -573,7 +618,10 @@ function renderExternalPanelsOptinPreferences(container) {
           textWrap.appendChild(br);
 
           const small = document.createElement("small");
-          small.textContent = "Provided by ";
+          const providedBy =
+            (typeof globalThis.lang === "function" && lang().provided_by) ||
+            t("provided_by", language);
+          small.textContent = providedBy + " ";
           if (panel.provider_website && /^https?:\/\//i.test(panel.provider_website)) {
             const a = document.createElement("a");
             a.href = panel.provider_website;
@@ -592,7 +640,7 @@ function renderExternalPanelsOptinPreferences(container) {
         const key = `${section.sectionId}::${panel.id}`;
         if (checkbox.checked && notFoundPanels.has(key)) {
           const msg =
-            (typeof globalThis.lang === "function" && globalThis.lang().external_panel_unavailable) ||
+            (typeof globalThis.lang === "function" && lang().external_panel_unavailable) ||
             t("panel_unavailable", language);
           const warn = document.createElement("span");
           warn.className = "external-panel-unavailable";
@@ -600,6 +648,23 @@ function renderExternalPanelsOptinPreferences(container) {
           warn.textContent = `— ${msg}`;
           textWrap.appendChild(document.createTextNode(" "));
           textWrap.appendChild(warn);
+        }
+
+        // Category mismatch notice for the list only
+        const f = panel.filters || {};
+        const categoryMatches =
+          !f.categories?.length || f.categories.some((c) => ctx.categories.includes(c));
+        if (!categoryMatches) {
+          const msgCat =
+            (typeof globalThis.lang === "function" &&
+              lang().external_panel_unavailable_for_product) ||
+            t("panel_unavailable_for_product", language);
+          const warnCat = document.createElement("span");
+          warnCat.className = "external-panel-unavailable-for-product";
+          warnCat.setAttribute("style", "margin-left:.5rem;font-size:.9em;color:#b20000;");
+          warnCat.textContent = `— ${msgCat}`;
+          textWrap.appendChild(document.createTextNode(" "));
+          textWrap.appendChild(warnCat);
         }
 
         label.appendChild(textWrap);
@@ -631,7 +696,8 @@ function renderExternalPanelsOptinPreferences(container) {
 }
 
 /**
- * Returns true if at least one panel could produce a preference line
+ * Returns true if at least one panel could produce a preference line.
+ * Category filter is relaxed here.
  * @returns {Promise<boolean>}
  */
 async function hasAnyScoppablePanels() {
@@ -646,7 +712,7 @@ async function hasAnyScoppablePanels() {
   for (const section of allPanelsBySection) {
     if (!section || !Array.isArray(section.panels)) continue;
     for (const p of section.panels) {
-      if (canSeeByScope(p) && matchesFilters(p, ctx)) return true;
+      if (canSeeByScope(p) && matchesFilters(p, ctx, { ignoreCategory: true })) return true;
     }
   }
   return false;
