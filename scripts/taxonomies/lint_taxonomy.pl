@@ -88,6 +88,9 @@ sub iter_taxonomy_lines($fd) {
 	}
 }
 
+# explicit regexp of the different language variant we got
+my $language_prefix_re = qr/(\w{2,3}|\w{2}[-_]\w{2,3})/;
+
 # iter over the taxonomy entry by entry
 # return a ref to a hash map with entry infos
 sub iter_taxonomy_entries ($lines_iter) {
@@ -185,7 +188,8 @@ sub iter_taxonomy_entries ($lines_iter) {
 				@previous_lines = ();
 			}
 			# synonym
-			elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
+			# explicit regexp of the different language variant we got
+			elsif ($line =~ /^${language_prefix_re}:[^:]*(,.*)*$/) {
 				if (!defined $entry_id_line) {
 					$entry_id_line = {
 						line => $line,
@@ -227,7 +231,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 				@previous_lines = ();
 			}
 			# property
-			elsif ($line =~ /^(\w+):(\w{2}):(.*)$/) {
+			elsif ($line =~ /^(\w+):${language_prefix_re}:(.*)$/) {
 				my $prop = $1;
 				my $lc = $2;
 				if (defined $props{"$prop:$lc"}) {
