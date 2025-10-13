@@ -9,7 +9,7 @@
         "subtitle": "[% panel.subtitle %]",
         "icon_url": "[% static_subdomain %]/images/icons/dist/[% panel.icon %]",
         "icon_color_from_evaluation": true,
-        "evaluation": "[% panel.evaluation %]",                
+        "evaluation": "[% panel.evaluation %]",
     },
     "elements": [
         {
