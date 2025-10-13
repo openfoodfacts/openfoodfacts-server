@@ -1,22 +1,16 @@
 {
+   "lang" : "da",
    "nutrition" : {
       "aggregated_set" : {
          "nutrients" : {
-            "en-some-unknown-nutrient" : {
-               "source" : "packaging",
-               "source_index" : 0,
-               "source_per" : "100ml",
-               "unit" : "g",
-               "value" : 1.23
-            },
-            "fr-nitrate" : {
+            "nitrate" : {
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100ml",
                "unit" : "g",
                "value" : 0.38
             },
-            "sulfat" : {
+            "sulphate" : {
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100ml",
@@ -31,17 +25,12 @@
          {
             "last_updated_t" : "--ignore--",
             "nutrients" : {
-               "en-some-unknown-nutrient" : {
-                  "unit" : "g",
-                  "value" : 1.23,
-                  "value_string" : "1.23"
-               },
-               "fr-nitrate" : {
+               "nitrate" : {
                   "unit" : "g",
                   "value" : 0.38,
                   "value_string" : "0.38"
                },
-               "sulfat" : {
+               "sulphate" : {
                   "unit" : "g",
                   "value" : 0.0141,
                   "value_string" : "0.0141"

@@ -11,6 +11,10 @@ use JSON;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ProductSchemaChanges qw/convert_product_schema/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
+use ProductOpener::Tags qw/init_taxonomies/;
+
+# We need to load taxonomies (nutrients) for some schema upgrades
+init_taxonomies(1);
 
 #use Test::MockTime qw(set_fixed_time);
 #set_fixed_time(1650000000);  # freeze time to a known epoch
@@ -26,6 +30,7 @@ my @tests = (
 		'1002-to-1003-new-nutrition-schema-unknown-nutrients',
 		1003,
 		{
+			"lang" => "da",
 			"schema_version" => 1002,
 			"nutrition_data" => "on",
 			"nutrition_data_per" => "100g",
@@ -55,7 +60,6 @@ my @tests = (
 				'en-some-unknown-nutrient_label' => "Some unknown nutrient",
 				'en-some-unknown-nutrient_unit' => "g",
 				'en-some-unknown-nutrient_value' => 1.23,
-
 			},
 		}
 	],
