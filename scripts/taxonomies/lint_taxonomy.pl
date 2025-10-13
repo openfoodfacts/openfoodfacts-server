@@ -250,8 +250,21 @@ sub iter_taxonomy_entries ($lines_iter) {
 					= {line => $line, previous => [@previous_lines], line_num => $line_num, type => "property"};
 				@previous_lines = ();
 			}
-			# comments or undefined
+			# comments
+			elsif ($line =~ /^#/) {
+				push @previous_lines, $line;
+			}
+			# undefined ! this should be rejected
 			else {
+				push(
+					@errors,
+					{
+						severity => "Error",
+						type => "Correctness",
+						line => $line_num,
+						message => "Unknown line type !\n- $line",
+					}
+				);
 				push @previous_lines, $line;
 			}
 		}
