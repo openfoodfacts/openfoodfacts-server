@@ -1590,7 +1590,7 @@ sub create_recommendation_panels ($product_ref, $target_lc, $target_cc, $options
 
 		foreach my $property (
 			qw/recommendation_panel_evaluation recommendation_panel_icon
-			recommendation_panel_msgctxt_prefix recommendation_panel_source ecommendation_panel_source_language
+			recommendation_panel_msgctxt_prefix recommendation_panel_source recommendation_panel_source_language
 			recommendation_panel_source_url/
 			)
 		{
