@@ -21,6 +21,45 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 
 my @tests = (
 
+	# In the old nutrition schema, we allowed unknown nutrients that were not in the taxonomy
+	[
+		'1002-to-1003-new-nutrition-schema-unknown-nutrients',
+		1003,
+		{
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"serving_quantity" => 1000,
+			"serving_quantity_unit" => "ml",
+			"nutriments" => {
+
+				# unknown nutrient prefixed with language
+				'fr-nitrate' => 0.38,
+				'fr-nitrate_100g' => 0.38,
+				'fr-nitrate_label' => "Nitrate",
+				'fr-nitrate_serving' => 0.0038,
+				'fr-nitrate_unit' => "g",
+				'fr-nitrate_value' => 0.38,
+
+				# unknown nutrient not prefixed with language (old fields)
+				'sulfat' => 0.0141,
+				'sulfat_100g' => 0.0141,
+				'sulfat_label' => "Sulfat",
+				'sulfat_serving' => 0.141,
+				'sulfat_unit' => "mg",
+				'sulfat_value' => 14.1,
+
+				# unknown nutrient that is not in the taxonomy
+				'en-some-unknown-nutrient' => 1.23,
+				'en-some-unknown-nutrient_100g' => 1.23,
+				'en-some-unknown-nutrient_label' => "Some unknown nutrient",
+				'en-some-unknown-nutrient_unit' => "g",
+				'en-some-unknown-nutrient_value' => 1.23,
+
+			},
+		}
+	],
+
 	[
 		'1002-to-1003-new-nutrition-schema-per-100g',
 		1003,
@@ -1216,7 +1255,8 @@ my @tests = (
 	],
 );
 
-foreach my $test_ref (@tests) {
+# We run the tests in reverse order so that we output last the most recent tests added on top
+foreach my $test_ref (reverse @tests) {
 
 	my $testid = $test_ref->[0];
 	my $target_schema_version = $test_ref->[1];
