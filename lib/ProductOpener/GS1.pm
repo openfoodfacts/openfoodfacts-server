@@ -1402,20 +1402,46 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 					my $serving_size_description;
 					my $serving_size_description_lc;
 
-					if (defined $nutrient_header_ref->{servingSize}{'#'}) {
-						$serving_size_value = $nutrient_header_ref->{servingSize}{'#'};
-						$serving_size_unit = $gs1_maps{measurementUnitCode}
-							{$nutrient_header_ref->{servingSize}{'@'}{measurementUnitCode}};
-					}
-					elsif (defined $nutrient_header_ref->{servingSize}{'$t'}) {
-						$serving_size_value = $nutrient_header_ref->{servingSize}{'$t'};
-						$serving_size_unit
-							= $gs1_maps{measurementUnitCode}{$nutrient_header_ref->{servingSize}{measurementUnitCode}};
+					# We can have servingSize in different formats
+					# we can also have no serving size, but a nutrientBasisQuantity
+					# e.g.  nutrientBasisQuantity => {"\$t" => "100.00",measurementUnitCode => "MLT"}
+
+					# Check nutrientBasisQuantity first
+					if (defined $nutrient_header_ref->{nutrientBasisQuantity}) {
+						if (defined $nutrient_header_ref->{nutrientBasisQuantity}{'#'}) {
+							$serving_size_value = $nutrient_header_ref->{nutrientBasisQuantity}{'#'};
+							$serving_size_unit = $gs1_maps{measurementUnitCode}
+								{$nutrient_header_ref->{nutrientBasisQuantity}{'@'}{measurementUnitCode}};
+						}
+						elsif (defined $nutrient_header_ref->{nutrientBasisQuantity}{'$t'}) {
+							$serving_size_value = $nutrient_header_ref->{nutrientBasisQuantity}{'$t'};
+							$serving_size_unit = $gs1_maps{measurementUnitCode}
+								{$nutrient_header_ref->{nutrientBasisQuantity}{measurementUnitCode}};
+						}
+						else {
+							$log->error("gs1_to_off - unrecognized nutrient basis quantity",
+								{nutrientBasisQuantity => $nutrient_header_ref->{nutrientBasisQuantity}})
+								if $log->is_error();
+						}
 					}
 					else {
-						$log->error("gs1_to_off - unrecognized serving size",
-							{servingSize => $nutrient_header_ref->{servingSize}})
-							if $log->is_error();
+						# then check servingSize
+						if (defined $nutrient_header_ref->{servingSize}{'#'}) {
+							$serving_size_value = $nutrient_header_ref->{servingSize}{'#'};
+							$serving_size_unit = $gs1_maps{measurementUnitCode}
+								{$nutrient_header_ref->{servingSize}{'@'}{measurementUnitCode}};
+						}
+						elsif (defined $nutrient_header_ref->{servingSize}{'$t'}) {
+							$serving_size_value = $nutrient_header_ref->{servingSize}{'$t'};
+							$serving_size_unit
+								= $gs1_maps{measurementUnitCode}
+								{$nutrient_header_ref->{servingSize}{measurementUnitCode}};
+						}
+						else {
+							$log->error("gs1_to_off - unrecognized serving size",
+								{servingSize => $nutrient_header_ref->{servingSize}})
+								if $log->is_error();
+						}
 					}
 
 					# We may have a servingSizeDescription in multiple languages, in that case, take the first one
@@ -1443,39 +1469,63 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 						}
 					}
 
-					my $per = "100g";
+					# Determine which per to use
 
-					if ((defined $serving_size_value) and ($serving_size_value != 100)) {
-						$per = "serving";
-						$serving_size_value += 0;    # remove extra .0
+					my $per;
 
-						# Some serving sizes have an extra description
-						# e.g. par portion : 14 g + 200 ml d'eau
-						my $extra_serving_size_description = "";
-						if ((defined $serving_size_description) and (defined $serving_size_description_lc)) {
-							# Par Portion de 30 g (2)
-							$serving_size_description
-								=~ s/^(par |pour )?((1 |une )?(part |portion ))?(de )?\s*:?=?\s*//i;
-							$serving_size_description =~ s/( |\d)(gr|grammes)$/$1g/i;
-							# Par Portion de 30 g (2) : remove number of portions
-							$serving_size_description =~ s/\(\d+\)//i;
-							$serving_size_description =~ s/^\s+//;
-							$serving_size_description =~ s/\s+$//;
-							# skip the extra description if it is equal to value + unit
-							# to avoid things like 43 g (43 g)
-							# "Pour 45g ?²?" --> ignore bogus characters at the end
-							if (
-								($serving_size_description !~ /^\s*$/)
-								and ($serving_size_description
-									!~ /^$serving_size_value\s*$serving_size_unit(\?|\.|\,|\s|\*|²)*$/i)
-								)
-							{
-								$extra_serving_size_description = ' (' . $serving_size_description . ')';
-							}
+					if ((defined $serving_size_value) and (defined $serving_size_unit)) {
+						if (($serving_size_value == 100) and ($serving_size_unit eq "g")) {
+							$per = "100g";
 						}
+						elsif (($serving_size_value == 100) and ($serving_size_unit eq "ml")) {
+							$per = "100ml";
+						}
+						elsif (($serving_size_value == 1) and (uc($serving_size_unit) eq "L")) {
+							$per = "1l";
+						}
+						elsif (($serving_size_value == 1) and ($serving_size_unit eq "kg")) {
+							$per = "1kg";
+						}
+						else {
+							$per = "serving";
 
-						assign_field($results_ref, "serving_size",
-							$serving_size_value . " " . $serving_size_unit . $extra_serving_size_description);
+							$serving_size_value += 0;    # remove extra .0
+
+							# Some serving sizes have an extra description
+							# e.g. par portion : 14 g + 200 ml d'eau
+							my $extra_serving_size_description = "";
+							if ((defined $serving_size_description) and (defined $serving_size_description_lc)) {
+								# Par Portion de 30 g (2)
+								$serving_size_description
+									=~ s/^(par |pour )?((1 |une )?(part |portion ))?(de )?\s*:?=?\s*//i;
+								$serving_size_description =~ s/( |\d)(gr|grammes)$/$1g/i;
+								# Par Portion de 30 g (2) : remove number of portions
+								$serving_size_description =~ s/\(\d+\)//i;
+								$serving_size_description =~ s/^\s+//;
+								$serving_size_description =~ s/\s+$//;
+								# skip the extra description if it is equal to value + unit
+								# to avoid things like 43 g (43 g)
+								# "Pour 45g ?²?" --> ignore bogus characters at the end
+								if (
+									($serving_size_description !~ /^\s*$/)
+									and ($serving_size_description
+										!~ /^$serving_size_value\s*$serving_size_unit(\?|\.|\,|\s|\*|²)*$/i)
+									)
+								{
+									$extra_serving_size_description = ' (' . $serving_size_description . ')';
+								}
+							}
+
+							assign_field($results_ref, "serving_size",
+								$serving_size_value . " " . $serving_size_unit . $extra_serving_size_description);
+						}
+					}
+					else {
+						$log->error("gs1_to_off - unrecognized serving size",
+							{code => $results_ref->{code}, nutrient_header_ref => $nutrient_header_ref})
+							if $log->is_error();
+						# Skip this nutrients table
+						next;
 					}
 
 					if (defined $nutrient_header_ref->{nutrientDetail}) {
