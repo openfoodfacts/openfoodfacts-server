@@ -267,7 +267,7 @@ function display_unwanted_ingredients_preferences() {
     // Initialize tagify on the unwanted ingredients input field if we have it
     if (attribute_unwanted_ingredients_enabled) {
         // We need to load tagify library if not already loaded
-        if (typeof Tagify === 'undefined') {
+        if (Tagify === undefined) {
             // Load tagify JS and CSS
             // We use jQuery to load the CSS file dynamically
             $.when(
