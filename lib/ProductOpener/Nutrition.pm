@@ -201,8 +201,8 @@ sub sort_sets_by_priority (@input_sets) {
 	my %per_priority = (
 		"100g" => 0,
 		"100ml" => 1,
-		"1l" => 2,	# for water
-		"1kg" => 3,	# for pet food
+		"1l" => 2,    # for water
+		"1kg" => 3,    # for pet food
 		serving => 4,
 		_default => 5,
 	);
