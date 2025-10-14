@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/">
+        <link rel="canonical" href="https://openfoodfacts.github.io/openfoodfacts-server/dev/how-to-add-generic-recommendation-panel/">
       
       
-        <link rel="prev" href="../tutorial-off-api/">
+        <link rel="prev" href="../how-to-add-a-translation/">
       
       
-        <link rel="next" href="../how-to-download-images/">
+        <link rel="next" href="../how-to-debug-minion-import-and-export-tasks/">
       
       
       <link rel="icon" href="https://static.openfoodfacts.org/images/logos/off-logo-favicon-light.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Tutorial on uploading images to the Open Food Facts API - Product Opener (Open Food Facts Server)</title>
+        <title>How to Add a Generic Recommendation Panel for a Category - Product Opener (Open Food Facts Server)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tutorial-on-uploading-images-to-the-open-food-facts-api" class="md-skip">
+        <a href="#how-to-add-a-generic-recommendation-panel-for-a-category" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tutorial on uploading images to the Open Food Facts API
+              How to Add a Generic Recommendation Panel for a Category
             
           </span>
         </div>
@@ -273,20 +273,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -302,7 +300,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Api
@@ -316,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../api/" class="md-nav__link">
         
   
   
@@ -339,7 +337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro-robotoff/" class="md-nav__link">
+      <a href="../../api/intro-robotoff/" class="md-nav__link">
         
   
   
@@ -362,7 +360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial-dev-journey/" class="md-nav__link">
+      <a href="../../api/tutorial-dev-journey/" class="md-nav__link">
         
   
   
@@ -385,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial-off-api/" class="md-nav__link">
+      <a href="../../api/tutorial-off-api/" class="md-nav__link">
         
   
   
@@ -405,32 +403,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Tutorial on uploading images to the Open Food Facts API
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../api/tutorial-uploading-photo-to-a-product/" class="md-nav__link">
         
   
   
@@ -441,155 +417,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#points-to-consider-before-uploading-photos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Points to consider before uploading photos
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Points to consider before uploading photos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-photos-are-important-on-open-food-facts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why photos are important on Open Food Facts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#image-license" class="md-nav__link">
-    <span class="md-ellipsis">
-      Image license
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#image-quality" class="md-nav__link">
-    <span class="md-ellipsis">
-      Image Quality
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#upload-behavior" class="md-nav__link">
-    <span class="md-ellipsis">
-      Upload Behavior
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#label-languages" class="md-nav__link">
-    <span class="md-ellipsis">
-      Label Languages
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      Authentication
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parameters
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#imagefield" class="md-nav__link">
-    <span class="md-ellipsis">
-      Imagefield
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#imageupload" class="md-nav__link">
-    <span class="md-ellipsis">
-      ImageUpload
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#describing-the-post-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      Describing the Post Request
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#upload-photo-of-a-product" class="md-nav__link">
-    <span class="md-ellipsis">
-      Upload Photo of a Product
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -602,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-download-images/" class="md-nav__link">
+      <a href="../../api/how-to-download-images/" class="md-nav__link">
         
   
   
@@ -625,7 +452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-knowledge-panels/" class="md-nav__link">
+      <a href="../../api/explain-knowledge-panels/" class="md-nav__link">
         
   
   
@@ -648,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../explain-product-attributes/" class="md-nav__link">
+      <a href="../../api/explain-product-attributes/" class="md-nav__link">
         
   
   
@@ -671,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-api-and-product-schema-change-log/" class="md-nav__link">
+      <a href="../../api/ref-api-and-product-schema-change-log/" class="md-nav__link">
         
   
   
@@ -694,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-barcode-normalization/" class="md-nav__link">
+      <a href="../../api/ref-barcode-normalization/" class="md-nav__link">
         
   
   
@@ -717,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-cheatsheet/" class="md-nav__link">
+      <a href="../../api/ref-cheatsheet/" class="md-nav__link">
         
   
   
@@ -740,7 +567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-v2/" class="md-nav__link">
+      <a href="../../api/ref-v2/" class="md-nav__link">
         
   
   
@@ -763,7 +590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ref-v3/" class="md-nav__link">
+      <a href="../../api/ref-v3/" class="md-nav__link">
         
   
   
@@ -786,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws-images-dataset/" class="md-nav__link">
+      <a href="../../api/aws-images-dataset/" class="md-nav__link">
         
   
   
@@ -809,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../leveraging-links-to-wikidata/" class="md-nav__link">
+      <a href="../../api/leveraging-links-to-wikidata/" class="md-nav__link">
         
   
   
@@ -870,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/adding-missing-products/" class="md-nav__link">
+      <a href="../../api/tutorials/adding-missing-products/" class="md-nav__link">
         
   
   
@@ -893,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/comparing-sodas/" class="md-nav__link">
+      <a href="../../api/tutorials/comparing-sodas/" class="md-nav__link">
         
   
   
@@ -916,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/contributing-to-image-refresh-api/" class="md-nav__link">
+      <a href="../../api/tutorials/contributing-to-image-refresh-api/" class="md-nav__link">
         
   
   
@@ -939,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
+      <a href="../../api/tutorials/creating-a-local-cache-of-open-food-facts-data/" class="md-nav__link">
         
   
   
@@ -962,7 +789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/finding-healthy-cereals/" class="md-nav__link">
+      <a href="../../api/tutorials/finding-healthy-cereals/" class="md-nav__link">
         
   
   
@@ -985,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/folksonomy-engine/" class="md-nav__link">
+      <a href="../../api/tutorials/folksonomy-engine/" class="md-nav__link">
         
   
   
@@ -1008,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/get-in-touch-with-openfoodfacts/" class="md-nav__link">
+      <a href="../../api/tutorials/get-in-touch-with-openfoodfacts/" class="md-nav__link">
         
   
   
@@ -1031,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/get-ingredient-related-analysis/" class="md-nav__link">
+      <a href="../../api/tutorials/get-ingredient-related-analysis/" class="md-nav__link">
         
   
   
@@ -1054,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/get-the-green-score/" class="md-nav__link">
+      <a href="../../api/tutorials/get-the-green-score/" class="md-nav__link">
         
   
   
@@ -1077,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/get-the-nutriscore/" class="md-nav__link">
+      <a href="../../api/tutorials/get-the-nutriscore/" class="md-nav__link">
         
   
   
@@ -1100,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/getting-personal-with-attributes/" class="md-nav__link">
+      <a href="../../api/tutorials/getting-personal-with-attributes/" class="md-nav__link">
         
   
   
@@ -1123,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
+      <a href="../../api/tutorials/how-to-create-data-quality-controls-in-your-app/" class="md-nav__link">
         
   
   
@@ -1146,7 +973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/license-be-on-the-legal-side/" class="md-nav__link">
+      <a href="../../api/tutorials/license-be-on-the-legal-side/" class="md-nav__link">
         
   
   
@@ -1169,7 +996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/product-prices/" class="md-nav__link">
+      <a href="../../api/tutorials/product-prices/" class="md-nav__link">
         
   
   
@@ -1192,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/reporting-issues-with-nutripatrol/" class="md-nav__link">
+      <a href="../../api/tutorials/reporting-issues-with-nutripatrol/" class="md-nav__link">
         
   
   
@@ -1215,7 +1042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/scanning-barcodes/" class="md-nav__link">
+      <a href="../../api/tutorials/scanning-barcodes/" class="md-nav__link">
         
   
   
@@ -1238,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
+      <a href="../../api/tutorials/scanning-cosmetics-pet-food-and-other-products/" class="md-nav__link">
         
   
   
@@ -1261,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorials/working-with-facets/" class="md-nav__link">
+      <a href="../../api/tutorials/working-with-facets/" class="md-nav__link">
         
   
   
@@ -1296,18 +1123,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -1323,7 +1152,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Dev
@@ -1337,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -1360,7 +1189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-add-a-translation/" class="md-nav__link">
+      <a href="../how-to-add-a-translation/" class="md-nav__link">
         
   
   
@@ -1380,10 +1209,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../dev/how-to-add-generic-recommendation-panel/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    How to Add a Generic Recommendation Panel for a Category
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1394,6 +1245,131 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#eligibility-for-a-recommendation-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eligibility for a Recommendation Panel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-implement-a-new-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to Implement a New Panel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps to Implement a New Panel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-add-properties-to-the-category-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Add Properties to the Category Taxonomy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Add Properties to the Category Taxonomy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-eu-tobacco-health-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: EU Tobacco Health Warning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-add-the-display-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Add the Display Strings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2: Add the Display Strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-strings-for-the-tobacco-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Strings for the Tobacco Warning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-creating-country-specific-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      (Optional) Creating Country-Specific Recommendations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="(Optional) Creating Country-Specific Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-french-specific-tobacco-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: French-Specific Tobacco Warning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Check
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1406,7 +1382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-debug-minion-import-and-export-tasks/" class="md-nav__link">
+      <a href="../how-to-debug-minion-import-and-export-tasks/" class="md-nav__link">
         
   
   
@@ -1429,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-develop-producer-platform/" class="md-nav__link">
+      <a href="../how-to-develop-producer-platform/" class="md-nav__link">
         
   
   
@@ -1452,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-develop-using-docker/" class="md-nav__link">
+      <a href="../how-to-develop-using-docker/" class="md-nav__link">
         
   
   
@@ -1475,7 +1451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-develop-with-webcomponents/" class="md-nav__link">
+      <a href="../how-to-develop-with-webcomponents/" class="md-nav__link">
         
   
   
@@ -1498,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-learn-perl/" class="md-nav__link">
+      <a href="../how-to-learn-perl/" class="md-nav__link">
         
   
   
@@ -1521,7 +1497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-quick-start-guide/" class="md-nav__link">
+      <a href="../how-to-quick-start-guide/" class="md-nav__link">
         
   
   
@@ -1544,7 +1520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-release/" class="md-nav__link">
+      <a href="../how-to-release/" class="md-nav__link">
         
   
   
@@ -1567,7 +1543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-update-agribalyse-ecoscore/" class="md-nav__link">
+      <a href="../how-to-update-agribalyse-ecoscore/" class="md-nav__link">
         
   
   
@@ -1590,7 +1566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-use-automated-pr-actions/" class="md-nav__link">
+      <a href="../how-to-use-automated-pr-actions/" class="md-nav__link">
         
   
   
@@ -1613,7 +1589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-use-direnv/" class="md-nav__link">
+      <a href="../how-to-use-direnv/" class="md-nav__link">
         
   
   
@@ -1636,7 +1612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-use-gitpod/" class="md-nav__link">
+      <a href="../how-to-use-gitpod/" class="md-nav__link">
         
   
   
@@ -1659,7 +1635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
+      <a href="../how-to-use-pages-from-openfoodfacts-web/" class="md-nav__link">
         
   
   
@@ -1682,7 +1658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-use-repl/" class="md-nav__link">
+      <a href="../how-to-use-repl/" class="md-nav__link">
         
   
   
@@ -1705,7 +1681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-use-vscode/" class="md-nav__link">
+      <a href="../how-to-use-vscode/" class="md-nav__link">
         
   
   
@@ -1728,7 +1704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/how-to-write-and-run-tests/" class="md-nav__link">
+      <a href="../how-to-write-and-run-tests/" class="md-nav__link">
         
   
   
@@ -1751,7 +1727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/explain-dynamic-test-grouping/" class="md-nav__link">
+      <a href="../explain-dynamic-test-grouping/" class="md-nav__link">
         
   
   
@@ -1774,7 +1750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/explain-javascript-usage-and-strategy/" class="md-nav__link">
+      <a href="../explain-javascript-usage-and-strategy/" class="md-nav__link">
         
   
   
@@ -1797,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/explain-nutrition-data/" class="md-nav__link">
+      <a href="../explain-nutrition-data/" class="md-nav__link">
         
   
   
@@ -1820,7 +1796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/explain-packaging-data/" class="md-nav__link">
+      <a href="../explain-packaging-data/" class="md-nav__link">
         
   
   
@@ -1843,7 +1819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/explain-personal-search/" class="md-nav__link">
+      <a href="../explain-personal-search/" class="md-nav__link">
         
   
   
@@ -1866,7 +1842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/explain-pro-dev-setup/" class="md-nav__link">
+      <a href="../explain-pro-dev-setup/" class="md-nav__link">
         
   
   
@@ -1889,7 +1865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/explain-taxonomy-build-cache/" class="md-nav__link">
+      <a href="../explain-taxonomy-build-cache/" class="md-nav__link">
         
   
   
@@ -1912,7 +1888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/explain-user-management/" class="md-nav__link">
+      <a href="../explain-user-management/" class="md-nav__link">
         
   
   
@@ -1935,7 +1911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/ref-docker-commands/" class="md-nav__link">
+      <a href="../ref-docker-commands/" class="md-nav__link">
         
   
   
@@ -1958,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/ref-perl-pod/" class="md-nav__link">
+      <a href="../ref-perl-pod/" class="md-nav__link">
         
   
   
@@ -1981,7 +1957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dev/ref-perl/" class="md-nav__link">
+      <a href="../ref-perl/" class="md-nav__link">
         
   
   
@@ -2099,55 +2075,91 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#points-to-consider-before-uploading-photos" class="md-nav__link">
+  <a href="#eligibility-for-a-recommendation-panel" class="md-nav__link">
     <span class="md-ellipsis">
-      Points to consider before uploading photos
+      Eligibility for a Recommendation Panel
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Points to consider before uploading photos">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-implement-a-new-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to Implement a New Panel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps to Implement a New Panel">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-photos-are-important-on-open-food-facts" class="md-nav__link">
+  <a href="#step-1-add-properties-to-the-category-taxonomy" class="md-nav__link">
     <span class="md-ellipsis">
-      Why photos are important on Open Food Facts
+      Step 1: Add Properties to the Category Taxonomy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Add Properties to the Category Taxonomy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-eu-tobacco-health-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: EU Tobacco Health Warning
     </span>
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#image-license" class="md-nav__link">
+  <a href="#step-2-add-the-display-strings" class="md-nav__link">
     <span class="md-ellipsis">
-      Image license
+      Step 2: Add the Display Strings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2: Add the Display Strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-strings-for-the-tobacco-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Strings for the Tobacco Warning
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#image-quality" class="md-nav__link">
-    <span class="md-ellipsis">
-      Image Quality
-    </span>
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#upload-behavior" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-creating-country-specific-recommendations" class="md-nav__link">
     <span class="md-ellipsis">
-      Upload Behavior
+      (Optional) Creating Country-Specific Recommendations
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="(Optional) Creating Country-Specific Recommendations">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#label-languages" class="md-nav__link">
+  <a href="#example-french-specific-tobacco-warning" class="md-nav__link">
     <span class="md-ellipsis">
-      Label Languages
+      Example: French-Specific Tobacco Warning
     </span>
   </a>
   
@@ -2159,71 +2171,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
+  <a href="#final-check" class="md-nav__link">
     <span class="md-ellipsis">
-      Authentication
+      Final Check
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parameters
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#imagefield" class="md-nav__link">
-    <span class="md-ellipsis">
-      Imagefield
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#imageupload" class="md-nav__link">
-    <span class="md-ellipsis">
-      ImageUpload
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#describing-the-post-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      Describing the Post Request
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#upload-photo-of-a-product" class="md-nav__link">
-    <span class="md-ellipsis">
-      Upload Photo of a Product
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2243,7 +2195,7 @@
 
 
   
-    <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/main/docs/api/tutorial-uploading-photo-to-a-product.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/openfoodfacts/openfoodfacts-server/edit/main/docs/dev/how-to-add-generic-recommendation-panel.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2251,125 +2203,119 @@
   
 
 
-<h1 id="tutorial-on-uploading-images-to-the-open-food-facts-api">Tutorial on uploading images to the Open Food Facts API<a class="headerlink" href="#tutorial-on-uploading-images-to-the-open-food-facts-api" title="Permanent link">#</a></h1>
-<p>This basic tutorial shows you how to upload an image of a product to the Open Food Facts API.</p>
-<p>Be sure to also read the <a href="../">introduction to the API</a></p>
-<h2 id="points-to-consider-before-uploading-photos">Points to consider before uploading photos<a class="headerlink" href="#points-to-consider-before-uploading-photos" title="Permanent link">#</a></h2>
-<h3 id="why-photos-are-important-on-open-food-facts">Why photos are important on Open Food Facts<a class="headerlink" href="#why-photos-are-important-on-open-food-facts" title="Permanent link">#</a></h3>
-<ul>
-<li>Photos are source and proof of data.</li>
-<li>They build trust in your edit.</li>
-<li>They are the fastest and easiest way for your users to contribute</li>
-</ul>
-<h3 id="image-license">Image license<a class="headerlink" href="#image-license" title="Permanent link">#</a></h3>
-<p>Product images must be under the <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Creative Commons Attribution ShareAlike licence</a>.
-If you don't own the image, don't upload it. Do not upload scraped content from the internet. Only upload content taken by final users. If you have content from producers, please get in touch with producers@openfoodfacts.org before any upload.</p>
-<p>That means you should either upload:</p>
-<ul>
-<li>photos that are your own work</li>
-<li>photos taken by your users, with their consent for this license (should be part of your service terms)</li>
-<li>photos already under this license or a compatible license (<a href="https://creativecommons.org/licenses/by/4.0/">cc-by</a>, <a href="https://creativecommons.org/share-your-work/public-domain/cc0/">cc-0</a> or public domain)</li>
-</ul>
-<h3 id="image-quality">Image Quality<a class="headerlink" href="#image-quality" title="Permanent link">#</a></h3>
-<p>Uploading quality photos of a product, its ingredients, and the nutrition table is essential because it enables the Open Food Facts OCR system to retrieve important data to analyze the product. The minimal allowed size for photos is 640 x 160 px.</p>
-<h3 id="upload-behavior">Upload Behavior<a class="headerlink" href="#upload-behavior" title="Permanent link">#</a></h3>
-<p>In case you upload more than one photo of the front, the ingredients, the nutrition facts, or the product packaging components, beware that only the latest "selected" photo of each category will be displayed on the product page on the website and on the mobile application.
-The older ones are saved and can be "selected" by an API call or via the editing interface (website and mobile application).
-You can also upload some photos that are neither of that 4 categories, but they will not be displayed by default. However, all photos will be saved.</p>
-<h3 id="label-languages">Label Languages<a class="headerlink" href="#label-languages" title="Permanent link">#</a></h3>
-<p>Multilingual products have several photos based on the languages present on the packaging. You can specify the language by adding a lang code suffix to the <a href="#Imagefield">image field</a>.</p>
-<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
-<p>The WRITE operations in the Open Food Facts API require authentication. Therefore you need a valid <code>user_id</code>^[user_id_not_email] and <code>password</code> to write the photo to 100% Real Orange Juice.</p>
-<blockquote>
-<p>Sign up on the <a href="https://world.openfoodfacts.org/">Open Food Facts App</a> to get your <code>user_id</code> and <code>password</code> if you dont have one.
-For more details, visit the : <a href="../../#authentication">Authentication paragraph in our introduction</a>.</p>
-</blockquote>
-<p>^[user_id_not_email]: user_id is the username of your account. You must not use your email address.</p>
-<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
-<h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">#</a></h3>
-<p>The barcode of the product.</p>
-<h3 id="imagefield">Imagefield<a class="headerlink" href="#imagefield" title="Permanent link">#</a></h3>
-<p><code>imagefield</code> indicates the type of image you are trying to upload for a particular product. It can be either of these: <code>front</code>, <code>ingredients</code>, <code>nutrition</code>, <code>packaging</code> or <code>other</code>. You can also specify the language in that image by adding a suffix of the language code to the <code>imagefield</code> value. For example — <code>front_en</code>, <code>packaging_fr</code>.</p>
-<h3 id="imageupload">ImageUpload<a class="headerlink" href="#imageupload" title="Permanent link">#</a></h3>
-<p><code>imageupload</code> must contain the binary content of the image. This field name is dependent on the  <code>imagefield</code>.  It must be <code>imgupload_</code> suffixed by the value of the <code>imagefield</code> stated earlier. Here are some examples:</p>
-<ul>
-<li>imgupload_front (if imagefield=front)</li>
-<li>imgupload_ingredients_fr (if imagefield=ingredients_fr)</li>
-<li>imgupload_nutrition (if imagefield=nutrition)</li>
-<li>imgupload_packaging (if imagefield=packaging)</li>
-</ul>
-<h3 id="describing-the-post-request">Describing the Post Request<a class="headerlink" href="#describing-the-post-request" title="Permanent link">#</a></h3>
-<p>To upload photos to a product, make a <code>POST</code> request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_upload.pl"><code>Add a Photo to an Existing Product</code></a> endpoint.</p>
-<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/cgi/product_image_upload.pl
-</code></pre></div>
-<h3 id="upload-photo-of-a-product">Upload Photo of a Product<a class="headerlink" href="#upload-photo-of-a-product" title="Permanent link">#</a></h3>
-<p>Add a <code>user_id</code> and <code>password</code> as body parameters to the request for authentication. The <code>code</code> (barcode of the product to be updated) is required to indicate the product for the uploaded photo. Then, include other product data to be added in the request body.</p>
-<p>To add a new image for ingredients in English  to <em>100% Real Orange Juice</em>, the request body should contain these fields :</p>
+<h1 id="how-to-add-a-generic-recommendation-panel-for-a-category">How to Add a Generic Recommendation Panel for a Category<a class="headerlink" href="#how-to-add-a-generic-recommendation-panel-for-a-category" title="Permanent link">#</a></h1>
+<p>This tutorial explains how to add a new recommendation or warning panel that appears on product pages belonging to a specific category. This panel is displayed based on properties set in the category taxonomy. An example of the final result is shown below:</p>
+<p>These panels are intended for <strong>official, science-based warnings</strong> from recognized public health or government organizations.</p>
+<hr />
+<h2 id="eligibility-for-a-recommendation-panel">Eligibility for a Recommendation Panel<a class="headerlink" href="#eligibility-for-a-recommendation-panel" title="Permanent link">#</a></h2>
+<p>Before adding a panel, ensure the information meets the following criteria:</p>
+<p>* The warning or recommendation must come from an <strong>official source</strong> (e.g., a national health agency, the World Health Organization).
+  * The information must be <strong>science-based</strong> and widely accepted by the scientific community.
+  * A direct link to the source must be provided for verification.</p>
+<hr />
+<h2 id="steps-to-implement-a-new-panel">Steps to Implement a New Panel<a class="headerlink" href="#steps-to-implement-a-new-panel" title="Permanent link">#</a></h2>
+<p>The process involves two main steps: updating the relevant category taxonomy and adding the corresponding text strings for display.</p>
+<h3 id="step-1-add-properties-to-the-category-taxonomy">Step 1: Add Properties to the Category Taxonomy<a class="headerlink" href="#step-1-add-properties-to-the-category-taxonomy" title="Permanent link">#</a></h3>
+<p>You need to edit the taxonomy file for the relevant category (e.g., <code>categories.txt</code>) and add a set of properties to the specific category entry.</p>
+<p>The following properties control the panel's appearance and content:</p>
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th style="text-align: center;">Value</th>
-<th style="text-align: right;">Description</th>
+<th>Property</th>
+<th>Description</th>
+<th>Example Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>user_id</td>
-<td style="text-align: center;">***</td>
-<td style="text-align: right;">A valid user_id</td>
+<td><code>recommendation_panel_id:en</code></td>
+<td>A general identifier for the type of recommendation.</td>
+<td><code>recommendation_health</code></td>
 </tr>
 <tr>
-<td>password</td>
-<td style="text-align: center;">***</td>
-<td style="text-align: right;">A valid password</td>
+<td><code>recommendation_panel_evaluation:en</code></td>
+<td>The evaluation context, which affects the panel's color and icon (e.g., 'bad', 'warning', 'good').</td>
+<td><code>bad</code></td>
 </tr>
 <tr>
-<td>code</td>
-<td style="text-align: center;">0180411000803</td>
-<td style="text-align: right;">The barcode of the product to be added/edited</td>
+<td><code>recommendation_panel_icon:en</code></td>
+<td>The icon to be displayed in the panel header. The icon must exist in the project assets.</td>
+<td><code>arrow-bottom-right-thick.svg</code></td>
 </tr>
 <tr>
-<td>imagefield</td>
-<td style="text-align: center;">ingredients_en</td>
-<td style="text-align: right;">The type of image to be uploaded</td>
+<td><code>recommendation_panel_msgctxt_prefix:en</code></td>
+<td>A unique prefix used to look up the title, subtitle, and text from the translation files.</td>
+<td><code>recommendation_eu_tobacco_health_warning</code></td>
 </tr>
 <tr>
-<td>imgupload_ingredients_en</td>
-<td style="text-align: center;">file</td>
-<td style="text-align: right;">The binary content of the image of the product ingredients in English</td>
+<td><code>recommendation_panel_source_url:en</code></td>
+<td>The full URL to the official source of the information.</td>
+<td><code>https://health.ec.europa.eu/tobacco/product-regulation/health-warnings_en</code></td>
+</tr>
+<tr>
+<td><code>recommendation_panel_source_language:en</code></td>
+<td>The language code of the source URL.</td>
+<td><code>en</code></td>
 </tr>
 </tbody>
 </table>
-<p>If the image is in the <code>images/real-orange-juice-ingredients.jpg</code>, we can use curl (thanks to the special '@' attributes, which enables reading from a file):</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-XPOST<span class="w"> </span>https://world.openfoodfacts.net/cgi/product_image_upload.pl<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-F<span class="w"> </span><span class="nv">user_id</span><span class="o">=</span>your_user_id<span class="w"> </span>-F<span class="w"> </span><span class="nv">password</span><span class="o">=</span>your_password<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-F<span class="w"> </span><span class="nv">code</span><span class="o">=</span><span class="m">0180411000803</span><span class="w"> </span>-F<span class="w"> </span><span class="nv">imagefield</span><span class="o">=</span>ingredients_en<span class="w"> </span>-F<span class="w"> </span><span class="nv">imgupload_ingredients_en</span><span class="o">=</span>@images/real-orange-juice-ingredients.jpg
+<h4 id="example-eu-tobacco-health-warning">Example: EU Tobacco Health Warning<a class="headerlink" href="#example-eu-tobacco-health-warning" title="Permanent link">#</a></h4>
+<p>To add the European Union's official health warning to a "Tobacco" category, you would add the following lines to its entry in the taxonomy file:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="na">recommendation_panel_id</span><span class="o">:</span><span class="s">en: recommendation_health</span>
+<span class="w">    </span><span class="na">recommendation_panel_evaluation</span><span class="o">:</span><span class="s">en: bad</span>
+<span class="w">    </span><span class="na">recommendation_panel_icon</span><span class="o">:</span><span class="s">en: arrow-bottom-right-thick.svg</span>
+<span class="w">    </span><span class="na">recommendation_panel_msgctxt_prefix</span><span class="o">:</span><span class="s">en: recommendation_eu_tobacco_health_warning</span>
+<span class="w">    </span><span class="na">recommendation_panel_source_url</span><span class="o">:</span><span class="s">en: https://health.ec.europa.eu/tobacco/product-regulation/health-warnings_en</span>
+<span class="w">    </span><span class="na">recommendation_panel_source_language</span><span class="o">:</span><span class="s">en: en</span>
 </code></pre></div>
-<p>If the request is successful, it returns a response that indicates that the fields have been saved.
-You will also get the new image id in <code>imgid</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/product/0180411000803/100%-real-orange-juice&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100% Real Orange Juice&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;thumbnailUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/images/products/018/041/100/0803.jpg&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;thumb_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123.100.jpg&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;imgid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;crop_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123.400.jpg&quot;</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;imgid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;status ok&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;imagefield&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ingredients_en&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0180411000803&quot;</span>
-<span class="p">}</span>
+<h3 id="step-2-add-the-display-strings">Step 2: Add the Display Strings<a class="headerlink" href="#step-2-add-the-display-strings" title="Permanent link">#</a></h3>
+<p>The value you set for <code>recommendation_panel_msgctxt_prefix</code> is used to create keys for the text that will be displayed. The system will look for three specific keys derived from this prefix:</p>
+<p>* <code>prefix_title</code>
+  * <code>prefix_subtitle</code>
+  * <code>prefix_text</code></p>
+<p>You must add these entries to the localization files (<code>.po</code> files) so they can be displayed and translated.</p>
+<h4 id="example-strings-for-the-tobacco-warning">Example: Strings for the Tobacco Warning<a class="headerlink" href="#example-strings-for-the-tobacco-warning" title="Permanent link">#</a></h4>
+<p>Using the prefix <code>recommendation_eu_tobacco_health_warning</code> from the previous step, you would add the following to the relevant <code>.po</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="err">    msgctxt &quot;recommendation_eu_tobacco_health_warning_title&quot;</span>
+<span class="err">    msgid &quot;Smoking kills&quot;</span>
+<span class="err">    msgstr &quot;Smoking kills&quot;</span>
+
+<span class="err">    msgctxt &quot;recommendation_eu_tobacco_health_warning_subtitle&quot;</span>
+<span class="err">    msgid &quot;Tobacco seriously damages health. Don&#39;t start or quit now.&quot;</span>
+<span class="err">    msgstr &quot;Tobacco seriously damages health. Don&#39;t start or quit now.&quot;</span>
+
+<span class="err">    msgctxt &quot;recommendation_eu_tobacco_health_warning_text&quot;</span>
+<span class="err">    msgid &quot;Smoking is highly addictive. Don&#39;t start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don&#39;t make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide.&quot;</span>
+<span class="err">    msgstr &quot;Smoking is highly addictive. Don&#39;t start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don&#39;t make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide.&quot;</span>
 </code></pre></div>
-<p>If the request is unsuccessful, the response returns <code>"status": "status not ok"</code> and an explanation in <code>debug</code> field.</p>
+<hr />
+<h2 id="optional-creating-country-specific-recommendations">(Optional) Creating Country-Specific Recommendations<a class="headerlink" href="#optional-creating-country-specific-recommendations" title="Permanent link">#</a></h2>
+<p>To display a specific recommendation for a single country, you can add a country code suffix to the relevant properties. The system will prioritize the country-specific properties over the default ones when viewed by a user from that country.</p>
+<h4 id="example-french-specific-tobacco-warning">Example: French-Specific Tobacco Warning<a class="headerlink" href="#example-french-specific-tobacco-warning" title="Permanent link">#</a></h4>
+<p>To add a different source and set of strings for users in France (country code: <code>fr</code>), you would add the following properties <strong>in addition</strong> to the default ones:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="na">recommendation_panel_msgctxt_prefix_fr</span><span class="o">:</span><span class="s">en: recommendation_eu_tobacco_health_warning_fr</span>
+<span class="w">    </span><span class="na">recommendation_panel_source_url_fr</span><span class="o">:</span><span class="s">en: https://www.tabac-info-service.fr/</span>
+<span class="w">    </span><span class="na">recommendation_panel_source_language_fr</span><span class="o">:</span><span class="s">en: fr</span>
+</code></pre></div>
+<p>You would then need to add the corresponding strings to the <code>.po</code> files using the new prefix:</p>
+<div class="highlight"><pre><span></span><code><span class="err">    msgctxt &quot;recommendation_eu_tobacco_health_warning_fr_title&quot;</span>
+<span class="err">    msgid &quot;Fumer tue&quot;</span>
+<span class="err">    msgstr &quot;Fumer tue&quot;</span>
+
+<span class="err">    msgctxt &quot;recommendation_eu_tobacco_health_warning_fr_subtitle&quot;</span>
+<span class="err">    msgid &quot;Le tabac nuit gravement à votre santé. Ne commencez pas, ou arrêtez maintenant.&quot;</span>
+<span class="err">    msgstr &quot;Le tabac nuit gravement à votre santé. Ne commencez pas, ou arrêtez maintenant.&quot;</span>
+
+<span class="err">    ...etc</span>
+</code></pre></div>
+<hr />
+<h2 id="final-check">Final Check<a class="headerlink" href="#final-check" title="Permanent link">#</a></h2>
+<p>Once you have made these changes:</p>
+<ol>
+<li>Test your implementation locally to ensure the panel appears correctly on the product pages of the targeted category.</li>
+<li>Submit a pull request with your changes to the taxonomy and localization files.</li>
+<li>Clearly explain the official source of the warning in your pull request description.</li>
+</ol>
 
 
 
