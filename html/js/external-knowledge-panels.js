@@ -593,14 +593,16 @@ async function renderPartial(parent, parentAnchor, ctx, onlySet) {
     if (existing) existing.replaceWith(built.el);
     else {
       const extSections = Array.from(document.querySelectorAll(".external-section"));
-      const after = extSections[extSections.length - 1] || parentAnchor;
+      const after = extSections.at(-1) || parentAnchor;
       if (after?.nextSibling) parent.insertBefore(built.el, after.nextSibling);
       else parent.appendChild(built.el);
     }
   }
   const currentVisible = Array.from(document.querySelectorAll(".external-section[id]"))
     .map((el) => {
-      const sid = el.id.replace(/^external_section_/, "");
+      const id = el.id;
+      const prefix = "external_section_";
+      const sid = id.startsWith(prefix) ? id.slice(prefix.length) : id;
       const orig = allPanelsBySection.find((s) => safeId(s.sectionId) === sid);
       return orig ? { sectionId: orig.sectionId, label: orig.label } : null;
     })
@@ -636,10 +638,10 @@ async function renderExternalKnowledgeSections(opts) {
   const parent = parentAnchor.parentNode;
 
   const only = opts?.only;
-  if (!only) {
-    await renderFull(parent, parentAnchor, ctx);
-  } else {
+  if (only) {
     await renderPartial(parent, parentAnchor, ctx, only);
+  } else {
+    await renderFull(parent, parentAnchor, ctx);
   }
 }
 

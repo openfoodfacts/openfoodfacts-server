@@ -497,7 +497,7 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
   const html_external_sources_button =
     '<div><a id="show_external_sources" class="button small round secondary" role="button" tabindex="0" style="display:inline-flex;align-items:center;gap:.35rem;margin-left:.5rem">' +
       '<span class="material-icons size-20">tune</span>' +
-      '<span>External sources</span>' +
+      '<span>' + (lang().external_sources || "External sources") + '</span>' +
     '</a></div>';
 
   const html_external_sources =
@@ -546,7 +546,7 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
       const hasPrefsPanel = $(target_selection_form).find("#user_product_preferences").length > 0;
 
       if (!hasPrefsPanel) {
-        if (typeof displayed_user_product_preferences !== "undefined") {
+        if (displayed_user_product_preferences !== undefined) {
           displayed_user_product_preferences = false;
         }
         display_user_product_preferences(target_selected, target_selection_form, change);
@@ -582,7 +582,7 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
               ' ' + lang().close +
             '</a>' +
           '</div>' +
-          '<h2 style="margin-bottom:1rem;">External sources</h2>' +
+          '<h2 style="margin-bottom:1rem;">' + (lang().external_sources || "External sources") + '</h2>' +
           '<div id="external_panels_prefs" class="v-space-small"></div>' +
         '</div>';
 
@@ -595,13 +595,13 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
         }
       }
 
-      if (!globalThis.renderExternalPanelsOptinPreferences) {
+      if (globalThis.renderExternalPanelsOptinPreferences) {
+        mount();
+      } else {
         const s = document.createElement("script");
         s.src = "/js/dist/external-knowledge-panels.js";
         s.onload = mount;
         document.body.appendChild(s);
-      } else {
-        mount();
       }
 
       $(".show_selected")
