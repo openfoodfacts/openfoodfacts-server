@@ -1573,8 +1573,8 @@ pl: W przypadku pożaru używać… (podać rodzaj sprzętu przeciwpożarowego. 
 pt: Em caso de incêndio\, utilizar… (meios de extinção a especificar pelo produtor. Se a água aumentar os riscos\, acrescentar \"Nunca utilizar água\")., S43
 sk: V prípade požiaru použite… (uved’te presný typ hasiaceho prístroja). (Ak voda zvyšuje riziko\, dodajte – \"Nikdy nehaste vodou\"), S43
 sl: Za gašenje uporabiti… (natančno navesti vrsto gasila in opreme za gašenje. Če voda povečuje nevarnost\, dodati: \"Ne
-nl:In geval van brand… gebruiken (blusmiddelen aan te duiden door de fabrikant. Indien water het risico vergroot toevoegen: \"Nooit water gebruiken\").,S43
-dn:Brug… ved brandslukning (den nøjagtige type brandslukningsudstyr angives af fabrikanten. Såfremt vand ikke må bruges tilføjes: \"Brug ikke vand\").,S43
+nl: In geval van brand… gebruiken (blusmiddelen aan te duiden door de fabrikant. Indien water het risico vergroot toevoegen: \"Nooit water gebruiken\").,S43
+dn: Brug… ved brandslukning (den nøjagtige type brandslukningsudstyr angives af fabrikanten. Såfremt vand ikke må bruges tilføjes: \"Brug ikke vand\").,S43
 sv: Vid brandsläckning använd… (ange lämplig metod. Om vatten ökar riskerna\, lägg till: \"Anväd aldrigvatten\")., S43
 uporabljati vode!\").,S43
 
@@ -1668,7 +1668,7 @@ en: Keep at temperature not exceeding …°C (to be specified by the manufacture
 cs: Uchovávejte při teplotě nepřesahující… °C (specifikuje vý robce), S47
 de: Nicht bei Temperaturen über …°C aufbewahren (vom Hersteller anzugeben)., S47
 dn: Må ikke opbevares ved temperaturer på over …°C (angives af fabrikanten)., S47
-fi:Säilytettävä alle… C:n lämpötilassa (valmistaja/maahantuoja ilmoittaa lämpötilan).,S47
+fi: Säilytettävä alle… C:n lämpötilassa (valmistaja/maahantuoja ilmoittaa lämpötilan).,S47
 el: Να διατηρείται σε θερµοκρασία που δεν υπερβαίνει τους… °C (καθορίζεται από τον παραγωγό), S47
 es: Consérvese a una temperatura no superior a …°C (a especificar por el fabricante)., S47
 et: Hoida temperatuuril mitte üle… °C (määrab valmistaja), S47
@@ -1687,12 +1687,11 @@ sl: Hraniti pri temperaturi\, ki ne presega… °C (temperaturo določi proizvaj
 sv: Förvaras vid en temperatur som inte överstiger …°C (anges av tillverkaren)., S47
 
 en: Keep only in the original container at a temperature not exceeding …°C (to be specified by the manufacturer)., S47/49
-υπερβαίνει τους… °C (καθορίζεται από τον παραγωγό).,S47/49
 cs: Uchovávejte pouze v původním obalu při teplotě nepřesahující… °C (specifikuje vý robce), S47/49
 de: Nur im Originalbehälter bei einer Temperatur von nicht über …°C (vom Hersteller anzugeben) aufbewahren., S47/49
 dn: Må kun opbevares i originalemballagen ved en temperatur på ikke over …°C (angives af fabrikanten)., S47/49
-fi:Säilytettävä alkuperäispakkauksessa alle… °C:n lämpötilassa (valmistaja/maahantuoja ilmoittaa lämpötilan).,S47/49
-el: ∆ιατηρείται µόνο µέσα στο αρχικό δοχείο σε θερµοκρασία που δέν
+fi: Säilytettävä alkuperäispakkauksessa alle… °C:n lämpötilassa (valmistaja/maahantuoja ilmoittaa lämpötilan).,S47/49
+el: ∆ιατηρείται µόνο µέσα στο αρχικό δοχείο σε θερµοκρασία που δέν υπερβαίνει τους… °C (καθορίζεται από τον παραγωγό).,S47/49
 es: Consérvese únicamente en el recipiente de origen y a temperatura no superior a …°C (a especificar por el fabricante)., S47/49
 et: Hoida ainult originaalpakendis\, temperatuuril mitte üle… °C (määrab valmistaja), S47/49
 fr: Conserver uniquement dans le récipient d'origine à une température ne dépassant pas …°C (à préciser par le fabricant)., S47/49
@@ -2035,11 +2034,10 @@ de: Unter Stickstoff aufbewahren., S6.1
 de: Unter Argon aufbewahren., S6.2
 
 en: This material and its container must be disposed of as hazardous waste., S60
-επικίνδυνα απόβλητα.,S60
 cs: Tento materiál a jeho obal musí být zneškodněny jako nebezpečný odpad., S60
 de: Dieses Produkt und sein Behälter sind als gefährlicher Abfall zu entsorgen., S60
 dn: Dette materiale og dets beholder skal bortskaffes som farligt affald., S60
-el: Το υλικό και ο περιέκτης του να θεωρηθούν κατά τη διάθεσή τους
+el: Το υλικό και ο περιέκτης του να θεωρηθούν κατά τη διάθεσή τους επικίνδυνα απόβλητα.,S60
 es: Elimínese el producto y su recipiente como residuos peligrosos., S60
 et: Kemikaal ja tema pakend kõrvaldada kui ohtlikud jäätmed., S60
 fi: Tämä aine ja sen pakkaus on käsiteltävä ongelmajätteenä., S60
@@ -2099,29 +2097,29 @@ it: In caso di ingestione non provocare il vomito: consultare immediatamente il 
 pt: Em caso de ingestão\, não provocar o vómito. Consultar imediatamente um médico e mostrar-lhe a embalagem ou o rótulo., S62
 sk: Pri požití nevyvolávat’ zvracanie; okamžite vyhl’adajte lekársku pomoc a ukážte tento obal alebo označenie, S62
 sv: Vid förtäring\, framkalla ej kräkning. Kontakta genast läkare och visa  denna förpackning eller etiketten., S62
-sl:Po zaužitju ne izzivati bruhanja: takoj poiskati zdravniško pomoč in pokazati embalažo ali etiketo,S62
+sl: Po zaužitju ne izzivati bruhanja: takoj poiskati zdravniško pomoč in pokazati embalažo ali etiketo,S62
 
-en:In case of accident by inhalation: remove casualty to fresh air and keep at rest.,S63
-de:Bei Unfall durch Einatmen: Verunfallten an die frische Luft bringen und ruhigstellen.,S63
+en: In case of accident by inhalation: remove casualty to fresh air and keep at rest.,S63
+de: Bei Unfall durch Einatmen: Verunfallten an die frische Luft bringen und ruhigstellen.,S63
 fr: En cas d'accident par inhalation\, transporter la victime hors de la zone contaminée et la garder au respos., S63
-fi:Jos ainetta on onnettomuuden sattussa hengitetty: siirrä henkilö raittiiseen ilmaan ja pidä hänet levossa.,S63
-el:Σε περίπτωση ατυχήµατος λόγω εισπονής: αποµακρύνετε το θύµα από το µολυσµένο χώρο και αφήστε το να ηρεµήσει,S63
+fi: Jos ainetta on onnettomuuden sattussa hengitetty: siirrä henkilö raittiiseen ilmaan ja pidä hänet levossa.,S63
+el: Σε περίπτωση ατυχήµατος λόγω εισπονής: αποµακρύνετε το θύµα από το µολυσµένο χώρο και αφήστε το να ηρεµήσει,S63
 cs: V případě nehody při vdechnutí přeneste postiženého na čerstvý vzduch a ponechte jej v klidu, S63
-nl:Bij een ongeval door inademing: slachtoffer in de frisse lucht brengen en laten rusten.,S63
+nl: Bij een ongeval door inademing: slachtoffer in de frisse lucht brengen en laten rusten.,S63
 dn: Ved ulykkestilfælde ved indånding bringes tilskadekomne ud i frisk luft og holdes i ro., S63
 es: En caso de accidente por inhalación\, alejar a la víctima de la zonaco ntaminada y mantenerla en reposo., S63
 hu: Belégzés miatt bekövetkező baleset esetén a sérültet friss levego ½re kell vinni és biztosítani kell számára a nyugalmat, S63
 it: In caso di incidente per inalazione\, allontanare l'infortunato dalla zona contaminata e mantenerlo a riposo., S63
 lt: Įkvėpusį ir dėl to blogai pasijutusį nukentėjusi įjį išvesti į gryną orą ir jo netrikdyti, S63
-et:Kemikaali sissehingamisest tingitud õnnetuse puhul: viia kannatanu värske õhu kätte ja asetada pikali,S63
+et: Kemikaali sissehingamisest tingitud õnnetuse puhul: viia kannatanu värske õhu kätte ja asetada pikali,S63
 lv: Ja ieelpots\, pārvietot cietušo svaigā gaisā un noguldīt, S63
 no: Ved uhell ved innånding\, bring den forulykkede ut i frisk luft og hold ham rolig., S63
-mt:F'każ ta' inċident ikkaġunat mix-xamm: ħu l-pazjent fl-arja friska u qiegħdu jistrieħ,S63
+mt: F'każ ta' inċident ikkaġunat mix-xamm: ħu l-pazjent fl-arja friska u qiegħdu jistrieħ,S63
 pl: W przypadku zatrucia drogą oddechową wyprowadzić lub wynieść poszkodowanego na świeże powietrze i zapewnić warunki do odpoczynku, S63
 pt: Em caso de inalação acidental\, remover a vítima da zona contaminada e mantê-la em repouso., S63
 sk: Pri úraze spôsobenom vdýchnutím látky postihnutého vyved’te na čerstvý vzduch a zabezpečte mu kl’ud, S63
 sv: Vid olycksfall via inanding\, flytta den drabbade till frisk luft och låt vila., S63
-sl:V primeru nezgode pri vdihavanju: prizadeto osebo umakniti na svež zrak in pustiti počivati,S63
+sl: V primeru nezgode pri vdihavanju: prizadeto osebo umakniti na svež zrak in pustiti počivati,S63
 
 en: If swallowed\, rinse mouth with water (only if the person is conscious)., S64
 cs: Při požití vypláchněte ústa velkým množstvím vody (pouze je-li postižený při vědomí), S64
@@ -2177,7 +2175,7 @@ nl: Gesloten verpakking bewaren bij een temperatuur beneden …°C (aan te geven
 no: Emballasjen skal holdes tett lukket\, må ikke oppbevares ved en temperatur som er høyere enn …°C (angis av produsent eller importør)., S7/47
 pt: Manter o recipiente bem fechado e conservar a uma temperatura que não exceda …°C (a especificar pelo produtor)., S7/47
 sv: Förpackningen förvaras väl tillsluten vid en temperatur som inte överstiger …°C (anges av tillverkaren)., S7/47
-fi:Säilytettävä tiiviisti suljettuna ja alle… °C:n lämpötilassa (valmistaja/maahantuoja ilmoittaa lampötilan).,S7/47
+fi: Säilytettävä tiiviisti suljettuna ja alle… °C:n lämpötilassa (valmistaja/maahantuoja ilmoittaa lampötilan).,S7/47
 
 en: Keep container tightly closed and dry., S7/8
 cs: Uchovávejte obal těsně uzavřený a suchý , S7/8
