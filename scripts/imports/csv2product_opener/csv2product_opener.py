@@ -110,7 +110,7 @@ password = config.get('auth', 'password', fallback=None)
 
 
 api = API(
-    user_agent="import_from_csv_script - charlesnepote",
+    user_agent="import_from_csv_script - {username}",
     username=username,
     password=password,
     country=getattr(Country, args.country),
