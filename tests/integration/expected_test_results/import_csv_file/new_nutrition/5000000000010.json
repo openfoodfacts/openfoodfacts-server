@@ -445,6 +445,13 @@
                "source_per" : "100ml",
                "unit" : "kJ",
                "value" : 400
+            },
+            "salt" : {
+               "source" : "manufacturer",
+               "source_index" : 1,
+               "source_per" : "1l",
+               "unit" : "g",
+               "value" : 0.5
             }
          },
          "per" : "100ml",
@@ -462,6 +469,20 @@
             },
             "per" : "100ml",
             "per_quantity" : 100,
+            "per_unit" : "ml",
+            "preparation" : "prepared",
+            "source" : "manufacturer"
+         },
+         {
+            "nutrients" : {
+               "salt" : {
+                  "unit" : "mg",
+                  "value" : 5000,
+                  "value_string" : "5000"
+               }
+            },
+            "per" : "1l",
+            "per_quantity" : 1000,
             "per_unit" : "ml",
             "preparation" : "prepared",
             "source" : "manufacturer"

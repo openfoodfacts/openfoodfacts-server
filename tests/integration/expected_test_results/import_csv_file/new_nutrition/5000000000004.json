@@ -441,14 +441,14 @@
                "source_index" : 0,
                "source_per" : "serving",
                "unit" : "g",
-               "value" : 100000
+               "value" : 100
             },
             "saturated-fat" : {
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "serving",
                "unit" : "g",
-               "value" : 50000
+               "value" : 50
             }
          },
          "per" : "100g",
@@ -458,12 +458,12 @@
          {
             "nutrients" : {
                "salt" : {
-                  "unit" : "g",
+                  "unit" : "mg",
                   "value" : 10000,
                   "value_string" : "10000"
                },
                "saturated-fat" : {
-                  "unit" : "g",
+                  "unit" : "mg",
                   "value" : 5000,
                   "value_string" : "5000"
                }
