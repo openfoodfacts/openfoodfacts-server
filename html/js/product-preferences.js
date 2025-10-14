@@ -298,193 +298,194 @@ let displayed_user_product_preferences = false;
 
 function display_user_product_preferences(target_selected, target_selection_form, change) {
 
-    // Retrieve all the supported attribute groups from the server, unless we have them already
+  if (attribute_groups) {
+    // continue
+  } else {
+    $.getJSON("/api/v3.4/attribute_groups", function (data) {
+      attribute_groups = data.attribute_groups;
+      display_user_product_preferences(target_selected, target_selection_form, change);
+    });
 
-    if (!attribute_groups) {
+    return;
+  }
 
-        $.getJSON("/api/v3.4/attribute_groups", function(data) {
+  if (preferences) {
+    // continue
+  } else {
+    $.getJSON("/api/v3.4/preferences", function (data) {
+      preferences = data.preferences;
+      display_user_product_preferences(target_selected, target_selection_form, change);
+    });
+    return;
+  }
 
-            attribute_groups = data.attribute_groups;
-            display_user_product_preferences(target_selected, target_selection_form, change);
-        });
+  if (attribute_groups && preferences && !displayed_user_product_preferences) {
+    displayed_user_product_preferences = true;
 
-        return;
-    }
+    let user_product_preferences = get_user_product_preferences();
+    const attribute_groups_html = [];
 
-    if (!preferences) {
+    $.each(attribute_groups, function (key, attribute_group) {
+      let attribute_group_html =
+        "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group accordion-navigation'>" +
+        "<a href='#attribute_group_" + attribute_group.id + "_a' style='color:black;'>" +
+        "<span class='attribute_group_name'>" + attribute_group.name + "</span></a>" +
+        "<div id='attribute_group_" + attribute_group.id + "_a' class='content active'>";
 
-        $.getJSON("/api/v3.4/preferences", function(data) {
+      if (attribute_group.warning) {
+        attribute_group_html += "<div class='alert-box warning attribute_group_warning'>" + attribute_group.warning + "</div>";
+      }
 
-            preferences = data.preferences;
-            display_user_product_preferences(target_selected, target_selection_form, change);
-        });
+      attribute_group_html += "<ul style='list-style-type: none'>";
 
-        return;
-    }
+      $.each(attribute_group.attributes, function (akey, attribute) {
+        let attribute_name_and_parameters_html = "";
 
-    if (attribute_groups && preferences && !displayed_user_product_preferences) {
-
-        displayed_user_product_preferences = true;
-
-        let user_product_preferences = get_user_product_preferences();
-
-        const attribute_groups_html = [];
-
-        // Iterate over attribute groups
-        $.each(attribute_groups, function(key, attribute_group) {
-
-            let attribute_group_html = "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group accordion-navigation'>" +
-                "<a href='#attribute_group_" + attribute_group.id + "_a' style='color:black;'>" +
-                "<span class='attribute_group_name'>" + attribute_group.name + "</span></a>"
-                // I can't get the dynamically created accordion to work, making all content active until we find a way to make it work
-                +
-                "<div id='attribute_group_" + attribute_group.id + "_a' class='content active'>";
-
-            if (attribute_group.warning) {
-                attribute_group_html += "<div class='alert-box warning attribute_group_warning'>" + attribute_group.warning + "</div>";
-            }
-
-            attribute_group_html += "<ul style='list-style-type: none'>";
-
-            // Iterate over attributes
-
-            $.each(attribute_group.attributes, function(key, attribute) {
-
-                let attribute_name_and_parameters_html = '';
-
-                if (attribute.id == "unwanted_ingredients") {
-
-                    // Record that we have the unwanted ingredients attribute, so that we can initialize tagify on the input field once it's added to the DOM
-                    attribute_unwanted_ingredients_enabled = true;
-
-                    // We pass an empty input, as we will fill it later with the local ingredient names corresponding to the canonical ingredient tags we have in local storage
-
-                    attribute_name_and_parameters_html = `
-                    <div style="display: flex; flex-direction: column; align-items: flex-start;width: 100%;">
-                        <label for="attribute_unwanted_ingredients_names">
-                            <span class='attribute_name' style="margin-bottom: 0.5rem;">${attribute.setting_name}</span>
-                        </label>
-                        <input type="text" name="attribute_unwanted_ingredients_names" id="attribute_unwanted_ingredients_names" class="text" placeholder="Enter ingredients you cannot or do not want to eat" value="" data-autocomplete="/api/v3/taxonomy_suggestions?tagtype=ingredients" style="width: 100%;"/>
-                    </div>
-                `;
-                }
-                else {
-                    attribute_name_and_parameters_html = "<span class='attribute_name'>" + attribute.setting_name + "</span>";
-                }
-
-                attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'>" +
-                    "<fieldset class='fieldset_attribute_group' style='margin:0;padding:0;border:none'>" +
-                    "<div class='attribute_img'><div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>" +
-                    attribute_name_and_parameters_html +
-                    "</div>" +
-                    "<div class='attribute_group'>";
-
-                $.each(preferences, function(key, preference) {
-
-                    let checked = '';
-
-                    if ((!user_product_preferences[attribute.id] && preference.id == "not_important") || (user_product_preferences[attribute.id] == preference.id)) {
-                        checked = ' checked';
-                    }
-
-                    attribute_group_html += "<div class='attribute_item'><input class='attribute_radio' id='attribute_" + attribute.id + "_" + preference.id +
-                        "' value='" + preference.id + "' type='radio' name='" + attribute.id + "'" + checked + ">" +
-                        "<label for='attribute_" + attribute.id + "_" + preference.id + "'>" + preference.name + "</label>" +
-                        "</input></div>";
-                });
-
-                if (attribute.description_short) {
-                    attribute_group_html += "<p class='attribute_description_short'>" + attribute.description_short + "</p>";
-                }
-
-                attribute_group_html += "<hr style='clear:left;border:none;margin:0;margin-bottom:0.5rem;padding:0;'>";
-
-                attribute_group_html += "</div></fieldset></li>";
-            });
-
-            attribute_group_html += "</ul></div></li>";
-
-            attribute_groups_html.push(attribute_group_html);
-        });
-
-		$(target_selection_form).html(
-			'<div class="panel callout">'
-			+ '<div class="edit_button close_food_preferences">'
-			+ '<a class="show_selected button small success round" role="button" tabindex="0">'
-			+ '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">'
-			+ " " + lang().close + '</a></div>'
-			+ "<h2>" + lang().preferences_edit_your_preferences + "</h2>"
-			+ "<p>" + lang().preferences_locally_saved + "</p>"
-			+ generate_preferences_switch_button(lang().classify_products_according_to_your_preferences, "preferences_switch_in_preferences")
-			+ '<a id="reset_preferences_button" class="button small round success" role="button" tabindex="0">' + lang().reset_preferences + '</a>'
-			+ ' ' + reset_message
-			+ '<ul id="user_product_preferences" class="accordion" data-accordion>'
-			+ attribute_groups_html.join( "" )
-			+ '</ul>'
-			+ '<br><br>'
-			+ '<div class="edit_button close_food_preferences">'
-			+ '<a class="show_selected button small round success" role="button" tabindex="0">'
-			+ '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">'
-			+ " " + lang().close + '</a></div><br><br>'
-			+ '</div>'
-		);
-
-		activate_preferences_switch_buttons(change);
-
-        $(".attribute_radio").change(function() {
-            if (this.checked) {
-
-                user_product_preferences[this.name] = $("input[name='" + this.name + "']:checked").val();
-                localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
-
-                display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
-
-                // Call the change callback if we have one (e.g. to update search results)
-                if (change) {
-                    change();
-                }
-            }
-        });
-
-        if (target_selected) {
-            display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
+        if (attribute.id === "unwanted_ingredients") {
+          attribute_unwanted_ingredients_enabled = true;
+          attribute_name_and_parameters_html =
+            '<div style="display: flex; flex-direction: column; align-items: flex-start;width: 100%;">' +
+              '<label for="attribute_unwanted_ingredients_names">' +
+                "<span class='attribute_name' style=\"margin-bottom: 0.5rem;\">" + attribute.setting_name + "</span>" +
+              "</label>" +
+              '<input type="text" name="attribute_unwanted_ingredients_names" id="attribute_unwanted_ingredients_names" ' +
+                'class="text" ' +
+                'placeholder="Enter ingredients you cannot or do not want to eat" ' +
+                'value="" ' +
+                'data-autocomplete="/api/v3/taxonomy_suggestions?tagtype=ingredients" ' +
+                'style="width: 100%;"/>' +
+            "</div>";
+        } else {
+          attribute_name_and_parameters_html = "<span class='attribute_name'>" + attribute.setting_name + "</span>";
         }
 
-		$( "#reset_preferences_button").on("click", function() {
-			user_product_preferences = default_preferences;
-			localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
+        attribute_group_html +=
+          "<li id='attribute_" + attribute.id + "' class='attribute'>" +
+          "<fieldset class='fieldset_attribute_group' style='margin:0;padding:0;border:none'>" +
+          "<div class='attribute_img'><div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>" +
+          attribute_name_and_parameters_html +
+          "</div>" +
+          "<div class='attribute_group'>";
 
-			// Redisplay user preferences
-			displayed_user_product_preferences = false;
-			display_user_product_preferences(target_selected, target_selection_form, change);
+        $.each(preferences, function (pkey, preference) {
+          let checked = "";
+          if (
+            (!user_product_preferences[attribute.id] && preference.id === "not_important") ||
+            (user_product_preferences[attribute.id] === preference.id)
+          ) {
+            checked = " checked";
+          }
 
-			// Call the change callback if we have one (e.g. to update search results)
-			if (change) {
-				change();
-			}
-		});
-
-		$("#reset_preferences_button").on('keydown', (event) => {
-			if (event.key === 'Space' || event.key === 'Enter') {
-				$("#reset_preferences_button").trigger("click");
-			}
-		});
-
-        $(".show_selected").on("click", function() {
-            $(target_selection_form).hide();
-            $(target_selected).show();
+          attribute_group_html +=
+            "<div class='attribute_item'><input class='attribute_radio' id='attribute_" + attribute.id + "_" + preference.id +
+            "' value='" + preference.id + "' type='radio' name='" + attribute.id + "'" + checked + ">" +
+            "<label for='attribute_" + attribute.id + "_" + preference.id + "'>" + preference.name + "</label></input></div>";
         });
 
-        $(".show_selected").on('keydown', (event) => {
-            if (event.key === 'Space' || event.key === 'Enter') {
-                $(".show_selected").trigger("click");
-            }
-        });
+        if (attribute.description_short) {
+          attribute_group_html += "<p class='attribute_description_short'>" + attribute.description_short + "</p>";
+        }
 
-        $("#user_product_preferences").foundation();
-        $(document).foundation('equalizer', 'reflow');
+        attribute_group_html += "<hr style='clear:left;border:none;margin:0;margin-bottom:0.5rem;padding:0;'>";
+        attribute_group_html += "</div></fieldset></li>";
+      });
+
+      attribute_group_html += "</ul></div></li>";
+      attribute_groups_html.push(attribute_group_html);
+    });
+
+    $(target_selection_form).html(
+      '<div class="panel callout">' +
+        '<div class="edit_button close_food_preferences">' +
+          '<a class="show_selected button small success round" role="button" tabindex="0">' +
+            '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">' +
+            " " + lang().close +
+          "</a>" +
+        "</div>" +
+        "<h2>" + lang().preferences_edit_your_preferences + "</h2>" +
+        "<p>" + lang().preferences_locally_saved + "</p>" +
+        generate_preferences_switch_button(lang().classify_products_according_to_your_preferences, "preferences_switch_in_preferences") +
+        '<a id="reset_preferences_button" class="button small round success" role="button" tabindex="0">' + lang().reset_preferences + "</a>" +
+        " " + reset_message +
+        '<ul id="user_product_preferences" class="accordion" data-accordion>' +
+          attribute_groups_html.join("") +
+        "</ul>" +
+        "<br><br>" +
+        '<div class="edit_button close_food_preferences">' +
+          '<a class="show_selected button small round success" role="button" tabindex="0">' +
+            '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">' +
+            " " + lang().close +
+          "</a>" +
+        "</div><br><br>" +
+      "</div>"
+    );
+
+    $(".attribute_radio")
+      .off("change.pref")
+      .on("change.pref", function () {
+        if (this.checked) {
+          user_product_preferences[this.name] = $("input[name='" + this.name + "']:checked").val();
+          localStorage.setItem("user_product_preferences", JSON.stringify(user_product_preferences));
+
+          display_use_preferences_switch_and_edit_preferences_button(
+            target_selected,
+            target_selection_form,
+            change
+          );
+
+          if (change) {
+            change();
+          }
+        }
+      });
+
+    if (target_selected) {
+      display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
     }
+
+    $("#reset_preferences_button")
+      .off("click.pref")
+      .on("click.pref", function () {
+        user_product_preferences = default_preferences;
+        localStorage.setItem("user_product_preferences", JSON.stringify(user_product_preferences));
+        // force rebuild
+        displayed_user_product_preferences = false;
+        display_user_product_preferences(target_selected, target_selection_form, change);
+        if (change) {
+          change();
+        }
+      });
+
+    $("#reset_preferences_button")
+      .off("keydown.pref")
+      .on("keydown.pref", function (event) {
+        if (event.key === "Space" || event.key === "Enter") {
+          $("#reset_preferences_button").trigger("click.pref");
+        }
+      });
+
+    $(".show_selected")
+      .off("click.prefclose")
+      .on("click.prefclose", function () {
+        $(target_selection_form).hide();
+        $(target_selected).show();
+        display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
+      });
+
+    $(".show_selected")
+      .off("keydown.prefclose")
+      .on("keydown.prefclose", function (event) {
+        if (event.key === "Space" || event.key === "Enter") {
+          $(".show_selected").trigger("click.prefclose");
+        }
+      });
+
+    $("#user_product_preferences").foundation();
+    $(document).foundation("equalizer", "reflow");
+  }
 }
+
+/* eslint func-style: ["error", "declaration", { "allowArrowFunctions": true }] */
 
 function display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change) {
   const html_edit_preferences =
@@ -513,16 +514,27 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
   (function decideExternalBtnVisibility() {
     function hideBtn() {
       const wrap = document.getElementById("external_sources_btn_wrap");
-      if (wrap) wrap.remove();
+      if (wrap) {
+        wrap.remove();
+      }
     }
+
     function decide() {
-      if (typeof window.hasAnyScoppablePanels !== "function") { hideBtn(); return; }
-      window.hasAnyScoppablePanels().then(function(hasAny) {
-        if (!hasAny) hideBtn();
-      }).catch(function(){
+      if (typeof window.hasAnyScoppablePanels !== "function") {
         hideBtn();
-      });
+        return;
+      }
+      window.hasAnyScoppablePanels()
+        .then(function(hasAny) {
+          if (!hasAny) {
+            hideBtn();
+          }
+        })
+        .catch(function() {
+          hideBtn();
+        });
     }
+
     if (typeof window.hasAnyScoppablePanels === "function") {
       decide();
     } else {
@@ -533,221 +545,88 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
     }
   })();
 
-  $("#show_selection_form").off(".prefopen").on("click.prefopen", function () {
-    const hasPrefsPanel = $(target_selection_form).find("#user_product_preferences").length > 0;
-    if (!hasPrefsPanel) {
-      if (typeof displayed_user_product_preferences !== "undefined") {
-        displayed_user_product_preferences = false;
-      }
-      display_user_product_preferences(target_selected, target_selection_form, change);
-    }
-    if (typeof display_unwanted_ingredients_preferences === "function") {
-      display_unwanted_ingredients_preferences();
-    }
-    $(target_selected).hide();
-    $(target_selection_form).show();
-    $(document).foundation('equalizer', 'reflow');
-  });
+  $("#show_selection_form")
+    .off(".prefopen")
+    .on("click.prefopen", function () {
+      const hasPrefsPanel = $(target_selection_form).find("#user_product_preferences").length > 0;
 
-  $("#show_selection_form").off("keydown.prefopen").on("keydown.prefopen", (e) => {
-    if (e.key === "Space" || e.key === "Enter") $("#show_selection_form").trigger("click.prefopen");
-  });
-
-  $("#show_external_sources").off(".extsrc").on("click.extsrc", function () {
-    $(target_selected).hide();
-    const wrapper =
-      '<div class="panel callout" id="external_sources_panel">' +
-        '<div class="edit_button close_food_preferences">' +
-          '<a class="show_selected button small success round" role="button" tabindex="0" style="display:inline-flex;align-items:center;gap:.35rem">' +
-            '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">' +
-            ' ' + lang().close +
-          '</a>' +
-        '</div>' +
-        '<h2 style="margin-bottom:1rem;">External sources</h2>' +
-        '<div id="external_panels_prefs" class="v-space-small"></div>' +
-      '</div>';
-    $(target_selection_form).html(wrapper).show();
-
-    const mount = () => window.renderExternalPanelsOptinPreferences &&
-      window.renderExternalPanelsOptinPreferences(document.getElementById("external_panels_prefs"));
-    if (!window.renderExternalPanelsOptinPreferences) {
-      const s = document.createElement("script");
-      s.src = "/js/dist/external-knowledge-panels.js";
-      s.onload = mount;
-      document.body.appendChild(s);
-    } else {
-      mount();
-    }
-
-    $(".show_selected").off(".extsrcclose").on("click.extsrcclose", function () {
-      $(target_selection_form).hide();
-      $(target_selected).show();
-      display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
-    });
-    $(".show_selected").off("keydown.extsrcclose").on("keydown.extsrcclose", (e) => {
-      if (e.key === "Space" || e.key === "Enter") $(".show_selected").trigger("click.extsrcclose");
-    });
-  });
-}
-
-function display_user_product_preferences(target_selected, target_selection_form, change) {
-
-  if (!attribute_groups) {
-    $.getJSON("/api/v3.4/attribute_groups", function (data) {
-      attribute_groups = data.attribute_groups;
-      display_user_product_preferences(target_selected, target_selection_form, change);
-    });
-    return;
-  }
-
-  if (!preferences) {
-    $.getJSON("/api/v3.4/preferences", function (data) {
-      preferences = data.preferences;
-      display_user_product_preferences(target_selected, target_selection_form, change);
-    });
-    return;
-  }
-
-  if (attribute_groups && preferences && !displayed_user_product_preferences) {
-    displayed_user_product_preferences = true;
-
-    let user_product_preferences = get_user_product_preferences();
-    const attribute_groups_html = [];
-
-    $.each(attribute_groups, function (key, attribute_group) {
-      let attribute_group_html =
-        "<li id='attribute_group_" + attribute_group.id + "' class='attribute_group accordion-navigation'>" +
-        "<a href='#attribute_group_" + attribute_group.id + "_a' style='color:black;'>" +
-        "<span class='attribute_group_name'>" + attribute_group.name + "</span></a>" +
-        "<div id='attribute_group_" + attribute_group.id + "_a' class='content active'>";
-
-      if (attribute_group.warning) {
-        attribute_group_html += "<div class='alert-box warning attribute_group_warning'>" + attribute_group.warning + "</div>";
-      }
-
-      attribute_group_html += "<ul style='list-style-type: none'>";
-
-      $.each(attribute_group.attributes, function (key, attribute) {
-        let attribute_name_and_parameters_html = '';
-
-        if (attribute.id === "unwanted_ingredients") {
-          attribute_unwanted_ingredients_enabled = true;
-          attribute_name_and_parameters_html = `
-            <div style="display: flex; flex-direction: column; align-items: flex-start;width: 100%;">
-              <label for="attribute_unwanted_ingredients_names">
-                <span class='attribute_name' style="margin-bottom: 0.5rem;">${attribute.setting_name}</span>
-              </label>
-              <input type="text" name="attribute_unwanted_ingredients_names" id="attribute_unwanted_ingredients_names"
-                class="text"
-                placeholder="Enter ingredients you cannot or do not want to eat"
-                value=""
-                data-autocomplete="/api/v3/taxonomy_suggestions?tagtype=ingredients"
-                style="width: 100%;"/>
-            </div>`;
-        } else {
-          attribute_name_and_parameters_html = "<span class='attribute_name'>" + attribute.setting_name + "</span>";
+      if (!hasPrefsPanel) {
+        if (typeof displayed_user_product_preferences !== "undefined") {
+          displayed_user_product_preferences = false;
         }
+        display_user_product_preferences(target_selected, target_selection_form, change);
+      }
 
-        attribute_group_html +=
-          "<li id='attribute_" + attribute.id + "' class='attribute'>" +
-          "<fieldset class='fieldset_attribute_group' style='margin:0;padding:0;border:none'>" +
-          "<div class='attribute_img'><div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>" +
-          attribute_name_and_parameters_html +
-          "</div>" +
-          "<div class='attribute_group'>";
+      if (typeof display_unwanted_ingredients_preferences === "function") {
+        display_unwanted_ingredients_preferences();
+      }
 
-        $.each(preferences, function (key, preference) {
-          let checked = '';
-          if ((!user_product_preferences[attribute.id] && preference.id === "not_important") ||
-              (user_product_preferences[attribute.id] === preference.id)) {
-            checked = ' checked';
-          }
+      $(target_selected).hide();
+      $(target_selection_form).show();
+      $(document).foundation("equalizer", "reflow");
+    });
 
-          attribute_group_html +=
-            "<div class='attribute_item'><input class='attribute_radio' id='attribute_" + attribute.id + "_" + preference.id +
-            "' value='" + preference.id + "' type='radio' name='" + attribute.id + "'" + checked + ">" +
-            "<label for='attribute_" + attribute.id + "_" + preference.id + "'>" + preference.name + "</label></input></div>";
+  $("#show_selection_form")
+    .off("keydown.prefopen")
+    .on("keydown.prefopen", function (e) {
+      if (e.key === "Space" || e.key === "Enter") {
+        $("#show_selection_form").trigger("click.prefopen");
+      }
+    });
+
+  $("#show_external_sources")
+    .off(".extsrc")
+    .on("click.extsrc", function () {
+      $(target_selected).hide();
+
+      const wrapper =
+        '<div class="panel callout" id="external_sources_panel">' +
+          '<div class="edit_button close_food_preferences">' +
+            '<a class="show_selected button small success round" role="button" tabindex="0" style="display:inline-flex;align-items:center;gap:.35rem">' +
+              '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">' +
+              ' ' + lang().close +
+            '</a>' +
+          '</div>' +
+          '<h2 style="margin-bottom:1rem;">External sources</h2>' +
+          '<div id="external_panels_prefs" class="v-space-small"></div>' +
+        '</div>';
+
+      $(target_selection_form).html(wrapper).show();
+
+      function mount() {
+        if (window.renderExternalPanelsOptinPreferences) {
+          const el = document.getElementById("external_panels_prefs");
+          window.renderExternalPanelsOptinPreferences(el);
+        }
+      }
+
+      if (!window.renderExternalPanelsOptinPreferences) {
+        const s = document.createElement("script");
+        s.src = "/js/dist/external-knowledge-panels.js";
+        s.onload = mount;
+        document.body.appendChild(s);
+      } else {
+        mount();
+      }
+
+      $(".show_selected")
+        .off(".extsrcclose")
+        .on("click.extsrcclose", function () {
+          $(target_selection_form).hide();
+          $(target_selected).show();
+          display_use_preferences_switch_and_edit_preferences_button(
+            target_selected,
+            target_selection_form,
+            change
+          );
         });
 
-        if (attribute.description_short) {
-          attribute_group_html += "<p class='attribute_description_short'>" + attribute.description_short + "</p>";
-        }
-
-        attribute_group_html += "<hr style='clear:left;border:none;margin:0;margin-bottom:0.5rem;padding:0;'>";
-        attribute_group_html += "</div></fieldset></li>";
-      });
-
-      attribute_group_html += "</ul></div></li>";
-      attribute_groups_html.push(attribute_group_html);
+      $(".show_selected")
+        .off("keydown.extsrcclose")
+        .on("keydown.extsrcclose", function (e) {
+          if (e.key === "Space" || e.key === "Enter") {
+            $(".show_selected").trigger("click.extsrcclose");
+          }
+        });
     });
-
-    $(target_selection_form).html(
-      '<div class="panel callout">' +
-        '<div class="edit_button close_food_preferences">' +
-          '<a class="show_selected button small success round" role="button" tabindex="0">' +
-            '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">' +
-            " " + lang().close +
-          '</a>' +
-        '</div>' +
-        "<h2>" + lang().preferences_edit_your_preferences + "</h2>" +
-        "<p>" + lang().preferences_locally_saved + "</p>" +
-        generate_preferences_switch_button(lang().classify_products_according_to_your_preferences, "preferences_switch_in_preferences") +
-        '<a id="reset_preferences_button" class="button small round success" role="button" tabindex="0">' + lang().reset_preferences + '</a>' +
-        ' ' + reset_message +
-        '<ul id="user_product_preferences" class="accordion" data-accordion>' +
-          attribute_groups_html.join("") +
-        '</ul>' +
-        '<br><br>' +
-        '<div class="edit_button close_food_preferences">' +
-          '<a class="show_selected button small round success" role="button" tabindex="0">' +
-            '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">' +
-            " " + lang().close +
-          '</a>' +
-        '</div><br><br>' +
-      '</div>'
-    );
-
-    $(".attribute_radio").off("change.pref").on("change.pref", function () {
-      if (this.checked) {
-        user_product_preferences[this.name] = $("input[name='" + this.name + "']:checked").val();
-        localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
-        // Re-génère les 2 boutons (utile si un écran liste est branché sur 'change')
-        display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
-        if (change) change();
-      }
-    });
-
-    if (target_selected) {
-      display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
-    }
-
-    $("#reset_preferences_button").off("click.pref").on("click.pref", function () {
-      user_product_preferences = default_preferences;
-      localStorage.setItem('user_product_preferences', JSON.stringify(user_product_preferences));
-      displayed_user_product_preferences = false; // pour forcer la reconstruction
-      display_user_product_preferences(target_selected, target_selection_form, change);
-      if (change) change();
-    });
-
-    $("#reset_preferences_button").off("keydown.pref").on("keydown.pref", (event) => {
-      if (event.key === 'Space' || event.key === 'Enter') {
-        $("#reset_preferences_button").trigger("click.pref");
-      }
-    });
-
-    $(".show_selected").off("click.prefclose").on("click.prefclose", function () {
-      $(target_selection_form).hide();
-      $(target_selected).show();
-      display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
-    });
-
-    $(".show_selected").off("keydown.prefclose").on("keydown.prefclose", (event) => {
-      if (event.key === "Space" || event.key === "Enter") {
-        $(".show_selected").trigger("click.prefclose");
-      }
-    });
-
-    $("#user_product_preferences").foundation();
-    $(document).foundation('equalizer', 'reflow');
-  }
 }
