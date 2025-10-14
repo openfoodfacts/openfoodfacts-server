@@ -515,6 +515,12 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
+my $matomo_site_id = '5';    # Open Food Facts
+
+if ($server_domain eq 'pro.openfoodfacts.org') {
+	$matomo_site_id = '7';    # Pro Platform
+}
+
 $analytics = <<HTML
 <!-- Matomo -->
 <script>
@@ -530,12 +536,12 @@ $analytics = <<HTML
   (function() {
     var u="//analytics.openfoodfacts.org/";
     _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '5']);
+    _paq.push(['setSiteId', '${matomo_site_id}']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=5&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=${matomo_site_id}&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 <!-- End Matomo Code -->
 
 HTML
