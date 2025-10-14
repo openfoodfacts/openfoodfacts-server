@@ -4,6 +4,10 @@
 Convert products from French Reparability indice dataset to Open Food Facts' CSV.
 
 Mapping is read from mapping.csv file.
+
+Script can be tested with:
+echo -e "id_modele,nom_commercial,note_ir\\n1234569990123,Test Product,6.5" | \\
+    python3 ir_data2opf_csv.py
 '''
 
 # /// script
@@ -26,10 +30,13 @@ parser.add_argument('source_csv', nargs='?', default=None, help='Source CSV file
 parser.add_argument('--limit', type=int, default=None, help='Limit the number of products to process')
 args = parser.parse_args()
 
-# Open source CSV from argument or stdin, and check if it exists
+# Open CSV source from file or stdin, and check if it exists
 if args.source_csv:
     if not os.path.isfile(args.source_csv):
         print(f"Error: File '{args.source_csv}' does not exist.", file=sys.stderr)
+        sys.exit(1)
+    if os.path.getsize(args.source_csv) == 0:
+        print("Source CSV is empty.")
         sys.exit(1)
     source = open(args.source_csv, mode='r', encoding='utf-8')
 elif sys.stdin.isatty():
@@ -39,11 +46,6 @@ elif sys.stdin.isatty():
 else:
     source = sys.stdin
 
-# Check if source is empty
-first_char = source.read(1)
-if not first_char:
-    parser.print_help()
-    sys.exit("Source CSV is empty.")
 
 with source, open(MAPPING_CSV, mode='r', encoding='utf-8') as mapping:
     source_reader = csv.DictReader(source)
@@ -83,7 +85,7 @@ with source, open(MAPPING_CSV, mode='r', encoding='utf-8') as mapping:
                 # Don't import row if "id_modele" value isn't an EAN code
                 if target_col == "code":
                     if not (value.isdigit() and (len(value) == 8 or len(value) == 13)):
-                        with open("invalid_rows.log", "a", encoding="utf-8") as log_file:
+                        with open("invalid_rows.log", "w", encoding="utf-8") as log_file:
                             log_file.write(f"Skipping product with invalid EAN code: {value}\n")
                         product = None
                         break
@@ -91,6 +93,11 @@ with source, open(MAPPING_CSV, mode='r', encoding='utf-8') as mapping:
         if product is not None:
             products_to_import.append(product)
     
+    # Exit if no products to import
+    if not products_to_import:
+        print("No products to import.")
+        sys.exit(2)
+
     # Print products as CSV data, limited by --limit flag if provided
     limit = args.limit
 
