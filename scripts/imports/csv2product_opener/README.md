@@ -1,5 +1,3 @@
-# Readme
-
 ## What
 
 Import products from standardized CSV to Open X Facts. By standard we mean that the CSV file should contain fields that are existing in Product Opener:
