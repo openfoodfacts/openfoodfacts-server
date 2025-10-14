@@ -353,6 +353,13 @@ sub filter_out_nutrients_not_in_taxonomy ($product_ref) {
 	# 'en-some-unknown-nutrient_unit' => "g",
 	# 'en-some-unknown-nutrient_value' => 1.23,
 
+	# Extracts the base nutrient name from keys in the nutriments hash.
+	# Matches keys that start with a nutrient name (optionally prefixed with a language code),
+	# followed by an optional suffix (e.g., _100g, _serving, _label, _unit, _value).
+	# Example matches: "fr-nitrate_100g" -> "fr-nitrate", "sulfat_label" -> "sulfat"
+	# Regex breakdown:
+	#   ^([a-z][a-z\-]*[a-z]?)   : captures the base nutrient name (letters and hyphens, possibly with language prefix)
+	#   (?:_\w+)?$               : optionally matches a suffix starting with underscore
 	my %hash_nutrients = map {/^([a-z][a-z\-]*[a-z]?)(?:_\w+)?$/ ? ($1 => 1) : ()} keys %{$product_ref->{nutriments}};
 
 	foreach my $nid (sort keys %hash_nutrients) {
