@@ -89,7 +89,7 @@ sub iter_taxonomy_lines($fd) {
 }
 
 # explicit regexp of the different language variant we got
-my $language_prefix_re = qr/(\w{2,3}|\w{2}[-_]\w{2,3})/;
+my $language_prefix_re = qr/(\w{2,3}(?:[-_]\w{2,4})?)/;
 
 # iter over the taxonomy entry by entry
 # return a ref to a hash map with entry infos
@@ -266,7 +266,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 						severity => "Error",
 						type => "Correctness",
 						line => $line_num,
-						message => "Unknown line type !\n- $line",
+						message => "Unknown line type!\n- $line",
 					}
 				);
 				push @previous_lines, $line;
