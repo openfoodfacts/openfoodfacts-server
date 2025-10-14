@@ -577,7 +577,7 @@ my @tests = (
 	],
 
 	[
-		'1003-to-1002-no-aggregated-set',
+		'1003-to-1002-no-aggregated-set-input-set-per-serving-without-serving-quantity',
 		1002,
 		{
 			"schema_version" => 1003,
