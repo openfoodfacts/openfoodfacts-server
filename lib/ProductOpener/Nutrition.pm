@@ -360,7 +360,7 @@ sub filter_out_nutrients_not_in_taxonomy ($product_ref) {
 		# check that the nutrient exists in the taxonomy
 		my $nutrient_id = "zz:" . $nid;
 		if (not exists_taxonomy_tag("nutrients", $nutrient_id)) {
-			# Check if we can canonicalzie the nid to a known nutrient
+			# Check if we can canonicalize the nid to a known nutrient
 			my $exists_in_taxonomy = 0;
 			my $canonical_nid
 				= canonicalize_taxonomy_tag($product_ref->{lang} || 'en', "nutrients", $nid, \$exists_in_taxonomy);
