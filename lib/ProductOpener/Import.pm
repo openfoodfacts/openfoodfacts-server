@@ -1097,9 +1097,9 @@ sub compare_old_and_new_objects (
 
 =head2 import_nutrients_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time)
 
-Import nutrient values from new fields like nutrition.input_sets.prepared.100ml.nutrients.saturated-fat.value_string
+Import nutrient values from new fields like nutrition.input_sets.packaging.prepared.100ml.nutrients.saturated-fat.value_string
 
-We consider the source to be "packaging" on the public platform, and "manufacturer" on the producers platform
+The sources are specified in the field names, they are imported as is..
 
 =cut
 
@@ -1112,8 +1112,7 @@ sub import_nutrients_fields (
 	# and update $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref accordingly
 	my $old_nutrition_ref = dclone($product_ref->{nutrition} || {});
 
-	my $source = get_source_for_site_and_org($Org_id);
-	assign_nutrition_values_from_imported_csv_product($imported_product_ref, $product_ref, $source);
+	assign_nutrition_values_from_imported_csv_product($imported_product_ref, $product_ref);
 
 	compare_old_and_new_objects(
 		$imported_product_ref->{code}, "nutrition", $old_nutrition_ref,

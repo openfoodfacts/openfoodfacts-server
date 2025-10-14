@@ -201,9 +201,10 @@ sub sort_sets_by_priority (@input_sets) {
 	my %per_priority = (
 		"100g" => 0,
 		"100ml" => 1,
-		"1kg" => 2,
-		serving => 3,
-		_default => 4,
+		"1l" => 2,	# for water
+		"1kg" => 3,	# for pet food
+		serving => 4,
+		_default => 5,
 	);
 
 	my %preparation_priority = (
@@ -624,7 +625,7 @@ List of valid per references for the given product type
 
 sub get_pers_for_product_type ($product_type) {
 
-	my @pers = ("100g", "100ml", "serving");
+	my @pers = ("100g", "100ml", "1l", "serving");
 
 	# Pet food only has "per1kg"
 	if ($product_type eq "petfood") {
@@ -789,7 +790,7 @@ sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $sourc
 
 	deep_set($input_sets_hash_ref, $source, $preparation, $per, "nutrients", $nid, "modifier", $modifier);
 
-	if ($value_string eq '') {
+	if ((defined $value_string) and ($value_string eq '')) {
 		$value_string = undef;
 	}
 
@@ -1100,13 +1101,15 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 	return;
 }
 
-=head2 assign_nutrition_values_from_imported_csv_product ( $imported_csv_product_ref, $product_ref, $nutriment_table, $source )
+=head2 assign_nutrition_values_from_imported_csv_product ( $imported_csv_product_ref, $product_ref, $nutriment_table )
 
 This function is used by Import.pm to import new nutrition data from an imported product (though a CSV file) to an existing product.
 
 It reads the new nutrition data parameters from the imported product, and assigns them to the new product nutrition structure.
 
 Note: the serving_size fields need to be imported first, as we need it to set the per_quantity and per_unit fields of the "serving" input sets.
+
+Note: a source is not specified as argument to this function, as it should be set in the field names.
 
 =head3 Parameters
 
@@ -1130,13 +1133,24 @@ The source of the nutrition data. e.g. "packaging" or "manufacturer"
 
 =cut
 
-sub assign_nutrition_values_from_imported_csv_product ($imported_csv_product_ref, $product_ref, $source) {
+sub assign_nutrition_values_from_imported_csv_product ($imported_csv_product_ref, $product_ref) {
 
 	my @preparations = get_preparations_for_product_type($product_ref->{product_type});
 	my @pers = get_pers_for_product_type($product_ref->{product_type});
 
 	# We use a temporary input sets hash to ease setting values
 	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
+
+	# We identify all the sources included in the imported product fields
+	# We look for fields that start with nutrition.input_sets.${source}.${preparation}.${per}.nutrients.
+	my %sources = ();
+	foreach my $field (keys %{$imported_csv_product_ref}) {
+		if ($field =~ /^nutrition\.input_sets\.([a-zA-Z0-9_-]+)\.([a-z_]+)\.(100g|100ml|1kg|1l|serving)\.nutrients\./) {
+			my $source = $1;
+			$sources{$source} = 1;
+		}
+	}
+	my @sources = sort keys %sources;
 
 	# Assign all the nutrient values
 
@@ -1158,31 +1172,33 @@ sub assign_nutrition_values_from_imported_csv_product ($imported_csv_product_ref
 		# Go through all the possible input sets
 		foreach my $preparation (@preparations) {
 			foreach my $per (@pers) {
+				foreach my $source (@sources) {
 
-				my $input_set_nutrient_id = "nutrition.input_sets.${source}.${preparation}.${per}.nutrients.${nid}";
+					my $input_set_nutrient_id = "nutrition.input_sets.${source}.${preparation}.${per}.nutrients.${nid}";
 
-				my $value_string = $imported_csv_product_ref->{"${input_set_nutrient_id}.value_string"};
+					my $value_string = $imported_csv_product_ref->{"${input_set_nutrient_id}.value_string"};
 
-				($nid eq 'salt') and $log->debug(
-					"imported csv product nutrient value",
-					{
-						input_set_nutrient_id => $input_set_nutrient_id,
-						value_string => $value_string,
-						key => "${input_set_nutrient_id}.value_string"
+					($nid eq 'salt') and $log->debug(
+						"imported csv product nutrient value",
+						{
+							input_set_nutrient_id => $input_set_nutrient_id,
+							value_string => $value_string,
+							key => "${input_set_nutrient_id}.value_string"
+						}
+					) if $log->is_debug();
+
+					if (defined $value_string) {
+
+						$log->debug("imported csv product nutrient value found",
+							{input_set_nutrient_id => $input_set_nutrient_id, value_string => $value_string})
+							if $log->is_debug();
+
+						my $unit = $imported_csv_product_ref->{"${input_set_nutrient_id}.unit"};
+						my $modifier = $imported_csv_product_ref->{"${input_set_nutrient_id}.modifier"};
+						normalize_nutriment_value_and_modifier(\$value_string, \$modifier);
+						assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
+							$per, $nid, $modifier, $value_string, $unit);
 					}
-				) if $log->is_debug();
-
-				if (defined $value_string) {
-
-					$log->debug("imported csv product nutrient value found",
-						{input_set_nutrient_id => $input_set_nutrient_id, value_string => $value_string})
-						if $log->is_debug();
-
-					my $unit = $imported_csv_product_ref->{"${input_set_nutrient_id}_unit"};
-					my $modifier = $imported_csv_product_ref->{"${input_set_nutrient_id}_modifier"};
-					normalize_nutriment_value_and_modifier(\$value_string, \$modifier);
-					assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation, $per,
-						$nid, $modifier, $value_string, $unit);
 				}
 			}
 		}
