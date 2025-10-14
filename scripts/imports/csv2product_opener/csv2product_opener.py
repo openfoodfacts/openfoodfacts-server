@@ -5,21 +5,21 @@ Import products from standardized CSV to Open X Facts. Credentials are read from
 
 Script can be tested with:
 echo -e "code,product_name\\n123456990123,Test Product" | \\
-    python3 csv2product_opener.py --import
+    python3 csv2product_opener.py
 
 or
 
-cat source.csv | csv2product_opener.py --limit 1 --import
+cat source.csv | csv2product_opener.py --limit 1
 
 or
 
-python3 csv2product_opener.py source.csv --limit 1 --import
+python3 csv2product_opener.py source.csv --limit 1
 '''
 
 # /// script
 # requires-python = ">=3.11"
 # dependencies = [
-#     "openfoodfacts",
+#     "openfoodfacts>=3.1.0,<3.2.0",
 # ]
 # ///
 
@@ -46,7 +46,7 @@ parser.add_argument(
     default=None,
     help='Limit the number of products to process')
 parser.add_argument(
-    '--environment',
+    '--environment', '-e',
     choices=['net', 'org'],
     default='net',
     help=(
@@ -64,13 +64,12 @@ parser.add_argument(
     )
 )
 parser.add_argument(
-    '--flavor',
+    '--flavor', '-f',
     choices=['off', 'opf', 'obf', 'opff'],
-    default='opf',
-    help='Open Food Facts API flavor to use: "off", "opf" (default), "obf", or "opff"'
+    help='Open Food Facts API flavor to use: "off", "opf", "obf", or "opff"'
 )
 parser.add_argument('--import', dest='do_import', action='store_true', 
-    help='Actually import products to OpenFoodFacts')
+    help='Actually import products (process is a dry run if missing)')
 args = parser.parse_args()
 
 
@@ -80,6 +79,12 @@ limit = args.limit
 # Check if there is data to read (from file or stdin), else print help and exit
 if not args.csv_file and sys.stdin.isatty():
     parser.print_help()
+    sys.exit(1)
+
+# If environment is "net", ensure flavor is not "opf", "obf", or "opff"
+if args.environment == 'net' and args.flavor in ['opf', 'obf', 'opff']:
+    print('Error: "opf", "obf", and "opff" flavors are not supported with "net" default environment.')
+    print('Please try "-?" for help.' )
     sys.exit(1)
 
 # Read CSV file from stdin or file argument
