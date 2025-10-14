@@ -34,7 +34,7 @@ const availabilityCache = new Map();
  * @returns {string} A sanitized id-safe slug.
  */
 function safeId(str) {
-  return String(str).toLowerCase().replace(/[^a-z0-9_-]/g, "-"); // NOSONAR
+  return String(str).toLowerCase().replace(/[^a-z0-9_-]/g, "-"); // NOSONAR (regex replace, replaceAll not applicable)
 }
 
 /**
@@ -44,9 +44,7 @@ function safeId(str) {
  * @returns {string} Human readable section label.
  */
 function prettySectionName(sectionId) {
-  return sectionId
-    .replaceAll("_", " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
+  return sectionId.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 /**
@@ -56,36 +54,36 @@ function prettySectionName(sectionId) {
  * @returns {string} Localized string for the given key or the key name if missing.
  */
 function t(key, lc) {
-  const lng = (lc ?? window.productData?.language ?? "en").slice(0, 2);
+  const lng = (lc ?? globalThis.productData?.language ?? "en").slice(0, 2);
   const dict = {
     en: {
       external_panels: "External Knowledge Panels",
       external_sources: "External sources",
       provided_by: "Provided by",
       panel_unavailable: "Panel unavailable",
-      panel_unavailable_for_product: "Panel unavailable for this product"
+      panel_unavailable_for_product: "Panel unavailable for this product",
     },
     fr: {
       external_panels: "Panneaux d’information externes",
       external_sources: "Sources externes",
       provided_by: "Fourni par",
       panel_unavailable: "Panneau indisponible",
-      panel_unavailable_for_product: "Panneau indisponible pour ce produit"
+      panel_unavailable_for_product: "Panneau indisponible pour ce produit",
     },
     es: {
       external_panels: "Paneles de información externos",
       external_sources: "Fuentes externas",
       provided_by: "Proporcionado por",
       panel_unavailable: "Panel no disponible",
-      panel_unavailable_for_product: "Panel no disponible para este producto"
+      panel_unavailable_for_product: "Panel no disponible para este producto",
     },
     de: {
       external_panels: "Externe Informations-Panels",
       external_sources: "Externe Quellen",
       provided_by: "Bereitgestellt von",
       panel_unavailable: "Panel nicht verfügbar",
-      panel_unavailable_for_product: "Panel für dieses Produkt nicht verfügbar"
-    }
+      panel_unavailable_for_product: "Panel für dieses Produkt nicht verfügbar",
+    },
   };
   return dict[lng]?.[key] ?? dict.en[key] ?? key;
 }
@@ -98,7 +96,7 @@ function t(key, lc) {
  * @returns {boolean} True if the panel is opted in.
  */
 function getExternalKnowledgePanelsOptin(sectionId, panelId) {
-  const val = window.localStorage?.getItem?.(`external_panel_${sectionId}_${panelId}`);
+  const val = globalThis.localStorage?.getItem?.(`external_panel_${sectionId}_${panelId}`);
   return val === "true";
 }
 
@@ -110,9 +108,9 @@ function getExternalKnowledgePanelsOptin(sectionId, panelId) {
  * @returns {void}
  */
 function setExternalKnowledgePanelsOptin(sectionId, panelId, enabled) {
-  window.localStorage.setItem(
+  globalThis.localStorage.setItem(
     `external_panel_${sectionId}_${panelId}`,
-    enabled ? "true" : "false"
+    enabled ? "true" : "false",
   );
 }
 
@@ -140,8 +138,8 @@ function interpolateUrl(urlTemplate, productData) {
  */
 function canSeeByScope(panel) {
   const scope = panel.scope || "public";
-  const isModerator = window?.isModerator === 1;
-  const isUser = Number(window?.isUser) === 1;
+  const isModerator = globalThis?.isModerator === 1;
+  const isUser = Number(globalThis?.isUser) === 1;
 
   return (
     scope === "public" ||
@@ -165,11 +163,9 @@ function matchesFilters(panel, ctx, opts) {
 
   const catOk = ignoreCategory
     ? true
-    : (!f.categories?.length || f.categories.some((c) => ctx.categories.includes(c)));
-  const countryOk =
-    !f.countries?.length || (ctx.country ? f.countries.includes(ctx.country) : true);
-  const langOk =
-    !f.languages?.length || (ctx.language ? f.languages.includes(ctx.language) : true);
+    : !f.categories?.length || f.categories.some((c) => ctx.categories.includes(c));
+  const countryOk = !f.countries?.length || (ctx.country ? f.countries.includes(ctx.country) : true);
+  const langOk = !f.languages?.length || (ctx.language ? f.languages.includes(ctx.language) : true);
   const typeOk =
     !f.product_types?.length || (ctx.product_type ? f.product_types.includes(ctx.product_type) : true);
 
@@ -202,9 +198,8 @@ async function isPanelAvailable(url) {
   if (!url) return true;
 
   if (availabilityCache.has(url)) {
-    const hit = availabilityCache.get(url);
-    if (hit && hit.status === 404) return false;
-    return true;
+    const status = availabilityCache.get(url)?.status;
+    return status !== 404;
   }
 
   try {
@@ -218,7 +213,8 @@ async function isPanelAvailable(url) {
       return true;
     }
   } catch (e) {
-    // ignore network error, try GET
+    // eslint-disable-next-line no-console
+    console.debug("HEAD check failed for external panel", { url, error: e });
   }
 
   try {
@@ -231,7 +227,8 @@ async function isPanelAvailable(url) {
       availabilityCache.set(url, { checkedAt: Date.now(), status: get.status });
     }
   } catch (e) {
-    // ignore final network error, treat as available
+    // eslint-disable-next-line no-console
+    console.debug("GET check failed for external panel, treating as available", { url, error: e });
   }
 
   return true;
@@ -242,18 +239,19 @@ async function isPanelAvailable(url) {
  * @returns {Promise<void>} Resolves when mapping is ready.
  */
 async function loadPanelsMapping() {
-  const lc = window.productData?.language ?? "en";
+  const lc = globalThis.productData?.language ?? "en";
   const resp = await fetch(`/api/v3/external_sources?lc=${encodeURIComponent(lc)}`);
   if (!resp.ok) throw new Error("Failed to load external sources");
 
   const raw = await resp.json();
 
   // Flexible parsing: array or wrapped {status, external_sources, errors}
-  const sources = Array.isArray(raw)
-    ? raw
-    : Array.isArray(raw?.external_sources)
-      ? raw.external_sources
-      : [];
+  let sources = [];
+  if (Array.isArray(raw)) {
+    sources = raw;
+  } else if (Array.isArray(raw?.external_sources)) {
+    sources = raw.external_sources;
+  } // else keep []
 
   const sections = [];
   const sectionMap = Object.create(null);
@@ -277,8 +275,7 @@ async function loadPanelsMapping() {
  * @returns {void}
  */
 function clearExternalSections() {
-  const nodes = document.querySelectorAll(".external-section");
-  for (const el of nodes) el.remove();
+  for (const el of document.querySelectorAll(".external-section")) el.remove();
 }
 
 /**
@@ -292,8 +289,9 @@ function syncNavbarExternalSections(visibleSectionsOrdered) {
   const navbar = document.querySelector("#navbar ul.inline-list");
   if (!navbar) return;
 
-  const toRemove = navbar.querySelectorAll("a[href^='#external_section_']");
-  for (const link of toRemove) link.parentElement?.remove();
+  for (const link of navbar.querySelectorAll("a[href^='#external_section_']")) {
+    link.parentElement?.remove();
+  }
 
   const after =
     navbar.querySelector('[href="#environment"]')?.parentElement ??
@@ -349,34 +347,32 @@ function enableSmoothScrollAndHighlight() {
         e.preventDefault();
         target.scrollIntoView({ behavior: "smooth" });
 
-        const links = this.querySelectorAll(".nav-link");
-        for (const l of links) l.classList.remove("active");
+        for (const l of this.querySelectorAll(".nav-link")) l.classList.remove("active");
         a.classList.add("active");
       }
     });
     navbar.dataset.smoothBound = "1";
   }
 
-  if (!window.scrollSpyBoundExtPanels) {
-    window.addEventListener(
+  if (!globalThis.scrollSpyBoundExtPanels) {
+    globalThis.addEventListener(
       "scroll",
       function () {
         const sections = Array.from(document.querySelectorAll("section[id]"));
-        const scrollY = window.scrollY + 100;
+        const scrollY = globalThis.scrollY + 100;
         let currentId = "";
         for (const section of sections) {
           if (section.offsetTop <= scrollY) currentId = section.id;
         }
         if (currentId) {
-          const links = navbar.querySelectorAll(".nav-link");
-          for (const link of links) {
+          for (const link of navbar.querySelectorAll(".nav-link")) {
             link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
           }
         }
       },
-      { passive: true }
+      { passive: true },
     );
-    window.scrollSpyBoundExtPanels = true;
+    globalThis.scrollSpyBoundExtPanels = true;
   }
 }
 
@@ -387,7 +383,9 @@ function enableSmoothScrollAndHighlight() {
 function ensureMapping() {
   if (allPanelsBySection.length) return Promise.resolve();
   if (mappingPromise) return mappingPromise;
-  mappingPromise = loadPanelsMapping().finally(() => { mappingPromise = null; });
+  mappingPromise = loadPanelsMapping().finally(() => {
+    mappingPromise = null;
+  });
   return mappingPromise;
 }
 
@@ -400,8 +398,7 @@ function ensureMapping() {
  */
 function appendProvidedByInline(summaryEl, panel, language) {
   const providedByText =
-    (typeof window.lang === "function" && lang().provided_by) ||
-    t("provided_by", language ?? window.productData?.language ?? "en");
+    (typeof globalThis.lang === "function" && lang().provided_by) || t("provided_by", language);
 
   const sep = document.createElement("span");
   sep.className = "provider-sep";
@@ -425,6 +422,20 @@ function appendProvidedByInline(summaryEl, panel, language) {
     small.appendChild(spanName);
   }
   summaryEl.appendChild(small);
+}
+
+/**
+ * Build and append the inner content of a provider card when available.
+ * @param {HTMLElement} details
+ * @param {string} url
+ * @returns {void}
+ */
+function appendKnowledgePanel(details, url) {
+  const kp = document.createElement("knowledge-panels");
+  kp.setAttribute("url", url);
+  kp.setAttribute("path", "panels");
+  kp.setAttribute("heading-level", "h4");
+  details.appendChild(kp);
 }
 
 /**
@@ -494,7 +505,7 @@ async function buildSectionElement(section, ctx) {
     }
 
     if (panel.provider_website || panel.provider_name) {
-      appendProvidedByInline(summary, panel, window.productData?.language);
+      appendProvidedByInline(summary, panel, globalThis.productData?.language);
     }
 
     const arrow = document.createElement("span");
@@ -508,29 +519,25 @@ async function buildSectionElement(section, ctx) {
     hr.className = "provider-separator";
     details.appendChild(hr);
 
-    const url = interpolateUrl(panel.knowledge_panel_url, window.productData || {});
+    const url = interpolateUrl(panel.knowledge_panel_url, globalThis.productData || {});
     const key = `${section.sectionId}::${panel.id}`;
 
-    /* eslint-disable no-await-in-loop */
+    // eslint-disable-next-line no-await-in-loop
     const available = availabilityCache.has(url)
       ? availabilityCache.get(url).status !== 404
       : await isPanelAvailable(url);
-    /* eslint-enable no-await-in-loop */
 
-    if (available) {
-      notFoundPanels.delete(key);
-      const knowledgePanel = document.createElement("knowledge-panels");
-      knowledgePanel.setAttribute("url", url);
-      knowledgePanel.setAttribute("path", "panels");
-      knowledgePanel.setAttribute("heading-level", "h4");
-      details.appendChild(knowledgePanel);
-      hasAnyRenderedPanel = true;
-    } else {
+    if (!available) {
       notFoundPanels.add(key);
+      // skip rendering this provider entirely
+      continue;
     }
 
+    notFoundPanels.delete(key);
+    appendKnowledgePanel(details, url);
     providerCard.appendChild(details);
-    if (available) cardSection.appendChild(providerCard);
+    cardSection.appendChild(providerCard);
+    hasAnyRenderedPanel = true;
   }
 
   if (!hasAnyRenderedPanel) {
@@ -586,7 +593,7 @@ async function renderPartial(parent, parentAnchor, ctx, onlySet) {
     if (existing) existing.replaceWith(built.el);
     else {
       const extSections = Array.from(document.querySelectorAll(".external-section"));
-      const after = extSections.at(-1) || parentAnchor;
+      const after = extSections[extSections.length - 1] || parentAnchor;
       if (after?.nextSibling) parent.insertBefore(built.el, after.nextSibling);
       else parent.appendChild(built.el);
     }
@@ -613,7 +620,7 @@ async function renderPartial(parent, parentAnchor, ctx, onlySet) {
 async function renderExternalKnowledgeSections(opts) {
   await ensureMapping();
 
-  const { categories, country, language, product_type } = window.productData || {};
+  const { categories, country, language, product_type } = globalThis.productData || {};
   const ctx = { categories: categories || [], country, language, product_type };
 
   const parentAnchor =
@@ -622,6 +629,7 @@ async function renderExternalKnowledgeSections(opts) {
     document.querySelector("section.row");
 
   if (!parentAnchor?.parentNode) {
+    // eslint-disable-next-line no-console
     console.error("Cannot find anchor section to insert external panels");
     return;
   }
@@ -633,6 +641,82 @@ async function renderExternalKnowledgeSections(opts) {
   } else {
     await renderPartial(parent, parentAnchor, ctx, only);
   }
+}
+
+/**
+ * Build one preference row for a single panel.
+ * Adds availability and category-mismatch notices.
+ * @param {Object} section
+ * @param {Object} panel
+ * @param {Object} ctx
+ * @param {string} language
+ * @returns {HTMLElement} row element
+ */
+function buildPreferenceRow(section, panel, ctx, language) {
+  const row = document.createElement("div");
+  row.setAttribute("style", "margin-bottom:1em;padding:1em;background:#fff;border-radius:10px;");
+
+  const labelEl = document.createElement("label");
+  labelEl.setAttribute("style", "display:flex;gap:.75em;align-items:flex-start;");
+
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.className = "optin_external_panel";
+  checkbox.dataset.panelId = String(panel.id);
+  checkbox.dataset.sectionId = String(section.sectionId);
+  checkbox.checked = getExternalKnowledgePanelsOptin(section.sectionId, panel.id);
+  labelEl.appendChild(checkbox);
+
+  if (panel.icon_url) {
+    const icon = document.createElement("img");
+    icon.src = panel.icon_url;
+    icon.alt = panel.provider_name || panel.name || "";
+    icon.setAttribute(
+      "style",
+      "width:22px;height:22px;object-fit:contain;border-radius:50%;background:#fff;margin-top:2px;",
+    );
+    labelEl.appendChild(icon);
+  }
+
+  const textWrap = document.createElement("span");
+  const mainText = document.createElement("span");
+  mainText.textContent = panel.description || panel.name || "";
+  textWrap.appendChild(mainText);
+
+  if (panel.provider_website || panel.provider_name) {
+    appendProvidedByInline(textWrap, panel, language);
+  }
+
+  // Availability notice when checked but 404
+  const key = `${section.sectionId}::${panel.id}`;
+  if (checkbox.checked && notFoundPanels.has(key)) {
+    const msg = (typeof globalThis.lang === "function" && lang().external_panel_unavailable) || t("panel_unavailable", language);
+    const warn = document.createElement("span");
+    warn.className = "external-panel-unavailable";
+    warn.setAttribute("style", "margin-left:.5rem;font-size:.9em;color:#b20000;");
+    warn.textContent = `— ${msg}`;
+    textWrap.appendChild(document.createTextNode(" "));
+    textWrap.appendChild(warn);
+  }
+
+  // Category mismatch notice for the list only
+  const f = panel.filters || {};
+  const categoryMatches = !f.categories?.length || f.categories.some((c) => ctx.categories.includes(c));
+  if (!categoryMatches) {
+    const msgCat =
+      (typeof globalThis.lang === "function" && lang().external_panel_unavailable_for_product) ||
+      t("panel_unavailable_for_product", language);
+    const warnCat = document.createElement("span");
+    warnCat.className = "external-panel-unavailable-for-product";
+    warnCat.setAttribute("style", "margin-left:.5rem;font-size:.9em;color:#b20000;");
+    warnCat.textContent = `— ${msgCat}`;
+    textWrap.appendChild(document.createTextNode(" "));
+    textWrap.appendChild(warnCat);
+  }
+
+  labelEl.appendChild(textWrap);
+  row.appendChild(labelEl);
+  return row;
 }
 
 /**
@@ -648,22 +732,19 @@ function renderExternalPanelsOptinPreferences(container) {
   if (!container) return;
 
   ensureMapping().then(function onReady() {
-    const { categories, country, language, product_type } = window.productData || {};
+    const { categories, country, language, product_type } = globalThis.productData || {};
     const ctx = { categories: categories || [], country, language, product_type };
 
     let anyItem = false;
 
     const card = document.createElement("div");
     card.className = "card";
-    card.setAttribute(
-      "style",
-      "background:#fff;margin-top:2em;margin-bottom:2em;padding:2em 2em 1em 2em;"
-    );
+    card.setAttribute("style", "background:#fff;margin-top:2em;margin-bottom:2em;padding:2em 2em 1em 2em;");
 
     for (const section of allPanelsBySection) {
       // Relax category only for the list
       const scoppablePanels = section.panels.filter(
-        (panel) => canSeeByScope(panel) && matchesFilters(panel, ctx, { ignoreCategory: true })
+        (panel) => canSeeByScope(panel) && matchesFilters(panel, ctx, { ignoreCategory: true }),
       );
       if (!scoppablePanels.length) continue;
 
@@ -679,99 +760,29 @@ function renderExternalPanelsOptinPreferences(container) {
       sectionWrap.appendChild(h3);
 
       for (const panel of scoppablePanels) {
-        const row = document.createElement("div");
-        row.setAttribute(
-          "style",
-          "margin-bottom:1em;padding:1em;background:#fff;border-radius:10px;"
-        );
-
-        const labelEl = document.createElement("label");
-        labelEl.setAttribute("style", "display:flex;gap:.75em;align-items:flex-start;");
-
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.className = "optin_external_panel";
-        checkbox.dataset.panelId = String(panel.id);
-        checkbox.dataset.sectionId = String(section.sectionId);
-        checkbox.checked = getExternalKnowledgePanelsOptin(section.sectionId, panel.id);
-        labelEl.appendChild(checkbox);
-
-        if (panel.icon_url) {
-          const icon = document.createElement("img");
-          icon.src = panel.icon_url;
-          icon.alt = panel.provider_name || panel.name || "";
-          icon.setAttribute(
-            "style",
-            "width:22px;height:22px;object-fit:contain;border-radius:50%;background:#fff;margin-top:2px;"
-          );
-          labelEl.appendChild(icon);
-        }
-
-        const textWrap = document.createElement("span");
-        const mainText = document.createElement("span");
-        mainText.textContent = panel.description || panel.name || "";
-        textWrap.appendChild(mainText);
-
-        if (panel.provider_website || panel.provider_name) {
-          appendProvidedByInline(textWrap, panel, language);
-        }
-
-        // Availability notice when checked but 404
-        const key = `${section.sectionId}::${panel.id}`;
-        if (checkbox.checked && notFoundPanels.has(key)) {
-          const msg =
-            (typeof window.lang === "function" && lang().external_panel_unavailable) ||
-            t("panel_unavailable", language);
-          const warn = document.createElement("span");
-          warn.className = "external-panel-unavailable";
-          warn.setAttribute("style", "margin-left:.5rem;font-size:.9em;color:#b20000;");
-          warn.textContent = `— ${msg}`;
-          textWrap.appendChild(document.createTextNode(" "));
-          textWrap.appendChild(warn);
-        }
-
-        // Category mismatch notice for the list only
-        const f = panel.filters || {};
-        const categoryMatches =
-          !f.categories?.length || f.categories.some((c) => ctx.categories.includes(c));
-        if (!categoryMatches) {
-          const msgCat =
-            (typeof window.lang === "function" &&
-              lang().external_panel_unavailable_for_product) ||
-            t("panel_unavailable_for_product", language);
-          const warnCat = document.createElement("span");
-          warnCat.className = "external-panel-unavailable-for-product";
-          warnCat.setAttribute("style", "margin-left:.5rem;font-size:.9em;color:#b20000;");
-          warnCat.textContent = `— ${msgCat}`;
-          textWrap.appendChild(document.createTextNode(" "));
-          textWrap.appendChild(warnCat);
-        }
-
-        labelEl.appendChild(textWrap);
-        row.appendChild(labelEl);
+        const row = buildPreferenceRow(section, panel, ctx, language);
         sectionWrap.appendChild(row);
       }
 
       card.appendChild(sectionWrap);
     }
 
-    if (!anyItem) {
+    if (anyItem) {
+      container.style.display = "";
+      container.innerHTML = "";
+      container.appendChild(card);
+
+      const cbs = container.querySelectorAll?.(".optin_external_panel") ?? [];
+      for (const cb of cbs) {
+        cb.addEventListener("change", async function onChange() {
+          setExternalKnowledgePanelsOptin(this.dataset?.sectionId, this.dataset?.panelId, this.checked);
+          await renderExternalKnowledgeSections({ only: new Set([this.dataset?.sectionId]) });
+          renderExternalPanelsOptinPreferences(container);
+        });
+      }
+    } else {
       container.innerHTML = "";
       container.style.display = "none";
-      return;
-    }
-
-    container.style.display = "";
-    container.innerHTML = "";
-    container.appendChild(card);
-
-    const cbs = container.querySelectorAll?.(".optin_external_panel") ?? [];
-    for (const cb of cbs) {
-      cb.addEventListener("change", async function onChange() {
-        setExternalKnowledgePanelsOptin(this.dataset?.sectionId, this.dataset?.panelId, this.checked);
-        await renderExternalKnowledgeSections({ only: new Set([this.dataset?.sectionId]) });
-        renderExternalPanelsOptinPreferences(container);
-      });
     }
   });
 }
@@ -784,12 +795,12 @@ function renderExternalPanelsOptinPreferences(container) {
  */
 async function hasAnyScoppablePanels() {
   await ensureMapping();
-  const pd = window.productData || {};
+  const pd = globalThis.productData || {};
   const ctx = {
     categories: Array.isArray(pd.categories) ? pd.categories : [],
     country: pd.country,
     language: pd.language,
-    product_type: pd.product_type
+    product_type: pd.product_type,
   };
 
   for (const section of allPanelsBySection) {
@@ -802,12 +813,12 @@ async function hasAnyScoppablePanels() {
   return false;
 }
 
-window.hasAnyScoppablePanels = hasAnyScoppablePanels;
-window.renderExternalPanelsOptinPreferences = renderExternalPanelsOptinPreferences;
-window.ensureMapping = ensureMapping;
-window.allPanelsBySection = allPanelsBySection;
-window.canSeeByScope = canSeeByScope;
-window.matchesFilters = matchesFilters;
+globalThis.hasAnyScoppablePanels = hasAnyScoppablePanels;
+globalThis.renderExternalPanelsOptinPreferences = renderExternalPanelsOptinPreferences;
+globalThis.ensureMapping = ensureMapping;
+globalThis.allPanelsBySection = allPanelsBySection;
+globalThis.canSeeByScope = canSeeByScope;
+globalThis.matchesFilters = matchesFilters;
 
 document.addEventListener("DOMContentLoaded", () => {
   renderExternalKnowledgeSections();
