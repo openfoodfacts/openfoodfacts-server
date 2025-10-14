@@ -331,37 +331,44 @@ sub filter_out_nutrients_not_in_taxonomy ($product_ref) {
 	return if not defined $nutriments_ref;
 
 	# # unknown nutrient prefixed with language
-	# 'fr-nitrate' => 0.38,
-	# 'fr-nitrate_100g' => 0.38,
-	# 'fr-nitrate_label' => "Nitrate",
-	# 'fr-nitrate_serving' => 0.0038,
-	# 'fr-nitrate_unit' => "g",
-	# 'fr-nitrate_value' => 0.38,
+=head2 filter_out_nutrients_not_in_taxonomy
 
-	# # unknown nutrient not prefixed with language (old fields)
-	# 'sulfat' => 0.0141,
-	# 'sulfat_100g' => 0.0141,
-	# 'sulfat_label' => "Sulfat",
-	# 'sulfat_serving' => 0.141,
-	# 'sulfat_unit' => "mg",
-	# 'sulfat_value' => 14.1,
+Removes nutrients from the product's C<nutriments> hash that are not present in the taxonomy.
 
-	# # unknown nutrient that is not in the taxonomy
-	# 'en-some-unknown-nutrient' => 1.23,
-	# 'en-some-unknown-nutrient_100g' => 1.23,
-	# 'en-some-unknown-nutrient_label' => "Some unknown nutrient",
-	# 'en-some-unknown-nutrient_unit' => "g",
-	# 'en-some-unknown-nutrient_value' => 1.23,
+=head3 Example input data
 
-	# Extracts the base nutrient name from keys in the nutriments hash.
-	# Matches keys that start with a nutrient name (optionally prefixed with a language code),
-	# followed by an optional suffix (e.g., _100g, _serving, _label, _unit, _value).
-	# Example matches: "fr-nitrate_100g" -> "fr-nitrate", "sulfat_label" -> "sulfat"
-	# Regex breakdown:
-	#   ^([a-z][a-z\-]*[a-z]?)   : captures the base nutrient name (letters and hyphens, possibly with language prefix)
-	#   (?:_\w+)?$               : optionally matches a suffix starting with underscore
-	my %hash_nutrients = map {/^([a-z][a-z\-]*[a-z]?)(?:_\w+)?$/ ? ($1 => 1) : ()} keys %{$product_ref->{nutriments}};
+The following are examples of unknown nutrients that may be present in the C<nutriments> hash:
 
+  # unknown nutrient prefixed with language
+  'fr-nitrate' => 0.38,
+  'fr-nitrate_100g' => 0.38,
+  'fr-nitrate_label' => "Nitrate",
+  'fr-nitrate_serving' => 0.0038,
+  'fr-nitrate_unit' => "g",
+  'fr-nitrate_value' => 0.38,
+
+  # unknown nutrient not prefixed with language (old fields)
+  'sulfat' => 0.0141,
+  'sulfat_100g' => 0.0141,
+  'sulfat_label' => "Sulfat",
+  'sulfat_serving' => 0.141,
+  'sulfat_unit' => "mg",
+  'sulfat_value' => 14.1,
+
+  # unknown nutrient that is not in the taxonomy
+  'en-some-unknown-nutrient' => 1.23,
+  'en-some-unknown-nutrient_100g' => 1.23,
+  'en-some-unknown-nutrient_label' => "Some unknown nutrient",
+  'en-some-unknown-nutrient_unit' => "g",
+  'en-some-unknown-nutrient_value' => 1.23,
+
+=cut
+
+sub filter_out_nutrients_not_in_taxonomy ($product_ref) {
+
+	my $nutriments_ref = $product_ref->{nutriments};
+
+	return if not defined $nutriments_ref;
 	foreach my $nid (sort keys %hash_nutrients) {
 
 		# check that the nutrient exists in the taxonomy
