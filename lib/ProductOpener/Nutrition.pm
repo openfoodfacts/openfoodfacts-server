@@ -308,7 +308,7 @@ sub convert_nutrient_to_100g ($nutrient_ref, $original_per, $original_per_quanti
 	return;
 }
 
-=head2 filter_out_nutrients_not_in_taxonomy
+=head2 filter_out_nutrients_not_in_taxonomy ($product_ref)
 
 In the old nutrition facts schema (2025 and before), we authorized users to add any nutrient they wanted, even if they did not exist in the taxonomy.
 In the new nutrition facts schema, we only authorize nutrients that exist in the taxonomy.
@@ -321,17 +321,6 @@ It then filters out nutrients that do not exist in the taxonomy and that could n
 =head4 $product_ref
 
 Reference to the product hash
-
-=cut
-
-sub filter_out_nutrients_not_in_taxonomy ($product_ref) {
-
-	my $nutriments_ref = $product_ref->{nutriments};
-
-	return if not defined $nutriments_ref;
-
-	# # unknown nutrient prefixed with language
-=head2 filter_out_nutrients_not_in_taxonomy
 
 Removes nutrients from the product's C<nutriments> hash that are not present in the taxonomy.
 
@@ -369,6 +358,9 @@ sub filter_out_nutrients_not_in_taxonomy ($product_ref) {
 	my $nutriments_ref = $product_ref->{nutriments};
 
 	return if not defined $nutriments_ref;
+
+	my %hash_nutrients = map {/^([a-z][a-z\-]*[a-z]?)(?:_\w+)?$/ ? ($1 => 1) : ()} keys %{$product_ref->{nutriments}};
+
 	foreach my $nid (sort keys %hash_nutrients) {
 
 		# check that the nutrient exists in the taxonomy
