@@ -395,7 +395,8 @@ If the test fail, the test reference will be output in the C<diag>
 
 sub compare_to_expected_results ($object_ref, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
-	my $json = JSON->new->allow_nonref->canonical;
+	# Make sure we include convert_blessed to cater for blessed objects, like booleans
+	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical;
 
 	my $desc = undef;
 	if (defined $test_ref) {
