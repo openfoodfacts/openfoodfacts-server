@@ -513,29 +513,24 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
 
   (function decideExternalBtnVisibility() {
     function hideBtn() {
-      const wrap = document.getElementById("external_sources_btn_wrap");
-      if (wrap) {
-        wrap.remove();
-      }
+      document.getElementById("external_sources_btn_wrap")?.remove();
     }
 
     function decide() {
-      if (typeof window.hasAnyScoppablePanels !== "function") {
+      if (typeof globalThis.hasAnyScoppablePanels !== "function") {
         hideBtn();
         return;
       }
-      window.hasAnyScoppablePanels()
+      globalThis.hasAnyScoppablePanels()
         .then(function(hasAny) {
-          if (!hasAny) {
-            hideBtn();
-          }
+          if (!hasAny) hideBtn();
         })
         .catch(function() {
           hideBtn();
         });
     }
 
-    if (typeof window.hasAnyScoppablePanels === "function") {
+    if (typeof globalThis.hasAnyScoppablePanels === "function") {
       decide();
     } else {
       const script = document.createElement("script");
@@ -594,13 +589,13 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
       $(target_selection_form).html(wrapper).show();
 
       function mount() {
-        if (window.renderExternalPanelsOptinPreferences) {
+        if (globalThis.renderExternalPanelsOptinPreferences) {
           const el = document.getElementById("external_panels_prefs");
-          window.renderExternalPanelsOptinPreferences(el);
+          globalThis.renderExternalPanelsOptinPreferences(el);
         }
       }
 
-      if (!window.renderExternalPanelsOptinPreferences) {
+      if (!globalThis.renderExternalPanelsOptinPreferences) {
         const s = document.createElement("script");
         s.src = "/js/dist/external-knowledge-panels.js";
         s.onload = mount;

@@ -1,4 +1,4 @@
-/* eslint-env browser, es2021 */
+/* eslint-env browser, es2022 */
 /* global lang */
 /* eslint valid-jsdoc: "error" */
 /* exported renderExternalPanelsOptinPreferences */
@@ -54,7 +54,7 @@ function prettySectionName(sectionId) {
  * @returns {string} Localized string for the given key or the key name if missing.
  */
 function t(key, lc) {
-  const lng = (lc || window.productData?.language || "en").slice(0, 2);
+  const lng = (lc || globalThis.productData?.language || "en").slice(0, 2);
   const dict = {
     en: {
       external_panels: "External Knowledge Panels",
@@ -96,8 +96,7 @@ function t(key, lc) {
  * @returns {boolean} True if the panel is opted in.
  */
 function getExternalKnowledgePanelsOptin(sectionId, panelId) {
-  const val = window.localStorage.getItem(`external_panel_${sectionId}_${panelId}`);
-
+  const val = globalThis.localStorage.getItem(`external_panel_${sectionId}_${panelId}`);
   return val === "true";
 }
 
@@ -109,7 +108,7 @@ function getExternalKnowledgePanelsOptin(sectionId, panelId) {
  * @returns {void}
  */
 function setExternalKnowledgePanelsOptin(sectionId, panelId, enabled) {
-  window.localStorage.setItem(
+  globalThis.localStorage.setItem(
     `external_panel_${sectionId}_${panelId}`,
     enabled ? "true" : "false"
   );
@@ -139,8 +138,8 @@ function interpolateUrl(urlTemplate, productData) {
  */
 function canSeeByScope(panel) {
   const scope = panel.scope || "public";
-  const isModerator = window.isModerator === 1;
-  const isUser = Number(window.isUser) === 1;
+  const isModerator = globalThis.isModerator === 1;
+  const isUser = Number(globalThis.isUser) === 1;
 
   return (
     scope === "public" ||
@@ -198,16 +197,11 @@ function isPanelVisible(sectionId, panel, ctx) {
  * @returns {Promise<boolean>} Resolves true if available (non-404 or opaque), false if 404.
  */
 async function isPanelAvailable(url) {
-  if (!url) {
-    return true;
-  }
+  if (!url) return true;
 
   if (availabilityCache.has(url)) {
     const hit = availabilityCache.get(url);
-    if (hit && hit.status === 404) {
-      return false;
-    }
-    return true;
+    return !(hit && hit.status === 404);
   }
 
   try {
@@ -221,7 +215,7 @@ async function isPanelAvailable(url) {
       return true;
     }
   } catch (e) {
-    // ignore network error, try GET
+    if (globalThis.console?.debug) console.debug("isPanelAvailable HEAD failed", e);
   }
 
   try {
@@ -234,7 +228,7 @@ async function isPanelAvailable(url) {
       availabilityCache.set(url, { checkedAt: Date.now(), status: get.status });
     }
   } catch (e) {
-    // ignore final network error, treat as available
+    if (globalThis.console?.debug) console.debug("isPanelAvailable GET failed", e);
   }
 
   return true;
@@ -245,19 +239,17 @@ async function isPanelAvailable(url) {
  * @returns {Promise<void>} Resolves when mapping is ready.
  */
 async function loadPanelsMapping() {
-  const lc = window.productData?.language || "en";
+  const lc = globalThis.productData?.language || "en";
   const resp = await fetch(`/api/v3/external_sources?lc=${encodeURIComponent(lc)}`);
-  if (!resp.ok) {
-    throw new Error("Failed to load external sources");
-  }
+  if (!resp.ok) throw new Error("Failed to load external sources");
   const raw = await resp.json();
 
-  // Flexible parsing: array or wrapped {status, external_sources, errors}
-  const sources = Array.isArray(raw)
-    ? raw
-    : Array.isArray(raw?.external_sources)
-      ? raw.external_sources
-      : [];
+  let sources = [];
+  if (Array.isArray(raw)) {
+    sources = raw;
+  } else if (raw && Array.isArray(raw.external_sources)) {
+    sources = raw.external_sources;
+  }
 
   const sections = [];
   const sectionMap = Object.create(null);
@@ -281,10 +273,7 @@ async function loadPanelsMapping() {
  * @returns {void}
  */
 function clearExternalSections() {
-  const nodes = document.querySelectorAll(".external-section");
-  for (const el of nodes) {
-    el.remove();
-  }
+  for (const el of document.querySelectorAll(".external-section")) el.remove();
 }
 
 /**
@@ -296,22 +285,16 @@ function clearExternalSections() {
  */
 function syncNavbarExternalSections(visibleSectionsOrdered) {
   const navbar = document.querySelector("#navbar ul.inline-list");
-  if (!navbar) {
-    return;
-  }
+  if (!navbar) return;
 
-  const toRemove = navbar.querySelectorAll("a[href^='#external_section_']");
-  for (const link of toRemove) {
-    const li = link.parentElement;
-    if (li) {
-      li.remove();
-    }
+  for (const link of navbar.querySelectorAll("a[href^='#external_section_']")) {
+    link.parentElement?.remove();
   }
 
   const after =
-    navbar.querySelector('[href="#environment"]')?.parentElement ||
-    navbar.querySelector('[href="#match"]')?.parentElement ||
-    navbar.querySelector('[href="#product"]')?.parentElement ||
+    navbar.querySelector('[href="#environment"]')?.parentElement ??
+    navbar.querySelector('[href="#match"]')?.parentElement ??
+    navbar.querySelector('[href="#product"]')?.parentElement ??
     null;
 
   let insertAfter = after;
@@ -349,53 +332,42 @@ function syncNavbarExternalSections(visibleSectionsOrdered) {
  */
 function enableSmoothScrollAndHighlight() {
   const navbar = document.querySelector("#navbar ul.inline-list");
-  if (!navbar) {
-    return;
-  }
+  if (!navbar) return;
 
   if (!navbar.dataset.smoothBound) {
     navbar.addEventListener("click", function (e) {
       const a = e.target.closest("a.nav-link");
-      if (!a || !this.contains(a)) {
-        return;
-      }
+      if (!a || !this.contains(a)) return;
       const hash = a.getAttribute("href");
       if (hash && hash.startsWith("#") && document.querySelector(hash)) {
         e.preventDefault();
         document.querySelector(hash).scrollIntoView({ behavior: "smooth" });
-
-        const links = this.querySelectorAll(".nav-link");
-        for (const l of links) {
-          l.classList.remove("active");
-        }
+        for (const l of this.querySelectorAll(".nav-link")) l.classList.remove("active");
         a.classList.add("active");
       }
     });
     navbar.dataset.smoothBound = "1";
   }
 
-  if (!window.scrollSpyBoundExtPanels) {
-    window.addEventListener(
+  if (!globalThis.scrollSpyBoundExtPanels) {
+    globalThis.addEventListener(
       "scroll",
       function () {
         const sections = Array.from(document.querySelectorAll("section[id]"));
-        const scrollY = window.scrollY + 100;
+        const scrollY = globalThis.scrollY + 100;
         let currentId = "";
         for (const section of sections) {
-          if (section.offsetTop <= scrollY) {
-            currentId = section.id;
-          }
+          if (section.offsetTop <= scrollY) currentId = section.id;
         }
         if (currentId) {
-          const links = navbar.querySelectorAll(".nav-link");
-          for (const link of links) {
+          for (const link of navbar.querySelectorAll(".nav-link")) {
             link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
           }
         }
       },
       { passive: true }
     );
-    window.scrollSpyBoundExtPanels = true;
+    globalThis.scrollSpyBoundExtPanels = true;
   }
 }
 
@@ -404,12 +376,8 @@ function enableSmoothScrollAndHighlight() {
  * @returns {Promise<void>} Resolves when mapping is available.
  */
 function ensureMapping() {
-  if (allPanelsBySection.length) {
-    return Promise.resolve();
-  }
-  if (mappingPromise) {
-    return mappingPromise;
-  }
+  if (allPanelsBySection.length) return Promise.resolve();
+  if (mappingPromise) return mappingPromise;
   mappingPromise = loadPanelsMapping().finally(() => {
     mappingPromise = null;
   });
@@ -485,8 +453,8 @@ async function buildSectionElement(section, ctx) {
     // Provided by …
     if (panel.provider_website || panel.provider_name) {
       const providedByText =
-        (typeof window.lang === "function" && lang().provided_by) ||
-        t("provided_by", (window.productData && window.productData.language) || "en");
+        (typeof globalThis.lang === "function" && lang().provided_by) ||
+        t("provided_by", (globalThis.productData && globalThis.productData.language) || "en");
 
       const sep = document.createElement("span");
       sep.className = "provider-sep";
@@ -497,7 +465,7 @@ async function buildSectionElement(section, ctx) {
       small.className = "provider-by";
       small.textContent = providedByText + " ";
 
-      if (panel.provider_website && (/^https?:\/\//i).test(panel.provider_website)) {
+      if (panel.provider_website && /^https?:\/\//i.test(panel.provider_website)) {
         const a = document.createElement("a");
         a.href = panel.provider_website;
         a.target = "_blank";
@@ -523,7 +491,7 @@ async function buildSectionElement(section, ctx) {
     hr.className = "provider-separator";
     details.appendChild(hr);
 
-    const url = interpolateUrl(panel.knowledge_panel_url, window.productData || {});
+    const url = interpolateUrl(panel.knowledge_panel_url, globalThis.productData || {});
     const key = `${section.sectionId}::${panel.id}`;
 
     /* eslint-disable no-await-in-loop */
@@ -569,7 +537,7 @@ async function buildSectionElement(section, ctx) {
 async function renderExternalKnowledgeSections(opts) {
   await ensureMapping();
 
-  const { categories, country, language, product_type } = window.productData || {};
+  const { categories, country, language, product_type } = globalThis.productData || {};
   const ctx = { categories: categories || [], country, language, product_type };
 
   const parentAnchor =
@@ -577,9 +545,8 @@ async function renderExternalKnowledgeSections(opts) {
     document.getElementById("match") ||
     document.querySelector("section.row");
 
-  if (!parentAnchor?.parentNode) {
+  if (!(parentAnchor && parentAnchor.parentNode)) {
     console.error("Cannot find anchor section to insert external panels");
-
     return;
   }
   const parent = parentAnchor.parentNode;
@@ -594,10 +561,7 @@ async function renderExternalKnowledgeSections(opts) {
       /* eslint-disable no-await-in-loop */
       const built = await buildSectionElement(section, ctx);
       /* eslint-enable no-await-in-loop */
-
-      if (!built.hasAnyRenderedPanel || !built.el) {
-        continue;
-      }
+      if (!built.hasAnyRenderedPanel || !built.el) continue;
 
       if (insertAfter?.nextSibling) {
         parent.insertBefore(built.el, insertAfter.nextSibling);
@@ -610,16 +574,13 @@ async function renderExternalKnowledgeSections(opts) {
 
     syncNavbarExternalSections(visibleSectionsOrdered);
     enableSmoothScrollAndHighlight();
-
     return;
   }
 
   const only = opts.only;
 
   for (const section of allPanelsBySection) {
-    if (!only.has(section.sectionId)) {
-      continue;
-    }
+    if (!only.has(section.sectionId)) continue;
 
     /* eslint-disable no-await-in-loop */
     const built = await buildSectionElement(section, ctx);
@@ -628,14 +589,12 @@ async function renderExternalKnowledgeSections(opts) {
     const existing = document.getElementById(`external_section_${safeId(section.sectionId)}`);
 
     if (!built.hasAnyRenderedPanel || !built.el) {
-      if (existing) {
-        existing.remove();
-      }
+      if (existing) existing.remove();
     } else if (existing) {
       existing.replaceWith(built.el);
     } else {
       const extSections = Array.from(document.querySelectorAll(".external-section"));
-      const after = extSections[extSections.length - 1] || parentAnchor;
+      const after = extSections.at(-1) || parentAnchor;
       if (after.nextSibling) {
         parent.insertBefore(built.el, after.nextSibling);
       } else {
@@ -646,7 +605,8 @@ async function renderExternalKnowledgeSections(opts) {
 
   const currentVisible = Array.from(document.querySelectorAll(".external-section[id]"))
     .map((el) => {
-      const sid = el.id.replace(/^external_section_/, "");
+      const prefix = "external_section_";
+      const sid = el.id.startsWith(prefix) ? el.id.slice(prefix.length) : el.id;
       const orig = allPanelsBySection.find((s) => safeId(s.sectionId) === sid);
       return orig ? { sectionId: orig.sectionId, label: orig.label } : null;
     })
@@ -666,12 +626,10 @@ async function renderExternalKnowledgeSections(opts) {
  */
 /* eslint-disable complexity */
 function renderExternalPanelsOptinPreferences(container) {
-  if (!container) {
-    return;
-  }
+  if (!container) return;
 
   ensureMapping().then(function onReady() {
-    const { categories, country, language, product_type } = window.productData || {};
+    const { categories, country, language, product_type } = globalThis.productData || {};
     const ctx = { categories: categories || [], country, language, product_type };
 
     let anyItem = false;
@@ -688,9 +646,7 @@ function renderExternalPanelsOptinPreferences(container) {
       const scoppablePanels = section.panels.filter(
         (panel) => canSeeByScope(panel) && matchesFilters(panel, ctx, { ignoreCategory: true })
       );
-      if (!scoppablePanels.length) {
-        continue;
-      }
+      if (!scoppablePanels.length) continue;
 
       anyItem = true;
 
@@ -743,11 +699,11 @@ function renderExternalPanelsOptinPreferences(container) {
 
           const small = document.createElement("small");
           const providedBy =
-            (typeof window.lang === "function" && lang().provided_by) ||
+            (typeof globalThis.lang === "function" && lang().provided_by) ||
             t("provided_by", language);
           small.textContent = providedBy + " ";
 
-          if (panel.provider_website && (/^https?:\/\//i).test(panel.provider_website)) {
+          if (panel.provider_website && /^https?:\/\//i.test(panel.provider_website)) {
             const a = document.createElement("a");
             a.href = panel.provider_website;
             a.target = "_blank";
@@ -766,7 +722,7 @@ function renderExternalPanelsOptinPreferences(container) {
         const key = `${section.sectionId}::${panel.id}`;
         if (checkbox.checked && notFoundPanels.has(key)) {
           const msg =
-            (typeof window.lang === "function" && lang().external_panel_unavailable) ||
+            (typeof globalThis.lang === "function" && lang().external_panel_unavailable) ||
             t("panel_unavailable", language);
           const warn = document.createElement("span");
           warn.className = "external-panel-unavailable";
@@ -782,7 +738,7 @@ function renderExternalPanelsOptinPreferences(container) {
           !f.categories?.length || f.categories.some((c) => ctx.categories.includes(c));
         if (!categoryMatches) {
           const msgCat =
-            (typeof window.lang === "function" &&
+            (typeof globalThis.lang === "function" &&
               lang().external_panel_unavailable_for_product) ||
             t("panel_unavailable_for_product", language);
           const warnCat = document.createElement("span");
@@ -811,8 +767,7 @@ function renderExternalPanelsOptinPreferences(container) {
     container.innerHTML = "";
     container.appendChild(card);
 
-    const cbs = container.querySelectorAll(".optin_external_panel");
-    for (const cb of cbs) {
+    for (const cb of container.querySelectorAll(".optin_external_panel")) {
       cb.addEventListener("change", async function onChange() {
         setExternalKnowledgePanelsOptin(this.dataset.sectionId, this.dataset.panelId, this.checked);
         await renderExternalKnowledgeSections({ only: new Set([this.dataset.sectionId]) });
@@ -830,34 +785,28 @@ function renderExternalPanelsOptinPreferences(container) {
  */
 async function hasAnyScoppablePanels() {
   await ensureMapping();
-  const pd = window.productData || {};
+  const pd = globalThis.productData || {};
   const ctx = {
     categories: Array.isArray(pd.categories) ? pd.categories : [],
     country: pd.country,
     language: pd.language,
     product_type: pd.product_type
   };
-
   for (const section of allPanelsBySection) {
-    if (!section || !Array.isArray(section.panels)) {
-      continue;
-    }
+    if (!section || !Array.isArray(section.panels)) continue;
     for (const p of section.panels) {
-      if (canSeeByScope(p) && matchesFilters(p, ctx, { ignoreCategory: true })) {
-        return true;
-      }
+      if (canSeeByScope(p) && matchesFilters(p, ctx, { ignoreCategory: true })) return true;
     }
   }
-
   return false;
 }
 
-window.hasAnyScoppablePanels = hasAnyScoppablePanels;
-window.renderExternalPanelsOptinPreferences = renderExternalPanelsOptinPreferences;
-window.ensureMapping = ensureMapping;
-window.allPanelsBySection = allPanelsBySection;
-window.canSeeByScope = canSeeByScope;
-window.matchesFilters = matchesFilters;
+globalThis.hasAnyScoppablePanels = hasAnyScoppablePanels;
+globalThis.renderExternalPanelsOptinPreferences = renderExternalPanelsOptinPreferences;
+globalThis.ensureMapping = ensureMapping;
+globalThis.allPanelsBySection = allPanelsBySection;
+globalThis.canSeeByScope = canSeeByScope;
+globalThis.matchesFilters = matchesFilters;
 
 document.addEventListener("DOMContentLoaded", () => {
   renderExternalKnowledgeSections();
