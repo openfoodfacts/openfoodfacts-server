@@ -354,6 +354,14 @@ my %gs1_maps = (
 		"VOLAILLE_FRANCAISE" => "en:french-poultry",
 	},
 
+	# https://gs1.se/en/guides/documentation/code-lists/t4069-preparation-state-code/
+	# Note: there are many other values, but at this point we will just use PREPARED and UNPREPARED,
+	# and see if we do get other values in actual data.
+	preparationStateCode => {
+		"PREPARED" => "prepared",
+		"UNPREPARED" => "as_sold",
+	},
+
 	# https://gs1.se/en/guides/documentation/code-lists/t3783-target-market-country-code/
 	targetMarketCountryCode => {
 		"040" => "en:austria",
@@ -1162,9 +1170,9 @@ sub assign_field ($results_ref, $target_field, $target_value) {
 	return;
 }
 
-sub extract_nutrient_quantity_contained ($type, $per, $results_ref, $nid, $nutrient_detail_ref) {
+sub extract_nutrient_quantity_contained ($preparation, $per, $results_ref, $nid, $nutrient_detail_ref) {
 
-	my $nutrient_field = $nid . $type . "_" . $per;
+	my $nutrient_field = "nutrition.input_sets.manufacturer.$preparation.$per.$nid";
 
 	my $nutrient_value;
 	my $nutrient_unit;
@@ -1205,15 +1213,15 @@ sub extract_nutrient_quantity_contained ($type, $per, $results_ref, $nid, $nutri
 		# energy: based on the nutrient unit, assign the energy-kj or energy-kcal field
 		if ($nid eq "energy") {
 			if ($nutrient_unit eq "kcal") {
-				$nutrient_field = "energy-kcal" . $type . "_" . $per;
+				$nutrient_field =~ s/\.energy$/\.energy-kcal/;
 			}
 			else {
-				$nutrient_field = "energy-kj" . $type . "_" . $per;
+				$nutrient_field =~ s/\.energy$/\.energy-kj/;
 			}
 		}
 
-		assign_field($results_ref, $nutrient_field . "_value", $nutrient_value);
-		assign_field($results_ref, $nutrient_field . "_unit", $nutrient_unit);
+		assign_field($results_ref, $nutrient_field . ".value_string", $nutrient_value);
+		assign_field($results_ref, $nutrient_field . ".unit", $nutrient_unit);
 	}
 	return;
 }
@@ -1367,10 +1375,26 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 
 				foreach my $nutrient_header_ref (@{$json_ref->{$source_field}}) {
 
-					my $type = "";
+					my $preparation = "as_sold";
 
 					if ($nutrient_header_ref->{preparationStateCode} eq "PREPARED") {
-						$type = "_prepared";
+						$preparation = "prepared";
+					}
+
+					my $preparation = $gs1_maps{preparationStateCode}{$nutrient_header_ref->{preparationStateCode}};
+
+					if (not defined $preparation) {
+						$log->error("gs1_to_off - unrecognized preparation state",
+							{code => $results_ref->{code}, nutrient_header_ref => $nutrient_header_ref})
+							if $log->is_error();
+						my $map = "preparationStateCode";
+						my $source_value = $nutrient_header_ref->{preparationStateCode};
+						defined $unknown_entries_in_gs1_maps{$map} or $unknown_entries_in_gs1_maps{$map} = {};
+						defined $unknown_entries_in_gs1_maps{$map}{$source_value}
+							or $unknown_entries_in_gs1_maps{$map}{$source_value} = 0;
+						$unknown_entries_in_gs1_maps{$map}{$source_value}++;
+						# Skip this nutrients table
+						next;
 					}
 
 					my $serving_size_value;
@@ -1468,7 +1492,7 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 							my $nid = $gs1_maps{nutrientTypeCode}{$nutrient_detail_ref->{nutrientTypeCode}};
 
 							if (defined $nid) {
-								extract_nutrient_quantity_contained($type, $per, $results_ref, $nid,
+								extract_nutrient_quantity_contained($preparation, $per, $results_ref, $nid,
 									$nutrient_detail_ref);
 							}
 							else {
