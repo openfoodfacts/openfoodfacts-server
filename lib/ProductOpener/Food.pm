@@ -1933,6 +1933,8 @@ sub has_category_that_should_have_prepared_nutrition_data($product_ref) {
 
 Check that we know or can estimate the nutrients needed to compute the Nutri-Score of the product.
 
+To compute the Nutri-Score, we use the nutrition.aggregated_set 
+
 =head3 Return values
 
 =head4 $nutrients_available 0 or 1
@@ -1963,7 +1965,9 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 
 		$prepared = '_prepared';
 
-		if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
+		my $aggregated_set_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
+
+		if ((defined $aggregated_set_preparation) and ($aggregated_set_preparation eq "prepared")) {
 			$product_ref->{nutrition_score_debug} = "using prepared product data for category $category_tag" . " - ";
 			add_tag($product_ref, "misc", "en:nutrition-grade-computed-for-prepared-product");
 		}
@@ -1996,7 +2000,7 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 
 		foreach my $nid ("energy", "fat", "saturated-fat", "sugars", "sodium", "proteins") {
 			# If we don't set the 100g figure then this should flag the item as not enough data
-			if (not defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}) {
+			if (not deep_exists($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value")) {
 				# we have two special case where we can deduce data
 				next
 					if (
@@ -2021,10 +2025,13 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 
 		# some categories of products do not have fibers > 0.7g (e.g. sodas)
 		# for others, display a warning when the value is missing
-		# do not display a warning if fibers are not specified on the product ('-' modifier)
-		if (    (not defined $product_ref->{nutriments}{"fiber" . $prepared . "_100g"})
-			and (not defined $product_ref->{nutriments}{"fiber" . $prepared . "_modifier"})
-			and not(has_tag($product_ref, "categories", "en:sodas")))
+		# do not display a warning if fibers are not specified on the product ('-' modifier: listed in the unspecified_nutrients array)
+		if (
+			(not deep_exists($product_ref, "nutrition", "aggregated_set", "nutrients", "fiber", "value"))
+			and (not grep {$_ eq 'fiber'}
+				@{deep_get($product_ref, "nutrition", "aggregated_set", "unspecified_nutrients") // []})
+			and not(has_tag($product_ref, "categories", "en:sodas"))
+			)
 		{
 			$product_ref->{nutrition_score_warning_no_fiber} = 1;
 			add_tag($product_ref, "misc", "en:nutrition-no-fiber");
@@ -2033,6 +2040,8 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 
 	# Remove ending -
 	$product_ref->{nutrition_score_debug} =~ s/ - $//;
+
+	# TODO / FIXME: the source is now indicated in the aggregated set, the code below should be refactored in the loop above
 
 	# By default we use the "nutriments" hash as a source (specified nutrients),
 	# but if we don't have specified nutrients, we can use use the "nutriments_estimated" hash if it exists.
@@ -2515,28 +2524,48 @@ sub compute_unknown_nutrients ($product_ref) {
 	return;
 }
 
-sub compute_nutrient_levels ($product_ref) {
+=head2 compute_nutrient_levels ($product_ref)
 
-	#$product_ref->{nutrient_levels_debug} .= " -- start ";
+Computes nutrient levels (low, moderate, high) for fat, saturated fat, sugars, salt/sodium and alcohol.
+The nutrient levels are also known as nutrition traffic lights.
+
+We use the aggregated set to compute the levels.
+
+=cut
+
+sub compute_nutrient_levels ($product_ref) {
 
 	$product_ref->{nutrient_levels_tags} = [];
 	$product_ref->{nutrient_levels} = {};
 
-	return
-		if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq ''))
-		;    # need categories hierarchy in order to identify drinks
+	# do not compute a score if we do not have an aggregated_set
+	my $aggregated_set_ref = deep_get($product_ref, "nutrition", "aggregated_set");
+
+	if (not defined $aggregated_set_ref) {
+		$log->debug("no aggregated_set, cannot compute nutrient levels for product " . $product_ref->{_id})
+			if $log->is_debug();
+		return;
+	}
+
+	# need categories in order to identify drinks
+	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+		$log->debug("no categories, cannot compute nutrient levels for product " . $product_ref->{_id})
+			if $log->is_debug();
+		return;
+	}
 
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
 	# unless we have nutrition data for the prepared product
 
-	my $prepared = "";
-
 	if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
 
-		if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
-			$prepared = '_prepared';
-		}
-		else {
+		my $aggregated_state_preparation = deep_get($aggregated_set_ref, "preparation");
+
+		if (not(defined $aggregated_state_preparation) or ($aggregated_state_preparation ne "prepared")) {
+			$log->debug(
+				"dehydrated product without prepared nutrition data, cannot compute nutrient levels for product "
+					. $product_ref->{_id})
+				if $log->is_debug();
 			return;
 		}
 	}
@@ -2548,6 +2577,9 @@ sub compute_nutrient_levels ($product_ref) {
 		foreach my $category_id (@{$options{categories_exempted_from_nutrient_levels}}) {
 
 			if (has_tag($product_ref, "categories", $category_id)) {
+				$log->debug("product in exempted category $category_id, cannot compute nutrient levels for product "
+						. $product_ref->{_id})
+					if $log->is_debug();
 				return;
 			}
 		}
@@ -2563,14 +2595,14 @@ sub compute_nutrient_levels ($product_ref) {
 			$high = $high / 2;
 		}
 
-		if (    (defined $product_ref->{nutriments}{$nid . $prepared . "_100g"})
-			and ($product_ref->{nutriments}{$nid . $prepared . "_100g"} ne ''))
-		{
+		my $value = deep_get($aggregated_set_ref, "nutrients", $nid, "value");
 
-			if ($product_ref->{nutriments}{$nid . $prepared . "_100g"} < $low) {
+		if (defined $value) {
+
+			if ($value < $low) {
 				$product_ref->{nutrient_levels}{$nid} = 'low';
 			}
-			elsif ($product_ref->{nutriments}{$nid . $prepared . "_100g"} > $high) {
+			elsif ($value > $high) {
 				$product_ref->{nutrient_levels}{$nid} = 'high';
 			}
 			else {
@@ -2591,8 +2623,6 @@ sub compute_nutrient_levels ($product_ref) {
 		else {
 			delete $product_ref->{nutrient_levels}{$nid};
 		}
-		#$product_ref->{nutrient_levels_debug} .= " -- nid: $nid - low: $low - high: $high - level: " . $product_ref->{nutrient_levels}{$nid} . " -- value: " . $product_ref->{nutriments}{$nid . "_100g"} . " --- ";
-
 	}
 
 	return;
