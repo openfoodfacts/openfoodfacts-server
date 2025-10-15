@@ -59,7 +59,6 @@ use Encode;
 use POSIX qw(strftime);
 use Data::DeepAccess qw(deep_get);
 
-
 init_emb_codes();
 
 sub xml_escape_NFC($) {
@@ -131,7 +130,7 @@ foreach my $field (@export_fields) {
 }
 
 $fields_ref->{empty} = 1;
-$fields_ref->{nutriments} = 1;
+$fields_ref->{nutrition} = 1;
 $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
 $fields_ref->{lc} = 1;
@@ -299,8 +298,6 @@ XML
 			next if not $product_ref->{code};
 			next if $product_ref->{empty};
 
-			next if $product_ref->{code} ne "3173990027337";
-
 			my $csv = '';
 			my $url = "http://world-$lc.$server_domain" . product_url($product_ref);
 			my $code = ($product_ref->{code} // '');
@@ -441,17 +438,8 @@ XML
 
 			foreach my $nid (@nutrients_to_export) {
 
-				($nid eq 'salt') and print STDERR "Exporting salt\n";
-
 				# New nutrition schema: we export values from the aggregated set, which is in per 100g or per 100ml
 				my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
-
-				use Data::Dumper;
-
-				($nid eq 'salt') and print STDERR Dumper($product_ref);
-
-								($nid eq 'salt') and print STDERR "Value: $value\n";
-
 
 				if (defined $value) {
 					if ($value =~ /e/) {
