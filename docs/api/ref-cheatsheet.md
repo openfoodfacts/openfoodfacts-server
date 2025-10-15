@@ -44,6 +44,30 @@ You can send prepared nutritional values
 * nutriment_energy-kj (regular)
 * nutriment_energy-kj_prepared (prepared)
 
+## Read Product Data
+
+### Get product with blame information
+
+To get information about who last modified each field of a product, add the `blame` parameter:
+
+```text
+https://world.openfoodfacts.org/api/v2/product/3017620422003.json?blame=1
+```
+
+This returns additional `blame` information showing:
+- `userid`: Who last modified each field
+- `t`: Timestamp of the modification
+- `rev`: Revision number
+- `value`: Current value of the field
+
+### Limit response fields
+
+Use the `fields` parameter to get only specific product data:
+
+```text
+https://world.openfoodfacts.org/api/v2/product/3017620422003.json?fields=product_name,brands,nutriments
+```
+
 ## Search for Products
 
 **Important:** full text search currently works only for v1 API (or search-a-licious, which is in beta)
