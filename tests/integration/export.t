@@ -31,6 +31,8 @@ use JSON;
 
 use File::Basename "dirname";
 
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
+
 # Remove all products
 
 wait_application_ready(__FILE__);
@@ -146,6 +148,7 @@ open($exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not c
 $export_args_ref->{filehandle} = $exported_csv;
 $export_args_ref->{export_computed_fields} = 1;
 $export_args_ref->{export_canonicalized_tags_fields} = 1;
+$export_args_ref->{export_nutrition_aggregated_set} = 1;
 $export_args_ref->{include_images_paths} = 1;
 
 export_csv($export_args_ref);
