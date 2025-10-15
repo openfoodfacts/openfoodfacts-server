@@ -293,6 +293,11 @@ XML
 
 		while (my $product_ref = $cursor->next) {
 
+			# Note: we do not upgrade the schema of the products, they are read directly from MongoDB.
+			# This means that some old products may not have all the fields we expect (e.g. for the migration to the new nutrition schema)
+			# One possibility could be to upgrade products read from MongoDB (but it could add a lot of overhead if we do it on all products)
+			# For those types of changes, we can also suspend the export for a few days, and instead run upgrade_all_products.pl once.
+
 			# Skip empty products and products without code
 			# We filter them here instead of in the query
 			next if not $product_ref->{code};
