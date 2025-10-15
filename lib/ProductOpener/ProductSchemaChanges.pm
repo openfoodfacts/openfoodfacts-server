@@ -392,6 +392,41 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 
 		filter_out_nutrients_not_in_taxonomy($product_ref);
 
+		# If we have a value for energy-kj or energy-kcal, we remove the energy field,
+		# otherwise (for old revisions of products) we copy the energy field to energy-kj or energy-kcal based on its unit,
+		# and remove it.
+		foreach my $set_type (keys %$new_nutrition_sets_ref) {
+			my $modifier_state = $nutrition_preparations_ref->{$set_type}{modifier_state};
+			if (
+				not(   (defined $product_ref->{nutriments}{"energy-kj_$set_type"})
+					or (defined $product_ref->{nutriments}{"energy-kcal_$set_type"}))
+				)
+			{
+				if (defined $product_ref->{nutriments}{"energy_$set_type"}) {
+					my $energy_value = $product_ref->{nutriments}{"energy_$set_type"};
+					my $energy_unit = $product_ref->{nutriments}{"energy" . $modifier_state . "_unit"} // "kJ";
+					if ($energy_unit eq "kJ") {
+						$product_ref->{nutriments}{"energy-kj_$set_type"} = $energy_value;
+						$product_ref->{nutriments}{"energy-kj" . $modifier_state . "_unit"} = "kJ";
+						$product_ref->{nutriments}{"energy-kj" . $modifier_state . "_modifier"}
+							= $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"}
+							if defined $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"};
+					}
+					else {
+						$product_ref->{nutriments}{"energy-kcal_$set_type"} = $energy_value;
+						$product_ref->{nutriments}{"energy-kcal" . $modifier_state . "_unit"} = "kcal";
+						$product_ref->{nutriments}{"energy-kcal" . $modifier_state . "_modifier"}
+							= $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"}
+							if defined $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"};
+					}
+				}
+			}
+			# remove the old energy field
+			delete $product_ref->{nutriments}{"energy_$set_type"};
+			delete $product_ref->{nutriments}{"energy" . $modifier_state . "_unit"};
+			delete $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"};
+		}
+
 		my %hash_nutrients = map {/^([a-z][a-z\-]*[a-z]?)(?:_\w+)?$/ ? ($1 => 1) : ()}
 			keys %{$product_ref->{nutriments}};
 
