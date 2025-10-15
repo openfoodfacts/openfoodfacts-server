@@ -197,7 +197,6 @@ origins:en: en:croatia, en:slovenia
 < en:Croatia, Slovenian oils and fats
 hr: Istra
 sl: Istra
-origins:en: en:Croatia, Slovenia
 protected_name_file_number:en: PDO-HR+SI-01358
 protected_name_type:en: pdo
 origins:en: en:croatia, en:slovenia
@@ -350,7 +349,6 @@ origins:en: en:czech-republic
 < en:Czech, Slovakian meat products
 cs: Tradiční Špekáčky
 sk: Tradičné Špekačky
-origins:en: en:Czech Republic, Slovakia
 protected_name_file_number:en: TSG-CZ+SK-0055
 protected_name_type:en: tsg
 origins:en: en:czech-republic, en:slovakia
@@ -358,7 +356,6 @@ origins:en: en:czech-republic, en:slovakia
 < en:Czech, Slovakian meat products
 cs: Spišské párky
 sk: Spišské párky
-origins:en: en:Czech Republic, Slovakia
 protected_name_file_number:en: TSG-CZ+SK-0051
 protected_name_type:en: tsg
 origins:en: en:czech-republic, en:slovakia
@@ -366,7 +363,6 @@ origins:en: en:czech-republic, en:slovakia
 < en:Czech, Slovakian meat products
 cs: Tradiční Lovecký salám
 sk: Tradičná Lovecká saláma
-origins:en: en:Czech Republic, Slovakia
 protected_name_file_number:en: TSG-CZ+SK-0044
 protected_name_type:en: tsg
 origins:en: en:czech-republic, en:slovakia
@@ -374,7 +370,6 @@ origins:en: en:czech-republic, en:slovakia
 < en:Czech, Slovakian meat products
 cs: Liptovská saláma
 sk: Liptovský salám
-origins:en: en:Czech Republic, Slovakia
 protected_name_file_number:en: TSG-CZ+SK-0042
 protected_name_type:en: tsg
 origins:en: en:czech-republic, en:slovakia
@@ -442,37 +437,26 @@ origins:en: en:netherlands
 
 
 < en:Dutch, Belgian juniper-flavoured spirit drinks
-origins:en: en:Netherlands, Belgium
 nl, nl,fr:Oude jenever, oude genever
 protected_name_file_number:en: PGI-NL+BE-01996
 protected_name_type:en: gi
 origins:en: en:netherlands, en:belgium
 
 < en:Dutch, Belgian juniper-flavoured spirit drinks
-origins:en: en:Netherlands, Belgium
 nl, nl,fr:Jonge jenever, jonge genever
 protected_name_file_number:en: PGI-NL+BE-01997
 protected_name_type:en: gi
 origins:en: en:netherlands, en:belgium
 
 < en:Dutch, Belgium, German spirit drinks
-origins:en: en:Netherlands, Belgium, Germany
 nl, nl,fr, de:Genièvre aux fruits, Vruchtenjenever , Jenever met vruchten, Fruchtgenever
 protected_name_file_number:en: PGI-NL+BE+DE-01994
 protected_name_type:en: gi
 origins:en: en:netherlands, en:belgium, en:germany
 
 
-
-
-
-
-
-
-
 < en:Finnish fresh meat and offal
 fi: Lapin Poron liha
-origins:en: en:Finland
 protected_name_file_number:en: PDO-FI-0352
 protected_name_type:en: pdo
 origins:en: en:finland
@@ -481,7 +465,6 @@ origins:en: en:finland
 
 < en:Finnish liqueur
 fi: Suomalainen Marjalikööri, Suomalainen Hedelmälikööri, Finsk Bärlikör, Finsk Fruktlikör, Finnish berry liqueur, Finnish fruit liqueur
-origins:en: en:Finland
 protected_name_file_number:en: PGI-FI-02041
 protected_name_type:en: gi
 origins:en: en:finland
@@ -490,12 +473,9 @@ origins:en: en:finland
 
 
 
-
-
 < en:France, Belgium, Dutch juniper-flavoured spirit drinks
 fr: Genièvre de grains
 nl: Graanjenever, Graangenever
-origins:en: en:France, Belgium, Netherlands
 protected_name_file_number:en: PGI-BE+FR+NL-01963
 protected_name_type:en: gi
 origins:en: en:france, en:belgium, en:netherlands
@@ -556,12 +536,6 @@ protected_name_type:en: pdo
 origins:en: en:france
 #wikidata:en:
 
-
-
-
-
-
-
 < en:French hay
 fr: Foin de Crau
 protected_name_file_number:en: PDO-FR-0200
@@ -575,10 +549,6 @@ protected_name_file_number:en: PGI-FR-02028
 protected_name_type:en: gi
 origins:en: en:france
 #wikidata:en:
-
-
-
-
 
 < en:French meat products
 fr: Lonzo de Corse, Lonzo de Corse - Lonzu
@@ -911,25 +881,22 @@ origins:en: en:germany
 
 
 < en:German, Austria, Switzerlandn fruit spirit
-origins:en: en:Germany, Austria, Switzerland
 de, de, fr,de,it:Bodensee Obstler
 protected_name_file_number:en: PGI-DE+AT+CH-02570
 protected_name_type:en: gi
-origins:en: en:germany, Austria, Switzerland
+origins:en: en:germany, en:austria, en:switzerland
 
 < en:German, Austria, Switzerlandn fruit spirit
-origins:en: en:Germany, Austria, Switzerland
 de, de, fr,de,it:Bodensee Birnenbrand (mit oder ohne Angabe der Sorte(n))
 protected_name_file_number:en: PGI-DE+AT+CH-02576
 protected_name_type:en: gi
-origins:en: en:germany, Austria, Switzerland
+origins:en: en:germany, en:austria, en:switzerland
 
 < en:German, Belgium, Austrian grain spirit
-origins:en: en:Germany, Belgium, Austria
 de, nl,fr, de:Korn, Kornbrand
 protected_name_file_number:en: PGI-DE+AT+BE-01929
 protected_name_type:en: gi
-origins:en: en:germany, en:belgium, Austria
+origins:en: en:germany, en:belgium, en:ustria
 
 < en:Greek bakery products
 el: Μελεκούνι, Melekouni
@@ -1609,20 +1576,15 @@ protected_name_type:en: pdo
 origins:en: en:hungary
 #wikidata:en:
 
-
-
-
-
 < en:Hungary, Austrian fruit spirit
-origins:en: en:Hungary, Austria
-hu, de:Pálinka
+de:Pálinka
+hu: Pálinka
 protected_name_file_number:en: PGI-HU+AT-02048
 protected_name_type:en: gi
-origins:en: en:hungary, Austria
+origins:en: en:hungary, en:austria
 
 < en:Indian fruit, vegetables and cereals
 en: Basmati
-origins:en: en:India
 protected_name_file_number:en: PGI-IN-2425
 protected_name_type:en: pgi
 origins:en: en:india
@@ -1630,7 +1592,6 @@ origins:en: en:india
 
 < en:Indian other products
 en: Darjeeling
-origins:en: en:India
 protected_name_file_number:en: PGI-IN-0659
 protected_name_type:en: pgi
 origins:en: en:india
@@ -1638,7 +1599,6 @@ origins:en: en:india
 
 < en:Indian other products
 en: Kangra Tea
-origins:en: en:India
 protected_name_file_number:en: PGI-IN-672
 protected_name_type:en: pgi
 origins:en: en:india
@@ -1646,7 +1606,6 @@ origins:en: en:india
 
 < en:Indonesian other products
 id: Kopi Arabika Gayo
-origins:en: en:Indonesia
 protected_name_file_number:en: PGI-ID-2115
 protected_name_type:en: pgi
 origins:en: en:indonesia
@@ -1674,23 +1633,20 @@ origins:en: en:ireland
 
 < en:Irish, British liqueur
 en: Irish Cream
-origins:en: en:Ireland, en:United Kingdom
 protected_name_file_number:en: PGI-IE+GB-02057
 protected_name_type:en: gi
 origins:en: en:ireland, en:united-kingdom
 #wikidata:en:
 
 < en:Irish, British spirit drinks
-origins:en: en:Ireland, en:United Kingdom
-ie, en:Irish Poteen, Irish Poitín
+ie:Irish Poteen, Irish Poitín
 protected_name_file_number:en: PGI-IE+GB-02080
 protected_name_type:en: gi
 origins:en: en:ireland, en:united-kingdom
 #wikidata:en:
 
 < en:Irish, British whisky or whiskey
-origins:en: en:Ireland, en:United Kingdom
-ie, en:Irish Whiskey, Uisce Beatha Eireannach, Irish Whisky
+en:Irish Whiskey, Uisce Beatha Eireannach, Irish Whisky
 protected_name_file_number:en: PGI-IE+GB-01897
 protected_name_type:en: gi
 origins:en: en:ireland, en:united-kingdom
@@ -2366,28 +2322,24 @@ origins:en: en:luxembourg
 
 < en:Mongolian fruit, vegetables and cereals
 mg: Увс чацаргана, Uvs Seabuckthorn
-origins:en: en:Mongolia
 protected_name_file_number:en: PGI-MN-2143
 protected_name_type:en: pgi
 origins:en: en:mongolia
 
 < en:Moroccan oils and fats
 ar: Argane
-origins:en: en:Morocco
 protected_name_file_number:en: PGI-MA-906
 protected_name_type:en: pgi
 origins:en: en:morocco
 
 < en:Norwegian akvavit or aquavit
 no: Norsk Akevitt, Norsk Aquavit, Norsk Akvavit, Norwegian Aquavit
-origins:en: en:Norway
 protected_name_file_number:en: PGI-NO-02239
 protected_name_type:en: gi
 origins:en: en:norway
 
 < en:Perun fruit spirit
 es: Pisco
-origins:en: en:Peru
 protected_name_file_number:en: PGI-PE-01825
 protected_name_type:en: gi
 origins:en: en:peru
@@ -3737,10 +3689,9 @@ origins:en: en:slovenia
 
 < en:South African other products
 sw: Rooibos-Redbush
-origins:en: en:South Africa
 protected_name_file_number:en: PDO-ZA-2427
 protected_name_type:en: pdo
-origins:en: en:south Africa
+origins:en: en:south-africa
 
 < en:Spanish aniseed-flavoured spirit drinks
 es: Hierbas de Mallorca
@@ -3921,28 +3872,25 @@ origins:en: en:spain
 
 < en:French fresh meat and offal
 fr: Rosée des Pyrénées Catalanes
-origins:en: en:Spain, en:France
 protected_name_file_number:en: PGI-ES+FR-1343
 protected_name_type:en: pgi
-origins:en: en:spain, en:France
+origins:en: en:spain, en:france
 #wikidata:en:
 
 
 < en:Spanish fresh meat and offal
 es: Ternera de los Pirineos Catalanes, Vedella dels Pirineus Catalans, Vedell des Pyrénées Catalanes
-origins:en: en:Spain, en:France
 protected_name_file_number:en: PGI-ES+FR-1042
 protected_name_type:en: pgi
-origins:en: en:spain, en:France
+origins:en: en:spain, en:france
 #wikidata:en:
 
 
 < en:Sri Lankan other products
 si: Ceylon cinnamon
-origins:en: en:Sri Lanka
 protected_name_file_number:en: PGI-LK-2298
 protected_name_type:en: pgi
-origins:en: en:sri Lanka
+origins:en: en:sri-lanka
 #wikidata:en:
 
 
@@ -4086,7 +4034,7 @@ protected_name_type:en: pgi
 
 < en:Trinidad and Tobagon other products
 es: Trinidad Montserrat Hills Cocoa
-origins:en: en:Trinidad and Tobago
+origins:en: en:trinidad-and-tobago
 protected_name_file_number:en: PGI-TT-2442
 protected_name_type:en: pgi
 
