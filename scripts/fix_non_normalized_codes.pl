@@ -46,13 +46,18 @@ use Getopt::Long;
 # how many operations in bulk write
 my $BULK_WRITE_SIZE = 100;
 
-sub find_non_normalized_sto ($product_path) {
+sub find_non_normalized_sto ($product_path, $out, $verbose = 1) {
 	# find all .sto files that have a non normalized code
 	# we take a very brute force approach on filename
 	# return a list with path, product_id and normalized_id
 	my $iter = product_iter();
 	my @anomalous = ();
+	my $products_count = 0;
 	while (my $product_path = $iter->()) {
+		if ($verbose and (not($products_count % 10000))) {
+			print($out "$products_count processed\n") unless !$out;
+		}
+		$products_count += 1;
 		my $product_code = product_id_from_path($product_path);
 		my $normalized_code = normalize_code($product_code);
 		if ($product_code ne $normalized_code) {
@@ -89,7 +94,7 @@ sub delete_product ($product_path) {
 
 sub fix_non_normalized_sto ($product_path, $dry_run, $out) {
 	my @actions = ();
-	my @items = find_non_normalized_sto($product_path);
+	my @items = find_non_normalized_sto($product_path, $out);
 	foreach my $item (@items) {
 		my ($product_path, $product_id, $normalized_id) = @$item;
 		my $new_path = product_path_from_id($normalized_id);
@@ -98,7 +103,7 @@ sub fix_non_normalized_sto ($product_path, $dry_run, $out) {
 		my $path_from_old_id = product_path_from_id($product_id);
 		my $is_duplicate = (object_path_exists("$BASE_DIRS{PRODUCTS}/$new_path"));
 		my $is_invalid = $path_from_old_id eq "invalid";
-		# print "product_path: $product_path - new_path: $new_path - product_id: $product_id - normalized_id: $normalized_id - is_duplicate: $is_duplicate - is_invalid: $is_invalid - path_from_old_id: $path_from_old_id\n";
+		# print "product_path: $product_path - new_path: $new_path - product_id: $product_id - normalized_id: $normalized_id - is_duplicate: $is_duplicate - is_invalid: $is_invalid - path_from_old_id: $path_from_old_id\n";
 		# we could have different codes but the same path: EAN8 padded with 5 0s
 		# it happens in the test
 		if (($new_path eq $path_from_old_id) and not $is_invalid) {
@@ -219,8 +224,8 @@ sub remove_non_normalized_mongo ($dry_run, $out) {
 
 	# we will first collect then erase
 	my @ids_to_remove = ();
-	# 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
-	my $socket_timeout_ms = 2 * 60000;
+	# 4 mins, instead of 30s default, to not die as easily if mongodb is busy.
+	my $socket_timeout_ms = 4 * 60000;
 	my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
 	my $cursor = $products_collection->query({})->fields({_id => 1, code => 1});
 	$cursor->immortal(1);
@@ -260,16 +265,18 @@ fix_non_normalized_codes.pl is a script that updates checks and fix for products
 Options:
 
 --dry-run	do not do any processing just print what would be done
+--skip-sto  do not check for sto files
 TXT
 	;
 
 my $dry_run = 0;
-GetOptions("dry-run" => \$dry_run,)
+my $skip_sto = 0;
+GetOptions("dry-run" => \$dry_run, "skip-sto" => \$skip_sto,)
 	or die("Error in command line arguments:\n\n$usage");
 
 # fix errors on filesystem
 my $product_path = $BASE_DIRS{PRODUCTS};
-fix_non_normalized_sto($product_path, $dry_run, \*STDOUT);
+fix_non_normalized_sto($product_path, $dry_run, \*STDOUT) unless $skip_sto;
 # now that we don't have any non normalized codes on filesystem, we can fix Mongodb
 remove_int_barcode_mongo($dry_run, \*STDOUT);
 remove_non_normalized_mongo($dry_run, \*STDOUT);

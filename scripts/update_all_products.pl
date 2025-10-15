@@ -82,7 +82,7 @@ use ProductOpener::MainCountries qw(compute_main_countries);
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::LoadData qw/load_data/;
-use ProductOpener::Redis qw/push_to_redis_stream/;
+use ProductOpener::Redis qw/push_product_update_to_redis/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -775,7 +775,7 @@ while (my $product_ref = $cursor->next) {
 					$fix_rev_not_incremented_fixed++;
 					$product_ref->{rev} = $last_rev;
 					my $blame_ref = {};
-					compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
+					compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 					compute_data_sources($product_ref, $changes_ref);
 					store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 				}
@@ -1255,7 +1255,7 @@ while (my $product_ref = $cursor->next) {
 			my $blame_ref = {};
 
 			my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
+			compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 
 			if (
 					(defined $blame_ref->{nutriments})
@@ -1371,7 +1371,7 @@ while (my $product_ref = $cursor->next) {
 				$changes_ref = [];
 			}
 			my $blame_ref = {};
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
+			compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 			compute_data_sources($product_ref, $changes_ref);
 			store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 		}
@@ -1565,7 +1565,9 @@ while (my $product_ref = $cursor->next) {
 					else {
 						$products_pushed_to_redis++;
 						print STDERR ". Pushed to Redis stream";
-						push_to_redis_stream('update_all_products', $product_ref, "reprocessed", $comment, {});
+						push_product_update_to_redis($product_ref,
+							{"userid" => 'update_all_products', "comment" => $comment},
+							"reprocessed");
 					}
 				}
 				else {

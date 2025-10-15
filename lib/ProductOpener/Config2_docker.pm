@@ -57,7 +57,9 @@ BEGIN {
 		$events_username
 		$events_password
 		$redis_url
-		$process_global_redis_events
+		$folksonomy_url
+		$recipe_estimator_url
+		$recipe_estimator_scipy_url
 		%server_options
 		$build_cache_repo
 		$rate_limiter_blocking_enabled
@@ -67,6 +69,10 @@ BEGIN {
 		$crm_db
 		$crm_pwd
 		$serialize_to_json
+		$oidc_implementation_level
+		$oidc_discovery_url
+		$oidc_client_id
+		$oidc_client_secret
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -135,7 +141,19 @@ $facets_kp_url = $ENV{FACETS_KP_URL};
 
 # Set this to your instance of the search service to enable writes to it
 $redis_url = $ENV{REDIS_URL};
-$process_global_redis_events = $ENV{PROCESS_GLOBAL_REDIS_EVENTS};
+
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ENV{FOLKSONOMY_URL};
+# recipe-estimator product service
+# To test a locally running recipe-estimator with product opener in a docker dev environment:
+# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+$recipe_estimator_url = $ENV{RECIPE_ESTIMATOR_URL};
+$recipe_estimator_scipy_url = $ENV{RECIPE_ESTIMATOR_SCIPY_URL};
+
+#$recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+#$recipe_estimator_scipy_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
 
 %server_options = (
 	private_products => $producers_platform,    # 1 to make products visible only to the owner (producer platform)
@@ -165,4 +183,9 @@ $crm_pwd = $ENV{ODOO_CRM_PASSWORD};
 
 #11901: Remove once production is migrated
 $serialize_to_json = $ENV{SERIALIZE_TO_JSON};
+
+$oidc_implementation_level = $ENV{OIDC_IMPLEMENTATION_LEVEL};
+$oidc_client_id = $ENV{OIDC_CLIENT_ID};
+$oidc_discovery_url = $ENV{OIDC_DISCOVERY_URL};
+$oidc_client_secret = $ENV{OIDC_CLIENT_SECRET};
 1;

@@ -7,6 +7,7 @@ on:
     - "docs/**"
     - ".github/workflows/generate-doc.yml"
     - "mkdocs.yml"
+    - ".spectral.yaml"
   push:
     # on merge to main, build and publish
     branches: [ "main" ]
@@ -18,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 1
 

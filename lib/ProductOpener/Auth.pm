@@ -46,7 +46,7 @@ BEGIN {
 		&password_signin
 		&verify_access_token
 		&verify_id_token
-		&get_user_id_using_token
+		&retrieve_user_using_token
 		&get_token_using_client_credentials
 		&get_token_using_password_credentials
 		&get_azp
@@ -61,10 +61,10 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/$subdomain $formatted_subdomain display_error_and_exit/;
+use ProductOpener::Display qw/display_error_and_exit/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::URL qw/get_cookie_domain format_subdomain/;
-use ProductOpener::Users qw/$User_id retrieve_user store_user_session generate_token init_user open_user_session/;
+use ProductOpener::Users qw/$User_id retrieve_user store_user_preferences generate_token init_user open_user_session/;
 use ProductOpener::Lang qw/$lc lang/;
 
 use OIDC::Lite;
@@ -115,10 +115,11 @@ sub start_authorize ($request_ref) {
 	# random private token to identify the sign-in process
 	my $nonce = generate_token(64);
 	my $return_url = $request_ref->{return_url};
+	my $subdomain = $request_ref->{subdomain};
 	if (   (not $return_url)
 		or (not($return_url =~ /^https?:\/\/$subdomain\.$server_domain/)))
 	{
-		$return_url = $formatted_subdomain;
+		$return_url = $request_ref->{formatted_subdomain};
 	}
 
 	# get main OIDC client (keycloak)
@@ -180,7 +181,6 @@ sub signin_callback ($request_ref) {
 		code => $code,
 		redirect_uri => $callback_uri,
 	) or display_error_and_exit($request_ref, $current_client->errstr, 500);
-	$log->info('got access token during callback', {access_token => $access_token}) if $log->is_info();
 
 	my %cookie_ref = cookie($cookie_name);
 	# verify we are in the right sign-in process, thanks to the randomly generated token
@@ -197,17 +197,12 @@ sub signin_callback ($request_ref) {
 		display_error_and_exit($request_ref, 'Authentication error', 401);
 	}
 
-	my $user_id = get_user_id_using_token($id_token, $request_ref);
-	unless (defined $user_id) {
+	my $user_ref = retrieve_user_using_token($id_token, $request_ref);
+	unless (defined $user_ref) {
 		$log->info('User not found and not created') if $log->is_info();
 		display_error_and_exit($request_ref, 'Internal error', 500);
 	}
-
-	my $user_ref = retrieve_user($user_id);
-	unless ($user_ref) {
-		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
-		display_error_and_exit($request_ref, 'Internal error', 500);
-	}
+	my $user_id = $user_ref->{userid};
 
 	$log->debug('user found', {user_ref => $user_ref}) if $log->is_debug();
 	my $user_session = open_user_session(
@@ -240,7 +235,7 @@ We support this to enable passing user and password in the request json. This is
 
 =head3 Return Values
 
-A list containing the user's ID, refresh token, refresh token expiration time, access token, access token expiration time, and the ID token
+A list containing the user ref, refresh token, refresh token expiration time, access token, access token expiration time, and the ID token
 
 =cut
 
@@ -261,10 +256,12 @@ sub password_signin ($username, $password, $request_ref) {
 		return;
 	}
 
-	my $user_id = get_user_id_using_token($id_token, $request_ref);
+	my $user_ref = retrieve_user_using_token($id_token, $request_ref);
+	my $user_id = $user_ref->{userid};
+
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
 	return (
-		$user_id,
+		$user_ref,
 		$access_token->{refresh_token},
 		# use absolute time instead of relative time
 		$time + $access_token->{refresh_expires_in},
@@ -275,7 +272,7 @@ sub password_signin ($username, $password, $request_ref) {
 	);
 }
 
-=head2 get_user_id_using_token ($id_token, , $request_ref, $require_verified_email)
+=head2 retrieve_user_using_token ($id_token, , $request_ref, $require_verified_email)
 
 Extract the user id from the OIDC identification token (which contains an email).
 
@@ -295,11 +292,11 @@ If true, the email must be verified before proceeding.
 
 =head3 Return Value
 
-The userid as a string
+The user hash
 
 =cut
 
-sub get_user_id_using_token ($id_token, $request_ref, $require_verified_email = 0) {
+sub retrieve_user_using_token ($id_token, $request_ref, $require_verified_email = 0) {
 	if ($require_verified_email and (not($id_token->{'email_verified'} eq $JSON::PP::true))) {
 		$log->info('User email is not verified.', {email => $id_token->{'email'}}) if $log->is_info();
 		return;
@@ -312,22 +309,16 @@ sub get_user_id_using_token ($id_token, $request_ref, $require_verified_email = 
 		$user_ref = {userid => $user_id};
 	}
 
-	# Update duplicated information from Keycloak
-	$user_ref->{name} = $id_token->{'name'} // $user_id;
-	$user_ref->{email} = $id_token->{'email'};
-
 	# Make sure initial information is set (user may have been created by Redis)
 	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
 	defined $user_ref->{last_login_t} or $user_ref->{last_login_t} = time();
 	defined $user_ref->{ip} or $user_ref->{ip} = remote_addr();
-	defined $user_ref->{initial_lc} or $user_ref->{initial_lc} = $lc;
-	defined $user_ref->{initial_cc} or $user_ref->{initial_cc} = $request_ref->{cc};
 	defined $user_ref->{initial_user_agent} or $user_ref->{initial_user_agent} = user_agent();
 
 	# Don't use store_user here as will sync the user back to keycloak
-	store_user_session($user_ref);
+	store_user_preferences($user_ref);
 
-	return $user_ref->{userid};
+	return $user_ref;
 }
 
 =head2 refresh_access_token ($id_token)
@@ -354,7 +345,6 @@ sub refresh_access_token ($refresh_token) {
 	my $access_token = $current_client->refresh_access_token(refresh_token => $refresh_token,)
 		or die $current_client->errstr;
 
-	$log->info('refreshed access token', {access_token => $access_token}) if $log->is_info();
 	return (
 		$access_token->{refresh_token}, $time + $access_token->{refresh_expires_in},
 		$access_token->{access_token}, $time + $access_token->{expires_in}
@@ -429,10 +419,11 @@ sub start_signout ($request_ref) {
 	# compute return_url, so that after sign out, user will be redirected to the home page
 	my $return_url = single_param('return_url');
 	die $return_url if defined $return_url;
+	my $subdomain = $request_ref->{subdomain};
 	if (   (not $return_url)
 		or (not($return_url =~ /^https?:\/\/$subdomain\.$server_domain/sxm)))
 	{
-		$return_url = $formatted_subdomain;
+		$return_url = $request_ref->{formatted_subdomain};
 	}
 
 	my $id_token = $request_ref->{id_token};
@@ -482,7 +473,7 @@ The return URL after successful sign-out.
 sub signout_callback ($request_ref) {
 	# no cookie, nothing to do
 	unless (defined cookie($cookie_name)) {
-		return $formatted_subdomain;
+		return $request_ref->{formatted_subdomain};
 	}
 
 	# ensure we are in the right process thanks to private random token
@@ -545,7 +536,6 @@ sub get_token_using_password_credentials ($username, $password) {
 	}
 
 	my $access_token = decode_json($token_response->content);
-	$log->info('got access token from password credentials', {access_token => $access_token}) if $log->is_info();
 	return $access_token;
 }
 
@@ -583,7 +573,6 @@ sub get_token_using_client_credentials () {
 	}
 
 	my $access_token = decode_json($token_response->content);
-	$log->info('got access token client credentials', {access_token => $access_token}) if $log->is_info();
 	return $access_token;
 }
 
@@ -636,8 +625,6 @@ sub verify_access_token ($access_token_string) {
 	get_oidc_configuration();
 
 	my $access_token_verified = decode_jwt(token => $access_token_string, kid_keys => $jwks);
-	$log->debug('access_token found', {access_token => $access_token_string, access_token => $access_token_verified})
-		if $log->is_debug();
 	unless ($access_token_verified) {
 		return;
 	}
@@ -791,8 +778,9 @@ sub get_oidc_configuration () {
 		my $discovery_request = HTTP::Request->new(GET => $discovery_endpoint);
 		my $discovery_response = LWP::UserAgent::Plugin->new->request($discovery_request);
 		unless ($discovery_response->is_success) {
-			$log->info('Unable to load OIDC data from IdP', {response => $discovery_response->content})
-				if $log->is_info();
+			$log->error('Unable to load OIDC data from IdP',
+				{discovery_endpoint => $discovery_endpoint, response => $discovery_response->content})
+				if $log->is_error();
 			return;
 		}
 
@@ -826,7 +814,7 @@ sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 	my $jwks_request = HTTP::Request->new(GET => $jwks_uri);
 	my $jwks_response = LWP::UserAgent::Plugin->new->request($jwks_request);
 	unless ($jwks_response->is_success) {
-		$log->info('Unable to load JWKS from IdP', {response => $jwks_response->content}) if $log->is_info();
+		$log->error('Unable to load JWKS from IdP', {response => $jwks_response->content}) if $log->is_error();
 		return;
 	}
 
@@ -866,10 +854,10 @@ Returns the current Keycloak implementation level
 
 0 = Not available
 1 = Use legacy Authentication and Registration but keep users in sync
-2 = Users are fully synced. Use Keycloak for back-channel authentication but use legacy login and Registration forms
-3 = [DELETED. This won't work as the Keycloak login forms will direct to the Keycloak registration forms] Use Keycloak backend and front end for all authentication. Legacy Registration forms
-4 = Respond to Keycloak events for user registration / deletion tasks (welcome email, etc.)
-5 = Fully implemented, including Keycloak registration forms
+2 = Users are fully synced. Use Keycloak as the primary source of truth for user data and authentication but use legacy login and Registration forms. Respond to Keycloak events for user registration / deletion tasks (welcome email, etc.)
+3 = Use Keycloak backend and front end for all authentication. Use new Keycloak registration forms but legacy account management forms
+4 = [MOVED TO STEP 2] 
+5 = Fully implemented, including Keycloak account management forms
 
 =cut
 

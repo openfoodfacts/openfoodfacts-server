@@ -43,6 +43,12 @@ if [ -n "$IS_PRO_PLATFORM" ]; then
     report_failed_commands $0
 fi
 
+# on Sunday, fix non normalized barcodes
+if [ "$(date +%u)" = "7" ]
+then
+    ./fix_non_normalized_codes.pl --skip-sto || report_error $? "fix_non_normalized_codes.pl"
+fi
+
 ./remove_empty_products.pl || report_error $? "remove_empty_products.pl"
 ./gen_top_tags_per_country.pl  || report_error $? "gen_top_tags_per_country.pl"
 

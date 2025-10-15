@@ -48,8 +48,13 @@ BEGIN {
 		$events_username
 		$events_password
 		$redis_url
-		$process_global_redis_events
+		$folksonomy_url
 		%server_options
+		$serialize_to_json
+		$oidc_implementation_level
+		$oidc_discovery_url
+		$oidc_client_id
+		$oidc_client_secret
 
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -92,7 +97,10 @@ $events_username = '';
 $events_password = '';
 
 $redis_url = '';
-$process_global_redis_events = $ENV{PROCESS_GLOBAL_REDIS_EVENTS};
+
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
 
 %server_options = (
 
@@ -101,5 +109,13 @@ $process_global_redis_events = $ENV{PROCESS_GLOBAL_REDIS_EVENTS};
 	export_servers => {public => "off", experiment => "off-exp"},
 	ip_whitelist_session_cookie => ["172.19.0.1"],
 );
+
+#11901: Remove once production is migrated
+$serialize_to_json = 2;
+
+$oidc_implementation_level = 1;
+$oidc_client_id = 'OFF';
+$oidc_client_secret = 'A secret';
+$oidc_discovery_url = 'http://10.1.0.104:5600/realms/openfoodfacts/.well-known/openid-configuration';
 
 1;

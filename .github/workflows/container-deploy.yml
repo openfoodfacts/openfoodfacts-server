@@ -40,6 +40,11 @@ jobs:
         echo "INFLUXDB_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "FACETS_KP_URL=https://facets-kp.openfoodfacts.net/render-to-html" >> $GITHUB_ENV
         echo "NUTRIPATROL_URL=nutripatrol.openfoodfacts.net" >> $GITHUB_ENV
+        echo "FOLKSONOMY_URL=https://api.folksonomy.openfoodfacts.net" >> $GITHUB_ENV
+
+        echo "OIDC_IMPLEMENTATION_LEVEL=2" >> $GITHUB_ENV
+        echo "OIDC_DISCOVERY_URL=https://auth.openfoodfacts.net/realms/openfoodfacts/.well-known/openid-configuration" >> $GITHUB_ENV
+
         # deploy target
         echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
@@ -108,7 +113,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
+        continue-on-error: false
         script: |
           # while we would use shallow clone on a normal repo,
           # comparison is too costly for this project and takes too much time, so we use a regular clone
@@ -134,7 +139,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
+        continue-on-error: false
         script: |
           # Go to repository directory
           cd ${{ matrix.env }}
@@ -170,6 +175,7 @@ jobs:
           echo "REDIS_URL=${{ env.REDIS_URL }}" >> .env
           echo "FACETS_KP_URL=${{ env.FACETS_KP_URL }}" >> .env
           echo "NUTRIPATROL_URL=${{ env.NUTRIPATROL_URL }}" >> .env
+          echo "FOLKSONOMY_URL=${{ env.FOLKSONOMY_URL }}" >> .env
           echo "GOOGLE_CLOUD_VISION_API_KEY=${{ secrets.GOOGLE_CLOUD_VISION_API_KEY }}" >> .env
           echo "CROWDIN_PROJECT_IDENTIFIER=${{ env.CROWDIN_PROJECT_IDENTIFIER }}" >> .env
           echo "CROWDIN_PROJECT_KEY=${{ secrets.CROWDIN_PROJECT_KEY }}" >> .env
@@ -182,8 +188,14 @@ jobs:
           echo "LOG_LEVEL_RATE_LIMITER=INFO" >> .env
           echo "BUILD_CACHE_REPO=openfoodfacts/openfoodfacts-build-cache" >> .env
 
-          #11901: Remove once production is migrated. Initially duplicate STO and JSON
-          echo "SERIALIZE_TO_JSON=1" >> .env
+          #11901: Remove once production is migrated. Replace STO with JSON when touched
+          echo "SERIALIZE_TO_JSON=2" >> .env
+
+          # OIDC (Keycloak) settings
+          echo "OIDC_IMPLEMENTATION_LEVEL=${{ env.OIDC_IMPLEMENTATION_LEVEL }}" >> .env
+          echo "OIDC_DISCOVERY_URL=${{ env.OIDC_DISCOVERY_URL }}" >> .env
+          echo "OIDC_CLIENT_ID=OFF" >> .env
+          echo "OIDC_CLIENT_SECRET=${{ secrets.OFF_CLIENT_SECRET }}" >> .env
 
           # Override domain name in nginx.conf
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf
@@ -197,7 +209,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
+        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make create_external_volumes && \
@@ -214,7 +226,7 @@ jobs:
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 25m
-        script_stop: false
+        continue-on-error: false
         script: |
           waited=0
           for IMAGE_TYPE in frontend backend
@@ -243,7 +255,7 @@ jobs:
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 25m
-        script_stop: false
+        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make init_backend
@@ -259,10 +271,12 @@ jobs:
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 15m
-        script_stop: false
+        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make hdown && \
+          # verify dist volumes were removed
+          ! (docker volume list |grep po_.*_dist) && \
           make build_lang && \
           make prod_up
 
@@ -276,7 +290,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
+        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make livecheck
@@ -291,7 +305,7 @@ jobs:
         proxy_host: ${{ env.SSH_PROXY_HOST }}
         proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script_stop: false
+        continue-on-error: false
         script: |
           cd ${{ matrix.env }} && \
           make prune

@@ -43,7 +43,8 @@ BEGIN {
 		&get_rate_limit_user_requests
 		&increment_rate_limit_requests
 		&subscribe_to_redis_streams
-		&push_to_redis_stream
+		&push_product_update_to_redis
+		&push_ocr_ready_to_redis
 
 		&process_xread_stream_reply
 	);    # symbols to export on request
@@ -55,10 +56,12 @@ use vars @EXPORT_OK;
 use Log::Any qw/$log/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Minion qw/queue_job/;
-use ProductOpener::Users qw/retrieve_user store_user/;
+use ProductOpener::Users qw/retrieve_user store_user_preferences/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
+use ProductOpener::Cache qw/$memd/;
+
 use AnyEvent;
 use AnyEvent::RipeRedis;
 
@@ -144,7 +147,7 @@ sub subscribe_to_redis_streams () {
 		return;
 	}
 
-	if (get_oidc_implementation_level() >= 4) {
+	if (get_oidc_implementation_level() >= 2) {
 		# Read Keycloak events to process actions following user creation / deletion
 		_read_user_streams('$');
 	}
@@ -163,6 +166,8 @@ sub _read_user_streams($search_from) {
 	}
 	# Note the message index to search from is provided at the end of the list in the same order as the list of keys
 	push(@streams, $search_from);
+
+	#12279 TODO: Also catch user-updated. Need to catch user-registered for all processes in order to add to cache
 
 	$log->info("Reading from Redis", {streams => \@streams}) if $log->is_info();
 	$redis_client->xread(
@@ -224,6 +229,7 @@ sub _process_registered_users_stream($stream_values_ref) {
 			$message_hash{$key} = $value;
 		}
 
+		#12279 TODO: Can cache user here once additional attributes are included
 		my $user_id = $message_hash{'userName'};
 		my $newsletter = $message_hash{'newsletter'};
 		my $requested_org = $message_hash{'requestedOrg'};
@@ -233,44 +239,40 @@ sub _process_registered_users_stream($stream_values_ref) {
 		$log->info("User registered", {user_id => $user_id, newsletter => $newsletter})
 			if $log->is_info();
 
-		# Create the user if they don't exist and set the properties
+		# Create the user preferences if they don't exist and set the properties
 		my $user_ref = retrieve_user($user_id);
-		unless ($user_ref) {
-			# This doesn't set registered_t and other fields,
-			# these are updated in Auth.pm when the user is redirected back to PO
-			$user_ref = {
-				userid => $user_id,
-				name => $user_id
-			};
-		}
-		$user_ref->{email} = $email;
-		if (defined $requested_org) {
-			$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => $requested_org);
+		if ($user_ref) {
+			if (defined $requested_org) {
+				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => $requested_org);
 
-			my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
+				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
 
-			if ($requested_org_id ne "") {
-				$user_ref->{requested_org_id} = $requested_org_id;
-				$user_ref->{pro} = 1;
+				if ($requested_org_id ne "") {
+					$user_ref->{requested_org_id} = $requested_org_id;
+					$user_ref->{pro} = 1;
+				}
+			}
+			store_user_preferences($user_ref);
+
+			my $args_ref = {userid => $user_id};
+
+			# Register interest in joining an organization
+			if (defined $requested_org) {
+				queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
+			}
+
+			if (not defined $clientId or $clientId ne 'OFF_PRO') {
+				# Don't send normal welcome email for users that sign-up via the pro platform
+				queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+			}
+
+			# Subscribe to newsletter
+			if (defined $newsletter and $newsletter eq 'subscribe') {
+				queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
 			}
 		}
-		store_user($user_ref);
-
-		my $args_ref = {userid => $user_id};
-
-		if (not defined $clientId or $clientId ne 'OFF_PRO') {
-			# Don't send normal welcome email for users that sign-up via the pro platform
-			queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
-		}
-
-		# Subscribe to newsletter
-		if (defined $newsletter and $newsletter eq 'subscribe') {
-			queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
-		}
-
-		# Register interest in joining an organization
-		if (defined $requested_org) {
-			queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		else {
+			$log->warn("User $user_id not found when processing user registered event") if $log->is_warn();
 		}
 
 		$last_processed_message_id = $message_id;
@@ -294,13 +296,17 @@ sub _process_deleted_users_stream($stream_values_ref) {
 			$message_hash{$key} = $value;
 		}
 
-		$log->info("User deleted", {user_id => $message_hash{'userName'}}) if $log->is_info();
+		# Remove user from the cache
+		my $userid = $message_hash{'userName'};
+		$memd->delete("user/$userid");
 
 		my $args_ref = {
-			userid => $message_hash{'userName'},
+			userid => $userid,
 			newuserid => $message_hash{'newUserName'}
 		};
-		queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		my $job_id = queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		$log->info("[" . localtime() . "] User deletion queued", {args_ref => $args_ref, job_id => $job_id})
+			if $log->is_info();
 
 		$last_processed_message_id = $message_id;
 	}
@@ -308,36 +314,28 @@ sub _process_deleted_users_stream($stream_values_ref) {
 	return $last_processed_message_id;
 }
 
-=head2 push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs)
+=head2 push_product_update_to_redis ($product_ref, $change_ref, $action)
 
 Add an event to Redis stream to inform that a product was updated.
 
 =head3 Arguments
 
-=head4 String $user_id
-
-The user that updated the product.
-
 =head4 Product Object $product_ref
 
 The product that was updated.
+
+=head4 HashRef $change_ref
+
+The changes, structured as per product change history
 
 =head4 String $action
 
 The action that was performed on the product (either "updated" or "deleted").
 A product creation is considered as an update.
 
-=head4 String $comment
-
-The user comment associated with the update.
-
-=head4 HashRef $diffs
-
-a hashref of the differences between the previous and new revision of the product.
-
 =cut
 
-sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs, $timestamp = time()) {
+sub push_product_update_to_redis ($product_ref, $change_ref, $action) {
 
 	if (!$redis_url) {
 		# No Redis URL provided, we can't push to Redis
@@ -360,13 +358,13 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs, $ti
 			my $cv = AE::cv;
 			$redis_client->xadd(
 				# name of the Redis stream
-				$options{redis_stream_name},
+				$options{redis_stream_name_product_updates},
 				# We do not add a MAXLEN
 				'MAXLEN', '~', '10000000',
 				# We let Redis generate the id
 				'*',
 				# fields
-				'timestamp', $timestamp,
+				'timestamp', $change_ref->{t} // time(),
 				'code', Encode::encode_utf8($product_ref->{code}),
 				'rev', Encode::encode_utf8($product_ref->{rev}),
 				# product_type should be used over flavor (kept for backward compatibility)
@@ -374,13 +372,17 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs, $ti
 				$options{product_type},
 				'flavor', $flavor,
 				'user_id',
-				Encode::encode_utf8($user_id),
+				Encode::encode_utf8($change_ref->{userid}),
 				'action',
 				Encode::encode_utf8($action),
 				'comment',
-				Encode::encode_utf8($comment),
+				Encode::encode_utf8($change_ref->{comment}),
 				'diffs',
-				encode_json($diffs),
+				encode_json($change_ref->{diffs} // {}),
+				'ip',
+				Encode::encode_utf8($change_ref->{ip}),
+				'client_id',
+				Encode::encode_utf8($change_ref->{clientid}),
 				sub {
 					my ($reply, $err) = @_;
 					if (defined $err) {
@@ -409,6 +411,96 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs, $ti
 	}
 	else {
 		$log->debug("Successfully pushed product update to Redis", {product_code => $product_ref->{code}})
+			if $log->is_debug();
+	}
+
+	return;
+}
+
+=head2 push_ocr_ready_to_redis ($code, $image_id)
+
+Add an event to Redis stream to notify that OCR was run on an image and that the
+OCR result (gzipped JSON file) is ready to be used.
+
+=head3 Arguments
+
+=head4 String $code
+
+The product code associated with the image.
+
+=head4 String $image_id
+
+The ID of the image.
+
+=head4 String $json_url
+
+The URL where the OCR result JSON file can be found.
+
+=cut
+
+sub push_ocr_ready_to_redis ($code, $image_id, $json_url, $timestamp = time()) {
+
+	if (!$redis_url) {
+		# No Redis URL provided, we can't push to Redis
+		if (!$sent_warning_about_missing_redis_url) {
+			$log->warn("Redis URL not provided for streaming") if $log->is_warn();
+			$sent_warning_about_missing_redis_url = 1;
+		}
+		return;
+	}
+
+	my $error = "";
+	if (!defined $redis_client) {
+		# we were disconnected, try again
+		$log->debug("Trying to reconnect to Redis") if $log->is_debug();
+		init_redis();
+	}
+	if (defined $redis_client) {
+		$log->debug("Pushing `ocr_ready` event to Redis", {code => $code}) if $log->is_debug();
+		eval {
+			$redis_client->xadd(
+				# name of the Redis stream
+				$options{redis_stream_name_ocr_ready},
+				'MAXLEN', '~', '500000',
+				# We let Redis generate the id
+				'*',
+				# fields
+				'timestamp',
+				$timestamp,
+				'code',
+				Encode::encode_utf8($code),
+				'image_id',
+				Encode::encode_utf8($image_id),
+				'json_url',
+				Encode::encode_utf8($json_url),
+				'product_type',
+				$options{product_type},
+				sub {
+					my ($reply, $err) = @_;
+					if (defined $err) {
+						$log->warn("Error adding data to stream", {error => $err}) if $log->is_warn();
+					}
+					else {
+						$log->debug("Data added to stream with ID", {reply => $reply}) if $log->is_info();
+					}
+
+					return;
+				}
+			);
+		};
+		$error = $@;
+	}
+	else {
+		$error = "Can't connect to Redis";
+	}
+	if (!($error eq "")) {
+		$log->error("Failed to push `ocr_ready` event to Redis", {product_code => $code, error => $error})
+			if $log->is_warn();
+		# ask for eventual reconnection for next call
+		$redis_client = undef;
+	}
+	else {
+		$log->debug("Successfully pushed `ocr_ready` event to Redis", {product_code => $code})
 			if $log->is_debug();
 	}
 

@@ -14,8 +14,8 @@ use ProductOpener::Store qw/retrieve_object store_object link_object/;
 
 no warnings qw(experimental::signatures);
 
+wait_application_ready(__FILE__);
 remove_all_products();
-wait_application_ready();
 
 sub test_product_path ($code) {
 	my $path = product_path_from_id("$code");
@@ -110,6 +110,8 @@ my @outputs = split("\n", $script_out);
 is(
 	\@outputs,
 	[
+		# progress indicator
+		"0 processed",
 		# removed product_broken_code
 		"Removed broken-123",
 		# product_non_normalized_code : normalized the code
