@@ -68,7 +68,7 @@ use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
 use ProductOpener::Images qw/normalize_generation_ref/;
-use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set_from_sets/;
+use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy/;
 
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
@@ -389,6 +389,9 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 	};
 
 	if (defined $product_ref->{nutriments} && !$no_nutrition_data) {
+
+		filter_out_nutrients_not_in_taxonomy($product_ref);
+
 		my %hash_nutrients = map {/^([a-z][a-z\-]*[a-z]?)(?:_\w+)?$/ ? ($1 => 1) : ()}
 			keys %{$product_ref->{nutriments}};
 

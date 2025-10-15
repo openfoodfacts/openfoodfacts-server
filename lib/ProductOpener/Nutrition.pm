@@ -57,6 +57,7 @@ BEGIN {
 		&assign_nutrition_values_from_imported_csv_product_old_fields
 		&assign_nutrition_values_from_request_object
 		&add_nutrition_fields_from_product_to_populated_fields
+		&filter_out_nutrients_not_in_taxonomy
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -1821,6 +1822,94 @@ sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populat
 							}
 						}
 					}
+				}
+			}
+		}
+	}
+
+	return;
+}
+
+=head2 filter_out_nutrients_not_in_taxonomy ($product_ref)
+
+In the old nutrition facts schema (2025 and before), we authorized users to add any nutrient they wanted, even if they did not exist in the taxonomy.
+In the new nutrition facts schema, we only authorize nutrients that exist in the taxonomy.
+
+This function tries to map unknown nutrients to known nutrients in the taxonomy (as the taxonomy is evolving, some nutrients that were unknown before may now exist in the taxonomy).
+It then filters out nutrients that do not exist in the taxonomy and that could not be mapped to known nutrients.
+
+Removes nutrients from the product's C<nutriments> hash that are not present in the taxonomy.
+
+=head3 Example input data
+
+The following are examples of unknown nutrients that may be present in the C<nutriments> hash:
+
+  # unknown nutrient prefixed with language
+  'fr-nitrate' => 0.38,
+  'fr-nitrate_100g' => 0.38,
+  'fr-nitrate_label' => "Nitrate",
+  'fr-nitrate_serving' => 0.0038,
+  'fr-nitrate_unit' => "g",
+  'fr-nitrate_value' => 0.38,
+
+  # unknown nutrient not prefixed with language (old fields)
+  'sulfat' => 0.0141,
+  'sulfat_100g' => 0.0141,
+  'sulfat_label' => "Sulfat",
+  'sulfat_serving' => 0.141,
+  'sulfat_unit' => "mg",
+  'sulfat_value' => 14.1,
+
+  # unknown nutrient that is not in the taxonomy
+  'en-some-unknown-nutrient' => 1.23,
+  'en-some-unknown-nutrient_100g' => 1.23,
+  'en-some-unknown-nutrient_label' => "Some unknown nutrient",
+  'en-some-unknown-nutrient_unit' => "g",
+  'en-some-unknown-nutrient_value' => 1.23,
+
+=cut
+
+sub filter_out_nutrients_not_in_taxonomy ($product_ref) {
+
+	my $nutriments_ref = $product_ref->{nutriments};
+
+	return if not defined $nutriments_ref;
+
+	my %hash_nutrients = map {/^([a-z][a-z\-]*[a-z]?)(?:_\w+)?$/ ? ($1 => 1) : ()} keys %{$product_ref->{nutriments}};
+
+	foreach my $nid (sort keys %hash_nutrients) {
+
+		# check that the nutrient exists in the taxonomy
+		my $nutrient_id = "zz:" . $nid;
+		if (not exists_taxonomy_tag("nutrients", $nutrient_id)) {
+			# Check if we can canonicalize the nid to a known nutrient
+			my $exists_in_taxonomy = 0;
+			my $canonical_nid
+				= canonicalize_taxonomy_tag($product_ref->{lang} || 'en', "nutrients", $nid, \$exists_in_taxonomy);
+			# If we did not find a canonical id, the nutrient may be prefixed with the language (e.g. fr-sulfate)
+			if (not $exists_in_taxonomy) {
+				if ($nid =~ /^([a-z][a-z])-(.+)$/) {
+					$canonical_nid = canonicalize_taxonomy_tag($1, "nutrients", $2, \$exists_in_taxonomy);
+				}
+			}
+			# If we found an existing nutrient in the taxonomy, we rename the nutrient in the product
+			if ($exists_in_taxonomy) {
+				foreach my $field_suffix ("", "_100g", "_serving", "_label", "_unit", "_value") {
+					my $old_field = $nid . $field_suffix;
+					if (exists $nutriments_ref->{$old_field}) {
+						my $new_field = $canonical_nid;
+						$new_field =~ s/^zz://;    # remove zz: prefix
+						$new_field .= $field_suffix;
+						$nutriments_ref->{$new_field} = $nutriments_ref->{$old_field};
+					}
+				}
+			}
+
+			# Delete the old fields
+			foreach my $field_suffix ("", "_100g", "_serving", "_label", "_unit", "_value") {
+				my $old_field = $nid . $field_suffix;
+				if (exists $nutriments_ref->{$old_field}) {
+					delete $nutriments_ref->{$old_field};
 				}
 			}
 		}
