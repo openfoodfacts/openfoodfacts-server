@@ -471,6 +471,10 @@
       "unknown"
    ],
    "nutriscore_version" : "2023",
+   "nutrition" : {
+      "aggregated_set" : {},
+      "input_sets" : []
+   },
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "unknown",
@@ -548,7 +552,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 2,
-   "schema_version" : 1002,
+   "schema_version" : 1003,
    "sources" : [
       {
          "fields" : [
@@ -556,7 +560,8 @@
             "countries",
             "data_sources",
             "allergens",
-            "traces"
+            "traces",
+            "nutrition"
          ],
          "id" : null,
          "images" : [],

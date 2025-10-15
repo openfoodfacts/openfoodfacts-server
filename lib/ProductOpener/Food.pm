@@ -46,6 +46,7 @@ BEGIN {
 
 		%cc_nutriment_table
 		%nutriments_tables
+		%valid_nutrients
 
 		%other_nutriments_lists
 		%nutriments_lists
@@ -88,8 +89,6 @@ BEGIN {
 
 		&assign_categories_properties_to_product
 
-		&assign_nutriments_values_from_request_parameters
-
 		&check_nutriscore_categories_exist_in_taxonomy
 
 		&get_nutrient_unit
@@ -117,6 +116,7 @@ use ProductOpener::Products qw(&remove_fields);
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::APIProductWrite qw/skip_protected_field/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
+use ProductOpener::Nutrition qw/:all/;
 
 use Hash::Util;
 use Encode;
@@ -308,89 +308,14 @@ sub default_unit_for_nid ($nid) {
 	}
 }
 
-=head2 assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit)
-
-Assign a value with a unit and an optional modifier (< or ~) to a nutrient in the nutriments structure.
-
-=head3 Parameters
-
-=head4 $product_ref
-
-=head4 $nid
-
-Nutrient id, possibly suffixed with "_prepared"
-
-=head4 value
-
-=head4 unit
-
-=cut
-
 sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit) {
 
-	# Get the nutrient id in the nutrients taxonomy from the nid (without a prefix and possibly suffixed by _prepared)
-	my $nutrient_id = "zz:" . $nid;
-	$nutrient_id =~ s/_prepared$//;
+	## FIX ME
+	## This is an old function called by code that was written for the old nutrition schema
+	## It does nothing for now as we are migrating the code to use the new schema
+	## It needs to be removed once the migration is complete
 
-	# We can have only a modifier with value '-' to indicate that we have no value
-
-	if ((defined $modifier) and ($modifier ne '')) {
-		$product_ref->{nutriments}{$nid . "_modifier"} = $modifier;
-	}
-	else {
-		delete $product_ref->{nutriments}{$nid . "_modifier"};
-	}
-
-	if ((defined $value) and ($value ne '')) {
-
-		# empty unit?
-		if ((not defined $unit) or ($unit eq "")) {
-			$unit = default_unit_for_nid($nid);
-		}
-
-		$value = convert_string_to_number($value);
-
-		$value = remove_insignificant_digits($value);
-
-		$product_ref->{nutriments}{$nid . "_unit"} = $unit;
-		$product_ref->{nutriments}{$nid . "_value"} = $value;
-		# Convert values passed in international units IU or % of daily value % DV to the default unit for the nutrient
-		if (    ((uc($unit) eq 'IU') or (uc($unit) eq 'UI'))
-			and (defined get_property("nutrients", $nutrient_id, "iu_value:en")))
-		{
-			$value = $value * get_property("nutrients", $nutrient_id, "iu_value:en");
-			$unit = get_property("nutrients", $nutrient_id, "unit:en");
-		}
-		elsif ((uc($unit) eq '% DV') and (defined get_property("nutrients", $nutrient_id, "dv_value:en"))) {
-			$value = $value / 100 * get_property("nutrients", $nutrient_id, "dv_value:en");
-			$unit = get_property("nutrients", $nutrient_id, "unit:en");
-		}
-
-		if ($nid =~ /^water-hardness(_prepared)?$/) {
-			$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
-		}
-		elsif ($nid =~ /^energy-kcal(_prepared)?/) {
-
-			# energy-kcal is stored in kcal
-			$product_ref->{nutriments}{$nid} = unit_to_kcal($value, $unit) + 0;
-		}
-		else {
-			$product_ref->{nutriments}{$nid} = unit_to_g($value, $unit) + 0;
-		}
-
-	}
-	else {
-		# We do not have a value for the nutrient
-		delete $product_ref->{nutriments}{$nid . "_value"};
-		# Delete other fields dervied from the value
-		delete $product_ref->{nutriments}{$nid};
-		delete $product_ref->{nutriments}{$nid . "_100g"};
-		delete $product_ref->{nutriments}{$nid . "_serving"};
-		# Delete modifiers (e.g. < sign), unless it is '-' which indicates that the field does not exist on the packaging
-		if ((defined $modifier) and ($modifier ne '-')) {
-			delete $product_ref->{nutriments}{$nid . "_modifier"};
-		}
-	}
+	die;
 
 	return;
 }
@@ -936,6 +861,20 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 		)
 	]
 );
+
+# Compute a hash of all nutrients that are valid in at least one region for the site flavor (opf, off, ...)
+%valid_nutrients = ();
+
+foreach my $region (keys %nutriments_tables) {
+	# Use the flavor (off, opff) to select regions that start with the flavor
+	next if $region !~ /^$flavor\_/;
+	foreach (@{$nutriments_tables{$region}}) {
+		my $nutriment = $_;    # copy instead of alias
+		$nutriment =~ s/^(-|!)+//g;
+		$nutriment =~ s/-$//g;
+		$valid_nutrients{$nutriment} = 1 unless $nutriment =~ /\#/;
+	}
+}
 
 # Compute the list of nutriments that are not shown by default so that they can be suggested
 
@@ -3137,222 +3076,6 @@ sub assign_categories_properties_to_product ($product_ref) {
 			get_string_id_for_lang("no_language", "agribalyse" . "-" . "unknown");
 	}
 
-	return;
-}
-
-=head2 assign_nutriments_values_from_request_parameters ( $product_ref, $nutriment_table, $can_edit_owner_fields )
-
-This function reads the nutriment values passed to the product edit form, or the product edit API,
-and assigns them to the product.
-
-=cut
-
-sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_table, $can_edit_owner_fields = 0) {
-
-	# Nutrition data
-
-	$log->debug("Nutrition data") if $log->is_debug();
-
-	# Note: browsers do not send any value for checkboxes that are unchecked,
-	# so the web form also has a field (suffixed with _displayed) to allow us to uncheck the box.
-
-	# API:
-	# - check: no_nutrition_data is passed "on" or 1
-	# - uncheck: no_nutrition_data is passed an empty value ""
-	# - no action: the no_nutrition_data field is not sent, and no_nutrition_data_displayed is not sent
-	#
-	# Web:
-	# - check: no_nutrition_data is passed "on"
-	# - uncheck: no_nutrition_data is not sent but no_nutrition_data_displayed is sent
-
-	foreach my $checkbox ("no_nutrition_data", "nutrition_data", "nutrition_data_prepared") {
-
-		if (defined single_param($checkbox)) {
-			my $checkbox_value = remove_tags_and_quote(decode utf8 => single_param($checkbox));
-			if (($checkbox_value eq '1') or ($checkbox_value eq "on")) {
-				$product_ref->{$checkbox} = "on";
-			}
-			else {
-				$product_ref->{$checkbox} = "";
-			}
-		}
-		elsif (defined single_param($checkbox . "_displayed")) {
-			$product_ref->{$checkbox} = "";
-		}
-	}
-
-	# Assign all the nutrient values
-
-	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
-
-	my @unknown_nutriments = ();
-	my %seen_unknown_nutriments = ();
-	foreach my $nid (keys %{$product_ref->{nutriments}}) {
-
-		next if (($nid =~ /_/) and ($nid !~ /_prepared$/));
-
-		$nid =~ s/_prepared$//;
-
-		if (    (not exists_taxonomy_tag("nutrients", "zz:$nid"))
-			and (defined $product_ref->{nutriments}{$nid . "_label"})
-			and (not defined $seen_unknown_nutriments{$nid}))
-		{
-			push @unknown_nutriments, $nid;
-			$log->debug("unknown_nutriment", {nid => $nid}) if $log->is_debug();
-		}
-	}
-
-	# It is possible to add nutrients that we do not know about
-	# by using parameters like new_0, new_1 etc.
-	my @new_nutriments = ();
-	my $new_max = remove_tags_and_quote(single_param('new_max')) || 0;
-	for (my $i = 1; $i <= $new_max; $i++) {
-		push @new_nutriments, "new_$i";
-	}
-
-	# If we have only 1 of the salt and sodium values,
-	# delete any existing values for the other one,
-	# and it will be computed from the one we have
-	foreach my $product_type ("", "_prepared") {
-		my $saltnid = "salt${product_type}";
-		my $sodiumnid = "sodium${product_type}";
-
-		my $salt = single_param("nutriment_${saltnid}");
-		my $sodium = single_param("nutriment_${sodiumnid}");
-
-		if ((defined $sodium) and (not defined $salt)) {
-			delete $product_ref->{nutriments}{$saltnid};
-			delete $product_ref->{nutriments}{$saltnid . "_unit"};
-			delete $product_ref->{nutriments}{$saltnid . "_value"};
-			delete $product_ref->{nutriments}{$saltnid . "_modifier"};
-			delete $product_ref->{nutriments}{$saltnid . "_label"};
-			delete $product_ref->{nutriments}{$saltnid . "_100g"};
-			delete $product_ref->{nutriments}{$saltnid . "_serving"};
-		}
-		elsif ((defined $salt) and (not defined $sodium)) {
-			delete $product_ref->{nutriments}{$sodiumnid};
-			delete $product_ref->{nutriments}{$sodiumnid . "_unit"};
-			delete $product_ref->{nutriments}{$sodiumnid . "_value"};
-			delete $product_ref->{nutriments}{$sodiumnid . "_modifier"};
-			delete $product_ref->{nutriments}{$sodiumnid . "_label"};
-			delete $product_ref->{nutriments}{$sodiumnid . "_100g"};
-			delete $product_ref->{nutriments}{$sodiumnid . "_serving"};
-		}
-	}
-
-	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, @new_nutriments) {
-		next if $nutriment =~ /^\#/;
-
-		my $nid = $nutriment;
-		$nid =~ s/^(-|!)+//g;
-		$nid =~ s/-$//g;
-
-		next if $nid =~ /^nutrition-score/;
-
-		# Unit and label are the same for as sold and prepared nutrition table
-		my $enid = encodeURIComponent($nid);
-
-		# We can have nutrient values for the product as sold, or prepared
-		foreach my $product_type ("", "_prepared") {
-
-			# Only moderators can update values for fields sent by the producer
-			if (skip_protected_field($product_ref, $nid . $product_type, $can_edit_owner_fields)) {
-				next;
-			}
-
-			my $unit = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_unit"));
-			my $label = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}_label"));
-
-			# do not delete values if the nutriment is not provided
-			next if (not defined single_param("nutriment_${enid}${product_type}"));
-
-			my $value = remove_tags_and_quote(decode utf8 => single_param("nutriment_${enid}${product_type}"));
-
-			# energy: (see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396 )
-			# 1. if energy-kcal or energy-kj is set, delete existing energy data
-			if (($nid eq "energy-kj") or ($nid eq "energy-kcal")) {
-				delete $product_ref->{nutriments}{"energy${product_type}"};
-				delete $product_ref->{nutriments}{"energy_unit"};
-				delete $product_ref->{nutriments}{"energy_label"};
-				delete $product_ref->{nutriments}{"energy${product_type}_value"};
-				delete $product_ref->{nutriments}{"energy${product_type}_modifier"};
-				delete $product_ref->{nutriments}{"energy${product_type}_100g"};
-				delete $product_ref->{nutriments}{"energy${product_type}_serving"};
-			}
-			# 2. if the nid passed is just energy, set instead energy-kj or energy-kcal using the passed unit
-			elsif (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
-				$nid = $nid . "-" . lc($unit);
-				$log->debug("energy without unit, set nid with unit instead", {nid => $nid, unit => $unit})
-					if $log->is_debug();
-			}
-
-			if ($nid eq 'alcohol') {
-				$unit = '% vol';
-			}
-
-			# pet nutrients (analytical_constituents) are always in percent
-			if (   ($nid eq 'crude-fat')
-				or ($nid eq 'crude-protein')
-				or ($nid eq 'crude-ash')
-				or ($nid eq 'crude-fibre')
-				or ($nid eq 'moisture'))
-			{
-				$unit = '%';
-			}
-
-			# New label?
-			my $new_nid;
-			if ((defined $label) and ($label ne '')) {
-				$new_nid = canonicalize_nutriment($lc, $label);
-				$log->debug("unknown nutrient", {nid => $nid, lc => $lc, canonicalize_nutriment => $new_nid})
-					if $log->is_debug();
-
-				if ($new_nid ne $nid) {
-					delete $product_ref->{nutriments}{$nid};
-					delete $product_ref->{nutriments}{$nid . "_unit"};
-					delete $product_ref->{nutriments}{$nid . "_label"};
-					delete $product_ref->{nutriments}{$nid . $product_type . "_value"};
-					delete $product_ref->{nutriments}{$nid . $product_type . "_modifier"};
-					delete $product_ref->{nutriments}{$nid . $product_type . "_100g"};
-					delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
-					$log->debug("unknown nutrient", {nid => $nid, lc => $lc, known_nid => $new_nid})
-						if $log->is_debug();
-					$nid = $new_nid;
-				}
-				$product_ref->{nutriments}{$nid . "_label"} = $label;
-			}
-
-			# Set the nutrient values
-			my $modifier;
-			normalize_nutriment_value_and_modifier(\$value, \$modifier);
-			assign_nid_modifier_value_and_unit($product_ref, $nid . ${product_type}, $modifier, $value, $unit);
-		}
-
-		# If we don't have a value for the product and the prepared product, delete the unit and label
-		if (    (not defined $product_ref->{nutriments}{$nid})
-			and (not defined $product_ref->{nutriments}{$nid . "_prepared"}))
-		{
-			delete $product_ref->{nutriments}{$nid . "_unit"};
-			delete $product_ref->{nutriments}{$nid . "_label"};
-		}
-	}
-
-	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
-
-		# Delete all non-carbon-footprint nids.
-		foreach my $key (keys %{$product_ref->{nutriments}}) {
-			next if $key =~ /_/;
-			next if $key eq 'carbon-footprint';
-
-			delete $product_ref->{nutriments}{$key};
-			delete $product_ref->{nutriments}{$key . "_unit"};
-			delete $product_ref->{nutriments}{$key . "_value"};
-			delete $product_ref->{nutriments}{$key . "_modifier"};
-			delete $product_ref->{nutriments}{$key . "_label"};
-			delete $product_ref->{nutriments}{$key . "_100g"};
-			delete $product_ref->{nutriments}{$key . "_serving"};
-		}
-	}
 	return;
 }
 

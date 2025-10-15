@@ -74,7 +74,7 @@ use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
 use List::Util qw/any/;
 
-$current_schema_version = 1002;
+$current_schema_version = 1003;
 
 my (%upgrade_functions, %downgrade_functions);
 
@@ -502,11 +502,12 @@ sub set_per_unit ($product_quantity_unit, $serving_quantity_unit, $set_type) {
 }
 
 sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref, $delete_nutrition_data = true) {
-	# if no aggregated set then there is no nutrition information
+	# if no aggregated set then there we do not have nutrition information
+	# but we do not set no_nutrition_data to "on" because it is not known if the product has no nutrition data or if
+	# the nutrition data was just not entered
 	if (   !defined $product_ref->{nutrition}{aggregated_set}
 		|| !%{$product_ref->{nutrition}{aggregated_set}})
 	{
-		$product_ref->{no_nutrition_data} = "on";
 		$product_ref->{nutriments} = {};
 		delete $product_ref->{nutrition};
 	}
