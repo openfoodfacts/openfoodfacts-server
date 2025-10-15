@@ -391,7 +391,7 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 	if (defined $product_ref->{nutriments} && !$no_nutrition_data) {
 
 		filter_out_nutrients_not_in_taxonomy($product_ref);
-		
+
 		my %hash_nutrients = map {/^([a-z][a-z\-]*[a-z]?)(?:_\w+)?$/ ? ($1 => 1) : ()}
 			keys %{$product_ref->{nutriments}};
 
@@ -529,8 +529,7 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 
 	my $aggregated_set_ref = deep_get($product_ref, "nutrition", "aggregated_set");
 
-	if (   !defined $aggregated_set_ref || !%{$aggregated_set_ref})
-	{
+	if (!defined $aggregated_set_ref || !%{$aggregated_set_ref}) {
 		delete $product_ref->{nutrition};
 	}
 
