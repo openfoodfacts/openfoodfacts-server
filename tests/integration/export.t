@@ -41,6 +41,8 @@ remove_all_users();
 
 load_data();
 
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
+
 my $import_args_ref = {
 	user_id => "test",
 	csv_file => dirname(__FILE__) . "/inputs/export/products.csv",
@@ -105,8 +107,6 @@ my $tests_ref = [
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
-
-my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # Export products
 

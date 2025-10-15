@@ -57,6 +57,8 @@ use Storable qw/dclone/;
 use Encode;
 #use DateTime qw/:all/;
 use POSIX qw(strftime);
+use Data::DeepAccess qw(deep_get);
+
 
 init_emb_codes();
 
@@ -297,6 +299,8 @@ XML
 			next if not $product_ref->{code};
 			next if $product_ref->{empty};
 
+			next if $product_ref->{code} ne "3173990027337";
+
 			my $csv = '';
 			my $url = "http://world-$lc.$server_domain" . product_url($product_ref);
 			my $code = ($product_ref->{code} // '');
@@ -437,8 +441,19 @@ XML
 
 			foreach my $nid (@nutrients_to_export) {
 
-				if (defined $product_ref->{nutriments}{$nid . "_100g"}) {
-					my $value = $product_ref->{nutriments}{$nid . "_100g"};
+				($nid eq 'salt') and print STDERR "Exporting salt\n";
+
+				# New nutrition schema: we export values from the aggregated set, which is in per 100g or per 100ml
+				my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+				use Data::Dumper;
+
+				($nid eq 'salt') and print STDERR Dumper($product_ref);
+
+								($nid eq 'salt') and print STDERR "Value: $value\n";
+
+
+				if (defined $value) {
 					if ($value =~ /e/) {
 						# 7e-05 1.71e-06
 						$value = sprintf("%.10f", $value);
