@@ -21,6 +21,10 @@ permissions:
   contents: read
 
 
+permissions:
+  contents: read
+  actions: read
+
 jobs:
   filter:
     name: "Filter changed paths"

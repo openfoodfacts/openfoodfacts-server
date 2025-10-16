@@ -7,7 +7,11 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-  
+
+permissions:
+  pull-requests: write
+  contents: read
+
 jobs:
   triage:
     runs-on: ubuntu-latest
