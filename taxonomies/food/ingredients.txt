@@ -159,7 +159,7 @@ stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, 
 stopwords:nn: og, av
 stopwords:pl: w tym, zawiera, z, zawierają, łącznie z, jadalna, jadalne, inne
 stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo
-stopwords;ro: Produsul poate conține
+stopwords:ro: Produsul poate conține
 stopwords:sk: obsahuje
 stopwords:sl: vsebuje, sestavine
 stopwords:sv: och, eller, samt, av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, innehållande, innehålle, ingredienser, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav, bäst före, i varierande proportion
@@ -1136,7 +1136,7 @@ pt: Cultura microbial
 ro: Culturi microbiene
 sv: mikrobiell kultur, kultur, aktiva kulturer, levande kulturer, bakteriekultur
 # ingredient/culture has 683 products in 3 languages @2018-12-27
-nova:en: 3
+# note: microbial culture is not a NOVA 3 marker, it is contained in plain yoghurts that are NOVA 1
 vegan:en: maybe
 vegetarian:en: maybe
 wikipedia:en: https://en.wikipedia.org/wiki/Microbiological_culture
@@ -1446,7 +1446,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lactobacillus_acidophilus
 
 < en:Lactobacillus
 en: Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus, L. delbrueckii subsp. bulgaricus
-xx: Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii ssp. bulgaricus, Lactobacillus delbruecki ssp. bulgaricus
+xx: Lactobacillus bulgaricus, L. bulgaricus, Lactobacillus delbrueckii ssp. bulgaricus, Lactobacillus delbruecki ssp. bulgaricus, L. delbrueckii ssp. bulgaricus
 bg: Лактобацилус булгарикус, Lactobacillus bulgaricus, Lactobacillus delbrueckii subsp. bulgaricus, L. delbrueckii subsp. bulgaricus, Lactobacillus delbrueskii subsp. bulgaricus
 es: lactobacilus delbrueckii sp Bulgaricus, Lactobacillus delbrueckii subspecies bulgaricus
 fr: L bulgaricus, bulgaricus
@@ -1704,7 +1704,8 @@ ur: خامرہ
 vi: enzym
 yi: ענזים
 zh: 酶
-nova:en: 3
+# enzymes should not be a NOVA 3 marker, commenting line below
+# nova:en: 3
 vegan:en: maybe
 vegetarian:en: maybe
 # als:Enzym
@@ -2171,7 +2172,6 @@ ko: 발효유
 lv: Skābpiena produkti
 ru: Кисломолочные продукты
 uk: Кисломолочний продукт
-# nova:en:4 should be set by children
 vegan:en: no
 vegetarian:en: maybe
 wikidata:en: Q3506176
@@ -2196,8 +2196,6 @@ ciqual_food_name:fr: Lait 2e âge, poudre soluble (préparation de suite)
 # description:en:BUTTER is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk. It is generally used as a spread on plain or toasted bread products and a condiment on cooked vegetables, as well as in cooking, such as baking, sauce making, and pan frying.
 # comment:en:Butter is not added to the fat section (to much water?)
 
-# nova:en:butter
-# from:en:milk
 < en:dairy
 en: butter
 am: ቅቤ
@@ -3624,7 +3622,6 @@ vegetarian:en: yes
 
 ################################ MILK POWDERS ##################################
 
-# nova:en:milk-powder
 #process:en: en:powder
 < en:dairy
 en: milk powder, powdered milk, dry milk
@@ -3750,14 +3747,14 @@ ciqual_food_code:en: 19021
 ciqual_food_name:en: Milk, powder, whole
 ciqual_food_name:fr: Lait en poudre, entier
 
+# < en:compound
 < en:coating
-< en:milk
 < en:preparation
 en: milk coating
 hr: mliječni preljev
 it: rivestimento al latte
 
-< en:milk
+# < en:compound
 < en:preparation
 en: milk preparation
 hr: mliječni pripravak
@@ -4207,8 +4204,8 @@ xx: skyr
 # en:Filtrated whey
 # fr:Perméat de lactosérum
 
+# < en:compound
 < en:coating
-< en:yogurt
 en: yogurt coating
 hr: jogurt preljev
 it: rivestimento allo yogurt
@@ -8998,6 +8995,10 @@ ciqual_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignig
 en: salt from Salies de Béarn
 fr: sel de Salies de Béarn
 
+< en: rock salt
+en: salt from Kłodawa
+pl: sól kłodawska, sól z Kłodawy, naturalna sól kamienna kłodawska
+
 < en:salt
 en: Smoked salt
 bg: Пушена сол
@@ -11686,7 +11687,7 @@ bg: свинско месо
 ca: Carn de porc
 cs: Vepřové maso
 da: Svinekød
-de: Schweinefleisch
+de: Schweinefleisch, Schweinfleisch
 es: carne de cerdo
 fi: sianliha, sianlihaa, porsaanliha, porsaanlihaa, viljaporsaanliha
 fr: viande de porc, viande porc
@@ -17790,20 +17791,6 @@ fr: Vinaigre blanc distillé
 hr: bijeli destilirani ocat
 it: aceto bianco distillato
 
-< en:vinegar
-en: buffered vinegar
-hr: puferirani ocat
-it: aceto tamponato
-nl: gebufferde azijn, gebufferd azijn
-pl: ocet buforowany
-
-< en:buffered vinegar
-en: buffered vinegar powder
-hr: puferirani ocat u prahu
-it: aceto in polvere tamponato
-nl: gebufferde azijnpoeder
-pl: ocet buforowany w proszku
-
 #<en:vinegar
 #en:vinegar powder
 #en:processing:en:powder
@@ -21621,7 +21608,7 @@ uz: Vanilin
 zh: 香草醛
 comment:en: Note that the aroma's are found under the aroma section.
 # azb:وانیلین
-en:description:Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
+description:en: Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
 wikidata:en: Q33495
 wikipedia:en: https://en.wikipedia.org/wiki/Vanillin
 # ingredient/fr:vanilline has 831 products in 10 languages @2018-12-12
@@ -29021,7 +29008,7 @@ fr: riz long semi complet
 
 < fr:riz long semi complet
 #<en:organic rice
-fr:riz long semi complet issu de l'agriculture-biologique:
+fr: riz long semi complet issu de l'agriculture-biologique
 
 < en:brown rice
 < en:long grain rice
@@ -32840,7 +32827,7 @@ ro: izolat proteic de mazăre
 < en:textured plant protein
 en: textured pea protein, textured pea proteins
 de: texturiertes Erbseneiweiß
-fr: protéines de pois texturées, protéine de pois texturée
+fr: protéines de pois texturées, protéine de pois texturée, protéines texturées de pois
 hr: teksturirani proteini graška, teksturiranog proteina graška
 it: proteine di pisello testurizzate
 pl: teksturat białka grochu, teksturowane białko grochu
@@ -43521,6 +43508,7 @@ fr: pâte de noix de coco
 hr: pasta od kokosa
 it: pasta di cocco
 nl: kokospuree
+pl: pasta kokosowa
 
 
 ###################################################################################################
@@ -51551,7 +51539,7 @@ it: bambù
 ja: 竹
 jv: Pring
 ka: ბამბუკი
-kk:Бамбукkn:ಬಿದಿರು
+kk: Бамбукkn
 ko: 대나무
 ky: Бамбук
 la: Bambuseae
@@ -59565,6 +59553,10 @@ it: ceci pedrosillani
 nl: pedrosillano kikkererwten
 #3 in es @2021-10-16
 
+< en:chickpea
+en: black chickpea, black chickpeas
+da: sort kikært, sorte kikærter
+
 # <en:compound
 #processing:en: en:cooked
 < en:chickpea
@@ -61757,6 +61749,7 @@ fi: pistaasitahna
 fr: pâte de pistache
 hr: pasta od pistacija, pasta s pistacijama
 it: pasta di pistacchio
+pl: pasta z pistacji, pasta pistacjowa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-pistache
 # 75 products @2018-10-05
 
@@ -64307,6 +64300,7 @@ ko: 메이스
 nb: muskatblomme
 nl: foelie
 oc: Macís
+pl: kwiat muszkatołowy, macis
 pt: Macis
 ru: Мацис
 sk: Muškátový kvet
@@ -65460,6 +65454,7 @@ fi: inkivääritahna
 fr: Pâte de gingembre
 hr: pasta od đumbira
 it: pasta di zenzero
+pl: pasta imbirowa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:inkiv%C3%A4%C3%A4ritahna
 # 1 entry @ 2019-10-31
 
@@ -68520,7 +68515,6 @@ ga: Leannlus
 he: כשות
 hr: hmelj, hmelja, hmelji, hmeljevi
 hu: komló, komlo
-id:hopio:Lupulo
 is: Humall
 it: luppolo
 ja: ホップ
@@ -68979,8 +68973,6 @@ sv: panax ginseng rotextrakt
 #                                Liquorice
 #
 ###################################################################################################
-# description:en:LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
-# comment:en:This refers to the root not the candy
 
 < en:plant
 en: liquorice, licorice
@@ -69051,6 +69043,8 @@ tr: Meyan
 uk: локриця
 uz: Qizilmiya
 zh: 光果甘草
+comment:en: This refers to the root not the candy
+description:en: LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
 # aeb-arab:عرب السوس
 # arz:عرقسوس
 # bar:Bärndreck
@@ -69233,8 +69227,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Corchorus_olitorius
 #                                Mate
 #
 ###################################################################################################
-# description:en:Mate is a traditional South American caffeine-rich infused drink. It is prepared by steeping dried leaves of yerba mate in hot water and is served with a metal straw from a shared hollow calabash gourd
-
 < en:plant
 en: mate, yerba mate leaves, yerba mate
 af: Mate
@@ -69286,6 +69278,7 @@ tl: Mate
 tr: Maté
 uk: Мате
 zh: 瑪黛茶
+description:en: Mate is a traditional South American caffeine-rich infused drink. It is prepared by steeping dried leaves of yerba mate in hot water and is served with a metal straw from a shared hollow calabash gourd
 # ast:Mate
 # be-tarask:Матэ
 # ceb:Mate
@@ -84282,7 +84275,7 @@ it: collo di pollo
 < en:poultry skin
 en: chicken skin
 bg: пилешка кожа
-de: Hühnchenhaut
+de: Hähnchenhaut, Hühnchenhaut
 es: piel de pollo
 fi: kanannahka
 fr: peau de poulet
@@ -89213,7 +89206,8 @@ en: white chocolate coating
 hr: bijeli čokoladni preljev, preljev s bijelom čokoladom
 it: rivestimento di cioccolato bianco
 
-< en:hazelnut
+# < en:compound
+< en:coating
 en: hazelnut coating
 hr: preljev s lješnjacíma
 it: copertura di nocciole
@@ -89224,8 +89218,7 @@ en: chocolate and hazelnut coating
 hr: preljev s čokoladom i lješnjacima
 it: copertura al cioccolato e nocciole
 
-< en:hazelnut coating
-< en:milk
+< en:coating
 en: milk and hazelnut coating
 hr: preljev s mlijekom i lješnjacima
 it: copertura al latte e nocciole
@@ -89236,8 +89229,7 @@ en: nougat coating
 hr: nougat preljev
 it: rivestimento al torrone
 
-
-< en:berries
+# < en:compound
 < en:coating
 en: berry coating
 hr: preljev od bobičastog voća
@@ -93065,13 +93057,11 @@ ciqual_food_name:fr: Houmous
 wikidata:en: Q241987
 wikipedia:en: https://en.wikipedia.org/wiki/Hummus
 
-< en:chili pepper
 < en:hummus
 en: chili hummus
 sv: hummus med chili, hummus chili
 
 < en:hummus
-< en:sundried tomatoes
 en: sundried tomato hummus
 sv: hummus med soltorkad tomat, hummus soltorkad tomat
 

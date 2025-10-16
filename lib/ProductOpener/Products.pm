@@ -1170,7 +1170,11 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 		$log->info("changing product type",
 			{old_product_type => $product_ref->{old_product_type}, product_type => $product_ref->{product_type}})
 			if $log->is_info();
-		$delete_from_previous_products_collection = 1;
+		# We need to remove the product from its previous collection, unless we are on the pro platform
+		# where we have only one collection for all product types
+		if (not $server_options{private_products}) {
+			$delete_from_previous_products_collection = 1;
+		}
 		delete $product_ref->{old_product_type};
 	}
 
@@ -2012,7 +2016,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 			foreach my $users_field (@users_fields) {
 				if (defined $product_ref->{$users_field}) {
 					for (my $i = 0; $i < scalar @{$product_ref->{$users_field}}; $i++) {
-						if ($product_ref->{$users_field}[$i] eq $user_id) {
+						if (($product_ref->{$users_field}[$i] // '') eq $user_id) {
 							$product_ref->{$users_field}[$i] = $new_user_id;
 							$changes++;
 						}

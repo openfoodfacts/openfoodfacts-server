@@ -136,6 +136,35 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
+   "data_quality_completeness_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:ingredients-fr-photo-to-be-selected",
+      "en:ingredients-fr-completed",
+      "en:ingredients-completed-at-least-for-one-language",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:traceability-codes-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-completed",
+      "en:expiration-date-to-be-completed"
+   ],
+   "data_quality_dimensions" : {
+      "accuracy" : {
+         "overall" : "0.00"
+      },
+      "completeness" : {
+         "general_information" : "0.40",
+         "ingredients" : "0.50",
+         "nutrition" : "0.67",
+         "overall" : "0.54",
+         "packaging" : "0.67"
+      }
+   },
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
@@ -146,6 +175,21 @@
       "en:food-groups-3-unknown"
    ],
    "data_quality_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:ingredients-fr-photo-to-be-selected",
+      "en:ingredients-fr-completed",
+      "en:ingredients-completed-at-least-for-one-language",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:traceability-codes-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-completed",
+      "en:expiration-date-to-be-completed",
       "en:packaging-data-incomplete",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
