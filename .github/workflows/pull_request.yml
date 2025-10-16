@@ -119,9 +119,9 @@ jobs:
           # Note: we don't use gha cache because we run out of cache otherwise
           # So we use registry cache, see https://docs.docker.com/build/cache/backends/registry/
           cache-from: |
-            type=registry,ref=ghcr.io/openfoodfacts-server/backend-buildx-cache-${{ runner.os }}-${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }}
+            type=registry,ref=ghcr.io/openfoodfacts-server:backend-buildx-cache-${{ runner.os }}-${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }}
           cache-to: |
-            type=registry,ref=ghcr.io/openfoodfacts-server/backend-buildx-cache-${{ runner.os }}-${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }},mode=max
+            type=registry,ref=ghcr.io/openfoodfacts-server:backend-buildx-cache-${{ runner.os }}-${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }},mode=max
           load: true                   # loads the image into local docker daemon
           tags: openfoodfacts-server/backend:dev
       # Clean up BuildKit cache duplication to free space for Docker save
