@@ -1542,6 +1542,94 @@ sub create_recommendation_panels ($product_ref, $target_lc, $target_cc, $options
 
 	$log->debug("create health recommendation panels", {code => $product_ref->{code},}) if $log->is_debug();
 
+	# New recommendation panels are specified in taxonomies such as the category taxonomy
+	# with properties like:
+
+	# recommendation_panel_id:en: recommendation_health
+	# recommendation_panel_evaluation:en: bad
+	# recommendation_panel_icon:en: arrow-bottom-right-thick.svg
+	# recommendation_panel_msgctxt_prefix:en: recommendation_eu_tobacco_health_warning
+	# recommendation_panel_source_url:en: European Union
+	# recommendation_panel_source_language:en: en
+	# recommendation_panel_source_url:en: https://health.ec.europa.eu/tobacco/product-regulation/health-warnings_en#combined-health-warnings-in-the-eu
+
+	# The value of the property recommendation_panel_msgctxt_prefix:en: is used to find the displayable strings in the .po files:
+
+	# msgctxt "recommendation_eu_tobacco_health_warning_title"
+	# msgid "Smoking kills"
+	# msgstr "Smoking kills"
+
+	# msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+	# msgid "Tobacco seriously damages health. Don't start or quit now."
+	# msgstr "Tobacco seriously damages health. Don't start or quit now."
+
+	# msgctxt "recommendation_eu_tobacco_health_warning_text"
+	# msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+	# msgstr "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+
+	# In order to have specific recommendations for specific countries, we can suffix the property name with the country code:
+	# recommendation_panel_msgctxt_prefix_fr:en: recommendation_eu_tobacco_health_warning_fr
+	# recommendation_panel_source_url_fr:en: https://www.tabac-info-service.fr/
+	# recommendation_panel_source_language_fr:en: fr
+
+	my ($recommendation_panel_id, $category_id)
+		= get_inherited_property_from_categories_tags($product_ref, "recommendation_panel_id:en");
+
+	if (defined $recommendation_panel_id) {
+		# Make sure the recommendation_panel_id contains only alphanumeric characters and underscores
+		if ($recommendation_panel_id !~ m/^[a-zA-Z0-9_]+$/) {
+			$log->error("Invalid recommendation_panel_id",
+				{code => $product_ref->{code}, id => $recommendation_panel_id, category_id => $category_id,});
+			return;
+		}
+
+		# The properties for the evaluation, icon, msgctxt_prefix, source and source_url can be suffixed by the target country
+		# If those properties exist for the target country, we use them instead of the generic ones
+
+		my $panel_data_ref = {};
+
+		foreach my $property (
+			qw/recommendation_panel_evaluation recommendation_panel_icon
+			recommendation_panel_msgctxt_prefix recommendation_panel_source recommendation_panel_source_language
+			recommendation_panel_source_url/
+			)
+		{
+			my ($property_value, $property_category_id)
+				= get_inherited_property_from_categories_tags($product_ref, $property . "_" . $target_cc . ":en");
+			if (not defined $property_value) {
+				($property_value, $property_category_id)
+					= get_inherited_property_from_categories_tags($product_ref, $property . ":en");
+			}
+			if (defined $property_value) {
+				my $field = $property;
+				$field =~ s/^recommendation_panel_//;
+
+				# The msgctxt_prefix property is used to get the title, subtitle, and text from the .po files
+				if ($field eq "msgctxt_prefix") {
+					$panel_data_ref->{title} = lang_in_other_lc($target_lc, $property_value . "_title");
+					$panel_data_ref->{subtitle} = lang_in_other_lc($target_lc, $property_value . "_subtitle");
+					$panel_data_ref->{text} = lang_in_other_lc($target_lc, $property_value . "_text");
+				}
+				else {
+					$panel_data_ref->{$field} = $property_value;
+				}
+			}
+		}
+
+		$log->debug("create recommendation panel - data",
+			{code => $product_ref->{code}, id => $recommendation_panel_id, panel_data => $panel_data_ref})
+			if $log->is_debug();
+
+		create_panel_from_json_template($recommendation_panel_id,
+			"api/knowledge-panels/recommendations/from_taxonomies/" . $recommendation_panel_id . ".tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	}
+
+	# Panels below are legacy harcoded panels. Some of them could be moved to taxonomies at some point and use the logic above.
+	# A limitation of the taxonomy based approach is that the format of the recommendation panel is fixed and basic (e.g no images)
+	# so we may want to keep some harcoded panels for more complex recommendations.
+
 	# The code below defines the conditions to show recommendations (which recommendation for which product and which user)
 	# Those conditions could be implemented at some point in a configuration file, once we have a better idea of usage and the types of conditions.
 

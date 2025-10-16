@@ -1383,7 +1383,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	}
 	elsif ($file =~ /\/index/) {
 		# Display all products
-		$html .= search_and_display_products($request_ref, {}, "last_modified_t_complete_first", undef, undef);
+		$html .= search_and_display_products($request_ref, {}, undef, undef, undef);
 	}
 
 	# Replace included texts
@@ -5129,7 +5129,6 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		(not defined $sort_by)
 		or (    ($sort_by ne 'created_t')
 			and ($sort_by ne 'last_modified_t')
-			and ($sort_by ne 'last_modified_t_complete_first')
 			and ($sort_by ne 'scans_n')
 			and ($sort_by ne 'unique_scans_n')
 			and ($sort_by ne 'product_name')
@@ -5155,13 +5154,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		my $order = 1;
 		my $sort_by_key = $sort_by;
 
-		if ($sort_by eq 'last_modified_t_complete_first') {
-			# replace last_modified_t_complete_first (used on front page of a country) by popularity
-			$sort_by = 'popularity';
-			$sort_by_key = "popularity_key";
-			$order = -1;
-		}
-		elsif ($sort_by eq "popularity") {
+		if ($sort_by eq "popularity") {
 			$sort_by_key = "popularity_key";
 			$order = -1;
 		}
@@ -5177,9 +5170,6 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		}
 		elsif ($sort_by eq "nova_score") {
 			$sort_by_key = "nova_score_opposite";
-			$order = -1;
-		}
-		elsif ($sort_by =~ /^((.*)_t)_complete_first/) {
 			$order = -1;
 		}
 		elsif ($sort_by =~ /_t/) {
@@ -7580,7 +7570,7 @@ sub display_page ($request_ref) {
 
 	my $html;
 	# ?content_only=1 -> only the content, no header, footer, etc.
-	if (($user_agent =~ /smoothie/) or (single_param('content_only'))) {
+	if (($user_agent =~ /smoothie/i) or (single_param('content_only'))) {
 		$template_data_ref->{content_only} = 1;
 	}
 	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html, $request_ref)
