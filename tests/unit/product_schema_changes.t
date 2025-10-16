@@ -25,6 +25,56 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 
 my @tests = (
 
+	[
+		'1002-to-1003-new-nutrition-schema-energy-in-kj-without-energy-kj-or-energy-kcal',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+
+				"energy" => 1634,
+				"energy_100g" => 1634,
+				"energy_prepared" => 304,
+				"energy_prepared_100g" => 304,
+				"energy_prepared_unit" => "kJ",
+				"energy_prepared_value" => 304,
+				"energy_unit" => "kJ",
+				"energy_value" => 1634,
+			},
+		}
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-energy-in-kcal-without-energy-kj-or-energy-kcal',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+
+				"energy" => 340,
+				"energy_100g" => 340,
+				"energy_prepared" => 44,
+				"energy_prepared_100g" => 44,
+				"energy_prepared_unit" => "kcal",
+				"energy_prepared_value" => 44,
+				"energy_unit" => "kcal",
+				"energy_value" => 340,
+			},
+		}
+	],
+
 	# In the old nutrition schema, we allowed unknown nutrients that were not in the taxonomy
 	[
 		'1002-to-1003-new-nutrition-schema-unknown-nutrients',
