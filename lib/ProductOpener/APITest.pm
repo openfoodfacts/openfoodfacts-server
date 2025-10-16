@@ -759,6 +759,9 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 				if (defined $decoded_json->{'product'}) {
 					normalize_product_for_test_comparison($decoded_json->{'product'});
 				}
+				if (defined $decoded_json->{'blame'}) {
+					normalize_blame_for_test_comparison($decoded_json->{'blame'});
+				}
 			}
 
 			is(

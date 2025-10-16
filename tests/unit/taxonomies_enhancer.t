@@ -386,7 +386,7 @@ ok(
 # example based on 0036595328366
 $product_ref = {
 	ingredients_text_cs =>
-		"69% pšeničná mouka, pitná voda, řepkový olej, stabilizátor: glycerol; pšeničný lepek, regulátor kyselosti: kyselina jablečná; jedlá sůl, emulgátor: mono - a diglyceridy mastných kyselin; dextróza, kypřící látka: uhličitany sodné; konzervanty: propionan vápenatý, sorban draselný; látka zlepšující mouku: L-cystein. Skladujte v suchu a chraňte před teplem.",
+		"69% pšeničná mouka, pitná voda, řepkový olej, stabilizátor: glycerol; pšeničný lepek, regulátor kyselosti: kyselina jablečná; jedlá sůl, emulgátor: mono - a diglyceridy mastných kyselin; dextróza, kypřoco látka: uhličitany sodné; konzervanty: propionan vápenatý, sorban draselný; látka zlepšující mouku: L-cystein. Skladujte v suchu a chraňte před teplem.",
 	ingredients_text_hr =>
 		"69% pšenično brašno, voda, repičino ulje, stabilizator. glicerol; pšenični gluten, regulator kiselosti: jabučna kiselina; kuhinjska sol, emulgator: mono - i digliceridi masnih kiselina; dekstroza, tvar za rahljenje: natrijevi karbonati; konzervansi: kalcijev propionat, kalijev sorbat; tvar za tretiranje brašna: L-cistein. Čuvati na suhom mjestu.",
 	ingredients_text_hu =>
@@ -425,7 +425,7 @@ ok(has_tag($product_ref, "taxonomies_enhancer", "ingredients-cs-konzervanty-is-p
 	'cs-hr-hu-pl-ro-sk-sl, cs is missing a synonym or handle plural in product opener')
 	or diag Dumper $product_ref;
 ok(
-	has_tag($product_ref, "taxonomies_enhancer", "ingredients-cs-kypřici-latka-is-possible-typo-for-cs-kypřici-latka"),
+	has_tag($product_ref, "taxonomies_enhancer", "ingredients-cs-kypřoco-latka-is-possible-typo-for-cs-kypřici-latka"),
 	'cs-hr-hu-pl-ro-sk-sl, cs missing declension'
 ) or diag Dumper $product_ref;
 ok(
