@@ -361,10 +361,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Manuel d'administration des producteurs"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donner à Open Food Facts\" /></a><p><<site_name>> est développé par une association à but non lucratif indépendante de l'industrie. Open Food Facts est fait pour tous, par tous, et est financé par tous. Vous pouvez soutenir notre travail en <a href=\"https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=login-open-food-facts\">donnant à Open Food Facts</a> et aussi en utilisant le <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">moteur de recherche Lilo</a>.<br/><b>Merci beaucoup !</b></p>"
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "Faites un don pour soutenir notre travail"
@@ -4639,17 +4635,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Données manquantes pour calculer le Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
+msgid "Nutri-Score not applicable"
 msgstr "Nutri-Score non applicable"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "Non applicable pour la catégorie"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr "Non applicable pour la catégorie : {category}"
+msgid "Not applicable for the category: {category}"
+msgstr "Non applicable pour la catégorie : {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5124,6 +5120,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Données nutritionnelles manquantes"
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Informations nutritionnelles manquantes pour le produit préparé"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr "Green-Score"
@@ -5466,6 +5466,10 @@ msgstr "Green-Score non calculé"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Impact environnemental inconnu"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Catégorie précise manquante"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -6112,6 +6116,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr "Informations nutritionnelles manquantes :"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Informations nutritionnelles manquantes pour le produit préparé :"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "La catégorie et la valeur nutritionnelle du produit doivent être précisées afin de calculer le Nutri-Score."
@@ -6199,6 +6207,10 @@ msgstr "Catégorie manquante"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Données nutritionnelles manquantes"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Informations nutritionnelles manquantes sur les plats préparés"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6384,6 +6396,10 @@ msgstr "Pourriez-vous ajouter les informations nécessaires pour calculer le Nut
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "Pourriez-vous ajouter une catégorie de produit précise afin que nous puissions calculer le Green-Score ?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "La catégorie de ce produit n'est pas assez précise pour calculer le Green-Score. Pourriez-vous ajouter une catégorie de produit plus précise ?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7363,11 +7379,11 @@ msgid "Repairability index unknown"
 msgstr "Indice de réparabilité inconnu"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
+msgid "Repairability index not applicable"
 msgstr "Indice de réparabilité non applicable"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "Non applicable pour la catégorie"
 
 # variable names between { } must not be translated
@@ -7513,9 +7529,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Signaler cette image à nos modérateurs"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Il nous manque la valeur de la portion et/ou l'unité pour calculer le Nutri-Score"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> est produit par une association à but non lucratif, indépendante de l'industrie. Il est conçu pour tous, par tous, et financé par tous. Vous pouvez soutenir notre action en faisant un don à Open Food Facts.<br/><b>Merci !</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> est produit par une association à but non lucratif, indépendante de l'industrie. Il est conçu pour tous, par tous, et financé par tous. Vous pouvez soutenir notre action en faisant un don à Open Food Facts et en utilisant le moteur de recherche Lilo.<br/><b>Merci !</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Moteur de recherche Lilo"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
-msgstr "En raison d'abus importants de la part de robots, nous ne pouvons pas servir cette page aux utilisateurs non identifiés. Merci de créer un compte Open Food Facts gratuit pour accéder à l'ensemble d'Open Food Facts."
+msgstr "En raison d'abus de robots, nous ne pouvons pas proposer cette page aux utilisateurs non identifiés. Veuillez créer un compte Open Food Facts gratuit pour accéder à l'intégralité d'Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Origine des ingrédients"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "Origine du produit"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Informations sur le produit"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Informations sur le produit brut"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7529,6 +7577,59 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Quantité estimée de sucres ajoutés dans les ingrédients"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Quantité de sucres ajoutés"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
-msgstr "Chercher des produits de la même catégorie sans sucres ajoutés :"
+msgstr "Rechercher des produits de la même catégorie sans sucres ajoutés :"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Ingrédients indésirables"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Cette préférence est basée sur la compréhension de la liste des ingrédients par Open Food Facts et peut ne pas être exacte, vérifiez toujours le produit vous-même."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Présence d'ingrédients indésirables inconnue"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Aucun ingrédient indésirable détecté"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Contient des ingrédients indésirables"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Certains ingrédients n'ont pas été reconnus"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Nous n'avons pas détecté : {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Nous n'avons pas détecté : {unwanted_ingredients}. Nous avons peut-être manqué certains ingrédients, veuillez toujours vérifier la liste des ingrédients."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Fumer tue"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start or quit now."
+msgstr "Le tabac nuit gravement à la santé. Ne commencez pas ou arrêtez maintenant."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Fumer est très addictif. Ne commencez pas. Fumer tue – arrêtez maintenant. Fumer bouche les artères et provoque des crises cardiaques et des accidents vasculaires cérébraux. Fumer cause un cancer du poumon fatal. Fumer pendant la grossesse nuit à votre bébé. Protégez les enfants : ne les obligez pas à respirer votre fumée. Votre médecin ou votre pharmacien peut vous aider à arrêter de fumer. Fumer peut réduire le flux sanguin et provoquer une impuissance. Fumer provoque le vieillissement de la peau. Fumer peut endommager le sperme et diminuer la fertilité. La fumée contient du benzène, des nitrosamines, du formaldéhyde et du cyanure d'hydrogène."
+

@@ -265,7 +265,8 @@ $events_password = $ProductOpener::Config2::events_password;
 
 # Redis is used to push updates to the search server
 $redis_url = $ProductOpener::Config2::redis_url;
-$process_global_redis_events = $ProductOpener::Config2::process_global_redis_events;
+# Only the OFF instance processes the global events
+$process_global_redis_events = 0;
 
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
@@ -514,6 +515,46 @@ HTML
 	last_image_t
 );
 
+# List of fields that can be imported on the producers platform
+# and that are also exported from the producers platform to the public platform
+$options{import_export_fields_groups} = [
+	[
+		"identification",
+		[
+			"code", "producer_product_id",
+			"producer_version_id", "lc",
+			"product_name", "abbreviated_product_name",
+			"generic_name",
+			"quantity_value_unit", "net_weight_value_unit",
+			"drained_weight_value_unit", "volume_value_unit",
+			"packaging",
+			"brands", "brand_owner",
+			"categories", "categories_specific",
+			"labels", "labels_specific",
+			"countries", "stores",
+			"obsolete", "obsolete_since_date",
+			"periods_after_opening"    # included for OBF imports via the producers platform
+		]
+	],
+	[
+		"origins",
+		["origins", "origin", "manufacturing_places", "producer"]
+	],
+	["packaging"],
+	[
+		"other",
+		["customer_service", "link",]
+	],
+	[
+		"images",
+		["image_front_url", "image_ingredients_url", "image_packaging_url", "image_other_url", "image_other_type",]
+	],
+];
+
+# Secondary fields that are computed by OPF from primary data
+# Those fields are only exported, they are not imported.
+# Todo: populate when calculated indicators are available on OPF
+
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
 $options{attribute_groups}
@@ -569,6 +610,9 @@ $options{attribute_default_preferences_json}
 $options{no_nutrition_table} = 1;
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates";
+$options{redis_stream_name_product_updates} = "product_updates";
+# Name of the Redis stream where we notify that OCR results
+# are ready
+$options{redis_stream_name_ocr_ready} = "ocr_ready";
 
 1;

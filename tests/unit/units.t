@@ -183,4 +183,14 @@ foreach my $test_ref (@serving_sizes) {
 	is(extract_standard_unit($test_ref->[0]), $test_ref->[2]) or diag Dumper $test_ref;
 }
 
+is(get_standard_unit("kg"), "g");
+is(get_standard_unit("g"), "g");
+is(get_standard_unit("l"), "ml");
+is(get_standard_unit("fl oz"), "ml");
+is(get_standard_unit("ml"), "ml");
+is(get_standard_unit("kcal"), "kj");
+is(get_standard_unit("kj"), "kj");
+is(get_standard_unit("mmol/l"), "mmol/l");
+is(get_standard_unit("ppm"), "mmol/l");
+
 done_testing();

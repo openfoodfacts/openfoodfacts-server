@@ -17,11 +17,9 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 my $ua = new_client();
 
@@ -421,6 +419,12 @@ my $tests_ref = [
 		test_case => 'fr-product-2',
 		subdomain => 'fr',
 		path => '/produit/3300000000002/tarte-aux-pommes-et-aux-framboise-bio-les-tartes-de-robert',
+		expected_type => 'html',
+	},
+	{
+		test_case => 'fr-product-raw-panel',
+		subdomain => 'fr',
+		path => '/produit/3300000000002/tarte-aux-pommes-et-aux-framboise-bio-les-tartes-de-robert?raw_panel=1',
 		expected_type => 'html',
 	},
 	{

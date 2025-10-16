@@ -48,6 +48,13 @@ To deploy you need to execute the following steps:
    ./scripts/taxonomies/build_tags_taxonomy.pl
    ./scripts/build_lang.pl
    ```
+1. on the PRO platform, also rebuild the fields columns names
+   ```bash
+   sudo -u off bash
+   cd /srv/$SERVICE
+   source env/setenv.sh $SERVICE
+   ./scripts/build_pro_platform_fields_columns_names.pl
+   ```
 1. update the frontend assets you just downloaded
    ```bash
    sudo -u off /srv/$SERVICE/scripts/deploy/install-dist-files.sh $VERSION $SERVICE

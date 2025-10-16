@@ -6262,8 +6262,8 @@ my %ingredients_categories_and_types = (
 	cs => [
 		# oil and fat
 		{
-			categories => ["rostlinné oleje"],
-			types => ["řepkový", "slunečnicový",],
+			categories => ["rostlinné oleje, rostlinné tuky"],
+			types => ["bambucký", "kokosový", "olivový", "palmový", "palmojadrový", "řepkový", "slunečnicový",],
 			alternate_names => ["<type> olej"],
 		},
 	],
