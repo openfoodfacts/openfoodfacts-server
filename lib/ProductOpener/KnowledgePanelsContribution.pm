@@ -82,7 +82,7 @@ sub create_contribution_card_panel ($product_ref, $target_lc, $target_cc, $optio
 	$log->debug("create contribution card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
 	my @panels = ();
-	for my $tag_type (qw(data_quality_errors data_quality_warnings data_quality_info)) {
+	for my $tag_type (qw(data_quality_errors data_quality_warnings data_quality_info data_quality_completeness)) {
 		# we need to create it first because it can condition contribution panel display
 		my $created
 			= create_data_quality_panel($tag_type, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
