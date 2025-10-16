@@ -138,27 +138,27 @@ jobs:
           
           # Remove the old BuildKit cache (keeping the new one)
           echo "Removing old BuildKit cache..."
-          rm -rf /tmp/.buildx-cache
+          time rm -rf /tmp/.buildx-cache
           
           # Additional cleanup to get us over the threshold
           echo "Additional cleanup for more space..."
           
           # Remove APT package cache (can be regenerated)
-          sudo apt-get clean
-          sudo rm -rf /var/cache/apt/archives/*.deb
+          time sudo apt-get clean
+          time sudo rm -rf /var/cache/apt/archives/*.deb
           
           # Remove large APT lists (can be regenerated)
-          sudo rm -rf /var/lib/apt/lists/*
+          time sudo rm -rf /var/lib/apt/lists/*
           
           # Remove any temporary files in /tmp
-          sudo find /tmp -type f -size +50M -delete 2>/dev/null || true
+          time sudo find /tmp -type f -size +50M -delete 2>/dev/null || true
           
           # Remove Docker build cache that's not needed for save
-          docker builder prune -af || true
+          time docker builder prune -af || true
           
           # Show space freed
           echo "Space after cleanup:"
-          df -h / | tail -1
+          time df -h / | tail -1
           
           # Calculate available space
           AVAIL=$(df / | tail -1 | awk '{print $4}')
@@ -175,7 +175,7 @@ jobs:
             
             # First verify our target image exists
             echo "Checking if target image exists..."
-            docker images openfoodfacts-server/backend:dev
+            time docker images openfoodfacts-server/backend:dev
             
             # SKIP Docker cleanup entirely to preserve our image
             echo "Skipping Docker cleanup to preserve target image..."
@@ -184,24 +184,24 @@ jobs:
             echo "Cleaning system caches and files..."
             
             # Clean up system caches (this freed the most space)
-            sudo rm -rf /var/log/*.log /var/log/*/*.log || true
-            sudo rm -rf /var/cache/* || true
-            sudo rm -rf /usr/share/doc/* || true
-            sudo rm -rf /usr/share/man/* || true
-            sudo rm -rf /usr/share/locale/* || true
+            time sudo rm -rf /var/log/*.log /var/log/*/*.log || true
+            time sudo rm -rf /var/cache/* || true
+            time sudo rm -rf /usr/share/doc/* || true
+            time sudo rm -rf /usr/share/man/* || true
+            time sudo rm -rf /usr/share/locale/* || true
             
             # Remove any large files in common locations
-            sudo find /var -type f -size +100M -delete 2>/dev/null || true
-            sudo find /usr -type f -size +100M -delete 2>/dev/null || true
-            sudo find /opt -type f -size +100M -delete 2>/dev/null || true
+            time sudo find /var -type f -size +100M -delete 2>/dev/null || true
+            time sudo find /usr -type f -size +100M -delete 2>/dev/null || true
+            time sudo find /opt -type f -size +100M -delete 2>/dev/null || true
             
             # Clean up more system temporary files
-            sudo rm -rf /tmp/* || true
-            sudo rm -rf /var/tmp/* || true
+            time sudo rm -rf /tmp/* || true
+            time sudo rm -rf /var/tmp/* || true
             
             # Verify our image still exists
             echo "Verifying target image still exists..."
-            docker images openfoodfacts-server/backend:dev
+            time docker images openfoodfacts-server/backend:dev
             
             # Final space check
             echo "Space after aggressive cleanup:"
