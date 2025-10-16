@@ -602,6 +602,56 @@ my @tests = (
 	],
 
 	[
+		'1003-to-1002-no_nutrition_data_on_packaging',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"no_nutrition_data" => "on",
+			"nutrition" => {
+				"aggregated_set" => undef,
+				"nutrient_sets" => []
+			},
+		}
+	],
+
+	[
+		'1003-to-1002-no_nutrition',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+		}
+	],
+
+	[
+		'1003-to-1002-no-aggregated-set-input-set-per-serving-without-serving-quantity',
+		1002,
+		{
+			"schema_version" => 1003,
+			"nutrition" => {
+				"nutrient_sets" => [
+					{
+						"nutrients" => {
+							"carbohydrates" => {
+								"source" => "manufacturer",
+								"source_per" => "serving",
+								"unit" => "g",
+								"value" => 100,
+								"value_string" => "100"
+							},
+						},
+						"per" => "serving",
+						"preparation" => "as_sold"
+					}
+				]
+			},
+		}
+	],
+
+	[
 		'1003-to-1002-prepared-serving-nutrients',
 		1002,
 		{

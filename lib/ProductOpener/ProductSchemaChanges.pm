@@ -536,13 +536,35 @@ sub set_per_unit ($product_quantity_unit, $serving_quantity_unit, $set_type) {
 	return $per_unit;
 }
 
+=head2 1003 to 1002 - Refactor the product nutrition schema - API v3.4
+
+The nutrition schema is updated to allow storing several nutrition input sets.
+To downgrade, we use only the aggregated set to generate the nutriments field.
+
+This means that for some products, we will return less information in the downgraded version,
+as we will return only as sold data or prepared data, but not both as was possible in the 1002 version.
+
+=cut
+
 sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref, $delete_nutrition_data = true) {
-	# if no aggregated set then there is no nutrition information
-	if (   !defined $product_ref->{nutrition}{aggregated_set}
-		|| !%{$product_ref->{nutrition}{aggregated_set}})
-	{
+
+	# No nutrition data
+	my $no_nutrition_data_on_packaging = deep_get($product_ref, "nutrition", "no_nutrition_data") // false;
+	if ($no_nutrition_data_on_packaging) {
 		$product_ref->{no_nutrition_data} = "on";
-		$product_ref->{nutriments} = {};
+	}
+	else {
+		# should not happen but just in case
+		delete $product_ref->{no_nutrition_data};
+	}
+
+	# if no aggregated set then we do not return nutrition information
+	# Note: We might have some nutrition data that cannot be incorporated in the aggregated set
+	# e.g. an input set per serving, but without a serving quantity: in that case we do not have an aggregated set
+
+	my $aggregated_set_ref = deep_get($product_ref, "nutrition", "aggregated_set");
+
+	if (!defined $aggregated_set_ref || !%{$aggregated_set_ref}) {
 		delete $product_ref->{nutrition};
 	}
 
@@ -553,18 +575,18 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 		my $per = $nutrient_set_ref->{per} eq "100ml" ? "_100g" : "_" . $nutrient_set_ref->{per};
 
 		# first create the nutriments field
-		my $nutriments = {};
+		my $nutriments_ref = {};
 
 		foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
-			$nutriments->{$nutrient . $preparation_state . $per} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
-			$nutriments->{$nutrient . "_unit"} = $nutrient_set_ref->{nutrients}{$nutrient}{unit};
+			$nutriments_ref->{$nutrient . $preparation_state . $per} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
+			$nutriments_ref->{$nutrient . "_unit"} = $nutrient_set_ref->{nutrients}{$nutrient}{unit};
 			if (defined $nutrient_set_ref->{nutrients}{$nutrient}{modifier}) {
-				$nutriments->{$nutrient . $preparation_state . "_modifier"}
+				$nutriments_ref->{$nutrient . $preparation_state . "_modifier"}
 					= $nutrient_set_ref->{nutrients}{$nutrient}{modifier};
 			}
 		}
 
-		$product_ref->{nutriments} = $nutriments;
+		$product_ref->{nutriments} = $nutriments_ref;
 
 		# then add other useful data on the nutrients to the product
 		if ($preparation_state eq "") {
