@@ -19,9 +19,6 @@ concurrency:
 
 permissions:
   contents: read
-  # needed to use cache-to type=registry for buildx
-  packages: write
-
 
 jobs:
   filter:
@@ -73,6 +70,10 @@ jobs:
   # this will build the docker image and upload as an artifact for following jobs
   build_backend:
     name: 🏗 Build backend dev image for tests
+    permissions:
+      contents: read
+      # needed to use cache-to type=registry for buildx
+      packages: write
     runs-on: ubuntu-latest
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
     steps:
