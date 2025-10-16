@@ -16,9 +16,11 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-  
+
 permissions:
   contents: read
+  # needed to use cache-to type=registry for buildx
+  packages: write
 
 
 jobs:
