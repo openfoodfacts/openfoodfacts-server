@@ -159,7 +159,7 @@ stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, 
 stopwords:nn: og, av
 stopwords:pl: w tym, zawiera, z, zawierają, łącznie z, jadalna, jadalne, inne
 stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo
-stopwords;ro: Produsul poate conține
+stopwords:ro: Produsul poate conține
 stopwords:sk: obsahuje
 stopwords:sl: vsebuje, sestavine
 stopwords:sv: och, eller, samt, av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, innehållande, innehålle, ingredienser, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav, bäst före, i varierande proportion
@@ -21608,7 +21608,7 @@ uz: Vanilin
 zh: 香草醛
 comment:en: Note that the aroma's are found under the aroma section.
 # azb:وانیلین
-en:description:Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
+description:en: Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
 wikidata:en: Q33495
 wikipedia:en: https://en.wikipedia.org/wiki/Vanillin
 # ingredient/fr:vanilline has 831 products in 10 languages @2018-12-12
@@ -29008,7 +29008,7 @@ fr: riz long semi complet
 
 < fr:riz long semi complet
 #<en:organic rice
-fr:riz long semi complet issu de l'agriculture-biologique:
+fr: riz long semi complet issu de l'agriculture-biologique
 
 < en:brown rice
 < en:long grain rice
@@ -51539,7 +51539,7 @@ it: bambù
 ja: 竹
 jv: Pring
 ka: ბამბუკი
-kk:Бамбукkn:ಬಿದಿರು
+kk: Бамбукkn
 ko: 대나무
 ky: Бамбук
 la: Bambuseae
@@ -68515,7 +68515,6 @@ ga: Leannlus
 he: כשות
 hr: hmelj, hmelja, hmelji, hmeljevi
 hu: komló, komlo
-id:hopio:Lupulo
 is: Humall
 it: luppolo
 ja: ホップ
@@ -68974,8 +68973,6 @@ sv: panax ginseng rotextrakt
 #                                Liquorice
 #
 ###################################################################################################
-# description:en:LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
-# comment:en:This refers to the root not the candy
 
 < en:plant
 en: liquorice, licorice
@@ -69046,6 +69043,8 @@ tr: Meyan
 uk: локриця
 uz: Qizilmiya
 zh: 光果甘草
+comment:en: This refers to the root not the candy
+description:en: LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
 # aeb-arab:عرب السوس
 # arz:عرقسوس
 # bar:Bärndreck
@@ -69228,8 +69227,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Corchorus_olitorius
 #                                Mate
 #
 ###################################################################################################
-# description:en:Mate is a traditional South American caffeine-rich infused drink. It is prepared by steeping dried leaves of yerba mate in hot water and is served with a metal straw from a shared hollow calabash gourd
-
 < en:plant
 en: mate, yerba mate leaves, yerba mate
 af: Mate
@@ -69281,6 +69278,7 @@ tl: Mate
 tr: Maté
 uk: Мате
 zh: 瑪黛茶
+description:en: Mate is a traditional South American caffeine-rich infused drink. It is prepared by steeping dried leaves of yerba mate in hot water and is served with a metal straw from a shared hollow calabash gourd
 # ast:Mate
 # be-tarask:Матэ
 # ceb:Mate
