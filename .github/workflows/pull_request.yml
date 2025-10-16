@@ -224,6 +224,7 @@ jobs:
                 echo "⚠️ Still might be tight with ${AVAIL_GB}GB available"
               else
                 echo "✅ Should have sufficient space now"
+              fi
             else
               echo "✅ Should have sufficient space"
             fi
