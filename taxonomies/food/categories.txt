@@ -46148,7 +46148,7 @@ de: Feta
 el: Φέτα, Feta
 es: Feta
 fi: feta
-fr: Fetan
+fr: Feta
 hr: Feta
 hu: Feta sajtok
 it: Feta
@@ -75317,19 +75317,9 @@ pl: Sosy wegetariańskie, wegetariańskie sosy
 sv: Vegetariska såser
 
 < en:Sauces
-en: Other sauces
-
-< en:Other sauces
-en: Shelf-stable other sauces
-gpc_category_code:en: 10000280
-gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury liquid, paste, spread or granulated substance, which is usually served as an accompaniment to savoury foods. These products can be blended with other ingredients. These products have been treated or packaged in such a way as to extend their consumable life. Products include liquids, spreads and granules flavoured with, but not necessarily made from fish, meat, mushrooms, seafood or vegetables. Definition Excludes: Specifically excludes Tomato Ketchup/ Ketchup Substitutes, Mustard/Mustard Substitutes and Mayonnaise/Mayonnaise Substitutes. Excludes products such as Cooking Sauces, Frozen and Perishable Sauces Dipping, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
-gpc_category_name:en: Other Sauces Dipping/Condiments/Savoury Toppings/Savoury Spreads/Marinades (Shelf Stable)
-
-< en:Other sauces
-en: Refrigerated other sauces
-gpc_category_code:en: 10000054
-gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury liquid, paste, spread or granulated substance, which is usually served as an accompaniment to savoury foods. These products can be blended with other ingredients. These products must be refrigerated to extend their consumable life. Products include liquids and spreads flavoured with, but not necessarily made from fish, meat, mushrooms, sea food or vegetables. Definition Excludes: Specifically excludes Tomato Ketchup/ Ketchup Substitutes, Mustard/Mustard Substitutes and Mayonnaise/Mayonnaise Substitutes. Excludes products such as Cooking Sauces, Frozen and Shelf Stable Sauces Dipping, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
-gpc_category_name:en: Other Sauces Dipping/Condiments/Savoury Toppings/Savoury Spreads/Marinades (Perishable)
+en: Ketchup and mayonnaise mix sauces
+fr: Sauces mix ketchup et mayonnaise
+opposite:en: en:ketchup, en:mayonnaises
 
 < en:Sauces
 en: Cooking Sauces
@@ -78974,7 +78964,7 @@ ja: ブラバスソース
 nl: Brava sauzen
 wikidata:en: Q2102385
 
-< en:Tomato sauces
+< en:Sauces
 en: Ketchup
 xx: Ketchup
 bg: Кетчуп
@@ -78993,16 +78983,12 @@ agribalyse_food_code:en: 11008
 ciqual_food_code:en: 11008
 ciqual_food_name:en: Ketchup
 ciqual_food_name:fr: Ketchup
+opposite:en: en:ketchup-and-mayonnaise-mix-sauces
 wikidata:en: Q178143
 
 < en:Ketchup
-en: Tomato ketchup substitutes
-gpc_category_code:en: 10006325
-gpc_category_description:en: Definition: Includes any products that can be described/observed as a tomato Ketchup or Ketchup substitute, which is usually used to enhance the flavour, appearance and texture of savoury foods. These products can be blended with other ingredients. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Specifically excludes Mustard/Mustard Substitutes and other Sauces Dipping/Condiments/Savoury Spreads/ Marinades, Mayonnaise/Mayonnaise Substitutes. Excludes products such as Cooking Sauces; Dressings and Dips; Frozen and Perishable Sauces Dipping, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
-gpc_category_name:en: Tomato Ketchup/Ketchup Substitutes (Shelf Stable)
-
-< en:Ketchup
-en: Tomato Ketchup
+< en:Tomato sauces
+en: Tomato ketchup
 bg: Доматен кетчуп
 da: Tomatketchup
 de: Tomatenketchup
@@ -79014,6 +79000,9 @@ pl: Ketchup pomidorowy, Keczup pomidorowy
 ru: Томатный кетчуп
 sv: Tomatketchup
 tr: Domates Ketçabı
+gpc_category_code:en: 10006325
+gpc_category_description:en: Definition: Includes any products that can be described/observed as a tomato Ketchup or Ketchup substitute, which is usually used to enhance the flavour, appearance and texture of savoury foods. These products can be blended with other ingredients. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Specifically excludes Mustard/Mustard Substitutes and other Sauces Dipping/Condiments/Savoury Spreads/ Marinades, Mayonnaise/Mayonnaise Substitutes. Excludes products such as Cooking Sauces; Dressings and Dips; Frozen and Perishable Sauces Dipping, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
+gpc_category_name:en: Tomato Ketchup/Ketchup Substitutes (Shelf Stable)
 
 < en:Tomato sauces
 en: Neapolitan sauces
@@ -80455,6 +80444,7 @@ pt: Refeições com carne
 ru: Блюда с мясом
 sv: Rätter med kött
 zh: 肉餐
+incompatible_with:en: en:meats, en:meat-preparations
 intake24_category_code:en: MDSH
 
 < en:Meals with meat
@@ -84941,6 +84931,7 @@ th: ผลิตภัณฑ์จากเนื้อสัตว์
 tr: Et
 zh: 肉类, 肉
 food_groups:en: en:meat-other-than-poultry
+incompatible_with:en: en:meals-with-meat, en:meat-preparations
 intake24_category_code:en: MEAT
 # Products that are poultry hopefully have the en:Poultries category which will assign the en:Poultry food group
 pnns_group_2:en: Meat
@@ -86603,6 +86594,7 @@ hr: Mesnih pripravaka
 it: Preparazioni a base di carne
 lt: Mėsos ruošiniai
 nl: Vleesbereidingen
+incompatible_with:en: en:meals-with-meat, en:meats
 
 en: Skewers, Kebabs, kebab, kabobs, kabob, kababs, kabab
 de: Spieße
@@ -94917,6 +94909,7 @@ food_groups:en: en:cereals
 gpc_category_code:en: 10000242
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury pasta, noodle or gnocchi not ready to eat product. These products must not include any additional ingredients such as vegetables, protein or a sauce, and must not be part of a recipe prior to sale. These products are not ready to eat and require cooking prior to consumption. These products have been treated or packaged in such a way to extend their consumable life. Definition Excludes: Specifically excludes all dough based prepared products such as Spaghetti Bolognaise. Excludes products such as Perishable and Frozen Not Ready to Eat and all Ready to Eat Pasta, Noodles and Gnocchi and all Dough Based Prepared Recipe Products.
 gpc_category_name:en: Pasta/Noodles - Not Ready to Eat (Shelf Stable)
+incompatible_with:en: en:pasta-dishes
 intake24_category_code:en: PTNS
 pnns_group_2:en: Cereals
 wikidata:en: Q178
@@ -97066,6 +97059,7 @@ pt: Pratos de massa
 ru: Блюда из макарон
 sv: Pastarätter
 intake24_category_code:en: PTDH
+opposite:en: en:pastas
 wikidata:en: Q18679685
 
 < en:Pasta dishes
@@ -119805,6 +119799,12 @@ it: preparazioni a base di patate
 nl: Aardappelbereidingen
 pt: Preparados de batata
 intake24_category_code:en: WFFL
+
+# potato preparation similar to gnocchi, originating from Poland, and also popular in Lithuania and Belarus.
+< en:Potato preparations
+en: Kopytka
+pl: Kopytka
+wikidata:en: Q1154225
 
 < en:Potato preparations
 en: Rostis, Potatoes cakes, Potato cakes
