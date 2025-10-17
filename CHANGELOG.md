@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.82.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.81.0...v2.82.0) (2025-10-17)
+
+
+### Features
+
+* Add a new category tree for Open Products Facts, based on the Google Product Taxonomy, converted using python ([#12457](https://github.com/openfoodfacts/openfoodfacts-server/issues/12457)) ([3760f7d](https://github.com/openfoodfacts/openfoodfacts-server/commit/3760f7ddeba3cd857a4068a5c08df2800c6950ec))
+
 ## [2.81.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.80.0...v2.81.0) (2025-10-17)
 
 
