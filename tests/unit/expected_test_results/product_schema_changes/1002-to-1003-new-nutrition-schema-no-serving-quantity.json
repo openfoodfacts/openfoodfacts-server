@@ -1,0 +1,61 @@
+{
+   "nutrition": {
+      "aggregated_set": {},
+      "input_sets": [
+         {
+            "last_updated_t": "--ignore--",
+            "nutrients": {
+               "alcohol": {
+                  "unit": "% vol",
+                  "value": 0,
+                  "value_string": "0"
+               },
+               "carbohydrates": {
+                  "unit": "g",
+                  "value": 100,
+                  "value_string": "100"
+               },
+               "energy": {
+                  "unit": "kJ",
+                  "value": 1700,
+                  "value_string": "1700"
+               },
+               "energy-kcal": {
+                  "unit": "kcal",
+                  "value": 400,
+                  "value_string": "400"
+               },
+               "energy-kj": {
+                  "unit": "kJ",
+                  "value": 1700,
+                  "value_string": "1700"
+               },
+               "fat": {
+                  "unit": "g",
+                  "value": 0,
+                  "value_string": "0"
+               },
+               "fiber": {
+                  "unit": "g",
+                  "value": 0,
+                  "value_string": "0"
+               },
+               "sugars": {
+                  "unit": "g",
+                  "value": 100,
+                  "value_string": "100"
+               }
+            },
+            "per": "serving",
+            "per_quantity": null,
+            "per_unit": null,
+            "preparation": "as_sold",
+            "source": "packaging"
+         }
+      ],
+      "unspecified_nutrients": []
+   },
+   "schema_version": 1003,
+   "serving_quantity": null,
+   "serving_quantity_unit": null
+}
