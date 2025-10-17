@@ -56,7 +56,7 @@ my %user_form = (
 	pro => "1",
 	requested_org => "Acme Inc."
 );
-my $log_path;
+my $log_path = "/var/log/apache2/log4perl.log";
 if (get_oidc_implementation_level() > 1) {
 	# Emails will be in the Minion log once Keycloak is the master source of truth
 	$log_path = "/var/log/apache2/minion_log4perl.log";
@@ -66,10 +66,12 @@ my $before_create_ts = time();
 $resp = create_user($user_ua, \%user_form);
 ok(!html_displays_error($resp), "no error creating pro user");
 
-# Create user starts in Keycloak, then triggers Redis which creates minion job
-# Wait for the requested orgs job to complete
-my $jobs_ref = get_minion_jobs("process_user_requested_org", $before_create_ts);
-is(scalar @{$jobs_ref}, 1, "One process_user_requested_org was triggered");
+if (get_oidc_implementation_level() > 1) {
+	# Create user starts in Keycloak, then triggers Redis which creates minion job
+	# Wait for the requested orgs job to complete
+	my $jobs_ref = get_minion_jobs("process_user_requested_org", $before_create_ts);
+	is(scalar @{$jobs_ref}, 1, "One process_user_requested_org was triggered");
+}
 
 my $logs = tail_log_read($tail);
 
