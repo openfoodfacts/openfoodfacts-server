@@ -61,7 +61,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/$subdomain $formatted_subdomain display_error_and_exit/;
+use ProductOpener::Display qw/display_error_and_exit/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::URL qw/get_cookie_domain format_subdomain/;
 use ProductOpener::Users qw/$User_id retrieve_user store_user_preferences generate_token init_user open_user_session/;
@@ -115,10 +115,11 @@ sub start_authorize ($request_ref) {
 	# random private token to identify the sign-in process
 	my $nonce = generate_token(64);
 	my $return_url = $request_ref->{return_url};
+	my $subdomain = $request_ref->{subdomain};
 	if (   (not $return_url)
 		or (not($return_url =~ /^https?:\/\/$subdomain\.$server_domain/)))
 	{
-		$return_url = $formatted_subdomain;
+		$return_url = $request_ref->{formatted_subdomain};
 	}
 
 	# get main OIDC client (keycloak)
@@ -418,10 +419,11 @@ sub start_signout ($request_ref) {
 	# compute return_url, so that after sign out, user will be redirected to the home page
 	my $return_url = single_param('return_url');
 	die $return_url if defined $return_url;
+	my $subdomain = $request_ref->{subdomain};
 	if (   (not $return_url)
 		or (not($return_url =~ /^https?:\/\/$subdomain\.$server_domain/sxm)))
 	{
-		$return_url = $formatted_subdomain;
+		$return_url = $request_ref->{formatted_subdomain};
 	}
 
 	my $id_token = $request_ref->{id_token};
@@ -471,7 +473,7 @@ The return URL after successful sign-out.
 sub signout_callback ($request_ref) {
 	# no cookie, nothing to do
 	unless (defined cookie($cookie_name)) {
-		return $formatted_subdomain;
+		return $request_ref->{formatted_subdomain};
 	}
 
 	# ensure we are in the right process thanks to private random token
