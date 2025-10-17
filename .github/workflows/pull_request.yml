@@ -127,13 +127,13 @@ jobs:
           # Note: we don't use gha cache because we run out of cache otherwise
           # So we use registry cache, see https://docs.docker.com/build/cache/backends/registry/
           cache-from: |
-            type=registry,ref=${{ registry_ref.outputs.registry_ref }}
+            type=registry,ref=${{ steps.registry_ref.outputs.registry_ref }}
           # cache to is enabled only for non fork, for otherwise there is no permission to write
           cache-to: |
             ${{
              github.event.pull_request.head.repo.fork &&
              '' ||
-             ('type=registry,ref=' + registry_ref.outputs.registry_ref + ',mode=max')
+             ('type=registry,ref=' + steps.registry_ref.outputs.registry_ref + ',mode=max')
           load: true                   # loads the image into local docker daemon
           tags: openfoodfacts-server/backend:dev
       # Clean up BuildKit cache duplication to free space for Docker save
