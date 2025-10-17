@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.81.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.80.0...v2.81.0) (2025-10-17)
+
+
+### Features
+
+* Import tools ([#12483](https://github.com/openfoodfacts/openfoodfacts-server/issues/12483)) ([0aaaeb8](https://github.com/openfoodfacts/openfoodfacts-server/commit/0aaaeb8433fe18cfdb7f4f830e97f0e14dbdb1e7))
+* init data quality dimensions ([#11953](https://github.com/openfoodfacts/openfoodfacts-server/issues/11953)) ([1bff5f2](https://github.com/openfoodfacts/openfoodfacts-server/commit/1bff5f27a241a4bd1e6693f99ec76ba48f971db3))
+* taxonomy based recommendation panels ([#12477](https://github.com/openfoodfacts/openfoodfacts-server/issues/12477)) ([3b6a204](https://github.com/openfoodfacts/openfoodfacts-server/commit/3b6a2044d9777325600d434e386969ec6842a2da))
+
+
+### Bug Fixes
+
+* better postgres healthcheck ([#12458](https://github.com/openfoodfacts/openfoodfacts-server/issues/12458)) ([b4448b0](https://github.com/openfoodfacts/openfoodfacts-server/commit/b4448b01c950813c8ab0937a36645f8fdb148778))
+* content only pages for user-agent smoothie ([#12514](https://github.com/openfoodfacts/openfoodfacts-server/issues/12514)) ([2c74009](https://github.com/openfoodfacts/openfoodfacts-server/commit/2c7400999bd2ce94af2269871393c9b48a4f2230))
+* default sort by last modified date on OPF ([#12479](https://github.com/openfoodfacts/openfoodfacts-server/issues/12479)) ([56044d6](https://github.com/openfoodfacts/openfoodfacts-server/commit/56044d687cc29e4cb82c942157b7bd89268948f3))
+* Fix brands taxonomy file path in labeler.yml ([d199fdc](https://github.com/openfoodfacts/openfoodfacts-server/commit/d199fdce6eae2d77c114f174da28717ebae6690f))
+* Fix brands taxonomy file path in labeler.yml ([#12472](https://github.com/openfoodfacts/openfoodfacts-server/issues/12472)) ([d199fdc](https://github.com/openfoodfacts/openfoodfacts-server/commit/d199fdce6eae2d77c114f174da28717ebae6690f))
+* keep all product types in mongodb off database on pro platform ([#12482](https://github.com/openfoodfacts/openfoodfacts-server/issues/12482)) ([aa4e152](https://github.com/openfoodfacts/openfoodfacts-server/commit/aa4e15261ac32f4b4ec5155b0da771843d12ca3f))
+* make OIDC_DISCOVERY_URL to use keycloak:8080 (needed on dev environment) ([#12480](https://github.com/openfoodfacts/openfoodfacts-server/issues/12480)) ([d3650d8](https://github.com/openfoodfacts/openfoodfacts-server/commit/d3650d8dd17c7f30cf1a34d117e75832ed520cb7))
+* matomo pro-platform config ([#12499](https://github.com/openfoodfacts/openfoodfacts-server/issues/12499)) ([0b4bd21](https://github.com/openfoodfacts/openfoodfacts-server/commit/0b4bd218de768fde7a80cebb0e5d175d60fc99cc))
+* move global variables $subdomain, $formatted_subdomain etc. to request object ([#12437](https://github.com/openfoodfacts/openfoodfacts-server/issues/12437)) ([645d608](https://github.com/openfoodfacts/openfoodfacts-server/commit/645d60853c8471d1aa6d7992883e844741ca8cf1))
+* taxonomies_enhancer test ([#12485](https://github.com/openfoodfacts/openfoodfacts-server/issues/12485)) ([dcb5487](https://github.com/openfoodfacts/openfoodfacts-server/commit/dcb5487930a041104c3cbd07321de181ad6cff31))
+* use /js/dist/ for preferences JS files (hot fix applied in prod) ([#12411](https://github.com/openfoodfacts/openfoodfacts-server/issues/12411)) ([78a584c](https://github.com/openfoodfacts/openfoodfacts-server/commit/78a584c20acab241e98faf5f5f7f1f2beb0250db))
+
 ## [2.80.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.79.0...v2.80.0) (2025-09-22)
 
 
