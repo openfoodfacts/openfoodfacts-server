@@ -133,7 +133,7 @@ jobs:
             ${{
               github.event.pull_request.head.repo.fork &&
               '' ||
-              ('type=registry,ref=' + steps.registry_ref.outputs.registry_ref + ',mode=max')
+              format('type=registry,ref={0},mode=max', steps.registry_ref.outputs.registry_ref)
             }}
           load: true                   # loads the image into local docker daemon
           tags: openfoodfacts-server/backend:dev
