@@ -188,8 +188,8 @@ jobs:
           echo "LOG_LEVEL_RATE_LIMITER=INFO" >> .env
           echo "BUILD_CACHE_REPO=openfoodfacts/openfoodfacts-build-cache" >> .env
 
-          #11901: Remove once production is migrated. Initially duplicate STO and JSON
-          echo "SERIALIZE_TO_JSON=1" >> .env
+          #11901: Remove once production is migrated. Replace STO with JSON when touched
+          echo "SERIALIZE_TO_JSON=2" >> .env
 
           # OIDC (Keycloak) settings
           echo "OIDC_IMPLEMENTATION_LEVEL=${{ env.OIDC_IMPLEMENTATION_LEVEL }}" >> .env

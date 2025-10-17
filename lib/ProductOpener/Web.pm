@@ -41,7 +41,7 @@ use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
 use ProductOpener::Store qw(:all);
-use ProductOpener::Display qw($country $tt display_possible_improvement_description process_template);
+use ProductOpener::Display qw($tt display_possible_improvement_description process_template);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);

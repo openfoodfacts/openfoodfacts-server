@@ -98,10 +98,12 @@ services:
       - POSTGRES_PASSWORD
       - POSTGRES_DB=minion
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
-      interval: 1s
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
       timeout: 5s
-      retries: 25
+      start_interval: 1s
+      start_period: 60s
+      retries: 2
     volumes:
       - pgdata:/var/lib/postgresql/data
   backend: *backend-conf

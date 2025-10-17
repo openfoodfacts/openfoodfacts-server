@@ -49,7 +49,6 @@ use Encode;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/$country/;
 use ProductOpener::Tags qw/has_tag/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
