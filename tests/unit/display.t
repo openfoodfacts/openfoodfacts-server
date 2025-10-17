@@ -12,6 +12,10 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Web qw/display_field/;
 use ProductOpener::Lang qw/$lc lang separator_before_colon/;
 use ProductOpener::HTTP qw/request_param/;
+use ProductOpener::Tags qw/build_tags_taxonomy build_all_taxonomies/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # date tests
 my $t = 1472292529;
@@ -195,5 +199,201 @@ is($facets_ref->{'redirect'}, '/facets/categories/breads/data-quality');
 $request_ref->{body_json}{labels_tags} = 'en:organic';
 is(request_param($request_ref, 'unexisting_field'), undef);
 is(request_param($request_ref, 'labels_tags'), 'en:organic') or diag Dumper request_param($request_ref, 'labels_tags');
+
+# tests of the display of products with the new nutrition schema (version 1003)
+my @tests = (
+	[
+		"nutrition-facts-table",
+		{
+			nutrition_data => "on",
+			serving_size => "100g",
+			serving_quantity => 100,
+			nutrition_data_per => "100g",
+			product_type => "food",
+			code => "0000109165808",
+			id => "0000109165808",
+			categories => "",
+			categories_tags => [],
+			nutrition => {
+				aggregated_set => {
+					nutrients => {
+						caffeine => {
+							unit => "g",
+							value => 2
+						},
+						calcium => {
+							unit => "g",
+							value => 0.3
+						},
+						carbohydrates => {
+							unit => "g",
+							value => 0
+						},
+						energy => {
+							unit => "kJ",
+							value => 0
+						},
+						"energy-kcal" => {
+							unit => "kcal",
+							value => 0
+						},
+						fat => {
+							unit => "g",
+							value => 0
+						},
+						proteins => {
+							unit => "g",
+							value => 0
+						},
+						salt => {
+							unit => "g",
+							value => 3.75
+						},
+						sodium => {
+							unit => "g",
+							value => 1.5
+						}
+					},
+					preparation => "as_sold"
+				}
+			}
+		}
+	],
+	[
+		"nutrition-facts-table-liquid",
+		{
+			nutrition_data => "on",
+			serving_size => "100ml",
+			serving_quantity => 100,
+			nutrition_data_per => "100ml",
+			product_type => "food",
+			code => "0000109165808",
+			id => "0000109165808",
+			categories => "",
+			categories_tags => [],
+			nutrition => {
+				aggregated_set => {
+					nutrients => {
+						caffeine => {
+							unit => "g",
+							value => 2
+						},
+						calcium => {
+							unit => "g",
+							value => 0.3
+						},
+						carbohydrates => {
+							unit => "g",
+							value => 0
+						},
+						energy => {
+							unit => "kJ",
+							value => 0
+						},
+						"energy-kcal" => {
+							unit => "kcal",
+							value => 0
+						},
+						fat => {
+							unit => "g",
+							value => 0
+						},
+						proteins => {
+							unit => "g",
+							value => 0
+						},
+						salt => {
+							unit => "g",
+							value => 3.75
+						},
+						sodium => {
+							unit => "g",
+							value => 1.5
+						}
+					},
+					preparation => "as_sold"
+				}
+			}
+		}
+	],
+	[
+		"nutrition-facts-table-no-nutrition-data",
+		{
+			nutrition_data => "on",
+			serving_size => "100g",
+			serving_quantity => 100,
+			nutrition_data_per => "100g",
+			product_type => "food",
+			code => "0000109165808",
+			id => "0000109165808",
+			categories => "",
+			categories_tags => [],
+			nutrition => {
+				aggregated_set => {
+					nutrients => {},
+					preparation => "as_sold"
+				}
+			}
+		}
+	],
+	[
+		"nutrition-facts-table-pet-food",
+		{
+			nutrition_data => "on",
+			serving_size => "100g",
+			serving_quantity => 100,
+			nutrition_data_per => "100g",
+			product_type => "petfood",
+			code => "0000109165808",
+			id => "0000109165808",
+			categories => "",
+			categories_tags => [],
+			nutrition => {
+				aggregated_set => {
+					nutrients => {
+						carbohydrates => {
+							unit => "g",
+							value => 0
+						},
+						energy => {
+							unit => "kJ",
+							value => 0
+						},
+						"energy-kcal" => {
+							unit => "kcal",
+							value => 0
+						},
+						fat => {
+							unit => "g",
+							value => 2
+						},
+						fiber => {
+							unit => "g",
+							value => 0.25
+						}
+					},
+					preparation => "as_sold"
+				}
+			}
+		}
+	]
+);
+
+# load the necessary taxonomy for the tests
+build_all_taxonomies(0);
+$ProductOpener::Display::nutriment_table = 'off_europe';
+
+foreach my $test_ref (@tests) {
+	my $testid = $test_ref->[0];
+	my $product_test_ref = $test_ref->[1];
+	my $comparisons_ref = $test_ref->[2];
+	my $request_ref = $test_ref->[3];
+
+	my $nutrition_facts_panel = data_to_display_nutrition_table($product_test_ref, $comparisons_ref, $request_ref);
+
+	compare_to_expected_results($nutrition_facts_panel, "$expected_result_dir/$testid.json",
+		$update_expected_results, {id => $testid});
+
+}
 
 done_testing();

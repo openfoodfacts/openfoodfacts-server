@@ -100,7 +100,7 @@ foreach my $test_ref (@tests) {
 	my $request_ref = {};
 	initialize_knowledge_panels_options($options_ref, $request_ref);
 
-	#create_knowledge_panels($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	create_knowledge_panels($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	# Travis and docker has a different $server_domain, so we need to change the resulting URLs
 	#          $got->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.off.travis-ci.org/images/attributes/nutriscore-unknown.svg'
