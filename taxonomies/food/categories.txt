@@ -38456,12 +38456,25 @@ fr: Bonbons dragéifiés
 en: Fudge
 bg: Фъдж
 
+# products which imitate the taste, texture and color of chocolate. The brand Choviva for example uses roasted sunflowers.
+< en:Sweet snacks
+en: Chocolate alternatives without cocoa
+fr: Alternatives au chocolat sans cacao
+incompatible_with:en: categories:en:chocolates, categories:en:compound-chocolates
+
+< en:Sweet snacks
+en: Bonbon alternatives without cocoa
+fr: Alternatives aux bonbons de chocolat sans cacao
+incompatible_with:en: categories:en:chocolates, categories:en:chocolate-alternatives-without-cocoa, categories:en:bonbons
+
+# Products with too little cocoa to be called chocolate. Cocoa butter is replaced by another oil (usually palm).
 < en:Confectioneries
 en: Compound chocolates, Chocolate substitutes
 de: Schokoladenersatz
 fr: Succédanés du chocolat, Substituts du chocolat
 hr: Složene čokolade
 ja: 凖チョコレート
+incompatible_with:en: categories:en:chocolates, categories:en:chocolate-alternatives-without-cocoa
 # ja note: Industry policy:
 # チョコレート類 refers to chocolate products in Japan. It contains チョコレート ("chocolate"), 凖チョコレート, チョコレート菓子 ("chocolate snack"), 凖チョコレート菓子, カカオマス ("cocoa mass"), ココアバター ("cocoa butter"), ココアケーキ, ココアパウダー ("cocoa powder"), and 調整ココアパウダー.
 # チョコレート must be made of at least 60% of チョコレート生地 ("chocolate mixture") by weight. チョコレート生地 must contain at least 35% cocoa and less than 3% water by weight (with complicated exceptions with milk solids).
