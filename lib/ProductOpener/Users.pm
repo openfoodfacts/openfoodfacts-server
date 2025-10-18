@@ -764,8 +764,10 @@ sub process_user_requested_org ($user_ref, $request_ref) {
 
 		add_user_to_org($org_ref, $userid, ["admins", "members"]);
 
-		# # Re-load the user here as the above may have taken some time
-		$user_ref = retrieve_user($userid);
+		if (get_oidc_implementation_level() > 1) {
+			# Re-load the user if we are processing a Keycloak event as the above may have taken some time
+			$user_ref = retrieve_user($userid);
+		}
 		$user_ref->{org} = $user_ref->{requested_org_id};
 		$user_ref->{org_id} = get_string_id_for_lang("no_language", $user_ref->{org});
 
