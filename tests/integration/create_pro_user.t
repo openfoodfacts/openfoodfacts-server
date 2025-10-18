@@ -106,7 +106,7 @@ my @mails = mails_from_log($logs);
 
 # Ensure the promoter email is at the start for comparison as with Minion jobs they aren't always processed in the same order
 my $promoter_email_index = first_index {
-	any {index($_, "user_new_pro_account_admin_notification.tt.html") != -1} @{ $_ }
+	any {index($_, "user_new_pro_account_admin_notification.tt.html") != -1} @{$_}
 }
 @mails;
 my $promoter_email = splice(@mails, $promoter_email_index, 1);
