@@ -115,8 +115,9 @@ FROM runtime-base AS build-base
 
 # Copy zxing-cpp from builder stage (libraries, headers, and pkgconfig)
 # zxing installs to /usr/lib/x86_64-linux-gnu/ so we need to copy from there
-COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/*zxing* /usr/lib/x86_64-linux-gnu/
-COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/*ZXing* /usr/lib/x86_64-linux-gnu/
+COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/libZXing.so /usr/lib/x86_64-linux-gnu/
+COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/libZXing.so.2.3.0 /usr/lib/x86_64-linux-gnu/
+COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/libZXing.so.2.3 /usr/lib/x86_64-linux-gnu/
 COPY --from=zxing-builder /usr/include/ZXing /usr/include/ZXing
 # Create pkgconfig directory and copy zxing.pc
 RUN mkdir -p /usr/lib/x86_64-linux-gnu/pkgconfig
