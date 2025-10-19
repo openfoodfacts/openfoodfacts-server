@@ -39,12 +39,12 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         mailutils \
         # C library dependencies for Perl modules (not the Perl modules themselves)
         # These provide the underlying C libraries needed by CPAN modules
-        # libmagickcore - for Image::Magick
-        libmagickcore-6.q16-6 \
+        # Special case: Image::Magick (PerlMagick) has complex build, use Debian package
+        libimage-magick-perl \
+        # Special case: Apache2::Request has complex Apache integration, use Debian package
+        libapache2-request-perl \
         # libzbar - for Barcode::ZBar  
         libzbar0 \
-        # libapreq2 - for Apache2::Request
-        libapreq2-3 \
         # libpq - for DBD::Pg
         libpq5 \
         # libev - for EV (not libev-perl which is the Perl binding)
@@ -138,12 +138,9 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libwebp-dev \
         libx265-dev \
         # Additional C library -dev packages for Perl XS modules
-        # libmagickcore-dev - for Image::Magick
-        libmagickcore-6.q16-dev \
+        # Note: Image::Magick and Apache2::Request use Debian packages due to complex builds
         # libzbar-dev - for Barcode::ZBar
         libzbar-dev \
-        # libapreq2-dev - for Apache2::Request
-        libapreq2-dev \
         # libpq-dev - for DBD::Pg
         libpq-dev \
         # libev-dev - for EV

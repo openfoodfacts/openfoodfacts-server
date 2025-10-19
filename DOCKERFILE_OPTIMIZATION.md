@@ -41,13 +41,14 @@ The production image size is reduced by removing:
 
 - **Build tools** (~200-300MB): gcc, g++, make, cmake, pkg-config
 - **Development libraries** (~100-200MB): All -dev packages
-- **Perl module packages**: Replaced Perl XS module Debian packages with C library dependencies only
-  - Removed Perl packages: libwww-perl, libimage-magick-perl, libbarcode-zbar-perl, libapache2-request-perl, libdbd-pg-perl, liburi-escape-xs-perl, libev-perl, libjson-maybexs-perl, libcpanel-json-xs-perl, and many others
-  - Added C library dependencies: libmagickcore, libzbar0, libapreq2, libpq5, libev4 (smaller and shared with other packages)
+- **Perl XS module packages**: Replaced most Perl XS module Debian packages with C library dependencies only
+  - Removed Perl packages: libwww-perl, libbarcode-zbar-perl, libdbd-pg-perl, liburi-escape-xs-perl, libev-perl, libjson-maybexs-perl, libcpanel-json-xs-perl, and many others
+  - Kept complex packages with difficult builds: libimage-magick-perl, libapache2-request-perl (special cases)
+  - Added C library dependencies: libzbar0, libpq5, libev4 (smaller and shared with other packages)
   - Kept only pure dependency Perl packages without CPAN equivalents
 - **zxing build artifacts**: Moved to separate builder stage so they don't appear in dev image history
 
-**Estimated total savings: 400-650MB** (combining build tools, dev libraries, and Perl package replacements)
+**Estimated total savings: 350-600MB** (combining build tools, dev libraries, and Perl package replacements)
 
 ### 3. Development vs Production
 
