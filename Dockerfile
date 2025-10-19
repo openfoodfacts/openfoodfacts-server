@@ -37,19 +37,18 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         pigz \
         # useful to send mail
         mailutils \
-        # Runtime Perl dependencies that cpanm will use newer versions of
-        # Keep only those that have runtime library dependencies
-        libwww-perl \
-        libimage-magick-perl \
-        libbarcode-zbar-perl \
-        libapache2-request-perl \
-        libdbd-pg-perl \
-        liburi-escape-xs-perl \
-        # Runtime dependencies for cpan modules
-        libev-perl \
-        libjson-maybexs-perl \
-        libcpanel-json-xs-perl \
-        libio-compress-perl \
+        # C library dependencies for Perl modules (not the Perl modules themselves)
+        # These provide the underlying C libraries needed by CPAN modules
+        # libmagickcore - for Image::Magick
+        libmagickcore-6.q16-6 \
+        # libzbar - for Barcode::ZBar  
+        libzbar0 \
+        # libapreq2 - for Apache2::Request
+        libapreq2-3 \
+        # libpq - for DBD::Pg
+        libpq5 \
+        # libev - for EV (not libev-perl which is the Perl binding)
+        libev4 \
         # Runtime image libraries for Imager::File::* and zxing-cpp
         # needed for  Imager::File::WEBP
         libwebpmux3 \
@@ -65,9 +64,51 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         gnumeric
 
 ######################
+# zxing-cpp builder stage - separate to avoid including build in dev image history
+######################
+FROM runtime-base AS zxing-builder
+
+# Install only what's needed to build zxing-cpp
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        g++ \
+        gcc \
+        make \
+        cmake \
+        pkg-config \
+        ca-certificates \
+        wget \
+        # zxing-cpp build dependencies
+        libavif-dev \
+        libde265-dev \
+        libheif-dev \
+        libjpeg-dev \
+        libpng-dev \
+        libwebp-dev \
+        libx265-dev
+
+# Install zxing-cpp from source until 2.1 or higher is available in Debian: https://github.com/openfoodfacts/openfoodfacts-server/pull/8911/files#r1322987464
+ARG ZXING_VERSION=2.3.0
+RUN set -x && \
+    cd /tmp && \
+    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v${ZXING_VERSION}.tar.gz && \
+    tar xfz v${ZXING_VERSION}.tar.gz && \
+    cmake -S zxing-cpp-${ZXING_VERSION} -B zxing-cpp.release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DBUILD_WRITERS=OFF -DBUILD_READERS=ON -DBUILD_EXAMPLES=OFF && \
+    cmake --build zxing-cpp.release -j8 && \
+    cmake --install zxing-cpp.release && \
+    cd / && \
+    rm -rf /tmp/v${ZXING_VERSION}.tar.gz /tmp/zxing-cpp*
+
+######################
 # Build stage with build tools and -dev packages
 ######################
 FROM runtime-base AS build-base
+
+# Copy zxing-cpp from builder stage
+COPY --from=zxing-builder /usr/lib/*zxing* /usr/lib/
+COPY --from=zxing-builder /usr/include/ZXing /usr/include/ZXing
 
 # Install build tools and development packages needed for compiling Perl modules
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
@@ -88,7 +129,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libapache2-mod-perl2-dev \
         libssl-dev \
         libreadline-dev \
-        # Imager::zxing - build deps
+        # Imager::zxing - build deps (zxing itself built in separate stage)
         libavif-dev \
         libde265-dev \
         libheif-dev \
@@ -96,42 +137,24 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libpng-dev \
         libwebp-dev \
         libx265-dev \
+        # Additional C library -dev packages for Perl XS modules
+        # libmagickcore-dev - for Image::Magick
+        libmagickcore-6.q16-dev \
+        # libzbar-dev - for Barcode::ZBar
+        libzbar-dev \
+        # libapreq2-dev - for Apache2::Request
+        libapreq2-dev \
+        # libpq-dev - for DBD::Pg
+        libpq-dev \
+        # libev-dev - for EV
+        libev-dev \
         # Additional Perl packages needed as build or runtime dependencies for cpan modules
-        # Prefer CPAN versions over Debian packages for better compatibility
-        # Only include packages that are pure dependencies without their own CPAN updates
-        # Packages in cpanfile will be installed via cpanm for up-to-date versions
-        # libfile-slurp-perl - in cpanfile, prefer CPAN
-        # libtie-ixhash-perl - in cpanfile, prefer CPAN
-        # libxml-encoding-perl - in cpanfile, but needs C deps, keep Debian package for dependencies
-        libxml-encoding-perl \
+        # Only pure dependency packages without CPAN equivalents
+        # Additional Perl packages needed as build or runtime dependencies for cpan modules
+        # Only pure dependency packages without CPAN equivalents
         libtext-unaccent-perl \
-        # libmime-lite-perl - in cpanfile, prefer CPAN
-        # libcache-memcached-fast-perl - in cpanfile, prefer CPAN
-        # libjson-pp-perl - in cpanfile, prefer CPAN
-        # libclone-perl - in cpanfile, prefer CPAN
         libcrypt-passwdmd5-perl \
-        # libencode-detect-perl - in cpanfile, prefer CPAN
-        # libgraphics-color-perl - in cpanfile, prefer CPAN
-        # libxml-feedpp-perl - in cpanfile, prefer CPAN
-        # liburi-find-perl - in cpanfile, prefer CPAN
-        # libxml-simple-perl - in cpanfile, but has many dependencies, keep for deps
-        libxml-simple-perl \
-        # libexperimental-perl - in cpanfile, prefer CPAN
-        # libdigest-md5-perl - in cpanfile, prefer CPAN
-        # libtime-local-perl - in cpanfile, prefer CPAN
-        # libtemplate-perl - removed: cpanfile requires >= 3.009
-        # libanyevent-redis-perl - in cpanfile, prefer CPAN
-        # libmath-random-secure-perl - in cpanfile, prefer CPAN
-        # libfile-copy-recursive-perl - removed: cpanfile requires >= 0.45
-        # libemail-stuffer-perl - removed: cpanfile requires >= 0.018
-        # liblist-moreutils-perl - removed: cpanfile requires >= 0.430
-        # libexcel-writer-xlsx-perl - removed: cpanfile requires >= 1.09
-        # libpod-simple-perl - in cpanfile, prefer CPAN
-        # liblog-any-perl - removed: cpanfile requires >= 1.710
-        # liblog-log4perl-perl - removed: cpanfile requires >= 1.54
-        # liblog-any-adapter-log4perl-perl - removed: cpanfile requires >= 0.09
-        # libgeoip2-perl - removed: cpanfile requires >= 2.006002
-        # libemail-valid-perl - removed: cpanfile requires >= 1.202
+        # Pure dependency packages (not in cpanfile or dependencies of CPAN modules)
         # libmath-fibonacci-perl - dependency for Action::Retry
         libmath-fibonacci-perl \
         # libprobe-perl-perl - dependency for Algorithm::CheckDigits
@@ -201,29 +224,12 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libconfig-autoconf-perl \
         # libdigest-hmac-perl - dependency for MongoDB
         libdigest-hmac-perl \
-        # libpath-tiny-perl - removed: cpanfile requires >= 0.118
         # libsafe-isa-perl - dependency for MongoDB
         libsafe-isa-perl \
         # libspreadsheet-parseexcel-perl - dependency for Spreadsheet::CSV
         libspreadsheet-parseexcel-perl \
         libtest-number-delta-perl \
-        # libdevel-size-perl - in cpanfile, prefer CPAN
         libdevel-size-perl
-
-# Install zxing-cpp from source until 2.1 or higher is available in Debian: https://github.com/openfoodfacts/openfoodfacts-server/pull/8911/files#r1322987464
-ARG ZXING_VERSION=2.3.0
-RUN set -x && \
-    cd /tmp && \
-    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v${ZXING_VERSION}.tar.gz && \
-    tar xfz v${ZXING_VERSION}.tar.gz && \
-    cmake -S zxing-cpp-${ZXING_VERSION} -B zxing-cpp.release \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DBUILD_WRITERS=OFF -DBUILD_READERS=ON -DBUILD_EXAMPLES=OFF && \
-    cmake --build zxing-cpp.release -j8 && \
-    cmake --install zxing-cpp.release && \
-    cd / && \
-    rm -rf /tmp/v${ZXING_VERSION}.tar.gz /tmp/zxing-cpp*
 
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
@@ -262,9 +268,9 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
 ######################
 FROM runtime-base AS runnable
 
-# Copy zxing-cpp library from builder
-COPY --from=build-base /usr/lib/*zxing* /usr/lib/
-COPY --from=build-base /usr/include/ZXing /usr/include/ZXing
+# Copy zxing-cpp library from zxing-builder stage
+COPY --from=zxing-builder /usr/lib/*zxing* /usr/lib/
+COPY --from=zxing-builder /usr/include/ZXing /usr/include/ZXing
 
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
@@ -323,15 +329,10 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 
 ######################
 # Dev image with additional development tools
-# NOTE: This stage duplicates runnable configuration because it must extend build-base (for dev tools)
-# while runnable extends runtime-base (for minimal production image). Docker doesn't support
-# true code reuse between stages with different base images.
+# NOTE: This stage extends build-base which already has zxing-cpp and build tools
+# It adds the compiled Perl modules and application setup
 ######################
 FROM build-base AS dev
-
-# Copy zxing-cpp library from builder
-COPY --from=build-base /usr/lib/*zxing* /usr/lib/
-COPY --from=build-base /usr/include/ZXing /usr/include/ZXing
 
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID

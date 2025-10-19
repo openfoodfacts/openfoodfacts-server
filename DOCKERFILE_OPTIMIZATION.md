@@ -41,12 +41,13 @@ The production image size is reduced by removing:
 
 - **Build tools** (~200-300MB): gcc, g++, make, cmake, pkg-config
 - **Development libraries** (~100-200MB): All -dev packages
-- **Redundant Perl packages**: Packages available in cpanfile now installed from CPAN for up-to-date versions
-  - Removed packages explicitly in cpanfile where CPAN version preferred: File::Slurp, Tie::IxHash, MIME::Lite, Cache::Memcached::Fast, JSON::PP, Clone, Encode::Detect, Graphics::Color, XML::FeedPP, URI::Find, experimental, Digest::MD5, Time::Local, AnyEvent::RipeRedis, Math::Random::Secure, Pod::Simple, and others
-  - Kept packages with complex C dependencies or needed for build: XML::Encoding, XML::Simple (cpanm will upgrade if needed)
-  - Kept only pure build/runtime dependencies without CPAN updates
+- **Perl module packages**: Replaced Perl XS module Debian packages with C library dependencies only
+  - Removed Perl packages: libwww-perl, libimage-magick-perl, libbarcode-zbar-perl, libapache2-request-perl, libdbd-pg-perl, liburi-escape-xs-perl, libev-perl, libjson-maybexs-perl, libcpanel-json-xs-perl, and many others
+  - Added C library dependencies: libmagickcore, libzbar0, libapreq2, libpq5, libev4 (smaller and shared with other packages)
+  - Kept only pure dependency Perl packages without CPAN equivalents
+- **zxing build artifacts**: Moved to separate builder stage so they don't appear in dev image history
 
-**Estimated total savings: 350-550MB** (combining build tools, dev libraries, and redundant Perl packages)
+**Estimated total savings: 400-650MB** (combining build tools, dev libraries, and Perl package replacements)
 
 ### 3. Development vs Production
 
