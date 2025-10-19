@@ -68,8 +68,9 @@ The dev.yml automatically targets the `dev` stage and includes `CPANMOPTS=--with
 1. `runtime-base` - Install runtime packages
 2. `build-base` - Add build tools and -dev packages, build zxing-cpp
 3. `builder` - Compile Perl modules from cpanfile
-4. `runnable`/`prod` - Copy compiled modules, remove build tools (DEFAULT)
-5. `dev` - Alternative final stage with build tools for development
+4. `runnable` - Copy compiled modules, remove build tools
+5. `dev` - Alternative final stage with build tools for development (from build-base)
+6. `prod` - Aliases runnable as the default production target (DEFAULT)
 
 ## Security Benefits
 
@@ -167,4 +168,4 @@ docker images backend:dev
 
 - [Docker Multi-Stage Builds](https://docs.docker.com/build/building/multi-stage/)
 - [Dockerfile Best Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
-- [Issue #XXXX](https://github.com/openfoodfacts/openfoodfacts-server/issues/XXXX)
+- [Original Issue Discussion](https://github.com/openfoodfacts/openfoodfacts-server/issues) - Clean up and reorganize backend container build
