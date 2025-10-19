@@ -140,6 +140,7 @@ sub check_code_gs1_prefixes ($product_ref) {
 		return;
 	}
 	my $code = $product_ref->{code};
+	my $product_type = $product_ref->{product_type};
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/1129
 	if ($code =~ /^99[0-9]{10,11}$/) {
 		push @{$product_ref->{data_quality_info_tags}}, 'en:gs1-coupon-prefix';
@@ -153,13 +154,15 @@ sub check_code_gs1_prefixes ($product_ref) {
 	elsif ($code =~ /^980[0-9]{9,10}$/) {
 		push @{$product_ref->{data_quality_info_tags}}, 'en:gs1-refund-prefix';
 	}
-	elsif ($code =~ /^97[8-9][0-9]{9,10}$/) {
-		push @{$product_ref->{data_quality_info_tags}}, 'en:gs1-isbn-prefix';
+	elsif ($product_type != 'product') {
+		if ($code =~ /^97[8-9][0-9]{9,10}$/) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:gs1-isbn-prefix';
+		}
+		elsif ($code =~ /^977[0-9]{9,10}$/) {
+			push @{$product_ref->{data_quality_info_tags}}, 'en:gs1-issn-prefix';
+		}
 	}
-	elsif ($code =~ /^977[0-9]{9,10}$/) {
-		push @{$product_ref->{data_quality_info_tags}}, 'en:gs1-issn-prefix';
-	}
-	elsif ($code =~ /^3600550[0-9]{6}$/) {
+	elsif (($product_type != 'beauty') and ($code =~ /^3600550[0-9]{6}$/)) {
 		push @{$product_ref->{data_quality_warnings_tags}}, 'en:cosmetic-product';
 	}
 
