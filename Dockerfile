@@ -49,6 +49,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libpq5 \
         # libev - for EV (not libev-perl which is the Perl binding)
         libev4 \
+        # Pure Perl dependencies not in cpanfile but needed at runtime
+        libfile-find-rule-perl \
         # Runtime image libraries for Imager::File::* and zxing-cpp
         # needed for  Imager::File::WEBP
         libwebpmux3 \
