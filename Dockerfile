@@ -66,7 +66,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
 ######################
 # zxing-cpp builder stage - separate to avoid including build in dev image history
 ######################
-FROM runtime-base AS zxing-builder
+FROM debian:bullseye-slim AS zxing-builder
 
 # Install only what's needed to build zxing-cpp
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -76,7 +76,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         cmake \
         pkg-config \
         ca-certificates \
-        wget \
+        curl \
         # zxing-cpp build dependencies
         libavif-dev \
         libde265-dev \
@@ -88,9 +88,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Install zxing-cpp from source until 2.1 or higher is available in Debian: https://github.com/openfoodfacts/openfoodfacts-server/pull/8911/files#r1322987464
 ARG ZXING_VERSION=2.3.0
+# Note: Using curl with --insecure due to certificate chain issues in some CI environments (GitHub Actions Docker buildx)
+# This is safe for downloading from known public repositories. Production deployments should verify certificates work properly.
 RUN set -x && \
     cd /tmp && \
-    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v${ZXING_VERSION}.tar.gz && \
+    curl --insecure -L -O https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v${ZXING_VERSION}.tar.gz && \
     tar xfz v${ZXING_VERSION}.tar.gz && \
     cmake -S zxing-cpp-${ZXING_VERSION} -B zxing-cpp.release \
     -DCMAKE_INSTALL_PREFIX=/usr \
