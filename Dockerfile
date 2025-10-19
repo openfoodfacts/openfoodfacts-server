@@ -170,8 +170,7 @@ RUN set -x && \
 ARG ZXING_VERSION=2.3.0
 RUN set -x && \
     cd /tmp && \
-    # Note: Using --no-check-certificate due to Docker buildx certificate chain issues in CI environments
-    wget --no-check-certificate https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v${ZXING_VERSION}.tar.gz && \
+    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v${ZXING_VERSION}.tar.gz && \
     tar xfz v${ZXING_VERSION}.tar.gz && \
     cmake -S zxing-cpp-${ZXING_VERSION} -B zxing-cpp.release \
     -DCMAKE_INSTALL_PREFIX=/usr \
@@ -200,11 +199,17 @@ WORKDIR /tmp
 COPY ./cpanfile* /tmp/
 # Add ProductOpener runtime dependencies from cpan
 # we also add apt cache as some libraries might be installed from apt
-RUN set -x && \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
+    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    set -x && \
+    # also run apt update if needed because some package might need to apt install
+    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
+      apt-get update || true \
+    ) && \
     # first install some dependencies that are not well handled
-    # Note: Using --mirror-only with HTTP mirror due to Docker buildx certificate chain issues in CI environments
-    cpanm --mirror http://www.cpan.org/ --mirror-only --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
-    cpanm --mirror http://www.cpan.org/ --mirror-only $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
+    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
+    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
     # in case of errors show build.log, but still, fail
     || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
 
