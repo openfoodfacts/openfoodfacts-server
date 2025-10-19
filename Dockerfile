@@ -106,9 +106,12 @@ RUN set -x && \
 ######################
 FROM runtime-base AS build-base
 
-# Copy zxing-cpp from builder stage
+# Copy zxing-cpp from builder stage (libraries, headers, and pkgconfig)
 COPY --from=zxing-builder /usr/lib/*zxing* /usr/lib/
 COPY --from=zxing-builder /usr/include/ZXing /usr/include/ZXing
+# Create pkgconfig directory and copy zxing.pc
+RUN mkdir -p /usr/lib/pkgconfig
+COPY --from=zxing-builder /usr/lib/*/pkgconfig/zxing.pc /usr/lib/pkgconfig/
 
 # Update ldconfig cache so zxing library is found during compilation
 RUN ldconfig
@@ -244,6 +247,10 @@ RUN usermod --uid $USER_UID www-data && \
 FROM build-base AS builder
 ARG CPANMOPTS
 WORKDIR /tmp
+
+# Set environment variables to help find zxing library during Perl XS module compilation
+ENV PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig \
+    LD_LIBRARY_PATH=/usr/lib:/usr/lib/x86_64-linux-gnu
 
 # Update ldconfig cache so zxing and other libraries are found during compilation
 RUN ldconfig
