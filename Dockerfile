@@ -71,7 +71,10 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
 FROM debian:bullseye-slim AS zxing-builder
 
 # Install only what's needed to build zxing-cpp
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
         g++ \
         gcc \
         make \
