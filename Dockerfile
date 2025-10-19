@@ -109,11 +109,14 @@ RUN set -x && \
 FROM runtime-base AS build-base
 
 # Copy zxing-cpp from builder stage (libraries, headers, and pkgconfig)
-COPY --from=zxing-builder /usr/lib/*zxing* /usr/lib/
+# zxing installs to /usr/lib/x86_64-linux-gnu/ so we need to copy from there
+COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/*zxing* /usr/lib/x86_64-linux-gnu/
+COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/*ZXing* /usr/lib/x86_64-linux-gnu/
 COPY --from=zxing-builder /usr/include/ZXing /usr/include/ZXing
 # Create pkgconfig directory and copy zxing.pc
-RUN mkdir -p /usr/lib/pkgconfig
-COPY --from=zxing-builder /usr/lib/*/pkgconfig/zxing.pc /usr/lib/pkgconfig/
+RUN mkdir -p /usr/lib/x86_64-linux-gnu/pkgconfig
+COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/pkgconfig/zxing.pc /usr/lib/x86_64-linux-gnu/pkgconfig/
+COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/cmake/ZXing /usr/lib/x86_64-linux-gnu/cmake/ZXing
 
 # Update ldconfig cache so zxing library is found during compilation
 RUN ldconfig
@@ -281,8 +284,9 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
 FROM runtime-base AS runnable
 
 # Copy zxing-cpp library from zxing-builder stage
-COPY --from=zxing-builder /usr/lib/*zxing* /usr/lib/
-COPY --from=zxing-builder /usr/include/ZXing /usr/include/ZXing
+# zxing installs to /usr/lib/x86_64-linux-gnu/ so we need to copy from there
+COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/*zxing* /usr/lib/x86_64-linux-gnu/
+COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/*ZXing* /usr/lib/x86_64-linux-gnu/
 
 # Update ldconfig cache so zxing library is found at runtime
 RUN ldconfig
