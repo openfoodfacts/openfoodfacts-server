@@ -51,7 +51,9 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libcpanel-json-xs-perl \
         libio-compress-perl \
         # Runtime image libraries for Imager::File::* and zxing-cpp
+        # needed for  Imager::File::WEBP
         libwebpmux3 \
+        # Imager::zxing - decoders
         libavif9 \
         libde265-0 \
         libheif1 \
@@ -68,7 +70,9 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
 FROM runtime-base AS build-base
 
 # Install build tools and development packages needed for compiling Perl modules
-RUN set -x && \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
+    set -x && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
         # Build tools
@@ -93,6 +97,8 @@ RUN set -x && \
         libwebp-dev \
         libx265-dev \
         # Additional Perl packages needed as build or runtime dependencies for cpan modules
+        # Only include packages without version requirements in cpanfile, or where Debian version is sufficient
+        # Packages with version requirements that will be satisfied by cpanm are excluded
         libfile-slurp-perl \
         libtie-ixhash-perl \
         libxml-encoding-perl \
@@ -110,19 +116,19 @@ RUN set -x && \
         libexperimental-perl \
         libdigest-md5-perl \
         libtime-local-perl \
-        libtemplate-perl \
+        # libtemplate-perl - removed: cpanfile requires >= 3.009
         libanyevent-redis-perl \
         libmath-random-secure-perl \
-        libfile-copy-recursive-perl \
-        libemail-stuffer-perl \
-        liblist-moreutils-perl \
-        libexcel-writer-xlsx-perl \
+        # libfile-copy-recursive-perl - removed: cpanfile requires >= 0.45
+        # libemail-stuffer-perl - removed: cpanfile requires >= 0.018
+        # liblist-moreutils-perl - removed: cpanfile requires >= 0.430
+        # libexcel-writer-xlsx-perl - removed: cpanfile requires >= 1.09
         libpod-simple-perl \
-        liblog-any-perl \
-        liblog-log4perl-perl \
-        liblog-any-adapter-log4perl-perl \
-        libgeoip2-perl \
-        libemail-valid-perl \
+        # liblog-any-perl - removed: cpanfile requires >= 1.710
+        # liblog-log4perl-perl - removed: cpanfile requires >= 1.54
+        # liblog-any-adapter-log4perl-perl - removed: cpanfile requires >= 0.09
+        # libgeoip2-perl - removed: cpanfile requires >= 2.006002
+        # libemail-valid-perl - removed: cpanfile requires >= 1.202
         libmath-fibonacci-perl \
         libprobe-perl-perl \
         libmath-round-perl \
@@ -147,6 +153,7 @@ RUN set -x && \
         libwant-perl \
         libfile-find-rule-perl \
         liblinux-usermod-perl \
+        # liblocale-maketext-lexicon-perl - kept as dependency, cpanfile requires Getcontext >= 0.05
         liblocale-maketext-lexicon-perl \
         liblog-any-adapter-tap-perl \
         libcrypt-random-source-perl \
@@ -160,7 +167,7 @@ RUN set -x && \
         libclass-xsaccessor-perl \
         libconfig-autoconf-perl \
         libdigest-hmac-perl \
-        libpath-tiny-perl \
+        # libpath-tiny-perl - removed: cpanfile requires >= 0.118
         libsafe-isa-perl \
         libspreadsheet-parseexcel-perl \
         libtest-number-delta-perl \
@@ -212,6 +219,13 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
     # in case of errors show build.log, but still, fail
     || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
+
+######################
+# Common base for both production and dev images - prepares the base configuration
+######################
+FROM scratch AS common-config
+# This is a placeholder stage to document the common configuration pattern
+# Docker doesn't support true "include" or template functionality, so we use stage inheritance
 
 ######################
 # backend production/runtime image stage
@@ -279,12 +293,21 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 
 ######################
 # Dev image with additional development tools
+# NOTE: This stage duplicates runnable configuration because it must extend build-base (for dev tools)
+# while runnable extends runtime-base (for minimal production image). Docker doesn't support
+# true code reuse between stages with different base images.
 ######################
 FROM build-base AS dev
 
 # Copy zxing-cpp library from builder
 COPY --from=build-base /usr/lib/*zxing* /usr/lib/
 COPY --from=build-base /usr/include/ZXing /usr/include/ZXing
+
+# Run www-data user AS host user 'off' or developper uid
+ARG USER_UID
+ARG USER_GID
+RUN usermod --uid $USER_UID www-data && \
+    groupmod --gid $USER_GID www-data
 
 # Prepare Apache to include our custom config
 RUN rm /etc/apache2/sites-enabled/000-default.conf

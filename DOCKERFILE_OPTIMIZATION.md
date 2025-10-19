@@ -93,21 +93,7 @@ The dev.yml automatically targets the `dev` stage and includes `CPANMOPTS=--with
 
 ## Known Issues & Workarounds
 
-### Certificate Issues in CI Environments
-
-Some CI environments (including GitHub Actions) may have Docker buildx certificate chain issues. The Dockerfile includes workarounds:
-
-1. **For wget (zxing-cpp download)**: Uses `--no-check-certificate`
-   ```dockerfile
-   wget --no-check-certificate https://github.com/zxing-cpp/...
-   ```
-
-2. **For cpanm (CPAN downloads)**: Uses HTTP-only mirror
-   ```dockerfile
-   cpanm --mirror http://www.cpan.org/ --mirror-only ...
-   ```
-
-These workarounds are safe in CI environments and don't affect security in production deployments.
+No known issues at this time. Previous CI-specific certificate workarounds have been removed as the necessary domains are now allow-listed.
 
 ## Migration Guide
 
