@@ -102,7 +102,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # Packages in cpanfile will be installed via cpanm for up-to-date versions
         # libfile-slurp-perl - in cpanfile, prefer CPAN
         # libtie-ixhash-perl - in cpanfile, prefer CPAN
-        # libxml-encoding-perl - in cpanfile, prefer CPAN
+        # libxml-encoding-perl - in cpanfile, but needs C deps, keep Debian package for dependencies
+        libxml-encoding-perl \
         libtext-unaccent-perl \
         # libmime-lite-perl - in cpanfile, prefer CPAN
         # libcache-memcached-fast-perl - in cpanfile, prefer CPAN
@@ -113,7 +114,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # libgraphics-color-perl - in cpanfile, prefer CPAN
         # libxml-feedpp-perl - in cpanfile, prefer CPAN
         # liburi-find-perl - in cpanfile, prefer CPAN
-        # libxml-simple-perl - in cpanfile, prefer CPAN
+        # libxml-simple-perl - in cpanfile, but has many dependencies, keep for deps
+        libxml-simple-perl \
         # libexperimental-perl - in cpanfile, prefer CPAN
         # libdigest-md5-perl - in cpanfile, prefer CPAN
         # libtime-local-perl - in cpanfile, prefer CPAN
