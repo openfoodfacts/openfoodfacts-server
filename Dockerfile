@@ -110,6 +110,9 @@ FROM runtime-base AS build-base
 COPY --from=zxing-builder /usr/lib/*zxing* /usr/lib/
 COPY --from=zxing-builder /usr/include/ZXing /usr/include/ZXing
 
+# Update ldconfig cache so zxing library is found during compilation
+RUN ldconfig
+
 # Install build tools and development packages needed for compiling Perl modules
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
@@ -242,6 +245,9 @@ FROM build-base AS builder
 ARG CPANMOPTS
 WORKDIR /tmp
 
+# Update ldconfig cache so zxing and other libraries are found during compilation
+RUN ldconfig
+
 # Install Product Opener from the workdir.
 COPY ./cpanfile* /tmp/
 # Add ProductOpener runtime dependencies from cpan
@@ -268,6 +274,9 @@ FROM runtime-base AS runnable
 # Copy zxing-cpp library from zxing-builder stage
 COPY --from=zxing-builder /usr/lib/*zxing* /usr/lib/
 COPY --from=zxing-builder /usr/include/ZXing /usr/include/ZXing
+
+# Update ldconfig cache so zxing library is found at runtime
+RUN ldconfig
 
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
