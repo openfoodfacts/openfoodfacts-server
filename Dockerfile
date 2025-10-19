@@ -97,80 +97,115 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libwebp-dev \
         libx265-dev \
         # Additional Perl packages needed as build or runtime dependencies for cpan modules
-        # Only include packages without version requirements in cpanfile, or where Debian version is sufficient
-        # Packages with version requirements that will be satisfied by cpanm are excluded
-        libfile-slurp-perl \
-        libtie-ixhash-perl \
-        libxml-encoding-perl \
+        # Prefer CPAN versions over Debian packages for better compatibility
+        # Only include packages that are pure dependencies without their own CPAN updates
+        # Packages in cpanfile will be installed via cpanm for up-to-date versions
+        # libfile-slurp-perl - in cpanfile, prefer CPAN
+        # libtie-ixhash-perl - in cpanfile, prefer CPAN
+        # libxml-encoding-perl - in cpanfile, prefer CPAN
         libtext-unaccent-perl \
-        libmime-lite-perl \
-        libcache-memcached-fast-perl \
-        libjson-pp-perl \
-        libclone-perl \
+        # libmime-lite-perl - in cpanfile, prefer CPAN
+        # libcache-memcached-fast-perl - in cpanfile, prefer CPAN
+        # libjson-pp-perl - in cpanfile, prefer CPAN
+        # libclone-perl - in cpanfile, prefer CPAN
         libcrypt-passwdmd5-perl \
-        libencode-detect-perl \
-        libgraphics-color-perl \
-        libxml-feedpp-perl \
-        liburi-find-perl \
-        libxml-simple-perl \
-        libexperimental-perl \
-        libdigest-md5-perl \
-        libtime-local-perl \
+        # libencode-detect-perl - in cpanfile, prefer CPAN
+        # libgraphics-color-perl - in cpanfile, prefer CPAN
+        # libxml-feedpp-perl - in cpanfile, prefer CPAN
+        # liburi-find-perl - in cpanfile, prefer CPAN
+        # libxml-simple-perl - in cpanfile, prefer CPAN
+        # libexperimental-perl - in cpanfile, prefer CPAN
+        # libdigest-md5-perl - in cpanfile, prefer CPAN
+        # libtime-local-perl - in cpanfile, prefer CPAN
         # libtemplate-perl - removed: cpanfile requires >= 3.009
-        libanyevent-redis-perl \
-        libmath-random-secure-perl \
+        # libanyevent-redis-perl - in cpanfile, prefer CPAN
+        # libmath-random-secure-perl - in cpanfile, prefer CPAN
         # libfile-copy-recursive-perl - removed: cpanfile requires >= 0.45
         # libemail-stuffer-perl - removed: cpanfile requires >= 0.018
         # liblist-moreutils-perl - removed: cpanfile requires >= 0.430
         # libexcel-writer-xlsx-perl - removed: cpanfile requires >= 1.09
-        libpod-simple-perl \
+        # libpod-simple-perl - in cpanfile, prefer CPAN
         # liblog-any-perl - removed: cpanfile requires >= 1.710
         # liblog-log4perl-perl - removed: cpanfile requires >= 1.54
         # liblog-any-adapter-log4perl-perl - removed: cpanfile requires >= 0.09
         # libgeoip2-perl - removed: cpanfile requires >= 2.006002
         # libemail-valid-perl - removed: cpanfile requires >= 1.202
+        # libmath-fibonacci-perl - dependency for Action::Retry
         libmath-fibonacci-perl \
+        # libprobe-perl-perl - dependency for Algorithm::CheckDigits
         libprobe-perl-perl \
+        # libmath-round-perl - dependency for CLDR::Number
         libmath-round-perl \
+        # libsoftware-license-perl - dependency for CLDR::Number
         libsoftware-license-perl \
+        # libtest-differences-perl - dependency for CLDR::Number
         libtest-differences-perl \
         libtest-exception-perl \
+        # libmodule-build-pluggable-perl - dependency for Data::Dumper::AutoEncode
         libmodule-build-pluggable-perl \
+        # libclass-accessor-lite-perl - dependency for Data::Dumper::AutoEncode
         libclass-accessor-lite-perl \
+        # libclass-singleton-perl - dependency for DateTime
         libclass-singleton-perl \
+        # libfile-sharedir-install-perl - dependency for DateTime::Locale
         libfile-sharedir-install-perl \
+        # libfile-chmod-perl - dependency for File::chmod::Recursive
         libfile-chmod-perl \
+        # libdata-dumper-concise-perl - dependency for GeoIP2
         libdata-dumper-concise-perl \
+        # libdata-printer-perl - dependency for GeoIP2
         libdata-printer-perl \
+        # libdata-validate-ip-perl - dependency for GeoIP2
         libdata-validate-ip-perl \
         liblist-allutils-perl \
         liblist-someutils-perl \
+        # libdata-section-simple-perl - dependency for GraphViz2
         libdata-section-simple-perl \
+        # libfile-which-perl - dependency for GraphViz2
         libfile-which-perl \
+        # libipc-run3-perl - dependency for GraphViz2
         libipc-run3-perl \
+        # liblog-handler-perl - dependency for GraphViz2
         liblog-handler-perl \
+        # libtest-deep-perl - dependency for GraphViz2
         libtest-deep-perl \
+        # libwant-perl - dependency for GraphViz2
         libwant-perl \
+        # libfile-find-rule-perl - dependency for Image::OCR::Tesseract
         libfile-find-rule-perl \
         liblinux-usermod-perl \
-        # liblocale-maketext-lexicon-perl - kept as dependency, cpanfile requires Getcontext >= 0.05
+        # liblocale-maketext-lexicon-perl - dependency for Locale::Maketext::Lexicon::Getcontext
         liblocale-maketext-lexicon-perl \
         liblog-any-adapter-tap-perl \
+        # libcrypt-random-source-perl - dependency for Math::Random::Secure
         libcrypt-random-source-perl \
+        # libmath-random-isaac-perl - dependency for Math::Random::Secure
         libmath-random-isaac-perl \
+        # libtest-sharedfork-perl - dependency for Math::Random::Secure
         libtest-sharedfork-perl \
+        # libtest-warn-perl - dependency for Math::Random::Secure
         libtest-warn-perl \
+        # libsql-abstract-perl - dependency for Mojo::Pg
         libsql-abstract-perl \
+        # libauthen-sasl-saslprep-perl - dependency for MongoDB
         libauthen-sasl-saslprep-perl \
+        # libauthen-scram-perl - dependency for MongoDB
         libauthen-scram-perl \
+        # libbson-perl - dependency for MongoDB
         libbson-perl \
+        # libclass-xsaccessor-perl - dependency for MongoDB
         libclass-xsaccessor-perl \
+        # libconfig-autoconf-perl - dependency for MongoDB
         libconfig-autoconf-perl \
+        # libdigest-hmac-perl - dependency for MongoDB
         libdigest-hmac-perl \
         # libpath-tiny-perl - removed: cpanfile requires >= 0.118
+        # libsafe-isa-perl - dependency for MongoDB
         libsafe-isa-perl \
+        # libspreadsheet-parseexcel-perl - dependency for Spreadsheet::CSV
         libspreadsheet-parseexcel-perl \
         libtest-number-delta-perl \
+        # libdevel-size-perl - in cpanfile, prefer CPAN
         libdevel-size-perl
 
 # Install zxing-cpp from source until 2.1 or higher is available in Debian: https://github.com/openfoodfacts/openfoodfacts-server/pull/8911/files#r1322987464
@@ -219,13 +254,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
     # in case of errors show build.log, but still, fail
     || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
-
-######################
-# Common base for both production and dev images - prepares the base configuration
-######################
-FROM scratch AS common-config
-# This is a placeholder stage to document the common configuration pattern
-# Docker doesn't support true "include" or template functionality, so we use stage inheritance
 
 ######################
 # backend production/runtime image stage

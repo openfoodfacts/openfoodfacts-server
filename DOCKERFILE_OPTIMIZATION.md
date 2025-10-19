@@ -41,9 +41,11 @@ The production image size is reduced by removing:
 
 - **Build tools** (~200-300MB): gcc, g++, make, cmake, pkg-config
 - **Development libraries** (~100-200MB): All -dev packages
-- **Redundant Perl packages**: Older versions replaced by newer cpanm-installed versions
+- **Redundant Perl packages**: Packages available in cpanfile now installed from CPAN for up-to-date versions
+  - Removed packages explicitly in cpanfile (no Debian package or prefer CPAN): File::Slurp, Tie::IxHash, XML::Encoding, MIME::Lite, Cache::Memcached::Fast, JSON::PP, Clone, Encode::Detect, Graphics::Color, XML::FeedPP, URI::Find, XML::Simple, experimental, Digest::MD5, Time::Local, AnyEvent::RipeRedis, Math::Random::Secure, Pod::Simple, and others
+  - Kept only pure build/runtime dependencies without CPAN updates
 
-Estimated total savings: **300-500MB** in the final production image.
+**Estimated total savings: 400-600MB** (combining build tools, dev libraries, and redundant Perl packages)
 
 ### 3. Development vs Production
 
