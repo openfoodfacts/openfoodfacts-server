@@ -46,7 +46,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Products qw/is_valid_code normalize_code product_url/;
-use ProductOpener::Display qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request/;
+use ProductOpener::Display qw/%index_tag_types_set display_robots_txt_and_exit init_request/;
 use ProductOpener::HTTP qw/extension_and_query_parameters_to_redirect_url redirect_to_url single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
@@ -261,6 +261,7 @@ sub org_route($request_ref) {
 		my @errors = ();
 		my $moderator;
 		if ($request_ref->{admin} or $User{pro_moderator}) {
+			# Could probably just do retrieve_user_preferences here but we may be moving the moderator flag into Keycloak at some point...
 			$moderator = retrieve_user($request_ref->{user_id});
 			ProductOpener::Users::check_edit_owner($moderator, \@errors, $orgid);
 		}
@@ -273,7 +274,7 @@ sub org_route($request_ref) {
 		if (scalar @errors eq 0) {
 			set_owner_id($request_ref);
 			# will save the pro_moderator_owner field
-			store_user($moderator);
+			store_user_preferences($moderator);
 		}
 		else {
 			$request_ref->{status_code} = 404;
@@ -475,7 +476,7 @@ sub redirect_text_route($request_ref) {
 
 	my $text = $request_ref->{components}[1];
 	$request_ref->{redirect}
-		= $formatted_subdomain
+		= $request_ref->{formatted_subdomain}
 		. $request_ref->{canon_rel_url} . '/'
 		. $options{redirect_texts}{$request_ref->{lc} . '/' . $text};
 	$log->info('redirect_text_route', {textid => $text, redirect => $request_ref->{redirect}})

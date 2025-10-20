@@ -775,7 +775,7 @@ while (my $product_ref = $cursor->next) {
 					$fix_rev_not_incremented_fixed++;
 					$product_ref->{rev} = $last_rev;
 					my $blame_ref = {};
-					compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
+					compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 					compute_data_sources($product_ref, $changes_ref);
 					store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 				}
@@ -1255,7 +1255,7 @@ while (my $product_ref = $cursor->next) {
 			my $blame_ref = {};
 
 			my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
+			compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 
 			if (
 					(defined $blame_ref->{nutriments})
@@ -1371,7 +1371,7 @@ while (my $product_ref = $cursor->next) {
 				$changes_ref = [];
 			}
 			my $blame_ref = {};
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
+			compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 			compute_data_sources($product_ref, $changes_ref);
 			store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 		}

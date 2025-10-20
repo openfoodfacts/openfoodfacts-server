@@ -1,6 +1,9 @@
 type: object
 description: |
   Base product data
+required:
+  - code
+  - schema_version
 properties:
   abbreviated_product_name:
     type: string
@@ -35,7 +38,20 @@ properties:
         and
         A series of mask for the barcode
         It helps retrieve barcodes starting by
-      examples: ["code-13","3017620422xxx","301762042xxxx","30176204xxxxx","3017620xxxxxx","301762xxxxxxx","30176xxxxxxxx","3017xxxxxxxxx","301xxxxxxxxxx","30xxxxxxxxxxx","3xxxxxxxxxxxx"]
+      examples:
+        [
+          "code-13",
+          "3017620422xxx",
+          "301762042xxxx",
+          "30176204xxxxx",
+          "3017620xxxxxx",
+          "301762xxxxxxx",
+          "30176xxxxxxxx",
+          "3017xxxxxxxxx",
+          "301xxxxxxxxxx",
+          "30xxxxxxxxxxx",
+          "3xxxxxxxxxxxx",
+        ]
   generic_name:
     type: string
     description: |
@@ -85,7 +101,7 @@ properties:
   product_quantity:
     type: string
     description: |
-      The size in g or ml for the whole product. 
+      The size in g or ml for the whole product.
       It is a normalized version of the `quantity` field.
       A `quantity` of "2 x 60 g" leads to `product_quantity`: "120".
     example: "500"
@@ -99,7 +115,7 @@ properties:
   quantity:
     type: string
     description: |
-      The quantity of the product, with the corresponding number of portions or unit (g, ml, kg, l, cl, oz, lbs...). 
+      The quantity of the product, with the corresponding number of portions or unit (g, ml, kg, l, cl, oz, lbs...).
       It should be the value as displayed on the product. The ℮ sign is allowed.
       When it refers to the number of portions, it can be filled without any units (e.g. "6 eggs").
     example: "3 x 150 g"

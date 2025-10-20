@@ -6,6 +6,8 @@ use utf8;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 use JSON::MaybeXS;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 
 my $json = JSON::MaybeXS->new->allow_nonref->canonical;
 
@@ -148,10 +150,10 @@ foreach my $test_ref (@tests) {
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
 		print STDERR "testid: $testid\n";
-		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
+		is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
 	}
 	else {
-		diag Dumper $product_ref;
+		diag Dumper($product_ref);
 		fail("could not load $expected_result_dir/$testid.json");
 	}
 }

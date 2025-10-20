@@ -68,7 +68,7 @@ use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
 use ProductOpener::Images qw/normalize_generation_ref/;
-use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set_from_sets/;
+use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy/;
 
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
@@ -389,6 +389,44 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 	};
 
 	if (defined $product_ref->{nutriments} && !$no_nutrition_data) {
+
+		filter_out_nutrients_not_in_taxonomy($product_ref);
+
+		# If we have a value for energy-kj or energy-kcal, we remove the energy field,
+		# otherwise (for old revisions of products) we copy the energy field to energy-kj or energy-kcal based on its unit,
+		# and remove it.
+		foreach my $set_type (keys %$new_nutrition_sets_ref) {
+			my $modifier_state = $nutrition_preparations_ref->{$set_type}{modifier_state};
+			if (
+				not(   (defined $product_ref->{nutriments}{"energy-kj_$set_type"})
+					or (defined $product_ref->{nutriments}{"energy-kcal_$set_type"}))
+				)
+			{
+				if (defined $product_ref->{nutriments}{"energy_$set_type"}) {
+					my $energy_value = $product_ref->{nutriments}{"energy_$set_type"};
+					my $energy_unit = $product_ref->{nutriments}{"energy" . $modifier_state . "_unit"} // "kJ";
+					if ($energy_unit eq "kJ") {
+						$product_ref->{nutriments}{"energy-kj_$set_type"} = $energy_value;
+						$product_ref->{nutriments}{"energy-kj" . $modifier_state . "_unit"} = "kJ";
+						$product_ref->{nutriments}{"energy-kj" . $modifier_state . "_modifier"}
+							= $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"}
+							if defined $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"};
+					}
+					else {
+						$product_ref->{nutriments}{"energy-kcal_$set_type"} = $energy_value;
+						$product_ref->{nutriments}{"energy-kcal" . $modifier_state . "_unit"} = "kcal";
+						$product_ref->{nutriments}{"energy-kcal" . $modifier_state . "_modifier"}
+							= $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"}
+							if defined $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"};
+					}
+				}
+			}
+			# remove the old energy field
+			delete $product_ref->{nutriments}{"energy_$set_type"};
+			delete $product_ref->{nutriments}{"energy" . $modifier_state . "_unit"};
+			delete $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"};
+		}
+
 		my %hash_nutrients = map {/^([a-z][a-z\-]*[a-z]?)(?:_\w+)?$/ ? ($1 => 1) : ()}
 			keys %{$product_ref->{nutriments}};
 
@@ -498,13 +536,35 @@ sub set_per_unit ($product_quantity_unit, $serving_quantity_unit, $set_type) {
 	return $per_unit;
 }
 
+=head2 1003 to 1002 - Refactor the product nutrition schema - API v3.4
+
+The nutrition schema is updated to allow storing several nutrition input sets.
+To downgrade, we use only the aggregated set to generate the nutriments field.
+
+This means that for some products, we will return less information in the downgraded version,
+as we will return only as sold data or prepared data, but not both as was possible in the 1002 version.
+
+=cut
+
 sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref, $delete_nutrition_data = true) {
-	# if no aggregated set then there is no nutrition information
-	if (   !defined $product_ref->{nutrition}{aggregated_set}
-		|| !%{$product_ref->{nutrition}{aggregated_set}})
-	{
+
+	# No nutrition data
+	my $no_nutrition_data_on_packaging = deep_get($product_ref, "nutrition", "no_nutrition_data") // false;
+	if ($no_nutrition_data_on_packaging) {
 		$product_ref->{no_nutrition_data} = "on";
-		$product_ref->{nutriments} = {};
+	}
+	else {
+		# should not happen but just in case
+		delete $product_ref->{no_nutrition_data};
+	}
+
+	# if no aggregated set then we do not return nutrition information
+	# Note: We might have some nutrition data that cannot be incorporated in the aggregated set
+	# e.g. an input set per serving, but without a serving quantity: in that case we do not have an aggregated set
+
+	my $aggregated_set_ref = deep_get($product_ref, "nutrition", "aggregated_set");
+
+	if (!defined $aggregated_set_ref || !%{$aggregated_set_ref}) {
 		delete $product_ref->{nutrition};
 	}
 
@@ -515,18 +575,18 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 		my $per = $nutrient_set_ref->{per} eq "100ml" ? "_100g" : "_" . $nutrient_set_ref->{per};
 
 		# first create the nutriments field
-		my $nutriments = {};
+		my $nutriments_ref = {};
 
 		foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
-			$nutriments->{$nutrient . $preparation_state . $per} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
-			$nutriments->{$nutrient . "_unit"} = $nutrient_set_ref->{nutrients}{$nutrient}{unit};
+			$nutriments_ref->{$nutrient . $preparation_state . $per} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
+			$nutriments_ref->{$nutrient . "_unit"} = $nutrient_set_ref->{nutrients}{$nutrient}{unit};
 			if (defined $nutrient_set_ref->{nutrients}{$nutrient}{modifier}) {
-				$nutriments->{$nutrient . $preparation_state . "_modifier"}
+				$nutriments_ref->{$nutrient . $preparation_state . "_modifier"}
 					= $nutrient_set_ref->{nutrients}{$nutrient}{modifier};
 			}
 		}
 
-		$product_ref->{nutriments} = $nutriments;
+		$product_ref->{nutriments} = $nutriments_ref;
 
 		# then add other useful data on the nutrients to the product
 		if ($preparation_state eq "") {

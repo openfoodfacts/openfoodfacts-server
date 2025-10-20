@@ -8,6 +8,7 @@ use Data::Dumper;
 $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
+use ProductOpener::APIAttributeGroups qw/display_preferences_api display_attribute_groups_api/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Web qw/display_field/;
 use ProductOpener::Lang qw/$lc lang separator_before_colon/;

@@ -11,6 +11,10 @@ use JSON;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ProductSchemaChanges qw/convert_product_schema/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
+use ProductOpener::Tags qw/init_taxonomies/;
+
+# We need to load taxonomies (nutrients) for some schema upgrades
+init_taxonomies(1);
 
 #use Test::MockTime qw(set_fixed_time);
 #set_fixed_time(1650000000);  # freeze time to a known epoch
@@ -20,6 +24,95 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 #my $mockNutrition = MockClass->new('Nutrition');
 
 my @tests = (
+
+	[
+		'1002-to-1003-new-nutrition-schema-energy-in-kj-without-energy-kj-or-energy-kcal',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+
+				"energy" => 1634,
+				"energy_100g" => 1634,
+				"energy_prepared" => 304,
+				"energy_prepared_100g" => 304,
+				"energy_prepared_unit" => "kJ",
+				"energy_prepared_value" => 304,
+				"energy_unit" => "kJ",
+				"energy_value" => 1634,
+			},
+		}
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-energy-in-kcal-without-energy-kj-or-energy-kcal',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+
+				"energy" => 340,
+				"energy_100g" => 340,
+				"energy_prepared" => 44,
+				"energy_prepared_100g" => 44,
+				"energy_prepared_unit" => "kcal",
+				"energy_prepared_value" => 44,
+				"energy_unit" => "kcal",
+				"energy_value" => 340,
+			},
+		}
+	],
+
+	# In the old nutrition schema, we allowed unknown nutrients that were not in the taxonomy
+	[
+		'1002-to-1003-new-nutrition-schema-unknown-nutrients',
+		1003,
+		{
+			"lang" => "da",
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"serving_quantity" => 1000,
+			"serving_quantity_unit" => "ml",
+			"nutriments" => {
+
+				# unknown nutrient prefixed with language
+				'fr-nitrate' => 0.38,
+				'fr-nitrate_100g' => 0.38,
+				'fr-nitrate_label' => "Nitrate",
+				'fr-nitrate_serving' => 0.0038,
+				'fr-nitrate_unit' => "g",
+				'fr-nitrate_value' => 0.38,
+
+				# unknown nutrient not prefixed with language (old fields)
+				'sulfat' => 0.0141,
+				'sulfat_100g' => 0.0141,
+				'sulfat_label' => "Sulfat",
+				'sulfat_serving' => 0.141,
+				'sulfat_unit' => "mg",
+				'sulfat_value' => 14.1,
+
+				# unknown nutrient that is not in the taxonomy
+				'en-some-unknown-nutrient' => 1.23,
+				'en-some-unknown-nutrient_100g' => 1.23,
+				'en-some-unknown-nutrient_label' => "Some unknown nutrient",
+				'en-some-unknown-nutrient_unit' => "g",
+				'en-some-unknown-nutrient_value' => 1.23,
+			},
+		}
+	],
 
 	[
 		'1002-to-1003-new-nutrition-schema-per-100g',
@@ -504,6 +597,56 @@ my @tests = (
 				"sugars_serving" => 100,
 				"sugars_unit" => "g",
 				"sugars_value" => 100
+			},
+		}
+	],
+
+	[
+		'1003-to-1002-no_nutrition_data_on_packaging',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"no_nutrition_data" => "on",
+			"nutrition" => {
+				"aggregated_set" => undef,
+				"nutrient_sets" => []
+			},
+		}
+	],
+
+	[
+		'1003-to-1002-no_nutrition',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+		}
+	],
+
+	[
+		'1003-to-1002-no-aggregated-set-input-set-per-serving-without-serving-quantity',
+		1002,
+		{
+			"schema_version" => 1003,
+			"nutrition" => {
+				"nutrient_sets" => [
+					{
+						"nutrients" => {
+							"carbohydrates" => {
+								"source" => "manufacturer",
+								"source_per" => "serving",
+								"unit" => "g",
+								"value" => 100,
+								"value_string" => "100"
+							},
+						},
+						"per" => "serving",
+						"preparation" => "as_sold"
+					}
+				]
 			},
 		}
 	],
@@ -1216,7 +1359,8 @@ my @tests = (
 	],
 );
 
-foreach my $test_ref (@tests) {
+# We run the tests in reverse order so that we output last the most recent tests added on top
+foreach my $test_ref (reverse @tests) {
 
 	my $testid = $test_ref->[0];
 	my $target_schema_version = $test_ref->[1];
