@@ -7842,11 +7842,15 @@ JS
 	}
 
 	# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
-	# unless we are in the pro platform
+	# unless we are in the pro platform (or we have parameter ?product_type=all which helps for debugging in dev environment)
 
-	if (    (not $server_options{private_products})
+	if (
+			(not $server_options{private_products})
 		and (defined $product_ref->{product_type})
-		and ($product_ref->{product_type} ne $options{product_type}))
+		and ($product_ref->{product_type} ne $options{product_type})
+		and not((defined request_param($request_ref, "product_type"))
+			and (request_param($request_ref, "product_type") eq "all"))
+		)
 	{
 		redirect_to_url($request_ref, 302,
 			format_subdomain($request_ref->{subdomain}, $product_ref->{product_type}) . product_url($product_ref));
