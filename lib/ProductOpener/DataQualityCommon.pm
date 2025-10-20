@@ -154,7 +154,7 @@ sub check_code_gs1_prefixes ($product_ref) {
 	elsif ($code =~ /^980[0-9]{9,10}$/) {
 		push @{$product_ref->{data_quality_info_tags}}, 'en:gs1-refund-prefix';
 	}
-	elsif ($product_type != 'product') {
+	elsif ($product_type ne 'product') {
 		if ($code =~ /^97[8-9][0-9]{9,10}$/) {
 			push @{$product_ref->{data_quality_info_tags}}, 'en:gs1-isbn-prefix';
 		}
@@ -162,7 +162,7 @@ sub check_code_gs1_prefixes ($product_ref) {
 			push @{$product_ref->{data_quality_info_tags}}, 'en:gs1-issn-prefix';
 		}
 	}
-	elsif (($product_type != 'beauty') and ($code =~ /^3600550[0-9]{6}$/)) {
+	elsif (($product_type ne 'beauty') and ($code =~ /^3600550[0-9]{6}$/)) {
 		push @{$product_ref->{data_quality_warnings_tags}}, 'en:cosmetic-product';
 	}
 
