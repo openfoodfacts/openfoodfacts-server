@@ -7243,6 +7243,9 @@ google_product_taxonomy_id:en: 1246
 wikidata:en: Q131436
 
 < en:Games
+fr: Jeux de societé
+
+< en:Games
 en: Card Game Accessories
 xx: Card Game Accessories
 cs: Karetní hry – příslušenství
@@ -11939,6 +11942,10 @@ sv: Jaktkameror
 tr: Takip Kameraları
 google_product_taxonomy_id:en: 5402
 wikidata:en: Q1723004
+
+< en:Cameras
+en: Underwater cameras
+unspsc:en: 45121512
 
 < en:Cameras
 en: Video Cameras
@@ -26028,6 +26035,13 @@ tr: Toner ve Mürekkep Püskürtme Kartuşları
 google_product_taxonomy_id:en: 356
 wikidata:en: Q116970526
 
+< en: Toner & Inkjet Cartridges
+en: Toner cartridges
+
+< en: Toner & Inkjet Cartridges
+en: Inkjet cartridges
+
+
 < en:Printer\, Copier & Fax Machine Accessories
 en: Printer Duplexers
 xx: Printer Duplexers
@@ -27113,6 +27127,12 @@ ru: Табачные изделия
 sv: Tobaksprodukter
 tr: Tütün Mamülleri
 google_product_taxonomy_id:en: 435
+recommendation_panel_evaluation:en: bad
+recommendation_panel_icon:en: arrow-bottom-right-thick.svg
+recommendation_panel_id:en: recommendation_health
+recommendation_panel_msgctxt_prefix:en: recommendation_eu_tobacco_health_warning
+recommendation_panel_source:en: European Union
+recommendation_panel_source_url:en: https://health.ec.europa.eu/tobacco/product-regulation/health-warnings_en#combined-health-warnings-in-the-eu
 wikidata:en: Q44106
 
 < en: Tobacco Products
@@ -35507,6 +35527,12 @@ unit_name:en: washing machine
 unit_name:fr: lave-linge
 wikidata:en: Q124441
 
+<en: Washing Machines
+fr: Lave-linge à chargement frontal, lave-linge hublot
+
+en: Washing Machines
+fr: Lave-linge à chargement par le haut, lave-linge top
+
 < en:Household Appliances
 en: Ultrasonic Cleaners
 xx: Ultrasonic Cleaners
@@ -35550,6 +35576,14 @@ google_product_taxonomy_id:en: 619
 unit_name:en: vacuum cleaner
 unit_name:fr: aspirateur
 wikidata:en: Q11475
+
+<en: Vacuums
+en: Corded Vacuums
+fr: Aspirateur filaire
+
+<en: Vacuums
+en: Cordless vacuums
+fr: Aspirateur non filaire
 
 < en:Household Appliances
 en: Wallpaper Steamers
@@ -53428,6 +53462,8 @@ tr: Septik Tankı ve Foseptik Çukuru Temizleyiciler
 google_product_taxonomy_id:en: 7470
 wikidata:en: Q116970743
 
+en: Adhesives & Sealants
+
 < en:Building Consumables
 en: Hardware Glue & Adhesives
 xx: Hardware Glue & Adhesives
@@ -64411,6 +64447,12 @@ sv: Media
 tr: Medya
 google_product_taxonomy_id:en: 783
 wikidata:en: Q117208263
+
+< en:Media
+en: Published products, Publications
+
+< en:Media
+en: Printed publications, Printed media
 
 < en:Media
 en: Books
@@ -82445,7 +82487,7 @@ cs: Pera
 da: Kuglepenne
 de: Schreibstifte\, Kugelschreiber & Füller
 es: Bolígrafos
-fr: Stylos
+fr: Stylos, Stylos bille
 it: Penne
 ja: ペン
 nl: Pennen
@@ -100340,6 +100382,37 @@ tr: İlaçlar
 google_product_taxonomy_id:en: 518
 wikidata:en: Q116221216
 
+< en: Medicine & Drugs
+en: Antacid tablets
+
+< en: Medicine & Drugs
+en: Paracetamol tablets
+fr: Comprimés de paracétamol
+
+< en: Medicine & Drugs
+en: Cough & Cold Remedies
+de: Husten- & Erkältungsmittel
+
+< en: Medicine & Drugs
+en: Pain Relief Tablets
+es: Tabletas para el alivio del dolor
+fr: Comprimés contre la douleur
+it: Compresse per il sollievo dal dolore
+nl: Pijnstillende tabletten
+pl: Tabletki przeciwbólowe
+sv: Smärtstillande tabletter
+
+< en: Medicine & Drugs
+en: Sleep Aids
+da: Søvnmidler
+de: Schlafhilfen
+es: Ayudas para dormir
+fr: Aides au sommeil
+it: Ausili per il sonno
+ja: 睡眠補助薬
+nl: Slaapmiddelen
+no: Søvnmidler
+
 < en:Health Care
 en: Mobility & Accessibility
 xx: Mobility & Accessibility
@@ -103661,19 +103734,53 @@ google_product_taxonomy_id:en: 485
 wikidata:en: Q117207495
 
 < en: Feminine Sanitary Supplies
+en: Menstrual products
+xx: Menstrual products
+cs: Menstruační pomůcky
+da: Menstruationsprodukter
+de: Menstruationsprodukte
+es: Productos menstruales
 fr: Produits menstruels
+it: Prodotti mestruali
+ja: 生理用品
+nl: Menstruatieproducten
+no: Menstruasjonsprodukter
+pl: Produkty menstruacyjne
+pt: Produtos menstruais
+ru: Менструальные средства
+sv: Mensskydd
+tr: Menstrüel ürünler
 
 < fr: Produits menstruels
 fr: Produits menstruels reutilisables
+en: Reusable Menstrual Products
+de: Wiederverwendbare Menstruationsprodukte
+es: Productos menstruales reutilizables
+it: Prodotti mestruali riutilizzabili
 
 < fr: Produits menstruels reutilisables
 fr: Culottes de règles
+en: Menstrual Underwear
+de: Menstruationsunterwäsche
+es: Ropa interior menstrual
+it: Mutandine mestruali
+ja: 生理用ショーツ
+nl: Menstruatieondergoed
+no: Menstruasjonsundertøy
+pl: Majtki menstruacyjne
+pt: Calcinhas menstruais
+ru: Менструальное нижнее белье
+sv: Mensunderkläder
+tr: Regl Külotları
 
 < fr: Produits menstruels
 en: Sanitary napkins
 de: Damenbinden
 es: Compresas sanitarias
 fr: Serviettes hygiéniques
+
+< fr: Produits menstruels
+fr: protège lingerie
 
 < en:Feminine Sanitary Supplies
 en: Feminine Deodorant
@@ -106731,5 +106838,4 @@ de: Medizin
 es: Medicina
 fr: Médicament
 sv: Medicin, läkemedel
-
 
