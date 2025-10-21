@@ -38456,12 +38456,25 @@ fr: Bonbons dragéifiés
 en: Fudge
 bg: Фъдж
 
+# products which imitate the taste, texture and color of chocolate. The brand Choviva for example uses roasted sunflowers.
+< en:Sweet snacks
+en: Chocolate alternatives without cocoa
+fr: Alternatives au chocolat sans cacao
+incompatible_with:en: categories:en:chocolates, categories:en:compound-chocolates
+
+< en:Sweet snacks
+en: Bonbon alternatives without cocoa
+fr: Alternatives aux bonbons de chocolat sans cacao
+incompatible_with:en: categories:en:chocolates, categories:en:chocolate-alternatives-without-cocoa, categories:en:bonbons
+
+# Products with too little cocoa to be called chocolate. Cocoa butter is replaced by another oil (usually palm).
 < en:Confectioneries
 en: Compound chocolates, Chocolate substitutes
 de: Schokoladenersatz
 fr: Succédanés du chocolat, Substituts du chocolat
 hr: Složene čokolade
 ja: 凖チョコレート
+incompatible_with:en: categories:en:chocolates, categories:en:chocolate-alternatives-without-cocoa
 # ja note: Industry policy:
 # チョコレート類 refers to chocolate products in Japan. It contains チョコレート ("chocolate"), 凖チョコレート, チョコレート菓子 ("chocolate snack"), 凖チョコレート菓子, カカオマス ("cocoa mass"), ココアバター ("cocoa butter"), ココアケーキ, ココアパウダー ("cocoa powder"), and 調整ココアパウダー.
 # チョコレート must be made of at least 60% of チョコレート生地 ("chocolate mixture") by weight. チョコレート生地 must contain at least 35% cocoa and less than 3% water by weight (with complicated exceptions with milk solids).
@@ -79413,6 +79426,7 @@ gpc_category_code:en: 10000302
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury dough-based not ready to eat, prepared/processed product, such as Pasta, Gnocchi, Noodles or Batter with other ingredients, such as meat, dairy, eggs, fish, vegetables and/or seasoning. An optional seasoning/flavour packet may be present.  These ingredients form a valuable part of the product, such as the meat/tomato sauce in Spaghetti Bolognaise or cheese sauce in Macaroni and Cheese. They may or may not contain a sauce. These products may have a main component which is considered a meal without any additional components. These products are not ready to eat and require cooking prior to consumption.   These products have been specially treated or packaged to extend their consumable life. Includes not ready to eat shelf stable Ready-Made Meals where a Dough Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes pizza, savoury pies, quiches, pastries and bread products.Excludes products such as Frozen and Perishable Not Ready to Eat and Ready to Eat Dough-Based Prepared/Processed Products, Unprepared Pasta and Noodles.
 gpc_category_name:en: Dough Based Products / Meals - Not Ready to Eat - Savoury (Shelf Stable)
 
+< en:Frozen foods
 < en:Meals
 en: Frozen dough based meals (to prepare)
 gpc_category_code:en: 10000300
@@ -79420,6 +79434,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Dough Based Products / Meals - Not Ready to Eat - Savoury (Perishable)
 
 < en:Meals
+< en:Refrigerated foods
 en: Refrigerated dough based meals (ready)
 gpc_category_code:en: 10000298
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury dough-based ready to eat, prepared/processed product, such as Pasta, Gnocchi or Noodles with other ingredients, such as meat, dairy, eggs, fish, vegetables and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Pasta with a Roasted Vegetable Salad. They may or may not contain a sauce. These products may have a main component which is considered a meal without any additional components. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products must be refrigerated to extend their consumable life. Includes ready to eat perishable Ready-Made Meals where a Dough Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes pizza, savoury pies, quiches, pastries and bread products.Excludes products such as Shelf Stable Ready to Eat and Not Ready to Eat Dough-Based Prepared/Processed Product, Unprepared Pasta and Noodles.
@@ -79463,6 +79478,7 @@ gpc_category_code:en: 10000294
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury grain-based ready to eat, prepared/processed product, such as Rice, Polenta or Couscous with other ingredients, such as meat, eggs, fish, vegetables, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Couscous with Vegetables. These products may have a main component which is considered a meal without any additional components. These products must not include any dough-based products. They may or may not contain a sauce. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products have been treated or packaged in such a way as to extend their consumable life. Includes  ready to eat shelf stable Ready-Made Meals where a Grain Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals.   Specifically excludes all unprepared dried rice.Excludes products such as Perishable Ready to Eat and all Not Ready to Eat Grain Based Prepared/Processed Products and Unprepared Grains.
 gpc_category_name:en: Grain Based Products / Meals - Ready to Eat - Savoury (Shelf Stable)
 
+< en:Frozen foods
 < en:Meals
 en: Frozen grain based meals
 gpc_category_code:en: 10000293
@@ -83162,7 +83178,11 @@ fr: Légumes farcis dans l'huile, légumes farcis à l'huile
 
 < en:Meals
 en: Vegetarian meals
-description:en: Should be distinghuished from vegetable meals, that might contain meat
+description:en: Should be distinguished from vegetable meals, that might contain meat
+
+< en:Vegetarian meals
+en: Vegan meals
+description:en: Should be distinguished from vegetable meals, that might contain animal products
 
 < en:Meals
 en: Gratins
@@ -96249,6 +96269,7 @@ ua: пироги, вареники
 wikidata:en: Q697800
 wikipedia:en: https://en.wikipedia.org/wiki/Pierogi
 
+< en:Frozen foods
 < en:pierogi
 en: Frozen pierogi
 fr: Pierogi surgelés
@@ -111966,18 +111987,19 @@ sv: Datterini-tomater
 < en:Canned tomatoes
 < en:Datterini tomatoes
 en: Canned datterini tomatoes
-da: Datterini-tomater på dås
+da: Datterini-tomater på dåse
 sv: Datterini-tomater på dås
 
 < en:Canned datterini tomatoes
 < en:Whole peeled tomatoes in tomato juice
 en: Whole peeled datterini tomatoes in tomato juice
-da: Flåede hele datterini-tomater i tomatsovs
+da: Flåede hele datterini-tomater i tomatsaft
 sv: Hela skalade datterini-tomater i tomatjuice
 
 < en:Tomatoes
 xx: Pomodoro San Marzano dell'Agro Sarnese-Nocerino
 en: San Marzano tomatoes
+da: San Marzano-tomater
 it: Pomodoro San Marzano
 sv: San Marzano-tomater
 protected_name_file_number:en: PDO-IT-1524
@@ -111994,7 +112016,7 @@ sv: San Marzano-tomater på dås
 < en:Canned San Marzano tomatoes
 < en:Whole peeled tomatoes in tomato juice
 en: Whole peeled San Marzano tomatoes in tomato juice
-da: Flåede hele San Marzano-tomater i tomatsovs
+da: Flåede hele San Marzano-tomater i tomatsaft
 sv: Hela skalade San Marzano-tomater i tomatjuice
 
 < en:Tomatoes
@@ -112031,7 +112053,7 @@ ciqual_food_name:fr: Tomate, pelée, appertisée, égouttée
 
 < en:Peeled tomatoes
 en: Whole peeled tomatoes in tomato juice
-da: Flåede hele tomater i tomatsovs
+da: Flåede hele tomater i tomatsaft
 fr: Tomates entières pelées au jus
 sv: Hela skalade tomater i tomatjuice
 agribalyse_proxy_food_code:en: 20048
@@ -112074,6 +112096,7 @@ sv: Finkrossade tomater på dås
 < en:Frozen vegetables
 < en:Tomatoes
 en: Frozen tomatoes
+da: Frosne tomater
 fr: Tomates surgelées
 
 < en:Vegetables
@@ -121087,6 +121110,20 @@ fr: Risottos aux cèpes
 #wikidata:en:
 
 < en:Meals
+xx: Dumplings
+en: Dumplings
+lt: Koldūnai
+sv: Dumplingar
+wikidata:en: Q1854639
+
+< en:Dumplings
+en: Dumplings with vegetables
+da: Dumplings med grøntsager
+lt: Koldūnai su daržovėmis
+nb: Dumplings med grønnsaker
+sv: Dumplingar med grönsaker, Dumplings med grönsaker
+
+< en:Dumplings
 en: Chinese dumplings, Chinese dumpling, Dim Sum
 fi: Kiinalaiset mykyt, Kiinalainen myky
 fr: Bouchées à la vapeur chinoises cuites, Bouchées vapeur chinoises cuites, Bouchées à la vapeur
@@ -121097,7 +121134,20 @@ ciqual_food_code:en: 25169
 ciqual_food_name:en: Chinese specialty or dumplings
 ciqual_food_name:fr: Spécialité chinoise ou bouchées à la vapeur, cuite
 
+< en:Dumplings
+< en:Frozen foods
+en: Frozen dumplings
+da: Frosne dumplings
+sv: Frusna dumplingar
+
+< en:Dumplings with vegetables
+< en:Frozen dumplings
+en: Frozen dumplings with vegetables
+da: Frosne dumplings med grøntsager
+sv: Frusna dumplingar med grönsaker
+
 < en:Chinese dumplings
+< en:Frozen dumplings
 en: Frozen Chinese dumplings, frozen Dim Sum
 fr: Bouchées à la vapeur chinoises cuites surgelées, Bouchées à la vapeur surgelées, Dim Sum surgelés
 
