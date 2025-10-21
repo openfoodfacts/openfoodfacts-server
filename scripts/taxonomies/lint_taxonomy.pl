@@ -36,6 +36,10 @@ sub has_errors($errors_ref) {
 	return !!(first {lc($_->{severity}) eq "error"} @$errors_ref);
 }
 
+# explicit regexp of the different language variant we got
+# + some additional exceptions
+my $language_prefix_re = qr/(\w{2,3}(?:[-_]\w{2,4})?)/;
+
 # compare synonyms entries on language prefix with "xx" > "en" then alpha order
 # also work for property name + language prefix
 sub cmp_on_language : prototype($$) ($a, $b) {
@@ -47,11 +51,11 @@ sub cmp_on_language : prototype($$) ($a, $b) {
 	my $a_prefix = undef;
 	my $b_prefix = undef;
 	# case of property name: <name>:<lang>
-	if ($a =~ /^([\w-]+):([\w-]+)$/) {
+	if ($a =~ /^([\w-]+):${language_prefix_re}$/) {
 		$a_prefix = $1;
 		$a = $2;
 	}
-	if ($b =~ /^([\w-]+):([\w-]+)$/) {
+	if ($b =~ /^([\w-]+):${language_prefix_re}$/) {
 		$b_prefix = $1;
 		$b = $2;
 	}
@@ -87,9 +91,6 @@ sub iter_taxonomy_lines($fd) {
 		return;
 	}
 }
-
-# explicit regexp of the different language variant we got
-my $language_prefix_re = qr/(\w{2,3}(?:[-_]\w{2,4})?)/;
 
 # iter over the taxonomy entry by entry
 # return a ref to a hash map with entry infos
