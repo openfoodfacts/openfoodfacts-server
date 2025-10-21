@@ -1234,6 +1234,10 @@ description:nl: Uit PETmet (gemetalliseerd Polyethylene terephthalate) samengest
 en: PEmet - Metalized polyethylene, Metalized polyethylene
 xx: PEmet, 07 PEmet, PEmet 07, 07PEmet, PEmet07, 7 PEmet, PEmet 7, 7PEmet, PEmet7, met-PE, 07 met-PE, met-PE 07, 07met-PE, met-PE07, 7 met-PE, met-PE 7, 7met-PE, met-PE7
 de: PEmet - Metallisiertes Polyethylen, Metallisiertes Polyethylen
+fr: PEmet - Polyéthylène métallisé
+it: PEmet - Polietilene metallizzato, Polietilene metallizzato
+es: PEmet - Polietileno metalizado, Polietileno metalizado
+pt: PEmet - Polietileno metalizado, Polietileno metalizado
 description:en: PEmet (metallized polyethylene)
 description:de: PEmet (Metallisiertes Polyethylen)
 description:nl: PEmet (gemetalliseerd polyethyleen)
@@ -1541,6 +1545,7 @@ pt: Cartão FSC
 ru: Картон FSC
 sv: FSC kartong
 zh: FSC纸板
+ro: Carton FSC
 # associated_label:en: en:FSC
 
 < en:Cardboard
@@ -1661,6 +1666,7 @@ nl: FSC-papier
 pl: Papier FSC
 pt: Papel FSC
 ru: Бумага FSC
+sv: FSC-papper
 # We have a en:FSC label - https://world.openfoodfacts.org/label/FSC - https://www.wikidata.org/wiki/Q748367
 # associated_label:en: en:FSC
 
@@ -2201,6 +2207,10 @@ hu: Egyéb textilek, Egyéb textil, Egyéb textília, Más textilek
 it: Altri Tessili
 nl: Ander textiel
 pt: Outros têxteis
+ro: Alte textile
+ru: Другие текстильные изделия
+sv: Andra textilier
+description:en: Any textile (material made from threads) that is not jute or cotton
 description:nl: Elk textiel (uit draden gemaakt materiaal) dat niet jute of katoen is.
 
 # Silicates / Verre (sodo-calcique) in data from Les Mousquetaires
@@ -2271,11 +2281,13 @@ wikidata:en: Q28869937
 en: Uncoloured Glass, Uncolored Glass
 da: ufarvet glas
 sv: ofärgat glas
+fr: Verre incolore
 
 < en:Glass
 en: Coloured Glass, Colored Glass
 da: farvet glas
 sv: färgat glas
+fr: Verre coloré
 
 < en:Coloured Glass
 en: Green Glass
@@ -3170,6 +3182,11 @@ description:nl: Uit glas en CPP (cast polypropyleen) samengesteld materiaal
 xx: 95 C/OPP
 description:en: Composite material with glass and OPP (orientated polypropylene)
 description:nl: Uit glas en OPP (georienteerd polypropyleen) samengesteld materiaal
+description:pt: Material composto por vidro e OPP (polipropileno orientado)
+description:es: Material compuesto por vidrio y OPP (polipropileno orientado)
+description:it: Materiale composto da vetro e OPP (polipropilene orientato)
+description:fr: Matériau composé de verre et OPP (polypropylène orienté)
+description:de: Material aus Glas und OPP (orientiertes Polypropylen)
 
 < xx:95 C/PP
 xx: 95 C/BOPP
@@ -3550,6 +3567,10 @@ es: Gas
 fr: Gaz
 it: Gas
 nl: Gas
+pt: Gás
+sv: Gas
+ro: Gaz
+ru: Газ
 
 < en:Gas
 en: CO2 - Carbon dioxide, Carbon dioxide
@@ -3579,4 +3600,8 @@ fr: Autre gaz
 it: Altro gas
 nl: Andere gassen
 pt: Outros gases
+ro: Alte gaze
+ru: Другие газы
+sv: Andra gaser
+
 
