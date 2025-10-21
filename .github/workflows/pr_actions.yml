@@ -14,7 +14,8 @@ jobs:
       (github.event.comment.body == '/lint')
     runs-on: ubuntu-latest
     steps:
-    - name: Add reaction to comment
+    - &step-reaction-seen
+      name: Add “seen” reaction to comment
       uses: peter-evans/create-or-update-comment@v4
       with:
         comment-id: ${{ github.event.comment.id }}
@@ -61,6 +62,13 @@ jobs:
         status_options: '--untracked-files=no'
         skip_dirty_check: false
         create_branch: no
+    - &step-reaction-completed
+      name: Add “completed” reaction to comment
+      uses: peter-evans/create-or-update-comment@v4
+      with:
+        comment-id: ${{ github.event.comment.id }}
+        reactions: rocket
+        reactions-edit-mode: replace
 
   # Action to update test results by issuing /update_tests_results
   update_test_results:
@@ -70,11 +78,7 @@ jobs:
       (github.event.comment.body == '/update_tests_results')
     runs-on: ubuntu-latest
     steps:
-    - name: Add reaction to comment
-      uses: peter-evans/create-or-update-comment@v4
-      with:
-        comment-id: ${{ github.event.comment.id }}
-        reactions: eyes
+    - *step-reaction-seen
     - name: Get repository, owner and branch name
       # see https://github.com/actions/checkout/issues/331
       id: get-branch
@@ -112,3 +116,4 @@ jobs:
         status_options: '--untracked-files=no'
         skip_dirty_check: false
         create_branch: no
+    - *step-reaction-completed
