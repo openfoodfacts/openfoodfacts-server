@@ -5501,7 +5501,7 @@ description:th: เมื่อเทียบกับค่าเฉลี่�
 description:tr: Kategori ortalamasına kıyasla, tuz değeri anormal derecede düşük.
 description:uk: Порівняно із середнім значенням для категорії, значення солі є ненормально низьким.
 description:zh: 与类别平均值相比，盐的数值异常低。
-nutrients: en:salt, en:sodium
+nutrients:en: zz:salt, zz:sodium
 
 < en:Nutrition warnings
 en: Nutrition value very low for category - Saturated fat
@@ -5539,7 +5539,7 @@ description:th: เมื่อเทียบกับค่าเฉลี่�
 description:tr: Kategori ortalamasına kıyasla, doymuş yağ değeri anormal derecede düşük.
 description:uk: Порівняно із середнім значенням для категорії, значення насичених жирів є ненормально низьким.
 description:zh: 与类别平均值相比，饱和脂肪的值异常低。
-nutrients: en:Saturated fat
+nutrients:en: zz:saturated-fat
 
 < en:Nutrition warnings
 en: Nutrition value very low for category - Sugars
@@ -5787,17 +5787,17 @@ description:en: In EU, a claim that a food is with no added sugars may only be m
 < en:Data quality warnings
 en: low sodium or low salt label claim but sodium or salt above limitation
 description:en: In EU, a claim that a food is low sodium or low salt may only be made where the product contains no more than 0,12 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
-nutrients: en:salt, en:sodium
+nutrients:en: zz:salt, zz:sodium
 
 < en:Data quality warnings
 en: very low sodium or very low salt label claim but sodium or salt above limitation
 description:en: In EU, a claim that a food is very low in sodium/salt may only be made where the product contains no more than 0,04 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml. This claim shall not be used for natural mineral waters and other waters. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
-nutrients: en:salt, en:sodium
+nutrients:en: zz:salt, zz:sodium
 
 < en:Data quality warnings
 en: no added sodium or no added salt label claim but sodium or salt above limitation
 description:en: In EU, a claim that sodium/salt has not been added to a food may only be made where the product does not contain any added sodium/salt or any other ingredient containing added sodium/salt and the product contains no more than 0,12 g sodium, or the equivalent value for salt, per 100 g or 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
-nutrients: en:salt, en:sodium
+nutrients:en: zz:salt, zz:sodium
 
 < en:Data quality warnings
 en: source of fibre label claim but fibre below limitation
