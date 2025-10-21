@@ -326,6 +326,9 @@ ingredients:en: en:egg
 origins:en: en:france
 
 fr: Oeufs origine France
+es: Huevos de origen Francia
+it: Uova di origine Francia
+pt: Ovos de origem França
 
 < en:Free range
 en: Free range eggs
@@ -1259,6 +1262,8 @@ en: Eggs from animals fed without GMOs
 es: Huevos de animales alimentados sin OGM
 fr: Oeufs issus d'animaux nourris sans OGMs, oeufs issus de poules nourries sans OGMs
 pt: Ovos de animais alimentados sem OGM, ovos de animais alimentados sem alimentos geneticamente modificados, ovos de animais alimentados sem transgênicos, ovos de animais alimentados sem transgénicos
+it: Uova da animali alimentati senza OGM
+nl: Eieren van dieren gevoerd zonder OGM
 
 en: Fed without soy
 de: Ohne Soja gefüttert
@@ -1274,6 +1279,7 @@ he: מזון חופש
 fr: Tréfilage au bronze, tréfilé au bronze
 hr: Brunirani trefilni postupak
 it: Trafilata al bronzo
+nl: Bronzen getrokken
 
 # Packaging labels
 
@@ -20303,6 +20309,9 @@ fr: Sans sulfites, sans sulfite
 hu: Szulfitmentes, szulfitok nélkül, szulfitokat nem tartalmaz
 it: Senza solfiti
 pt: Sem sulfitos, 0% sulfitos, não contém sulfitos
+sv: Utan sulfiter
+incompatible_with:en: labels:en:with-sulfites
+opposite:en:  en:With sulfites
 
 en: Without sulfur
 ca: Sense sofre
@@ -20812,9 +20821,11 @@ it: DOC, D.O.C, Denominazione di origine controllata
 wikidata:en: Q654824
 
 it: DOCG, Denominazione di origine controllata e garantita
+wikidata:en: Q2305591
 
 fr: Concours Mondial de Bruxelles
 pt: Concurso Mundial de Bruxelas
+wikidata:en: Q5159017
 
 < fr:Concours Mondial de Bruxelles
 en: Silver medal of the Concours Mondial de Bruxelles
@@ -21315,8 +21326,6 @@ pt: Sociedade Agrícola Alemã
 country:en: en:Germany
 label_categories:en: en:Quality
 wikidata:en: Q316331
-
-
 
 < en:German Agricultural Society
 en: Bronze medal of the German Agricultural Society
@@ -21841,6 +21850,8 @@ country:en: en:Switzerland
 
 en: swiss sugar
 fr: sucre suisse
+it: zucchero svizzero
+nl: Zwitserse suiker
 
 < en:Organic
 en: Bio Suisse, BioSuisse
@@ -22212,6 +22223,21 @@ th: สูตรใหม่
 en: New flavour, New taste
 da: Ny smag
 sv: Ny smak
+fr: Nouveau goût, nouvelle saveur
+it: Nuovo sapore
+nl: Nieuwe smaak
+pt: Novo sabor
+es: Nuevo sabor
+de: Neuer Geschmack
+fi: Uusi maku
+bg: Нов вкус
+ca: Nou sabor
+he: טעם חדש
+hu: Új íz
+pl: Nowy smak
+ru: Новый вкус
+th: รสชาติใหม่
+tr: Yeni tat
 
 en: 2016 Nutrition labelling experiment
 ca: Experiment d’etiquetatge nutricional 2016
@@ -22287,7 +22313,7 @@ label_categories:en: en:Nutrition Grades, en:Health
 
 en: Nutriscore
 xx: Nutriscore, Nutri-Score
-ca: Comptador Nutricional, Nutriscore
+ca: Nutri-Score, Comptador Nutricional, Nutriscore
 label_categories:en: en:Nutrition Grades, en:Health
 wikidata:en: Q46577569
 
@@ -22330,6 +22356,7 @@ fi: Nutriscore-arvosana D
 he: דירוג D ב־Nutriscore
 hr: Nutriscore oznaka D
 pt: Nutri-Score grau D
+ro: Nutri-Score grad D
 label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
@@ -22338,6 +22365,8 @@ xx: Nutriscore E, Nutri-Score E
 ca: Grau E NutriScore
 fi: Nutriscore-arvosana E
 hr: Nutriscore oznaka E
+pt: Nutri-Score grau E
+ro: Nutri-Score grad E
 label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
@@ -22421,6 +22450,7 @@ fr: Nutriscore E - Nouveau calcul
 hr: Nutriscore oznaka E - Novi izračun
 it: Nutriscore E - Nuovo calcolo
 nl: Nutriscore E - Nieuwe berekening
+pt: Nutri-Score grau E - Novo cálculo
 label_categories:en: en:Nutrition Grades, en:Health
 
 en: Nutri-Score A/B
@@ -22511,12 +22541,15 @@ origins:en: en:france
 < fr:Fruits et Légumes de France
 fr: Légumes de France, Légumes français
 pt: Legumas de França, legumes da França
+es: Verduras de Francia, verduras francesas
+it: Verdure francesi, verdure di Francia, verdure dalla Francia
 origins:en: en:france
 
 fr: concombres cultivés en france
 es: pepinos cultivados en francia
 it: cetrioli coltivati in francia
 pt: pepinos cultivados na frança
+ingredients:en: en:cucumber
 origins:en: en:france
 
 fr: Maïs de France
@@ -22562,6 +22595,8 @@ de: Apfel aus Frankreich
 es: Manzana origen Francia
 it: Mela di origine Francia
 pt: Maçã de origem França
+ingredients:en: en:apple
+origins:en: en:france
 
 en: Bee Friendly, I protect the bees
 xx: Bee Friendly
@@ -22682,6 +22717,9 @@ fr: Sans antibiotique, sans antibiotiques, sans traitement antibiotique, élevag
 hu: Antibiotikum mentes
 it: Senza antibiotici
 pt: Sem antibióticos, 0% antibióticos, livre de antibióticos, criado sem antibióticos, criados sem antibióticos, criada sem antibióticos, criadas sem antibióticos
+pl: Bez antybiotyków
+ru: Без антибиотиков
+sv: Utan antibiotika
 label_categories:en: en:Health
 
 < en:No antibiotics
@@ -22699,6 +22737,9 @@ en: Without antibiotics after weaning
 fr: Sans antibiotique après sevrage, sans antibiotique dès la fin du sevrage, sans antibiotique après la fin du sevrage
 it: Senza antibiotici dopo lo svezzamento
 pt: Sem antibióticos depois da desmama, nenhum antibiótico depois da desmama, Sem antibióticos depois do desmamar, nenhum antibiótico depois do desmamar
+es: Sin antibióticos después del destete
+de: Ohne Antibiotika nach dem Absetzen
+fi: Ei antibiootteja vieroituksen jälkeen
 
 < en:No antibiotics
 en: Without antibiotics after first age, Without antibiotics after 1st age
@@ -22762,6 +22803,9 @@ pt: Galinha criada sem antibióticos desde o nascimento, galinhas criadas sem an
 en: Hens raised without antibiotics
 de: Hennenaufzucht ohne Antibiotika
 fr: Poules élevées sans antibiotique
+it: Galline allevate senza antibiotici
+es: Gallinas criadas sin antibióticos
+fi: Kanat kasvatettu ilman antibiootteja
 pt: Poedeiras criadas sem antibióticos, galinhas poedeiras criadas sem antibióticos, poedeira criada sem antibióticos, galinha poedeira criada sem antibióticos
 
 < en:Hens raised without antibiotics
@@ -22777,6 +22821,8 @@ fi: hormoniton, kasvatettu ilman hormoneja
 fr: Sans hormone, élevé sans hormone
 it: Senza ormoni, allevato senza ormoni
 pt: Sem hormonas, criado sem hormonas, criados sem hormonas, criada sem hormonas, criadas sem hormonas
+es: Sin hormonas, criado sin hormonas, criados sin hormonas, criada sin hormonas, criadas sin hormonas
+
 
 < en:No antibiotics
 < en:Without hormones
@@ -22953,6 +22999,8 @@ en: Cold pressed
 es: Prensado en frío
 fr: Pression à froid, haute pression à froid
 nl: Koudgeperst
+pt: Prensado a frio
+sv: Kallpressad, kallpressade
 
 en: Unfiltered, cloudy
 bg: Нефилтрирано
