@@ -47,11 +47,11 @@ sub cmp_on_language : prototype($$) ($a, $b) {
 	my $a_prefix = undef;
 	my $b_prefix = undef;
 	# case of property name: <name>:<lang>
-	if ($a =~ /^(\w+):(\w+)$/) {
+	if ($a =~ /^([\w-]+):([\w-]+)$/) {
 		$a_prefix = $1;
 		$a = $2;
 	}
-	if ($b =~ /^(\w+):(\w+)$/) {
+	if ($b =~ /^([\w-]+):([\w-]+)$/) {
 		$b_prefix = $1;
 		$b = $2;
 	}
@@ -187,9 +187,34 @@ sub iter_taxonomy_entries ($lines_iter) {
 				push @parents, {line => $line, previous => [@previous_lines], line_num => $line_num, type => "parent"};
 				@previous_lines = ();
 			}
+			# property
+			# detect it before sysnonyms because otherwise it's tricky to recognize
+			# since, contrary to Tags.pm, we are allowing three letters language codes
+			elsif ($line =~ /^([\w-]+):\s*${language_prefix_re}:(.*)$/) {
+				my $prop = $1;
+				my $lc = $2;
+				if (defined $props{"$prop:$lc"}) {
+					push(
+						@errors,
+						{
+							severity => "Error",
+							type => "Correctness",
+							line => $line_num,
+							message => (
+									  "duplicate property language line for $prop:$lc:\n" . "- "
+									. $props{"$prop:$lc"}->{line}
+									. "\n- $line"
+							)
+						}
+					);
+				}
+				# override to continue
+				$props{"$prop:$lc"}
+					= {line => $line, previous => [@previous_lines], line_num => $line_num, type => "property"};
+				@previous_lines = ();
+			}
 			# synonym
-			# explicit regexp of the different language variant we got
-			elsif ($line =~ /^${language_prefix_re}:[^:]*(,.*)*$/) {
+			elsif ($line =~ /^${language_prefix_re}:.+(,.*)*$/) {
 				if (!defined $entry_id_line) {
 					$entry_id_line = {
 						line => $line,
@@ -228,30 +253,6 @@ sub iter_taxonomy_entries ($lines_iter) {
 							= {line => $line, previous => [@previous_lines], line_num => $line_num, type => "entry_lc"};
 					}
 				}
-				@previous_lines = ();
-			}
-			# property
-			elsif ($line =~ /^(\w+):${language_prefix_re}:(.*)$/) {
-				my $prop = $1;
-				my $lc = $2;
-				if (defined $props{"$prop:$lc"}) {
-					push(
-						@errors,
-						{
-							severity => "Error",
-							type => "Correctness",
-							line => $line_num,
-							message => (
-									  "duplicate property language line for $prop:$lc:\n" . "- "
-									. $props{"$prop:$lc"}->{line}
-									. "\n- $line"
-							)
-						}
-					);
-				}
-				# override to continue
-				$props{"$prop:$lc"}
-					= {line => $line, previous => [@previous_lines], line_num => $line_num, type => "property"};
 				@previous_lines = ();
 			}
 			# comments
