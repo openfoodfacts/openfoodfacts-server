@@ -159,7 +159,7 @@ stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, 
 stopwords:nn: og, av
 stopwords:pl: w tym, zawiera, z, zawierają, łącznie z, jadalna, jadalne, inne
 stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo
-stopwords;ro: Produsul poate conține
+stopwords:ro: Produsul poate conține
 stopwords:sk: obsahuje
 stopwords:sl: vsebuje, sestavine
 stopwords:sv: och, eller, samt, av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, innehållande, innehålle, ingredienser, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav, bäst före, i varierande proportion
@@ -16449,8 +16449,6 @@ from_palm_oil:en: no
 wikidata:en: Q265878
 wikipedia:en: https://en.wikipedia.org/wiki/Peanut_oil
 
-# description:en:SESAME OIL is an edible vegetable oil derived from sesame seeds.
-
 < en:vegetable oil
 en: sesame oil, sesame seed oil
 ar: زيت السمسم
@@ -16493,7 +16491,7 @@ ro: Ulei de susan
 ru: Кунжутное масло
 sl: Sezamovo olje
 so: Saliid Macsaro
-sv: Sesamolja
+sv: sesamolja
 ta: நல்லெண்ணெய்
 te: నువ్వుల నూనె
 tr: Susam yağı
@@ -16505,9 +16503,18 @@ allergens:en: en:sesame-seeds
 ciqual_food_code:en: 17400
 ciqual_food_name:en: Sesame oil
 ciqual_food_name:fr: Huile de sésame
+description:en: SESAME OIL is an edible vegetable oil derived from sesame seeds.
 from_palm_oil:en: no
 wikidata:en: Q212317
 wikipedia:en: https://en.wikipedia.org/wiki/Sesame_oil
+
+< en:sesame oil
+en: toasted sesame oil, roasted sesame oil
+da: sesamolie af ristede sesamfrø
+lt: skrudintų sezamų aliejus
+nb: sesamolje av ristet sesamfrø
+sv: olja från rostade sesamfrön
+description:en: “Oil made from toasted seeds is used for its distinctive nutty aroma and taste, although it may be unsuitable for frying, which makes it taste burnt and bitter.” (Wikipedia)
 
 < en:sesame oil
 en: refined sesame oil
@@ -21608,7 +21615,7 @@ uz: Vanilin
 zh: 香草醛
 comment:en: Note that the aroma's are found under the aroma section.
 # azb:وانیلین
-en:description:Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
+description:en: Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
 wikidata:en: Q33495
 wikipedia:en: https://en.wikipedia.org/wiki/Vanillin
 # ingredient/fr:vanilline has 831 products in 10 languages @2018-12-12
@@ -29008,7 +29015,7 @@ fr: riz long semi complet
 
 < fr:riz long semi complet
 #<en:organic rice
-fr:riz long semi complet issu de l'agriculture-biologique:
+fr: riz long semi complet issu de l'agriculture-biologique
 
 < en:brown rice
 < en:long grain rice
@@ -51539,7 +51546,7 @@ it: bambù
 ja: 竹
 jv: Pring
 ka: ბამბუკი
-kk:Бамбукkn:ಬಿದಿರು
+kk: Бамбукkn
 ko: 대나무
 ky: Бамбук
 la: Bambuseae
@@ -51949,17 +51956,15 @@ hr: roscoff pdo luka
 it: cipolla di Roscoff DOP
 nl: Roscoffui met BOB-keurmerk
 
-# description:en:Allium fistulosum, the Welsh onion, also commonly called bunching onion, long green onion, Japanese bunching onion, and spring onion, is a species of perennial plant. A. fistulosum is an ingredient in Asian cuisine, especially in East and Southeast Asia. In the West, A. fistulosum is primarily used as a scallion or salad onion.
-# comment:en:On products one often finds wrong translations.
-
-< en:onion
-en: Welsh onion, bunching onion, long green onion
+< en:onion-family vegetable
+en: Welsh onion, bunching onion, long green onion, Korean leek
 be: Цыбуля-батун
 bo: ཙོང་།
 br: Sivolez
 ca: cebollí gallès
 cs: cibule zimní
 cy: Nionyn Cymreig
+da: koreansk porre, koreanske porrer
 de: Winterzwiebel
 eo: Vintra cepo
 es: cebolleta
@@ -51977,6 +51982,8 @@ kk: Батун
 ko: 파
 la: Allium fistulosum
 ln: Ndɛmbi
+lt: korėjietiški porai
+nb: koreansk purre
 nl: stengelui
 nn: Pipelauk
 oc: Cebola
@@ -51987,7 +51994,7 @@ ru: Лук-батун
 sl: čebula
 sr: аљма
 su: Bawang daun
-sv: Piplök, walesisk lök
+sv: piplök, walesisk lök, koreansk purjolök
 te: ఉల్లి కాడలు
 tr: Kış soğanı
 uk: Батун
@@ -52001,6 +52008,8 @@ zh: 葱
 # nan:Chhang-á
 # sr-ec:аљма
 # zh-tw:蔥
+comment:en: On products one often finds wrong translations.
+description:en: Allium fistulosum, the Welsh onion, also commonly called bunching onion, long green onion, Japanese bunching onion, and spring onion, is a species of perennial plant. A. fistulosum is an ingredient in Asian cuisine, especially in East and Southeast Asia. In the West, A. fistulosum is primarily used as a scallion or salad onion.
 wikidata:en: Q27938
 wikipedia:en: https://en.wikipedia.org/wiki/Allium_fistulosum
 # ingredient/fr:ciboule has 127 products in 6 languages @2019-04-16
@@ -59552,6 +59561,10 @@ hr: pedrosillano slanutak
 it: ceci pedrosillani
 nl: pedrosillano kikkererwten
 #3 in es @2021-10-16
+
+< en:chickpea
+en: black chickpea, black chickpeas
+da: sort kikært, sorte kikærter
 
 # <en:compound
 #processing:en: en:cooked
@@ -68511,7 +68524,6 @@ ga: Leannlus
 he: כשות
 hr: hmelj, hmelja, hmelji, hmeljevi
 hu: komló, komlo
-id:hopio:Lupulo
 is: Humall
 it: luppolo
 ja: ホップ
@@ -68970,8 +68982,6 @@ sv: panax ginseng rotextrakt
 #                                Liquorice
 #
 ###################################################################################################
-# description:en:LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
-# comment:en:This refers to the root not the candy
 
 < en:plant
 en: liquorice, licorice
@@ -69042,6 +69052,8 @@ tr: Meyan
 uk: локриця
 uz: Qizilmiya
 zh: 光果甘草
+comment:en: This refers to the root not the candy
+description:en: LIQUORICE or licorice is the root of Glycyrrhiza glabra from which a sweet flavour can be extracted.
 # aeb-arab:عرب السوس
 # arz:عرقسوس
 # bar:Bärndreck
@@ -69224,8 +69236,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Corchorus_olitorius
 #                                Mate
 #
 ###################################################################################################
-# description:en:Mate is a traditional South American caffeine-rich infused drink. It is prepared by steeping dried leaves of yerba mate in hot water and is served with a metal straw from a shared hollow calabash gourd
-
 < en:plant
 en: mate, yerba mate leaves, yerba mate
 af: Mate
@@ -69277,6 +69287,7 @@ tl: Mate
 tr: Maté
 uk: Мате
 zh: 瑪黛茶
+description:en: Mate is a traditional South American caffeine-rich infused drink. It is prepared by steeping dried leaves of yerba mate in hot water and is served with a metal straw from a shared hollow calabash gourd
 # ast:Mate
 # be-tarask:Матэ
 # ceb:Mate
@@ -87813,8 +87824,6 @@ carbon_footprint_fr_foodges_value:fr: 0.5
 fr: mélange de pâtes alimentaires cuisinées
 # usage:fr:mélange de pâtes alimentaires cuisinées 43% (conchiglie cuites aromatisées au curcuma 22,4% (eau, semoule de blé dur de qualité supérieure, œufs, curcuma) - mini torsades cuites aromatisées à la tomate et à la betterave 18,8% (eau, semoule de blé dur de qualité supérieure, tomate 0,2%, betterave 0,03%), huile d'olive vierge extra, huile de colza, basilic, sel)
 
-# description:en:NOODLES are unleavened dough which is stretched, extruded, or rolled flat and cut into one of a variety of shapes which usually include long, thin strips, or waves, helices, tubes, strings, or shells, or folded over, or cut into other shapes.
-
 < en:dough
 en: noodle, noodles
 af: noedel
@@ -87876,11 +87885,6 @@ su: emih
 sv: nudlar, nudel
 sw: tambi
 ta: நூடுல்ஸ்
-carbon_footprint_fr_foodges_ingredient:fr: Pâte à tarte
-carbon_footprint_fr_foodges_value:fr: 7.3
-# ingredient/fr:nouilles has 241 products in 7 languages @2019-05-08
-vegan:en: maybe
-vegetarian:en: maybe
 # bar:nuul
 # cdo:miêng
 # ceb:pideyo
@@ -87893,8 +87897,14 @@ vegetarian:en: maybe
 # sco:noodle
 # sr-ec:кнедла
 # sr-el:knedla
+carbon_footprint_fr_foodges_ingredient:fr: Pâte à tarte
+carbon_footprint_fr_foodges_value:fr: 7.3
+description:en: NOODLES are unleavened dough which is stretched, extruded, or rolled flat and cut into one of a variety of shapes which usually include long, thin strips, or waves, helices, tubes, strings, or shells, or folded over, or cut into other shapes.
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: q192874
 wikipedia:en: https://en.wikipedia.org/wiki/Noodle
+# ingredient/fr:nouilles has 241 products in 7 languages @2019-05-08
 
 < en:noodle
 en: rice noodles
@@ -87907,8 +87917,36 @@ hr: rižini rezanci
 it: tagliatelle di riso
 nl: rijstnoedels
 pl: makaron ryżowy
+sv: risnudlar, risnudel
 wikidata:en: Q1322949
 wikipedia:en: https://en.wikipedia.org/wiki/Rice_noodles
+
+< en:noodle
+en: glass noodle, cellophane noodle
+ar: نودلز سيلوفان
+da: glasnudler, glasnuddel
+de: Glasnudeln, Glasnudel
+eo: celofannudelo
+fi: lasinuudeli
+fr: vermicelles cristal
+ja: 春雨
+ko: 당면
+nb: glassnudler
+sv: glasnudlar, glasnudel
+zh: 粉丝, 粉絲
+zh-hans: 粉丝
+zh-hant: 粉絲
+wikidata:en: Q840448
+wikipedia:en: https://en.wikipedia.org/wiki/Glass_noodles
+
+< en:glass noodle
+en: sweet potato noodle
+da: sødkartoffel nudler
+lt: saldžiųjų bulvių makaronai
+nb: søtpotetnudler
+sv: sötpotatisnudlar, sötpotatisnudel
+zh: 紅薯粉
+comment:en: “紅薯粉” means “sweet potato noodle [or starch]” but is possibly also used as a generic term for glass noodles, so any instance of “sweet potato noodles” may or may not actually be based on sweet potato starch, depending on whether an ingredient has simply been directly translated. See the Wikipedia page for glass noodles.
 
 < en:noodle
 en: soba, soba noodle

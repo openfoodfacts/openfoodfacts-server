@@ -111,7 +111,7 @@ $folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
 );
 
 #11901: Remove once production is migrated
-$serialize_to_json = 1;
+$serialize_to_json = 2;
 
 $oidc_implementation_level = 1;
 $oidc_client_id = 'OFF';

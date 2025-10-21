@@ -348,7 +348,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	my $oidc_implementation_level = get_oidc_implementation_level();
 	$template_data_ref->{oidc_implementation_level} = $oidc_implementation_level;
-	if (    $oidc_implementation_level > 0
+	if (    $oidc_implementation_level > 4
 		and defined $template_data_ref->{user_id}
 		and defined $template_data_ref->{canon_url})
 	{
@@ -7570,7 +7570,7 @@ sub display_page ($request_ref) {
 
 	my $html;
 	# ?content_only=1 -> only the content, no header, footer, etc.
-	if (($user_agent =~ /smoothie/) or (single_param('content_only'))) {
+	if (($user_agent =~ /smoothie/i) or (single_param('content_only'))) {
 		$template_data_ref->{content_only} = 1;
 	}
 	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html, $request_ref)
