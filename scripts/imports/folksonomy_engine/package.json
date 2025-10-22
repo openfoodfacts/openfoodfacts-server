@@ -1,0 +1,19 @@
+{
+  "name": "mass_rename_properties_admin_cli",
+  "version": "0.1.0",
+  "description": "CLI tool to mass rename properties via Folksonomy Engine Admin API",
+  "main": "mass_rename_properties_admin_cli.js",
+  "author": "Charles Nepote<charles@nepote.org>",
+  "license": "MIT",
+  "devDependencies": {
+    "@linus/testy": "^1.2.3",
+    "mocha": "^10.8.2"
+  },
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "testy": "^0.0.8"
+  }
+}
