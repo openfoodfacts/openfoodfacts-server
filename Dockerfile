@@ -51,6 +51,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libev4 \
         # Pure Perl dependencies not in cpanfile but needed at runtime
         libfile-find-rule-perl \
+        # liblocale-maketext-lexicon-perl - needed by ProductOpener::I18N
+        liblocale-maketext-lexicon-perl \
         # Runtime image libraries for Imager::File::* and zxing-cpp
         # needed for  Imager::File::WEBP
         libwebpmux3 \
