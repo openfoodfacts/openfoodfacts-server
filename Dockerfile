@@ -117,13 +117,12 @@ FROM runtime-base AS build-base
 
 # Copy zxing-cpp from builder stage (libraries, headers, and pkgconfig)
 # zxing installs to /usr/lib/x86_64-linux-gnu/ so we need to copy from there
-COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/libZXing.so /usr/lib/x86_64-linux-gnu/
-COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/libZXing.so.2.3.0 /usr/lib/x86_64-linux-gnu/
-COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/libZXing.so.2.3 /usr/lib/x86_64-linux-gnu/
+# Use wildcards to handle different library versioning schemes
+COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/lib*[Zz][Xx]ing* /usr/lib/x86_64-linux-gnu/
 COPY --from=zxing-builder /usr/include/ZXing /usr/include/ZXing
 # Create pkgconfig directory and copy zxing.pc
-RUN mkdir -p /usr/lib/x86_64-linux-gnu/pkgconfig
-COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/pkgconfig/zxing.pc /usr/lib/x86_64-linux-gnu/pkgconfig/
+RUN mkdir -p /usr/lib/x86_64-linux-gnu/pkgconfig /usr/lib/x86_64-linux-gnu/cmake
+COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/pkgconfig/*[Zz][Xx]ing* /usr/lib/x86_64-linux-gnu/pkgconfig/
 COPY --from=zxing-builder /usr/lib/x86_64-linux-gnu/cmake/ZXing /usr/lib/x86_64-linux-gnu/cmake/ZXing
 
 # Update ldconfig cache so zxing library is found during compilation
