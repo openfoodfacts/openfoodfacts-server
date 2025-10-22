@@ -38,13 +38,23 @@ if docker build --target builder --build-arg CPANMOPTS=--with-develop -t off-sna
     echo "🥫 Build successful!"
     echo "🥫 Now generating the snapshot using Carton..."
     
-    # Run Carton install to generate the snapshot from what was installed
-    docker run --rm off-snapshot-builder bash -c "
+    # Create a temporary container to run Carton and extract the snapshot
+    # We need to use docker cp because carton install outputs logs to stdout
+    # which would contaminate the snapshot file if we used stdout redirection
+    CONTAINER_ID=$(docker create off-snapshot-builder bash -c "
         export PERL_CARTON_PATH=/tmp/local
         cd /tmp
         carton install
-        cat cpanfile.snapshot
-    " > cpanfile.snapshot 2>/dev/null
+    ")
+    
+    echo "🥫 Running Carton to generate snapshot in container $CONTAINER_ID..."
+    docker start -a "$CONTAINER_ID"
+    
+    echo "🥫 Extracting cpanfile.snapshot from container..."
+    docker cp "$CONTAINER_ID:/tmp/cpanfile.snapshot" cpanfile.snapshot
+    
+    # Clean up the container
+    docker rm "$CONTAINER_ID" > /dev/null 2>&1
     
     if [ -f cpanfile.snapshot ] && [ -s cpanfile.snapshot ]; then
         echo "🥫 Successfully generated cpanfile.snapshot!"

@@ -75,13 +75,23 @@ rm -f cpanfile.snapshot
 # Build the Docker image (this uses cpanm to install dependencies)
 docker build --target builder --build-arg CPANMOPTS=--with-develop -t off-builder .
 
-# Run Carton inside the built container to generate the snapshot
-docker run --rm off-builder bash -c "
+# Create a container to run Carton and generate the snapshot
+# Note: We use docker cp instead of stdout redirection because carton install
+# outputs logs that would contaminate the snapshot file
+CONTAINER_ID=$(docker create off-builder bash -c "
   export PERL_CARTON_PATH=/tmp/local
   cd /tmp
   carton install
-  cat cpanfile.snapshot
-" > cpanfile.snapshot
+")
+
+# Run the container and let it generate the snapshot
+docker start -a "$CONTAINER_ID"
+
+# Extract the snapshot from the container
+docker cp "$CONTAINER_ID:/tmp/cpanfile.snapshot" cpanfile.snapshot
+
+# Clean up
+docker rm "$CONTAINER_ID"
 
 # Verify the snapshot was created
 ls -lh cpanfile.snapshot
@@ -89,7 +99,7 @@ ls -lh cpanfile.snapshot
 
 ### Method 3: Using docker-compose (Advanced)
 
-For more control over the environment:
+For environments where docker-compose is preferred:
 
 ```bash
 # Remove existing snapshot
@@ -98,14 +108,28 @@ rm -f cpanfile.snapshot
 # Build without snapshot
 docker compose build backend
 
-# Generate snapshot inside the container
-docker compose run --rm backend bash -c "
-  export PERL_CARTON_PATH=/tmp/local
+# The easiest approach is to use the helper script from within compose:
+docker compose run --rm backend bash /opt/product-opener/scripts/generate_cpanfile_snapshot.sh
+
+# Alternatively, manually generate and extract:
+# 1. Start a temporary container
+docker compose run --rm -d --name snapshot-gen backend sleep 300
+
+# 2. Generate snapshot inside
+docker compose exec snapshot-gen bash -c "
+  export PERL_CARTON_PATH=/opt/perl/local
   cd /opt/product-opener
   carton install
-  cat cpanfile.snapshot
-" > cpanfile.snapshot
+"
+
+# 3. Copy the file out
+docker cp snapshot-gen:/opt/product-opener/cpanfile.snapshot cpanfile.snapshot
+
+# 4. Stop the container
+docker stop snapshot-gen
 ```
+
+**Note:** Method 1 (helper script) is recommended for most use cases.
 
 ## When to Update cpanfile.snapshot
 
