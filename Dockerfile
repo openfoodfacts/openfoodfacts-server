@@ -71,8 +71,10 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
 FROM debian:bullseye-slim AS zxing-builder
 
 # Install only what's needed to build zxing-cpp
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
-    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt,sharing=locked \
+    set -x && \
+    rm -f /etc/apt/apt.conf.d/docker-clean && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
         g++ \
