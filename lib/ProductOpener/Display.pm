@@ -349,7 +349,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	my $oidc_implementation_level = get_oidc_implementation_level();
 	$template_data_ref->{oidc_implementation_level} = $oidc_implementation_level;
-	if (    $oidc_implementation_level > 0
+	if (    $oidc_implementation_level > 4
 		and defined $template_data_ref->{user_id}
 		and defined $template_data_ref->{canon_url})
 	{
