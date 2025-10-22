@@ -17,7 +17,9 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     apt-get install -y --no-install-recommends \
         apache2 \
         apt-utils \
+        ca-certificates \
         cpanminus \
+        carton \
         # being able to build things
         g++ \
         gcc \
@@ -224,9 +226,25 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
       apt-get update || true \
     ) && \
+    # Set Carton install path
+    export PERL_CARTON_PATH=/tmp/local && \
     # first install some dependencies that are not well handled
     cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
-    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
+    # Use Carton for deterministic dependency installation
+    # If cpanfile.snapshot exists, use --deployment for reproducible builds
+    # Otherwise, install from cpanfile and generate snapshot
+    CARTON_FLAGS="" && \
+    if echo "$CPANMOPTS" | grep -q "with-develop"; then \
+        echo "Installing with develop dependencies..." && \
+        CARTON_FLAGS="--with-develop"; \
+    fi && \
+    if [ -f cpanfile.snapshot ]; then \
+        echo "Using cpanfile.snapshot for reproducible build..." && \
+        carton install --deployment $CARTON_FLAGS; \
+    else \
+        echo "No cpanfile.snapshot found, installing from cpanfile..." && \
+        carton install $CARTON_FLAGS; \
+    fi \
     # in case of errors show build.log, but still, fail
     || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
 
