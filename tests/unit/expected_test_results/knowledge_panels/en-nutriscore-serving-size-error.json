@@ -30,6 +30,32 @@
       "en:code-missing",
       "en:created-missing"
    ],
+   "data_quality_completeness_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:traceability-codes-to-be-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed"
+   ],
+   "data_quality_dimensions" : {
+      "accuracy" : {
+         "overall" : "0.00"
+      },
+      "completeness" : {
+         "general_information" : "0.00",
+         "ingredients" : "0.00",
+         "nutrition" : "0.67",
+         "overall" : "0.27",
+         "packaging" : "0.33"
+      }
+   },
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
@@ -44,6 +70,18 @@
       "en:main-language-missing",
       "en:code-missing",
       "en:created-missing",
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:traceability-codes-to-be-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed",
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-ingredients-with-specified-percent",
@@ -694,7 +732,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "\n                    \n                        The Green-Score formula is subject to change as it is is regularly improved to make it more precise.\n                                    \n                ",
+                  "html" : "\n                    \n                        The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.\n                                    \n                ",
                   "type" : "note"
                }
             },
@@ -1401,7 +1439,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "<p>The Nutri-Score is a logo on the overall nutritional quality of products.</p>\n<p>\nThe score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt).\nThe score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes).\n</p>\n\n    <p>The display of this logo is recommended by public health authorities without obligation for companies.</p>\n\n                ",
+                  "html" : "<p>The Nutri-Score is a logo on the overall nutritional quality of products.</p>\n<p>\nThe score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt).\nThe score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes).\n</p>\n\n                ",
                   "type" : "info"
                }
             },

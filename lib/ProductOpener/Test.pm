@@ -42,7 +42,9 @@ BEGIN {
 		&compare_csv_file_to_expected_results
 		&create_sto_from_json
 		&init_expected_results
+		&normalize_object_for_test_comparison
 		&normalize_org_for_test_comparison
+		&normalize_blame_for_test_comparison
 		&normalize_product_for_test_comparison
 		&normalize_products_for_test_comparison
 		&normalize_html_for_test_comparison
@@ -682,37 +684,22 @@ sub create_sto_from_json ($json_path, $sto_path) {
 	return;
 }
 
-# this method is an helper method for normalize_product_for_test_comparison
-# $item_ref is a product hash ref, or subpart there of
-# $subfields_ref is an array of arrays of keys.
-# Each array of key leads to a sub array of $item_ref, but the last which is target element.
-# _sub_items will reach every targeted elements, running through all sub-arrays
+sub _ignore_content($content) {
+	return "--ignore--";
+}
 
-sub _sub_items ($item_ref, $subfields_ref) {
+sub _ignore_line_numbers($content) {
+	$content =~ s/\bline\s+\d+/line --ignore--/g;
+	return $content;
+}
 
-	if (scalar @$subfields_ref == 0) {
-		return $item_ref;
+sub _sort_content($content) {
+	if (ref($content) eq 'ARRAY') {
+		my @sorted = sort @$content;
+		return \@sorted;
 	}
 	else {
-		# get first level
-		my @result = ();
-		my @key = split(/\./, shift(@$subfields_ref));
-
-		if (deep_exists($item_ref, @key)) {
-			# only support array for now
-			my @sub_items = deep_get($item_ref, @key);
-			for my $sub_item (@sub_items) {
-				# recurse
-				my $sub_items_ref = _sub_items($sub_item, $subfields_ref);
-				if (ref($sub_items_ref) eq 'ARRAY') {
-					push @result, @$sub_items_ref;
-				}
-				else {
-					push @result, values %$sub_items_ref;
-				}
-			}
-		}
-		return @result;
+		return $content;
 	}
 }
 
@@ -730,41 +717,122 @@ We remove some fields and sort some lists.
 
 fields_ignore_content - array of fields which content should be ignored
 because they vary from test to test.
-Stars means there is a table of elements and we want to run through all (hash not supported yet)
+Stars means there is a table or hashmap of elements and we want to run through all.
+
+fields_ignore_line_numbers_in_content - array of fields where line numbers in content should be replaced with --ignore--
+This is useful for error messages that contain file names and line numbers that change when code is refactored.
 
 fields_sort - array of fields which content needs to be sorted to have predictable results
 
 =cut
 
 sub normalize_object_for_test_comparison ($object_ref, $specification_ref) {
+
+	my @transforms = ();
 	if (defined($specification_ref->{fields_ignore_content})) {
 		my @fields_ignore_content = @{$specification_ref->{fields_ignore_content}};
-
-		my @key;
-		for my $field_ic (@fields_ignore_content) {
-			# stars permits to loop subitems
-			my @subfield = split(/\.\*\./, $field_ic);
-			my $final_field = pop @subfield;
-			for my $item (_sub_items($object_ref, \@subfield)) {
-				@key = split(/\./, $final_field);
-				if (deep_exists($item, @key)) {
-					deep_set($item, @key, "--ignore--");
+		push @transforms, {fields => \@fields_ignore_content, transformation => \&_ignore_content};
+	}
+	if (defined($specification_ref->{fields_ignore_line_numbers_in_content})) {
+		my @fields_ignore_line_numbers = @{$specification_ref->{fields_ignore_line_numbers_in_content}};
+		push @transforms, {fields => \@fields_ignore_line_numbers, transformation => \&_ignore_line_numbers};
+	}
+	if (defined($specification_ref->{fields_sort})) {
+		my @fields_sort = @{$specification_ref->{fields_sort}};
+		push @transforms, {fields => \@fields_sort, transformation => \&_sort_content};
+	}
+	foreach my $transform (@transforms) {
+		my @fields = @{$transform->{fields}};
+		my $transformation = $transform->{transformation};
+		for my $field (@fields) {
+			my @keys = split(/\./, $field);
+			my $final_key = pop(@keys);
+			for my $item_ref (_get_sub_fields($object_ref, @keys)) {
+				if ($final_key ne "*") {
+					if ((ref($item_ref) eq 'HASH') and (defined $item_ref->{$final_key})) {
+						$item_ref->{$final_key} = $transformation->($item_ref->{$final_key});
+					}
+				}
+				else {
+					if (ref($item_ref) eq 'ARRAY') {
+						for my $index (0 .. (scalar @$item_ref) - 1) {
+							$item_ref->[$index] = $transformation->($item_ref->[$index]);
+						}
+					}
+					elsif (ref($item_ref) eq 'HASH') {
+						foreach my $key (keys %$item_ref) {
+							$item_ref->{$key} = $transformation->($item_ref->{$key});
+						}
+					}
+					# Note: * on a scalar means nothing
 				}
 			}
 		}
 	}
-	if (defined($specification_ref->{fields_sort})) {
-		my @fields_sort = @{$specification_ref->{fields_sort}};
-		my @key;
-		for my $field_s (@fields_sort) {
-			@key = split(/\./, $field_s);
-			if (deep_exists($object_ref, @key)) {
-				my @sorted = sort @{deep_get($object_ref, @key)};
-				deep_set($object_ref, @key, \@sorted);
+	return;
+}
+
+sub _get_sub_fields($object_ref, @keys) {
+	if (scalar @keys == 0) {
+		# end of recursion
+		return $object_ref;
+	}
+	else {
+		my $key = shift(@keys);
+		if ($key eq "*") {
+			my @items = ();
+			if (ref($object_ref) eq 'ARRAY') {
+				@items = @$object_ref;
+			}
+			elsif (ref($object_ref) eq 'HASH') {
+				@items = (values %$object_ref);
+			}
+			else {
+				return ();
+			}
+			# recurse on each element and cumulate result
+			my @results = ();
+			foreach my $item (@items) {
+				# scalar are not worth
+				next unless ref($item);
+				my @keys_copy = (@keys);
+				push @results, _get_sub_fields($item, @keys_copy);
+			}
+			return @results;
+		}
+		else {
+			if (defined $object_ref->{$key}) {
+				return _get_sub_fields($object_ref->{$key}, @keys);
+			}
+			else {
+				return ();
 			}
 		}
 	}
-	return;
+}
+
+=head2 normalize_blame_for_test_comparison($blame_ref)
+
+Normalize a blame to be able to compare them across tests runs.
+
+We remove time dependent fields and sort some lists.
+
+=head3 Arguments
+
+=head4 blame_ref - Hash ref containing blame information
+
+=cut
+
+sub normalize_blame_for_test_comparison ($blame_ref) {
+	my %specification = (
+		fields_ignore_content => [
+			qw(
+				*.*.previous_t *.*.t
+			)
+		],
+	);
+
+	return normalize_object_for_test_comparison($blame_ref, \%specification);
 }
 
 =head2 normalize_product_for_test_comparison($product_ref)
@@ -787,6 +855,7 @@ sub normalize_product_for_test_comparison ($product_ref) {
 				entry_dates_tags last_edit_dates_tags
 				last_image_t last_image_datetime last_image_dates_tags images.*.uploaded_t images.uploaded.*.uploaded_t sources.*.import_t
 				created_datetime last_modified_datetime last_updated_datetime
+				blame.*.*.previous_t blame.*.*.t
 			)
 		],
 		fields_sort => ["_keywords"],

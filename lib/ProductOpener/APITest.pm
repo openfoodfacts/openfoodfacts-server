@@ -525,6 +525,26 @@ Note: this setting can be overriden for each test case by specifying a "ua" fiel
 
 =cut
 
+=head2 normalize_api_response_for_test_comparison($response_ref)
+
+Normalize an API response to be able to compare them across test runs.
+
+We replace volatile parts like line numbers in stack traces with --ignore-- 
+to prevent tests from breaking when code is refactored.
+
+=head3 Arguments
+
+=head4 $response_ref - Hash ref containing API response
+
+=cut
+
+sub normalize_api_response_for_test_comparison ($response_ref) {
+	my %specification = (fields_ignore_line_numbers_in_content => ["errors.*.field.error"],);
+
+	normalize_object_for_test_comparison($response_ref, \%specification);
+	return;
+}
+
 sub execute_request ($test_ref, $ua) {
 
 	# We may have a test case specific user agent
@@ -727,6 +747,9 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 
 			# normalize for comparison
 			if (ref($decoded_json) eq 'HASH') {
+				# Normalize API error responses to ignore volatile line numbers in stack traces
+				normalize_api_response_for_test_comparison($decoded_json);
+
 				if (defined $decoded_json->{'products'}) {
 					normalize_products_for_test_comparison($decoded_json->{'products'});
 					if (defined $test_ref->{sort_products_by}) {
@@ -735,6 +758,9 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 				}
 				if (defined $decoded_json->{'product'}) {
 					normalize_product_for_test_comparison($decoded_json->{'product'});
+				}
+				if (defined $decoded_json->{'blame'}) {
+					normalize_blame_for_test_comparison($decoded_json->{'blame'});
 				}
 			}
 
