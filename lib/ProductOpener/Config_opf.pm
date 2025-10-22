@@ -272,6 +272,10 @@ $process_global_redis_events = 0;
 # by returning a 429 error code instead of a 200 code
 $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
 
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ProductOpener::Config2::folksonomy_url;
+
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
