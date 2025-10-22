@@ -236,20 +236,17 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     export PERL_CARTON_PATH=/tmp/local && \
     # first install some dependencies that are not well handled
     cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
-    # Use Carton for deterministic dependency installation
-    # If cpanfile.snapshot exists, use --deployment for reproducible builds
-    # Otherwise, install from cpanfile and generate snapshot
-    CARTON_FLAGS="" && \
-    if echo "$CPANMOPTS" | grep -q "with-develop"; then \
-        echo "Installing with develop dependencies..." && \
-        CARTON_FLAGS="--with-develop"; \
-    fi && \
+    # Use Carton for deterministic dependency installation when snapshot exists
+    # Otherwise fall back to cpanm for flexibility with CPANMOPTS
     if [ -f cpanfile.snapshot ]; then \
         echo "Using cpanfile.snapshot for reproducible build..." && \
-        carton install --deployment $CARTON_FLAGS; \
+        # Carton --deployment mode installs exact versions from snapshot
+        carton install --deployment; \
     else \
-        echo "No cpanfile.snapshot found, installing from cpanfile..." && \
-        carton install $CARTON_FLAGS; \
+        echo "No cpanfile.snapshot found, using cpanm with cpanfile..." && \
+        # Use cpanm for initial installation or when features are needed
+        # This will generate snapshot on next Carton run
+        cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .; \
     fi \
     # in case of errors show build.log, but still, fail
     || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )

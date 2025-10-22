@@ -29,48 +29,46 @@ if [ -f cpanfile.snapshot ]; then
 fi
 
 echo "🥫 Building Docker image (builder stage only)..."
-echo "🥫 This will install all dependencies and generate the snapshot..."
+echo "🥫 This will install all dependencies (including development deps)..."
 
-# Build the builder stage
-# We use --no-cache to ensure fresh dependency resolution
+# Build the builder stage without a snapshot
+# This forces cpanm to be used, which will install all dependencies
 if docker build --target builder --build-arg CPANMOPTS=--with-develop -t off-snapshot-builder . ; then
     echo ""
-    echo "🥫 Build successful! Extracting cpanfile.snapshot..."
+    echo "🥫 Build successful!"
+    echo "🥫 Now generating the snapshot using Carton..."
     
-    # Extract the snapshot from the built image
-    if docker run --rm off-snapshot-builder cat /tmp/cpanfile.snapshot > cpanfile.snapshot 2>/dev/null; then
-        if [ -f cpanfile.snapshot ] && [ -s cpanfile.snapshot ]; then
-            echo "🥫 Successfully generated cpanfile.snapshot!"
-            echo "🥫 Snapshot size: $(du -h cpanfile.snapshot | cut -f1)"
-            echo "🥫 Number of distributions: $(grep -c "^  " cpanfile.snapshot || echo "0")"
-            echo ""
-            echo "🥫 Next steps:"
-            echo "   1. Review the generated cpanfile.snapshot"
-            echo "   2. Test the build: make build"
-            echo "   3. Run tests: make tests"
-            echo "   4. Commit the snapshot: git add cpanfile.snapshot && git commit -m 'chore: update cpanfile.snapshot'"
-            
-            # Remove backup if generation was successful
-            if [ -f cpanfile.snapshot.backup ]; then
-                rm cpanfile.snapshot.backup
-                echo "🥫 Removed backup file"
-            fi
-            
-            # Clean up the temporary builder image
-            docker rmi off-snapshot-builder &>/dev/null || true
-            
-            exit 0
-        else
-            echo "ERROR: cpanfile.snapshot was not created or is empty"
-            # Restore backup if it exists
-            if [ -f cpanfile.snapshot.backup ]; then
-                mv cpanfile.snapshot.backup cpanfile.snapshot
-                echo "🥫 Restored backup snapshot"
-            fi
-            exit 1
+    # Run Carton install to generate the snapshot from what was installed
+    docker run --rm off-snapshot-builder bash -c "
+        export PERL_CARTON_PATH=/tmp/local
+        cd /tmp
+        carton install
+        cat cpanfile.snapshot
+    " > cpanfile.snapshot 2>/dev/null
+    
+    if [ -f cpanfile.snapshot ] && [ -s cpanfile.snapshot ]; then
+        echo "🥫 Successfully generated cpanfile.snapshot!"
+        echo "🥫 Snapshot size: $(du -h cpanfile.snapshot | cut -f1)"
+        echo "🥫 Number of distributions: $(grep -c "^  " cpanfile.snapshot || echo "0")"
+        echo ""
+        echo "🥫 Next steps:"
+        echo "   1. Review the generated cpanfile.snapshot"
+        echo "   2. Test the build: make build"
+        echo "   3. Run tests: make tests"
+        echo "   4. Commit the snapshot: git add cpanfile.snapshot && git commit -m 'chore: update cpanfile.snapshot'"
+        
+        # Remove backup if generation was successful
+        if [ -f cpanfile.snapshot.backup ]; then
+            rm cpanfile.snapshot.backup
+            echo "🥫 Removed backup file"
         fi
+        
+        # Clean up the temporary builder image
+        docker rmi off-snapshot-builder &>/dev/null || true
+        
+        exit 0
     else
-        echo "ERROR: Failed to extract cpanfile.snapshot from Docker image"
+        echo "ERROR: cpanfile.snapshot was not created or is empty"
         # Restore backup if it exists
         if [ -f cpanfile.snapshot.backup ]; then
             mv cpanfile.snapshot.backup cpanfile.snapshot

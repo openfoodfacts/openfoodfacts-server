@@ -6,14 +6,38 @@ This document explains how to generate and update the `cpanfile.snapshot` file f
 
 `cpanfile.snapshot` is a lockfile that records the exact versions of all Perl dependencies (including transitive dependencies) installed from CPAN. This ensures reproducible builds across different environments and times.
 
-## Why do we use Carton?
+## Why Carton?
 
-We use [Carton](https://metacpan.org/pod/Carton) to manage Perl dependencies because:
+We use [Carton](https://metacpan.org/pod/Carton) for snapshot generation because:
 
 - It's available as a Debian package (`carton`)
-- It generates deterministic `cpanfile.snapshot` files
+- It generates deterministic `cpanfile.snapshot` files compatible with industry standards
 - It's widely adopted in the Perl community
 - It integrates well with our existing `cpanfile`
+- The snapshot format is human-readable and can be version controlled
+
+## How it Works
+
+The build system uses a hybrid approach for maximum flexibility and reproducibility:
+
+### Production Builds (with cpanfile.snapshot)
+
+When `cpanfile.snapshot` exists in the repository:
+- **Carton** is used with `--deployment` mode
+- Dependencies are installed from exact versions in the snapshot
+- Build is fully reproducible across different environments
+- This is used for production deployments and CI/CD
+
+### Development Builds (without cpanfile.snapshot)
+
+When `cpanfile.snapshot` doesn't exist:
+- **cpanminus (cpanm)** is used with the original approach
+- Dependencies are resolved from `cpanfile` constraints
+- Supports `CPANMOPTS` like `--with-develop` and `--with-feature=...`
+- More flexible for development and testing new dependencies
+- The snapshot can be generated afterward using the helper script
+
+This hybrid approach provides both reproducibility and flexibility.
 
 ## Prerequisites
 
@@ -25,25 +49,7 @@ To generate the snapshot, you need:
 
 ## Generating cpanfile.snapshot
 
-### Method 1: Using Docker Build (Recommended)
-
-The easiest way to generate the snapshot is to build the Docker image without an existing snapshot:
-
-```bash
-# Remove existing snapshot if it exists
-rm -f cpanfile.snapshot
-
-# Build the Docker image - this will generate cpanfile.snapshot
-docker build --target builder -t off-builder .
-
-# Extract the snapshot from the built image
-docker run --rm off-builder cat /tmp/cpanfile.snapshot > cpanfile.snapshot
-
-# Verify the snapshot was created
-ls -lh cpanfile.snapshot
-```
-
-### Method 2: Using the Helper Script
+### Method 1: Using the Helper Script (Recommended)
 
 We provide a helper script that automates the snapshot generation:
 
@@ -51,22 +57,52 @@ We provide a helper script that automates the snapshot generation:
 # Run the snapshot generation script
 ./scripts/generate_cpanfile_snapshot.sh
 
-# The script will create cpanfile.snapshot in the repository root
+# The script will:
+# 1. Build the Docker image without a snapshot (uses cpanm)
+# 2. Run Carton to analyze installed modules
+# 3. Generate cpanfile.snapshot with exact versions
+# 4. Extract the snapshot to the repository root
 ```
 
-### Method 3: Manual Generation (Advanced)
+### Method 2: Using Docker Build Directly
 
-If you want to generate the snapshot manually:
+You can also generate the snapshot manually:
 
 ```bash
-# Start a container with all build dependencies
-docker compose -f docker-compose.yml build backend
+# Remove existing snapshot to force cpanm-based installation
+rm -f cpanfile.snapshot
 
-# Run Carton inside the container
+# Build the Docker image (this uses cpanm to install dependencies)
+docker build --target builder --build-arg CPANMOPTS=--with-develop -t off-builder .
+
+# Run Carton inside the built container to generate the snapshot
+docker run --rm off-builder bash -c "
+  export PERL_CARTON_PATH=/tmp/local
+  cd /tmp
+  carton install
+  cat cpanfile.snapshot
+" > cpanfile.snapshot
+
+# Verify the snapshot was created
+ls -lh cpanfile.snapshot
+```
+
+### Method 3: Using docker-compose (Advanced)
+
+For more control over the environment:
+
+```bash
+# Remove existing snapshot
+rm -f cpanfile.snapshot
+
+# Build without snapshot
+docker compose build backend
+
+# Generate snapshot inside the container
 docker compose run --rm backend bash -c "
   export PERL_CARTON_PATH=/tmp/local
   cd /opt/product-opener
-  carton install --with-develop
+  carton install
   cat cpanfile.snapshot
 " > cpanfile.snapshot
 ```
