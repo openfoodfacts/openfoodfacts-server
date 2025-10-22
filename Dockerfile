@@ -2,7 +2,9 @@
 # Base user uid / gid keep 1000 on prod, align with your user on dev
 ARG USER_UID=1000
 ARG USER_GID=1000
-# options for cpan installs
+# Options for Perl dependency installation
+# Use --with-develop to include development dependencies
+# Passed to Carton, which manages dependencies via cpanfile.snapshot
 ARG CPANMOPTS=
 
 ######################
@@ -10,7 +12,8 @@ ARG CPANMOPTS=
 ######################
 FROM debian:bullseye-slim AS modperl
 
-# Install cpm to install cpanfile dependencies
+# Install Carton and cpanminus for Perl dependency management
+# Carton provides reproducible builds via cpanfile.snapshot lockfile
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     apt-get update && \
@@ -216,7 +219,10 @@ WORKDIR /tmp
 
 # Install Product Opener from the workdir.
 COPY ./cpanfile* /tmp/
-# Add ProductOpener runtime dependencies from cpan
+# Install ProductOpener runtime dependencies using Carton for reproducible builds
+# Carton uses cpanfile.snapshot (if present) to ensure exact dependency versions
+# If no snapshot exists, it generates one from cpanfile
+# See docs/dev/how-to-generate-cpanfile-snapshot.md for details
 # we also add apt cache as some libraries might be installed from apt
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
