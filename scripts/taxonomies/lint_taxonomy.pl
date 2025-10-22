@@ -37,8 +37,9 @@ sub has_errors($errors_ref) {
 }
 
 # explicit regexp of the different language variant we got
-# + some additional exceptions
-my $language_prefix_re = qr/(\w{2,3}(?:[-_]\w{2,4})?)/;
+# We ask for language code to be ASCII only, it helps differentiate from eventual entries
+# TODO: replace by a list of all possible language codes… (would avoid false positive)
+my $language_prefix_re = qr/([a-zA-Z]{2,3}(?:[-_][a-zA-Z]{2,4})?)/;
 
 # compare synonyms entries on language prefix with "xx" > "en" then alpha order
 # also work for property name + language prefix
@@ -420,7 +421,7 @@ sub normalized_line($entry) {
 	}
 	elsif (($entry->{type} eq "property") || ($entry->{type} eq "stopwords") || ($entry->{type} eq "synonyms")) {
 		# property_name:lang: or line_type:lang:
-		$line =~ s/^([^:]+):([^:]+): */$1:$2: /;
+		$line =~ s/^([^:]+): *([^:]+): */$1:$2: /;
 	}
 	else {
 		# entry_id or entry_lc just have language
