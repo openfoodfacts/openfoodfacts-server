@@ -1331,6 +1331,7 @@ fr: Imprim'Vert
 label_categories:en: en:Packaging
 wikidata:en: Q3149493
 
+# https://commons.wikimedia.org/wiki/File:Forest_Stewardship_Council_Logo.svg
 en: FSC, Forest Stewardship Council
 xx: FSC, Forest Stewardship Council
 bg: FSC, Forest Stewardship Council, Съвет по стопанисване на горите
@@ -1341,6 +1342,7 @@ pl: FSC, Odpowiedzialna gospodarka leśna
 pt: FSC, Forest Stewardship Council, Conselho de Manejo Florestal, Conselho de Gestão Florestal
 ru: FSC, Forest Stewardship Council, Лесной попечительский совет
 zh: FSC(森林管理委员会)
+image:en: fsc.73x90.svg
 label_categories:en: en:Packaging
 web:en: https://fsc.org/en
 wikidata:en: Q748367
@@ -1372,6 +1374,14 @@ xx: PlantPack, plant pack, PlantPack by Cloetta
 image:en: plantpack.128x90.svg
 label_categories:en: en:Packaging
 web:en: https://www.cloetta.com/en/about-cloetta/plantpack/
+
+#https://commons.wikimedia.org/wiki/File:TetraPak-Logo_EN.svg
+en: Tetra Pak, Tetrapak
+xx: Tetra Pak, Tetrapak
+image:en: tetrapak.113x90.svg
+label_categories:en: en:Packaging
+web:en: https://www.tetrapak.com/
+wikidata:en: Q659200
 
 en: without nano-particles
 de: ohne Nanopartikel
@@ -2260,6 +2270,98 @@ nl: Product in Braille
 pt: Em braille, em braile
 ru: В шрифте брайля
 wikidata:en: Q79894
+
+en: Data Matrix, DataMatrix, Datamatrix
+xx: Data Matrix, DataMatrix, Datamatrix
+wikidata:en: Q676502
+
+en: NaviLens
+xx: NaviLens
+wikidata:en: Q109450564
+
+en: QR code
+xx: QR code, QR-code
+af: QR-kode
+ar: رمز استجابة سريعة
+az: QR kodu
+ba: QR-код
+be: QR-код
+bg: QR код
+bh: क्यूआर कोड
+bn: কিউআর কোড
+ca: Codi QR
+cs: QR kód
+cy: Cod QR
+el: Κώδικας QR
+eo: Rapidresponda kodo
+es: Código QR
+et: QR-kood
+eu: QR kode
+fa: کیوآر کد
+fi: QR-koodi
+fr: Code QR
+gl: Código QR
+he: קוד QR
+hi: क्यूआर कोड
+hr: QR kod
+hu: QR-kód
+hy: QR-կոդ
+id: Kode respons cepat
+io: QR-kodexo
+it: Codice QR
+ja: QRコード
+ka: QR კოდი
+kk: QR код
+km: កូដ QR
+kn: ಕ್ಯುಆರ್ ಕೋಡ್
+ko: QR 코드
+lt: QR kodas
+lv: Kvadrātkods
+ml: ക്യു.ആർ. കോഡ്
+mn: QR код
+mr: क्यू आर संकेतावली
+ms: Kod QR
+my: လျင်မြန်တုံ့ပြန်မှုကုဒ်
+ne: क्यूआर कोड
+no: QR-kode
+or: କ୍ୟୁ. ଆର. କୋଡ଼
+pl: Kod QR
+ps: کيو آر کوډ
+pt: Código QR
+ro: Cod QR
+ru: QR-код
+sk: QR kód
+sl: Koda QR
+sq: Kodi QR
+sr: Kju-ar kod
+sv: QR-kod
+ta: கியூ. ஆர். குறி
+te: త్వరిత స్పందన సంకేతం
+th: รหัสคิวอาร์
+tr: Karekod
+uk: QR-код
+ur: کیو آر کوڈ
+uz: QR-kod
+vi: Mã QR
+yo: Àmìọ̀rọ̀ QR
+zh: QR碼
+zu: IsiNyantuli
+wikidata:en: Q12203
+
+en: NaviLens
+xx: NaviLens
+website:en: https://www.navilens.com
+wikidata:en: Q109450564
+
+< en:NaviLens
+< en:QR code
+en: NaviLens Accesible QR Code
+de: Zugänglicher NaviLens-QR-Code
+es: Código QR Accesible NaviLens
+fr: QR Code Accessible NaviLens
+gl: Código QR Accesible NaviLens
+it: Codice QR Accessibile NaviLens
+ja: ナビレンスアクセシブルQRコード, NaviLensアクセシブルQRコード
 
 en: Incorrect data on label, Incorrect data
 ca: A l'etiqueta hi ha dades incorrectes, Dades incorrectes
@@ -5176,6 +5278,19 @@ zh: 无乳糖
 incompatible_with:en: labels:en:contains-lactose
 opposite:en: en:contains-lactose
 
+# Spanish logo: https://lactosa.org/wp-content/uploads/2016/10/nolactosa.jpg (https://lactosa.org/sello-no-lactosa/el-sello/)
+# English-language logo: https://lactosa.org/wp-content/uploads/2018/05/NOLACTOSEsmall.jpg (https://lactosa.org/no-lactose-brand/)
+< en:No lactose
+en: ADILAC, Asociación de intolerantes a la lactosa, ADILAC no lactose
+es: ADILAC, Asociación de intolerantes a la lactosa, ADILAC no lactosa, Recomendado por ADILAC
+country:en: en:Spain
+image:en: adilac.90x90.png
+image:es: adilac.90x90.png
+label_categories:en: en:Certification
+website:en: https://lactosa.org/en/
+website:es: https://lactosa.org/
+website:zh: https://lactosa.org/zh-hans/
+
 en: Contains lactose
 bg: Съдържа лактоза
 ca: Conté lactosa
@@ -5604,6 +5719,7 @@ ru: Не рекомендовано для беременных женщин
 se: Recommanderas ej till gravida
 sv: Rekommanderas ej till gravida
 th: ไม่แนะนำสำหรับคนท้อง
+image:en: not-advised-for-pregnant-women.90x90.svg
 
 < en:Not advised for specific people
 en: Not advised for children and pregnant women
@@ -5621,6 +5737,18 @@ se: Rekommenderas ej till barn samt gravida
 sv: Rekommenderas ej till barn samt gravida
 
 < en:Not advised for specific people
+# https://commons.wikimedia.org/wiki/File:Age_warning_symbol.svg
+en: Not recommended for children under 5 years
+ca: No recomanat per infants menors de 5 anys
+de: Für Kinder unter 5 Jahren nicht empfohlen
+es: No recomendado a niños menores de 5 años, No recomendado consumo a menores de 5 años
+fr: Déconseillé aux enfants de moins de 5 ans
+it: Sconsigliato a bambini al di sotto dei 5 anni
+pt: Não recomendado para crianças com menos de 5 anos, não recomendado a crianças com menos de 5 anos, não recomendado para crianças com idade inferior a 5 anos, não recomendado a crianças com idade inferior a 5 anos
+image:en: not-recommended-for-children-under-5-years.90x90.svg
+
+< en:Not advised for specific people
+# https://commons.wikimedia.org/wiki/File:Age_warning_symbol.svg
 en: Not recommended for children under 3 years
 ca: No recomanat per infants menors de 3 anys
 da: Ikke anbefalet til børn under 3 år
@@ -5634,15 +5762,18 @@ nl: Niet aanbevolen voor kinder jonger dan 3 jaar
 pt: Não recomendado para crianças com menos de 3 anos, não recomendado a crianças com menos de 3 anos, não recomendado para crianças com idade inferior a 3 anos, não recomendado a crianças com idade inferior a 3 anos
 ru: Не рекомендовано для детей младше 3 лет
 th: ไม่แนะนำสำหรับเด็กอายุต่ำกว่า 3 ปี
+image:en: not-recommended-for-children-under-3-years.90x90.svg
 
 < en:Not advised for specific people
-en: Not suited for children under 1 years
+# https://commons.wikimedia.org/wiki/File:Age_warning_symbol.svg
+en: Not suited for children under 1 year
 de: Nicht geeignet für Kinder unter 1 Jahr
 es: No apto para niños menores de 1 año
 fr: Non adapté aux enfants de moins de 1 an
 it: Non adatto ai bambini sotto l'anno di età
 nl: Niet geschikt voor kinderen onder 1 jaar
 pt: Não adequado para crianças menores de 1 ano
+image:en: not-suited-for-children-under-1-year.90x90.svg
 
 pt: Fundação Portuguesa de Cardiologia
 label_categories:en: en:Specific diets
@@ -6114,6 +6245,10 @@ xx: AB Agriculture Biologique
 country:en: en:France
 wikidata:en: Q396709
 
+< en:EU Organic
+es: Comité de Agricultura Ecológica
+country:en: en:Spain
+
 < en:Organic
 en: Catalan Council of Organic Production, CCPAE
 ca: Consell Català de la Producció Agrària Ecològica, CCPAE
@@ -6122,26 +6257,56 @@ country:en: en:Spain
 image:ca: ccpae.56x90.png
 web:ca: https://www.ccpae.org/
 
-< en:Organic
-es: Comité de Agricultura Ecologica
+# https://caem.es/certificacion/#logotipo
+< en:EU Organic
+es: Comité de Agricultura Ecológica de la Comunidad de Madrid, Comité Agricultura Ecológica Madrid, CAEM
 country:en: en:Spain
+image:en: comite-de-agricultura-ecologica-de-la-comunidad-de-madrid-64x90.svg
+website:es: https://caem.es/
 
-< en:Organic
-es: Comité de Agricultura Ecologica de la Comunidad de Madrid, Comité Agricultura Ecologica Madrid
+< en:EU Organic
+en: Organic Farming Aragonese Comittee
+es: Comité Aragonés de Agricultura Ecológica, comite agricultura ecologica aragón
 country:en: en:Spain
+website:en: https://aragonecologico.com/en/home-english/
+website:es: https://aragonecologico.com/
 
-< en:Organic
-es: Comité Aragonés de Agricultura Ecologica, comite agricultura ecologica aragón
+< en:EU Organic
+en: Comitee of Ecological Agricultures of the Valencian Community, CAECV
+ca: Comité d’Agricultura Ecològica de la Comunitat Valenciana, CAECV
+es: Comité de Agricultura Ecológica de la Comunitat Valenciana, CAECV
 country:en: en:Spain
+website:en: https://www.caecv.com/en/home-4/
+website:ca: https://www.caecv.com/va/inici/
+website:es: https://www.caecv.com/
 
-< en:Organic
-es: Comité de Agricultura Ecológica de la Comunitat Valenciana, comite agricultura ecologica comunidad valenciana, CAECV, comite agricultura ecologica valencia
+< en:EU Organic
+es: Consejo de Agricultura Ecológica de la Región de Murcia, CAERM, Comité Andaluz de Agricultura Ecológica, CAAE
 country:en: en:Spain
+website:en: https://caermurcia.com/en/
+website:es: https://caermurcia.com/
 
-< en:Organic
-< en:Organic
-es: Consejo de Agricultura Ecologica de la Región de Murcia, comite agricultura ecologica comunidad region de murcia, CAERM, Comite Andaluz de Agricultura Ecologica, CAAE
+# https://www.craega.es/es/recursos-do-craega/#logotipo
+< en:EU Organic
+en: CRAEGA
+es: CRAEGA, Consejo Regulador de la Agricultura Ecológica de Galicia
+gl: CRAEGA, Consello Regulador da Agricultura Ecolóxica de Galicia
 country:en: en:Spain
+image:en: craega.61x90.svg
+website:es: https://www.craega.es/es
+website:gl: https://www.craega.es/
+
+# https://www.cpaen.org/es/certificacion/logotipos-1
+< en:EU Organic
+en: CPAEN-NNPEK, CPAEN NNPEK, CPAEN/NNPEK
+es: Consejo de la Producción Agraria Ecológica de Navarra, CPAEN-NNPEK, CPAEN NNPEK, CPAEN/NNPEK
+eu: Nafarroako Nekazal Produkzio Ekologikoaren Kontseilua, CPAEN-NNPEK, CPAEN NNPEK, CPAEN/NNPEK
+fr: Conseil de la Production Agricole Écologique de Navarre, CPAEN-NNPEK, CPAEN NNPEK, CPAEN/NNPEK
+country:en: en:Spain
+image:en: cpaen-nnpek.60x90.svg
+website:es: https://www.cpaen.org/es
+website:eu: https://www.cpaen.org/eu
+website:fr: https://www.cpaen.org/fr
 
 < en:EU Organic
 en: AT-BIO-004
@@ -19406,6 +19571,7 @@ wikidata:en: Q11691713
 en: PGI Pataca de Galicia, Pataca de Galicia
 ca: PGI Pataca de Galicia, Patata de Galícia
 es: IGP Pataca de Galicia, I.G.P. Pataca de Galicia, Pataca de Galicia
+origins:en: en:galicia
 wikidata:en: Q3368616
 
 < en:PGI
@@ -19484,7 +19650,8 @@ es: Etiqueta de Calidad Doñana 21
 
 < en:Spanish quality label
 en: Galicia Calidade
-es: Galicia Calidade
+xx: Galicia Calidade
+origins:en: en:galicia
 wikidata:en: Q8963362
 
 < en:Spanish quality label
@@ -19765,6 +19932,7 @@ fr: Pêche durable MSC, certifié MSC, certifiée MSC, certifiés MSC, certifié
 it: Frutti di Mare Sostenibili MSC
 nl: Duurzaam Zeevruchten MSC
 auth_url:en: https://www.msc.org
+image:en: sustainable-seafood-msc.126x90.svg
 label_categories:en: en:Fishing labels
 wikidata:en: Q1891246
 
@@ -20074,9 +20242,6 @@ xx: EVE Vegan, Expertise Vegan Europe
 en: Veganok, Vegan OK
 xx: Veganok, Vegan OK
 
-< en:Vegan
-es: UVE Vegano, Unión Vegetariana Española Vegano, Certificado UVE Vegano
-
 < en:Vegetarian
 en: Vege Project, Vege Project Japan
 xx: Vege Project, Vege Project Japan
@@ -20090,7 +20255,7 @@ xx: Vege Project Vegetarian, Vege Project Japan Vegetarian
 en: Vege Project Vegan, Vege Project Japan Vegan
 xx: Vege Project Vegan, Vege Project Japan Vegan
 
-< en: Vegan
+< en:Vegan
 en: plant based, plantbased
 fr: à base de plantes, à base de végétaux
 sv: växtbaserad
@@ -20152,13 +20317,35 @@ sv: Lakto-vegetarisk
 incompatible_with:en: ingredients:en:eggs # labels:en:contains-eggs
 wikidata:en: Q3496076
 
-# non English needs the English synonyms too so that "European V-Label Végétarien" can be recognized too
 < en:Vegetarian
+en: V-Label International, V-LABEL.COM, V-Label
+xx: V-Label International, V-LABEL.COM, V-Label
+image:en: v-label-nocategory.90x90.svg
+label_categories:en: en:Certification
+website:en: https://www.v-label.com/
+wikidata:en: Q2505128
+
+< en:V-Label International
+en: V-Label International Vegetarian, V-Label Vegetarian
+xx: V-Label International Vegetarian, V-Label Vegetarian
+pl: V-Label Vegetarian, V-Label wegetariańskie
+image:en: v-label-vegetarian.76x90.svg
+
+< en:V-Label International
+< en:Vegan
+en: V-Label International Vegan, V-Label Vegan
+xx: V-Label International Vegan, V-Label Vegan
+pl: V-Label Vegan, V-Label wegańskie
+image:en: v-label-vegan.68x90.svg
+
+# non English needs the English synonyms too so that "European V-Label Végétarien" can be recognized too
+< en:V-Label International
 en: European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
+xx: European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
 ca: Unió Vegetariana Europea
 cs: V-Label Evropské Vegetariánské Unie
 da: Europæiske Vegetarunion, European Vegetarian Union
-de: Europäische Vegetarier-Union, V-Label
+de: Europäische Vegetarier-Union
 eo: Eŭropa vegetarana unuiĝo
 es: Unión Vegetariana Europea
 fi: Euroopan vegetaariliitto
@@ -20168,20 +20355,18 @@ hr: Europska vegetarijanska unija, European Vegetarian Union, EU Vegetarian Unio
 hu: Európai Vegetáriánus Szövetség, European Vegetarian Union, EU Vegetarian Union, V-LABEL.EU, European V-LABEL, EU V-LABEL
 it: Unione Europea Vegetariani
 nl: Europese vegetarische unie
-pl: V-Label
 pt: União Vegetariana Europeia, European Vegetarian Union
 sv: Europeiska Vegetariska Unionen
 wikidata:en: Q443112
 
-
 #https://www.v-label.eu/wp-content/uploads/2017/09/vegetarian_FR_front.png
 < en:European Vegetarian Union
+< en:V-Label International Vegetarian
 en: European Vegetarian Union Vegetarian, European Vegetarian Union - Vegetarian, EVU Vegetarian
 da: Europæiske Vegetarunion Vegetarisk, European Vegetarian Union Vegetarisk, Europæiske Vegetarunion - Vegetarisk, European Vegetarian Union - Vegetarisk, EVU Vegetarian
 de: Europäische Vegetarier-Union Vegetarisch, Europäische Vegetarier-Union - Vegetarisch, EVU Vegetarian
 es: Unión Vegetariana Europea Vegetariano, Unión Vegetariana Europea Vegetariana, Unión Vegetariana Europea - Vegetariano, Unión Vegetariana Europea - Vegetariana, EVU Vegetarian
 fr: Union Végétarienne Européenne Végétarien, Union Végétarienne Européenne - Végétarien, EVU Vegetarian
-pl: V-Label Vegetarian, V-Label wegetariańskie
 pt: União Vegetariana Europeia - Vegetariano, European Vegetarian Union - Vegetarian
 sv: Europeiska Vegetariska Unionen Vegetarisk, Europeiska Vegetariska Unionen - Vegetarisk, EVU Vegetarian
 image:en: european-vegetarian-union-vegetarian.77x90.png
@@ -20189,7 +20374,7 @@ image:fr: union-vegetarienne-europeenne-vegetarien.77x90.png
 
 #https://www.v-label.eu/wp-content/uploads/2016/07/v-label_vegan_rgb.png
 < en:European Vegetarian Union
-< en:Vegan
+< en:V-Label International Vegan
 en: European Vegetarian Union Vegan, European Vegetarian Union - Vegan, EVU Vegan
 ca: Unió Vegana Vegetariana Europea, EVU Vegan
 cs: Veganské označení Evropské Vegetariánské Unie, EVU Vegan
@@ -20200,27 +20385,9 @@ fi: Euroopan vegetaariliitto vegaaninen, EVU vegaaninen, EVU Vegan
 fr: Union Végétarienne Européenne Végétalien, Union Végétarienne Européenne Vegan, Union Végétarienne Européenne - Végétalien, Union Végétarienne Européenne - Vegan, EVU Vegan
 it: Unione Vegetariana Europea Vegano, Unione Vegetariana Europea - Vegano, EVU Vegan
 nl: Europese Vegetarische Unie Vegan, Europese Vegetarische Unie - Vegan, EVU Vegan
-pl: V-Label Vegan, V-Label wegańskie
 pt: União Vegetariana Europeia Vegano, European Vegetarian Union Vegan, União Vegetariana Europeia - Vegano, European Vegetarian Union - Vegan
 sv: Europeiska Vegetariska Unionen Vegan, Europeiska Vegetariska Unionen - Vegan, EVU Vegan
 image:en: european-vegetarian-union-vegan.68x90.png
-
-< en:Vegetarian
-en: V-Label International, V-LABEL.COM
-xx: V-Label International, V-LABEL.COM
-image:en: v-label-nocategory.90x90.svg
-website:en: https://www.v-label.com/
-
-< en:V-Label International
-en: V-Label International Vegetarian
-xx: V-Label International Vegetarian
-image:en: v-label-vegetarian.76x90.svg
-
-< en:V-Label International
-< en:Vegan
-en: V-Label International Vegan
-xx: V-Label International Vegan
-image:en: v-label-vegan.68x90.svg
 
 < en:No palm oil
 #https://znakv.pl/wp-content/uploads/2021/08/vivaR.svg
@@ -20524,6 +20691,16 @@ nl: Franse melk
 pt: Leite francês, leite de França, leite da França
 ingredients:en: en:milk
 origins:en: en:france
+
+# Logo extracted from the banner at http://www.galega100x100.gal/
+< en:Spanish quality label
+en: Galega 100%
+es: Galega 100%, Gallega 100%
+gl: Galega 100%
+image:en: galega-100-100.93x90.png
+ingredients:en: en:milk
+origins:en: en:galicia
+website:gl: http://www.galega100x100.gal/
 
 fr: Eleveurs laitiers de France
 # on a few yoghurts
@@ -23280,6 +23457,7 @@ fr: Entreprise B certifiée, B Corp
 hr: Certified B Corporation
 it: Azienda B Certificata, B Corp
 pt: Empresa B Certificada, B Corp
+image:en: certified-b-corporation.53x90.svg
 wikidata:en: Q16243343
 
 # obligation of results: food is tested to see if pesticides are below a set level (usually the limit of quantization)
