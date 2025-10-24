@@ -497,7 +497,9 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_re
 					remove_empty_nutrient_values_and_set_unspecified_nutrients($input_set_ref);
 
 					# Empty input sets are not stored
-					if (!exists $input_set_ref->{nutrients} or (keys %{$input_set_ref->{nutrients}}) == 0) {
+					if (    (not exists $input_set_ref->{nutrients})
+						and (not exists $input_set_ref->{unspecified_nutrients}))
+					{
 						next;
 					}
 
@@ -599,12 +601,12 @@ List of valid preparation states for the given product type
 
 sub get_preparations_for_product_type ($product_type) {
 
-	my @preparations = ("as_sold", "prepared");
+	my @preparations = ();
 
-	# Pet food only has "as_sold"
-	if ($product_type eq "petfood") {
-		@preparations = ("as_sold");
+	if (defined $options{product_types_preparations}{$product_type}) {
+		@preparations = @{$options{product_types_preparations}{$product_type}};
 	}
+
 	return @preparations;
 }
 
@@ -626,12 +628,12 @@ List of valid per references for the given product type
 
 sub get_pers_for_product_type ($product_type) {
 
-	my @pers = ("100g", "100ml", "1l", "serving");
+	my @pers = ();
 
-	# Pet food only has "per1kg"
-	if ($product_type eq "petfood") {
-		@pers = ("1kg");
+	if (defined $options{product_types_pers}{$product_type}) {
+		@pers = @{$options{product_types_pers}{$product_type}};
 	}
+
 	return @pers;
 }
 
@@ -1702,6 +1704,10 @@ sub remove_empty_nutrient_values_and_set_unspecified_nutrients ($input_set_ref) 
 				delete $nutrient_ref->{modifier};
 			}
 		}
+		# Remove the nutrients hash if it's empty
+		if (scalar(keys %{$input_set_ref->{nutrients}}) == 0) {
+			delete $input_set_ref->{nutrients};
+		}
 	}
 	return;
 }
@@ -1710,6 +1716,68 @@ sub remove_empty_nutrient_values_and_set_unspecified_nutrients ($input_set_ref) 
 
 This function is used by Export.pm to generate the list of populated nutrition fields for a product.
 Export.pm can then create a CSV file with columns that have data for at least one product.
+
+If we have a value for a nutrient in an input set of the product, we add the corresponding field to the populated fields hash,
+so that it can be output in the CSV file.
+
+e.g. for an input set like:
+
+input_sets => [
+	{
+		preparation => "as_sold",
+		per => "serving",
+		per_quantity => "1",
+		per_unit => "l",
+		source => "packaging",
+		nutrients => {
+			"sodium" => {
+				value_string => "0.25",
+				value => 0.25,
+				unit => "g",
+			},
+			"sugars" => {
+				value_string => "2.0",
+				value => 2,
+				unit => "g",
+			}
+		}
+	},
+	{
+		preparation => "as_sold",
+		per => "serving",
+		per_quantity => "50",
+		per_unit => "ml",
+		source => "manufacturer",
+		nutrients => {
+			"sugars" => {
+				value_string => "0.063",
+				value => 0.063,
+				unit => "g",
+			}
+		}
+	}
+]
+
+We generate those keys and values in the populated fields hash:
+
+{
+   "nutrition.input_sets.manufacturer.as_sold.serving.nutrients.sugars.unit" : "nutrition_01-manufacturer_as_sold_serving_2-nutrients_043-sugars_unit",
+   "nutrition.input_sets.manufacturer.as_sold.serving.nutrients.sugars.value" : "nutrition_01-manufacturer_as_sold_serving_2-nutrients_043-sugars_value",
+   "nutrition.input_sets.manufacturer.as_sold.serving.nutrients.sugars.value_string" : "nutrition_01-manufacturer_as_sold_serving_2-nutrients_043-sugars_value_string",
+   "nutrition.input_sets.manufacturer.as_sold.serving.per_quantity" : "nutrition_01-manufacturer_as_sold_serving_0-root_per_quantity",
+   "nutrition.input_sets.manufacturer.as_sold.serving.per_unit" : "nutrition_01-manufacturer_as_sold_serving_0-root_per_unit",
+   "nutrition.input_sets.packaging.as_sold.serving.nutrients.sodium.unit" : "nutrition_01-packaging_as_sold_serving_2-nutrients_068-sodium_unit",
+   "nutrition.input_sets.packaging.as_sold.serving.nutrients.sodium.value" : "nutrition_01-packaging_as_sold_serving_2-nutrients_068-sodium_value",
+   "nutrition.input_sets.packaging.as_sold.serving.nutrients.sodium.value_string" : "nutrition_01-packaging_as_sold_serving_2-nutrients_068-sodium_value_string",
+   "nutrition.input_sets.packaging.as_sold.serving.nutrients.sugars.unit" : "nutrition_01-packaging_as_sold_serving_2-nutrients_043-sugars_unit",
+   "nutrition.input_sets.packaging.as_sold.serving.nutrients.sugars.value" : "nutrition_01-packaging_as_sold_serving_2-nutrients_043-sugars_value",
+   "nutrition.input_sets.packaging.as_sold.serving.nutrients.sugars.value_string" : "nutrition_01-packaging_as_sold_serving_2-nutrients_043-sugars_value_string",
+   "nutrition.input_sets.packaging.as_sold.serving.per_quantity" : "nutrition_01-packaging_as_sold_serving_0-root_per_quantity",
+   "nutrition.input_sets.packaging.as_sold.serving.per_unit" : "nutrition_01-packaging_as_sold_serving_0-root_per_unit"
+}
+
+
+The key is the CSV field name, and the value is a sort key used to sort the fields in the CSV file.
 
 =head3 Arguments
 

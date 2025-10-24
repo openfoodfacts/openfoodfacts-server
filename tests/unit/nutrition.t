@@ -11,6 +11,8 @@ use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
+# Test the generation of the aggregated set from input sets
+
 my @tests = (
 	[
 		# Generated set should be empty given empty list
@@ -859,5 +861,79 @@ foreach my $test_ref (@tests) {
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",
 		$update_expected_results, {id => $testid});
 }
+
+# Other tests
+
+# Computing the populated nutrition fields to export to CSV
+
+my $product_ref = {
+	nutrition => {
+		aggregated_set => {
+			preparation => "as_sold",
+			per => "100g",
+			per_quantity => "100",
+			per_unit => "g",
+			source => "aggregated",
+			nutrients => {
+				sodium => {
+					value_string => "2.0",
+					value => 2,
+					unit => "g",
+					modifier => "<="
+				},
+				sugars => {
+					value_string => "5.2",
+					value => 5.2,
+					unit => "g",
+				}
+			}
+		},
+		input_sets => [
+			{
+				preparation => "as_sold",
+				per => "serving",
+				per_quantity => "1",
+				per_unit => "l",
+				source => "packaging",
+				nutrients => {
+					"sodium" => {
+						value_string => "0.25",
+						value => 0.25,
+						unit => "g",
+					},
+					"sugars" => {
+						value_string => "2.0",
+						value => 2,
+						unit => "g",
+					}
+				}
+			},
+			{
+				preparation => "as_sold",
+				per => "serving",
+				per_quantity => "50",
+				per_unit => "ml",
+				source => "manufacturer",
+				nutrients => {
+					"sugars" => {
+						value_string => "0.063",
+						value => 0.063,
+						unit => "g",
+					}
+				}
+			}
+		]
+	}
+};
+
+my $populated_fields_ref = {};
+
+ProductOpener::Nutrition::add_nutrition_fields_from_product_to_populated_fields($product_ref, $populated_fields_ref,
+	"nutrition");
+
+compare_to_expected_results(
+	$populated_fields_ref, "$expected_result_dir/add_nutrition_fields_from_product_to_populated_fields.json",
+	$update_expected_results, {id => "add_nutrition_fields_from_product_to_populated_fields"}
+);
 
 done_testing();
