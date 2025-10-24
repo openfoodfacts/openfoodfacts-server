@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.82.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.81.0...v2.82.0) (2025-10-24)
+
+
+### Features
+
+* Add a new category tree for Open Products Facts, based on the Google Product Taxonomy, converted using python ([#12457](https://github.com/openfoodfacts/openfoodfacts-server/issues/12457)) ([3760f7d](https://github.com/openfoodfacts/openfoodfacts-server/commit/3760f7ddeba3cd857a4068a5c08df2800c6950ec))
+
+
+### Bug Fixes
+
+* check product type for some GS1 prefix checks ([#12533](https://github.com/openfoodfacts/openfoodfacts-server/issues/12533)) ([10e3043](https://github.com/openfoodfacts/openfoodfacts-server/commit/10e3043ca7829bf164cff060db3b9022b075542f))
+* Don't try and contact Keycloak unless editing Account parameters ([#12540](https://github.com/openfoodfacts/openfoodfacts-server/issues/12540)) ([decdcf2](https://github.com/openfoodfacts/openfoodfacts-server/commit/decdcf24ba6488212366a081065133ab4a72be8c))
+* fix nova_groups.txt (one of the groups was split in 2) ([cb8ad0d](https://github.com/openfoodfacts/openfoodfacts-server/commit/cb8ad0d087a683746936360fdb6a70148091bd17))
+* fix nova_groups.txt (one of the groups was split in 2) ([#12536](https://github.com/openfoodfacts/openfoodfacts-server/issues/12536)) ([cb8ad0d](https://github.com/openfoodfacts/openfoodfacts-server/commit/cb8ad0d087a683746936360fdb6a70148091bd17))
+* fix unit test results for ingredients.t ([#12554](https://github.com/openfoodfacts/openfoodfacts-server/issues/12554)) ([730843c](https://github.com/openfoodfacts/openfoodfacts-server/commit/730843c267292eb40000fd172c04c980bd94150a))
+* Getting blank emails on producer sign-up ([#12525](https://github.com/openfoodfacts/openfoodfacts-server/issues/12525)) ([fc86221](https://github.com/openfoodfacts/openfoodfacts-server/commit/fc862211c98f2b9829ae4c8e4487b7da42dd7fb6))
+* missing folksonomy config on opf ([#12539](https://github.com/openfoodfacts/openfoodfacts-server/issues/12539)) ([47e1746](https://github.com/openfoodfacts/openfoodfacts-server/commit/47e17462d77fbf2a30c4dec482e2bab22e0b1d57))
+* taxonomy lint raises on unknown line types ([#12495](https://github.com/openfoodfacts/openfoodfacts-server/issues/12495)) ([0c0a6d3](https://github.com/openfoodfacts/openfoodfacts-server/commit/0c0a6d383583c3fa721114a6430af87482f004b4))
+
 ## [2.81.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.80.0...v2.81.0) (2025-10-17)
 
 
