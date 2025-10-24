@@ -112,7 +112,7 @@ paths:
       operationId: get-product-by-barcode
     patch:
       tags:
-        - Products     
+        - Products
       summary: Create or Update Product
       operationId: patch-api-v3-product-barcode
       description: |-
@@ -189,7 +189,7 @@ paths:
                         recycling:
                           id: "en:recycle"
                         quantity_per_unit: 25 cl
-                        weight_measured: 10                      
+                        weight_measured: 10
                     product:
                       $ref: ./schemas/product_update_api_v3.yaml
           application/xml:
@@ -202,7 +202,7 @@ paths:
           For complex structures such as the packagings object, it is possible to replace pre-existing data, or completing it:
 
           - an object sent in the packagings field will replace any pre-existing data.
-          - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.       
+          - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.
       responses:
         "200":
           description: |-
@@ -274,14 +274,14 @@ paths:
   "/api/v3/product/{barcode}/images":
     post:
       tags:
-        - Images         
+        - Images
       summary: Upload Product Image
       operationId: post-api-v3-product-barcode-images
       description: |-
-        
+
         This endpoint allows to upload an image for a product. The image is uploaded in the request body as a base64 encoded string.
         Optionally, it is possible to select the uploaded image for specific information (e.g. front, ingredients, nutrition, packaging) for specific languages. Each selected image is a cropped version of the uploaded image.
-       
+
         If the product does not exist, it will be created.
       parameters:
         - name: barcode
@@ -312,7 +312,7 @@ paths:
                     password:
                       type: string
                       description: Password for login
-                      format: password                      
+                      format: password
                     image_data_base64:
                       type: string
                       description: |-
@@ -360,7 +360,7 @@ paths:
                                   '(?<imgid>\d+)':
                                     $ref: "./schemas/image_uploaded.yaml#/components/schemas/ImageUploaded"
   "/api/v3/product/{barcode}/images/uploaded/{imgid}":
-    delete: 
+    delete:
       tags:
         - Images
       summary: Delete Product Image
@@ -402,7 +402,7 @@ paths:
         "403":
           description: User not authenticated or not allowed to delete the image
         "404":
-          description: Product or image not found                 
+          description: Product or image not found
   /api/v3/taxonomy_canonicalize_tags:
     get:
       summary: Get canonical tags for a list of local tags
@@ -667,6 +667,38 @@ paths:
         description: |
           The code and rev fields are mandatory.
       parameters: []
+  /api/v3/external_sources:
+    get:
+      operationId: get-api-v3-external-sources
+      tags:
+        - Knowledge Panels
+      summary: List external knowledge panel sources (JSON)
+      description: |
+        Returns the ordered list of external knowledge panel sources configured on the server.
+
+        Providers can use the `knowledge_panel_url` field to point to their own API.
+        The URL may contain **template variables** that the frontend will expand before calling:
+
+        - `$code` → product barcode
+        - `$lc`   → UI language (2 letters)
+        - `$cc`   → user/device country (2 letters)
+
+        Example:
+        `https://provider.example.com/off/v1/knowledge-panel/$code?lang=$lc&country=$cc`
+
+        The frontend percent-encodes the variable values when substituting them into the URL.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      external_sources:
+                        $ref: "#/components/schemas/ExternalKnowledgePanelList"
   /api/v3/preferences:
     get:
       summary: Get List of Preference Importance Values
@@ -814,7 +846,7 @@ paths:
                                           description: The type of the parameter. "tags" indicates a comma-separated list of canonical tags is expected.
                                           enum:
                                             - "tags"
-                                          example: "tags"                                             
+                                          example: "tags"
 components:
   parameters:
     cc:
@@ -833,6 +865,13 @@ components:
       name: lc
       required: false
       description: "2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request."
+  schemas:
+    ExternalKnowledgePanelList:
+      type: array
+      description: Ordered list of external knowledge panel sources.
+      items:
+        $ref: "./schemas/external_knowledge_panel.yaml"
+
 tags:
   - name: Products
     description: Endpoints for managing product data, creating, updating, and reverting products.

@@ -14,12 +14,13 @@ const sass = gulpSass(sassLib);
 const jsSrc = [
   "./html/js/display*.js",
   "./html/js/product-*.js",
-  "./html/js/tagify-init.js",  
+  "./html/js/tagify-init.js",
   "./html/js/search.js",
   "./html/js/hc-sticky.js",
   "./html/js/stikelem.js",
   "./html/js/scrollNav.js",
   "./html/js/barcode-scanner*.js",
+  "./html/js/external-knowledge-panels.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";
@@ -110,7 +111,7 @@ export function css() {
   const compressed = processed.
     pipe(gzip()).
     pipe(dest("./html/css/dist"));
-  
+
   return processed && compressed;
 }
 
@@ -187,7 +188,7 @@ function jQueryUiThemes() {
   const compressed = processed.
     pipe(gzip()).
     pipe(dest("./html/css/dist/jqueryui/themes/base"));
-  
+
   return processed && compressed;
 }
 

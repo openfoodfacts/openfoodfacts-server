@@ -1,4 +1,4 @@
-# Auto-calculated 9 groups for 47 tests (total estimated time: 23.5m)
+# Auto-calculated 9 groups for 48 tests (total estimated time: 24.0m)
 # Generated test groups for integration tests
 # Generated at: Sun Oct 19 22:10:40 2025
 
