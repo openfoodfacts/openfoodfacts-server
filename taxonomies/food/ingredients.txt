@@ -20855,8 +20855,9 @@ it: aroma naturale di zenzero
 pl: naturalny aromat imbirowy
 
 < en:flavouring
-en: ananas flavouring
+en: pineapple flavouring, ananas flavouring
 bg: ананасов аромат
+da: ananasaroma
 de: Ananasaroma
 es: aroma de piña
 fi: ananasaromi
@@ -20864,11 +20865,22 @@ fr: arôme d'ananas
 hr: aroma ananasa
 hu: ananász aroma
 it: Aroma di ananas
+nb: ananasarom
 nl: ananasaroma
 pl: aromat ananasowy
 pt: sabor de abacaxi
 ro: aromă de ananas
 sv: ananasarom
+
+< en:natural flavouring
+< en:pineapple flavouring
+en: natural pineapple aroma
+da: naturlig ananasaroma
+de: natürliches Ananas-Aroma
+fi: luonnollinen ananasaromi
+fr: arôme naturel de ananas
+nb: naturlig ananasarom
+sv: naturlig ananasarom
 
 < en:flavouring
 en: banana flavouring
@@ -53924,8 +53936,6 @@ pl: mąka z manioku
 sv: maniokmjöl
 nutriscore_fruits_vegetables_nuts:en: no
 
-# description:en:TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
-
 < en:starch
 en: tapioca, tapioca starch, manioc starch
 ar: تابيوكا
@@ -53962,11 +53972,12 @@ ru: тапиока
 sk: tapiokový škrob
 sl: tapioka, tapiokin škrob
 su: tapioka
-sv: tapioka, tapiokastärkelse
+sv: tapioka, tapiokastärkelse, stärkelse från kassavaroten
 uk: тапіока
 vi: bột năng
 zh: 木薯根淀粉
 #lfn:tapioca
+description:en: TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
 wikidata:en: Q873761
 wikipedia:en: https://en.wikipedia.org/wiki/Tapioca
 
