@@ -220,7 +220,7 @@ $ProductOpener::Config::options{rate_limit_allow_list_blocks} = [
 	client_id => $ProductOpener::Config2::oidc_client_id,
 	client_secret => $ProductOpener::Config2::oidc_client_secret,
 	oidc_implementation_level => $ProductOpener::Config2::oidc_implementation_level,
-	oidc_discovery_url => $ENV{OIDC_DISCOVERY_URL}
+	oidc_discovery_url => $ProductOpener::Config2::oidc_discovery_url
 );
 
 1;
