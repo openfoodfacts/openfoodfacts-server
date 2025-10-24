@@ -14,12 +14,13 @@ const sass = gulpSass(sassLib);
 const jsSrc = [
   "./html/js/display*.js",
   "./html/js/product-*.js",
-  "./html/js/tagify-init.js",  
+  "./html/js/tagify-init.js",
   "./html/js/search.js",
   "./html/js/hc-sticky.js",
   "./html/js/stikelem.js",
   "./html/js/scrollNav.js",
   "./html/js/barcode-scanner*.js",
+  "./html/js/rewind-browser.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";
@@ -30,9 +31,8 @@ const jsLibSrc = [
   "./node_modules/foundation-sites/js/vendor/*.js",
   "./node_modules/foundation-sites/js/foundation.js",
   "./node_modules/papaparse/papaparse.js",
-  "./node_modules/osmtogeojson/osmtogeojson.js",
-  "./node_modules/leaflet/dist/leaflet.js",
-  "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
+  "./node_modules/leaflet/dist/*.js",
+  "./node_modules/leaflet.markercluster-es/dist/*.js",
   "./node_modules/blueimp-tmpl/js/tmpl.js",
   "./node_modules/blueimp-load-image/js/load-image.all.min.js",
   "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
@@ -110,7 +110,7 @@ export function css() {
   const compressed = processed.
     pipe(gzip()).
     pipe(dest("./html/css/dist"));
-  
+
   return processed && compressed;
 }
 
@@ -187,15 +187,15 @@ function jQueryUiThemes() {
   const compressed = processed.
     pipe(gzip()).
     pipe(dest("./html/css/dist/jqueryui/themes/base"));
-  
+
   return processed && compressed;
 }
 
 function copyCss() {
   const processed = src([
     "./node_modules/leaflet/dist/leaflet.css",
-    "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
-    "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
+    "./node_modules/leaflet.markercluster-es/dist/MarkerCluster.css",
+    "./node_modules/leaflet.markercluster-es/dist/MarkerCluster.Default.css",
     "./node_modules/@yaireo/tagify/dist/tagify.css",
     "./node_modules/cropperjs/dist/cropper.css",
     "./node_modules/select2/dist/css/select2.min.css",
