@@ -40,9 +40,8 @@ jobs:
 
   lint:
     name: 🕵️‍♀️ NPM lint
-    needs: filter
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    if: github.event_name == 'pull_request'
     steps:
     - uses: actions/checkout@v5
       with:
@@ -274,27 +273,140 @@ jobs:
           echo "export USER_UID=$(id -u)" >> .envrc
           echo "export USER_GID=$(id -g)" >> .envrc
 
-      - name: Rebuild taxonomies for Open Food Facts (off)
-        run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
-      - name: Rebuild taxonomies for Open Beauty Facts (obf)
-        run: |
-          source env/setenv.sh obf
-          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+  # Parallel taxonomy builds for different flavors
+  build_taxonomies_off:
+    name: 🏗 Build taxonomies (off)
+    needs: build_backend
+    runs-on: ubuntu-latest
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 50
+    - uses: actions/cache@v4
+      id: cache
+      with:
+        path: ./build-cache
+        key: taxonomies-off-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-off-
+    - name: Download backend image from artifacts
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/backend:dev"
+        download_tmp_dir: ${{ runner.temp }}
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
+    - name: Rebuild taxonomies for Open Food Facts (off)
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Save taxonomies to cache
+      uses: actions/cache/save@v4
+      if: always()
+      with:
+        path: ./build-cache
+        key: taxonomies-off-${{ hashFiles('taxonomies/**') }}
 
-      - name: Rebuild taxonomies for Open Products Facts (opf)
-        run: |
-          source env/setenv.sh opf
-          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+  build_taxonomies_obf:
+    name: 🏗 Build taxonomies (obf)
+    needs: build_backend
+    runs-on: ubuntu-latest
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 50
+    - uses: actions/cache@v4
+      id: cache
+      with:
+        path: ./build-cache
+        key: taxonomies-obf-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-obf-
+    - name: Download backend image from artifacts
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/backend:dev"
+        download_tmp_dir: ${{ runner.temp }}
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
+    - name: Rebuild taxonomies for Open Beauty Facts (obf)
+      run: |
+        source env/setenv.sh obf
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Save taxonomies to cache
+      uses: actions/cache/save@v4
+      if: always()
+      with:
+        path: ./build-cache
+        key: taxonomies-obf-${{ hashFiles('taxonomies/**') }}
 
-      - name: Rebuild taxonomies for Open Pet Food Facts (opff)
-        run: |
-          source env/setenv.sh opff
-          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+  build_taxonomies_opf:
+    name: 🏗 Build taxonomies (opf)
+    needs: build_backend
+    runs-on: ubuntu-latest
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 50
+    - uses: actions/cache@v4
+      id: cache
+      with:
+        path: ./build-cache
+        key: taxonomies-opf-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-opf-
+    - name: Download backend image from artifacts
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/backend:dev"
+        download_tmp_dir: ${{ runner.temp }}
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
+    - name: Rebuild taxonomies for Open Products Facts (opf)
+      run: |
+        source env/setenv.sh opf
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Save taxonomies to cache
+      uses: actions/cache/save@v4
+      if: always()
+      with:
+        path: ./build-cache
+        key: taxonomies-opf-${{ hashFiles('taxonomies/**') }}
 
+  build_taxonomies_opff:
+    name: 🏗 Build taxonomies (opff)
+    needs: build_backend
+    runs-on: ubuntu-latest
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 50
+    - uses: actions/cache@v4
+      id: cache
+      with:
+        path: ./build-cache
+        key: taxonomies-opff-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-opff-
+    - name: Download backend image from artifacts
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/backend:dev"
+        download_tmp_dir: ${{ runner.temp }}
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
+    - name: Rebuild taxonomies for Open Pet Food Facts (opff)
+      run: |
+        source env/setenv.sh opff
+        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Save taxonomies to cache
+      uses: actions/cache/save@v4
+      if: always()
+      with:
+        path: ./build-cache
+        key: taxonomies-opff-${{ hashFiles('taxonomies/**') }}
   check_perl:
     name: 🐪 Check Perl
-    needs: [filter, build_backend]
+    needs: [filter, build_taxonomies_off]
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
@@ -307,8 +419,8 @@ jobs:
       id: cache
       with:
         path: ./build-cache
-        key: taxonomies-${{ hashFiles('taxonomies/**') }}
-        restore-keys: taxonomies-
+        key: taxonomies-off-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-off-
     - name: Download backend image from artifacts
       id: downloadbackendimage
       uses: ishworkh/container-image-artifact-download@v2.1.0
@@ -374,7 +486,7 @@ jobs:
 
   unit_tests:
     name: 🐪 Perl Unit Tests
-    needs: [filter, build_backend, calculate_test_matrix]
+    needs: [filter, build_taxonomies_off, calculate_test_matrix]
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     strategy:
@@ -392,8 +504,8 @@ jobs:
       id: taxonomies_cache
       with:
         path: ./build-cache
-        key: taxonomies-${{ hashFiles('taxonomies/**') }}
-        restore-keys: taxonomies-
+        key: taxonomies-off-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-off-
     
     # Cache dynamic test groups and timing data
     # This enables persistent learning and avoids regenerating groups unnecessarily
@@ -490,7 +602,7 @@ jobs:
 
   integration_tests:
     name: 🐪 Perl Integration Tests
-    needs: [filter, build_backend, calculate_test_matrix]
+    needs: [filter, build_taxonomies_off, calculate_test_matrix]
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     strategy:
@@ -506,8 +618,8 @@ jobs:
       id: taxonomies_cache
       with:
         path: ./build-cache
-        key: taxonomies-${{ hashFiles('taxonomies/**') }}
-        restore-keys: taxonomies-
+        key: taxonomies-off-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-off-
     
     # Cache dynamic test groups and timing data for integration tests
     # Integration tests typically have more variable execution times
@@ -608,7 +720,7 @@ jobs:
 
   tests_dev:
     name: 🧪 Test make dev
-    needs: [filter, build_backend]  # build_backend - only to avoid building taxonomies
+    needs: [filter, build_taxonomies_off]  # build_backend - only to avoid building taxonomies
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     runs-on: ubuntu-latest
     
@@ -620,8 +732,8 @@ jobs:
       id: cache
       with:
         path: ./build-cache
-        key: taxonomies-${{ hashFiles('taxonomies/**') }}
-        restore-keys: taxonomies-
+        key: taxonomies-off-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-off-
     - name: Download backend image from artifacts
       id: downloadbackendimage
       uses: ishworkh/container-image-artifact-download@v2.1.0
