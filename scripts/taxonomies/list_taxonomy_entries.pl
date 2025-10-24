@@ -28,6 +28,15 @@ list_taxonomy_entries.pl - list all entries in a taxonomy that have a specific p
 
 Usage:
 
+list_taxonomy_entries.pl --type ingredients --include_languages en,fr
+-> list all ingredients, with columns for the English and French names
+
+list_taxonomy_entries.pl --type ingredients --include_paths
+-> list all ingredients, with a column for the name path (from the root of the taxonomy)
+
+list_taxonomy_entries.pl --type ingredients --include_languages_paths en,fr
+-> list all ingredients, with columns for the English and French name paths (from the root of the taxonomy)
+
 list_taxonomy_entries.pl --type ingredients --property vegan:en=null
 -> list all ingredients that do not have a value for the vegan:en property
 
@@ -55,11 +64,17 @@ use Getopt::Long;
 
 my $tagtype;
 my $property_ref = {property => {}, inherited_property => {}};
+my $include_paths;
+my $include_languages;
+my $include_languages_paths;
 
 GetOptions(
 	"type=s" => \$tagtype,    # string
 	"property=s%" => $property_ref->{property},
 	"inherited-property=s%" => $property_ref->{inherited_property},
+	"include_paths!" => \$include_paths,
+	"include_languages=s" => \$include_languages,
+	"include_languages_paths=s" => \$include_languages_paths,
 ) or die("Error in command line arguments:\n\n$usage\n");
 
 if (not defined $tagtype) {
@@ -118,7 +133,29 @@ elsif (defined $translations_to{$tagtype}) {
 		}
 
 		if ($match) {
-			print $tagid . "\n";
+			my @values = ($tagid);
+			if (defined $include_languages) {
+				foreach my $target_lc (split(/,/, $include_languages_paths)) {
+					my $name = display_taxonomy_tag_name($target_lc, $tagtype, $tagid);
+					push @values, (defined $name) ? $name : '';
+				}
+			}
+			if (defined $include_paths) {
+				my $path_ref = get_taxonomy_tag_path($tagtype, $tagid);
+				push @values, (defined $path_ref) ? join(" > ", @$path_ref) : '';
+			}
+			if (defined $include_languages_paths) {
+				my $path_ref = get_taxonomy_tag_path($tagtype, $tagid);
+
+				foreach my $target_lc (split(/,/, $include_languages_paths)) {
+
+					push @values,
+						(defined $path_ref)
+						? join(" > ", map {display_taxonomy_tag_name($target_lc, $tagtype, $_)} @$path_ref)
+						: '';
+				}
+			}
+			print join("\t", @values), "\n";
 		}
 	}
 }
