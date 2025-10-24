@@ -145,7 +145,7 @@ $redis_url = $ENV{REDIS_URL};
 # Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
 # enable folksonomy features
 $folksonomy_url = $ENV{FOLKSONOMY_URL};
-# recipe-estimator product service
+$folksonomy_url = "https://api.folksonomy.openproductsfacts.org";    # recipe-estimator product service
 # To test a locally running recipe-estimator with product opener in a docker dev environment:
 # - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
 # $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
