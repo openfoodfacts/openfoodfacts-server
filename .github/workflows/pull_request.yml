@@ -373,7 +373,7 @@ jobs:
         cat matrix_config.json
 
   unit_tests:
-    name: 🐪 Perl Unit Tests
+    name: 🐪 Perl Unit Tests Only
     needs: [filter, build_backend, calculate_test_matrix]
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
@@ -602,7 +602,7 @@ jobs:
     needs: [unit_tests, integration_tests]
     runs-on: ubuntu-latest
     steps:
-      - name: Acknozledge tests succeded
+      - name: Acknowledge tests succeeded
         run: |
           echo "All Perl unit and integration test groups finished."
 
