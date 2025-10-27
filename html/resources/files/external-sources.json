@@ -2,11 +2,11 @@
   {
     "id": "empreinte_souffrance",
     "name": "Empreinte Souffrance",
-    "description": "Indicateur de la quantité de souffrance animale calculée par produit.",
-    "icon_url": "https://raw.githubusercontent.com/dataforgoodfr/13_empreinte_souffrance/40fc118add8a4acf4606c10ffdfcf837fdbb39bf/frontend/public/logo_ES_alpha.svg",
-    "knowledge_panel_url": "http://127.0.0.1:8000/off/v1/knowledge-panel/$code?lang=$lc&country=$cc",
-    "provider_name": "Empreinte Souffrance",
-    "provider_website": "https://empreinte-souffrance.org/",
+    "description": "Indicateur de la quantité de souffrance animale calculée par produit",
+    "icon_url": "https://lheuredescomptes.org/logo_ES_alpha.svg",
+    "knowledge_panel_url": "https://api.lheuredescomptes.org/off/v1/knowledge-panel/$code?lang=$lc&country=$cc",
+    "provider_name": "l'Heure des Comptes",
+    "provider_website": "https://lheuredescomptes.org/",
     "section": "animal_welfare",
     "filters": {
       "categories": [
