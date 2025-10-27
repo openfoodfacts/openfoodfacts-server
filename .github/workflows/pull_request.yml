@@ -607,7 +607,7 @@ jobs:
     steps:
       - name: Acknowledge tests succeeded
         run: |
-          if [ ${{ needs.unit_tests.result }} = "success" ] && [ ${{ needs.integration_tests.result }} = "success" ]; then
+          if [ ${{ needs.unit_tests.result }} = "success" ] && [ ${{ needs.integration_tests.result }} = "success" ]
           then
             echo "All Perl unit and integration test groups finished."
           else
