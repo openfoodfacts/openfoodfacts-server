@@ -605,13 +605,14 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     steps:
-      - name: Acknowledge tests succeeded
+      - name: Check if unit and integration tests succeeded or fail
         run: |
           if [ ${{ needs.unit_tests.result }} = "success" ] && [ ${{ needs.integration_tests.result }} = "success" ]
           then
             echo "All Perl unit and integration test groups finished."
           else
             echo "Some tests did fail"
+            exit 1
           fi
 
   tests_dev:
