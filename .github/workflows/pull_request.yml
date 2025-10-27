@@ -373,6 +373,8 @@ jobs:
         cat matrix_config.json
 
   unit_tests:
+    # for now "🐪 Perl Unit Tests" is the expected label for en of tests,
+    # so we had "Only" here to not get confused
     name: 🐪 Perl Unit Tests Only
     needs: [filter, build_backend, calculate_test_matrix]
     runs-on: ubuntu-latest
@@ -601,10 +603,16 @@ jobs:
     name: 🐪 Perl unit tests
     needs: [unit_tests, integration_tests]
     runs-on: ubuntu-latest
+    if: always()
     steps:
       - name: Acknowledge tests succeeded
         run: |
-          echo "All Perl unit and integration test groups finished."
+          if [ ${{ jobs.unit_tests.outcome }} == "success" ] && [ ${{ jobs.integration_tests.outcome }} == "success" ]; then
+          then
+            echo "All Perl unit and integration test groups finished."
+          else
+            echo "Some tests did fail"
+          fi
 
   tests_dev:
     name: 🧪 Test make dev
