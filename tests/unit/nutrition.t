@@ -845,6 +845,35 @@ my @tests = (
 			}
 		}
 	],
+	# Vitamin values in International Units (IU), e.g. Vitamin A, or %DV for Vitamin D
+	[
+		"normalize_vitamin_iu_dv_units",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							"vitamin-a" => {
+								value_string => "5000",
+								value => 5000,
+								unit => "IU",
+							},
+							"vitamin-d" => {
+								value_string => "400",
+								value => 50,
+								unit => "% DV",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
