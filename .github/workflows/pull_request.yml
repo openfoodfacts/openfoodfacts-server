@@ -373,7 +373,7 @@ jobs:
         cat matrix_config.json
 
   unit_tests:
-    # for now "🐪 Perl Unit Tests" is the expected label for en of tests,
+    # for now "🐪 Perl Unit Tests" is the expected label for end of tests,
     # so we had "Only" here to not get confused
     name: 🐪 Perl Unit Tests Only
     needs: [filter, build_backend, calculate_test_matrix]
