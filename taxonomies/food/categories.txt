@@ -11076,31 +11076,16 @@ en: Latte macchiato
 xx: Latte macchiato
 ar: لاتيه ماكياتو
 bg: Лате макиато
-cs: Latte macchiato
 de: Milchmischgetränk, Latte macchiato
-es: Latte macchiato
 fa: لاته ماکیاتو
-fi: Latte macchiato
-fr: Latte macchiato
-it: Latte macchiato
 ja: ラッテ・マキアート
-jv: Latte macchiato
 kk: Латте макиато
 ko: 라테 마키아토
 mk: Лате макијато
-nl: Latte macchiato
-pl: Latte macchiato
-pt: Latte macchiato
 ru: Латте макиато
-sk: Latte macchiato
 sr: Лате макијато
-sv: Latte macchiato
 th: ลัตเตมักกีอาโต
-tl: Latte macchiato
-tr: Latte macchiato
 uk: Лате-мак'ято
-uz: Latte macchiato
-vi: Latte macchiato
 zh: 拿铁玛琪雅朵
 ciqual_food_code:en: 18151
 ciqual_food_name:en: Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
@@ -12832,7 +12817,6 @@ tr: Soğuk kahve
 wikidata:en: Q968554
 
 < en:Non-alcoholic beverages
-< en:Wines
 en: Non-alcoholic wines, Alcohol-free wines
 de: alkoholfreie Weine
 fr: Vins sans alcool, vins déalcoolisés
@@ -33784,6 +33768,7 @@ nl: Gevulde Koeken
 
 en: Biscuits and crackers
 fr: Biscuits sucrés & biscuits apéritifs
+nl: Biscuits en crackers
 intake24_category_code:en: BSCT
 
 < en:Biscuits and cakes
@@ -42519,6 +42504,9 @@ sales_format:en: weight, package
 wco_hs_code:en: 1207.99
 wco_hs_heading:en: 12.07
 wikidata:en: Q1071585
+
+< en:Chia
+nl: witte chiazaad
 
 < en:Cereal grains
 en: Coix
@@ -67662,14 +67650,6 @@ es: Arroz del Delta del Ebro, Arròs del Delta de l'Ebre
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0336
 protected_name_type:en: pdo
-#wikidata:en:
-
-< en:Purple garlic
-< en:Vegetables from Spain
-es: Ajo Morado de Las Pedroñeras
-origins:en: en:spain
-protected_name_file_number:en: PGI-ES-0228
-protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Spanish legumes
@@ -101337,7 +101317,7 @@ es: Varitas de pescado
 fi: kalapuikot
 fr: Batonnets de poisson
 hr: Riblji štapići
-nl: Visvingers
+nl: Visvingers, Vissticks
 pl: Paluszki rybne
 intake24_category_code:en: FPCS
 wikidata:en: Q1420441
@@ -107779,6 +107759,7 @@ nl: Ingemaakte guindilla pepers
 < en:Jalapeños
 < en:Pickled peppers
 en: Pickled jalapeños
+nl: Ingemaakte jalapeño peper
 
 < en:Pickled jalapeños
 < en:Sliced jalapeños
@@ -109831,6 +109812,17 @@ es: Ajo morado
 hr: Ljubičasti češnjak
 nl: Paarse knoflook
 
+< en:Purple garlic
+nl: Morado knoflook
+
+< en:Purple garlic
+< en:Vegetables from Spain
+es: Ajo Morado de Las Pedroñeras
+origins:en: en:spain
+protected_name_file_number:en: PGI-ES-0228
+protected_name_type:en: pgi
+#wikidata:en:
+
 < en:Allium neapolitanum
 fr: Ail blanc de Lomagne
 xx: Ail blanc de Lomagne
@@ -110283,7 +110275,7 @@ fi: Keltasipulit, keltasipuli, keltainen sipuli
 fr: Oignons jaunes, oignon jaune
 hr: Žuti luk
 nl: Gele uien
-expected_ingredients:en: en:yellow onion
+expected_ingredients:en: en:yellow onions
 wikidata:en: Q8051898
 wikipedia:en: https://en.wikipedia.org/wiki/Yellow_onion
 
@@ -110516,6 +110508,9 @@ fr: Mélanges de poivrons multicolores
 hr: Miješane paprike babure
 nl: Gemengde paprikas
 sales_format:en: weight, package
+
+< en:Sweet peppers
+nl: Puntpaprikas, Zoete puntpaprikas, Zoete puntpaprika
 
 < en:Sweet Peppers
 en: Red bell peppers, Red sweet peppers
@@ -111578,6 +111573,7 @@ season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 en: Spinach young leaves, Baby spinach
 da: babyspinat
 fr: Jeunes pousses d'épinards pour salades
+nl: Babyspinazie
 sv: babyspenat
 agribalyse_food_code:en: 20270
 ciqual_food_code:en: 20270
@@ -119029,7 +119025,7 @@ fr: Galettes de maïs soufflé, galettes de maïs
 hr: Lisnati kukuruzni kolačići
 hu: Puffasztott kukorica készítményak
 it: Gallette di mais
-nl: Maiswafels
+nl: Maïswafels, Maiswafels
 
 < en:Puffed cereal cakes
 en: Puffed corn cakes with black chocolate
