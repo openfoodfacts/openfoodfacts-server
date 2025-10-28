@@ -2222,9 +2222,11 @@ sub check_labels ($product_ref) {
 						) < (20 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100)
 					)
 					or (
-						(     $product_ref->{nutriments}{"unsaturated-fat_100g"}
-							* $energy_from_nutrients{europe}{"fat"}{"kj"})
-						< (20 * $product_ref->{nutriments}{"energy-kj_value_computed"} / 100))
+						(
+							  $product_ref->{nutriments}{"unsaturated-fat_100g"}
+							* $energy_from_nutrients{europe}{"fat"}{"kj"}
+						) < (20 * $product_ref->{nutriments}{"energy-kj_value_computed"} / 100)
+					)
 				)
 				)
 			{
@@ -2323,7 +2325,10 @@ sub check_labels ($product_ref) {
 		#    this value should not exceed 2 mg of sodium per 100 ml.
 		if (
 			(
-				((defined $product_ref->{nutriments}{sodium_100g}) and ($product_ref->{nutriments}{sodium_100g} > 0.12))
+				(
+						(defined $product_ref->{nutriments}{sodium_100g})
+					and ($product_ref->{nutriments}{sodium_100g} > 0.12)
+				)
 				or ((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.3))
 			)
 			and (has_tag($product_ref, "labels", "en:low-sodium") or has_tag($product_ref, "labels", "en:low-salt"))
@@ -2338,7 +2343,10 @@ sub check_labels ($product_ref) {
 		# This claim shall not be used for natural mineral waters and other waters.
 		if (
 			(
-				((defined $product_ref->{nutriments}{sodium_100g}) and ($product_ref->{nutriments}{sodium_100g} > 0.04))
+				(
+						(defined $product_ref->{nutriments}{sodium_100g})
+					and ($product_ref->{nutriments}{sodium_100g} > 0.04)
+				)
 				or ((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.1))
 			)
 			and (  has_tag($product_ref, "labels", "en:very-low-sodium")
@@ -2354,8 +2362,10 @@ sub check_labels ($product_ref) {
 		# no more than 0,005 g of sodium, or the equivalent value for salt, per 100 g.
 		if (
 			(
-				(       (defined $product_ref->{nutriments}{sodium_100g})
-					and ($product_ref->{nutriments}{sodium_100g} > 0.005))
+				(
+						(defined $product_ref->{nutriments}{sodium_100g})
+					and ($product_ref->{nutriments}{sodium_100g} > 0.005)
+				)
 				or (    (defined $product_ref->{nutriments}{salt_100g})
 					and ($product_ref->{nutriments}{salt_100g} > 0.0125))
 			)
@@ -2371,7 +2381,10 @@ sub check_labels ($product_ref) {
 		# the product contains no more than 0,12 g sodium, or the equivalent value for salt, per 100 g or 100 ml.
 		if (
 			(
-				((defined $product_ref->{nutriments}{sodium_100g}) and ($product_ref->{nutriments}{sodium_100g} > 0.12))
+				(
+						(defined $product_ref->{nutriments}{sodium_100g})
+					and ($product_ref->{nutriments}{sodium_100g} > 0.12)
+				)
 				or ((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.3))
 				or (has_tag($product_ref, "ingredients", "en:salt"))
 			)
