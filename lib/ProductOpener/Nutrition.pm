@@ -273,6 +273,10 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 			foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
 				# for each nutrient, set its values if values are not already present in aggregated set
 				# (ie if nutrient not present in other set with higher priority)
+
+				# skip energy (we should have only energy-kj and/or energy-kcal in sets, so it should not happen)
+				next if $nutrient eq "energy";
+
 				if (!exists $aggregated_nutrient_set_ref->{nutrients}{$nutrient}) {
 					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}
 						= clone($nutrient_set_ref->{nutrients}{$nutrient});
@@ -289,6 +293,22 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}{source_per} = $nutrient_set_ref->{per};
 					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}{source_index} = $index;
 				}
+			}
+
+			# We also add a energy nutrient (in kJ) which is equal to the energy-kj nutrient if it exists,
+			# or the energy-kcal set (with the value converted to kJ) if energy-kj does not exist
+			if (    exists $aggregated_nutrient_set_ref->{nutrients}{"energy-kj"}
+				and exists $aggregated_nutrient_set_ref->{nutrients}{"energy-kj"}{value})
+			{
+				$aggregated_nutrient_set_ref->{nutrients}{"energy"}
+					= clone($aggregated_nutrient_set_ref->{nutrients}{"energy-kj"});
+			}
+			elsif ( exists $aggregated_nutrient_set_ref->{nutrients}{"energy-kcal"}
+				and exists $aggregated_nutrient_set_ref->{nutrients}{"energy-kcal"}{value})
+			{
+				$aggregated_nutrient_set_ref->{nutrients}{"energy"}
+					= clone($aggregated_nutrient_set_ref->{nutrients}{"energy-kcal"});
+				convert_nutrient_to_standard_unit($aggregated_nutrient_set_ref->{nutrients}{"energy"}, "energy");
 			}
 		}
 	}
