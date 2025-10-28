@@ -3745,7 +3745,7 @@ reference to the name of the country
 sub get_geographical_area ($originid) {
 	# Getting information about the country
 	my $ecobalyse_area = "";
-	my $ecobalyse_is_part_of_eu_result = get_inherited_property("countries", $originid, "ecobalyse_is_part_of_eu");
+	my $ecobalyse_is_part_of_eu_result = get_inherited_property("countries", $originid, "ecobalyse_is_part_of_eu:en");
 	if (defined $ecobalyse_is_part_of_eu_result
 		&& $ecobalyse_is_part_of_eu_result eq "yes")
 	{
