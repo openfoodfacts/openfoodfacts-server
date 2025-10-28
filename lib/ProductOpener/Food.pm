@@ -2001,7 +2001,7 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 		foreach my $nid ("energy", "fat", "saturated-fat", "sugars", "sodium", "proteins") {
 			# If we don't set the 100g figure then this should flag the item as not enough data
 			if (not deep_exists($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value")) {
-				# we have two special case where we can deduce data
+				# we have two special cases where we can deduce data
 				next
 					if (
 					(
@@ -2025,13 +2025,8 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 
 		# some categories of products do not have fibers > 0.7g (e.g. sodas)
 		# for others, display a warning when the value is missing
-		# do not display a warning if fibers are not specified on the product ('-' modifier: listed in the unspecified_nutrients array)
-		if (
-			(not deep_exists($product_ref, "nutrition", "aggregated_set", "nutrients", "fiber", "value"))
-			and (not grep {$_ eq 'fiber'}
-				@{deep_get($product_ref, "nutrition", "aggregated_set", "unspecified_nutrients") // []})
-			and not(has_tag($product_ref, "categories", "en:sodas"))
-			)
+		if ((not deep_exists($product_ref, "nutrition", "aggregated_set", "nutrients", "fiber", "value"))
+			and not(has_tag($product_ref, "categories", "en:sodas")))
 		{
 			$product_ref->{nutrition_score_warning_no_fiber} = 1;
 			add_tag($product_ref, "misc", "en:nutrition-no-fiber");
