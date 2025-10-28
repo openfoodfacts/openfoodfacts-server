@@ -1,0 +1,118 @@
+{
+   "nutrition_table": {
+      "id": "nutrition",
+      "header": {
+         "name": "Nutrition facts",
+         "columns": [
+            {
+               "scope": "product",
+               "product_type": "",
+               "short_name": "100g",
+               "name": "As sold<br>for 100 g / 100 ml",
+               "per": "100g",
+               "col_id": "100g"
+            }
+         ]
+      },
+      "rows": [
+         {
+            "name": "Fat",
+            "nid": "fat",
+            "level": 0,
+            "columns": [
+               {
+                  "value": "?",
+                  "rdfa": "",
+                  "class": null,
+                  "percent": null,
+                  "type": "normal"
+               }
+            ]
+         },
+         {
+            "name": "Saturated fat",
+            "nid": "saturated-fat",
+            "level": 1,
+            "columns": [
+               {
+                  "value": "?",
+                  "rdfa": "",
+                  "class": null,
+                  "percent": null,
+                  "type": "normal"
+               }
+            ]
+         },
+         {
+            "name": "Carbohydrates",
+            "nid": "carbohydrates",
+            "level": 0,
+            "columns": [
+               {
+                  "value": "?",
+                  "rdfa": "",
+                  "class": null,
+                  "percent": null,
+                  "type": "normal"
+               }
+            ]
+         },
+         {
+            "name": "Sugars",
+            "nid": "sugars",
+            "level": 1,
+            "columns": [
+               {
+                  "value": "?",
+                  "rdfa": "",
+                  "class": null,
+                  "percent": null,
+                  "type": "normal"
+               }
+            ]
+         },
+         {
+            "name": "Fiber",
+            "nid": "fiber",
+            "level": 0,
+            "columns": [
+               {
+                  "value": "?",
+                  "rdfa": "",
+                  "class": null,
+                  "percent": null,
+                  "type": "normal"
+               }
+            ]
+         },
+         {
+            "name": "Proteins",
+            "nid": "proteins",
+            "level": 0,
+            "columns": [
+               {
+                  "value": "?",
+                  "rdfa": "",
+                  "class": null,
+                  "percent": null,
+                  "type": "normal"
+               }
+            ]
+         },
+         {
+            "name": "Salt",
+            "nid": "salt",
+            "level": 0,
+            "columns": [
+               {
+                  "value": "?",
+                  "rdfa": "",
+                  "class": null,
+                  "percent": null,
+                  "type": "normal"
+               }
+            ]
+         }
+      ]
+   }
+}
