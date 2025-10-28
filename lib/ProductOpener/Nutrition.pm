@@ -497,7 +497,8 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_re
 					remove_empty_nutrient_values_and_set_unspecified_nutrients($input_set_ref);
 
 					# Empty input sets are not stored
-					if (!exists $input_set_ref->{nutrients} or (keys %{$input_set_ref->{nutrients}}) == 0) {
+					if ((not exists $input_set_ref->{nutrients}) or ((scalar keys %{$input_set_ref->{nutrients}}) == 0))
+					{
 						next;
 					}
 
