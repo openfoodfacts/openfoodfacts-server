@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr ""
+
 # OBF
 
 msgctxt "site_description_obf"
@@ -46,32 +50,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "A collaborative, free and open database of cosmetic products from around the world."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "A collaborative, free and open database of ingredients, and information on various products from around the world."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts gathers information and data on a wide range of products from around the world."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "A collaborative, free and open database of various products from around the world."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts gathers information and data on pet food products from around the world."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "A collaborative, free and open database of pet food products from around the world."
-
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr ""
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
@@ -113,6 +94,114 @@ msgstr "Anti-Perspirant Stress Protect"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgstr "A collaborative, free and open database of ingredients, and information on various products from around the world."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts gathers information and data on a wide range of products from around the world."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "A collaborative, free and open database of various products from around the world."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr ""
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "generic_name_example_products"
+msgid "AAA Batteries"
+msgstr "AAA Batteries"
+
+msgctxt "product_name_example_products"
+msgid "X-TRA Power Alkaline Batteries"
+msgstr "X-TRA Power Alkaline Batteries"
+
+msgctxt "brands_example_products"
+msgid "Tide, Persil"
+msgstr "Tide, Persil"
+
+msgctxt "categories_example_products"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Liquid laundry detergent, Powder laundry detergent"
+
+msgctxt "emb_codes_example_products"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_products"
+msgid "Laundry detergent"
+msgstr "Laundry detergent"
+
+msgctxt "product_name_example_products"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Ultra Clean Lavender Scent"
+
+msgctxt "ingredients_text_example_products"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergent have on-pack or online lists, and some other categories as well"
+msgstr "WARNING: Do not add ingredients if this is not relevant for the category. Detergent have on-pack or online lists, and some other categories as well"
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts gathers information and data on pet food products from around the world."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "A collaborative, free and open database of pet food products from around the world."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr ""
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Dry dog food, Wet cat food"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "generic_name_example_petfood"
+msgid "Dry dog food"
+msgstr "Dry dog food"
+
+msgctxt "product_name_example_petfood"
+msgid "Healthy Bites Chicken Flavor"
+msgstr "Healthy Bites Chicken Flavor"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Wet food for adult dogs"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Senior Dog Delight Chicken & Rice"
 
 # End of overrides by flavor or product type
 
@@ -7259,30 +7348,6 @@ msgstr "food security"
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
 msgid "and your health!"
 msgstr "and your health!"
-
-#msgctxt "brands_example_beauty"
-#msgid "Nivea, Nivea Men"
-#msgstr "Nivea, Nivea Men"
-
-#msgctxt "categories_example_beauty"
-#msgid "Anti-dandruff shampoo, Whitening toothpaste"
-#msgstr "Anti-dandruff shampoo, Whitening toothpaste"
-
-#msgctxt "emb_codes_example_beauty"
-#msgid "EMB 53062"
-#msgstr "EMB 53062"
-
-#msgctxt "generic_name_example_beauty"
-#msgid "Anti-dandruff shampoo"
-#msgstr "Anti-dandruff shampoo"
-
-#msgctxt "product_name_example_beauty"
-#msgid "Anti-Perspirant Stress Protect"
-#msgstr "Anti-Perspirant Stress Protect"
-
-#msgctxt "ingredients_text_example_beauty"
-#msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-#msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 
 msgctxt "created_by"
 msgid "Created by"
