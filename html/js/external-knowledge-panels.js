@@ -66,7 +66,7 @@ function t(key, lc) {
     fr: {
       external_panels: "Panneaux d’information externes",
       external_sources: "Sources externes",
-      provided_by: "Fourni par",
+      provided_by: "Fourni par.",
       panel_unavailable: "Panneau indisponible",
       panel_unavailable_for_product: "Panneau indisponible pour ce produit",
     },
@@ -492,10 +492,10 @@ async function buildSectionElement(section, ctx) {
       summary.appendChild(logo);
     }
 
-    const providerName = document.createElement("span");
-    providerName.className = "provider-name";
-    providerName.textContent = panel.provider_name || panel.name || "";
-    summary.appendChild(providerName);
+    const providerPanelName = document.createElement("span");
+    providerPanelName.className = "provider-panel-name";
+    providerPanelName.textContent = panel.name || panel.provider_name || "";
+    summary.appendChild(providerPanelName);
 
     if (panel.description) {
       const providerDesc = document.createElement("span");
