@@ -388,9 +388,10 @@ sub product_services_api ($request_ref) {
 
 sub _as_bool($value) {
 	if ($value) {
-		return $Types::Serialiser::true
-	} else {
-		return $Types::Serialiser::false
+		return $Types::Serialiser::true;
+	}
+	else {
+		return $Types::Serialiser::false;
 	}
 }
 

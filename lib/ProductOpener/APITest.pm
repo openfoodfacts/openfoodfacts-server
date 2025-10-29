@@ -345,7 +345,7 @@ A hashmap associating user with their user agent:
 
 =cut
 
-sub create_test_users($admin=undef, $moderator=undef) {
+sub create_test_users($admin = undef, $moderator = undef) {
 
 	my %users = ();
 
@@ -382,7 +382,6 @@ sub create_test_users($admin=undef, $moderator=undef) {
 	}
 	return \%users;
 }
-
 
 =head2 get_page ($ua, $url)
 

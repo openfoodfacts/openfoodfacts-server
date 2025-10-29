@@ -8,7 +8,7 @@ use ProductOpener::APITest qw/create_test_users execute_api_tests wait_applicati
 
 wait_application_ready(__FILE__);
 remove_all_users();
-my $users = create_test_users(1,1);
+my $users = create_test_users(1, 1);
 
 my $tests_ref = [
 	{
