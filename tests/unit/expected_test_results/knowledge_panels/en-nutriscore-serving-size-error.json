@@ -34,7 +34,7 @@
       "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
       "en:nutrition-photo-to-be-selected",
       "en:categories-completed",
-      "en:nutriments-completed",
+      "en:nutriments-to-be-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:traceability-codes-to-be-completed",
@@ -51,8 +51,8 @@
       "completeness" : {
          "general_information" : "0.00",
          "ingredients" : "0.00",
-         "nutrition" : "0.67",
-         "overall" : "0.27",
+         "nutrition" : "0.33",
+         "overall" : "0.18",
          "packaging" : "0.33"
       }
    },
@@ -73,7 +73,7 @@
       "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
       "en:nutrition-photo-to-be-selected",
       "en:categories-completed",
-      "en:nutriments-completed",
+      "en:nutriments-to-be-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:traceability-codes-to-be-completed",
@@ -1498,13 +1498,6 @@
                         "style" : "max-width:15rem",
                         "text" : "Nutrition facts",
                         "type" : "text"
-                     },
-                     {
-                        "column_group_id" : "product",
-                        "shown_by_default" : true,
-                        "text" : "As sold<br>per serving (20)",
-                        "text_for_small_screens" : "per serving",
-                        "type" : "text"
                      }
                   ],
                   "id" : "nutrition_facts_table",
@@ -1764,21 +1757,13 @@
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
    "nutriments" : {
-      "energy_serving" : 2591,
-      "fat_serving" : 50,
-      "fiber_serving" : 5.5,
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100,
       "nova-group" : 1,
       "nova-group_100g" : 1,
-      "nova-group_serving" : 1,
-      "proteins_serving" : 29,
-      "salt_serving" : 0,
-      "saturated-fat_serving" : 9.7,
-      "sodium_serving" : 0,
-      "sugars_serving" : 5.1
+      "nova-group_serving" : 1
    },
    "nutriscore" : {
       "2021" : {
@@ -1834,6 +1819,36 @@
       "unknown"
    ],
    "nutriscore_version" : "2023",
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "energy" : {
+               "value" : 2591
+            },
+            "fat" : {
+               "value" : 50
+            },
+            "fiber" : {
+               "value" : 5.5
+            },
+            "proteins" : {
+               "value" : 29
+            },
+            "salt" : {
+               "value" : 0
+            },
+            "saturated-fat" : {
+               "value" : 9.7
+            },
+            "sodium" : {
+               "value" : 0
+            },
+            "sugars" : {
+               "value" : 5.1
+            }
+         }
+      }
+   },
    "nutrition_data_per" : "serving",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "unknown",
