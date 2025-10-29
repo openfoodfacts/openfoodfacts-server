@@ -34,6 +34,7 @@ const availabilityCache = new Map();
  * @returns {string} A sanitized id-safe slug.
  */
 function safeId(str) {
+
   return String(str).toLowerCase().replace(/[^a-z0-9_-]/g, "-"); // NOSONAR (regex replace, replaceAll not applicable)
 }
 
@@ -44,6 +45,7 @@ function safeId(str) {
  * @returns {string} Human readable section label.
  */
 function prettySectionName(sectionId) {
+
   return sectionId.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
@@ -85,6 +87,7 @@ function t(key, lc) {
       panel_unavailable_for_product: "Panel für dieses Produkt nicht verfügbar",
     },
   };
+
   return dict[lng]?.[key] ?? dict.en[key] ?? key;
 }
 
@@ -97,6 +100,7 @@ function t(key, lc) {
  */
 function getExternalKnowledgePanelsOptin(sectionId, panelId) {
   const val = globalThis.localStorage?.getItem?.(`external_panel_${sectionId}_${panelId}`);
+
   return val === "true";
 }
 
@@ -123,10 +127,11 @@ function setExternalKnowledgePanelsOptin(sectionId, panelId, enabled) {
  */
 function interpolateUrl(urlTemplate, productData) {
   const pd = productData || {};
-  return String(urlTemplate)
-    .replaceAll("$code", encodeURIComponent(pd.code || ""))
-    .replaceAll("$lc", encodeURIComponent(pd.language || ""))
-    .replaceAll("$cc", encodeURIComponent(pd.country || ""));
+
+  return String(urlTemplate
+    ).replaceAll("$code", encodeURIComponent(pd.code || "")
+    ).replaceAll("$lc", encodeURIComponent(pd.language || "")
+    ).replaceAll("$cc", encodeURIComponent(pd.country || ""));
 }
 
 /**
@@ -154,7 +159,7 @@ function canSeeByScope(panel) {
  * country/language/product_type: strict equality
  * @param {Object} panel - Panel descriptor.
  * @param {Object} ctx - Filtering context {categories,country,language,product_type}.
- * @param {{ignoreCategory?: boolean}} [opts] - Options. If ignoreCategory, category mismatch is ignored.
+ * @param {Object} opts - Options {ignoreCategory?: boolean}. If ignoreCategory, category mismatch is ignored.
  * @returns {boolean} True if the panel matches filters.
  */
 function matchesFilters(panel, ctx, opts) {
@@ -181,6 +186,7 @@ function matchesFilters(panel, ctx, opts) {
  * @returns {boolean} True if the panel is visible.
  */
 function isPanelVisible(sectionId, panel, ctx) {
+
   return (
     canSeeByScope(panel) &&
     matchesFilters(panel, ctx) &&
@@ -195,10 +201,14 @@ function isPanelVisible(sectionId, panel, ctx) {
  * @returns {Promise<boolean>} Resolves true if available (non-404 or opaque), false if 404.
  */
 async function isPanelAvailable(url) {
-  if (!url) return true;
+  if (!url) {
+
+    return true;
+  }
 
   if (availabilityCache.has(url)) {
     const status = availabilityCache.get(url)?.status;
+
     return status !== 404;
   }
 
@@ -206,10 +216,12 @@ async function isPanelAvailable(url) {
     const head = await fetch(url, { method: "HEAD", mode: "cors" });
     if (head.status === 404) {
       availabilityCache.set(url, { checkedAt: Date.now(), status: 404 });
+
       return false;
     }
     if (head.type !== "opaque" && head.status) {
       availabilityCache.set(url, { checkedAt: Date.now(), status: head.status });
+
       return true;
     }
   } catch (e) {
@@ -221,6 +233,7 @@ async function isPanelAvailable(url) {
     const get = await fetch(url, { method: "GET", mode: "cors" });
     if (get.status === 404) {
       availabilityCache.set(url, { checkedAt: Date.now(), status: 404 });
+
       return false;
     }
     if (get.type !== "opaque" && get.status) {
@@ -241,7 +254,9 @@ async function isPanelAvailable(url) {
 async function loadPanelsMapping() {
   const lc = globalThis.productData?.language ?? "en";
   const resp = await fetch(`/api/v3/external_sources?lc=${encodeURIComponent(lc)}`);
-  if (!resp.ok) throw new Error("Failed to load external sources");
+  if (!resp.ok) {
+    throw new Error("Failed to load external sources");
+  }
 
   const raw = await resp.json();
 
@@ -275,7 +290,9 @@ async function loadPanelsMapping() {
  * @returns {void}
  */
 function clearExternalSections() {
-  for (const el of document.querySelectorAll(".external-section")) el.remove();
+  for (const el of document.querySelectorAll(".external-section")) {
+    el.remove();
+  }
 }
 
 /**
@@ -287,7 +304,10 @@ function clearExternalSections() {
  */
 function syncNavbarExternalSections(visibleSectionsOrdered) {
   const navbar = document.querySelector("#navbar ul.inline-list");
-  if (!navbar) return;
+  if (!navbar) {
+
+    return;
+  }
 
   for (const link of navbar.querySelectorAll("a[href^='#external_section_']")) {
     link.parentElement?.remove();
@@ -334,12 +354,17 @@ function syncNavbarExternalSections(visibleSectionsOrdered) {
  */
 function enableSmoothScrollAndHighlight() {
   const navbar = document.querySelector("#navbar ul.inline-list");
-  if (!navbar) return;
+  if (!navbar) {
+
+    return;
+  }
 
   if (!navbar.dataset.smoothBound) {
     navbar.addEventListener("click", function (e) {
       const a = e.target.closest("a.nav-link");
-      if (!a || !this.contains(a)) return;
+      if (!a || !this.contains(a)) {
+        return;
+      }
 
       const hash = a.getAttribute("href");
       const target = hash?.startsWith("#") ? document.querySelector(hash) : null;
@@ -347,7 +372,9 @@ function enableSmoothScrollAndHighlight() {
         e.preventDefault();
         target.scrollIntoView({ behavior: "smooth" });
 
-        for (const l of this.querySelectorAll(".nav-link")) l.classList.remove("active");
+        for (const l of this.querySelectorAll(".nav-link")) {
+          l.classList.remove("active");
+        }
         a.classList.add("active");
       }
     });
@@ -362,7 +389,9 @@ function enableSmoothScrollAndHighlight() {
         const scrollY = globalThis.scrollY + 100;
         let currentId = "";
         for (const section of sections) {
-          if (section.offsetTop <= scrollY) currentId = section.id;
+          if (section.offsetTop <= scrollY) {
+            currentId = section.id;
+          }
         }
         if (currentId) {
           for (const link of navbar.querySelectorAll(".nav-link")) {
@@ -381,11 +410,16 @@ function enableSmoothScrollAndHighlight() {
  * @returns {Promise<void>} Resolves when mapping is available.
  */
 function ensureMapping() {
-  if (allPanelsBySection.length) return Promise.resolve();
-  if (mappingPromise) return mappingPromise;
+  if (allPanelsBySection.length) {
+    return Promise.resolve();
+  }
+  if (mappingPromise) {
+    return mappingPromise;
+  }
   mappingPromise = loadPanelsMapping().finally(() => {
     mappingPromise = null;
   });
+
   return mappingPromise;
 }
 
@@ -409,7 +443,7 @@ function appendProvidedByInline(summaryEl, panel, language) {
   small.className = "provider-by";
   small.textContent = `${providedByText} `;
 
-  if (/^https?:\/\//i.test(panel.provider_website ?? "")) {
+  if ((/^https?:\/\//i).test(panel.provider_website ?? "")) {
     const a = document.createElement("a");
     a.href = panel.provider_website;
     a.target = "_blank";
@@ -426,8 +460,8 @@ function appendProvidedByInline(summaryEl, panel, language) {
 
 /**
  * Build and append the inner content of a provider card when available.
- * @param {HTMLElement} details
- * @param {string} url
+ * @param {HTMLElement} details - html of the panel
+ * @param {string} url - url to fetch
  * @returns {void}
  */
 function appendKnowledgePanel(details, url) {
@@ -449,6 +483,7 @@ function appendKnowledgePanel(details, url) {
 async function buildSectionElement(section, ctx) {
   const visiblePanels = section.panels.filter((panel) => isPanelVisible(section.sectionId, panel, ctx));
   if (!visiblePanels.length) {
+
     return { sectionId: section.sectionId, el: null, hasAnyRenderedPanel: false };
   }
 
@@ -541,6 +576,7 @@ async function buildSectionElement(section, ctx) {
   }
 
   if (!hasAnyRenderedPanel) {
+
     return { sectionId: section.sectionId, el: null, hasAnyRenderedPanel: false };
   }
 
@@ -553,7 +589,7 @@ async function buildSectionElement(section, ctx) {
  * @param {HTMLElement} parent - Parent container.
  * @param {HTMLElement} parentAnchor - Anchor node to insert after.
  * @param {Object} ctx - Filtering context.
- * @returns {Promise<void>}
+ * @returns {Promise<void>} - render promise
  */
 async function renderFull(parent, parentAnchor, ctx) {
   clearExternalSections();
@@ -562,9 +598,15 @@ async function renderFull(parent, parentAnchor, ctx) {
   for (const section of allPanelsBySection) {
     // eslint-disable-next-line no-await-in-loop
     const built = await buildSectionElement(section, ctx);
-    if (!built.hasAnyRenderedPanel || !built.el) continue;
-    if (insertAfter?.nextSibling) parent.insertBefore(built.el, insertAfter.nextSibling);
-    else parent.appendChild(built.el);
+    if (!built.hasAnyRenderedPanel || !built.el) {
+      continue;
+    }
+    if (insertAfter?.nextSibling) {
+      parent.insertBefore(built.el, insertAfter.nextSibling);
+    }
+    else {
+      parent.appendChild(built.el);
+    }
     insertAfter = built.el;
     visible.push({ sectionId: section.sectionId, label: section.label });
   }
@@ -578,35 +620,44 @@ async function renderFull(parent, parentAnchor, ctx) {
  * @param {HTMLElement} parentAnchor - Anchor node.
  * @param {Object} ctx - Filtering context.
  * @param {Set<string>} onlySet - Section ids to re-render.
- * @returns {Promise<void>}
+ * @returns {Promise<void>} - promise
  */
 async function renderPartial(parent, parentAnchor, ctx, onlySet) {
   for (const section of allPanelsBySection) {
-    if (!onlySet.has(section.sectionId)) continue;
+    if (!onlySet.has(section.sectionId)) {
+      continue;
+    }
     // eslint-disable-next-line no-await-in-loop
     const built = await buildSectionElement(section, ctx);
     const existing = document.getElementById(`external_section_${safeId(section.sectionId)}`);
     if (!built.hasAnyRenderedPanel || !built.el) {
-      if (existing) existing.remove();
+      if (existing) {
+        existing.remove();
+      }
       continue;
     }
-    if (existing) existing.replaceWith(built.el);
-    else {
+    if (existing) {
+      existing.replaceWith(built.el);
+    } else {
       const extSections = Array.from(document.querySelectorAll(".external-section"));
       const after = extSections.at(-1) || parentAnchor;
-      if (after?.nextSibling) parent.insertBefore(built.el, after.nextSibling);
-      else parent.appendChild(built.el);
+      if (after?.nextSibling) {
+        parent.insertBefore(built.el, after.nextSibling);
+      } else {
+        parent.appendChild(built.el);
+      }
     }
   }
-  const currentVisible = Array.from(document.querySelectorAll(".external-section[id]"))
-    .map((el) => {
+  const currentVisible = Array.from(document.querySelectorAll(".external-section[id]")
+    ).map((el) => {
       const id = el.id;
       const prefix = "external_section_";
       const sid = id.startsWith(prefix) ? id.slice(prefix.length) : id;
       const orig = allPanelsBySection.find((s) => safeId(s.sectionId) === sid);
+
       return orig ? { sectionId: orig.sectionId, label: orig.label } : null;
-    })
-    .filter(Boolean);
+    }
+    ).filter(Boolean);
   syncNavbarExternalSections(currentVisible);
   enableSmoothScrollAndHighlight();
 }
@@ -616,7 +667,8 @@ async function renderPartial(parent, parentAnchor, ctx, onlySet) {
  * Pass {only: Set<sectionId>} to rerender only specific sections.
  * Places the sections after the “Environment” section, falling back to
  * “Your criteria” or the first <section> if #environment is missing.
- * @param {{only?: Set<string>}} [opts] - Options for partial rerender.
+ *
+ * @param {Object} opts - Options for partial rerender.
  * @returns {Promise<void>} Resolves when render is complete.
  */
 async function renderExternalKnowledgeSections(opts) {
@@ -633,6 +685,7 @@ async function renderExternalKnowledgeSections(opts) {
   if (!parentAnchor?.parentNode) {
     // eslint-disable-next-line no-console
     console.error("Cannot find anchor section to insert external panels");
+
     return;
   }
   const parent = parentAnchor.parentNode;
@@ -648,10 +701,10 @@ async function renderExternalKnowledgeSections(opts) {
 /**
  * Build one preference row for a single panel.
  * Adds availability and category-mismatch notices.
- * @param {Object} section
- * @param {Object} panel
- * @param {Object} ctx
- * @param {string} language
+ * @param {Object} section - section for the panel
+ * @param {Object} panel - specific external sources information
+ * @param {Object} ctx - context, for example the product page
+ * @param {string} language - language code
  * @returns {HTMLElement} row element
  */
 function buildPreferenceRow(section, panel, ctx, language) {
@@ -718,6 +771,7 @@ function buildPreferenceRow(section, panel, ctx, language) {
 
   labelEl.appendChild(textWrap);
   row.appendChild(labelEl);
+
   return row;
 }
 
@@ -731,7 +785,9 @@ function buildPreferenceRow(section, panel, ctx, language) {
  */
 /* eslint-disable complexity */
 function renderExternalPanelsOptinPreferences(container) {
-  if (!container) return;
+  if (!container) {
+    return;
+  }
 
   ensureMapping().then(function onReady() {
     const { categories, country, language, product_type } = globalThis.productData || {};
@@ -748,25 +804,25 @@ function renderExternalPanelsOptinPreferences(container) {
       const scoppablePanels = section.panels.filter(
         (panel) => canSeeByScope(panel) && matchesFilters(panel, ctx, { ignoreCategory: true }),
       );
-      if (!scoppablePanels.length) continue;
+      if (scoppablePanels.length) {
+        anyItem = true;
 
-      anyItem = true;
+        const sectionWrap = document.createElement("div");
+        sectionWrap.className = "external-pref-section";
+        sectionWrap.setAttribute("style", "margin-bottom:2em;");
 
-      const sectionWrap = document.createElement("div");
-      sectionWrap.className = "external-pref-section";
-      sectionWrap.setAttribute("style", "margin-bottom:2em;");
+        const h3 = document.createElement("h3");
+        h3.setAttribute("style", "margin-bottom:0.5em;");
+        h3.textContent = section.label || prettySectionName(section.sectionId);
+        sectionWrap.appendChild(h3);
 
-      const h3 = document.createElement("h3");
-      h3.setAttribute("style", "margin-bottom:0.5em;");
-      h3.textContent = section.label || prettySectionName(section.sectionId);
-      sectionWrap.appendChild(h3);
+        for (const panel of scoppablePanels) {
+          const row = buildPreferenceRow(section, panel, ctx, language);
+          sectionWrap.appendChild(row);
+        }
 
-      for (const panel of scoppablePanels) {
-        const row = buildPreferenceRow(section, panel, ctx, language);
-        sectionWrap.appendChild(row);
+        card.appendChild(sectionWrap);
       }
-
-      card.appendChild(sectionWrap);
     }
 
     if (anyItem) {
@@ -806,9 +862,12 @@ async function hasAnyScoppablePanels() {
   };
 
   for (const section of allPanelsBySection) {
-    if (!section || !Array.isArray(section.panels)) continue;
-    for (const p of section.panels) {
-      if (canSeeByScope(p) && matchesFilters(p, ctx, { ignoreCategory: true })) return true;
+    if (section && Array.isArray(section.panels)) {
+      for (const p of section.panels) {
+        if (canSeeByScope(p) && matchesFilters(p, ctx, { ignoreCategory: true })) {
+          return true;
+        }
+      }
     }
   }
 

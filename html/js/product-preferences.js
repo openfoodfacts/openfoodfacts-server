@@ -267,7 +267,7 @@ function display_unwanted_ingredients_preferences() {
     // Initialize tagify on the unwanted ingredients input field if we have it
     if (attribute_unwanted_ingredients_enabled) {
         // We need to load tagify library if not already loaded
-        if (Tagify === undefined) {
+        if (globalThis.Tagify === undefined) {
             // Load tagify JS and CSS
             // We use jQuery to load the CSS file dynamically
             $.when(
@@ -316,6 +316,7 @@ function display_user_product_preferences(target_selected, target_selection_form
       preferences = data.preferences;
       display_user_product_preferences(target_selected, target_selection_form, change);
     });
+
     return;
   }
 
@@ -420,9 +421,9 @@ function display_user_product_preferences(target_selected, target_selection_form
       "</div>"
     );
 
-    $(".attribute_radio")
-      .off("change.pref")
-      .on("change.pref", function () {
+    $(".attribute_radio"
+      ).off("change.pref"
+      ).on("change.pref", function () {
         if (this.checked) {
           user_product_preferences[this.name] = $("input[name='" + this.name + "']:checked").val();
           localStorage.setItem("user_product_preferences", JSON.stringify(user_product_preferences));
@@ -443,9 +444,9 @@ function display_user_product_preferences(target_selected, target_selection_form
       display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
     }
 
-    $("#reset_preferences_button")
-      .off("click.pref")
-      .on("click.pref", function () {
+    $("#reset_preferences_button"
+      ).off("click.pref"
+      ).on("click.pref", function () {
         user_product_preferences = default_preferences;
         localStorage.setItem("user_product_preferences", JSON.stringify(user_product_preferences));
         // force rebuild
@@ -456,25 +457,25 @@ function display_user_product_preferences(target_selected, target_selection_form
         }
       });
 
-    $("#reset_preferences_button")
-      .off("keydown.pref")
-      .on("keydown.pref", function (event) {
+    $("#reset_preferences_button"
+      ).off("keydown.pref"
+      ).on("keydown.pref", function (event) {
         if (event.key === "Space" || event.key === "Enter") {
           $("#reset_preferences_button").trigger("click.pref");
         }
       });
 
-    $(".show_selected")
-      .off("click.prefclose")
-      .on("click.prefclose", function () {
+    $(".show_selected"
+      ).off("click.prefclose"
+      ).on("click.prefclose", function () {
         $(target_selection_form).hide();
         $(target_selected).show();
         display_use_preferences_switch_and_edit_preferences_button(target_selected, target_selection_form, change);
       });
 
-    $(".show_selected")
-      .off("keydown.prefclose")
-      .on("keydown.prefclose", function (event) {
+    $(".show_selected"
+      ).off("keydown.prefclose"
+      ).on("keydown.prefclose", function (event) {
         if (event.key === "Space" || event.key === "Enter") {
           $(".show_selected").trigger("click.prefclose");
         }
@@ -519,14 +520,17 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
     function decide() {
       if (typeof globalThis.hasAnyScoppablePanels !== "function") {
         hideBtn();
+
         return;
       }
-      globalThis.hasAnyScoppablePanels()
-        .then(function(hasAny) {
-          if (!hasAny) hideBtn();
-        })
-        .catch(function() {
-          hideBtn();
+      globalThis.hasAnyScoppablePanels().then(
+        function(hasAny) {
+          if (!hasAny) {
+            hideBtn();
+          }
+        }).catch(
+          function() {
+            hideBtn();
         });
     }
 
@@ -540,9 +544,9 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
     }
   })();
 
-  $("#show_selection_form")
-    .off(".prefopen")
-    .on("click.prefopen", function () {
+  $("#show_selection_form"
+    ).off(".prefopen"
+    ).on("click.prefopen", function () {
       const hasPrefsPanel = $(target_selection_form).find("#user_product_preferences").length > 0;
 
       if (!hasPrefsPanel) {
@@ -561,17 +565,18 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
       $(document).foundation("equalizer", "reflow");
     });
 
-  $("#show_selection_form")
-    .off("keydown.prefopen")
-    .on("keydown.prefopen", function (e) {
-      if (e.key === "Space" || e.key === "Enter") {
-        $("#show_selection_form").trigger("click.prefopen");
-      }
-    });
+  $("#show_selection_form").off(
+      "keydown.prefopen"
+    ).on(
+      "keydown.prefopen", function (e) {
+        if (e.key === "Space" || e.key === "Enter") {
+          $("#show_selection_form").trigger("click.prefopen");
+        }
+      });
 
-  $("#show_external_sources")
-    .off(".extsrc")
-    .on("click.extsrc", function () {
+  $("#show_external_sources"
+    ).off(".extsrc"
+    ).on("click.extsrc", function () {
       $(target_selected).hide();
 
       const wrapper =
@@ -604,9 +609,9 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
         document.body.appendChild(s);
       }
 
-      $(".show_selected")
-        .off(".extsrcclose")
-        .on("click.extsrcclose", function () {
+      $(".show_selected"
+        ).off(".extsrcclose"
+        ).on("click.extsrcclose", function () {
           $(target_selection_form).hide();
           $(target_selected).show();
           display_use_preferences_switch_and_edit_preferences_button(
@@ -616,9 +621,9 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
           );
         });
 
-      $(".show_selected")
-        .off("keydown.extsrcclose")
-        .on("keydown.extsrcclose", function (e) {
+      $(".show_selected"
+        ).off("keydown.extsrcclose"
+        ).on("keydown.extsrcclose", function (e) {
           if (e.key === "Space" || e.key === "Enter") {
             $(".show_selected").trigger("click.extsrcclose");
           }
