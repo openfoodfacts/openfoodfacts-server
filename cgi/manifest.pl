@@ -55,12 +55,11 @@ else {
 	$short_name .= " " . uc($request_ref->{cc}) . "/" . uc($lc);
 }
 
-### TODO: change site_description per flavor.
 my %manifest = (
 	lang => $lc,
 	name => $long_name,
 	short_name => $short_name,
-	description => lang('site_description'),
+	description => lang("site_description_$flavor"),
 	start_url => $request_ref->{formatted_subdomain},
 	scope => '/',
 	display => 'standalone',
