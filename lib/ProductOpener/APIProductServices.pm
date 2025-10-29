@@ -100,6 +100,7 @@ use ProductOpener::HTTP qw/create_user_agent/;
 use JSON qw(decode_json encode_json);
 use Storable qw/dclone/;
 use Encode;
+use Types::Serialiser;
 
 =head2 add_product_data_from_external_service ($request_ref, $product_ref, $url, $services_ref)
 
@@ -385,6 +386,15 @@ sub product_services_api ($request_ref) {
 	return;
 }
 
+sub _as_bool($value) {
+	if ($value) {
+		return $Types::Serialiser::true
+	} else {
+		return $Types::Serialiser::false
+	}
+}
+
+# cache for external_sources method
 my %external_sources_cache = ();
 
 =head2 external_sources
@@ -424,12 +434,30 @@ sub external_sources_api ($request_ref) {
 				if ((defined $translation) and ($translation ne $translation_id) and ($translation ne "")) {
 					$translated_source->{$field} = $translation;
 				}
+				# add default permission field corresponding to anonymous users
+				$translated_source->{"user_in_scope"} = _as_bool($translated_source->{"scope"} eq "public");
 			}
 			push @translated_sources, $translated_source;
 		}
 		$external_sources_cache{$target_lc} = \@translated_sources;
 	}
-	$response_ref->{external_sources} = %external_sources_cache{$target_lc};
+	# add information for current user
+	if ($request_ref->{user_id}) {
+		# duplicate cache
+		my @external_sources = @{dclone($external_sources_cache{$target_lc})};
+		foreach my $ext_source (@external_sources) {
+			if ($ext_source->{scope} eq "users") {
+				$ext_source->{user_in_scope} = _as_bool(1);
+			}
+			elsif ($ext_source->{scope} eq "moderators") {
+				$ext_source->{user_in_scope} = _as_bool($request_ref->{moderator} || $request_ref->{admin});
+			}
+		}
+		$response_ref->{external_sources} = \@external_sources;
+	}
+	else {
+		$response_ref->{external_sources} = $external_sources_cache{$target_lc};
+	}
 	$response_ref->{result} = {id => "ok", name => "External services found"};
 	# 1 hour cache
 	set_http_response_header($request_ref, "Cache-Control", "public, max-age=3600");

@@ -63,6 +63,12 @@ properties:
     description: Visibility scope of the panel.
     enum: [ public, users, moderators ]
     default: public
+  user_in_scope:
+    type: boolean
+    description: |
+      True if current user is in the panel scope.
+      You must make an authenticated request to have this set to the right values
+      (otherwise it will be the value corresponding to public scope)
   filters:
     type: object
     description: Display filters applied on the current product context.

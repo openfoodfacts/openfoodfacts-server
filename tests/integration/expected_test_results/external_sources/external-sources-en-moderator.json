@@ -2,7 +2,7 @@
    "errors" : [],
    "external_sources" : [
       {
-         "description" : "Indicateur de la quantité de souffrance animale calculée par produit.",
+         "description" : "Indicator of animal suffering computed by product",
          "filters" : {
             "categories" : [
                "en:eggs"
@@ -16,14 +16,14 @@
          "icon_url" : "https://lheuredescomptes.org/logo_ES_alpha.svg",
          "id" : "empreinte_souffrance",
          "knowledge_panel_url" : "https://api.lheuredescomptes.org/off/v1/knowledge-panel/$code?lang=$lc&country=$cc",
-         "name" : "Empreinte Souffrance",
+         "name" : "Suffering Fingerprint",
          "privacy_policy_url" : "",
          "provider_name" : "l'Heure des Comptes",
          "provider_website" : "https://lheuredescomptes.org/",
          "scope" : "moderators",
          "section" : "animal_welfare",
-         "section_title" : "Bien être animal",
-         "user_in_scope" : false
+         "section_title" : "Animal welfare",
+         "user_in_scope" : true
       }
    ],
    "result" : {

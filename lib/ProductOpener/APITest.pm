@@ -38,6 +38,7 @@ BEGIN {
 		&create_user
 		&edit_user
 		&create_user_in_keycloak
+		&create_test_users
 		&edit_product
 		&get_page
 		&html_displays_error
@@ -69,6 +70,7 @@ use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::Config qw/%oidc_options/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
 use ProductOpener::Tags qw/country_to_cc/;
+use ProductOpener::TestDefaults qw/:all/;
 
 use Test2::V0;
 use Data::Dumper;
@@ -319,6 +321,68 @@ sub create_user_in_keycloak ($user_ref) {
 
 	return 1;
 }
+
+=head2 create_test_users($admin=undef, $moderator=undef)
+
+Create some tests users.
+
+=head3 Arguments
+
+=head4 $admin
+
+Create an admin user
+
+=head4 $moderator
+
+Create a moderator user, implies creation of an admin
+
+=head3 Returns
+
+A hashmap associating user with their user agent:
+=item user: normal user
+=item admin: admin user
+=item moderator: moderator user
+
+=cut
+
+sub create_test_users($admin=undef, $moderator=undef) {
+
+	my %users = ();
+
+	# Create a normal user
+	my $ua = new_client();
+	my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+	my $resp = create_user($ua, \%create_user_args);
+	ok(!html_displays_error($resp));
+	$users{user} = $ua;
+
+	my $admin_ua;
+	if ($admin or $moderator) {
+		# Create an admin
+		$admin_ua = new_client();
+		$resp = create_user($admin_ua, \%admin_user_form);
+		ok(!html_displays_error($resp));
+		$users{admin} = $admin_ua;
+	}
+
+	if ($moderator) {
+		# Create a moderator
+		my $moderator_ua = new_client();
+		$resp = create_user($moderator_ua, \%moderator_user_form);
+		ok(!html_displays_error($resp));
+		# Admin gives moderator status
+		my %moderator_edit_form = (
+			%moderator_user_form,
+			user_group_moderator => "1",
+			type => "edit",
+		);
+		$resp = edit_user($admin_ua, \%moderator_edit_form);
+		ok(!html_displays_error($resp));
+		$users{moderator} = $moderator_ua;
+	}
+	return \%users;
+}
+
 
 =head2 get_page ($ua, $url)
 
