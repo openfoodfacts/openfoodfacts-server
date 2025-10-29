@@ -327,22 +327,51 @@ The normalized units are g, kJ or kcal based on the nutrient.
 
 Hash of the nutrient to normalize
 
-=head4 $nutrient_name
+=head4 $nutrient_id
 
 Name of the nutrient to normalize
 
 =cut
 
-sub convert_nutrient_to_standard_unit ($nutrient_ref, $nutrient_name) {
-	my $standard_unit = default_unit_for_nid($nutrient_name);
+sub convert_nutrient_to_standard_unit ($nutrient_ref, $nutrient_id) {
+	my $standard_unit = default_unit_for_nid($nutrient_id);
 
 	if ($standard_unit ne $nutrient_ref->{unit}) {
+
+		my $iu_value = get_property("nutrients", "zz:" . $nutrient_id, "iu_value:en");
+		my $dv_value = get_property("nutrients", "zz:" . $nutrient_id, "dv_value:en");
+
+		# Convert values passed in international units IU or % of daily value % DV to the default unit for the nutrient,
+		# using the conversion factors in the nutrients taxonomy
+		# e.g. for vitamin A
+		# dv_value:en: 1500
+		# iu_value:en: 0.3
+		# unit:en: µg
+		# unit_ca:en: % DV
+		# unit_us:en: % DV
+		if (    (uc($nutrient_ref->{unit}) eq 'IU')
+			and (defined $iu_value))
+		{
+			$nutrient_ref->{value} *= $iu_value;
+			$nutrient_ref->{unit} = get_property("nutrients", "zz:" . $nutrient_id, "unit:en");
+		}
+		elsif ( (uc($nutrient_ref->{unit}) eq '% DV')
+			and (defined get_property("nutrients", "zz:" . $nutrient_id, "dv_value:en")))
+		{
+			$nutrient_ref->{value} *= $dv_value / 100;
+			$nutrient_ref->{unit} = get_property("nutrients", "zz:" . $nutrient_id, "unit:en");
+		}
+
+		# Now convert to standard unit
+
+		# Energy in kJ and kcal
 		if ($standard_unit eq "kcal") {
 			$nutrient_ref->{value} = unit_to_kcal($nutrient_ref->{value}, $nutrient_ref->{unit});
 		}
 		elsif ($standard_unit eq "kJ") {
 			$nutrient_ref->{value} = unit_to_kj($nutrient_ref->{value}, $nutrient_ref->{unit});
 		}
+		# Everything else in g or %
 		else {
 			$nutrient_ref->{value} = unit_to_g($nutrient_ref->{value}, $nutrient_ref->{unit});
 		}
@@ -517,8 +546,13 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_re
 					remove_empty_nutrient_values_and_set_unspecified_nutrients($input_set_ref);
 
 					# Empty input sets are not stored
-					if (((not exists $input_set_ref->{nutrients}) or ((scalar keys %{$input_set_ref->{nutrients}}) == 0))
-						and (not exists $input_set_ref->{unspecified_nutrients}))
+					if (
+						(
+							   (not exists $input_set_ref->{nutrients})
+							or ((scalar keys %{$input_set_ref->{nutrients}}) == 0)
+						)
+						and (not exists $input_set_ref->{unspecified_nutrients})
+						)
 					{
 						next;
 					}
