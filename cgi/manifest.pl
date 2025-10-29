@@ -55,6 +55,7 @@ else {
 	$short_name .= " " . uc($request_ref->{cc}) . "/" . uc($lc);
 }
 
+### TODO: change site_description per flavor.
 my %manifest = (
 	lang => $lc,
 	name => $long_name,
