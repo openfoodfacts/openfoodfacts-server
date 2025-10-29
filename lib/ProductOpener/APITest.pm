@@ -339,9 +339,16 @@ Create a moderator user, implies creation of an admin
 =head3 Returns
 
 A hashmap associating user with their user agent:
+
+=over
+
 =item user: normal user
+
 =item admin: admin user
+
 =item moderator: moderator user
+
+=back
 
 =cut
 
