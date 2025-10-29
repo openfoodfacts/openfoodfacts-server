@@ -43,6 +43,33 @@
       "created_t" : "--ignore--",
       "creator" : "tests",
       "data_quality_bugs_tags" : [],
+      "data_quality_completeness_tags" : [
+         "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+         "en:ingredients-en-photo-to-be-selected",
+         "en:ingredients-en-to-be-completed",
+         "en:categories-to-be-completed",
+         "en:nutriments-completed",
+         "en:packaging-photo-to-be-selected",
+         "en:packagings-completed",
+         "en:traceability-codes-to-be-completed",
+         "en:front-photo-to-be-selected",
+         "en:product-name-completed",
+         "en:quantity-to-be-completed",
+         "en:brands-to-be-completed",
+         "en:expiration-date-to-be-completed"
+      ],
+      "data_quality_dimensions" : {
+         "accuracy" : {
+            "overall" : "0.00"
+         },
+         "completeness" : {
+            "general_information" : "0.20",
+            "ingredients" : "0.00",
+            "nutrition" : "0.67",
+            "overall" : "0.31",
+            "packaging" : "0.33"
+         }
+      },
       "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
          "en:no-packaging-data",
@@ -52,6 +79,19 @@
          "en:food-groups-3-unknown"
       ],
       "data_quality_tags" : [
+         "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+         "en:ingredients-en-photo-to-be-selected",
+         "en:ingredients-en-to-be-completed",
+         "en:categories-to-be-completed",
+         "en:nutriments-completed",
+         "en:packaging-photo-to-be-selected",
+         "en:packagings-completed",
+         "en:traceability-codes-to-be-completed",
+         "en:front-photo-to-be-selected",
+         "en:product-name-completed",
+         "en:quantity-to-be-completed",
+         "en:brands-to-be-completed",
+         "en:expiration-date-to-be-completed",
          "en:no-packaging-data",
          "en:no-nutrition-data",
          "en:food-groups-1-unknown",
@@ -372,7 +412,6 @@
          "en:packagings-number-of-components-0",
          "en:main-countries-new-product"
       ],
-      "no_nutrition_data" : "on",
       "nova_group_debug" : "no nova group when the product does not have ingredients",
       "nova_group_error" : "missing_ingredients",
       "nova_groups_tags" : [

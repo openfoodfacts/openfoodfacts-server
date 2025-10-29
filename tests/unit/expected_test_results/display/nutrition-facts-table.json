@@ -1,159 +1,159 @@
 {
-   "nutrition_table": {
-      "id": "nutrition",
-      "header": {
-         "name": "Nutrition facts",
-         "columns": [
+   "nutrition_table" : {
+      "header" : {
+         "columns" : [
             {
-               "scope": "product",
-               "product_type": "",
-               "short_name": "100g",
-               "name": "As sold<br>for 100 g / 100 ml",
-               "per": "100g",
-               "col_id": "100g"
+               "col_id" : "100g",
+               "name" : "As sold<br>for 100 g / 100 ml",
+               "per" : "100g",
+               "product_type" : "",
+               "scope" : "product",
+               "short_name" : "100g"
             }
-         ]
+         ],
+         "name" : "Nutrition facts"
       },
-      "rows": [
+      "id" : "nutrition",
+      "rows" : [
          {
-            "name": "Energy",
-            "nid": "energy",
-            "level": 0,
-            "columns": [
+            "columns" : [
                {
-                  "value": "0 kj<br>(0 kcal)",
-                  "rdfa": " property=\"food:energyPer100g\" content=\"0\"",
-                  "class": null,
-                  "percent": null,
-                  "type": "normal"
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:energyPer100g\" content=\"0\"",
+                  "type" : "normal",
+                  "value" : "0 kj<br>(0 kcal)"
                }
-            ]
+            ],
+            "level" : 0,
+            "name" : "Energy",
+            "nid" : "energy"
          },
          {
-            "name": "Fat",
-            "nid": "fat",
-            "level": 0,
-            "columns": [
+            "columns" : [
                {
-                  "value": "0 g",
-                  "rdfa": " property=\"food:fatPer100g\" content=\"0\"",
-                  "class": null,
-                  "percent": null,
-                  "type": "normal"
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:fatPer100g\" content=\"0\"",
+                  "type" : "normal",
+                  "value" : "0 g"
                }
-            ]
+            ],
+            "level" : 0,
+            "name" : "Fat",
+            "nid" : "fat"
          },
          {
-            "name": "Saturated fat",
-            "nid": "saturated-fat",
-            "level": 1,
-            "columns": [
+            "columns" : [
                {
-                  "value": "?",
-                  "rdfa": "",
-                  "class": null,
-                  "percent": null,
-                  "type": "normal"
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
                }
-            ]
+            ],
+            "level" : 1,
+            "name" : "Saturated fat",
+            "nid" : "saturated-fat"
          },
          {
-            "name": "Carbohydrates",
-            "nid": "carbohydrates",
-            "level": 0,
-            "columns": [
+            "columns" : [
                {
-                  "value": "0 g",
-                  "rdfa": " property=\"food:carbohydratesPer100g\" content=\"0\"",
-                  "class": null,
-                  "percent": null,
-                  "type": "normal"
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:carbohydratesPer100g\" content=\"0\"",
+                  "type" : "normal",
+                  "value" : "0 g"
                }
-            ]
+            ],
+            "level" : 0,
+            "name" : "Carbohydrates",
+            "nid" : "carbohydrates"
          },
          {
-            "name": "Sugars",
-            "nid": "sugars",
-            "level": 1,
-            "columns": [
+            "columns" : [
                {
-                  "value": "?",
-                  "rdfa": "",
-                  "class": null,
-                  "percent": null,
-                  "type": "normal"
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
                }
-            ]
+            ],
+            "level" : 1,
+            "name" : "Sugars",
+            "nid" : "sugars"
          },
          {
-            "name": "Fiber",
-            "nid": "fiber",
-            "level": 0,
-            "columns": [
+            "columns" : [
                {
-                  "value": "?",
-                  "rdfa": "",
-                  "class": null,
-                  "percent": null,
-                  "type": "normal"
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
                }
-            ]
+            ],
+            "level" : 0,
+            "name" : "Fiber",
+            "nid" : "fiber"
          },
          {
-            "name": "Proteins",
-            "nid": "proteins",
-            "level": 0,
-            "columns": [
+            "columns" : [
                {
-                  "value": "0 g",
-                  "rdfa": " property=\"food:proteinsPer100g\" content=\"0\"",
-                  "class": null,
-                  "percent": null,
-                  "type": "normal"
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:proteinsPer100g\" content=\"0\"",
+                  "type" : "normal",
+                  "value" : "0 g"
                }
-            ]
+            ],
+            "level" : 0,
+            "name" : "Proteins",
+            "nid" : "proteins"
          },
          {
-            "name": "Salt",
-            "nid": "salt",
-            "level": 0,
-            "columns": [
+            "columns" : [
                {
-                  "value": "3.75 g",
-                  "rdfa": " property=\"food:saltPer100g\" content=\"3.75\"",
-                  "class": null,
-                  "percent": null,
-                  "type": "normal"
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:saltPer100g\" content=\"3.75\"",
+                  "type" : "normal",
+                  "value" : "3.75 g"
                }
-            ]
+            ],
+            "level" : 0,
+            "name" : "Salt",
+            "nid" : "salt"
          },
          {
-            "name": "Calcium",
-            "nid": "calcium",
-            "level": 0,
-            "columns": [
+            "columns" : [
                {
-                  "value": "300 mg",
-                  "rdfa": " property=\"food:calciumPer100g\" content=\"0.3\"",
-                  "class": null,
-                  "percent": null,
-                  "type": "normal"
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:calciumPer100g\" content=\"0.3\"",
+                  "type" : "normal",
+                  "value" : "300 mg"
                }
-            ]
+            ],
+            "level" : 0,
+            "name" : "Calcium",
+            "nid" : "calcium"
          },
          {
-            "name": "Caffeine",
-            "nid": "caffeine",
-            "level": 0,
-            "columns": [
+            "columns" : [
                {
-                  "value": "2,000 mg",
-                  "rdfa": " property=\"food:caffeinePer100g\" content=\"2\"",
-                  "class": null,
-                  "percent": null,
-                  "type": "normal"
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:caffeinePer100g\" content=\"2\"",
+                  "type" : "normal",
+                  "value" : "2,000 mg"
                }
-            ]
+            ],
+            "level" : 0,
+            "name" : "Caffeine",
+            "nid" : "caffeine"
          }
       ]
    }

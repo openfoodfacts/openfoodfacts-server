@@ -15,6 +15,12 @@
                   "panel_element" : {
                      "panel_id" : "data_quality_info"
                   }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "data_quality_completeness"
+                  }
                }
             ],
             "expanded" : true,
@@ -25,6 +31,88 @@
                "contribution"
             ],
             "type" : "card"
+         },
+         "data_quality_completeness" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:ingredients-en-photo-to-be-selected\"> en:ingredients-en-photo-to-be-selected <br><span class=\"description\">A photo for the ingredients list needs to be selected.</span> </li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_ingredients_image"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:nutriments-to-be-completed\"> en:nutriments-to-be-completed <br><span class=\"description\">The nutrition facts need to be completed.</span> </li> <li id=\"data-error-en:nutrition-photo-to-be-selected\"> en:nutrition-photo-to-be-selected <br><span class=\"description\">A photo for the nutrition facts needs to be selected.</span> </li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_nutrition_facts"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:packaging-photo-to-be-selected\"> en:packaging-photo-to-be-selected <br><span class=\"description\">A photo for the packaging needs to be selected.</span> </li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_packaging_image"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:brands-to-be-completed\"> en:brands-to-be-completed <br><span class=\"description\">The product brands need to be completed.</span> </li> <li id=\"data-error-en:expiration-date-to-be-completed\"> en:expiration-date-to-be-completed <br><span class=\"description\">The product expiration date needs to be completed.</span> </li> <li id=\"data-error-en:front-photo-to-be-selected\"> en:front-photo-to-be-selected <br><span class=\"description\">A front photo for the product needs to be selected.</span> </li> <li id=\"data-error-en:photo-and-data-to-be-checked-by-an-experienced-contributor\"> en:photo-and-data-to-be-checked-by-an-experienced-contributor <br><span class=\"description\">The product's photo and data need to be checked by an experienced contributor.</span> </li> <li id=\"data-error-en:traceability-codes-to-be-completed\"> en:traceability-codes-to-be-completed <br><span class=\"description\">The traceability codes need to be completed. These codes are in an ellipse.</span> </li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "edit_product"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:categories-completed\"> en:categories-completed <br><span class=\"description\">The product categories are fully completed.</span> </li> <li id=\"data-error-en:ingredients-completed-at-least-for-one-language\"> en:ingredients-completed-at-least-for-one-language <br><span class=\"description\">Ingredients is provided for at least one language.</span> </li> <li id=\"data-error-en:ingredients-en-completed\"> en:ingredients-en-completed <br><span class=\"description\">The ingredients list is fully completed.</span> </li> <li id=\"data-error-en:packagings-completed\"> en:packagings-completed <br><span class=\"description\">The packaging information is fully completed.</span> </li> <li id=\"data-error-en:product-name-completed\"> en:product-name-completed <br><span class=\"description\">The product name is fully completed.</span> </li> <li id=\"data-error-en:quantity-completed\"> en:quantity-completed <br><span class=\"description\">The product quantity is fully completed.</span> </li> </ul>"
+                  }
+               }
+            ],
+            "evaluation" : "good",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-info.svg",
+               "subtitle" : "Some infos about data quality completeness on this product",
+               "title" : "Data Quality Completeness"
+            },
+            "topics" : [
+               "contribution"
+            ]
          },
          "data_quality_info" : {
             "elements" : [
@@ -731,13 +819,6 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "As sold<br>per serving (10 g)",
-                           "text_for_small_screens" : "per serving",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -747,10 +828,19 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fat"
+                                 "text" : "Energy"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "1,302 kj<br>(1302 kcal)"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fat"
                               },
                               {
                                  "text" : "?"
@@ -766,9 +856,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -778,9 +865,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Carbohydrates"
-                              },
-                              {
-                                 "text" : "?"
                               },
                               {
                                  "text" : "?"
@@ -796,9 +880,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -808,9 +889,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fiber"
-                              },
-                              {
-                                 "text" : "?"
                               },
                               {
                                  "text" : "?"
@@ -826,9 +904,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -840,25 +915,7 @@
                                  "text" : "Salt"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
-                              }
-                           ]
-                        },
-                        {
-                           "values" : [
-                              {
-                                 "level" : 0,
-                                 "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
-                              },
-                              {
-                                 "text" : "0 %"
-                              },
-                              {
-                                 "text" : "0 %"
+                                 "text" : "120 g"
                               }
                            ]
                         }
@@ -1073,8 +1130,7 @@
             ],
             "type" : "inline"
          }
-      },
-      "nutriments" : {}
+      }
    },
    "status" : 1,
    "status_verbose" : "product found"

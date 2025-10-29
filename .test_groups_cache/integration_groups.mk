@@ -1,6 +1,6 @@
 # Auto-calculated 9 groups for 48 tests (total estimated time: 24.0m)
 # Generated test groups for integration tests
-# Generated at: Tue Oct 28 17:01:20 2025
+# Generated at: Wed Oct 29 10:23:51 2025
 
 INTEGRATION_GROUP_1_TESTS := add_update_to_redis.t api_v3_product_revert.t auth_user_from_keycloak.t delete_user.t oidc_signout.t unknown_tags.t
 INTEGRATION_GROUP_2_TESTS := api_attribute_groups.t api_v3_product_services.t change_product_code_and_product_type.t export.t page_crawler.t upload_images.t
@@ -11,3 +11,15 @@ INTEGRATION_GROUP_6_TESTS := api_v2_product_write.t api_v3_taxonomy.t create_pro
 INTEGRATION_GROUP_7_TESTS := api_v3_product_images_selected.t api_v3_taxonomy_suggestions.t create_product.t madenearme.t remove_documents_by_ids.t
 INTEGRATION_GROUP_8_TESTS := api_v3_product_images_upload.t auth-keycloak.t create_user.t modify_user.t run_cloud_vision_ocr.t
 INTEGRATION_GROUP_9_TESTS := api_v3_product_read.t auth.t data_quality_knowledge_panel.t oidc_signin.t search_v1.t
+
+# Group Statistics:
+# Group 1: 6 tests, 3m 0s
+# Group 2: 6 tests, 3m 0s
+# Group 3: 6 tests, 3m 0s
+# Group 4: 5 tests, 2m 30s
+# Group 5: 5 tests, 2m 30s
+# Group 6: 5 tests, 2m 30s
+# Group 7: 5 tests, 2m 30s
+# Group 8: 5 tests, 2m 30s
+# Group 9: 5 tests, 2m 30s
+# Max group time: 3.0m, Min: 2.5m, Avg: 2.7m

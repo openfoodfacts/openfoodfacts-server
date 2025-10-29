@@ -30,6 +30,32 @@
       "en:code-missing",
       "en:created-missing"
    ],
+   "data_quality_completeness_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-to-be-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:traceability-codes-to-be-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed"
+   ],
+   "data_quality_dimensions" : {
+      "accuracy" : {
+         "overall" : "0.00"
+      },
+      "completeness" : {
+         "general_information" : "0.00",
+         "ingredients" : "0.00",
+         "nutrition" : "0.33",
+         "overall" : "0.18",
+         "packaging" : "0.33"
+      }
+   },
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
@@ -44,6 +70,18 @@
       "en:main-language-missing",
       "en:code-missing",
       "en:created-missing",
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-to-be-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:traceability-codes-to-be-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed",
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-ingredients-with-specified-percent",
@@ -1460,13 +1498,6 @@
                         "style" : "max-width:15rem",
                         "text" : "Nutrition facts",
                         "type" : "text"
-                     },
-                     {
-                        "column_group_id" : "product",
-                        "shown_by_default" : true,
-                        "text" : "As sold<br>per serving (20)",
-                        "text_for_small_screens" : "per serving",
-                        "type" : "text"
                      }
                   ],
                   "id" : "nutrition_facts_table",
@@ -1725,45 +1756,15 @@
    "nucleotides_tags" : [],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
-   "nutrition": {
-		"aggregated_set": {
-			"nutrients": {
-				"energy": {
-					"value": 2591
-				},
-				"fat": {
-					"value": 50
-				},
-				"saturated-fat": {
-					"value": 9.7
-				},
-				"sugars": {
-					"value": 5.1
-				},
-				"salt": {
-					"value": 0
-				},
-				"sodium": {
-					"value": 0
-				},
-				"proteins": {
-					"value": 29
-				},
-				"fiber": {
-					"value": 5.5
-				},
-            "fruits-vegetables-legumes-estimate-from-ingredients": {
-               "value": 100
-            },
-            "fruits-vegetables-nuts-estimate-from-ingredients": {
-               "value": 100
-            },
-            "nova_group": {
-               "value": 1
-            }
-			}
-		}
-	},
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100,
+      "nova-group" : 1,
+      "nova-group_100g" : 1,
+      "nova-group_serving" : 1
+   },
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
@@ -1818,6 +1819,36 @@
       "unknown"
    ],
    "nutriscore_version" : "2023",
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "energy" : {
+               "value" : 2591
+            },
+            "fat" : {
+               "value" : 50
+            },
+            "fiber" : {
+               "value" : 5.5
+            },
+            "proteins" : {
+               "value" : 29
+            },
+            "salt" : {
+               "value" : 0
+            },
+            "saturated-fat" : {
+               "value" : 9.7
+            },
+            "sodium" : {
+               "value" : 0
+            },
+            "sugars" : {
+               "value" : 5.1
+            }
+         }
+      }
+   },
    "nutrition_data_per" : "serving",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "unknown",

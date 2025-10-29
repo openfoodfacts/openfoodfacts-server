@@ -67,6 +67,35 @@
       "created_t" : "--ignore--",
       "creator" : "tests",
       "data_quality_bugs_tags" : [],
+      "data_quality_completeness_tags" : [
+         "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+         "en:ingredients-en-photo-to-be-selected",
+         "en:ingredients-en-completed",
+         "en:ingredients-completed-at-least-for-one-language",
+         "en:nutrition-photo-to-be-selected",
+         "en:categories-completed",
+         "en:nutriments-completed",
+         "en:packaging-photo-to-be-selected",
+         "en:packagings-completed",
+         "en:traceability-codes-to-be-completed",
+         "en:front-photo-to-be-selected",
+         "en:product-name-to-be-completed",
+         "en:quantity-completed",
+         "en:brands-to-be-completed",
+         "en:expiration-date-to-be-completed"
+      ],
+      "data_quality_dimensions" : {
+         "accuracy" : {
+            "overall" : "0.00"
+         },
+         "completeness" : {
+            "general_information" : "0.20",
+            "ingredients" : "0.50",
+            "nutrition" : "0.67",
+            "overall" : "0.38",
+            "packaging" : "0.33"
+         }
+      },
       "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
          "en:no-packaging-data",
@@ -76,6 +105,21 @@
          "en:food-groups-3-unknown"
       ],
       "data_quality_tags" : [
+         "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+         "en:ingredients-en-photo-to-be-selected",
+         "en:ingredients-en-completed",
+         "en:ingredients-completed-at-least-for-one-language",
+         "en:nutrition-photo-to-be-selected",
+         "en:categories-completed",
+         "en:nutriments-completed",
+         "en:packaging-photo-to-be-selected",
+         "en:packagings-completed",
+         "en:traceability-codes-to-be-completed",
+         "en:front-photo-to-be-selected",
+         "en:product-name-to-be-completed",
+         "en:quantity-completed",
+         "en:brands-to-be-completed",
+         "en:expiration-date-to-be-completed",
          "en:no-packaging-data",
          "en:ingredients-percent-analysis-ok",
          "en:food-groups-1-known",
@@ -505,7 +549,17 @@
       "nucleotides_tags" : [],
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
-      "nutriments" : {},
+      "nutriments" : {
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
+         "nova-group" : 3,
+         "nova-group_100g" : 3,
+         "nova-group_serving" : 3,
+         "nutrition-score-fr" : 23,
+         "nutrition-score-fr_100g" : 23
+      },
       "nutriments_estimated" : {
          "alcohol_100g" : 0,
          "beta-carotene_100g" : 0,

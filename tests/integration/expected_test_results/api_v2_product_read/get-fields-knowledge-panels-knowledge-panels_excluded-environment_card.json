@@ -688,13 +688,6 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "As sold<br>per serving (10 g)",
-                           "text_for_small_screens" : "per serving",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -704,13 +697,22 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
+                                 "text" : "Energy"
+                              },
+                              {
+                                 "text" : "400 kj<br>(96 kcal)"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
                                  "text" : "Fat"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "8.5 g"
                               }
                            ]
                         },
@@ -722,10 +724,7 @@
                                  "text" : "Saturated fat"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "5.6 g"
                               }
                            ]
                         },
@@ -737,10 +736,7 @@
                                  "text" : "Carbohydrates"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "10.5 g"
                               }
                            ]
                         },
@@ -752,10 +748,7 @@
                                  "text" : "Sugars"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "12.5 g"
                               }
                            ]
                         },
@@ -767,10 +760,7 @@
                                  "text" : "Fiber"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "2 g"
                               }
                            ]
                         },
@@ -782,10 +772,7 @@
                                  "text" : "Proteins"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "4.5 g"
                               }
                            ]
                         },
@@ -797,25 +784,7 @@
                                  "text" : "Salt"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
-                              }
-                           ]
-                        },
-                        {
-                           "values" : [
-                              {
-                                 "level" : 0,
-                                 "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
-                              },
-                              {
-                                 "text" : "58.333 %"
-                              },
-                              {
-                                 "text" : "58.333 %"
+                                 "text" : "0.05 g"
                               }
                            ]
                         }
@@ -932,8 +901,7 @@
             ],
             "type" : "inline"
          }
-      },
-      "nutriments" : {}
+      }
    },
    "status" : 1,
    "status_verbose" : "product found"

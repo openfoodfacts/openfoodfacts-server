@@ -78,6 +78,37 @@
       "created_t" : "--ignore--",
       "creator" : "tests",
       "data_quality_bugs_tags" : [],
+      "data_quality_completeness_tags" : [
+         "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+         "en:ingredients-en-photo-to-be-selected",
+         "en:ingredients-en-completed",
+         "en:ingredients-completed-at-least-for-one-language",
+         "en:ingredients-fr-photo-to-be-selected",
+         "en:ingredients-fr-completed",
+         "en:nutrition-photo-to-be-selected",
+         "en:categories-completed",
+         "en:nutriments-completed",
+         "en:packaging-photo-to-be-selected",
+         "en:packagings-completed",
+         "en:traceability-codes-to-be-completed",
+         "en:front-photo-to-be-selected",
+         "en:product-name-completed",
+         "en:quantity-completed",
+         "en:brands-completed",
+         "en:expiration-date-to-be-completed"
+      ],
+      "data_quality_dimensions" : {
+         "accuracy" : {
+            "overall" : "0.00"
+         },
+         "completeness" : {
+            "general_information" : "0.60",
+            "ingredients" : "0.50",
+            "nutrition" : "0.67",
+            "overall" : "0.53",
+            "packaging" : "0.33"
+         }
+      },
       "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
@@ -87,6 +118,23 @@
          "en:food-groups-3-unknown"
       ],
       "data_quality_tags" : [
+         "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+         "en:ingredients-en-photo-to-be-selected",
+         "en:ingredients-en-completed",
+         "en:ingredients-completed-at-least-for-one-language",
+         "en:ingredients-fr-photo-to-be-selected",
+         "en:ingredients-fr-completed",
+         "en:nutrition-photo-to-be-selected",
+         "en:categories-completed",
+         "en:nutriments-completed",
+         "en:packaging-photo-to-be-selected",
+         "en:packagings-completed",
+         "en:traceability-codes-to-be-completed",
+         "en:front-photo-to-be-selected",
+         "en:product-name-completed",
+         "en:quantity-completed",
+         "en:brands-completed",
+         "en:expiration-date-to-be-completed",
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
          "en:food-groups-1-unknown",
@@ -631,6 +679,8 @@
       "nutriments" : {
          "energy-kj_100g" : 10,
          "energy-kj_unit" : "kJ",
+         "energy_100g" : 10,
+         "energy_unit" : "kJ",
          "fat_100g" : 12.7,
          "fat_unit" : "g",
          "proteins_100g" : 2,

@@ -350,7 +350,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	my $oidc_implementation_level = get_oidc_implementation_level();
 	$template_data_ref->{oidc_implementation_level} = $oidc_implementation_level;
-	if (    $oidc_implementation_level > 0
+	if (    $oidc_implementation_level > 4
 		and defined $template_data_ref->{user_id}
 		and defined $template_data_ref->{canon_url})
 	{
@@ -1385,7 +1385,7 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	}
 	elsif ($file =~ /\/index/) {
 		# Display all products
-		$html .= search_and_display_products($request_ref, {}, "last_modified_t_complete_first", undef, undef);
+		$html .= search_and_display_products($request_ref, {}, undef, undef, undef);
 	}
 
 	# Replace included texts
@@ -1422,14 +1422,18 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 		my $current_level = -1;
 		my $nb_headers = 0;
 
-		while ($text =~ /<h(\d)([^<]*)>(.*?)<\/h(\d)>/si) {
-			my $level = $1;
-			my $h_attributes = $2;
-			my $header = $3;
+		while ($text
+			=~ /^(?<before>.*?)<h(?<level>\d)(?<h_attributes>[^<]*)>(?<header>.*?)<\/h(?<end_level>\d)>(?<after>.*)$/si)
+		{
+			my $before = $+{before};
+			my $level = $+{level};
+			my $h_attributes = $+{h_attributes};
+			my $header = $+{header};
+			my $after = $+{after};
 
-			$text = $';
-			$new_text .= $`;
-			my $match = $&;
+			$text = $after;
+			$new_text .= $before;
+			my $match = "<h$level$h_attributes>$header</h$level>";
 
 			# Skip h1
 			if ($level == 1) {
@@ -5127,7 +5131,6 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		(not defined $sort_by)
 		or (    ($sort_by ne 'created_t')
 			and ($sort_by ne 'last_modified_t')
-			and ($sort_by ne 'last_modified_t_complete_first')
 			and ($sort_by ne 'scans_n')
 			and ($sort_by ne 'unique_scans_n')
 			and ($sort_by ne 'product_name')
@@ -5153,13 +5156,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		my $order = 1;
 		my $sort_by_key = $sort_by;
 
-		if ($sort_by eq 'last_modified_t_complete_first') {
-			# replace last_modified_t_complete_first (used on front page of a country) by popularity
-			$sort_by = 'popularity';
-			$sort_by_key = "popularity_key";
-			$order = -1;
-		}
-		elsif ($sort_by eq "popularity") {
+		if ($sort_by eq "popularity") {
 			$sort_by_key = "popularity_key";
 			$order = -1;
 		}
@@ -5175,9 +5172,6 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		}
 		elsif ($sort_by eq "nova_score") {
 			$sort_by_key = "nova_score_opposite";
-			$order = -1;
-		}
-		elsif ($sort_by =~ /^((.*)_t)_complete_first/) {
 			$order = -1;
 		}
 		elsif ($sort_by =~ /_t/) {
@@ -7578,7 +7572,7 @@ sub display_page ($request_ref) {
 
 	my $html;
 	# ?content_only=1 -> only the content, no header, footer, etc.
-	if (($user_agent =~ /smoothie/) or (single_param('content_only'))) {
+	if (($user_agent =~ /smoothie/i) or (single_param('content_only'))) {
 		$template_data_ref->{content_only} = 1;
 	}
 	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html, $request_ref)
