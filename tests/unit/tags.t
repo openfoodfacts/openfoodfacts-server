@@ -5,7 +5,7 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
-#use Log::Any::Adapter 'TAP', filter => "none";
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/get_fileid get_string_id_for_lang/;
@@ -920,5 +920,7 @@ is(country_to_cc(undef), undef);
 is(cc_to_country('fr'), 'en:france');
 is(cc_to_country('unknown'), 'en:world');
 is(cc_to_country(undef), 'en:world');
+
+is(get_taxonomy_tag_path("test", "en:lemon-yogurts"), ["en:yogurts", "en:lemon-yogurts"]);
 
 done_testing();
