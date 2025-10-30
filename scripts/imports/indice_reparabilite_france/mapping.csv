@@ -1,11 +1,12 @@
 "source_column","target_column","target_database","comments"
-"id_unique","france:reparability_index:unique_id","Folksonomy Engine",
-"id_modele","code","Product Opener","Reject each entry which is not a correct EAN"
+"id_modele","code","Folksonomy Engine","EAN code for the product. Reject each entry which is not a correct one"
+"id_modele","code","Product Opener","EAN code for the product. Reject each entry which is not a correct one"
+"id_unique","-",,"Rejected: internal ID which does not matter"
 "referentiel_id_modele","-",,"Rejected"
 "nom_modele","product_name","Product Opener","French language"
 "categorie_produit","categories","Product Opener","French language"
-"id_metteur_sur_le_marche","france:reparability_index:company:id:syderep or company:id:gln","Folksonomy Engine",
-"referentiel_id_metteur_sur_marche","-",,"Merged with the previous one"
+"id_metteur_sur_le_marche","france:reparability_index:company:id","Folksonomy Engine",
+"referentiel_id_metteur_sur_marche","france:reparability_index:company:id:referential","Folksonomy Engine","It should have been merged with the previous one, but it makes conversion more difficult"
 "nom_metteur_sur_le_marche","brands","Product Opener",
 "date_calcul","france:reparability_index:calculation_date","Folksonomy Engine",
 "url_tableau_detail_notation","france:reparability_index:scoring_details_url","Folksonomy Engine",
