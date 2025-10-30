@@ -243,6 +243,11 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			= create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	my $has_reuse_card;
+	if ($panel_is_requested->('reuse_card')) {
+		$has_reuse_card = create_reuse_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	my $has_report_problem_card;
 	if (not $options_ref->{producers_platform} and $panel_is_requested->('report_problem_card')) {
 		$has_report_problem_card
@@ -270,6 +275,7 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			has_report_problem_card => $has_report_problem_card,
 			has_contribution_card => $has_contribution_card,
 			has_environment_card => $has_environment_card,
+			has_reuse_card => $has_reuse_card,
 			has_secondhand_card => $has_secondhand_card,
 			has_product_card => $has_product_card,
 		},
@@ -808,6 +814,90 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc);
 	create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	return 1;
+}
+
+=head2 create_reuse_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates a knowledge panel card that contains information about circular economy solutions
+through QFDMO (Où et comment donner, réparer et recycler).
+
+Only created for:
+- Products on Open Products Facts (product_type "product")
+- Products with a category that has a qfdmo_name_fr property
+- Users in France (target_cc = "fr")
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+Only shown when the user's country is France (fr).
+
+=cut
+
+sub create_reuse_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	$log->debug("create reuse card panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+	my $panel_data_ref = {};
+
+	# Only available for the product_type "product" (Open Products Facts)
+	if ($options{product_type} ne "product") {
+		return 0;
+	}
+
+	# Only show for France
+	if ($target_cc ne 'fr') {
+		return 0;
+	}
+
+	# Check if any category in the hierarchy has a qfdmo_name_fr property
+	my $has_qfdmo = 0;
+	my $qfdmo_name_fr;
+	my $category_name_fr;
+
+	if (defined $product_ref->{categories_hierarchy}) {
+		# Check categories from most specific to least specific
+		foreach my $category_id (reverse @{$product_ref->{categories_hierarchy}}) {
+			# Check if this category has qfdmo_name_fr property
+			$qfdmo_name_fr = get_property("categories", $category_id, "qfdmo_name_fr:en");
+			
+			if (defined $qfdmo_name_fr) {
+				$has_qfdmo = 1;
+				# Get the French name of this category
+				$category_name_fr = display_taxonomy_tag_name("fr", "categories", $category_id);
+				last;
+			}
+		}
+	}
+
+	# Don't create the panel if no category has QFDMO info
+	if (not $has_qfdmo) {
+		return 0;
+	}
+
+	# Add QFDMO info to panel data
+	$panel_data_ref->{qfdmo_name_fr} = $qfdmo_name_fr;
+	$panel_data_ref->{category_name_fr} = $category_name_fr;
+
+	# Create QFDMO solutions panel
+	create_panel_from_json_template("qfdmo_solutions",
+		"api/knowledge-panels/reuse/qfdmo_solutions.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	# Create the reuse_card panel
+	create_panel_from_json_template("reuse_card", "api/knowledge-panels/reuse/reuse_card.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
 	return 1;
 }
 
