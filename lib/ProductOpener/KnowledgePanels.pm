@@ -261,6 +261,12 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			= create_secondhand_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	my $has_maintain_card;
+	if ($panel_is_requested->('maintain_card')) {
+		$has_maintain_card
+			= create_maintain_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
 		"root",
@@ -271,6 +277,7 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			has_contribution_card => $has_contribution_card,
 			has_environment_card => $has_environment_card,
 			has_secondhand_card => $has_secondhand_card,
+			has_maintain_card => $has_maintain_card,
 			has_product_card => $has_product_card,
 		},
 		$product_ref,
@@ -873,6 +880,70 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	return 1;
+}
+
+=head2 create_maintain_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates a knowledge panel card that contains maintenance and repair advice for products.
+
+Created for products in specific categories that have maintenance URLs, for users in specific countries.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+This parameter sets the desired language for the user facing strings.
+
+=head4 country code $target_cc
+
+Used to select maintenance resources that are relevant for the user.
+
+=cut
+
+sub create_maintain_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	$log->debug("create maintain card panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+	my $panel_data_ref = {};
+
+	# Only available for the product_type "product"
+	if ($options{product_type} ne "product") {
+		return 0;
+	}
+
+	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
+	my $category_id = $product_ref->{categories_hierarchy}[-1];
+	$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
+
+	# Check if the product has a category with a maintenance URL
+	my ($maintenance_url, $category_with_url)
+		= get_inherited_property_from_categories_tags($product_ref, "epargnonsnosressources_fr_url:en");
+
+	if (defined $maintenance_url) {
+		$panel_data_ref->{maintenance_url} = $maintenance_url;
+		$panel_data_ref->{category_with_maintenance_url} = $category_with_url;
+
+		# Create panel for maintenance advice for France
+		if ($target_cc eq 'fr') {
+			create_panel_from_json_template("maintenance_advice_fr_epargnonsnosressources",
+				"api/knowledge-panels/maintain/maintenance_advice_fr_epargnonsnosressources.tt.json",
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
+	}
+
+	# Create the maintain_card panel only if we have created at least one sub-panel
+	if (defined $product_ref->{"knowledge_panels_" . $target_lc}{maintenance_advice_fr_epargnonsnosressources}) {
+		create_panel_from_json_template("maintain_card", "api/knowledge-panels/maintain/maintain_card.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		return 1;
+	}
+
+	return 0;
 }
 
 sub create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
