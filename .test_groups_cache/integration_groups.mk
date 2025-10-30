@@ -1,6 +1,6 @@
 # Auto-calculated 9 groups for 48 tests (total estimated time: 24.0m)
 # Generated test groups for integration tests
-# Generated at: Tue Oct 28 11:02:45 2025
+# Generated at: Thu Oct 30 18:25:31 2025
 
 INTEGRATION_GROUP_1_TESTS := add_update_to_redis.t api_v3_product_revert.t change_product_code_and_product_type.t export.t oidc_signout.t unknown_tags.t
 INTEGRATION_GROUP_2_TESTS := api_attribute_groups.t api_v3_product_services.t convert_and_import_excel_file.t external_sources.t page_crawler.t upload_images.t
