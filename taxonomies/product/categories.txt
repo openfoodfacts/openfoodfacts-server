@@ -21189,12 +21189,12 @@ unit_name:en: Basic phone
 unit_name:fr: Téléphone basique
 
 < en:Electronics
-en: Smart watches, Smartwatches 
+en: Smart watches, Smartwatches
 
-<en:Smart watches
+< en:Smart watches
 en: WearOS smartwatches
 
-<en:Smart watches
+< en:Smart watches
 en: Apple smartwatches
 
 < en:Electronics
@@ -21202,7 +21202,6 @@ en: Activity tracker
 
 < en:Electronics
 en: Fitness tracker
-
 
 < en:Telephony
 en: Mobile Phones, mobile phones, cell phones
@@ -26136,7 +26135,6 @@ en: Toner cartridges
 < en: Toner & Inkjet Cartridges
 en: Inkjet cartridges
 
-
 < en:Printer\, Copier & Fax Machine Accessories
 en: Printer Duplexers
 xx: Printer Duplexers
@@ -27221,12 +27219,6 @@ pl: Wyroby tytoniowe
 pt: Produtos de tabaco
 ru: Табачные изделия
 sv: Tobaksprodukter
-
-
-
-
-
-
 tr: Tütün Mamülleri
 google_product_taxonomy_id:en: 435
 recommendation_panel_evaluation:en: bad
@@ -35631,11 +35623,14 @@ unit_name:en: washing machine
 unit_name:fr: lave-linge
 wikidata:en: Q124441
 
-<en: Washing Machines
+< en:Washing Machines
+en: Front-loading Washing Machines
 fr: Lave-linge à chargement frontal, lave-linge hublot
 
-en: Washing Machines
+< en:Washing Machines
+en: Top-loading Washing Machines
 fr: Lave-linge à chargement par le haut, lave-linge top
+wikidata:en: Q1634761
 
 < en:Household Appliances
 en: Ultrasonic Cleaners
@@ -35682,11 +35677,11 @@ unit_name:en: vacuum cleaner
 unit_name:fr: aspirateur
 wikidata:en: Q11475
 
-<en: Vacuums
+< en:Vacuums
 en: Corded Vacuums
 fr: Aspirateur filaire
 
-<en: Vacuums
+< en:Vacuums
 en: Cordless vacuums
 fr: Aspirateur non filaire
 
@@ -53592,6 +53587,7 @@ wikidata:en: Q116970743
 
 en: Adhesives & Sealants
 
+< en:Adhesives & Sealants
 < en:Building Consumables
 en: Hardware Glue & Adhesives
 xx: Hardware Glue & Adhesives
@@ -66141,6 +66137,7 @@ tr: El İşi Yapışkanları ve Mıknatısları
 google_product_taxonomy_id:en: 505376
 wikidata:en: Q116960446
 
+< en:Adhesives & Sealants
 < en:Crafting Adhesives & Magnets
 en: Craft & Office Glue
 xx: Craft & Office Glue
