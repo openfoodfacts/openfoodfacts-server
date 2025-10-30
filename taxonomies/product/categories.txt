@@ -21648,12 +21648,12 @@ en: Smartphones
 carbon_impact_fr_impactco2:en: 85.9
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/smartphone
 fr: Smartphones, Smartphone
+qfdmo_name_fr: smartphone
+identifiant_qfdmo: 334
 google_product_taxonomy_id:en: 267
 unit_name:xx: smartphone
 unit_name:en: smartphone
 wikidata:en: Q17517
-qfdmo_name_fr: smartphone
-identifiant_qfdmo: 334
 
 < en: Smartphones
 en: Android smartphones
@@ -22209,6 +22209,7 @@ da: Tabletcomputere
 de: Tablet-PCs
 es: Tablets
 fr: Tablettes multimédias, Tablettes numériques, tablette numérique, Tablette tactile
+qfdmo_name_fr: tablette_tactile
 it: Computer tablet
 ja: タブレットPC
 nl: Tabletcomputers
@@ -22224,7 +22225,6 @@ google_product_taxonomy_id:en: 4745
 unit_name:en: digital tablet
 unit_name:fr: tablette numérique
 wikidata:en: Q155972
-qfdmo_name_fr: tablette_tactile
 
 < en:Computers
 en: Thin & Zero Clients
@@ -27643,6 +27643,7 @@ da: Videospilkonsoller
 de: Videospielkonsolen
 es: Videoconsolas
 fr: Consoles de jeu vidéo, Console de jeux
+qfdmo_name_fr: console_de_jeux
 it: Console videogiochi
 ja: テレビゲーム本体
 nl: Videogameconsoles
@@ -27654,7 +27655,6 @@ sv: Spelkonsoler
 tr: Video Oyun Konsolları
 google_product_taxonomy_id:en: 1294
 wikidata:en: Q8076
-qfdmo_name_fr: console_de_jeux
 
 #< en:Food\, Beverages & Tobacco
 en: Tobacco Products, Tobacco-based products
@@ -32076,7 +32076,7 @@ da: Vækkeure
 de: Wecker
 es: Despertadores
 fr: Réveils, Radio-réveil, Réveil matin, Radios-réveils
-qfdmo_name_fr: radio_reveil
+qfdmo_name_fr: reveil_matin
 identifiant_qfdmo: 145
 it: Sveglie
 ja: 目覚まし時計
@@ -32089,8 +32089,6 @@ sv: Alarmklockor
 tr: Çalar Saatler
 google_product_taxonomy_id:en: 4546
 wikidata:en: Q212758
-qfdmo_name_fr: reveil_matin
-identifiant_qfdmo: 145
 
 < en:Clocks
 en: Desk & Shelf Clocks
@@ -42725,6 +42723,7 @@ da: Riskogere
 de: Reiskocher
 es: Arroceras
 fr: Cuiseurs à riz, Rice-cooker
+qfdmo_name_fr: rice_cooker
 it: Dispositivi cottura riso
 ja: 炊飯器
 nl: Rijstkokers
@@ -42736,7 +42735,6 @@ sv: Riskokare
 tr: Pilav Pişirme Makineleri
 google_product_taxonomy_id:en: 757
 wikidata:en: Q1137500
-qfdmo_name_fr: rice_cooker
 
 < en:Food Cookers & Steamers
 en: Slow Cookers
@@ -52714,6 +52712,8 @@ da: Baby og småbørn – bilsæder
 de: Baby- & Kleinkindautositze
 es: Sillas de coche
 fr: Sièges auto pour bébés et enfants, Siège Auto
+qfdmo_name_fr: siege_auto
+identifiant_qfdmo: 321
 it: Seggiolini per auto
 ja: チャイルドシート
 nl: Autozitjes voor baby's en peuters
@@ -52725,8 +52725,6 @@ sv: Bilbarnstolar
 tr: Bebek ve Küçük Çocuk Oto Koltukları
 google_product_taxonomy_id:en: 547
 wikidata:en: Q4402404
-qfdmo_name_fr: siege_auto
-identifiant_qfdmo: 321
 
 < en:Baby Transport
 fr: Réhausseur
@@ -52760,6 +52758,7 @@ da: Babyklapvogn
 de: Kinderwagen
 es: Cochecitos de bebé
 fr: Poussettes pour bébés, Poussette
+qfdmo_name_fr: poussette
 it: Passeggini
 ja: ベビーカー
 nl: Wandelwagens
@@ -52771,7 +52770,6 @@ sv: Barnvagnar
 tr: Bebek Arabaları
 google_product_taxonomy_id:en: 568
 wikidata:en: Q507141
-qfdmo_name_fr: poussette
 
 < en:Baby & Toddler
 en: Baby Transport Accessories
@@ -59299,6 +59297,7 @@ da: Forlængerledninger
 de: Verlängerungskabel
 es: Alargador eléctrico
 fr: Rallonges électriques, Rallonge électrique
+qfdmo_name_fr: rallonge_electrique
 it: Prolunghe
 ja: 延長コード
 nl: Verlengsnoeren
@@ -59310,7 +59309,6 @@ sv: Förlängningskablar
 tr: Uzatma Kabloları
 google_product_taxonomy_id:en: 4789
 wikidata:en: Q1894990
-qfdmo_name_fr: rallonge_electrique
 
 < en:Power & Electrical Supplies
 en: Generator Accessories
@@ -59440,6 +59438,8 @@ da: Strøm – vekselrettere
 de: Wechselrichter
 es: Inversores de corriente
 fr: Onduleurs, Onduleur électrique
+qfdmo_name_fr: onduleur_electrique
+identifiant_qfdmo: 145
 it: Invertitori di corrente
 ja: DC-ACインバーター
 nl: Spanningsomzetters
@@ -59451,8 +59451,6 @@ sv: Växelriktare
 tr: Güç Çeviriciler
 google_product_taxonomy_id:en: 5142
 wikidata:en: Q324963
-qfdmo_name_fr: onduleur_electrique
-identifiant_qfdmo: 145
 
 < en:Power & Electrical Supplies
 en: Power Outlets & Sockets
@@ -76888,6 +76886,8 @@ da: Dæk til motorkøretøjer
 de: Kfz-Reifen
 es: Neumáticos para vehículos motorizados
 fr: Pneus
+qfdmo_name_fr: pneu
+identifiant_qfdmo: 275
 it: Pneumatici per veicoli a motore
 ja: 自動車・バイク用タイヤ
 nl: Banden voor motorvoertuigen
@@ -76899,8 +76899,6 @@ sv: Däck för motorfordon
 tr: Motorlu Taşıt Lastikleri
 google_product_taxonomy_id:en: 911
 wikidata:en: Q117209184
-qfdmo_name_fr: pneu
-identifiant_qfdmo: 275
 
 <en: Motor Vehicle Tires
 fr: Pneu de voiture
