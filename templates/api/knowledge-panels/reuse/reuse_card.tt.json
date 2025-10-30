@@ -5,7 +5,7 @@
         "reuse"
     ],
     "title_element": {
-        "title": "[% edq(lang('reuse_card_title')) %]",
+        "title": "[% edq(lang('reuse_card_title')) %]"
     },    
     "elements": [
         [% IF panels.qfdmo_solutions.defined %]

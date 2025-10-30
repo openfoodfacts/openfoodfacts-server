@@ -851,7 +851,7 @@ sub create_reuse_card_panel ($product_ref, $target_lc, $target_cc, $options_ref,
 	my $panel_data_ref = {};
 
 	# Only available for the product_type "product" (Open Products Facts)
-	if ($options{product_type} ne "product") {
+	if ($options_ref->{product_type} ne "product") {
 		return 0;
 	}
 
@@ -861,29 +861,15 @@ sub create_reuse_card_panel ($product_ref, $target_lc, $target_cc, $options_ref,
 	}
 
 	# Check if any category in the hierarchy has a qfdmo_name_fr property
-	my $has_qfdmo = 0;
-	my $qfdmo_name_fr;
-	my $category_name_fr;
-
-	if (defined $product_ref->{categories_hierarchy}) {
-		# Check categories from most specific to least specific
-		foreach my $category_id (reverse @{$product_ref->{categories_hierarchy}}) {
-			# Check if this category has qfdmo_name_fr property
-			$qfdmo_name_fr = get_property("categories", $category_id, "qfdmo_name_fr:en");
-			
-			if (defined $qfdmo_name_fr) {
-				$has_qfdmo = 1;
-				# Get the French name of this category
-				$category_name_fr = display_taxonomy_tag_name("fr", "categories", $category_id);
-				last;
-			}
-		}
-	}
-
+	my ($qfdmo_name_fr, $category_id) = get_inherited_property_from_categories_tags($product_ref, "qfdmo_name_fr:en");
+	
 	# Don't create the panel if no category has QFDMO info
-	if (not $has_qfdmo) {
+	if (not defined $qfdmo_name_fr) {
 		return 0;
 	}
+
+	# Get the French name of the category with QFDMO info
+	my $category_name_fr = display_taxonomy_tag_name("fr", "categories", $category_id);
 
 	# Add QFDMO info to panel data
 	$panel_data_ref->{qfdmo_name_fr} = $qfdmo_name_fr;
