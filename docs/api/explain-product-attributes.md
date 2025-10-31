@@ -39,7 +39,7 @@ Product Attributes are organized in sections:
   - Vegan
   - Vegetarian
   - Palm oil
-  - Unwanted ingredients (unwanted ingredients are specified by the user)
+  - Unwanted/Banned ingredients (user-specified list of ingredients to avoid; requires API v3.4+)
 - Labels
   - Organic
   - Fair trade
@@ -86,9 +86,13 @@ Attributes keys:
 
 Apps can request Product Attributes through API queries (`/api/v3/product` or `/api/v2/search`) by including `attribute_groups` or `attribute_groups_[language code]` (or `attribute_groups_data` to get only the machine-readable data) in the `fields` parameter.
 
-#### Product Attributes with Parameters (e.g. Unwanted ingredients)
+#### Product Attributes with Parameters (e.g. Unwanted/Banned ingredients)
 
-In September 2025, we introduced support for attributes that can be configured with parameters. The first is the **Unwanted ingredients** attribute that takes a list of canonical ingredients as a parameter.
+In September 2024, we introduced support for attributes that can be configured with parameters. The first is the **Unwanted ingredients** attribute (also referred to as "banned ingredients" in cosmetics contexts) that takes a list of canonical ingredients as a parameter.
+
+This feature is available on both:
+- **Open Food Facts** (food products): for filtering out unwanted ingredients based on dietary preferences, allergies, or personal choices
+- **Open Beauty Facts** (cosmetic products): for identifying banned or unwanted ingredients in cosmetics
 
 In order not to break existing clients, this attribute is listed in the response of the API `/api/v3.4/attribute_groups` only when the version is at least 3.4:
 
@@ -117,9 +121,104 @@ In order not to break existing clients, this attribute is listed in the response
 
 The response above indicates that the **Unwanted ingredients** attribute needs a `attribute_unwanted_ingredients_tags` parameter which is a list of comma separated canonical ingredients tags (e.g. "en:garlic,en:kiwi")
 
+##### Sending unwanted/banned ingredients in requests
+
 This parameter can be sent in product read and search requests in 2 ways:
 - as a cookie with the name `attribute_unwanted_ingredients_tags`: this is used in particular on the website so that we do not have URLs with an extra query parameter.
 - as a query parameter in the URL (e.g. ?attribute_unwanted_ingredients_tags=en:garlic,en:kiwi)
+
+##### Getting ingredient suggestions
+
+To help users identify ingredients to flag as unwanted/banned, you can use the **Robotoff API** to get ingredient predictions and suggestions:
+
+1. **Get ingredient predictions from images**: Use Robotoff's OCR capabilities to extract ingredients from product images
+   - API endpoint: `https://robotoff.openfoodfacts.org/api/v1/insights/{barcode}?insight_types=ingredient`
+   - See [Robotoff API documentation](https://openfoodfacts.github.io/robotoff/references/api/) for details
+
+2. **Browse ingredients taxonomy**: Use the ingredients taxonomy to help users discover ingredient tags
+   - Endpoint: `https://world.openfoodfacts.org/data/taxonomies/ingredients.json`
+   - Or search for specific ingredients via the API
+
+3. **Autocomplete ingredient search**: Help users find canonical ingredient tags by name
+   - Use the taxonomy search to find ingredients by their common names in different languages
+
+##### Example usage
+
+**Example 1: Checking a product for unwanted ingredients (Food)**
+
+```bash
+# Check if a product contains garlic or kiwi
+curl "https://world.openfoodfacts.org/api/v3/product/3017620422003?fields=attribute_groups&attribute_unwanted_ingredients_tags=en:garlic,en:kiwi"
+```
+
+**Example 2: Checking cosmetic products for banned ingredients**
+
+```bash
+# Check a cosmetic product on Open Beauty Facts
+curl "https://world.openbeautyfacts.org/api/v3/product/3600550448000?fields=attribute_groups&attribute_unwanted_ingredients_tags=en:parabens,en:sulfates"
+```
+
+**Example 3: Using cookies for persistent preferences**
+
+```bash
+# Set a cookie with unwanted ingredients
+curl -b "attribute_unwanted_ingredients_tags=en:garlic,en:palm-oil" \
+  "https://world.openfoodfacts.org/api/v3/product/3017620422003?fields=attribute_groups"
+```
+
+##### Understanding the response
+
+When unwanted ingredients are specified, the API will return an `unwanted_ingredients` attribute in the response with:
+- **status**: "known", "unknown", or "not-applicable"
+- **match**: 
+  - `0`: At least one unwanted ingredient is present
+  - `100`: None of the unwanted ingredients are present
+- **title**: Human-readable title (e.g., "Contains unwanted ingredients" or "No unwanted ingredients")
+- **description_short**: List of found unwanted ingredients or confirmation message
+- **description**: Detailed explanation with the list of ingredients checked
+
+Example response when unwanted ingredient is found:
+```json
+{
+  "id": "unwanted_ingredients",
+  "name": "Unwanted ingredients",
+  "status": "known",
+  "match": 0,
+  "title": "Contains unwanted ingredients",
+  "description_short": "Garlic",
+  "description": "Unwanted ingredients: Garlic",
+  "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/contains-unwanted-ingredients.svg"
+}
+```
+
+Example response when no unwanted ingredients are found:
+```json
+{
+  "id": "unwanted_ingredients",
+  "name": "Unwanted ingredients", 
+  "status": "known",
+  "match": 100,
+  "title": "No unwanted ingredients",
+  "description_short": "We did not detect the following ingredients: Garlic, Kiwi",
+  "icon_url": "https://static.openfoodfacts.org/images/attributes/dist/no-unwanted-ingredients.svg"
+}
+```
+
+##### Platform-specific considerations
+
+**For Open Food Facts (food products):**
+- Common use cases include dietary restrictions (e.g., avoiding allergens, specific ingredients for religious reasons)
+- Ingredients are matched against the ingredients taxonomy which includes common food ingredients
+
+**For Open Beauty Facts (cosmetic products):**
+- Common use cases include avoiding controversial cosmetic ingredients (e.g., parabens, sulfates, certain preservatives)
+- Ingredients are matched against the cosmetic ingredients taxonomy
+- Some jurisdictions have lists of banned ingredients in cosmetics that can be referenced
+
+**For both platforms:**
+- The feature requires that products have a complete ingredients list
+- Unknown or unparsed ingredients may affect the accuracy of the detection
+- If too many ingredients are unknown (>10% of total), the status will remain "unknown"
 
 ### Response
 

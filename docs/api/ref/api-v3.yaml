@@ -81,6 +81,24 @@ paths:
           description: |-
             When knowledge_panels are requested, you can specify which panels to exclude from the response. All the others will be included.
             If a panel is both excluded and included (with the knowledge_panels_excluded parameter), it will be excluded.
+        - schema:
+            type: string
+            example: "en:garlic,en:palm-oil"
+          required: false
+          in: query
+          name: attribute_unwanted_ingredients_tags
+          description: |-
+            Comma-separated list of canonical ingredient tags to flag as unwanted/banned.
+            When specified, the API will check if the product contains any of these ingredients and return an "unwanted_ingredients" attribute in the response.
+            
+            This parameter is used to personalize search results and product information based on ingredients users want to avoid.
+            Canonical tags should be in the format "language_code:ingredient_name" (e.g., "en:garlic,en:kiwi").
+            
+            You can also set this as a cookie for persistent preferences across requests.
+            
+            Requires API version 3.4 or higher. Available on both Open Food Facts (food) and Open Beauty Facts (cosmetics).
+            
+            See the Product Attributes documentation for more details on how to use this feature and interpret the response.
       responses:
         "200":
           description: OK
