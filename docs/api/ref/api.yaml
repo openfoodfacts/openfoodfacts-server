@@ -678,15 +678,15 @@ components:
       description: |
         Comma-separated list of canonical ingredient tags to flag as unwanted/banned.
         When specified, the API will check if the product contains any of these ingredients and return an "unwanted_ingredients" attribute in the response.
-        
+
         This parameter is used to personalize search results and product information based on ingredients users want to avoid.
         Canonical tags should be in the format "language_code:ingredient_name" (e.g., "en:garlic,en:kiwi").
-        
+
         You can also set this as a cookie for persistent preferences across requests.
-        
+
         Requires API version 3.4 or higher for v3 endpoints, or v2 endpoints with attribute_groups support.
         Available on both Open Food Facts (food) and Open Beauty Facts (cosmetics).
-        
+
         See the Product Attributes documentation for more details on how to use this feature and interpret the response.
     tagtype:
       schema:
