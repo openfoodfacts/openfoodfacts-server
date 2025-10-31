@@ -88,7 +88,7 @@ Apps can request Product Attributes through API queries (`/api/v3/product` or `/
 
 #### Product Attributes with Parameters (e.g. Unwanted/Banned ingredients)
 
-In September 2024, we introduced support for attributes that can be configured with parameters. The first is the **Unwanted ingredients** attribute (also referred to as "banned ingredients" in cosmetics contexts) that takes a list of canonical ingredients as a parameter.
+In September 2025, we introduced support for attributes that can be configured with parameters. The first is the **Unwanted ingredients** attribute (also referred to as "banned ingredients" in cosmetics contexts) that takes a list of canonical ingredients as a parameter.
 
 This feature is available on both:
 - **Open Food Facts** (food products): for filtering out unwanted ingredients based on dietary preferences, allergies, or personal choices
@@ -131,15 +131,11 @@ This parameter can be sent in product read and search requests in 2 ways:
 
 To help users identify ingredients to flag as unwanted/banned, you can use the **Robotoff API** to get ingredient predictions and suggestions:
 
-1. **Get ingredient predictions from images**: Use Robotoff's OCR capabilities to extract ingredients from product images
-   - API endpoint: `https://robotoff.openfoodfacts.org/api/v1/insights/{barcode}?insight_types=ingredient`
-   - See [Robotoff API documentation](https://openfoodfacts.github.io/robotoff/references/api/) for details
-
-2. **Browse ingredients taxonomy**: Use the ingredients taxonomy to help users discover ingredient tags
+1. **Browse ingredients taxonomy**: Use the ingredients taxonomy to help users discover ingredient tags
    - Endpoint: `https://world.openfoodfacts.org/data/taxonomies/ingredients.json`
    - Or search for specific ingredients via the API
 
-3. **Autocomplete ingredient search**: Help users find canonical ingredient tags by name
+2. **Autocomplete ingredient search**: Help users find canonical ingredient tags by name
    - Use the taxonomy search to find ingredients by their common names in different languages
 
 ##### Example usage
