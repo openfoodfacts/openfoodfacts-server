@@ -108,6 +108,7 @@ $decalTop:48px;
     &.active {
         &:after {
         content:"\e5c7";
+        // Can we replace by https://fonts.google.com/icons?selected=Material+Symbols+Outlined:expand_circle_down:FILL@0;wght@400;GRAD@0;opsz@24&icon.query=accor&icon.size=24&icon.color=%23e3e3e3
         }
     }
     > .content.active {
