@@ -426,7 +426,7 @@ jobs:
     # This reuses the cached Docker image instead of rebuilding it
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.0.0
+      uses: ishworkh/container-image-artifact-download@v2.1.0
       with:
         image: "openfoodfacts-server/backend:dev"       
     
@@ -538,7 +538,7 @@ jobs:
 
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.0.0
+      uses: ishworkh/container-image-artifact-download@v2.1.0
       with:
         image: "openfoodfacts-server/backend:dev"       
     
