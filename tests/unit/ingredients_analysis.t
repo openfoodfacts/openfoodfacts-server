@@ -6,6 +6,9 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
+
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
@@ -117,6 +120,27 @@ my @tests = (
 	[
 		{lc => "en", ingredients_text => "something unknown (vegetal)"},
 		["en:palm-oil-content-unknown", "en:vegan", "en:vegetarian"]
+	],
+
+	# unknown ingredient with sub ingredients: ignore the parent and use the sub ingredients to make the determination
+	[
+		{lc => "en", ingredients_text => "unknown ingredient (milk, sugar)"},
+		["en:palm-oil-free", "en:non-vegan", "en:vegetarian"]
+	],
+	# known ingredient (but with no vegan / vegetarian property) with sub ingredients: use the sub ingredients to make the determination
+	[
+		{lc => "en", ingredients_text => "chocolate (milk, sugar)"},
+		["en:palm-oil-free", "en:non-vegan", "en:vegetarian"]
+	],
+	# same with one unknown sub ingredient
+	[
+		{lc => "en", ingredients_text => "chocolate (milk, unknown ingredient)"},
+		["en:palm-oil-free", "en:non-vegan", "en:vegetarian-status-unknown"]
+	],
+	# non vegan parent with vegan sub ingredients
+	[
+		{lc => "en", ingredients_text => "gelatin (sugar, water)"},
+		["en:palm-oil-free", "en:non-vegan", "en:non-vegetarian"]
 	],
 
 );
