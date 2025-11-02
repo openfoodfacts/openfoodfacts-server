@@ -15,7 +15,7 @@ RUN usermod --uid $USER_UID node && \
     mkdir -p /opt/product-opener/html/js/dist && \
     mkdir -p /opt/product-opener/html/images/products && \
     chown node:node -R /opt/product-opener/
-COPY --chown=node:node package*.json /opt/product-opener/
+COPY --chown=node:node package*.json .npmrc /opt/product-opener/
 COPY --chown=node:node .snyk /opt/product-opener/
 WORKDIR /opt/product-opener
 USER node
