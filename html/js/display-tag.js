@@ -52,14 +52,18 @@ function ensureLeafletMap() {
 
 function fitBoundsToAllLayers(mapToUpdate) {
   const latlngbounds = new LatLngBounds();
+  let hasLayers = false;
 
   mapToUpdate.eachLayer(function (l) {
     if (typeof l.getBounds === "function") {
       latlngbounds.extend(l.getBounds());
+      hasLayers = true;
     }
   });
 
-  mapToUpdate.fitBounds(latlngbounds);
+  if (hasLayers) {
+    mapToUpdate.fitBounds(latlngbounds);
+  }
 }
 
 async function addWikidataObjectToMap(map, id) {
