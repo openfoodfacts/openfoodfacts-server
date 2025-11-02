@@ -21,7 +21,12 @@
 import { FeatureGroup, GeoJSON, LatLngBounds, Map as LeafletMap, Marker, TileLayer } from 'leaflet';
 import { GeoJSONRewind } from './rewind-browser.js';
 
-function createLeafletMap() {
+let cachedMap;
+function ensureLeafletMap() {
+  if (cachedMap) {
+    return cachedMap;
+  }
+
   const tagDescription = document.getElementById('tag_description');
   if (tagDescription) {
     tagDescription.classList.remove('large-12');
@@ -34,14 +39,15 @@ function createLeafletMap() {
   }
 
   const map = new LeafletMap('container');
-
   const tileLayer = new TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   });
   tileLayer.addTo(map);
 
-  return map;
+  cachedMap = map;
+
+  return cachedMap;
 }
 
 function fitBoundsToAllLayers(mapToUpdate) {
@@ -56,7 +62,7 @@ function fitBoundsToAllLayers(mapToUpdate) {
   mapToUpdate.fitBounds(latlngbounds);
 }
 
-async function addWikidataObjectToMap(id) {
+async function addWikidataObjectToMap(map, id) {
   const wikidata_result = await getOpenStreetMapFromWikidata(id);
   const bindings = wikidata_result.results.bindings;
   if (bindings.length === 0) {
@@ -71,9 +77,7 @@ async function addWikidataObjectToMap(id) {
 
   const geoJson = await getGeoJsonFromOsmRelation(relationId);
   if (geoJson) {
-    const map = createLeafletMap();
     new GeoJSON(geoJson).addTo(map);
-    fitBoundsToAllLayers(map);
   }
 }
 
@@ -90,6 +94,7 @@ async function getOpenStreetMapFromWikidata(id) {
   if (!response.ok) {
     throw new Error(`Wikidata SPARQL endpoint returned status ${response.status}: ${response.statusText}`);
   }
+
   const data = await response.json();
 
   return data;
@@ -100,18 +105,19 @@ async function getGeoJsonFromOsmRelation(id) {
     const response = await fetch(`https://polygons.openstreetmap.fr/get_geojson.py?params=0&id=${encodeURIComponent(id)}`);
     if (!response.ok) {
       console.error(`Failed to fetch GeoJSON for OSM relation ${id}: ${response.status} ${response.statusText}`);
-      return null;
+
+      return;
     }
+
     const data = await response.json();
+
     return GeoJSONRewind.rewind(data);
   } catch (error) {
     console.error(`Error fetching or parsing GeoJSON for OSM relation ${id}:`, error);
-    return null;
   }
 }
 
-function displayPointers(pointers) {
-  const map = createLeafletMap();
+function addPointersToMap(map, pointers) {
   const markers = [];
   for (const pointer of pointers) {
     let coordinates;
@@ -132,19 +138,30 @@ function displayPointers(pointers) {
 
   if (markers.length > 0) {
     new FeatureGroup(markers).addTo(map);
-    fitBoundsToAllLayers(map);
-    map.setZoom(8);
   }
 }
 
 export async function displayMap(pointers, wikidataObjects) {
+  // Create or reuse a single map.
+  const map = ensureLeafletMap();
+
   if (pointers.length > 0) {
-    displayPointers(pointers);
+    addPointersToMap(map, pointers);
   }
 
+  // Sequentially add Wikidata objects (API calls) - keep await in loop.
   for (const wikidataObject of wikidataObjects) {
     if (wikidataObject !== null) {
-      await addWikidataObjectToMap(wikidataObject); // eslint-disable-line no-await-in-loop
+      // eslint-disable-next-line no-await-in-loop
+      await addWikidataObjectToMap(map, wikidataObject);
     }
+  }
+
+  // Adjust bounds only once after adding all layers.
+  fitBoundsToAllLayers(map);
+
+  // If only pointers were present (no wikidata), replicate previous zoom behavior.
+  if (pointers.length > 0 && wikidataObjects.length === 0) {
+    map.setZoom(Math.min(map.getZoom(), 8));
   }
 }
