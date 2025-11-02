@@ -92,7 +92,7 @@ async function getOpenStreetMapFromWikidata(id) {
 
   const response = await fetch(`${endpointUrl}?query=${encodeURIComponent(sparqlQuery)}`, settings);
   if (!response.ok) {
-    throw new Error(`Wikidata SPARQL endpoint returned status ${response.status}: ${response.statusText}`);
+    throw new Error(`Wikidata SPARQL endpoint returned status ${response.status}: ${response.statusText} for ID: ${id}`);
   }
 
   const data = await response.json();
