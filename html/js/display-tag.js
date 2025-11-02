@@ -87,16 +87,27 @@ async function getOpenStreetMapFromWikidata(id) {
   };
 
   const response = await fetch(`${endpointUrl}?query=${encodeURIComponent(sparqlQuery)}`, settings);
+  if (!response.ok) {
+    throw new Error(`Wikidata SPARQL endpoint returned status ${response.status}: ${response.statusText}`);
+  }
   const data = await response.json();
 
   return data;
 }
 
 async function getGeoJsonFromOsmRelation(id) {
-  const response = await fetch(`https://polygons.openstreetmap.fr/get_geojson.py?params=0&id=${encodeURIComponent(id)}`);
-  const data = await response.json();
-  
-  return GeoJSONRewind.rewind(data);
+  try {
+    const response = await fetch(`https://polygons.openstreetmap.fr/get_geojson.py?params=0&id=${encodeURIComponent(id)}`);
+    if (!response.ok) {
+      console.error(`Failed to fetch GeoJSON for OSM relation ${id}: ${response.status} ${response.statusText}`);
+      return null;
+    }
+    const data = await response.json();
+    return GeoJSONRewind.rewind(data);
+  } catch (error) {
+    console.error(`Error fetching or parsing GeoJSON for OSM relation ${id}:`, error);
+    return null;
+  }
 }
 
 function displayPointers(pointers) {
