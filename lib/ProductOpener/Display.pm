@@ -352,7 +352,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 
 	my $oidc_implementation_level = get_oidc_implementation_level();
 	$template_data_ref->{oidc_implementation_level} = $oidc_implementation_level;
-	if (    $oidc_implementation_level > 0
+	if (    $oidc_implementation_level > 4
 		and defined $template_data_ref->{user_id}
 		and defined $template_data_ref->{canon_url})
 	{
@@ -8637,6 +8637,14 @@ JS
 	$template_data_ref->{nutripatrol_url} = $nutripatrol_url;
 
 	my $html_display_product;
+
+	$template_data_ref->{categories} = $product_ref->{categories_tags} || [];
+	$template_data_ref->{product_type_tag} = $product_ref->{product_type} // "";
+
+	my $is_moderator = (is_admin_user($User_id) || $User{moderator}) ? 1 : 0;
+	$template_data_ref->{is_moderator} = $is_moderator;
+	$template_data_ref->{is_user} = defined($User_id) ? 1 : 0;
+
 	process_template('web/pages/product/product_page.tt.html', $template_data_ref, \$html_display_product, $request_ref)
 		|| ($html_display_product = "template error: " . $tt->error());
 	$html .= $html_display_product;
