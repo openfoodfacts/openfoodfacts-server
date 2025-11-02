@@ -161,7 +161,7 @@ export async function displayMap(pointers, wikidataObjects) {
   fitBoundsToAllLayers(map);
 
   // If only pointers were present (no wikidata), replicate previous zoom behavior.
-  if (pointers.length > 0 && wikidataObjects.length === 0) {
+  if (pointers.length > 0 && wikidataObjects.filter(obj => obj !== null).length === 0) {
     map.setZoom(Math.min(map.getZoom(), 8));
   }
 }
