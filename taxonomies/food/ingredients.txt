@@ -1152,7 +1152,7 @@ bg: Млечни ферментации, млечна закваска, млеч
 ca: Ferments làctics
 cs: Mléčné ferminty
 da: yoghurtkultur, starterkultur, mælkesyrekultur, ostekulturer
-de: Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen
+de: Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen, Milchfermente
 el: γαλακτικά ένζυμα
 es: fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yogur, cultivos de bacterias lácticas especificas, cultivos lácticos específicos
 et: juuretis
@@ -15888,7 +15888,7 @@ cs: Extra panenský olivový olej
 da: ekstra jomfruolivenolie, ekstra jomfru olivenolie
 de: natives Olivenöl Extra, Olivenöl nativ extra, extra natives Olivenöl, Olivenöl extra vergine, Extra Virgin Olivenöl
 el: εξαιρετικό Παρθένο ελαιόλαδο
-es: aceite de oliva virgen extra, aceite extra virgen de oliva
+es: aceite de oliva virgen extra, aceite extra virgen de oliva, aceite de oliva extra virgen
 fi: ekstra-neitsytoliiviöljy, ekstraneitsytoliiviöljy
 fr: huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques, huile extra vierge d'olive
 hr: ekstra djevičansko maslinovo ulje
@@ -20855,8 +20855,9 @@ it: aroma naturale di zenzero
 pl: naturalny aromat imbirowy
 
 < en:flavouring
-en: ananas flavouring
+en: pineapple flavouring, ananas flavouring
 bg: ананасов аромат
+da: ananasaroma
 de: Ananasaroma
 es: aroma de piña
 fi: ananasaromi
@@ -20864,11 +20865,22 @@ fr: arôme d'ananas
 hr: aroma ananasa
 hu: ananász aroma
 it: Aroma di ananas
+nb: ananasarom
 nl: ananasaroma
 pl: aromat ananasowy
 pt: sabor de abacaxi
 ro: aromă de ananas
 sv: ananasarom
+
+< en:natural flavouring
+< en:pineapple flavouring
+en: natural pineapple aroma
+da: naturlig ananasaroma
+de: natürliches Ananas-Aroma
+fi: luonnollinen ananasaromi
+fr: arôme naturel de ananas
+nb: naturlig ananasarom
+sv: naturlig ananasarom
 
 < en:flavouring
 en: banana flavouring
@@ -30899,7 +30911,7 @@ pl: cukier kokosowy, cukier z kwiatu palmy kokosowej
 su: Gula kalapa
 sv: kokossocker, kokospalmsocker
 ta: தென்னை சர்க்கரை
-description: en:COCONUT SUGAR is a palm sugar produced from the sap of the flower bud stem of the coconut palm. It is used in savory dishes, but mainly in local desserts and cakes of the Southeast Asian region. Coconut sugar is subtly sweet almost like brown sugar but with a slight hint of caramel. The flavor and sweetness is usually similar to table sugar or brown sugar. There is no scientific evidence that coconut sugar is more nutritious or healthier than any other sweetener.
+description:en: COCONUT SUGAR is a palm sugar produced from the sap of the flower bud stem of the coconut palm. It is used in savory dishes, but mainly in local desserts and cakes of the Southeast Asian region. Coconut sugar is subtly sweet almost like brown sugar but with a slight hint of caramel. The flavor and sweetness is usually similar to table sugar or brown sugar. There is no scientific evidence that coconut sugar is more nutritious or healthier than any other sweetener.
 # yue:椰糖
 wikidata:en: Q5139861
 wikipedia:en: https://en.wikipedia.org/wiki/Coconut_sugar
@@ -30997,7 +31009,7 @@ tr: Maltoz
 uk: Мальтоза
 vi: Kẹo mạch nha
 zh: 麥芽糖
-description: en:MALTOSE, also known as maltobiose or malt sugar, is a disaccharide formed from two units of glucose joined. Maltose is a component of malt, a substance which is obtained in the process of allowing grain to soften in water and germinate. It is also present in highly variable quantities in partially hydrolysed starch products like maltodextrin, corn syrup and acid-thinned starch. In humans, maltose is broken down by various maltase enzymes, providing two glucose molecules which can be further processed: either broken down to provide energy, or stored as glycogen. The lack of the sucrase-isomaltase enzyme in humans causes sucrose intolerance.
+description:en: MALTOSE, also known as maltobiose or malt sugar, is a disaccharide formed from two units of glucose joined. Maltose is a component of malt, a substance which is obtained in the process of allowing grain to soften in water and germinate. It is also present in highly variable quantities in partially hydrolysed starch products like maltodextrin, corn syrup and acid-thinned starch. In humans, maltose is broken down by various maltase enzymes, providing two glucose molecules which can be further processed: either broken down to provide energy, or stored as glycogen. The lack of the sucrase-isomaltase enzyme in humans causes sucrose intolerance.
 
 # azb:مالتوز
 # cdo:Măk-ngà-tòng
@@ -43624,6 +43636,37 @@ pt: Tâmaras Medjool
 ru: меджул даты
 # 9in3@2019-06-04
 
+< en:date
+en: Mazafati dates
+de: Mazafati Datteln
+fr: dattes Mazafati
+
+< en:date
+en: Ajwa dates
+
+< en:date
+en: Kalooteh dates, Kalute dates, Kloteh dates, Kaluteh dates, Kali dates
+de: Kalooteh Datteln
+
+< en:date
+en: Kenta dates
+de: Kenta Datteln
+fr: dattes Kenta
+it: datteri Kenta
+
+< en:date
+en: Khudri dates, Khidri dates
+de: Khudri Datteln, Khidri Datteln
+it: datteri Khudri
+
+< en:date
+en: Sayer dates
+
+< en:date
+en: Sukkary dates
+de: Sukkari Datteln
+fr: dattes Sukkari
+
 #process:en: en:paste
 #process:en: en:pureed
 < en:date
@@ -45911,7 +45954,7 @@ nl: frambozenlikeur
 
 < en:sauce
 en: raspberry sauce
-de:Himbeersauce de:Himbeersoße
+de: Himbeersauce de:Himbeersoße
 fr: sauce aux framboises, sauce à la framboise, sauce framboise
 hr: umak od malina
 it: salsa di lamponi
@@ -46921,8 +46964,8 @@ la: Mustum conditum
 nl: druivensap, druivesap
 pl: Sok z winogron, sok winogronowy
 pt: sumo de uva, suco de uva
-pt-pt:sumo de uva
-pt-br:suco de uva
+pt-br: suco de uva
+pt-pt: sumo de uva
 ru: виноградный сок
 sa: द्राक्षाफलरसः
 sq: Lëngu i rrushit
@@ -51833,7 +51876,7 @@ bg: преснен лук, зелен лук
 ca: ceba tendra, cebeta, ceballot
 cs: jarní cibulka
 da: forårsløg
-de: Frühlingszwiebel, Lauchzwiebel
+de: Frühlingszwiebel, Frühlingszwiebeln, Lauchzwiebel
 el: φρέσκο κρεμμυδακι
 eo: askolonio
 es: cebolla de primavera, cebolletas tiernas
@@ -53924,8 +53967,6 @@ pl: mąka z manioku
 sv: maniokmjöl
 nutriscore_fruits_vegetables_nuts:en: no
 
-# description:en:TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
-
 < en:starch
 en: tapioca, tapioca starch, manioc starch
 ar: تابيوكا
@@ -53962,11 +54003,12 @@ ru: тапиока
 sk: tapiokový škrob
 sl: tapioka, tapiokin škrob
 su: tapioka
-sv: tapioka, tapiokastärkelse
+sv: tapioka, tapiokastärkelse, stärkelse från kassavaroten
 uk: тапіока
 vi: bột năng
 zh: 木薯根淀粉
 #lfn:tapioca
+description:en: TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
 wikidata:en: Q873761
 wikipedia:en: https://en.wikipedia.org/wiki/Tapioca
 
@@ -56687,7 +56729,7 @@ pl: pasta paprykowa
 
 
 < en:paprika
-en:ERROR - duplicate_synonym - 98868 - fr:petits-pois-tres-fins already is associated to en:extra-fine-garden-peas (ingredients) - fr:petits-pois-tres-fins cannot be mapped to entry fr:petits-pois-tres-fins
+en: ERROR - duplicate_synonym - 98868 - fr:petits-pois-tres-fins already is associated to en:extra-fine-garden-peas (ingredients) - fr:petits-pois-tres-fins cannot be mapped to entry fr:petits-pois-tres-fins
 
 bg: сладък червен пипер
 ca: pebre vermell dolç, pebre vermella dolça
@@ -62182,7 +62224,7 @@ fr: graine de coriandre, graines de coriandre
 gu: ધાણા
 he: זרעי כוסברה
 hr: sjeme korijandera
-hy:Եփութուխ:Համեմ
+hy: Եփութուխ:Համեմ
 it: Semi di coriandolo
 nb: korianderfrö
 nl: korianderzaad
@@ -62299,6 +62341,11 @@ description:it: I semi di chia, ricchi di omega-3, sono paragonabili dal punto d
 # ingredient/chia-seed 2376 in 18 @2021-08-20
 nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q27688832
+
+< en: chia seed
+en: white chia seed, white chia seeds
+fr: graine de chia blanches
+nl: witte chiazaad
 
 < en:chia seed
 en: dried chia seeds
@@ -68712,7 +68759,7 @@ en: juniper berry, juniper berries
 af: Jenewerbessie
 be: Ядловец
 da: enebær
-de: Wacholderbeere
+de: Wacholderbeere, Wacholderbeeren
 es: baya de enebro
 fa: جونیپر بری
 fi: katajanmarja, katajanmarjat
@@ -69033,7 +69080,7 @@ ku: Sûs
 la: Glycyrrhiza glabra
 lb: Séissholz
 lt: Paprastasis saldymedis
-lv:lakrica# mai:मुलेठी
+lv: lakrica# mai:मुलेठी
 ml: ഇരട്ടിമധുരം
 mr: ज्येष्ठमध
 ms: Akar manis
@@ -72398,7 +72445,7 @@ bn: মাশরুম
 bs: Gljiva
 ca: bolet , bolet comestible
 co: Funzu
-cs:jedlá houbacy:Madarchen
+cs: jedlá houbacy:Madarchen
 da: Spiselige svampe, Svampe
 de: Pilz, Pilze, Speisepilz, Speisepilze
 el: Μανιτάρι
@@ -73022,7 +73069,7 @@ ru: Млечник
 sl: Mlečnica
 sv: Riskor
 tt: Гөреҗдә
-ud:Нингубиuk:Хрящ-молочник
+ud: Нингубиuk:Хрящ-молочник
 zh: 乳菇屬
 description:en: LACTARIUS is a genus of mushroom-producing, ectomycorrhizal fungi, containing several edible species.
 # myv:Пиче панго
@@ -76436,7 +76483,7 @@ fa: زغال‌ماهی شمالی
 fi: seiti
 fo: seiður
 fr: Lieu Noir, colin lieu
-hr:opis: saja (pollachius virens) je vrsta morske ribe iz roda pollachius.
+hr: opis: saja (pollachius virens) je vrsta morske ribe iz roda pollachius.
 hu: Fekete tőkehal
 is: ufsi
 it: merluzzo carbonaro
@@ -79809,7 +79856,7 @@ en: scallop with coral
 de: Jakobsmuschel mit Koralle
 es: Vieira con coral
 fr: Coquilles Saint-Jacques avec noix et corail
-hr:jakobova kapica s koraljimaciqual_food_code:en:10003
+hr: jakobova kapica s koraljimaciqual_food_code:en:10003
 it: Capasanta con corallo
 ciqual_food_code:en: 10003
 ciqual_food_name:en: Scallop, with coral, raw
@@ -81461,7 +81508,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Heterocarpus
 < en:shrimp
 en: grey shrimp, Crangon crangon
 ar: روبيان أوروبي, Crangon crangon
-bg:обикновена:ребна скарид, Crangon crangon
+bg: обикновена:ребна скарид, Crangon crangon
 br: Chevr-traezh, Crangon crangon
 da: Hestereje, Crangon crangon
 de: Nordseegarnele, Crangon crangon
@@ -92874,7 +92921,7 @@ kn: ಮಾರ್ಗರೀನ್‌
 ko: 마가린
 lt: Margarinas
 mk: Маргарин
-ms:Marjerinnb:margarin
+ms: Marjerinnb:margarin
 ne: मार्गरिन
 nl: margarine
 oc: margarine
@@ -93267,10 +93314,6 @@ pt: fava tonka, fava de cumaru
 en: creaming powder, creamer
 it: crema in polvere
 ja: クリーミングパウダー
-
-en: creaming agent
-fr: agent de crémage
-it: agente cremoso
 
 < en:animal
 en: donkey
