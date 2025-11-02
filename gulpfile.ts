@@ -32,7 +32,7 @@ const jsLibSrc = [
   "./node_modules/foundation-sites/js/vendor/*.js",
   "./node_modules/foundation-sites/js/foundation.js",
   "./node_modules/papaparse/papaparse.js",
-  "./node_modules/leaflet/dist/*.js",
+  "./node_modules/leaflet/dist/leaflet-src.js",
   "./node_modules/@kristjan.esperanto/leaflet.markercluster/dist/leaflet.markercluster.js",
   "./node_modules/blueimp-tmpl/js/tmpl.js",
   "./node_modules/blueimp-load-image/js/load-image.all.min.js",
