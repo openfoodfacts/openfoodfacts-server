@@ -67,21 +67,25 @@ function fitBoundsToAllLayers(mapToUpdate) {
 }
 
 async function addWikidataObjectToMap(map, id) {
-  const wikidata_result = await getOpenStreetMapFromWikidata(id);
-  const bindings = wikidata_result.results.bindings;
-  if (bindings.length === 0) {
-    return;
-  }
+  try {
+    const wikidata_result = await getOpenStreetMapFromWikidata(id);
+    const bindings = wikidata_result.results.bindings;
+    if (bindings.length === 0) {
+      return;
+    }
 
-  const binding = bindings[0];
-  const relationId = binding.OpenStreetMap_Relations_ID.value;
-  if (!relationId) {
-    return;
-  }
+    const binding = bindings[0];
+    const relationId = binding.OpenStreetMap_Relations_ID.value;
+    if (!relationId) {
+      return;
+    }
 
-  const geoJson = await getGeoJsonFromOsmRelation(relationId);
-  if (geoJson) {
-    new GeoJSON(geoJson).addTo(map);
+    const geoJson = await getGeoJsonFromOsmRelation(relationId);
+    if (geoJson) {
+      new GeoJSON(geoJson).addTo(map);
+    }
+  } catch (error) {
+    console.error(`Error adding Wikidata object ${id} to map:`, error);
   }
 }
 
