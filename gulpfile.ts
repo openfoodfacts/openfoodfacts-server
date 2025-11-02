@@ -21,6 +21,7 @@ const jsSrc = [
   "./html/js/scrollNav.js",
   "./html/js/barcode-scanner*.js",
   "./html/js/rewind-browser.js",
+  "./html/js/external-knowledge-panels.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";
