@@ -1149,6 +1149,26 @@
                "environment"
             ]
          },
+         "environmental_score_adjustments" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "environmental_score_origins_of_ingredients",
+                        "environmental_score_packaging",
+                        "environmental_score_production_system",
+                        "environmental_score_threatened_species"
+                     ]
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "topics" : [
+               "environment"
+            ]
+         },
          "environmental_score_agribalyse" : {
             "elements" : [
                {
@@ -2580,6 +2600,95 @@
                "health"
             ],
             "type" : "inline"
+         },
+         "simplified_environment_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "environmental_score",
+                        "environmental_score_adjustments"
+                     ]
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "carbon_footprint"
+                     ]
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Environment"
+            },
+            "topics" : [
+               "environment"
+            ],
+            "type" : "card"
+         },
+         "simplified_health_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "nutriscore_2023",
+                        "nutrient_levels"
+                     ]
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "nova",
+                        "additives"
+                     ]
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Health"
+            },
+            "topics" : [
+               "health"
+            ],
+            "type" : "card"
+         },
+         "simplified_root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "simplified_health_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "simplified_environment_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "prices_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "folksonomy_card"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "type" : "root"
          }
       },
       "known_ingredients_n" : 8,
