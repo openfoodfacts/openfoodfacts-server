@@ -1740,6 +1740,15 @@ sub create_recommendation_panels ($product_ref, $target_lc, $target_cc, $options
 				"api/knowledge-panels/recommendations/health/fr/spf_pulses.tt.json",
 				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		}
+
+		# Tobacco
+
+		if (has_tag($product_ref, "categories", "en:tobacco-products")) {
+
+			create_panel_from_json_template("recommendation_health2",
+				"api/knowledge-panels/recommendations/health/fr/tabac-info-service.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
 	}
 
 	# NOVA 4 ultra-processed foods

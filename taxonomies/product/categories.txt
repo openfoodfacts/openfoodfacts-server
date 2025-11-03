@@ -21189,12 +21189,12 @@ unit_name:en: Basic phone
 unit_name:fr: Téléphone basique
 
 < en:Electronics
-en: Smart watches, Smartwatches 
+en: Smart watches, Smartwatches
 
-<en:Smart watches
+< en:Smart watches
 en: WearOS smartwatches
 
-<en:Smart watches
+< en:Smart watches
 en: Apple smartwatches
 
 < en:Electronics
@@ -21202,7 +21202,6 @@ en: Activity tracker
 
 < en:Electronics
 en: Fitness tracker
-
 
 < en:Telephony
 en: Mobile Phones, mobile phones, cell phones
@@ -21226,10 +21225,10 @@ tr: Cep Telefonları
 en: Smartphones
 carbon_impact_fr_impactco2:en: 85.9
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/smartphone
+epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/smartphone/
 google_product_taxonomy_id:en: 267
 unit_name:xx: smartphone
 unit_name:en: smartphone
-epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/smartphone/
 wikidata:en: Q17517
 
 < en: Smartphones
@@ -21558,8 +21557,8 @@ pt: Computadores
 ru: Компьютеры
 sv: Datorer
 tr: Bilgisayarlar
-google_product_taxonomy_id:en: 278
 epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/ordinateur/
+google_product_taxonomy_id:en: 278
 wikidata:en: Q68
 
 < en:Computers
@@ -26136,7 +26135,6 @@ en: Toner cartridges
 < en: Toner & Inkjet Cartridges
 en: Inkjet cartridges
 
-
 < en:Printer\, Copier & Fax Machine Accessories
 en: Printer Duplexers
 xx: Printer Duplexers
@@ -26598,8 +26596,8 @@ ru: Телевизоры
 sv: TV-apparater
 tr: Televizyonlar
 carbon_impact_fr_impactco2:en: 472
-epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/televiseur/
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/television
+epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/televiseur/
 google_product_taxonomy_id:en: 404
 unit_name:en: Television
 unit_name:fr: Télévision
@@ -27221,16 +27219,10 @@ pl: Wyroby tytoniowe
 pt: Produtos de tabaco
 ru: Табачные изделия
 sv: Tobaksprodukter
-
-
-
-
-
-
 tr: Tütün Mamülleri
 google_product_taxonomy_id:en: 435
 recommendation_panel_evaluation:en: bad
-recommendation_panel_icon:en: arrow-bottom-right-thick.svg
+recommendation_panel_icon:en: dangerous.svg
 recommendation_panel_id:en: recommendation_health
 recommendation_panel_msgctxt_prefix:en: recommendation_eu_tobacco_health_warning
 recommendation_panel_source:en: European Union
@@ -27339,12 +27331,6 @@ yo: Siga
 zh: 香烟
 zu: Ugwayi
 google_product_taxonomy_id:en: 3151
-recommendation_panel_evaluation:en: bad
-recommendation_panel_icon:en: arrow-bottom-right-thick.svg
-recommendation_panel_id:en: recommendation_health
-recommendation_panel_msgctxt_prefix:en: recommendation_eu_tobacco_health_warning
-recommendation_panel_source:en: European Union
-recommendation_panel_source_url:en: https://health.ec.europa.eu/tobacco/product-regulation/health-warnings_en#combined-health-warnings-in-the-eu
 wikidata:en: Q1578
 
 < en:Tobacco Products
@@ -35562,8 +35548,8 @@ pt: Ferros e sistemas de passar roupa
 ru: Утюги и гладильные системы
 sv: Strykjärn
 tr: Ütüler ve Ütüleme Sistemleri
-google_product_taxonomy_id:en: 5139
 epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/centrale-vapeur-ou-fer-a-repasser/
+google_product_taxonomy_id:en: 5139
 wikidata:en: Q117207755
 
 < en:Laundry Appliances
@@ -35624,18 +35610,21 @@ ru: Стиральные машины
 sv: Tvättmaskiner
 tr: Çamaşır Makineleri
 carbon_impact_fr_impactco2:en: 510
-epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/lave-linge/
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/lavelinge
+epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/lave-linge/
 google_product_taxonomy_id:en: 2195
 unit_name:en: washing machine
 unit_name:fr: lave-linge
 wikidata:en: Q124441
 
-<en: Washing Machines
+< en:Washing Machines
+en: Front-loading Washing Machines
 fr: Lave-linge à chargement frontal, lave-linge hublot
 
-en: Washing Machines
+< en:Washing Machines
+en: Top-loading Washing Machines
 fr: Lave-linge à chargement par le haut, lave-linge top
+wikidata:en: Q1634761
 
 < en:Household Appliances
 en: Ultrasonic Cleaners
@@ -35675,18 +35664,18 @@ ru: Пылесосы
 sv: Dammsugare
 tr: Elektrik Süpürgeleri
 carbon_impact_fr_impactco2:en: 47.3
-epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/aspirateur/
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/aspirateur
+epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/aspirateur/
 google_product_taxonomy_id:en: 619
 unit_name:en: vacuum cleaner
 unit_name:fr: aspirateur
 wikidata:en: Q11475
 
-<en: Vacuums
+< en:Vacuums
 en: Corded Vacuums
 fr: Aspirateur filaire
 
-<en: Vacuums
+< en:Vacuums
 en: Cordless vacuums
 fr: Aspirateur non filaire
 
@@ -41759,8 +41748,8 @@ pt: Cafeteiras e máquinas de café expresso
 ru: Кофеварки и эспрессо-машины
 sv: Kaffebryggare och espressomaskiner
 tr: Kahve Makineleri ve Espresso Makineleri
-google_product_taxonomy_id:en: 736
 epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/machine-a-cafe/
+google_product_taxonomy_id:en: 736
 wikidata:en: Q117207980
 
 < en:Coffee Makers & Espresso Machines
@@ -41989,8 +41978,8 @@ ru: Посудомоечные машины
 sv: Diskmaskiner
 tr: Bulaşık Makineleri
 carbon_impact_fr_impactco2:en: 468
-epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/lave-vaisselle/
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/lavevaisselle
+epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/lave-vaisselle/
 google_product_taxonomy_id:en: 680
 unit_name:en: dishwasher
 unit_name:fr: lave-vaisselle
@@ -42805,8 +42794,8 @@ pt: Tampas para fogão
 ru: Вытяжки
 sv: Köksfläktar
 tr: Davlumbazlar
-google_product_taxonomy_id:en: 684
 epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/hotte-aspirante/
+google_product_taxonomy_id:en: 684
 wikidata:en: Q1164342
 
 < en:Kitchen Appliances
@@ -47850,8 +47839,8 @@ pt: Cortadores de grama
 ru: Газонокосилки
 sv: Gräsklippare
 tr: Çim Biçme Makineleri
-google_product_taxonomy_id:en: 694
 epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/tondeuse-a-moteur-thermique/
+google_product_taxonomy_id:en: 694
 wikidata:en: Q260521
 
 < en:Lawn Mowers
@@ -48071,8 +48060,8 @@ pt: Mangueiras de pressão
 ru: Мойки высокого давления
 sv: Högtryckstvättar
 tr: Basınçlı Yıkama Makineleri
-google_product_taxonomy_id:en: 1226
 epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/nettoyeur-a-haute-pression/
+google_product_taxonomy_id:en: 1226
 wikidata:en: Q1545773
 
 < en:Outdoor Power Equipment
@@ -53093,7 +53082,7 @@ tr: Anma Töreni Malzemeleri
 google_product_taxonomy_id:en: 5606
 wikidata:en: Q117208402
 
-en:Burial or grave products
+en: Burial or grave products
 
 < en:Burial or grave products
 en: Funeral ash box or cremation urn
@@ -53592,6 +53581,7 @@ wikidata:en: Q116970743
 
 en: Adhesives & Sealants
 
+< en:Adhesives & Sealants
 < en:Building Consumables
 en: Hardware Glue & Adhesives
 xx: Hardware Glue & Adhesives
@@ -57765,8 +57755,8 @@ pt: Torneiras
 ru: Краны
 sv: Kranar
 tr: Musluklar
-google_product_taxonomy_id:en: 2032
 epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/robinetterie/
+google_product_taxonomy_id:en: 2032
 wikidata:en: Q656656
 
 < en:Plumbing Fixtures
@@ -66141,6 +66131,7 @@ tr: El İşi Yapışkanları ve Mıknatısları
 google_product_taxonomy_id:en: 505376
 wikidata:en: Q116960446
 
+< en:Adhesives & Sealants
 < en:Crafting Adhesives & Magnets
 en: Craft & Office Glue
 xx: Craft & Office Glue
@@ -83234,7 +83225,7 @@ de: Sportschuhe
 es: Zapatillas deportivas
 fr: Chaussures de sport
 
-<en: Sport shoes
+< en: Sport shoes
 da: Vandrestøvler
 de: Wanderstiefel
 es: Botas de senderismo
@@ -94419,8 +94410,8 @@ pt: Bicicletas
 ru: Велосипеды
 sv: Cyklar
 tr: Bisikletler
-google_product_taxonomy_id:en: 1026
 epargnonsnosressources_fr_url:en: https://epargnonsnosressources.gouv.fr/entretien/velo-a-assistance-electrique/
+google_product_taxonomy_id:en: 1026
 wikidata:en: Q11442
 
 < en:Cycling
@@ -100542,17 +100533,6 @@ nl: Pijnstillende tabletten
 pl: Tabletki przeciwbólowe
 sv: Smärtstillande tabletter
 
-< en: Medicine & Drugs
-en: Sleep Aids
-da: Søvnmidler
-de: Schlafhilfen
-es: Ayudas para dormir
-fr: Aides au sommeil
-it: Ausili per il sonno
-ja: 睡眠補助薬
-nl: Slaapmiddelen
-no: Søvnmidler
-
 < en:Health Care
 en: Mobility & Accessibility
 xx: Mobility & Accessibility
@@ -103862,8 +103842,6 @@ de: Damenhygieneartikel
 es: Productos sanitarios femeninos
 fr: Produits d'hygiène féminine
 it: Accessori sanitari femminili
-ja: 生理用品
-nl: Menstruatieproducten
 no: Sanitærprodukter for kvinner
 pl: Środki do higieny intymnej dla kobiet
 pt: Suprimentos para a higiene feminina
@@ -105806,17 +105784,17 @@ google_product_taxonomy_id:en: 2508
 wikidata:en: Q117207544
 
 < en:Personal Care
-en: Sleeping Aids
+en: Sleeping Aids, Sleep Aids
 xx: Sleeping Aids
 cs: Pomůcky na zlepšení spánku
-da: Sovemidler
+da: Sovemidler, Søvnmidler
 de: Schlafhilfen
-es: Ayudas para conciliar el sueño
+es: Ayudas para conciliar el sueño, Ayudas para dormir
 fr: Aides au sommeil
 it: Ausili per il sonno
 ja: 安眠グッズ
 nl: Slaapmiddelen
-no: Sovemidler
+no: Sovemidler, Søvnmidler
 pl: Środki ułatwiające zasypianie
 pt: Auxiliares do sono
 ru: Средства для нормализации сна
@@ -106978,3 +106956,4 @@ de: Medizin
 es: Medicina
 fr: Médicament
 sv: Medicin, läkemedel
+
