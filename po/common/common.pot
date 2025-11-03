@@ -11,7 +11,7 @@ msgstr ""
 "POT-Creation-Date: \n"
 "X-Generator: Poedit 2.1\n"
 
-# Overrides by flavor (e.g. obf) or product type (e.g. beauty)
+# Overrides by flavor (e.g. obf, opff, opf) or product type (e.g. beauty, petfood, products)
 
 # OFF
 
@@ -125,6 +125,14 @@ msgctxt "product_name_example_products"
 msgid "X-TRA Power Alkaline Batteries"
 msgstr "X-TRA Power Alkaline Batteries"
 
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Open Products Facts product search"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+
 msgctxt "brands_example_products"
 msgid "Tide, Persil"
 msgstr "Tide, Persil"
@@ -165,6 +173,14 @@ msgstr "A collaborative, free and open database of pet food products from around
 msgctxt "product_description_opff"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
 msgstr "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Pet Food Facts product search"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
 
 msgctxt "brands_example_petfood"
 msgid "Purina, Pedigree"
