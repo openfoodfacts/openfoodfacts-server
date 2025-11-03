@@ -29448,7 +29448,7 @@ cs: Pracovní stoly
 da: Arbejdsborde
 de: Arbeitstische
 es: Mesas de oficina
-fr: Tables de travail, Table de préparation, Table de rempotage, Plateau de bureau
+fr: Tables de travail
 it: Tavoli da lavoro
 ja: オフィステーブル
 nl: Kantoortafels
@@ -29461,6 +29461,12 @@ tr: Çalışma Masaları
 qfdmo_name_fr: table_de_preparation
 google_product_taxonomy_id:en: 6363
 wikidata:en: Q116970659
+
+<en: Workspace Tables
+fr: Table de préparation
+
+<en: Workspace Tables
+fr: Table de rempotage
 
 < en:Workspace Tables
 en: Art & Drafting Tables
@@ -30192,7 +30198,7 @@ cs: Stolní desky
 da: Bordplader
 de: Tischplatten
 es: Tableros para mesas
-fr: Plateaux de table, Plateau de table, Plateau de bureau
+fr: Plateaux de table, Plateau de table
 it: Pianali per tavoli
 ja: テーブル天板
 nl: Tafelbladen
@@ -38371,7 +38377,7 @@ cs: Police na oblečení
 da: Tøjstativer
 de: Kleiderständer
 es: Organizadores de vestidores y perchas de barra
-fr: Organiseurs pour armoires et penderies pour vêtements, Structure de penderie, Support de fixation (rideau, penderie)
+fr: Organiseurs pour armoires et penderies pour vêtements
 it: Stand appendiabiti e organizer per armadi
 ja: ハンガーラック
 nl: Deurhangers voor kleding
@@ -38384,6 +38390,8 @@ tr: Dolap Düzenleyiciler ve Askılıklar
 qfdmo_name_fr: structure_de_penderie
 google_product_taxonomy_id:en: 5714
 wikidata:en: Q116960264
+
+# , Structure de penderie, Support de fixation (rideau, penderie)
 
 < en:Clothing & Closet Storage
 en: Clothes Valets
@@ -54702,9 +54710,6 @@ fr: robinetterie
 fr: WC toilette
 
 < en: Building Materials
-fr: Bidet
-
-< en: Building Materials
 fr: Cabine de douche
 
 < en: Building Materials
@@ -54732,28 +54737,7 @@ fr: porte
 fr: volet
 
 < en: Building Materials
-fr: Parquet
-
-< en: Building Materials
-fr: lambri
-
-< en: Building Materials
-fr: WC toilette
-
-< en: Building Materials
 fr: Bidet
-
-< en: Building Materials
-fr: Cabine de douche
-
-< en: Building Materials
-fr: Baignoire
-
-< en: Building Materials
-fr: Lavabo
-
-< en: Building Materials
-fr: Évier
 
 < en:Building Materials
 en: Countertops
@@ -59074,7 +59058,7 @@ cs: Elektroinstalace
 da: Eludstyr
 de: Elektrobedarf
 es: Suministros eléctricos
-fr: Accessoires électriques, Matériel électrique passif (prise, adaptateur, câbles, cordons)
+fr: Accessoires électriques
 it: Forniture elettriche
 ja: 電力供給装置
 nl: Energie- en elektriciteitsbenodigdheden
@@ -59086,6 +59070,8 @@ sv: Eltillbehör
 tr: Elektrik Sarf Malzemeleri
 google_product_taxonomy_id:en: 127
 wikidata:en: Q116970937
+
+# , Matériel électrique passif (prise, adaptateur, câbles, cordons)
 
 < en:Power & Electrical Supplies
 en: Armatures\, Rotors & Stators
@@ -87481,7 +87467,7 @@ cs: Raketbal a squash
 da: Racquetball og squash
 de: Racquetball & Squash
 es: Ráquetbol y squash
-fr: Racquetball et squash, Etui de raquette (tennis, badminton, squash, tennis de table...)
+fr: Racquetball et squash
 it: Racquetball e squash
 ja: スカッシュ・ラケットボール
 nl: Racquetball en squash
@@ -87493,6 +87479,10 @@ sv: Racketboll och squash
 tr: Racquetball ve Squash
 google_product_taxonomy_id:en: 503752
 wikidata:en: Q117208585
+
+< fr: Etui de raquettes
+<en: Racquetball & Squash
+fr: Etui de raquettes de squash
 
 < en:Racquetball & Squash
 en: Racquetball & Squash Balls
@@ -88262,6 +88252,12 @@ sv: Tennisracketar
 tr: Tenis Raketleri
 google_product_taxonomy_id:en: 3906
 wikidata:en: Q153362
+
+fr: Etui de raquettes
+
+< fr: Etui de raquettes
+< en: Tennis
+fr: Etui de raquettes de tennis
 
 < en:Athletics
 en: Track & Field
@@ -99041,6 +99037,13 @@ sv: Badmintonracketar
 tr: Badminton Raketleri ve Setleri
 google_product_taxonomy_id:en: 3950
 wikidata:en: Q799666
+
+< fr: Etui de raquettes
+< en:Badminton
+fr: Etui de raquettes de badminton
+
+< fr: Etui de raquettes
+fr: Etui de raquettes de tennis de table
 
 < en:Badminton
 en: Shuttlecocks
