@@ -7940,10 +7940,24 @@ JS
 
 	initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 	create_knowledge_panels($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $request_ref);
-	$template_data_ref->{environment_card_panel}
-		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
-	$template_data_ref->{health_card_panel}
-		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
+
+	# Option to load the simplified panels used in the mobile app
+	# &simplified_panels=1
+	my $simplified_prefix = '';
+	if (request_param($request_ref, "simplified_panels")) {
+		$simplified_prefix = 'simplified_';
+	}
+
+	$template_data_ref->{environment_card_panel} = display_knowledge_panel(
+		$product_ref,
+		$product_ref->{"knowledge_panels_" . $lc},
+		$simplified_prefix . "environment_card"
+	);
+	$template_data_ref->{health_card_panel} = display_knowledge_panel(
+		$product_ref,
+		$product_ref->{"knowledge_panels_" . $lc},
+		$simplified_prefix . "health_card"
+	);
 	if ($product_ref->{"knowledge_panels_" . $lc}{"secondhand_card"}) {
 		$template_data_ref->{secondhand_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "secondhand_card");

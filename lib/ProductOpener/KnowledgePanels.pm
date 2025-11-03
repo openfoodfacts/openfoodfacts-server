@@ -280,6 +280,33 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$request_ref
 	);
 
+	# Create the simplified root panel that contains simplified versions of the health and environment cards
+	# (used on mobile app)
+	create_panel_from_json_template(
+		"simplified_root",
+		"api/knowledge-panels/simplified_root.tt.json",
+		{
+			has_health_card => $has_health_card,
+			has_environment_card => $has_environment_card,
+		},
+		$product_ref,
+		$target_lc,
+		$target_cc,
+		$options_ref,
+		$request_ref
+	);
+	# Create the simplified cards
+	if ($has_health_card) {
+		create_panel_from_json_template("simplified_health_card",
+			"api/knowledge-panels/health/simplified_health_card.tt.json",
+			{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+	if ($has_environment_card) {
+		create_panel_from_json_template("simplified_environment_card",
+			"api/knowledge-panels/environment/simplified_environment_card.tt.json",
+			{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	return;
 }
 
@@ -659,6 +686,13 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 		create_panel_from_json_template("environmental_score_total",
 			"api/knowledge-panels/environment/environmental_score/total.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+		# Add environmental_score_adjustments panel group (used in simplified environment card)
+		create_panel_from_json_template(
+			"environmental_score_adjustments",
+			"api/knowledge-panels/environment/environmental_score/environmental_score_adjustments.tt.json",
+			{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+		);
 	}
 	# Environmental-Score is not applicable
 	elsif ( (defined $product_ref->{environmental_score_grade})
@@ -728,6 +762,7 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 			);
 		}
 	}
+
 	return;
 }
 
