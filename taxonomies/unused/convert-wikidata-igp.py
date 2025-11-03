@@ -1,0 +1,61 @@
+import json
+import re
+
+# Load the query.json file
+with open('/Users/pierre/development/openfoodfacts-server/taxonomies/food/query-off-ing.json', 'r') as f:
+    query_data = json.load(f)
+
+# Create a dictionary to map item labels to QIDs
+label_to_qid = {}
+for item in query_data:
+    label = item.get('itemLabel')
+    qid = item.get('item', '').split('/')[-1]
+    if label and qid:
+        label_to_qid[label.lower()] = qid
+
+# Read the categories.wip.txt file
+with open('/Users/pierre/development/openfoodfacts-server/taxonomies/food/ingredients.txt', 'r') as f:
+    categories_content = f.read()
+
+# Process the categories.wip.txt file
+updated_content = categories_content
+updated_count = 0
+
+for label, qid in label_to_qid.items():
+    # We need to be careful with special characters in the label
+    escaped_label = re.escape(label)
+    
+    # The label can be a value of any key.
+    # The pattern looks for a line starting with a language code, a colon, and then the label.
+    pattern = r"^[a-z]{2,3}:\s*.*" + escaped_label
+    
+    for match in re.finditer(pattern, updated_content, re.IGNORECASE | re.MULTILINE):
+        start_index = match.start()
+        
+        # Find the start of the block
+        block_start = updated_content.rfind('< en:', 0, start_index)
+        if block_start == -1:
+            continue
+            
+        # Find the end of the block
+        block_end = updated_content.find('\n\n', start_index)
+        if block_end == -1:
+            block_end = len(updated_content)
+            
+        block = updated_content[block_start:block_end]
+        
+        # Check if the block has a #wikidata:en: line
+        if '#wikidata:en:' in block:
+            # Replace it with the new wikidata line
+            new_block = block.replace('#wikidata:en:', f'wikidata:en: {qid}')
+            updated_content = updated_content[:block_start] + new_block + updated_content[block_end:]
+            updated_count += 1
+            print(f"Updated entry for '{label}' with QID '{qid}'")
+            # We assume one match is enough
+            break
+
+# Write the updated content back to the file
+with open('/Users/pierre/development/openfoodfacts-server/taxonomies/food/ingredients.txt', 'w') as f:
+    f.write(updated_content)
+
+print(f"\nFile updated successfully. {updated_count} entries were updated.")
