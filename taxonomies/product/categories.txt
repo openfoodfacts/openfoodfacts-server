@@ -13867,7 +13867,7 @@ cs: Kabáty a bundy
 da: Frakker og jakker
 de: Mäntel & Jacken
 es: Chaquetas y abrigos
-fr: Manteaux et vestes, Manteau, Vestes, Veste, Blouson en cuir
+fr: Manteaux et vestes
 it: Cappotti e giacche
 ja: コート・ジャケット
 nl: Jassen en jacks
@@ -13884,6 +13884,12 @@ google_product_taxonomy_id:en: 5598
 unit_name:en: Coat
 unit_name:fr: Manteau
 wikidata:en: Q116960143
+
+<en: Coats & Jackets
+fr: Vestes, Veste
+
+<en: Coats & Jackets
+fr: Blouson en cuir
 
 < en: Coats & Jackets
 en: Coat
@@ -16174,7 +16180,7 @@ cs: Rukavice a palčáky
 da: Handsker og vanter
 de: Handschuhe & Fausthandschuhe
 es: Guantes y mitones
-fr: Gants et moufles, Gants, Moufles, Mouffle, Mitaines, Mitaine, Gants en cuir
+fr: Gants et moufles
 it: Guanti e muffole
 ja: 手袋・グローブ
 nl: Handschoenen en wanten
@@ -16187,6 +16193,15 @@ tr: Eldivenler ve Kolçaklar
 qfdmo_name_fr: gants
 google_product_taxonomy_id:en: 170
 wikidata:en: Q116960237
+
+< en:Gloves & Mittens
+fr: Moufles, Mouffle
+
+< en:Gloves & Mittens
+fr: Gants
+
+<fr: Gants
+fr: Gants en cuir
 
 < en:Gloves & Mittens
 en: Fingerless Gloves
@@ -16858,7 +16873,7 @@ cs: Šerpy
 da: Skærf
 de: Schärpen
 es: Bandas
-fr: Écharpes
+fr: Écharpes, Écharpe, Echarpes, Echarpe
 it: Fasce
 ja: サッシュ
 nl: Sjerpen
@@ -16878,7 +16893,7 @@ cs: Šátky a šály
 da: Tørklæder og sjaler
 de: Schals & Halstücher
 es: Bufandas y chales
-fr: Écharpes\, foulards et châles, Écharpe, Echarpes, Echarpe
+fr: Écharpes\, foulards et châles
 it: Sciarpe e scialli
 ja: スカーフ・ショール
 nl: Sjaals
@@ -42264,13 +42279,13 @@ google_product_taxonomy_id:en: 5287
 wikidata:en: Q117207977
 
 < en:Kitchen Appliances
-en: Breadmakers
+en: Breadmakers, Bread Makers
 xx: Breadmakers
 cs: Domácí pekárny
 da: Brødmaskiner
 de: Brotbackautomaten
 es: Horno de pan
-fr: Machines à pain
+fr: Machines à pain, Machine à pain
 it: Macchine per fare il pane
 ja: ホームベーカリー
 nl: Broodmachines
@@ -42282,6 +42297,8 @@ sv: Bakmaskiner
 tr: Ekmek Yapma Makineleri
 google_product_taxonomy_id:en: 732
 wikidata:en: Q117207978
+qfdmo_name_fr: machine_a_pain
+identifiant_qfdmo: 145
 
 < en:Kitchen Appliances
 en: Chocolate Tempering Machines
@@ -42857,13 +42874,6 @@ tr: Mikserler ve Blender'lar
 qfdmo_name_fr: robot_de_cuisine
 google_product_taxonomy_id:en: 505666
 wikidata:en: Q117207992
-
-< en:Kitchen Appliances
-en: Bread Makers
-xx: Bread Makers
-fr: Machines à pain, Machine à pain
-qfdmo_name_fr: machine_a_pain
-identifiant_qfdmo: 145
 
 < en:Kitchen Appliances
 en: Food Smokers
@@ -54643,7 +54653,7 @@ cs: Stavební materiály
 da: Byggematerialer
 de: Baumaterialien
 es: Materiales de construcción
-fr: Matériaux de construction, Matériau de construction réemployable, Matériau du bâtiment réemployable, Parpaings, Parquet, lambri, Robinet, mitigeur, robinetterie, WC toilette, Bidet, Cabine de douche, Baignoire, Lavabo, Évier, Sanitaires, fenêtre, huisserie, porte, volet, Parquet\, lambri, Robinet\, mitigeur\, robinetterie, WC toilette\, Bidet\, Cabine de douche\, Baignoire\, Lavabo\, Évier\, Sanitaires, fenêtre\, huisserie\, porte\, volet
+fr: Matériaux de construction, Matériau de construction réemployable, Matériau du bâtiment réemployable
 it: Materiali da costruzione
 ja: 建築材料
 nl: Afbouwmaterialen
@@ -54656,6 +54666,105 @@ tr: Yapı Malzemeleri
 qfdmo_name_fr: materiau_de_construction_reemployable
 google_product_taxonomy_id:en: 115
 wikidata:en: Q206615
+
+< en: Building Materials
+fr: Parpaings
+
+< en: Building Materials
+fr: Parquet
+
+< en: Building Materials
+fr: lambri
+
+< en: Building Materials
+fr: Robinet
+
+< en: Building Materials
+fr: mitigeur
+
+< en: Building Materials
+fr: robinetterie
+
+< en: Building Materials
+fr: WC toilette
+
+< en: Building Materials
+fr: Bidet
+
+< en: Building Materials
+fr: Cabine de douche
+
+< en: Building Materials
+fr: Baignoire
+
+< en: Building Materials
+fr: Lavabo
+
+< en: Building Materials
+fr: Évier
+
+< en: Building Materials
+fr: Sanitaires
+
+< en: Building Materials
+fr: fenêtre
+
+< en: Building Materials
+fr: huisserie
+
+< en: Building Materials
+fr: porte
+
+< en: Building Materials
+fr: volet
+
+< en: Building Materials
+fr: Parquet
+
+< en: Building Materials
+fr: lambri
+
+< en: Building Materials
+fr: Robinet
+
+< en: Building Materials
+fr: mitigeur
+
+< en: Building Materials
+fr: robinetterie
+
+< en: Building Materials
+fr: WC toilette
+
+< en: Building Materials
+fr: Bidet
+
+< en: Building Materials
+fr: Cabine de douche
+
+< en: Building Materials
+fr: Baignoire
+
+< en: Building Materials
+fr: Lavabo
+
+< en: Building Materials
+fr: Évier
+
+< en: Building Materials
+fr: Sanitaire
+
+< en: Building Materials
+fr: fenêtre
+
+< en: Building Materials
+fr: huisserie
+
+< en: Building Materials
+fr: porte
+
+< en: Building Materials
+fr: volet
 
 < en:Building Materials
 en: Countertops
@@ -61711,7 +61820,7 @@ cs: Zatloukání
 da: Hammere
 de: Hämmer
 es: Martillos y mazos
-fr: Marteaux, Masse (outil de bricolage)
+fr: Marteaux
 it: Martelli
 ja: ハンマー・電動ハンマー
 nl: Timmeren
@@ -61721,9 +61830,12 @@ pt: Marteladores
 ru: Молотки
 sv: Hammare
 tr: Çekiçler
-qfdmo_name_fr: masse_outil_de_bricolage
 google_product_taxonomy_id:en: 1186
 wikidata:en: Q25294
+
+< en:Hammers
+fr: Masse
+qfdmo_name_fr: masse_outil_de_bricolage
 
 < en:Hammers
 en: Manual Hammers
@@ -90866,7 +90978,7 @@ cs: Terče na šipky
 da: Dartskiver
 de: Dartscheiben
 es: Dianas
-fr: Cibles, Cible (chasse, tir sportif, ball-trap, tir à l'arc, fléchettes)
+fr: Cibles, Cible
 it: Bersagli freccette
 ja: ダーツボード
 nl: Dartborden
@@ -90878,6 +90990,8 @@ sv: Darttavlor
 tr: Dart Tahtaları
 google_product_taxonomy_id:en: 3559
 wikidata:en: Q117208746
+
+#(chasse, tir sportif, ball-trap, tir à l'arc, fléchettes)
 
 < en:Throwing Darts
 en: Darts
@@ -93394,7 +93508,7 @@ cs: Karabiny
 da: Karabiner
 de: Karabiner
 es: Mosquetones para escalada
-fr: Mousquetons
+fr: Mousquetons, mousqueton, Mousquetons d'escalade
 it: Moschettoni
 ja: カラビナ
 nl: Karabijnhaken
@@ -93580,7 +93694,7 @@ cs: Lezecké ochranné vybavení
 da: Klatrebeskyttelse
 de: Kletterschutzausrüstung
 es: Dispositivos de protección de escalada
-fr: Dispositifs de protection pour l'escalade, Harnais, mousqueton, dégaine, assurage, poulie, bloqueur, coinceur (Matériel d'alpinisme, escalade, varappe, canyoning, camping)
+fr: Dispositifs de protection pour l'escalade
 it: Dispositivi di protezione da arrampicata
 ja: 登山用安全装置
 nl: Beschermende apparatuur voor klimmen
@@ -93592,6 +93706,8 @@ sv: Enheter för klättringsskydd
 tr: Tırmanış Koruyucu Aygıtları
 google_product_taxonomy_id:en: 3266
 wikidata:en: Q352328
+
+# Harnais, dégaine, assurage, poulie, bloqueur, coinceur (Matériel d'alpinisme, escalade, varappe, canyoning, camping)
 
 < en:Climbing
 en: Climbing Rope
