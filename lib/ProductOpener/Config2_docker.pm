@@ -73,6 +73,7 @@ BEGIN {
 		$oidc_discovery_url
 		$oidc_client_id
 		$oidc_client_secret
+		%slack_hook_urls
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -187,4 +188,18 @@ $oidc_implementation_level = $ENV{OIDC_IMPLEMENTATION_LEVEL};
 $oidc_client_id = $ENV{OIDC_CLIENT_ID};
 $oidc_discovery_url = $ENV{OIDC_DISCOVERY_URL};
 $oidc_client_secret = $ENV{OIDC_CLIENT_SECRET};
+
+# Slack URLs
+%slack_hook_urls = ();
+if ((defined $ENV{SLACK_HOOK_URLS}) and ($ENV{SLACK_HOOK_URLS} ne '')) {
+	foreach my $kvp (split(',', $ENV{SLACK_HOOK_URLS})) {
+		$kvp =~ s/^\s+|\s+$//g;    # Trim leading and trailing whitespace
+		if (not($kvp =~ m/^(?<channel>.+)=(?<url>https?.+)$/)) {
+			next;
+		}
+
+		$slack_hook_urls{$+{channel}} = $+{url};
+	}
+}
+
 1;

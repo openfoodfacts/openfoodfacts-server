@@ -27,7 +27,6 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		$nutripatrol_url
-		%slack_hook_urls
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -35,19 +34,5 @@ use vars @EXPORT_OK;    # no 'my' keyword for these
 
 $nutripatrol_url = $ENV{NUTRIPATROL_URL};
 $nutripatrol_url =~ s/\/$//;    # remove trailing slash if there is one
-
-# Slack URLs
-%slack_hook_urls = ();
-
-if ((defined $ENV{SLACK_HOOK_URLS}) and ($ENV{SLACK_HOOK_URLS} ne '')) {
-	foreach my $kvp (split(',', $ENV{SLACK_HOOK_URLS})) {
-		$kvp =~ s/^\s+|\s+$//g;    # Trim leading and trailing whitespace
-		if (not($kvp =~ m/^(?<channel>.+)=(?<url>https?.+)$/)) {
-			next;
-		}
-
-		$slack_hook_urls{$+{channel}} = $+{url};
-	}
-}
 
 1;
