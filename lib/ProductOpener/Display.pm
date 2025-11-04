@@ -4776,7 +4776,9 @@ sub add_params_to_query ($params_ref, $query_ref) {
 		# Tags fields can be passed with taxonomy ids as values (e.g labels_tags=en:organic)
 		# or with values in a given language (e.g. labels_tags_fr=bio)
 
-		if ($field =~ /^(.*)_tags(_(\w\w))?/) {
+		# Exception: attribute_unwanted_ingredients_tags=en:water is not a filter, it is a parameter to compute attributes
+
+		if (($field !~ /^attribute_/) and ($field =~ /^(.*)_tags(_(\w\w))?/)) {
 			my $tagtype = $1;
 			my $tag_lc = $lc;
 			if (defined $3) {
