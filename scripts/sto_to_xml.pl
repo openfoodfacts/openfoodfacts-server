@@ -24,6 +24,8 @@ use Modern::Perl '2017';
 
 use Data::Dumper;
 
+#11872 Use PO Storable
+
 use Storable qw(lock_store lock_nstore lock_retrieve);
 
 sub retrieve {

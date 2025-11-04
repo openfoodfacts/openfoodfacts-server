@@ -1,4 +1,4 @@
-
+// #11866: Can be deleted after Keycloak migration
 function togglePasswordVisibility(FieldID) {
     const passwordInput = document.getElementById(FieldID);
     const toggleIcon = passwordInput.nextElementSibling.querySelector(".material-icons");

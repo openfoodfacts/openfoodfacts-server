@@ -41,7 +41,7 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers single_param/;
+use ProductOpener::HTTP qw/write_cors_headers single_param redirect_to_url/;
 use ProductOpener::Tags qw/%language_fields %tags_fields add_tags_to_field compute_field_tags/;
 use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
@@ -118,7 +118,7 @@ else {
 	my $product_ref = retrieve_product($product_id);
 
 	if (not defined $product_ref) {
-		$product_ref = init_product($User_id, $Org_id, $code, $country);
+		$product_ref = init_product($User_id, $Org_id, $code, $request_ref->{country});
 		$product_ref->{interface_version_created} = $interface_version;
 	}
 	else {
@@ -131,7 +131,9 @@ else {
 			and ($product_ref->{product_type} ne $options{product_type}))
 		{
 			redirect_to_url($request_ref, 307,
-				format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product_jqm.pl?code=' . $code);
+					  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
+					. '/cgi/product_jqm.pl?code='
+					. $code);
 		}
 	}
 

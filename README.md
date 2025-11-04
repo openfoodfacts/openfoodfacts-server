@@ -6,7 +6,7 @@
 
 
 
-([Looking for the Open Food Facts API doc ?](https://openfoodfacts.github.io/openfoodfacts-server/api/))
+[Looking for the Open Food Facts API doc ?](https://openfoodfacts.github.io/openfoodfacts-server/api/))
 
 # Open Food Facts - Product Opener (Web Server)
 
@@ -30,7 +30,7 @@
 
 **Product Opener** is the server software for **Open Food Facts** and **Open Beauty Facts**. It is released under the AGPL license and is being developed in Perl, HTML and JavaScript as [Free and Open-Source Software](https://en.wikipedia.org/wiki/Free_and_open-source_software).
 
-It works together with [Robotoff](https://github.com/openfoodfacts/robotoff), Open Food Facts' AI system (in Python, which can also be installed locally) and the [Open Food Facts App](https://github.com/openfoodfacts/smooth-app) (which can work with your local instance after enabling dev mode)
+It works together with [Robotoff](https://github.com/openfoodfacts/robotoff), Open Food Facts' AI system (in Python, which can also be installed locally) and the [Open Food Facts App](https://github.com/openfoodfacts/smooth-app) (which can work with your local instance after enabling dev mode), as well as Open Food Facts query and the upcoming openfoodfacts-auth. For a full architecture diagram, please read https://github.com/openfoodfacts
 <br><br>
 ## What is Open Food Facts?
 
@@ -44,10 +44,15 @@ Open Food Facts is a non-profit association of volunteers. 25,000+ contributors 
 
 ### For everyone
 
-Data about food is of public interest and has to be open (i.e available to everyone). The complete database is published as open data and can be reused by anyone and for any use. Check-out the cool reuses or make your own!
+Food data is of public interest and must be open (i.e., available to everyone). The complete database is published as open data and can be reused by anyone and for any use. Check out the cool reuses or make your own!
 
 
 Visit the [website](https://world.openfoodfacts.org) for more info.
+<br><br>
+## 🎨 Design & User interface
+- We strive to thoughtfully design every feature before we move on to implementation, so that we respect Open Food Facts' graphic charter and nascent design system, while having efficient user flows.
+- [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current app and future plans to discuss](https://www.figma.com/design/Qg9URUyrjHgYmnDHXRsTTB/Current-Website-design?m=auto&t=jNwvjRR8nIgOzzJZ-6)
+- Are you a designer ? [Join the design team](https://github.com/openfoodfacts/openfoodfacts-design)
 <br><br>
 ## Weekly Meetings
 
@@ -56,7 +61,7 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
 - Join by phone: https://tel.meet/nnw-qswu-hza?pin=2111028061202
 - Add the event to your calendar by [adding the Open Food Facts community calendar to your calendar](https://wiki.openfoodfacts.org/Events).
 - [Weekly agenda](https://drive.google.com/open?id=1LL8-aiSF482xaJ1o0AKmhXB5QWfVE0_jzvYakq3VXys): please add the Agenda items as early as you can.
-- Make sure to check the agenda items in advance of the meeting, so that we have the most informed discussions possible.
+- "Please review agenda items in advance to ensure informed discussions."
 - The meeting will handle agenda items first, and if time permits, collaborative bug triage.
 - We strive to timebox the core of the meeting (decision making) to 30 minutes, with an optional free discussion/live debugging afterwards.
 - We take comprehensive notes in the weekly agenda of agenda item discussions and of decisions taken.
@@ -76,7 +81,7 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
 - Join us on slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
 - Open Food Facts API documentation:
   - [Introduction to the API](https://openfoodfacts.github.io/openfoodfacts-server/api/)
-  - [Full reference](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/api/ref/api.yml))
+  - [Full reference](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/api/ref/api.yaml))
 - Developer documentation:
   - To start coding, head to the [Quick start guide (docker)](./docs/dev/how-to-quick-start-guide.md)
   - Additional documentation

@@ -11,11 +11,9 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 # First user
 
@@ -199,7 +197,7 @@ edit_product(
 );
 
 # Note: expected results are stored in json files, see execute_api_tests
-# We use the API with .json to test facets, in order to easily get the products that are returned
+# We use the API with .json to test facets, in order to easily get the products that are returned
 my $tests_ref = [
 	{
 		test_case => 'brand_brand1',
@@ -356,9 +354,61 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/category/vitamins',
 		expected_status_code => 301,
+		headers => {
+			Location => '/facets/categories/vitamins',
+		},
 		expected_type => 'html',
 	},
-
+	{
+		test_case => 'redirect-facets-search-with-json',
+		method => 'GET',
+		path => '/categories/vitamins.json',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/categories/vitamins.json',
+		},
+		expected_type => 'html',    # the redirect itself is html
+	},
+	{
+		test_case => 'redirect-facets-search-with-json-and-query-parameter',
+		method => 'GET',
+		path => '/categories/vitamins.json?no_cache=1',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/categories/vitamins.json?no_cache=1',
+		},
+		expected_type => 'html',    # the redirect itself is html
+	},
+	{
+		test_case => 'redirect-facets-search-with-json-query-parameter',
+		method => 'GET',
+		path => '/categories/vitamins?json=1',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/categories/vitamins?json=1',
+		},
+		expected_type => 'html',    # the redirect itself is html
+	},
+	{
+		test_case => 'redirect-facets-with-multiple-query-parameters',
+		method => 'GET',
+		path => '/ingredients?filter=bon&status=unknown',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/ingredients?filter=bon&status=unknown',
+		},
+		expected_type => 'html',    # the redirect itself is html
+	},
+	{
+		test_case => 'redirect-facets-agg-with-json',
+		method => 'GET',
+		path => '/categories.json',
+		expected_status_code => 301,
+		headers => {
+			Location => '/facets/categories.json',
+		},
+		expected_type => 'html',    # the redirect itself is html
+	},
 ];
 
 # note: we need to execute the tests with bob, because we need authentication

@@ -8,12 +8,15 @@ properties:
     example: "0074570036004"
   user_id:
     type: string
-    description: A valid username.
-    example: myusername
+    description: |
+      Username to authenticate with
+
+      Note: you must always use the username (and not the email)
+      as it is far less brittle.
   password:
     type: string
-    description: A valid corresponding password (related to specific environment).
-    example: mypassword
+    description: Password to authenticate with
+    format: password
   comment:
     type: string
     description: A comment for the change. It will be shown in product changes history.

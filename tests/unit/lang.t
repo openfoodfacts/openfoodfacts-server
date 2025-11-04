@@ -153,6 +153,6 @@ foreach my $stringid (sort keys %Lang) {
 	}
 }
 
-diag Dumper \%failed_languages;
+# diag Dumper \%failed_languages;
 
 done_testing();

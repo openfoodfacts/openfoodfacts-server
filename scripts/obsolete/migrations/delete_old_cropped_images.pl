@@ -27,33 +27,20 @@ my @products = ();
 GetOptions('products=s' => \@products);
 @products = split(/,/, join(',', @products));
 
-sub find_products($$) {
+sub find_products($) {
 
 	my $dir = shift;
-	my $code = shift;
 
-	opendir DH, "$dir" or die "could not open $dir directory: $!\n";
-	foreach my $file (sort readdir(DH)) {
-		chomp($file);
-		#print "file: $file\n";
-		if ($file eq 'product.sto') {
-			push @products, $code;
-			#print "code: $code\n";
-		}
-		else {
-			$file =~ /\./ and next;
-			if (-d "$dir/$file") {
-				find_products("$dir/$file", "$code$file");
-			}
-		}
+	my $next = product_iter($dir);
+	while (my $file = $next->()) {
+		push @products, product_id_from_path($file);
 	}
-	closedir DH;
 
 	return;
 }
 
 if (scalar $#products < 0) {
-	find_products($BASE_DIRS{PRODUCTS}, '');
+	find_products($BASE_DIRS{PRODUCTS});
 }
 
 # Create directory to move old images to
@@ -76,8 +63,8 @@ foreach my $code (@products) {
 
 	my $path = product_path($code);
 
-	my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/product.sto")
-		or print "not defined $BASE_DIRS{PRODUCTS}/$path/product.sto\n";
+	my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/product")
+		or print "not defined $BASE_DIRS{PRODUCTS}/$path/product\n";
 
 	if ((defined $product_ref)) {
 

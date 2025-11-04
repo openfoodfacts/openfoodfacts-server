@@ -26,7 +26,7 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/store/;
+use ProductOpener::Store qw/store_object/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -76,7 +76,7 @@ while (my $product_ref = $cursor->next) {
 
 		# Store
 
-		# store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
+		# store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 		# get_products_collection()->save($product_ref);
 	}
 }
