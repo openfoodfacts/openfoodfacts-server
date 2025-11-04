@@ -192,7 +192,8 @@ my %may_contain_regexps = (
 	bs => "može da sadrži",
 	ca => "pot contenir",
 	cs => "může obsahovat|může obsahovat stopy",
-	da => "produktet kan indeholde|kan også indeholde bestanddele fra|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
+	da =>
+		"produktet kan indeholde|kan også indeholde bestanddele fra|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann|Enthält möglicherweise",
 	el => "Μπορεί να περιέχει ίχνη από",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
@@ -1076,7 +1077,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		es => "contenido(?: (?:$minimum_or_total))",
 		fr => "(?:teneur|taux)(?: (?:$minimum_or_total))?(?: en)?",   # need to have " en" as it's not in the $of regexp
 		hr => "ukupni(?: udio)?|udio",
-        sl => "vsebuje",
+		sl => "vsebuje",
 		sv => "(?:(?:$minimum_or_total) )?mängd",
 	);
 	my $content_of_ingredient = $content_of_ingredient{$ingredients_lc};
@@ -5375,7 +5376,7 @@ my %phrases_after_ingredients_list = (
 		'(heотворен|Неотворен)',    # before opening ...
 		'След отваряне',    # after opening ...
 		'Опаковани в защитна атмосфера',    # packaged in protective atmosphere
-        'най добър до',    # best before
+		'най добър до',    # best before
 	],
 
 	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
@@ -5456,7 +5457,7 @@ my %phrases_after_ingredients_list = (
 		'best before',    #'Best before',
 		'keep cool and dry',
 		'Can be stored unopened at room temperature',
-        'cooking time',
+		'cooking time',
 		'for allergens',
 		'instruction',
 		'nutrition(al)? (as sold|facts|information|typical|value[s]?)',
@@ -5749,7 +5750,7 @@ my %phrases_after_ingredients_list = (
 	ro => [
 		'constituenți analitici',    # pet food
 		'declaratie nutritional(a|ă)',
-        'a se consuma de preferinţă înainte de',   # best before
+		'a se consuma de preferinţă înainte de',    # best before
 		'a si pastra la frigider dup(a|ă) deschidere',
 		'a se agita inainte de deschidere',
 		'a se păstra',    # Store in a dry and cool place / at temperature
@@ -5847,7 +5848,7 @@ my %ignore_phrases = (
 		'za više informacija posjetiti stranicu ra\.org',
 	],
 	hu => [
-        'a késztermékben', # in the finished product
+		'a késztermékben',    # in the finished product
 		'valamennyi százalékos adat a késztermékre vonatkozik',    # All percentages refer to the finished product.
 	],
 	sk => [
