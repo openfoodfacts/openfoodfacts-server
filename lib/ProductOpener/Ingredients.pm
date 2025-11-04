@@ -4663,7 +4663,7 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 				# is bogus (e.g. OCR errors) and the likelyhood of missing a palm oil ingredient increases.
 				# --> In this case, we mark the product as palm oil content unknown
 				# Note: we substract ignore ingredients from the total count
-				elsif (($values{unknown_ingredients} || 0) - ($values{ignore} || 0) > 0) {
+				elsif ($unknown_but_not_ignore_ingredients_n > 0) {
 					# Some ingredients were not recognized
 					my $unknown_rate = $unknown_but_not_ignore_ingredients_n / $ingredients_n;
 
