@@ -7941,7 +7941,8 @@ JS
 	initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 	create_knowledge_panels($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $request_ref);
 
-	# Option to load the simplified panels used in the mobile app
+	# Option to show on the website product page the simplified panels used in the mobile app (for debugging)
+	# If activated, we replace the environment_card and health_card panels shown on the website with their simplified versions
 	# &simplified_panels=1
 	my $simplified_prefix = '';
 	if (request_param($request_ref, "simplified_panels")) {

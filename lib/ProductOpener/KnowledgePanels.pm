@@ -89,6 +89,11 @@ Initialize the options for knowledge panels from parameters.
 
 sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request_ref) {
 
+	# Activate simplified_root + simplified cards only when specified
+	if (single_param("activate_knowledge_panels_simplified")) {
+		$knowledge_panels_options_ref->{activate_knowledge_panels_simplified} = 1;
+	}
+
 	# Activate physical activity knowledge panel only when specified
 	if (single_param("activate_knowledge_panel_physical_activities")) {
 		$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities} = 1;
@@ -280,31 +285,36 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$request_ref
 	);
 
-	# Create the simplified root panel that contains simplified versions of the health and environment cards
-	# (used on mobile app)
-	create_panel_from_json_template(
-		"simplified_root",
-		"api/knowledge-panels/simplified_root.tt.json",
-		{
-			has_health_card => $has_health_card,
-			has_environment_card => $has_environment_card,
-		},
-		$product_ref,
-		$target_lc,
-		$target_cc,
-		$options_ref,
-		$request_ref
-	);
-	# Create the simplified cards
-	if ($has_health_card) {
-		create_panel_from_json_template("simplified_health_card",
-			"api/knowledge-panels/health/simplified_health_card.tt.json",
-			{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
-	}
-	if ($has_environment_card) {
-		create_panel_from_json_template("simplified_environment_card",
-			"api/knowledge-panels/environment/simplified_environment_card.tt.json",
-			{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	# If requested, create simplified knowledge panels for mobile app
+
+	if ($knowledge_panels_options_ref->{activate_knowledge_panels_simplified}) {
+
+		# Create the simplified root panel that contains simplified versions of the health and environment cards
+		# (used on mobile app)
+		create_panel_from_json_template(
+			"simplified_root",
+			"api/knowledge-panels/simplified_root.tt.json",
+			{
+				has_health_card => $has_health_card,
+				has_environment_card => $has_environment_card,
+			},
+			$product_ref,
+			$target_lc,
+			$target_cc,
+			$options_ref,
+			$request_ref
+		);
+		# Create the simplified cards
+		if ($has_health_card) {
+			create_panel_from_json_template("simplified_health_card",
+				"api/knowledge-panels/health/simplified_health_card.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
+		if ($has_environment_card) {
+			create_panel_from_json_template("simplified_environment_card",
+				"api/knowledge-panels/environment/simplified_environment_card.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
 	}
 
 	return;
