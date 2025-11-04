@@ -41,6 +41,8 @@ use Exporter qw< import >;
 use Log::Any qw($log);
 use Data::Dumper;
 
+use ProductOpener::Booleans qw(:all);
+
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
@@ -78,6 +80,7 @@ use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use JSON::MaybeXS;
 use Encode;
 use Data::DeepAccess qw(deep_get);
+use boolean;
 
 =head1 FUNCTIONS
 
@@ -90,14 +93,12 @@ Initialize the options for knowledge panels from parameters.
 sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request_ref) {
 
 	# Activate simplified_root + simplified cards only when specified
-	if (single_param("activate_knowledge_panels_simplified")) {
-		$knowledge_panels_options_ref->{activate_knowledge_panels_simplified} = 1;
-	}
+	$knowledge_panels_options_ref->{activate_knowledge_panels_simplified}
+		= normalize_boolean(single_param("activate_knowledge_panels_simplified"));
 
 	# Activate physical activity knowledge panel only when specified
-	if (single_param("activate_knowledge_panel_physical_activities")) {
-		$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities} = 1;
-	}
+	$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities}
+		= normalize_boolean(single_param("activate_knowledge_panel_physical_activities"));
 
 	# Specify if we knowledge panels are requested from the app or the website
 	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)

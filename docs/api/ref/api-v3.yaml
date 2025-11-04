@@ -64,23 +64,11 @@ paths:
             * "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels".
 
             Defaults to "all" for READ requests. The "all" value can also be combined with fields like "attribute_groups" and "knowledge_panels".
-        - schema:
-            type: string
-            example: "health_card, environment_card"
-          required: false
-          in: query
-          name: knowledge_panels_included
-          description: |-
-            When knowledge_panels are requested, you can specify which panels should be in the response. All the others will be excluded.
-        - schema:
-            type: string
-            example: "health_card, environment_card"
-          required: false
-          in: query
-          name: knowledge_panels_excluded
-          description: |-
-            When knowledge_panels are requested, you can specify which panels to exclude from the response. All the others will be included.
-            If a panel is both excluded and included (with the knowledge_panels_excluded parameter), it will be excluded.
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelClient"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelsSimplified"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelPhysicalActivities"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsIncluded"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsExcluded"
       responses:
         "200":
           description: OK

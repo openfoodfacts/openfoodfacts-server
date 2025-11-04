@@ -7947,7 +7947,7 @@ JS
 	if (request_param($request_ref, "simplified_panels")) {
 		$simplified_prefix = 'simplified_';
 		# We enable the option to activate the simplified panels
-		$knowledge_panels_options_ref->{activate_knowledge_panels_simplified} = 1;
+		$knowledge_panels_options_ref->{activate_knowledge_panels_simplified} = true;
 	}
 
 	create_knowledge_panels($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $request_ref);
