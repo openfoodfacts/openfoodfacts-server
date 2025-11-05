@@ -20,11 +20,11 @@ components:
           description: Default unit of the nutrient
           $ref: "./nutrient_unit.yaml"
         nutrients:
-          $ref: "#/components/schemas/Nutrients"
+          $ref: "nutrients.yaml#/components/schemas/Nutrients"
     Nutrients:
       type: array
       description: |
         Nutrients and sub-nutrients of a product, with their name and default unit.
         (e.g. saturated-fat is a sub-nutrient of fat).
       items:
-        $ref: "#/components/schemas/Nutrient"
+        $ref: "nutrients.yaml#/components/schemas/Nutrient"
