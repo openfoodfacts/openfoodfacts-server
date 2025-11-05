@@ -3010,21 +3010,22 @@ uz: Tozalovchi sut
 zh: 洁面乳
 
 < en:Cleansers
-en: Nail polish remover, Nail varnish remover
+< en:Nail products
+en: Nail polish removers, Nail polish remover, Nail varnish remover
 ar: مزيل طلاء الأظافر
 az: Dırnaq lakını təmizləyən vasitə
 bg: Лакочистител
 bn: নেইল পলিশ রিমুভার
 ca: Removedor d'esmalt d'ungles
-cs: Odličovač laku na nehty
-da: Neglelakfjerner
+cs: Odličovač laku na nehty, Odlakovače
+da: Neglelakfjernere, Neglelakfjerner
 de: Nagellackentferner
 el: Αφαιρετικό βερνικιού νυχιών
-es: Quitaesmalte
+es: Quitaesmaltes, Quitaesmalte
 et: Küünelakieemaldaja
 fa: پاک کننده لاک ناخن
 fi: Kynsilakanpoistoaine
-fr: Dissolvants
+fr: Dissolvants pour vernis à ongles, Dissolvants
 ga: Bainisteoir snas ingne
 he: מסיר לק
 hr: Odstranjivač laka za nokte
@@ -3032,7 +3033,7 @@ hu: Körömlakklemosó
 hy: Եղունգների լաքը հեռացնող միջոց
 id: Penghapus cat kuku
 is: Naglalakkahreinsir
-it: Levasmalto
+it: Solventi unghie, Levasmalto
 ja: 除光液
 ka: ფრჩხილის ლაქის მოსაშორებელი
 kk: Тырнақ бояуын кетіргіш
@@ -3044,22 +3045,22 @@ lv: Nagu lakas noņēmējs
 mk: Отстранувач на лак за нокти
 ms: Penanggal pengilat kuku
 mt: Remover tal-lustrar tad-dwiefer
-nl: Nagellakremover
-no: Neglelakkfjerner
-pl: Zmywacz do paznokci
-pt: Removedor de verniz
+nb: Neglelakkfjerner
+nl: Nagellakremovers, Nagellakremover
+pl: Zmywacze do paznokci, Zmywacz do paznokci
+pt: Removedores de esmalte, Removedor de verniz
 ro: Dizolvant de unghii
-ru: Жидкость для снятия лака
+ru: Средства для снятия лака, Жидкость для снятия лака
 sk: Odličovač laku na nechty
 sl: Odstranjevalec laka za nohte
 sq: Heqës i llakut të thonjve
 sr: Скидач лака за нокте
-sv: Nagellacksremover
+sv: Nagellacksborttagare, Nagellacksremover
 sw: Kiondoa rangi ya kucha
 tg: Тозакунандаи лаки нохун
 th: น้ำยาล้างเล็บ
 tk: Dyrnak lakyny aýyryjy
-tr: Aseton
+tr: Oje Çıkarıcılar, Aseton
 uk: Засіб для зняття лаку
 ur: ناخن پالش ہٹانے والا
 uz: Tirnoq lakini tozalash vositasi
@@ -5445,20 +5446,39 @@ wikidata:en: Q85755097
 
 #### Maquillage pour les ongles
 
+en: Nail products, Nail care, Nails
+cs: Péče o nehty
+da: Negleprodukter, Neglepleje
+de: Nagelpflege
+es: Cuidado de uñas
+fr: Soin des ongles
+it: Cura delle unghie
+ja: ネイルケア
+nb: Neglepleie
+nl: Nagelverzorging
+pl: Pielęgnacja paznokci
+pt: Cuidados com as unhas
+ru: Средства для ухода за ногтями
+sv: Nagelprodukter, Nagelvård
+tr: Tırnak Bakımı
+google_product_taxonomy_id:en: 478
+wikidata:en: Q116221817
+
 < en:Makeup
+< en:Nail products
 en: Nail makeup
 fr: Maquillage pour les ongles
 
 < en:Nail makeup
-en: Nail polish
+en: Nail polishes, Nail polish
 ar: طلاء الأظافر
 az: Dırnaq lakı
 bg: Лак за нокти
-cs: Lak na nehty
+cs: Laky na nehty, Lak na nehty
 da: Neglelak
-de: Nagellack
+de: Nagellacke, Nagellack
 el: Βερνίκι νυχιών
-es: Esmalte de uñas
+es: Esmaltes de uñas, Esmalte de uñas
 et: Küünelakk
 fa: لاک ناخن
 fi: Kynsilakka
@@ -5469,7 +5489,7 @@ hu: Körömlakk
 hy: Եղունգների լաք
 id: Cat kuku
 is: Naglalakk
-it: Smalto per unghie
+it: Smalti per unghie, Smalto per unghie
 ja: マニキュア
 ka: ფრჩხილის ლაქი
 kk: Тырнақ лагы
@@ -5480,12 +5500,12 @@ lv: Nagu laka
 mk: Лак за нокти
 ms: Pengilat kuku
 mt: Verniċ tad-dwiefer
-nl: Nagellak
-no: Neglelakk
-pl: Lakier do paznokci
-pt: Verniz para unhas
+nb: Neglelakk
+nl: Nagellakken, Nagellak
+pl: Lakiery do paznokci, Lakier do paznokci
+pt: Esmaltes, Verniz para unhas
 ro: Lac de unghii
-ru: Лак для ногтей
+ru: Лаки для ногтей, Лак для ногтей
 sk: Lak na nechty
 sl: Lak za nohte
 sq: Llaku i thonjve
@@ -5495,7 +5515,7 @@ sw: Rangi ya kucha
 tg: Лаки нохун
 th: น้ำยาทาเล็บ
 tk: Dyrnak üçin lak
-tr: Oje
+tr: Ojeler, Oje
 uk: Лак для нігтів
 uz: Tirnoq uchun lak
 vi: Sơn móng tay
@@ -5503,7 +5523,7 @@ zh: 指甲油
 google_product_taxonomy_id:en: 2683
 wikidata:en: Q223807
 
-< en:Nail polish
+< en:Nail polishes
 en: Top Coat
 fr: Top Coat
 nl: Top Coat
@@ -5568,6 +5588,120 @@ zh: 指甲硬化剂
 < en:Nail makeup
 en: Nail patch, nail stickers
 fr: Nail patch, Stickers pour les ongles
+
+< en:Nail products
+en: Cuticle creams & oils, Cuticle Cream & Oil
+cs: Krémy a oleje na nehtovou kůžičku
+da: Creme og olie til neglebånd
+de: Nagelhautcremes & -Lotionen
+es: Aceites y cremas para cutículas
+fr: Crèmes et huiles pour cuticules
+it: Oli e creme per cuticole
+ja: キューティクルオイル・クリーム
+nb: Neglekrem og negleolje
+nl: Nagelriemcrème en -olie
+pl: Kremy i olejki do skórek
+pt: Cremes e óleos para cutículas
+ru: Кремы и масла для кутикулы
+sv: Nagelbandskräm och olja
+tr: Kütikül Krem ve Yağı
+google_product_taxonomy_id:en: 3009
+wikidata:en: Q116221819
+
+< en:Nail products
+en: False nails
+cs: Umělé nehty
+da: Falske negle
+de: Künstliche Nägel
+es: Uñas postizas
+fr: Faux-ongles
+it: Unghie finte
+ja: ネイルチップ
+nb: Falske negler
+nl: Valse nagels
+pl: Tipsy
+pt: Unhas postiças
+ru: Накладные ногти
+sv: Lösnaglar
+tr: Takma Tırnaklar
+google_product_taxonomy_id:en: 4218
+wikidata:en: Q11896839
+
+< en:Nail products
+en: Manicure glues, Manicure glue
+cs: Lepidla na nehty
+da: Neglelim
+de: Nagelkleber
+es: Pegamento para uñas
+fr: Colle pour faux ongles
+it: Colla per unghie
+ja: ネイル用接着剤
+nb: Neglelim
+nl: Nagellijm
+pl: Kleje do tipsów
+pt: Cola para unhas
+ru: Клеи для ногтей
+sv: Nagellim
+tr: Tırnak Yapıştırıcısı
+google_product_taxonomy_id:en: 6893
+wikidata:en: Q115634910
+
+< en:Nail products
+en: Nail art kits & accessories
+cs: Sady a příslušenství pro modeláž nehtů
+da: Nail Art Kit og tilbehør
+de: Nagelkunst-Zubehör
+es: Kits y accesorios de decoración de uñas
+fr: Kits et accessoires pour la décoration d'ongles
+it: Kit artistici per unghie e accessori
+ja: ネイルアートキット・関連用品
+nb: Sett og tilbehør for negledesign
+nl: Nagelversieringssets en -accessoires
+pl: Ozdoby do paznokci
+pt: Kits e acessórios de Nail Art
+ru: Наборы и принадлежности для нейл-арта
+sv: Nagelkonstkit och tillbehör
+tr: Tırnak Süsleme Set ve Aksesuarları
+google_product_taxonomy_id:en: 5975
+wikidata:en: Q116221822
+
+< en:Nail products
+en: Nail polish drying drops & sprays
+cs: Urychlovače schnutí laku na nehty
+da: Spray og dråber til tørring af neglelak
+de: Nagellack-Überlacke und -Trockensprays
+es: Aerosoles y gotas de secado para esmaltes de uñas
+fr: Accélérateurs de séchage
+it: Spray e gocce asciugasmalto
+ja: マニキュア速乾剤・速乾スプレー
+nb: Spray og dråper til tørking av neglelakk
+nl: Droogdruppels en -sprays voor nagellak
+pl: Krople i spraye przyspieszające schnięcie lakieru do paznokci
+pt: Gotas e sprays secantes para as unhas
+ru: Капли и спреи для сушки лака для ногтей
+sv: Torkdroppar och torkspray till nagellack
+tr: Oje Kurutma Damlaları ve Spreyleri
+google_product_taxonomy_id:en: 233419
+wikidata:en: Q116221827
+
+< en:Nail products
+en: Nail polish thinners
+cs: Ředidla laků na nehty
+da: Fortyndere til neglelak
+de: Nagellackverdünner
+es: Disolventes para esmaltes de uñas
+fr: Diluants à vernis
+it: Solventi per unghie
+ja: マニキュアうすめ液
+nb: Neglelakktynner
+nl: Nagellakverdunners
+pl: Rozcieńczalniki lakieru do paznokci
+pt: Diluente para esmalte
+ru: Разбавители для лака для ногтей
+sv: Förtunningsmedel för nagellack
+tr: Oje İncelticiler
+google_product_taxonomy_id:en: 7445
+wikidata:en: Q116221829
 
 #### Maquillage pour les lèvres
 
