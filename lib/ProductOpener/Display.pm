@@ -8117,14 +8117,32 @@ JS
 
 	ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service($product_ref);
 
-	# Activate knowledge panels for all users
+	# Knowledge panels
 
 	initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
+
+	# Option to show on the website product page the simplified panels used in the mobile app (for debugging)
+	# If activated, we replace the environment_card and health_card panels shown on the website with their simplified versions
+	# &simplified_panels=1
+	my $simplified_prefix = '';
+	if (request_param($request_ref, "simplified_panels")) {
+		$simplified_prefix = 'simplified_';
+		# We enable the option to activate the simplified panels
+		$knowledge_panels_options_ref->{activate_knowledge_panels_simplified} = true;
+	}
+
 	create_knowledge_panels($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $request_ref);
-	$template_data_ref->{environment_card_panel}
-		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
-	$template_data_ref->{health_card_panel}
-		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
+
+	$template_data_ref->{environment_card_panel} = display_knowledge_panel(
+		$product_ref,
+		$product_ref->{"knowledge_panels_" . $lc},
+		$simplified_prefix . "environment_card"
+	);
+	$template_data_ref->{health_card_panel} = display_knowledge_panel(
+		$product_ref,
+		$product_ref->{"knowledge_panels_" . $lc},
+		$simplified_prefix . "health_card"
+	);
 	if ($product_ref->{"knowledge_panels_" . $lc}{"secondhand_card"}) {
 		$template_data_ref->{secondhand_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "secondhand_card");
