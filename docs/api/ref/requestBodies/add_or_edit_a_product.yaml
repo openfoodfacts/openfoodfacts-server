@@ -2,6 +2,8 @@ type: object
 description: |
   You can provide most of the properties defined in the product READ schema.
   This includes language-specific fields like product_name_[language_code], ingredients_text_[language_code], etc.
+allOf:
+  - $ref: ../schemas/product_type.yaml
 properties:
   code:
     type: string
@@ -19,22 +21,29 @@ properties:
     description: Password to authenticate with
     format: password
 
+  lc:
+    type: string
+    description: '2 letter code of the language of the interface. Used to determine the language of certain fields (e.g. product_name and taxonomy fields like categories and labels). If not passed, the language may be inferred by the country of the user (passed through the cc field or inferred by the IP address). Full list at https://static.openfoodfacts.org/data/taxonomies/languages.json'
+
   # Basic product information
+  lang:
+    type: string
+    description: 2 letter language code of the main language of the product (the most prominent on the packaging)
   product_name:
     type: string
-    description: The main product name
+    description: Product name in the language sent in the lc field. For backward compatibility only, use the field product_name_[language_code] instead.
   abbreviated_product_name:
     type: string
-    description: Abbreviated product name
+    description: Abbreviated product name. For backward compatibility only, use the field abbreviated_product_name_[language_code] instead.
   generic_name:
     type: string
-    description: Legal name of the product
+    description: Legal name of the product. For backward compatibility only, use the field generic_name_[language_code] instead.
   ingredients_text:
     type: string
-    description: Raw list of ingredients text
+    description: Raw list of ingredients text. For backward compatibility only, use the field ingredients_text_[language_code] instead.
   packaging_text:
     type: string
-    description: Packaging information text
+    description: Packaging information text. For backward compatibility only, use the field packaging_text_[language_code] instead.
 
   # Other editable fields
   quantity:
