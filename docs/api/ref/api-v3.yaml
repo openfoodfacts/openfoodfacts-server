@@ -271,6 +271,9 @@ paths:
                           quantity_value: 200
                           quantity_unit: ml
                           weight: 80
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
   "/api/v3/product/{barcode}/images":
     post:
       tags:
@@ -327,6 +330,9 @@ paths:
               properties: {}
         description: |
           Image data for the product is passed in the image_data_base64 field as a base64 encoded string.
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
       responses:
         "200":
           description: |-
@@ -403,6 +409,9 @@ paths:
           description: User not authenticated or not allowed to delete the image
         "404":
           description: Product or image not found
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
   /api/v3/taxonomy_canonicalize_tags:
     get:
       summary: Get canonical tags for a list of local tags
@@ -669,6 +678,9 @@ paths:
         description: |
           The code and rev fields are mandatory.
       parameters: []
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
   /api/v3/external_sources:
     get:
       operationId: get-api-v3-external-sources
@@ -851,7 +863,24 @@ paths:
                                           enum:
                                             - "tags"
                                           example: "tags"
+
 components:
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: |
+        Session cookie containing user ID, username, and session token.
+        The value is structured as: user_id&username&user_session&session_token
+        e.g. "user_id&exampleuser&user_session&abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLM".
+        The session token is obtained after successful login via the `/cgi/session.pl` endpoint.
+    userAgentAuth:
+      description: Identification using the User-Agent header. This is recommended in all requests so that we can contact you if there are issues. If we cannot identify the source of problematic API queries, we may have to block them.
+        User-Agent header in the format 'app_name/app_version (URL or contact info)'
+      type: apiKey
+      in: header
+      name: User-Agent
   parameters:
     cc:
       schema:
@@ -877,7 +906,7 @@ components:
         $ref: "./schemas/external_knowledge_panel.yaml"
 
 security:
-  - {} # No authentication required by default (for read requests)
+  - userAgentAuth: [] # No authentication required by default (for read requests), but we recommend sending a User-Agent header in all requests.
 
 tags:
   - name: Products
