@@ -1,6 +1,7 @@
 type: object
 description: |
-  You can provide most of the properties defined in the product schema.
+  You can provide most of the properties defined in the product READ schema.
+  This includes language-specific fields like product_name_[language_code], ingredients_text_[language_code], etc.
 properties:
   code:
     type: string
@@ -17,34 +18,53 @@ properties:
     type: string
     description: Password to authenticate with
     format: password
-  comment:
+
+  # Basic product information
+  product_name:
     type: string
-    description: A comment for the change. It will be shown in product changes history.
-    example: new packaging from super-app
-  brands:
-    type: array
-    items:
-      type: string
-    description: The brands of the product (comma separated list of values).
-    examples:
-      - - Häagen-Dazs
-          General-mills
+    description: The main product name
+  abbreviated_product_name:
+    type: string
+    description: Abbreviated product name
+  generic_name:
+    type: string
+    description: Legal name of the product
+  ingredients_text:
+    type: string
+    description: Raw list of ingredients text
+  packaging_text:
+    type: string
+    description: Packaging information text
+
+  # Other editable fields
+  quantity:
+    type: string
+    description: Product quantity with unit
+
+  # Tags fields
   labels:
-    type: array
-    items:
-      type: string
-    description: The labels of the product (comma separated list of values).
-    examples:
-      - - Kosher
-          Ferroro
+    type: string
+    description: Product labels (comma-separated list)
   categories:
-    type: array
-    items:
-      type: string
-    description: The categories of the product (comma separated list of values).
-    examples:
-      - - Desserts
-          Frozen foods
+    type: string
+    description: Product categories (comma-separated list)
+  brands:
+    type: string
+    description: Product brands (comma-separated list)
+  stores:
+    type: string
+    description: Stores where product is sold
+  countries:
+    type: string
+    description: Countries where product is sold
+  origins:
+    type: string
+    description: Origins of ingredients
+  traces:
+    type: string
+    description: Traces of allergens
+
+  # Legacy fields (for backward compatibility)
   packaging:
     type: string
     description: |
@@ -52,6 +72,54 @@ properties:
       The [v3 API documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#operation/post-api-v3-product-barcode)
       has a more structured data for `packaging`.
     example: Frozen
+  
+  # Nutritional information
+  serving_size:
+    type: string
+    description: Serving size
+  nutrition_data_per:
+    type: string
+    description: Whether nutrition data is per 100g or per serving. Note that this field applies to all nutriment fields (existing or new). So if its value is changed, all nutrients should be supplied, so that we don't have existing values per 100g when the new values are per serving, or vice versa.
+    enum:
+      - "100g"
+      - "serving"
+
+patternProperties:
+  # Language-specific product name fields
+  'product_name_(?<language_code>\w\w)':
+    type: string
+    description: Product name in language designated by `language_code`
+
+  # Language-specific abbreviated product name fields
+  'abbreviated_product_name_(?<language_code>\w\w)':
+    type: string
+    description: Abbreviated product name in language designated by `language_code`
+
+  # Language-specific generic name fields
+  'generic_name_(?<language_code>\w\w)':
+    type: string
+    description: Generic/legal name in language designated by `language_code`
+
+  # Language-specific ingredients text fields
+  'ingredients_text_(?<language_code>\w\w)':
+    type: string
+    description: Ingredients list in language designated by `language_code`, as it appears on the packaging
+
+  # Language-specific packaging text fields
+  'packaging_text_(?<language_code>\w\w)':
+    type: string
+    description: Packaging information text in language designated by `language_code`
+
+  # Nutrient value fields
+  'nutriments_(?<nutrient_id>[\w-]+)':
+    type: string
+    description: Value for the nutrient designated by `nutrient_id` (from nutrients.txt taxonomy, e.g. energy-kj, energy-kcal, fat, saturated-fat, etc.)
+
+  # Nutrient unit fields
+  'nutriment_(?<nutrient_id>[\w-]+)_unit':
+    type: string
+    description: Unit for the nutrient designated by `nutrient_id` (from nutrients.txt taxonomy, e.g. energy-kj, fat etc.)
+
 required:
   - code
   - user_id
