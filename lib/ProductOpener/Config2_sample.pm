@@ -55,7 +55,7 @@ BEGIN {
 		$oidc_discovery_url
 		$oidc_client_id
 		$oidc_client_secret
-
+		%slack_hook_urls
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -117,5 +117,8 @@ $oidc_implementation_level = 1;
 $oidc_client_id = 'OFF';
 $oidc_client_secret = 'A secret';
 $oidc_discovery_url = 'http://10.1.0.104:5600/realms/openfoodfacts/.well-known/openid-configuration';
+
+# associate each channel (by name) with its url (containing auth)
+%slack_hook_urls = ();
 
 1;
