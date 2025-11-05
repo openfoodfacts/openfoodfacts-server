@@ -4570,6 +4570,7 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 			# Traverse the ingredients tree, breadth first
 
 			my @ingredients = @{$product_ref->{ingredients}};
+			my $ingredients_n = 0;
 
 			while (@ingredients) {
 
@@ -4609,11 +4610,10 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 					}
 				}
 
-				# if the property value is "maybe" and the ingredient has sub-ingredients,
+				# if the property value is undef or "maybe" and the ingredient has sub-ingredients,
 				# we ignore the ingredient and only look at its sub-ingredients (already added)
 				# e.g. "Vegetable oil (rapeseed oil, ...)""
-				if (    (defined $value)
-					and ($value eq "maybe")
+				if (    ((not defined $value) or ($value eq "maybe"))
 					and (defined $ingredient_ref->{ingredients}))
 				{
 					$value = "ignore";
@@ -4625,6 +4625,7 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 				push @{$values{$value}}, $ingredientid;
 
 				# print STDERR "ingredientid: $ingredientid - property: $property - value: $value\n";
+				$ingredients_n++;
 			}
 
 			# Compute the resulting property value for the product
@@ -4641,6 +4642,10 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 				# So all known ingredients without a value for the property are assumed to be negative
 
 				# value can can be "ignore"
+
+				my $unknown_but_not_ignore_ingredients_n
+					= (defined $values{unknown_ingredients} ? scalar(@{$values{unknown_ingredients}}) : 0)
+					- (defined $values{ignore} ? scalar(@{$values{ignore}}) : 0);
 
 				if (defined $values{yes}) {
 					# One yes ingredient -> yes for the whole product
@@ -4659,17 +4664,20 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 				# Exception: If there are lots of unrecognized ingredients though (e.g. more than 1 third), it may be that the ingredients list
 				# is bogus (e.g. OCR errors) and the likelyhood of missing a palm oil ingredient increases.
 				# --> In this case, we mark the product as palm oil content unknown
-				elsif (defined $values{unknown_ingredients}) {
+				# Note: we substract ignore ingredients from the total count
+				elsif ($unknown_but_not_ignore_ingredients_n > 0) {
 					# Some ingredients were not recognized
+					my $unknown_rate = $unknown_but_not_ignore_ingredients_n / $ingredients_n;
+
 					$log->debug(
 						"analyze_ingredients - unknown ingredients",
 						{
 							unknown_ingredients_n => (scalar @{$values{unknown_ingredients}}),
-							ingredients_n => (scalar(@{$product_ref->{ingredients}}))
+							unknown_but_not_ignore_ingredients_n => $unknown_but_not_ignore_ingredients_n,
+							ingredients_n => $ingredients_n,
+							unknown_rate => $unknown_rate,
 						}
 					) if $log->is_debug();
-					my $unknown_rate
-						= (scalar @{$values{unknown_ingredients}}) / (scalar @{$product_ref->{ingredients}});
 					# for palm-oil, as there are few products containing it, we consider status to be unknown only if there is more than 30% unknown ingredients (which may indicates bogus ingredient list, eg. OCR errors)
 					if (($from_what_with_dashes eq "palm-oil") and ($unknown_rate <= 0.3)) {
 						$property_value = "en:" . $from_what_with_dashes . "-free";    # en:palm-oil-free
@@ -4730,7 +4738,9 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 	if (has_tag($product_ref, "labels", "en:palm-oil-free")) {
 		# Labeled as palm oil free, but has a palm oil containing ingredient
 		# Set to may-contain as a heads up to double-check
-		if ($ingredients_analysis_properties_ref->{from_palm_oil} eq "en:palm-oil") {
+		if (    (defined $ingredients_analysis_properties_ref->{from_palm_oil})
+			and ($ingredients_analysis_properties_ref->{from_palm_oil} eq "en:palm-oil"))
+		{
 			$ingredients_analysis_properties_ref->{from_palm_oil} = "en:may-contain-palm-oil";
 		}
 		else {
@@ -4741,11 +4751,15 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 	if (has_tag($product_ref, "labels", "en:vegan")) {
 		# Labeled as vegan, but has non-vegan ingredients
 		# Set to maybe-vegan as a heads up to double-check
-		if ($ingredients_analysis_properties_ref->{vegetarian} eq "en:non-vegetarian") {
+		if (    (defined $ingredients_analysis_properties_ref->{vegetarian})
+			and ($ingredients_analysis_properties_ref->{vegetarian} eq "en:non-vegetarian"))
+		{
 			$ingredients_analysis_properties_ref->{vegan} = "en:maybe-vegan";
 			$ingredients_analysis_properties_ref->{vegetarian} = "en:maybe-vegetarian";
 		}
-		elsif ($ingredients_analysis_properties_ref->{vegan} eq "en:non-vegan") {
+		elsif ( (defined $ingredients_analysis_properties_ref->{vegan})
+			and ($ingredients_analysis_properties_ref->{vegan} eq "en:non-vegan"))
+		{
 			$ingredients_analysis_properties_ref->{vegan} = "en:maybe-vegan";
 		}
 		else {
@@ -4760,7 +4774,9 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 	if (has_tag($product_ref, "labels", "en:vegetarian")) {
 		# Labeled as vegetarian, but has non-vegetarian ingredients
 		# Set to maybe-vegetarian as a heads up to double-check
-		if ($ingredients_analysis_properties_ref->{vegetarian} eq "en:non-vegetarian") {
+		if (    (defined $ingredients_analysis_properties_ref->{vegetarian})
+			and ($ingredients_analysis_properties_ref->{vegetarian} eq "en:non-vegetarian"))
+		{
 			$ingredients_analysis_properties_ref->{vegetarian} = "en:maybe-vegetarian";
 		}
 		else {
