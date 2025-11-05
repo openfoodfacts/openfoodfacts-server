@@ -827,59 +827,6 @@
             ],
             "expanded" : true,
             "type" : "root"
-         },
-         "simplified_environment_card" : {
-            "elements" : [
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "environmental_score",
-                        "environmental_score_adjustments"
-                     ]
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "carbon_footprint"
-                     ]
-                  }
-               }
-            ],
-            "expanded" : true,
-            "title_element" : {
-               "title" : "Environment"
-            },
-            "topics" : [
-               "environment"
-            ],
-            "type" : "card"
-         },
-         "simplified_root" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "simplified_environment_card"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "prices_card"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "folksonomy_card"
-                  }
-               }
-            ],
-            "expanded" : true,
-            "type" : "root"
          }
       }
    },
