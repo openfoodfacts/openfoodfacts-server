@@ -500,10 +500,11 @@ components:
       description: |
         Session cookie containing user ID, username, and session token.
         The value is structured as: user_id&username&user_session&session_token
-        e.g. "user_id&exampleuser&user_session&abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLM"
+        e.g. "user_id&exampleuser&user_session&abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLM".
+        The session token is obtained after successful login via the `/cgi/session.pl` endpoint.
     userAgentAuth:
-      description: Authentication using User-Agent header
-        User-Agent header in the format 'app_name/app_version (email)'
+      description: Identification using the User-Agent header. This is recommended in all requests so that we can contact you if there are issues. If we cannot identify the source of problematic API queries, we may have to block them.
+        User-Agent header in the format 'app_name/app_version (URL or contact info)'
       type: apiKey
       in: header
       name: User-Agent
@@ -666,7 +667,7 @@ components:
       name: term
 
 security:
-  - {} # No authentication required by default (for read requests)
+  - userAgentAuth: [] # No authentication required by default (for read requests), but we recommend sending a User-Agent header in all requests.
 
 tags:
   - name: Products
