@@ -611,12 +611,12 @@ jobs:
     steps:
       - name: Check if unit and integration tests succeeded or fail
         run: |
-          if [ ${{ needs.unit_tests.result }} = "success" ] && [ ${{ needs.integration_tests.result }} = "success" ]
+          if [ ${{ needs.unit_tests.result }} = "failure" ] || [ ${{ needs.integration_tests.result }} = "failure" ]
           then
-            echo "All Perl unit and integration test groups finished."
-          else
             echo "Some tests did fail"
             exit 1
+          else
+            echo "All Perl unit and integration test groups finished."
           fi
 
   tests_dev:
