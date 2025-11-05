@@ -22,7 +22,7 @@ properties:
       type: string
 
   ingredients:
-    $ref: "./ingredient.yaml#/components/schemas/Ingredients"
+    $ref: "ingredient.yaml#/components/schemas/Ingredients"
   ingredients_analysis:
     type: object
     properties:
