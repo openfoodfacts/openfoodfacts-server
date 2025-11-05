@@ -415,6 +415,12 @@ paths:
   /api/v3/taxonomy_canonicalize_tags:
     get:
       summary: Get canonical tags for a list of local tags
+      description: |
+        Open Food Facts uses multilingual [taxonomies](https://wiki.openfoodfacts.org/Global_taxonomies) to normalize entries for categories, labels, ingredients, packaging shapes / materials / recycling instructions and many more fields.
+
+        This API returns the canonical tags corresponding to a list of local tags in a given language.
+
+        For instance, the local French ingredient tag "sucre" corresponds to the canonical tag "en:sugar".
       tags:
         - Taxonomy
       operationId: get-api-v3-taxonomy-canonicalize-tags
@@ -458,6 +464,12 @@ paths:
   /api/v3/taxonomy_display_tags:
     get:
       summary: Get display tags in a specific language for a list of taxonomy tags
+      description: |
+        Open Food Facts uses multilingual [taxonomies](https://wiki.openfoodfacts.org/Global_taxonomies) to normalize entries for categories, labels, ingredients, packaging shapes / materials / recycling instructions and many more fields.
+
+        This API returns display tags in a specific language for a list of canonical taxonomy tags.
+
+        For instance, the canonical ingredient tag "en:sugar" corresponds to the French display tag "sucre".
       tags:
         - Taxonomy
       operationId: get-api-v3-taxonomy-display-tags
