@@ -408,6 +408,7 @@ paths:
       summary: Get canonical tags for a list of local tags
       tags:
         - Taxonomy
+      operationId: get-api-v3-taxonomy-canonicalize-tags
       parameters:
         - name: tagtype
           in: query
@@ -450,6 +451,7 @@ paths:
       summary: Get display tags in a specific language for a list of taxonomy tags
       tags:
         - Taxonomy
+      operationId: get-api-v3-taxonomy-display-tags
       parameters:
         - name: tagtype
           in: query
@@ -708,6 +710,7 @@ paths:
         for an overview see [Explanation on Product Attributes](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/explain-product-attributes/)"
       tags:
         - Product Attributes
+      operationId: get-api-v3-preferences
       responses:
         "200":
           description: OK
@@ -747,6 +750,7 @@ paths:
         for an overview see [Explanation on Product Attributes](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/explain-product-attributes/)"
       tags:
         - Product Attributes
+      operationId: get-api-v3-4-attribute-groups
       responses:
         "200":
           description: OK
@@ -871,6 +875,9 @@ components:
       description: Ordered list of external knowledge panel sources.
       items:
         $ref: "./schemas/external_knowledge_panel.yaml"
+
+security:
+  - {} # No authentication required by default (for read requests)
 
 tags:
   - name: Products
