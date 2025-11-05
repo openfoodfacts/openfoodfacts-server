@@ -52,7 +52,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::ConfigEnv qw/%slack_hook_urls/;
+use ProductOpener::Config qw/%slack_hook_urls/;
 use ProductOpener::HTTP qw/create_user_agent/;
 
 use CGI qw/:cgi :form escapeHTML/;

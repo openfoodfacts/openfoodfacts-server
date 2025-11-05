@@ -224,6 +224,6 @@ $ProductOpener::Config::options{rate_limit_allow_list_blocks} = [
 );
 
 # Slack options
-%slack_hook_urls = %ProductOpener::Config2::slack_hook_urls // ();
+%ProductOpener::Config::slack_hook_urls = %ProductOpener::Config2::slack_hook_urls || ();
 
 1;
