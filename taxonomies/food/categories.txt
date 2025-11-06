@@ -81163,7 +81163,7 @@ ciqual_food_code:en: 25175
 ciqual_food_name:en: Molokhia, jute and beef-based meal
 ciqual_food_name:fr: Meloukhia, plat à base de boeuf et corete
 
-
+< en:Meals
 < en:Pizzas pies and quiches
 en: Salted pies, Savoury tarts
 de: Herzhafte Kuchen
@@ -81176,7 +81176,6 @@ lt: Sūdyti pyragai, pikantiški pyragaičiai
 nl: Hartige taarten
 food_groups:en: en:pizza-pies-and-quiches
 pnns_group_2:en: Pizza pies and quiches
-
 
 < en:Salted pies
 es: Empanada boloñesa
@@ -83735,7 +83734,7 @@ fr: Langòs surgelés
 en: Filled pinsa
 it: Pinsa farcita
 
-< en:Meals
+# don't put in meals because this category contains "mini appetizer pizzas"
 en: Pizzas pies and quiches, Pizza pies and quiches
 bg: Пица и киш
 ca: Pizzes i quiches
@@ -83760,6 +83759,13 @@ gpc_category_code:en: 10000249
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a pastry, biscuit or crumble based product filled or topped with a mixture of shredded/sliced savoury ingredients, commonly including meat, vegetables, eggs or other additives. Products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Frozen and Shelf Stable Savoury Pies, Pastries, Pizzas and Quiches, Sweet Pies/Tarts, and Potato Topped Meat Pies.
 gpc_category_name:en: Pies/Pastries/Pizzas/Quiches - Savoury (Perishable)
 
+# don't put under pizzas
+< en:Appetizers
+< en:Pizzas pies and quiches
+en: Mini appetizer pizzas
+fr: Mini pizzas apéritives
+
+< en:Meals
 < en:Pizzas pies and quiches
 en: Pizzas
 bg: Пица
@@ -83791,6 +83797,7 @@ gpc_category_name:en: Pies/Pastries/Pizzas/Quiches - Savoury (Shelf Stable)
 intake24_category_code:en: PZZA
 wikidata:en: Q177
 
+< en:Meals
 < en:Pizzas pies and quiches
 it: Calzone
 fr: Calzone, Pizzas calzone
@@ -84384,6 +84391,7 @@ ciqual_food_code:en: 8937
 ciqual_food_name:en: Quenelle, plain, raw
 ciqual_food_name:fr: Quenelle nature, crue
 
+< en:Meals
 < en:Pizzas pies and quiches
 en: Quiches
 de: Quiches
