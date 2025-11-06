@@ -64,23 +64,11 @@ paths:
             * "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels".
 
             Defaults to "all" for READ requests. The "all" value can also be combined with fields like "attribute_groups" and "knowledge_panels".
-        - schema:
-            type: string
-            example: "health_card, environment_card"
-          required: false
-          in: query
-          name: knowledge_panels_included
-          description: |-
-            When knowledge_panels are requested, you can specify which panels should be in the response. All the others will be excluded.
-        - schema:
-            type: string
-            example: "health_card, environment_card"
-          required: false
-          in: query
-          name: knowledge_panels_excluded
-          description: |-
-            When knowledge_panels are requested, you can specify which panels to exclude from the response. All the others will be included.
-            If a panel is both excluded and included (with the knowledge_panels_excluded parameter), it will be excluded.
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelClient"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelsSimplified"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelPhysicalActivities"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsIncluded"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsExcluded"
       responses:
         "200":
           description: OK
@@ -271,6 +259,9 @@ paths:
                           quantity_value: 200
                           quantity_unit: ml
                           weight: 80
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
   "/api/v3/product/{barcode}/images":
     post:
       tags:
@@ -327,6 +318,9 @@ paths:
               properties: {}
         description: |
           Image data for the product is passed in the image_data_base64 field as a base64 encoded string.
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
       responses:
         "200":
           description: |-
@@ -403,11 +397,21 @@ paths:
           description: User not authenticated or not allowed to delete the image
         "404":
           description: Product or image not found
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
   /api/v3/taxonomy_canonicalize_tags:
     get:
       summary: Get canonical tags for a list of local tags
+      description: |
+        Open Food Facts uses multilingual [taxonomies](https://wiki.openfoodfacts.org/Global_taxonomies) to normalize entries for categories, labels, ingredients, packaging shapes / materials / recycling instructions and many more fields.
+
+        This API returns the canonical tags corresponding to a list of local tags in a given language.
+
+        For instance, the local French ingredient tag "sucre" corresponds to the canonical tag "en:sugar".
       tags:
         - Taxonomy
+      operationId: get-api-v3-taxonomy-canonicalize-tags
       parameters:
         - name: tagtype
           in: query
@@ -448,8 +452,15 @@ paths:
   /api/v3/taxonomy_display_tags:
     get:
       summary: Get display tags in a specific language for a list of taxonomy tags
+      description: |
+        Open Food Facts uses multilingual [taxonomies](https://wiki.openfoodfacts.org/Global_taxonomies) to normalize entries for categories, labels, ingredients, packaging shapes / materials / recycling instructions and many more fields.
+
+        This API returns display tags in a specific language for a list of canonical taxonomy tags.
+
+        For instance, the canonical ingredient tag "en:sugar" corresponds to the French display tag "sucre".
       tags:
         - Taxonomy
+      operationId: get-api-v3-taxonomy-display-tags
       parameters:
         - name: tagtype
           in: query
@@ -667,6 +678,9 @@ paths:
         description: |
           The code and rev fields are mandatory.
       parameters: []
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
   /api/v3/external_sources:
     get:
       operationId: get-api-v3-external-sources
@@ -708,6 +722,7 @@ paths:
         for an overview see [Explanation on Product Attributes](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/explain-product-attributes/)"
       tags:
         - Product Attributes
+      operationId: get-api-v3-preferences
       responses:
         "200":
           description: OK
@@ -747,6 +762,7 @@ paths:
         for an overview see [Explanation on Product Attributes](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/explain-product-attributes/)"
       tags:
         - Product Attributes
+      operationId: get-api-v3-4-attribute-groups
       responses:
         "200":
           description: OK
@@ -847,7 +863,24 @@ paths:
                                           enum:
                                             - "tags"
                                           example: "tags"
+
 components:
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: |
+        Session cookie containing user ID, username, and session token.
+        The value is structured as: user_id&username&user_session&session_token
+        e.g. "user_id&exampleuser&user_session&abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLM".
+        The session token is obtained after successful login via the `/cgi/session.pl` endpoint.
+    userAgentAuth:
+      description: Identification using the User-Agent header. This is recommended in all requests so that we can contact you if there are issues. If we cannot identify the source of problematic API queries, we may have to block them.
+        User-Agent header in the format 'app_name/app_version (URL or contact info)'
+      type: apiKey
+      in: header
+      name: User-Agent
   parameters:
     cc:
       schema:
@@ -871,6 +904,9 @@ components:
       description: Ordered list of external knowledge panel sources.
       items:
         $ref: "./schemas/external_knowledge_panel.yaml"
+
+security:
+  - userAgentAuth: [] # No authentication required by default (for read requests), but we recommend sending a User-Agent header in all requests.
 
 tags:
   - name: Products

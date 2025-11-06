@@ -55,8 +55,11 @@ paths:
               - "3017620422003"
         - $ref: "./parameters/requested_product_type.yaml#/components/parameters/RequestedProductType"
         - $ref: "#/components/parameters/fields"
-        - $ref: "#/components/parameters/knowledge_panels_included"
-        - $ref: "#/components/parameters/knowledge_panels_excluded"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelClient"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelsSimplified"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelPhysicalActivities"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsIncluded"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsExcluded"
         - $ref: "./parameters/blame.yaml#/components/parameters/Blame"
       responses:
         "200":
@@ -497,10 +500,11 @@ components:
       description: |
         Session cookie containing user ID, username, and session token.
         The value is structured as: user_id&username&user_session&session_token
-        e.g. "user_id&exampleuser&user_session&abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLM"
+        e.g. "user_id&exampleuser&user_session&abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLM".
+        The session token is obtained after successful login via the `/cgi/session.pl` endpoint.
     userAgentAuth:
-      description: Authentication using User-Agent header
-        User-Agent header in the format 'app_name/app_version (email)'
+      description: Identification using the User-Agent header. This is recommended in all requests so that we can contact you if there are issues. If we cannot identify the source of problematic API queries, we may have to block them.
+        User-Agent header in the format 'app_name/app_version (URL or contact info)'
       type: apiKey
       in: header
       name: User-Agent
@@ -649,23 +653,6 @@ components:
         * `nothing`, tells not to sort at all (because if you do not provide the sort_by argument we default to sorting on popularity (for food) or last modification date)
     fields:
       $ref: ./parameters/product_available_fields.yaml#/components/parameters/ProductAvailableFields
-    knowledge_panels_included:
-      schema:
-        type: string
-        example: "heatlh_card, environment_card"
-      in: query
-      name: knowledge_panels_included
-      description: |
-        When knowledge_panels are requested, you can specify which panels should be in the response. All the others will be excluded.
-    knowledge_panels_excluded:
-      schema:
-        type: string
-        example: "heatlh_card, environment_card"
-      in: query
-      name: knowledge_panels_excluded
-      description: |
-        When knowledge_panels are requested, you can specify which panels to exclude from the response. All the others will be included.
-        If a panel is both excluded and included (with the knowledge_panels_excluded parameter), it will be excluded.
     tagtype:
       schema:
         type: string
@@ -680,7 +667,7 @@ components:
       name: term
 
 security:
-  - {} # No authentication required by default (for read requests)
+  - userAgentAuth: [] # No authentication required by default (for read requests), but we recommend sending a User-Agent header in all requests.
 
 tags:
   - name: Products

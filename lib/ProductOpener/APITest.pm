@@ -1127,8 +1127,8 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time = 60) {
 		while (my $job = $jobs->next) {
 			next if (defined $run_jobs{$job->{id}});
 			# only those who were created after the timestamp
-			# Reduce test time by one second to account for small clock differences
-			if ($job->{created} >= ($created_after_ts - 1)) {
+			# Reduce test time by two seconds to account for small clock differences
+			if ($job->{created} >= ($created_after_ts - 2)) {
 				# retrieving the job id
 				my $job_id = $job->{id};
 				# retrieving the job state
