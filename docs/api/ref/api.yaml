@@ -144,7 +144,7 @@ paths:
         Open Food Facts uses optical character recognition (OCR) to retrieve nutritional data and other information from the product labels.
       parameters:
         - $ref: "#/components/parameters/id"
-        - $ref: "#/components/parameters/code"
+        - $ref: "./parameters/code.yaml#/components/parameters/Code"
         - $ref: "#/components/parameters/process_image"
         - $ref: "#/components/parameters/ocr_engine"
       tags:
@@ -189,7 +189,7 @@ paths:
         the OFF API allows you to make api calls to automate this process.
         You can rotate existing photos by setting the angle to 90º, 180º, or 270º clockwise.
       parameters:
-        - $ref: "#/components/parameters/code"
+        - $ref: "./parameters/code.yaml#/components/parameters/Code"
         - $ref: "#/components/parameters/id"
         - $ref: "#/components/parameters/imgid"
         - $ref: "#/components/parameters/angle"
@@ -554,14 +554,6 @@ components:
         example: ingredients_en
       in: query
       name: id
-      required: true
-    code:
-      schema:
-        type: string
-        example: "4251105501381"
-      in: query
-      name: code
-      description: Barcode of the product
       required: true
     process_image:
       schema:
