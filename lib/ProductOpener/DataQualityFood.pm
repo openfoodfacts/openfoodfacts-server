@@ -2041,10 +2041,15 @@ sub check_labels ($product_ref) {
        my $european_product = 0;
        my $eu_countries_ref = get_all_tags_having_property($product_ref, 'countries', 'regional_entity:en');
        foreach my $country (keys %{$eu_countries_ref}) {
-       if ($eu_countries_ref->{$country} eq 'european-union') {
-	       $european_product = 1;
-	       last;
-       }
+           # Handle comma-separated regional entities
+           my @regional_entities = split(/\s*,\s*/, $eu_countries_ref->{$country});
+           foreach my $entity (@regional_entities) {
+               if ($entity eq 'european-union') {
+                   $european_product = 1;
+                   last;
+               }
+           }
+           last if $european_product;
        }
 
 	if (    (defined $product_ref->{nutriments})
