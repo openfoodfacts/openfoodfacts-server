@@ -485,6 +485,7 @@ tr: Tedaviye Yönelik Kedi Mamaları
 google_product_taxonomy_id:en: 543683
 wikidata:en: Q116958028
 
+< en:Pet Supplies
 en: Pet Furniture
 fr: Mobilier animalier
 qfdmo_name:fr: mobilier-animalier
@@ -4501,8 +4502,6 @@ qfdmo_name:fr: marteau
 google_product_taxonomy_id:en: 6972
 wikidata:en: Q115634030
 
-#, Marteau, Maillet, Masse (outil de bricolage)
-
 < en:Medical Equipment
 en: Medical Stretchers & Gurneys
 xx: Medical Stretchers & Gurneys
@@ -4939,6 +4938,7 @@ xx: Catheters
 fr: Cathéters, Cathéter
 qfdmo_name:fr: catheter
 identifiant_qfdmo:fr: 91
+wikidata:en: Q652297
 
 < en:Medical Supplies
 en: Disposable Gloves
@@ -6626,6 +6626,7 @@ wikidata:en: Q116961586
 
 <en: Emergency & Exit Signs
 en: Emergency Signs
+wikidata:en: Q2146470
 
 <en: Emergency & Exit Signs
 en: Exit Signs
@@ -6817,7 +6818,7 @@ cs: Ochranné pomůcky
 da: Sikkerhedstøj
 de: Arbeitsschutzausrüstung
 es: Equipo de protección para el trabajo
-fr: Équipement de protection, Masque de sport, Matériel de protection individuelle (sport)
+fr: Équipement de protection
 it: Attrezzature protettive
 ja: 安全保護用品
 nl: Beschermende kleding
@@ -6827,9 +6828,11 @@ pt: Equipamento de proteção
 ru: Рабочее защитное снаряжение
 sv: Arbetsskyddskläder
 tr: İş Güvenliği Koruyucu Kıyafetleri
-qfdmo_name:fr: masque-de-sport
 google_product_taxonomy_id:en: 2047
 wikidata:en: Q116961602
+
+# TODO: Masque de sport, Matériel de protection individuelle (sport)
+# qfdmo_name:fr: masque-de-sport
 
 < en:Work Safety Protective Gear
 en: Bullet Proof Vests
@@ -7037,6 +7040,7 @@ da: Gasmasker
 de: Gasmasken
 es: Mascarillas de gas
 fr: Masques à gaz
+wikidata:en: Q754396
 
 <en: Gas Masks & Respirators
 en: Respirators
@@ -7985,7 +7989,7 @@ cs: Nafukovací vodní atrakce a skluzavky
 da: Badebassiner og vandrutchebaner
 de: Planschbecken und Wasserrutschen
 es: Parques acuáticos y toboganes
-fr: Équipement de piscine et toboggans
+fr: Piscines et toboggans
 it: Parchi e scivoli acquatici
 ja: ウォーター パーク、ウォーター スライド
 nl: Waterparken en -glijbanen
@@ -8835,7 +8839,7 @@ cs: Panenky a figurky – příslušenství
 da: Dukker og actionfigurer – tilbehør
 de: Zubehör für Puppen & Actionfiguren
 es: Accesorios para muñecas y muñecos de acción
-fr: Accessoires pour poupées et figurines, Accessoires pour poupon ou poupée, Vêtements de poupon ou poupée
+fr: Accessoires pour poupées et figurines
 it: Accessori bambole e action figure
 ja: 人形・アクションフィギュア関連用品
 nl: Accessoires voor poppen en actiefiguurtjes
@@ -8849,6 +8853,12 @@ qfdmo_name:fr: accessoires-pour-poupon-ou-poupee
 identifiant_qfdmo:fr: 194
 google_product_taxonomy_id:en: 3584
 wikidata:en: Q116037341
+
+< en: Doll & Action Figure Accessories
+fr: Accessoires de poupée, Accessoires de poupon
+
+< en: Doll & Action Figure Accessories
+fr: Vêtements de poupée, Vêtements de poupon
 
 < en:Dolls\, Playsets & Toy Figures
 en: Dollhouse Accessories
@@ -8899,7 +8909,7 @@ cs: Panenky
 da: Dukker
 de: Puppen
 es: Muñecas
-fr: Poupées, Poupée, Poupon, Poupées mannequin, Poupée mannequin
+fr: Poupées, Poupée, Poupon
 it: Bambole
 ja: 人形
 nl: Poppen
@@ -8912,6 +8922,8 @@ tr: Bebekler
 qfdmo_name:fr: poupee
 google_product_taxonomy_id:en: 1257
 wikidata:en: Q168658
+
+# Poupées mannequin, Poupée mannequin
 
 < en:Dolls\, Playsets & Toy Figures
 en: Paper & Magnetic Dolls
@@ -9517,7 +9529,14 @@ qfdmo_name:fr: voiture-jouet
 google_product_taxonomy_id:en: 2505
 wikidata:en: Q116037369
 
-# , Voiture (jouet), Voitures (jouet), Camion non motorisé, Véhicule miniature, Véhicules miniatures, Véhicule à friction, Véhicules à friction
+< en: Play Vehicles
+fr: Camion non motorisé
+
+< en: Play Vehicles
+fr: Véhicule miniature, Véhicules miniatures
+
+< en: Play Vehicles
+fr: Véhicule à friction, Véhicules à friction, Voiture à friction, Petite voiture à friction
 
 < en:Play Vehicles
 en: Toy Airplanes
@@ -10268,7 +10287,7 @@ cs: Vozítka na tažení nebo s pedály
 da: Cykler og løbecykler
 de: Schiebe- & Pedalfahrzeuge
 es: Vehículos a pedales o para empujar
-fr: Véhicules à pédales et à traction, Porteur (jouet), Porteurs (jouet), Bicyclette enfant (jouet)
+fr: Véhicules à pédales et à traction
 it: Veicoli a spinta e a pedali
 ja: 手押し式・ペダル式乗用玩具
 nl: Trap- en duwauto's
@@ -10278,9 +10297,11 @@ pt: Brinquedos de andar com pedal ou para empurrar
 ru: Педальные машины и машины-каталки для детей
 sv: Pedal- och sparkleksaker
 tr: İtmeli ve Pedallı Binmeli Taşıtlar
-qfdmo_name:fr: porteur-jouet
 google_product_taxonomy_id:en: 2724
 wikidata:en: Q116037409
+
+# Porteur (jouet), Porteurs (jouet), Bicyclette enfant (jouet)
+# qfdmo_name:fr: porteur-jouet
 
 < en:Riding Toys
 en: Balance Bikes
@@ -10428,7 +10449,10 @@ tr: Spor Oyuncakları
 google_product_taxonomy_id:en: 1266
 wikidata:en: Q116037416
 
-# Articles de sport d'extérieur pour enfant (jouet : raquette, boule de pétanque en plastique...)
+# fr: Articles de sport d'extérieur pour enfant 
+# fr: raquette
+# fr: boule de pétanque en plastique
+# fr: boule de pétanque
 
 < en:Sports Toys
 en: American Football Toys
@@ -13897,7 +13921,13 @@ wikidata:en: Q116960143
 fr: Vestes, Veste
 
 <en: Coats & Jackets
+en: Leather jackets
 fr: Blouson en cuir
+wikidata:en: Q1619986
+
+<fr: Blouson en cuir
+fr:Perfecto
+wikidata:en: Q134632
 
 < en: Coats & Jackets
 en: Coat
@@ -13915,6 +13945,7 @@ xx: Anoraks
 fr: Anoraks, Anorak
 qfdmo_name:fr: anorak
 identifiant_qfdmo:fr: 274
+wikidata:en: Q567688
 
 < en:Coats & Jackets
 en: Down Jackets
@@ -13922,30 +13953,35 @@ xx: Down Jackets
 fr: Doudounes, Doudoune
 qfdmo_name:fr: doudoune
 identifiant_qfdmo:fr: 274
+wikidata:en: Q10477564
 
 < en:Coats & Jackets
 en: Duffle Coats
 xx: Duffle Coats
 fr: Duffle-coats, Duffle-coat
 qfdmo_name:fr: duffle-coat
+wikidata:en: Q118673
 
 < en:Coats & Jackets
 en: Pea Coats
 xx: Pea Coats
 fr: Cabans, Caban
 qfdmo_name:fr: caban
+wikidata:en: Q1024710
 
 < en:Coats & Jackets
 en: Trench Coats
 xx: Trench Coats
 fr: Trench-coats, Trench
 qfdmo_name:fr: trench
+wikidata:en: Q654290
 
 < en:Coats & Jackets
 en: Fur Clothing
 xx: Fur Clothing
 fr: Fourrures, Fourrure
 qfdmo_name:fr: fourrure
+wikidata:en: Q197195
 
 < en:Outerwear
 en: Rain Pants
@@ -14062,7 +14098,7 @@ cs: Kalhoty
 da: Bukser
 de: Hosen
 es: Pantalones
-fr: Pantalons, Pantalon, Pantalon en cuir
+fr: Pantalons, Pantalon
 it: Pantaloni
 ja: パンツ・ズボン
 nl: Lange broeken
@@ -14076,17 +14112,22 @@ qfdmo_name:fr: pantalon
 google_product_taxonomy_id:en: 204
 wikidata:en: Q39908
 
+< en: Pants
+fr: Pantalon en cuir
+
 < en:Pants
 en: Capri Pants
 xx: Capri Pants
 fr: Pantacourts, Pantacourt
 qfdmo_name:fr: pantacourt
+wikidata:en: Q1034971
 
 < en:Pants
 en: Leggings
 xx: Leggings
 fr: Leggings, Legging
 qfdmo_name:fr: legging
+wikidata:en: Q660782
 
 < en:Clothing
 en: Shirts & Tops
@@ -14118,6 +14159,7 @@ en: Sweatshirts
 xx: Sweatshirts
 fr: Sweats, Sweat
 qfdmo_name:fr: sweat
+wikidata:en: Q19968163
 
 < en:Clothing
 en: Shorts
@@ -14145,6 +14187,7 @@ en: Bermuda Shorts
 xx: Bermuda Shorts
 fr: Bermudas, Bermuda
 qfdmo_name:fr: bermuda
+wikidata:en: Q303347
 
 < en:Clothing
 en: Skirts
@@ -16650,6 +16693,7 @@ en: Beanies
 xx: Beanies
 fr: Bonnets, Bonnet
 qfdmo_name:fr: bonnet
+wikidata:en: Q795738
 
 < en:Hats
 en: Berets
@@ -16657,6 +16701,7 @@ xx: Berets
 fr: Bérets, Béret
 qfdmo_name:fr: beret
 identifiant_qfdmo:fr: 398
+wikidata:en: Q211718
 
 < en:Hats
 en: Caps
@@ -16671,6 +16716,7 @@ xx: Toques
 fr: Toques, Toque
 qfdmo_name:fr: toque
 identifiant_qfdmo:fr: 398
+wikidata:en: Q2309028
 
 < en:Clothing Accessories
 en: Headwear
@@ -61821,6 +61867,12 @@ sv: Hammare
 tr: Çekiçler
 google_product_taxonomy_id:en: 1186
 wikidata:en: Q25294
+
+< en:Tools
+fr: Maillet
+
+< en:Tools
+fr: Masse
 
 < en:Hammers
 fr: Masse
@@ -107316,12 +107368,6 @@ tr: Güneş Gözlüğü Camları
 google_product_taxonomy_id:en: 6977
 wikidata:en: Q117207559
 
-
-< en: Clothing
-en: Hats
-da: Hatte
-sv: Hattar
-
 < en: Hats
 en: Flat Caps
 wikidata:en: Q15603247
@@ -107432,6 +107478,7 @@ da: Damesko
 de: Damenschuhe
 es: Zapatos de mujer
 fr: Chaussures pour femmes
+wikidata:en: Q124984287
 
 < en: Men clothes
 < en: Shoes
@@ -107443,9 +107490,6 @@ en: Socks
 da: Sokker
 fr: Chaussettes, Chaussette
 qfdmo_name:fr: chaussettes
-
-< en: Clothing
-en: Skirts
 
 < en: Clothing
 en: Pull-Over
@@ -107552,6 +107596,7 @@ carbon_impact_fr_impactco2:en: 10.2
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/polo
 unit_name:xx: Polo
 unit_name:en: Polo shirt
+wikidata:en: Q755313
 
 < en: Clothing
 en: Viscose shirt
@@ -107589,6 +107634,10 @@ carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/chem
 unit_name:xx:
 unit_name:en: Cotton shirt
 unit_name:fr: Chemise en coton
+
+<en: Cotton shirt
+fr: marinière 
+Q12683
 
 < en: Shoes
 en: Leather shoes
@@ -107672,6 +107721,7 @@ carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/habillement/chau
 unit_name:xx:
 unit_name:en: Leather shoes
 unit_name:fr: Paire de chaussures en cuir
+wikidata:en: Q71003196
 
 < en: Shoes
 en: Fabric shoes
@@ -107974,7 +108024,10 @@ unit_name:fr: Robe en viscose
 
 fr: Jeux de hasard, jeu de hasard
 
+<fr: Jeux de hasard
+en: Scratch cards
 fr: Jeux de grattage, jeu de grattage
+wikidata:en: Q611465
 
 en: Papers
 da: Papirer
@@ -107990,30 +108043,35 @@ fr: Produits chimiques ménagers
 en: Bleach
 de: Bleichmittel
 fr: Eau de Javel
+wikidata:en: Q912226
 
 < en: Household chemicals
 en: Laundry detergents
 de: Waschmittel
 es: Detergentes para la ropa
 fr: Lessives
+wikidata:en: Q910284
 
 < en: Household chemicals
 en: Liquid detergent
 de: Flüssigwaschmittel
 es: Detergentes líquidos
 fr: Lessives liquides
+wikidata:en: Q124364429
 
 < en: Household chemicals
 en: Dishwasher tablets
 de: Geschirrspültabs
 es: Pastillas para lavavajillas
 fr: Tablettes pour lave-vaisselle
+wikidata:en: Q113162017
 
 < en: Household chemicals
 en: Detergents
 de: Reinigungsmittel
 es: Detergentes
 fr: Détergents
+wikidata:en: Q334637
 
 < en:Health Care
 en: Medical products
