@@ -131,7 +131,11 @@ with source, open(MAPPING_CSV, mode='r', encoding='utf-8') as mapping:
                 # Generic handling for prefix_field transformation
                 elif transformation == "prefix_field":
                     if target_col in product and product[target_col]:
-                        product[target_col] = f'{normalize_categories(value)} - {product[target_col]}'
+                        # Remove final 's' from "Smartphones" if present
+                        normalized_value = normalize_categories(value)
+                        if normalized_value == "Smartphones":
+                            normalized_value = "Smartphone"
+                        product[target_col] = f'{normalized_value} - {product[target_col]}'
                     else:
                         product[target_col] = value
                 else:
