@@ -154,6 +154,9 @@ def generate_symlink_commands(links_data: Dict[str, List[Tuple[str, str, str]]])
     commands.append("# Run this script in the openfoodfacts-web repository root directory")
     commands.append("")
     
+    # Track directories we've already created to avoid redundant mkdir commands
+    created_dirs = set()
+    
     for lang_code, entries in sorted(links_data.items()):
         # Skip English since it's the base language
         if lang_code == 'en':
@@ -190,9 +193,12 @@ def generate_symlink_commands(links_data: Dict[str, List[Tuple[str, str, str]]])
                 source = f"lang/{prefix}{lang_code}/texts/{msgstr_clean}.html"
                 target = f"{msgid_clean}.html"
                 
-                # Create directory if needed and symlink
+                # Create directory if needed (only once per directory)
                 dir_path = f"lang/{prefix}{lang_code}/texts"
-                commands.append(f"mkdir -p {dir_path}")
+                if dir_path not in created_dirs:
+                    commands.append(f"mkdir -p {dir_path}")
+                    created_dirs.add(dir_path)
+                
                 commands.append(f"ln -sf {target} {source}")
     
     return commands
