@@ -27,13 +27,13 @@ servers:
   - description: dev
     url: "https://world.openfoodfacts.net"
 paths:
-  "/api/v3/product/{barcode}":
+  "/api/v3/product/{code}":
     get:
       tags:
         - Products
       summary: Get Product Data
       parameters:
-        - name: barcode
+        - name: code
           in: path
           description: |
             The barcode of the product to be fetched
@@ -44,13 +44,9 @@ paths:
             type: string
             example: "3017620422003"
         - $ref: "./parameters/requested_product_type.yaml#/components/parameters/RequestedProductType"
-        - $ref: "#/components/parameters/cc"
-        - $ref: "#/components/parameters/lc"
-        - schema:
-            type: string
-          in: query
-          name: tags_lc
-          description: "2 letter language code to request names of tags in a specific language.  For READ requests: if passed, all taxonomized tags of the response will include a `lc_name` property with the translation in the requested language, if available. Otherwise, the property value will contain the name in the original language, prefixed by the 2 language code and a colon."
+        - $ref: "./parameters/cc.yaml#/components/parameters/Cc"
+        - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
+        - $ref: "./parameters/tags_lc.yaml#/components/parameters/TagsLc"
         - schema:
             type: string
           in: query
@@ -97,14 +93,14 @@ paths:
         Retrieve information for a product with a specific barcode.
 
         The fields parameter allows to specify what fields to retrieve.
-      operationId: get-product-by-barcode
+      operationId: get-api-v3-product-code
     patch:
       tags:
         - Products
       summary: Create or Update Product
-      operationId: patch-api-v3-product-barcode
+      operationId: patch-api-v3-product-code
       description: |-
-        This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "barcode" path component needs to contain the value "test" instead of a barcode.
+        This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "code" path component needs to contain the value "test" instead of a barcode.
 
         New API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
 
@@ -120,7 +116,7 @@ paths:
           - packaging fields (e.g. packagings, packagings_add, packagings_complete)
           - image selection of uploaded images (e.g. front, ingredients, nutrition, packaging) for specific languages
       parameters:
-        - name: barcode
+        - name: code
           in: path
           description: |
             The barcode of the product to to create or update, or "test" to analyze the product data sent without creating or updating a product.
@@ -262,12 +258,12 @@ paths:
       security:
         - cookieAuth: []
           userAgentAuth: []
-  "/api/v3/product/{barcode}/images":
+  "/api/v3/product/{code}/images":
     post:
       tags:
         - Images
       summary: Upload Product Image
-      operationId: post-api-v3-product-barcode-images
+      operationId: post-api-v3-product-code-images
       description: |-
 
         This endpoint allows to upload an image for a product. The image is uploaded in the request body as a base64 encoded string.
@@ -275,7 +271,7 @@ paths:
 
         If the product does not exist, it will be created.
       parameters:
-        - name: barcode
+        - name: code
           in: path
           description: |
             The barcode of the product corresponding to the image.
@@ -353,19 +349,19 @@ paths:
                                 patternProperties:
                                   '(?<imgid>\d+)':
                                     $ref: "./schemas/image_uploaded.yaml#/components/schemas/ImageUploaded"
-  "/api/v3/product/{barcode}/images/uploaded/{imgid}":
+  "/api/v3/product/{code}/images/uploaded/{imgid}":
     delete:
       tags:
         - Images
       summary: Delete Product Image
-      operationId: delete-api-v3-product-barcode-images-uploaded-imgid
+      operationId: delete-api-v3-product-code-images-uploaded-imgid
       description: |-
         This endpoint allows to delete an uploaded image for a product.
         Selected images that are cropped from it will also be deleted.
 
         Image deletion is allowed only for moderators and admins, so the request must be authenticated with a session cookie or userid and password.
       parameters:
-        - name: barcode
+        - name: code
           in: path
           description: |
             The barcode of the product corresponding to the image.
@@ -545,9 +541,9 @@ paths:
 
         If a string is passed, an additional sort is done to put first suggestions that start with the string, followed by suggestions with a word that start with the string, and then suggestions that contain the string anywhere.
       parameters:
-        - $ref: ./api.yaml#/components/parameters/tagtype
-        - $ref: "#/components/parameters/cc"
-        - $ref: "#/components/parameters/lc"
+        - $ref: "./parameters/tagtype.yaml#/components/parameters/Tagtype"
+        - $ref: "./parameters/cc.yaml#/components/parameters/Cc"
+        - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
         - schema:
             type: string
             example: pe
@@ -583,8 +579,8 @@ paths:
           description: Alias for the "string" parameter provided for backward compatibility. "string" takes precedence.
   "/api/v3/tag/{tagtype}/{tag_or_tagid}":
     parameters:
-      - $ref: "#/components/parameters/cc"
-      - $ref: "#/components/parameters/lc"
+      - $ref: "./parameters/cc.yaml#/components/parameters/Cc"
+      - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
       - schema:
           type: string
           example: categories
@@ -881,23 +877,7 @@ components:
       type: apiKey
       in: header
       name: User-Agent
-  parameters:
-    cc:
-      schema:
-        type: string
-        example: "us"
-      in: query
-      name: cc
-      required: false
-      description: "2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request."
-    lc:
-      schema:
-        type: string
-        example: "fr"
-      in: query
-      name: lc
-      required: false
-      description: "2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request."
+
   schemas:
     ExternalKnowledgePanelList:
       type: array
