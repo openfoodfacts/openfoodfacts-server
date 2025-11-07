@@ -1,32 +1,231 @@
-# Cleaned countries.txt
-# All duplicate/overlapping lines for Italy, Morocco, Singapore, and other problematic blocks have been removed.
-# Please copy the content below and replace your current countries.txt file with it.
+# This taxonomy was built from Wikidata to get synonyms and translations for country names, 2-letter and 3-letter country codes, and official languages
+# Some changes were then made manually, in particular to add missing languages, change the order of languages (which was not retrieved from wikidata)
+# and in some special cases to change the country code (in particular GB to UK) and the main country name (United States of America to United States)
+#
+# Changes:
+#
+#1. Algeria, add French as 2nd language.
+#< language_codes:en:ar
+#---
+#> language_codes:en:ar,fr
+bs: Andora
+bxr: Андорра
+ca: Andorra, el país dels Pirineus, Principat d'Andorra, les Valls d'Andorra
+cdo: Ăng-dô̤-ī
+ce: Андорра
+ceb: Andorra
+chr: ᎠᏂᏙᎳ
+ckb: ئەندۆرا
+co: Andorra
+crh: Andorra
+cs: Andorra
+csb: Andorra
+cu: Андора
+cv: Андорра
+cy: Andorra
+da: Andorra
+de: Andorra
+diq: Andorra
+dsb: Andorra
+dv: އެންޑޯރާ
+dz: ཨེན་ཌོ་ར
+ee: Andorra
+el: Ανδόρρα
+eml: Andòra
+en-ca:Andorra
+en-gb:Andorra
+eo: Andoro
+es: Andorra
+et: Andorra
+eu: Andorra
+ext: Andorra
+fa: آندورا
+ff: Anndoora
+fi: Andorra, Andorran ruthinaskunta
+fiu-vro:Andorra
+fo: Andorra
+fr: Andorre
+frp: Andorra
+frr: Andora
+fur: Andore
+fy: Andorra
+ga: Andóra
+gag: Andorra
+gd: Andorra
+gl: Andorra
+gn: Andorra
+got: 𐌰𐌽𐌳𐌰𐌿𐍂𐌰
+gsw: Andorra
+gv: Andorra
+haw: ʻAnakola
+he: אנדורה
+hi: अण्डोरा
+hif: Andorra
+hr: Andora
+hsb: Andorra
+ht: Andora
+hu: Andorra
+hy: Անդորա
+ia: Andorra
+id: Andorra
+ie: Andorra
+ilo: Andorra
+io: Andora
+is: Andorra
+it: Andorra
+ja: アンドラ
+jbo: andoras
+jv: Andorra
+ka: ანდორა
+kaa: Andorra
+kbd: Андоррэ
+kg: Andora
+kk: Андорра
+kl: Andorra
+km: អង់ដូរ៉ា
+kn: ಅಂಡೋರ
+ko: 안도라
+koi: Андорра
+krc: Андорра
+ku: Andorra
+kv: Андорра
+kw: Andorra
+la: Andorra
+lad: Andorra
+lb: Andorra
+lez: Андорра
+li: Andorra
+lij: Andòrra
+liv: Andorra
+lmo: Principaa d'Andora
+ln: Andora
+lo: ປະເທດອັງດອກ
+lt: Andora
+ltg: Andora
+lv: Andora
+mdf: Андора
+mg: Andora
+mhr: Андорра
+mi: Andorra
+min: Andorra
+mk: Андора
+ml: അൻഡോറ
+mn: Андорра
+mr: अँडोरा
+mrj: Андорра
+ms: Andorra
+mt: Andorra
+mwl: Andorra
+my: အင်ဒိုရာနိုင်ငံ
+mzn: آندورا
+na: Andorra
+nah: Andorra
+nan: Andorra, An-toh-là, Andorra-kok
+nap: Andorra
+nb: Andorra, Fyrstedømmet Andorra
+nds: Andorra
+nds-nl:Andorra
+ne: एण्डोरा
+nl: Andorra
+nn: Andorra
+nov: Andora
+nv: Andówa
+oc: Andòrra
+or: ଆଣ୍ଡୋରା
+os: Андоррæ
+pa: ਅੰਡੋਰਾ
+pam: Andorra
+pap: Andorra
+pcd: Andore
+pdc: Andorra
+pih: Endora
+pl: Andora, Księstwo Andory
+pms: Andorra
+pnb: اندورہ
+pnt: Ανδόρρα
+ps: اندورا
+pt: Andorra
+pt-br:Andorra, Principado de Andorra, Principado dos Vales de Andorra
+qu: Andurra
+rm: Andorra
+rmy: Andorra
+ro: Andorra
+roa-rup:Andorra
+roa-tara:Andorre, Andorra
+ru: Андорра, Andorra
+rue: Андора
+rup: Andorra
+rw: Andora
+sa: अण्डोरा
+sah: Андорра
+sc: Andorra
+scn: Andorra
+sco: Andorrae
+se: Andorra
+sg: Andôro
+sgs: Anduora, Andora
+sh: Andora
+si: ඇන්ඩෝරා
+simple: Andorra
+sk: Andorra
+sl: Andora
+so: Andorra
+sq: Andorra
+sr: Андора
+sr-ec:Андора
+sr-el:Andora
+srn: Andorrakondre
+ss: IYandola
+stq: Andorra
+su: Andorra
+sv: Andorra
+sw: Andorra
+szl: Andora
+ta: அண்டோரா
+te: అండొర్రా
+tet: Andorra
+tg: Андорра
+th: ประเทศอันดอร์รา
+tk: Andorra
+tl: Andorra
+tpi: Andora
+tr: Andorra
+ts: Andorra
+tt: Андорра
+tw: Andorra
+udm: Андорра
+ug: ئاندوررا
+uk: Андорра
+ur: انڈورا
+uz: Andorra
+vec: Andora
+vep: Andorr
+vi: Andorra
+vls: Andorra
+vo: Landorän
+vro: Andorra
+war: Andorra
+wo: Andoor
+wuu: 安道尔
+xal: Андормудин Нутг
+xmf: ანდორა
+yi: אנדארע
+yo: Àndórà
+yue: 安道爾, Principat d'Andorra, Andorra, 安道爾公國
+zea: Andorra
+zh: 安道尔, 安道尔公国
+zh-cn:安道尔, 安道尔公国
+zh-hans:安道尔, 安道尔公国
+zh-hant:安道爾, 安道爾公國
+zh-hk:安道爾, 安道爾公國
+zh-min-nan:Andorra
+zh-mo:安道爾, 安道爾公國
+zh-my:安道尔, 安道尔公国
+zh-sg:安道尔, 安道尔公国
+zh-tw:安道爾, 安道爾公國
+zh-yue:安道爾
 
-# ...existing code before Italy block...
-
-# Italy block (example)
-en: Italy, Italia, Italian Republic, Italië, IT, ITA
-country_code_2:en: IT
-country_code_3:en: ITA
-language_codes:en: it
-osm_relation:en: 365331
-# ...next country block starts here...
-
-en: Morocco, Marocco, Kingdom of Morocco, MA, MAR
-country_code_2:en: MA
-country_code_3:en: MAR
-language_codes:en: ar,fr,es
-osm_relation:en: 192784
-# ...next country block starts here...
-
-en: Singapore, Republic of Singapore, SG, SGP
-country_code_2:en: SG
-country_code_3:en: SGP
-language_codes:en: en,ta,zh,ms
-osm_relation:en: 536780
-# ...rest of the file continues...
-
-# Please ensure you keep all other country blocks intact, only removing lines after the last property for each problematic country up to the next en: block.
+en: Angola, Republic of Angola, AO, AGO
 af: Angola
 als: Angola
 am: አንጎላ
@@ -1618,6 +1817,7 @@ country_code_2:en: AU
 wikidata:en: Q408
 
 en: Austria, Österreich, Republic of Austria, Republik Österreich, AT, AUT
+regional_entity:en: european-union
 ace: Austria
 af: Oostenryk
 als: Österreich
@@ -1638,7 +1838,6 @@ be: Аўстрыя
 be-tarask:Аўстрыя
 be-x-old:Аўстрыя
 bg: Австрия
-regional_entity:en: european-union
 bi: Austria
 bn: অস্ট্রিয়া
 bo: ཨོ་སི་ཐྲི་ཡ།
@@ -1872,13 +2071,7 @@ zh-sg:奥地利, 奥地利共和国
 zh-tw:奧地利, 奧地利共和國
 zh-yue:奧地利
 zu: I-Ostriya
-
 country_code_2:en: AT
-country_code_3:en: AUT
-language_codes:en: de
-osm_relation:en: 16239
-regional_entity:en: european-union
-wikidata:en: Q40
 
 en: Azerbaijan, Republic of Azerbaijan, AZ, AZE
 ab: Азербаиџьан
@@ -3180,8 +3373,6 @@ country_code_2:en: BE
 country_code_3:en: BEL
 language_codes:en: nl,fr,de
 osm_relation:en: 52411
-regional_entity:en: european-union
-wikidata:en: Q31
 
 en: Belize, BZ, BLZ
 ace: Belize
@@ -5539,13 +5730,10 @@ zh-hans:保加利亚
 zh-min-nan:Bulgariya
 zh-yue:保加利亞
 zu: IBulgariya
-
 country_code_2:en: BG
 country_code_3:en: BGR
 language_codes:en: bg
 osm_relation:en: 186382
-regional_entity:en: european-union
-wikidata:en: Q219
 en: Burkina Faso, BF, BFA
 ace: Burkina Faso
 af: Burkina Faso
@@ -6795,6 +6983,7 @@ osm_relation:en: 535774
 wikidata:en: Q1011
 
 en: Caribbean Netherlands, BES islands, BQ, BES, Netherlands Antilles
+regional_entity:en: european-union
 af: Karibies Nederland, Karibies-Nederland, BES-Eilande
 ar: الجزر الكاريبية الهولندية
 bs: Karipska Holandija
@@ -8949,12 +9138,6 @@ zh: 克罗地亚
 
 zh-min-nan:Hrvatska
 zh-yue:克羅地亞
-country_code_2:en: HR
-country_code_3:en: HRV
-language_codes:en: hr
-osm_relation:en: 214885
-regional_entity:en: european-union
-wikidata:en: Q224
 
 en: Cuba, Republic of Cuba, CU, CUB
 ace: Kuba
@@ -9164,14 +9347,6 @@ zh-hans:古巴
 zh-hant:古巴
 zh-min-nan:Cuba
 zh-yue:古巴
-country_code_2:en: CY
-country_code_3:en: CYP
-language_codes:en: el,tr
-osm_relation:en: 307787
-regional_entity:en: european-union
-wikidata:en: Q229
-en: Curaçao, Island Territory of Curaçao, Curacau, Curaçoa, Curaςao, Kòrsou, Korsou, Curocao, ISO 3166-1:CW, CUW, Curazao, Curacao, Country of Curaçao, CW, CUW
-af: Curaçao
 als: Curaçao
 an: Curaçao
 ar: كوراساو, جزر كوراكاو
@@ -9259,14 +9434,21 @@ yo: Curaçao
 yue: 庫拉索島
 zea: Curaçao
 zh: 库拉索, 库拉骚, 古拉索, 库拉索岛, 庫拉索, 庫拉考, 古拉梳
+country_code_2:en: CY
+country_code_3:en: CYP
+language_codes:en: el,tr
+osm_relation:en: 307787
+
+wikidata:en: Q229
 zh-yue:庫拉索島
+
 country_code_2:en: CZ
 country_code_3:en: CZE
 language_codes:en: cs
 osm_relation:en: 51684
-regional_entity:en: european-union
 wikidata:en: Q213
 en: Cyprus, Republic of Cyprus, CY, CYP
+regional_entity:en: european-union
 ace: Siprus
 af: Siprus
 als: Republik Zypern
@@ -10543,7 +10725,6 @@ country_code_2:en: DK
 country_code_3:en: DNK
 language_codes:en: da
 osm_relation:en: 50046
-regional_entity:en: european-union
 wikidata:en: Q35
 af: Dominica
 als: Dominica
@@ -10889,6 +11070,7 @@ country_code_3:en: DOM
 language_codes:en: es
 
 en: East Germany, GDR, German Democratic Republic, G.D.R.
+regional_entity:en: european-union
 af: Duitse Demokratiese Republiek
 als: Deutsche Demokratische Republik
 an: Republica Democratica Alemana
@@ -11199,7 +11381,6 @@ country_code_2:en: EE
 country_code_3:en: EST
 language_codes:en: et
 osm_relation:en: 79510
-regional_entity:en: european-union
 wikidata:en: Q191
 ab: Мысры
 ace: Meusé
@@ -12776,12 +12957,12 @@ zh-classical:福克蘭群島
 zh-min-nan:Falkland Kûn-tó
 zh-yue:福克蘭羣島
 
-country_code_2:en: FI
-country_code_3:en: FIN
-language_codes:en: fi,sv
-osm_relation:en: 54224
-regional_entity:en: european-union
-wikidata:en: Q33
+ace: Pulo-pulo Faroe
+af: Faroëreilande, Faeröereilande, Färoër, Färoër-eilande, Färöer
+als: Färöer
+am: ፋሮ ደሴቶች
+an: Islas Feroe
+ang: Faroisca Īega
 ar: جزر فارو, جزر الفارو
 arz: جزر فارو
 ast: Islles Feroe, Islles Faroe
@@ -12929,7 +13110,6 @@ country_code_2:en: FR
 country_code_3:en: FRA
 language_codes:en: fr
 osm_relation:en: 2202162
-wikidata:en: Q142
 ace: Mikronesia
 af: Mikronesië
 als: Mikronesien
@@ -13254,260 +13434,8 @@ country_code_2:en: FJ
 country_code_3:en: FJI
 language_codes:en: en,fj
 
-en: Finland, Republic of Finland, Finlande, Finlandia, Finnland, Finnia, Soome, Land of Thousand Lakes, FI, FIN
-regional_entity:en: european-union
-ab: Суоми
-ace: Finlandia
-af: Finland
-als: Finnland
-am: ፊንላንድ
-an: Finlandia
-ang: Finnland
-ar: فنلندا
-arc: ܦܝܢܠܢܕ
-arz: فينلاندا
-ast: Finlandia
-ay: Phini suyu
-az: Finlandiya
-ba: Финляндия
-bar: Finnland
-bat-smg:Soumėjė
-bcl: Finlandya
-be: Фінляндыя
-be-tarask:Фінляндыя
-be-x-old:Фінляндыя
-bg: Финландия
-bi: Finland
-bm: Finland
-bn: ফিনল্যান্ড
-bo: ཧྥིན་ལན།
-bpy: ফিনল্যান্ড
-br: Finland
-bs: Finska
-bxr: Финланд
-ca: Finlàndia, República de Finlàndia, Finlandia
-cdo: Hŭng-làng
-ce: Финлянди
-ceb: Finlandia
-chr: ᏫᏂᎳᏂ
-ckb: فینلاند
-co: Finlandia
-crh: Finlandiya
-cs: Finsko
-csb: Fińskô
-cu: Соумь
-cv: Финлянди
-cy: Y Ffindir
-da: Finland
-de: Finnland
-de-ch:Finnland
-diq: Finlanda
-dsb: Finska
-dv: ފިންލޭންޑު
-dz: ཕིན་ལེནཌ་
-ecobalyse_is_part_of_eu: yes
-ee: Finland
-el: Φινλανδία
-en-ca:Finland
-en-gb:Finland
-eo: Finnlando
-es: Finlandia
-et: Soome
-eu: Finlandia
-ext: Finlándia
-fa: فنلاند
-fi: Suomi, Suomen tasavalta
-fiu-vro:Soomõ
-fo: Finnland
-fr: Finlande
-frp: Finlande
-frr: Finlönj
-fur: Finlande
-fy: Finlân
-ga: An Fhionlainn
-gag: Finlandiya
-gan: 芬蘭
-gd: Suòmaidh
-gl: Finlandia
-gn: Hĩlandia
-got: 𐍆𐌹𐌽𐌽𐌰𐌻𐌰𐌽𐌳
-gsw: Finnland
-gu: ફીનલેંડ
-gv: Finnlynn
-hak: Fûn-làn
-haw: Pinilana
-he: פינלנד
-hi: फ़िनलैण्ड
-hif: Finland
-hr: Finska
-hsb: Finska
-ht: Fenlann
-hu: Finnország
-hy: Ֆինլանդիա
-ia: Finlandia
-id: Finlandia
-ie: Finland
-ig: Finland
-ilo: Pinlandia
-io: Finlando
-is: Finnland
-it: Finlandia
-ja: フィンランド
-jbo: gugdrsu, omi
-jv: Finlandia
-ka: ფინეთი
-kaa: Finlyandiya
-kbd: Финлэнд
-kg: Finlandi
-ki: Finland
-kk: Финляндия
-kl: Finlandi
-kn: ಫಿನ್ ಲ್ಯಾಂಡ್
-ko: 핀란드
-koi: Суоми
-krc: Финляндия
-ku: Fînland
-kv: Суоми Му
-kw: Pow Finn
-ky: Финляндия
-la: Finnia
-lad: Finlandia
-lb: Finnland
-lez: Финляндия
-lg: Finilandi
-li: Finland
-lij: Finlandia
-liv: Sūomõmō
-lmo: Finlandia
-ln: Finilanda
-lt: Suomija
-ltg: Suomeja
-lv: Somija
-lzh: 芬蘭, 芬蘭共和國
-mdf: Суоми мастор
-mg: Finlandy
-mhr: Суоми
-mi: Hinerangi
-mk: Финска
-ml: ഫിൻലാന്റ്
-mn: Финланд
-mr: फिनलंड
-mrj: Финлянди
-ms: Finland
-mt: Finlandja
-my: ဖင်လန်နိုင်ငံ
-myv: Суоми Мастор
-na: Pinrand
-nah: Fintlālpan
-nan: Suomi, Finland, Hun-lân
-nb: Finland, Republikken Finland
-nds: Finnland
-nds-nl:Finlaand, Finland
-ne: फिनल्याण्ड
-new: फिनल्यान्ड
-nl: Finland, Republiek Finland
-nn: Finland
-nov: Finlande
-nrm: Fînlande
-nv: Nahoditsʼǫʼłání
-oc: Finlàndia
-or: ଫିନଲ୍ୟାଣ୍ଡ
-os: Финлянди
-pam: Pinlandya
-pap: Finlandia
-pcd: Finlinde
-pih: Finland
-pl: Finlandia
-pms: Finlandia
-pnb: فنلینڈ
-pnt: Φινλανδία
-ps: فېنلانډ
-pt: Finlândia
-pt-br:Finlândia, República da Finlândia
-qu: Phinsuyu
-rm: Finlanda
-rmy: Finland
-ro: Finlanda
-roa-rup:Finlanda
-roa-tara:Finlandie, Finlandia
-ru: Финляндия, Суоми, Suomi
-rue: Фіньско
-rup: Finlanda
-rw: Finilande
-sa: फिन्लैंड
-sah: Финляндия
-sc: Finlandia
-scn: Finlandia
-sco: Finland
-se: Suopma
-sgs: Soumėjė, Soumėjės Respoblėka, Suomėjė
-sh: Finska
-si: ෆින්ලන්තය
-simple: Finland
-sk: Fínsko
-sl: Finska
-sm: Finalagi
-sma: Såevmie
-so: Finland
-sq: Finlanda
-sr: Финска
-sr-ec:Финска
-sr-el:Finska
-srn: Finland
-ss: IFini
-st: Finland
-stq: Finlound
-su: Finlandia
-sv: Finland, Republiken Finland
-sw: Ufini
-szl: Finlandyjo
-ta: பின்லாந்து, ஃபின்லாண்ட், சுவோமி, ஃபின்லாந்து
-te: ఫిన్ లాండ్
-tet: Finlándia
-tg: Финланд
-th: ประเทศฟินแลนด์, ฟินแลนด์, ซูโอมิ, Finland, สาธารณรัฐฟินแลนด์
-tk: Finlýandiýa
-tl: Pinlandiya
-tokipona: ma Sumi
-tpi: Pinlan
-tr: Finlandiya
-tt: Финляндия, Finlyandiya, Finlândiä
-udm: Финляндия
-ug: فىنلاندىيە
-uk: Фінляндія
-ur: فن لینڈ
-uz: Finlandiya
-vec: Finlandia
-vep: Suomenma
-vi: Phần Lan
-vls: Finland
-vo: Suomiyän
-vro: Soomõ
-wa: Finlande
-war: Finlandya
-wo: Finlaand
-wuu: 芬兰
-xal: Суһомудин Орн
-xmf: ფინეთი
-yi: פינלאנד
-yo: Fínlándì
-yue: 芬蘭, Suomen tasavalta, Finland, Republic of Finland, Suomi, 芬蘭共和國, Republiken Finland
-za: Finlan
-zea: Finland
-zh: 芬兰, 芬兰共和国
-zh-classical:芬蘭
-zh-cn:芬兰, 芬兰共和国
-zh-hans:芬兰, 芬兰共和国
-zh-hant:芬蘭, 芬蘭共和國
-zh-hk:芬蘭, 芬蘭共和國
-zh-min-nan:Suomi
-zh-mo:芬蘭, 芬蘭共和國
-zh-my:芬兰, 芬兰共和国
-zh-sg:芬兰, 芬兰共和国
-zh-tw:芬蘭, 芬蘭共和國
-zh-yue:芬蘭
-zu: IFinlandi
 en: Finland, Republic of Finland, Finlande, Finlandia, Finnland, FI, FIN
+regional_entity:en: european-union
 country_code_2:en: FI
 country_code_3:en: FIN
 language_codes:en: fi,sv
@@ -14736,28 +14664,6 @@ country_code_2:en: DE
 country_code_3:en: DEU
 language_codes:en: de
 osm_relation:en: 51477
-regional_entity:en: european-union
-wikidata:en: Q183
-ab: Алмантәыла
-ace: Jeureuman
-af: Duitsland
-ak: Germany
-als: Deutschland
-am: ጀርመን
-an: Alemanya
-ang: Þēodscland
-ar: ألمانيا
-arc: ܓܪܡܢ
-arz: المانيا
-ast: Alemaña
-av: Алмания
-ay: Alimaña
-az: Almaniya
-ba: Германия
-bar: Deitschland
-bat-smg:Vuokītėjė
-bcl: Alemanya
-be: Германія
 be-tarask:Нямеччына
 be-x-old:Нямеччына
 bg: Германия
@@ -15224,8 +15130,6 @@ country_code_2:en: GR
 country_code_3:en: GRC
 language_codes:en: el
 osm_relation:en: 192307
-regional_entity:en: european-union
-wikidata:en: Q41
 ace: Gibraltar
 af: Gibraltar
 an: Chibraltar
@@ -15372,249 +15276,6 @@ language_codes:en: en
 
 en: Greece, Hellenic Republic, Hellas, GR, GRC
 regional_entity:en: european-union
-ab: Барзентәыла
-ace: Yunani
-af: Griekeland
-als: Griechenland
-am: ግሪክ
-an: Grecia
-ang: Crēcland
-ar: اليونان
-arc: ܝܘܢ
-arz: اليونان
-ast: Grecia
-ay: Grisya
-az: Yunanıstan
-ba: Греция
-bar: Griachaland
-bat-smg:Graikėjė
-bcl: Gresya
-be: Грэцыя
-be-tarask:Грэцыя
-be-x-old:Грэцыя
-bg: Гърция
-bi: Greece
-bn: গ্রিস
-bo: ཀེ་རི་སི།
-bpy: গ্রীস
-br: Gres
-bs: Grčka
-bxr: Грек
-ca: Grècia, República Hel·lènica, Ελληνική Δημοκρατία Ellīnikī́ Dīmokratía, Ἑλλάς, Ελλάδα, Elláda, Hellás
-cdo: Hĭ-lé-nà̤
-ce: Гlайрхойн
-ceb: Gresya
-chr: ᎪᎢ
-ckb: یۆنان
-co: Grecia
-crh: Yunanistan
-cs: Řecko
-csb: Greckô
-cu: Грьци
-cv: Греци
-cy: Gwlad Groeg
-da: Grækenland
-de: Griechenland
-de-ch:Griechenland
-diq: Yunanıstan
-dsb: Grichiska
-dv: ޔޫނާން
-dz: གིརིསི་
-ecobalyse_is_part_of_eu: yes
-ee: Greece
-el: Ελλάδα, Ελλάς, Ελληνική Δημοκρατία, Ἑλλάς
-en-ca:Greece
-en-gb:Greece
-eo: Grekio
-es: Grecia
-et: Kreeka
-eu: Grezia
-ext: Grécia
-fa: یونان
-fi: Kreikka, Kreikan tasavalta, Helleenien tasavalta, Hellas
-fiu-vro:Kreeka
-fo: Grikkaland
-fr: Grèce
-frp: Grèce
-frr: Griichenlönj
-fur: Grecie
-fy: Grikelân
-ga: An Ghréig
-gag: Grețiya
-gan: 希臘
-gd: A' Ghrèig
-gl: Grecia
-gn: Gyresia
-gsw: Griechenland
-gu: ગ્રીસ
-gv: Yn Ghreag
-hak: Hî-lia̍p
-haw: Helene
-he: יוון
-hi: यूनान
-hif: Greece
-hr: Grčka
-hsb: Grjekska
-ht: Grès
-hu: Görögország
-hy: Հունաստան
-ia: Grecia
-id: Yunani
-ie: Grecia
-ilo: Gresia
-io: Grekia
-is: Grikkland
-it: Grecia
-ja: ギリシャ
-jbo: xesygu'e
-jv: Yunani
-ka: საბერძნეთი
-kaa: Gretsiya
-kbd: Алыджей
-kg: Gelesi
-ki: Ngiriki
-kk: Грекия
-kl: Grækerit Nunaat
-kn: ಗ್ರೀಸ್
-ko: 그리스
-koi: Эллада
-krc: Греция
-ku: Yewnanistan
-kv: Эллада
-kw: Pow Grek
-ky: Греция
-la: Graecia
-lad: Gresia
-lb: Griicheland
-lez: Греция
-lg: Buyonaani
-li: Griekeland
-lij: Greçia
-liv: Grīekmō
-lmo: Grecia
-ln: Gresi
-lo: ປະເທດກະແລັດ
-lt: Graikija
-ltg: Grekeja
-lv: Grieķija
-mdf: Грекмастор
-mg: Grisy
-mhr: Греций
-mi: Kirihi
-mk: Грција
-ml: ഗ്രീസ്
-mn: Грек
-mr: ग्रीस
-ms: Greece
-mt: Greċja
-mwl: Grécia
-my: ဂရိနိုင်ငံ
-mzn: یونان
-na: Grit
-nah: Grecia
-nan: Hi-lia̍p
-nap: Grecia
-nb: Hellas, Grekenland, Den hellenske republikk
-nds: Grekenland
-nds-nl:Griekenlaand
-ne: ग्रीस
-nl: Griekenland
-nn: Hellas
-nov: Grekia
-nrm: Grêce
-nv: Gwíík Dineʼé Bikéyah
-oc: Grècia
-or: ଗ୍ରୀସ
-os: Грекъ
-pa: ਯੂਨਾਨ
-pag: Gresia
-pam: Greece
-pcd: Grèche
-pih: Griese
-pl: Grecja, Republika Grecka, Hellada
-pms: Grecia
-pnb: یونان
-pnt: Ελλάδα
-ps: يونان
-pt: Grécia
-pt-br:Grécia, República Helênica
-qu: Grisya
-rm: Grezia
-rn: Grecia
-ro: Grecia
-roa-rup:Gãrtsia
-roa-tara:Grecie
-ru: Греция, Ελλάδα
-rue: Ґреція
-rw: Ubugereki
-sa: यवनदेशः
-sah: Греция
-sc: Grèghia
-scn: Grecia
-sco: Greece
-se: Greika
-sh: Grčka
-si: ග් රීසිය
-simple: Greece
-sk: Grécko
-sl: Grčija
-sm: Kuliti
-sma: Greeklaante
-so: Giriig
-sq: Greqia
-sr: Грчка
-sr-ec:Грчка
-sr-el:Grčka
-srn: Grikikondre
-ss: IGrikhi
-stq: Griechenlound
-su: Yunani
-sv: Grekland
-sw: Ugiriki
-szl: Grecyjo
-ta: கிரேக்கம், கிரீஸ், கிறீஸ், கிரீசு, கிரேக்கக் குடியரசு, கிரேக்க நாடு
-te: గ్రీస్
-tet: Grésia
-tg: Юнон
-th: ประเทศกรีซ, กรีซ, Greece, สาธารณรัฐเฮลเลนิก, เฮลเลนิก, Hellenic Republic
-tk: Gresiýa
-tl: Gresya
-tokipona: ma Elena
-tpi: Gris
-tr: Yunanistan
-tt: Греция
-udm: Греция
-ug: گرېتسىيە
-uk: Греція
-ur: یونان
-uz: Yunoniston
-vec: Gresia
-vep: Grekanma
-vi: Hy Lạp
-vls: Grieknland
-vo: Grikän
-war: Gresya
-wo: Girees
-wuu: 希腊
-xal: Грисин Орн
-xmf: საბერძნეთი
-yi: גריכנלאנד
-yo: Gríìsì
-yue: 希臘
-zea: Griek'nland
-zh: 希腊, 希腊共和国
-zh-classical:希臘共和國
-zh-cn:希腊, 希腊共和国
-zh-hans:希腊, 希腊共和国
-zh-hant:希臘, 希臘共和國
-zh-hk:希臘, 希臘共和國
-zh-min-nan:Hi-lia̍p
-zh-mo:希臘, 希臘共和國
-zh-my:希腊, 希腊共和国
-zh-sg:希腊, 希腊共和国
-zh-tw:希臘, 希臘共和國
-zh-yue:希臘
-zu: IGreki
 country_code_2:en: GR
 country_code_3:en: GRC
 language_codes:en: el
@@ -15941,12 +15602,23 @@ jv: Guam
 ka: გუამი
 kk: Гуам
 kn: ಗುವಾಮ್‌‌‌‌
+ko: 괌
+kw: Guam
+la: Guama
 lb: Guam
 lij: Guam
 lt: Guamas
 lv: Guama
 mk: Гуам
 ml: ഗുവാം
+mr: ग्वॉम
+ms: Guam
+my: ဂူအမ်ကျွန်း
+nb: Guam
+ne: ग्वाम
+nl: Guam
+nn: Guam
+oc: Guam
 os: Гуам
 pa: ਗੁਆਮ
 pam: Guam
@@ -15992,8 +15664,6 @@ country_code_2:en: HU
 country_code_3:en: HUN
 language_codes:en: hu
 osm_relation:en: 21335
-regional_entity:en: european-union
-wikidata:en: Q28
 ace: Guatemala
 af: Guatemala
 als: Guatemala
@@ -16826,6 +16496,7 @@ country_code_3:en: HMD
 language_codes:en:
 ## END GIBRALTAR
 en: Greece, Hellenic Republic, Hellas, GR, GRC
+regional_entity:en: european-union
 am: ሆንዱራስ
 an: Honduras
 ar: هندوراس
@@ -17171,15 +16842,9 @@ zh-yue:香港
 country_code_2:en: HK
 country_code_3:en: HKG
 language_codes:en: zh,en
-en: Hungary, HU, HUN
-regional_entity:en: european-union
-ab: Мадиартәыла
-ace: Hongaria
-af: Hongarye
-als: Ungarn
-am: ሀንጋሪ
-an: Hongría
-ang: Ungerland
+osm_relation:en: 21335
+## END GUATEMALA
+country_code_2:en: IT
 ar: المجر
 arc: ܡܓܪ
 arz: المجر
@@ -17339,11 +17004,7 @@ zh-hant:冰島
 zh-min-nan:Peng-tē
 zh-yue:冰島
 zu: I-Ayisilandi
-country_code_2:en: IE
-country_code_3:en: IRL
-language_codes:en: ga
-osm_relation:en: 62273
-wikidata:en: Q27
+
 ace: India
 af: Indië
 als: Indien
@@ -17589,23 +17250,10 @@ zh-hant:印度
 zh-min-nan:Ìn-tō͘
 zh-yue:印度
 zu: INdiya
-country_code_2:en: IT
-country_code_3:en: ITA
-language_codes:en: it
+country_code_2:en: IE
+country_code_3:en: IRL
+language_codes:en: ga
 osm_relation:en: 365331
-wikidata:en: Q38
-ace: Indônèsia
-af: Indonesië
-ak: Indonesia
-als: Indonesien
-am: ኢንዶኔዥያ
-an: Indonesia
-ang: Indonesia
-ar: إندونيسيا
-arz: اندونيسيا
-ast: Indonesia
-ay: Indunisya
-az: İndoneziya
 ## END INDONESIA
 ba: Индонезия
 bar: Indonesien
@@ -20765,12 +20413,7 @@ zh-hans:老挝
 zh-hant:老挝
 zh-min-nan:Lao-kok
 zh-yue:Laos
-country_code_2:en: LV
-country_code_3:en: LVA
-language_codes:en: lv
-osm_relation:en: 72594
-regional_entity:en: european-union
-wikidata:en: Q211
+
 ace: Latvia
 af: Letland
 als: Lettland
@@ -20994,11 +20637,11 @@ zh-hant:拉脫維亞
 zh-min-nan:Latvia
 zh-yue:拉脫維亞
 zu: ILatviya
-country_code_2:en: LT
-country_code_3:en: LTU
-language_codes:en: lt
-osm_relation:en: 72596
-wikidata:en: Q37
+country_code_2:en: LV
+country_code_3:en: LVA
+language_codes:en: lv
+osm_relation:en: 72594
+
 ace: Lebanon
 af: Libanon
 als: Libanon
@@ -21194,11 +20837,7 @@ zh-hans:黎巴嫩
 zh-hant:黎巴嫩
 zh-min-nan:Lī-pa-lùn
 zh-yue:黎巴嫩
-country_code_2:en: LU
-country_code_3:en: LUX
-language_codes:en: lb,fr,de
-osm_relation:en: 168458
-wikidata:en: Q32
+
 ace: Lesotho
 af: Lesotho
 als: Lesotho
@@ -22266,253 +21905,10 @@ zh-sg:立陶宛, 立陶宛共和国
 zh-tw:立陶宛, 立陶宛共和國
 zh-yue:立陶宛
 zu: ILithuwaniya
-country_code_2:en: MT
-country_code_3:en: MLT
-language_codes:en: mt
-osm_relation:en: 365307
-wikidata:en: Q233
-ace: Luksèmburg, Luxemburg
-af: Luxemburg, Luxembourg, Groothertogdom Luxemburg
-als: Luxemburg
-am: ሉክሰምበርግ, ሉክሰምቡርግ, ሉክሳምቡርግ
-an: Luxemburgo, Lucsemburgo, Lusemburgo
-ang: Letseburg, Luxembourg, Letseburh
-ar: لوكسمبورغ, Luxembourg, لكسمبورج, اللوكسمبورغ, اللكسمبورغ, لوكسمبورگ, اللكسمبورج, لكسمبرغ, دوقية لوكسمبورغ, لوكسمبرج, لكسمبورغ, لوكسمبورج, اللوكسمبورج, دوقية اللوغسمبورغ
-arc: ܠܘܟܣܡܒܘܪܓ, ܠܘܩܣܡܒܘܪܓ
-arz: لوكسيمبورج, لوكسمبورغ, لوكسيبمبورج, لوكسمبورج
-ast: Luxemburgu, Luxemburgo
-az: Lüksemburq, Lyuksemburq, Luksemburq, Lüksenburq
-ba: Люксембург
-bar: Luxmburg, Luxemburg, Großherzogtum Luxemburg
-bat-smg:Lioksembōrgs
-bcl: Luhemburgo, Luhenburgo, Luxembourg
-be: Люксембург, Дзяржава Люксембург
-be-tarask:Люксэмбург, Вялікае Княства Люксэмбург, Люксэмбурґ
-be-x-old:Люксэмбург
-bg: Люксембург
-bi: Luxembourg
-bn: লুক্সেমবুর্গ, Luxembourg, Grand Duchy of Luxemburg, State of Luxembourg, Groussherzogtum Letzebuerg, লুক্সেমবার্গ, Grand-Duchy of Luxembourg, Luxembourgh, Country Luxembourg, ISO 3166-1:LU, Lexumbourg, Grand-Duché de Luxembourg, Lussemburgo, Lëtzebuerg, Luxemberg, Lexenburg, Grossherzogtum Luxemburg, Grand Duchy of Luxembourg, LuxemburG, Letzebuerg, Groussherzogtum Lëtzebuerg, Grand-Duche de Luxembourg, Großherzogtum Luxemburg, Luxemburger, Luxemborg
-bo: ལུ་སེམ་བའུརག, ལག་ཟེམ་བཱརག
-bpy: লুক্সেমবুর্গ
-br: Luksembourg
-bs: Luksemburg
-bxr: Люксембург
-ca: Luxemburg, Gran Ducat De Luxemburg, Luxembourg, Gran Ducat de Luxemburg
-cdo: Lù-sĕng-bō̤
-ce: Люксембург
-ceb: Luxembourg, Luksemburgo
-ckb: لوکسەمبورگ, لوکزامبورگ
-co: Lussemburgu
-crh: Lüksemburg
-crh-latn:Lüksemburg
-cs: Lucembursko, Velkovévodství lucemburské, Lucemburské hrabství, Lucemburské velkovévodství
-csb: Luksembùrskô
-cu: Люѯємбоургъ, Люѯємбоу́ргъ
-cv: Люксембург
-cy: Lwcsembwrg, Lwcsembourg, Luxembourg
-da: Luxembourg
-de: Luxemburg
-de-ch:Luxemburg
-diq: Luksemburg
-dsb: Luxemburgska
-ecobalyse_is_part_of_eu: yes
-ee: Luxembourg
-el: Λουξεμβούργο
-eml: Lussembûrgh, Lussembûrg, Lusembûrgh
-en-ca:Luxembourg
-en-gb:Luxembourg
-eo: Luksemburgo
-es: Luxemburgo
-et: Luksemburg, Luksemburgi Suurhertsogiriik
-eu: Luxenburgo, Luxemburg, Luxenburg, Luxemburgo, Luxenburgoko Dukerri Handia, Luxenbourg
-ext: Lussembulgu, Lusemburgu, Luxemburgu, Luxembourg, Luxemburg, Lussemburgu, Lëtzebuerg
-fa: لوکزامبورگ, لوگسامبورگ, لوكزامبورگ, لوگزامبورگ, لوکسامبورگ
-fi: Luxemburg, Luxembourg, Luxemburgin suurherttuakunta
-fiu-vro:Luksõmburk
-fo: Luksemburg, Luksemborg
-fr: Luxembourg
-frp: Luxembôrg
-frr: Luxemborj, Luksemborag, Luxembörj, Luxemburg
-fur: Lussemburc
-fy: Lúksemboarch, Gruthartochdom Lúksemboarch
-ga: Lucsamburg, An Lucsamburg
-gag: Lüksemburg
-gd: Lucsamburg, Lugsomborg, Luxembourg
-gl: Luxemburgo, Luxemburgo
-gn: Luxemburgo
-gsw: Luxemburg, Luxembourg
-gu: લક્ઝેમ્બર્ગ
-gv: Lucsemburg, Luxembourg
-hak: Lù-sêm-pó
-haw: Lukemapuka
-he: לוקסמבורג, לוכסמבורג, הדוכסות הגדולה של לוקסמבורג, יהדות לוקסמבורג, לוקסנבורג
-hi: लक्ज़मबर्ग, लक्सेम्बर्ग, लक्समबर्ग, लुक्सम्बूर्ग, लग्ज़म्बर्ग, लग्ज़म्बोर्ग, लक्सम्बर्ग
-hif: Luxembourg
-hr: Luksemburg, Luxemburg, Veliko Vojvodstvo Luksemburg
-hsb: Luxemburgska
-ht: Liksanbou
-hu: Luxemburg, Luxemburgi Nagyhercegség
-hy: Լյուքսեմբուրգ, Լուքսեմբուրգ
-ia: Luxemburg
-id: Luksemburg, Groussherzogtum Lëtzebuerg, Großherzogtum Luxemburg, Luxemburg, Luxembourg, Grand-Duché de Luxembourg, Keadipatian Agung Luksemburg
-ie: Luxemburgia
-ilo: Luxembourg
-io: Luxemburgia
-is: Lúxemborg, Luxemburg, Stórhertogadæmið Lúxemborg
-it: Lussemburgo
-ja: ルクセンブルク, ルクセンブルグ, Luxembourg, ルクセンブルク大公国, ルクセンブルグ大公国
-jbo: lEtsyburg, badygu'e, la'o zoi Lëtzebuerg zoi, letseberg, luksymbyrg
-jv: Luksemburg, Luxemburg, Luxembourg
-ka: ლუქსემბურგი, ლუქსემბურგის დიდი საჰერცოგო
-kaa: Lyuksemburg
-kab: Luxembourg
-kbd: Луксембург
-kg: Luxembourg
-kk: Люксембург, Лүксембор
-kl: Luxembourg
-ko: 룩셈부르크, 룩셈부르크 대공국
-koi: Лецебург
-krc: Люксембург
-ksh: Luxemburg
-ku: Lûksembûrg, Dukîtiya Mezin a Lûksembûrgê, Luksembûrg, Luksemburg, Luxembûrg
-kv: Люксембург
-kw: Lushaborg, Luksembourg
-ky: Люксембург
-la: Luxemburgum, Luciliburgum, Luxemburgia
-lad: Luksemburgo
-lb: Lëtzebuerg (Land), Groussherzogtum Lëtzebuerg
-lez: Люксембург
-li: Luxemburg
-lij: Luxemburgo
-liv: Luksemburg
-lmo: Lüssemburgh, Lüssemburg, Lüsemburgh, Lüssembürgh, Lüsenbürgh
-ln: Luksamburg
-lo: ປະເທດລູກຊຳບວກ
-lt: Liuksemburgas
-ltg: Luksemburga
-lv: Luksemburga, Luxembourg, Luksemburgas Lielhercogiste, LUX
-lzh: 盧森堡, 盧森堡大公國
-mdf: Люксембур
-mg: Loksemborga, Luxembourg, Loksamborga
-mhr: Люксембург
-mi: Rakapuō
-mk: Луксембург
-ml: ലക്സംബർഗ്, Luxembourg, ഗ്രാന്റ് ഡച്ചി ഓഫ് ലക്സംബർഗ്, ലക്സംബർഗ്ഗ്, Grand Duchy of Luxembourg
-mn: Люксембург
-mr: लक्झेंबर्ग, लक्झेम्बर्ग, लक्सम्बर्ग
-ms: Luxembourg, Luxemborg
-mt: Lussemburgu
-my: လူဇင်ဘတ်နိုင်ငံ, လူဇင်းဘာ့ခ်နိုင်ငံ, လပ်ဇင်ဗူးနိုင်ငံ
-mzn: لوکزامبورگ, اسپانیا
-na: Ruketemburg, Luxembourg
-nah: Luxemburgo
-nan: Luxembourg
-nb: Luxembourg, Luxemburg
-nds: Luxemborg
-nds-nl:Luxemburg
-ne: लक्जेम्बर्ग
-new: लक्जेम्बर्ग
-nl: Luxemburg
-nn: Luxembourg
-nov: Luxembourg
-nrm: Luxembourg, Lussembouor, Luxembouor, Lussembouo
-nv: Látsębooʼ
-oc: Luxemborg
-or: ଲକ୍ସମବର୍ଗ
-os: Люксембург
-pa: ਲਕਸਮਬਰਗ
-pam: Luxemburgo, Luxembourg
-pap: Luxembourg
-pcd: Lussimbourk, Lussimbourq
-pdc: Luxemburg
-pfl: Lugsebursch, Luxebursch, Luxemburg
-pih: Luksemborg
-pl: Luksemburg
-pms: Lussemborgh, Lussemborg
-pnb: لکسمبرگ
-pnt: Λουξεμβούργο, Λουξεμβούργον
-ps: لوګزامبورګ, لېکسامبورګ
-pt: Luxemburgo
-pt-br:Luxemburgo, Grão-Ducado de Luxemburgo
-qu: Luksimbur, Lushimburku
-rm: Luxemburg
-rmy: Luksemburgo
-ro: Luxemburg, Regii Ungariei, Luxembourg, Marele Ducat de Luxemburg, Marele Ducat al Luxemburgului
-roa-rup:Luxemburg
-roa-tara:Lussemburghe, Lussemburgo
-ru: Люксембург, Lëtzebuerg
-rue: Луксембурьско
-rup: Luxemburg
-rw: Lugizamburu
-sa: लक्सम्बर्ग
-sah: Лүксембург, Люксембург
-sc: Lussemburgu
-scn: Lussimburgu, Luscimburgu, Luscimmurgu
-sco: Luxembourg
-se: Luxemburg
-sgs: Lioksembōrgs
-sh: Luksemburg, Луксембург
-simple: Luxembourg
-sk: Luxembursko
-sl: Luksemburg, Veliko vojvodstvo Luksemburg, Luxembourg
-sma: Luhksembuurj
-so: Luksemburg, Luksemborg, Luksimborg
-sq: Luksemburgu, Luksemburg, Luxembourg
-sr: Луксембург, Luxembourg, Luxemburg, Велико војводство Луксембург, Lëtzebuerg
-sr-ec:Луксембург
-sr-el:Luksemburg
-srn: Luksemburgkondre
-ss: Lusembogu
-stq: Luxembuurich
-su: Luksemburg, Luxembourg, Luxemburg
-sv: Luxemburg, Luxemburgare, Luxenburg, Storhertigdömet Luxemburg, Luxemburgsk, Lëtzebuerg
-sw: Luxemburg
-szl: Luksymburg
-ta: லக்சம்பர்க், லக்செம்பூர்க், இலக்கசம்பேர்க், லக்சம்பேர்க்
-tet: Luxemburgu, Luxemburgo
-tg: Люксембург
-th: ประเทศลักเซมเบิร์ก, อาณาจักรแกรนด์ดยุคแห่งลักเซมเบิร์ก, Luxembourg, ราชรัฐลักเซมเบิร์ก, Luxemburg, Grand Duchy of Luxembourg
-tk: Lýuksemburg
-tl: Luxembourg, Luksemburgo, Dakilang Dukado ng Luxembourg, Groussherzogtum Lëtzebuerg, Dakilang Dukado ng Luksemburgo, Luksemburgos, Dukado ng Luksemburgo, Dukado ng Luxembourg, Groussherzogtum Letzebuerg
-tokipona: ma Lusepu
-tr: Lüksemburg, Luxemburg, Lüxemburg, Luxembourg Kontluğu, Lüksemburg Büyük Dukalığı, Luxembourg Kontu, Luxembourg, Büyük Lüksemburg Dukalığı, Lüksemburg ekonomisi, Lüksemburg Büyük Dükalığı
-tt: Люксембург
-udm: Люксембург
-ug: ليۇكسېمبۇرگ, Lyuksémburg
-uk: Люксембург, Велике герцогство Люксембург, Люксембурґ
-ur: لکسمبرگ, لگزمبرگ, Luxembourg
-uz: Luksemburg, Lyuksemburg
-vec: Lusenburgo, Lussemburgo
-vep: Lüksemburg
-vi: Luxembourg, Lucxămbua, Luxemburg, Lúc-xăm-bua, Lúcxămbua, Luxembua, Công quốc Luxembourg, Đại công quốc Luxembua, Lục Xâm Bảo, Đại công quốc Luxembourg
-vls: Luxemburg, Grootertogdom Luxemburg
-vo: Luxämburgän
-vro: Luksõmburk
-wa: Grande-Dutcheye do Lussimbork, Grande Dutcheye do Lussimbork, Grande-Dutcheye, Lussimbork, Grande Dutcheye
-war: Luxemburgo, Luxemburg, Luxembourg
-wo: Luksambuur, Luksembuur
-wuu: 卢森堡
-xal: Лүксин Балһсна Нутг, Люксембург Балһсн
-xmf: ლუქსემბურგი
-yi: לוקסעמבורג
-yo: Lúksẹ́mbọ̀rg, Luxembourg
-yue: 盧森堡, Luxemburg, Grousherzogdem Lëtzebuerg, Großherzogtum Luxemburg, 盧森堡大公國, Luxembourg, Grand-Duché de Luxembourg, Lëtzebuerg
-zea: Luxemburg
-zh: 卢森堡, 卢森堡大公国, 卢森堡公国
-zh-classical:盧森堡
-zh-cn:卢森堡, 卢森堡大公国, 卢森堡公国
-zh-hans:卢森堡, 卢森堡大公国, 卢森堡公国
-zh-hant:盧森堡, 盧森堡大公國, 盧森堡公國
-zh-hk:盧森堡, 盧森堡大公國, 盧森堡公國
-zh-min-nan:Luxembourg
-zh-mo:盧森堡, 盧森堡大公國, 盧森堡公國
-zh-my:卢森堡, 卢森堡大公国, 卢森堡公国
-zh-sg:卢森堡, 卢森堡大公国, 卢森堡公国
-zh-tw:盧森堡, 盧森堡大公國, 盧森堡公國
-zh-yue:盧森堡
-country_code_2:en: LU
-country_code_3:en: LUX
-language_codes:en: fr,de,lb,en
+country_code_2:en: LT
+country_code_3:en: LTU
+language_codes:en: lt
+
 en: Macau, Macao, Macau Special Administrative Region, Macau Special Administrative Region of the People's Republic of China, Aomen, MO, MAC
 ace: Makèë
 af: Macau
@@ -23602,12 +22998,7 @@ zh-hant:马里共和国
 zh-min-nan:Mali
 zh-yue:馬里
 zu: IMali
-country_code_2:en: NL
-country_code_3:en: NLD
-language_codes:en: nl
-osm_relation:en: 47796
-regional_entity:en: european-union
-wikidata:en: Q55
+
 ace: Malta
 af: Malta
 als: Malta
@@ -25975,6 +25366,7 @@ country_code_3:en: MAR
 language_codes:en: ar,fr,es
 ## END ISRAEL
 en: Italy, Italia, Italian Republic, Italië, IT, ITA
+regional_entity:en: european-union
 be-x-old:Мазамбік
 bg: Мозамбик
 bjn: Mozambik
@@ -26999,6 +26391,7 @@ country_code_3:en: NPL
 language_codes:en: ne
 
 en: Netherlands, Holland, the Netherlands, NL, NED, NL, NLD
+regional_entity:en: european-union
 ace: Beulanda
 af: Nederland
 als: Niederlande
@@ -27251,12 +26644,7 @@ zh-sg:荷兰, 尼德兰, 尼德兰王国
 zh-tw:荷蘭, 尼德蘭, 尼德蘭王國
 zh-yue:荷蘭
 zu: Netherlands
-country_code_2:en: PL
-country_code_3:en: POL
-language_codes:en: pl
-osm_relation:en: 49715
-regional_entity:en: european-union
-wikidata:en: Q36
+
 ace: Kaledonia Barô
 af: Nieu-Kaledonië, Nieu-Caledonië, Nouvelle-Calédonie, Nieu-Caledonia
 als: Neukaledonien
@@ -29521,12 +28909,7 @@ zh-hant:巴基斯坦
 zh-min-nan:Pakistan
 zh-yue:巴基斯坦
 zu: IPakistani
-country_code_2:en: PT
-country_code_3:en: PRT
-language_codes:en: pt
-osm_relation:en: 295480
-regional_entity:en: european-union
-wikidata:en: Q45
+
 ace: Palau
 af: Palau
 als: Palau
@@ -30790,6 +30173,7 @@ country_code_3:en: PCN
 language_codes:en:
 
 en: Poland, Republic of Poland, PL, POL
+regional_entity:en: european-union
 ab: Полша
 ace: Polandia
 af: Pole
@@ -31056,6 +30440,7 @@ country_code_3:en: POL
 language_codes:en: pl
 
 en: Portugal, Portuguese Republic, PT, PT, PRT
+regional_entity:en: european-union
 ace: Portugéh
 af: Portugal
 als: Portugal
@@ -31829,6 +31214,7 @@ country_code_3:en: TWN
 language_codes:en: zh
 
 en: Ireland, Republic of Ireland, Ireland, Éire, IE, IE, IRL
+regional_entity:en: european-union
 ace: Irlandia, Ireulandia
 af: Republiek van Ierland, Ierse Republiek
 als: Irland
@@ -32297,6 +31683,7 @@ zh: 塞族共和國
 language_codes:en:
 
 en: Romania, Roumania, Rumania, România, RO, ROU
+regional_entity:en: european-union
 ace: Rumania
 af: Roemenië
 als: Rumänien
@@ -32816,12 +32203,7 @@ zh-min-nan:Lō͘-se-a
 zh-tw:俄羅斯
 zh-yue:俄羅斯
 zu: IRashiya
-country_code_2:en: RO
-country_code_3:en: ROU
-language_codes:en: ro
-osm_relation:en: 90689
-regional_entity:en: european-union
-wikidata:en: Q218
+
 ace: Rwanda
 af: Rwanda
 als: Ruanda
@@ -33275,12 +32657,7 @@ zh-hant:聖赫勒拿、阿森松與特里斯坦達庫尼亞
 zh-hk:聖赫勒拿、阿森松與特里斯坦達庫尼亞
 zh-sg:圣赫勒拿、阿森松与特里斯坦达库尼亚
 zh-tw:聖赫倫那、阿森松與特里斯坦達庫尼亞
-country_code_2:en: SK
-country_code_3:en: SVK
-language_codes:en: sk
-osm_relation:en: 14296
-regional_entity:en: european-union
-wikidata:en: Q214
+
 af: St. Kitts en Nevis
 als: St. Kitts und Nevis
 am: ሰይንት ኪትስና ኒቨስ
@@ -33577,6 +32954,7 @@ country_code_3:en: LCA
 language_codes:en: en
 
 en: Saint Martin, Saint Martin France, Collectivity of Saint Martin, MF, MAF
+regional_entity:en: european-union
 af: Saint-Martin, Saint Martin
 als: Saint-Martin
 an: Saint-Martin
@@ -34324,12 +33702,7 @@ zh: 圣马力诺
 zh-min-nan:San Marino
 zh-yue:聖馬連奴
 zu: USanti Marino
-country_code_2:en: SI
-country_code_3:en: SVN
-language_codes:en: sl
-osm_relation:en: 218657
-regional_entity:en: european-union
-wikidata:en: Q215
+
 af: São Tomé en Príncipe
 als: São Tomé und Príncipe
 am: ሳን ቶሜ እና ፕሪንሲፔ
@@ -35126,12 +34499,7 @@ zh-hans:塞尔维亚
 zh-min-nan:Srbija
 zh-yue:塞爾維亞
 zu: ISerbiya
-country_code_2:en: ES
-country_code_3:en: ESP
-language_codes:en: es
-osm_relation:en: 1311341
-regional_entity:en: european-union
-wikidata:en: Q29
+
 af: Seychelle
 als: Seychellen
 am: ሲሸልስ
@@ -35296,13 +34664,12 @@ zh: 塞舌尔
 zh-min-nan:Sesel
 zh-yue:塞舌爾
 zu: IsiSeyisheli
-country_code_2:en: SE
-country_code_3:en: SWE
-language_codes:en: sv
-osm_relation:en: 52822
-wikidata:en: Q34
+country_code_2:en: ES
+country_code_3:en: ESP
+language_codes:en: es
 osm_relation:en: 1311341
 wikidata:en: Q29
+
 ace: Sierra Leone
 af: Sierra Leone
 ak: Sierra Leone
@@ -35651,11 +35018,13 @@ scn: Singapura
 sco: Singapore
 se: Singapore
 en: Finland, Republic of Finland, Finlande, Finlandia, Finnland, FI, FIN
+regional_entity:en: european-union
 country_code_2:en: FI
 country_code_3:en: FIN
 language_codes:en: fi,sv
 language_codes:en: id
 en: Italy, Italia, Italian Republic, Italië, IT, ITA
+regional_entity:en: european-union
 country_code_2:en: IT
 country_code_3:en: ITA
 language_codes:en: it
@@ -35793,6 +35162,7 @@ country_code_3:en: SXM
 language_codes:en: en,nl
 
 en: Slovakia, Slovak Republic, SK, SVK
+regional_entity:en: european-union
 ace: Slowakia
 af: Slowakye
 als: Slowakei
@@ -36017,6 +35387,7 @@ country_code_3:en: SVK
 language_codes:en: sk
 
 en: Slovenia, Republic of Slovenia, Slovenija, Republika Slovenija, SI, SVN
+regional_entity:en: european-union
 ace: Slovenia
 af: Slowenië
 als: Slowenien
@@ -37486,6 +36857,7 @@ zh-yue:蘇聯
 language_codes:en: ru
 
 en: Spain, Kingdom of Spain, España, Reino de España, ES, ESP
+regional_entity:en: european-union
 ace: Seupanyo
 af: Spanje
 als: Spanien
@@ -38624,6 +37996,7 @@ country_code_3:en: SWZ
 language_codes:en: en,ss
 
 en: Sweden, Kingdom of Sweden, SE, SE, SWE
+regional_entity:en: european-union
 ab: Швециа
 ace: Swèdia
 af: Swede
@@ -42432,6 +41805,7 @@ country_code_3:en: ARE
 language_codes:en: ar
 
 en: United Kingdom, United Kingdom of Great Britain and Northern Ireland, UK, GB, GBR
+regional_entity:en: european-union
 ab: Британиа Ду
 af: Verenigde Koninkryk
 ak: United Kingdom
