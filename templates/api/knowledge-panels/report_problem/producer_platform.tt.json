@@ -1,0 +1,31 @@
+{
+    "level": "info",
+    "topics": [
+        "problem"
+    ],
+    "expand_for": "large",
+    "evaluation": "neutral",
+    "title_element": {
+        "title": "[% edq(lang('producer_platform_title')) %]",
+        "subtitle": "[% edq(lang('producer_platform_subtitle')) %]",
+        "icon_url": "[% static_subdomain %]/images/logos/off-logo-icon-light.svg",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+                [% lang('producer_platform_content') %]
+                `         
+            },
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+                <a href="[% request.producers_platform_url %]" class="button small">[% lang('action_create_account_producer_platform') %]</a>
+                `         
+            },
+        },
+    ]
+}
