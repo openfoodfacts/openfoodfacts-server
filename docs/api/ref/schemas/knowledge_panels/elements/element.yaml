@@ -28,7 +28,7 @@ properties:
   image_element:
     $ref: ./image_element.yaml
   action_element:
-    type: string
+    $ref: ./action_element.yaml
   panel_element:
     $ref: ./panel_element.yaml
   panel_group_element:
