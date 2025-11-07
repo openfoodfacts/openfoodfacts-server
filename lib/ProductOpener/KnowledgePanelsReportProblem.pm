@@ -97,14 +97,6 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 	);
 	push(@panels, "incomplete_or_incorrect_data");
 
-	# Panel to invite producers to use the producer platform
-	create_panel_from_json_template(
-		"producer_platform",
-		"api/knowledge-panels/report_problem/producer_platform.tt.json",
-		{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
-	);
-	push(@panels, "producer_platform");
-
 	# Panels to report product issues to local authorities
 
 	# France - SignalConso

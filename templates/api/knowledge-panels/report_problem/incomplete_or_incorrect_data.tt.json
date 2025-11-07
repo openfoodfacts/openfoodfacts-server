@@ -44,5 +44,14 @@
             }
         },
         [% END %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+                <p>[% lang('producer_platform_content') %]</p>
+                <p><a href="[% request.producers_platform_url %]" class="button small">[% lang('action_create_account_producer_platform') %]</a></p>
+                `
+            },
+        },
     ]
 }
