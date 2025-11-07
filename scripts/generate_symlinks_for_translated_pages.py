@@ -24,8 +24,6 @@ Options:
     --help           Show this help message
 """
 
-import os
-import re
 import sys
 from pathlib import Path
 from typing import Dict, List, Tuple
@@ -231,13 +229,15 @@ def main():
     
     # Output results
     output = '\n'.join(commands)
+    if not output.endswith('\n'):
+        output += '\n'
     
     if args.output:
         with open(args.output, 'w', encoding='utf-8') as f:
             f.write(output)
         print(f"Written {len(commands)} commands to {args.output}", file=sys.stderr)
     else:
-        print(output)
+        print(output, end='')
 
 
 if __name__ == '__main__':
