@@ -1,32 +1,39 @@
-// mass_rename_properties_admin_cli.js
+// csv2folksonomyEngineTags.js
 //
-// Command-line only admin version of the mass property rename script 
-// for the Folksonomy Engine.
+// Command-line script to upload tags to Folksonomy Engine API
+// from CSV files containing product barcodes and tag values.
 //
-// This version uses the /admin/property/rename API endpoint which is more
-// efficient for admins as it renames all instances of a property in a single call.
-//
-// This script requires admin authentication credentials.
+// This script reads a CSV file where:
+// - The first column contains product barcodes
+// - Each subsequent column represents a Folksonomy Engine tag
+// - Each row contains the values to upload for that product
 //
 // Usage:
-//   node mass_rename_properties_admin_cli.js --file <input_csv_file> --auth <auth_token>
+//   node csv2folksonomyEngineTags.js --file <input_csv_file> --auth <auth_token>
 //
-//   node mass_rename_properties_admin_cli.js --text "<csv_content>" --auth <auth_token>
+//   node csv2folksonomyEngineTags.js --text "<csv_content>" --auth <auth_token>
 //
-//   echo -e "<csv_content>" | node mass_rename_properties_admin_cli.js --stdin --auth <auth_token>
+//   echo -e "<csv_content>" | node csv2folksonomyEngineTags.js --stdin --auth <auth_token>
 //
-//   node mass_rename_properties_admin_cli.js --help
+//   node csv2folksonomyEngineTags.js --help
 //
 // Authentication:
 //   You can provide authentication via:
 //   - Command line: --auth <token>
 //   - Environment variable: FOLKSONOMY_AUTH_TOKEN
+//   - config.json file with username and password
 //   - Interactive prompt (if not provided)
 //
 // CSV Format:
-//   The CSV file must contain at least two columns:
-//   - source_property: The current property name to rename
-//   - target_property: The new property name
+//   The CSV file must contain:
+//   - First column: code (product barcode/EAN)
+//   - Subsequent columns: tag names (each column = one tag)
+//   - Data rows: values for each tag
+//
+//   Example:
+//     code,brand,origin,recyclable
+//     3017620422003,Nutella,France,yes
+//     5449000000996,Coca-Cola,USA,yes
 //
 // API Documentation:
 //   https://api.folksonomy.openfoodfacts.org/docs
@@ -35,7 +42,7 @@
 //   Tests are written as @example blocks in JSDoc comments.
 //   To run tests, install testy and run:
 //     npm install -g testy
-//     npm run test-rename
+//     npm run test-upload
 //
 //   Tests use these conventions:
 //     // => expected_value    (assertion: result equals expected_value)
@@ -79,7 +86,7 @@ let LOGGING_ENABLED = false;
  * Enable or disable logging
  * @param {boolean} enabled - Whether logging should be enabled
  */
-function setLogging(enabled) {
+export function setLogging(enabled) {
   LOGGING_ENABLED = enabled;
 }
 
@@ -89,29 +96,20 @@ function setLogging(enabled) {
  * @param {string} message - The message to log
  * @param {Array} items - Optional array of items to display (strings, objects, arrays)
  * 
- * @example
- *   setLogging(true)
- *   log('Processing request')
- *   // [log] Processing request
+ * @example setLogging(true); log('Processing request');
+ * //=> "[log] Processing request"
  * 
- * @example
- *   setLogging(true)
- *   log('User data:', [{ name: 'John', age: 30 }, 'status: active'])
- *   // [log] User data: {"name":"John","age":30} status: active
- * 
- * @example
- *   setLogging(true)
- *   log('Mixed data:', ['text', ['a', 'b'], { key: 'value' }])
- *   // [log] Mixed data: text ["a","b"] {"key":"value"}
+ * @example setLogging(true); log('User data:', [{ name: 'John', age: 30 }, 'status: active']);
+ * //=> '[log] User data: {"name":"John","age":30} status: active'
  */
-function log(message, items = []) {
+export function log(message, items = []) {
   if (!LOGGING_ENABLED) {
     return;
   }
   
   if (!items || items.length === 0) {
     console.log(`[log] ${message}`);
-    return;
+    return `[log] ${message}`;
   }
   
   // Convert each item to string representation
@@ -126,6 +124,7 @@ function log(message, items = []) {
   });
   
   console.log(`[log] ${message} ${parts.join(' ')}`);
+  return `[log] ${message} ${parts.join(' ')}`;
 }
 
 // ============================================================================
@@ -137,20 +136,16 @@ function log(message, items = []) {
  * @param {string} line - A single CSV line
  * @returns {string[]} Array of field values
  * 
- * @example
- *   parseCSVLine('foo,bar,baz')
+ * @example parseCSVLine('foo,bar,baz')
  *   // => ['foo', 'bar', 'baz']
  * 
- * @example
- *   parseCSVLine('"foo","bar","baz"')
+ * @example parseCSVLine('"foo","bar","baz"')
  *   // => ['foo', 'bar', 'baz']
  * 
- * @example
- *   parseCSVLine('foo,"bar,baz",qux')
+ * @example parseCSVLine('foo,"bar,baz",qux')
  *   // => ['foo', 'bar,baz', 'qux']
  * 
- * @example
- *   parseCSVLine('foo,"bar""baz",qux')
+ * @example parseCSVLine('foo,"bar""baz",qux')
  *   // => ['foo', 'bar"baz', 'qux']
  * 
  * @example
@@ -190,46 +185,28 @@ export function parseCSVLine(line) {
 }
 
 /**
- * Parse CSV content into an array of objects
+ * Parse CSV content into an array of product data objects
  * @param {string} csvContent - The CSV content as a string
- * @returns {Object[]} Array of objects with source_property and target_property
+ * @returns {Object[]} Array of objects with barcode and tags
  * @throws {Error} If CSV format is invalid
  * 
- * @example
- *   parseCSV('source_property,target_property\nold_name,new_name')
- *   // => [{ source_property: 'old_name', target_property: 'new_name' }]
+ * @example parseCSV('code,brand,origin\n3017620422003,Nutella,Italy')
+ * // => [{ code: '3017620422003', properties: { brand: 'Nutella', origin: 'Italy' } }]
  * 
- * @example
- *   parseCSV('source_property,target_property\nold1,new1\nold2,new2\nold3,new3')
- *   // => [
- *   //   { source_property: 'old1', target_property: 'new1' },
- *   //   { source_property: 'old2', target_property: 'new2' },
- *   //   { source_property: 'old3', target_property: 'new3' }
- *   // ]
+ * @example parseCSV('code,brand,origin\n001,A,B\n002,C,D')
+ * // => [
+ *      { code: '001', properties: { brand: 'A', origin: 'B' } },
+ *      { code: '002', properties: { brand: 'C', origin: 'D' } }
+ *   ]
  * 
- * @example
- *   parseCSV('SOURCE_PROPERTY,TARGET_PROPERTY\nold_name,new_name')
- *   // => [{ source_property: 'old_name', target_property: 'new_name' }]
+ * @example parseCSV('CODE,BRAND,ORIGIN\n001,A,B')
+ * // => [{ code: '001', properties: { brand: 'A', origin: 'B' } }]
  * 
- * @example
- *   parseCSV('source_property,target_property\n\nold_name,new_name\n\n')
- *   // => [{ source_property: 'old_name', target_property: 'new_name' }]
- * 
- * @example
- *   parseCSV('source_property,target_property\nagps_capable,consumer_electronics:agps_capable')
- *   // => [{ source_property: 'agps_capable', target_property: 'consumer_electronics:agps_capable' }]
- * 
- * @example
- *   parseCSV('only_one_header\nvalue')
- *   // !> Error: CSV must contain "source_property" and "target_property" columns
- * 
- * @example
- *   parseCSV('')
- *   // !> Error: CSV must contain at least a header row and one data row
- * 
- * @example
- *   parseCSV('source_property,target_property')
- *   // !> Error: CSV must contain at least a header row and one data row
+ * @example parseCSV('code,brand\n001,A\n\n002,B\n')
+ * //=> [
+ *      { code: '001', properties: { brand: 'A' } },
+ *      { code: '002', properties: { brand: 'B' } }
+ *    ]
  */
 export function parseCSV(csvContent) {
   const lines = csvContent.trim().split('\n').filter(line => line.trim());
@@ -239,29 +216,57 @@ export function parseCSV(csvContent) {
   }
   
   const headers = parseCSVLine(lines[0]).map(h => h.toLowerCase().trim());
-  const sourceIdx = headers.indexOf('source_property');
-  const targetIdx = headers.indexOf('target_property');
-  
-  if (sourceIdx === -1 || targetIdx === -1) {
-    throw new Error('CSV must contain "source_property" and "target_property" columns');
+  const codeIdx = headers.indexOf('code');
+
+  if (codeIdx === -1) {
+    throw new Error('CSV must contain "code" column (found columns: ' + headers.join(', ') + ')');
   }
   
-  const mappings = [];
+  if (headers.length < 2) {
+    throw new Error('CSV must contain "code" column and at least one tag column');
+  }
+
+  // Get tag names (all columns except code)
+  const propertyNames = headers.filter((h, idx) => idx !== codeIdx && h);
+
+  if (propertyNames.length === 0) {
+    throw new Error('CSV must contain at least one tag column besides code');
+  }
+  
+  const products = [];
   for (let i = 1; i < lines.length; i++) {
     const fields = parseCSVLine(lines[i]);
-    if (fields.length > Math.max(sourceIdx, targetIdx)) {
-      const source = fields[sourceIdx].trim();
-      const target = fields[targetIdx].trim();
-      if (source && target) {
-        mappings.push({
-          source_property: source,
-          target_property: target
+    if (fields.length > codeIdx) {
+      const code = fields[codeIdx].trim();
+      if (code) {
+        const properties = {};
+        
+        // Extract all property values
+        headers.forEach((header, idx) => {
+          if (idx !== codeIdx && header && fields[idx] !== undefined) {
+            const value = fields[idx].trim();
+            // Only include non-empty values
+            if (value) {
+              properties[header] = value;
+            }
+          }
         });
+        
+        // Only add product if it has at least one property
+        if (Object.keys(properties).length > 0) {
+          products.push({
+            code: code,
+            properties: properties
+          });
+        }
       }
+    } else {
+      // Provide helpful error with line number for malformed rows
+      throw new Error(`Line ${i + 1}: Invalid CSV format - expected at least ${codeIdx + 1} columns, got ${fields.length}`);
     }
   }
   
-  return mappings;
+  return products;
 }
 
 // ============================================================================
@@ -271,10 +276,20 @@ export function parseCSV(csvContent) {
 /**
  * Make an HTTPS request
  * @param {string} url - The URL to request
- * @param {Object} options - Request options
+ * @param {Object} options - Request options (method, headers, body)
  * @returns {Promise<Object>} Response object with status, headers, and data
+ * 
+ * @example
+ *   httpsRequest('https://api.folksonomy.openfoodfacts.org/', {
+ *     method: 'GET',
+ *     headers: {
+ *       'Content-Type': 'application/json',
+ *     },
+ *     body: JSON.stringify({ key: 'value' })
+ *   }).then(response => response.data.message)
+ * //=> "Hello folksonomy World! Tip: open /docs for documentation"
  */
-function httpsRequest(url, options = {}) {
+export function httpsRequest(url, options = {}) {
   log('Making HTTPS request:', [url, `method: ${options.method || 'GET'}`]);
   
   return new Promise((resolve, reject) => {
@@ -288,7 +303,12 @@ function httpsRequest(url, options = {}) {
       headers: options.headers || {}
     };
     
-    log('Request options:', [requestOptions]);
+    // Log request options but mask Authorization header for security
+    const logOptions = { ...requestOptions };
+    if (logOptions.headers?.Authorization) {
+      logOptions.headers = { ...logOptions.headers, Authorization: 'Bearer ********' };
+    }
+    log('Request options:', [logOptions]);
     
     const req = https.request(requestOptions, (res) => {
       let data = '';
@@ -334,91 +354,76 @@ function httpsRequest(url, options = {}) {
 }
 
 /**
- * Get all keys for a specific property (for reporting purposes)
- * @param {string} property - The property name
- * @returns {Promise<Object[]>} Array of property objects with product barcodes
+ * Get an existing tag for a product
+ * @param {string} code - Product barcode
+ * @param {string} key - Tag key/name
+ * @param {string} authToken - Authentication token
+ * @returns {Promise<Object|null>} Existing tag object or null if not found
  */
-export async function getPropertyKeys(property) {
-  log('Getting property keys:', [property]);
-  const url = `${API_BASE_URL}/keys?q=${encodeURIComponent(property)}`;
-  const response = await httpsRequest(url, { method: 'GET' });
-  
-  if (response.status !== 200) {
-    throw new Error(`Failed to get keys for property ${property}: ${response.status}`);
-  }
-  
-  const allKeys = response.data || [];
-  log('API returned keys:', [`${allKeys.length} keys found`]);
-  
-  // Filter to get only exact matches (the API does fuzzy search)
-  const exactMatch = allKeys.find(key => key.k === property);
-  const count = exactMatch ? exactMatch.count : 0;
-  
-  log('Exact match count:', [`${count} products for property "${property}"`]);
-  
-  // Return array format for backward compatibility
-  // Note: We return the count, not individual product keys
-  return Array(count).fill({ property: property });
-}
+async function getProperty(code, key, authToken) {
+  log('Getting existing tag:', [`code: ${code}`, `key: ${key}`]);
 
-/**
- * Get the products list URL for a specific property
- * @param {string} property - The property name
- * @returns {Promise<{url: string, count: number}|null>} Object with URL and product count, or null if error
- */
-async function getPropertyProductsURL(property) {
+  const url = `${API_BASE_URL}/product/${encodeURIComponent(code)}/${encodeURIComponent(key)}`;
+  
   try {
-    const keys = await getPropertyKeys(property);
-    const url = `https://world.openfoodfacts.org/property/${encodeURIComponent(property)}`;
-    return {
-      url: url,
-      count: keys.length
-    };
+    const response = await httpsRequest(url, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${authToken}`
+      }
+    });
+
+    if (response.status === 200) {
+      log('Tag found:', [response.data]);
+      return response.data;
+    } else if (response.status === 404) {
+      log('Tag not found');
+      return null;
+    } else {
+      log('Get tag unexpected status:', [response.status]);
+      return null;
+    }
   } catch (error) {
-    log('Error getting products URL:', [error.message]);
+    log('Get tag failed:', [error.message]);
     return null;
   }
 }
 
 /**
- * Rename a property using the admin API
- * @param {string} oldKey - The old property name
- * @param {string} newKey - The new property name
- * @param {string} authToken - Admin authentication token
+ * Add or update a tag for a product
+ * If the tag already exists, it will be updated using PUT with the correct version
+ * @param {string} code - Product barcode
+ * @param {string} key - Tag key/name
+ * @param {string} value - Tag value
+ * @param {string} authToken - Authentication token
  * @param {boolean} dryRun - If true, only simulate the action without executing
- * @returns {Promise<Object>} API response
+ * @returns {Promise<Object>} API response with action taken ('added' or 'updated')
  * 
- * @example
- *   (async () => {
- *     await renameProperty('old_key', 'new_key', 'fake_token', true)
- *     // => { message: 'DRY RUN - No changes made', old_property: 'old_key', new_property: 'new_key' }
- *   })()
- * 
- * @example
- *   (async () => {
- *     // In dry-run mode, no API calls are made
- *     const result = await renameProperty('test_prop', 'new_prop', 'token', true)
- *     result.message
- *     // => 'DRY RUN - No changes made'
- *   })()
+ * @example addProperty('123', 'brand', 'TestBrand', 'fake_token', true)
+ * // => { message: 'DRY RUN - No changes made', code: '123', key: 'brand', value: 'TestBrand' }
+ *
+ * @example addProperty('456', 'origin', 'France', 'token', true)
+ * // => { message: 'DRY RUN - No changes made', code: '456', key: 'origin', value: 'France' }
  */
-export async function renameProperty(oldKey, newKey, authToken, dryRun = false) {
-  log('Renaming property:', [`old_property: ${oldKey}`, `new_property: ${newKey}`, `dryRun: ${dryRun}`]);
-  
+export async function addProperty(code, key, value, authToken, dryRun = false) {
+  log('Adding tag:', [`code: ${code}`, `key: ${key}`, `value: ${value}`, `dryRun: ${dryRun}`]);
+
   if (dryRun) {
     // Simulate successful response in dry-run mode
     log('Dry run mode - skipping actual API call');
     return { 
       message: 'DRY RUN - No changes made',
-      old_property: oldKey,
-      new_property: newKey
+      code: code,
+      key: key,
+      value: value
     };
   }
   
-  const url = `${API_BASE_URL}/admin/property/rename`;
+  const url = `${API_BASE_URL}/product`;
   const body = JSON.stringify({
-    old_property: oldKey,
-    new_property: newKey
+    product: code,
+    k: key,
+    v: value
   });
   
   const response = await httpsRequest(url, {
@@ -432,178 +437,75 @@ export async function renameProperty(oldKey, newKey, authToken, dryRun = false) 
   });
   
   if (response.status !== 200 && response.status !== 201) {
-    const errorMsg = response.data?.detail || response.data || `HTTP ${response.status}`;
-    log('Rename property failed:', [errorMsg]);
-    throw new Error(`Failed to rename property: ${errorMsg}`);
-  }
-  
-  log('Rename property succeeded');
-  return response.data;
-}
-
-// ============================================================================
-// Utility Functions
-// ============================================================================
-
-/**
- * Sleep for a specified duration
- * @param {number} ms - Milliseconds to sleep
- * @returns {Promise<void>}
- */
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-// ============================================================================
-// Rename Logic
-// ============================================================================
-
-/**
- * Process property renaming for all mappings using admin API
- * @param {Object[]} mappings - Array of {source_property, target_property} objects
- * @param {string} authToken - Admin authentication token
- * @param {boolean} dryRun - If true, only simulate the actions without executing
- * @param {Function} progressCallback - Optional callback for progress updates
- * @returns {Promise<Object>} Results object with success and error counts
- * 
- * @example
- *   (async () => {
- *     const mappings = [
- *       { source_property: 'old1', target_property: 'new1' },
- *       { source_property: 'old2', target_property: 'new2' }
- *     ]
- *     const results = await processRenames(mappings, 'token', true, null)
- *     results.total
- *     // => 2
- *   })()
- * 
- * @example
- *   (async () => {
- *     const mappings = [{ source_property: 'old', target_property: 'new' }]
- *     const results = await processRenames(mappings, 'token', true, null)
- *     results.dryRun
- *     // => true
- *   })()
- * 
- * @example
- *   (async () => {
- *     const mappings = [{ source_property: 'test', target_property: 'new_test' }]
- *     const results = await processRenames(mappings, 'token', true, null)
- *     Array.isArray(results.errors)
- *     // => true
- *   })()
- */
-export async function processRenames(mappings, authToken, dryRun = false, progressCallback = null) {
-  const results = {
-    total: mappings.length,
-    success: 0,
-    errors: [],
-    details: [],
-    dryRun: dryRun
-  };
-  
-  for (const mapping of mappings) {
-    const { source_property, target_property } = mapping;
-    
-    if (progressCallback) {
-      progressCallback(`${dryRun ? '[DRY RUN] ' : ''}Processing: ${source_property} -> ${target_property}`);
+    // Extract error message from response
+    let errorMsg;
+    if (response.data?.detail) {
+      // FastAPI/Pydantic error format
+      errorMsg = typeof response.data.detail === 'string' 
+        ? response.data.detail 
+        : JSON.stringify(response.data.detail);
+    } else if (response.data) {
+      // Generic error - stringify if it's an object
+      errorMsg = typeof response.data === 'string'
+        ? response.data
+        : JSON.stringify(response.data);
+    } else {
+      errorMsg = `HTTP ${response.status}`;
     }
     
-    try {
-      // Get count before rename (for reporting)
-      let beforeCount = 0;
+    // Check if error is about tag already existing or version conflict
+    const isAlreadyExists = errorMsg.toLowerCase().includes('already exists') || 
+                           errorMsg.toLowerCase().includes('duplicate') ||
+                           errorMsg.toLowerCase().includes('version conflict') ||
+                           response.status === 409 ||
+                           response.status === 422;
+    
+    if (isAlreadyExists) {
+      log('Tag already exists, attempting to update with PUT');
       try {
-        const keys = await getPropertyKeys(source_property);
-        beforeCount = keys.length;
-        if (progressCallback) {
-          progressCallback(`  Found ${beforeCount} products with property "${source_property}"`);
+        // Get the existing tag to retrieve its version
+        const existingTag = await getProperty(code, key, authToken);
+        
+        if (!existingTag || existingTag.version === undefined) {
+          throw new Error('Could not retrieve existing tag version');
         }
-      } catch (error) {
-        if (progressCallback) {
-          progressCallback(`  Warning: Could not get count: ${error.message}`);
-        }
-      }
-      
-      // Check if property exists (has products)
-      if (beforeCount === 0) {
-        results.errors.push({
-          from: source_property,
-          to: target_property,
-          error: 'Property does not exist (no products found)'
+        
+        // Update the existing tag using PUT with version incremented by 1
+        const putBody = JSON.stringify({
+          product: code,
+          k: key,
+          v: value,
+          version: existingTag.version + 1
         });
         
-        if (progressCallback) {
-          progressCallback(`  ✗ Skipped: Property does not exist (0 products found)`);
-        }
+        const putResponse = await httpsRequest(url, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'Content-Length': Buffer.byteLength(putBody),
+            'Authorization': `Bearer ${authToken}`
+          },
+          body: putBody
+        });
         
-        continue; // Skip to next mapping
-      }
-      
-      // Perform the rename using admin API (or simulate in dry-run mode)
-      const result = await renameProperty(source_property, target_property, authToken, dryRun);
-      
-      results.success++;
-      results.details.push({
-        from: source_property,
-        to: target_property,
-        count: beforeCount,
-        result: result,
-        status: 'success'
-      });
-      
-      if (progressCallback) {
-        if (dryRun) {
-          progressCallback(`  ✓ Would rename property (${beforeCount} products affected)`);
+        if (putResponse.status === 200 || putResponse.status === 201) {
+          log('Tag updated successfully');
+          return { ...putResponse.data, action: 'updated' };
         } else {
-          progressCallback(`  ✓ Successfully renamed property`);
+          throw new Error(`Failed to update tag: HTTP ${putResponse.status}`);
         }
-      }
-      
-      // Add a small delay between requests
-      await sleep(200);
-      
-    } catch (error) {
-      results.errors.push({
-        from: source_property,
-        to: target_property,
-        error: error.message
-      });
-      
-      if (progressCallback) {
-        progressCallback(`  ✗ Failed: ${error.message}`);
+      } catch (updateError) {
+        log('Update failed:', [updateError.message]);
+        throw new Error(`Failed to update existing tag: ${updateError.message}`);
       }
     }
+    
+    log('Add tag failed:', [errorMsg]);
+    throw new Error(`Failed to add tag: ${errorMsg}`);
   }
   
-  return results;
-}
-
-// ============================================================================
-// Configuration File Functions
-// ============================================================================
-
-// ============================================================================
-// Configuration File Functions
-// ============================================================================
-
-/**
- * Read configuration from config.json file
- * @returns {Object|null} Configuration object or null if file doesn't exist
- * 
- * Expected JSON format:
- * {
- *   "username": "your_username",
- *   "password": "your_password"
- * }
- */
-function readConfig() {
-  try {
-    if (fs.existsSync(CONFIG_FILE)) {
-      const content = fs.readFileSync(CONFIG_FILE, 'utf8');
-      return JSON.parse(content);
-    }
-  } catch (error) {
-    // Silently ignore if file doesn't exist or can't be read
-  }
-  return null;
+  log('Add tag succeeded');
+  return response.data;
 }
 
 /**
@@ -650,6 +552,153 @@ async function loginWithCredentials(username, password) {
 }
 
 // ============================================================================
+// Utility Functions
+// ============================================================================
+
+/**
+ * Sleep for a specified duration
+ * @param {number} ms - Milliseconds to sleep
+ * @returns {Promise<void>}
+ */
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+// ============================================================================
+// Upload Logic
+// ============================================================================
+
+/**
+ * Process tag uploads for all products
+ * @param {Object[]} products - Array of {code, properties} objects
+ * @param {string} authToken - Authentication token
+ * @param {boolean} dryRun - If true, only simulate the actions without executing
+ * @param {Function} progressCallback - Optional callback for progress updates
+ * @returns {Promise<Object>} Results object with success and error counts
+ * 
+ * @example processUploads([
+ *       { code: '001', properties: { brand: 'A', origin: 'B' } },
+ *       { code: '002', properties: { brand: 'C' } }
+ *     ], 'token', true, null).then(r => r.totalProducts)
+ * // => 2
+ *
+ * @example processUploads([{ code: '001', properties: { brand: 'A' } }], 'token', true, null).then(r => r.dryRun)
+ * // => true
+ */
+export async function processUploads(products, authToken, dryRun = false, progressCallback = null) {
+  const results = {
+    totalProducts: products.length,
+    totalProperties: 0,
+    successProducts: 0,
+    successProperties: 0,
+    errors: [],
+    details: [],
+    dryRun: dryRun
+  };
+  
+  // Count total properties
+  for (const product of products) {
+    results.totalProperties += Object.keys(product.properties).length;
+  }
+  
+  for (const product of products) {
+    const { code, properties } = product;
+    const propertyKeys = Object.keys(properties);
+    
+    if (progressCallback) {
+      progressCallback(`${dryRun ? '[DRY RUN] ' : ''}Processing product: ${code} (${propertyKeys.length} tags)`);
+    }
+    
+    let productSuccess = true;
+    const productErrors = [];
+    const productProperties = [];
+    
+    for (const key of propertyKeys) {
+      const value = properties[key];
+      
+      try {
+        // Add the property
+        const result = await addProperty(code, key, value, authToken, dryRun);
+        
+        results.successProperties++;
+        productProperties.push({
+          key: key,
+          value: value,
+          status: 'success'
+        });
+        
+        if (progressCallback) {
+          if (dryRun) {
+            progressCallback(`  ✓ Would add: ${key} = ${value}`);
+          } else {
+            progressCallback(`  ✓ Added: ${key} = ${value}`);
+          }
+        }
+        
+        // Add a small delay between requests
+        await sleep(500);
+        
+      } catch (error) {
+        productSuccess = false;
+        productErrors.push({
+          key: key,
+          value: value,
+          error: error.message
+        });
+        
+        results.errors.push({
+          code: code,
+          key: key,
+          value: value,
+          error: error.message
+        });
+        
+        if (progressCallback) {
+          progressCallback(`  ✗ Failed: ${key} = ${value}: ${error.message}`);
+        }
+      }
+    }
+    
+    if (productSuccess) {
+      results.successProducts++;
+    }
+    
+    results.details.push({
+      code: code,
+      properties: productProperties,
+      errors: productErrors,
+      status: productSuccess ? 'success' : 'partial'
+    });
+  }
+  
+  return results;
+}
+
+// ============================================================================
+// Configuration File Functions
+// ============================================================================
+
+/**
+ * Read configuration from config.json file
+ * @returns {Object|null} Configuration object or null if file doesn't exist
+ * 
+ * Expected JSON format:
+ * {
+ *   "username": "your_username",
+ *   "password": "your_password"
+ * }
+ */
+function readConfig() {
+  try {
+    if (fs.existsSync(CONFIG_FILE)) {
+      const content = fs.readFileSync(CONFIG_FILE, 'utf8');
+      return JSON.parse(content);
+    }
+  } catch (error) {
+    // Silently ignore if file doesn't exist or can't be read
+  }
+  return null;
+}
+
+// ============================================================================
 // Authentication Functions
 // ============================================================================
 
@@ -664,7 +713,7 @@ function promptForAuth() {
   });
   
   // Use synchronous prompting
-  process.stdout.write('Enter admin authentication token: ');
+  process.stdout.write('Enter authentication token: ');
   const token = fs.readFileSync(0, 'utf8').trim();
   rl.close();
   return token;
@@ -712,7 +761,7 @@ async function getAuthToken(args) {
   
   // Prompt user
   log('Auth method: interactive prompt');
-  console.log('\nAuthentication required for admin API.');
+  console.log('\nAuthentication required.');
   console.log('You can provide the token via:');
   console.log('  - Command line: --auth <token>');
   console.log('  - Environment: FOLKSONOMY_AUTH_TOKEN=<token>');
@@ -730,16 +779,16 @@ async function getAuthToken(args) {
  */
 function printHelp() {
   console.log(`
-mass_rename_properties_admin_cli.js - Mass rename properties (Admin API)
+csv2folksonomyEngineTags.js - Upload tags to Folksonomy Engine
 
 Usage:
-  node mass_rename_properties_admin_cli.js --file <input_csv_file> [--auth <token>] [--run]
-  node mass_rename_properties_admin_cli.js --text "<csv_content>" [--auth <token>] [--run]
-  echo -e "<csv_content>" | node mass_rename_properties_admin_cli.js --stdin [--auth <token>] [--run]
-  node mass_rename_properties_admin_cli.js --help
+  node csv2folksonomyEngineTags.js --file <input_csv_file> [--auth <token>] [--run]
+  node csv2folksonomyEngineTags.js --text "<csv_content>" [--auth <token>] [--run]
+  echo -e "<csv_content>" | node csv2folksonomyEngineTags.js --stdin [--auth <token>] [--run]
+  node csv2folksonomyEngineTags.js --help
 
 Authentication (priority order):
-  1. --auth <token>           Admin authentication token (command line)
+  1. --auth <token>           Authentication token (command line)
   2. FOLKSONOMY_AUTH_TOKEN    Environment variable
   3. config.json file         JSON file with username and password
   4. Interactive prompt       Will prompt if not provided by other methods
@@ -756,36 +805,40 @@ Options:
   --log, --verbose            Enable detailed logging
 
 CSV Format:
-  The CSV file must contain at least two columns:
-  - source_property: The current property name
-  - target_property: The new property name
+  The CSV file must contain:
+  - First column: code (product barcode/EAN)
+  - Subsequent columns: tag names (each column = one tag)
+  - Data rows: values for each tag
+
+  Example CSV:
+    code,brand,origin,recyclable
+    3017620422003,Nutella,Italy,yes
+    5449000000996,Coca-Cola,USA,yes
+    7622300221294,Toblerone,Switzerland,no
 
 Examples:
-  # Dry run using config.json for authentication (default - no changes will be made)
-  node mass_rename_properties_admin_cli.js --file mappings.csv
+  # Dry run (default - no changes will be made)
+  node csv2folksonomyEngineTags.js --file products.csv
   
-  # Actually execute the changes with config.json authentication
-  node mass_rename_properties_admin_cli.js --file mappings.csv --run
+  # Actually upload the tags
+  node csv2folksonomyEngineTags.js --file products.csv --run
   
-  # Dry run with explicit token
-  node mass_rename_properties_admin_cli.js --file mappings.csv --auth "your_token"
+  # With explicit token
+  node csv2folksonomyEngineTags.js --file products.csv --auth "your_token" --run
   
-  # Execute with environment variable
-  FOLKSONOMY_AUTH_TOKEN="your_token" node mass_rename_properties_admin_cli.js --file mappings.csv --run
+  # With environment variable
+  FOLKSONOMY_AUTH_TOKEN="your_token" node csv2folksonomyEngineTags.js --file products.csv --run
   
-  echo "source_property,target_property
-old_name,new_name" | node mass_rename_properties_admin_cli.js --stdin --run
+  # From stdin
+  echo "code,brand,origin
+3017620422003,Nutella,Italy" | node csv2folksonomyEngineTags.js --stdin --run
 
 API Documentation:
   https://api.folksonomy.openfoodfacts.org/docs
 
 Note:
-  This script uses the /admin/property/rename endpoint which requires
-  admin privileges. It's more efficient than the regular script as it
-  renames all instances of a property in a single API call.
-  
   By default, the script runs in DRY RUN mode to prevent accidental changes.
-  Use --run to actually execute the modifications.
+  Use --run to actually upload the tags to the Folksonomy Engine.
 `);
 }
 
@@ -855,48 +908,41 @@ async function runCLI() {
     
     // Parse CSV first (before authentication)
     console.log('\nParsing CSV...');
-    const mappings = parseCSV(csvContent);
-    log('CSV parsed successfully:', [`${mappings.length} mappings`]);
-    console.log(`Found ${mappings.length} property mapping(s):\n`);
+    const products = parseCSV(csvContent);
+    log('CSV parsed successfully:', [`${products.length} products`]);
     
-    // Check if there are any mappings to process
-    if (mappings.length === 0) {
-      console.error('Error: No valid property mappings found in CSV');
+    // Check if there are any products to process
+    if (products.length === 0) {
+      console.error('Error: No valid products found in CSV');
       process.exit(1);
     }
     
-    mappings.forEach((m, i) => {
-      console.log(`  ${i + 1}. ${m.source_property} -> ${m.target_property}`);
+    // Calculate total properties
+    let totalProperties = 0;
+    products.forEach(p => {
+      totalProperties += Object.keys(p.properties).length;
     });
-    log('Mappings:', [mappings]);
     
-    // Show sample products that will be affected (no auth needed for GET)
-    console.log('\n' + '='.repeat(60));
-    console.log('📦 Products affected by property renames:');
-    console.log('='.repeat(60));
+    console.log(`Found ${products.length} product(s) with ${totalProperties} total tags:\n`);
     
-    let totalProductsAffected = 0;
-    for (const mapping of mappings) {
-      const result = await getPropertyProductsURL(mapping.source_property);
-      if (result && result.count > 0) {
-        console.log(`\n${mapping.source_property} -> ${mapping.target_property}:`);
-        console.log(`  ${result.count} product${result.count !== 1 ? 's' : ''}: ${result.url}`);
-        totalProductsAffected += result.count;
-      } else if (result && result.count === 0) {
-        console.log(`\n${mapping.source_property} -> ${mapping.target_property}:`);
-        console.log(`  No products found with this property`);
-      }
+    // Show first few products as preview
+    const previewCount = Math.min(5, products.length);
+    for (let i = 0; i < previewCount; i++) {
+      const p = products[i];
+      const propKeys = Object.keys(p.properties);
+      console.log(`  ${i + 1}. ${p.code} (${propKeys.length} tags)`);
+      propKeys.forEach(key => {
+        console.log(`     - ${key}: ${p.properties[key]}`);
+      });
     }
     
-    // Check if any products would be affected
-    if (totalProductsAffected === 0) {
-      console.log('\n' + '='.repeat(60));
-      console.error('Error: No products found for any of the properties to rename');
-      console.log('Nothing to do. Exiting.');
-      process.exit(1);
+    if (products.length > previewCount) {
+      console.log(`  ... and ${products.length - previewCount} more product(s)`);
     }
     
-    // Get authentication (only needed for actual renames, not for dry-run GET queries)
+    log('Products:', [products]);
+    
+    // Get authentication (only needed for actual uploads, not for dry-run)
     let authToken = null;
     if (!dryRun) {
       authToken = await getAuthToken(args);
@@ -913,7 +959,7 @@ async function runCLI() {
       console.log('🔍 DRY RUN MODE - No changes will be made');
       console.log('To actually execute changes, use --run flag');
     } else {
-      console.log('⚠️  ADMIN MODE - This will rename properties globally');
+      console.log('⚠️  UPLOAD MODE - This will add tags to products');
     }
     console.log('='.repeat(60));
     
@@ -929,7 +975,7 @@ async function runCLI() {
         });
         
         answer = await new Promise((resolve) => {
-          rl.question('\nProceed with renaming? (yes/no): ', (ans) => {
+          rl.question('\nProceed with upload? (yes/no): ', (ans) => {
             rl.close();
             ttyStream.close();
             resolve(ans);
@@ -944,7 +990,7 @@ async function runCLI() {
         });
         
         answer = await new Promise((resolve) => {
-          rl.question('\nProceed with renaming? (yes/no): ', (ans) => {
+          rl.question('\nProceed with upload? (yes/no): ', (ans) => {
             rl.close();
             resolve(ans);
           });
@@ -960,34 +1006,33 @@ async function runCLI() {
       }
     }
     
-    // Process renames
+    // Process uploads
     console.log('\n' + '='.repeat(60));
-    console.log(dryRun ? 'Simulating property rename process...' : 'Starting property rename process...');
+    console.log(dryRun ? 'Simulating tag upload process...' : 'Starting tag upload process...');
     console.log('='.repeat(60) + '\n');
     
-    log('Starting processRenames');
-    const results = await processRenames(mappings, authToken, dryRun, (msg) => console.log(msg));
-    log('processRenames completed:', [`success: ${results.success}`, `errors: ${results.errors.length}`]);
+    log('Starting processUploads');
+    const results = await processUploads(products, authToken, dryRun, (msg) => console.log(msg));
+    log('processUploads completed:', [
+      `successProducts: ${results.successProducts}`,
+      `successProperties: ${results.successProperties}`,
+      `errors: ${results.errors.length}`
+    ]);
     
     // Print summary
     console.log('\n' + '='.repeat(60));
     console.log('SUMMARY' + (dryRun ? ' (DRY RUN)' : ''));
     console.log('='.repeat(60));
-    console.log(`Total properties: ${results.total}`);
-    console.log(`Successfully ${dryRun ? 'would be' : ''} renamed: ${results.success}`);
-    console.log(`Failed: ${results.errors.length}`);
-    
-    if (results.details.length > 0) {
-      console.log('\nDetails:');
-      results.details.forEach((detail, i) => {
-        console.log(`  ${i + 1}. ${detail.from} -> ${detail.to} (${detail.count} products)`);
-      });
-    }
+    console.log(`Total products: ${results.totalProducts}`);
+    console.log(`Total tags: ${results.totalProperties}`);
+    console.log(`Successfully processed products: ${results.successProducts}`);
+    console.log(`Successfully ${dryRun ? 'would be' : ''} added tags: ${results.successProperties}`);
+    console.log(`Failed tags: ${results.errors.length}`);
     
     if (results.errors.length > 0) {
       console.log('\nErrors:');
       results.errors.forEach((err, i) => {
-        console.log(`  ${i + 1}. ${err.from} -> ${err.to}: ${err.error}`);
+        console.log(`  ${i + 1}. ${err.code} - ${err.key} = ${err.value}: ${err.error}`);
       });
     }
     
@@ -1002,6 +1047,7 @@ async function runCLI() {
     
   } catch (error) {
     console.error(`\nError: ${error.message}`);
+    log('Error stack trace:', [error.stack]);
     process.exit(1);
   }
 }
