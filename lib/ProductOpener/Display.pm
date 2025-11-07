@@ -9812,20 +9812,15 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 			}
 
 			my @columns;
-			my @extra_row_columns;
-
-			my $extra_row = 0;    # Some rows will trigger an extra row (e.g. Salt adds Sodium)
 
 			foreach my $col_id (@cols) {
 
 				my $values;    # Value for row
-				my $values2;    # Value for extra row (e.g. after the row for salt, we add an extra row for sodium)
 				my $col_class = $columns{$col_id}{class};
 				my $percent;
 				my $percent_numeric_value;
 
 				my $rdfa = '';    # RDFA property for row
-				my $rdfa2 = '';    # RDFA property for extra row
 
 				my $col_type;
 
@@ -9911,74 +9906,8 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 						}
 					}
 
-					if ($nid eq 'sodium') {
-						my $salt;
-						if (defined $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value}) {
-							$salt = $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value} * 2.5;
-						}
-						if (exists $product_ref->{nutrition}{aggregated_set}{nutrients}{salt}{value}) {
-							$salt = $product_ref->{nutrition}{aggregated_set}{nutrients}{salt}{value};
-						}
-						if (defined $salt) {
-							$salt = $decf->format(g_to_unit($salt, $unit));
-							if ($col_id eq '100g') {
-								$rdfa2 = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
-							}
-							$salt .= " " . $unit;
-						}
-						else {
-							$salt = "?";
-						}
-						$values2 = $salt;
-					}
-					elsif ($nid eq 'salt') {
-						my $sodium;
-						if (defined $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value}) {
-							$sodium = $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value} / 2.5;
-						}
-						if (exists $product_ref->{nutrition}{aggregated_set}{nutrients}{sodium}{value}) {
-							$sodium = $product_ref->{nutrition}{aggregated_set}{nutrients}{sodium}{value};
-						}
-						if (defined $sodium) {
-							$sodium = $decf->format(g_to_unit($sodium, $unit));
-							if ($col_id eq '100g') {
-								$rdfa2 = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
-							}
-							$sodium .= " " . $unit;
-						}
-						else {
-							$sodium = "?";
-						}
-						$values2 = $sodium;
-					}
-					elsif ($nid eq 'nutrition-score-fr') {
-						# We need to know the category in order to select the right thresholds for the nutrition grades
-						# as it depends on whether it is food or drink
-
-						# if it is a category stats, the category id is the id field
-						if (    (not defined $product_ref->{categories_tags})
-							and (defined $product_ref->{id})
-							and ($product_ref->{id} =~ /^en:/))
-						{
-							$product_ref->{categories} = $product_ref->{id};
-							compute_field_tags($product_ref, "en", "categories");
-						}
-
-						if (defined $product_ref->{categories_tags}) {
-
-							if ($col_id ne "std") {
-
-								my $nutriscore_grade = compute_nutriscore_grade(
-									$product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value},
-									is_beverage_for_nutrition_score($product_ref),
-									is_water_for_nutrition_score($product_ref)
-								);
-
-								$values2 = uc($nutriscore_grade);
-							}
-						}
-					}
-					elsif ($col_id eq $product_ref->{nutrition}{aggregated_set}{per}) {
+					# Add % DV if applicable
+					if ($col_id eq $product_ref->{nutrition}{aggregated_set}{per}) {
 						if (    (defined $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value})
 							and (defined $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{unit})
 							and ($product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{unit} eq '% DV'))
@@ -10010,21 +9939,6 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 				};
 
 				push(@columns, $cell_data_ref);
-
-				push(
-					@extra_row_columns,
-					{
-						value => $values2,
-						rdfa => $rdfa2,
-						class => $col_class,
-						percent => $percent,
-						type => $col_type,
-					}
-				);
-
-				if (defined $values2) {
-					$extra_row = 1;
-				}
 			}
 
 			# Add the row data to the template
@@ -10035,42 +9949,6 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 				name => $name,
 				columns => \@columns,
 				};
-
-			# Add an extra row for specific nutrients
-			# 2021-12: There may not be a lot of value to display an extra sodium or salt row,
-			# tentatively disabling it. Keeping code in place in case we want to re-enable it under some conditions.
-			if (0 and (defined $extra_row)) {
-				if ($nid eq 'sodium') {
-
-					push @{$template_data_ref->{nutrition_table}{rows}},
-						{
-						name => lang("salt_equivalent"),
-						nid => "salt_equivalent",
-						level => 1,
-						columns => \@extra_row_columns,
-						};
-				}
-				elsif ($nid eq 'salt') {
-
-					push @{$template_data_ref->{nutrition_table}{rows}},
-						{
-						name => display_taxonomy_tag($lc, "nutrients", "zz:sodium"),
-						nid => "sodium",
-						level => 1,
-						columns => \@extra_row_columns,
-						};
-				}
-				elsif ($nid eq 'nutrition-score-fr') {
-
-					push @{$template_data_ref->{nutrition_table}{rows}},
-						{
-						name => "Nutri-Score",
-						nid => "nutriscore",
-						level => 1,
-						columns => \@extra_row_columns,
-						};
-				}
-			}
 		}
 	}
 	return $template_data_ref;
