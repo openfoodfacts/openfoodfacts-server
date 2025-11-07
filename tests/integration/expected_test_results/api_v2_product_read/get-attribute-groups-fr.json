@@ -6,55 +6,55 @@
             "attributes" : [
                {
                   "description" : "",
-                  "description_short" : "Données manquantes pour calculer le Nutri-Score",
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
+                  "description_short" : "Très bonne qualité nutritionnelle",
+                  "grade" : "a",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-a-new-fr.svg",
                   "id" : "nutriscore",
-                  "match" : 0,
+                  "match" : 81,
                   "name" : "Nutri-Score",
                   "panel_id" : "nutriscore_2023",
-                  "status" : "unknown",
-                  "title" : "Nutri-Score inconnu"
+                  "status" : "known",
+                  "title" : "Nutri-Score A"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-high.svg",
                   "id" : "low_salt",
-                  "missing" : "Données nutritionnelles manquantes",
+                  "match" : 0,
                   "name" : "Sel",
-                  "panel_id" : "nutrition_facts_table",
-                  "status" : "unknown",
-                  "title" : "Sel en quantité inconnue"
+                  "panel_id" : "nutrient_level_salt",
+                  "status" : "known",
+                  "title" : "Sel en faible quantité"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-high.svg",
                   "id" : "low_fat",
-                  "missing" : "Données nutritionnelles manquantes",
+                  "match" : 0,
                   "name" : "Matières grasses",
-                  "panel_id" : "nutrition_facts_table",
-                  "status" : "unknown",
-                  "title" : "Matières grasses en quantité inconnue"
+                  "panel_id" : "nutrient_level_fat",
+                  "status" : "known",
+                  "title" : "Matières grasses en quantité modérée"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id" : "low_sugars",
-                  "missing" : "Données nutritionnelles manquantes",
+                  "match" : 0,
                   "name" : "Sucres",
-                  "panel_id" : "nutrition_facts_table",
-                  "status" : "unknown",
-                  "title" : "Sucres en quantité inconnue"
+                  "panel_id" : "nutrient_level_sugars",
+                  "status" : "known",
+                  "title" : "Sucres en quantité modérée"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-high.svg",
                   "id" : "low_saturated_fat",
-                  "missing" : "Données nutritionnelles manquantes",
+                  "match" : 0,
                   "name" : "Acides gras saturés",
-                  "panel_id" : "nutrition_facts_table",
-                  "status" : "unknown",
-                  "title" : "Acides gras saturés en quantité inconnue"
+                  "panel_id" : "nutrient_level_saturated_fat",
+                  "status" : "known",
+                  "title" : "Acides gras saturés en quantité élevée"
                }
             ],
             "id" : "nutritional_quality",

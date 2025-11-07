@@ -579,18 +579,9 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "The nutrition facts of the product must be specified in order to compute the Nutri-Score.<p>Missing nutrition facts: <b>Energy, Fat, Proteins, Saturated fat, Sodium, Sugars</b></p>\n                    ",
+                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 58\n                    ",
                      "type" : "warning"
                   }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "add_nutrition_facts"
-                     ],
-                     "html" : "Could you add the information needed to compute the Nutri-Score?"
-                  },
-                  "element_type" : "action"
                },
                {
                   "element_type" : "panel",
@@ -603,15 +594,192 @@
                   "panel_element" : {
                      "panel_id" : "nutriscore_description"
                   }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "evaluation" : "bad",
+                     "icon_color_from_evaluation" : true,
+                     "icon_size" : "small",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/circle-minus.svg",
+                     "panel_ids" : [
+                        "nutriscore_component_energy",
+                        "nutriscore_component_sugars",
+                        "nutriscore_component_saturated_fat",
+                        "nutriscore_component_salt"
+                     ],
+                     "title" : "Negative points: 0/55"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "evaluation" : "good",
+                     "icon_color_from_evaluation" : true,
+                     "icon_size" : "small",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/circle-plus.svg",
+                     "panel_ids" : [
+                        "nutriscore_component_proteins",
+                        "nutriscore_component_fiber",
+                        "nutriscore_component_fruits_vegetables_legumes"
+                     ],
+                     "title" : "Positive points: 1/17"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_details"
+                  }
                }
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-en.svg",
-               "subtitle" : "Missing nutrition facts",
-               "title" : "Nutri-Score unknown",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-a-new-en.svg",
+               "subtitle" : "Very good nutritional quality",
+               "title" : "Nutri-Score A",
                "type" : "grade"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_energy" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-0-10.svg",
+               "subtitle" : "0/10 points (unknown)",
+               "title" : "Energy"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_fiber" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-0-5.svg",
+               "subtitle" : "0/5 points (unknown)",
+               "title" : "Fiber"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_fruits_vegetables_legumes" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-1-5.svg",
+               "subtitle" : "1/5 points (58.3%)",
+               "title" : "Fruits, vegetables and legumes"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_proteins" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-0-7.svg",
+               "subtitle" : "0/7 points (unknown)",
+               "title" : "Proteins"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_salt" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-0-20.svg",
+               "subtitle" : "0/20 points (unknown)",
+               "title" : "Salt"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_saturated_fat" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-0-10.svg",
+               "subtitle" : "0/10 points (unknown)",
+               "title" : "Saturated fat"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_sugars" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-0-15.svg",
+               "subtitle" : "0/15 points (unknown)",
+               "title" : "Sugar"
             },
             "topics" : [
                "health"
@@ -638,6 +806,33 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
                "title" : "What is the Nutri-Score?",
+               "type" : "info"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_details" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 58\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n\n    <p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n<p>Points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: -1</strong>\n  (0 - 1)\n</p>\n<p><strong>Nutri-Score: A</strong></p>                \n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "Details of the calculation of the Nutri-Score",
                "type" : "info"
             },
             "topics" : [
