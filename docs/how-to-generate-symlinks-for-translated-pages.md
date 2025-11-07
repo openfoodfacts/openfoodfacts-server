@@ -20,16 +20,19 @@ The script:
 For each translated page, symlinks are created in the following pattern:
 
 ```
-lang/xx/texts/translated_pagename.html -> pagename.html
-lang/opf/xx/texts/translated_pagename.html -> pagename.html
-lang/obf/xx/texts/translated_pagename.html -> pagename.html
-lang/opff/xx/texts/translated_pagename.html -> pagename.html
+lang/xx/texts/translated_pagename.html -> pagename.html (same directory)
+lang/opf/xx/texts/translated_pagename.html -> pagename.html (same directory)
+lang/obf/xx/texts/translated_pagename.html -> pagename.html (same directory)
+lang/opff/xx/texts/translated_pagename.html -> pagename.html (same directory)
 ```
 
 Where:
 - `xx` is the language code (e.g., `fr`, `de`, `es`)
 - `pagename` is the English page name (from `msgid`, without leading `/`)
 - `translated_pagename` is the translated page name (from `msgstr`, without leading `/`)
+- The symlink target is a **relative path** in the same directory, not an absolute path
+
+For example, `lang/fr/texts/decouvrir.html` symlinks to `discover.html` in the same directory (`lang/fr/texts/discover.html`).
 
 ## Usage
 

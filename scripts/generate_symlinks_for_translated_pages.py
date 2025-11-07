@@ -6,10 +6,10 @@ This script parses all .po files in po/common/ directory to find msgctxt entries
 and generates shell commands to create symlinks for translated page names.
 
 The symlinks are created in the following patterns:
-- lang/xx/texts/translated_pagename.html -> lang/xx/texts/pagename.html
-- lang/opf/xx/texts/translated_pagename.html -> lang/opf/xx/texts/pagename.html
-- lang/obf/xx/texts/translated_pagename.html -> lang/obf/xx/texts/pagename.html
-- lang/opff/xx/texts/translated_pagename.html -> lang/opff/xx/texts/pagename.html
+- lang/xx/texts/translated_pagename.html -> pagename.html (relative link in same directory)
+- lang/opf/xx/texts/translated_pagename.html -> pagename.html (relative link in same directory)
+- lang/obf/xx/texts/translated_pagename.html -> pagename.html (relative link in same directory)
+- lang/opff/xx/texts/translated_pagename.html -> pagename.html (relative link in same directory)
 
 Where:
 - xx is the language code (e.g., fr, de, es)
@@ -36,7 +36,6 @@ class POFileParser:
     
     def __init__(self, filepath: str):
         self.filepath = filepath
-        self.entries = []
         
     def parse(self) -> List[Tuple[str, str, str]]:
         """
