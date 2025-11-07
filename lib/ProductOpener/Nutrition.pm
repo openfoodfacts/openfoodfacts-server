@@ -58,6 +58,9 @@ BEGIN {
 		&assign_nutrition_values_from_request_object
 		&add_nutrition_fields_from_product_to_populated_fields
 		&filter_out_nutrients_not_in_taxonomy
+		&convert_sodium_to_salt
+		&convert_salt_to_sodium
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -2038,6 +2041,28 @@ sub filter_out_nutrients_not_in_taxonomy ($product_ref) {
 	}
 
 	return;
+}
+
+=head2 convert_sodium_to_salt ( $sodium_value )
+
+Converts a sodium value to its equivalent salt value using the EU standard conversion factor (2.5).
+
+=cut
+
+sub convert_sodium_to_salt ($sodium_value) {
+
+	return $sodium_value * 2.5;
+}
+
+=head2 convert_salt_to_sodium ( $salt_value )
+
+Converts a salt value to its equivalent sodium value using the EU standard conversion factor (2.5).
+
+=cut
+
+sub convert_salt_to_sodium ($salt_value) {
+
+	return $salt_value / 2.5;
 }
 
 1;

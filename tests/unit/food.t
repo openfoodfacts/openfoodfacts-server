@@ -158,23 +158,6 @@ specific_processes_for_food_product($product_ref);
 
 is($product_ref->{nutrition_score_beverage}, 0);
 
-$product_ref = {nutriments => {salt => 3, salt_value => 3000, salt_unit => "mg"},};
-
-fix_salt_equivalent($product_ref);
-
-my $expected_product_ref;
-
-$expected_product_ref = {
-	nutriments => {
-		salt => 3,
-		salt_value => 3000,
-		salt_unit => "mg",
-		sodium => 1.2,
-		sodium_value => 1200,
-		sodium_unit => "mg"
-	}
-};
-
 is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
 
 $product_ref = {

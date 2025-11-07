@@ -6,10 +6,13 @@ use utf8;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set_from_sets/;
+use ProductOpener::Nutrition qw/:all/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
+
+is(convert_salt_to_sodium(2.5), 1);
+is(convert_sodium_to_salt(1), 2.5);
 
 # Test the generation of the aggregated set from input sets
 
