@@ -31,6 +31,11 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 
+# Constants
+PRODUCT_DB_PREFIXES = ['', 'opf/', 'obf/', 'opff/']
+INVALID_FILENAME_CHARS = {'%', '?', '&', '=', ' '}
+
+
 class POFileParser:
     """Simple parser for .po files to extract link translations."""
     
@@ -63,7 +68,8 @@ class POFileParser:
                 # Start of msgctxt
                 if line.startswith('msgctxt '):
                     # Save previous entry if it was a link
-                    if current_msgctxt and current_msgctxt.endswith('_link') and current_msgid and current_msgstr:
+                    if (current_msgctxt and current_msgctxt.endswith('_link') and 
+                        current_msgid and current_msgstr):
                         entries.append((current_msgctxt, current_msgid, current_msgstr))
                     
                     current_msgctxt = line[8:].strip().strip('"')
@@ -98,7 +104,8 @@ class POFileParser:
                         current_msgstr += content
         
         # Save last entry if it was a link
-        if current_msgctxt and current_msgctxt.endswith('_link') and current_msgid and current_msgstr:
+        if (current_msgctxt and current_msgctxt.endswith('_link') and 
+            current_msgid and current_msgstr):
             entries.append((current_msgctxt, current_msgid, current_msgstr))
         
         return entries
@@ -147,9 +154,6 @@ def generate_symlink_commands(links_data: Dict[str, List[Tuple[str, str, str]]])
     commands.append("# Run this script in the openfoodfacts-web repository root directory")
     commands.append("")
     
-    # Prefixes for different product databases
-    prefixes = ['', 'opf/', 'obf/', 'opff/']
-    
     for lang_code, entries in sorted(links_data.items()):
         # Skip English since it's the base language
         if lang_code == 'en':
@@ -178,11 +182,11 @@ def generate_symlink_commands(links_data: Dict[str, List[Tuple[str, str, str]]])
             
             # Skip if the path contains special characters that aren't suitable for filenames
             # This filters out things like "Permanent link to..." and placeholder strings
-            if any(char in msgstr_clean for char in ['%', '?', '&', '=', ' ']):
+            if any(char in msgstr_clean for char in INVALID_FILENAME_CHARS):
                 continue
             
             # Generate symlink commands for each prefix
-            for prefix in prefixes:
+            for prefix in PRODUCT_DB_PREFIXES:
                 source = f"lang/{prefix}{lang_code}/texts/{msgstr_clean}.html"
                 target = f"{msgid_clean}.html"
                 
