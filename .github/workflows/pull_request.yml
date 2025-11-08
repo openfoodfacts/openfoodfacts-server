@@ -435,6 +435,7 @@ jobs:
     name: 📦 Generate Docker SBOM
     permissions:
       contents: write
+      security-events: write
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
@@ -461,25 +462,29 @@ jobs:
         upload-artifact-retention: 90
         artifact-name: backend-sbom
         dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-    - name: Docker Scout scan for backend image
-      uses: docker/scout-action@v1
+    - name: Trivy scan for backend image
+      uses: aquasecurity/trivy-action@0.28.0
       with:
-        command: cves
-        image: openfoodfacts-server/backend:dev
-        sarif-file: backend-scout.sarif
-        write-comment: true
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Upload Docker Scout results to GitHub Security
+        image-ref: openfoodfacts-server/backend:dev
+        format: 'sarif'
+        output: backend-trivy.sarif
+        vuln-type: 'os,library'
+        scanners: 'vuln,secret,config,license'
+        severity: 'CRITICAL,HIGH,MEDIUM,LOW'
+        ignore-unfixed: true
+        cache: true
+    - name: Upload Trivy results to GitHub Security
       uses: github/codeql-action/upload-sarif@v3
       if: always()
       with:
-        sarif_file: backend-scout.sarif
-        category: docker-scout-backend
+        sarif_file: backend-trivy.sarif
+        category: trivy-backend
 
   generate_frontend_sbom:
     name: 📦 Generate Frontend SBOM
     permissions:
       contents: write
+      security-events: write
     needs: [build_frontend]
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request')
@@ -506,25 +511,28 @@ jobs:
         upload-artifact-retention: 90
         artifact-name: frontend-sbom
         dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-    - name: Docker Scout scan for frontend image
-      uses: docker/scout-action@v1
+    - name: Trivy scan for frontend image
+      uses: aquasecurity/trivy-action@0.28.0
       with:
-        command: cves
-        image: openfoodfacts-server/frontend:dev
-        sarif-file: frontend-scout.sarif
-        write-comment: true
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Upload Docker Scout results to GitHub Security
+        image-ref: openfoodfacts-server/frontend:dev
+        format: 'sarif'
+        output: frontend-trivy.sarif
+        vuln-type: 'os,library'
+        scanners: 'vuln,secret,config,license'
+        severity: 'CRITICAL,HIGH,MEDIUM,LOW'
+        ignore-unfixed: true
+        cache: true
+    - name: Upload Trivy results to GitHub Security
       uses: github/codeql-action/upload-sarif@v3
       if: always()
       with:
-        sarif_file: frontend-scout.sarif
-        category: docker-scout-frontend
+        sarif_file: frontend-trivy.sarif
+        category: trivy-frontend
 
   # Calculate dynamic test group matrix based on current test files and timing data
   calculate_test_matrix:
     name: 🧮 Calculate Dynamic Test Matrix
-    needs: [filter] 
+    needs: [filter]
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     outputs:
