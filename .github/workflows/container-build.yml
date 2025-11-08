@@ -75,3 +75,17 @@ jobs:
         upload-artifact-retention: 90
         artifact-name: ${{ matrix.image_name }}-sbom
         dependency-snapshot: ${{ github.ref == 'refs/heads/main' }}
+    - name: Docker Scout scan for ${{ matrix.image_name }} image
+      uses: docker/scout-action@v1
+      with:
+        command: cves
+        image: ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:sha-${{ github.sha }}
+        sarif-file: ${{ matrix.image_name }}-scout.sarif
+        write-comment: false
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload Docker Scout results to GitHub Security
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: ${{ matrix.image_name }}-scout.sarif
+        category: docker-scout-${{ matrix.image_name }}
