@@ -328,6 +328,8 @@ jobs:
 
   generate_perl_sbom:
     name: 📦 Generate Perl SBOM
+    permissions:
+      contents: write
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
@@ -370,6 +372,8 @@ jobs:
 
   generate_docker_sbom:
     name: 📦 Generate Docker SBOM
+    permissions:
+      contents: write
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
