@@ -284,6 +284,15 @@ my $tests_ref = [
 		expected_status_code => 200,
 	},
 
+	# Get simplified knowledge panels
+	{
+		test_case => 'get-knowledge-panels-simplified',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=knowledge_panels&activate_knowledge_panels_simplified=true',
+		expected_status_code => 200,
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

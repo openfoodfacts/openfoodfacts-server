@@ -2727,9 +2727,9 @@ sub country_to_cc ($country) {
 
 sub cc_to_country($cc) {
 	if (not defined $cc) {
-		return 'en:world';
+		return;
 	}
-	return $country_codes{$cc} // 'en:world';
+	return $country_codes{$cc};
 }
 
 sub init_languages() {
