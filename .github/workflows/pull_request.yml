@@ -473,6 +473,7 @@ jobs:
         severity: 'CRITICAL,HIGH,MEDIUM,LOW'
         ignore-unfixed: true
         cache: true
+        skip-dirs: opt/product-opener/build-cache/,opt/product-opener/taxonomies
     - name: Upload Trivy results to GitHub Security
       uses: github/codeql-action/upload-sarif@v3
       if: always()
