@@ -272,6 +272,7 @@ it: Bottiglia
 nl: Fles, Flessen
 pl: Butelka
 pt: Garrafa, garrafas
+ro: Sticlă, sticle
 sv: Flaska
 # suggest:packaging_materials:nl: en:glass
 # associated_packagings: en:cap
@@ -689,8 +690,10 @@ en: Champagne cork
 bg: Шампанска корк
 de: Sektverschluss
 el: Πώμα σαμπάνιας
+es: Corcho de champán
 fr: bouchon de Champagne
 hu: Pezsgő dugó
+it: tappo di champagne
 nl: Champagnestop
 pl: Korek do szampana
 pt: Tampa de champanhe
@@ -834,6 +837,9 @@ pt: Cápsulas de café compatíveis com Senseo
 en: Tea bag
 bg: Чаена торбичка
 da: Tepose, teposer
+de: Teebeutel
+es: Bolsa de té, bolsita de té
+fr: Sachet de thé, sachets de thé, thé en sachet
 # suggest:packaging_materials:en: en:paper
 # related_categories:en: en:Tea bags
 it: bustina di tè, bustina di te, bustina
@@ -1275,6 +1281,7 @@ en: hanger
 bg: закачалка
 fr: Cintre
 nl: Kleerhanger
+pt: Cabide
 # related_categories:en: en:Clothes
 # image:xx:cintre.svg
 # suggest:packaging_materials:en: en:metal, en:cardboard, en:others
@@ -1385,6 +1392,9 @@ en: pump bottle, spray, spray bottle, applicator bottle
 de: Sprühflasche
 es: espray
 fr: Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
+it: flacone con pompa, flaconi con pompa, flacone spray, flaconi spray
+nl: Spuitfles, spuitflessen
+pt: Frasco com bomba, frascos com bomba, frasco spray, frascos spray
 wikidata:en: Q3737688
 # suggest:packaging_materials:en: en:plastic, en:metal, en:glass
 # image:xx:flacon-pompe-pistolet-spray-1.svg
@@ -1444,6 +1454,7 @@ en: Ball flask, Roll-on bottle
 de: Kugelflasche, Roll-on-Flasche
 es: Frascos de bola, Botella roll-on
 fr: Flacon à bille, Roll
+it: flacone a sfera, flacone roll-on
 nl: Balflacon, Roll-on fles
 wikidata:en: Q115170160
 # image:xx:flacon-bille-roll.svg
@@ -1457,7 +1468,9 @@ nl: Mand, manden
 
 en: Syringe, syringes
 bg: Спринцовка, спринцовки
+es: Jeringa, jeringas
 fr: Seringue, seringues
+it: Siringa, siringhe
 nl: Spuit, spuiten
 wikidata:en: Q273318
 # suggest:packaging_materials:en: en:plastic
@@ -1564,7 +1577,12 @@ fr: Terrine, terrines
 # suggest:packaging_materials:en: en:plastic, en:sandstone, en:ceramic
 
 en: Barrel, barrels, drum, drums, keg, kegs
+de: Fass, Fässer, Trommel, Trommeln, Keg, Kegs
+es: Barril, barriles, tambor, tambores, barrilito, barrilitos
 fr: Tonneau, tonneaux, tonnelet, tonnelets
+it: Barile, barili, botte, botti, fusto, fusti
+nl: Vat, vaten, drum, drums, keg, kegs
+pt: Barril, barris, tambor, tambores, barrilinho, barrilinhos
 wikidata:en: Q10289
 # suggest:packaging_materials:en: en:cardboard, en:plastic, en:metal, en:other
 # image:xx:tonneau-tonnelet-plastique.svg
@@ -1621,7 +1639,9 @@ nl: cellofaan
 description:nl: Transparant materiaal gemaakt van cellulose, in dunne vellen gewoonlijk in gebruik voor vochtdicht afsluiten van etenswaren
 
 en: Cartridge, cartridges
+es: cartucho, cartuchos
 fr: Cartouche, cartouches
+it: cartuccia, cartucce
 nl: Cartridge, cartridges
 # description:nl:Inktpatroon voor een printer >> actually no, food gas cartdrige
 wikidata:en: Q97584727

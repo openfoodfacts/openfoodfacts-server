@@ -14,12 +14,13 @@ const sass = gulpSass(sassLib);
 const jsSrc = [
   "./html/js/display*.js",
   "./html/js/product-*.js",
-  "./html/js/tagify-init.js",  
+  "./html/js/tagify-init.js",
   "./html/js/search.js",
   "./html/js/hc-sticky.js",
   "./html/js/stikelem.js",
   "./html/js/scrollNav.js",
   "./html/js/barcode-scanner*.js",
+  "./html/js/external-knowledge-panels.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";
@@ -110,7 +111,7 @@ export function css() {
   const compressed = processed.
     pipe(gzip()).
     pipe(dest("./html/css/dist"));
-  
+
   return processed && compressed;
 }
 
@@ -187,7 +188,7 @@ function jQueryUiThemes() {
   const compressed = processed.
     pipe(gzip()).
     pipe(dest("./html/css/dist/jqueryui/themes/base"));
-  
+
   return processed && compressed;
 }
 
@@ -216,19 +217,18 @@ function copyImages() {
   return src(imagesSrc).pipe(dest("./html/css/dist"));
 }
 
-export default function buildAll() {
-  return new Promise(
-    parallel(
-      copyJs,
-      buildJs,
-      buildjQueryUi,
-      copyCss,
-      copyImages,
-      jQueryUiThemes,
-      series(icons, attributesIcons, css)
-    )
-  );
-}
+// Shared task list for build steps
+const buildTasks = [
+  copyJs,
+  buildJs,
+  buildjQueryUi,
+  copyCss,
+  copyImages,
+  jQueryUiThemes,
+  series(icons, attributesIcons, css),
+];
+
+export default parallel(...buildTasks);
 
 function watchAll() {
   watch(jsSrc, { delay: 500 }, buildJs);
@@ -239,9 +239,11 @@ function watchAll() {
 }
 export { watchAll as watch };
 
-export function dynamic() {
-  buildAll().then(() => {
+export const dynamic = series(
+  parallel(...buildTasks),
+  function startWatch(done: () => void) {
     console.log("Build succeeded start watching for css and js changes");
     watchAll();
-  });
-}
+    done();
+  }
+);

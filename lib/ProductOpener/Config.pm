@@ -223,4 +223,7 @@ $ProductOpener::Config::options{rate_limit_allow_list_blocks} = [
 	oidc_discovery_url => $ProductOpener::Config2::oidc_discovery_url
 );
 
+# Slack options
+%ProductOpener::Config::slack_hook_urls = %ProductOpener::Config2::slack_hook_urls || ();
+
 1;

@@ -170,6 +170,8 @@ BEGIN {
 
 		&create_property_to_tag_mapping_table
 
+		&get_taxonomy_tag_path
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -307,11 +309,6 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 );
 
 my %canon_tags = ();
-
-my %tags_level = ();
-my %tags_direct_parents = ();
-my %tags_direct_children = ();
-my %tags_all_parents = ();
 
 %stopwords = ();
 %just_synonyms = ();
@@ -2730,9 +2727,9 @@ sub country_to_cc ($country) {
 
 sub cc_to_country($cc) {
 	if (not defined $cc) {
-		return 'en:world';
+		return;
 	}
-	return $country_codes{$cc} // 'en:world';
+	return $country_codes{$cc};
 }
 
 sub init_languages() {
@@ -3261,24 +3258,6 @@ HTML
 	return $html;
 }
 
-sub display_tag_and_parents ($tagtype, $tagid) {
-
-	my $html = '';
-
-	if (    (defined $tags_all_parents{$lc})
-		and (defined $tags_all_parents{$lc}{$tagtype})
-		and (defined $tags_all_parents{$lc}{$tagtype}{$tagid}))
-	{
-		foreach my $parentid (@{$tags_all_parents{$lc}{$tagtype}{$tagid}}) {
-			$html = display_tag_link($tagtype, $parentid) . ', ' . $html;
-		}
-	}
-
-	$html =~ s/, $//;
-
-	return $html;
-}
-
 sub display_tag_and_parents_taxonomy ($tagtype, $tagid) {
 
 	my $target_lc = $lc;
@@ -3316,28 +3295,6 @@ sub display_parents_and_children ($target_lc, $tagtype, $tagid) {
 			}
 			$html .= "</ul>\n";
 		}
-	}
-	else {
-
-		if (    (defined $tags_all_parents{$lc})
-			and (defined $tags_all_parents{$lc}{$tagtype})
-			and (defined $tags_all_parents{$lc}{$tagtype}{$tagid}))
-		{
-			$html .= "<p>" . lang("tag_belongs_to") . "</p>\n";
-			$html .= "<p>" . display_tag_and_parents($tagtype, $tagid) . "</p>\n";
-		}
-
-		if (    (defined $tags_direct_children{$lc})
-			and (defined $tags_direct_children{$lc}{$tagtype})
-			and (defined $tags_direct_children{$lc}{$tagtype}{$tagid}))
-		{
-			$html .= "<p>" . lang("tag_contains") . "</p><ul>\n";
-			foreach my $childid (sort keys %{$tags_direct_children{$lc}{$tagtype}{$tagid}}) {
-				$html .= "<li>" . display_tag_link($tagtype, $childid) . "</li>\n";
-			}
-			$html .= "</ul>\n";
-		}
-
 	}
 
 	return $html;
@@ -4339,9 +4296,9 @@ GEXF
 		node => {shape => 'oval'},
 	);
 
-	if ((defined $tags_level{$lc}) and (defined $tags_level{$lc}{$tagtype})) {
+	if ((defined $level{$lc}) and (defined $level{$lc}{$tagtype})) {
 
-		foreach my $tagid (keys %{$tags_level{$lc}{$tagtype}}) {
+		foreach my $tagid (keys %{$level{$lc}{$tagtype}}) {
 
 			$gexf .= "\t\t\t" . "<node id=\"$tagid\" label=\"" . canonicalize_tag2($tagtype, $tagid) . "\" ";
 
@@ -4351,10 +4308,10 @@ GEXF
 				URL => "http://$lc.openfoodfacts.org/facets/" . $tag_type_plural{$tagtype}{$lc} . "/" . $tagid
 			);
 
-			if (defined $tags_direct_parents{$lc}{$tagtype}{$tagid}) {
+			if (defined $direct_parents{$lc}{$tagtype}{$tagid}) {
 				$gexf .= ">\n";
 				$gexf .= "\t\t\t\t<parents>\n";
-				foreach my $parentid (sort keys %{$tags_direct_parents{$lc}{$tagtype}{$tagid}}) {
+				foreach my $parentid (sort keys %{$direct_parents{$lc}{$tagtype}{$tagid}}) {
 					$gexf .= "\t\t\t\t\t<parent for=\"$parentid\"/>\n";
 					$edges .= "\t\t\t<edge id=\"${parentid}_$tagid\" source=\"$parentid\" target=\"$tagid\" />\n";
 
@@ -5125,6 +5082,47 @@ sub create_property_to_tag_mapping_table ($tagtype, $property) {
 	}
 
 	return \%mapping;
+}
+
+=head2 get_taxonomy_tag_path ($tagtype, $tagid)
+
+Returns the path of the tag in the taxonomy (from the root to the tag, included).
+
+If there are multiple parents for the tag (or one of its parents), we take the first parent.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+=head4 $tagid
+
+=head3 Return value
+
+The path of the tag in the taxonomy (from the root to the tag, included), as an array of tagids.
+
+=cut
+
+sub get_taxonomy_tag_path ($tagtype, $tagid) {
+
+	my @path = ();
+
+	my $current_tagid = $tagid;
+
+	while (defined $current_tagid) {
+		unshift @path, $current_tagid;
+		# Check if there are parents
+		if (defined $direct_parents{$tagtype}{$current_tagid}) {
+			# take the first parent
+			$current_tagid = (sort keys %{$direct_parents{$tagtype}{$current_tagid}})[0];
+		}
+		else {
+			$current_tagid = undef;
+		}
+	}
+
+	$log->debug("get_taxonomy_tag_path", {tagtype => $tagtype, tagid => $tagid, path => \@path}) if $log->is_debug();
+
+	return \@path;
 }
 
 # Init the taxonomies, as most modules / scripts that load Tags.pm expect the taxonomies to be loaded

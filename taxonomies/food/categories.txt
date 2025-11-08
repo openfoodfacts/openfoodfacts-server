@@ -11083,31 +11083,16 @@ en: Latte macchiato
 xx: Latte macchiato
 ar: لاتيه ماكياتو
 bg: Лате макиато
-cs: Latte macchiato
 de: Milchmischgetränk, Latte macchiato
-es: Latte macchiato
 fa: لاته ماکیاتو
-fi: Latte macchiato
-fr: Latte macchiato
-it: Latte macchiato
 ja: ラッテ・マキアート
-jv: Latte macchiato
 kk: Латте макиато
 ko: 라테 마키아토
 mk: Лате макијато
-nl: Latte macchiato
-pl: Latte macchiato
-pt: Latte macchiato
 ru: Латте макиато
-sk: Latte macchiato
 sr: Лате макијато
-sv: Latte macchiato
 th: ลัตเตมักกีอาโต
-tl: Latte macchiato
-tr: Latte macchiato
 uk: Лате-мак'ято
-uz: Latte macchiato
-vi: Latte macchiato
 zh: 拿铁玛琪雅朵
 ciqual_food_code:en: 18151
 ciqual_food_name:en: Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
@@ -12839,7 +12824,6 @@ tr: Soğuk kahve
 wikidata:en: Q968554
 
 < en:Non-alcoholic beverages
-< en:Wines
 en: Non-alcoholic wines, Alcohol-free wines
 de: alkoholfreie Weine
 fr: Vins sans alcool, vins déalcoolisés
@@ -33791,6 +33775,7 @@ nl: Gevulde Koeken
 
 en: Biscuits and crackers
 fr: Biscuits sucrés & biscuits apéritifs
+nl: Biscuits en crackers
 intake24_category_code:en: BSCT
 
 < en:Biscuits and cakes
@@ -42527,6 +42512,9 @@ wco_hs_code:en: 1207.99
 wco_hs_heading:en: 12.07
 wikidata:en: Q1071585
 
+< en:Chia
+nl: witte chiazaad
+
 < en:Cereal grains
 en: Coix
 xx: Coix
@@ -46208,7 +46196,7 @@ de: Feta
 el: Φέτα, Feta
 es: Feta
 fi: feta
-fr: Fetan
+fr: Feta
 hr: Feta
 hu: Feta sajtok
 it: Feta
@@ -67671,14 +67659,6 @@ protected_name_file_number:en: PDO-ES-0336
 protected_name_type:en: pdo
 #wikidata:en:
 
-< en:Purple garlic
-< en:Vegetables from Spain
-es: Ajo Morado de Las Pedroñeras
-origins:en: en:spain
-protected_name_file_number:en: PGI-ES-0228
-protected_name_type:en: pgi
-#wikidata:en:
-
 < en:Spanish legumes
 es: Lenteja de Tierra de Campos
 origins:en: en:spain
@@ -78790,11 +78770,11 @@ da: Veganske pestoer
 sv: Veganska pesto
 
 < en:Sauces
-en: Pizza sauces
+en: Pizza sauces, Topping sauce for pizza
 de: Pizzasoßen, Pizzasoße, Pizzasaucen, Pizzasauce
 es: Salsas para pizzas, Salsas para pizza
 fi: pizza-kastikkeet
-fr: Sauces pour pizzas
+fr: Sauces pour pizzas, Sauce pour pizza
 hr: Umaci za pizzu
 hu: Pizza szószok
 it: Salsa per la pizza
@@ -78802,35 +78782,28 @@ ja: ピザソース
 lt: Picos padažai
 nl: Pizzasauzen
 pl: Sosy do pizzy, Sos do pizzy
-agribalyse_proxy_food_code:en: 25525
-agribalyse_proxy_food_name:en: Topping sauce for pizza
-agribalyse_proxy_food_name:fr: Pizza, sauce garniture pour
+agribalyse_food_code:en: 25525
+ciqual_food_code:en: 25525
+ciqual_food_name:en: Topping sauce for pizza
+ciqual_food_name:fr: Pizza, sauce garniture pour
 
 < en:Pizza sauces
-en: Cream sauce for pizza base
-fr: Base de pizza à la crème
+en: Cream sauces for pizzas, Cream sauce for pizza base
+fr: Sauces à la crème pour pizzas, Base de pizza à la crème
 agribalyse_food_code:en: 37000
 ciqual_food_code:en: 37000
 ciqual_food_name:en: cream sauce for pizza base
 ciqual_food_name:fr: Base de pizza à la crème
 
 < en:Pizza sauces
-en: Tomato sauce for pizza base
-fr: Base de pizza tomatée
+en: Tomato sauces for pizzas, Tomato sauce for pizza base
+fr: Sauces tomate pour pizzas, Base de pizza tomatée
 hr: Umak od rajčice za podlogu za pizzu
 lt: Pomidorų padažai picos pagrindui
 agribalyse_food_code:en: 37002
 ciqual_food_code:en: 37002
 ciqual_food_name:en: Tomato sauce for pizza base
 ciqual_food_name:fr: Base de pizza tomatée
-
-< en:Pizza sauces
-en: Topping sauce for pizza
-fr: Sauce pour pizza, Garniture pour pizza
-agribalyse_food_code:en: 25525
-ciqual_food_code:en: 25525
-ciqual_food_name:en: Topping sauce for pizza
-ciqual_food_name:fr: Pizza, sauce garniture pour
 
 < en:Sauces
 fr: Sauces pour nems
@@ -81190,7 +81163,7 @@ ciqual_food_code:en: 25175
 ciqual_food_name:en: Molokhia, jute and beef-based meal
 ciqual_food_name:fr: Meloukhia, plat à base de boeuf et corete
 
-
+< en:Meals
 < en:Pizzas pies and quiches
 en: Salted pies, Savoury tarts
 de: Herzhafte Kuchen
@@ -81203,7 +81176,6 @@ lt: Sūdyti pyragai, pikantiški pyragaičiai
 nl: Hartige taarten
 food_groups:en: en:pizza-pies-and-quiches
 pnns_group_2:en: Pizza pies and quiches
-
 
 < en:Salted pies
 es: Empanada boloñesa
@@ -83762,7 +83734,7 @@ fr: Langòs surgelés
 en: Filled pinsa
 it: Pinsa farcita
 
-< en:Meals
+# don't put in meals because this category contains "mini appetizer pizzas"
 en: Pizzas pies and quiches, Pizza pies and quiches
 bg: Пица и киш
 ca: Pizzes i quiches
@@ -83787,6 +83759,13 @@ gpc_category_code:en: 10000249
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a pastry, biscuit or crumble based product filled or topped with a mixture of shredded/sliced savoury ingredients, commonly including meat, vegetables, eggs or other additives. Products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Frozen and Shelf Stable Savoury Pies, Pastries, Pizzas and Quiches, Sweet Pies/Tarts, and Potato Topped Meat Pies.
 gpc_category_name:en: Pies/Pastries/Pizzas/Quiches - Savoury (Perishable)
 
+# don't put under pizzas
+< en:Appetizers
+< en:Pizzas pies and quiches
+en: Mini appetizer pizzas
+fr: Mini pizzas apéritives
+
+< en:Meals
 < en:Pizzas pies and quiches
 en: Pizzas
 bg: Пица
@@ -83818,6 +83797,7 @@ gpc_category_name:en: Pies/Pastries/Pizzas/Quiches - Savoury (Shelf Stable)
 intake24_category_code:en: PZZA
 wikidata:en: Q177
 
+< en:Meals
 < en:Pizzas pies and quiches
 it: Calzone
 fr: Calzone, Pizzas calzone
@@ -84411,6 +84391,7 @@ ciqual_food_code:en: 8937
 ciqual_food_name:en: Quenelle, plain, raw
 ciqual_food_name:fr: Quenelle nature, crue
 
+< en:Meals
 < en:Pizzas pies and quiches
 en: Quiches
 de: Quiches
@@ -101344,7 +101325,7 @@ es: Varitas de pescado
 fi: kalapuikot
 fr: Batonnets de poisson
 hr: Riblji štapići
-nl: Visvingers
+nl: Visvingers, Vissticks
 pl: Paluszki rybne
 intake24_category_code:en: FPCS
 wikidata:en: Q1420441
@@ -107786,6 +107767,7 @@ nl: Ingemaakte guindilla pepers
 < en:Jalapeños
 < en:Pickled peppers
 en: Pickled jalapeños
+nl: Ingemaakte jalapeño peper
 
 < en:Pickled jalapeños
 < en:Sliced jalapeños
@@ -109841,6 +109823,17 @@ es: Ajo morado
 hr: Ljubičasti češnjak
 nl: Paarse knoflook
 
+< en:Purple garlic
+nl: Morado knoflook
+
+< en:Purple garlic
+< en:Vegetables from Spain
+es: Ajo Morado de Las Pedroñeras
+origins:en: en:spain
+protected_name_file_number:en: PGI-ES-0228
+protected_name_type:en: pgi
+#wikidata:en:
+
 < en:Allium neapolitanum
 fr: Ail blanc de Lomagne
 xx: Ail blanc de Lomagne
@@ -110293,7 +110286,7 @@ fi: Keltasipulit, keltasipuli, keltainen sipuli
 fr: Oignons jaunes, oignon jaune
 hr: Žuti luk
 nl: Gele uien
-expected_ingredients:en: en:yellow onion
+expected_ingredients:en: en:yellow onions
 wikidata:en: Q8051898
 wikipedia:en: https://en.wikipedia.org/wiki/Yellow_onion
 
@@ -110526,6 +110519,9 @@ fr: Mélanges de poivrons multicolores
 hr: Miješane paprike babure
 nl: Gemengde paprikas
 sales_format:en: weight, package
+
+< en:Sweet peppers
+nl: Puntpaprikas, Zoete puntpaprikas, Zoete puntpaprika
 
 < en:Sweet Peppers
 en: Red bell peppers, Red sweet peppers
@@ -111588,6 +111584,7 @@ season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 en: Spinach young leaves, Baby spinach
 da: babyspinat
 fr: Jeunes pousses d'épinards pour salades
+nl: Babyspinazie
 sv: babyspenat
 agribalyse_food_code:en: 20270
 ciqual_food_code:en: 20270
@@ -119040,7 +119037,7 @@ fr: Galettes de maïs soufflé, galettes de maïs
 hr: Lisnati kukuruzni kolačići
 hu: Puffasztott kukorica készítményak
 it: Gallette di mais
-nl: Maiswafels
+nl: Maïswafels, Maiswafels
 
 < en:Puffed cereal cakes
 en: Puffed corn cakes with black chocolate
@@ -121244,16 +121241,22 @@ fr: Varenyky surgelés
 
 # TODO check the difference
 
-
 < en:Appetizers
+en: Acras, Accras
+fr: Acras, Accras
+hr: Acras
+nl: Acra
+
+< en:Acras
 < en:Fish preparations
 en: Cod acras, Cod accras
 fr: Acras de morue, Accras de morue, acras de cabillaud
 hr: Bakalar acras
 it: Frittelle di merluzzo, Frittelle di baccalà
 nl: Kabeljauwacra
-agribalyse_proxy_food_code:en: 26028
-agribalyse_proxy_food_name:en: Fish, croquette, fritter or nuggets, fried
+agribalyse_food_code:en: 25433
+ciqual_food_code:en: 25433
+ciqual_food_name:en: Caribbean-style fish fritters, fish acras
 wikidata:en: Q12860188
 
 < en:Meals
@@ -121731,15 +121734,6 @@ en: Mashed split peas
 fr: Purées de pois cassés
 hr: Pire od graška
 nl: Gepureerde spliterwten
-
-< en:Meals
-en: Acras, Accras
-fr: Acras, Accras
-hr: Acras
-nl: Acra
-agribalyse_food_code:en: 25433
-ciqual_food_code:en: 25433
-ciqual_food_name:en: Caribbean-style fish fritters, fish acras
 
 < en:Frozen vegetables
 en: Frozen raw butter beans, Frozen raw yellow beans
