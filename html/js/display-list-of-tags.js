@@ -20,8 +20,9 @@
 
 /*global lang*/
 
-import jsVectorMap from 'jsvectormap'
-import './world-merc.js'
+import jsVectorMap from 'jsvectormap';
+// eslint-disable-next-line sort-imports
+import './world-merc.js';
 
 function getServerDomain() {
   return (/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i).exec(globalThis.location.href)[1];
