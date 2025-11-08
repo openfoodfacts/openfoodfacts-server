@@ -61,3 +61,14 @@ jobs:
         cache-to: type=registry,ref=ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:buildcache,mode=max
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+
+    - name: Generate SBOM for ${{ matrix.image_name }} image
+      uses: anchore/sbom-action@v0
+      with:
+        image: ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:sha-${{ github.sha }}
+        format: cyclonedx-json
+        output-file: ${{ matrix.image_name }}-sbom.cyclonedx.json
+        upload-artifact: true
+        upload-artifact-retention: 90
+        artifact-name: ${{ matrix.image_name }}-sbom
+        dependency-snapshot: ${{ github.ref == 'refs/heads/main' }}

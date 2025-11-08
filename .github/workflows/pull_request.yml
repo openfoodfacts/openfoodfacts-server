@@ -326,6 +326,77 @@ jobs:
     - name: check perl
       run: make check_perl
 
+  generate_perl_sbom:
+    name: 📦 Generate Perl SBOM
+    needs: [filter, build_backend]
+    runs-on: ubuntu-latest
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+    - name: Download backend image from artifacts
+      id: downloadbackendimage
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: Remove downloaded image file
+      env:
+        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
+      run: rm $FILE
+    - name: Generate Perl SBOM with cpan-sbom
+      run: |
+        docker run --rm -v $(pwd):/workspace openfoodfacts-server/backend:dev \
+          cpan-sbom \
+          --project-directory /workspace \
+          --project-name "Product Opener" \
+          --project-type application \
+          --project-license AGPL-3.0 \
+          --project-author "Open Food Facts <contact@openfoodfacts.org>" \
+          --vulnerabilities \
+          --validate \
+          --output /workspace/perl-sbom.json
+    - name: Upload Perl SBOM as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: perl-sbom
+        path: perl-sbom.json
+        retention-days: 90
+    - name: Submit Perl SBOM to Dependency Graph
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: advanced-security/spdx-dependency-submission-action@v0.1.1
+      with:
+        filePath: perl-sbom.json
+
+  generate_docker_sbom:
+    name: 📦 Generate Docker SBOM
+    needs: [filter, build_backend]
+    runs-on: ubuntu-latest
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+    - name: Download backend image from artifacts
+      id: downloadbackendimage
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: Remove downloaded image file
+      env:
+        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
+      run: rm $FILE
+    - name: Generate SBOM for backend image
+      uses: anchore/sbom-action@v0
+      with:
+        image: openfoodfacts-server/backend:dev
+        format: cyclonedx-json
+        output-file: backend-sbom.cyclonedx.json
+        upload-artifact: true
+        upload-artifact-retention: 90
+        artifact-name: backend-sbom
+        dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+
   # Calculate dynamic test group matrix based on current test files and timing data
   calculate_test_matrix:
     name: 🧮 Calculate Dynamic Test Matrix
