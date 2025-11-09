@@ -1185,19 +1185,20 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 				'uploaded',
 				$imgid,
 				{
-			uploader => $user_id,
-			uploaded_t => $time,
-			sizes => $size_ref,
-		}
-	);
+					uploader => $user_id,
+					uploaded_t => $time,
+					sizes => $size_ref,
+				}
+			);
 
-	if ((not defined $product_ref->{max_imgid}) or ($imgid > $product_ref->{max_imgid})) {
-		$product_ref->{max_imgid} = $imgid;
-	}
-	my $store_comment = "new image $imgid";
-	if ((defined $comment) and ($comment ne '')) {
-		$store_comment .= ' - ' . $comment;
-	}			$log->debug("storing product", {product_id => $product_id}) if $log->is_debug();
+			if ((not defined $product_ref->{max_imgid}) or ($imgid > $product_ref->{max_imgid})) {
+				$product_ref->{max_imgid} = $imgid;
+			}
+			my $store_comment = "new image $imgid";
+			if ((defined $comment) and ($comment ne '')) {
+				$store_comment .= ' - ' . $comment;
+			}
+			$log->debug("storing product", {product_id => $product_id}) if $log->is_debug();
 			store_product($user_id, $product_ref, $store_comment);
 
 			# Create a link to the image in /new_images so that it can be batch processed by OCR

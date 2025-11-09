@@ -2290,7 +2290,8 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 							$current{selected_images}{$image_type . '_' . $image_lc}
 								= ($product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} // '') . ' '
 								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{rev} // '') . ' '
-								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry} // '');
+								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry}
+									// '');
 						}
 					}
 				}
