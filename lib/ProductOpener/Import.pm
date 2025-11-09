@@ -2352,18 +2352,17 @@ sub import_csv_file ($args_ref) {
 			}
 		}
 
-		# Construct Yes and No regexps with English + local language
-		my $yes_regexp = '1|' . $yes{en};
-		if ((defined $imported_product_ref->{lc}) and ($imported_product_ref->{lc} ne 'en')) {
-			$yes_regexp .= '|' . $yes{$imported_product_ref->{lc}};
-		}
 
-		my $no_regexp = '0|' . $no{en};
-		if ((defined $imported_product_ref->{lc}) and ($imported_product_ref->{lc} ne 'en')) {
-			$no_regexp .= '|' . $no{$imported_product_ref->{lc}};
-		}
+	# Construct Yes and No regexps with English + local language
+	my $yes_regexp = '1|' . $yes{en};
+	if ((defined $imported_product_ref->{lc}) and ($imported_product_ref->{lc} ne 'en') and (defined $yes{$imported_product_ref->{lc}})) {
+		$yes_regexp .= '|' . $yes{$imported_product_ref->{lc}};
+	}
 
-		# Go through all the possible fields that can be imported
+	my $no_regexp = '0|' . $no{en};
+	if ((defined $imported_product_ref->{lc}) and ($imported_product_ref->{lc} ne 'en') and (defined $no{$imported_product_ref->{lc}})) {
+		$no_regexp .= '|' . $no{$imported_product_ref->{lc}};
+	}		# Go through all the possible fields that can be imported
 		foreach my $field (@param_fields) {
 
 			preprocess_field($imported_product_ref, $product_ref, $field, $yes_regexp, $no_regexp);
