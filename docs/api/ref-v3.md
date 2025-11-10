@@ -1,5 +1,5 @@
-# Reference OpenAPI documentation for v3
+# Reference OpenAPI documentation for API v3
 
-See api-v3.yaml for edition.
+See [api-v3.yaml](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/api/ref/api-v3.yaml) for edition.
 
-Do not write anything here, it is meant to be overwritten by html generated from api-v3.yaml
+The documentation is automatically generated from the api-v3.yaml file and available at [https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/)
