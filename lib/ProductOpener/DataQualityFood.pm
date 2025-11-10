@@ -1985,7 +1985,7 @@ sub is_european_product {
 	# https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 	# Now using the 'regional_entity:en: european-union' property in the countries taxonomy
 	my $eu_countries_ref = get_all_tags_having_property($product_ref, 'countries', 'regional_entity:en');
-	
+
 	foreach my $country (keys %{$eu_countries_ref}) {
 		# Handle comma-separated regional entities
 		my @regional_entities = split(/\s*,\s*/, $eu_countries_ref->{$country});
@@ -2864,8 +2864,8 @@ sub check_food_groups ($product_ref) {
 
 Checks if 2 incompatible tags are assigned to the product
 
-To include more tags to this check, 
-add the property "incompatible:en" 
+To include more tags to this check,
+add the property "incompatible:en"
 at the end of code block in the taxonomy
 
 Example:
