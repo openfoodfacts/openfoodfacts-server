@@ -80348,8 +80348,8 @@ en: Fish and Chips
 < en:Meals with fish
 fr: Poisson en sauce et riz
 
-< en:Frozen fishes
-< en:Meals with fish
+< en:Fishes and their products
+< en:Frozen seafood
 en: Frozen fish in sauce
 fr: Poisson en sauce surgelé
 hr: Smrznuta riba u umaku
@@ -80390,14 +80390,14 @@ ciqual_food_code:en: 25143
 ciqual_food_name:en: White fish with Parisian-style sauce (mushrooms sauce)
 ciqual_food_name:fr: Poisson blanc à la parisienne (sauce aux champignons)
 
-< en:Meals with cooked white fish
+< en:Fishes
 en: Cooked white fish without skin
 fr: Poisson blanc cuit, Poisson blanc cuit sans la peau
 ciqual_food_code:en: 26249
 ciqual_food_name:en: Fish, white, without skin, cooked
 ciqual_food_name:fr: Poisson blanc, cuit (aliment moyen)
 
-< en:Meals with cooked white fish
+< en:Fishes
 en: Cooked marine white fish without skin
 fr: Poisson blanc de mer cuit
 ciqual_food_code:en: 26250
@@ -90778,7 +90778,8 @@ hr: Sardine rillettes
 it: Rillettes di sardine
 
 < en:Fish rillettes
-en: Salmon Rillettes
+< en:Salmon preparations
+en: Salmon rillettes
 de: Lachs-Rillettes
 fr: Rillettes de saumon
 he: רייט סלמון
@@ -91924,7 +91925,7 @@ ciqual_food_code:en: 8305
 ciqual_food_name:en: Pork liver pâté
 
 < en:Pâté
-< en:Salmons
+< en:Salmon preparations
 en: Salmon Pâtés
 ca: Patés de salmó
 es: Patés de salmón
@@ -92026,10 +92027,12 @@ hr: Riblji namazi
 nl: Vispastas
 
 < en:Fish spreads
+< en:Salmon preparations
 en: Salmon spreads
 fr: Tartinables au saumon
 
 < en:Fish spreads
+< en:Tuna preparations
 en: Tuna spreads
 fr: Tartinables au thon, Préparations de thon à tartiner
 hr: Namazi od tune
@@ -92523,7 +92526,7 @@ fr: Saucissons secs halal
 fr: Saucissons secs cacher
 
 < en:Fish rillettes
-< en:Tunas
+< en:Tuna preparations
 en: Tuna rillettes
 de: Thunfisch-Rillettes
 es: Rillettes De atún
@@ -100772,6 +100775,10 @@ gpc_category_name:en: Fish - Unprepared/Unprocessed (Shelf Stable)
 en: Fish patties
 fr: Galettes au poisson
 
+< en:Fish patties
+< en:Salmon preparations
+en: Salmon patties
+
 < en:Frozen foods
 < en:Seafood
 en: Frozen seafood
@@ -100866,6 +100873,14 @@ it: Preparazioni a base di pesce
 nl: Visproducten
 pt: Preparados de peixe
 ro: Preparate din pește
+
+< en:Fish preparations
+en: Tuna preparations
+fr: Préparations de thon
+
+< en:Fish preparations
+en: Salmon preparations
+fr: Préparations de saumon
 
 < en:Fish preparations
 en: Fish (Freshly prepared)
