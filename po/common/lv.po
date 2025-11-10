@@ -141,7 +141,7 @@ msgstr "Reģistrēties"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Laipni lūgti!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -682,7 +682,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "Izsekojamības kodi"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -702,7 +702,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "izsekojamības kods"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -2073,7 +2073,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "Atiestatīt paroli"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2494,7 +2494,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "Veikali"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2571,7 +2571,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "Nezināms"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -3447,7 +3447,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Izcelsme"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -4322,7 +4322,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Pabeigts"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4425,7 +4425,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Nederīgs svītrkods"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4668,7 +4668,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Pārtikas pārstrādes līmenis nav zināms"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -5127,11 +5127,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Dažādi"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Dažādi"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5149,7 +5149,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "Forma"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5157,7 +5157,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Materiāls"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -6343,32 +6343,32 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Ļoti laba spēle"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "Laba spēle"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Slikta atbilstība"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "Nezināma atbilstība"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "Var neatbilst"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "Neatbilst"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6548,7 +6548,7 @@ msgstr "Ieiet"
 
 msgctxt "sign_out"
 msgid "Sign out"
-msgstr ""
+msgstr "Izrakstīties"
 
 msgctxt "your_contributions"
 msgid "Your contributions"
@@ -6741,7 +6741,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Vienību skaits"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6773,19 +6773,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Ievadiet vienādas formas un materiāla iepakojuma vienību skaitu, kas ietilpst produktā."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Ievadiet pārstrādes instrukcijās norādīto formas nosaukumu, ja tie ir pieejami, vai atlasiet formu."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Ievadiet konkrēto materiālu, ja to var noteikt (materiāla kodu trīsstūrī bieži var atrast uz iepakojuma detaļām), vai vispārīgu materiālu (piemēram, plastmasu vai metālu), ja neesat pārliecināts."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Ievadiet pārstrādes instrukcijas tikai tad, ja tās ir norādītas uz produkta."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6795,7 +6795,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Ievadiet neto svaru vai neto tilpumu un norādiet mērvienību (piemēram, g vai ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7415,17 +7415,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Produkta veids"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Ēdiens"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Mājdzīvnieku barība"
 
 # Beauty product type
 msgctxt "product_type_beauty"
