@@ -1191,14 +1191,13 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 				}
 			);
 
-			if ($imgid > $product_ref->{max_imgid}) {
+			if ((not defined $product_ref->{max_imgid}) or ($imgid > $product_ref->{max_imgid})) {
 				$product_ref->{max_imgid} = $imgid;
 			}
 			my $store_comment = "new image $imgid";
 			if ((defined $comment) and ($comment ne '')) {
 				$store_comment .= ' - ' . $comment;
 			}
-
 			$log->debug("storing product", {product_id => $product_id}) if $log->is_debug();
 			store_product($user_id, $product_ref, $store_comment);
 
