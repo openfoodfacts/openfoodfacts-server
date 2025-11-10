@@ -47,7 +47,7 @@ jobs:
     - uses: actions/checkout@v5
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v5
+    - uses: actions/setup-node@v6
       with:
         node-version: '22.x'
         cache: 'npm'
@@ -77,7 +77,7 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           # needs depth to run git log below
           fetch-depth: 50
@@ -115,7 +115,7 @@ jobs:
           echo registry_ref=ghcr.io/${{ github.repository }}/backend-buildx-cache:${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }} >> $GITHUB_OUTPUT
 
       - name: Build backend image with cache
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: ./Dockerfile
@@ -336,7 +336,7 @@ jobs:
       unit_test_groups: ${{ steps.matrix.outputs.unit_test_groups }}
       integration_test_groups: ${{ steps.matrix.outputs.integration_test_groups }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
     
@@ -426,7 +426,7 @@ jobs:
     # This reuses the cached Docker image instead of rebuilding it
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.0.0
+      uses: ishworkh/container-image-artifact-download@v2.1.0
       with:
         image: "openfoodfacts-server/backend:dev"       
     
@@ -465,30 +465,31 @@ jobs:
         else
           echo "🥫 No JUnit XML files found, skipping timing update"
         fi
-    # ... your existing matrix job ...
-    # matrix: test-group: ${{ ... }}
 
-    # TODO: Coverage reporting is disabled for now as it won't be effective after splitting tests.
-    # We should upload test coverage as artifacts and have a separate action that collects
-    # all coverage files and sends the coverage report. We can live without it for some time.
-    #
-    # - name: generate coverage results
-    #   # even if tests failed
-    #   if: always()
-    #   run: |
-    #     make coverage_txt
-    #     make codecov
-    # - uses: codecov/codecov-action@v5
-    #   if: always()
-    #   with:
-    #     files: cover_db/codecov.json
-    #     token: ${{ secrets.CODECOV_TOKEN }}
-    # - name: Upload test results to Codecov
-    #   if: ${{ !cancelled() }}
-    #   uses: codecov/test-results-action@v1
-    #   with:
-    #     token: ${{ secrets.CODECOV_TOKEN }}
-    #     files: ./tests/unit/outputs/junit_group_${{ matrix.test-group }}.xml
+    # Generate coverage results for this test group
+    # Codecov will automatically merge coverage from all parallel test groups
+    - name: Generate coverage results
+      if: always()
+      run: |
+        make coverage_txt
+        make codecov
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v5
+      if: always()
+      with:
+        files: cover_db/codecov.json
+        token: ${{ secrets.CODECOV_TOKEN }}
+        flags: unit-test-group-${{ matrix.test-group }}
+        name: unit-coverage-${{ matrix.test-group }}
+
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./tests/unit/outputs/junit_group_${{ matrix.test-group }}.xml
+        flags: unit-test-group-${{ matrix.test-group }}
 
   integration_tests:
     name: 🐪 Perl Integration Tests
@@ -500,7 +501,7 @@ jobs:
       matrix:
         test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.integration_test_groups) }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
     
@@ -538,7 +539,7 @@ jobs:
 
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.0.0
+      uses: ishworkh/container-image-artifact-download@v2.1.0
       with:
         image: "openfoodfacts-server/backend:dev"       
     
@@ -574,28 +575,31 @@ jobs:
         else
           echo "🥫 No JUnit XML files found, skipping timing update"
         fi
-    
-    # TODO: Coverage reporting is disabled for now as it won't be effective after splitting tests.
-    # We should upload test coverage as artifacts and have a separate action that collects
-    # all coverage files and sends the coverage report. We can live without it for some time.
-    #
-    # - name: generate coverage results
-    #   # even if tests failed
-    #   if: always()
-    #   run: |
-    #     make coverage_txt
-    #     make codecov
-    # - uses: codecov/codecov-action@v5
-    #   if: always()
-    #   with:
-    #     files: cover_db/codecov.json
-    #     token: ${{ secrets.CODECOV_TOKEN }}
-    # - name: Upload test results to Codecov
-    #   if: ${{ !cancelled() }}
-    #   uses: codecov/test-results-action@v1
-    #   with:
-    #     token: ${{ secrets.CODECOV_TOKEN }}
-    #     files: ./tests/integration/outputs/junit_group_${{ matrix.test-group }}.xml
+
+    # Generate coverage results for this test group
+    # Codecov will automatically merge coverage from all parallel test groups
+    - name: Generate coverage results
+      if: always()
+      run: |
+        make coverage_txt
+        make codecov
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v5
+      if: always()
+      with:
+        files: cover_db/codecov.json
+        token: ${{ secrets.CODECOV_TOKEN }}
+        flags: integration-test-group-${{ matrix.test-group }}
+        name: integration-coverage-${{ matrix.test-group }}
+
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./tests/integration/outputs/junit_group_${{ matrix.test-group }}.xml
+        flags: integration-test-group-${{ matrix.test-group }}
 
   tests_summary:
     # if all tests did run correctly acknowledge the branch protection rule
@@ -607,12 +611,12 @@ jobs:
     steps:
       - name: Check if unit and integration tests succeeded or fail
         run: |
-          if [ ${{ needs.unit_tests.result }} = "success" ] && [ ${{ needs.integration_tests.result }} = "success" ]
+          if [ ${{ needs.unit_tests.result }} = "failure" ] || [ ${{ needs.integration_tests.result }} = "failure" ]
           then
-            echo "All Perl unit and integration test groups finished."
-          else
             echo "Some tests did fail"
             exit 1
+          else
+            echo "All Perl unit and integration test groups finished."
           fi
 
   tests_dev:

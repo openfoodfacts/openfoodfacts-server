@@ -17,44 +17,44 @@
                   "title" : "Nutri-Score unknown"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-high.svg",
                   "id" : "low_salt",
-                  "missing" : "Missing nutrition facts",
+                  "match" : 0,
                   "name" : "Salt",
-                  "panel_id" : "nutrition_facts_table",
-                  "status" : "unknown",
-                  "title" : "Salt in unknown quantity"
+                  "panel_id" : "nutrient_level_salt",
+                  "status" : "known",
+                  "title" : "Salt in low quantity"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-high.svg",
                   "id" : "low_fat",
-                  "missing" : "Missing nutrition facts",
+                  "match" : 0,
                   "name" : "Fat",
-                  "panel_id" : "nutrition_facts_table",
-                  "status" : "unknown",
-                  "title" : "Fat in unknown quantity"
+                  "panel_id" : "nutrient_level_fat",
+                  "status" : "known",
+                  "title" : "Fat in moderate quantity"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id" : "low_sugars",
-                  "missing" : "Missing nutrition facts",
+                  "match" : 0,
                   "name" : "Sugars",
-                  "panel_id" : "nutrition_facts_table",
-                  "status" : "unknown",
-                  "title" : "Sugars in unknown quantity"
+                  "panel_id" : "nutrient_level_sugars",
+                  "status" : "known",
+                  "title" : "Sugars in moderate quantity"
                },
                {
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-high.svg",
                   "id" : "low_saturated_fat",
-                  "missing" : "Missing nutrition facts",
+                  "match" : 0,
                   "name" : "Saturated fat",
-                  "panel_id" : "nutrition_facts_table",
-                  "status" : "unknown",
-                  "title" : "Saturated fat in unknown quantity"
+                  "panel_id" : "nutrient_level_saturated_fat",
+                  "status" : "known",
+                  "title" : "Saturated fat in high quantity"
                }
             ],
             "id" : "nutritional_quality",

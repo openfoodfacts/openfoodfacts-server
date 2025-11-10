@@ -839,17 +839,11 @@
          "en:forest-footprint-a",
          "en:forest-footprint-computed",
          "en:nutriscore-missing-nutrition-data",
-         "en:nutriscore-missing-nutrition-data-energy",
-         "en:nutriscore-missing-nutrition-data-fat",
-         "en:nutriscore-missing-nutrition-data-proteins",
-         "en:nutriscore-missing-nutrition-data-saturated-fat",
          "en:nutriscore-missing-nutrition-data-sodium",
-         "en:nutriscore-missing-nutrition-data-sugars",
          "en:nutriscore-not-computed",
+         "en:nutrition-all-nutriscore-values-known",
          "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
          "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
-         "en:nutrition-no-fiber",
-         "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
          "en:nutrition-not-enough-data-to-compute-nutrition-score",
          "en:packagings-not-complete",
          "en:packagings-not-empty",
@@ -890,8 +884,18 @@
          "en:4-ultra-processed-food-and-drink-products"
       ],
       "nucleotides_tags" : [],
-      "nutrient_levels" : {},
-      "nutrient_levels_tags" : [],
+      "nutrient_levels" : {
+         "fat" : "moderate",
+         "salt" : "low",
+         "saturated-fat" : "high",
+         "sugars" : "moderate"
+      },
+      "nutrient_levels_tags" : [
+         "en:fat-in-moderate-quantity",
+         "en:saturated-fat-in-high-quantity",
+         "en:sugars-in-moderate-quantity",
+         "en:salt-in-low-quantity"
+      ],
       "nutriments" : {
          "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 58.3333333333333,
          "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 58.3333333333333,
@@ -1085,12 +1089,11 @@
          "unknown"
       ],
       "nutrition_score_beverage" : 0,
-      "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+      "nutrition_score_debug" : "missing sodium_100g",
       "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
       "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 58.3333333333333,
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 58.3333333333333,
-      "nutrition_score_warning_no_fiber" : 1,
       "origin" : "france",
       "origin_en" : "france",
       "other_nutritional_substances_tags" : [],

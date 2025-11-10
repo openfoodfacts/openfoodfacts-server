@@ -124,7 +124,7 @@ use URI::Escape::XS;
 
 use CGI qw/:cgi :form escapeHTML/;
 
-use Data::DeepAccess qw(deep_set deep_get);
+use Data::DeepAccess qw(deep_set deep_get deep_exists);
 use Storable qw/dclone/;
 
 use Log::Any qw($log);

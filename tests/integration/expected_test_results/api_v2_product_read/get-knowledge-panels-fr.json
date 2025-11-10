@@ -339,6 +339,26 @@
                "environment"
             ]
          },
+         "environmental_score_adjustments" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "environmental_score_origins_of_ingredients",
+                        "environmental_score_packaging",
+                        "environmental_score_production_system",
+                        "environmental_score_threatened_species"
+                     ]
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "topics" : [
+               "environment"
+            ]
+         },
          "environmental_score_agribalyse" : {
             "elements" : [
                {
@@ -1156,7 +1176,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Les données nutritionnelles du produit doivent être spécifiées afin de calculer le Nutri-Score.<p>Informations nutritionnelles manquantes : <b>Énergie, Matières grasses, Protéines, Acides gras saturés, Sodium, Sucres</b></p>\n                    ",
+                     "html" : "Les données nutritionnelles du produit doivent être spécifiées afin de calculer le Nutri-Score.<p>Informations nutritionnelles manquantes : <b>Sodium</b></p>\n                    ",
                      "type" : "warning"
                   }
                },

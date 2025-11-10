@@ -84,7 +84,7 @@ use ProductOpener::APIProductRead qw/read_product_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
 use ProductOpener::APIProductImagesUpload qw/upload_product_image_api delete_product_image_api/;
 use ProductOpener::APIProductRevert qw/revert_product_api/;
-use ProductOpener::APIProductServices qw/product_services_api/;
+use ProductOpener::APIProductServices qw/product_services_api external_sources_api/;
 use ProductOpener::APITagRead qw/read_tag_api/;
 use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
 use ProductOpener::APITaxonomy qw/taxonomy_canonicalize_tags_api taxonomy_display_tags_api/;
@@ -414,9 +414,9 @@ my $dispatch_table = {
 		OPTIONS => sub {return;},    # Just return CORS headers
 		DELETE => \&delete_product_image_api,
 	},
-	# Product revert
+	# Product revert
 	product_revert => {
-		# Check that the method is POST (GET may be dangerous: it would allow to revert a product by just clicking or loading a link)
+		# Check that the method is POST (GET may be dangerous: it would allow to revert a product by just clicking or loading a link)
 		POST => \&revert_product_api,
 	},
 	# Product services
@@ -461,6 +461,12 @@ my $dispatch_table = {
 	preferences => {
 		GET => \&preferences_api,
 		HEAD => \&preferences_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# External sources (translated)
+	external_sources => {
+		GET => \&external_sources_api,
+		HEAD => \&external_sources_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 	},
 
