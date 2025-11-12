@@ -20,7 +20,7 @@
 
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
-/*global lang admin initializeTagifyInput*/
+/*global lang admin initializeTagifyInput other_nutrients*/
 /*exported upload_image update_image update_nutrition_image_copy*/
 
 //Polyfill, just in case
