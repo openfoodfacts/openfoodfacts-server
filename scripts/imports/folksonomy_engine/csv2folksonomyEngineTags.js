@@ -634,7 +634,7 @@ export async function processUploads(products, authToken, dryRun = false, progre
         }
         
         // Add a small delay between requests
-        await sleep(500);
+        if (!dryRun) await sleep(500);
         
       } catch (error) {
         productSuccess = false;
