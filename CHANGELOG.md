@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.82.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.82.0...v2.82.1) (2025-11-12)
+
+
+### Bug Fixes
+
+* package write permission for build ([#12660](https://github.com/openfoodfacts/openfoodfacts-server/issues/12660)) ([014c46a](https://github.com/openfoodfacts/openfoodfacts-server/commit/014c46a2bcf14060677289357f28656e3981c598))
+
 ## [2.82.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.81.0...v2.82.0) (2025-11-12)
 
 
