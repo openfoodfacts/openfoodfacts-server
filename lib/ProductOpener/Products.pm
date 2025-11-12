@@ -141,6 +141,7 @@ use ProductOpener::HTTP qw/single_param create_user_agent/;
 use ProductOpener::Redis qw/push_product_update_to_redis/;
 use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Slack qw/send_slack_message/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -1170,7 +1171,11 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 		$log->info("changing product type",
 			{old_product_type => $product_ref->{old_product_type}, product_type => $product_ref->{product_type}})
 			if $log->is_info();
-		$delete_from_previous_products_collection = 1;
+		# We need to remove the product from its previous collection, unless we are on the pro platform
+		# where we have only one collection for all product types
+		if (not $server_options{private_products}) {
+			$delete_from_previous_products_collection = 1;
+		}
 		delete $product_ref->{old_product_type};
 	}
 
@@ -2283,9 +2288,10 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
 						foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
 							$current{selected_images}{$image_type . '_' . $image_lc}
-								= $product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} . ' '
-								. $product_ref->{images}{selected}{$image_type}{$image_lc}{rev} . ' '
-								. $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry};
+								= ($product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} // '') . ' '
+								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{rev} // '') . ' '
+								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry}
+									// '');
 						}
 					}
 				}
@@ -3322,40 +3328,7 @@ sub process_product_edit_rules ($product_ref) {
 										$emoji = ":pear:";
 									}
 
-									my $ua = create_user_agent();
-									my $server_endpoint
-										= "https://hooks.slack.com/services/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";
-
-									my $msg = $action_log;
-
-									# set custom HTTP request header fields
-									my $req = HTTP::Request->new(POST => $server_endpoint);
-									$req->header('content-type' => 'application/json');
-
-									# add POST data to HTTP request body
-									my $post_data
-										= '{"channel": "#'
-										. $channel
-										. '", "username": "editrules", "text": "'
-										. $msg
-										. '", "icon_emoji": "'
-										. $emoji . '" }';
-									$req->content_type("text/plain; charset='utf8'");
-									$req->content(Encode::encode_utf8($post_data));
-
-									my $resp = $ua->request($req);
-									if ($resp->is_success) {
-										my $message = $resp->decoded_content;
-										$log->info("Notification sent to Slack successfully", {response => $message})
-											if $log->is_info();
-									}
-									else {
-										$log->warn(
-											"Notification could not be sent to Slack",
-											{code => $resp->code, response => $resp->message}
-										) if $log->is_warn();
-									}
-
+									send_slack_message($channel, 'editrules', $action_log, $emoji);
 								}
 							}
 						}

@@ -83,6 +83,8 @@ my %product_type_features = (
 	},
 	product => {
 		user_preferences => 1,
+		health_card => 1,
+		food_recommendations => 1,
 	},
 );
 

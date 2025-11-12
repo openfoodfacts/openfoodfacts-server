@@ -56,6 +56,7 @@ if (defined $User_id) {
 	my $r = shift;
 	my $referer = $r->headers_in->{Referer};
 	my $url;
+	my $subdomain = $request_ref->{subdomain};
 
 	if ((defined $next_action) and ($code =~ /^(\d+)$/)) {
 		if ($next_action eq 'product_add') {

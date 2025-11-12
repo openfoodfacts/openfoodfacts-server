@@ -38,6 +38,7 @@ BEGIN {
 		&create_user
 		&edit_user
 		&create_user_in_keycloak
+		&create_test_users
 		&edit_product
 		&get_page
 		&html_displays_error
@@ -69,6 +70,7 @@ use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::Config qw/%oidc_options/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
 use ProductOpener::Tags qw/country_to_cc/;
+use ProductOpener::TestDefaults qw/:all/;
 
 use Test2::V0;
 use Data::Dumper;
@@ -320,6 +322,74 @@ sub create_user_in_keycloak ($user_ref) {
 	return 1;
 }
 
+=head2 create_test_users($admin=undef, $moderator=undef)
+
+Create some tests users.
+
+=head3 Arguments
+
+=head4 $admin
+
+Create an admin user
+
+=head4 $moderator
+
+Create a moderator user, implies creation of an admin
+
+=head3 Returns
+
+A hashmap associating user with their user agent:
+
+=over
+
+=item user: normal user
+
+=item admin: admin user
+
+=item moderator: moderator user
+
+=back
+
+=cut
+
+sub create_test_users($admin = undef, $moderator = undef) {
+
+	my %users = ();
+
+	# Create a normal user
+	my $ua = new_client();
+	my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+	my $resp = create_user($ua, \%create_user_args);
+	ok(!html_displays_error($resp));
+	$users{user} = $ua;
+
+	my $admin_ua;
+	if ($admin or $moderator) {
+		# Create an admin
+		$admin_ua = new_client();
+		$resp = create_user($admin_ua, \%admin_user_form);
+		ok(!html_displays_error($resp));
+		$users{admin} = $admin_ua;
+	}
+
+	if ($moderator) {
+		# Create a moderator
+		my $moderator_ua = new_client();
+		$resp = create_user($moderator_ua, \%moderator_user_form);
+		ok(!html_displays_error($resp));
+		# Admin gives moderator status
+		my %moderator_edit_form = (
+			%moderator_user_form,
+			user_group_moderator => "1",
+			type => "edit",
+		);
+		$resp = edit_user($admin_ua, \%moderator_edit_form);
+		ok(!html_displays_error($resp));
+		$users{moderator} = $moderator_ua;
+	}
+	return \%users;
+}
+
 =head2 get_page ($ua, $url)
 
 Get a page of the app
@@ -525,6 +595,26 @@ Note: this setting can be overriden for each test case by specifying a "ua" fiel
 
 =cut
 
+=head2 normalize_api_response_for_test_comparison($response_ref)
+
+Normalize an API response to be able to compare them across test runs.
+
+We replace volatile parts like line numbers in stack traces with --ignore-- 
+to prevent tests from breaking when code is refactored.
+
+=head3 Arguments
+
+=head4 $response_ref - Hash ref containing API response
+
+=cut
+
+sub normalize_api_response_for_test_comparison ($response_ref) {
+	my %specification = (fields_ignore_line_numbers_in_content => ["errors.*.field.error"],);
+
+	normalize_object_for_test_comparison($response_ref, \%specification);
+	return;
+}
+
 sub execute_request ($test_ref, $ua) {
 
 	# We may have a test case specific user agent
@@ -727,6 +817,9 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 
 			# normalize for comparison
 			if (ref($decoded_json) eq 'HASH') {
+				# Normalize API error responses to ignore volatile line numbers in stack traces
+				normalize_api_response_for_test_comparison($decoded_json);
+
 				if (defined $decoded_json->{'products'}) {
 					normalize_products_for_test_comparison($decoded_json->{'products'});
 					if (defined $test_ref->{sort_products_by}) {
@@ -735,6 +828,9 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 				}
 				if (defined $decoded_json->{'product'}) {
 					normalize_product_for_test_comparison($decoded_json->{'product'});
+				}
+				if (defined $decoded_json->{'blame'}) {
+					normalize_blame_for_test_comparison($decoded_json->{'blame'});
 				}
 			}
 
@@ -1031,8 +1127,8 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time = 60) {
 		while (my $job = $jobs->next) {
 			next if (defined $run_jobs{$job->{id}});
 			# only those who were created after the timestamp
-			# Reduce test time by one second to account for small clock differences
-			if ($job->{created} >= ($created_after_ts - 1)) {
+			# Reduce test time by two seconds to account for small clock differences
+			if ($job->{created} >= ($created_after_ts - 2)) {
 				# retrieving the job id
 				my $job_id = $job->{id};
 				# retrieving the job state

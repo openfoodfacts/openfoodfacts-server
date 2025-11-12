@@ -86,6 +86,7 @@ BEGIN {
 		%options
 		%server_options
 		%oidc_options
+		%slack_hook_urls
 
 		@product_fields
 		@product_other_fields
