@@ -569,8 +569,10 @@ $options{import_export_fields_groups} = [
 
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
-$options{attribute_groups}
-	= [["ingredients_analysis", ["vegan", "palm_oil_free", "unwanted_ingredients"]], ["labels", ["labels_organic", "labels_fair_trade"]],];
+$options{attribute_groups} = [
+	["ingredients_analysis", ["vegan", "palm_oil_free", "unwanted_ingredients"]],
+	["labels", ["labels_organic", "labels_fair_trade"]],
+];
 
 # default preferences for attributes
 $options{attribute_default_preferences} = {
