@@ -1633,6 +1633,7 @@ es: Bebidas alcohólicas premezcladas
 fr: Boissons alcoolisées pré-mélangées
 hr: Prethodno miješana alkoholna pića
 it: Bevande alcoliche pre-miscelate
+nl: Voorgemengde alcoholische dranken
 gpc_category_code:en: 10000144
 gpc_category_description:en: Definition: Includes any products that can be described/observed as an alcoholic beverage that is pre-mixed with another drink, usually a soft drink. Also includes soft or milk based drinks which have spirits added during the production process. Includes pre-mixed cocktails, such as Vodka Martini and mixed wine drinks such as Spritzers and Bucks Fizz. Definition Excludes: Excludes products such as Spirits, Beer Mixed Drinks, Non-alcoholic Mixers/Coolers, Liqueurs and Alcoholic Jellies.
 gpc_category_name:en: Alcoholic Pre-mixed Drinks
@@ -1729,6 +1730,55 @@ ciqual_food_name:fr: Sangria
 description:en: A punch, Sangria traditionally consists of red wine and chopped fruit, often with other ingredients or spirits.
 wikidata:en: Q273296
 wikipedia:en: https://en.wikipedia.org/wiki/Sangria
+
+< en:Wine-based alcoholic beverages
+en: Mulled wines, Mulled wine, Mulled red wines
+an: poncho
+ar: نبيذ ساخن
+be: глінтвейн
+ca: vi calent
+cs: svařené víno
+cv: глинтвейн
+cy: gwin brwd
+da: gløgg
+de: Glühwein
+eo: spicvino
+es: vino caliente
+et: hõõgvein
+eu: Ardo bero
+fa: شراب معطر
+fi: hehkuviini
+fr: vin chaud
+ga: scailtín fíona
+he: יין מתובל
+hr: kuhano vino
+hu: forralt bor
+hy: գլինտվեյն
+id: Glühwein
+it: vin brulé
+ja: グリューワイン
+jv: Ciu rempah
+ka: გლინტვეინი
+kk: глинтвейн
+ko: 글뤼바인
+li: Glühwein
+lv: karstvīns
+mk: варено вино
+nl: warme wijn
+no: Caud vin
+pl: grzane wino
+pt: vinho quente
+ro: vin fiert
+ru: глинтвейн
+sk: varené víno
+sl: kuhano vino
+sr: кувано вино
+th: ไวน์ร้อน
+tr: sıcak şarap
+uk: глінтвейн
+vi: vang nóng
+zh: 香料酒
+wikidata:en: Q6584
 
 < en:Alcoholic beverages
 en: Pastis
@@ -5917,6 +5967,7 @@ ciqual_food_name:fr: Cocktail type punch, 16% alcool
 < en:Alcoholic beverages
 en: Rum-based cocktail
 fr: Cocktail à base de rhum
+nl: Cocktails op basis van rum
 agribalyse_food_code:en: 1012
 ciqual_food_code:en: 1012
 ciqual_food_name:en: Rum-based cocktail
@@ -5924,8 +5975,25 @@ ciqual_food_name:fr: Cocktail à base de rhum
 #wikidata:en:
 
 < en:Rum-based cocktail
-fr: Daïquiri
-#wikidata:en:
+en: Daiquiri
+xx: Daiquiri
+ar: ديكري
+be: Дайкіры
+bg: Дайкири
+ca: Daikiri
+el: Ντάκιρι
+eo: Dajkirio
+fa: دایکیری
+fr: daïquiri, daiquiri
+he: דאקירי
+ja: ダイキリ
+ka: დაიკირი
+ko: 다이키리
+ml: ഡേയ്ക്കിരി
+ru: Дайкири
+uk: Дайкірі
+zh: 黛綺莉
+wikidata:en: Q917361
 
 < en:Eaux de vie
 en: Tuzemsky, Tuzemak, Tuzemsky rum
@@ -82646,8 +82714,7 @@ ciqual_food_code:en: 25909
 ciqual_food_name:en: Broth, stock or bouillon, meat and vegetables, dehydrated and reconstituted
 ciqual_food_name:fr: Bouillon de viande et légumes type pot-au-feu, prêt à consommer
 
-< en:Bouillon pots
-< en:Dehydrated broths
+< en:Beef broth
 en: Rehydrated broth stock, Rehydrated bouillon beef
 fr: Bouillon de boeuf déshydraté reconstitué
 agribalyse_food_code:en: 25930
@@ -82655,8 +82722,8 @@ ciqual_food_code:en: 25930
 ciqual_food_name:en: Broth, stock or bouillon, beef, dehydrated and reconstituted
 ciqual_food_name:fr: Bouillon de boeuf, déshydraté reconstitué
 
-< en:Bouillon pots
 < en:Dehydrated broths
+< en:Poultry broth
 en: Rehydrated broth stock with poultry, Rehydrated bouillon with poultry
 fr: Bouillon de volaille déshydraté reconstitué
 agribalyse_food_code:en: 25947
@@ -82664,16 +82731,16 @@ ciqual_food_code:en: 25947
 ciqual_food_name:en: Broth, stock or bouillon, poultry, dehydrated and reconstituted
 ciqual_food_name:fr: Bouillon de volaille, déshydraté reconstitué
 
-< en:Bouillon pots
 < en:Dried products to be rehydrated
+< en:Poultry broth
 en: Dehydrated poultry stock, Dehydrated poultry stock for sauce and cooking
 fr: Fond de volaille déshydraté, Fond de volaille déshydraté pour sauces et cuisson
 agribalyse_food_code:en: 11171
 ciqual_food_code:en: 11171
 ciqual_food_name:en: Poultry stock for sauce and cooking, dehydrated
 
-< en:Bouillon pots
 < en:Dried products to be rehydrated
+< en:Poultry broth
 en: Dehydrated poultry broth stock, Dehydrated poultry bouillon broth
 fr: Bouillon de volaille déshydraté
 agribalyse_food_code:en: 11174
@@ -82712,8 +82779,12 @@ fr: Bouillons de volaille
 hr: Juha od peradi
 it: Brodo di pollo, Brodo di pollame
 lt: Paukštienos sultiniai
-nl: Gevogeltebouillon
+nl: Gevogeltebouillons, Gevogeltebouillon
 wikidata:en: Q68187791
+
+< en:Poultry broth
+en: Chicken broths
+nl: Kippenbouillons
 
 < en:Broths
 en: Beef broth
@@ -108951,6 +109022,9 @@ sales_format:en: weight, package
 en: Canned white cabbage
 fr: Choux blancs en conserve, chou blanc en conserve
 
+< en:White cabbage
+nl: Spitskolen, Spitskool
+
 < en:Cabbages
 en: Green cabbage
 bg: Зелено зеле
@@ -117618,6 +117692,7 @@ nl: Vruchtenrepen
 
 < en:Sweet snacks
 en: Sweet pastries and pies
+nl: Zoet gebak en taarten
 
 < en:Sweet pastries and pies
 en: Fresh sweet pastries and pies
@@ -121455,6 +121530,7 @@ fr: Plats susceptibles de contenir de la viande de cheval - lots retirés de la 
 
 < en:Specific products
 en: Products for specific diets
+nl: Producten voor specifieke diëten
 
 < en:Products for specific diets
 en: Products with reduced salt
