@@ -146,6 +146,7 @@ sub init_translated_text_routes_for_all_languages () {
 			$texts_text_id_to_translated_route{$text_id}{$target_lc} = $translated_route;
 		}
 	}
+	return;
 }
 
 init_translated_text_routes_for_all_languages();
@@ -212,7 +213,7 @@ sub load_texts_from_lang_directory () {
 		$log->error("Texts could not be loaded.") if $log->is_error();
 		die("Texts could not be loaded from $BASE_DIRS{LANG} or $BASE_DIRS{LANG}-default");
 	}
-
+	return;
 }
 
 load_texts_from_lang_directory();
