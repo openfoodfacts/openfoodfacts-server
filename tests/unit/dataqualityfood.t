@@ -2173,21 +2173,15 @@ ok(has_tag($product_ref, 'data_quality', 'en:ingredients-language-mismatch-fr-co
 # Test is_european_product function
 
 # Test EU country (France should return 1)
-$product_ref = {
-	countries_tags => ["en:france"],
-};
+$product_ref = {countries_tags => ["en:france"],};
 is(is_european_product($product_ref), 1, 'France is an EU country');
 
 # Test non-EU country (USA should return 0)
-$product_ref = {
-	countries_tags => ["en:united-states"],
-};
+$product_ref = {countries_tags => ["en:united-states"],};
 is(is_european_product($product_ref), 0, 'USA is not an EU country');
 
 # Test another EU country (Germany should return 1)
-$product_ref = {
-	countries_tags => ["en:germany"],
-};
+$product_ref = {countries_tags => ["en:germany"],};
 is(is_european_product($product_ref), 1, 'Germany is an EU country');
 
 # Test product with no countries
@@ -2195,15 +2189,11 @@ $product_ref = {};
 is(is_european_product($product_ref), 0, 'Product with no countries returns 0');
 
 # Test product with multiple countries including EU
-$product_ref = {
-	countries_tags => ["en:united-states", "en:france"],
-};
+$product_ref = {countries_tags => ["en:united-states", "en:france"],};
 is(is_european_product($product_ref), 1, 'Product with mixed countries including EU country returns 1');
 
 # Test comma-separated regional entities (if any country has it)
-$product_ref = {
-	countries_tags => ["en:spain"],
-};
+$product_ref = {countries_tags => ["en:spain"],};
 is(is_european_product($product_ref), 1, 'Spain is an EU country');
 
 done_testing();
