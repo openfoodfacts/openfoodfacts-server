@@ -69,7 +69,7 @@ jobs:
     - name: Generate SBOM for ${{ matrix.image_name }} image
       uses: anchore/sbom-action@v0
       with:
-        image: ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:sha-${{ github.sha }}
+        image: ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:${{ github.sha }}
         format: cyclonedx-json
         output-file: ${{ matrix.image_name }}-sbom.cyclonedx.json
         upload-artifact: true
@@ -79,7 +79,7 @@ jobs:
     - name: Trivy scan for ${{ matrix.image_name }} image
       uses: aquasecurity/trivy-action@0.28.0
       with:
-        image-ref: ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:sha-${{ github.sha }}
+        image-ref: ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:${{ github.sha }}
         format: 'sarif'
         output: ${{ matrix.image_name }}-trivy.sarif
         vuln-type: 'os,library'
