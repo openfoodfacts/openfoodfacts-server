@@ -10025,7 +10025,6 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 				my $values;    # Value for row
 				my $col_class = $columns{$col_id}{class};
 				my $percent;
-				my $percent_numeric_value;
 
 				my $rdfa = '';    # RDFA property for row
 
