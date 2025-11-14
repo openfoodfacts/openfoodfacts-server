@@ -1474,7 +1474,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			is_cheese => is_cheese_for_nutrition_score($product_ref),
 			is_fat => $is_fat,
 
-			energy => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "energy-kj", "value"),
+			energy => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "energy", "value"),
 			sugars => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "sugars", "value"),
 			saturated_fat =>
 				deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "saturated-fat", "value"),
@@ -1516,7 +1516,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			is_fat_oil_nuts_seeds => $is_fat_oil_nuts_seeds,
 			is_red_meat_product => is_red_meat_product_for_nutrition_score($product_ref),
 
-			energy => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "energy-kj", "value"),
+			energy => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "energy", "value"),
 			sugars => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "sugars", "value"),
 			saturated_fat =>
 				deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "saturated-fat", "value"),

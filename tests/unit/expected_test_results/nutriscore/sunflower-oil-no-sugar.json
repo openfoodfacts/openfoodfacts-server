@@ -50,8 +50,8 @@
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutriscore-2021-different-from-2023",
-      "en:nutriscore-2021-better-than-2023",
-      "en:nutriscore-2021-b-2023-c"
+      "en:nutriscore-2021-worse-than-2023",
+      "en:nutriscore-2021-d-2023-c"
    ],
    "nova_group" : 2,
    "nova_group_debug" : "",
@@ -86,9 +86,9 @@
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : null,
-            "energy_points" : 0,
-            "energy_value" : 0,
+            "energy" : 3378,
+            "energy_points" : 10,
+            "energy_value" : 3378,
             "fat" : 100,
             "fiber" : 0,
             "fiber_points" : 0,
@@ -100,7 +100,7 @@
             "is_cheese" : 0,
             "is_fat" : 1,
             "is_water" : 0,
-            "negative_points" : 1,
+            "negative_points" : 11,
             "positive_points" : 0,
             "proteins" : 0,
             "proteins_points" : 0,
@@ -116,11 +116,11 @@
             "sugars_points" : 0,
             "sugars_value" : 0
          },
-         "grade" : "b",
+         "grade" : "d",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : 1
+         "score" : 11
       },
       "2023" : {
          "category_available" : 1,
@@ -208,7 +208,7 @@
       }
    },
    "nutriscore_2021_tags" : [
-      "b"
+      "d"
    ],
    "nutriscore_2023_tags" : [
       "c"
