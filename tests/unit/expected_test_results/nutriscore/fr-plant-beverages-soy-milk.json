@@ -218,16 +218,16 @@
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : 0,
+            "fiber" : 0.5,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 8,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "proteins" : null,
-            "saturated_fat" : null,
+            "proteins" : 3.9,
+            "saturated_fat" : 0.6,
             "sodium" : null,
-            "sugars" : null
+            "sugars" : 0.5
          },
          "grade" : "unknown",
          "nutrients_available" : 0,
@@ -238,7 +238,7 @@
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : null,
+            "fiber" : 0.5,
             "fruits_vegetables_legumes" : 8,
             "is_beverage" : 1,
             "is_cheese" : 0,
@@ -246,10 +246,10 @@
             "is_red_meat_product" : 0,
             "is_water" : 0,
             "non_nutritive_sweeteners" : 0,
-            "proteins" : null,
-            "salt" : null,
-            "saturated_fat" : null,
-            "sugars" : null
+            "proteins" : 3.9,
+            "salt" : 0.03,
+            "saturated_fat" : 0.6,
+            "sugars" : 0.5
          },
          "grade" : "unknown",
          "nutrients_available" : 0,

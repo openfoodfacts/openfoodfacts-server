@@ -147,8 +147,8 @@
       "nova-group" : 3,
       "nova-group_100g" : 3,
       "nova-group_serving" : 3,
-      "nutrition-score-fr" : -2,
-      "nutrition-score-fr_100g" : -2
+      "nutrition-score-fr" : -6,
+      "nutrition-score-fr_100g" : -6
    },
    "nutriscore" : {
       "2021" : {
@@ -157,9 +157,9 @@
             "energy" : null,
             "energy_points" : 0,
             "energy_value" : 0,
-            "fiber" : 0,
-            "fiber_points" : 0,
-            "fiber_value" : 0,
+            "fiber" : 10.9,
+            "fiber_points" : 5,
+            "fiber_value" : 10.9,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 69,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 2,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 69,
@@ -167,26 +167,26 @@
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "negative_points" : 0,
-            "positive_points" : 2,
-            "proteins" : null,
-            "proteins_points" : 0,
-            "proteins_value" : 0,
-            "saturated_fat" : null,
-            "saturated_fat_points" : 0,
-            "saturated_fat_value" : 0,
-            "sodium" : null,
-            "sodium_points" : 0,
-            "sodium_value" : 0,
-            "sugars" : null,
+            "negative_points" : 5,
+            "positive_points" : 8,
+            "proteins" : 2.4,
+            "proteins_points" : 1,
+            "proteins_value" : 2.4,
+            "saturated_fat" : 1.2,
+            "saturated_fat_points" : 1,
+            "saturated_fat_value" : 1.2,
+            "sodium" : 400,
+            "sodium_points" : 4,
+            "sodium_value" : 400,
+            "sugars" : 1.1,
             "sugars_points" : 0,
-            "sugars_value" : 0
+            "sugars_value" : 1.1
          },
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -2
+         "score" : -3
       },
       "2023" : {
          "category_available" : 1,
@@ -205,14 +205,17 @@
                      "points" : 0,
                      "points_max" : 15,
                      "unit" : "g",
-                     "value" : null
+                     "value" : 1.1
                   },
                   {
                      "id" : "saturated_fat",
-                     "points" : 0,
+                     "new_grade" : "a",
+                     "new_score" : -7,
+                     "new_value" : 1,
+                     "points" : 1,
                      "points_max" : 10,
                      "unit" : "g",
-                     "value" : null
+                     "value" : 1.2
                   },
                   {
                      "id" : "salt",
@@ -225,22 +228,25 @@
                "positive" : [
                   {
                      "id" : "proteins",
+                     "new_grade" : "a",
+                     "new_score" : -8,
+                     "new_value" : 4.9,
                      "points" : 0,
                      "points_max" : 7,
                      "unit" : "g",
-                     "value" : null
+                     "value" : 2.4
                   },
                   {
                      "id" : "fiber",
-                     "points" : 0,
+                     "points" : 5,
                      "points_max" : 5,
                      "unit" : "g",
-                     "value" : null
+                     "value" : 10.9
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
                      "new_grade" : "a",
-                     "new_score" : -5,
+                     "new_score" : -9,
                      "new_value" : 81,
                      "points" : 2,
                      "points_max" : 5,
@@ -256,21 +262,21 @@
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "negative_points" : 0,
+            "negative_points" : 1,
             "negative_points_max" : 55,
             "positive_nutrients" : [
                "proteins",
                "fiber",
                "fruits_vegetables_legumes"
             ],
-            "positive_points" : 2,
+            "positive_points" : 7,
             "positive_points_max" : 17
          },
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -2
+         "score" : -6
       }
    },
    "nutriscore_2021_tags" : [
@@ -294,14 +300,14 @@
                "points" : 0,
                "points_max" : 15,
                "unit" : "g",
-               "value" : null
+               "value" : 1.1
             },
             {
                "id" : "saturated_fat",
-               "points" : 0,
+               "points" : 1,
                "points_max" : 10,
                "unit" : "g",
-               "value" : null
+               "value" : 1.2
             },
             {
                "id" : "salt",
@@ -317,14 +323,14 @@
                "points" : 0,
                "points_max" : 7,
                "unit" : "g",
-               "value" : null
+               "value" : 2.4
             },
             {
                "id" : "fiber",
-               "points" : 0,
+               "points" : 5,
                "points_max" : 5,
                "unit" : "g",
-               "value" : null
+               "value" : 10.9
             },
             {
                "id" : "fruits_vegetables_legumes",
@@ -343,20 +349,20 @@
       "is_fat_oil_nuts_seeds" : 0,
       "is_red_meat_product" : 0,
       "is_water" : 0,
-      "negative_points" : 0,
+      "negative_points" : 1,
       "negative_points_max" : 55,
       "positive_nutrients" : [
          "proteins",
          "fiber",
          "fruits_vegetables_legumes"
       ],
-      "positive_points" : 2,
+      "positive_points" : 7,
       "positive_points_max" : 17,
-      "score" : -2
+      "score" : -6
    },
    "nutriscore_grade" : "a",
-   "nutriscore_score" : -2,
-   "nutriscore_score_opposite" : 2,
+   "nutriscore_score" : -6,
+   "nutriscore_score_opposite" : 6,
    "nutriscore_tags" : [
       "a"
    ],

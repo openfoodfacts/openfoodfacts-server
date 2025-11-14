@@ -244,10 +244,10 @@
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "proteins" : null,
+            "proteins" : 0.5,
             "saturated_fat" : null,
-            "sodium" : null,
-            "sugars" : null
+            "sodium" : 200,
+            "sugars" : 12
          },
          "grade" : "unknown",
          "nutrients_available" : 0,
@@ -258,7 +258,7 @@
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : null,
+            "fiber" : 0,
             "fruits_vegetables_legumes" : 57,
             "is_beverage" : 1,
             "is_cheese" : 0,
@@ -266,10 +266,10 @@
             "is_red_meat_product" : 0,
             "is_water" : 0,
             "non_nutritive_sweeteners" : 0,
-            "proteins" : null,
+            "proteins" : 0.5,
             "salt" : null,
             "saturated_fat" : null,
-            "sugars" : null
+            "sugars" : 12
          },
          "grade" : "unknown",
          "nutrients_available" : 0,

@@ -372,9 +372,9 @@
             "energy" : null,
             "energy_points" : 0,
             "energy_value" : 0,
-            "fiber" : 0,
-            "fiber_points" : 0,
-            "fiber_value" : 0,
+            "fiber" : 1.1,
+            "fiber_points" : 1,
+            "fiber_value" : 1.1,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 96.0997159090909,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 96.1,
@@ -382,26 +382,26 @@
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "negative_points" : 0,
-            "positive_points" : 5,
-            "proteins" : null,
+            "negative_points" : 2,
+            "positive_points" : 6,
+            "proteins" : 0.9,
             "proteins_points" : 0,
-            "proteins_value" : 0,
-            "saturated_fat" : null,
+            "proteins_value" : 0.9,
+            "saturated_fat" : 0.2,
             "saturated_fat_points" : 0,
-            "saturated_fat_value" : 0,
-            "sodium" : null,
-            "sodium_points" : 0,
-            "sodium_value" : 0,
-            "sugars" : null,
+            "saturated_fat_value" : 0.2,
+            "sodium" : 200,
+            "sodium_points" : 2,
+            "sodium_value" : 200,
+            "sugars" : 3,
             "sugars_points" : 0,
-            "sugars_value" : 0
+            "sugars_value" : 3
          },
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -5
+         "score" : -4
       },
       "2023" : {
          "category_available" : 1,
@@ -420,14 +420,14 @@
                      "points" : 0,
                      "points_max" : 15,
                      "unit" : "g",
-                     "value" : null
+                     "value" : 3
                   },
                   {
                      "id" : "saturated_fat",
                      "points" : 0,
                      "points_max" : 10,
                      "unit" : "g",
-                     "value" : null
+                     "value" : 0.2
                   },
                   {
                      "id" : "salt",
@@ -440,17 +440,23 @@
                "positive" : [
                   {
                      "id" : "proteins",
+                     "new_grade" : "a",
+                     "new_score" : -6,
+                     "new_value" : 2.5,
                      "points" : 0,
                      "points_max" : 7,
                      "unit" : "g",
-                     "value" : null
+                     "value" : 0.9
                   },
                   {
                      "id" : "fiber",
+                     "new_grade" : "a",
+                     "new_score" : -6,
+                     "new_value" : 3.1,
                      "points" : 0,
                      "points_max" : 5,
                      "unit" : "g",
-                     "value" : null
+                     "value" : 1.1
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
@@ -506,14 +512,14 @@
                "points" : 0,
                "points_max" : 15,
                "unit" : "g",
-               "value" : null
+               "value" : 3
             },
             {
                "id" : "saturated_fat",
                "points" : 0,
                "points_max" : 10,
                "unit" : "g",
-               "value" : null
+               "value" : 0.2
             },
             {
                "id" : "salt",
@@ -529,14 +535,14 @@
                "points" : 0,
                "points_max" : 7,
                "unit" : "g",
-               "value" : null
+               "value" : 0.9
             },
             {
                "id" : "fiber",
                "points" : 0,
                "points_max" : 5,
                "unit" : "g",
-               "value" : null
+               "value" : 1.1
             },
             {
                "id" : "fruits_vegetables_legumes",
