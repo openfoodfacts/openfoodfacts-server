@@ -1523,7 +1523,7 @@ compare_to_expected_results(
 	is($modifier, "~", "≈ input modifier normalized to ~");
 }
 
-# Test input modifier normalization for - 
+# Test input modifier normalization for -
 {
 	my $value = "70";
 	my $modifier = "-";
@@ -1564,94 +1564,123 @@ compare_to_expected_results(
 # Test basic assignment
 {
 	my $input_sets_hash_ref = {};
-	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", "<", "2.5", "g");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "modifier"), "<", "modifier is set correctly");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"), "2.5", "value_string is set correctly");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value"), 2.5, "value is set correctly");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "unit"), "g", "unit is set correctly");
+	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", "<",
+		"2.5", "g");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "modifier"),
+		"<", "modifier is set correctly");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"),
+		"2.5", "value_string is set correctly");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value"),
+		2.5, "value is set correctly");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "unit"),
+		"g", "unit is set correctly");
 }
 
 # Test with modifier normalization
 {
 	my $input_sets_hash_ref = {};
-	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", "max", "2.5", "g");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "modifier"), "\N{U+2264}", "max modifier is normalized to <=");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"), "2.5", "value_string is set correctly");
+	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium",
+		"max", "2.5", "g");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "modifier"),
+		"\N{U+2264}", "max modifier is normalized to <=");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"),
+		"2.5", "value_string is set correctly");
 }
 
 # Test with value normalization
 {
 	my $input_sets_hash_ref = {};
-	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", undef, "max 2.5", "g");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "modifier"), "\N{U+2264}", "max in value string is extracted as modifier");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"), "2.5", "value is extracted correctly");
+	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium",
+		undef, "max 2.5", "g");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "modifier"),
+		"\N{U+2264}", "max in value string is extracted as modifier");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"),
+		"2.5", "value is extracted correctly");
 }
 
 # Test default unit assignment
 {
 	my $input_sets_hash_ref = {};
-	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", undef, "2.5", undef);
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "unit"), "g", "default unit for sodium is g");
+	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium",
+		undef, "2.5", undef);
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "unit"),
+		"g", "default unit for sodium is g");
 }
 
 # Test unit validation - valid unit
 {
 	my $input_sets_hash_ref = {};
-	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", undef, "2.5", "mg");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "unit"), "mg", "valid unit mg is accepted");
+	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium",
+		undef, "2.5", "mg");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "unit"),
+		"mg", "valid unit mg is accepted");
 }
 
 # Test value cleaning and conversion
 {
 	my $input_sets_hash_ref = {};
-	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", undef, "  2,5  ", "g");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"), "2.5", "comma is converted to dot");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value"), 2.5, "value is converted correctly");
+	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium",
+		undef, "  2,5  ", "g");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"),
+		"2.5", "comma is converted to dot");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value"),
+		2.5, "value is converted correctly");
 }
 
 # Test rounding of insignificant digits
 {
 	my $input_sets_hash_ref = {};
-	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", undef, "5.00000001", "g");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"), "5", "5.00000001 is rounded to 5");
+	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium",
+		undef, "5.00000001", "g");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"),
+		"5", "5.00000001 is rounded to 5");
 	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value"), 5, "value is 5");
 }
 
 {
 	my $input_sets_hash_ref = {};
-	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", undef, "4.999997", "g");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"), "5", "4.999997 is rounded to 5");
+	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium",
+		undef, "4.999997", "g");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"),
+		"5", "4.999997 is rounded to 5");
 	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value"), 5, "value is 5");
 }
 
 {
 	my $input_sets_hash_ref = {};
-	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", undef, "2.0001", "g");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"), "2", "2.0001 is rounded to 2");
+	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium",
+		undef, "2.0001", "g");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"),
+		"2", "2.0001 is rounded to 2");
 	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value"), 2, "value is 2");
 }
 
 {
 	my $input_sets_hash_ref = {};
-	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", undef, "0.0001", "g");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"), "0.0001", "0.0001 keeps its precision");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value"), 0.0001, "value is 0.0001");
+	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium",
+		undef, "0.0001", "g");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value_string"),
+		"0.0001", "0.0001 keeps its precision");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "value"),
+		0.0001, "value is 0.0001");
 }
 
 # Test modifier cleanup
 {
 	my $input_sets_hash_ref = {};
-	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", "", "2.5", "g");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "modifier"), undef, "empty modifier becomes undef");
+	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", "",
+		"2.5", "g");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "modifier"),
+		undef, "empty modifier becomes undef");
 }
 
 # Test undefined modifier
 {
 	my $input_sets_hash_ref = {};
-	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium", undef, "2.5", "g");
-	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "modifier"), undef, "undefined modifier stays undef");
+	assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, "packaging", "as_sold", "100g", "sodium",
+		undef, "2.5", "g");
+	is(deep_get($input_sets_hash_ref, "packaging", "as_sold", "100g", "nutrients", "sodium", "modifier"),
+		undef, "undefined modifier stays undef");
 }
-
-
 
 done_testing();

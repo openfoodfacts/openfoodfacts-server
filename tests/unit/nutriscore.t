@@ -3145,7 +3145,7 @@ my $json = JSON->new->allow_nonref->canonical;
 foreach my $test_ref (@tests) {
 
 	my $testid = $test_ref->[0];
-	my $product_ref = $test_ref->[1];	
+	my $product_ref = $test_ref->[1];
 
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 

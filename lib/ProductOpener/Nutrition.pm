@@ -867,22 +867,22 @@ sub normalize_nutrient_value_string_and_modifier ($value_ref, $modifier_ref) {
 		# remove extra spaces
 		${$modifier_ref} =~ s/^\s+//;
 		${$modifier_ref} =~ s/\s+$//;
-		if ( ${$modifier_ref} =~ /^($maximum_regexp)$/ ) {
+		if (${$modifier_ref} =~ /^($maximum_regexp)$/) {
 			${$modifier_ref} = "\N{U+2264}";
 		}
-		elsif ( ${$modifier_ref} =~ /^($inferior_regexp)$/ ) {
+		elsif (${$modifier_ref} =~ /^($inferior_regexp)$/) {
 			${$modifier_ref} = '<';
 		}
-		elsif ( ${$modifier_ref} =~ /^($minimum_regexp)$/ ) {
+		elsif (${$modifier_ref} =~ /^($minimum_regexp)$/) {
 			${$modifier_ref} = "\N{U+2265}";
 		}
-		elsif ( ${$modifier_ref} =~ /^($superior_regexp)$/ ) {
+		elsif (${$modifier_ref} =~ /^($superior_regexp)$/) {
 			${$modifier_ref} = '>';
 		}
-		elsif ( ${$modifier_ref} =~ /^($approximately_regexp)$/ ) {
+		elsif (${$modifier_ref} =~ /^($approximately_regexp)$/) {
 			${$modifier_ref} = '~';
 		}
-		elsif ( ${$modifier_ref} =~ /^-$/ ) {
+		elsif (${$modifier_ref} =~ /^-$/) {
 			${$modifier_ref} = '-';
 		}
 		else {
@@ -904,11 +904,8 @@ sub normalize_nutrient_value_string_and_modifier ($value_ref, $modifier_ref) {
 		${$value_ref} =~ s/($maximum_regexp)( )?//;
 		${$modifier_ref} = "\N{U+2264}";
 	}
-	elsif (
-		${$value_ref} =~ /($inferior_regexp)( )?/i)
-	{
-		${$value_ref}
-			=~ s/($inferior_regexp)( )?//i;
+	elsif (${$value_ref} =~ /($inferior_regexp)( )?/i) {
+		${$value_ref} =~ s/($inferior_regexp)( )?//i;
 		${$modifier_ref} = '<';
 	}
 	elsif (${$value_ref} =~ /($minimum_regexp)/) {
