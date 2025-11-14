@@ -50,6 +50,7 @@ BEGIN {
 		&get_pers_for_product_type
 		&get_default_per_for_product
 		&get_unit_options_for_nutrient
+		&normalize_nutrient_value_string_and_modifier
 		&assign_nutrient_modifier_value_string_and_unit
 		&assign_nutrition_values_from_old_request_parameters
 		&assign_nutrition_values_from_request_parameters
@@ -155,6 +156,9 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 		# remove sets with quantities that are impossible to transform to 100g
 		# ie sets with unknow per quantity
 		@input_sets = grep {defined $_->{set}{per_quantity} && $_->{set}{per_quantity} ne ""} @input_sets;
+
+		# Remove sets that have a per quantity that is less than 5g or 5ml, so that we don't extrapolate very small quantities to 100g
+		@input_sets = grep {unit_to_g($_->{set}{per_quantity}, $_->{set}{per_unit}) >= 5} @input_sets;
 
 		if (defined $input_sets[0] and %{$input_sets[0]} and %{$input_sets[0]{set}}) {
 			# set preparation and per of aggregated set as values of the nutrient_set with the highest priority
@@ -811,6 +815,133 @@ sub get_unit_options_for_nutrient ($nid) {
 	return \@units_options;
 }
 
+=head2 normalize_nutrient_value_string_and_modifier ( $value_ref, $modifier_ref )
+
+Each nutrient value is entered as a string (by users on the product edit form,
+or through the API). The string value may not always be numeric (e.g. it can include a < sign).
+
+This function normalizes the string value to remove signs, and stores extra information in the "modifier" field.
+
+Modifiers may also be inputted directly (e.g. through the API), and are normalized as well.
+
+=head3 Arguments
+
+=head4 string value reference $value_ref
+
+Input and output string value reference. The value will be normalized.
+
+=head4 modifier reference $modifier_ref
+
+Input and output modifier reference. The value will be normalized if it is defined.
+
+=head3 Possible return values
+
+=head4 value
+
+- 0 if the input value indicates traces
+- Number (as a string)
+- undef for 'NaN' (not a number, sometimes sent by broken API clients)
+
+=head4 modifier
+
+<, >, ≤, ≥, ~ character sign, for lesser, greater, lesser or equal, greater or equal, and about
+- (minus sign) character when the input value is - (or other dashes) : indicates that the value is not present on the package
+
+=cut
+
+# Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
+my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
+
+sub normalize_nutrient_value_string_and_modifier ($value_ref, $modifier_ref) {
+
+	# Note: in regexps below, the first matching alternative is used, so the longest strings must be first
+	# e.g. maximum before max
+	my $inferior_regexp = "<|&lt;|inférieur|inferieur|inferior|inf|less than|less|menor|menos";
+	my $superior_regexp = ">|&gt;|greater|more than|more|superior|mayor|más";
+	my $approximately_regexp = "~|≈|about|environ|env|aprox|alrededor";
+	my $maximum_regexp = "<=|&lt;=|\N{U+2264}|maximum|maxi|max";
+	my $minimum_regexp = ">=|&gt;=|\N{U+2265}|minimum|mini|min";
+
+	# Normalize the modifier if defined
+	if (defined ${$modifier_ref}) {
+		# remove extra spaces
+		${$modifier_ref} =~ s/^\s+//;
+		${$modifier_ref} =~ s/\s+$//;
+		if ( ${$modifier_ref} =~ /^($maximum_regexp)$/ ) {
+			${$modifier_ref} = "\N{U+2264}";
+		}
+		elsif ( ${$modifier_ref} =~ /^($inferior_regexp)$/ ) {
+			${$modifier_ref} = '<';
+		}
+		elsif ( ${$modifier_ref} =~ /^($minimum_regexp)$/ ) {
+			${$modifier_ref} = "\N{U+2265}";
+		}
+		elsif ( ${$modifier_ref} =~ /^($superior_regexp)$/ ) {
+			${$modifier_ref} = '>';
+		}
+		elsif ( ${$modifier_ref} =~ /^($approximately_regexp)$/ ) {
+			${$modifier_ref} = '~';
+		}
+		elsif ( ${$modifier_ref} =~ /^-$/ ) {
+			${$modifier_ref} = '-';
+		}
+		else {
+			# unknown modifier
+			${$modifier_ref} = undef;
+		}
+	}
+
+	# Normalize the value string
+
+	return if not defined ${$value_ref};
+
+	# empty or null value
+	if ((${$value_ref} =~ /^\s*$/) or (lc(${$value_ref}) =~ /nan/)) {
+		${$value_ref} = undef;
+	}
+	# < , >, etc. signs
+	elsif (${$value_ref} =~ /($maximum_regexp)( )?/) {
+		${$value_ref} =~ s/($maximum_regexp)( )?//;
+		${$modifier_ref} = "\N{U+2264}";
+	}
+	elsif (
+		${$value_ref} =~ /($inferior_regexp)( )?/i)
+	{
+		${$value_ref}
+			=~ s/($inferior_regexp)( )?//i;
+		${$modifier_ref} = '<';
+	}
+	elsif (${$value_ref} =~ /($minimum_regexp)/) {
+		${$value_ref} =~ s/($minimum_regexp)( )?//;
+		${$modifier_ref} = "\N{U+2265}";
+	}
+	elsif (${$value_ref} =~ /($superior_regexp)/i) {
+		${$value_ref} =~ s/($superior_regexp)( )?//i;
+		${$modifier_ref} = '>';
+	}
+	elsif (${$value_ref} =~ /($approximately_regexp)/i) {
+		${$value_ref} =~ s/($approximately_regexp)( )?//i;
+		${$modifier_ref} = '~';
+	}
+	elsif (${$value_ref} =~ /\b(trace|traces|traza|trazas)\b/i) {
+		${$value_ref} = 0;
+		${$modifier_ref} = '~';
+	}
+	# - indicates that there is no value specified on the package
+	elsif (${$value_ref} =~ /^\s*$dashes\s*$/) {
+		${$value_ref} = undef;
+		${$modifier_ref} = '-';
+	}
+
+	# Remove extra spaces
+	if (defined ${$value_ref}) {
+		${$value_ref} =~ s/^\s+//;
+		${$value_ref} =~ s/\s+$//;
+	}
+
+	return;
+}
+
 =head2 assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $source, $preparation, $per, $nid, $modifier, $value_string, $unit)
 
 Assign a value with a unit and an optional modifier (< or ~) to a nutrient in the nutriments structure.
@@ -860,6 +991,8 @@ sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $sourc
 			if $log->is_error();
 		return;
 	}
+
+	normalize_nutrient_value_string_and_modifier(\$value_string, \$modifier);
 
 	# We can have a modifier with value '-' to indicate that we have no value
 	# It will be recorded in the unspecified_nutrients array by the remove_empty_nutrient_values_and_set_unspecified_nutrients() function
@@ -1081,7 +1214,7 @@ sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_
 
 				# Set the nutrient values
 				my $modifier;
-				normalize_nutriment_value_and_modifier(\$value_string, \$modifier);
+				normalize_nutrient_value_string_and_modifier(\$value_string, \$modifier);
 				assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation, $per,
 					$nid, $modifier, $value_string, $unit);
 			}
@@ -1166,7 +1299,6 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 				if (defined $value_string) {
 					my $unit = request_param($request_ref, "${input_set_nutrient_id}_unit");
 					my $modifier = request_param($request_ref, "${input_set_nutrient_id}_modifier");
-					normalize_nutriment_value_and_modifier(\$value_string, \$modifier);
 					assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation, $per,
 						$nid, $modifier, $value_string, $unit);
 				}
@@ -1275,7 +1407,6 @@ sub assign_nutrition_values_from_imported_csv_product ($imported_csv_product_ref
 
 						my $unit = $imported_csv_product_ref->{"${input_set_nutrient_id}.unit"};
 						my $modifier = $imported_csv_product_ref->{"${input_set_nutrient_id}.modifier"};
-						normalize_nutriment_value_and_modifier(\$value_string, \$modifier);
 						assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
 							$per, $nid, $modifier, $value_string, $unit);
 					}
@@ -1430,8 +1561,6 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 						if $log->is_debug();
 					$value = undef;
 				}
-
-				(defined $value) and normalize_nutriment_value_and_modifier(\$value, \$modifier);
 
 				if ((defined $value) and ($value ne '')) {
 
@@ -1711,7 +1840,6 @@ sub assign_nutrition_values_from_request_object ($request_ref, $product_ref) {
 								);
 								next;
 							}
-							normalize_nutriment_value_and_modifier(\$value_string, \$modifier);
 							assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
 								$per, $nid, $modifier, $value_string, $unit);
 
