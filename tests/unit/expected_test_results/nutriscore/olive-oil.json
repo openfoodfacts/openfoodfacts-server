@@ -83,8 +83,8 @@
       "nova-group" : 2,
       "nova-group_100g" : 2,
       "nova-group_serving" : 2,
-      "nutrition-score-fr" : -1,
-      "nutrition-score-fr_100g" : -1
+      "nutrition-score-fr" : 0,
+      "nutrition-score-fr_100g" : 0
    },
    "nutriscore" : {
       "2021" : {
@@ -104,15 +104,15 @@
             "is_cheese" : 0,
             "is_fat" : 1,
             "is_water" : 0,
-            "negative_points" : 0,
+            "negative_points" : 1,
             "positive_points" : 5,
             "proteins" : 0,
             "proteins_points" : 0,
             "proteins_value" : 0,
             "saturated_fat" : 14,
-            "saturated_fat_ratio" : 0,
-            "saturated_fat_ratio_points" : 0,
-            "saturated_fat_ratio_value" : 0,
+            "saturated_fat_ratio" : 15.2173913043478,
+            "saturated_fat_ratio_points" : 1,
+            "saturated_fat_ratio_value" : 15.2,
             "sodium" : 0,
             "sodium_points" : 0,
             "sodium_value" : 0,
@@ -124,7 +124,7 @@
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -5
+         "score" : -4
       },
       "2023" : {
          "category_available" : 1,
@@ -134,7 +134,7 @@
                   {
                      "id" : "energy_from_saturated_fat",
                      "new_grade" : "b",
-                     "new_score" : -2,
+                     "new_score" : -1,
                      "new_value" : 480,
                      "points" : 4,
                      "points_max" : 10,
@@ -150,10 +150,13 @@
                   },
                   {
                      "id" : "saturated_fat_ratio",
-                     "points" : 0,
+                     "new_grade" : "b",
+                     "new_score" : 0,
+                     "new_value" : 10,
+                     "points" : 1,
                      "points_max" : 10,
                      "unit" : "%",
-                     "value" : 0
+                     "value" : 15.2
                   },
                   {
                      "id" : "salt",
@@ -194,7 +197,7 @@
             "is_fat_oil_nuts_seeds" : 1,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "negative_points" : 4,
+            "negative_points" : 5,
             "negative_points_max" : 55,
             "positive_nutrients" : [
                "proteins",
@@ -208,7 +211,7 @@
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -1
+         "score" : 0
       }
    },
    "nutriscore_2021_tags" : [
@@ -236,10 +239,10 @@
             },
             {
                "id" : "saturated_fat_ratio",
-               "points" : 0,
+               "points" : 1,
                "points_max" : 10,
                "unit" : "%",
-               "value" : 0
+               "value" : 15.2
             },
             {
                "id" : "salt",
@@ -281,7 +284,7 @@
       "is_fat_oil_nuts_seeds" : 1,
       "is_red_meat_product" : 0,
       "is_water" : 0,
-      "negative_points" : 4,
+      "negative_points" : 5,
       "negative_points_max" : 55,
       "positive_nutrients" : [
          "proteins",
@@ -290,11 +293,11 @@
       ],
       "positive_points" : 5,
       "positive_points_max" : 17,
-      "score" : -1
+      "score" : 0
    },
    "nutriscore_grade" : "b",
-   "nutriscore_score" : -1,
-   "nutriscore_score_opposite" : 1,
+   "nutriscore_score" : 0,
+   "nutriscore_score_opposite" : 0,
    "nutriscore_tags" : [
       "b"
    ],

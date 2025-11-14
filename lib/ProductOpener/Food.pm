@@ -1369,24 +1369,20 @@ sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) 
 	return $fruits_vegetables_legumes;
 }
 
-=head2 saturated_fat_ratio( $nutriments_ref, $prepared )
+=head2 saturated_fat_ratio( $nutrition_ref )
 
 Compute saturated_fat_ratio as needed for nutriscore
 
 =head3 Arguments
 
-=head4 $nutriments_ref - ref to the nutriments of a product
-
-Reference to either the "nutriments" or "nutriments_estimated" structure.
-
-=head4 $prepared - string contains either "" or "prepared"
+=head4 $nutrition_ref - ref to the nutrition of a product
 
 =cut
 
-sub saturated_fat_ratio ($nutriments_ref, $prepared) {
+sub saturated_fat_ratio ($nutrition_ref) {
 
-	my $saturated_fat = $nutriments_ref->{"saturated-fat" . $prepared . "_100g"};
-	my $fat = $nutriments_ref->{"fat" . $prepared . "_100g"};
+	my $saturated_fat = deep_get($nutrition_ref, "aggregated_set", "nutrients", "saturated-fat", "value");
+	my $fat = deep_get($nutrition_ref, "aggregated_set", "nutrients", "fat", "value");
 	my $saturated_fat_ratio = 0;
 	if ((defined $saturated_fat) and ($saturated_fat > 0)) {
 		if ($fat <= 0) {
@@ -1397,42 +1393,34 @@ sub saturated_fat_ratio ($nutriments_ref, $prepared) {
 	return $saturated_fat_ratio;
 }
 
-=head2 saturated_fat_0_because_of_fat_0($nutriments_ref, $prepared)
+=head2 saturated_fat_0_because_of_fat_0 ($nutrition_ref)
 
 Detect if we are in the special case where we can detect saturated fat is 0 because fat is 0
 
 =head3 Arguments
 
-=head4 $nutriments_ref - ref to the nutriments of a product
-
-Reference to either the "nutriments" or "nutriments_estimated" structure.
-
-=head4 $prepared - string contains either "" or "prepared"
+=head4 $nutrition_ref - ref to the nutrition of a product
 
 =cut
 
-sub saturated_fat_0_because_of_fat_0 ($nutriments_ref, $prepared) {
-	my $fat = $nutriments_ref->{"fat" . $prepared . "_100g"};
-	return ((!defined $nutriments_ref->{"saturated-fat" . $prepared . "_100g"}) && (defined $fat) && ($fat == 0));
+sub saturated_fat_0_because_of_fat_0 ($nutrition_ref) {
+	my $fat = deep_get($nutrition_ref, "aggregated_set", "nutrients", "fat", "value");
+	return ((!defined deep_get($nutrition_ref, "aggregated_set", "nutrients", "saturated-fat", "value")) && (defined $fat) && ($fat == 0));
 }
 
-=head2 sugar_0_because_of_carbohydrates_0($nutriments_ref, $prepared) {
+=head2 sugar_0_because_of_carbohydrates_0 ($nutrition_ref)
 
 Detect if we are in the special case where we can detect sugars are 0 because carbohydrates are 0
 
 =head3 Arguments
 
-=head4 $nutriments_ref - ref to the nutriments of a product
-
-Reference to either the "nutriments" or "nutriments_estimated" structure.
-
-=head4 $prepared - string contains either "" or "prepared"
+=head4 $nutrition_ref - ref to the nutrition of a product
 
 =cut
 
-sub sugar_0_because_of_carbohydrates_0 ($nutriments_ref, $prepared) {
-	my $carbohydrates = $nutriments_ref->{"carbohydrates" . $prepared . "_100g"};
-	return (   (!defined $nutriments_ref->{"sugars" . $prepared . "_100g"})
+sub sugar_0_because_of_carbohydrates_0 ($nutrition_ref) {
+	my $carbohydrates = deep_get($nutrition_ref, "aggregated_set", "nutrients", "carbohydrates", "value");
+	return (   (!defined deep_get($nutrition_ref, "aggregated_set", "nutrients", "sugars", "value"))
 			&& (defined $carbohydrates)
 			&& ($carbohydrates == 0));
 }
@@ -1475,34 +1463,37 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 
 		my $is_fat = is_fat_for_nutrition_score($product_ref);
 
+		my $sodium = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "sodium", "value");
+		my $fiber = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fiber", "value");
+
 		$nutriscore_data_ref = {
 			is_beverage => $product_ref->{nutrition_score_beverage},
 			is_water => is_water_for_nutrition_score($product_ref),
 			is_cheese => is_cheese_for_nutrition_score($product_ref),
 			is_fat => $is_fat,
 
-			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
-			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
-			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
-			sodium => (
-				(defined $nutriments_ref->{"sodium" . $prepared . "_100g"})
-				? $nutriments_ref->{"sodium" . $prepared . "_100g"} * 1000
+			energy => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "energy-kj", "value"),
+			sugars => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "sugars", "value"),
+			saturated_fat => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "saturated-fat", "value"),
+			sodium =>  (
+				(defined $sodium)
+				? $sodium * 1000
 				: undef
 			),    # in mg,
 
 			fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits_vegetables_nuts_colza_walnut_olive_oils,
 			fiber => (
-				(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
-				? $nutriments_ref->{"fiber" . $prepared . "_100g"}
+				(defined $fiber)
+				? $fiber
 				: 0
 			),
-			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
+			proteins => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "proteins", "value"),
 		};
 
 		if ($is_fat) {
 			# Add the fat and saturated fat / fat ratio
-			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
-			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($nutriments_ref, $prepared);
+			$nutriscore_data_ref->{fat} = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fat", "value");
+			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($product_ref->{nutrition});
 		}
 	}
 	else {
@@ -1521,21 +1512,21 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			is_fat_oil_nuts_seeds => $is_fat_oil_nuts_seeds,
 			is_red_meat_product => is_red_meat_product_for_nutrition_score($product_ref),
 
-			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
-			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
-			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
-			salt => $nutriments_ref->{"salt" . $prepared . "_100g"},
+			energy => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "energy-kj", "value"),
+			sugars => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "sugars", "value"),
+			saturated_fat => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "saturated-fat", "value"),
+			salt => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "salt", "value"),
 
 			fruits_vegetables_legumes => $fruits_vegetables_legumes,
-			fiber => $nutriments_ref->{"fiber" . $prepared . "_100g"},
-			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
+			fiber => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fiber", "value"),
+			proteins => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "proteins", "value"),
 		};
 
 		if ($is_fat_oil_nuts_seeds) {
 			# Add the fat and saturated fat / fat ratio
-			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
+			$nutriscore_data_ref->{fat} = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fat", "value");
 			$nutriscore_data_ref->{saturated_fat_ratio}
-				= round_to_max_decimal_places(saturated_fat_ratio($nutriments_ref, $prepared), 1);
+				= round_to_max_decimal_places(saturated_fat_ratio($product_ref->{nutrition}), 1);
 			# Compute the energy from saturates
 			if (defined $nutriscore_data_ref->{saturated_fat}) {
 				$nutriscore_data_ref->{energy_from_saturated_fat} = $nutriscore_data_ref->{saturated_fat} * 37;
@@ -1550,12 +1541,12 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 	# tweak data to take into account special cases
 
 	# if sugar is undefined but carbohydrates is 0, set sugars to 0
-	if (sugar_0_because_of_carbohydrates_0($nutriments_ref, $prepared)) {
+	if (sugar_0_because_of_carbohydrates_0($product_ref->{nutrition})) {
 		$nutriscore_data_ref->{sugars} = 0;
 	}
 	# if saturated_fat is undefined but fat is 0, set saturated_fat to 0
 	# as well as saturated_fat_ratio
-	if (saturated_fat_0_because_of_fat_0($nutriments_ref, $prepared)) {
+	if (saturated_fat_0_because_of_fat_0($product_ref->{nutrition})) {
 		$nutriscore_data_ref->{saturated_fat} = 0;
 		$nutriscore_data_ref->{saturated_fat_ratio} = 0;
 	}
@@ -1802,10 +1793,10 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 					if (
 					(
 						($nid eq "saturated-fat")
-						&& saturated_fat_0_because_of_fat_0($product_ref->{nutriments}, $prepared)
+						&& saturated_fat_0_because_of_fat_0($product_ref->{nutrition})
 					)
 					|| (($nid eq "sugars")
-						&& sugar_0_because_of_carbohydrates_0($product_ref->{nutriments}, $prepared))
+						&& sugar_0_because_of_carbohydrates_0($product_ref->{nutrition}))
 					);
 				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 				add_tag($product_ref, "misc", "en:nutrition-not-enough-data-to-compute-nutrition-score");

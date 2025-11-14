@@ -49,7 +49,6 @@
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-saturated-fat",
-      "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
@@ -95,7 +94,7 @@
             "saturated_fat" : null,
             "saturated_fat_ratio" : 0,
             "sodium" : 0,
-            "sugars" : null
+            "sugars" : 0
          },
          "grade" : "unknown",
          "nutrients_available" : 0,
@@ -118,7 +117,7 @@
             "salt" : null,
             "saturated_fat" : null,
             "saturated_fat_ratio" : 0,
-            "sugars" : null
+            "sugars" : 0
          },
          "grade" : "unknown",
          "nutrients_available" : 0,
@@ -193,7 +192,7 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "missing saturated-fat_100g - missing sugars_100g",
+   "nutrition_score_debug" : "missing saturated-fat_100g",
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "pnns_groups_1" : "Fat and sauces",
    "pnns_groups_1_tags" : [

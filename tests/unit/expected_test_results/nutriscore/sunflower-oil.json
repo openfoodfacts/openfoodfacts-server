@@ -44,19 +44,6 @@
       "en:fats-and-sauces",
       "en:fats"
    ],
-   "improvements_data" : {
-      "en:better-nutri-score-with-slightly-less-energy-from-saturated-fat" : {
-         "current_nutriscore_grade" : "c",
-         "current_value" : 370,
-         "difference_percent" : 2.7027027027027,
-         "new_nutriscore_grade" : "b",
-         "new_value" : 360,
-         "nutrient" : "energy_from_saturated_fat"
-      }
-   },
-   "improvements_tags" : [
-      "en:better-nutri-score-with-slightly-less-energy-from-saturated-fat"
-   ],
    "lc" : "en",
    "misc_tags" : [
       "en:nutriscore-computed",
@@ -94,8 +81,8 @@
       "nova-group" : 2,
       "nova-group_100g" : 2,
       "nova-group_serving" : 2,
-      "nutrition-score-fr" : 3,
-      "nutrition-score-fr_100g" : 3
+      "nutrition-score-fr" : 4,
+      "nutrition-score-fr_100g" : 4
    },
    "nutriscore" : {
       "2021" : {
@@ -115,15 +102,15 @@
             "is_cheese" : 0,
             "is_fat" : 1,
             "is_water" : 0,
-            "negative_points" : 0,
+            "negative_points" : 1,
             "positive_points" : 0,
             "proteins" : 0,
             "proteins_points" : 0,
             "proteins_value" : 0,
             "saturated_fat" : 10,
-            "saturated_fat_ratio" : 0,
-            "saturated_fat_ratio_points" : 0,
-            "saturated_fat_ratio_value" : 0,
+            "saturated_fat_ratio" : 10,
+            "saturated_fat_ratio_points" : 1,
+            "saturated_fat_ratio_value" : 10,
             "sodium" : 0,
             "sodium_points" : 0,
             "sodium_value" : 0,
@@ -135,7 +122,7 @@
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : 0
+         "score" : 1
       },
       "2023" : {
          "category_available" : 1,
@@ -143,11 +130,9 @@
             "components" : {
                "negative" : [
                   {
-                     "current_grade" : "c",
-                     "current_score" : 3,
                      "id" : "energy_from_saturated_fat",
-                     "new_grade" : "b",
-                     "new_score" : 2,
+                     "new_grade" : "c",
+                     "new_score" : 3,
                      "new_value" : 360,
                      "points" : 3,
                      "points_max" : 10,
@@ -163,10 +148,10 @@
                   },
                   {
                      "id" : "saturated_fat_ratio",
-                     "points" : 0,
+                     "points" : 1,
                      "points_max" : 10,
                      "unit" : "%",
-                     "value" : 0
+                     "value" : 10
                   },
                   {
                      "id" : "salt",
@@ -207,7 +192,7 @@
             "is_fat_oil_nuts_seeds" : 1,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "negative_points" : 3,
+            "negative_points" : 4,
             "negative_points_max" : 55,
             "positive_nutrients" : [
                "proteins",
@@ -221,7 +206,7 @@
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : 3
+         "score" : 4
       }
    },
    "nutriscore_2021_tags" : [
@@ -249,10 +234,10 @@
             },
             {
                "id" : "saturated_fat_ratio",
-               "points" : 0,
+               "points" : 1,
                "points_max" : 10,
                "unit" : "%",
-               "value" : 0
+               "value" : 10
             },
             {
                "id" : "salt",
@@ -294,7 +279,7 @@
       "is_fat_oil_nuts_seeds" : 1,
       "is_red_meat_product" : 0,
       "is_water" : 0,
-      "negative_points" : 3,
+      "negative_points" : 4,
       "negative_points_max" : 55,
       "positive_nutrients" : [
          "proteins",
@@ -303,11 +288,11 @@
       ],
       "positive_points" : 0,
       "positive_points_max" : 17,
-      "score" : 3
+      "score" : 4
    },
    "nutriscore_grade" : "c",
-   "nutriscore_score" : 3,
-   "nutriscore_score_opposite" : -3,
+   "nutriscore_score" : 4,
+   "nutriscore_score_opposite" : -4,
    "nutriscore_tags" : [
       "c"
    ],
