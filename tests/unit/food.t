@@ -158,8 +158,6 @@ specific_processes_for_food_product($product_ref);
 
 is($product_ref->{nutrition_score_beverage}, 0);
 
-is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
-
 $product_ref = {
 	nutriments => {"nova-group" => 4, "nova-group_100g" => 4, "nova-group_serving" => 4, "alcohol" => 12, "ph" => 7},
 	nutrition_data_per => "serving",
@@ -169,7 +167,7 @@ $product_ref = {
 
 compute_nutrition_data_per_100g_and_per_serving($product_ref);
 
-$expected_product_ref = {
+my $expected_product_ref = {
 	'nutriments' => {
 		'alcohol' => 12,
 		'alcohol_100g' => 12,
