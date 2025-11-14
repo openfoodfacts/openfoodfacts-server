@@ -2,6 +2,13 @@
    "nutrition" : {
       "aggregated_set" : {
          "nutrients" : {
+            "salt" : {
+               "source" : "packaging",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : "0.25"
+            },
             "sodium" : {
                "source" : "packaging",
                "source_index" : 1,

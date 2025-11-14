@@ -6,15 +6,15 @@
             "attributes" : [
                {
                   "description" : "",
-                  "description_short" : "Missing data to compute the Nutri-Score",
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-en.svg",
+                  "description_short" : "Very good nutritional quality",
+                  "grade" : "a",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-a-new-en.svg",
                   "id" : "nutriscore",
-                  "match" : 0,
+                  "match" : 81,
                   "name" : "Nutri-Score",
                   "panel_id" : "nutriscore_2023",
-                  "status" : "unknown",
-                  "title" : "Nutri-Score unknown"
+                  "status" : "known",
+                  "title" : "Nutri-Score A"
                },
                {
                   "grade" : "e",

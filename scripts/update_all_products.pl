@@ -1201,7 +1201,6 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_nutriscore) {
-			fix_salt_equivalent($product_ref);
 			compute_nutriscore($product_ref);
 			compute_nutrient_levels($product_ref);
 		}
@@ -1319,7 +1318,6 @@ while (my $product_ref = $cursor->next) {
 						$product_ref->{nutriments}{'salt_modifier'},
 						$salt, $product_ref->{nutriments}{'salt_unit'});
 
-					fix_salt_equivalent($product_ref);
 					compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					compute_nutriscore($product_ref);
 					compute_nutrient_levels($product_ref);
@@ -1342,7 +1340,6 @@ while (my $product_ref = $cursor->next) {
 				assign_nid_modifier_value_and_unit($product_ref, 'salt', $product_ref->{nutriments}{'salt_modifier'},
 					$salt, $product_ref->{nutriments}{'salt_unit'});
 
-				fix_salt_equivalent($product_ref);
 				compute_nutrition_data_per_100g_and_per_serving($product_ref);
 				compute_nutriscore($product_ref);
 				compute_nutrient_levels($product_ref);

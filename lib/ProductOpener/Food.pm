@@ -60,8 +60,6 @@ BEGIN {
 
 		&canonicalize_nutriment
 
-		&fix_salt_equivalent
-
 		&is_beverage_for_nutrition_score_2021
 		&is_fat_oil_nuts_seeds_for_nutrition_score
 		&is_water_for_nutrition_score
@@ -310,7 +308,7 @@ sub default_unit_for_nid ($nid) {
 
 sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit) {
 
-	## FIX ME
+	## FIXME
 	## This is an old function called by code that was written for the old nutrition schema
 	## It does nothing for now as we are migrating the code to use the new schema
 	## It needs to be removed once the migration is complete
@@ -1195,58 +1193,6 @@ sub is_red_meat_product_for_nutrition_score ($product_ref) {
 	}
 
 	return 0;
-}
-
-=head2 fix_salt_equivalent ( $product_ref )
-
-Adjusts the sodium and salt values in a product's nutritional information based on EU conversion standards.
-
-=head3 Argument
-
-=over
-
-=item * C<$product_ref> (HashRef): Reference to a hash containing the product's nutritional data.
-
-=back
-
-=head3 Return Type
-
-Returns nothing (modifies the input hash reference in place).
-
-=cut
-
-sub fix_salt_equivalent ($product_ref) {
-
-	# EU fixes the conversion: sodium = salt / 2.5 (instead of 2.54 previously)
-
-	foreach my $product_type ("", "_prepared") {
-
-		# use the salt value by default
-		if (    (defined $product_ref->{nutriments}{'salt' . $product_type . "_value"})
-			and ($product_ref->{nutriments}{'salt' . $product_type . "_value"} ne ''))
-		{
-			assign_nid_modifier_value_and_unit(
-				$product_ref,
-				'sodium' . $product_type,
-				$product_ref->{nutriments}{'salt' . $product_type . '_modifier'},
-				$product_ref->{nutriments}{'salt' . $product_type . "_value"} / 2.5,
-				$product_ref->{nutriments}{'salt' . $product_type . '_unit'}
-			);
-		}
-		elsif ( (defined $product_ref->{nutriments}{'sodium' . $product_type . "_value"})
-			and ($product_ref->{nutriments}{'sodium' . $product_type . "_value"} ne ''))
-		{
-			assign_nid_modifier_value_and_unit(
-				$product_ref,
-				'salt' . $product_type,
-				$product_ref->{nutriments}{'sodium' . $product_type . '_modifier'},
-				$product_ref->{nutriments}{'sodium' . $product_type . "_value"} * 2.5,
-				$product_ref->{nutriments}{'sodium' . $product_type . '_unit'}
-			);
-		}
-	}
-
-	return;
 }
 
 # estimates by category of products. not exact values. For the Nutri-Score, it's important to distinguish only between the thresholds: 40, 60 and 80

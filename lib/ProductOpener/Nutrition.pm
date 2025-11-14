@@ -58,6 +58,9 @@ BEGIN {
 		&assign_nutrition_values_from_request_object
 		&add_nutrition_fields_from_product_to_populated_fields
 		&filter_out_nutrients_not_in_taxonomy
+		&convert_sodium_to_salt
+		&convert_salt_to_sodium
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -309,6 +312,26 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 				$aggregated_nutrient_set_ref->{nutrients}{"energy"}
 					= clone($aggregated_nutrient_set_ref->{nutrients}{"energy-kcal"});
 				convert_nutrient_to_standard_unit($aggregated_nutrient_set_ref->{nutrients}{"energy"}, "energy");
+			}
+
+			# If we have salt and not sodium, or vice versa, we add the missing nutrient
+			if ((exists $aggregated_nutrient_set_ref->{nutrients}{"salt"})
+				and not(exists $aggregated_nutrient_set_ref->{nutrients}{"sodium"}))
+			{
+				$aggregated_nutrient_set_ref->{nutrients}{"sodium"}
+					= clone($aggregated_nutrient_set_ref->{nutrients}{"salt"});
+				$aggregated_nutrient_set_ref->{nutrients}{"sodium"}{value}
+					= remove_insignificant_digits(
+					convert_salt_to_sodium($aggregated_nutrient_set_ref->{nutrients}{"salt"}{value}));
+			}
+			elsif ((exists $aggregated_nutrient_set_ref->{nutrients}{"sodium"})
+				and not(exists $aggregated_nutrient_set_ref->{nutrients}{"salt"}))
+			{
+				$aggregated_nutrient_set_ref->{nutrients}{"salt"}
+					= clone($aggregated_nutrient_set_ref->{nutrients}{"sodium"});
+				$aggregated_nutrient_set_ref->{nutrients}{"salt"}{value}
+					= remove_insignificant_digits(
+					convert_sodium_to_salt($aggregated_nutrient_set_ref->{nutrients}{"sodium"}{value}));
 			}
 		}
 	}
@@ -2038,6 +2061,28 @@ sub filter_out_nutrients_not_in_taxonomy ($product_ref) {
 	}
 
 	return;
+}
+
+=head2 convert_sodium_to_salt ( $sodium_value )
+
+Converts a sodium value to its equivalent salt value using the EU standard conversion factor (2.5).
+
+=cut
+
+sub convert_sodium_to_salt ($sodium_value) {
+
+	return $sodium_value * 2.5;
+}
+
+=head2 convert_salt_to_sodium ( $salt_value )
+
+Converts a salt value to its equivalent sodium value using the EU standard conversion factor (2.5).
+
+=cut
+
+sub convert_salt_to_sodium ($salt_value) {
+
+	return $salt_value / 2.5;
 }
 
 1;

@@ -644,7 +644,6 @@
          "en:forest-footprint-computed",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-saturated-fat",
-         "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-not-computed",
          "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
          "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
@@ -686,6 +685,8 @@
          "proteins_unit" : "g",
          "salt_100g" : 0.0007,
          "salt_unit" : "g",
+         "sodium_100g" : "0.00028",
+         "sodium_unit" : "g",
          "sugars_100g" : 7,
          "sugars_unit" : "g"
       },
@@ -799,7 +800,7 @@
          "unknown"
       ],
       "nutrition_score_beverage" : 0,
-      "nutrition_score_debug" : "missing saturated-fat_100g - missing sodium_100g",
+      "nutrition_score_debug" : "missing saturated-fat_100g",
       "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
       "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 62.5,
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
