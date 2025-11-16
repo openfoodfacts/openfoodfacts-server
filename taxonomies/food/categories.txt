@@ -1633,6 +1633,7 @@ es: Bebidas alcohólicas premezcladas
 fr: Boissons alcoolisées pré-mélangées
 hr: Prethodno miješana alkoholna pića
 it: Bevande alcoliche pre-miscelate
+nl: Voorgemengde alcoholische dranken
 gpc_category_code:en: 10000144
 gpc_category_description:en: Definition: Includes any products that can be described/observed as an alcoholic beverage that is pre-mixed with another drink, usually a soft drink. Also includes soft or milk based drinks which have spirits added during the production process. Includes pre-mixed cocktails, such as Vodka Martini and mixed wine drinks such as Spritzers and Bucks Fizz. Definition Excludes: Excludes products such as Spirits, Beer Mixed Drinks, Non-alcoholic Mixers/Coolers, Liqueurs and Alcoholic Jellies.
 gpc_category_name:en: Alcoholic Pre-mixed Drinks
@@ -1729,6 +1730,55 @@ ciqual_food_name:fr: Sangria
 description:en: A punch, Sangria traditionally consists of red wine and chopped fruit, often with other ingredients or spirits.
 wikidata:en: Q273296
 wikipedia:en: https://en.wikipedia.org/wiki/Sangria
+
+< en:Wine-based alcoholic beverages
+en: Mulled wines, Mulled wine, Mulled red wines
+an: poncho
+ar: نبيذ ساخن
+be: глінтвейн
+ca: vi calent
+cs: svařené víno
+cv: глинтвейн
+cy: gwin brwd
+da: gløgg
+de: Glühwein
+eo: spicvino
+es: vino caliente
+et: hõõgvein
+eu: Ardo bero
+fa: شراب معطر
+fi: hehkuviini
+fr: vin chaud
+ga: scailtín fíona
+he: יין מתובל
+hr: kuhano vino
+hu: forralt bor
+hy: գլինտվեյն
+id: Glühwein
+it: vin brulé
+ja: グリューワイン
+jv: Ciu rempah
+ka: გლინტვეინი
+kk: глинтвейн
+ko: 글뤼바인
+li: Glühwein
+lv: karstvīns
+mk: варено вино
+nl: warme wijn
+no: Caud vin
+pl: grzane wino
+pt: vinho quente
+ro: vin fiert
+ru: глинтвейн
+sk: varené víno
+sl: kuhano vino
+sr: кувано вино
+th: ไวน์ร้อน
+tr: sıcak şarap
+uk: глінтвейн
+vi: vang nóng
+zh: 香料酒
+wikidata:en: Q6584
 
 < en:Alcoholic beverages
 en: Pastis
@@ -1834,7 +1884,6 @@ wikidata:en: Q1045910
 en: Beers, Beer
 af: bier
 an: Biera
-en-GB:Beer
 ang: Bēor
 ar: بيرة
 arz: بيره
@@ -1857,6 +1906,7 @@ cz: Pivo
 da: øl
 de: Biere, Bier
 el: μπύρα
+en-GB: Beer
 eo: biero
 es: Cervezas
 et: õlu
@@ -2309,6 +2359,7 @@ fr: Bières blondes pur malt
 < en:Beers
 en: Flavored beers, Flavored beer
 de: Aromatisierte Biere
+en-GB: Flavoured beers, flavoured beer
 es: Cervezas aromatizadas
 fi: Maustetut oluet
 fr: Bières aromatisées
@@ -2319,7 +2370,6 @@ lt: Aromatizuotas alus
 nl: Gearomatiseerde bieren
 pl: Piwa smakowe
 ro: Beri aromatizate, Beri aromate, Bere aromatizata, Bere aromata, Bere aromată, Bere aromatizată
-en-GB:Flavoured beers, flavoured beer
 wikidata:en: Q2905029
 
 < en:Alcoholic beverages
@@ -5917,6 +5967,7 @@ ciqual_food_name:fr: Cocktail type punch, 16% alcool
 < en:Alcoholic beverages
 en: Rum-based cocktail
 fr: Cocktail à base de rhum
+nl: Cocktails op basis van rum
 agribalyse_food_code:en: 1012
 ciqual_food_code:en: 1012
 ciqual_food_name:en: Rum-based cocktail
@@ -5924,8 +5975,25 @@ ciqual_food_name:fr: Cocktail à base de rhum
 #wikidata:en:
 
 < en:Rum-based cocktail
-fr: Daïquiri
-#wikidata:en:
+en: Daiquiri
+xx: Daiquiri
+ar: ديكري
+be: Дайкіры
+bg: Дайкири
+ca: Daikiri
+el: Ντάκιρι
+eo: Dajkirio
+fa: دایکیری
+fr: daïquiri, daiquiri
+he: דאקירי
+ja: ダイキリ
+ka: დაიკირი
+ko: 다이키리
+ml: ഡേയ്ക്കിരി
+ru: Дайкири
+uk: Дайкірі
+zh: 黛綺莉
+wikidata:en: Q917361
 
 < en:Eaux de vie
 en: Tuzemsky, Tuzemak, Tuzemsky rum
@@ -11076,31 +11144,16 @@ en: Latte macchiato
 xx: Latte macchiato
 ar: لاتيه ماكياتو
 bg: Лате макиато
-cs: Latte macchiato
 de: Milchmischgetränk, Latte macchiato
-es: Latte macchiato
 fa: لاته ماکیاتو
-fi: Latte macchiato
-fr: Latte macchiato
-it: Latte macchiato
 ja: ラッテ・マキアート
-jv: Latte macchiato
 kk: Латте макиато
 ko: 라테 마키아토
 mk: Лате макијато
-nl: Latte macchiato
-pl: Latte macchiato
-pt: Latte macchiato
 ru: Латте макиато
-sk: Latte macchiato
 sr: Лате макијато
-sv: Latte macchiato
 th: ลัตเตมักกีอาโต
-tl: Latte macchiato
-tr: Latte macchiato
 uk: Лате-мак'ято
-uz: Latte macchiato
-vi: Latte macchiato
 zh: 拿铁玛琪雅朵
 ciqual_food_code:en: 18151
 ciqual_food_name:en: Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
@@ -12832,7 +12885,6 @@ tr: Soğuk kahve
 wikidata:en: Q968554
 
 < en:Non-alcoholic beverages
-< en:Wines
 en: Non-alcoholic wines, Alcohol-free wines
 de: alkoholfreie Weine
 fr: Vins sans alcool, vins déalcoolisés
@@ -33784,6 +33836,7 @@ nl: Gevulde Koeken
 
 en: Biscuits and crackers
 fr: Biscuits sucrés & biscuits apéritifs
+nl: Biscuits en crackers
 intake24_category_code:en: BSCT
 
 < en:Biscuits and cakes
@@ -38456,12 +38509,25 @@ fr: Bonbons dragéifiés
 en: Fudge
 bg: Фъдж
 
+# products which imitate the taste, texture and color of chocolate. The brand Choviva for example uses roasted sunflowers.
+< en:Sweet snacks
+en: Chocolate alternatives without cocoa
+fr: Alternatives au chocolat sans cacao
+incompatible_with:en: categories:en:chocolates, categories:en:compound-chocolates
+
+< en:Sweet snacks
+en: Bonbon alternatives without cocoa
+fr: Alternatives aux bonbons de chocolat sans cacao
+incompatible_with:en: categories:en:chocolates, categories:en:chocolate-alternatives-without-cocoa, categories:en:bonbons
+
+# Products with too little cocoa to be called chocolate. Cocoa butter is replaced by another oil (usually palm).
 < en:Confectioneries
 en: Compound chocolates, Chocolate substitutes
 de: Schokoladenersatz
 fr: Succédanés du chocolat, Substituts du chocolat
 hr: Složene čokolade
 ja: 凖チョコレート
+incompatible_with:en: categories:en:chocolates, categories:en:chocolate-alternatives-without-cocoa
 # ja note: Industry policy:
 # チョコレート類 refers to chocolate products in Japan. It contains チョコレート ("chocolate"), 凖チョコレート, チョコレート菓子 ("chocolate snack"), 凖チョコレート菓子, カカオマス ("cocoa mass"), ココアバター ("cocoa butter"), ココアケーキ, ココアパウダー ("cocoa powder"), and 調整ココアパウダー.
 # チョコレート must be made of at least 60% of チョコレート生地 ("chocolate mixture") by weight. チョコレート生地 must contain at least 35% cocoa and less than 3% water by weight (with complicated exceptions with milk solids).
@@ -42507,6 +42573,9 @@ wco_hs_code:en: 1207.99
 wco_hs_heading:en: 12.07
 wikidata:en: Q1071585
 
+< en:Chia
+nl: witte chiazaad
+
 < en:Cereal grains
 en: Coix
 xx: Coix
@@ -46188,7 +46257,7 @@ de: Feta
 el: Φέτα, Feta
 es: Feta
 fi: feta
-fr: Fetan
+fr: Feta
 hr: Feta
 hu: Feta sajtok
 it: Feta
@@ -51367,8 +51436,6 @@ af: Melk
 am: ወተት
 an: Leit
 ar: حليب
-en-CA:Milk
-en-GB:milk
 arc: ܚܠܒܐ
 arz: لبن
 as: গাখীৰ
@@ -51395,6 +51462,8 @@ cy: llaeth
 da: mælk
 de: Milch, Milche, Milchen
 el: Γάλα
+en-CA: Milk
+en-GB: milk
 eo: lakto
 es: Leches
 et: piim
@@ -66094,7 +66163,7 @@ hu: Fagylal szeletek, Fagylaltok pálcikán
 it: Gelati a stecco, Gelatti in barretta
 lt: Ledai ant pagaliuko, Ledų batonėliai
 nl: IJsjes, IJscos, Friscos
-nl-BE:Friscos
+nl-BE: Friscos
 intake24_category_code:en: LOLS
 
 < en:Ice cream bars
@@ -66170,7 +66239,7 @@ it: Coni gelato
 ja: コーンアイス
 lt: Ledai vafliniame ragelyje
 nl: IJshoorntjes
-nl-BE:Torentjes
+nl-BE: Torentjes
 agribalyse_food_code:en: 39509
 ciqual_food_code:en: 39509
 ciqual_food_name:en: Ice cream, cone (normal size)
@@ -67649,14 +67718,6 @@ es: Arroz del Delta del Ebro, Arròs del Delta de l'Ebre
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0336
 protected_name_type:en: pdo
-#wikidata:en:
-
-< en:Purple garlic
-< en:Vegetables from Spain
-es: Ajo Morado de Las Pedroñeras
-origins:en: en:spain
-protected_name_file_number:en: PGI-ES-0228
-protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Spanish legumes
@@ -74519,6 +74580,8 @@ br: Paprika
 ceb: Paprika
 cy: Paprica
 de: Paprikapulver
+en-CA: Paprika
+en-GB: paprika
 eo: Papriko
 es: Pimentón
 fi: paprika
@@ -74531,13 +74594,11 @@ lt: Paprika
 nl: Paprikapoeder
 nl_be: Paprikapoeder
 nn: Paprika
-en-CA:Paprika
-en-GB:paprika
 pam: Paprika
 pl: Papryka
 pt: Páprica
+pt-BR: Páprica
 ro: Boia
-pt-BR:Páprica
 sco: paprika
 sl: Paprika
 sv: Paprikapulver
@@ -78770,11 +78831,11 @@ da: Veganske pestoer
 sv: Veganska pesto
 
 < en:Sauces
-en: Pizza sauces
+en: Pizza sauces, Topping sauce for pizza
 de: Pizzasoßen, Pizzasoße, Pizzasaucen, Pizzasauce
 es: Salsas para pizzas, Salsas para pizza
 fi: pizza-kastikkeet
-fr: Sauces pour pizzas
+fr: Sauces pour pizzas, Sauce pour pizza
 hr: Umaci za pizzu
 hu: Pizza szószok
 it: Salsa per la pizza
@@ -78782,35 +78843,28 @@ ja: ピザソース
 lt: Picos padažai
 nl: Pizzasauzen
 pl: Sosy do pizzy, Sos do pizzy
-agribalyse_proxy_food_code:en: 25525
-agribalyse_proxy_food_name:en: Topping sauce for pizza
-agribalyse_proxy_food_name:fr: Pizza, sauce garniture pour
+agribalyse_food_code:en: 25525
+ciqual_food_code:en: 25525
+ciqual_food_name:en: Topping sauce for pizza
+ciqual_food_name:fr: Pizza, sauce garniture pour
 
 < en:Pizza sauces
-en: Cream sauce for pizza base
-fr: Base de pizza à la crème
+en: Cream sauces for pizzas, Cream sauce for pizza base
+fr: Sauces à la crème pour pizzas, Base de pizza à la crème
 agribalyse_food_code:en: 37000
 ciqual_food_code:en: 37000
 ciqual_food_name:en: cream sauce for pizza base
 ciqual_food_name:fr: Base de pizza à la crème
 
 < en:Pizza sauces
-en: Tomato sauce for pizza base
-fr: Base de pizza tomatée
+en: Tomato sauces for pizzas, Tomato sauce for pizza base
+fr: Sauces tomate pour pizzas, Base de pizza tomatée
 hr: Umak od rajčice za podlogu za pizzu
 lt: Pomidorų padažai picos pagrindui
 agribalyse_food_code:en: 37002
 ciqual_food_code:en: 37002
 ciqual_food_name:en: Tomato sauce for pizza base
 ciqual_food_name:fr: Base de pizza tomatée
-
-< en:Pizza sauces
-en: Topping sauce for pizza
-fr: Sauce pour pizza, Garniture pour pizza
-agribalyse_food_code:en: 25525
-ciqual_food_code:en: 25525
-ciqual_food_name:en: Topping sauce for pizza
-ciqual_food_name:fr: Pizza, sauce garniture pour
 
 < en:Sauces
 fr: Sauces pour nems
@@ -79413,6 +79467,7 @@ gpc_category_code:en: 10000302
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury dough-based not ready to eat, prepared/processed product, such as Pasta, Gnocchi, Noodles or Batter with other ingredients, such as meat, dairy, eggs, fish, vegetables and/or seasoning. An optional seasoning/flavour packet may be present.  These ingredients form a valuable part of the product, such as the meat/tomato sauce in Spaghetti Bolognaise or cheese sauce in Macaroni and Cheese. They may or may not contain a sauce. These products may have a main component which is considered a meal without any additional components. These products are not ready to eat and require cooking prior to consumption.   These products have been specially treated or packaged to extend their consumable life. Includes not ready to eat shelf stable Ready-Made Meals where a Dough Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes pizza, savoury pies, quiches, pastries and bread products.Excludes products such as Frozen and Perishable Not Ready to Eat and Ready to Eat Dough-Based Prepared/Processed Products, Unprepared Pasta and Noodles.
 gpc_category_name:en: Dough Based Products / Meals - Not Ready to Eat - Savoury (Shelf Stable)
 
+< en:Frozen foods
 < en:Meals
 en: Frozen dough based meals (to prepare)
 gpc_category_code:en: 10000300
@@ -79420,6 +79475,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Dough Based Products / Meals - Not Ready to Eat - Savoury (Perishable)
 
 < en:Meals
+< en:Refrigerated foods
 en: Refrigerated dough based meals (ready)
 gpc_category_code:en: 10000298
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury dough-based ready to eat, prepared/processed product, such as Pasta, Gnocchi or Noodles with other ingredients, such as meat, dairy, eggs, fish, vegetables and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Pasta with a Roasted Vegetable Salad. They may or may not contain a sauce. These products may have a main component which is considered a meal without any additional components. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products must be refrigerated to extend their consumable life. Includes ready to eat perishable Ready-Made Meals where a Dough Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes pizza, savoury pies, quiches, pastries and bread products.Excludes products such as Shelf Stable Ready to Eat and Not Ready to Eat Dough-Based Prepared/Processed Product, Unprepared Pasta and Noodles.
@@ -79463,6 +79519,7 @@ gpc_category_code:en: 10000294
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury grain-based ready to eat, prepared/processed product, such as Rice, Polenta or Couscous with other ingredients, such as meat, eggs, fish, vegetables, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Couscous with Vegetables. These products may have a main component which is considered a meal without any additional components. These products must not include any dough-based products. They may or may not contain a sauce. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products have been treated or packaged in such a way as to extend their consumable life. Includes  ready to eat shelf stable Ready-Made Meals where a Grain Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals.   Specifically excludes all unprepared dried rice.Excludes products such as Perishable Ready to Eat and all Not Ready to Eat Grain Based Prepared/Processed Products and Unprepared Grains.
 gpc_category_name:en: Grain Based Products / Meals - Ready to Eat - Savoury (Shelf Stable)
 
+< en:Frozen foods
 < en:Meals
 en: Frozen grain based meals
 gpc_category_code:en: 10000293
@@ -80359,8 +80416,8 @@ en: Fish and Chips
 < en:Meals with fish
 fr: Poisson en sauce et riz
 
-< en:Frozen fishes
-< en:Meals with fish
+< en:Fishes and their products
+< en:Frozen seafood
 en: Frozen fish in sauce
 fr: Poisson en sauce surgelé
 hr: Smrznuta riba u umaku
@@ -80401,14 +80458,14 @@ ciqual_food_code:en: 25143
 ciqual_food_name:en: White fish with Parisian-style sauce (mushrooms sauce)
 ciqual_food_name:fr: Poisson blanc à la parisienne (sauce aux champignons)
 
-< en:Meals with cooked white fish
+< en:Fishes
 en: Cooked white fish without skin
 fr: Poisson blanc cuit, Poisson blanc cuit sans la peau
 ciqual_food_code:en: 26249
 ciqual_food_name:en: Fish, white, without skin, cooked
 ciqual_food_name:fr: Poisson blanc, cuit (aliment moyen)
 
-< en:Meals with cooked white fish
+< en:Fishes
 en: Cooked marine white fish without skin
 fr: Poisson blanc de mer cuit
 ciqual_food_code:en: 26250
@@ -81167,7 +81224,7 @@ ciqual_food_code:en: 25175
 ciqual_food_name:en: Molokhia, jute and beef-based meal
 ciqual_food_name:fr: Meloukhia, plat à base de boeuf et corete
 
-
+< en:Meals
 < en:Pizzas pies and quiches
 en: Salted pies, Savoury tarts
 de: Herzhafte Kuchen
@@ -81180,7 +81237,6 @@ lt: Sūdyti pyragai, pikantiški pyragaičiai
 nl: Hartige taarten
 food_groups:en: en:pizza-pies-and-quiches
 pnns_group_2:en: Pizza pies and quiches
-
 
 < en:Salted pies
 es: Empanada boloñesa
@@ -82650,8 +82706,7 @@ ciqual_food_code:en: 25909
 ciqual_food_name:en: Broth, stock or bouillon, meat and vegetables, dehydrated and reconstituted
 ciqual_food_name:fr: Bouillon de viande et légumes type pot-au-feu, prêt à consommer
 
-< en:Bouillon pots
-< en:Dehydrated broths
+< en:Beef broth
 en: Rehydrated broth stock, Rehydrated bouillon beef
 fr: Bouillon de boeuf déshydraté reconstitué
 agribalyse_food_code:en: 25930
@@ -82659,8 +82714,8 @@ ciqual_food_code:en: 25930
 ciqual_food_name:en: Broth, stock or bouillon, beef, dehydrated and reconstituted
 ciqual_food_name:fr: Bouillon de boeuf, déshydraté reconstitué
 
-< en:Bouillon pots
 < en:Dehydrated broths
+< en:Poultry broth
 en: Rehydrated broth stock with poultry, Rehydrated bouillon with poultry
 fr: Bouillon de volaille déshydraté reconstitué
 agribalyse_food_code:en: 25947
@@ -82668,16 +82723,16 @@ ciqual_food_code:en: 25947
 ciqual_food_name:en: Broth, stock or bouillon, poultry, dehydrated and reconstituted
 ciqual_food_name:fr: Bouillon de volaille, déshydraté reconstitué
 
-< en:Bouillon pots
 < en:Dried products to be rehydrated
+< en:Poultry broth
 en: Dehydrated poultry stock, Dehydrated poultry stock for sauce and cooking
 fr: Fond de volaille déshydraté, Fond de volaille déshydraté pour sauces et cuisson
 agribalyse_food_code:en: 11171
 ciqual_food_code:en: 11171
 ciqual_food_name:en: Poultry stock for sauce and cooking, dehydrated
 
-< en:Bouillon pots
 < en:Dried products to be rehydrated
+< en:Poultry broth
 en: Dehydrated poultry broth stock, Dehydrated poultry bouillon broth
 fr: Bouillon de volaille déshydraté
 agribalyse_food_code:en: 11174
@@ -82716,8 +82771,12 @@ fr: Bouillons de volaille
 hr: Juha od peradi
 it: Brodo di pollo, Brodo di pollame
 lt: Paukštienos sultiniai
-nl: Gevogeltebouillon
+nl: Gevogeltebouillons, Gevogeltebouillon
 wikidata:en: Q68187791
+
+< en:Poultry broth
+en: Chicken broths
+nl: Kippenbouillons
 
 < en:Broths
 en: Beef broth
@@ -83162,7 +83221,11 @@ fr: Légumes farcis dans l'huile, légumes farcis à l'huile
 
 < en:Meals
 en: Vegetarian meals
-description:en: Should be distinghuished from vegetable meals, that might contain meat
+description:en: Should be distinguished from vegetable meals, that might contain meat
+
+< en:Vegetarian meals
+en: Vegan meals
+description:en: Should be distinguished from vegetable meals, that might contain animal products
 
 < en:Meals
 en: Gratins
@@ -83735,7 +83798,7 @@ fr: Langòs surgelés
 en: Filled pinsa
 it: Pinsa farcita
 
-< en:Meals
+# don't put in meals because this category contains "mini appetizer pizzas"
 en: Pizzas pies and quiches, Pizza pies and quiches
 bg: Пица и киш
 ca: Pizzes i quiches
@@ -83760,6 +83823,13 @@ gpc_category_code:en: 10000249
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a pastry, biscuit or crumble based product filled or topped with a mixture of shredded/sliced savoury ingredients, commonly including meat, vegetables, eggs or other additives. Products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Frozen and Shelf Stable Savoury Pies, Pastries, Pizzas and Quiches, Sweet Pies/Tarts, and Potato Topped Meat Pies.
 gpc_category_name:en: Pies/Pastries/Pizzas/Quiches - Savoury (Perishable)
 
+# don't put under pizzas
+< en:Appetizers
+< en:Pizzas pies and quiches
+en: Mini appetizer pizzas
+fr: Mini pizzas apéritives
+
+< en:Meals
 < en:Pizzas pies and quiches
 en: Pizzas
 bg: Пица
@@ -83791,6 +83861,7 @@ gpc_category_name:en: Pies/Pastries/Pizzas/Quiches - Savoury (Shelf Stable)
 intake24_category_code:en: PZZA
 wikidata:en: Q177
 
+< en:Meals
 < en:Pizzas pies and quiches
 it: Calzone
 fr: Calzone, Pizzas calzone
@@ -84384,6 +84455,7 @@ ciqual_food_code:en: 8937
 ciqual_food_name:en: Quenelle, plain, raw
 ciqual_food_name:fr: Quenelle nature, crue
 
+< en:Meals
 < en:Pizzas pies and quiches
 en: Quiches
 de: Quiches
@@ -90777,7 +90849,8 @@ hr: Sardine rillettes
 it: Rillettes di sardine
 
 < en:Fish rillettes
-en: Salmon Rillettes
+< en:Salmon preparations
+en: Salmon rillettes
 de: Lachs-Rillettes
 fr: Rillettes de saumon
 he: רייט סלמון
@@ -91923,7 +91996,7 @@ ciqual_food_code:en: 8305
 ciqual_food_name:en: Pork liver pâté
 
 < en:Pâté
-< en:Salmons
+< en:Salmon preparations
 en: Salmon Pâtés
 ca: Patés de salmó
 es: Patés de salmón
@@ -92025,10 +92098,12 @@ hr: Riblji namazi
 nl: Vispastas
 
 < en:Fish spreads
+< en:Salmon preparations
 en: Salmon spreads
 fr: Tartinables au saumon
 
 < en:Fish spreads
+< en:Tuna preparations
 en: Tuna spreads
 fr: Tartinables au thon, Préparations de thon à tartiner
 hr: Namazi od tune
@@ -92522,7 +92597,7 @@ fr: Saucissons secs halal
 fr: Saucissons secs cacher
 
 < en:Fish rillettes
-< en:Tunas
+< en:Tuna preparations
 en: Tuna rillettes
 de: Thunfisch-Rillettes
 es: Rillettes De atún
@@ -96249,6 +96324,7 @@ ua: пироги, вареники
 wikidata:en: Q697800
 wikipedia:en: https://en.wikipedia.org/wiki/Pierogi
 
+< en:Frozen foods
 < en:pierogi
 en: Frozen pierogi
 fr: Pierogi surgelés
@@ -100770,6 +100846,10 @@ gpc_category_name:en: Fish - Unprepared/Unprocessed (Shelf Stable)
 en: Fish patties
 fr: Galettes au poisson
 
+< en:Fish patties
+< en:Salmon preparations
+en: Salmon patties
+
 < en:Frozen foods
 < en:Seafood
 en: Frozen seafood
@@ -100864,6 +100944,14 @@ it: Preparazioni a base di pesce
 nl: Visproducten
 pt: Preparados de peixe
 ro: Preparate din pește
+
+< en:Fish preparations
+en: Tuna preparations
+fr: Préparations de thon
+
+< en:Fish preparations
+en: Salmon preparations
+fr: Préparations de saumon
 
 < en:Fish preparations
 en: Fish (Freshly prepared)
@@ -101316,7 +101404,7 @@ es: Varitas de pescado
 fi: kalapuikot
 fr: Batonnets de poisson
 hr: Riblji štapići
-nl: Visvingers
+nl: Visvingers, Vissticks
 pl: Paluszki rybne
 intake24_category_code:en: FPCS
 wikidata:en: Q1420441
@@ -107758,6 +107846,7 @@ nl: Ingemaakte guindilla pepers
 < en:Jalapeños
 < en:Pickled peppers
 en: Pickled jalapeños
+nl: Ingemaakte jalapeño peper
 
 < en:Pickled jalapeños
 < en:Sliced jalapeños
@@ -108925,6 +109014,9 @@ sales_format:en: weight, package
 en: Canned white cabbage
 fr: Choux blancs en conserve, chou blanc en conserve
 
+< en:White cabbage
+nl: Spitskolen, Spitskool
+
 < en:Cabbages
 en: Green cabbage
 bg: Зелено зеле
@@ -109810,6 +109902,17 @@ es: Ajo morado
 hr: Ljubičasti češnjak
 nl: Paarse knoflook
 
+< en:Purple garlic
+nl: Morado knoflook
+
+< en:Purple garlic
+< en:Vegetables from Spain
+es: Ajo Morado de Las Pedroñeras
+origins:en: en:spain
+protected_name_file_number:en: PGI-ES-0228
+protected_name_type:en: pgi
+#wikidata:en:
+
 < en:Allium neapolitanum
 fr: Ail blanc de Lomagne
 xx: Ail blanc de Lomagne
@@ -110262,7 +110365,7 @@ fi: Keltasipulit, keltasipuli, keltainen sipuli
 fr: Oignons jaunes, oignon jaune
 hr: Žuti luk
 nl: Gele uien
-expected_ingredients:en: en:yellow onion
+expected_ingredients:en: en:yellow onions
 wikidata:en: Q8051898
 wikipedia:en: https://en.wikipedia.org/wiki/Yellow_onion
 
@@ -110495,6 +110598,9 @@ fr: Mélanges de poivrons multicolores
 hr: Miješane paprike babure
 nl: Gemengde paprikas
 sales_format:en: weight, package
+
+< en:Sweet peppers
+nl: Puntpaprikas, Zoete puntpaprikas, Zoete puntpaprika
 
 < en:Sweet Peppers
 en: Red bell peppers, Red sweet peppers
@@ -111557,6 +111663,7 @@ season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 en: Spinach young leaves, Baby spinach
 da: babyspinat
 fr: Jeunes pousses d'épinards pour salades
+nl: Babyspinazie
 sv: babyspenat
 agribalyse_food_code:en: 20270
 ciqual_food_code:en: 20270
@@ -111966,18 +112073,19 @@ sv: Datterini-tomater
 < en:Canned tomatoes
 < en:Datterini tomatoes
 en: Canned datterini tomatoes
-da: Datterini-tomater på dås
+da: Datterini-tomater på dåse
 sv: Datterini-tomater på dås
 
 < en:Canned datterini tomatoes
 < en:Whole peeled tomatoes in tomato juice
 en: Whole peeled datterini tomatoes in tomato juice
-da: Flåede hele datterini-tomater i tomatsovs
+da: Flåede hele datterini-tomater i tomatsaft
 sv: Hela skalade datterini-tomater i tomatjuice
 
 < en:Tomatoes
 xx: Pomodoro San Marzano dell'Agro Sarnese-Nocerino
 en: San Marzano tomatoes
+da: San Marzano-tomater
 it: Pomodoro San Marzano
 sv: San Marzano-tomater
 protected_name_file_number:en: PDO-IT-1524
@@ -111994,7 +112102,7 @@ sv: San Marzano-tomater på dås
 < en:Canned San Marzano tomatoes
 < en:Whole peeled tomatoes in tomato juice
 en: Whole peeled San Marzano tomatoes in tomato juice
-da: Flåede hele San Marzano-tomater i tomatsovs
+da: Flåede hele San Marzano-tomater i tomatsaft
 sv: Hela skalade San Marzano-tomater i tomatjuice
 
 < en:Tomatoes
@@ -112031,7 +112139,7 @@ ciqual_food_name:fr: Tomate, pelée, appertisée, égouttée
 
 < en:Peeled tomatoes
 en: Whole peeled tomatoes in tomato juice
-da: Flåede hele tomater i tomatsovs
+da: Flåede hele tomater i tomatsaft
 fr: Tomates entières pelées au jus
 sv: Hela skalade tomater i tomatjuice
 agribalyse_proxy_food_code:en: 20048
@@ -112074,6 +112182,7 @@ sv: Finkrossade tomater på dås
 < en:Frozen vegetables
 < en:Tomatoes
 en: Frozen tomatoes
+da: Frosne tomater
 fr: Tomates surgelées
 
 < en:Vegetables
@@ -117334,9 +117443,12 @@ en: Prepared bruschetta toasts
 fr: Toasts bruschetta préparés
 
 < en:Appetizers
+en: Puff pastry appetizers
+
+< en:Puff pastry appetizers
 en: Sausage rolls
 de: Wurstrollen
-fr: Roulés à la saucisse, roulés aux saucisses
+fr: Roulés à la saucisse, roulés aux saucisses, feuilletés à la saucisse
 hr: Kolutići kobasica
 nl: Saucijzenbroodjes
 food_groups:en: en:salty-and-fatty-products
@@ -117572,6 +117684,7 @@ nl: Vruchtenrepen
 
 < en:Sweet snacks
 en: Sweet pastries and pies
+nl: Zoet gebak en taarten
 
 < en:Sweet pastries and pies
 en: Fresh sweet pastries and pies
@@ -119006,7 +119119,7 @@ fr: Galettes de maïs soufflé, galettes de maïs
 hr: Lisnati kukuruzni kolačići
 hu: Puffasztott kukorica készítményak
 it: Gallette di mais
-nl: Maiswafels
+nl: Maïswafels, Maiswafels
 
 < en:Puffed cereal cakes
 en: Puffed corn cakes with black chocolate
@@ -120900,9 +121013,9 @@ agribalyse_food_code:en: 8395
 ciqual_food_code:en: 8395
 ciqual_food_name:en: Ham, in a pastry crusty
 
-< en:Puff pastry meals
-en: Cheese soufflé
-fr: Soufflé au fromage
+< en:Meals
+en: Cheese soufflés, Cheese soufflé
+fr: Soufflés au fromage, Soufflé au fromage
 agribalyse_food_code:en: 25020
 ciqual_food_code:en: 25020
 ciqual_food_name:en: Cheese soufflé
@@ -121087,6 +121200,20 @@ fr: Risottos aux cèpes
 #wikidata:en:
 
 < en:Meals
+xx: Dumplings
+en: Dumplings
+lt: Koldūnai
+sv: Dumplingar
+wikidata:en: Q1854639
+
+< en:Dumplings
+en: Dumplings with vegetables
+da: Dumplings med grøntsager
+lt: Koldūnai su daržovėmis
+nb: Dumplings med grønnsaker
+sv: Dumplingar med grönsaker, Dumplings med grönsaker
+
+< en:Dumplings
 en: Chinese dumplings, Chinese dumpling, Dim Sum
 fi: Kiinalaiset mykyt, Kiinalainen myky
 fr: Bouchées à la vapeur chinoises cuites, Bouchées vapeur chinoises cuites, Bouchées à la vapeur
@@ -121097,7 +121224,20 @@ ciqual_food_code:en: 25169
 ciqual_food_name:en: Chinese specialty or dumplings
 ciqual_food_name:fr: Spécialité chinoise ou bouchées à la vapeur, cuite
 
+< en:Dumplings
+< en:Frozen foods
+en: Frozen dumplings
+da: Frosne dumplings
+sv: Frusna dumplingar
+
+< en:Dumplings with vegetables
+< en:Frozen dumplings
+en: Frozen dumplings with vegetables
+da: Frosne dumplings med grøntsager
+sv: Frusna dumplingar med grönsaker
+
 < en:Chinese dumplings
+< en:Frozen dumplings
 en: Frozen Chinese dumplings, frozen Dim Sum
 fr: Bouchées à la vapeur chinoises cuites surgelées, Bouchées à la vapeur surgelées, Dim Sum surgelés
 
@@ -121183,16 +121323,22 @@ fr: Varenyky surgelés
 
 # TODO check the difference
 
-
 < en:Appetizers
+en: Acras, Accras
+fr: Acras, Accras
+hr: Acras
+nl: Acra
+
+< en:Acras
 < en:Fish preparations
 en: Cod acras, Cod accras
 fr: Acras de morue, Accras de morue, acras de cabillaud
 hr: Bakalar acras
 it: Frittelle di merluzzo, Frittelle di baccalà
 nl: Kabeljauwacra
-agribalyse_proxy_food_code:en: 26028
-agribalyse_proxy_food_name:en: Fish, croquette, fritter or nuggets, fried
+agribalyse_food_code:en: 25433
+ciqual_food_code:en: 25433
+ciqual_food_name:en: Caribbean-style fish fritters, fish acras
 wikidata:en: Q12860188
 
 < en:Meals
@@ -121376,6 +121522,7 @@ fr: Plats susceptibles de contenir de la viande de cheval - lots retirés de la 
 
 < en:Specific products
 en: Products for specific diets
+nl: Producten voor specifieke diëten
 
 < en:Products for specific diets
 en: Products with reduced salt
@@ -121669,15 +121816,6 @@ en: Mashed split peas
 fr: Purées de pois cassés
 hr: Pire od graška
 nl: Gepureerde spliterwten
-
-< en:Meals
-en: Acras, Accras
-fr: Acras, Accras
-hr: Acras
-nl: Acra
-agribalyse_food_code:en: 25433
-ciqual_food_code:en: 25433
-ciqual_food_name:en: Caribbean-style fish fritters, fish acras
 
 < en:Frozen vegetables
 en: Frozen raw butter beans, Frozen raw yellow beans
