@@ -1633,6 +1633,7 @@ es: Bebidas alcohólicas premezcladas
 fr: Boissons alcoolisées pré-mélangées
 hr: Prethodno miješana alkoholna pića
 it: Bevande alcoliche pre-miscelate
+nl: Voorgemengde alcoholische dranken
 gpc_category_code:en: 10000144
 gpc_category_description:en: Definition: Includes any products that can be described/observed as an alcoholic beverage that is pre-mixed with another drink, usually a soft drink. Also includes soft or milk based drinks which have spirits added during the production process. Includes pre-mixed cocktails, such as Vodka Martini and mixed wine drinks such as Spritzers and Bucks Fizz. Definition Excludes: Excludes products such as Spirits, Beer Mixed Drinks, Non-alcoholic Mixers/Coolers, Liqueurs and Alcoholic Jellies.
 gpc_category_name:en: Alcoholic Pre-mixed Drinks
@@ -1729,6 +1730,55 @@ ciqual_food_name:fr: Sangria
 description:en: A punch, Sangria traditionally consists of red wine and chopped fruit, often with other ingredients or spirits.
 wikidata:en: Q273296
 wikipedia:en: https://en.wikipedia.org/wiki/Sangria
+
+< en:Wine-based alcoholic beverages
+en: Mulled wines, Mulled wine, Mulled red wines
+an: poncho
+ar: نبيذ ساخن
+be: глінтвейн
+ca: vi calent
+cs: svařené víno
+cv: глинтвейн
+cy: gwin brwd
+da: gløgg
+de: Glühwein
+eo: spicvino
+es: vino caliente
+et: hõõgvein
+eu: Ardo bero
+fa: شراب معطر
+fi: hehkuviini
+fr: vin chaud
+ga: scailtín fíona
+he: יין מתובל
+hr: kuhano vino
+hu: forralt bor
+hy: գլինտվեյն
+id: Glühwein
+it: vin brulé
+ja: グリューワイン
+jv: Ciu rempah
+ka: გლინტვეინი
+kk: глинтвейн
+ko: 글뤼바인
+li: Glühwein
+lv: karstvīns
+mk: варено вино
+nl: warme wijn
+no: Caud vin
+pl: grzane wino
+pt: vinho quente
+ro: vin fiert
+ru: глинтвейн
+sk: varené víno
+sl: kuhano vino
+sr: кувано вино
+th: ไวน์ร้อน
+tr: sıcak şarap
+uk: глінтвейн
+vi: vang nóng
+zh: 香料酒
+wikidata:en: Q6584
 
 < en:Alcoholic beverages
 en: Pastis
@@ -5917,6 +5967,7 @@ ciqual_food_name:fr: Cocktail type punch, 16% alcool
 < en:Alcoholic beverages
 en: Rum-based cocktail
 fr: Cocktail à base de rhum
+nl: Cocktails op basis van rum
 agribalyse_food_code:en: 1012
 ciqual_food_code:en: 1012
 ciqual_food_name:en: Rum-based cocktail
@@ -5924,8 +5975,25 @@ ciqual_food_name:fr: Cocktail à base de rhum
 #wikidata:en:
 
 < en:Rum-based cocktail
-fr: Daïquiri
-#wikidata:en:
+en: Daiquiri
+xx: Daiquiri
+ar: ديكري
+be: Дайкіры
+bg: Дайкири
+ca: Daikiri
+el: Ντάκιρι
+eo: Dajkirio
+fa: دایکیری
+fr: daïquiri, daiquiri
+he: דאקירי
+ja: ダイキリ
+ka: დაიკირი
+ko: 다이키리
+ml: ഡേയ്ക്കിരി
+ru: Дайкири
+uk: Дайкірі
+zh: 黛綺莉
+wikidata:en: Q917361
 
 < en:Eaux de vie
 en: Tuzemsky, Tuzemak, Tuzemsky rum
@@ -65327,18 +65395,40 @@ ciqual_food_name:en: Baker's yeast, compressed
 
 < en:Food additives
 en: Baking powder or raising agent
-bg: Бакпулвер
-de: Backpulver
+da: Bagepulver eller hævemiddel
 es: Levadura en polvo o gasificante
 fi: Leivinjauhe tai nostatusaine
 fr: levure chimique
 hr: Prašak za pecivo ili sredstvo za dizanje
 it: Polvere da cottura o agente lievitante
 lt: Kepimo milteliai arba kildinimo medžiaga
-nl: Bakpoeders
+sv: Bakpulver eller jäsmedel, Bakpulver eller hävmedel
 agribalyse_food_code:en: 11046
 ciqual_food_code:en: 11046
 ciqual_food_name:en: Baking powder or raising agent
+
+< en:Baking powder or raising agent
+en: Baking powders, Baking powder
+ar: ذرور الخبز
+bg: Бакпулвер
+ca: Rent químic
+da: Bagepulver
+de: Backpulver
+eo: Bakpulvoro
+et: Küpsetuspulber
+eu: Legami kimiko
+ga: Púdar bácála
+is: Lyftiduft
+ja: ベーキングパウダー
+ko: 베이킹파우더
+nb: Bakepulver
+nl: Bakpoeders
+nv: Biłʼeʼeliníʼ
+pt: Levedura química
+sv: Bakpulver
+zh: 复配膨松剂
+google_product_taxonomy_id:en: 2803
+wikidata:en: Q29476
 
 < en:Food additives
 fr: Poudres à lever
@@ -65376,16 +65466,22 @@ wikidata:en: Q726460
 
 < en:Anticaking agents
 en: Bicarbonates of soda, Sodium bicarbonates, Sodium bicarbonate, Sodium hydrogen carbonate, Baking soda, Bicarbonate of soda
+xx: NaHCO₃, NaHCO3, E500ii, E-500ii
+ar: بيكربونات الصوديوم
 bg: Сода бикарбонат
+da: Natron, Natriumhydrogencarbonat, Natriumbicarbonat
 de: Natron
+eo: Natria bikarbonato, Hidrogenkarbonato de natrio
 es: Bicarbonatos de sodio, Bicarbonato sódico, Bicarbonato de sodio
-fi: ruokasooda
+fi: Ruokasooda, Natriumvetykarbonaatti, Natriumbikarbonaatti
 fr: Bicarbonates de sodium, Bicarbonate de sodium, Bicarbonate de soude, Bicarbonate alimentaire
+ga: Hidrigincharbónáit sóidiam
 hr: Soda bikarbona
 it: Bicarbonato di sodio, Sodio bicarbonato
-la: E-500ii
-lt: Kepimo soda
+lt: Natrio hidrokarbonatas, Natrio bikarbonatas, Kepimo milteliai, Kepimo soda, Maistinė soda
+nb: Natron
 nl: Natriumbicarbonaten, Natriumwaterstofcarbonaten, Dubbelkoolzure sodas
+sv: Natriumvätekarbonater, Bikarbonater, Natriumbikarbonater
 agribalyse_food_code:en: 11507
 ciqual_food_code:en: 11507
 ciqual_food_name:en: Sodium bicarbonate
@@ -78763,11 +78859,11 @@ da: Veganske pestoer
 sv: Veganska pesto
 
 < en:Sauces
-en: Pizza sauces
+en: Pizza sauces, Topping sauce for pizza
 de: Pizzasoßen, Pizzasoße, Pizzasaucen, Pizzasauce
 es: Salsas para pizzas, Salsas para pizza
 fi: pizza-kastikkeet
-fr: Sauces pour pizzas
+fr: Sauces pour pizzas, Sauce pour pizza
 hr: Umaci za pizzu
 hu: Pizza szószok
 it: Salsa per la pizza
@@ -78775,35 +78871,28 @@ ja: ピザソース
 lt: Picos padažai
 nl: Pizzasauzen
 pl: Sosy do pizzy, Sos do pizzy
-agribalyse_proxy_food_code:en: 25525
-agribalyse_proxy_food_name:en: Topping sauce for pizza
-agribalyse_proxy_food_name:fr: Pizza, sauce garniture pour
+agribalyse_food_code:en: 25525
+ciqual_food_code:en: 25525
+ciqual_food_name:en: Topping sauce for pizza
+ciqual_food_name:fr: Pizza, sauce garniture pour
 
 < en:Pizza sauces
-en: Cream sauce for pizza base
-fr: Base de pizza à la crème
+en: Cream sauces for pizzas, Cream sauce for pizza base
+fr: Sauces à la crème pour pizzas, Base de pizza à la crème
 agribalyse_food_code:en: 37000
 ciqual_food_code:en: 37000
 ciqual_food_name:en: cream sauce for pizza base
 ciqual_food_name:fr: Base de pizza à la crème
 
 < en:Pizza sauces
-en: Tomato sauce for pizza base
-fr: Base de pizza tomatée
+en: Tomato sauces for pizzas, Tomato sauce for pizza base
+fr: Sauces tomate pour pizzas, Base de pizza tomatée
 hr: Umak od rajčice za podlogu za pizzu
 lt: Pomidorų padažai picos pagrindui
 agribalyse_food_code:en: 37002
 ciqual_food_code:en: 37002
 ciqual_food_name:en: Tomato sauce for pizza base
 ciqual_food_name:fr: Base de pizza tomatée
-
-< en:Pizza sauces
-en: Topping sauce for pizza
-fr: Sauce pour pizza, Garniture pour pizza
-agribalyse_food_code:en: 25525
-ciqual_food_code:en: 25525
-ciqual_food_name:en: Topping sauce for pizza
-ciqual_food_name:fr: Pizza, sauce garniture pour
 
 < en:Sauces
 fr: Sauces pour nems
@@ -79856,15 +79945,6 @@ ciqual_food_name:en: Vol-au-vent, with meat/poultry/quenelle
 fr: Paniers feuilletés
 nl: Bladerdeegbakjes, Bladerdeegpasteitjes
 
-< en:Puff pastry meals
-en: Small cheese chou, Small cheese pastry puff, Gougère
-fr: Gougère
-agribalyse_food_code:en: 25437
-ciqual_food_code:en: 25437
-ciqual_food_name:en: Small cheese chou-pastry puff
-ciqual_food_name:fr: Gougère
-wikidata:en: Q655973
-
 < en:Meals with meat
 < en:Puff pastry meals
 en: Toad in the hole, Sausage toad
@@ -80355,8 +80435,8 @@ en: Fish and Chips
 < en:Meals with fish
 fr: Poisson en sauce et riz
 
-< en:Frozen fishes
-< en:Meals with fish
+< en:Fishes and their products
+< en:Frozen seafood
 en: Frozen fish in sauce
 fr: Poisson en sauce surgelé
 hr: Smrznuta riba u umaku
@@ -80397,14 +80477,14 @@ ciqual_food_code:en: 25143
 ciqual_food_name:en: White fish with Parisian-style sauce (mushrooms sauce)
 ciqual_food_name:fr: Poisson blanc à la parisienne (sauce aux champignons)
 
-< en:Meals with cooked white fish
+< en:Fishes
 en: Cooked white fish without skin
 fr: Poisson blanc cuit, Poisson blanc cuit sans la peau
 ciqual_food_code:en: 26249
 ciqual_food_name:en: Fish, white, without skin, cooked
 ciqual_food_name:fr: Poisson blanc, cuit (aliment moyen)
 
-< en:Meals with cooked white fish
+< en:Fishes
 en: Cooked marine white fish without skin
 fr: Poisson blanc de mer cuit
 ciqual_food_code:en: 26250
@@ -81163,7 +81243,7 @@ ciqual_food_code:en: 25175
 ciqual_food_name:en: Molokhia, jute and beef-based meal
 ciqual_food_name:fr: Meloukhia, plat à base de boeuf et corete
 
-
+< en:Meals
 < en:Pizzas pies and quiches
 en: Salted pies, Savoury tarts
 de: Herzhafte Kuchen
@@ -81176,7 +81256,6 @@ lt: Sūdyti pyragai, pikantiški pyragaičiai
 nl: Hartige taarten
 food_groups:en: en:pizza-pies-and-quiches
 pnns_group_2:en: Pizza pies and quiches
-
 
 < en:Salted pies
 es: Empanada boloñesa
@@ -82646,8 +82725,7 @@ ciqual_food_code:en: 25909
 ciqual_food_name:en: Broth, stock or bouillon, meat and vegetables, dehydrated and reconstituted
 ciqual_food_name:fr: Bouillon de viande et légumes type pot-au-feu, prêt à consommer
 
-< en:Bouillon pots
-< en:Dehydrated broths
+< en:Beef broth
 en: Rehydrated broth stock, Rehydrated bouillon beef
 fr: Bouillon de boeuf déshydraté reconstitué
 agribalyse_food_code:en: 25930
@@ -82655,8 +82733,8 @@ ciqual_food_code:en: 25930
 ciqual_food_name:en: Broth, stock or bouillon, beef, dehydrated and reconstituted
 ciqual_food_name:fr: Bouillon de boeuf, déshydraté reconstitué
 
-< en:Bouillon pots
 < en:Dehydrated broths
+< en:Poultry broth
 en: Rehydrated broth stock with poultry, Rehydrated bouillon with poultry
 fr: Bouillon de volaille déshydraté reconstitué
 agribalyse_food_code:en: 25947
@@ -82664,16 +82742,16 @@ ciqual_food_code:en: 25947
 ciqual_food_name:en: Broth, stock or bouillon, poultry, dehydrated and reconstituted
 ciqual_food_name:fr: Bouillon de volaille, déshydraté reconstitué
 
-< en:Bouillon pots
 < en:Dried products to be rehydrated
+< en:Poultry broth
 en: Dehydrated poultry stock, Dehydrated poultry stock for sauce and cooking
 fr: Fond de volaille déshydraté, Fond de volaille déshydraté pour sauces et cuisson
 agribalyse_food_code:en: 11171
 ciqual_food_code:en: 11171
 ciqual_food_name:en: Poultry stock for sauce and cooking, dehydrated
 
-< en:Bouillon pots
 < en:Dried products to be rehydrated
+< en:Poultry broth
 en: Dehydrated poultry broth stock, Dehydrated poultry bouillon broth
 fr: Bouillon de volaille déshydraté
 agribalyse_food_code:en: 11174
@@ -82712,8 +82790,12 @@ fr: Bouillons de volaille
 hr: Juha od peradi
 it: Brodo di pollo, Brodo di pollame
 lt: Paukštienos sultiniai
-nl: Gevogeltebouillon
+nl: Gevogeltebouillons, Gevogeltebouillon
 wikidata:en: Q68187791
+
+< en:Poultry broth
+en: Chicken broths
+nl: Kippenbouillons
 
 < en:Broths
 en: Beef broth
@@ -83735,7 +83817,7 @@ fr: Langòs surgelés
 en: Filled pinsa
 it: Pinsa farcita
 
-< en:Meals
+# don't put in meals because this category contains "mini appetizer pizzas"
 en: Pizzas pies and quiches, Pizza pies and quiches
 bg: Пица и киш
 ca: Pizzes i quiches
@@ -83760,6 +83842,13 @@ gpc_category_code:en: 10000249
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a pastry, biscuit or crumble based product filled or topped with a mixture of shredded/sliced savoury ingredients, commonly including meat, vegetables, eggs or other additives. Products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Frozen and Shelf Stable Savoury Pies, Pastries, Pizzas and Quiches, Sweet Pies/Tarts, and Potato Topped Meat Pies.
 gpc_category_name:en: Pies/Pastries/Pizzas/Quiches - Savoury (Perishable)
 
+# don't put under pizzas
+< en:Appetizers
+< en:Pizzas pies and quiches
+en: Mini appetizer pizzas
+fr: Mini pizzas apéritives
+
+< en:Meals
 < en:Pizzas pies and quiches
 en: Pizzas
 bg: Пица
@@ -83791,6 +83880,7 @@ gpc_category_name:en: Pies/Pastries/Pizzas/Quiches - Savoury (Shelf Stable)
 intake24_category_code:en: PZZA
 wikidata:en: Q177
 
+< en:Meals
 < en:Pizzas pies and quiches
 it: Calzone
 fr: Calzone, Pizzas calzone
@@ -84384,6 +84474,7 @@ ciqual_food_code:en: 8937
 ciqual_food_name:en: Quenelle, plain, raw
 ciqual_food_name:fr: Quenelle nature, crue
 
+< en:Meals
 < en:Pizzas pies and quiches
 en: Quiches
 de: Quiches
@@ -90777,7 +90868,8 @@ hr: Sardine rillettes
 it: Rillettes di sardine
 
 < en:Fish rillettes
-en: Salmon Rillettes
+< en:Salmon preparations
+en: Salmon rillettes
 de: Lachs-Rillettes
 fr: Rillettes de saumon
 he: רייט סלמון
@@ -91923,7 +92015,7 @@ ciqual_food_code:en: 8305
 ciqual_food_name:en: Pork liver pâté
 
 < en:Pâté
-< en:Salmons
+< en:Salmon preparations
 en: Salmon Pâtés
 ca: Patés de salmó
 es: Patés de salmón
@@ -92025,10 +92117,12 @@ hr: Riblji namazi
 nl: Vispastas
 
 < en:Fish spreads
+< en:Salmon preparations
 en: Salmon spreads
 fr: Tartinables au saumon
 
 < en:Fish spreads
+< en:Tuna preparations
 en: Tuna spreads
 fr: Tartinables au thon, Préparations de thon à tartiner
 hr: Namazi od tune
@@ -92522,7 +92616,7 @@ fr: Saucissons secs halal
 fr: Saucissons secs cacher
 
 < en:Fish rillettes
-< en:Tunas
+< en:Tuna preparations
 en: Tuna rillettes
 de: Thunfisch-Rillettes
 es: Rillettes De atún
@@ -100771,6 +100865,10 @@ gpc_category_name:en: Fish - Unprepared/Unprocessed (Shelf Stable)
 en: Fish patties
 fr: Galettes au poisson
 
+< en:Fish patties
+< en:Salmon preparations
+en: Salmon patties
+
 < en:Frozen foods
 < en:Seafood
 en: Frozen seafood
@@ -100865,6 +100963,14 @@ it: Preparazioni a base di pesce
 nl: Visproducten
 pt: Preparados de peixe
 ro: Preparate din pește
+
+< en:Fish preparations
+en: Tuna preparations
+fr: Préparations de thon
+
+< en:Fish preparations
+en: Salmon preparations
+fr: Préparations de saumon
 
 < en:Fish preparations
 en: Fish (Freshly prepared)
@@ -108926,6 +109032,9 @@ sales_format:en: weight, package
 < en:White cabbage
 en: Canned white cabbage
 fr: Choux blancs en conserve, chou blanc en conserve
+
+< en:White cabbage
+nl: Spitskolen, Spitskool
 
 < en:Cabbages
 en: Green cabbage
@@ -117353,13 +117462,30 @@ en: Prepared bruschetta toasts
 fr: Toasts bruschetta préparés
 
 < en:Appetizers
+en: Puff pastry appetizers
+fr: Feuilletés apéritifs
+
+< en: Puff pastry appetizers
+en: Mini appetizer croissants
+fr: Mini croissants apéritifs
+
+< en:Puff pastry appetizers
 en: Sausage rolls
 de: Wurstrollen
-fr: Roulés à la saucisse, roulés aux saucisses
+fr: Roulés à la saucisse, roulés aux saucisses, feuilletés à la saucisse
 hr: Kolutići kobasica
 nl: Saucijzenbroodjes
 food_groups:en: en:salty-and-fatty-products
 pnns_group_2:en: Salty and fatty products
+
+< en:Puff pastry appetizers
+en: Small cheese chou, Small cheese pastry puff, Gougère
+fr: Gougères, Gougère
+agribalyse_food_code:en: 25437
+ciqual_food_code:en: 25437
+ciqual_food_name:en: Small cheese chou-pastry puff
+ciqual_food_name:fr: Gougère
+wikidata:en: Q655973
 
 < en:Sweet snacks
 en: Bars
@@ -117591,6 +117717,7 @@ nl: Vruchtenrepen
 
 < en:Sweet snacks
 en: Sweet pastries and pies
+nl: Zoet gebak en taarten
 
 < en:Sweet pastries and pies
 en: Fresh sweet pastries and pies
@@ -119314,12 +119441,6 @@ wikidata:en: Q160525
 fr: mélange Sticks et Bretzels
 
 < en:Crackers(Appetizers)
-en: Puffed salty snacks, Salty snacks puff pastry
-fr: Biscuits apéritifs soufflés, Gâteaux apéritifs soufflés
-hr: Napuhane slane grickalice
-ro: Pufuleți
-
-< en:Crackers(Appetizers)
 en: Salty flaky biscuits
 fr: Biscuits apéritifs feuilletés, Biscuit apéritif feuilleté
 agribalyse_food_code:en: 38407
@@ -119352,9 +119473,15 @@ ciqual_food_code:en: 38401
 ciqual_food_name:en: Salty snacks, crackers, garnished or filled with cheese
 ciqual_food_name:fr: Biscuit apéritif, crackers, garni ou fourré, au fromage
 
+< en:Appetizers
+en: Puffed salty snacks, Salty snacks puff pastry
+fr: Snacks apéritifs soufflés, Biscuits apéritifs soufflés, Gâteaux apéritifs soufflés
+hr: Napuhane slane grickalice
+ro: Pufuleți
+
 < en:Puffed salty snacks
 en: Puffed salty snacks made from maize, Puffed salty snacks made from corn
-fr: Biscuits apéritifs soufflés à base de maïs
+fr: Snacks apéritifs soufflés à base de maïs, Biscuits apéritifs soufflés à base de maïs
 agribalyse_food_code:en: 38400
 ciqual_food_code:en: 38400
 ciqual_food_name:en: Puffed salty snacks, made from maize/corn, without peanuts
@@ -119362,7 +119489,7 @@ ciqual_food_name:fr: Biscuit apéritif soufflé, à base de maïs, sans cacahuè
 
 < en:Puffed salty snacks
 en: Puffed salty snacks made from maize with peanuts, Puffed salty snacks made from corn with peanuts
-fr: Biscuit apéritif soufflé à base de maïs à la cacahuète
+fr: Snacks apéritifs soufflés à base de maïs à la cacahuète, Biscuit apéritif soufflé à base de maïs à la cacahuète
 agribalyse_food_code:en: 38404
 ciqual_food_code:en: 38404
 ciqual_food_name:en: Puffed salty snacks, made from maize/corn, with peanuts
@@ -119370,7 +119497,7 @@ ciqual_food_name:fr: Biscuit apéritif soufflé, à base de maïs, à la cacahu�
 
 < en:Puffed salty snacks
 en: Puffed salty snacks made from potato
-fr: Biscuits apéritifs soufflés à base de pomme de terre, Biscuits apéritifs soufflés à base de pomme de terre type Monster Munch, Monster Munch
+fr: Snacks apéritifs soufflés à base de pomme de terre, Biscuits apéritifs soufflés à base de pomme de terre, Biscuits apéritifs soufflés à base de pomme de terre type Monster Munch, Monster Munch
 agribalyse_food_code:en: 38106
 ciqual_food_code:en: 38106
 ciqual_food_name:en: Puffed salty snacks, made from potato
@@ -119379,7 +119506,7 @@ ciqual_food_name:fr: Biscuit apéritif soufflé, à base de pomme de terre
 < en:Puffed salty snacks
 en: Puffed salty snacks made from potato and soy, Puffed salty snacks (potato/soy based)
 de: Gepuffte salzige Snacks (Kartoffel/Soja)
-fr: Biscuit apéritif soufflé à base de pomme de terre et de soja, Biscuits apéritifs soufflés (à base de pomme de terre/soja)
+fr: Snacks apéritifs soufflés à base de pomme de terre et de soja, Biscuit apéritif soufflé à base de pomme de terre et de soja, Biscuits apéritifs soufflés (à base de pomme de terre/soja)
 hr: Lisnate slane grickalice (na bazi krumpira/soje)
 nl: Gepofte zoutjes (aardappel/soja basis)
 agribalyse_food_code:en: 38108
@@ -120919,9 +121046,9 @@ agribalyse_food_code:en: 8395
 ciqual_food_code:en: 8395
 ciqual_food_name:en: Ham, in a pastry crusty
 
-< en:Puff pastry meals
-en: Cheese soufflé
-fr: Soufflé au fromage
+< en:Meals
+en: Cheese soufflés, Cheese soufflé
+fr: Soufflés au fromage, Soufflé au fromage
 agribalyse_food_code:en: 25020
 ciqual_food_code:en: 25020
 ciqual_food_name:en: Cheese soufflé
@@ -121229,16 +121356,22 @@ fr: Varenyky surgelés
 
 # TODO check the difference
 
-
 < en:Appetizers
+en: Acras, Accras
+fr: Acras, Accras
+hr: Acras
+nl: Acra
+
+< en:Acras
 < en:Fish preparations
 en: Cod acras, Cod accras
 fr: Acras de morue, Accras de morue, acras de cabillaud
 hr: Bakalar acras
 it: Frittelle di merluzzo, Frittelle di baccalà
 nl: Kabeljauwacra
-agribalyse_proxy_food_code:en: 26028
-agribalyse_proxy_food_name:en: Fish, croquette, fritter or nuggets, fried
+agribalyse_food_code:en: 25433
+ciqual_food_code:en: 25433
+ciqual_food_name:en: Caribbean-style fish fritters, fish acras
 wikidata:en: Q12860188
 
 < en:Meals
@@ -121422,6 +121555,7 @@ fr: Plats susceptibles de contenir de la viande de cheval - lots retirés de la 
 
 < en:Specific products
 en: Products for specific diets
+nl: Producten voor specifieke diëten
 
 < en:Products for specific diets
 en: Products with reduced salt
@@ -121715,15 +121849,6 @@ en: Mashed split peas
 fr: Purées de pois cassés
 hr: Pire od graška
 nl: Gepureerde spliterwten
-
-< en:Meals
-en: Acras, Accras
-fr: Acras, Accras
-hr: Acras
-nl: Acra
-agribalyse_food_code:en: 25433
-ciqual_food_code:en: 25433
-ciqual_food_name:en: Caribbean-style fish fritters, fish acras
 
 < en:Frozen vegetables
 en: Frozen raw butter beans, Frozen raw yellow beans
