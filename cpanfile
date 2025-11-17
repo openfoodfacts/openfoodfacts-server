@@ -159,6 +159,7 @@ on 'develop' => sub {
   requires 'Devel::Cover::Report::Codecovbash';
   requires 'Test2::Harness', '<2'; # Seems to be a problem with newer versions in Docker. See #11858
   requires 'Test2::Harness::Renderer::JUnit', '<2'; # As above
+  requires 'App::CPAN::SBOM', '1.03'; # For generating SBOMs
 };
 
 feature "off_server_dev_tools", "Optional development tools" => sub {

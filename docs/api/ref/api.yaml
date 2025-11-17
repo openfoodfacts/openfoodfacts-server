@@ -31,7 +31,7 @@ servers:
     url: "http://localhost:8080"
 
 paths:
-  "/api/v2/product/{barcode}":
+  "/api/v2/product/{code}":
     get:
       tags:
         - Products
@@ -41,9 +41,9 @@ paths:
         Can return all product details or specific fields like knowledge panels.
         
         Use the `blame` parameter to include information about who last modified each field of the product.
-      operationId: get-product-by-barcode
+      operationId: get-product-by-code
       parameters:
-        - name: barcode
+        - name: code
           in: path
           description: The barcode of the product to be fetched
           required: true
@@ -54,7 +54,9 @@ paths:
             examples:
               - "3017620422003"
         - $ref: "./parameters/requested_product_type.yaml#/components/parameters/RequestedProductType"
-        - $ref: "#/components/parameters/fields"
+        - $ref: "./parameters/cc.yaml#/components/parameters/Cc"
+        - $ref: "./parameters/lc.yaml#/components/parameters/Lc"        
+        - $ref: "./parameters/product_available_fields.yaml#/components/parameters/ProductAvailableFields"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelClient"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelsSimplified"
         - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelPhysicalActivities"
@@ -142,7 +144,7 @@ paths:
         Open Food Facts uses optical character recognition (OCR) to retrieve nutritional data and other information from the product labels.
       parameters:
         - $ref: "#/components/parameters/id"
-        - $ref: "#/components/parameters/code"
+        - $ref: "./parameters/code.yaml#/components/parameters/Code"
         - $ref: "#/components/parameters/process_image"
         - $ref: "#/components/parameters/ocr_engine"
       tags:
@@ -187,7 +189,7 @@ paths:
         the OFF API allows you to make api calls to automate this process.
         You can rotate existing photos by setting the angle to 90º, 180º, or 270º clockwise.
       parameters:
-        - $ref: "#/components/parameters/code"
+        - $ref: "./parameters/code.yaml#/components/parameters/Code"
         - $ref: "#/components/parameters/id"
         - $ref: "#/components/parameters/imgid"
         - $ref: "#/components/parameters/angle"
@@ -359,7 +361,7 @@ paths:
         - $ref: "./schemas/nutrition_search.yaml#/properties/nutrient_lower_than"
         - $ref: "./schemas/nutrition_search.yaml#/properties/nutrient_greater_than"
         - $ref: "./schemas/nutrition_search.yaml#/properties/nutrient_equal"
-        - $ref: "#/components/parameters/fields"
+        - $ref: "./parameters/product_available_fields.yaml#/components/parameters/ProductAvailableFields"
         - $ref: "#/components/parameters/sort_by"
         - $ref: "#/components/parameters/page"
         - $ref: "#/components/parameters/page_size"
@@ -380,7 +382,7 @@ paths:
                   type: string
       operationId: get-cgi-suggest.pl
       parameters:
-        - $ref: "#/components/parameters/tagtype"
+        - $ref: "./parameters/tagtype.yaml#/components/parameters/Tagtype"
         - $ref: "#/components/parameters/term"
       description: |
         For example , Dave is looking for packaging_shapes that contain the term "fe",
@@ -401,8 +403,8 @@ paths:
                 $ref: ./responses/get_nutrients.yaml
       operationId: get-cgi-nutrients.pl
       parameters:
-        - $ref: "#/components/parameters/cc"
-        - $ref: "#/components/parameters/lc"
+        - $ref: "./parameters/cc.yaml#/components/parameters/Cc"
+        - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
       description: |
         Used to display the nutrition facts table of a product, or to display a form to input those nutrition facts.
   /api/v2/attribute_groups:
@@ -429,7 +431,7 @@ paths:
                 title: get_attribute_groups_response
                 $ref: ./responses/get_attribute_groups.yaml
       parameters:
-        - $ref: "#/components/parameters/lc"
+        - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
   /api/v2/preferences:
     get:
       summary: Get Preferences Weights
@@ -441,7 +443,7 @@ paths:
         - Personal Search
       operationId: get-preferences
       parameters:
-        - $ref: "#/components/parameters/lc"
+        - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
       responses:
         "200":
           description: OK
@@ -553,34 +555,6 @@ components:
       in: query
       name: id
       required: true
-    cc:
-      schema:
-        type: string
-        example: "us"
-      in: query
-      name: cc
-      required: false
-      description: "2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request."
-    lc:
-      schema:
-        type: string
-        example: "fr"
-      in: query
-      name: lc
-      required: false
-      description: |
-        2 letter code of the language of the user.
-        Used for localizing some fields in returned values (e.g. knowledge panels).
-        If not passed, the language may be inferred by the Accept-Language header of the request,
-        or from the domain name prefix.
-    code:
-      schema:
-        type: string
-        example: "4251105501381"
-      in: query
-      name: code
-      description: Barcode of the product
-      required: true
     process_image:
       schema:
         type: string
@@ -651,14 +625,6 @@ components:
         * `scans_n`, `unique_scans_n` and `popularity_key` are about product popularity: number of scans on unique scans, rank of product
         * `created_t`, `last_modified_t`, are about creation and modification dates
         * `nothing`, tells not to sort at all (because if you do not provide the sort_by argument we default to sorting on popularity (for food) or last modification date)
-    fields:
-      $ref: ./parameters/product_available_fields.yaml#/components/parameters/ProductAvailableFields
-    tagtype:
-      schema:
-        type: string
-        example: additives
-      in: query
-      name: tagtype
     term:
       schema:
         type: string
