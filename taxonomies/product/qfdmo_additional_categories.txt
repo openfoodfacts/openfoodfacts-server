@@ -7,7 +7,7 @@
 # - Each category and item has:
 #   - fr: French name (libelle from the data)
 #   - qfdmo_name:fr: QFDMO code identifier
-#   - identifiant_qfdmo:fr: QFDMO numeric identifier (when available)
+#   - qfdmo_id:fr: QFDMO numeric identifier (when available)
 # - Parent-child relationships use < fr: Parent Category
 #
 
@@ -274,32 +274,32 @@ qfdmo_name:fr: vetement
 
 < fr: Abj Electrique
 fr: Disqueuse
-identifiant_qfdmo:fr: 243
+qfdmo_id:fr: 243
 qfdmo_name:fr: disqueuse
 
 < fr: Abj Electrique
 fr: Outil électrique (bricolage, jardinage)
-identifiant_qfdmo:fr: 243
+qfdmo_id:fr: 243
 qfdmo_name:fr: outil-electrique-bricolage-jardinage
 
 < fr: Abj Electrique
 fr: Perceuse électrique
-identifiant_qfdmo:fr: 243
+qfdmo_id:fr: 243
 qfdmo_name:fr: perceuse
 
 < fr: Abj Electrique
 fr: Ponceuse électrique
-identifiant_qfdmo:fr: 243
+qfdmo_id:fr: 243
 qfdmo_name:fr: ponceuse
 
 < fr: Abj Electrique
 fr: Scie circulaire
-identifiant_qfdmo:fr: 243
+qfdmo_id:fr: 243
 qfdmo_name:fr: scie-circulaire
 
 < fr: Abj Electrique
 fr: Taille-haie électrique
-identifiant_qfdmo:fr: 243
+qfdmo_id:fr: 243
 qfdmo_name:fr: taille-haie
 
 < fr: Abj Electrique
@@ -308,12 +308,12 @@ qfdmo_name:fr: tondeuse-a-gazon-electrique
 
 < fr: Abj Electrique
 fr: Tronçonneuse électrique
-identifiant_qfdmo:fr: 243
+qfdmo_id:fr: 243
 qfdmo_name:fr: tronconneuse
 
 < fr: Abj Electrique
 fr: Visseuse électrique
-identifiant_qfdmo:fr: 243
+qfdmo_id:fr: 243
 qfdmo_name:fr: visseuse
 
 
@@ -346,7 +346,7 @@ qfdmo_name:fr: parasol
 
 < fr: Ampoule
 fr: Ampoule
-identifiant_qfdmo:fr: 410
+qfdmo_id:fr: 410
 qfdmo_name:fr: ampoule
 
 
@@ -355,12 +355,12 @@ qfdmo_name:fr: ampoule
 
 < fr: Autre Equipement Electronique
 fr: Accessoire automobile (et deux-roues) électronique
-identifiant_qfdmo:fr: 1
+qfdmo_id:fr: 1
 qfdmo_name:fr: accessoire-automobile-et-deux-roues-electronique
 
 < fr: Autre Equipement Electronique
 fr: Allume-cigare
-identifiant_qfdmo:fr: 1
+qfdmo_id:fr: 1
 qfdmo_name:fr: allume-cigare
 
 < fr: Autre Equipement Electronique
@@ -377,62 +377,62 @@ qfdmo_name:fr: autre-equipement-electronique
 
 < fr: Autre Equipement Electronique
 fr: Calculatrice
-identifiant_qfdmo:fr: 414
+qfdmo_id:fr: 414
 qfdmo_name:fr: calculatrice
 
 < fr: Autre Equipement Electronique
 fr: Chargeur
-identifiant_qfdmo:fr: 94
+qfdmo_id:fr: 94
 qfdmo_name:fr: chargeur
 
 < fr: Autre Equipement Electronique
 fr: Cigarette électronique
-identifiant_qfdmo:fr: 100
+qfdmo_id:fr: 100
 qfdmo_name:fr: cigarette-electronique
 
 < fr: Autre Equipement Electronique
 fr: Détecteur radar
-identifiant_qfdmo:fr: 1
+qfdmo_id:fr: 1
 qfdmo_name:fr: detecteur-radar
 
 < fr: Autre Equipement Electronique
 fr: GPS
-identifiant_qfdmo:fr: 177
+qfdmo_id:fr: 177
 qfdmo_name:fr: gps
 
 < fr: Autre Equipement Electronique
 fr: Montre électronique
-identifiant_qfdmo:fr: 229
+qfdmo_id:fr: 229
 qfdmo_name:fr: montre-electronique
 
 < fr: Autre Equipement Electronique
 fr: Radar de stationnement
-identifiant_qfdmo:fr: 1
+qfdmo_id:fr: 1
 qfdmo_name:fr: radar-de-stationnement
 
 < fr: Autre Equipement Electronique
 fr: Thermomètre digital
-identifiant_qfdmo:fr: 342
+qfdmo_id:fr: 342
 qfdmo_name:fr: thermometre-digital
 
 < fr: Autre Equipement Electronique
 fr: Transformateur électrique
-identifiant_qfdmo:fr: 350
+qfdmo_id:fr: 350
 qfdmo_name:fr: transformateur-electrique
 
 < fr: Autre Equipement Electronique
 fr: Téléphone fixe
-identifiant_qfdmo:fr: 333
+qfdmo_id:fr: 333
 qfdmo_name:fr: telephone-fixe
 
 < fr: Autre Equipement Electronique
 fr: Vieil appareil électrique ou électronique
-identifiant_qfdmo:fr: 365
+qfdmo_id:fr: 365
 qfdmo_name:fr: vieil-appareil-electrique-ou-electronique
 
 < fr: Autre Equipement Electronique
 fr: Voiture de course électrique (jouet)
-identifiant_qfdmo:fr: 367
+qfdmo_id:fr: 367
 qfdmo_name:fr: voiture-de-course-electrique-jouet
 
 
@@ -481,7 +481,7 @@ qfdmo_name:fr: montre
 
 < fr: Bouchons en Liege
 fr: Bouchon en liège
-identifiant_qfdmo:fr: 62
+qfdmo_id:fr: 62
 qfdmo_name:fr: bouchons-en-liege
 
 
@@ -526,17 +526,17 @@ qfdmo_name:fr: vinyles
 
 < fr: CD DVD et Jeu Video
 fr: Jeu vidéo (cassette ou cartouche DS, PS3, Xbox...)
-identifiant_qfdmo:fr: 193
+qfdmo_id:fr: 193
 qfdmo_name:fr: jeu-video-cassette-ou-cartouche-ds-ps3-xbox
 
 < fr: CD DVD et Jeu Video
 fr: jeu de ps2
-identifiant_qfdmo:fr: 193
+qfdmo_id:fr: 193
 qfdmo_name:fr: jeu-de-ps2
 
 < fr: CD DVD et Jeu Video
 fr: jeu de ps4
-identifiant_qfdmo:fr: 193
+qfdmo_id:fr: 193
 qfdmo_name:fr: jeu-de-ps4
 
 
@@ -577,7 +577,7 @@ qfdmo_name:fr: chaussons
 
 < fr: Chaussures
 fr: Chaussures
-identifiant_qfdmo:fr: 96
+qfdmo_id:fr: 96
 qfdmo_name:fr: chaussures
 
 < fr: Chaussures
@@ -630,7 +630,7 @@ qfdmo_name:fr: tongs
 
 < fr: Dasri
 fr: Cathéter
-identifiant_qfdmo:fr: 91
+qfdmo_id:fr: 91
 qfdmo_name:fr: catheter
 
 
@@ -687,7 +687,7 @@ qfdmo_name:fr: bande-d-ancrage-de-rideau
 
 < fr: Decoration
 fr: Bougie
-identifiant_qfdmo:fr: 64
+qfdmo_id:fr: 64
 qfdmo_name:fr: bougie
 
 < fr: Decoration
@@ -696,7 +696,7 @@ qfdmo_name:fr: bouton-de-tringle-a-rideau
 
 < fr: Decoration
 fr: Cage pour animaux
-identifiant_qfdmo:fr: 400
+qfdmo_id:fr: 400
 qfdmo_name:fr: cage-pour-animaux
 
 < fr: Decoration
@@ -705,7 +705,7 @@ qfdmo_name:fr: carpette
 
 < fr: Decoration
 fr: Chandelle
-identifiant_qfdmo:fr: 64
+qfdmo_id:fr: 64
 qfdmo_name:fr: chandelle
 
 < fr: Decoration
@@ -714,17 +714,17 @@ qfdmo_name:fr: chemin-de-table
 
 < fr: Decoration
 fr: Cierge
-identifiant_qfdmo:fr: 64
+qfdmo_id:fr: 64
 qfdmo_name:fr: cierge
 
 < fr: Decoration
 fr: Couette
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: couette
 
 < fr: Decoration
 fr: Coussin
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: coussin
 
 < fr: Decoration
@@ -737,7 +737,7 @@ qfdmo_name:fr: decoration
 
 < fr: Decoration
 fr: Edredon
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: edredon
 
 < fr: Decoration
@@ -762,12 +762,12 @@ qfdmo_name:fr: macrame
 
 < fr: Decoration
 fr: Miroir (glace)
-identifiant_qfdmo:fr: 227
+qfdmo_id:fr: 227
 qfdmo_name:fr: miroir-glace
 
 < fr: Decoration
 fr: Moquette
-identifiant_qfdmo:fr: 231
+qfdmo_id:fr: 231
 qfdmo_name:fr: moquette
 
 < fr: Decoration
@@ -784,12 +784,12 @@ qfdmo_name:fr: natte
 
 < fr: Decoration
 fr: Niche
-identifiant_qfdmo:fr: 442
+qfdmo_id:fr: 442
 qfdmo_name:fr: niche
 
 < fr: Decoration
 fr: Oreiller
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: oreiller
 
 < fr: Decoration
@@ -798,7 +798,7 @@ qfdmo_name:fr: paillasson
 
 < fr: Decoration
 fr: Panier pour animaux
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: panier-pour-animaux
 
 < fr: Decoration
@@ -811,7 +811,7 @@ qfdmo_name:fr: peau-de-bete
 
 < fr: Decoration
 fr: Polochon
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: polochon
 
 < fr: Decoration
@@ -820,7 +820,7 @@ qfdmo_name:fr: pot-de-fleurs
 
 < fr: Decoration
 fr: Produit d'ameublement rembourré
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: produit-d-ameublement-rembourre
 
 < fr: Decoration
@@ -829,7 +829,7 @@ qfdmo_name:fr: rideau
 
 < fr: Decoration
 fr: Sac de couchage
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: sac-de-couchage
 
 < fr: Decoration
@@ -858,7 +858,7 @@ qfdmo_name:fr: support-de-fixation-rideau-penderie
 
 < fr: Decoration
 fr: Surmatelas
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: surmatelas
 
 < fr: Decoration
@@ -867,12 +867,12 @@ qfdmo_name:fr: tablier
 
 < fr: Decoration
 fr: Tapis
-identifiant_qfdmo:fr: 424
+qfdmo_id:fr: 424
 qfdmo_name:fr: tapis
 
 < fr: Decoration
 fr: Tapis d'éveil
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: tapis-d-eveil
 
 < fr: Decoration
@@ -893,7 +893,7 @@ qfdmo_name:fr: tour-de-lit
 
 < fr: Decoration
 fr: Traversin
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: traversin
 
 < fr: Decoration
@@ -902,12 +902,12 @@ qfdmo_name:fr: tringle-a-rideau
 
 < fr: Decoration
 fr: Turbulette
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: turbulette
 
 < fr: Decoration
 fr: Verre (ayant contenu une bougie)
-identifiant_qfdmo:fr: 361
+qfdmo_id:fr: 361
 qfdmo_name:fr: verre-ayant-contenu-une-bougie
 
 < fr: Decoration
@@ -924,27 +924,27 @@ qfdmo_name:fr: voliere
 
 < fr: Decoration
 fr: coussin d'assise ou de dossier
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: coussin-d-assise-ou-de-dossier
 
 < fr: Decoration
 fr: coussin pour animaux
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: coussin-pour-animaux
 
 < fr: Decoration
 fr: housse rembourrée (chaise, canapé)
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: housse-rembourree-chaise-canape
 
 < fr: Decoration
 fr: oreiller ergonomique
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: oreiller-ergonomique
 
 < fr: Decoration
 fr: tour de lit rembourré
-identifiant_qfdmo:fr: 408
+qfdmo_id:fr: 408
 qfdmo_name:fr: tour-de-lit-rembourre
 
 
@@ -957,12 +957,12 @@ qfdmo_name:fr: ecran
 
 < fr: Ecran
 fr: TV
-identifiant_qfdmo:fr: 335
+qfdmo_id:fr: 335
 qfdmo_name:fr: tv
 
 < fr: Ecran
 fr: Télévision
-identifiant_qfdmo:fr: 335
+qfdmo_id:fr: 335
 qfdmo_name:fr: television
 
 
@@ -971,37 +971,37 @@ qfdmo_name:fr: television
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Aspirateur
-identifiant_qfdmo:fr: 24
+qfdmo_id:fr: 24
 qfdmo_name:fr: aspirateur
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Chauffage électrique
-identifiant_qfdmo:fr: 291
+qfdmo_id:fr: 291
 qfdmo_name:fr: chauffage-electrique
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Chauffe-eau
-identifiant_qfdmo:fr: 95
+qfdmo_id:fr: 95
 qfdmo_name:fr: chauffe-eau
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Cuisinière électrique
-identifiant_qfdmo:fr: 118
+qfdmo_id:fr: 118
 qfdmo_name:fr: cuisiniere-electrique
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Equipement d'entretien
-identifiant_qfdmo:fr: 24
+qfdmo_id:fr: 24
 qfdmo_name:fr: equipement-d-entretien
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Four électrique
-identifiant_qfdmo:fr: 163
+qfdmo_id:fr: 163
 qfdmo_name:fr: four-electrique
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Gazinière
-identifiant_qfdmo:fr: 173
+qfdmo_id:fr: 173
 qfdmo_name:fr: gaziniere
 
 < fr: Gros Electromenager Hors Refrigerant
@@ -1010,42 +1010,42 @@ qfdmo_name:fr: gros-appareil-electromenager-hors-froid
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Halogène
-identifiant_qfdmo:fr: 183
+qfdmo_id:fr: 183
 qfdmo_name:fr: halogene
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Hotte
-identifiant_qfdmo:fr: 180
+qfdmo_id:fr: 180
 qfdmo_name:fr: hotte
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Lave-linge
-identifiant_qfdmo:fr: 211
+qfdmo_id:fr: 211
 qfdmo_name:fr: lave-linge
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Lave-vaisselle
-identifiant_qfdmo:fr: 180
+qfdmo_id:fr: 180
 qfdmo_name:fr: lave-vaisselle
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Machine à laver
-identifiant_qfdmo:fr: 211
+qfdmo_id:fr: 211
 qfdmo_name:fr: machine-a-laver
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Plaque de cuisson
-identifiant_qfdmo:fr: 180
+qfdmo_id:fr: 180
 qfdmo_name:fr: plaque-de-cuisson
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Radiateur électrique
-identifiant_qfdmo:fr: 291
+qfdmo_id:fr: 291
 qfdmo_name:fr: radiateur-electrique
 
 < fr: Gros Electromenager Hors Refrigerant
 fr: Sèche-linge
-identifiant_qfdmo:fr: 180
+qfdmo_id:fr: 180
 qfdmo_name:fr: seche-linge
 
 
@@ -1054,7 +1054,7 @@ qfdmo_name:fr: seche-linge
 
 < fr: Gros Electromenager Refrigerant
 fr: Climatiseur
-identifiant_qfdmo:fr: 439
+qfdmo_id:fr: 439
 qfdmo_name:fr: climatiseur
 
 < fr: Gros Electromenager Refrigerant
@@ -1079,7 +1079,7 @@ qfdmo_name:fr: gros-appareil-electromenager-froid
 
 < fr: Gros Electromenager Refrigerant
 fr: Réfrigérateur
-identifiant_qfdmo:fr: 295
+qfdmo_id:fr: 295
 qfdmo_name:fr: refrigerateur
 
 
@@ -1092,7 +1092,7 @@ qfdmo_name:fr: guitare-electrique
 
 < fr: Instrument de Musique
 fr: Instrument de musique
-identifiant_qfdmo:fr: 441
+qfdmo_id:fr: 441
 qfdmo_name:fr: instrument-de-musique
 
 < fr: Instrument de Musique
@@ -1105,37 +1105,37 @@ qfdmo_name:fr: synthetiseur
 
 < fr: Instrument de Musique
 fr: flûte
-identifiant_qfdmo:fr: 441
+qfdmo_id:fr: 441
 qfdmo_name:fr: flute
 
 < fr: Instrument de Musique
 fr: guitare acoustique
-identifiant_qfdmo:fr: 441
+qfdmo_id:fr: 441
 qfdmo_name:fr: guitare-acoustique
 
 < fr: Instrument de Musique
 fr: instrument à cuivre
-identifiant_qfdmo:fr: 441
+qfdmo_id:fr: 441
 qfdmo_name:fr: instrument-a-cuivre
 
 < fr: Instrument de Musique
 fr: instrument à vent
-identifiant_qfdmo:fr: 441
+qfdmo_id:fr: 441
 qfdmo_name:fr: instrument-a-vent
 
 < fr: Instrument de Musique
 fr: piano
-identifiant_qfdmo:fr: 441
+qfdmo_id:fr: 441
 qfdmo_name:fr: piano
 
 < fr: Instrument de Musique
 fr: saxophone
-identifiant_qfdmo:fr: 441
+qfdmo_id:fr: 441
 qfdmo_name:fr: saxophone
 
 < fr: Instrument de Musique
 fr: violon
-identifiant_qfdmo:fr: 441
+qfdmo_id:fr: 441
 qfdmo_name:fr: violon
 
 
@@ -1152,7 +1152,7 @@ qfdmo_name:fr: hoverboard-electrique
 
 < fr: Jels Mobilite Electrique
 fr: Train électrique (jouet)
-identifiant_qfdmo:fr: 349
+qfdmo_id:fr: 349
 qfdmo_name:fr: train-electrique-jouet
 
 < fr: Jels Mobilite Electrique
@@ -1165,7 +1165,7 @@ qfdmo_name:fr: trotinette-lectrique
 
 < fr: Jouet
 fr: Accessoires pour poupon ou poupée
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: accessoires-pour-poupon-ou-poupee
 
 < fr: Jouet
@@ -1174,7 +1174,7 @@ qfdmo_name:fr: arme-factice-jouet
 
 < fr: Jouet
 fr: Articles de sport d'extérieur pour enfant (jouet : raquette, boule de pétanque en plastique...)
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: articles-de-sport-d-exterieur-pour-enfant-jouet
 
 < fr: Jouet
@@ -1191,12 +1191,12 @@ qfdmo_name:fr: bateau-jouet
 
 < fr: Jouet
 fr: Bicyclette enfant (jouet)
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: bicyclette-enfant-jouet
 
 < fr: Jouet
 fr: Camion non motorisé
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: camion-non-motorise
 
 < fr: Jouet
@@ -1221,17 +1221,17 @@ qfdmo_name:fr: echasse
 
 < fr: Jouet
 fr: Ensemble cosmétique pour enfant (jouet)
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: ensemble-cosmetique-pour-enfant-jouet
 
 < fr: Jouet
 fr: Farces et attrapes
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: farces-et-attrapes
 
 < fr: Jouet
 fr: Figurine
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: figurine
 
 < fr: Jouet
@@ -1244,7 +1244,7 @@ qfdmo_name:fr: jeu
 
 < fr: Jouet
 fr: Jeu de plage
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: jeu-de-plage
 
 < fr: Jouet
@@ -1253,7 +1253,7 @@ qfdmo_name:fr: jeu-de-sable
 
 < fr: Jouet
 fr: Jeu de société
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: jeu-de-societe
 
 < fr: Jouet
@@ -1262,12 +1262,12 @@ qfdmo_name:fr: jouet
 
 < fr: Jouet
 fr: Jouet (non électronique)
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: jouet-non-electronique
 
 < fr: Jouet
 fr: Loisirs créatifs pour enfants (jouet)
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: loisirs-creatifs-pour-enfants-jouet
 
 < fr: Jouet
@@ -1276,7 +1276,7 @@ qfdmo_name:fr: luge-d-enfant-jouet
 
 < fr: Jouet
 fr: Maison de jardin pour enfant
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: maison-de-jardin-pour-enfant
 
 < fr: Jouet
@@ -1341,7 +1341,7 @@ qfdmo_name:fr: puzzle
 
 < fr: Jouet
 fr: Pâte à modeler
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: pate-a-modeler
 
 < fr: Jouet
@@ -1354,7 +1354,7 @@ qfdmo_name:fr: toboggan
 
 < fr: Jouet
 fr: Trottinette enfant (jouet)
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: trottinette-enfant-jouet
 
 < fr: Jouet
@@ -1367,7 +1367,7 @@ qfdmo_name:fr: voiture-jouet
 
 < fr: Jouet
 fr: Véhicule miniature
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: vehicule-miniature
 
 < fr: Jouet
@@ -1376,7 +1376,7 @@ qfdmo_name:fr: vehicule-a-friction
 
 < fr: Jouet
 fr: Vêtements de poupon ou poupée
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: vetements-de-poupon-ou-poupee
 
 < fr: Jouet
@@ -1401,7 +1401,7 @@ qfdmo_name:fr: draps
 
 < fr: Linge de Maison
 fr: Linge de maison
-identifiant_qfdmo:fr: 203
+qfdmo_id:fr: 203
 qfdmo_name:fr: linge-de-maison
 
 < fr: Linge de Maison
@@ -1422,7 +1422,7 @@ qfdmo_name:fr: serviette-de-bain
 
 < fr: Linge de Maison
 fr: Serviette en tissu
-identifiant_qfdmo:fr: 317
+qfdmo_id:fr: 317
 qfdmo_name:fr: serviette-en-tissu
 
 < fr: Linge de Maison
@@ -1443,12 +1443,12 @@ qfdmo_name:fr: torchon
 
 < fr: Livre
 fr: Bande-dessinée (album)
-identifiant_qfdmo:fr: 208
+qfdmo_id:fr: 208
 qfdmo_name:fr: bande-dessinee-album
 
 < fr: Livre
 fr: Livre
-identifiant_qfdmo:fr: 208
+qfdmo_id:fr: 208
 qfdmo_name:fr: livre
 
 
@@ -1457,7 +1457,7 @@ qfdmo_name:fr: livre
 
 < fr: Luminaire
 fr: LED
-identifiant_qfdmo:fr: 201
+qfdmo_id:fr: 201
 qfdmo_name:fr: led
 
 < fr: Luminaire
@@ -1470,12 +1470,12 @@ qfdmo_name:fr: luminaire
 
 < fr: Luminaire
 fr: Lustre
-identifiant_qfdmo:fr: 198
+qfdmo_id:fr: 198
 qfdmo_name:fr: lustre
 
 < fr: Luminaire
 fr: Néon
-identifiant_qfdmo:fr: 352
+qfdmo_id:fr: 352
 qfdmo_name:fr: neon
 
 < fr: Luminaire
@@ -1484,7 +1484,7 @@ qfdmo_name:fr: plafonnier
 
 < fr: Luminaire
 fr: Tube fluorescent
-identifiant_qfdmo:fr: 352
+qfdmo_id:fr: 352
 qfdmo_name:fr: tube-fluorescent
 
 
@@ -1501,12 +1501,12 @@ qfdmo_name:fr: lunettes-de-vue
 
 < fr: Machines et Appareils Motorises Thermiques
 fr: Aspirateur souffleur thermique, aspirateur souffleur broyeur thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: aspirateur-souffleur-thermique-aspirateur-souffleur-broyeur-thermique
 
 < fr: Machines et Appareils Motorises Thermiques
 fr: Broyeur thermique  à végétaux
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: broyeur-thermique-a-vegetaux
 
 < fr: Machines et Appareils Motorises Thermiques
@@ -1515,12 +1515,12 @@ qfdmo_name:fr: debroussailleuse-rotofil-coupe-bordure-thermique
 
 < fr: Machines et Appareils Motorises Thermiques
 fr: Souffleur thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: souffleur-thermique
 
 < fr: Machines et Appareils Motorises Thermiques
 fr: Taille-haie thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: taille-haie-thermique
 
 < fr: Machines et Appareils Motorises Thermiques
@@ -1533,7 +1533,7 @@ qfdmo_name:fr: tondeuse-thermique-tractee
 
 < fr: Machines et Appareils Motorises Thermiques
 fr: Tronçonneuse thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: tronconneuse-thermique
 
 
@@ -1542,52 +1542,52 @@ qfdmo_name:fr: tronconneuse-thermique
 
 < fr: Maroquinerie
 fr: Articles en cuir (hors chaussures)
-identifiant_qfdmo:fr: 23
+qfdmo_id:fr: 23
 qfdmo_name:fr: articles-en-cuir-hors-chaussures
 
 < fr: Maroquinerie
 fr: Blouson en cuir
-identifiant_qfdmo:fr: 23
+qfdmo_id:fr: 23
 qfdmo_name:fr: blouson-en-cuir
 
 < fr: Maroquinerie
 fr: Bracelet en cuir
-identifiant_qfdmo:fr: 23
+qfdmo_id:fr: 23
 qfdmo_name:fr: bracelet-en-cuir
 
 < fr: Maroquinerie
 fr: Ceinture en cuir
-identifiant_qfdmo:fr: 23
+qfdmo_id:fr: 23
 qfdmo_name:fr: ceinture-en-cuir
 
 < fr: Maroquinerie
 fr: Gants en cuir
-identifiant_qfdmo:fr: 23
+qfdmo_id:fr: 23
 qfdmo_name:fr: gants-en-cuir
 
 < fr: Maroquinerie
 fr: Maroquinerie
-identifiant_qfdmo:fr: 23
+qfdmo_id:fr: 23
 qfdmo_name:fr: maroquinerie
 
 < fr: Maroquinerie
 fr: Pantalon en cuir
-identifiant_qfdmo:fr: 23
+qfdmo_id:fr: 23
 qfdmo_name:fr: pantalon-en-cuir
 
 < fr: Maroquinerie
 fr: Portefeuille en cuir
-identifiant_qfdmo:fr: 23
+qfdmo_id:fr: 23
 qfdmo_name:fr: portefeuille-en-cuir
 
 < fr: Maroquinerie
 fr: Sac à main en cuir
-identifiant_qfdmo:fr: 23
+qfdmo_id:fr: 23
 qfdmo_name:fr: sac-a-main-en-cuir
 
 < fr: Maroquinerie
 fr: Sacoche en cuir
-identifiant_qfdmo:fr: 23
+qfdmo_id:fr: 23
 qfdmo_name:fr: sacoche-en-cuir
 
 
@@ -1668,7 +1668,7 @@ qfdmo_name:fr: arc
 
 < fr: Materiel de Sport Hors Velo
 fr: Arme d'entraînement
-identifiant_qfdmo:fr: 374
+qfdmo_id:fr: 374
 qfdmo_name:fr: arme-d-entrainement
 
 < fr: Materiel de Sport Hors Velo
@@ -1677,7 +1677,7 @@ qfdmo_name:fr: article-de-natation
 
 < fr: Materiel de Sport Hors Velo
 fr: Article de sport
-identifiant_qfdmo:fr: 369
+qfdmo_id:fr: 369
 qfdmo_name:fr: article-de-sport
 
 < fr: Materiel de Sport Hors Velo
@@ -1714,7 +1714,7 @@ qfdmo_name:fr: balle-de-golf
 
 < fr: Materiel de Sport Hors Velo
 fr: Balle de sport (gymnastique, yoga, pilates, musculation, capoeira, cheerleading, cirque)
-identifiant_qfdmo:fr: 370
+qfdmo_id:fr: 370
 qfdmo_name:fr: balle-de-sport-gymnastique
 
 < fr: Materiel de Sport Hors Velo
@@ -1723,7 +1723,7 @@ qfdmo_name:fr: balle-de-sport-de-raquette
 
 < fr: Materiel de Sport Hors Velo
 fr: Balle de tennis
-identifiant_qfdmo:fr: 371
+qfdmo_id:fr: 371
 qfdmo_name:fr: balle-de-tennis
 
 < fr: Materiel de Sport Hors Velo
@@ -1736,7 +1736,7 @@ qfdmo_name:fr: batte-de-baseball
 
 < fr: Materiel de Sport Hors Velo
 fr: Bodyboard
-identifiant_qfdmo:fr: 46
+qfdmo_id:fr: 46
 qfdmo_name:fr: bodyboard
 
 < fr: Materiel de Sport Hors Velo
@@ -1765,17 +1765,17 @@ qfdmo_name:fr: boule-de-petanque
 
 < fr: Materiel de Sport Hors Velo
 fr: Bouteille de plongée
-identifiant_qfdmo:fr: 67
+qfdmo_id:fr: 67
 qfdmo_name:fr: bouteille-de-plongee
 
 < fr: Materiel de Sport Hors Velo
 fr: Bouée, planche, matériel d'aide à la flottaison
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: bouee-planche-materiel-d-aide-a-la-flottaison
 
 < fr: Materiel de Sport Hors Velo
 fr: Brassard de flottaison
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: brassard-de-flottaison
 
 < fr: Materiel de Sport Hors Velo
@@ -1800,12 +1800,12 @@ qfdmo_name:fr: cartouche-douille-usagee-balle-tir-sportif
 
 < fr: Materiel de Sport Hors Velo
 fr: Casque
-identifiant_qfdmo:fr: 90
+qfdmo_id:fr: 90
 qfdmo_name:fr: casque
 
 < fr: Materiel de Sport Hors Velo
 fr: Casque de protection (ski, vélo, football américain, hockey, roller skate, skate board, bombe d'équitation, alpinisme, escalade, varappe, canyoning, patinage artistique, hockey sur glace, curling…)
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: casque-de-protection
 
 < fr: Materiel de Sport Hors Velo
@@ -1814,7 +1814,7 @@ qfdmo_name:fr: ceinture-de-judo
 
 < fr: Materiel de Sport Hors Velo
 fr: Ceinture et gilet de sauvetage textile
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: ceinture-et-gilet-de-sauvetage-textile
 
 < fr: Materiel de Sport Hors Velo
@@ -1827,7 +1827,7 @@ qfdmo_name:fr: cerf-volant
 
 < fr: Materiel de Sport Hors Velo
 fr: Chambre à air de vélo
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: chambre-a-air-de-velo
 
 < fr: Materiel de Sport Hors Velo
@@ -1836,7 +1836,7 @@ qfdmo_name:fr: chariot-de-golf
 
 < fr: Materiel de Sport Hors Velo
 fr: Chaussons d'escalade
-identifiant_qfdmo:fr: 372
+qfdmo_id:fr: 372
 qfdmo_name:fr: chaussons-d-escalade
 
 < fr: Materiel de Sport Hors Velo
@@ -1909,7 +1909,7 @@ qfdmo_name:fr: cordelette-pour-le-sport
 
 < fr: Materiel de Sport Hors Velo
 fr: Coudière
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: coudiere
 
 < fr: Materiel de Sport Hors Velo
@@ -1918,12 +1918,12 @@ qfdmo_name:fr: couteau-chasse
 
 < fr: Materiel de Sport Hors Velo
 fr: Crampons de chaussures de montagne
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: crampons-de-chaussures-de-montagne
 
 < fr: Materiel de Sport Hors Velo
 fr: Crashpad
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: crashpad
 
 < fr: Materiel de Sport Hors Velo
@@ -1940,7 +1940,7 @@ qfdmo_name:fr: deltaplane
 
 < fr: Materiel de Sport Hors Velo
 fr: Dorsale
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: dorsale
 
 < fr: Materiel de Sport Hors Velo
@@ -1957,7 +1957,7 @@ qfdmo_name:fr: embarcation-inferieur-a-2-5m
 
 < fr: Materiel de Sport Hors Velo
 fr: Epaulière
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: epauliere
 
 < fr: Materiel de Sport Hors Velo
@@ -2030,7 +2030,7 @@ qfdmo_name:fr: gants-de-sport
 
 < fr: Materiel de Sport Hors Velo
 fr: Genouillère
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: genouillere
 
 < fr: Materiel de Sport Hors Velo
@@ -2051,7 +2051,7 @@ qfdmo_name:fr: hamecon
 
 < fr: Materiel de Sport Hors Velo
 fr: Harnais, mousqueton, dégaine, assurage, poulie, bloqueur, coinceur (Matériel d'alpinisme, escalade, varappe, canyoning, camping)
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: harnais-mousqueton-degaine-assurage-poulie-bloqueur-coinceur
 
 < fr: Materiel de Sport Hors Velo
@@ -2096,7 +2096,7 @@ qfdmo_name:fr: lunettes-de-piscine
 
 < fr: Materiel de Sport Hors Velo
 fr: Lunettes de sports de montagne (parapente, parachute, deltaplane…)
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: lunettes-de-sports-de-montagne
 
 < fr: Materiel de Sport Hors Velo
@@ -2109,7 +2109,7 @@ qfdmo_name:fr: masque-de-sport
 
 < fr: Materiel de Sport Hors Velo
 fr: Matériel d'alpinisme
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: materiel-d-alpinisme
 
 < fr: Materiel de Sport Hors Velo
@@ -2126,17 +2126,17 @@ qfdmo_name:fr: materiel-d-entrainement-sportif
 
 < fr: Materiel de Sport Hors Velo
 fr: Matériel d'escalade (harnais, mousqueton, dégaine, assurage, poulie, bloqueur, coinceur)
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: materiel-d-escalade
 
 < fr: Materiel de Sport Hors Velo
 fr: Matériel de Varappe
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: materiel-de-varappe
 
 < fr: Materiel de Sport Hors Velo
 fr: Matériel de canyoning
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: materiel-de-canyoning
 
 < fr: Materiel de Sport Hors Velo
@@ -2145,12 +2145,12 @@ qfdmo_name:fr: materiel-de-cirque
 
 < fr: Materiel de Sport Hors Velo
 fr: Matériel de protection du cavalier (bombe, gilet...)
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: materiel-de-protection-du-cavalier
 
 < fr: Materiel de Sport Hors Velo
 fr: Matériel de protection individuelle (sport)
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: materiel-de-protection-individuelle-sport
 
 < fr: Materiel de Sport Hors Velo
@@ -2255,7 +2255,7 @@ qfdmo_name:fr: plaquettes-natation
 
 < fr: Materiel de Sport Hors Velo
 fr: Pneu de vélo
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: pneu-de-velo
 
 < fr: Materiel de Sport Hors Velo
@@ -2280,7 +2280,7 @@ qfdmo_name:fr: porte-bebe-pour-velo
 
 < fr: Materiel de Sport Hors Velo
 fr: Portique
-identifiant_qfdmo:fr: 194
+qfdmo_id:fr: 194
 qfdmo_name:fr: portique
 
 < fr: Materiel de Sport Hors Velo
@@ -2293,12 +2293,12 @@ qfdmo_name:fr: potence-de-velo
 
 < fr: Materiel de Sport Hors Velo
 fr: Protège-poignet
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: protege-poignet
 
 < fr: Materiel de Sport Hors Velo
 fr: Protège-tibia
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: protege-tibia
 
 < fr: Materiel de Sport Hors Velo
@@ -2339,7 +2339,7 @@ qfdmo_name:fr: rayon-de-velo
 
 < fr: Materiel de Sport Hors Velo
 fr: Rollers
-identifiant_qfdmo:fr: 300
+qfdmo_id:fr: 300
 qfdmo_name:fr: rollers
 
 < fr: Materiel de Sport Hors Velo
@@ -2368,7 +2368,7 @@ qfdmo_name:fr: short-rembourre
 
 < fr: Materiel de Sport Hors Velo
 fr: Skate-board
-identifiant_qfdmo:fr: 323
+qfdmo_id:fr: 323
 qfdmo_name:fr: skate-board
 
 < fr: Materiel de Sport Hors Velo
@@ -2397,12 +2397,12 @@ qfdmo_name:fr: step-de-gymnastique
 
 < fr: Materiel de Sport Hors Velo
 fr: Surf
-identifiant_qfdmo:fr: 46
+qfdmo_id:fr: 46
 qfdmo_name:fr: surf
 
 < fr: Materiel de Sport Hors Velo
 fr: Suspente de parapente et parachute
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: suspente-de-parapente-et-parachute
 
 < fr: Materiel de Sport Hors Velo
@@ -2439,12 +2439,12 @@ qfdmo_name:fr: travel-bag-bagagerie-sportive
 
 < fr: Materiel de Sport Hors Velo
 fr: Trottinette
-identifiant_qfdmo:fr: 351
+qfdmo_id:fr: 351
 qfdmo_name:fr: trottinette
 
 < fr: Materiel de Sport Hors Velo
 fr: Tuba, masque de plongée
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: tuba-masque-de-plongee
 
 < fr: Materiel de Sport Hors Velo
@@ -2473,52 +2473,52 @@ qfdmo_name:fr: windsurf
 
 < fr: Materiel de Sport Hors Velo
 fr: casque de trottinette
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: casque-de-trottinette
 
 < fr: Materiel de Sport Hors Velo
 fr: casque de vélo
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: casque-de-velo
 
 < fr: Materiel de Sport Hors Velo
 fr: coque de protection de handball
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: coque-de-protection-de-handball
 
 < fr: Materiel de Sport Hors Velo
 fr: coquille de protection
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: coquille-de-protection
 
 < fr: Materiel de Sport Hors Velo
 fr: corde, cordelette et longe d'escalade
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: corde-cordelette-et-longe-d-escalade
 
 < fr: Materiel de Sport Hors Velo
 fr: corde, cordelette, harnais et longe de canicrosse
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: corde-cordelette-harnais-et-longe-de-canicrosse
 
 < fr: Materiel de Sport Hors Velo
 fr: gants (gardien de foot, vélo, voile, golf, escrime, boxe…)
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: gants-sport
 
 < fr: Materiel de Sport Hors Velo
 fr: masque d'escrime
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: masque-d-escrime
 
 < fr: Materiel de Sport Hors Velo
 fr: matériel de voile (harnais de rappel, trapèze, accastillage, poulie, manille, mousqueton, drisse, cordage…) < 2,5 m
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: materiel-de-voile
 
 < fr: Materiel de Sport Hors Velo
 fr: piolet
-identifiant_qfdmo:fr: 373
+qfdmo_id:fr: 373
 qfdmo_name:fr: piolet
 
 < fr: Materiel de Sport Hors Velo
@@ -2531,7 +2531,7 @@ qfdmo_name:fr: skis
 
 < fr: Materiel Hifi et Video
 fr: Autoradio
-identifiant_qfdmo:fr: 25
+qfdmo_id:fr: 25
 qfdmo_name:fr: autoradio
 
 < fr: Materiel Hifi et Video
@@ -2540,7 +2540,7 @@ qfdmo_name:fr: baffles
 
 < fr: Materiel Hifi et Video
 fr: Baladeur
-identifiant_qfdmo:fr: 29
+qfdmo_id:fr: 29
 qfdmo_name:fr: baladeur
 
 < fr: Materiel Hifi et Video
@@ -2549,17 +2549,17 @@ qfdmo_name:fr: casque-audio
 
 < fr: Materiel Hifi et Video
 fr: Haut-parleurs
-identifiant_qfdmo:fr: 184
+qfdmo_id:fr: 184
 qfdmo_name:fr: haut-parleurs
 
 < fr: Materiel Hifi et Video
 fr: Lecteur DVD
-identifiant_qfdmo:fr: 200
+qfdmo_id:fr: 200
 qfdmo_name:fr: lecteur-dvd
 
 < fr: Materiel Hifi et Video
 fr: MP3
-identifiant_qfdmo:fr: 29
+qfdmo_id:fr: 29
 qfdmo_name:fr: mp3
 
 < fr: Materiel Hifi et Video
@@ -2572,12 +2572,12 @@ qfdmo_name:fr: materiel-video
 
 < fr: Materiel Hifi et Video
 fr: Radio
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: radio
 
 < fr: Materiel Hifi et Video
 fr: Walkman
-identifiant_qfdmo:fr: 29
+qfdmo_id:fr: 29
 qfdmo_name:fr: walkman
 
 
@@ -2586,17 +2586,17 @@ qfdmo_name:fr: walkman
 
 < fr: Materiel Informatique
 fr: Clé USB
-identifiant_qfdmo:fr: 103
+qfdmo_id:fr: 103
 qfdmo_name:fr: cle-usb
 
 < fr: Materiel Informatique
 fr: Imprimante
-identifiant_qfdmo:fr: 189
+qfdmo_id:fr: 189
 qfdmo_name:fr: imprimante
 
 < fr: Materiel Informatique
 fr: Matériel informatique
-identifiant_qfdmo:fr: 220
+qfdmo_id:fr: 220
 qfdmo_name:fr: materiel-informatique
 
 < fr: Materiel Informatique
@@ -2653,7 +2653,7 @@ qfdmo_name:fr: medicaments-inutilises
 
 < fr: Membranes Bitumineuses Pmcb Produits et Materiaux de Construction du Batiment
 fr: Membranes bitumineuses - PMCB (produits et matériaux de construction du bâtiment)
-identifiant_qfdmo:fr: 444
+qfdmo_id:fr: 444
 qfdmo_name:fr: membranes-bitumineuses-pmcb
 
 
@@ -2946,12 +2946,12 @@ qfdmo_name:fr: mange-debout
 
 < fr: Meuble
 fr: Matelas (en mousse, à ressorts...)
-identifiant_qfdmo:fr: 216
+qfdmo_id:fr: 216
 qfdmo_name:fr: matelas-en-mousse-a-ressorts
 
 < fr: Meuble
 fr: Meuble
-identifiant_qfdmo:fr: 225
+qfdmo_id:fr: 225
 qfdmo_name:fr: meuble
 
 < fr: Meuble
@@ -3080,7 +3080,7 @@ qfdmo_name:fr: plan-a-langer
 
 < fr: Meuble
 fr: Planche à repasser
-identifiant_qfdmo:fr: 329
+qfdmo_id:fr: 329
 qfdmo_name:fr: planche-a-repasser
 
 < fr: Meuble
@@ -3121,7 +3121,7 @@ qfdmo_name:fr: porte-savon
 
 < fr: Meuble
 fr: Poubelle
-identifiant_qfdmo:fr: 307
+qfdmo_id:fr: 307
 qfdmo_name:fr: poubelle
 
 < fr: Meuble
@@ -3290,7 +3290,7 @@ qfdmo_name:fr: tableau-d-ecriture
 
 < fr: Meuble
 fr: Tableau en ardoise
-identifiant_qfdmo:fr: 330
+qfdmo_id:fr: 330
 qfdmo_name:fr: tableau-en-ardoise
 
 < fr: Meuble
@@ -3363,7 +3363,7 @@ qfdmo_name:fr: arrosoir
 
 < fr: Outil de Bricolage et Jardinage
 fr: Aérateur démousseur thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: aerateur-demousseur-thermique
 
 < fr: Outil de Bricolage et Jardinage
@@ -3372,7 +3372,7 @@ qfdmo_name:fr: cle-outil-de-bricolage
 
 < fr: Outil de Bricolage et Jardinage
 fr: Coupe bordure thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: coupe-bordure-thermique
 
 < fr: Outil de Bricolage et Jardinage
@@ -3385,22 +3385,22 @@ qfdmo_name:fr: douille-outil-de-bricolage
 
 < fr: Outil de Bricolage et Jardinage
 fr: Débroussailleuse thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: debroussailleuse-thermique
 
 < fr: Outil de Bricolage et Jardinage
 fr: Démousseur thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: demousseur-thermique
 
 < fr: Outil de Bricolage et Jardinage
 fr: Fendeur de bûches thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: fendeur-de-buches-thermique
 
 < fr: Outil de Bricolage et Jardinage
 fr: Fraise à neige thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: fraise-a-neige-thermique
 
 < fr: Outil de Bricolage et Jardinage
@@ -3421,22 +3421,22 @@ qfdmo_name:fr: masse-outil-de-bricolage
 
 < fr: Outil de Bricolage et Jardinage
 fr: Microbineuse thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: microbineuse-thermique
 
 < fr: Outil de Bricolage et Jardinage
 fr: Motobineuse thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: motobineuse-thermique
 
 < fr: Outil de Bricolage et Jardinage
 fr: Motoculteur thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: motoculteur-thermique
 
 < fr: Outil de Bricolage et Jardinage
 fr: Nettoyeur à haute pression thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: nettoyeur-a-haute-pression-thermique
 
 < fr: Outil de Bricolage et Jardinage
@@ -3449,7 +3449,7 @@ qfdmo_name:fr: outil-de-jardinage
 
 < fr: Outil de Bricolage et Jardinage
 fr: Outil manuel (bricolage, jardinage)
-identifiant_qfdmo:fr: 244
+qfdmo_id:fr: 244
 qfdmo_name:fr: outil-manuel-bricolage-jardinage
 
 < fr: Outil de Bricolage et Jardinage
@@ -3458,12 +3458,12 @@ qfdmo_name:fr: pince-outil-de-bricolage
 
 < fr: Outil de Bricolage et Jardinage
 fr: Pompe à eau thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: pompe-a-eau-thermique
 
 < fr: Outil de Bricolage et Jardinage
 fr: Pulvérisateur thermique, Atomiseur thermique à dos
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: pulverisateur-thermique-atomiseur-thermique-a-dos
 
 < fr: Outil de Bricolage et Jardinage
@@ -3472,7 +3472,7 @@ qfdmo_name:fr: rape-outil-de-bricolage
 
 < fr: Outil de Bricolage et Jardinage
 fr: Scarificateur thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: scarificateur-thermique
 
 < fr: Outil de Bricolage et Jardinage
@@ -3481,12 +3481,12 @@ qfdmo_name:fr: scie-non-electrique
 
 < fr: Outil de Bricolage et Jardinage
 fr: Scie à bûches thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: scie-a-buches-thermique
 
 < fr: Outil de Bricolage et Jardinage
 fr: Tarière thermique
-identifiant_qfdmo:fr: 347
+qfdmo_id:fr: 347
 qfdmo_name:fr: tariere-thermique
 
 < fr: Outil de Bricolage et Jardinage
@@ -3515,7 +3515,7 @@ qfdmo_name:fr: panneau-photovoltaique
 
 < fr: Petit Electromenager
 fr: Alarme
-identifiant_qfdmo:fr: 322
+qfdmo_id:fr: 322
 qfdmo_name:fr: alarme
 
 < fr: Petit Electromenager
@@ -3528,7 +3528,7 @@ qfdmo_name:fr: appareil-a-raclette
 
 < fr: Petit Electromenager
 fr: Barbecue électrique
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: barbecue-electrique
 
 < fr: Petit Electromenager
@@ -3549,17 +3549,17 @@ qfdmo_name:fr: cafetiere
 
 < fr: Petit Electromenager
 fr: Caméscope
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: camescope
 
 < fr: Petit Electromenager
 fr: Carte RFID
-identifiant_qfdmo:fr: 84
+qfdmo_id:fr: 84
 qfdmo_name:fr: carte-rfid
 
 < fr: Petit Electromenager
 fr: Carte à puce (bancaire, de téléphone, d'identité)
-identifiant_qfdmo:fr: 85
+qfdmo_id:fr: 85
 qfdmo_name:fr: carte-a-puce
 
 < fr: Petit Electromenager
@@ -3568,12 +3568,12 @@ qfdmo_name:fr: centrale-vapeur
 
 < fr: Petit Electromenager
 fr: Chaîne hi-fi
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: chaine-hi-fi
 
 < fr: Petit Electromenager
 fr: Clé RFID
-identifiant_qfdmo:fr: 84
+qfdmo_id:fr: 84
 qfdmo_name:fr: cle-rfid
 
 < fr: Petit Electromenager
@@ -3590,7 +3590,7 @@ qfdmo_name:fr: cable
 
 < fr: Petit Electromenager
 fr: Enceinte
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: enceinte
 
 < fr: Petit Electromenager
@@ -3607,7 +3607,7 @@ qfdmo_name:fr: fer-a-repasser
 
 < fr: Petit Electromenager
 fr: Four micro-ondes
-identifiant_qfdmo:fr: 226
+qfdmo_id:fr: 226
 qfdmo_name:fr: four-micro-ondes
 
 < fr: Petit Electromenager
@@ -3624,7 +3624,7 @@ qfdmo_name:fr: grille-pain
 
 < fr: Petit Electromenager
 fr: Guirlande électrique
-identifiant_qfdmo:fr: 181
+qfdmo_id:fr: 181
 qfdmo_name:fr: guirlande-electrique
 
 < fr: Petit Electromenager
@@ -3633,7 +3633,7 @@ qfdmo_name:fr: hachoir
 
 < fr: Petit Electromenager
 fr: Jouet télécommandé
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: jouet-telecommande
 
 < fr: Petit Electromenager
@@ -3646,7 +3646,7 @@ qfdmo_name:fr: karcher
 
 < fr: Petit Electromenager
 fr: Lampe torche
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: lampe-torche
 
 < fr: Petit Electromenager
@@ -3659,27 +3659,27 @@ qfdmo_name:fr: machine-a-cafe
 
 < fr: Petit Electromenager
 fr: Machine à coudre
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: machine-a-coudre
 
 < fr: Petit Electromenager
 fr: Machine à pain
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: machine-a-pain
 
 < fr: Petit Electromenager
 fr: Magnétoscope
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: magnetoscope
 
 < fr: Petit Electromenager
 fr: Matériel électrique passif (prise, adaptateur, câbles, cordons)
-identifiant_qfdmo:fr: 219
+qfdmo_id:fr: 219
 qfdmo_name:fr: materiel-electrique-passif
 
 < fr: Petit Electromenager
 fr: Micro-ondes
-identifiant_qfdmo:fr: 226
+qfdmo_id:fr: 226
 qfdmo_name:fr: micro-ondes
 
 < fr: Petit Electromenager
@@ -3692,7 +3692,7 @@ qfdmo_name:fr: mixeur
 
 < fr: Petit Electromenager
 fr: Montre mécanique
-identifiant_qfdmo:fr: 230
+qfdmo_id:fr: 230
 qfdmo_name:fr: montre-mecanique
 
 < fr: Petit Electromenager
@@ -3705,12 +3705,12 @@ qfdmo_name:fr: nettoyeur-haute-pression
 
 < fr: Petit Electromenager
 fr: Petit Équipement Électrique et Électronique (EEE)
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: equipement-electrique-et-electronique
 
 < fr: Petit Electromenager
 fr: Petit électroménager
-identifiant_qfdmo:fr: 265
+qfdmo_id:fr: 265
 qfdmo_name:fr: petit-electromenager
 
 < fr: Petit Electromenager
@@ -3719,14 +3719,14 @@ qfdmo_name:fr: prise
 
 < fr: Petit Electromenager
 fr: Radio-réveil
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: radio-reveil
 
 
 
 < fr: Petit Electromenager
 fr: Rasoir électrique
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: rasoir-electrique
 
 
@@ -3739,24 +3739,24 @@ qfdmo_name:fr: robot-de-cuisine
 
 < fr: Petit Electromenager
 fr: Répondeur
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: repondeur
 
 
 
 < fr: Petit Electromenager
 fr: Scie sauteuse
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: scie-sauteuse
 
 < fr: Petit Electromenager
 fr: Sirène (alarme)
-identifiant_qfdmo:fr: 322
+qfdmo_id:fr: 322
 qfdmo_name:fr: sirene-alarme
 
 < fr: Petit Electromenager
 fr: Sèche-cheveux
-identifiant_qfdmo:fr: 312
+qfdmo_id:fr: 312
 qfdmo_name:fr: seche-cheveux
 
 < fr: Petit Electromenager
@@ -3769,7 +3769,7 @@ qfdmo_name:fr: tondeuse-a-barbe
 
 < fr: Petit Electromenager
 fr: Télécommande
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: telecommande
 
 < fr: Petit Electromenager
@@ -3778,7 +3778,7 @@ qfdmo_name:fr: ventilateur
 
 < fr: Petit Electromenager
 fr: lisseur électrique
-identifiant_qfdmo:fr: 145
+qfdmo_id:fr: 145
 qfdmo_name:fr: lisseur-electrique
 
 
@@ -3832,7 +3832,7 @@ qfdmo_name:fr: puericulture
 
 < fr: Smartphone Tablette et Console
 fr: Téléphone mobile
-identifiant_qfdmo:fr: 334
+qfdmo_id:fr: 334
 qfdmo_name:fr: telephone-mobile
 
 
@@ -3841,17 +3841,17 @@ qfdmo_name:fr: telephone-mobile
 
 < fr: Vaisselle
 fr: Assiette
-identifiant_qfdmo:fr: 355
+qfdmo_id:fr: 355
 qfdmo_name:fr: assiette
 
 < fr: Vaisselle
 fr: Biberon
-identifiant_qfdmo:fr: 42
+qfdmo_id:fr: 42
 qfdmo_name:fr: biberon
 
 < fr: Vaisselle
 fr: Bol
-identifiant_qfdmo:fr: 355
+qfdmo_id:fr: 355
 qfdmo_name:fr: bol
 
 < fr: Vaisselle
@@ -3868,7 +3868,7 @@ qfdmo_name:fr: couteau-de-cuisine
 
 < fr: Vaisselle
 fr: Couverts en métal
-identifiant_qfdmo:fr: 114
+qfdmo_id:fr: 114
 qfdmo_name:fr: couverts-en-metal
 
 < fr: Vaisselle
@@ -3881,32 +3881,32 @@ qfdmo_name:fr: fourchette
 
 < fr: Vaisselle
 fr: Gourde
-identifiant_qfdmo:fr: 176
+qfdmo_id:fr: 176
 qfdmo_name:fr: gourde
 
 < fr: Vaisselle
 fr: Mug
-identifiant_qfdmo:fr: 355
+qfdmo_id:fr: 355
 qfdmo_name:fr: mug
 
 < fr: Vaisselle
 fr: Tasse
-identifiant_qfdmo:fr: 355
+qfdmo_id:fr: 355
 qfdmo_name:fr: tasse
 
 < fr: Vaisselle
 fr: Ustensile de cuisine
-identifiant_qfdmo:fr: 354
+qfdmo_id:fr: 354
 qfdmo_name:fr: ustensile-de-cuisine
 
 < fr: Vaisselle
 fr: Vaisselle
-identifiant_qfdmo:fr: 355
+qfdmo_id:fr: 355
 qfdmo_name:fr: vaisselle
 
 < fr: Vaisselle
 fr: Verre à boire
-identifiant_qfdmo:fr: 362
+qfdmo_id:fr: 362
 qfdmo_name:fr: verre-a-boire
 
 
@@ -3915,22 +3915,22 @@ qfdmo_name:fr: verre-a-boire
 
 < fr: Velo
 fr: Bicyclette
-identifiant_qfdmo:fr: 358
+qfdmo_id:fr: 358
 qfdmo_name:fr: bicyclette
 
 < fr: Velo
 fr: Bécane (biclou)
-identifiant_qfdmo:fr: 358
+qfdmo_id:fr: 358
 qfdmo_name:fr: becane-biclou
 
 < fr: Velo
 fr: Cycle
-identifiant_qfdmo:fr: 358
+qfdmo_id:fr: 358
 qfdmo_name:fr: cycle
 
 < fr: Velo
 fr: Tandem
-identifiant_qfdmo:fr: 358
+qfdmo_id:fr: 358
 qfdmo_name:fr: tandem
 
 < fr: Velo
@@ -3939,12 +3939,12 @@ qfdmo_name:fr: velo
 
 < fr: Velo
 fr: vélo - hors vélo électrique
-identifiant_qfdmo:fr: 358
+qfdmo_id:fr: 358
 qfdmo_name:fr: velo-hors-velo-electrique
 
 < fr: Velo
 fr: vélo musculaire
-identifiant_qfdmo:fr: 358
+qfdmo_id:fr: 358
 qfdmo_name:fr: velo-musculaire
 
 
@@ -3953,7 +3953,7 @@ qfdmo_name:fr: velo-musculaire
 
 < fr: Vetement
 fr: Anorak
-identifiant_qfdmo:fr: 274
+qfdmo_id:fr: 274
 qfdmo_name:fr: anorak
 
 < fr: Vetement
@@ -3970,7 +3970,7 @@ qfdmo_name:fr: boxer
 
 < fr: Vetement
 fr: Béret
-identifiant_qfdmo:fr: 398
+qfdmo_id:fr: 398
 qfdmo_name:fr: beret
 
 < fr: Vetement
@@ -3983,12 +3983,12 @@ qfdmo_name:fr: calecon
 
 < fr: Vetement
 fr: Casquette
-identifiant_qfdmo:fr: 398
+qfdmo_id:fr: 398
 qfdmo_name:fr: casquette
 
 < fr: Vetement
 fr: Chapeau
-identifiant_qfdmo:fr: 398
+qfdmo_id:fr: 398
 qfdmo_name:fr: chapeau
 
 < fr: Vetement
@@ -4009,7 +4009,7 @@ qfdmo_name:fr: costume
 
 < fr: Vetement
 fr: Couvre-chef
-identifiant_qfdmo:fr: 398
+qfdmo_id:fr: 398
 qfdmo_name:fr: couvre-chef
 
 < fr: Vetement
@@ -4018,7 +4018,7 @@ qfdmo_name:fr: culotte
 
 < fr: Vetement
 fr: Doudoune
-identifiant_qfdmo:fr: 274
+qfdmo_id:fr: 274
 qfdmo_name:fr: doudoune
 
 < fr: Vetement
@@ -4047,7 +4047,7 @@ qfdmo_name:fr: gilet
 
 < fr: Vetement
 fr: Jean
-identifiant_qfdmo:fr: 192
+qfdmo_id:fr: 192
 qfdmo_name:fr: jean
 
 < fr: Vetement
@@ -4092,7 +4092,7 @@ qfdmo_name:fr: peignoir
 
 < fr: Vetement
 fr: Plumes (et duvets)
-identifiant_qfdmo:fr: 274
+qfdmo_id:fr: 274
 qfdmo_name:fr: plumes-et-duvets
 
 < fr: Vetement
@@ -4133,7 +4133,7 @@ qfdmo_name:fr: t-shirt
 
 < fr: Vetement
 fr: Toque
-identifiant_qfdmo:fr: 398
+qfdmo_id:fr: 398
 qfdmo_name:fr: toque
 
 < fr: Vetement
