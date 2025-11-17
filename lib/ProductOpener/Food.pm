@@ -1404,10 +1404,9 @@ Detect if we are in the special case where we can detect saturated fat is 0 beca
 =cut
 
 sub saturated_fat_0_because_of_fat_0 ($nutrition_ref) {
+	my $saturated_fat = deep_get($nutrition_ref, "aggregated_set", "nutrients", "saturated-fat", "value");
 	my $fat = deep_get($nutrition_ref, "aggregated_set", "nutrients", "fat", "value");
-	return (   (!defined deep_get($nutrition_ref, "aggregated_set", "nutrients", "saturated-fat", "value"))
-			&& (defined $fat)
-			&& ($fat == 0));
+	return ((not defined $saturated_fat) && (defined $fat) && ($fat == 0));
 }
 
 =head2 sugar_0_because_of_carbohydrates_0 ($nutrition_ref)
@@ -1421,10 +1420,9 @@ Detect if we are in the special case where we can detect sugars are 0 because ca
 =cut
 
 sub sugar_0_because_of_carbohydrates_0 ($nutrition_ref) {
+	my $sugars = deep_get($nutrition_ref, "aggregated_set", "nutrients", "sugars", "value");
 	my $carbohydrates = deep_get($nutrition_ref, "aggregated_set", "nutrients", "carbohydrates", "value");
-	return (   (!defined deep_get($nutrition_ref, "aggregated_set", "nutrients", "sugars", "value"))
-			&& (defined $carbohydrates)
-			&& ($carbohydrates == 0));
+	return ((not defined $sugars) && (defined $carbohydrates) && ($carbohydrates == 0));
 }
 
 =head2 compute_nutriscore_data( $products_ref, $prepared, $nutriments_field )
