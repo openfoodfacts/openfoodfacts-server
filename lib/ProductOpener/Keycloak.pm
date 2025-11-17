@@ -199,11 +199,14 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 		attributes => {
 			name => $keycloak_user_ref->{name},
 			locale => $keycloak_user_ref->{preferred_language},
-			country => country_to_cc($keycloak_user_ref->{country}),
 			requested_org => $user_ref->{requested_org},
 			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
 		}
 	};
+	# Only supply country if it is set
+	if ($user_ref->{country}) {
+		$api_request_ref->{attributes}->{country} = country_to_cc($keycloak_user_ref->{country});
+	}
 	if (get_oidc_implementation_level() < 2) {
 		# Prevent Keycloak sending registration emails unless it is the primary source of truth
 		$api_request_ref->{attributes}->{registered} = 'registered';
