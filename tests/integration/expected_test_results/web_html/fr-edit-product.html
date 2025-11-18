@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//fr.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
@@ -125,7 +132,7 @@
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <span><h2>Scannez un produit<h2></span>
+      <h2><span>Scannez un produit</span></h2>
       <button class="modal-close-button">&times;</button>
     </div>
     <div>
@@ -2646,6 +2653,10 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                 
 
                                     
+
+                                
+
+                                    
                                         <tr id="nutriment_proteins_tr" class="nutriment_main">
 
                                     <td>
@@ -4155,6 +4166,7 @@ var nutriments = {
 "Maltitol" : "maltitol",
 "Sorbitol" : "sorbitol",
 "Fibres solubles" : "soluble-fiber",
+"Polydextrose" : "polydextrose",
 "Fibres insolubles" : "insoluble-fiber",
 "Caséine" : "casein",
 "Protéines sériques" : "serum-proteins",
@@ -4269,6 +4281,7 @@ var otherNutriments = [
 { "value" : "Maltitol", "unit" : "g", "iu": false  },
 { "value" : "Sorbitol", "unit" : "g", "iu": false  },
 { "value" : "Fibres solubles", "unit" : "g", "iu": false  },
+{ "value" : "Polydextrose", "unit" : "g", "iu": false  },
 { "value" : "Fibres insolubles", "unit" : "g", "iu": false  },
 { "value" : "Caséine", "unit" : "g", "iu": false  },
 { "value" : "Protéines sériques", "unit" : "g", "iu": false  },

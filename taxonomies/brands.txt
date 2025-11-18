@@ -11,16 +11,31 @@
 # Note: an old draft owners/brands taxonomy lives in taxonomies/unused/brands.txt, but it is hierarchic, which is something we do not want in this taxonomy.
 # You can usefully read: https://wiki.openfoodfacts.org/Brands to get up and running on the subtleties of the topic.
 
-xx: Albert Heijn
+xx: Albert Heijn, AH
+
+xx: Albert Heijn Terra, AH Terra
+# subbrand of en:Albert Heijn
 
 xx: Aldi
 
 xx: Alesto
 
+xx: Almhof
+# Only dairy category?
+
+xx: Almhof hoekje
+# a subbrand of Almhof for dessert with sprinklings in a hoekje
+
 xx: alpro
 wikidata:en: Q498666
 
+xx: Amanie
+# subbrand of Lidl
+
 xx: anamma
+
+xx: Anna & Clara's
+# subbrand of Søstrene Grene
 
 xx: Arla, Arla Foods
 wikidata:en: Q674575
@@ -32,9 +47,13 @@ xx: Barebells
 xx: Beauvais
 wikidata:en: Q12303007
 
+xx: Bertolli
+
 #< xx:Unilever
 xx: Best Foods
 wikidata:en: Q809061
+
+xx: biorganica nuova
 
 xx: Bio Village
 
@@ -58,11 +77,16 @@ wikidata:en: Q27530939
 
 xx: bonÀrea
 
+xx: Bonne Maman
+
 xx: Carrefour BIO
 
 xx: Chaque Jour Sans Gluten
 
-xx: chef select
+xx: Chalo
+
+xx: Chef Select
+# only sold in Lidl, also subbrand of Lidl
 
 xx: Choice
 
@@ -75,6 +99,8 @@ wikidata:en: Q3070443
 xx: Cloetta
 wikidata:en: Q3437039
 
+xx: Completa
+
 # This brand is used by different consumer cooperatives around the world
 xx: Coop
 wikidata:en: Q115764026
@@ -84,10 +110,14 @@ xx: Coppola Salerno, Coppola
 
 xx: Culinea
 
+xx: DA
+
 xx: Dafgårds, Gunnar Dafgård
 wikidata:en: Q5618977
 
 xx: Dahls
+
+xx: Daily Chef
 
 xx: Dan Cake, DanCake
 wikidata:en: Q12307101
@@ -103,7 +133,14 @@ xx: Dazzley
 xx: De Cecco
 wikidata:en: Q931123
 
+xx: Dekamarkt
+
 xx: Delief
+
+xx: Deluxe
+# subbrand of xx:Lidl
+
+xx: Diamant
 
 xx: dmBio, dm Bio
 
@@ -116,6 +153,8 @@ xx: Durra
 
 xx: Délisse
 
+xx: EasiYo
+
 xx: Egelykke
 
 xx: El Taco Truck, El Taco Truck AB, Taco Truck
@@ -123,8 +162,12 @@ xx: El Taco Truck, El Taco Truck AB, Taco Truck
 xx: Eldorado
 wikidata:en: Q5324313
 
+xx: Em-eukal
+
 xx: Estrella
 wikidata:en: Q6303102
+
+xx: Fanta
 
 xx: Fazer
 wikidata:en: Q996907
@@ -158,7 +201,11 @@ xx: Gastrino
 
 xx: Gestus
 
+xx: Golden Power
+
 xx: Golden Sun
+
+xx: Go Vega!
 
 xx: Grainway
 
@@ -201,14 +248,22 @@ xx: ICA Selection
 xx: IKEA
 wikidata:en: Q54078
 
+xx: Indus
+
 xx: innocent
 #web:en: https://www.innocentdrinks.com
 
 xx: Issawi Bageri, Bageri Issawi, Issawi, مخبز العيساوي, العيساوي
 #web:sv: https://www.issawi.se/
 
+xx: Jimmy's
+
 xx: JOZO
 wikidata:en: Q10538850
+
+xx: Jumbo
+
+xx: Jumbo's
 
 xx: Kania
 
@@ -216,6 +271,8 @@ xx: Kavli
 wikidata:en: Q1208110
 
 xx: Kellogg's, Kelloggs, Kellogg
+
+xx: Kleinste Soepfabriek
 
 xx: Knorr
 wikidata:en: Q313882
@@ -227,6 +284,11 @@ xx: KOTI, KOTISINAPPI, KOTI sinappi, KOTISENAP, KOTI senap
 #web:en: https://www.kotisinappi.fi/english
 #web:fi: https://www.kotisinappi.fi/
 #web:sv: https://www.kotisinappi.fi/svenska
+
+xx: Krekeltje
+
+xx: Kryddhuset
+#web:sv: https://kryddhusetiljung.se/
 
 xx: Kung Markatta
 wikidata:en: Q10550149
@@ -244,8 +306,15 @@ wikidata:en: Q10568903
 xx: Lotus, Lotus Bakeries, Lotus Since 1932
 wikidata:en: Q590113
 
+xx: Lotus Natur
+
 xx: Løgismose
 wikidata:en: Q6711394
+
+xx: Lyttos
+# Associated brand: Aldi
+
+xx: mãe terra
 
 xx: Malaco
 wikidata:en: Q4346282
@@ -256,7 +325,9 @@ wikidata:en: Q1812718
 # Portuguese version of Marque Repère
 xx: Marca Guia
 
-xx: Marks & Spencers, Marks and Spencers
+xx: Markant
+
+xx: Marks & Spencers, Marks and Spencers, Marks and Spencer, M&S
 wikidata:en: Q714491
 
 xx: Marque Repère
@@ -270,6 +341,11 @@ wikidata:en: Q1912172
 
 xx: Maître CoQ
 
+xx: McVitie's
+
+xx: Melkan
+# dairy producer
+
 xx: Milbona
 
 xx: Monte Castello
@@ -280,6 +356,8 @@ wikidata:en: Q16580706
 
 xx: NAT&vie, NAT&vie veggie
 
+xx: Nature's Pride
+
 xx: Naturli'
 
 xx: Nestlé
@@ -287,6 +365,8 @@ wikidata:en: Q160746
 
 xx: NOCCO
 wikidata:en: Q97225239
+
+xx: NS Galletas
 
 xx: næmt, naemt
 
@@ -299,21 +379,29 @@ xx: Oddlygood, Oddly good
 xx: OLW, Old London Wasa
 wikidata:en: Q1775404
 
+xx: Pågen, Pågen AB
+wikidata:en: Q3102193
+
 xx: Petti
+
+xx: Picnic
 
 # this (Swedish) brand was purchased by (Finnish) Oddlygood in 2023
 xx: Planti
+
+xx: Plus
+
+xx: Poiesz
 
 xx: Premier
 
 xx: Premieur
 
+xx: Prominent
+
 xx: ProPud
 
 xx: Pureness
-
-xx: Pågen, Pågen AB
-wikidata:en: Q3102193
 
 #< xx:Monde Nissin
 xx: Quorn
@@ -324,9 +412,18 @@ xx: Rawfoodshop
 xx: REMA 1000, REMA1000, REMA
 wikidata:en: Q28459
 
+xx: Remia
+web:en: en: www.remia.com
+web:nl: nl: www.remiafoodservice.nl
+
+xx: Renée Voltaire, Renee Voltaire
+wikidata:en: Q136622857
+
 xx: Rice Krispies
 
 xx: Risenta
+
+xx: Roze Bunker
 
 xx: Rydbergs
 
@@ -334,6 +431,8 @@ xx: Rynkeby
 wikidata:en: Q12334047
 
 xx: Récoltons l'Avenir, Récoltons l'Avenir l'agriculture durable
+
+xx: Royal
 
 xx: Saffola
 
@@ -349,6 +448,8 @@ wikidata:en: Q10660794
 xx: Santa Maria, Santa Maria Norge AS
 #web:en: https://www.santamariaworld.com/
 
+xx: Sawa
+
 xx: Schulstad
 wikidata:en: Q12334753
 
@@ -357,15 +458,30 @@ xx: Sevan
 xx: SIA Glass, SIA
 wikidata:en: Q7390267
 
+xx: Signature Foods
+web:en: en: www.signaturefoods.com
+
+xx: Signature Foods Tapas
+#subbrand of xx:Signature Foods
+
+xx: Snack Fan
+# related_brand:en: en:aldi
+
 xx: Sol&Mar
 
 xx: Solevita
+
+xx: Sonko
+
+xx: Søstrene Grene
 
 xx: Soutenons nos agriculteurs
 
 xx: Special K
 
 xx: Star Nutrition
+
+xx: Sum & Sam
 
 #< xx:Scandic Food
 xx: Svansø
@@ -382,6 +498,8 @@ wikidata:en: Q10688845
 xx: Takovo
 wikidata:en: Q58177342
 
+xx: Tasty Basics
+
 xx: tat, Tat Gıda
 #web:en: https://www.tatgida.com.tr/en/
 wikidata:en: Q20471706
@@ -389,6 +507,8 @@ wikidata:en: Q20471706
 xx: Thise
 #web:da: https://thise.dk/
 #web:en: https://thise.eu/
+
+xx: Tlant
 
 xx: Tokapi
 
@@ -400,6 +520,9 @@ wikidata:en: Q688825
 
 xx: Triumf Glass, Triumf
 wikidata:en: Q10704719
+
+xx: Trophy Smaakmakers
+# associated brand: xx:Aldi
 
 xx: Turini
 
@@ -422,11 +545,24 @@ wikidata:en: Q4008334
 
 xx: Valsølille
 
+xx: Van Eigen Deeg
+
 xx: Vemondo
 
 xx: Veritas
 
+xx: Verkade
+
+xx: Verpaco
+
+xx: Verstegen
+
 xx: Vitasia
+
+xx: Vita d'Or
+# related/parent brand Lidl
+
+xx: Vivo
 
 xx: wasa
 wikidata:en: Q2298302
@@ -435,6 +571,9 @@ xx: Xtra, Xtra Coop
 wikidata:en: Q11902541
 
 xx: Yeo's, Yeos
+
+xx: Zaanlander
+# cheese brand of xx: Albert Heijn
 
 xx: Zeina's
 
@@ -450,3 +589,7 @@ xx: Økoladen
 
 #< xx:ALDI
 xx: Økolivet, Øko Livet
+
+xx: 1de Beste
+
+xx: 움트리
