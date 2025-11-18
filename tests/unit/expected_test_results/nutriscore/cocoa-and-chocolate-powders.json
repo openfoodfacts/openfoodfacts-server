@@ -30,16 +30,10 @@
    "food_groups_tags" : [],
    "lc" : "en",
    "misc_tags" : [
-      "en:nutriscore-missing-prepared-nutrition-data",
+      "en:nutrition-grade-computed-for-prepared-product",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
-      "en:nutriscore-missing-nutrition-data-fat",
-      "en:nutriscore-missing-nutrition-data-saturated-fat",
-      "en:nutriscore-missing-nutrition-data-sugars",
-      "en:nutriscore-missing-nutrition-data-sodium",
-      "en:nutriscore-missing-nutrition-data-proteins",
-      "en:nutrition-no-fiber",
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
@@ -49,23 +43,33 @@
    "nova_groups_tags" : [
       "unknown"
    ],
-   "nutrient_levels" : {},
-   "nutrient_levels_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "low",
+      "salt" : "low",
+      "saturated-fat" : "low",
+      "sugars" : "moderate"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-low-quantity",
+      "en:saturated-fat-in-low-quantity",
+      "en:sugars-in-moderate-quantity",
+      "en:salt-in-low-quantity"
+   ],
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : 0,
+            "fiber" : 1.9,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "proteins" : null,
-            "saturated_fat" : null,
-            "sodium" : null,
-            "sugars" : null
+            "proteins" : 3.8,
+            "saturated_fat" : 1.1,
+            "sodium" : 45,
+            "sugars" : 6.3
          },
          "grade" : "unknown",
          "nutrients_available" : 0,
@@ -76,17 +80,17 @@
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : null,
+            "fiber" : 1.9,
             "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "proteins" : null,
-            "salt" : null,
-            "saturated_fat" : null,
-            "sugars" : null
+            "proteins" : 3.8,
+            "salt" : "0.1125",
+            "saturated_fat" : 1.1,
+            "sugars" : 6.3
          },
          "grade" : "unknown",
          "nutrients_available" : 0,
@@ -106,8 +110,100 @@
    ],
    "nutriscore_version" : "2023",
    "nutrition" : {
-      "aggregated_set" : {},
-      "input_sets" : []
+      "aggregated_set" : {
+         "nutrients" : {
+            "fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "fiber" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.9
+            },
+            "proteins" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 3.8
+            },
+            "salt" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : "0.1125"
+            },
+            "saturated-fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.1
+            },
+            "sodium" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.045
+            },
+            "sugars" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 6.3
+            }
+         },
+         "per" : "100g",
+         "preparation" : "prepared"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "energy" : {
+                  "unit" : "kJ",
+                  "value" : 287
+               },
+               "fat" : {
+                  "unit" : "g",
+                  "value" : 0
+               },
+               "fiber" : {
+                  "unit" : "g",
+                  "value" : 1.9
+               },
+               "proteins" : {
+                  "unit" : "g",
+                  "value" : 3.8
+               },
+               "saturated-fat" : {
+                  "unit" : "g",
+                  "value" : 1.1
+               },
+               "sodium" : {
+                  "unit" : "g",
+                  "value" : 0.045
+               },
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : 6.3
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "prepared",
+            "source" : "packaging"
+         }
+      ]
    },
    "nutrition_grade_fr" : "unknown",
    "nutrition_grades" : "unknown",
@@ -115,8 +211,7 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "no score for category en:cocoa-and-chocolate-powders without data for prepared product - missing prepared energy - missing prepared fat - missing prepared saturated-fat - missing prepared sugars - missing prepared sodium - missing prepared proteins",
-   "nutrition_score_warning_no_fiber" : 1,
+   "nutrition_score_debug" : "using prepared product data for category en:cocoa-and-chocolate-powders - missing prepared energy",
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "pnns_groups_1" : "unknown",
    "pnns_groups_1_tags" : [

@@ -49,12 +49,7 @@
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
-      "en:nutriscore-missing-nutrition-data-fat",
       "en:nutriscore-missing-nutrition-data-saturated-fat",
-      "en:nutriscore-missing-nutrition-data-sugars",
-      "en:nutriscore-missing-nutrition-data-sodium",
-      "en:nutriscore-missing-nutrition-data-proteins",
-      "en:nutrition-no-fiber",
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
@@ -73,25 +68,31 @@
    "nova_groups_tags" : [
       "en:2-processed-culinary-ingredients"
    ],
-   "nutrient_levels" : {},
-   "nutrient_levels_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "high",
+      "salt" : "low"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-high-quantity",
+      "en:salt-in-low-quantity"
+   ],
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fat" : null,
+            "fat" : 100,
             "fiber" : 0,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 1,
             "is_water" : 0,
-            "proteins" : null,
+            "proteins" : 0,
             "saturated_fat" : null,
             "saturated_fat_ratio" : 0,
-            "sodium" : null,
-            "sugars" : null
+            "sodium" : 0,
+            "sugars" : 0
          },
          "grade" : "unknown",
          "nutrients_available" : 0,
@@ -102,19 +103,19 @@
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fat" : null,
-            "fiber" : null,
+            "fat" : 100,
+            "fiber" : 0,
             "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 1,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "proteins" : null,
-            "salt" : null,
+            "proteins" : 0,
+            "salt" : "0",
             "saturated_fat" : null,
             "saturated_fat_ratio" : 0,
-            "sugars" : null
+            "sugars" : 0
          },
          "grade" : "unknown",
          "nutrients_available" : 0,
@@ -134,8 +135,89 @@
    ],
    "nutriscore_version" : "2023",
    "nutrition" : {
-      "aggregated_set" : {},
-      "input_sets" : []
+      "aggregated_set" : {
+         "nutrients" : {
+            "carbohydrates" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 100
+            },
+            "fiber" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "proteins" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : "0"
+            },
+            "salt" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : "0"
+            },
+            "sodium" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            }
+         },
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "carbohydrates" : {
+                  "unit" : "g",
+                  "value" : 0
+               },
+               "energy" : {
+                  "unit" : "kJ",
+                  "value" : 3378
+               },
+               "fat" : {
+                  "unit" : "g",
+                  "value" : 100
+               },
+               "fiber" : {
+                  "unit" : "g",
+                  "value" : 0
+               },
+               "proteins" : {
+                  "unit" : "g",
+                  "value" : 0
+               },
+               "sodium" : {
+                  "unit" : "g",
+                  "value" : 0
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
    },
    "nutrition_grade_fr" : "unknown",
    "nutrition_grades" : "unknown",
@@ -143,8 +225,7 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
-   "nutrition_score_warning_no_fiber" : 1,
+   "nutrition_score_debug" : "missing as_sold energy - missing as_sold saturated-fat",
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "pnns_groups_1" : "Fat and sauces",
    "pnns_groups_1_tags" : [

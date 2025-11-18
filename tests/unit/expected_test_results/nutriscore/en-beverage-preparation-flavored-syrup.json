@@ -143,15 +143,10 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:nutriscore-missing-prepared-nutrition-data",
+      "en:nutrition-grade-computed-for-prepared-product",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
-      "en:nutriscore-missing-nutrition-data-fat",
-      "en:nutriscore-missing-nutrition-data-saturated-fat",
-      "en:nutriscore-missing-nutrition-data-sugars",
-      "en:nutriscore-missing-nutrition-data-sodium",
-      "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
@@ -178,8 +173,18 @@
       "en:4-ultra-processed-food-and-drink-products"
    ],
    "nucleotides_tags" : [],
-   "nutrient_levels" : {},
-   "nutrient_levels_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "low",
+      "salt" : "low",
+      "saturated-fat" : "low",
+      "sugars" : "low"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-low-quantity",
+      "en:saturated-fat-in-low-quantity",
+      "en:sugars-in-low-quantity",
+      "en:salt-in-low-quantity"
+   ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 62.5,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 62.5,
@@ -197,10 +202,10 @@
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "proteins" : null,
-            "saturated_fat" : null,
-            "sodium" : null,
-            "sugars" : null
+            "proteins" : 0,
+            "saturated_fat" : 0,
+            "sodium" : 10,
+            "sugars" : 4.5
          },
          "grade" : "unknown",
          "nutrients_available" : 0,
@@ -219,10 +224,10 @@
             "is_red_meat_product" : 0,
             "is_water" : 0,
             "non_nutritive_sweeteners" : 1,
-            "proteins" : null,
-            "salt" : null,
-            "saturated_fat" : null,
-            "sugars" : null
+            "proteins" : 0,
+            "salt" : "0.025",
+            "saturated_fat" : 0,
+            "sugars" : 4.5
          },
          "grade" : "unknown",
          "nutrients_available" : 0,
@@ -242,8 +247,89 @@
    ],
    "nutriscore_version" : "2023",
    "nutrition" : {
-      "aggregated_set" : {},
-      "input_sets" : []
+      "aggregated_set" : {
+         "nutrients" : {
+            "fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "proteins" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : "0"
+            },
+            "salt" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : "0.025"
+            },
+            "saturated-fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "sodium" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.01
+            },
+            "sugars" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 4.5
+            }
+         },
+         "per" : "100g",
+         "preparation" : "prepared"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "energy" : {
+                  "unit" : "kJ",
+                  "value" : 82
+               },
+               "fat" : {
+                  "unit" : "g",
+                  "value" : 0
+               },
+               "proteins" : {
+                  "unit" : "g",
+                  "value" : 0
+               },
+               "saturated-fat" : {
+                  "unit" : "g",
+                  "value" : 0
+               },
+               "sodium" : {
+                  "unit" : "g",
+                  "value" : 0.01
+               },
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : 4.5
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "prepared",
+            "source" : "packaging"
+         }
+      ]
    },
    "nutrition_grade_fr" : "unknown",
    "nutrition_grades" : "unknown",
@@ -251,7 +337,7 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 1,
-   "nutrition_score_debug" : "no score for category en:flavoured-syrups without data for prepared product - missing prepared energy - missing prepared fat - missing prepared saturated-fat - missing prepared sugars - missing prepared sodium - missing prepared proteins",
+   "nutrition_score_debug" : "using prepared product data for category en:flavoured-syrups - missing prepared energy",
    "nutrition_score_warning_no_fiber" : 1,
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "other_nutritional_substances_tags" : [],

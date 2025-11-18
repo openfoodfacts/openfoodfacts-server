@@ -137,8 +137,8 @@
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100,
-      "nutrition-score-fr" : -4,
-      "nutrition-score-fr_100g" : -4
+      "nutrition-score-fr" : -5,
+      "nutrition-score-fr_100g" : -5
    },
    "nutriscore" : {
       "2021" : {
@@ -157,26 +157,26 @@
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "negative_points" : 1,
+            "negative_points" : 0,
             "positive_points" : 6,
-            "proteins" : 1.31,
+            "proteins" : 0.86,
             "proteins_points" : 0,
-            "proteins_value" : 1.31,
-            "saturated_fat" : 0.005,
+            "proteins_value" : 0.86,
+            "saturated_fat" : 0.056,
             "saturated_fat_points" : 0,
-            "saturated_fat_value" : 0,
-            "sodium" : 2.5,
+            "saturated_fat_value" : 0.1,
+            "sodium" : 0,
             "sodium_points" : 0,
-            "sodium_value" : 2.5,
-            "sugars" : 4.8,
-            "sugars_points" : 1,
-            "sugars_value" : 4.8
+            "sodium_value" : 0,
+            "sugars" : 2.48,
+            "sugars_points" : 0,
+            "sugars_value" : 2.48
          },
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -5
+         "score" : -6
       },
       "2023" : {
          "category_available" : 1,
@@ -192,44 +192,41 @@
                   },
                   {
                      "id" : "sugars",
-                     "new_grade" : "a",
-                     "new_score" : -5,
-                     "new_value" : 3.4,
-                     "points" : 1,
+                     "points" : 0,
                      "points_max" : 15,
                      "unit" : "g",
-                     "value" : 4.8
+                     "value" : 2.48
                   },
                   {
                      "id" : "saturated_fat",
                      "points" : 0,
                      "points_max" : 10,
                      "unit" : "g",
-                     "value" : 0.01
+                     "value" : 0.06
                   },
                   {
                      "id" : "salt",
                      "points" : 0,
                      "points_max" : 20,
                      "unit" : "g",
-                     "value" : 0.01
+                     "value" : 0
                   }
                ],
                "positive" : [
                   {
                      "id" : "proteins",
                      "new_grade" : "a",
-                     "new_score" : -5,
+                     "new_score" : -6,
                      "new_value" : 2.5,
                      "points" : 0,
                      "points_max" : 7,
                      "unit" : "g",
-                     "value" : 1.31
+                     "value" : 0.86
                   },
                   {
                      "id" : "fiber",
                      "new_grade" : "a",
-                     "new_score" : -5,
+                     "new_score" : -6,
                      "new_value" : 3.1,
                      "points" : 0,
                      "points_max" : 5,
@@ -252,7 +249,7 @@
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "negative_points" : 1,
+            "negative_points" : 0,
             "negative_points_max" : 55,
             "positive_nutrients" : [
                "proteins",
@@ -266,7 +263,7 @@
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -4
+         "score" : -5
       }
    },
    "nutriscore_2021_tags" : [
@@ -287,24 +284,24 @@
             },
             {
                "id" : "sugars",
-               "points" : 1,
+               "points" : 0,
                "points_max" : 15,
                "unit" : "g",
-               "value" : 4.8
+               "value" : 2.48
             },
             {
                "id" : "saturated_fat",
                "points" : 0,
                "points_max" : 10,
                "unit" : "g",
-               "value" : 0.01
+               "value" : 0.06
             },
             {
                "id" : "salt",
                "points" : 0,
                "points_max" : 20,
                "unit" : "g",
-               "value" : 0.01
+               "value" : 0
             }
          ],
          "positive" : [
@@ -313,7 +310,7 @@
                "points" : 0,
                "points_max" : 7,
                "unit" : "g",
-               "value" : 1.31
+               "value" : 0.86
             },
             {
                "id" : "fiber",
@@ -339,7 +336,7 @@
       "is_fat_oil_nuts_seeds" : 0,
       "is_red_meat_product" : 0,
       "is_water" : 0,
-      "negative_points" : 1,
+      "negative_points" : 0,
       "negative_points_max" : 55,
       "positive_nutrients" : [
          "proteins",
@@ -348,11 +345,11 @@
       ],
       "positive_points" : 5,
       "positive_points_max" : 17,
-      "score" : -4
+      "score" : -5
    },
    "nutriscore_grade" : "a",
-   "nutriscore_score" : -4,
-   "nutriscore_score_opposite" : 4,
+   "nutriscore_score" : -5,
+   "nutriscore_score_opposite" : 5,
    "nutriscore_tags" : [
       "a"
    ],
@@ -433,17 +430,15 @@
                "value" : 142
             },
             "fat" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.25
+               "value" : 0.26
             },
             "fiber" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
                "value" : 1.2
@@ -561,28 +556,25 @@
                "value" : 0.33
             },
             "proteins" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 1.31
+               "value" : 0.86
             },
             "salt" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.0063
+               "value" : 0
             },
             "saturated-fat" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.005
+               "value" : 0.056
             },
             "selenium" : {
                "modifier" : "~",
@@ -593,12 +585,11 @@
                "value" : 1e-05
             },
             "sodium" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.0025
+               "value" : "0"
             },
             "starch" : {
                "modifier" : "~",
@@ -617,12 +608,11 @@
                "value" : 0.1
             },
             "sugars" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 4.8
+               "value" : 2.48
             },
             "vitamin-a" : {
                "modifier" : "~",
@@ -1003,6 +993,43 @@
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "estimate"
+         },
+         {
+            "nutrients" : {
+               "energy" : {
+                  "unit" : "kJ",
+                  "value" : 81
+               },
+               "fat" : {
+                  "unit" : "g",
+                  "value" : 0.26
+               },
+               "fiber" : {
+                  "unit" : "g",
+                  "value" : 1.2
+               },
+               "proteins" : {
+                  "unit" : "g",
+                  "value" : 0.86
+               },
+               "salt" : {
+                  "unit" : "g",
+                  "value" : 0
+               },
+               "saturated-fat" : {
+                  "unit" : "g",
+                  "value" : 0.056
+               },
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : 2.48
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
          }
       ]
    },

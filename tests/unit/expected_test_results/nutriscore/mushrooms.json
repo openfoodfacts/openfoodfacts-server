@@ -110,12 +110,6 @@
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
-      "en:nutriscore-missing-nutrition-data-fat",
-      "en:nutriscore-missing-nutrition-data-saturated-fat",
-      "en:nutriscore-missing-nutrition-data-sugars",
-      "en:nutriscore-missing-nutrition-data-sodium",
-      "en:nutriscore-missing-nutrition-data-proteins",
-      "en:nutrition-no-fiber",
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
@@ -135,8 +129,18 @@
       "en:3-processed-foods"
    ],
    "nucleotides_tags" : [],
-   "nutrient_levels" : {},
-   "nutrient_levels_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "moderate",
+      "salt" : "moderate",
+      "saturated-fat" : "low",
+      "sugars" : "low"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-moderate-quantity",
+      "en:saturated-fat-in-low-quantity",
+      "en:sugars-in-low-quantity",
+      "en:salt-in-moderate-quantity"
+   ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 69,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 69,
@@ -148,16 +152,16 @@
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : 0,
+            "fiber" : 10.9,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "proteins" : null,
-            "saturated_fat" : null,
-            "sodium" : null,
-            "sugars" : null
+            "proteins" : 2.4,
+            "saturated_fat" : 1.2,
+            "sodium" : 400,
+            "sugars" : 1.1
          },
          "grade" : "unknown",
          "nutrients_available" : 0,
@@ -168,17 +172,17 @@
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : null,
+            "fiber" : 10.9,
             "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "proteins" : null,
-            "salt" : null,
-            "saturated_fat" : null,
-            "sugars" : null
+            "proteins" : 2.4,
+            "salt" : "1",
+            "saturated_fat" : 1.2,
+            "sugars" : 1.1
          },
          "grade" : "unknown",
          "nutrients_available" : 0,
@@ -198,8 +202,100 @@
    ],
    "nutriscore_version" : "2023",
    "nutrition" : {
-      "aggregated_set" : {},
-      "input_sets" : []
+      "aggregated_set" : {
+         "nutrients" : {
+            "fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 8.4
+            },
+            "fiber" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 10.9
+            },
+            "proteins" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 2.4
+            },
+            "salt" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : "1"
+            },
+            "saturated-fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.2
+            },
+            "sodium" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.4
+            },
+            "sugars" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.1
+            }
+         },
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "energy" : {
+                  "unit" : "kJ",
+                  "value" : 667
+               },
+               "fat" : {
+                  "unit" : "g",
+                  "value" : 8.4
+               },
+               "fiber" : {
+                  "unit" : "g",
+                  "value" : 10.9
+               },
+               "proteins" : {
+                  "unit" : "g",
+                  "value" : 2.4
+               },
+               "saturated-fat" : {
+                  "unit" : "g",
+                  "value" : 1.2
+               },
+               "sodium" : {
+                  "unit" : "g",
+                  "value" : 0.4
+               },
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : 1.1
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
    },
    "nutrition_grade_fr" : "unknown",
    "nutrition_grades" : "unknown",
@@ -207,8 +303,7 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
-   "nutrition_score_warning_no_fiber" : 1,
+   "nutrition_score_debug" : "missing as_sold energy",
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Composite foods",

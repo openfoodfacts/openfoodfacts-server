@@ -142,11 +142,11 @@ sub detect_possible_improvements_nutriscore_2023 ($product_ref) {
 				my $new_product_ref = dclone($product_ref);
 
 				# Populate the data structure that will be passed to Food::Nutriscore
-				my ($nutrients_available, $prepared, $nutriments_field)
+				my ($nutrients_available, $prepared, $estimated)
 					= check_availability_of_nutrients_needed_for_nutriscore($new_product_ref);
 
 				# Skip products with estimated nutrients
-				next if $nutriments_field eq "nutriments_estimated";
+				next if $estimated;
 
 				my $new_nutriscore_ref = compute_nutriscore_data($new_product_ref, $version);
 

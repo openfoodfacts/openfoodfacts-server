@@ -1733,6 +1733,8 @@ To compute the Nutri-Score, we use the nutrition.aggregated_set
 
 =head4 $preparation: "as_sold" or "prepared"
 
+=head4 $estimated: 0 or 1
+
 Indicates if the Nutri-Score should be computed on as sold or prepared values
 
 =cut
@@ -1740,6 +1742,7 @@ Indicates if the Nutri-Score should be computed on as sold or prepared values
 sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 
 	my $nutrients_available = 1;
+	my $estimated = 0;
 
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
 	# unless we have nutrition data for the prepared product
@@ -1840,6 +1843,7 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 		and (exists $key_nutrients_sources{"estimated"})
 		)
 	{
+		$estimated = 1;
 
 		# Check if all key nutrients are from estimated source
 		if ($key_nutrients == $key_nutrients_sources{"estimated"}) {
@@ -1857,7 +1861,7 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 		}
 	}
 
-	return ($nutrients_available, $preparation);
+	return ($nutrients_available, $preparation, $estimated);
 }
 
 =head2 set_fields_for_current_version_of_nutriscore($product_ref, $current_version, $nutriscore_score, $nutriscore_grade)
