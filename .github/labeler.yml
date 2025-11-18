@@ -696,6 +696,11 @@ Nutrients:
       - any-glob-to-any-file: "docs/​api/​ref/​schemas/​nutrients.yaml"
       - any-glob-to-any-file: "docs/​api/​ref/​schemas/​nutrient_unit.yaml"
       - any-glob-to-any-file: "docs/​api/​ref/​responses/​get_nutrients.yaml"
+      - any-glob-to-any-file: "taxonomies/nutrients.txt"
+
+units:
+  - changed-files:
+      - any-glob-to-any-file: "taxonomies/units.txt"
 
 Nutrition facts:
   - changed-files:
@@ -756,11 +761,11 @@ Cyprus:
   - changed-files:
       - any-glob-to-any-file: "scripts/packager-codes/cy_packagers_refresh.py"
 
-Croatia:
+🇭🇷 Croatia:
   - changed-files:
       - any-glob-to-any-file: "scripts/packager-codes/hr-packagers-refresh.pl"
 
-Italy:
+🇮🇹 Italy:
   - changed-files:
       - any-glob-to-any-file: "scripts/packager-codes/it_packagers_refresh.py"
 
