@@ -326,11 +326,6 @@ brands_sort_test:
 	@diff -u <(git grep -ih '^xx:' taxonomies/brands.txt) <(git grep -ih '^xx:' taxonomies/brands.txt|LANG='C.UTF-8' sort -bf)
 	@echo "🥫 brands.txt ordered as expected"
 
-sort_brands:
-	@echo "🥫 sorting brands.txt"
-	python3 scripts/taxonomies/sort_brands.py taxonomies/brands.txt
-	@echo "🥫 brands.txt sorted"
-
 # stop all tests dockers
 test-stop:
 	@echo "🥫 Stopping test dockers"
