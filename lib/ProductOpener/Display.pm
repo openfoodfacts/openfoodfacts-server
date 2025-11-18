@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -2451,26 +2451,19 @@ HTML
 
 		# countries map?
 		if (keys %{$countries_map_data} > 0) {
-			$request_ref->{initjs}
-				.= 'var countries_map_data=JSON.parse(' . $json->encode($json->encode($countries_map_data)) . ');'
-				.= 'var countries_map_links=JSON.parse(' . $json->encode($json->encode($countries_map_links)) . ');'
-				.= 'var countries_map_names=JSON.parse(' . $json->encode($json->encode($countries_map_names)) . ');'
-				.= <<"JS";
-displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
-JS
-			$request_ref->{scripts} .= <<SCRIPTS
-<script src="$static_subdomain/js/dist/jsvectormap.js"></script>
-<script src="$static_subdomain/js/dist/world-merc.js"></script>
-<script src="$static_subdomain/js/dist/display-list-of-tags.js"></script>
-SCRIPTS
-				;
-			my $map_html = <<HTML
-  <div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
+			my $mapData = {
+				data => $countries_map_data,
+				links => $countries_map_links,
+				names => $countries_map_names,
+			};
 
-HTML
-				;
+			my $map_template_data_ref = {mapData => $mapData,};
+
+			my $map_html = '';
+			process_template('web/pages/countries_map/map_of_countries.tt.html',
+				$map_template_data_ref, \$map_html, $request_ref)
+				|| ($map_html .= 'template error: ' . $tt->error());
 			$html = $map_html . $html;
-
 		}
 
 		#if ($tagtype eq 'categories') {
