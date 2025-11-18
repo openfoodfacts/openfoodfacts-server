@@ -1983,23 +1983,20 @@ sub is_european_product {
 
 	# In EU, compare label claim and nutrition
 	# https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
-	my @eu_countries = (
-		"en:austria", "en:belgium", "en:bulgaria", "en:croatia", "en:cyprus", "en:czech republic",
-		"en:denmark", "en:france", "en:estonia", "en:finland", "en:germany", "en:greece",
-		"en:hungary", "en:ireland", "en:italy", "en:latvia", "en:lithuania", "en:luxembourg",
-		"en:malta", "en:netherlands", "en:poland", "en:portugal", "en:romania", "en:slovakia",
-		"en:slovenia", "en:spain", "en:sweden"
-	);
+	# Now using the 'regional_entity:en: european-union' property in the countries taxonomy
+	my $eu_countries_ref = get_all_tags_having_property($product_ref, 'countries', 'regional_entity:en');
 
-	my $eu_product = 0;
-	foreach my $eu_country (@eu_countries) {
-		if (has_tag($product_ref, "countries", $eu_country)) {
-			$eu_product = 1;
-			last;
+	foreach my $country (keys %{$eu_countries_ref}) {
+		# Handle comma-separated regional entities
+		my @regional_entities = split(/\s*,\s*/, $eu_countries_ref->{$country});
+		foreach my $entity (@regional_entities) {
+			if ($entity eq 'european-union') {
+				return 1;
+			}
 		}
 	}
 
-	return $eu_product;
+	return 0;
 }
 
 =head2 check_labels( PRODUCT_REF )
@@ -2867,8 +2864,8 @@ sub check_food_groups ($product_ref) {
 
 Checks if 2 incompatible tags are assigned to the product
 
-To include more tags to this check, 
-add the property "incompatible:en" 
+To include more tags to this check,
+add the property "incompatible:en"
 at the end of code block in the taxonomy
 
 Example:
