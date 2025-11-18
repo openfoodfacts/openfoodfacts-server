@@ -107,9 +107,11 @@
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-not-computed",
-      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutrition-fruits-vegetables-nuts-from-category",
+      "en:nutrition-fruits-vegetables-nuts-from-category-en-vegetables",
       "en:nutrition-all-nutriscore-values-known",
-      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients"
+      "en:nutrition-fruits-vegetables-legumes-from-category",
+      "en:nutrition-fruits-vegetables-legumes-from-category-en-vegetables"
    ],
    "nova_group" : 1,
    "nova_group_debug" : "",
@@ -193,7 +195,7 @@
          "data" : {
             "energy" : 81,
             "fiber" : 1.2,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 100,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 90,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
@@ -213,7 +215,7 @@
          "data" : {
             "energy" : 81,
             "fiber" : 1.2,
-            "fruits_vegetables_legumes" : 100,
+            "fruits_vegetables_legumes" : 90,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
@@ -304,11 +306,11 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "missing sodium_100g",
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 100,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
+   "nutrition_score_debug" : "missing as_sold sodium",
+   "nutrition_score_warning_fruits_vegetables_legumes_from_category" : "en:vegetables",
+   "nutrition_score_warning_fruits_vegetables_legumes_from_category_value" : 90,
+   "nutrition_score_warning_fruits_vegetables_nuts_from_category" : "en:vegetables",
+   "nutrition_score_warning_fruits_vegetables_nuts_from_category_value" : 90,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Fruits and vegetables",
    "pnns_groups_1_tags" : [

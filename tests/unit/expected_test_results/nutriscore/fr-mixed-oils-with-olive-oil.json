@@ -167,9 +167,8 @@
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-not-computed",
-      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
-      "en:nutrition-all-nutriscore-values-known",
-      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients"
+      "en:nutrition-no-fruits-vegetables-nuts",
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
    ],
    "nova_group" : 2,
    "nova_group_debug" : "",
@@ -261,7 +260,7 @@
             "energy" : 3700,
             "fat" : 100,
             "fiber" : 0,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 65,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 1,
@@ -284,7 +283,7 @@
             "energy_from_saturated_fat" : 362.6,
             "fat" : 100,
             "fiber" : 0,
-            "fruits_vegetables_legumes" : 0,
+            "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 1,
@@ -376,11 +375,8 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "missing sodium_100g",
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 0,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 65,
+   "nutrition_score_debug" : "missing as_sold sodium",
+   "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Fat and sauces",
    "pnns_groups_1_tags" : [

@@ -183,9 +183,8 @@
       "en:some-ingredients-with-specified-percent",
       "en:nutrition-no-fiber",
       "en:nutriscore-computed",
-      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
-      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b"
@@ -376,7 +375,7 @@
                      "points" : 0,
                      "points_max" : 5,
                      "unit" : "%",
-                     "value" : 0
+                     "value" : null
                   }
                ]
             },
@@ -462,7 +461,7 @@
                "points" : 0,
                "points_max" : 5,
                "unit" : "%",
-               "value" : 0
+               "value" : null
             }
          ]
       },
@@ -549,11 +548,8 @@
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 0,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
    "nutrition_score_warning_no_fiber" : 1,
+   "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Fish Meat Eggs",
    "pnns_groups_1_tags" : [

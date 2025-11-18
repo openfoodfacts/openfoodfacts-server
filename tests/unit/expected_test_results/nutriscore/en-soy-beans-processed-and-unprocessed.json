@@ -154,9 +154,8 @@
       "en:at-least-5-ingredients-with-specified-percent",
       "en:nutrition-no-fiber",
       "en:nutriscore-computed",
-      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
-      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a"
    ],
@@ -193,8 +192,8 @@
       "nova-group" : 3,
       "nova-group_100g" : 3,
       "nova-group_serving" : 3,
-      "nutrition-score-fr" : -8,
-      "nutrition-score-fr_100g" : -8
+      "nutrition-score-fr" : -7,
+      "nutrition-score-fr_100g" : -7
    },
    "nutriments_estimated" : {
       "alcohol_100g" : 0,
@@ -233,15 +232,15 @@
             "fiber" : 0,
             "fiber_points" : 0,
             "fiber_value" : 0,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 55,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 55,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 0,
-            "positive_points" : 6,
+            "positive_points" : 5,
             "proteins" : 20,
             "proteins_points" : 5,
             "proteins_value" : 20,
@@ -259,7 +258,7 @@
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -6
+         "score" : -5
       },
       "2023" : {
          "category_available" : 1,
@@ -312,13 +311,10 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
-                     "new_grade" : "a",
-                     "new_score" : -9,
-                     "new_value" : 61,
-                     "points" : 1,
+                     "points" : 0,
                      "points_max" : 5,
                      "unit" : "%",
-                     "value" : 55
+                     "value" : null
                   }
                ]
             },
@@ -336,14 +332,14 @@
                "fiber",
                "fruits_vegetables_legumes"
             ],
-            "positive_points" : 8,
+            "positive_points" : 7,
             "positive_points_max" : 17
          },
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -8
+         "score" : -7
       }
    },
    "nutriscore_2021_tags" : [
@@ -401,10 +397,10 @@
             },
             {
                "id" : "fruits_vegetables_legumes",
-               "points" : 1,
+               "points" : 0,
                "points_max" : 5,
                "unit" : "%",
-               "value" : 55
+               "value" : null
             }
          ]
       },
@@ -423,13 +419,13 @@
          "fiber",
          "fruits_vegetables_legumes"
       ],
-      "positive_points" : 8,
+      "positive_points" : 7,
       "positive_points_max" : 17,
-      "score" : -8
+      "score" : -7
    },
    "nutriscore_grade" : "a",
-   "nutriscore_score" : -8,
-   "nutriscore_score_opposite" : 8,
+   "nutriscore_score" : -7,
+   "nutriscore_score_opposite" : 7,
    "nutriscore_tags" : [
       "a"
    ],
@@ -491,11 +487,8 @@
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 55,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 55,
    "nutrition_score_warning_no_fiber" : 1,
+   "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Composite foods",
    "pnns_groups_1_tags" : [

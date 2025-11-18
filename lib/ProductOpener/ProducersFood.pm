@@ -149,7 +149,7 @@ sub detect_possible_improvements_nutriscore_2023 ($product_ref) {
 				next if $nutriments_field eq "nutriments_estimated";
 
 				my $new_nutriscore_ref
-					= compute_nutriscore_data($new_product_ref, $prepared, $nutriments_field, $version);
+					= compute_nutriscore_data($new_product_ref, $version);
 
 				# Overwrite the value of the nutrient in the Nutri-Score data
 				$new_nutriscore_ref->{$nutrient} = $new_value;
