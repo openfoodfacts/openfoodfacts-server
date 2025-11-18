@@ -76,7 +76,6 @@ use Log::Any qw($log);
 # "POSTDATA":"{\"code\":\"3270160874071\",\"lc\":\"fr\",\"cc\":\"FR\",\"user_id\":\"kiliweb\" [..]
 # This needs to be done before init_request() as the body contains user_id and password for authentication
 if (user_agent() =~ /Symfony HttpClient/) {
-	print STDERR "yuka 1\n";
 
 	my $r = Apache2::RequestUtil->request();
 
