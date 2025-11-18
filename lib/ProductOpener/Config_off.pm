@@ -432,6 +432,7 @@ $options{users_who_can_upload_small_images} = {
 			["ignore_serving_size"],
 			# block image selection
 			["block_if_regexp_match_id", "^(front|ingredients|nutrition|packaging).*"],
+			["block_if_regexp_match_imagefield", "^(front|ingredients|nutrition|packaging).*"],
 		],
 	},
 );
