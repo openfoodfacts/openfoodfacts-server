@@ -2,7 +2,7 @@ import json
 import re
 
 # Load the query.json file
-with open('/Users/pierre/development/openfoodfacts-server/taxonomies/food/query-off-ing.json', 'r') as f:
+with open('/taxonomies/food/wikidata-query-output-example.json', 'r') as f:
     query_data = json.load(f)
 
 # Create a dictionary to map item labels to QIDs
@@ -14,7 +14,7 @@ for item in query_data:
         label_to_qid[label.lower()] = qid
 
 # Read the categories.wip.txt file
-with open('/Users/pierre/development/openfoodfacts-server/taxonomies/food/ingredients.txt', 'r') as f:
+with open('/taxonomies/food/ingredients.txt', 'r') as f:
     categories_content = f.read()
 
 # Process the categories.wip.txt file
@@ -55,7 +55,7 @@ for label, qid in label_to_qid.items():
             break
 
 # Write the updated content back to the file
-with open('/Users/pierre/development/openfoodfacts-server/taxonomies/food/ingredients.txt', 'w') as f:
+with open('/taxonomies/food/ingredients.txt', 'w') as f:
     f.write(updated_content)
 
 print(f"\nFile updated successfully. {updated_count} entries were updated.")
