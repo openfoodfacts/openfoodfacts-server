@@ -78,8 +78,19 @@ def sort_brands(brand_entries: List[Tuple[str, List[str]]]) -> List[Tuple[str, L
     """
     Sort brand entries using the same method as the test: LANG='C.UTF-8' sort -bf
     """
-    # Create a mapping of sorted xx: lines to their entries
-    xx_lines = [f"xx: {key}\n" for key, _ in brand_entries]
+    # Create a mapping from xx: line to entry and collect all xx: lines
+    entry_map = {}
+    xx_lines = []
+    for key, entry_lines in brand_entries:
+        # Find the actual xx: line from the entry
+        xx_line = None
+        for line in entry_lines:
+            if line.startswith('xx:'):
+                xx_line = line.rstrip('\n')
+                break
+        if xx_line:
+            entry_map[xx_line] = (key, entry_lines)
+            xx_lines.append(xx_line + '\n')
     
     # Use external sort command to match the test's behavior
     result = subprocess.run(
@@ -95,18 +106,6 @@ def sort_brands(brand_entries: List[Tuple[str, List[str]]]) -> List[Tuple[str, L
         sys.exit(1)
     
     sorted_xx_lines = result.stdout.strip().split('\n')
-    
-    # Create a mapping from xx: line to entry
-    entry_map = {}
-    for key, entry_lines in brand_entries:
-        # Find the actual xx: line from the entry
-        xx_line = None
-        for line in entry_lines:
-            if line.startswith('xx:'):
-                xx_line = line.rstrip('\n')
-                break
-        if xx_line:
-            entry_map[xx_line] = (key, entry_lines)
     
     # Build sorted list based on the sorted xx: lines
     sorted_entries = []
