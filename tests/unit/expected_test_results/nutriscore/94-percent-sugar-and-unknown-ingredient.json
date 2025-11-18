@@ -146,10 +146,7 @@
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
-      "nova-group" : 2,
-      "nova-group_100g" : 2,
-      "nova-group_serving" : 2
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
    "nutriscore" : {
       "2021" : {
@@ -205,6 +202,10 @@
       "unknown"
    ],
    "nutriscore_version" : "2023",
+   "nutrition" : {
+      "aggregated_set" : {},
+      "input_sets" : []
+   },
    "nutrition_grade_fr" : "unknown",
    "nutrition_grades" : "unknown",
    "nutrition_grades_tags" : [

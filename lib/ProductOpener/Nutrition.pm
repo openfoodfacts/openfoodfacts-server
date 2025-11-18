@@ -57,6 +57,7 @@ BEGIN {
 		&assign_nutrition_values_from_imported_csv_product
 		&assign_nutrition_values_from_imported_csv_product_old_fields
 		&assign_nutrition_values_from_request_object
+		&compute_estimated_nutrients
 		&add_nutrition_fields_from_product_to_populated_fields
 		&filter_out_nutrients_not_in_taxonomy
 		&convert_sodium_to_salt
@@ -76,6 +77,7 @@ use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_stan
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::API qw/add_error add_warning/;
+use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 
 # FIXME: remove single_param and use request_param
 use ProductOpener::HTTP qw/single_param request_param/;
@@ -621,6 +623,10 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_re
 			}
 		}
 	}
+
+	$log->debug("convert_nutrition_input_sets_hash_to_array: end", {input_sets_ref => $input_sets_ref})
+		if $log->is_debug();
+
 	return $input_sets_ref;
 }
 
@@ -691,6 +697,14 @@ sub get_preparations_for_product_type ($product_type) {
 	return @preparations;
 }
 
+my %valid_pers = (
+	'100g' => 1,
+	'100ml' => 1,
+	'1kg' => 1,
+	'1l' => 1,
+	'serving' => 1,
+);
+
 =head2 get_pers_for_product_type
 
 Returns the list of valid per quantities for a given product type.
@@ -733,7 +747,10 @@ sub get_default_per_for_product ($product_ref, $preparation = "as_sold") {
 	my $category_default_per
 		= get_inherited_property_from_categories_tags($product_ref, "default_nutrition_${preparation}_per:en");
 	if (defined $category_default_per) {
-		$default_per = $category_default_per;
+		$category_default_per = lc($category_default_per);
+		if (exists $valid_pers{$category_default_per}) {
+			$default_per = $category_default_per;
+		}
 	}
 	return $default_per;
 }
@@ -1864,6 +1881,62 @@ sub assign_nutrition_values_from_request_object ($request_ref, $product_ref) {
 	return;
 }
 
+=head2 compute_estimated_nutrients ( $product_ref )
+
+Compute estimated nutrients from ingredients.
+
+If we have a high enough confidence (95% of the ingredients (by quantity) have a known nutrient profile),
+we store the result in an nutrient input set with the source "estimate".
+
+Otherwise we remove the estimated nutrients input set if it exists.
+
+=cut
+
+sub compute_estimated_nutrients ($product_ref) {
+
+	# We use a temporary input sets hash to ease setting values
+	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
+	my $source = "estimate";
+	my $preparation = "as_sold";
+
+	# For the per, we get the default per for the product, and use 100g if it is a weight,
+	# or 100ml if it is a volume, as the estimated nutrients are always per 100g or 100ml.
+	# So for pet food, even though the default per is 1kg, we use 100g for the estimated nutrients.
+	my $per = get_default_per_for_product($product_ref, $preparation);
+	if ($per =~ /kg$/) {
+		$per = "100g";
+	}
+	elsif ($per =~ /l$/) {
+		$per = "100ml";
+	}
+
+	# compute estimated nutrients from ingredients
+	my $results_ref = estimate_nutrients_from_ingredients($product_ref->{ingredients});
+
+	# Remove any existing estimated nutrients input set
+	delete $input_sets_hash_ref->{$source}{$preparation}{$per};
+
+	# only take the result if we have at least 95% of ingredients with nutrients
+	if (($results_ref->{total} > 0) and (($results_ref->{total_with_nutrients} / $results_ref->{total}) >= 0.95)) {
+
+		my $modifier = '~';    # estimated value modifier
+
+		while (my ($nid, $value) = each(%{$results_ref->{nutrients}})) {
+			my $unit = default_unit_for_nid($nid);
+			# We currently assign value_string (which will also set value)
+			# Not sure if it makes sense to only set value and have no value_string
+			assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
+				$per, $nid, $modifier, $value, $unit);
+		}
+	}
+
+	# Convert back the input sets hash to array
+	deep_set($product_ref, "nutrition", "input_sets",
+		convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_ref));
+
+	return;
+}
+
 =head2 remove_empty_nutrient_values_and_set_unspecified_nutrients ($input_set_ref)
 
 Removes nutrients with empty values from an input set.
@@ -1897,8 +1970,8 @@ sub remove_empty_nutrient_values_and_set_unspecified_nutrients ($input_set_ref) 
 					push @{$input_set_ref->{unspecified_nutrients}}, $nid;
 				}
 			}
-			# If the value_string is undefined or empty, we remove the nutrient from the input set
-			elsif ((not defined $nutrient_ref->{value_string}) or ($nutrient_ref->{value_string} eq '')) {
+			# If the value is undefined, we remove the nutrient from the input set
+			elsif (not defined $nutrient_ref->{value}) {
 				delete $input_set_ref->{nutrients}{$nid};
 			}
 			# If the modifier is undefined or empty, we remove it from the nutrient

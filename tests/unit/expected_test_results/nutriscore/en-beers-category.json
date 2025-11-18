@@ -38,6 +38,15 @@
    "lc" : "en",
    "misc_tags" : [
       "en:nutriscore-not-applicable",
+      "en:nutrition-not-enough-data-to-compute-nutrition-score",
+      "en:nutriscore-missing-nutrition-data",
+      "en:nutriscore-missing-nutrition-data-energy",
+      "en:nutriscore-missing-nutrition-data-fat",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sugars",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-proteins",
+      "en:nutrition-no-fiber",
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
@@ -54,29 +63,29 @@
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : 182,
-            "fiber" : 0.5,
+            "energy" : null,
+            "fiber" : 0,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "proteins" : 0.2,
-            "saturated_fat" : 0,
-            "sodium" : 200,
-            "sugars" : 8.9
+            "proteins" : null,
+            "saturated_fat" : null,
+            "sodium" : null,
+            "sugars" : null
          },
          "grade" : "not-applicable",
          "not_applicable_category" : "en:alcoholic-beverages",
-         "nutrients_available" : 1,
+         "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
          "nutriscore_computed" : 0
       },
       "2023" : {
          "category_available" : 1,
          "data" : {
-            "energy" : 182,
-            "fiber" : 0.5,
+            "energy" : null,
+            "fiber" : null,
             "fruits_vegetables_legumes" : null,
             "is_beverage" : 1,
             "is_cheese" : 0,
@@ -84,14 +93,14 @@
             "is_red_meat_product" : 0,
             "is_water" : 0,
             "non_nutritive_sweeteners" : null,
-            "proteins" : 0.2,
+            "proteins" : null,
             "salt" : null,
-            "saturated_fat" : 0,
-            "sugars" : 8.9
+            "saturated_fat" : null,
+            "sugars" : null
          },
          "grade" : "not-applicable",
          "not_applicable_category" : "en:alcoholic-beverages",
-         "nutrients_available" : 1,
+         "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
          "nutriscore_computed" : 0
       }
@@ -111,61 +120,8 @@
    ],
    "nutriscore_version" : "2023",
    "nutrition" : {
-      "aggregated_set" : {
-         "nutrients" : {
-            "energy" : {
-               "source" : "packaging",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "kJ",
-               "value" : 182
-            },
-            "fat" : {
-               "source" : "packaging",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "g",
-               "value" : 0
-            },
-            "fiber" : {
-               "source" : "packaging",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "g",
-               "value" : 0.5
-            },
-            "proteins" : {
-               "source" : "packaging",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "g",
-               "value" : 0.2
-            },
-            "saturated-fat" : {
-               "source" : "packaging",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "g",
-               "value" : 0
-            },
-            "sodium" : {
-               "source" : "packaging",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "g",
-               "value" : 0.2
-            },
-            "sugars" : {
-               "source" : "packaging",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "g",
-               "value" : 8.9
-            }
-         },
-         "per" : "100g",
-         "preparation" : "as_sold"
-      }
+      "aggregated_set" : {},
+      "input_sets" : []
    },
    "nutrition_grade_fr" : "not-applicable",
    "nutrition_grades" : "not-applicable",
@@ -173,7 +129,8 @@
       "not-applicable"
    ],
    "nutrition_score_beverage" : 1,
-   "nutrition_score_debug" : "no nutriscore for category en:alcoholic-beverages",
+   "nutrition_score_debug" : "no nutriscore for category en:alcoholic-beverages - missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
+   "nutrition_score_warning_no_fiber" : 1,
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "pnns_groups_1" : "Alcoholic beverages",
    "pnns_groups_1_tags" : [

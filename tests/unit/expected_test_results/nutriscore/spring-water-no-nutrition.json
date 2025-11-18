@@ -56,9 +56,6 @@
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
    "nutriments" : {
-      "nova-group" : 1,
-      "nova-group_100g" : 1,
-      "nova-group_serving" : 1,
       "nutrition-score-fr" : 0,
       "nutrition-score-fr_100g" : 0
    },
@@ -284,6 +281,10 @@
       "a"
    ],
    "nutriscore_version" : "2023",
+   "nutrition" : {
+      "aggregated_set" : {},
+      "input_sets" : []
+   },
    "nutrition_grade_fr" : "a",
    "nutrition_grades" : "a",
    "nutrition_grades_tags" : [

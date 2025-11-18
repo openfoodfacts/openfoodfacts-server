@@ -72,7 +72,6 @@ BEGIN {
 		&compute_nutrient_levels
 		&evaluate_nutrient_level
 		&compute_units_of_alcohol
-		&compute_estimated_nutrients
 
 		&compare_nutriments
 
@@ -2236,12 +2235,14 @@ calculate the number of units of alcohol in one serving of an alcoholic beverage
 
 sub compute_units_of_alcohol ($product_ref, $serving_size_in_ml) {
 
+	my $alcohol = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "alcohol", "value");
+
 	if (    (defined $product_ref)
 		and (defined $serving_size_in_ml)
-		and (defined $product_ref->{nutriments}{'alcohol'})
+		and (defined $alcohol)
 		and (has_tag($product_ref, 'categories', 'en:alcoholic-beverages')))
 	{
-		return $serving_size_in_ml * ($product_ref->{nutriments}{'alcohol'} / 1000.0);
+		return $serving_size_in_ml * ($alcohol / 1000.0);
 	}
 	else {
 		return;
@@ -2585,10 +2586,6 @@ sub compute_nova_group ($product_ref) {
 
 	$product_ref->{nova_group} += 0;
 
-	$product_ref->{nutriments}{"nova-group"} = $product_ref->{nova_group};
-	$product_ref->{nutriments}{"nova-group_100g"} = $product_ref->{nova_group};
-	$product_ref->{nutriments}{"nova-group_serving"} = $product_ref->{nova_group};
-
 	# Store nova_groups as a string
 
 	$product_ref->{nova_groups} = $product_ref->{nova_group};
@@ -2698,32 +2695,6 @@ sub assign_categories_properties_to_product ($product_ref) {
 	}
 
 	return;
-}
-
-=head2 compute_estimated_nutrients ( $product_ref )
-
-Compute estimated nutrients from ingredients.
-
-If we have a high enough confidence (95% of the ingredients (by quantity) have a known nutrient profile),
-we store the result in the nutriments_estimated hash.
-
-=cut
-
-sub compute_estimated_nutrients ($product_ref) {
-	my $results_ref = estimate_nutrients_from_ingredients($product_ref->{ingredients});
-
-	# only take the result if we have at least 95% of ingredients with nutrients
-	if (($results_ref->{total} > 0) and (($results_ref->{total_with_nutrients} / $results_ref->{total}) >= 0.95)) {
-		$product_ref->{nutriments_estimated} = {};
-		while (my ($nid, $value) = each(%{$results_ref->{nutrients}})) {
-			$product_ref->{nutriments_estimated}{$nid . '_100g'} = $value;
-		}
-	}
-	else {
-		delete $product_ref->{nutriments_estimated};
-	}
-
-	return $results_ref;
 }
 
 =head2 get_nutrient_unit ( $nid, $cc )

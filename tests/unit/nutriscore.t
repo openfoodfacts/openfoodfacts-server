@@ -37,61 +37,43 @@ my @tests = (
 			lc => "en",
 			categories => "cookies",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3460
+				input_sets => [
+					{
+						nutrients => {
+							energy => {
+								unit => "kJ",
+								value => 3460
+							},
+							fat => {
+								unit => "g",
+								value => 90
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 15
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 90
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 15
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						per => "100g",
+						preparation => "as_sold",
+						source => "packaging"
+					}
+				]
 			}
 		}
 	],
@@ -3153,6 +3135,13 @@ foreach my $test_ref (@tests) {
 
 	# Detect possible improvements
 	detect_possible_improvements_nutriscore($product_ref, 2023);
+
+	print STDERR "proteins 3: " . $product_ref->{nutrition}{aggregated_set}{nutrients}{proteins}{value} . "\n"
+		if defined $product_ref->{nutrition}
+		and defined $product_ref->{nutrition}{aggregated_set}
+		and defined $product_ref->{nutrition}{aggregated_set}{nutrients}
+		and defined $product_ref->{nutrition}{aggregated_set}{nutrients}{proteins}
+		and defined $product_ref->{nutrition}{aggregated_set}{nutrients}{proteins}{value};
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",
 		$update_expected_results, {id => $testid});
