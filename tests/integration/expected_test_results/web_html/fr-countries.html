@@ -35,7 +35,8 @@
         "imports": {
             "@openfoodfacts/openfoodfacts-webcomponents": "//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js",
             "leaflet": "//static.openfoodfacts.localhost/js/dist/leaflet-src.js",
-            "leaflet.markercluster": "//static.openfoodfacts.localhost/js/dist/leaflet.markercluster.js"
+            "leaflet.markercluster": "//static.openfoodfacts.localhost/js/dist/leaflet.markercluster.js",
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
         }
     }
     </script>
@@ -475,8 +476,16 @@
 </div>
 
 <!-- end templates/web/pages/tag/tag.tt.html -->
-  <div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
+<!-- start templates/web/pages/countries_map/map_of_countries.tt.html -->
 
+<div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
+
+<script type="module">
+  import { displayWorldMap } from '//static.openfoodfacts.localhost/js/dist/display-list-of-tags.js';
+  displayWorldMap('#world-map', {"data":{"BE":1,"CH":1,"DE":5,"ES":1,"FR":7,"GB":4,"IT":2},"links":{"BE":"/facets/pays/belgique","CH":"/facets/pays/suisse","DE":"/facets/pays/allemagne","ES":"/facets/pays/espagne","FR":"/facets/pays/france","GB":"/facets/pays/royaume-uni","IT":"/facets/pays/italie"},"names":{"BE":"Belgique","CH":"Suisse","DE":"Allemagne","ES":"Espagne","FR":"France","GB":"Royaume-Uni","IT":"Italie"}});
+</script>
+
+<!-- end templates/web/pages/countries_map/map_of_countries.tt.html -->
 <p>7 pays :</p><div style="max-width:600px;"><table id="tagstable">
 <thead><tr><th>Pays</th><th>Produits</th><th>*</th></tr></thead>
 <tbody>
@@ -680,7 +689,6 @@
 
 <script>
 $(function() {
-var countries_map_data=JSON.parse("{\"BE\":1,\"CH\":1,\"DE\":5,\"ES\":1,\"FR\":7,\"GB\":4,\"IT\":2}");var countries_map_links=JSON.parse("{\"BE\":\"/facets/pays/belgique\",\"CH\":\"/facets/pays/suisse\",\"DE\":\"/facets/pays/allemagne\",\"ES\":\"/facets/pays/espagne\",\"FR\":\"/facets/pays/france\",\"GB\":\"/facets/pays/royaume-uni\",\"IT\":\"/facets/pays/italie\"}");var countries_map_names=JSON.parse("{\"BE\":\"Belgique\",\"CH\":\"Suisse\",\"DE\":\"Allemagne\",\"ES\":\"Espagne\",\"FR\":\"France\",\"GB\":\"Royaume-Uni\",\"IT\":\"Italie\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 let oTable = $('#tagstable').DataTable({
 	language: {
 		search: "Recherche :",
@@ -704,9 +712,6 @@ let oTable = $('#tagstable').DataTable({
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/jsvectormap.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/world-merc.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/display-list-of-tags.js"></script>
 <script src="//static.openfoodfacts.localhost/js/datatables.min.js"></script>
 
 <script>
