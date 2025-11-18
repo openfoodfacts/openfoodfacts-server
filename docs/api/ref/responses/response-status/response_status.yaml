@@ -36,7 +36,7 @@ properties:
     type: object
     description: |-
       Overall result
-       of the request (e.g. a product has been created)
+      of the request (e.g. a product has been created)
     properties:
       id:
         type: string

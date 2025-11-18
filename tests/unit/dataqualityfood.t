@@ -43,46 +43,41 @@ sub product_with_energy_has_quality_tag($$$) {
 		}
 	};
 
-	check_quality_and_test_product_has_quality_tag($product_ref, 'en:nutrition-value-over-3800-energy', $reason,
+	check_quality_and_test_product_has_quality_tag($product_ref, 'en:nutrition-value-over-3911-energy', $reason,
 		$yesno);
 
 	return;
 }
 
-# en:nutrition-value-over-3800-energy - does not add tag, if there is no nutriments.
+# en:nutrition-value-over-3911-energy - does not add tag, if there is no nutriments.
 my $product_ref_without_nutriments = {lc => "de"};
 check_quality_and_test_product_has_quality_tag(
 	$product_ref_without_nutriments,
-	'en:nutrition-value-over-3800-energy',
-	'product does not have en:nutrition-value-over-3800-energy tag as it has no nutrients', 0
+	'en:nutrition-value-over-3911-energy',
+	'product does not have en:nutrition-value-over-3911-energy tag as it has no nutrients', 0
 );
 
-# en:nutrition-value-over-3800-energy - does not add tag, if there is no energy.
+# en:nutrition-value-over-3911-energy - does not add tag, if there is no energy.
 my $product_ref_without_energy_value = {
 	lc => "de",
 	nutriments => {}
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref_without_energy_value,
-	'en:nutrition-value-over-3800-energy',
-	'product does not have en:nutrition-value-over-3800-energy tag as it has no energy_value', 0
+	'en:nutrition-value-over-3911-energy',
+	'product does not have en:nutrition-value-over-3911-energy tag as it has no energy_value', 0
 );
-
-# en:nutrition-value-over-3800-energy - does not add tag, if energy_value is below 3800 - 3799
-product_with_energy_has_quality_tag(3799,
-	'product does not have en:nutrition-value-over-3800-energy tag as it has an energy_value below 3800: 3799', 0);
-
-# en:nutrition-value-over-3800-energy - does not add tag, if energy_value is below 3800 - 40
+# en:nutrition-value-over-3911-energy - does not add tag, if energy_value is below 3911 - 40
 product_with_energy_has_quality_tag(40,
-	'product does not have en:nutrition-value-over-3800-energy tag as it has an energy_value below 3800: 40', 0);
+	'product does not have en:nutrition-value-over-3911-energy tag as it has an energy_value below 3911: 40', 0);
 
-# en:nutrition-value-over-3800-energy - does not add tag, if energy_value is equal 3800
-product_with_energy_has_quality_tag(3800,
-	'product does not have en:nutrition-value-over-3800-energy tag as it has an energy_value of 3800: 3800', 0);
+# en:nutrition-value-over-3911-energy - does not add tag, if energy_value is equal 3911
+product_with_energy_has_quality_tag(3911,
+	'product does not have en:nutrition-value-over-3911-energy tag as it has an energy_value of 3911: 3911', 0);
 
-# en:nutrition-value-over-3800-energy - does add tag, if energy_value is above 3800
-product_with_energy_has_quality_tag(3801,
-	'product does have en:nutrition-value-over-3800-energy tag as it has an energy_value of 3800: 3801', 1);
+# en:nutrition-value-over-3911-energy - does add tag, if energy_value is above 3911
+product_with_energy_has_quality_tag(3999,
+	'product does have en:nutrition-value-over-3911-energy tag as it has an energy_value of 3911: 3999', 1);
 
 # ingredients-de-over-30-percent-digits - with more than 30%
 my $over_30 = '(52,3 0) 0,2 (J 23 (J 2,3 g 0,15 g';
@@ -2169,5 +2164,31 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(has_tag($product_ref, 'data_quality', 'en:ingredients-language-mismatch-fr-contains-en'),
 	'Ingredients language mismatch: fr contains en')
 	or diag Dumper $product_ref;
+
+# Test is_european_product function
+
+# Test EU country (France should return 1)
+$product_ref = {countries_tags => ["en:france"],};
+is(is_european_product($product_ref), 1, 'France is an EU country');
+
+# Test non-EU country (USA should return 0)
+$product_ref = {countries_tags => ["en:united-states"],};
+is(is_european_product($product_ref), 0, 'USA is not an EU country');
+
+# Test another EU country (Germany should return 1)
+$product_ref = {countries_tags => ["en:germany"],};
+is(is_european_product($product_ref), 1, 'Germany is an EU country');
+
+# Test product with no countries
+$product_ref = {};
+is(is_european_product($product_ref), 0, 'Product with no countries returns 0');
+
+# Test product with multiple countries including EU
+$product_ref = {countries_tags => ["en:united-states", "en:france"],};
+is(is_european_product($product_ref), 1, 'Product with mixed countries including EU country returns 1');
+
+# Test comma-separated regional entities (if any country has it)
+$product_ref = {countries_tags => ["en:spain"],};
+is(is_european_product($product_ref), 1, 'Spain is an EU country');
 
 done_testing();

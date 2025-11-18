@@ -1,7 +1,5 @@
-# Auto-calculated 6 groups for 77 tests (total estimated time: 38.5m)
+# Auto-calculated 6 groups for 77 tests (total estimated time: 38m)
 # Generated test groups for unit tests
-# Generated at: Sun Oct 19 22:10:40 2025
-
 UNIT_GROUP_1_TESTS := additives.t attributes.t data_quality_tags_panel.t environmental_impact.t i18n.t ingredients_analysis.t ingredients_parsing_todo.t lang.t nutrition.t packaging_stats.t products.t store.t templates.t
 UNIT_GROUP_2_TESTS := additives_tags.t booleans.t dataquality.t environmental_score.t images.t ingredients_clean.t ingredients_percent.t load_csv_or_excel_file.t nutrition_ciqual.t parse_origins_from_text.t recipes.t tags.t test.t
 UNIT_GROUP_3_TESTS := all_pod_correct.t brevo.t dataqualitydimensions.t food.t import.t ingredients_contents.t ingredients_preparsing.t match_ingredient_origin.t nutrition_estimation.t paths.t redis.t tags_unit.t text.t
