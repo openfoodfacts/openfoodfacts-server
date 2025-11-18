@@ -71,37 +71,34 @@ use Encode qw/decode encode /;
 use JSON::MaybeXS;
 use Log::Any qw($log);
 
-# ugly hack to get params in body of GET requests from Yuka
-# CGI.pm will look at those 2 environment variables to decide to decode form parameters passed in the bodyof the request
+# hack to get params in body of GET requests from Yuka
 # Yuka sends a POSTDATA parameter in JSON:
 # "POSTDATA":"{\"code\":\"3270160874071\",\"lc\":\"fr\",\"cc\":\"FR\",\"user_id\":\"kiliweb\" [..]
+# This needs to be done before init_request() as the body contains user_id and password for authentication
 if (user_agent() =~ /Symfony HttpClient/) {
 	print STDERR "yuka 1\n";
 
 	my $r = Apache2::RequestUtil->request();
 
-		my $content = '';
+	my $content = '';
 
-			{
-						use bytes;
+	{
+		use bytes;
 
-								my $offset = 0;
-										my $cnt = 0;
-												do {
-																$cnt = $r->read($content, 262144, $offset);
-																			$offset += $cnt;
-																					} while ($cnt == 262144);
-																						}
-
-														print STDERR "yuka content: $content\n";
-	my $postdata_params_ref = eval { JSON::MaybeXS->new->utf8->decode($content)} or print STDERR "yuka - json failed: $@\n";
-	if (not defined $postdata_params_ref) {
-		$postdata_params_ref = {"testkey" => "testvalue"};
+		my $offset = 0;
+		my $cnt = 0;
+		do {
+			$cnt = $r->read($content, 262144, $offset);
+			$offset += $cnt;
+		} while ($cnt == 262144);
 	}
-	$postdata_params_ref->{testkey2} = "testvalue2";
-	foreach my $key (sort keys %$postdata_params_ref) {
-		print STDERR "yuka - $key - value: $postdata_params_ref->{$key}\n";
-		param($key, encode('UTF-8',$postdata_params_ref->{$key}));
+
+	my $postdata_params_ref = eval {JSON::MaybeXS->new->utf8->decode($content)};
+	if (defined $postdata_params_ref) {
+
+		foreach my $key (sort keys %$postdata_params_ref) {
+			param($key, encode('UTF-8', $postdata_params_ref->{$key}));
+		}
 	}
 }
 
@@ -123,17 +120,20 @@ my $product_id;
 
 $log->debug("start", {code => $code, lc => $lc}) if $log->is_debug();
 
-	# Store parameters for debug purposes
+# Store parameters for debug purposes
+# Change 0 to 1 to activate
+if (0) {
 	ensure_dir_created($BASE_DIRS{CACHE_DEBUG}) or display_error_and_exit($request_ref, "Missing path", 503);
 
-	# ugly hack to get params in body of GET requests from Yuka
-	if (user_agent() =~ /Symfony HttpClient/) {
-		$ENV{REQUEST_METHOD} = 'POST';
-	}
-
-	open(my $out, ">", "$BASE_DIRS{CACHE_DEBUG}/product_jqm_multilingual." . time() . "." . $code . "_" . ($User_id || "unidentified"));
+	open(
+		my $out,
+		">",
+		"$BASE_DIRS{CACHE_DEBUG}/product_jqm_multilingual." . time() . "." . $code . "_" . ($User_id || "unidentified")
+	);
 	print $out encode_json(Vars());
 	close $out;
+
+}
 
 # Allow apps to create products without barcodes
 # Assign a code and return it in the response.
@@ -206,7 +206,6 @@ else {
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
 	my @errors = ();
-
 
 	# Fix too low salt values
 	# 2020/02/25 - https://github.com/openfoodfacts/openfoodfacts-server/issues/2945
