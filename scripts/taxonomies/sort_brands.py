@@ -2,9 +2,9 @@
 """
 Sort brands.txt file while preserving the structure of each brand entry.
 Each entry consists of:
-- Optional comment lines starting with #
+- Optional parent comment lines starting with #< (e.g., #< xx:Unilever)
 - A line starting with "xx:" containing the brand name
-- Optional metadata lines (wikidata:en:, web:en:, etc.)
+- Optional metadata lines (wikidata:en:, web:en:, description:en:, etc.)
 - A blank line separating entries
 
 Usage:
@@ -49,16 +49,22 @@ def parse_brands_file(filepath: str) -> Tuple[List[str], List[Tuple[str, List[st
     brand_entries = []
     current_entry = []
     sort_key = None
+    pending_parent_comment = []
     
     for line in body_lines:
-        if line.startswith('xx:'):
+        if line.startswith('#<'):
+            # Parent comment line - save it for the next brand entry
+            pending_parent_comment.append(line)
+        elif line.startswith('xx:'):
             # Extract the brand name for sorting
             # Remove "xx: " prefix and get first brand name (before comma)
             brand_text = line[4:].strip()
             # Get the first brand name (before comma if multiple)
             first_brand = brand_text.split(',')[0].strip()
             sort_key = first_brand
-            current_entry = [line]
+            # Include any pending parent comment lines
+            current_entry = pending_parent_comment + [line]
+            pending_parent_comment = []
         elif sort_key is not None:
             current_entry.append(line)
             # Check if this is the end of the entry (blank line)
