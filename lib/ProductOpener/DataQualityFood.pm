@@ -1214,9 +1214,9 @@ sub check_nutrition_data ($product_ref) {
 		}
 
 		if (    (defined $product_ref->{nutriments}{"energy_100g"})
-			and ($product_ref->{nutriments}{"energy_100g"} > 3800))
+			and ($product_ref->{nutriments}{"energy_100g"} > 3911))
 		{
-			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3800-energy";
+			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3911-energy";
 		}
 
 		# sugar + starch cannot be greater than carbohydrates

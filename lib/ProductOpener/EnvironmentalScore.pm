@@ -1564,7 +1564,7 @@ sub compute_environmental_score_origins_of_ingredients_adjustment ($product_ref)
 			) if $log->is_error();
 		}
 
-		$epi_score += $environmental_score_data{origins}{$origin_id}{epi_score} * $percent / 100;
+		$epi_score += ($environmental_score_data{origins}{$origin_id}{epi_score} // 0) * $percent / 100;
 		foreach my $cc (@environmental_score_countries_enabled_sorted) {
 			$transportation_scores{$cc}
 				+= ($environmental_score_data{origins}{$origin_id}{"transportation_score_" . $cc} // 0)
@@ -1885,9 +1885,9 @@ sub localize_environmental_score ($request_cc, $product_ref) {
 				{
 
 					my $origin_id = $origin_ref->{origin};
-					$origin_ref->{epi_score} = $environmental_score_data{origins}{$origin_id}{epi_score} + 0;
+					$origin_ref->{epi_score} = ($environmental_score_data{origins}{$origin_id}{epi_score} // 0) + 0;
 					$origin_ref->{transportation_score}
-						= $environmental_score_data{origins}{$origin_id}{"transportation_score_" . $cc} + 0;
+						= ($environmental_score_data{origins}{$origin_id}{"transportation_score_" . $cc} // 0) + 0;
 				}
 			}
 		}

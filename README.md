@@ -84,7 +84,7 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
 - Developer documentation:
   - To start coding, head to the [Quick start guide (docker)](./docs/dev/how-to-quick-start-guide.md)
   - Additional documentation
-    - [Server documentation](https://openfoodfacts.github.io/openfoodfacts-server/)
+    - [Server documentation](https://openfoodfacts.github.io/documentation/docs/Product-Opener/)
     - [Developer guide (docker)](./docs/dev/how-to-develop-using-docker.md)
     - [Developer guide (gitpod)](./docs/dev/how-to-use-gitpod.md)
     - Configuration [TBA]
