@@ -40,7 +40,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3460
 							},
@@ -86,7 +86,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3460
 							},
@@ -132,7 +132,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3760
 							},
@@ -178,7 +178,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3378
 							},
@@ -224,7 +224,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3378
 							},
@@ -272,7 +272,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3378
 							},
@@ -321,7 +321,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3378
 							},
@@ -365,7 +365,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 2450
 							},
@@ -414,7 +414,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3378
 							},
@@ -461,7 +461,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3378
 							},
@@ -508,7 +508,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3378
 							},
@@ -555,7 +555,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3378
 							},
@@ -603,7 +603,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3378
 							},
@@ -652,7 +652,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 667
 							},
@@ -704,7 +704,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 148
 							},
@@ -754,7 +754,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 250
 							},
@@ -801,7 +801,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 378
 							},
@@ -850,7 +850,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 287
 							},
@@ -900,7 +900,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 182
 							},
@@ -947,7 +947,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 182
 							},
@@ -995,7 +995,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 182
 							},
@@ -1045,7 +1045,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 182
 							},
@@ -1120,7 +1120,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 82
 							},
@@ -1165,7 +1165,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 82
 							},
@@ -1210,7 +1210,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 82
 							},
@@ -1256,7 +1256,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 82
 							},
@@ -1301,7 +1301,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 82
 							},
@@ -1347,7 +1347,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 82
 							},
@@ -1391,7 +1391,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 82
 							},
@@ -1434,7 +1434,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 82
 							},
@@ -1478,7 +1478,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 82
 							},
@@ -1522,7 +1522,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 82
 							},
@@ -1566,7 +1566,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 82
 							},
@@ -1610,7 +1610,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 195
 							},
@@ -1655,7 +1655,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 178
 							},
@@ -1704,7 +1704,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 81
 							},
@@ -1753,7 +1753,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3367
 							},
@@ -1801,7 +1801,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3367
 							},
@@ -1850,7 +1850,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3367
 							},
@@ -1899,7 +1899,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3448
 							},
@@ -1949,7 +1949,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3700
 							},
@@ -1998,7 +1998,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 3400
 							},
@@ -2047,7 +2047,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 178
 							},
@@ -2097,7 +2097,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 315
 							},
@@ -2145,7 +2145,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 315
 							},
@@ -2194,7 +2194,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 315
 							},
@@ -2243,7 +2243,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 82
 							},
@@ -2300,7 +2300,7 @@ my @tests = (
 				input_sets => [
 					{
 						nutrients => {
-							energy => {
+							"energy-kj" => {
 								unit => "kJ",
 								value => 53
 							},
