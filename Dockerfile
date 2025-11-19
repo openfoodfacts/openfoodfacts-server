@@ -75,7 +75,31 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
         libxml-encoding-perl \
         libxml-simple-perl \
         # Keycloak migration dependencies (#11866)
-        libcrypt-passwdmd5-perl
+        libcrypt-passwdmd5-perl \
+        # Log::Any::Adapter::TAP
+        liblog-any-adapter-tap-perl \
+        # Math::Random::Secure
+        libcrypt-random-source-perl \
+        libmath-random-isaac-perl \
+        libtest-sharedfork-perl \
+        libtest-warn-perl \
+        # Mojo::Pg
+        libsql-abstract-perl \
+        # MongoDB
+        libauthen-sasl-saslprep-perl \
+        libauthen-scram-perl \
+        libbson-perl \
+        libclass-xsaccessor-perl \
+        libconfig-autoconf-perl \
+        libdigest-hmac-perl \
+        libpath-tiny-perl \
+        libsafe-isa-perl \
+        # Spreadsheet::CSV
+        libspreadsheet-parseexcel-perl \
+        # Test::Number::Delta
+        libtest-number-delta-perl \
+        libdevel-size-perl \
+        gnumeric
 
 ######################
 # build-base: Add build tools and -dev packages
@@ -100,7 +124,25 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
         libpq-dev \
         libev-dev \
         # ZXing from backport
-        libzxing-dev
+        libzxing-dev \
+        # gnu readline
+        libreadline-dev \
+        # IO::AIO needed by Perl::LanguageServer
+        libperl-dev \
+        # needed to build Apache2::Connection::XForwardedFor
+        libapache2-mod-perl2-dev \
+        # OpenSSL dev needed by OIDC::Lite
+        libssl-dev \
+        # needed for Imager::File::WEBP
+        libwebpmux3 \
+        # Imager::zxing - decoders
+        libavif-dev \
+        libde265-dev \
+        libheif-dev \
+        libjpeg-dev \
+        libpng-dev \
+        libwebp-dev \
+        libx265-dev
 
 ######################
 # builder: Compile Perl modules from cpanfile
@@ -130,7 +172,7 @@ ARG USER_GID
 # Copy compiled Perl modules from builder
 COPY --from=builder /tmp/local/ /opt/perl/local/
 
-# Copy zxing runtime library from build-base  
+# Copy zxing runtime library from build-base
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt,sharing=locked \
     rm -f /etc/apt/apt.conf.d/docker-clean && \
