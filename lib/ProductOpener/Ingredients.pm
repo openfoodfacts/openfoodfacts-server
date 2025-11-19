@@ -8419,10 +8419,7 @@ Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimat
 
 sub estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ($product_ref) {
 
-	return estimate_ingredients_matching_function(
-		$product_ref,
-		\&is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils
-	);
+	return estimate_ingredients_matching_function($product_ref, \&is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils);
 
 }
 

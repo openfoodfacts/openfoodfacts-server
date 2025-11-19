@@ -334,11 +334,9 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'iodine-', 'caffeine-',
 			'taurine-', 'methylsulfonylmethane-',
 			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
+			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
@@ -401,10 +399,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'iodine-', 'caffeine-',
 			'taurine-', 'ph-',
 			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
-			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
-			'nutrition-score-fr-', 'nutrition-score-uk-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
 			'glycemic-index-', 'water-hardness-',
 			'choline-', 'phylloquinone-',
 			'beta-glucan-', 'inositol-',
@@ -467,11 +463,9 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
 			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
+			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
@@ -534,11 +528,9 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
 			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
+			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'sulfate-',
 			'nitrate-', 'acidity-',
 			'carbohydrates-', 'melatonin-',
@@ -597,11 +589,9 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
 			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
+			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
@@ -619,8 +609,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'vitamin-b2-', 'vitamin-pp-', 'vitamin-b6-', 'vitamin-b9-',
 			'folates-', 'vitamin-b12-', '#minerals', 'calcium',
 			'potassium-', 'phosphorus-', 'iron', 'alcohol',
-			'nutrition-score-fr-', 'sulphate-', 'nitrate-', 'acidity-',
-			'carbohydrates-',
+			'sulphate-', 'nitrate-', 'acidity-', 'carbohydrates-',
 		)
 	],
 	off_jp => [
@@ -671,11 +660,9 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
 			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
+			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
@@ -738,11 +725,9 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
 			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
+			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
@@ -1195,7 +1180,8 @@ sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($prod
 
 	my $fruits_vegetable_nuts
 		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts", "value");
-	my $fruits_vegetable_nuts_source = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts", "source");
+	my $fruits_vegetable_nuts_source
+		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts", "source");
 	my $fruits_vegetable_nuts_dried
 		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts-dried", "value");
 
@@ -1216,7 +1202,7 @@ sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($prod
 			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
 			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
 			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients");
-		}			
+		}
 		else {
 			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts");
 		}
@@ -1329,18 +1315,16 @@ sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref) {
 	}
 
 	my $fruits_vegetables_legumes
-		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients",
-		"fruits-vegetables-legumes", "value");
+		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-legumes", "value");
 
 	if (defined $fruits_vegetables_legumes) {
 		# Check if the source is estimated
-		if (deep_get($product_ref, "nutrition", "aggregated_set", "nutrients",
-				"fruits-vegetables-legumes", "source")
+		if (deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-legumes", "source")
 			eq "estimated")
 		{
 			$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients} = 1;
 			$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value}
-			= $fruits_vegetables_legumes;
+				= $fruits_vegetables_legumes;
 			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients");
 		}
 		else {
@@ -1586,18 +1570,6 @@ sub remove_nutriscore_fields ($product_ref) {
 			"nutriscore_tags",
 			"nutriscore_2021_tags",
 			"nutriscore_2023_tags",
-		]
-	);
-
-	# strip nutriments / score-type fields from the product
-	remove_fields(
-		$product_ref->{nutriments},
-		[
-			"nutrition-score", "nutrition-score_100g",
-			"nutrition-score_serving", "nutrition-score-fr",
-			"nutrition-score-fr_100g", "nutrition-score-fr_serving",
-			"nutrition-score-uk", "nutrition-score-uk_100g",
-			"nutrition-score-uk_serving"
 		]
 	);
 
@@ -1890,11 +1862,6 @@ sub set_fields_for_current_version_of_nutriscore ($product_ref, $version, $nutri
 	# Copy the resulting values to the main Nutri-Score fields
 	if (defined $nutriscore_score) {
 		$product_ref->{nutriscore_score} = $nutriscore_score;
-
-		# Fields used to display the Nutri-Score score inside nutrition facts table
-		# and to compute averages etc. for categories
-		$product_ref->{nutriments}{"nutrition-score-fr_100g"} = $nutriscore_score;
-		$product_ref->{nutriments}{"nutrition-score-fr"} = $nutriscore_score;
 
 		# In order to be able to sort by nutrition score in MongoDB,
 		# we create an opposite of the nutrition score
