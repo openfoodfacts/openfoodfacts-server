@@ -59,4 +59,12 @@ foreach my $args_ref (["name", "click http://test.com"], ["faxnumber", "0"]) {
 	$testnum++;
 }
 
+# Check copes with no country specified
+$ua = new_client();
+%create_user_args = (%default_user_form, (email => 'bobnocountry@test.com', userid => 'bobnocountry', country => ''));
+create_user($ua, \%create_user_args);
+$user = retrieve_user('bobnocountry');
+is($user->{email}, 'bobnocountry@test.com', "User created");
+is($user->{country}, undef, "User created with no country");
+
 done_testing();

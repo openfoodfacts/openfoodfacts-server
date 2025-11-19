@@ -41,6 +41,8 @@ use Exporter qw< import >;
 use Log::Any qw($log);
 use Data::Dumper;
 
+use ProductOpener::Booleans qw(:all);
+
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
@@ -78,6 +80,7 @@ use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use JSON::MaybeXS;
 use Encode;
 use Data::DeepAccess qw(deep_get);
+use boolean;
 
 =head1 FUNCTIONS
 
@@ -89,10 +92,13 @@ Initialize the options for knowledge panels from parameters.
 
 sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request_ref) {
 
+	# Activate simplified_root + simplified cards only when specified
+	$knowledge_panels_options_ref->{activate_knowledge_panels_simplified}
+		= normalize_boolean(single_param("activate_knowledge_panels_simplified"));
+
 	# Activate physical activity knowledge panel only when specified
-	if (single_param("activate_knowledge_panel_physical_activities")) {
-		$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities} = 1;
-	}
+	$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities}
+		= normalize_boolean(single_param("activate_knowledge_panel_physical_activities"));
 
 	# Specify if we knowledge panels are requested from the app or the website
 	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)
@@ -286,6 +292,38 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$options_ref,
 		$request_ref
 	);
+
+	# If requested, create simplified knowledge panels for mobile app
+
+	if ($knowledge_panels_options_ref->{activate_knowledge_panels_simplified}) {
+
+		# Create the simplified root panel that contains simplified versions of the health and environment cards
+		# (used on mobile app)
+		create_panel_from_json_template(
+			"simplified_root",
+			"api/knowledge-panels/simplified_root.tt.json",
+			{
+				has_health_card => $has_health_card,
+				has_environment_card => $has_environment_card,
+			},
+			$product_ref,
+			$target_lc,
+			$target_cc,
+			$options_ref,
+			$request_ref
+		);
+		# Create the simplified cards
+		if ($has_health_card) {
+			create_panel_from_json_template("simplified_health_card",
+				"api/knowledge-panels/health/simplified_health_card.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
+		if ($has_environment_card) {
+			create_panel_from_json_template("simplified_environment_card",
+				"api/knowledge-panels/environment/simplified_environment_card.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
+	}
 
 	return;
 }
@@ -666,6 +704,13 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 		create_panel_from_json_template("environmental_score_total",
 			"api/knowledge-panels/environment/environmental_score/total.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+		# Add environmental_score_adjustments panel group (used in simplified environment card)
+		create_panel_from_json_template(
+			"environmental_score_adjustments",
+			"api/knowledge-panels/environment/environmental_score/environmental_score_adjustments.tt.json",
+			{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+		);
 	}
 	# Environmental-Score is not applicable
 	elsif ( (defined $product_ref->{environmental_score_grade})
@@ -735,6 +780,7 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 			);
 		}
 	}
+
 	return;
 }
 
