@@ -75,7 +75,7 @@ use Log::Any qw($log);
 # Yuka sends a POSTDATA parameter in JSON:
 # "POSTDATA":"{\"code\":\"3270160874071\",\"lc\":\"fr\",\"cc\":\"FR\",\"user_id\":\"kiliweb\" [..]
 # This needs to be done before init_request() as the body contains user_id and password for authentication
-if (user_agent() =~ /Symfony HttpClient/) {
+if ((user_agent() =~ /Symfony HttpClient/) and (request_method() eq 'GET') and (not param("code")) {
 
 	my $r = Apache2::RequestUtil->request();
 
