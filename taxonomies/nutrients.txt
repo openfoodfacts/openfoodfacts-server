@@ -2693,7 +2693,9 @@ gl: Polidextrosa
 it: polidestrosio
 ja: ポリデキストロース
 pt: Polidextrose
-description:en: Polydextrose is a synthetic polymer of glucose.[1] It is a food ingredient classified as soluble fiber by the US FDA as well as Health Canada, as of April 2013. It is frequently used to increase the dietary fiber content of food, to replace sugar
+description:en: Polydextrose is a synthetic polymer of glucose. It is a food ingredient classified as soluble fiber by the US FDA as well as Health Canada, as of April 2013. It is frequently used to increase the dietary fiber content of food, to replace sugar
+unit:en: g
+wikidata:en: Q424616
 
 zz: polyols
 xx: Polyols, Sugar alcohols
@@ -4160,7 +4162,7 @@ be: біятын
 bg: Биотин
 bs: Biotin
 ca: biotina
-cy:Biotin cs:Biotin, vitamin B7, vitamin H
+cy: Biotin cs:Biotin, vitamin B7, vitamin H
 da: Biotin
 de: Biotin (Vitamin B8/B7/H), Biotin, Vitamin B7, Vitamin H
 dv: ވިޓަމިން ބީ7
@@ -5123,7 +5125,7 @@ hi: मैग्नेशियम तत्त्व
 hr: Magnezij
 ht: Manyezyòm
 hu: Magnézium
-hy:մագնեզիումia:magnesium
+hy: մագնեզիումia:magnesium
 id: magnesium
 io: magnezo
 is: magnesín
@@ -6978,6 +6980,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Glutathione
 # following nutrients are for pet food
 # https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
 # I- analytical constituents
+# crude fat ~ similar to human food fat
 zz: crude fat
 xx: crude fat
 en: crude fat, Fat Content
@@ -7006,6 +7009,8 @@ sl: surove maščobe, Vsebnost maščob
 sv: råfett, fettinnehåll
 unit:en: %
 
+# crude protein ~ similar to human food protein
+# protein value ~ how much the animal can actually use
 zz: crude protein
 xx: crude protein
 en: crude protein
@@ -7202,4 +7207,35 @@ en: choline chloride
 fr: chlorure de choline
 hr: kolin klorid
 unit:en: mg
+
+
+# crude protein ~ similar to human food protein
+# protein value ~ how much the animal can actually use
+zz: protein value
+xx: protein value
+en: protein value
+bg: Протеинова стойност
+cs: hodnota proteinu
+da: proteinværdi
+de: Eiweißwert, Proteinwert
+el: Πρωτεϊνική αξία
+es: Valor proteico
+et: valgusisaldusväärtus
+fi: proteiiniarvo
+fr: valeur protéique
+hr: proteinska vrijednost
+hu: fehérjeérték
+it: valore proteico
+lt: baltymų vertė
+lv: proteīna vērtība
+mt: valur tal-proteina
+nl: eiwitwaarde
+pl: wartość białka
+pt: valor proteico
+ro: valoare proteică
+ru: Протеиновая ценность
+sk: hodnota bielkovín
+sl: beljakovinska vrednost
+sv: proteinvärde
+unit:en: g/kg
 

@@ -79,13 +79,15 @@ use ProductOpener::GeoIP qw/get_country_for_ip_api/;
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 
+use ProductOpener::APIAttributeGroups qw/attribute_groups_api preferences_api/;
 use ProductOpener::APIProductRead qw/read_product_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
 use ProductOpener::APIProductImagesUpload qw/upload_product_image_api delete_product_image_api/;
 use ProductOpener::APIProductRevert qw/revert_product_api/;
-use ProductOpener::APIProductServices qw/product_services_api/;
+use ProductOpener::APIProductServices qw/product_services_api external_sources_api/;
 use ProductOpener::APITagRead qw/read_tag_api/;
 use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
+use ProductOpener::APITaxonomy qw/taxonomy_canonicalize_tags_api taxonomy_display_tags_api/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Apache2::RequestIO();
@@ -412,9 +414,9 @@ my $dispatch_table = {
 		OPTIONS => sub {return;},    # Just return CORS headers
 		DELETE => \&delete_product_image_api,
 	},
-	# Product revert
+	# Product revert
 	product_revert => {
-		# Check that the method is POST (GET may be dangerous: it would allow to revert a product by just clicking or loading a link)
+		# Check that the method is POST (GET may be dangerous: it would allow to revert a product by just clicking or loading a link)
 		POST => \&revert_product_api,
 	},
 	# Product services
@@ -428,6 +430,18 @@ my $dispatch_table = {
 		HEAD => \&taxonomy_suggestions_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 	},
+	# Taxonomy canonicalize tags
+	taxonomy_canonicalize_tags => {
+		GET => \&taxonomy_canonicalize_tags_api,
+		HEAD => \&taxonomy_canonicalize_tags_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Taxonomy diplay tags
+	taxonomy_display_tags => {
+		GET => \&taxonomy_display_tags_api,
+		HEAD => \&taxonomy_display_tags_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
 	# Tag read
 	tag => {
 		GET => \&read_tag_api,
@@ -436,7 +450,25 @@ my $dispatch_table = {
 	},
 	geoip => {
 		GET => \&get_country_for_ip_api,
-	}
+	},
+	# Attribute groups
+	attribute_groups => {
+		GET => \&attribute_groups_api,
+		HEAD => \&attribute_groups_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Attributes preferences
+	preferences => {
+		GET => \&preferences_api,
+		HEAD => \&preferences_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# External sources (translated)
+	external_sources => {
+		GET => \&external_sources_api,
+		HEAD => \&external_sources_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
 
 };
 
@@ -1078,18 +1110,13 @@ sub process_auth_header ($request_ref, $r) {
 	}
 
 	$request_ref->{access_token} = $token;
-	my $user_id = get_user_id_using_token($access_token, $request_ref);
-	unless (defined $user_id) {
+	#12279 TODO: We probably shouldn't do this as it will call out to Keycloak for every request
+	my $user_ref = retrieve_user_using_token($access_token, $request_ref);
+	unless (defined $user_ref) {
 		$log->info('User not found and not created') if $log->is_info();
 		display_error_and_exit($request_ref, 'Internal error', 500);
 	}
-
-	my $user_ref = retrieve_user($user_id);
-	unless (defined $user_ref) {
-		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
-		display_error_and_exit($request_ref, 'Internal error', 500);
-	}
-
+	my $user_id = $user_ref->{userid};
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
 
 	$request_ref->{oidc_user_id} = $user_id;

@@ -87,6 +87,7 @@ BEGIN {
 		%options
 		%server_options
 		%oidc_options
+		%slack_hook_urls
 
 		@product_fields
 		@product_other_fields
@@ -429,6 +430,9 @@ $options{users_who_can_upload_small_images} = {
 			["ignore_nutriment_alcohol"], ["ignore_nutriment_vitamin-d"],
 			["ignore_nutriment_calcium"], ["ignore_nutriment_potassium"],
 			["ignore_serving_size"],
+			# block image selection
+			["block_if_regexp_match_id", "^(front|ingredients|nutrition|packaging).*"],
+			["block_if_regexp_match_imagefield", "^(front|ingredients|nutrition|packaging).*"],
 		],
 	},
 );
@@ -480,7 +484,8 @@ $events_password = $ProductOpener::Config2::events_password;
 
 # Redis is used to push updates to the search server
 $redis_url = $ProductOpener::Config2::redis_url;
-$process_global_redis_events = $ProductOpener::Config2::process_global_redis_events;
+# Only the OFF instance processes the global events
+$process_global_redis_events = 1;
 
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
@@ -514,6 +519,12 @@ $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
 
+my $matomo_site_id = '5';    # Open Food Facts
+
+if ($server_domain eq 'pro.openfoodfacts.org') {
+	$matomo_site_id = '7';    # Pro Platform
+}
+
 $analytics = <<HTML
 <!-- Matomo -->
 <script>
@@ -529,12 +540,12 @@ $analytics = <<HTML
   (function() {
     var u="//analytics.openfoodfacts.org/";
     _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '5']);
+    _paq.push(['setSiteId', '${matomo_site_id}']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=5&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=${matomo_site_id}&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 <!-- End Matomo Code -->
 
 HTML
@@ -1007,7 +1018,7 @@ $options{attribute_groups} = [
 			"allergens_no_molluscs", "allergens_no_sulphur_dioxide_and_sulphites",
 		],
 	],
-	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free",]],
+	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free", "unwanted_ingredients",]],
 	["labels", ["labels_organic", "labels_fair_trade"]],
 	# Note: before 2025, the Environmental-Score was called the Eco-Score,
 	# as the id of the attribute is stored inside clients, we keep the

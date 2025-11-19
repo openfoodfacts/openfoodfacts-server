@@ -29,11 +29,15 @@ sub test_template($) {
 			chomp($file);
 			next if $file eq '.';
 			next if $file eq '..';
+			# Ignore README files
+			next if $file =~ /\.md$/;
 
 			test_template($path . '/' . $file);
 		}
 	}
 	else {
+		# Skip README.md files as they are documentation, not templates
+		return if $path =~ /README\.md$/;
 
 		ok($path =~ /\.tt\./) or diag("file $path does not contain .tt.");
 

@@ -36,9 +36,10 @@ use ProductOpener::PerlStandards;
 
 use Log::Any qw($log);
 
-use ProductOpener::Auth qw/get_oidc_configuration get_token_using_client_credentials/;
+use ProductOpener::Auth qw/get_oidc_configuration get_token_using_client_credentials get_oidc_implementation_level/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/country_to_cc/;
+use ProductOpener::Tags qw/country_to_cc cc_to_country/;
+use ProductOpener::Cache qw/$memd/;
 
 use JSON;
 use LWP::UserAgent;
@@ -175,24 +176,41 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 	my $email = lc($user_ref->{email} || '');
 	$email =~ s/\s+//g;
 
+	# These are the Keycloak fields that we care about and want to cache
+	my $userid = $user_ref->{userid};
+	my $keycloak_user_ref = {
+		userid => $userid,
+		email => $email,
+		# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
+		name => substr($name, 0, 128),
+		preferred_language => $user_ref->{preferred_language},
+		# Note in Keycloak we store the country code (cc), e.g. "fr" whereas $user_ref->{country} is a canonical country tag, e.g. "en:france"
+		country => $user_ref->{country}
+	};
+
 	# user creation payload
 	my $api_request_ref = {
-		email => $email,
+		email => $keycloak_user_ref->{email},
 		emailVerified => $JSON::PP::true,    # TODO: Keep this for compat with current register endpoint?
 		enabled => $JSON::PP::true,
-		username => $user_ref->{userid},
+		username => $userid,
 		credentials => [$credential],
 		createdTimestamp => ($user_ref->{registered_t} // time()) * 1000,
 		attributes => {
-			# Truncate name more than 255 because of UTF-8 encoding. Could do this more precisely...
-			name => substr($name, 0, 128),
-			locale => $user_ref->{preferred_language},
-			country => country_to_cc($user_ref->{country} || 'en:world'),
-			registered => 'registered',    # The prevents welcome emails from being sent
-			reqested_org => $user_ref->{requested_org},
+			name => $keycloak_user_ref->{name},
+			locale => $keycloak_user_ref->{preferred_language},
+			requested_org => $user_ref->{requested_org},
 			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
 		}
 	};
+	# Only supply country if it is set
+	if ($user_ref->{country}) {
+		$api_request_ref->{attributes}->{country} = country_to_cc($keycloak_user_ref->{country});
+	}
+	if (get_oidc_implementation_level() < 2) {
+		# Prevent Keycloak sending registration emails unless it is the primary source of truth
+		$api_request_ref->{attributes}->{registered} = 'registered';
+	}
 
 	# issue the request to keycloak
 	my $new_user_response = create_or_update_keycloak_user($self, $api_request_ref);
@@ -211,6 +229,7 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 	unless ($new_user_response->is_success) {
 		die $new_user_response->content;
 	}
+	$memd->set("user/$userid", $keycloak_user_ref);
 
 	return;
 }
@@ -223,7 +242,7 @@ sub create_or_update_keycloak_user($self, $api_request_ref) {
 	}
 
 	# See if user already exists
-	my $existing_user = $self->find_user_by_username($api_request_ref->{username}, 1);
+	my $existing_user = $self->find_keycloak_user_by_username($api_request_ref->{username}, 1);
 
 	my $json = encode_json($api_request_ref);
 	$log->info('updating keycloak user', {existing_user => $existing_user, request => $api_request_ref})
@@ -248,7 +267,7 @@ sub create_or_update_keycloak_user($self, $api_request_ref) {
 
 sub delete_user ($self, $userid) {
 	# See if user already exists
-	my $existing_user = $self->find_user_by_username($userid, 1);
+	my $existing_user = $self->find_keycloak_user_by_username($userid, 1);
 
 	if (defined $existing_user) {
 		# use a special application authorization to handle creation
@@ -265,6 +284,7 @@ sub delete_user ($self, $userid) {
 		unless ($response->is_success) {
 			die $response->content;
 		}
+		$memd->delete("user/$userid");
 	}
 
 	return;
@@ -276,15 +296,23 @@ Try to find a user in Keycloak by their username.
 
 =head3 Arguments
 
-=head4 User's username $username
+=head4 User's user id $user_id
 
 =head3 Return Value
 
-A hashmap reference with user information from Keycloak.
+A hashmap reference with user information from Keycloak mapped onto PO user fields
 
 =cut
 
-sub find_user_by_username ($self, $username, $brief = 0) {
+sub find_user_by_username ($self, $userid) {
+	my $user_ref = $memd->get("user/$userid");
+	if (not defined $user_ref) {
+		$user_ref = keycloak_to_user_ref($self->find_keycloak_user_by_username($userid));
+	}
+	return $user_ref;
+}
+
+sub find_keycloak_user_by_username ($self, $username, $brief = 0) {
 	return $self->_find_user_by_single_attribute_exact('username', $username, $brief);
 }
 
@@ -303,7 +331,24 @@ A hashmap reference with user information from Keycloak.
 =cut
 
 sub find_user_by_email ($self, $email) {
-	return $self->_find_user_by_single_attribute_exact('email', $email);
+	return keycloak_to_user_ref($self->_find_user_by_single_attribute_exact('email', $email));
+}
+
+sub keycloak_to_user_ref ($keycloak_user_ref) {
+	my $user_ref;
+	if ($keycloak_user_ref) {
+		my $userid = $keycloak_user_ref->{username};
+		$user_ref = {
+			userid => $userid,
+			email => $keycloak_user_ref->{email},
+			name => $keycloak_user_ref->{attributes}->{name}[0],
+			preferred_language => $keycloak_user_ref->{attributes}->{locale}[0],
+			country => cc_to_country($keycloak_user_ref->{attributes}->{country}[0])
+			# Don't set requested_org and newsletter here as they are only relevant the first time a user registers
+		};
+		$memd->set("user/$userid", $user_ref);
+	}
+	return $user_ref;
 }
 
 =head2 get_account_link()

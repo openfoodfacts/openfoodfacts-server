@@ -14,11 +14,9 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-wait_application_ready();
-
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
+remove_all_users();
 
 my $ua = new_client();
 
@@ -146,6 +144,22 @@ my $tests_ref = [
 		path => '/cgi/search.pl?action=process&json=1&fields=code,packaging_text_en,packagings&api_version=3',
 		expected_status_code => 200,
 	},
+	# Attribute groups with unwanted ingredients
+	{
+		test_case => 'search-attribute-unwanted-ingredients-water',
+		method => 'GET',
+		path =>
+			'/cgi/search.pl?action=process&json=1&attribute_unwanted_ingredients_tags=en:water&fields=attribute_groups',
+		expected_status_code => 200,
+	},
+	# Attributes groups with unwanted ingredients using a cookie to set the language to Spanish
+	{
+		test_case => 'search-attribute-unwanted-ingredients-water-cookie',
+		method => 'GET',
+		path => '/cgi/search.pl?action=process&json=1&fields=attribute_groups',
+		cookies => [{name => "attribute_unwanted_ingredients_tags", value => "en:water"}],
+		expected_status_code => 200,
+	}
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

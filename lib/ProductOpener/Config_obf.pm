@@ -86,6 +86,7 @@ BEGIN {
 		%options
 		%server_options
 		%oidc_options
+		%slack_hook_urls
 
 		@product_fields
 		@product_other_fields
@@ -266,7 +267,8 @@ $events_password = $ProductOpener::Config2::events_password;
 
 # Redis is used to push updates to the search server
 $redis_url = $ProductOpener::Config2::redis_url;
-$process_global_redis_events = $ProductOpener::Config2::process_global_redis_events;
+# Only the OFF instance processes the global events
+$process_global_redis_events = 0;
 
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
@@ -568,8 +570,10 @@ $options{import_export_fields_groups} = [
 
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
-$options{attribute_groups}
-	= [["ingredients_analysis", ["vegan", "palm_oil_free",]], ["labels", ["labels_organic", "labels_fair_trade"]],];
+$options{attribute_groups} = [
+	["ingredients_analysis", ["vegan", "palm_oil_free", "unwanted_ingredients"]],
+	["labels", ["labels_organic", "labels_fair_trade"]],
+];
 
 # default preferences for attributes
 $options{attribute_default_preferences} = {

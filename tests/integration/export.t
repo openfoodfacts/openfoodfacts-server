@@ -31,13 +31,13 @@ use JSON;
 
 use File::Basename "dirname";
 
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
+
 # Remove all products
 
-wait_application_ready();
-
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
+remove_all_users();
 
 # Import test products
 
@@ -107,8 +107,6 @@ my $tests_ref = [
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
-
-my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # Export products
 
