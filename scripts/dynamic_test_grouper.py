@@ -84,8 +84,10 @@ class DynamicTestGrouper:
         
         optimal_groups = max(min_groups, min(optimal_groups, max_groups))
         
+        # as this files are in git
+        # round estimated time to minutes to avoid too many conflicts between branches
         print(f"# Auto-calculated {optimal_groups} groups for {len(test_files)} tests "
-              f"(total estimated time: {total_time/60:.1f}m)")
+              f"(total estimated time: {total_time/60:.0f}m)")
         
         return optimal_groups
     
@@ -264,7 +266,8 @@ class DynamicTestGrouper:
     def _print_groups(self, groups: List[Dict]) -> None:
         """Print test groups in Makefile variable format."""
         print(f"# Generated test groups for {self.test_type} tests")
-        print(f"# Generated at: {time.ctime()}\n")
+        # don't print this as it makes much conflicts between branches
+        # print(f"# Generated at: {time.ctime()}\n")
         
         # Use test-type-specific variable names to avoid conflicts
         var_prefix = f"{self.test_type.upper()}_GROUP"
@@ -302,9 +305,9 @@ class DynamicTestGrouper:
             min_time = min(group_times)
             avg_time = sum(group_times) / len(group_times)
             
-            print(f"# Max group time: {max_time/60:.1f}m, "
-                  f"Min: {min_time/60:.1f}m, "
-                  f"Avg: {avg_time/60:.1f}m")
+            print(f"# Max group time: {max_time/60:.0f}m, "
+                  f"Min: {min_time/60:.0f}m, "
+                  f"Avg: {avg_time/60:.0f}m")
             
             if max_time > MAX_GROUP_TIME:
                 print(f"# WARNING: Max group time exceeds target of "
