@@ -80,6 +80,7 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
     """
     Convert address from CSV row to latitude and longitude using Nominatim.
     
+    We use a persistent cache, through dbm to avoid resolving known addresses.
     Args:
         debug: Enable debug logging
         country_name: Full country name (e.g., "Croatia")
