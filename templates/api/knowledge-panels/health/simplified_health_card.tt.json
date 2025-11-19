@@ -1,0 +1,41 @@
+{
+    "type": "card",
+    "expanded": true,
+    "topics": [
+        "health"
+    ],
+    "title_element": {
+        "title": "[% edq(lang('health')) %]",
+    },    
+    "elements": [
+        [% IF panels.recommendation_health.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "recommendation_health",
+            },
+        },
+        [% END %]
+
+        [% IF feature_enabled("nutrition") %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "panel_ids": [
+                    "nutriscore_2023",
+                    "nutrient_levels"
+                ]
+            }
+        },
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "panel_ids": [
+                    "nova",
+                    "additives"
+                ]
+            }
+        }
+        [% END %]
+    ],
+}

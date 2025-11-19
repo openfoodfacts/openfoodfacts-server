@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<meta name="x:card" content="product">
 <meta name="x:site" content="@OpenFoodFacts">
@@ -117,7 +124,7 @@
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <span><h2>Scan a product<h2></span>
+      <h2><span>Scan a product</span></h2>
       <button class="modal-close-button">&times;</button>
     </div>
     <div>
@@ -452,6 +459,25 @@
 							<!-- start templates/web/pages/product/product_page.tt.html -->
 <script src="//static.openfoodfacts.localhost/js/dist/JsBarcode.all.min.js"></script>
 
+<!-- external sources scripts -->
+<script>
+    // this is used to filter external knowledge panels
+    window.productData = {
+      code: "0200000000235",
+      categories: ["en:snacks","en:breakfasts","en:spreads","en:sweet-snacks","en:biscuits-and-cakes","en:sweet-spreads","en:cakes","fr:pates-a-tartiner","en:hazelnut-spreads"],
+      country: "world",
+      language: "en",
+      product_type: "food"
+    };
+    window.isModerator = 0;
+    window.isUser = 0;
+  </script>
+  
+  <script src="//static.openfoodfacts.localhost/js/dist/external-knowledge-panels.js"></script>
+<!-- end of external sources scripts -->
+
+
+
 
 <a href="#upNav" class="back-to-top scrollto button">
     <span class="material-icons size-20 ">
@@ -490,7 +516,7 @@
 
                     
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
     <div class="block v-space-tiny prod-nav product_banner_unranked" id="prodNav">
@@ -506,7 +532,7 @@
                             <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>Health</span></a></li>
                         
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>Environment</span></a></li>
-                                                
+                        
                         
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem.</span></a></li>
                         
@@ -515,24 +541,24 @@
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>Contribution</span></a></li>
                     </ul>
                 </nav><!-- .navbar -->
-            </div> 
+            </div>
         </div>
     </div>
 <div id="prodInfos">
     <!-- product_characteristics -->
     <section class="row" id="product">
         <div class="large-12 column">
-            
+
             <div class="card" style="border-top:none">
                 <div id="prodBanner" style="display:none"></div>
                 <div class="card-section">
-                       
+                    
 
 
                     <h2 class="title-1" property="food:name" itemprop="name">Only-Product – Nutella – 100 g</h1>
 
                     
-                    
+
             <!-- Obsolete product -->
             
 
@@ -547,8 +573,8 @@
             
 
             <!-- owner -->
-                                
-                    
+            
+
                     <!-- Display UPC code if the EAN starts with 0 -->
                         
                             <div id="barcode_div">
@@ -569,7 +595,7 @@
                             <script>if (screen && screen.width >= 600) JsBarcode("#barcode_svg").init()</script>
                             <div property="gr:hasEAN_UCC-13" content="0200000000235" datatype="xsd:string"></div>
                         
-                        
+
                         <!-- start templates/web/common/includes/display_field.tt.html -->
 
 <p id="field_generic_name">
@@ -643,18 +669,18 @@
     <!-- product summary -->
     <section class="row" id="match">
         <div class="large-12 column">
-            
+
             <div class="card">
                 <div class="card-section">
                     <h2 id="match_title">Matching with your preferences</h2>
 
                     <div id="match_score_and_status"></div>
-                            
+
                     <div id="product_summary" class="v-space-short text-left"></div>
 
                     <div id="preferences_selected" class="text-left"></div>
-                        
-                    <div id="preferences_selection_form" class="text-left v-space-whide h-space-wide" style="display:none"></div>                   
+
+                    <div id="preferences_selection_form" class="text-left v-space-whide h-space-wide" style="display:none"></div>
                 </div>
             </div>
 
@@ -3682,7 +3708,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 
 
 
-<!-- Report problem card, if not on the platform for producers -->    
+<!-- Report problem card, if not on the platform for producers -->
 
     <section class="row" id="report_problem">
         <div class="large-12 column">
@@ -3869,7 +3895,7 @@ The score is calculated from the data of the nutrition facts table and the compo
             
             
         </p>
- 
+
             <div class="alert-box info">
                 If the data is incomplete or incorrect, you can complete or correct it by editing this page.
             </div>
@@ -3921,6 +3947,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 </section>
 
 <!-- end templates/web/pages/product/product_page.tt.html -->
+
 						
 					</div>
 				</div>

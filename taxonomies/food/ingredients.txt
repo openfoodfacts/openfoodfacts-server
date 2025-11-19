@@ -1152,7 +1152,7 @@ bg: Млечни ферментации, млечна закваска, млеч
 ca: Ferments làctics
 cs: Mléčné ferminty
 da: yoghurtkultur, starterkultur, mælkesyrekultur, ostekulturer
-de: Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen
+de: Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen, Milchfermente
 el: γαλακτικά ένζυμα
 es: fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yogur, cultivos de bacterias lácticas especificas, cultivos lácticos específicos
 et: juuretis
@@ -9500,6 +9500,7 @@ hr: morska sol jodirana, jodirana morska sol, sitna jodirana morska sol, krupna 
 hu: jódozott tengeri só
 it: sale marino iodato
 pl: sól morska jodowana, jodowana sól morska
+sl: jodirana morska sol
 sv: joderat havssalt, joderad havssalt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:jodioitu-merisuola
 # 1 entry @ 2019-11-02
@@ -14342,7 +14343,7 @@ ru: жиры, жир, жир специального назначения, жи
 sd: چرٻي
 sh: mast
 si: මේදය
-sl: maščobe, maščoba
+sl: maščobe, maščoba, maščob
 so: dux
 sq: yndyra
 sr: масти
@@ -14822,7 +14823,7 @@ pt: gordura vegetal, gorduras vegetais, lípido vegetal, lípidos vegetais, mat�
 ro: grăsime vegetală, grăsimi vegetale
 ru: растительные жиры, жир растительный, растительный-жир
 sk: rastlinný tuk
-sl: rastlinska maščoba
+sl: rastlinska maščoba, rastlinska mast
 sq: yndyrë bimore
 sv: vegetabiliska fetter, vegetabiliskt fett, vegetabilsk fett, vegetabilisk fett
 
@@ -15208,6 +15209,7 @@ pt: palma
 ro: palmier
 ru: пальмовое
 sk: palma
+sl: palmovo
 sv: Palm
 
 < en:palm
@@ -15888,7 +15890,7 @@ cs: Extra panenský olivový olej
 da: ekstra jomfruolivenolie, ekstra jomfru olivenolie
 de: natives Olivenöl Extra, Olivenöl nativ extra, extra natives Olivenöl, Olivenöl extra vergine, Extra Virgin Olivenöl
 el: εξαιρετικό Παρθένο ελαιόλαδο
-es: aceite de oliva virgen extra, aceite extra virgen de oliva
+es: aceite de oliva virgen extra, aceite extra virgen de oliva, aceite de oliva extra virgen
 fi: ekstra-neitsytoliiviöljy, ekstraneitsytoliiviöljy
 fr: huile d'olive extra vierge, huile d'olive vierge extra, huile d'olive vierge extra extraite à froid, huile d'olive de catégorie supérieure obtenue directement des olives et uniquement par des procédés mécaniques, huile extra vierge d'olive
 hr: ekstra djevičansko maslinovo ulje
@@ -20855,8 +20857,9 @@ it: aroma naturale di zenzero
 pl: naturalny aromat imbirowy
 
 < en:flavouring
-en: ananas flavouring
+en: pineapple flavouring, ananas flavouring
 bg: ананасов аромат
+da: ananasaroma
 de: Ananasaroma
 es: aroma de piña
 fi: ananasaromi
@@ -20864,11 +20867,22 @@ fr: arôme d'ananas
 hr: aroma ananasa
 hu: ananász aroma
 it: Aroma di ananas
+nb: ananasarom
 nl: ananasaroma
 pl: aromat ananasowy
 pt: sabor de abacaxi
 ro: aromă de ananas
 sv: ananasarom
+
+< en:natural flavouring
+< en:pineapple flavouring
+en: natural pineapple aroma
+da: naturlig ananasaroma
+de: natürliches Ananas-Aroma
+fi: luonnollinen ananasaromi
+fr: arôme naturel de ananas
+nb: naturlig ananasarom
+sv: naturlig ananasarom
 
 < en:flavouring
 en: banana flavouring
@@ -31218,7 +31232,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Molasses
 en: cane sugar molasses, cane molasses, molasses of cane sugar
 cs: melasa z třtinového cukru
 de: Rohrzuckermelasse, Zuckerrohrmelasse
-es: miel de caña
+es: miel de caña, melaza de cana
 fi: ruokosokerimelassi, ruokomelassi
 fr: mélasse de sucre de canne, mélasse de canne
 hr: melasa šećerne trske
@@ -33634,7 +33648,7 @@ en: fat reduced cocoa, reduced fat cocoa, low fat cocoa, lean cocoa
 bg: какао с намалено съдържание на мазнини
 ca: cacau desgreixat
 da: fedtfattig kakao
-de: fettarmer Kakao, magerer Kakao
+de: fettarmer Kakao, magerer Kakao, mageres Kakao
 es: cacao magro, cacao desgrasado
 fi: vähärasvainen kaakao
 fr: cacao maigre, cacao dégraissé, cacao réduit en matières grasses
@@ -33909,7 +33923,7 @@ it: Polvere di cacao processata con alcalinizzanti
 
 < en:cocoa-powder
 en: skimmed cocoa powder
-de: Magerkakaopulver, mageres Kakaopulver, entrahmtes Kakaopulver
+de: Magerkakaopulver, entrahmtes Kakaopulver
 hr: obrani kakao prah
 it: Polvere di cacao magra
 ja: 脱脂ココアパウダー
@@ -43624,6 +43638,37 @@ pt: Tâmaras Medjool
 ru: меджул даты
 # 9in3@2019-06-04
 
+< en:date
+en: Mazafati dates
+de: Mazafati Datteln
+fr: dattes Mazafati
+
+< en:date
+en: Ajwa dates
+
+< en:date
+en: Kalooteh dates, Kalute dates, Kloteh dates, Kaluteh dates, Kali dates
+de: Kalooteh Datteln
+
+< en:date
+en: Kenta dates
+de: Kenta Datteln
+fr: dattes Kenta
+it: datteri Kenta
+
+< en:date
+en: Khudri dates, Khidri dates
+de: Khudri Datteln, Khidri Datteln
+it: datteri Khudri
+
+< en:date
+en: Sayer dates
+
+< en:date
+en: Sukkary dates
+de: Sukkari Datteln
+fr: dattes Sukkari
+
 #process:en: en:paste
 #process:en: en:pureed
 < en:date
@@ -51833,7 +51878,7 @@ bg: преснен лук, зелен лук
 ca: ceba tendra, cebeta, ceballot
 cs: jarní cibulka
 da: forårsløg
-de: Frühlingszwiebel, Lauchzwiebel
+de: Frühlingszwiebel, Frühlingszwiebeln, Lauchzwiebel
 el: φρέσκο κρεμμυδακι
 eo: askolonio
 es: cebolla de primavera, cebolletas tiernas
@@ -53924,8 +53969,6 @@ pl: mąka z manioku
 sv: maniokmjöl
 nutriscore_fruits_vegetables_nuts:en: no
 
-# description:en:TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
-
 < en:starch
 en: tapioca, tapioca starch, manioc starch
 ar: تابيوكا
@@ -53962,11 +54005,12 @@ ru: тапиока
 sk: tapiokový škrob
 sl: tapioka, tapiokin škrob
 su: tapioka
-sv: tapioka, tapiokastärkelse
+sv: tapioka, tapiokastärkelse, stärkelse från kassavaroten
 uk: тапіока
 vi: bột năng
 zh: 木薯根淀粉
 #lfn:tapioca
+description:en: TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
 wikidata:en: Q873761
 wikipedia:en: https://en.wikipedia.org/wiki/Tapioca
 
@@ -56168,7 +56212,7 @@ oc: Piment
 or: ଲଙ୍କା ମରୀଚ
 os: Цывзы
 pa: ਮਿਰਚ
-pl: papryka chili, chili, chilli, papryczka chili, papryczki chili, papryka chilli, papryka pepperoni, ostra papryka pepperoni
+pl: papryka chili, papryka chilli, chili, chilli, papryczka chili, papryczka chilli, papryczki chili, papryka chilli, papryka pepperoni, ostra papryka pepperoni
 pt: chili
 qu: Utsu
 ro: chili, ardei iute
@@ -56312,7 +56356,7 @@ hr: crvene papričice, crveni čili, ljuta paprika
 it: peperoncini rossi
 nb: rød chili pepper, rød chili
 nl: rode peper, rode chilipeper
-pl: czerwona papryka chili, czerwona papryczka chili
+pl: czerwona papryka chili, czerwona papryczka chili, czerwone papryczki chili, papryczka czerwona chilli
 sv: röd chili, röd chilipeppar
 # ingredient/fr:piment-rouge has 314 products in 7 languages @2019-4-15
 
@@ -56357,6 +56401,7 @@ es: guindilla fuerte
 fi: tuliset chilit, tulinen chili
 fr: piment fort, piments forts
 hr: ljuta začinska paprika, peperoncini, mini ljute papričice cijele, feferoni ljuti, ljuti feferoni
+hu: csípős paprika
 it: peperoncino piccante
 nl: scherpe peperoni, scherpsmakende pepers
 # ingredient/fr:piment-fort has 391 products in 7 languages @2019-04-14
@@ -56415,7 +56460,7 @@ kn: ಹಾಲಪೇನ್ಯೊ
 ko: 할라페뇨
 ml: ഹലപീനൊ
 nl: Jalapeno pepers, jalapeño peper
-pl: papryczki jalapeño, papryka jalapeño
+pl: papryczki jalapeño, papryka jalapeño, papryka jalapeno, papryczka chili jalapeño, papryczka chili jalapeno, papryczki chili jalapeño, papryczki jalapeno, papryczka jalapeño
 pt: pimenta-jalapenho
 ru: халапеньо
 sv: jalapeñopeppar, jalapenopeppar, jalapeño peppar, jalapeno peppar, jalapeñochili
@@ -56434,6 +56479,7 @@ fi: vihreä jalapeño, vihreä jalapeno, vihreät jalapenot
 fr: piment jalapeño vert
 hr: zelene jalapeno paprike
 it: peperoni jalapeno verdi
+pl: zielona papryka jalapeño, zielona papryka jalapeno, papryka zielona jalapeño
 sv: grön jalapeño
 # ingredient/en:green-jalapeno-peppers has 103 products in 1 language @2020-05-24
 
@@ -56582,6 +56628,7 @@ de: Piri Piri, Piri-Piri
 fr: pili-pili, pili pili
 hr: peri-peri
 nl: pili pili
+pl: papryka piri piri
 # en:paprika is very often indicated as a spice. This is probably the same as en:paprika powder
 
 < en:chili pepper
@@ -56594,6 +56641,7 @@ xx: gochugaru
 de: Koreanisches Chilipulver, Gochugaru
 es: Pimentón coreano en polvo, gochugaru
 fr: Poudre de piment coréen, gochugaru
+pl: papryka gochugaru
 
 < en:vegetable
 en: sichuan pepper
@@ -57239,6 +57287,7 @@ fr: double concentré de tomate, purée de tomates double concentré, purée de 
 # hr:dvostruki koncentrat rajčice # see ingredients_processings.txt
 it: doppio concentrato di pomodoro
 nl: Dubbel geconcentreerde tomatenpuree
+sl: dvojni paradižnikov koncentrat
 # ingredient/fr:double-concentré-de-tomate has 520 products in 8 languages @2018-12-26
 
 < en:double concentrated tomato
@@ -62299,6 +62348,11 @@ description:it: I semi di chia, ricchi di omega-3, sono paragonabili dal punto d
 # ingredient/chia-seed 2376 in 18 @2021-08-20
 nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q27688832
+
+< en: chia seed
+en: white chia seed, white chia seeds
+fr: graine de chia blanches
+nl: witte chiazaad
 
 < en:chia seed
 en: dried chia seeds
@@ -68712,7 +68766,7 @@ en: juniper berry, juniper berries
 af: Jenewerbessie
 be: Ядловец
 da: enebær
-de: Wacholderbeere
+de: Wacholderbeere, Wacholderbeeren
 es: baya de enebro
 fa: جونیپر بری
 fi: katajanmarja, katajanmarjat
@@ -87521,6 +87575,7 @@ it: pasta di semola di grano duro
 lt: kietyjų kviečių kruopmilčiai
 nl: pasta uit durumtarwe
 ro: griş integral de grâu dur
+ru: мука из твердой пшеницы высшего сорта
 sk: múka z tvrdej pšenice
 sr: дурум пшенице гриз паста
 # 10@2019-06-04

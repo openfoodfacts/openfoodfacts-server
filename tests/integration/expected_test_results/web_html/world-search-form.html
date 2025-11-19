@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	
     <style media="all">
@@ -109,7 +116,7 @@
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <span><h2>Scan a product<h2></span>
+      <h2><span>Scan a product</span></h2>
       <button class="modal-close-button">&times;</button>
     </div>
     <div>
@@ -898,9 +905,13 @@
                                 
                                     <option value="palmitic-acid" label="Palmitic acid">Palmitic acid</option>
                                 
+                                    <option value="folksonomy" label="Personalized property">Personalized property</option>
+                                
                                     <option value="ph" label="PH">PH</option>
                                 
                                     <option value="phosphorus" label="Phosphorus">Phosphorus</option>
+                                
+                                    <option value="polydextrose" label="Polydextrose">Polydextrose</option>
                                 
                                     <option value="polyols" label="Polyols (sugar alcohols)">Polyols (sugar alcohols)</option>
                                 
@@ -1232,9 +1243,13 @@
                                 
                                     <option value="palmitic-acid" label="Palmitic acid">Palmitic acid</option>
                                 
+                                    <option value="folksonomy" label="Personalized property">Personalized property</option>
+                                
                                     <option value="ph" label="PH">PH</option>
                                 
                                     <option value="phosphorus" label="Phosphorus">Phosphorus</option>
+                                
+                                    <option value="polydextrose" label="Polydextrose">Polydextrose</option>
                                 
                                     <option value="polyols" label="Polyols (sugar alcohols)">Polyols (sugar alcohols)</option>
                                 
@@ -1633,9 +1648,13 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="palmitic-acid" label="Palmitic acid">Palmitic acid</option>
                                     
+                                        <option value="folksonomy" label="Personalized property">Personalized property</option>
+                                    
                                         <option value="ph" label="PH">PH</option>
                                     
                                         <option value="phosphorus" label="Phosphorus">Phosphorus</option>
+                                    
+                                        <option value="polydextrose" label="Polydextrose">Polydextrose</option>
                                     
                                         <option value="polyols" label="Polyols (sugar alcohols)">Polyols (sugar alcohols)</option>
                                     
@@ -1714,6 +1733,11 @@ get a cloud of products (scatter plot).</p>
                                         <option value="zinc" label="Zinc">Zinc</option>
                                     
                                 </select>
+                                <!-- hidden (unless the field value is "folksonomy") field for axis_[id]_folksonomy_property -->
+                                <div id="axis_x_folksonomy_property_div" style="display:none">
+                                    <label for="axis_x_folksonomy_property">Personalized property</label>
+                                    <input type="text" name="axis_x_folksonomy_property" id="axis_x_folksonomy_property" value="" />
+                                </div>
                             </div>
                         
                             <div class="small-12 medium-6 columns">
@@ -1946,9 +1970,13 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="palmitic-acid" label="Palmitic acid">Palmitic acid</option>
                                     
+                                        <option value="folksonomy" label="Personalized property">Personalized property</option>
+                                    
                                         <option value="ph" label="PH">PH</option>
                                     
                                         <option value="phosphorus" label="Phosphorus">Phosphorus</option>
+                                    
+                                        <option value="polydextrose" label="Polydextrose">Polydextrose</option>
                                     
                                         <option value="polyols" label="Polyols (sugar alcohols)">Polyols (sugar alcohols)</option>
                                     
@@ -2027,6 +2055,11 @@ get a cloud of products (scatter plot).</p>
                                         <option value="zinc" label="Zinc">Zinc</option>
                                     
                                 </select>
+                                <!-- hidden (unless the field value is "folksonomy") field for axis_[id]_folksonomy_property -->
+                                <div id="axis_y_folksonomy_property_div" style="display:none">
+                                    <label for="axis_y_folksonomy_property">Personalized property</label>
+                                    <input type="text" name="axis_y_folksonomy_property" id="axis_y_folksonomy_property" value="" />
+                                </div>
                             </div>
                         
                     </div>
@@ -2314,7 +2347,9 @@ $('#result_accordion').on('toggled', function (event, accordion) {
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
-<script type="text/javascript" src="/js/dist/search.js"></script>
+<script>const folksonomy_url = "//api.folksonomy.openfoodfacts.localhost";</script>
+<script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/search.js?v=--ignore--"></script>
+
 
 <script>
 $(document).foundation({
