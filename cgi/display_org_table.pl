@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -39,7 +39,7 @@ if ((not defined $User_id)) {
 }
 
 if ((not $request_ref->{admin}) and (not $User{pro_moderator})) {
-	$log->debug("user does not have permission to view organisation list", {User_id => $User_id}) if $log->is_debug();
+	$log->debug("user does not have permission to view organization list", {User_id => $User_id}) if $log->is_debug();
 	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }
 

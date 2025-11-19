@@ -150,8 +150,14 @@ while (my $line = <$csv_fh>) {
 		move_code_to_other_flavors_codes($code);
 
 		# Push a deleted event to Redis
-		push_to_redis_stream("remove-duplicates-bot", $product_ref, "deleted",
-			"duplicate product: keep product on $kept_flavor, remove from $flavor", undef);
+		push_product_update_to_redis(
+			$product_ref,
+			{
+				"userid" => 'remove-duplicates-bot',
+				"comment" => "duplicate product: keep product on $kept_flavor, remove from $flavor"
+			},
+			"deleted"
+		);
 	}
 }
 

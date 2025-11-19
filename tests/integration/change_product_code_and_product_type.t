@@ -13,11 +13,9 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 # Create an admin
 my $admin_ua = new_client();
@@ -519,6 +517,22 @@ my $tests_ref = [
 			},
 			"fields": "updated"
 		}',
+		ua => $moderator_ua,
+		expected_status_code => 307,
+		expected_type => 'html',
+	},
+	# Change the product_name with API v2
+	# we have changed the product type, so we should get a redirect request
+	{
+		test_case => 'change-product-name-of-oppf-product-with-api-v2',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			type => "edit",
+			action => "process",
+			code => "1234567890300",
+			product_name => "Test product 3 - update with API v2",
+		},
 		ua => $moderator_ua,
 		expected_status_code => 307,
 		expected_type => 'html',

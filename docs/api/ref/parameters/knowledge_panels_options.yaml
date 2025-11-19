@@ -1,0 +1,46 @@
+components:
+  parameters:
+    KnowledgePanelClient:
+      name: knowledge_panel_client
+      in: query
+      description: 'Client requesting knowledge panels. Used to customize which knowledge panels are returned. Example values: "web", "mobile". Defaults to "app" for all API requests, and "web" for all other requests.'
+      required: false
+      schema:
+        type: string
+        example: "web"
+    ActivateKnowledgePanelsSimplified:
+      name: activate_knowledge_panels_simplified
+      in: query
+      description: 'If true, knowledge panels will include the simplified_root knowledge panel its simplified sub-panels (e.g. simplified health and environment cards)'
+      required: false
+      schema:
+        type: boolean
+        example: true
+    ActivateKnowledgePanelPhysicalActivities:
+      name: activate_knowledge_panel_physical_activities
+      in: query
+      description: 'If true, knowledge panels will include the physical activities panel'
+      required: false
+      schema:
+        type: boolean
+        example: true
+    KnowledgePanelsIncluded:
+      name: knowledge_panels_included
+      in: query
+      description: |
+        When knowledge_panels are requested, you can specify which panels should be in the response. All the others will be excluded.
+      required: false
+      schema:
+        type: string
+        example: "health_card, environment_card"
+    KnowledgePanelsExcluded:
+      name: knowledge_panels_excluded
+      in: query
+      description: |
+        When knowledge_panels are requested, you can specify which panels to exclude from the response. All the others will be included.
+        If a panel is both excluded and included (with the knowledge_panels_excluded parameter), it will be excluded.
+      required: false
+      schema:
+        type: string
+        example: "health_card, environment_card"
+  

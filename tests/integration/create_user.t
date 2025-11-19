@@ -10,8 +10,8 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/retrieve_user/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
+wait_application_ready(__FILE__);
 remove_all_users();
-wait_application_ready();
 # we need to create spam user log to be able to tail on it
 open(my $log, ">>", "$BASE_DIRS{LOGS}/user_spam.log");
 close($log);
@@ -58,5 +58,13 @@ foreach my $args_ref (["name", "click http://test.com"], ["faxnumber", "0"]) {
 	is(undef, retrieve_user($userid), "User not created - $testnum");
 	$testnum++;
 }
+
+# Check copes with no country specified
+$ua = new_client();
+%create_user_args = (%default_user_form, (email => 'bobnocountry@test.com', userid => 'bobnocountry', country => ''));
+create_user($ua, \%create_user_args);
+$user = retrieve_user('bobnocountry');
+is($user->{email}, 'bobnocountry@test.com', "User created");
+is($user->{country}, undef, "User created with no country");
 
 done_testing();

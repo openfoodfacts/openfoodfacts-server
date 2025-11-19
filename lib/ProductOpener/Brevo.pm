@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -46,12 +46,11 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/$country/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::API qw/:all/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
-use LWP::UserAgent;
 use HTTP::Request::Common;
 
 my $api_base_url = 'https://api.brevo.com/v3';
@@ -77,7 +76,7 @@ sub add_contact_to_list ($email, $username, $country, $language) {
 	# Brevo API endpoint for adding a contact to a list
 	my $api_endpoint = '/contacts';
 
-	my $ua = LWP::UserAgent->new;
+	my $ua = create_user_agent();
 
 	# HTTP request headers
 	my %headers = (

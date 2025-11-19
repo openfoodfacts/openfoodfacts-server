@@ -78,8 +78,9 @@ for file in $DATA_TMP_DIR/data/*.zip; do
     mkdir -p $IMAGES_TMP_DIR
     mkdir -p $IMAGES_TMP_DIR/tmp
     unzip -j -u -o "$file" -d $IMAGES_TMP_DIR/tmp
-    ./scripts/imports/systemeu/convert_systemeu_images_to_off_csv.pl $IMAGES_TMP_DIR $file.images.converted
-    ./scripts/import_csv_file.pl --csv_file $file.images.converted --user_id systeme-u --comment "Import Systeme U - Images" --source_id "systeme-u" --source_name "Systeme U" --source_url "https://www.magasins-u.com/" --manufacturer --org_id systeme-u --define lc=fr --images_dir $IMAGES_TMP_DIR/tmp
+    # $file can contain spaces, use ""
+    ./scripts/imports/systemeu/convert_systemeu_images_to_off_csv.pl $IMAGES_TMP_DIR "$file.images.converted"
+    ./scripts/import_csv_file.pl --csv_file "$file.images.converted" --user_id systeme-u --comment "Import Systeme U - Images" --source_id "systeme-u" --source_name "Systeme U" --source_url "https://www.magasins-u.com/" --manufacturer --org_id systeme-u --define lc=fr --images_dir $IMAGES_TMP_DIR/tmp
 done
 
 # Remove the files from the sftp when they have been successfully processed

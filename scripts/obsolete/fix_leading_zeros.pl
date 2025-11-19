@@ -108,7 +108,7 @@ my $notfound = 0;
 					else {
 						$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, { upsert => 1 });
 					}
-					store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
+					store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 				}
 			}
 		}

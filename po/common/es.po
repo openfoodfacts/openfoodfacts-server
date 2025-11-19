@@ -44,6 +44,32 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Una base de datos colaborativa, libre y abierta de los productos cosméticos de todo el mundo."
 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgstr "Una base de datos colaborativa, gratuita y abierta, con información de los productos cosméticos de todo el mundo."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Una base de datos colaborativa, gratuita y abierta de varios productos de todo el mundo."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Una base de datos colaborativa, gratuita y abierta de ingredientes y e información nutricional sobre productos alimenticios de todo el mundo para mascotas."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts contiene datos e información de productos alimenticios de todo el mundo para mascotas."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Una base de datos colaborativa, gratuita y abierta sobre productos alimenticios para mascotas de todo el mundo."
+
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
@@ -238,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Búsqueda avanzada y gráficos"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "El exceso de alcohol es perjudicial para la salud."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Alerta sobre el consumo de alcohol."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -272,20 +299,20 @@ msgstr ""
 
 msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
-msgstr ""
+msgstr "en 1 kg"
 
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "Android APK"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/es_get.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Spanish.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -332,10 +359,6 @@ msgstr "También puedes ayudar a financiar el proyecto Open Food Facts"
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Manual de administración de productores"
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Dona a Open Food Facts\" /></a><p><<site_name>> ha sido creado por una asociación sin ánimo de lucro, independiente de la industria que es para todos y que se financia por todos. Puedes apoyar nuestro trabajo donando <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">a Open Food Facts</a>. También puedes hacerlo a través de <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">el motor de búsqueda Lilo</a>.<br/><b>¡Muchas gracias!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -541,17 +564,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Eliminar un producto"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Eliminar la página"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Borrar esta imagen"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Eliminar un usuario"
+msgid "Delete the user"
+msgstr "Eliminar el usuario"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -636,6 +655,14 @@ msgstr "Parámetros de la cuenta"
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Los parámetros de tu cuenta han sido cambiados."
+
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Preferencias"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Tus preferencias han sido cambiadas"
 
 msgctxt "editors_p"
 msgid "editors"
@@ -2729,6 +2756,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "Grado de nutrición NutriScore"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Eliminar la página del producto"
@@ -2744,10 +2772,6 @@ msgstr "ha eliminado el producto"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "¿Estás seguro de que deseas borrar la página de este producto?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Eliminar el usuario"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -4170,10 +4194,6 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Donaciones aquí"
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Alerta sobre el consumo de alcohol."
-
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Moderación de la plataforma de productores"
@@ -4610,16 +4630,16 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Ausencia de datos para calcular el Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "No se puede aplicar el Nutri-Score"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score no aplicable"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "No aplicable para la categoría"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
+msgid "Not applicable for the category: {category}"
 msgstr "No aplicable para la categoría: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
@@ -4663,6 +4683,10 @@ msgstr "Nivel de procesado de alimentos desconocido"
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Alimento poco o nada procesado (Grupo NOVA)"
+
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr "Para determinar el nivel de procesamiento de un producto, nos basamos en la lista de ingredientes (marcadores, métodos de procesamiento) y categorías."
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -5013,6 +5037,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Número de miembros"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "N.º de serie"
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Formulario de contacto"
@@ -5086,6 +5114,10 @@ msgstr "Lista de ingredientes faltantes"
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Faltan datos nutricionales"
+
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Falta información nutricional del producto preparado"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
@@ -5430,6 +5462,10 @@ msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Impacto medioambiental desconocido"
 
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Falta una categoría precisa"
+
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
 msgstr "No pudimos calcular el Green-Score de este producto porque le faltan algunos datos, ¿podría ayudar a completarlo?"
@@ -5706,10 +5742,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "No se ha proporcionado la información sobre los componentes de este producto."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Para un cálculo más preciso de la puntuación ecológica, puedes editar la página del producto y añadirlas."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "proporción"
@@ -5730,9 +5762,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "La información sobre el envase de este producto no está suficientemente detallada (formas y materiales exactos de todas las partes que componen el envase)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Para un cálculo más preciso de la puntuación ecológica, puede modificar la página del producto y añadirlas."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Para un cálculo más preciso de la puntuación ecológica, puedes editar la página del producto y añadirlas."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5878,6 +5916,11 @@ msgstr "Ayúdanos a informar a millones de consumidores de todo el mundo sobre l
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
+msgstr ""
+
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
 msgstr ""
 
 msgctxt "donation_list_2024_main"
@@ -6068,6 +6111,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr "Información nutricional faltante:"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Falta información nutricional del producto preparado:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "La categoría y los datos nutricionales del producto deben especificarse para calcular el Nutri-Score."
@@ -6156,6 +6203,10 @@ msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Faltan datos nutricionales"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Falta información nutricional preparada"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
 msgstr "Faltan datos de categoría y nutrición"
@@ -6235,6 +6286,10 @@ msgid "No ingredients containing palm oil detected"
 msgstr "No se han detectado ingredientes con aceite de palma"
 
 msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr "Para determinar si un producto contiene aceite de palma, sólo nos basamos en la lista de ingredientes."
+
+msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr "Para determinar si un producto contiene aceite de palma, sólo nos basamos en la lista de ingredientes."
 
@@ -6336,6 +6391,10 @@ msgstr "¿Puedes añadir la información que falta para poder calcular el Nutri-
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "¿Puedes proporcionarnos la categoría o clasificar el producto para que podamos mostrar su Green-Score?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "La categoría que tenemos para este producto no es lo suficientemente precisa para calcular el Green-Score. ¿Podrían agregar una categoría de producto más precisa?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6628,6 +6687,38 @@ msgstr "No se reconoció el campo"
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
 msgstr "Valor no reconocido"
+
+msgctxt "api_message_image_already_uploaded"
+msgid "Image already uploaded"
+msgstr "Imagen ya cargada"
+
+msgctxt "api_message_image_too_small"
+msgid "Image too small"
+msgstr "La imagen es demasiado pequeña"
+
+msgctxt "api_result_image_uploaded"
+msgid "Image uploaded"
+msgstr "Imagen cargada"
+
+msgctxt "api_result_image_not_uploaded"
+msgid "Image not uploaded"
+msgstr "Imagen no cargada"
+
+msgctxt "api_result_image_selected"
+msgid "Image selected"
+msgstr "Imagen seleccionada"
+
+msgctxt "api_result_image_not_selected"
+msgid "Image not selected"
+msgstr "Imagen no seleccionada"
+
+msgctxt "api_result_image_deleted"
+msgid "Image deleted"
+msgstr "Imagen eliminada"
+
+msgctxt "api_result_image_not_deleted"
+msgid "Image not deleted"
+msgstr "Imagen no eliminada"
 
 msgctxt "api_impact_none"
 msgid "None"
@@ -7020,6 +7111,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Informar de un problema"
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr "Informar de un problema"
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr "Reportar un problema."
@@ -7048,11 +7144,6 @@ msgctxt "description"
 msgid "Description"
 msgstr "Descripción"
 
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Informar de un problema"
-
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
 msgstr "Introduzca el nombre de usuario del contacto principal:"
@@ -7072,6 +7163,10 @@ msgstr "Este usuario no es miembro de la organización."
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Saltar al Contenido"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "Debe habilitar las cookies para iniciar sesión."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
@@ -7279,11 +7374,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "Índice de reparabilidad no aplicable"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "No aplicable para la categoría"
 
 # variable names between { } must not be translated
@@ -7367,4 +7462,157 @@ msgstr ""
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr ""
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr "Contáctenos"
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "Eliminar"
+
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr ""
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr "Disponible en F-Droid"
+
+msgctxt "update_nutrients_data"
+msgid "Update nutrients data"
+msgstr ""
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr ""
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr ""
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr ""
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "Escanear"
+
+msgctxt "reset_preferences_details_beauty"
+msgid "Organic farming and fair trade"
+msgstr "Agricultura ecológica y comercio justo"
+
+msgctxt "reset_preferences_details_food"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Green-Score y nivel de procesamiento de alimentos (NOVA)"
+
+msgctxt "reset_preferences_details_product"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "reset_preferences_details_pet_food"
+msgid "Organic farming and fair trade"
+msgstr "Agricultura ecológica y comercio justo"
+
+msgctxt "action_report_image_to_nutripatrol"
+msgid "Report this image to our moderators"
+msgstr "Reportar esta imagen a nuestros moderadores"
+
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Nos falta el valor del tamaño de la porción y/o unidad para calcular el Nutri-Score"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> es elaborado por una asociación sin fines de lucro, independiente de la industria. Está hecho para todos, por todos y financiado por todos. Puedes apoyar nuestro trabajo donando a Open Food Facts.<br/><b>¡Gracias!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> es elaborado por una asociación sin fines de lucro, independiente de la industria. Está hecho para todos, por todos y financiado por todos. Puedes apoyar nuestro trabajo donando a Open Food Facts y también usando el buscador de Lilo.<br/><b>¡Gracias!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Motor de búsqueda de Lilo"
+
+msgctxt "robots_not_served_here"
+msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
+msgstr "Debido al abuso excesivo de los robots, no podemos mostrar esta página a usuarios no identificados. Cree una cuenta gratuita de Open Food Facts para acceder a toda la información."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Origen de los ingredientes"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "Origen del producto"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Información del producto"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Información del producto sin procesar"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_title"
+msgid "Contains added sugars"
+msgstr "Contiene azúcares añadidos"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_subtitle"
+msgid "Added sugars:"
+msgstr "Azúcares añadidos:"
+
+msgctxt "estimated_quantity_of_added_sugars"
+msgid "Estimated quantity of added sugars in ingredients"
+msgstr "Cantidad estimada de azúcares añadidos en los ingredientes"
+
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Cantidad de azúcares añadidos"
+
+msgctxt "search_products_in_same_category_without_added_sugars"
+msgid "Search for products in the same category without added sugars:"
+msgstr "Buscar productos de la misma categoría sin azúcares añadidos:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Ingredientes no deseados"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Esta preferencia se basa en la comprensión de Open Food Facts de la lista de ingredientes y puede no ser precisa; siempre verifique el producto usted mismo."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Presencia de ingredientes no deseados desconocidos"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "No se detectaron ingredientes no deseados"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Contiene ingredientes no deseados"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Algunos ingredientes no fueron reconocidos"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "No detectamos: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "No detectamos: {unwanted_ingredients}. Es posible que hayamos omitido algunos ingredientes. Por favor, revise siempre la lista de ingredientes."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Estas preferencias se basan en la comprensión de Open Food Facts de la lista de ingredientes y siempre existe la posibilidad de que no sea precisa o completa; siempre verifique el producto usted mismo."
 

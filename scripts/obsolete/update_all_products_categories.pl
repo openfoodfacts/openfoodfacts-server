@@ -78,7 +78,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 			ProductOpener::Food::special_process_product($product_ref);
 		}
 
-		store( "$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref );
+		store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref );
 		$products_collection->save($product_ref);
 
 		}

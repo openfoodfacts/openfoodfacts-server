@@ -249,6 +249,26 @@
                "environment"
             ]
          },
+         "environmental_score_adjustments" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "environmental_score_origins_of_ingredients",
+                        "environmental_score_packaging",
+                        "environmental_score_production_system",
+                        "environmental_score_threatened_species"
+                     ]
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "topics" : [
+               "environment"
+            ]
+         },
          "environmental_score_agribalyse" : {
             "elements" : [
                {
@@ -558,7 +578,7 @@
             "title_element" : {
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
-               "subtitle" : "Product: Some product - 100 g",
+               "subtitle" : "Product: Some product – 100 g",
                "title" : "Impact for this product: C (Score: 47/100)",
                "type" : "grade"
             },
@@ -604,7 +624,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 × \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
@@ -615,7 +635,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "bad",
-                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 × \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Discard",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
@@ -626,7 +646,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "neutral",
-                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 × \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Unknown",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
@@ -808,8 +828,7 @@
             "expanded" : true,
             "type" : "root"
          }
-      },
-      "schema_version" : 998
+      }
    },
    "status" : 1,
    "status_verbose" : "product found"

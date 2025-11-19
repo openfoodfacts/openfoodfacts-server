@@ -14,14 +14,41 @@ const sass = gulpSass(sassLib);
 const jsSrc = [
   "./html/js/display*.js",
   "./html/js/product-*.js",
+  "./html/js/tagify-init.js",
   "./html/js/search.js",
   "./html/js/hc-sticky.js",
   "./html/js/stikelem.js",
   "./html/js/scrollNav.js",
-  "./html/js/off-webcomponents-utils.js",
+  "./html/js/barcode-scanner*.js",
+  "./html/js/external-knowledge-panels.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";
+
+const jsLibSrc = [
+  "./node_modules/@webcomponents/**/webcomponentsjs/**/*.js",
+  "./node_modules/@openfoodfacts/openfoodfacts-webcomponents/dist/**/*.js",
+  "./node_modules/foundation-sites/js/vendor/*.js",
+  "./node_modules/foundation-sites/js/foundation.js",
+  "./node_modules/papaparse/papaparse.js",
+  "./node_modules/osmtogeojson/osmtogeojson.js",
+  "./node_modules/leaflet/dist/leaflet.js",
+  "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
+  "./node_modules/blueimp-tmpl/js/tmpl.js",
+  "./node_modules/blueimp-load-image/js/load-image.all.min.js",
+  "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
+  "./node_modules/blueimp-file-upload/js/*.js",
+  "./node_modules/@yaireo/tagify/dist/tagify.js",
+  "./node_modules/cropperjs/dist/cropper.js",
+  "./node_modules/jquery-cropper/dist/jquery-cropper.js",
+  "./node_modules/jquery-form/src/jquery.form.js",
+  "./node_modules/highcharts/highcharts.js",
+  "./node_modules/jsvectormap/dist/jsvectormap.esm.js",
+  "./node_modules/jsvectormap/dist/maps/world-merc.js",
+  "./node_modules/select2/dist/js/select2.min.js",
+  "./node_modules/jsbarcode/dist/JsBarcode.all.min.js",
+  "./node_modules/jquery/dist/jquery.js",
+];
 
 // Added function to handle multiple image formats
 function handleMultipleImageFormats(path: string) {
@@ -84,34 +111,15 @@ export function css() {
   const compressed = processed.
     pipe(gzip()).
     pipe(dest("./html/css/dist"));
-  
+
   return processed && compressed;
 }
 
 export function copyJs() {
-  const processed = src([
-    "./node_modules/@webcomponents/**/webcomponentsjs/**/*.js",
-    "./node_modules/@openfoodfacts/openfoodfacts-webcomponents/dist/**/*.js",
-    "./node_modules/foundation-sites/js/vendor/*.js",
-    "./node_modules/foundation-sites/js/foundation.js",
-    "./node_modules/papaparse/papaparse.js",
-    "./node_modules/osmtogeojson/osmtogeojson.js",
-    "./node_modules/leaflet/dist/leaflet.js",
-    "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
-    "./node_modules/blueimp-tmpl/js/tmpl.js",
-    "./node_modules/blueimp-load-image/js/load-image.all.min.js",
-    "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
-    "./node_modules/blueimp-file-upload/js/*.js",
-    "./node_modules/@yaireo/tagify/dist/tagify.js",
-    "./node_modules/cropperjs/dist/cropper.js",
-    "./node_modules/jquery-cropper/dist/jquery-cropper.js",
-    "./node_modules/jquery-form/src/jquery.form.js",
-    "./node_modules/highcharts/highcharts.js",
-    "./node_modules/jsvectormap/dist/jsvectormap.js",
-    "./node_modules/jsvectormap/dist/maps/world-merc.js",
-    "./node_modules/select2/dist/js/select2.min.js",
-    "./node_modules/jsbarcode/dist/JsBarcode.all.min.js",
-  ]).
+  const processed = src(jsLibSrc, {
+    // prefer jquery from package.json to foundation-vendored copy
+    ignore: "./node_modules/foundation-sites/js/vendor/jquery.js",
+  }).
     pipe(init()).
     pipe(terser()).
     pipe(write(".")).
@@ -148,7 +156,6 @@ function buildjQueryUi() {
     "./node_modules/jquery-ui/ui/position.js",
     "./node_modules/jquery-ui/ui/keycode.js",
     "./node_modules/jquery-ui/ui/unique-id.js",
-    "./node_modules/jquery-ui/ui/safe-active-element.js",
     "./node_modules/jquery-ui/ui/widgets/autocomplete.js",
     "./node_modules/jquery-ui/ui/widgets/menu.js",
   ]).
@@ -181,7 +188,7 @@ function jQueryUiThemes() {
   const compressed = processed.
     pipe(gzip()).
     pipe(dest("./html/css/dist/jqueryui/themes/base"));
-  
+
   return processed && compressed;
 }
 
@@ -210,31 +217,33 @@ function copyImages() {
   return src(imagesSrc).pipe(dest("./html/css/dist"));
 }
 
-export default function buildAll() {
-  return new Promise(
-    parallel(
-      copyJs,
-      buildJs,
-      buildjQueryUi,
-      copyCss,
-      copyImages,
-      jQueryUiThemes,
-      series(icons, attributesIcons, css)
-    )
-  );
-}
+// Shared task list for build steps
+const buildTasks = [
+  copyJs,
+  buildJs,
+  buildjQueryUi,
+  copyCss,
+  copyImages,
+  jQueryUiThemes,
+  series(icons, attributesIcons, css),
+];
+
+export default parallel(...buildTasks);
 
 function watchAll() {
   watch(jsSrc, { delay: 500 }, buildJs);
   watch(sassSrc, { delay: 500 }, css);
   watch(imagesSrc, { delay: 500 }, copyImages);
+  watch(jsLibSrc, { delay: 500 }, copyJs);
   // do we want to watch everything to support checkout of a branch with new libs ?
 }
 export { watchAll as watch };
 
-export function dynamic() {
-  buildAll().then(() => {
+export const dynamic = series(
+  parallel(...buildTasks),
+  function startWatch(done: () => void) {
     console.log("Build succeeded start watching for css and js changes");
     watchAll();
-  });
-}
+    done();
+  }
+);

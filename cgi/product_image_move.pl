@@ -184,7 +184,7 @@ if ($move_to ne 'trash') {
 			"new product code does not exist yet, creating product",
 			{move_to => $move_to, move_to_id => $move_to_id}
 		) if $log->is_debug();
-		$new_product_ref = init_product($User_id, $Org_id, $move_to, $country);
+		$new_product_ref = init_product($User_id, $Org_id, $move_to, $request_ref->{country});
 		$new_product_ref->{interface_version_created} = $interface_version;
 		$new_product_ref->{lc} = $lc;
 
@@ -239,7 +239,7 @@ defined $product_ref->{images} or $product_ref->{images} = {};
 $response{images} = [];
 
 for (my $imgid = 1; $imgid <= ($product_ref->{max_imgid} + 5); $imgid++) {
-	if (defined $product_ref->{images}{$imgid}) {
+	if (defined $product_ref->{images}{uploaded}{$imgid}) {
 		my $image_data_ref = {
 			imgid => $imgid,
 			thumb_url => "$imgid.$thumb_size.jpg",
@@ -248,8 +248,8 @@ for (my $imgid = 1; $imgid <= ($product_ref->{max_imgid} + 5); $imgid++) {
 		};
 
 		if ($User{moderator}) {
-			$image_data_ref->{uploader} = $product_ref->{images}{$imgid}{uploader};
-			$image_data_ref->{uploaded} = display_date($product_ref->{images}{$imgid}{uploaded_t})
+			$image_data_ref->{uploader} = $product_ref->{images}{uploaded}{$imgid}{uploader};
+			$image_data_ref->{uploaded} = display_date($product_ref->{images}{uploaded}{$imgid}{uploaded_t})
 				. "";    # trying to convert the object to a scalar
 		}
 		push @{$response{images}}, $image_data_ref;

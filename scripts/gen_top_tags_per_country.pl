@@ -27,7 +27,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/$country $static_subdomain add_product_nutriment_to_stats compute_stats_for_products/;
+use ProductOpener::Display qw/$static_subdomain add_product_nutriment_to_stats compute_stats_for_products/;
 use ProductOpener::Tags
 	qw/%country_languages %properties canonicalize_taxonomy_tag_link display_taxonomy_tag exists_taxonomy_tag/;
 use ProductOpener::Users qw/:all/;
@@ -155,15 +155,17 @@ $fields_ref->{completed_t} = 1;
 
 $fields_ref->{nutriments} = 1;
 $fields_ref->{nutrition_grade_fr} = 1;
-$fields_ref->{environmental_score_extended_data} = 1;
 
 # Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
 # do not include empty products and products that have been marked as obsolete
 
 # 300 000 ms timeout so that we can export the whole database
 # 5mins is not enough, 50k docs were exported
-my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})
-	->query({'empty' => {"\$ne" => 1}, 'obsolete' => {"\$ne" => 1}})->sort({created_t => 1})->fields($fields_ref);
+my $cursor
+	= get_products_collection({timeout => 3 * 60 * 60 * 1000})
+	->query({'empty' => {"\$ne" => 1}, 'obsolete' => {"\$ne" => 1}})
+	->sort({created_t => 1})
+	->fields($fields_ref);
 
 $cursor->immortal(1);
 
@@ -225,21 +227,6 @@ while (my $product_ref = $cursor->next) {
 				= $nutrition_grades_to_n{$product_ref->{"nutrition_grade_fr"}};
 			#print "NUT - nid: nutrition_grade_fr : $product_ref->{nutrition_grade_fr} \n";
 		}
-	}
-
-	# Add environmental impact from impact estimator if we have them
-	if (
-			(defined $product_ref->{environmental_score_extended_data})
-		and (defined $product_ref->{environmental_score_extended_data}{impact})
-		and (defined $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts})
-		# TODO: Need to add a filter to keep only impacts computed with high confidence
-		)
-	{
-		defined $products_nutriments{$code} or $products_nutriments{$code} = {};
-		$products_nutriments{$code}{climate_change}
-			= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{Climate_change};
-		$products_nutriments{$code}{ef_score}
-			= $product_ref->{environmental_score_extended_data}{impact}{likeliest_impacts}{EF_single_score};
 	}
 
 	# Compute points

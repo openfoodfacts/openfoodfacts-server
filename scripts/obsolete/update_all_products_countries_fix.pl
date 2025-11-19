@@ -91,7 +91,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 
 				$product_ref->{countries} = display_taxonomy_tag($lc, "countries", $countryid);
 		if ($code ne '993605347529') {
-			store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
+			store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 			$products_collection->save($product_ref);
 			}
 			}

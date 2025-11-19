@@ -154,7 +154,7 @@ nl: Pot, Potten, Bokaal, Bokaalen
 pl: Słoik
 pt: Jarro, jarros, jarra, jarras
 ro: Borcan
-sv: burk
+sv: burk, burken
 # suggest:packaging_materials:nl: en:glass
 description:nl: Cilindervormig voorwerp van glas of aardewerk
 # image:xx:bocal-verre.svg (looks like the Nutella jar)
@@ -182,14 +182,16 @@ description:nl: Een veelal kartonnen balkvormige verpakking
 
 #Boxes for eggs
 < en:Box
-nl: Eierdoos
-en: egg carton, egg box
+en: egg carton, egg box, egg tray
+da: æggebakke, ægbakke
 de: Eierkarton
 fr: Boîte à œufs
 # image:xx:boite-boitier-4.svg
 it: scatola di uova, scatola delle uova
 ja: 卵パック
+nl: eierdoos
 pl: Wytłaczanka, Wytłoczka
+sv: äggkartong
 tr: Yumurta kartonu
 # suggest:packaging_materials:nl: en:cardboard
 # suggest:category: en:eggs
@@ -204,10 +206,12 @@ wikidata:en: Q959287
 # boxes for pizza's
 < en:Box
 en: Pizza box
+da: pizzabakke
 de: Pizzakarton
 fr: carton à pizza
 it: Cartone della pizza
 nl: Pizzadoos, pizzadozen
+sv: pizzakartong
 # suggest:packaging_materials:nl: en:cardboard
 description:nl: platte, vierkante, kartonnen doos waarin men een pizza kan stoppen
 wikidata:en: Q2097650
@@ -216,6 +220,7 @@ wikidata:en: Q2097650
 
 < en:box
 en: pill box
+da: pilleæske
 de: Pillendose
 fr: pilulier
 it: scatola per pillole
@@ -267,6 +272,7 @@ it: Bottiglia
 nl: Fles, Flessen
 pl: Butelka
 pt: Garrafa, garrafas
+ro: Sticlă, sticle
 sv: Flaska
 # suggest:packaging_materials:nl: en:glass
 # associated_packagings: en:cap
@@ -474,6 +480,17 @@ nl: clip, klemmetje
 pt: Atilho, atilhos, presilha, presilhas, fita, fitas, cordão, cordões, atadura, ataduras, fecho, fechos, fexo, feixo, fexos, feixos, fio, fios
 description:fr: Ce qui sert à relier deux ou plusieurs pièces d'un ouvrage ou à le fixer.
 description:nl: Een klein werktuig waarin iets door samendrukken bijeengehouden of vastgezet kan worden
+wikidata:en: Q2002016
+
+< en:fastener
+en: bread clip, bag clip, occlupanid
+description:en: Usually a single plastic piece, in a roughly square shape, through which the neck of a plastic bag can be threaded.
+wikidata:en: Q3018341
+
+< en:fastener
+en: clipband, clip band
+description:en: A typically short (~5 cm/2″) band of some material (plastic or paper are common), reinforced with metal wires along the edges.
+wikidata:en: Q134396173
 
 # fr:Liens ( collier , ficelle , ruban , ruban adhésif , bolduc , feuillard , bande , cordon , fil , elastique , bracelet…) in data from Les Mousquetaires
 en: Tie, knot
@@ -621,11 +638,12 @@ nb: Lokk
 nl: Deksel, deksels
 pl: Nakrętka, Zakrętka, Pokrywka, Wieczko, Wieko
 pt: Tampa, tampas
-sv: Lock
+sv: lock, locket
 
 < en:Lid or cap
 en: Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
 bg: Капачка, капачка за бутилка, капачки
+da: Kapsel
 fr: Bouchon, bouchons, Bouchon de bouteille, bouchons de bouteilles, bouchons
 hu: Kupak, borosdugó, dugó
 # image:xx:bouchon-1.svg
@@ -672,8 +690,10 @@ en: Champagne cork
 bg: Шампанска корк
 de: Sektverschluss
 el: Πώμα σαμπάνιας
+es: Corcho de champán
 fr: bouchon de Champagne
 hu: Pezsgő dugó
+it: tappo di champagne
 nl: Champagnestop
 pl: Korek do szampana
 pt: Tampa de champanhe
@@ -817,6 +837,9 @@ pt: Cápsulas de café compatíveis com Senseo
 en: Tea bag
 bg: Чаена торбичка
 da: Tepose, teposer
+de: Teebeutel
+es: Bolsa de té, bolsita de té
+fr: Sachet de thé, sachets de thé, thé en sachet
 # suggest:packaging_materials:en: en:paper
 # related_categories:en: en:Tea bags
 it: bustina di tè, bustina di te, bustina
@@ -1258,6 +1281,7 @@ en: hanger
 bg: закачалка
 fr: Cintre
 nl: Kleerhanger
+pt: Cabide
 # related_categories:en: en:Clothes
 # image:xx:cintre.svg
 # suggest:packaging_materials:en: en:metal, en:cardboard, en:others
@@ -1368,6 +1392,9 @@ en: pump bottle, spray, spray bottle, applicator bottle
 de: Sprühflasche
 es: espray
 fr: Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
+it: flacone con pompa, flaconi con pompa, flacone spray, flaconi spray
+nl: Spuitfles, spuitflessen
+pt: Frasco com bomba, frascos com bomba, frasco spray, frascos spray
 wikidata:en: Q3737688
 # suggest:packaging_materials:en: en:plastic, en:metal, en:glass
 # image:xx:flacon-pompe-pistolet-spray-1.svg
@@ -1427,6 +1454,7 @@ en: Ball flask, Roll-on bottle
 de: Kugelflasche, Roll-on-Flasche
 es: Frascos de bola, Botella roll-on
 fr: Flacon à bille, Roll
+it: flacone a sfera, flacone roll-on
 nl: Balflacon, Roll-on fles
 wikidata:en: Q115170160
 # image:xx:flacon-bille-roll.svg
@@ -1440,7 +1468,9 @@ nl: Mand, manden
 
 en: Syringe, syringes
 bg: Спринцовка, спринцовки
+es: Jeringa, jeringas
 fr: Seringue, seringues
+it: Siringa, siringhe
 nl: Spuit, spuiten
 wikidata:en: Q273318
 # suggest:packaging_materials:en: en:plastic
@@ -1547,7 +1577,12 @@ fr: Terrine, terrines
 # suggest:packaging_materials:en: en:plastic, en:sandstone, en:ceramic
 
 en: Barrel, barrels, drum, drums, keg, kegs
+de: Fass, Fässer, Trommel, Trommeln, Keg, Kegs
+es: Barril, barriles, tambor, tambores, barrilito, barrilitos
 fr: Tonneau, tonneaux, tonnelet, tonnelets
+it: Barile, barili, botte, botti, fusto, fusti
+nl: Vat, vaten, drum, drums, keg, kegs
+pt: Barril, barris, tambor, tambores, barrilinho, barrilinhos
 wikidata:en: Q10289
 # suggest:packaging_materials:en: en:cardboard, en:plastic, en:metal, en:other
 # image:xx:tonneau-tonnelet-plastique.svg
@@ -1604,7 +1639,9 @@ nl: cellofaan
 description:nl: Transparant materiaal gemaakt van cellulose, in dunne vellen gewoonlijk in gebruik voor vochtdicht afsluiten van etenswaren
 
 en: Cartridge, cartridges
+es: cartucho, cartuchos
 fr: Cartouche, cartouches
+it: cartuccia, cartucce
 nl: Cartridge, cartridges
 # description:nl:Inktpatroon voor een printer >> actually no, food gas cartdrige
 wikidata:en: Q97584727
