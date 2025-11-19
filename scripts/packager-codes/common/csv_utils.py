@@ -56,6 +56,9 @@ def get_data_rows(rows: List[List[str]], header_keywords: Optional[List[str]] = 
     """
     Extract data rows from CSV by finding header row using keywords.
     
+    The idea is that there might be other data above the header row,
+    so it will skip those lines and the header line.
+    
     Args:
         rows: All rows from CSV
         header_keywords: Keywords to identify header row (e.g., ['broj', 'naziv']).
