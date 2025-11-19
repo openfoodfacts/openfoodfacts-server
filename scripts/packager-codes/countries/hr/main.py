@@ -63,7 +63,8 @@ from countries.hr.transform import preprocess_csv_croatia
 
 COUNTRY_NAME = 'Croatia'
 COUNTRY_CODE = 'hr'
-DEBUG = False
+DEBUG = True
+SLEEP_DURATION = 2.0
 
 
 def generate_file_identifier(keyword: str = None, last_filename: str = None) -> str:
@@ -130,8 +131,13 @@ def process_source_file(country_name: str, country_code: str, debug: bool,
     
     try:
         # Step 1: Download Excel file
-        # Searches for keyword (if provided), compares with last_filename, exits if match
+        # Searches for keyword (if provided), compares with last_filename, returns None if match (no update needed)
         new_filename = download_excel_file(country_name, url, excel_file, keyword=keyword, expected_file_name=last_filename)
+        
+        # If new_filename is None, file already processed - no update needed
+        if new_filename is None and keyword:
+            print(f"{country_name} - Info - File already up to date, skipping processing")
+            return True
         
         # Step 2: Convert Excel to CSV
         convert_excel_to_csv(country_name, excel_file, csv_raw_file)
@@ -140,7 +146,10 @@ def process_source_file(country_name: str, country_code: str, debug: bool,
         preprocess_csv_croatia(country_name, csv_raw_file, source_file)
         
         # Step 4: Geocode addresses
-        geocode_csv(debug, country_name, country_code, source_file, target_file)
+        failure_count, total_count = geocode_csv(debug, country_name, country_code, source_file, target_file, SLEEP_DURATION)
+        
+        if failure_count > 0:
+            raise RuntimeError(f"Geocoding failed for {failure_count} addresses out of {total_count}. All addresses must be successfully geocoded.")
         
         # Step 5: Move output to packager-codes directory
         move_output_to_packager_codes(country_name, country_code, target_file)
@@ -154,6 +163,10 @@ def process_source_file(country_name: str, country_code: str, debug: bool,
             print(f"{country_name} - Info - Updated configuration with new filename: {new_filename}")
         
         return True
+        
+    except Exception as e:
+        print(f"{country_name} - Error - Failed to process file: {e}")
+        return False
         
     finally:
         cleanup_temp_files(country_name, [excel_file, csv_raw_file, source_file])

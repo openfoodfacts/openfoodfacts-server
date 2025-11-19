@@ -21,7 +21,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 import json
 import re
-import sys
 
 CONFIG_FILE = 'packager_sources_config.json'
 TEXT_REPLACEMENTS_FILE = 'packager_text_replacements_config.json'
@@ -32,16 +31,18 @@ def load_config():
 
     Returns:
         configuration dictionary
+        
+    Raises:
+        FileNotFoundError: If config file doesn't exist
+        json.JSONDecodeError: If config file contains invalid JSON
     """
     try:
         with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
             return json.load(f)
-    except FileNotFoundError:
-        print(f"Error - Configuration file '{CONFIG_FILE}' not found.")
-        sys.exit(1)
+    except FileNotFoundError as e:
+        raise FileNotFoundError(f"Configuration file '{CONFIG_FILE}' not found") from e
     except json.JSONDecodeError as e:
-        print(f"Error - Invalid JSON in configuration file: {e}")
-        sys.exit(1)
+        raise json.JSONDecodeError(f"Invalid JSON in configuration file", e.doc, e.pos) from e
 
 def save_config(config: dict):
     """
@@ -49,13 +50,15 @@ def save_config(config: dict):
 
     Args:
         config: Configuration dictionary to save
+        
+    Raises:
+        RuntimeError: If config file cannot be saved
     """
     try:
         with open(CONFIG_FILE, 'w', encoding='utf-8') as f:
             json.dump(config, f, indent=2, ensure_ascii=False)
     except Exception as e:
-        print(f"Error - Could not save configuration file: {e}")
-        sys.exit(1)
+        raise RuntimeError(f"Could not save configuration file: {e}") from e
 
 def load_text_replacements(country_code: str):
     """

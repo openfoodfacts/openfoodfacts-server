@@ -22,7 +22,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 from bs4 import BeautifulSoup
 import json
 import requests
-import sys
 from time import sleep
 
 HEADERS = {'User-Agent': 'packager-openfoodfacts'}
@@ -36,8 +35,8 @@ def download_excel_file(country_name: str, url: str, output_file: str, keyword: 
     1. Keyword search mode (keyword provided):
        - Scrapes the page for Excel files matching the keyword
        - Compares found filename with expected_file_name
-       - Exits early if filename matches (no update needed)
-       - Returns the current filename found
+       - Returns None if filename matches (no update needed)
+       - Returns the current filename if different
        
     2. Direct download mode (keyword is None):
        - Directly downloads the file at expected_file_name from the URL
@@ -51,11 +50,16 @@ def download_excel_file(country_name: str, url: str, output_file: str, keyword: 
         keyword: Optional keyword to search for in Excel file links (e.g., 'svi odobreni objekti').
                 If None, downloads expected_file_name directly.
         expected_file_name: The expected filename for comparison (keyword mode) or direct download (no keyword mode).
-                           In keyword mode: exits with code 0 if found filename matches this.
+                           In keyword mode: returns None if found filename matches this.
                            In direct mode: appended to URL for download.
     
     Returns:
-        str or None: Current filename if keyword mode, None if direct mode
+        str or None: Current filename if new version found in keyword mode, None if no update needed or direct mode
+        
+    Raises:
+        FileNotFoundError: If no Excel files found or keyword doesn't match any file
+        ValueError: If expected_file_name not provided in direct mode
+        RuntimeError: If download fails
     """
     print(f"\n{country_name} - Step - Downloading Excel file from {url}")
     
@@ -73,8 +77,7 @@ def download_excel_file(country_name: str, url: str, output_file: str, keyword: 
                     excel_files.append(href)
             
             if not excel_files:
-                print(f"{country_name} - Error - Could not find any Excel file links in {url}.")
-                sys.exit(1)
+                raise FileNotFoundError(f"Could not find any Excel file links in {url}.")
 
             excel_link = None
             for file_url in excel_files:
@@ -83,15 +86,14 @@ def download_excel_file(country_name: str, url: str, output_file: str, keyword: 
                     break
             
             if not excel_link:
-                print(f"{country_name} - Error - Could not find Excel file matching keyword '{keyword}' in {url}.")
-                sys.exit(1)
+                raise FileNotFoundError(f"Could not find Excel file matching keyword '{keyword}' in {url}.")
 
             current_filename = excel_link.split('/')[-1]
             
             if expected_file_name:
                 if current_filename == expected_file_name:
                     print(f"{country_name} - Info - File '{current_filename}' already processed. No update needed.")
-                    sys.exit(0)
+                    return None
                 else:
                     print(f"{country_name} - Info - New version detected: '{current_filename}' (expected: '{expected_file_name}')")
             
@@ -107,8 +109,7 @@ def download_excel_file(country_name: str, url: str, output_file: str, keyword: 
             
         else:
             if not expected_file_name:
-                print(f"{country_name} - Error - expected_file_name must be provided when keyword is None")
-                sys.exit(1)
+                raise ValueError("expected_file_name must be provided when keyword is None")
             
             file_url = f"{url.rstrip('/')}/{expected_file_name}"
             print(f"{country_name} - Info - Direct download mode: {file_url}")
@@ -124,11 +125,10 @@ def download_excel_file(country_name: str, url: str, output_file: str, keyword: 
             return None
         
     except requests.exceptions.RequestException as e:
-        print(f"{country_name} - Error - Downloading file: {e}")
-        sys.exit(1)
+        raise RuntimeError(f"Failed to download file: {e}") from e
 
 
-def cached_get(debug: bool, country_name: str, url: str, cache) -> list:
+def cached_get(debug: bool, country_name: str, url: str, cache, sleep_duration: float = 2.0) -> list:
     """
     Get data from URL with caching support.
     
@@ -137,6 +137,7 @@ def cached_get(debug: bool, country_name: str, url: str, cache) -> list:
         country_name: Name of the country for logging
         url: The URL to fetch
         cache: DBM cache object
+        sleep_duration: Delay in seconds between API requests (default: 2.0 for Nominatim policy compliance)
         
     Returns:
         JSON response as list/dict
@@ -155,19 +156,17 @@ def cached_get(debug: bool, country_name: str, url: str, cache) -> list:
     while restart:
         try:
             response = requests.get(url, headers=HEADERS)
-            # 1 request per second (Nominatim usage policy) - increased to 2 seconds for safety
-            sleep(2)
+            # 1 request per second (Nominatim usage policy) - configurable via sleep_duration
+            sleep(sleep_duration)
         except (requests.exceptions.RequestException, KeyError, IndexError) as e:
             print(f"{country_name} - Error - Request failed: {e}")
             return []
 
         if response.status_code == 403:
-            print(f"{country_name} - Error - HTTP 403 (too many requests). Queries on API are too frequent, increase sleep time")
-            sys.exit(1)
+            raise RuntimeError("HTTP 403 (too many requests). Queries on API are too frequent, increase sleep time")
         
         if response.status_code != 200:
-            print(f"{country_name} - Error - Unexpected HTTP {response.status_code} for URL: {url}")
-            sys.exit(1)
+            raise RuntimeError(f"Unexpected HTTP {response.status_code} for URL: {url}")
             
         data = response.json()
         restart = False

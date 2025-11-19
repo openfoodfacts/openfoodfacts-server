@@ -21,7 +21,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 import csv
 import re
-import sys
 
 from common.csv_utils import get_data_rows, normalize_text
 from common.io import write_csv
@@ -157,5 +156,4 @@ def preprocess_csv_croatia(country_name: str, input_csv: str, output_csv: str):
         print(f"{country_name} - Info - Preprocessed CSV Croatia saved: {output_csv} (rows: {len(output_rows)})")
         
     except Exception as e:
-        print(f"{country_name} - Error - preprocessing CSV Croatia: {e}")
-        sys.exit(1)
+        raise RuntimeError(f"Failed to preprocess CSV Croatia: {e}") from e

@@ -21,8 +21,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 import csv
 import dbm
-import re
-import sys
+from urllib.parse import urlencode
 
 from common.download import cached_get
 from common.io import write_csv
@@ -31,40 +30,53 @@ from common.io import write_csv
 CACHE_DB_BASE = 'geocode_cache'
 
 
-def no_results_update_query(country_name: str, url: str, i: int, code: str) -> str:
+def build_nominatim_url(params: dict) -> str:
     """
-    Update query URL when no results are found by removing components.
+    Build Nominatim API URL from parameters.
     
     Args:
-        url: The original URL
-        i: Iteration counter (1-3)
+        params: Dictionary of query parameters
+        
+    Returns:
+        Complete URL string
+    """
+    base_url = "https://nominatim.openstreetmap.org/search.php"
+    query_string = urlencode({k: v for k, v in params.items() if v})
+    return f"{base_url}?{query_string}"
+
+
+def simplify_query_params(country_name: str, params: dict, attempt: int, code: str) -> dict:
+    """
+    Simplify query parameters when no results are found.
+    
+    Args:
+        country_name: Full country name for logging
+        params: Current query parameters
+        attempt: Attempt number (1-3)
         code: The establishment code for logging
         
     Returns:
-        Modified URL with component removed
-    """    
-    if i == 1:
-        # Remove street parameter
-        print(f"{country_name} - Warning - {code}: failed with following url: {url}. Retrying without street")
-        url = re.sub(r"street=[^&]*&", "", url)
-    elif i == 2:
-        # Remove postalcode parameter
-        print(f"{country_name} - Warning - {code}: failed with following url: {url}. Retrying without postalcode")
-        url = re.sub(r"postalcode=[^&]*&", "", url)
-    else:  # i == 3
-        # If city has hyphen, keep only first part (e.g., Satnica-Petrijevci -> Satnica)
-        print(f"{country_name} - Warning - {code}: failed with following url: {url}. Retrying with simplified city name (before hyphen)")
-        city_match = re.search(r"city=([^&]*)", url)
-        if city_match:
-            city_value = city_match.group(1)
-            if '-' in city_value:
-                simplified_city = city_value.split('-')[0]
-                url = re.sub(r"city=[^&]*", f"city={simplified_city}", url)
+        Modified parameters dictionary
+    """
+    params = params.copy()
+    
+    if attempt == 1:
+        if 'street' in params:
+            print(f"{country_name} - Warning - {code}: No results found. Retrying without street")
+            del params['street']
+    elif attempt == 2:
+        if 'postalcode' in params:
+            print(f"{country_name} - Warning - {code}: No results found. Retrying without postalcode")
+            del params['postalcode']
+    elif attempt == 3:
+        if 'city' in params and '-' in params['city']:
+            print(f"{country_name} - Warning - {code}: No results found. Retrying with simplified city name (before hyphen)")
+            params['city'] = params['city'].split('-')[0]
         
-    return url
+    return params
 
 
-def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str, row: list) -> list:
+def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str, row: list, sleep_duration: float = 2.0) -> list:
     """
     Convert address from CSV row to latitude and longitude using Nominatim.
     
@@ -73,6 +85,7 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
         country_name: Full country name (e.g., "Croatia")
         country_code: ISO country code (e.g., "hr")
         row: Standardized CSV row [code, name, street, city, postalcode]
+        sleep_duration: Delay in seconds between API requests (default: 2.0)
         
     Returns:
         [latitude, longitude] as strings
@@ -87,16 +100,17 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
     city = row[3] if len(row) > 3 else ""
     postalcode = row[4] if len(row) > 4 else ""
 
-    url = "https://nominatim.openstreetmap.org/search.php?"
+    # Build query parameters
+    params = {
+        'street': street,
+        'city': city,
+        'postalcode': postalcode,
+        'country': country_name,
+        'countrycodes': country_code,
+        'format': 'jsonv2'
+    }
 
-    if street:
-        url += f"street={street}&"
-    if city:
-        url += f"city={city}&"
-    if postalcode:
-        url += f"postalcode={postalcode}&"
-
-    url += f"country={country_name}&countrycodes={country_code}&format=jsonv2"
+    url = build_nominatim_url(params)
 
     if debug:
         print(f"{country_name} - Debug - {code}: Starting geocoding with initial URL")
@@ -105,7 +119,7 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
     iter_failures = 0
     while failed:
         with dbm.open(cache_db, 'c') as cache:
-            data = cached_get(debug, country_name, url, cache)
+            data = cached_get(debug, country_name, url, cache, sleep_duration)
             if data != []:
                 lat, lng = [data[0]['lat'], data[0]['lon']]
                 if debug:
@@ -115,22 +129,23 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
                 iter_failures += 1
                 print(f"{country_name} - Warning - {code}: No results found (attempt {iter_failures}/3)")
                 if iter_failures <= 3:
-                    url = no_results_update_query(country_name, url, iter_failures, code)
+                    params = simplify_query_params(country_name, params, iter_failures, code)
+                    url = build_nominatim_url(params)
                     if debug:
                         print(f"{country_name} - Debug - {code}: Retrying with modified URL: {url}")
                 else:
-                    # Fail if all attempts fail
-                    print(f"{country_name} - Error - {code}: Could not geocode after {iter_failures} attempts. Final URL was: {url}")
-                    sys.exit(1)
+                    # Fail if all attempts fail - raise with address details for debugging
+                    address_info = f"street='{street}', city='{city}', postalcode='{postalcode}'"
+                    raise RuntimeError(f"{code}: Could not geocode after {iter_failures} attempts. Address: {address_info}. Final URL: {url}")
 
     return [lat, lng]
 
 
-def geocode_csv(debug: bool, country_name: str, country_code: str, input_csv: str, output_csv: str):
+def geocode_csv(debug: bool, country_name: str, country_code: str, input_csv: str, output_csv: str, sleep_duration: float = 2.0) -> tuple:
     """
     Read preprocessed CSV and geocode all addresses.
     
-    proprocessed CSV contains: code, name, street, city, postalcode
+    proprocessed CSV contains: code, name, street, city, postalcode
     
     Args:
         debug: Enable debug logging
@@ -138,11 +153,17 @@ def geocode_csv(debug: bool, country_name: str, country_code: str, input_csv: st
         country_code: ISO country code (e.g., "hr")
         input_csv: Path to the preprocessed CSV file
         output_csv: Path to write the geocoded CSV file
+        sleep_duration: Delay in seconds between API requests (default: 2.0)
+        
+    Returns:
+        Tuple of (success_count, failure_count, total_count)
     """
     print(f"{country_name} - Step - Geocoding addresses from {input_csv}")
     
     rows_output = []
     success_count = 0
+    failure_count = 0
+    failed_codes = []
     
     try:
         with open(input_csv, mode='r', newline='', encoding='utf-8') as csv_file_read:
@@ -155,24 +176,35 @@ def geocode_csv(debug: bool, country_name: str, country_code: str, input_csv: st
                 else:
                     code = row[0] if len(row) > 0 else "Unknown"
                     
-                    lat_lng = convert_address_to_lat_lng(debug, country_name, country_code, row)
-                    
-                    row_output = row + lat_lng
-                    rows_output.append(row_output)
-                    success_count += 1
-                    
-                    print(f"{country_name} - Info - {code} added successfully")
+                    try:
+                        lat_lng = convert_address_to_lat_lng(debug, country_name, country_code, row, sleep_duration)
+                        
+                        row_output = row + lat_lng
+                        rows_output.append(row_output)
+                        success_count += 1
+                        
+                        print(f"{country_name} - Info - {code} added successfully")
+                        
+                    except RuntimeError as e:
+                        failure_count += 1
+                        failed_codes.append(code)
+                        print(f"{country_name} - Error - {code}: Failed to geocode (row {i}). {e}")
+                        # Skip this row - do not add to output
                     
                     if i % 50 == 0:
-                        print(f"{country_name} - Info - Processed {i} rows: {success_count} geocoded")
-    except FileNotFoundError:
-        print(f"{country_name} - Error - Source file '{input_csv}' not found.")
-        sys.exit(1)
+                        print(f"{country_name} - Info - Processed {i} rows: {success_count} geocoded, {failure_count} failed")
+    except FileNotFoundError as e:
+        raise FileNotFoundError(f"Source file '{input_csv}' not found") from e
     except Exception as e:
-        print(f"{country_name} - Error - Reading source file: {e}")
-        sys.exit(1)
+        raise RuntimeError(f"Error reading source file: {e}") from e
     
     write_csv(country_name, output_csv, rows_output)
     
-    print(f"{country_name} - Info - Geocoding complete. Total rows geocoded: {success_count}")
+    total_count = success_count + failure_count
+    print(f"{country_name} - Info - Geocoding complete. Total: {total_count}, Success: {success_count}, Failed: {failure_count}")
+    
+    if failure_count > 0:
+        print(f"{country_name} - Warning - Failed codes: {', '.join(failed_codes[:10])}" + (" ..." if len(failed_codes) > 10 else ""))
+    
+    return (failure_count, total_count)
 

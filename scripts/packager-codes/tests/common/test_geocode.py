@@ -1,6 +1,5 @@
 import pytest
 from unittest.mock import MagicMock, patch
-import tempfile
 
 from common import geocode
 
@@ -10,28 +9,24 @@ def fake_cache():
     """Simulate a cache dictionary for dbm."""
     return {}
 
-# tests for no_results_update_query function
+# tests for simplify_query_params function
 
-def test_no_results_update_query_street_removal():
-    url = "https://example.com/search.php?street=Main&city=Test&postalcode=123&country=Country&countrycodes=cc&format=jsonv2"
-    updated_url = geocode.no_results_update_query("Testland", url, 1, "CODE")
-    assert "street=" not in updated_url
-    assert "city=Test" in updated_url
-    assert "postalcode=123" in updated_url
+def test_simplify_query_params_street_removal():
+    params = {'street': 'Main', 'city': 'Test', 'postalcode': '123', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
+    updated_params = geocode.simplify_query_params("Testland", params, 1, "CODE")
+    assert updated_params == {'city': 'Test', 'postalcode': '123', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
 
 
-def test_no_results_update_query_postal_removal():
-    url = "https://example.com/search.php?city=Test&postalcode=123&country=Country&countrycodes=cc&format=jsonv2"
-    updated_url = geocode.no_results_update_query("Testland", url, 2, "CODE")
-    assert "postalcode=" not in updated_url
-    assert "city=Test" in updated_url
+def test_simplify_query_params_postal_removal():
+    params = {'city': 'Test', 'postalcode': '123', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
+    updated_params = geocode.simplify_query_params("Testland", params, 2, "CODE")
+    assert updated_params == {'city': 'Test', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
 
 
-def test_no_results_update_query_simplify_city():
-    url = "https://example.com/search.php?city=New-City&country=Country&countrycodes=cc&format=jsonv2"
-    updated_url = geocode.no_results_update_query("Testland", url, 3, "CODE")
-    assert "city=New" in updated_url
-    assert "City" not in updated_url
+def test_simplify_query_params_simplify_city():
+    params = {'city': 'New-City', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
+    updated_params = geocode.simplify_query_params("Testland", params, 3, "CODE")
+    assert updated_params == {'city': 'New', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
 
 # tests for convert_address_to_lat_lng function
 
@@ -74,7 +69,11 @@ def test_geocode_csv_writes(tmp_path):
     with patch("common.geocode.dbm.open", MagicMock()), \
          patch("common.geocode.convert_address_to_lat_lng", return_value=["12.34", "56.78"]), \
          patch("common.geocode.write_csv") as mock_write_csv:
-        geocode.geocode_csv(True, "Testland", "cc", str(input_csv), str(output_csv))
+        failure_count, total_count = geocode.geocode_csv(True, "Testland", "cc", str(input_csv), str(output_csv))
+    
+    # Check return values
+    assert failure_count == 0
+    assert total_count == 1
     
     # write_csv called with header + lat/lng row
     rows = mock_write_csv.call_args[0][2]

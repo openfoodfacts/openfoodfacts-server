@@ -22,7 +22,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import csv
 import os
 import shutil
-import sys
 
 PACKAGER_CODES_DIR = '../../packager-codes'
 
@@ -43,8 +42,7 @@ def write_csv(country_name: str, output_file: str, rows: list):
             writer.writerows(rows)
         print(f"{country_name} - Info - Successfully wrote {len(rows)} rows to {output_file}")
     except Exception as e:
-        print(f"{country_name} - Error - Writing output file: {e}")
-        sys.exit(1)
+        raise RuntimeError(f"Failed to write output file: {e}") from e
 
 
 def move_output_to_packager_codes(country_name: str, country_code: str, target_file: str):
@@ -57,8 +55,7 @@ def move_output_to_packager_codes(country_name: str, country_code: str, target_f
         target_file: The output file to move
     """
     if not os.path.exists(target_file):
-        print(f"{country_name} - Error - Output file {target_file} not found")
-        sys.exit(1)
+        raise FileNotFoundError(f"Output file {target_file} not found")
     
     os.makedirs(PACKAGER_CODES_DIR, exist_ok=True)
     

@@ -20,7 +20,6 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 import pandas as pd
-import sys
 
 def convert_excel_to_csv(country_name: str, excel_file: str, csv_file: str):
     """
@@ -43,13 +42,11 @@ def convert_excel_to_csv(country_name: str, excel_file: str, csv_file: str):
                 print(f"{country_name} - Warning - Failed to read Excel with {engine} engine: {e}")
                 continue
         if df is None:
-            print(f"{country_name} - Error - Could not read Excel file with any engine")
-            sys.exit(1)
+            raise RuntimeError("Could not read Excel file with any engine")
         
         df.to_csv(csv_file, index=False, header=False, encoding='utf-8')
 
         print(f"{country_name} - Info - Converted to CSV: {csv_file} (rows: {len(df)}, columns: {len(df.columns)})")
         
     except Exception as e:
-        print(f"{country_name} - Error - Converting Excel to CSV: {e}")
-        sys.exit(1)
+        raise RuntimeError(f"Failed to convert Excel to CSV: {e}") from e

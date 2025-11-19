@@ -23,7 +23,7 @@ def test_write_csv_exception(monkeypatch, tmp_path):
 
     monkeypatch.setattr("builtins.open", mock_open)
 
-    with pytest.raises(SystemExit):
+    with pytest.raises(RuntimeError, match="Failed to write output file"):
         io.write_csv("Testland", str(tmp_path / "output.csv"), [["a", "b"]])
 
 # test for move_output_to_packager_codes function
@@ -48,7 +48,7 @@ def test_move_output_file_missing(tmp_path, monkeypatch):
     missing_file = tmp_path / "missing.csv"
     monkeypatch.setattr(io, "PACKAGER_CODES_DIR", str(tmp_path / "packager-codes"))
 
-    with pytest.raises(SystemExit):
+    with pytest.raises(FileNotFoundError, match="Output file .* not found"):
         io.move_output_to_packager_codes("Testland", "tl", str(missing_file))
 
 # test for cleanup_temp_files function
