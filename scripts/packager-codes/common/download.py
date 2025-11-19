@@ -132,6 +132,10 @@ def cached_get(debug: bool, country_name: str, url: str, cache, sleep_duration: 
     """
     Get data from URL with caching support.
     
+    This is notably used to query nominatim. 
+    The cache can be a dbm database to enable persistent cache,
+    allowing to only fetch new addresses as data source is updated.
+    
     Args:
         debug: Enable debug logging
         country_name: Name of the country for logging
