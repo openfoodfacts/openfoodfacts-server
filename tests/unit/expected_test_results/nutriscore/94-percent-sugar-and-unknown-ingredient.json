@@ -123,7 +123,8 @@
       "en:nutrition-no-fiber",
       "en:nutriscore-not-computed",
       "en:nutrition-fruits-vegetables-nuts",
-      "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:nutrition-fruits-vegetables-legumes"
    ],
    "nova_group" : 2,
    "nova_group_debug" : "",
@@ -168,7 +169,7 @@
          "data" : {
             "energy" : null,
             "fiber" : null,
-            "fruits_vegetables_legumes" : null,
+            "fruits_vegetables_legumes" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,

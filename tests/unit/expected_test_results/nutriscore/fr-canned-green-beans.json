@@ -151,8 +151,7 @@
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts",
       "en:nutrition-all-nutriscore-values-known",
-      "en:nutrition-fruits-vegetables-legumes-from-category",
-      "en:nutrition-fruits-vegetables-legumes-from-category-en-vegetables",
+      "en:nutrition-fruits-vegetables-legumes",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a"
    ],
@@ -184,8 +183,8 @@
       "en:salt-in-moderate-quantity"
    ],
    "nutriments" : {
-      "nutrition-score-fr" : -4,
-      "nutrition-score-fr_100g" : -4
+      "nutrition-score-fr" : 0,
+      "nutrition-score-fr_100g" : 0
    },
    "nutriscore" : {
       "2021" : {
@@ -240,7 +239,7 @@
                   {
                      "id" : "sugars",
                      "new_grade" : "a",
-                     "new_score" : -5,
+                     "new_score" : -1,
                      "new_value" : 3.4,
                      "points" : 1,
                      "points_max" : 15,
@@ -257,7 +256,7 @@
                   {
                      "id" : "salt",
                      "new_grade" : "a",
-                     "new_score" : -5,
+                     "new_score" : -1,
                      "new_value" : 1,
                      "points" : 5,
                      "points_max" : 20,
@@ -269,7 +268,7 @@
                   {
                      "id" : "proteins",
                      "new_grade" : "a",
-                     "new_score" : -5,
+                     "new_score" : -1,
                      "new_value" : 7.3,
                      "points" : 2,
                      "points_max" : 7,
@@ -279,7 +278,7 @@
                   {
                      "id" : "fiber",
                      "new_grade" : "a",
-                     "new_score" : -5,
+                     "new_score" : -1,
                      "new_value" : 6.4,
                      "points" : 3,
                      "points_max" : 5,
@@ -288,10 +287,13 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
-                     "points" : 5,
+                     "new_grade" : "a",
+                     "new_score" : -1,
+                     "new_value" : 61,
+                     "points" : 1,
                      "points_max" : 5,
                      "unit" : "%",
-                     "value" : 90
+                     "value" : 50
                   }
                ]
             },
@@ -309,14 +311,14 @@
                "fiber",
                "fruits_vegetables_legumes"
             ],
-            "positive_points" : 10,
+            "positive_points" : 6,
             "positive_points_max" : 17
          },
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -4
+         "score" : 0
       }
    },
    "nutriscore_2021_tags" : [
@@ -374,10 +376,10 @@
             },
             {
                "id" : "fruits_vegetables_legumes",
-               "points" : 5,
+               "points" : 1,
                "points_max" : 5,
                "unit" : "%",
-               "value" : 90
+               "value" : 50
             }
          ]
       },
@@ -396,13 +398,13 @@
          "fiber",
          "fruits_vegetables_legumes"
       ],
-      "positive_points" : 10,
+      "positive_points" : 6,
       "positive_points_max" : 17,
-      "score" : -4
+      "score" : 0
    },
    "nutriscore_grade" : "a",
-   "nutriscore_score" : -4,
-   "nutriscore_score_opposite" : 4,
+   "nutriscore_score" : 0,
+   "nutriscore_score_opposite" : 0,
    "nutriscore_tags" : [
       "a"
    ],
@@ -1133,8 +1135,6 @@
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
-   "nutrition_score_warning_fruits_vegetables_legumes_from_category" : "en:vegetables",
-   "nutrition_score_warning_fruits_vegetables_legumes_from_category_value" : 90,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Fruits and vegetables",
    "pnns_groups_1_tags" : [

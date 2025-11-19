@@ -149,6 +149,7 @@
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts",
       "en:nutrition-all-nutriscore-values-known",
+      "en:nutrition-fruits-vegetables-legumes",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-e-2023-e"
    ],
@@ -180,8 +181,8 @@
       "en:salt-in-moderate-quantity"
    ],
    "nutriments" : {
-      "nutrition-score-fr" : 17,
-      "nutrition-score-fr_100g" : 17
+      "nutrition-score-fr" : 15,
+      "nutrition-score-fr_100g" : 15
    },
    "nutriscore" : {
       "2021" : {
@@ -236,7 +237,7 @@
                   {
                      "id" : "sugars",
                      "new_grade" : "e",
-                     "new_score" : 15,
+                     "new_score" : 13,
                      "new_value" : 10,
                      "points" : 10,
                      "points_max" : 10,
@@ -253,7 +254,7 @@
                   {
                      "id" : "salt",
                      "new_grade" : "e",
-                     "new_score" : 16,
+                     "new_score" : 14,
                      "new_value" : 0.4,
                      "points" : 2,
                      "points_max" : 20,
@@ -272,7 +273,7 @@
                   {
                      "id" : "proteins",
                      "new_grade" : "e",
-                     "new_score" : 12,
+                     "new_score" : 10,
                      "new_value" : 2.5,
                      "points" : 0,
                      "points_max" : 7,
@@ -288,10 +289,13 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
-                     "points" : 0,
+                     "new_grade" : "e",
+                     "new_score" : 13,
+                     "new_value" : 61,
+                     "points" : 2,
                      "points_max" : 6,
                      "unit" : "%",
-                     "value" : null
+                     "value" : 57
                   }
                ]
             },
@@ -309,14 +313,14 @@
                "fiber",
                "fruits_vegetables_legumes"
             ],
-            "positive_points" : 0,
+            "positive_points" : 2,
             "positive_points_max" : 18
          },
          "grade" : "e",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : 17
+         "score" : 15
       }
    },
    "nutriscore_2021_tags" : [
@@ -381,10 +385,10 @@
             },
             {
                "id" : "fruits_vegetables_legumes",
-               "points" : 0,
+               "points" : 2,
                "points_max" : 6,
                "unit" : "%",
-               "value" : null
+               "value" : 57
             }
          ]
       },
@@ -403,13 +407,13 @@
          "fiber",
          "fruits_vegetables_legumes"
       ],
-      "positive_points" : 0,
+      "positive_points" : 2,
       "positive_points_max" : 18,
-      "score" : 17
+      "score" : 15
    },
    "nutriscore_grade" : "e",
-   "nutriscore_score" : 17,
-   "nutriscore_score_opposite" : -17,
+   "nutriscore_score" : 15,
+   "nutriscore_score_opposite" : -15,
    "nutriscore_tags" : [
       "e"
    ],

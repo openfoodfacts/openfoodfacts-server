@@ -36,6 +36,28 @@
       "en:canned-pineapples"
    ],
    "food_groups_tags" : [],
+   "improvements_data" : {
+      "en:better-nutri-score-with-less-sugars" : {
+         "current_nutriscore_grade" : "b",
+         "current_value" : 3.6,
+         "difference_percent" : 5.55555555555556,
+         "new_nutriscore_grade" : "a",
+         "new_value" : 3.4,
+         "nutrient" : "sugars"
+      },
+      "en:better-nutri-score-with-much-less-salt" : {
+         "current_nutriscore_grade" : "b",
+         "current_value" : 1.2,
+         "difference_percent" : 16.6666666666667,
+         "new_nutriscore_grade" : "a",
+         "new_value" : 1,
+         "nutrient" : "salt"
+      }
+   },
+   "improvements_tags" : [
+      "en:better-nutri-score-with-less-sugars",
+      "en:better-nutri-score-with-much-less-salt"
+   ],
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
@@ -124,10 +146,10 @@
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts",
       "en:nutrition-all-nutriscore-values-known",
-      "en:nutrition-fruits-vegetables-legumes-from-category",
-      "en:nutrition-fruits-vegetables-legumes-from-category-en-canned-fruits",
-      "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-a-2023-a"
+      "en:nutrition-fruits-vegetables-legumes",
+      "en:nutriscore-2021-different-from-2023",
+      "en:nutriscore-2021-better-than-2023",
+      "en:nutriscore-2021-a-2023-b"
    ],
    "nova_group" : 3,
    "nova_group_debug" : "",
@@ -157,8 +179,8 @@
       "en:salt-in-moderate-quantity"
    ],
    "nutriments" : {
-      "nutrition-score-fr" : -4,
-      "nutrition-score-fr_100g" : -4
+      "nutrition-score-fr" : 1,
+      "nutrition-score-fr_100g" : 1
    },
    "nutriscore" : {
       "2021" : {
@@ -211,9 +233,11 @@
                      "value" : 315
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "sugars",
                      "new_grade" : "a",
-                     "new_score" : -5,
+                     "new_score" : 0,
                      "new_value" : 3.4,
                      "points" : 1,
                      "points_max" : 15,
@@ -228,9 +252,11 @@
                      "value" : 0.1
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "salt",
                      "new_grade" : "a",
-                     "new_score" : -5,
+                     "new_score" : 0,
                      "new_value" : 1,
                      "points" : 5,
                      "points_max" : 20,
@@ -240,9 +266,11 @@
                ],
                "positive" : [
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "proteins",
                      "new_grade" : "a",
-                     "new_score" : -5,
+                     "new_score" : 0,
                      "new_value" : 7.3,
                      "points" : 2,
                      "points_max" : 7,
@@ -250,9 +278,11 @@
                      "value" : 5
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "fiber",
                      "new_grade" : "a",
-                     "new_score" : -5,
+                     "new_score" : 0,
                      "new_value" : 6.4,
                      "points" : 3,
                      "points_max" : 5,
@@ -260,11 +290,16 @@
                      "value" : 5.3
                   },
                   {
+                     "current_grade" : "b",
+                     "current_score" : 1,
                      "id" : "fruits_vegetables_legumes",
-                     "points" : 5,
+                     "new_grade" : "a",
+                     "new_score" : 0,
+                     "new_value" : 41,
+                     "points" : 0,
                      "points_max" : 5,
                      "unit" : "%",
-                     "value" : 90
+                     "value" : 10
                   }
                ]
             },
@@ -282,21 +317,21 @@
                "fiber",
                "fruits_vegetables_legumes"
             ],
-            "positive_points" : 10,
+            "positive_points" : 5,
             "positive_points_max" : 17
          },
-         "grade" : "a",
+         "grade" : "b",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -4
+         "score" : 1
       }
    },
    "nutriscore_2021_tags" : [
       "a"
    ],
    "nutriscore_2023_tags" : [
-      "a"
+      "b"
    ],
    "nutriscore_data" : {
       "components" : {
@@ -347,16 +382,16 @@
             },
             {
                "id" : "fruits_vegetables_legumes",
-               "points" : 5,
+               "points" : 0,
                "points_max" : 5,
                "unit" : "%",
-               "value" : 90
+               "value" : 10
             }
          ]
       },
       "count_proteins" : 1,
       "count_proteins_reason" : "negative_points_less_than_11",
-      "grade" : "a",
+      "grade" : "b",
       "is_beverage" : 0,
       "is_cheese" : 0,
       "is_fat_oil_nuts_seeds" : 0,
@@ -369,15 +404,15 @@
          "fiber",
          "fruits_vegetables_legumes"
       ],
-      "positive_points" : 10,
+      "positive_points" : 5,
       "positive_points_max" : 17,
-      "score" : -4
+      "score" : 1
    },
-   "nutriscore_grade" : "a",
-   "nutriscore_score" : -4,
-   "nutriscore_score_opposite" : 4,
+   "nutriscore_grade" : "b",
+   "nutriscore_score" : 1,
+   "nutriscore_score_opposite" : -1,
    "nutriscore_tags" : [
-      "a"
+      "b"
    ],
    "nutriscore_version" : "2023",
    "nutrition" : {
@@ -541,15 +576,13 @@
          }
       ]
    },
-   "nutrition_grade_fr" : "a",
-   "nutrition_grades" : "a",
+   "nutrition_grade_fr" : "b",
+   "nutrition_grades" : "b",
    "nutrition_grades_tags" : [
-      "a"
+      "b"
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
-   "nutrition_score_warning_fruits_vegetables_legumes_from_category" : "en:canned-fruits",
-   "nutrition_score_warning_fruits_vegetables_legumes_from_category_value" : 90,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "unknown",
    "pnns_groups_1_tags" : [

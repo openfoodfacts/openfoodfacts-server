@@ -132,6 +132,7 @@
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts",
       "en:nutrition-all-nutriscore-values-known",
+      "en:nutrition-fruits-vegetables-legumes",
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-a-2023-b"
@@ -262,10 +263,13 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
+                     "new_grade" : "b",
+                     "new_score" : -6,
+                     "new_value" : 41,
                      "points" : 0,
                      "points_max" : 6,
                      "unit" : "%",
-                     "value" : null
+                     "value" : 8
                   }
                ]
             },
@@ -358,7 +362,7 @@
                "points" : 0,
                "points_max" : 6,
                "unit" : "%",
-               "value" : null
+               "value" : 8
             }
          ]
       },

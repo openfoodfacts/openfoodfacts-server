@@ -106,8 +106,7 @@
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts",
       "en:nutrition-all-nutriscore-values-known",
-      "en:nutrition-fruits-vegetables-legumes-from-category",
-      "en:nutrition-fruits-vegetables-legumes-from-category-en-vegetables",
+      "en:nutrition-fruits-vegetables-legumes",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a"
    ],
@@ -233,7 +232,7 @@
                      "points" : 5,
                      "points_max" : 5,
                      "unit" : "%",
-                     "value" : 90
+                     "value" : 100
                   }
                ]
             },
@@ -319,7 +318,7 @@
                "points" : 5,
                "points_max" : 5,
                "unit" : "%",
-               "value" : 90
+               "value" : 100
             }
          ]
       },
@@ -1075,8 +1074,6 @@
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
-   "nutrition_score_warning_fruits_vegetables_legumes_from_category" : "en:vegetables",
-   "nutrition_score_warning_fruits_vegetables_legumes_from_category_value" : 90,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Fruits and vegetables",
    "pnns_groups_1_tags" : [

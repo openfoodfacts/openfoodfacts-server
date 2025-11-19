@@ -1195,14 +1195,9 @@ sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($prod
 
 	my $fruits_vegetable_nuts
 		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts", "value");
+	my $fruits_vegetable_nuts_source = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts", "source");
 	my $fruits_vegetable_nuts_dried
 		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts-dried", "value");
-	my $fruits_vegetable_nuts_estimate
-		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts-estimate",
-		"value");
-	my $fruits_vegetable_nuts_estimate_from_ingredients
-		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients",
-		"fruits-vegetables-nuts-estimate-from-ingredients", "value");
 
 	if (defined $fruits_vegetable_nuts_dried) {
 		$fruits = 2 * $fruits_vegetable_nuts_dried;
@@ -1217,21 +1212,14 @@ sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($prod
 	}
 	elsif (defined $fruits_vegetable_nuts) {
 		$fruits = $fruits_vegetable_nuts;
-		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts");
-	}
-	elsif (defined $fruits_vegetable_nuts_estimate) {
-		$fruits = $fruits_vegetable_nuts_estimate;
-		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
-		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-estimate");
-	}
-	# Use the estimate from the ingredients list if we have one
-	elsif ( (not defined $fruits)
-		and (defined $fruits_vegetable_nuts_estimate_from_ingredients))
-	{
-		$fruits = $fruits_vegetable_nuts_estimate_from_ingredients;
-		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
-		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
-		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients");
+		if ($fruits_vegetable_nuts_source eq "estimated") {
+			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
+			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
+			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients");
+		}			
+		else {
+			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts");
+		}
 	}
 	else {
 		# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
@@ -1342,14 +1330,22 @@ sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref) {
 
 	my $fruits_vegetables_legumes
 		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients",
-		"fruits-vegetables-legumes-estimate-from-ingredients", "value");
+		"fruits-vegetables-legumes", "value");
 
-	# First get a conservative estimate from the ingredients list
 	if (defined $fruits_vegetables_legumes) {
-		$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients} = 1;
-		$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value}
+		# Check if the source is estimated
+		if (deep_get($product_ref, "nutrition", "aggregated_set", "nutrients",
+				"fruits-vegetables-legumes", "source")
+			eq "estimated")
+		{
+			$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients} = 1;
+			$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value}
 			= $fruits_vegetables_legumes;
-		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients");
+			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients");
+		}
+		else {
+			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes");
+		}
 	}
 	# if we do not have ingredients, try to use the product category
 	else {
