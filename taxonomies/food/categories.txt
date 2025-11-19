@@ -44224,6 +44224,7 @@ es: Chips de patatas fritas onduladas
 fr: Chips de pommes de terre ondulées
 hr: Valoviti čips od krumpira
 lt: Banguoti bulvių traškučiai
+nl: Ribbelchips
 
 < en:Potato crisps
 en: Light potato crisps, Potato crisps with reduced fat
@@ -44237,6 +44238,11 @@ agribalyse_food_code:en: 4038
 ciqual_food_code:en: 4038
 ciqual_food_name:en: Potato crisps and related, reduced fat
 ciqual_food_name:fr: Chips de pommes de terre et assimilés, allégées en matière grasse
+
+< en:Potato crisps
+en: Potato crisps with salt
+nl: Aardappelchips met zout
+opposite:en: en:flavoured-potato-crisps
 
 < en:Potato crisps
 en: Potato crisps in sunflower oil
@@ -44283,6 +44289,7 @@ it: Patatine aromatizzate
 lt: Traškučiai su skoniu
 nl: Aardappelchips met smaak
 pt: Batatas fritas aromatizadas
+opposite:en: en:potato-crisps-with-salt
 
 < en:Flavoured potato crisps
 en: Ketchup crisps
@@ -52004,7 +52011,7 @@ ca: Llet en pols
 de: Milchpulver, Trockenmilchpulver
 es: Leche en polvo
 fi: maitojauheet
-fr: Laits en poudre, farines de lait, laits déshydratés
+fr: Laits en poudre, farines de lait, laits déshydratés, poudre de lait
 hr: Mlijeko u prahu
 it: Latte in polvere
 lt: Pieno milteliai
@@ -53291,7 +53298,7 @@ hr: Sirni namazi
 hu: Kenhető sajtok
 it: Formaggi spalmabili
 lt: Sūrio užtepėlės
-nl: Smeerkazen
+nl: Smeerkazen, Smeerkaas
 pt: Queijos para barrar
 agribalyse_proxy_food_code:en: 12315
 agribalyse_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, in a tub
@@ -59722,7 +59729,7 @@ en: Herb flavoured oils
 fr: Huiles aromatisées aux herbes
 hr: Ulja s okusom bilja
 ja: ハーブオイル
-nl: Gearomatiseerde oliën olies met kruiden
+nl: Gearomatiseerde oliën met kruiden
 
 < en:Vegetable oils
 en: Apricot kernel oil
@@ -63084,6 +63091,7 @@ en: Crunchy cereal clusters
 fr: Pépites de céréales croustillantes
 hr: Hrskave grozdove žitarica
 it: Croccanti grappoli di cereali
+nl: Krokante mueslis, Krokante muesli
 
 < en:Cereals with fruits
 < en:Crunchy cereal clusters
@@ -65395,18 +65403,40 @@ ciqual_food_name:en: Baker's yeast, compressed
 
 < en:Food additives
 en: Baking powder or raising agent
-bg: Бакпулвер
-de: Backpulver
+da: Bagepulver eller hævemiddel
 es: Levadura en polvo o gasificante
 fi: Leivinjauhe tai nostatusaine
 fr: levure chimique
 hr: Prašak za pecivo ili sredstvo za dizanje
 it: Polvere da cottura o agente lievitante
 lt: Kepimo milteliai arba kildinimo medžiaga
-nl: Bakpoeders
+sv: Bakpulver eller jäsmedel, Bakpulver eller hävmedel
 agribalyse_food_code:en: 11046
 ciqual_food_code:en: 11046
 ciqual_food_name:en: Baking powder or raising agent
+
+< en:Baking powder or raising agent
+en: Baking powders, Baking powder
+ar: ذرور الخبز
+bg: Бакпулвер
+ca: Rent químic
+da: Bagepulver
+de: Backpulver
+eo: Bakpulvoro
+et: Küpsetuspulber
+eu: Legami kimiko
+ga: Púdar bácála
+is: Lyftiduft
+ja: ベーキングパウダー
+ko: 베이킹파우더
+nb: Bakepulver
+nl: Bakpoeders
+nv: Biłʼeʼeliníʼ
+pt: Levedura química
+sv: Bakpulver
+zh: 复配膨松剂
+google_product_taxonomy_id:en: 2803
+wikidata:en: Q29476
 
 < en:Food additives
 fr: Poudres à lever
@@ -65444,16 +65474,22 @@ wikidata:en: Q726460
 
 < en:Anticaking agents
 en: Bicarbonates of soda, Sodium bicarbonates, Sodium bicarbonate, Sodium hydrogen carbonate, Baking soda, Bicarbonate of soda
+xx: NaHCO₃, NaHCO3, E500ii, E-500ii
+ar: بيكربونات الصوديوم
 bg: Сода бикарбонат
+da: Natron, Natriumhydrogencarbonat, Natriumbicarbonat
 de: Natron
+eo: Natria bikarbonato, Hidrogenkarbonato de natrio
 es: Bicarbonatos de sodio, Bicarbonato sódico, Bicarbonato de sodio
-fi: ruokasooda
+fi: Ruokasooda, Natriumvetykarbonaatti, Natriumbikarbonaatti
 fr: Bicarbonates de sodium, Bicarbonate de sodium, Bicarbonate de soude, Bicarbonate alimentaire
+ga: Hidrigincharbónáit sóidiam
 hr: Soda bikarbona
 it: Bicarbonato di sodio, Sodio bicarbonato
-la: E-500ii
-lt: Kepimo soda
+lt: Natrio hidrokarbonatas, Natrio bikarbonatas, Kepimo milteliai, Kepimo soda, Maistinė soda
+nb: Natron
 nl: Natriumbicarbonaten, Natriumwaterstofcarbonaten, Dubbelkoolzure sodas
+sv: Natriumvätekarbonater, Bikarbonater, Natriumbikarbonater
 agribalyse_food_code:en: 11507
 ciqual_food_code:en: 11507
 ciqual_food_name:en: Sodium bicarbonate
@@ -70129,6 +70165,14 @@ agribalyse_food_code:en: 13004
 ciqual_food_code:en: 13004
 ciqual_food_name:en: Avocado, pulp, raw
 ciqual_food_name:fr: Avocat, pulpe, cru
+
+< en:Avocados
+en: Hass avocados
+xx: Hass avocados
+
+< en: Avocados
+en: Ready-to-eat avocados
+nl: Eetrijpe avocados
 
 #### Bananas
 
@@ -79916,15 +79960,6 @@ ciqual_food_name:en: Vol-au-vent, with meat/poultry/quenelle
 < en:Puff pastry meals
 fr: Paniers feuilletés
 nl: Bladerdeegbakjes, Bladerdeegpasteitjes
-
-< en:Puff pastry meals
-en: Small cheese chou, Small cheese pastry puff, Gougère
-fr: Gougère
-agribalyse_food_code:en: 25437
-ciqual_food_code:en: 25437
-ciqual_food_name:en: Small cheese chou-pastry puff
-ciqual_food_name:fr: Gougère
-wikidata:en: Q655973
 
 < en:Meals with meat
 < en:Puff pastry meals
@@ -96619,6 +96654,9 @@ origins:en: en:china
 protected_name_file_number:en: PGI-CN-0623
 protected_name_type:en: pgi
 
+< en:Chinese pasta
+nl: Mie
+
 < en:Pastas
 en: Bucatini
 xx: Bucatini
@@ -110264,7 +110302,7 @@ hu: jégsaláta
 it: insalata iceberg, lattuga iceberg
 la: Lactuca sativa var. capitata
 nb: isbergsalat
-nl: ijsbergsla
+nl: IJsbergsla
 pt: alface americana
 sv: Isbergssallad, isbergssallat
 # zh-tw:皺葉萵苣
@@ -117444,6 +117482,11 @@ fr: Toasts bruschetta préparés
 
 < en:Appetizers
 en: Puff pastry appetizers
+fr: Feuilletés apéritifs
+
+< en: Puff pastry appetizers
+en: Mini appetizer croissants
+fr: Mini croissants apéritifs
 
 < en:Puff pastry appetizers
 en: Sausage rolls
@@ -117453,6 +117496,15 @@ hr: Kolutići kobasica
 nl: Saucijzenbroodjes
 food_groups:en: en:salty-and-fatty-products
 pnns_group_2:en: Salty and fatty products
+
+< en:Puff pastry appetizers
+en: Small cheese chou, Small cheese pastry puff, Gougère
+fr: Gougères, Gougère
+agribalyse_food_code:en: 25437
+ciqual_food_code:en: 25437
+ciqual_food_name:en: Small cheese chou-pastry puff
+ciqual_food_name:fr: Gougère
+wikidata:en: Q655973
 
 < en:Sweet snacks
 en: Bars
@@ -119260,7 +119312,7 @@ nl: Crackers (ontbijt), Ontbijtcrackers
 
 < en:Appetizers
 < en:Biscuits and crackers
-en: Crackers(Appetizers)
+en: Crackers (Appetizers), Crackers(Appetizers)
 bg: Крекери
 ca: Galetes salades
 da: Crackers
@@ -119408,12 +119460,6 @@ wikidata:en: Q160525
 fr: mélange Sticks et Bretzels
 
 < en:Crackers(Appetizers)
-en: Puffed salty snacks, Salty snacks puff pastry
-fr: Biscuits apéritifs soufflés, Gâteaux apéritifs soufflés
-hr: Napuhane slane grickalice
-ro: Pufuleți
-
-< en:Crackers(Appetizers)
 en: Salty flaky biscuits
 fr: Biscuits apéritifs feuilletés, Biscuit apéritif feuilleté
 agribalyse_food_code:en: 38407
@@ -119446,9 +119492,15 @@ ciqual_food_code:en: 38401
 ciqual_food_name:en: Salty snacks, crackers, garnished or filled with cheese
 ciqual_food_name:fr: Biscuit apéritif, crackers, garni ou fourré, au fromage
 
+< en:Appetizers
+en: Puffed salty snacks, Salty snacks puff pastry
+fr: Snacks apéritifs soufflés, Biscuits apéritifs soufflés, Gâteaux apéritifs soufflés
+hr: Napuhane slane grickalice
+ro: Pufuleți
+
 < en:Puffed salty snacks
 en: Puffed salty snacks made from maize, Puffed salty snacks made from corn
-fr: Biscuits apéritifs soufflés à base de maïs
+fr: Snacks apéritifs soufflés à base de maïs, Biscuits apéritifs soufflés à base de maïs
 agribalyse_food_code:en: 38400
 ciqual_food_code:en: 38400
 ciqual_food_name:en: Puffed salty snacks, made from maize/corn, without peanuts
@@ -119456,7 +119508,7 @@ ciqual_food_name:fr: Biscuit apéritif soufflé, à base de maïs, sans cacahuè
 
 < en:Puffed salty snacks
 en: Puffed salty snacks made from maize with peanuts, Puffed salty snacks made from corn with peanuts
-fr: Biscuit apéritif soufflé à base de maïs à la cacahuète
+fr: Snacks apéritifs soufflés à base de maïs à la cacahuète, Biscuit apéritif soufflé à base de maïs à la cacahuète
 agribalyse_food_code:en: 38404
 ciqual_food_code:en: 38404
 ciqual_food_name:en: Puffed salty snacks, made from maize/corn, with peanuts
@@ -119464,7 +119516,7 @@ ciqual_food_name:fr: Biscuit apéritif soufflé, à base de maïs, à la cacahu�
 
 < en:Puffed salty snacks
 en: Puffed salty snacks made from potato
-fr: Biscuits apéritifs soufflés à base de pomme de terre, Biscuits apéritifs soufflés à base de pomme de terre type Monster Munch, Monster Munch
+fr: Snacks apéritifs soufflés à base de pomme de terre, Biscuits apéritifs soufflés à base de pomme de terre, Biscuits apéritifs soufflés à base de pomme de terre type Monster Munch, Monster Munch
 agribalyse_food_code:en: 38106
 ciqual_food_code:en: 38106
 ciqual_food_name:en: Puffed salty snacks, made from potato
@@ -119473,7 +119525,7 @@ ciqual_food_name:fr: Biscuit apéritif soufflé, à base de pomme de terre
 < en:Puffed salty snacks
 en: Puffed salty snacks made from potato and soy, Puffed salty snacks (potato/soy based)
 de: Gepuffte salzige Snacks (Kartoffel/Soja)
-fr: Biscuit apéritif soufflé à base de pomme de terre et de soja, Biscuits apéritifs soufflés (à base de pomme de terre/soja)
+fr: Snacks apéritifs soufflés à base de pomme de terre et de soja, Biscuit apéritif soufflé à base de pomme de terre et de soja, Biscuits apéritifs soufflés (à base de pomme de terre/soja)
 hr: Lisnate slane grickalice (na bazi krumpira/soje)
 nl: Gepofte zoutjes (aardappel/soja basis)
 agribalyse_food_code:en: 38108
