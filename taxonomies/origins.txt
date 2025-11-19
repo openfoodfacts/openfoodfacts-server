@@ -5522,6 +5522,7 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Languedoc
 < en: France
 < en: Spain
 fr: Pays-Basque
+es: País Vasco
 
 # still to digest
 
@@ -5544,11 +5545,6 @@ xx: Guadeloupe
 en: Réunion Island
 xx: Réunion Island
 fr: Île de la Réunion
-
-< en: France overseas
-< en: South America
-en: French Guyana
-xx: French Guyana
 
 < en: Central America
 < en: France overseas
@@ -5674,6 +5670,7 @@ en: Brandenburg
 xx: Brandenburg
 bg: Бранденбург
 de: Brandenburg
+fr: Brandebourg
 pl: Brandenburgia
 
 < en:germany
@@ -5681,6 +5678,7 @@ en: Bremen
 xx: Bremen
 bg: Бремен
 de: Bremen
+fr: Brême
 pl: Brema
 
 < en:germany
@@ -5688,22 +5686,28 @@ en: Hamburg
 xx: Hamburg
 bg: Хамбург
 de: Hamburg
+fr: Hambourg
+pl: Hamburg
 
 < en:germany
 en: Hesse, Hessen
 xx: Hessen
 de: Hessen
+fr: Hesse
+pl: Hesja
 
 < en:germany
 en: Mecklenburg-Vorpommern
 xx: Mecklenburg-Vorpommern
 de: Mecklenburg-Vorpommern
+fr: Mecklembourg-Poméranie-Occidentale
 pl: Meklemburgia-Pomorze Przednie
 
 < en:germany
 en: Lower Saxony
 xx: Niedersachsen
 de: Niedersachsen
+fr: Basse-Saxe
 nl: Nedersaksen
 pl: Dolna Saksonia
 iso:en: DE-NI
@@ -5962,6 +5966,7 @@ pl: Anglia
 < en:great-britain
 en: Scotland
 bg: Шотландия
+es: Escocia
 fr: Écosse
 it: Scozia
 nl: Schotland
@@ -5982,9 +5987,12 @@ en: Wales
 bg: Уелс
 fr: Pays de Galles
 nl: Wales
+wikidata:en: Q25
 
 < en:great-britain
 en: Cornwall
+xx: Cornwall
+wikidata:en: Q23148
 
 < en:great-britain
 en: Yorkshire
@@ -5994,6 +6002,7 @@ en: Northern Ireland
 bg: Северна Ирландия
 fr: Irlande du Nord
 nl: Noord-Ierland
+wikidata:en: Q26
 
 # China states
 
@@ -6140,6 +6149,7 @@ yi: אלאבאמא
 yo: Ìpínlẹ̀ Alabama
 za: Alabama
 zh: 亚拉巴马州
+wikidata:en: Q173
 
 < en:united-states
 en: California
@@ -6161,6 +6171,7 @@ pl: Kalifornia
 ru: Калифорния
 sv: Kalifornien
 tr: Kaliforniya
+wikidata:en: Q99
 
 < en:united-states
 en: Florida
@@ -6169,9 +6180,13 @@ fr: Floride
 hu: Florida
 nl: Florida
 pl: Floryda
+sv: Florida
+tr: Florida
+wikidata:en: Q812
 
 < en:united-states
 en: Georgia state, Georgia USA, Georgia in the usa, Georgia in the united states, US-GA
+fr: Géorgie (États-Unis)
 
 < en:united-states
 en: Louisiana, US-LA
@@ -6296,6 +6311,7 @@ xh: ILuwiziyana
 yi: לואיזיאנא
 yo: Louisiana
 zh: 路易斯安那州
+wikidata:en: Q1588
 
 < en:united-states
 en: Mississipi, US-MS
@@ -6419,11 +6435,16 @@ xh: IMisisiphi
 yi: מיסיסיפי
 yo: Ìpínlẹ̀ Mississippi
 zh: 密西西比州
+wikidata:en: Q1494
 
 < en:United States
 en: South Carolina, US-SC
 bg: Южна Каролина
 fr: Caroline du Sud
+it: Carolina del Sud
+nl: Zuid-Carolina
+pl: Karolina Południowa
+wikidata:en: Q1456
 
 < en:united-states
 en: Texas, US-TX
@@ -6551,6 +6572,7 @@ yi: טעקסאס
 yo: Texas
 zh: 德克萨斯州
 zu: Texas
+wikidata:en: Q1439
 
 # State of Palestine
 
@@ -7207,6 +7229,7 @@ xx: FAO 34
 fr: Océan Atlantique Centre-Est, FAO 34, FAO N°34
 hr: ribolovno područje FAO 34
 sl: FAO ribolovno območje 34
+wikidata:en: Q43181427
 
 < en:Atlantic Ocean
 en: Southwest Atlantic Ocean

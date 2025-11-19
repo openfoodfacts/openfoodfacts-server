@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -2451,26 +2451,19 @@ HTML
 
 		# countries map?
 		if (keys %{$countries_map_data} > 0) {
-			$request_ref->{initjs}
-				.= 'var countries_map_data=JSON.parse(' . $json->encode($json->encode($countries_map_data)) . ');'
-				.= 'var countries_map_links=JSON.parse(' . $json->encode($json->encode($countries_map_links)) . ');'
-				.= 'var countries_map_names=JSON.parse(' . $json->encode($json->encode($countries_map_names)) . ');'
-				.= <<"JS";
-displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
-JS
-			$request_ref->{scripts} .= <<SCRIPTS
-<script src="$static_subdomain/js/dist/jsvectormap.js"></script>
-<script src="$static_subdomain/js/dist/world-merc.js"></script>
-<script src="$static_subdomain/js/dist/display-list-of-tags.js"></script>
-SCRIPTS
-				;
-			my $map_html = <<HTML
-  <div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
+			my $mapData = {
+				data => $countries_map_data,
+				links => $countries_map_links,
+				names => $countries_map_names,
+			};
 
-HTML
-				;
+			my $map_template_data_ref = {mapData => $mapData,};
+
+			my $map_html = '';
+			process_template('web/pages/countries_map/map_of_countries.tt.html',
+				$map_template_data_ref, \$map_html, $request_ref)
+				|| ($map_html .= 'template error: ' . $tt->error());
 			$html = $map_html . $html;
-
 		}
 
 		#if ($tagtype eq 'categories') {
@@ -8117,14 +8110,32 @@ JS
 
 	ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service($product_ref);
 
-	# Activate knowledge panels for all users
+	# Knowledge panels
 
 	initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
+
+	# Option to show on the website product page the simplified panels used in the mobile app (for debugging)
+	# If activated, we replace the environment_card and health_card panels shown on the website with their simplified versions
+	# &simplified_panels=1
+	my $simplified_prefix = '';
+	if (request_param($request_ref, "simplified_panels")) {
+		$simplified_prefix = 'simplified_';
+		# We enable the option to activate the simplified panels
+		$knowledge_panels_options_ref->{activate_knowledge_panels_simplified} = true;
+	}
+
 	create_knowledge_panels($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $request_ref);
-	$template_data_ref->{environment_card_panel}
-		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "environment_card");
-	$template_data_ref->{health_card_panel}
-		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
+
+	$template_data_ref->{environment_card_panel} = display_knowledge_panel(
+		$product_ref,
+		$product_ref->{"knowledge_panels_" . $lc},
+		$simplified_prefix . "environment_card"
+	);
+	$template_data_ref->{health_card_panel} = display_knowledge_panel(
+		$product_ref,
+		$product_ref->{"knowledge_panels_" . $lc},
+		$simplified_prefix . "health_card"
+	);
 	if ($product_ref->{"knowledge_panels_" . $lc}{"secondhand_card"}) {
 		$template_data_ref->{secondhand_card_panel}
 			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "secondhand_card");
