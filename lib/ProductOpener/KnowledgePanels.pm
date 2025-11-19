@@ -976,9 +976,11 @@ sub create_maintain_card_panel ($product_ref, $target_lc, $target_cc, $options_r
 
 		# Create panel for maintenance advice for France
 		if ($target_cc eq 'fr') {
-			create_panel_from_json_template("maintenance_advice_fr_epargnonsnosressources",
+			create_panel_from_json_template(
+				"maintenance_advice_fr_epargnonsnosressources",
 				"api/knowledge-panels/maintain/maintenance_advice_fr_epargnonsnosressources.tt.json",
-				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+			);
 		}
 	}
 
