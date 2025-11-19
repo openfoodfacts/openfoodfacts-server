@@ -165,9 +165,9 @@
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : 183.5,
+            "energy" : 315,
             "energy_points" : 0,
-            "energy_value" : 183.5,
+            "energy_value" : 315,
             "fiber" : 5.3,
             "fiber_points" : 5,
             "fiber_value" : 5.3,
@@ -209,7 +209,7 @@
                      "points" : 0,
                      "points_max" : 10,
                      "unit" : "kJ",
-                     "value" : 183.5
+                     "value" : 315
                   },
                   {
                      "id" : "sugars",
@@ -307,7 +307,7 @@
                "points" : 0,
                "points_max" : 10,
                "unit" : "kJ",
-               "value" : 183.5
+               "value" : 315
             },
             {
                "id" : "sugars",
@@ -433,12 +433,11 @@
                "value" : 2.045e-05
             },
             "energy" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 183.5
+               "value" : 315
             },
             "energy-kcal" : {
                "modifier" : "~",
@@ -449,12 +448,11 @@
                "value" : 43.12
             },
             "energy-kj" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 183.5
+               "value" : 315
             },
             "fat" : {
                "source" : "packaging",
@@ -1023,7 +1021,7 @@
          },
          {
             "nutrients" : {
-               "energy" : {
+               "energy-kj" : {
                   "unit" : "kJ",
                   "value" : 315
                },

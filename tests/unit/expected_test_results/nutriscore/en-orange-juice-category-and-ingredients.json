@@ -50,19 +50,6 @@
       "en:beverages",
       "en:sweetened-beverages"
    ],
-   "improvements_data" : {
-      "en:better-nutri-score-with-much-less-salt" : {
-         "current_nutriscore_grade" : "e",
-         "current_value" : 0.5,
-         "difference_percent" : 20,
-         "new_nutriscore_grade" : "d",
-         "new_value" : 0.4,
-         "nutrient" : "salt"
-      }
-   },
-   "improvements_tags" : [
-      "en:better-nutri-score-with-much-less-salt"
-   ],
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "2070",
@@ -154,9 +141,8 @@
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-from-category",
       "en:nutrition-fruits-vegetables-legumes-from-category-en-fruit-juices",
-      "en:nutriscore-2021-different-from-2023",
-      "en:nutriscore-2021-better-than-2023",
-      "en:nutriscore-2021-d-2023-e"
+      "en:nutriscore-2021-same-as-2023",
+      "en:nutriscore-2021-c-2023-c"
    ],
    "nova_group" : 3,
    "nova_group_debug" : "",
@@ -190,16 +176,16 @@
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 50,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50,
-      "nutrition-score-fr" : 10,
-      "nutrition-score-fr_100g" : 10
+      "nutrition-score-fr" : 6,
+      "nutrition-score-fr_100g" : 6
    },
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : 309,
-            "energy_points" : 10,
-            "energy_value" : 309,
+            "energy" : 182,
+            "energy_points" : 7,
+            "energy_value" : 182,
             "fiber" : 0.5,
             "fiber_points" : 0,
             "fiber_value" : 0.5,
@@ -210,7 +196,7 @@
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "negative_points" : 18,
+            "negative_points" : 15,
             "positive_points" : 10,
             "proteins" : 0.2,
             "proteins_points" : 0,
@@ -225,11 +211,11 @@
             "sugars_points" : 6,
             "sugars_value" : 8.9
          },
-         "grade" : "d",
+         "grade" : "c",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : 8
+         "score" : 5
       },
       "2023" : {
          "category_available" : 1,
@@ -238,17 +224,15 @@
                "negative" : [
                   {
                      "id" : "energy",
-                     "points" : 7,
+                     "points" : 3,
                      "points_max" : 10,
                      "unit" : "kJ",
-                     "value" : 309
+                     "value" : 182
                   },
                   {
-                     "current_grade" : "e",
-                     "current_score" : 10,
                      "id" : "sugars",
-                     "new_grade" : "d",
-                     "new_score" : 8,
+                     "new_grade" : "c",
+                     "new_score" : 4,
                      "new_value" : 6.8,
                      "points" : 7,
                      "points_max" : 10,
@@ -263,11 +247,9 @@
                      "value" : 0
                   },
                   {
-                     "current_grade" : "e",
-                     "current_score" : 10,
                      "id" : "salt",
-                     "new_grade" : "d",
-                     "new_score" : 9,
+                     "new_grade" : "c",
+                     "new_score" : 5,
                      "new_value" : 0.4,
                      "points" : 2,
                      "points_max" : 20,
@@ -284,11 +266,11 @@
                ],
                "positive" : [
                   {
-                     "current_grade" : "e",
-                     "current_score" : 10,
+                     "current_grade" : "c",
+                     "current_score" : 6,
                      "id" : "proteins",
-                     "new_grade" : "c",
-                     "new_score" : 5,
+                     "new_grade" : "b",
+                     "new_score" : 1,
                      "new_value" : 2.5,
                      "points" : 0,
                      "points_max" : 7,
@@ -296,11 +278,9 @@
                      "value" : 0.2
                   },
                   {
-                     "current_grade" : "e",
-                     "current_score" : 10,
                      "id" : "fiber",
-                     "new_grade" : "d",
-                     "new_score" : 9,
+                     "new_grade" : "c",
+                     "new_score" : 5,
                      "new_value" : 3.1,
                      "points" : 0,
                      "points_max" : 5,
@@ -323,7 +303,7 @@
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "negative_points" : 16,
+            "negative_points" : 12,
             "negative_points_max" : 54,
             "positive_nutrients" : [
                "proteins",
@@ -333,28 +313,28 @@
             "positive_points" : 6,
             "positive_points_max" : 18
          },
-         "grade" : "e",
+         "grade" : "c",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : 10
+         "score" : 6
       }
    },
    "nutriscore_2021_tags" : [
-      "d"
+      "c"
    ],
    "nutriscore_2023_tags" : [
-      "e"
+      "c"
    ],
    "nutriscore_data" : {
       "components" : {
          "negative" : [
             {
                "id" : "energy",
-               "points" : 7,
+               "points" : 3,
                "points_max" : 10,
                "unit" : "kJ",
-               "value" : 309
+               "value" : 182
             },
             {
                "id" : "sugars",
@@ -411,13 +391,13 @@
       },
       "count_proteins" : 1,
       "count_proteins_reason" : "beverage",
-      "grade" : "e",
+      "grade" : "c",
       "is_beverage" : 1,
       "is_cheese" : 0,
       "is_fat_oil_nuts_seeds" : 0,
       "is_red_meat_product" : 0,
       "is_water" : 0,
-      "negative_points" : 16,
+      "negative_points" : 12,
       "negative_points_max" : 54,
       "positive_nutrients" : [
          "proteins",
@@ -426,13 +406,13 @@
       ],
       "positive_points" : 6,
       "positive_points_max" : 18,
-      "score" : 10
+      "score" : 6
    },
-   "nutriscore_grade" : "e",
-   "nutriscore_score" : 10,
-   "nutriscore_score_opposite" : -10,
+   "nutriscore_grade" : "c",
+   "nutriscore_score" : 6,
+   "nutriscore_score_opposite" : -6,
    "nutriscore_tags" : [
-      "e"
+      "c"
    ],
    "nutriscore_version" : "2023",
    "nutrition" : {
@@ -487,12 +467,11 @@
                "value" : 1.80625e-05
             },
             "energy" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 309
+               "value" : 182
             },
             "energy-kcal" : {
                "modifier" : "~",
@@ -503,12 +482,11 @@
                "value" : 72.575
             },
             "energy-kj" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 309
+               "value" : 182
             },
             "fat" : {
                "source" : "packaging",
@@ -1077,7 +1055,7 @@
          },
          {
             "nutrients" : {
-               "energy" : {
+               "energy-kj" : {
                   "unit" : "kJ",
                   "value" : 182
                },
@@ -1114,10 +1092,10 @@
          }
       ]
    },
-   "nutrition_grade_fr" : "e",
-   "nutrition_grades" : "e",
+   "nutrition_grade_fr" : "c",
+   "nutrition_grades" : "c",
    "nutrition_grades_tags" : [
-      "e"
+      "c"
    ],
    "nutrition_score_beverage" : 1,
    "nutrition_score_debug" : "",

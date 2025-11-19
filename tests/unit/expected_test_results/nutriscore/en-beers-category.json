@@ -38,9 +38,6 @@
    "lc" : "en",
    "misc_tags" : [
       "en:nutriscore-not-applicable",
-      "en:nutrition-not-enough-data-to-compute-nutrition-score",
-      "en:nutriscore-missing-nutrition-data",
-      "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
@@ -57,7 +54,7 @@
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : null,
+            "energy" : 182,
             "fiber" : 0.5,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 1,
@@ -71,14 +68,14 @@
          },
          "grade" : "not-applicable",
          "not_applicable_category" : "en:alcoholic-beverages",
-         "nutrients_available" : 0,
+         "nutrients_available" : 1,
          "nutriscore_applicable" : 0,
          "nutriscore_computed" : 0
       },
       "2023" : {
          "category_available" : 1,
          "data" : {
-            "energy" : null,
+            "energy" : 182,
             "fiber" : 0.5,
             "fruits_vegetables_legumes" : null,
             "is_beverage" : 1,
@@ -94,7 +91,7 @@
          },
          "grade" : "not-applicable",
          "not_applicable_category" : "en:alcoholic-beverages",
-         "nutrients_available" : 0,
+         "nutrients_available" : 1,
          "nutriscore_applicable" : 0,
          "nutriscore_computed" : 0
       }
@@ -116,6 +113,20 @@
    "nutrition" : {
       "aggregated_set" : {
          "nutrients" : {
+            "energy" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 182
+            },
+            "energy-kj" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 182
+            },
             "fat" : {
                "source" : "packaging",
                "source_index" : 0,
@@ -172,7 +183,7 @@
       "input_sets" : [
          {
             "nutrients" : {
-               "energy" : {
+               "energy-kj" : {
                   "unit" : "kJ",
                   "value" : 182
                },
@@ -215,7 +226,7 @@
       "not-applicable"
    ],
    "nutrition_score_beverage" : 1,
-   "nutrition_score_debug" : "no nutriscore for category en:alcoholic-beverages - missing as_sold energy",
+   "nutrition_score_debug" : "no nutriscore for category en:alcoholic-beverages",
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "pnns_groups_1" : "Alcoholic beverages",
    "pnns_groups_1_tags" : [

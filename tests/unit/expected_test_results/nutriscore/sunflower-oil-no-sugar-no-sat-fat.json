@@ -48,7 +48,6 @@
    "misc_tags" : [
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
-      "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-saturated-fat",
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
@@ -80,7 +79,7 @@
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : null,
+            "energy" : 3378,
             "fat" : 100,
             "fiber" : 0,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
@@ -102,7 +101,7 @@
       "2023" : {
          "category_available" : 1,
          "data" : {
-            "energy" : null,
+            "energy" : 3378,
             "fat" : 100,
             "fiber" : 0,
             "fruits_vegetables_legumes" : null,
@@ -143,6 +142,20 @@
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0
+            },
+            "energy" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 3378
+            },
+            "energy-kj" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 3378
             },
             "fat" : {
                "source" : "packaging",
@@ -190,7 +203,7 @@
                   "unit" : "g",
                   "value" : 0
                },
-               "energy" : {
+               "energy-kj" : {
                   "unit" : "kJ",
                   "value" : 3378
                },
@@ -225,7 +238,7 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "missing as_sold energy - missing as_sold saturated-fat",
+   "nutrition_score_debug" : "missing as_sold saturated-fat",
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "pnns_groups_1" : "Fat and sauces",
    "pnns_groups_1_tags" : [

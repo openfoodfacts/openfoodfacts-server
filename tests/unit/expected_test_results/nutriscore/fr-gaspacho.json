@@ -320,9 +320,9 @@
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : 123.432853977273,
+            "energy" : 148,
             "energy_points" : 0,
-            "energy_value" : 123.4,
+            "energy_value" : 148,
             "fiber" : 1.1,
             "fiber_points" : 1,
             "fiber_value" : 1.1,
@@ -364,7 +364,7 @@
                      "points" : 0,
                      "points_max" : 10,
                      "unit" : "kJ",
-                     "value" : 123.43
+                     "value" : 148
                   },
                   {
                      "id" : "sugars",
@@ -459,7 +459,7 @@
                "points" : 0,
                "points_max" : 10,
                "unit" : "kJ",
-               "value" : 123.43
+               "value" : 148
             },
             {
                "id" : "sugars",
@@ -585,12 +585,11 @@
                "value" : 2.85102730113636e-05
             },
             "energy" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 123.432853977273
+               "value" : 148
             },
             "energy-kcal" : {
                "modifier" : "~",
@@ -601,12 +600,11 @@
                "value" : 29.5720301136364
             },
             "energy-kj" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 123.432853977273
+               "value" : 148
             },
             "fat" : {
                "source" : "packaging",
@@ -1175,7 +1173,7 @@
          },
          {
             "nutrients" : {
-               "energy" : {
+               "energy-kj" : {
                   "unit" : "kJ",
                   "value" : 148
                },

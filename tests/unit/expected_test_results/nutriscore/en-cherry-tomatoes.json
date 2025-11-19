@@ -144,9 +144,9 @@
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : 142,
+            "energy" : 81,
             "energy_points" : 0,
-            "energy_value" : 142,
+            "energy_value" : 81,
             "fiber" : 1.2,
             "fiber_points" : 1,
             "fiber_value" : 1.2,
@@ -188,7 +188,7 @@
                      "points" : 0,
                      "points_max" : 10,
                      "unit" : "kJ",
-                     "value" : 142
+                     "value" : 81
                   },
                   {
                      "id" : "sugars",
@@ -280,7 +280,7 @@
                "points" : 0,
                "points_max" : 10,
                "unit" : "kJ",
-               "value" : 142
+               "value" : 81
             },
             {
                "id" : "sugars",
@@ -406,12 +406,11 @@
                "value" : 5e-05
             },
             "energy" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 142
+               "value" : 81
             },
             "energy-kcal" : {
                "modifier" : "~",
@@ -422,12 +421,11 @@
                "value" : 33.7
             },
             "energy-kj" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 142
+               "value" : 81
             },
             "fat" : {
                "source" : "packaging",
@@ -996,7 +994,7 @@
          },
          {
             "nutrients" : {
-               "energy" : {
+               "energy-kj" : {
                   "unit" : "kJ",
                   "value" : 81
                },

@@ -158,9 +158,9 @@
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : 235.1,
+            "energy" : 82,
             "energy_points" : 0,
-            "energy_value" : 235.1,
+            "energy_value" : 82,
             "fiber" : 4.055,
             "fiber_points" : 4,
             "fiber_value" : 4.06,
@@ -202,7 +202,7 @@
                      "points" : 0,
                      "points_max" : 10,
                      "unit" : "kJ",
-                     "value" : 235.1
+                     "value" : 82
                   },
                   {
                      "id" : "sugars",
@@ -291,7 +291,7 @@
                "points" : 0,
                "points_max" : 10,
                "unit" : "kJ",
-               "value" : 235.1
+               "value" : 82
             },
             {
                "id" : "sugars",
@@ -417,12 +417,11 @@
                "value" : 0.0001204
             },
             "energy" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 235.1
+               "value" : 82
             },
             "energy-kcal" : {
                "modifier" : "~",
@@ -433,12 +432,11 @@
                "value" : 55.87
             },
             "energy-kj" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 235.1
+               "value" : 82
             },
             "fat" : {
                "source" : "packaging",
@@ -1008,7 +1006,7 @@
          },
          {
             "nutrients" : {
-               "energy" : {
+               "energy-kj" : {
                   "unit" : "kJ",
                   "value" : 82
                },

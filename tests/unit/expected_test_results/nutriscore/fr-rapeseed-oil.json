@@ -145,9 +145,9 @@
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : 3700,
+            "energy" : 3400,
             "energy_points" : 10,
-            "energy_value" : 3700,
+            "energy_value" : 3400,
             "fat" : 92,
             "fiber" : 0,
             "fiber_points" : 0,
@@ -406,12 +406,11 @@
                "value" : 5.2e-06
             },
             "energy" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 3700
+               "value" : 3400
             },
             "energy-kcal" : {
                "modifier" : "~",
@@ -422,12 +421,11 @@
                "value" : 900
             },
             "energy-kj" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 3700
+               "value" : 3400
             },
             "fat" : {
                "source" : "packaging",
@@ -996,7 +994,7 @@
          },
          {
             "nutrients" : {
-               "energy" : {
+               "energy-kj" : {
                   "unit" : "kJ",
                   "value" : 3400
                },

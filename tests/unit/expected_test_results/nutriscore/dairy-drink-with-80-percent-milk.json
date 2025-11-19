@@ -117,7 +117,7 @@
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
-      "en:nutriscore-2021-b-2023-e"
+      "en:nutriscore-2021-d-2023-e"
    ],
    "nova_group" : 3,
    "nova_group_debug" : "",
@@ -158,9 +158,9 @@
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : 458.4,
-            "energy_points" : 1,
-            "energy_value" : 458.4,
+            "energy" : 3378,
+            "energy_points" : 10,
+            "energy_value" : 3378,
             "fiber" : 2,
             "fiber_points" : 2,
             "fiber_value" : 2,
@@ -171,8 +171,8 @@
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "negative_points" : 7,
-            "positive_points" : 5,
+            "negative_points" : 16,
+            "positive_points" : 2,
             "proteins" : 5,
             "proteins_points" : 3,
             "proteins_value" : 5,
@@ -186,11 +186,11 @@
             "sugars_points" : 2,
             "sugars_value" : 10
          },
-         "grade" : "b",
+         "grade" : "d",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : 2
+         "score" : 14
       },
       "2023" : {
          "category_available" : 1,
@@ -200,12 +200,12 @@
                   {
                      "id" : "energy",
                      "new_grade" : "e",
-                     "new_score" : 13,
-                     "new_value" : 335,
+                     "new_score" : 15,
+                     "new_value" : 3350,
                      "points" : 10,
                      "points_max" : 10,
                      "unit" : "kJ",
-                     "value" : 458.4
+                     "value" : 3378
                   },
                   {
                      "id" : "sugars",
@@ -297,7 +297,7 @@
       }
    },
    "nutriscore_2021_tags" : [
-      "b"
+      "d"
    ],
    "nutriscore_2023_tags" : [
       "e"
@@ -310,7 +310,7 @@
                "points" : 10,
                "points_max" : 10,
                "unit" : "kJ",
-               "value" : 458.4
+               "value" : 3378
             },
             {
                "id" : "sugars",
@@ -443,12 +443,11 @@
                "value" : 1.07e-05
             },
             "energy" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 458.4
+               "value" : 3378
             },
             "energy-kcal" : {
                "modifier" : "~",
@@ -459,12 +458,11 @@
                "value" : 107.64
             },
             "energy-kj" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 458.4
+               "value" : 3378
             },
             "fat" : {
                "source" : "packaging",
@@ -1033,7 +1031,7 @@
          },
          {
             "nutrients" : {
-               "energy" : {
+               "energy-kj" : {
                   "unit" : "kJ",
                   "value" : 3378
                },

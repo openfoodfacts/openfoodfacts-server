@@ -104,8 +104,8 @@
       "en:nutrition-fruits-vegetables-legumes-from-category",
       "en:nutrition-fruits-vegetables-legumes-from-category-en-avocado-oils",
       "en:nutriscore-2021-different-from-2023",
-      "en:nutriscore-2021-better-than-2023",
-      "en:nutriscore-2021-a-2023-b"
+      "en:nutriscore-2021-worse-than-2023",
+      "en:nutriscore-2021-c-2023-b"
    ],
    "nova_group" : 2,
    "nova_group_debug" : "",
@@ -146,9 +146,9 @@
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : 843,
-            "energy_points" : 2,
-            "energy_value" : 843,
+            "energy" : 3448,
+            "energy_points" : 10,
+            "energy_value" : 3448,
             "fat" : 91.6,
             "fiber" : 0,
             "fiber_points" : 0,
@@ -160,7 +160,7 @@
             "is_cheese" : 0,
             "is_fat" : 1,
             "is_water" : 0,
-            "negative_points" : 4,
+            "negative_points" : 12,
             "positive_points" : 5,
             "proteins" : 0,
             "proteins_points" : 0,
@@ -176,11 +176,11 @@
             "sugars_points" : 0,
             "sugars_value" : 0
          },
-         "grade" : "a",
+         "grade" : "c",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -1
+         "score" : 7
       },
       "2023" : {
          "category_available" : 1,
@@ -263,7 +263,7 @@
       }
    },
    "nutriscore_2021_tags" : [
-      "a"
+      "c"
    ],
    "nutriscore_2023_tags" : [
       "b"
@@ -394,12 +394,11 @@
                "value" : 0.00018
             },
             "energy" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 843
+               "value" : 3448
             },
             "energy-kcal" : {
                "modifier" : "~",
@@ -410,12 +409,11 @@
                "value" : 205
             },
             "energy-kj" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 843
+               "value" : 3448
             },
             "fat" : {
                "source" : "packaging",
@@ -984,7 +982,7 @@
          },
          {
             "nutrients" : {
-               "energy" : {
+               "energy-kj" : {
                   "unit" : "kJ",
                   "value" : 3448
                },

@@ -154,9 +154,9 @@
       "2021" : {
          "category_available" : 1,
          "data" : {
-            "energy" : 536,
+            "energy" : 3378,
             "energy_points" : 10,
-            "energy_value" : 536,
+            "energy_value" : 3378,
             "fiber" : 2,
             "fiber_points" : 2,
             "fiber_value" : 2,
@@ -196,12 +196,12 @@
                   {
                      "id" : "energy",
                      "new_grade" : "e",
-                     "new_score" : 15,
-                     "new_value" : 335,
+                     "new_score" : 17,
+                     "new_value" : 3350,
                      "points" : 10,
                      "points_max" : 10,
                      "unit" : "kJ",
-                     "value" : 536
+                     "value" : 3378
                   },
                   {
                      "id" : "sugars",
@@ -306,7 +306,7 @@
                "points" : 10,
                "points_max" : 10,
                "unit" : "kJ",
-               "value" : 536
+               "value" : 3378
             },
             {
                "id" : "sugars",
@@ -439,12 +439,11 @@
                "value" : 1.0375e-05
             },
             "energy" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 536
+               "value" : 3378
             },
             "energy-kcal" : {
                "modifier" : "~",
@@ -455,12 +454,11 @@
                "value" : 125.85
             },
             "energy-kj" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
+               "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 536
+               "value" : 3378
             },
             "fat" : {
                "source" : "packaging",
@@ -1029,7 +1027,7 @@
          },
          {
             "nutrients" : {
-               "energy" : {
+               "energy-kj" : {
                   "unit" : "kJ",
                   "value" : 3378
                },
