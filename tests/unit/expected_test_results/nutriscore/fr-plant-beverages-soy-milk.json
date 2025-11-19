@@ -130,8 +130,8 @@
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:nutriscore-computed",
-      "en:nutrition-no-fruits-vegetables-nuts",
-      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:nutrition-fruits-vegetables-nuts",
+      "en:nutrition-all-nutriscore-values-known",
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-a-2023-b"
@@ -157,10 +157,6 @@
       "en:salt-in-low-quantity"
    ],
    "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 8,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 8,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 8,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 8,
       "nutrition-score-fr" : -4,
       "nutrition-score-fr_100g" : -4
    },
@@ -174,9 +170,9 @@
             "fiber" : 0.5,
             "fiber_points" : 0,
             "fiber_value" : 0.5,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 8,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 8,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
@@ -395,6 +391,14 @@
    "nutrition" : {
       "aggregated_set" : {
          "nutrients" : {
+            "added-sugars" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
             "alcohol" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -486,6 +490,22 @@
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0
+            },
+            "fruits-vegetables-legumes" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 8
+            },
+            "fruits-vegetables-nuts" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 8
             },
             "galactose" : {
                "modifier" : "~",
@@ -753,6 +773,12 @@
       "input_sets" : [
          {
             "nutrients" : {
+               "added-sugars" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
                "alcohol" : {
                   "modifier" : "~",
                   "unit" : "% vol",
@@ -824,6 +850,18 @@
                   "unit" : "g",
                   "value" : 0,
                   "value_string" : "0"
+               },
+               "fruits-vegetables-legumes" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 8,
+                  "value_string" : "8"
+               },
+               "fruits-vegetables-nuts" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 8,
+                  "value_string" : "8"
                },
                "galactose" : {
                   "modifier" : "~",
@@ -1076,7 +1114,6 @@
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
-   "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Beverages",
    "pnns_groups_1_tags" : [

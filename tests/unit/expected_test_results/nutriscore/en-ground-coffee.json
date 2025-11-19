@@ -102,8 +102,8 @@
       "en:nutriscore-missing-nutrition-data-saturated-fat",
       "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-not-computed",
-      "en:nutrition-no-fruits-vegetables-nuts",
-      "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
+      "en:nutrition-fruits-vegetables-nuts",
+      "en:nutrition-all-nutriscore-values-known"
    ],
    "nova_group" : 1,
    "nova_group_debug" : "",
@@ -115,12 +115,7 @@
    "nucleotides_tags" : [],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
+   "nutriments" : {},
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
@@ -179,6 +174,14 @@
    "nutrition" : {
       "aggregated_set" : {
          "nutrients" : {
+            "added-sugars" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
             "alcohol" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -234,6 +237,22 @@
                "source_per" : "100g",
                "unit" : "g",
                "value" : 19.8
+            },
+            "fruits-vegetables-legumes" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 0
+            },
+            "fruits-vegetables-nuts" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 0
             },
             "iron" : {
                "modifier" : "~",
@@ -354,6 +373,12 @@
       "input_sets" : [
          {
             "nutrients" : {
+               "added-sugars" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
                "alcohol" : {
                   "modifier" : "~",
                   "unit" : "% vol",
@@ -401,6 +426,18 @@
                   "unit" : "g",
                   "value" : 19.8,
                   "value_string" : "19.8"
+               },
+               "fruits-vegetables-legumes" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "fruits-vegetables-nuts" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 0,
+                  "value_string" : "0"
                },
                "iron" : {
                   "modifier" : "~",
@@ -502,7 +539,6 @@
    ],
    "nutrition_score_beverage" : 1,
    "nutrition_score_debug" : "no score for category en:beverage-preparations without data for prepared product - missing prepared energy - missing prepared saturated-fat - missing prepared sugars",
-   "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Beverages",
    "pnns_groups_1_tags" : [

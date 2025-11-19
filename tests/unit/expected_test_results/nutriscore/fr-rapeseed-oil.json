@@ -99,8 +99,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:nutriscore-computed",
-      "en:nutrition-fruits-vegetables-nuts-from-category",
-      "en:nutrition-fruits-vegetables-nuts-from-category-en-rapeseed-oils",
+      "en:nutrition-fruits-vegetables-nuts",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
@@ -134,10 +133,6 @@
       "en:salt-in-low-quantity"
    ],
    "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100,
       "nutrition-score-fr" : 2,
       "nutrition-score-fr_100g" : 2
    },
@@ -357,6 +352,14 @@
    "nutrition" : {
       "aggregated_set" : {
          "nutrients" : {
+            "added-sugars" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
             "alcohol" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -448,6 +451,22 @@
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0
+            },
+            "fruits-vegetables-legumes" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 0
+            },
+            "fruits-vegetables-nuts" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 100
             },
             "galactose" : {
                "modifier" : "~",
@@ -715,6 +734,12 @@
       "input_sets" : [
          {
             "nutrients" : {
+               "added-sugars" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
                "alcohol" : {
                   "modifier" : "~",
                   "unit" : "% vol",
@@ -786,6 +811,18 @@
                   "unit" : "g",
                   "value" : 0,
                   "value_string" : "0"
+               },
+               "fruits-vegetables-legumes" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "fruits-vegetables-nuts" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 100,
+                  "value_string" : "100"
                },
                "galactose" : {
                   "modifier" : "~",
@@ -1038,8 +1075,6 @@
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
-   "nutrition_score_warning_fruits_vegetables_nuts_from_category" : "en:rapeseed-oils",
-   "nutrition_score_warning_fruits_vegetables_nuts_from_category_value" : 100,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Fat and sauces",
    "pnns_groups_1_tags" : [

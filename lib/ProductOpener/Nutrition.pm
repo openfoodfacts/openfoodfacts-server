@@ -85,6 +85,7 @@ use ProductOpener::HTTP qw/single_param request_param/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Numbers qw/convert_string_to_number remove_insignificant_digits/;
 use ProductOpener::Units qw/get_normalized_unit normalize_product_quantity_and_serving_size/;
+use ProductOpener::Ingredients qw/estimate_added_sugars_percent_from_ingredients estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients/;
 
 use Log::Any qw($log);
 
@@ -787,8 +788,11 @@ sub get_unit_options_for_nutrient ($nid) {
 		@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH",
 			'gpg');
 	}
+	# fruits / vegetables / legumes / nuts for nutriscore 2021 and 2023 are always in percent
 	# pet nutrients (analytical_constituents) are always in percent
-	elsif (($nid eq 'crude-fat')
+	elsif (
+		($nid =~ /^fruits/)
+		or ($nid eq 'crude-fat')
 		or ($nid eq 'crude-protein')
 		or ($nid eq 'crude-ash')
 		or ($nid eq 'crude-fibre')
@@ -1898,6 +1902,7 @@ sub compute_estimated_nutrients ($product_ref) {
 	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
 	my $source = "estimate";
 	my $preparation = "as_sold";
+	my $modifier = '~';    # estimated value modifier
 
 	# For the per, we get the default per for the product, and use 100g if it is a weight,
 	# or 100ml if it is a volume, as the estimated nutrients are always per 100g or 100ml.
@@ -1919,8 +1924,6 @@ sub compute_estimated_nutrients ($product_ref) {
 	# only take the result if we have at least 95% of ingredients with nutrients
 	if (($results_ref->{total} > 0) and (($results_ref->{total_with_nutrients} / $results_ref->{total}) >= 0.95)) {
 
-		my $modifier = '~';    # estimated value modifier
-
 		while (my ($nid, $value) = each(%{$results_ref->{nutrients}})) {
 			my $unit = default_unit_for_nid($nid);
 			# We currently assign value_string (which will also set value)
@@ -1928,6 +1931,22 @@ sub compute_estimated_nutrients ($product_ref) {
 			assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
 				$per, $nid, $modifier, $value, $unit);
 		}
+	}
+
+	# Compute % of specific ingredients needed for Nutri-Score
+	if (defined $product_ref->{ingredients}) {
+		my $fruits_vegetable_nuts = estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
+		my $fruits_vegetables_legumes = estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
+		my $added_sugars = estimate_added_sugars_percent_from_ingredients ($product_ref);
+		assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
+			$per, 'fruits-vegetables-nuts', $modifier,
+			$fruits_vegetable_nuts, '%');
+		assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
+			$per, 'fruits-vegetables-legumes', $modifier,
+			$fruits_vegetables_legumes, '%');
+		assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
+			$per, 'added-sugars', $modifier,
+			$added_sugars, 'g');
 	}
 
 	# Convert back the input sets hash to array

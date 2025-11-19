@@ -122,8 +122,7 @@
       "en:some-ingredients-with-specified-percent",
       "en:all-ingredients-with-specified-percent",
       "en:nutriscore-computed",
-      "en:nutrition-fruits-vegetables-nuts-from-category",
-      "en:nutrition-fruits-vegetables-nuts-from-category-en-canned-fruits",
+      "en:nutrition-fruits-vegetables-nuts",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-from-category",
       "en:nutrition-fruits-vegetables-legumes-from-category-en-canned-fruits",
@@ -158,10 +157,6 @@
       "en:salt-in-moderate-quantity"
    ],
    "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 10,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 10,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 10,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 10,
       "nutrition-score-fr" : -4,
       "nutrition-score-fr_100g" : -4
    },
@@ -175,15 +170,15 @@
             "fiber" : 5.3,
             "fiber_points" : 5,
             "fiber_value" : 5.3,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 90,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 90,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 10,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 10,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 5,
-            "positive_points" : 13,
+            "positive_points" : 8,
             "proteins" : 5,
             "proteins_points" : 3,
             "proteins_value" : 5,
@@ -201,7 +196,7 @@
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -8
+         "score" : -3
       },
       "2023" : {
          "category_available" : 1,
@@ -388,65 +383,89 @@
    "nutrition" : {
       "aggregated_set" : {
          "nutrients" : {
+            "added-sugars" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 10
+            },
             "energy" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
                "value" : 315
             },
             "energy-kj" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kJ",
                "value" : 315
             },
             "fat" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0.9
             },
             "fiber" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
                "value" : 5.3
             },
+            "fruits-vegetables-legumes" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 10
+            },
+            "fruits-vegetables-nuts" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 10
+            },
             "proteins" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
                "value" : "5"
             },
             "salt" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
                "value" : 1.2
             },
             "saturated-fat" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0.1
             },
             "sodium" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
                "value" : "0.48"
             },
             "sugars" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
                "value" : 3.6
@@ -456,6 +475,33 @@
          "preparation" : "as_sold"
       },
       "input_sets" : [
+         {
+            "nutrients" : {
+               "added-sugars" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 10,
+                  "value_string" : "10"
+               },
+               "fruits-vegetables-legumes" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 10,
+                  "value_string" : "10"
+               },
+               "fruits-vegetables-nuts" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 10,
+                  "value_string" : "10"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "estimate"
+         },
          {
             "nutrients" : {
                "energy-kj" : {
@@ -504,8 +550,6 @@
    "nutrition_score_debug" : "",
    "nutrition_score_warning_fruits_vegetables_legumes_from_category" : "en:canned-fruits",
    "nutrition_score_warning_fruits_vegetables_legumes_from_category_value" : 90,
-   "nutrition_score_warning_fruits_vegetables_nuts_from_category" : "en:canned-fruits",
-   "nutrition_score_warning_fruits_vegetables_nuts_from_category_value" : 90,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "unknown",
    "pnns_groups_1_tags" : [

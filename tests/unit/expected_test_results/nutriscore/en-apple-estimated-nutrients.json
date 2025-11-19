@@ -95,8 +95,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:nutriscore-computed",
-      "en:nutrition-fruits-vegetables-nuts-from-category",
-      "en:nutrition-fruits-vegetables-nuts-from-category-en-fruits",
+      "en:nutrition-fruits-vegetables-nuts",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-from-category",
       "en:nutrition-fruits-vegetables-legumes-from-category-en-fruits",
@@ -124,10 +123,6 @@
       "en:salt-in-low-quantity"
    ],
    "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100,
       "nutrition-score-fr" : -2,
       "nutrition-score-fr_100g" : -2
    },
@@ -141,9 +136,9 @@
             "fiber" : 1.3,
             "fiber_points" : 1,
             "fiber_value" : 1.3,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 90,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 100,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 90,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 100,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
@@ -351,6 +346,14 @@
    "nutrition" : {
       "aggregated_set" : {
          "nutrients" : {
+            "added-sugars" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
             "alcohol" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -446,6 +449,22 @@
                "source_per" : "100g",
                "unit" : "g",
                "value" : 6.03
+            },
+            "fruits-vegetables-legumes" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 100
+            },
+            "fruits-vegetables-nuts" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 100
             },
             "galactose" : {
                "modifier" : "~",
@@ -718,6 +737,12 @@
       "input_sets" : [
          {
             "nutrients" : {
+               "added-sugars" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
                "alcohol" : {
                   "modifier" : "~",
                   "unit" : "% vol",
@@ -789,6 +814,18 @@
                   "unit" : "g",
                   "value" : 6.03,
                   "value_string" : "6.03"
+               },
+               "fruits-vegetables-legumes" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 100,
+                  "value_string" : "100"
+               },
+               "fruits-vegetables-nuts" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 100,
+                  "value_string" : "100"
                },
                "galactose" : {
                   "modifier" : "~",
@@ -1006,8 +1043,6 @@
    "nutrition_score_debug" : "",
    "nutrition_score_warning_fruits_vegetables_legumes_from_category" : "en:fruits",
    "nutrition_score_warning_fruits_vegetables_legumes_from_category_value" : 90,
-   "nutrition_score_warning_fruits_vegetables_nuts_from_category" : "en:fruits",
-   "nutrition_score_warning_fruits_vegetables_nuts_from_category_value" : 90,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Fruits and vegetables",
    "pnns_groups_1_tags" : [

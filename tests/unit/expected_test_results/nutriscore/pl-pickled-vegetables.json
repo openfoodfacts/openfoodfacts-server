@@ -183,8 +183,7 @@
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:nutriscore-computed",
-      "en:nutrition-fruits-vegetables-nuts-from-category",
-      "en:nutrition-fruits-vegetables-nuts-from-category-en-vegetables-based-foods",
+      "en:nutrition-fruits-vegetables-nuts",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
@@ -218,10 +217,6 @@
       "en:salt-in-high-quantity"
    ],
    "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 88.3920076117983,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 88.3920076117983,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 99.5718363463368,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 99.5718363463368,
       "nutrition-score-fr" : 20,
       "nutrition-score-fr_100g" : 20
    },
@@ -235,9 +230,9 @@
             "fiber" : 1.67696666666667,
             "fiber_points" : 1,
             "fiber_value" : 1.68,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 85,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 99.5718363463368,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 85,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 99.6,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
@@ -426,6 +421,14 @@
    "nutrition" : {
       "aggregated_set" : {
          "nutrients" : {
+            "added-sugars" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
             "alcohol" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -518,6 +521,22 @@
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0.251933333333333
+            },
+            "fruits-vegetables-legumes" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 88.3920076117983
+            },
+            "fruits-vegetables-nuts" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 99.5718363463368
             },
             "galactose" : {
                "modifier" : "~",
@@ -785,6 +804,12 @@
       "input_sets" : [
          {
             "nutrients" : {
+               "added-sugars" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
                "alcohol" : {
                   "modifier" : "~",
                   "unit" : "% vol",
@@ -856,6 +881,18 @@
                   "unit" : "g",
                   "value" : 0.251933333333333,
                   "value_string" : "0.251933333333333"
+               },
+               "fruits-vegetables-legumes" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 88.3920076117983,
+                  "value_string" : "88.3920076117983"
+               },
+               "fruits-vegetables-nuts" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 99.5718363463368,
+                  "value_string" : "99.5718363463368"
                },
                "galactose" : {
                   "modifier" : "~",
@@ -1104,8 +1141,6 @@
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
-   "nutrition_score_warning_fruits_vegetables_nuts_from_category" : "en:vegetables-based-foods",
-   "nutrition_score_warning_fruits_vegetables_nuts_from_category_value" : 85,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Salty snacks",
    "pnns_groups_1_tags" : [
