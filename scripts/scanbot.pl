@@ -33,7 +33,6 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/retrieve_object store_object object_exists write_json/;
 use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/$country/;
 use ProductOpener::Tags qw/add_tags_to_field canonicalize_taxonomy_tag/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -506,7 +505,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 				$product_ref->{last_updated_t} = time() + 0;
 				store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 				get_products_collection()->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
-				push_to_redis_stream('scanbot', $product_ref, "updated", $year, {});
+				push_product_update_to_redis($product_ref, {"userid" => 'scanbot', "comment" => $year}, "updated");
 			}
 		}
 	}

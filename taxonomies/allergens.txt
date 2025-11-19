@@ -1,8 +1,8 @@
 stopwords:en: and, byproducts, other, of, this, product, made, manufactured, in, a, factory, which, also, uses, trace, traces, possible, eventual, potential, including
 stopwords:bg: и, следи от, други, може да съдържа, може да съдържа следи от , може да има следи от, съдържа, възможни са следи от
-stopwords:cs: jiné, výrobek
+stopwords:cs: jiné, výrobek, ostatní
 stopwords:da: spor
-stopwords:de: enthalten, von, und, kann, spuren, andere, anderen, weitere, weiteren
+stopwords:de: enthalten, von, und, kann, spuren, andere, anderen, anderem, anderes, weitere, weiteren, weiterem, weiteres
 stopwords:es: traza, trazas, y, de, que, contiene, contienen, otros, producto, productos, derivado, derivados, incluido, incluidos, incluida, incluidas, la, una, fuente, contener, puede, con, elaborado, en, linea, donde, se, procesa, granos, posible, posibles, este
 stopwords:fi: ja, muita, muuta, tehtaassa, valmistettu, saattaa, sisältää, pieniä, pienehköjä, määriä, jäämiä, ainesosia
 stopwords:fr: d'autres, autre, autres, ce, produit, est, fabriqué, élaboré, transformé, emballé, dans, un, atelier, une, usine, qui, utilise, aussi, également, céréale, céréales, farine, farines, extrait, extraits, graine, graines, trace, traces, éventuelle, éventuelles, possible, possibles, potentielle, potentielles, peut, pourrait, pouvant, contenir, contenant, contient, de, des, du, d', l', la, le, les, et, dérivés, à, base, ce, ces, hybrides, ou, produits, y, compris, contiennent, dont
@@ -50,7 +50,7 @@ bg: глутен, ечемик, ечемичен, ечемично-малцов,
 bs: gluten
 cs: lepek, pšenice, žito, ječmen, oves, špalda, kamut, obilovin obsahujících lepe
 da: gluten, hvede, durumhvede, rug, byg, havre, spelt, kamut, bygmalt, bygmaltmel, bygmaltekstrakt, havremel, hvedemel, durumhvedemel, fuldkornshvede, fuldkornshvedemel, havregryn, ruggryn, havreflager, speltflager, hvedeklid, hvedestivelse, hvedegluten, bygmalteddike, kornprodukter som indeholder gluten, fuldkornsrugmel, rugbrødsrasp, rugmel
-de: Gluten, Weizen, Roggen, Gerste, Hafer, Dinkel, Kamut, Gerstenmehl, Gerstenvollkornmehl, Hafer-Vollkornmehl, Haferflocken, Haferkleie, Hafervollkornflocken, Hafervollkornmehl, Vollkorn-Hafer, Vollkorn-Haferflocken, Vollkorn-Hafermehl, Vollkornhafermehl, Vollkornhafer, Vollkornhaferflocken, Vollkornhaferschrot, Vollkornweizenmehl, Weizenvollkornmehl, Weizenmehl, Weizengluten, Weizensauerteig, Hartweizen, weitere glutenhaltige Getreide, weiteren glutenhaltigen Getreiden, glutenhaltige Getreide, glutenhaltigem Getreide, anderem glutenhaltigem Getreide, anderen glutenhaltigen Getreiden, Gluten enthaltendes Getreide, Gluten-enthaltendes-Getreide, Gerstenmalzextrakt, Gerstenmalz, Weizenstärke, Hartweizengriess, Hartweizengrieß, Roggenmehl, Weizenmalzmehl, Dinkelmehl, Gerstenmalzmehl, Weizenmalz, Roggenvollkornmehl, Weizenkleber, Roggenvollkornschrot, Dinkelvollkornmehl, Hafermehl, Weizenflocken, Weizenvollkornflocken, Weizengrieß, Weizengriess, Weizenkleie, Gerstenflocken, Weizenquellmehl, Roggenflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot, Weizenspeisekleie, Weichweizenmehl, Dinkelflocken, Roggenvollkornflocken, Malzmehl, Dinkelvollkornflocken, Dinkelvollkornschrot, Roggenschrot, Gersten, Weizenrostmalzmehl, Vollkornweizen, Haferfaser, glutenhaltigen Getreidearten
+de: Gluten, Weizen, Roggen, Gerste, Hafer, Dinkel, Kamut, Gerstenmehl, Gerstenvollkornmehl, Hafer-Vollkornmehl, Haferflocken, Haferkleie, Hafervollkornflocken, Hafervollkornmehl, Vollkorn-Hafer, Vollkorn-Haferflocken, Vollkorn-Hafermehl, Vollkornhafermehl, Vollkornhafer, Vollkornhaferflocken, Vollkornhaferschrot, Vollkornweizenmehl, Weizenvollkornmehl, Weizenmehl, Weizengluten, Weizensauerteig, Hartweizen, weitere glutenhaltige Getreide, weiteren glutenhaltigen Getreiden, glutenhaltige Getreide, glutenhaltigem Getreide, anderem glutenhaltigem Getreide, anderen glutenhaltigen Getreiden, anderes Glutenhaltiges Getreide, Glutenhaltiges Getreide, Gluten enthaltendes Getreide, Gluten-enthaltendes-Getreide, Gerstenmalzextrakt, Gerstenmalz, Weizenstärke, Hartweizengriess, Hartweizengrieß, Roggenmehl, Weizenmalzmehl, Dinkelmehl, Gerstenmalzmehl, Weizenmalz, Roggenvollkornmehl, Weizenkleber, Roggenvollkornschrot, Dinkelvollkornmehl, Hafermehl, Weizenflocken, Weizenvollkornflocken, Weizengrieß, Weizengriess, Weizenkleie, Gerstenflocken, Weizenquellmehl, Roggenflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot, Weizenspeisekleie, Weichweizenmehl, Dinkelflocken, Roggenvollkornflocken, Malzmehl, Dinkelvollkornflocken, Dinkelvollkornschrot, Roggenschrot, Gersten, Weizenrostmalzmehl, Vollkornweizen, Haferfaser, glutenhaltigen Getreidearten
 ee: nisu, odrasiirup, odralinnaseekstrakt
 el: γλουτένη, σιτάρι, σίκαλη, κριθάρι, βρώμη, ντίνκελ, σιτηρό kamut
 es: gluten, trigo, centeno, cebada, espelta, kamut, cereales con gluten, cereales, harina de trigo, trigo de Jorasán Kamut, harina de trigo integral, cereales que contienen gluten, gluten de trigo
@@ -258,9 +258,9 @@ wikidata:en: Q7157933
 en: soybeans, soya, soja, soia, soy, soya bean, soy flour, soya flour, soy lecithin, soy lecithins, soya lecithin, soya lecithins, soy lecithines, soy protein isolate, soya products, black soy bean, soy bean oil
 ar: فول الصويا
 bg: соя, соеви, соево
-cs: sójové boby, sójové, sóji
+cs: sójové boby, sójové, sóji, sóju
 da: soja, sojalecitin, sojabønner, sojabønneolie, sojapulver
-de: Soja, Sojabohnen, Sojamilch, Sojalecithin, Sojalecithine, Soja-Lecithine, Sojalecithine, Sojaprotein, Sojabohnenöl, Sojaeiweiß, Sojaerzeugnis, Sojafett, Sojaflocken, Sojakerne, Sojakleie, Sojamehl, Sojaöl, Sojaprotein, Sojaproteinhydrolysat, Sojaproteinisolat, Sojasauce, Sojaschrot, Sojagrieß, Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojasoße, Sojasosse, Sojasoßenpulver, Sojasossenpulver, Sojaeiweißisolat, Schwarze Sojabohnen, Sojabohnen Ôl
+de: Soja, Sojabohnen, Sojamilch, Sojalecithin, Sojalecithine, Soja-Lecithine, Sojalecithine, Sojaprotein, Sojabohnenöl, Sojaeiweiß, Sojaerzeugnis, Sojaerzeugnisse, Sojafett, Sojaflocken, Sojakerne, Sojakleie, Sojamehl, Sojaöl, Sojaprotein, Sojaproteinhydrolysat, Sojaproteinisolat, Sojasauce, Sojaschrot, Sojagrieß, Sojaeiweißkonzentrat, Sojaeiweisskonzentrat, Sojasoße, Sojasosse, Sojasoßenpulver, Sojasossenpulver, Sojaeiweißisolat, Schwarze Sojabohnen, Sojabohnen Ôl
 el: σόγια
 es: soja, habas de soja, lecitina de soja, soya, habas de soya, lecitina de soya
 et: soja, sojaoad
@@ -344,7 +344,7 @@ hu: diófélék, mandula, mogyoró, dió, kesudió, pekándió, brazil dió, pis
 is: hnetur
 it: frutta a guscio, mandorle, nocciole, noci, noci di acagiù, noci di pecan, noci del Brasile, pistacchi, noci macadamia, noci del Queensland
 ja: くるみ/アーモンド, くるみ, 種実類, 木の実, 木の実類, アーモンド, ヘーゼルナッツ, クルミ, カシューナッツ, ペカン, ブラジルナッツ, ピスタチオ, マカダミアナッツ
-lt: riešutai, riešutų, riešutas, riešutais, migdolai, migdolų, migdolas, migdolais, lazdyno riešutai, lazdynų, lazdynas, lazdynais, lazdyno, graikiniai riešutai, graikinių riešutų, graikiniais riešutais, anakardžiai, anakardžių, anakardžiais, Anakardium occidentale, pekaninės karijos, pekaninių karijų, brazilinės bertoletijos, brazilinių bertoletijų, pistacijos, pistacijų, pistacija, makadamijos, makadamijų, makadamija, Kvinslendo riešutai
+lt: riešutai, riešutų, riešutas, riešutais, migdolai, migdolų, migdolas, migdolais, lazdyno riešutai, lazdynų, lazdynas, lazdynais, lazdyno, graikiniai riešutai, graikinių riešutų, graikiniais riešutais, anakardžiai, anakardžių, anakardžiais, Anakardium occidentale, pekaninės karijos, pekaninių karijų, brazilinės bertoletijos, brazilinių bertoletijų, pistacijos, pistacijų, pistacija, makadamijos, makadamijų, makadamija, Kvinslendo riešutai, kitų riešutų
 lv: rieksti, mandeles, lazdu rieksti, valrieksti, Indijas rieksti, pekanrieksti, Brazīlijas rieksti, pistāciju rieksti, makadāmijas, Kvīnslendas rieksti
 mt: ġewż, lewż, ġellewż, ġewż, anakardji, ġewż Amerikan, ġewż tal-Brażil, pistaċċi, macadamia, Queensland nuts
 nb: nøtter, andre nøtter, andre typer nøtter, mandel, mandler, hasselnøtt, hasselnøtter, hasselnøttpasta, hasselnøttmasse, hasselnøttkjerner, kasjunøtt, kasjunøtter, cashewnøtt, cashewnøtter, pistasjnøtt, valnøtt, valnøtter, paranøtt, paranøtter
@@ -399,7 +399,7 @@ wikidata:en: Q28298
 en: mustard, brassica
 ar: خردل
 bg: синап, бял синап
-cs: hořčice
+cs: hořčice, hořčiči
 da: sennep, sennepsfrø, sennepspulver, dijonsennep
 de: Senf, Senfkörner, Senfmehl, Senfsaat, Senfsaaten, Senfsamen, Senfschrot, Senfkorn
 el: σινάπι, μουστάρδα
@@ -423,7 +423,7 @@ pl: gorczyca, gorczycę, gorczycy, gorczyce
 pt: mostarda
 ro: muștar
 ru: горчица
-sk: horčica, horčice
+sk: horčica, horčice, horčicu
 sl: gorčice, gorčično seme, gorčičnih semen
 sr: senf, slačica
 sv: senap, senapsfrö, senapsfröpulver, senapspulver, senapsmjöl
@@ -434,7 +434,7 @@ wikidata:en: Q1937700
 en: sesame seeds, sesame
 ar: سمسم
 bg: сусамово семе
-cs: sezamová semena, sezamová, sezamu
+cs: sezamová semena, sezamová, sezamu, sezam
 da: sesamfrø, sesam
 de: Sesam, Sesamsamen, Sesambrötchen, Sesampaste, Sesamöl, Sesamkörner, Sesamkorn
 el: σπόροι σησαμιού, σησαμο, σουσάμι
@@ -508,9 +508,9 @@ zh: 二氧化硫和亚硫酸盐, 二氧化硫，亚硫酸盐
 en: lupin, lupine
 ar: ترمس
 bg: лупина
-cs: vlčí bob, vlčího bobu, lupina
+cs: vlčí bob, vlčího bobu, lupina, lupinu
 da: lupin
-de: Lupinen, Lupinenmehl, Süßlupinenmehl
+de: Lupine, Lupinen, Lupinenmehl, Süßlupinenmehl
 el: λούπινο
 es: altramuces, altramuz
 et: lupiin
@@ -518,7 +518,7 @@ fi: lupiinit, lupiini, lupiinia, lupiinista, lupiineita, lupiineja, lupiineista,
 fr: lupin
 ga: lúipín
 hr: lupin, lupina, lupine, lupinu, vučiku
-hu: csillagfürt
+hu: csillagfürt, csillagfürtöt
 it: lupini
 ja: ルピナス属
 lt: lubinai
@@ -542,7 +542,7 @@ ar: رخويات , محار, بلح البحر
 bg: мекотели
 cs: měkkýši
 da: bløddyr
-de: Weichtiere
+de: Weichtiere, Weichtieren, Krake, Kraken, Tintenfisch, Auster, Miesmuschel, Jakobsmuschel
 el: μαλάκια
 es: moluscos, molusco, ostras, almejas, escalópas, calamar, sepia, ostra, mejillón, mejillones, viera, vieras, caracol, caracoles
 et: molluskid

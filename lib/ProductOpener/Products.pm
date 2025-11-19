@@ -138,9 +138,10 @@ use ProductOpener::Data qw/execute_query get_products_collection get_recent_chan
 use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
 use ProductOpener::HTTP qw/single_param create_user_agent/;
-use ProductOpener::Redis qw/push_to_redis_stream/;
+use ProductOpener::Redis qw/push_product_update_to_redis/;
 use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Slack qw/send_slack_message/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -1170,7 +1171,11 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 		$log->info("changing product type",
 			{old_product_type => $product_ref->{old_product_type}, product_type => $product_ref->{product_type}})
 			if $log->is_info();
-		$delete_from_previous_products_collection = 1;
+		# We need to remove the product from its previous collection, unless we are on the pro platform
+		# where we have only one collection for all product types
+		if (not $server_options{private_products}) {
+			$delete_from_previous_products_collection = 1;
+		}
 		delete $product_ref->{old_product_type};
 	}
 
@@ -1473,10 +1478,10 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	}
 
 	# Publish information about update on Redis stream
-	$log->debug("push_to_redis_stream",
+	$log->debug("push_product_update_to_redis",
 		{code => $code, product_id => $product_id, action => $action, comment => $comment, diffs => $diffs})
 		if $log->is_debug();
-	push_to_redis_stream($user_id, $product_ref, $action, $comment, $diffs);
+	push_product_update_to_redis($product_ref, $change_ref, $action);
 
 	return 1;
 }
@@ -2012,7 +2017,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 			foreach my $users_field (@users_fields) {
 				if (defined $product_ref->{$users_field}) {
 					for (my $i = 0; $i < scalar @{$product_ref->{$users_field}}; $i++) {
-						if ($product_ref->{$users_field}[$i] eq $user_id) {
+						if (($product_ref->{$users_field}[$i] // '') eq $user_id) {
 							$product_ref->{$users_field}[$i] = $new_user_id;
 							$changes++;
 						}
@@ -2283,9 +2288,10 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
 						foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
 							$current{selected_images}{$image_type . '_' . $image_lc}
-								= $product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} . ' '
-								. $product_ref->{images}{selected}{$image_type}{$image_lc}{rev} . ' '
-								. $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry};
+								= ($product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} // '') . ' '
+								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{rev} // '') . ' '
+								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry}
+									// '');
 						}
 					}
 				}
@@ -2990,12 +2996,14 @@ C<ignore> alone, ignore every edits.
 You can also have rules of the form
 C<ignore_FIELD> and C<warn_FIELD> which will ignore (or notify) edits on the specific field.
 
+C<block_FIELD> will block any edit if the field is present or match a condition (see below).
+
 Note that ignore rules also create a notification.
 
 For nutriments use C<nutriments_NUTRIMENT_NAME> for C<FIELD>.
 
 You can guard the rule on the field with a condition:
-C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
+C<block_if_CONDITION_FIELD>, C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
 This time it's to check the value the user want's to add.
 
 C<CONDITION> is one of the following:
@@ -3120,6 +3128,7 @@ sub process_product_edit_rules ($product_ref) {
 
 		# If conditions match, process actions and notifications
 		if ($conditions) {
+			$log->info("edit_rule: conditions matched") if $log->is_info();
 
 			# 	actions => {
 			# 		["ignore_if_existing_ingredients_texts_fr"],
@@ -3148,7 +3157,8 @@ sub process_product_edit_rules ($product_ref) {
 						$proceed_with_edit = 0;
 					}
 					# rules with conditions
-					elsif ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/)
+					elsif ($action
+						=~ /^(ignore|warn|block)(_if_(existing|0|greater|lesser|equal|match|regexp_match))?_?(.*)$/)
 					{
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
@@ -3161,6 +3171,19 @@ sub process_product_edit_rules ($product_ref) {
 						local $log->context->{action} = $field;
 						local $log->context->{field} = $field;
 
+						if ($field =~ /_(\w\w)$/) {
+							# localized field ? remove language to get value in request
+							$default_field = $`;
+						}
+						if ($field =~ /_100g$/) {
+							# nutrient 100g ? remove 100g to get value in request
+							$default_field = $`;
+						}
+						elsif ($field =~ /nutriments_.*$/) {
+							# also consider nutrient_100g
+							$default_field = $field . "_100g";
+						}
+
 						if (defined $condition) {
 
 							my $param_field = undef;
@@ -3168,12 +3191,8 @@ sub process_product_edit_rules ($product_ref) {
 								# param_field is the new value defined by edit
 								$param_field = remove_tags_and_quote(decode utf8 => single_param($field));
 							}
-							if ($field =~ /_(\w\w)$/) {
-								# localized field ? remove language to get value in request
-								$default_field = $`;
-								if ((!defined $param_field) && (defined single_param($default_field))) {
-									$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
-								}
+							if ((!defined $param_field) && (defined single_param($default_field))) {
+								$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
 							}
 
 							# if field is not passed, skip rule
@@ -3266,9 +3285,15 @@ sub process_product_edit_rules ($product_ref) {
 
 							if ($type eq 'ignore') {
 								Delete($field);
+								$log->info("edit_rule: Removed $field") if $log->is_info();
 								if ($default_field ne $field) {
 									Delete($default_field);
+									$log->info("edit_rule: Removed $default_field") if $log->is_info();
 								}
+							}
+							elsif ($type eq 'block') {
+								$log->info("block action => do not proceed with edits") if $log->is_debug();
+								$proceed_with_edit = 0;
 							}
 						}
 
@@ -3309,47 +3334,13 @@ sub process_product_edit_rules ($product_ref) {
 										$emoji = ":pear:";
 									}
 
-									my $ua = create_user_agent();
-									my $server_endpoint
-										= "https://hooks.slack.com/services/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";
-
-									my $msg = $action_log;
-
-									# set custom HTTP request header fields
-									my $req = HTTP::Request->new(POST => $server_endpoint);
-									$req->header('content-type' => 'application/json');
-
-									# add POST data to HTTP request body
-									my $post_data
-										= '{"channel": "#'
-										. $channel
-										. '", "username": "editrules", "text": "'
-										. $msg
-										. '", "icon_emoji": "'
-										. $emoji . '" }';
-									$req->content_type("text/plain; charset='utf8'");
-									$req->content(Encode::encode_utf8($post_data));
-
-									my $resp = $ua->request($req);
-									if ($resp->is_success) {
-										my $message = $resp->decoded_content;
-										$log->info("Notification sent to Slack successfully", {response => $message})
-											if $log->is_info();
-									}
-									else {
-										$log->warn(
-											"Notification could not be sent to Slack",
-											{code => $resp->code, response => $resp->message}
-										) if $log->is_warn();
-									}
-
+									send_slack_message($channel, 'editrules', $action_log, $emoji);
 								}
 							}
 						}
 					}
 				}
 			}
-
 		}
 	}
 

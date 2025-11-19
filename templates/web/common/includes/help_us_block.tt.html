@@ -1,0 +1,16 @@
+[% IF lc == "en" or lc == "fr" %]
+    <h3>[% lang("you_can_also_help_us") %]</h3>
+    <p>
+        <a href="[% esq(lang('donate_link')) %]?utm_source=login-open-food-facts"><img src="[% static_subdomain %]/images/svg/donate-icon.svg" alt="[% esq(lang('donate')) %]" /></a>
+        [% IF lc == "fr" %]
+            <a href="https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\"><img src="[% static_subdomain %]/images/svg/lilo-icon.svg" alt="[% esq(lang('lilo_search_engine')) %]" style="margin-left:30px;"/></a> 
+        [% END %]
+            <p>
+        [% IF lc == "fr" %]
+            [% lang("bottom_content_split_with_lilo") %]
+        [% ELSE %]
+            [% lang("bottom_content_split") %]
+        [% END %]
+        </p>
+    </p>
+[% END %]

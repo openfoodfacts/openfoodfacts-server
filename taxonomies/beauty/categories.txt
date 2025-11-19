@@ -1,3 +1,5 @@
+# For a primer on taxonomies, read taxonomies/README.md
+
 stopwords:fr: aux, au, de, le, du, la, a, et, avec, pour
 
 synonyms:en: flavoured, flavored
@@ -155,6 +157,7 @@ uk: Ополіскувачі для ротової порожнини
 uz: Og'iz chayish
 vi: Nước súc miệng
 zh: 漱口水
+google_product_taxonomy_id:en: 3040
 wikidata:en: Q518968
 
 #### Dentifrices
@@ -210,6 +213,7 @@ uk: Зубні пасти
 uz: Tish pastalari
 vi: Kem đánh răng
 zh: 牙膏
+google_product_taxonomy_id:en: 1360
 wikidata:en: Q35855
 
 < en:Toothpastes
@@ -602,6 +606,7 @@ wikidata:en: Q97925317
 
 < en:Soaps
 en: Bar soaps
+google_product_taxonomy_id:en: 2503
 incompatible_with:en: categories:en:liquid-soaps
 wikidata:en: Q27883554
 
@@ -836,6 +841,7 @@ en: Shower gels
 de: Duschgele, Duschgels
 fr: Gels douche, Gel douche
 nl: Douchegel, douchegels
+google_product_taxonomy_id:en: 2747
 wikidata:en: Q1267611
 
 < en:Showers and baths
@@ -954,6 +960,7 @@ ur: ٹیمپون
 uz: Tamponlar
 vi: Tampon
 zh: 卫生棉条
+google_product_taxonomy_id:en: 2564
 wikidata:en: Q976338
 
 < fr:Tampons hygiéniques
@@ -1074,6 +1081,7 @@ ur: ڈیوڈورینٹ
 uz: Dezodorantlar
 vi: Chất khử mùi
 zh: 除臭剂
+google_product_taxonomy_id:en: 543598
 wikidata:en: Q309035
 
 < en:Deodorants
@@ -1407,6 +1415,7 @@ ur: بالوں کو ہٹانا
 uz: Soch olib tashlash
 vi: Tẩy lông
 zh: 脱毛
+google_product_taxonomy_id:en: 4507
 wikidata:en: Q625145
 
 < en:Hair removal
@@ -1642,6 +1651,7 @@ fr: Avant rasage
 < en:Shaving
 en: Aftershaves, Aftershave
 fr: Aftershaves, Après-rasage, Aftershave, Après-rasages
+google_product_taxonomy_id:en: 529
 wikidata:en: Q1545022
 
 < en:Aftershaves
@@ -1859,6 +1869,7 @@ ur: شیو کرنے والا جھاگ
 uz: Soqol olish uchun ko'pik
 vi: Bọt cạo râu
 zh: 剃须泡沫
+google_product_taxonomy_id:en: 2971
 wikidata:en: Q413152
 
 < en:Shaving
@@ -2376,8 +2387,10 @@ zh: 护手霜
 ###### CATEGORIE VISAGE
 
 en: Face
+da: Ansigt
 fr: Visage
 nl: Gezicht
+sv: Ansikte
 
 #### Crèmes pour le visage
 
@@ -2730,13 +2743,13 @@ bn: লিপ বাম, লিপ কেয়ার
 ca: Bàlsams labials
 cs: Balzámy na rty
 da: Læbepomader, Læbebalsam
-de: Lippenpflegestifte, Lippenschutzstifte, Lippenpflegestift
+de: Lippenpflegestifte, Lippenschutzstifte, Lippenpflegestift, Lippenbalsam
 el: Βάλσαμα για χείλη
-es: Bálsamos labiales
+es: Bálsamos labiales, Bálsamo labial
 et: Huulepalsamid
 fa: بالم لب
-fi: Huulivoiteet
-fr: Baumes à lèvres, Baume à lèvres, Soins des lèvres, Soin des lèvres, Soin à lèvres, Soins à lèvres
+fi: Huulivoiteet, Huulivoide
+fr: Baumes à lèvres, Baume à lèvres, Soins des lèvres, Soin des lèvres, Soin à lèvres, Soins à lèvres, Baumes lèvres
 ga: Balm liopaí
 he: משחות שפתיים
 hr: Balzami za usne
@@ -2744,7 +2757,7 @@ hu: Ajakbalzsamok
 hy: Շրթունքի բալզամներ
 id: Pelembap bibir
 is: Varasalvar
-it: Balsami per labbra
+it: Balsami per labbra, Balsamo per le labbra
 ja: リップクリーム
 ka: ტუჩის ბალზამები
 kk: Ерін бальзамдары
@@ -2756,10 +2769,10 @@ lv: Lūpu balzami
 mk: Балсами за усни
 ms: Balm bibir
 mt: Balzmi tax-xufftejn
+nb: Leppepomader, Leppepomade
 nl: Lippenbalsem
-no: Leppepomader
-pl: Balsamy do ust
-pt: Bálsamos labiais
+pl: Balsamy do ust, Balsam do ust
+pt: Bálsamos labiais, Bálsamo de lábios
 ro: Balsamuri de buze
 ru: Бальзамы для губ
 sk: Balzamy na pery
@@ -2777,6 +2790,7 @@ ur: ہونٹ بام
 uz: Lab balzamlari
 vi: Son dưỡng môi
 zh: 润唇膏
+wikidata:en: Q1518347
 
 < en:Face
 en: Cleansers, makeup removers
@@ -2996,21 +3010,22 @@ uz: Tozalovchi sut
 zh: 洁面乳
 
 < en:Cleansers
-en: Nail polish remover, Nail varnish remover
+< en:Nail products
+en: Nail polish removers, Nail polish remover, Nail varnish remover
 ar: مزيل طلاء الأظافر
 az: Dırnaq lakını təmizləyən vasitə
 bg: Лакочистител
 bn: নেইল পলিশ রিমুভার
 ca: Removedor d'esmalt d'ungles
-cs: Odličovač laku na nehty
-da: Neglelakfjerner
+cs: Odličovač laku na nehty, Odlakovače
+da: Neglelakfjernere, Neglelakfjerner
 de: Nagellackentferner
 el: Αφαιρετικό βερνικιού νυχιών
-es: Quitaesmalte
+es: Quitaesmaltes, Quitaesmalte
 et: Küünelakieemaldaja
 fa: پاک کننده لاک ناخن
 fi: Kynsilakanpoistoaine
-fr: Dissolvants
+fr: Dissolvants pour vernis à ongles, Dissolvants
 ga: Bainisteoir snas ingne
 he: מסיר לק
 hr: Odstranjivač laka za nokte
@@ -3018,7 +3033,7 @@ hu: Körömlakklemosó
 hy: Եղունգների լաքը հեռացնող միջոց
 id: Penghapus cat kuku
 is: Naglalakkahreinsir
-it: Levasmalto
+it: Solventi unghie, Levasmalto
 ja: 除光液
 ka: ფრჩხილის ლაქის მოსაშორებელი
 kk: Тырнақ бояуын кетіргіш
@@ -3030,27 +3045,28 @@ lv: Nagu lakas noņēmējs
 mk: Отстранувач на лак за нокти
 ms: Penanggal pengilat kuku
 mt: Remover tal-lustrar tad-dwiefer
-nl: Nagellakremover
-no: Neglelakkfjerner
-pl: Zmywacz do paznokci
-pt: Removedor de verniz
+nb: Neglelakkfjerner
+nl: Nagellakremovers, Nagellakremover
+pl: Zmywacze do paznokci, Zmywacz do paznokci
+pt: Removedores de esmalte, Removedor de verniz
 ro: Dizolvant de unghii
-ru: Жидкость для снятия лака
+ru: Средства для снятия лака, Жидкость для снятия лака
 sk: Odličovač laku na nechty
 sl: Odstranjevalec laka za nohte
 sq: Heqës i llakut të thonjve
 sr: Скидач лака за нокте
-sv: Nagellacksremover
+sv: Nagellacksborttagare, Nagellacksremover
 sw: Kiondoa rangi ya kucha
 tg: Тозакунандаи лаки нохун
 th: น้ำยาล้างเล็บ
 tk: Dyrnak lakyny aýyryjy
-tr: Aseton
+tr: Oje Çıkarıcılar, Aseton
 uk: Засіб для зняття лаку
 ur: ناخن پالش ہٹانے والا
 uz: Tirnoq lakini tozalash vositasi
 vi: Nước tẩy sơn móng tay
 zh: 洗甲水
+google_product_taxonomy_id:en: 2946
 wikidata:en: Q1963534
 
 < en:Cleansers
@@ -3276,6 +3292,7 @@ uk: Кондиціонери для волосся
 uz: Soch konditsionerlari
 vi: Dầu xả
 zh: 护发素
+google_product_taxonomy_id:en: 543616
 wikidata:en: Q1056607
 
 < en:Hair conditioners
@@ -3695,6 +3712,7 @@ uk: Шампуні
 uz: Shampunlar
 vi: Dầu gội
 zh: 洗发水
+google_product_taxonomy_id:en: 543615
 wikidata:en: Q180204
 
 < en:Shampoos
@@ -5050,11 +5068,13 @@ zh: 眼妆
 < en:Eyes makeup
 en: Mascara
 fr: Mascara
+google_product_taxonomy_id:en: 2834
 wikidata:en: Q324120
 
 < en:Eyes makeup
 en: Eyeliners
 fr: Eye-liners, Eye-liner, Ligneur, Ligneurs
+google_product_taxonomy_id:en: 2807
 wikidata:en: Q8243409
 
 < en:Eyes makeup
@@ -5113,6 +5133,7 @@ ur: آئی شیڈو
 uz: Ko'z soyalari
 vi: Phấn mắt
 zh: 眼影
+google_product_taxonomy_id:en: 2904
 wikidata:en: Q964307
 
 < en:Eyes makeup
@@ -5425,20 +5446,39 @@ wikidata:en: Q85755097
 
 #### Maquillage pour les ongles
 
+en: Nail products, Nail care, Nails
+cs: Péče o nehty
+da: Negleprodukter, Neglepleje
+de: Nagelpflege
+es: Cuidado de uñas
+fr: Soin des ongles
+it: Cura delle unghie
+ja: ネイルケア
+nb: Neglepleie
+nl: Nagelverzorging
+pl: Pielęgnacja paznokci
+pt: Cuidados com as unhas
+ru: Средства для ухода за ногтями
+sv: Nagelprodukter, Nagelvård
+tr: Tırnak Bakımı
+google_product_taxonomy_id:en: 478
+wikidata:en: Q116221817
+
 < en:Makeup
+< en:Nail products
 en: Nail makeup
 fr: Maquillage pour les ongles
 
 < en:Nail makeup
-en: Nail polish
+en: Nail polishes, Nail polish
 ar: طلاء الأظافر
 az: Dırnaq lakı
 bg: Лак за нокти
-cs: Lak na nehty
+cs: Laky na nehty, Lak na nehty
 da: Neglelak
-de: Nagellack
+de: Nagellacke, Nagellack
 el: Βερνίκι νυχιών
-es: Esmalte de uñas
+es: Esmaltes de uñas, Esmalte de uñas
 et: Küünelakk
 fa: لاک ناخن
 fi: Kynsilakka
@@ -5449,7 +5489,7 @@ hu: Körömlakk
 hy: Եղունգների լաք
 id: Cat kuku
 is: Naglalakk
-it: Smalto per unghie
+it: Smalti per unghie, Smalto per unghie
 ja: マニキュア
 ka: ფრჩხილის ლაქი
 kk: Тырнақ лагы
@@ -5460,12 +5500,12 @@ lv: Nagu laka
 mk: Лак за нокти
 ms: Pengilat kuku
 mt: Verniċ tad-dwiefer
-nl: Nagellak
-no: Neglelakk
-pl: Lakier do paznokci
-pt: Verniz para unhas
+nb: Neglelakk
+nl: Nagellakken, Nagellak
+pl: Lakiery do paznokci, Lakier do paznokci
+pt: Esmaltes, Verniz para unhas
 ro: Lac de unghii
-ru: Лак для ногтей
+ru: Лаки для ногтей, Лак для ногтей
 sk: Lak na nechty
 sl: Lak za nohte
 sq: Llaku i thonjve
@@ -5475,14 +5515,15 @@ sw: Rangi ya kucha
 tg: Лаки нохун
 th: น้ำยาทาเล็บ
 tk: Dyrnak üçin lak
-tr: Oje
+tr: Ojeler, Oje
 uk: Лак для нігтів
 uz: Tirnoq uchun lak
 vi: Sơn móng tay
 zh: 指甲油
+google_product_taxonomy_id:en: 2683
 wikidata:en: Q223807
 
-< en:Nail polish
+< en:Nail polishes
 en: Top Coat
 fr: Top Coat
 nl: Top Coat
@@ -5547,6 +5588,120 @@ zh: 指甲硬化剂
 < en:Nail makeup
 en: Nail patch, nail stickers
 fr: Nail patch, Stickers pour les ongles
+
+< en:Nail products
+en: Cuticle creams & oils, Cuticle Cream & Oil
+cs: Krémy a oleje na nehtovou kůžičku
+da: Creme og olie til neglebånd
+de: Nagelhautcremes & -Lotionen
+es: Aceites y cremas para cutículas
+fr: Crèmes et huiles pour cuticules
+it: Oli e creme per cuticole
+ja: キューティクルオイル・クリーム
+nb: Neglekrem og negleolje
+nl: Nagelriemcrème en -olie
+pl: Kremy i olejki do skórek
+pt: Cremes e óleos para cutículas
+ru: Кремы и масла для кутикулы
+sv: Nagelbandskräm och olja
+tr: Kütikül Krem ve Yağı
+google_product_taxonomy_id:en: 3009
+wikidata:en: Q116221819
+
+< en:Nail products
+en: False nails
+cs: Umělé nehty
+da: Falske negle
+de: Künstliche Nägel
+es: Uñas postizas
+fr: Faux-ongles
+it: Unghie finte
+ja: ネイルチップ
+nb: Falske negler
+nl: Valse nagels
+pl: Tipsy
+pt: Unhas postiças
+ru: Накладные ногти
+sv: Lösnaglar
+tr: Takma Tırnaklar
+google_product_taxonomy_id:en: 4218
+wikidata:en: Q11896839
+
+< en:Nail products
+en: Manicure glues, Manicure glue
+cs: Lepidla na nehty
+da: Neglelim
+de: Nagelkleber
+es: Pegamento para uñas
+fr: Colle pour faux ongles
+it: Colla per unghie
+ja: ネイル用接着剤
+nb: Neglelim
+nl: Nagellijm
+pl: Kleje do tipsów
+pt: Cola para unhas
+ru: Клеи для ногтей
+sv: Nagellim
+tr: Tırnak Yapıştırıcısı
+google_product_taxonomy_id:en: 6893
+wikidata:en: Q115634910
+
+< en:Nail products
+en: Nail art kits & accessories
+cs: Sady a příslušenství pro modeláž nehtů
+da: Nail Art Kit og tilbehør
+de: Nagelkunst-Zubehör
+es: Kits y accesorios de decoración de uñas
+fr: Kits et accessoires pour la décoration d'ongles
+it: Kit artistici per unghie e accessori
+ja: ネイルアートキット・関連用品
+nb: Sett og tilbehør for negledesign
+nl: Nagelversieringssets en -accessoires
+pl: Ozdoby do paznokci
+pt: Kits e acessórios de Nail Art
+ru: Наборы и принадлежности для нейл-арта
+sv: Nagelkonstkit och tillbehör
+tr: Tırnak Süsleme Set ve Aksesuarları
+google_product_taxonomy_id:en: 5975
+wikidata:en: Q116221822
+
+< en:Nail products
+en: Nail polish drying drops & sprays
+cs: Urychlovače schnutí laku na nehty
+da: Spray og dråber til tørring af neglelak
+de: Nagellack-Überlacke und -Trockensprays
+es: Aerosoles y gotas de secado para esmaltes de uñas
+fr: Accélérateurs de séchage
+it: Spray e gocce asciugasmalto
+ja: マニキュア速乾剤・速乾スプレー
+nb: Spray og dråper til tørking av neglelakk
+nl: Droogdruppels en -sprays voor nagellak
+pl: Krople i spraye przyspieszające schnięcie lakieru do paznokci
+pt: Gotas e sprays secantes para as unhas
+ru: Капли и спреи для сушки лака для ногтей
+sv: Torkdroppar och torkspray till nagellack
+tr: Oje Kurutma Damlaları ve Spreyleri
+google_product_taxonomy_id:en: 233419
+wikidata:en: Q116221827
+
+< en:Nail products
+en: Nail polish thinners
+cs: Ředidla laků na nehty
+da: Fortyndere til neglelak
+de: Nagellackverdünner
+es: Disolventes para esmaltes de uñas
+fr: Diluants à vernis
+it: Solventi per unghie
+ja: マニキュアうすめ液
+nb: Neglelakktynner
+nl: Nagellakverdunners
+pl: Rozcieńczalniki lakieru do paznokci
+pt: Diluente para esmalte
+ru: Разбавители для лака для ногтей
+sv: Förtunningsmedel för nagellack
+tr: Oje İncelticiler
+google_product_taxonomy_id:en: 7445
+wikidata:en: Q116221829
 
 #### Maquillage pour les lèvres
 
@@ -5651,6 +5806,7 @@ tr: Dudak kalemleri
 uk: Олівці для губ
 vi: Bút chì kẻ môi
 zh: 唇线笔
+google_product_taxonomy_id:en: 2589
 wikidata:en: Q875981
 
 < en:Lip pencils
@@ -5708,11 +5864,13 @@ tr: Rujlar
 uk: Губна помада
 vi: Son môi
 zh: 口红
+google_product_taxonomy_id:en: 3021
 wikidata:en: Q184191
 
 < en:Lip Makeup
 en: Lip gloss, Gloss
 fr: Gloss
+google_product_taxonomy_id:en: 2858
 wikidata:en: Q747675
 
 < en:Lip Makeup
@@ -5881,6 +6039,7 @@ uk: Сонцезахисний крем
 ur: سن سکرین
 uz: Quyoshdan himoya kremi
 vi: Kem chống nắng
+google_product_taxonomy_id:en: 2844
 wikidata:en: Q827658
 
 < en:Lip balms
@@ -6059,27 +6218,27 @@ zh: 晒黑准备
 
 ######## CATEGORIE Parfums
 
-en: Perfumes, Fragrances
+en: Perfumes, Fragrances, Perfume & Cologne
 ar: عطور
 az: Ətirlər
 bg: Парфюми
-cs: Parfémy
-da: Parfumer
-de: Parfüms
+cs: Parfémy, Parfémy a kolínské vody
+da: Parfumer, Parfume og eau de cologne
+de: Parfüms, Düfte
 el: Αρώματα
-es: Perfumes
+es: Perfumes, Perfumes y colonias
 et: Parfüümid
 fa: عطر
 fi: Hajuvedet
-fr: Parfums
+fr: Parfums, Parfums et eaux de Cologne
 ga: Cumhráin
 hr: Parfemi
 hu: Parfümök
 hy: Օծանելիքներ
 id: Parfum
 is: Ilmvötn
-it: Profumi
-ja: 香水
+it: Profumi, Profumi e colonie
+ja: 香水, 香水・オーデコロン
 ka: სუნამოები
 kk: Әтірлер
 ko: 향수
@@ -6089,26 +6248,28 @@ lv: Smaržas
 mk: Парфеми
 ms: Minyak wangi
 mt: Fwejjaħ
-nl: Parfums
-no: Parfymer
-pl: Perfumy
-pt: Perfumes
+nb: Parfymer, Parfyme for han og henne
+nl: Parfums, Parfum
+pl: Perfumy, Perfumy i wody kolońskie
+pt: Perfumes, Perfume e colônia
 ro: Parfumuri
-ru: Духи
+ru: Духи, Парфюмерия
 sk: Parfémy
 sl: Parfumi
 sq: Parfume
 sr: Парфеми
-sv: Parfymer
+sv: Parfymer, Parfym och cologne
 sw: Manukato
 tg: Аттор
 th: น้ำหอม
 tk: Atyrlar
-tr: Parfümler
+tr: Parfümler, Parfüm ve Kolonya
 uk: Парфуми
 uz: Atirlar
 vi: Nước hoa
 zh: 香水
+google_product_taxonomy_id:en: 479
+wikidata:en: Q116221831
 
 < en:Perfumes
 en: Men perfumes, Men perfume, Men fragrances, Men fragrance, Male perfume, Male perfumes
@@ -6711,6 +6872,7 @@ uk: Чоловічі презервативи
 uz: Erkak prezervativlari
 vi: Bao cao su nam
 zh: 男用避孕套
+google_product_taxonomy_id:en: 775
 wikidata:en: Q14076
 
 < fr:Préservatifs
@@ -6767,27 +6929,27 @@ zh: 女性安全套
 wikidata:en: Q864088
 
 < en:Accessories
-en: Lubricating gels, lubricants
+en: Personal lubricants, Lubricating gels, lubricants, lubes
 ar: مواد تشحيم ، جل تزليق
 az: Yağlayıcı gellər, sürtkü yağları
 bg: Смазочни гелове, лубриканти
-cs: Lubrikační gely, lubrikanty
-da: Smøremidler, smøregeler
-de: Gleitgele, Schmiermittel
+cs: Lubrikační gely, Lubrikanty
+da: Glidecremer, Smøremidler, smøregeler
+de: Gleitmittel, Gleitgele, Schmiermittel
 el: Λιπαντικά τζελ, λιπαντικά
-es: Geles lubricantes, lubricantes
+es: Lubricantes íntimos, Geles lubricantes, lubricantes
 et: Libestavad geelid, määrdeained
 fa: ژل های روان کننده، روان کننده ها
 fi: Liukuvoiteet, liukasteet
-fr: Gels lubrifiants, lubrifiants
+fr: Lubrifiants personnels, Gels lubrifiants, lubrifiants
 ga: Gels bealaithe, bealaí
 hr: Lubrikantni gelovi, lubrikanti
 hu: Síkosító gélek, kenőanyagok
 hy: Քսող գելեր, քսանյութեր
 id: Gel pelumas, pelumas
 is: Smurningshlaup, smurefni
-it: Gel lubrificanti, lubrificanti
-ja: 潤滑剤、潤滑剤ゲル
+it: Lubrificanti personali, Gel lubrificanti, lubrificanti
+ja: 潤滑ゼリー・ローション, 潤滑剤、潤滑剤ゲル
 ka: საპოხი გელები, საპოხი მასალები
 kk: Майлау гельдері, майлағыштар
 ko: 윤활 젤, 윤활제
@@ -6797,26 +6959,28 @@ lv: Smērvielas, smērvielu želejas
 mk: Лубрикантни гелови, лубриканти
 ms: Gel pelincir, pelincir
 mt: Ġellijiet lubrifikanti, lubrifikanti
+nb: Glidemidler, Smøremidler, smøregeler
 nl: Glijmiddelen, glijmiddelen
-no: Smøremidler, smøregeler
-pl: Żele nawilżające, lubrykanty
-pt: Géis lubrificantes, lubrificantes
+pl: Żele intymne, Żele nawilżające, lubrykanty
+pt: Lubrificantes pessoais, Géis lubrificantes, lubrificantes
 ro: Geluri lubrifiante, lubrifianți
-ru: Смазочные гели, смазки
+ru: Гигиенические смазки, Смазочные гели, смазки
 sk: Lubrikačné gély, lubrikanty
 sl: Mazalni geli, maziva
 sq: Xhel lubrifikantë, lubrifikantë
 sr: Лубрикантни гелови, лубриканти
-sv: Smörjmedel, glidmedel
+sv: Glidmedel, Smörjmedel
 sw: Geli za kulainisha, vilainishi
 tg: Гелҳои молиданӣ, равғанҳои молиданӣ
 th: เจลหล่อลื่น, สารหล่อลื่น
 tk: Ýaglaýjy geller, ýaglaýjylar
-tr: Kayganlaştırıcı jeller, kaydırıcılar
+tr: Kayganlaştırıcılar, Kayganlaştırıcı jeller, kaydırıcılar
 uk: Змащувальні гелі, мастила
 uz: Moylash gellari, moylash materiallari
 vi: Gel bôi trơn, chất bôi trơn
 zh: 润滑凝胶、润滑剂
+google_product_taxonomy_id:en: 777
+wikidata:en: Q942818
 
 < en:Accessories
 en: Massage candle
@@ -6931,9 +7095,14 @@ da: Vatpinde
 de: Wattestäbchen
 nb: Bomullspinner
 sv: Bomullspinnar
+google_product_taxonomy_id:en: 2934
 wikidata:en: Q12201
 
 en: Petroleum jellies, Vaseline
 sv: Petroleumgeléer, Vaselin
+google_product_taxonomy_id:en: 6753
 wikidata:en: Q457239
+
+en: Halloween cosmetics, Halloween makeup, Halloween products, Halloween supplies
+xx: Halloween-makeup
 

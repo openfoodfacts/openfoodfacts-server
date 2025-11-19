@@ -1,7 +1,8 @@
 # Should also be available as Debian packages
 # If a minimum version number is specified, "cpanm --skip-satisfied" will install a newer version than apt if one is available in cpan.
 requires 'Array::Diff';
-requires 'CGI', '>= 4.53, < 5.0'; # libcgi-pm-perl
+requires 'CGI', '==4.70';
+requires 'File::Slurp'; # libfile-slurp-perl
 requires 'Tie::IxHash'; # libtie-ixhash-perl
 requires 'LWP::Authen::Digest'; # libwww-perl
 requires 'LWP::UserAgent'; # libwww-perl
@@ -133,7 +134,7 @@ on 'test' => sub {
   requires 'Log::Any::Adapter::TAP'; # liblog-any-adapter-tap-perl
   requires 'IO::Capture::Stdout::Extended';
   requires 'IO::Capture::Stderr::Extended';
-  requires 'HTTP::CookieJar::LWP';
+  requires 'HTTP::Cookies';
   requires 'File::Tail';
   requires 'Test2::Plugin::UTF8';
   requires 'Devel::Cover';
@@ -158,6 +159,7 @@ on 'develop' => sub {
   requires 'Devel::Cover::Report::Codecovbash';
   requires 'Test2::Harness', '<2'; # Seems to be a problem with newer versions in Docker. See #11858
   requires 'Test2::Harness::Renderer::JUnit', '<2'; # As above
+  requires 'App::CPAN::SBOM', '1.03'; # For generating SBOMs
 };
 
 feature "off_server_dev_tools", "Optional development tools" => sub {

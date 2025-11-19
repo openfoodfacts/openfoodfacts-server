@@ -11,11 +11,9 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-wait_application_ready();
-
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
+remove_all_users();
 
 my $ua = new_client();
 
@@ -57,6 +55,20 @@ my $tests_ref = [
 		headers => {
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Credentials" => undef,
+		},
+		expected_type => "none",    # no body for OPTIONS requests
+	},
+	# redirects should include CORS
+	{
+		test_case => 'redirect-have-cors',
+		method => 'GET',
+		path => '/editors/tests',
+		expected_status_code => 301,
+		headers_in => {"Origin" => "http://other.localhost"},
+		headers => {
+			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Credentials" => undef,
+			"Location" => "/facets/editors/tests",
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	},

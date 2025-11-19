@@ -1,0 +1,28 @@
+asyncapi: "3.0.0"
+
+info:
+  title: Events emitted and subscribed to by Product Opener
+  version: 0.0.1
+
+servers:
+  redis:
+    title: Redis server
+    host: redis:6379
+    protocol: redis
+
+operations:
+  product_updated:
+    action: send
+    channel:
+      messages:
+        $ref: "./messages/product_updated.yaml"
+  user-registered:
+    action: receive
+    channel:
+      messages:
+        $ref: "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-auth/refs/heads/main/docs/events/messages/user-registered.yaml"
+  user-deleted:
+    action: receive
+    channel:
+      messages:
+        $ref: "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-auth/refs/heads/main/docs/events/messages/user-deleted.yaml"
