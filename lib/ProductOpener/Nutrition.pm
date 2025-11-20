@@ -1948,6 +1948,11 @@ sub compute_estimated_nutrients ($product_ref) {
 			$per, 'added-sugars', $modifier, $added_sugars, 'g');
 	}
 
+	# If some nutrients were estimated, include "Estimate from ingredients" as the source description
+	if (exists $input_sets_hash_ref->{$source}{$preparation}{$per}{nutrients}) {
+		deep_set($input_sets_hash_ref, $source, $preparation, $per, "source_description", "Estimate from ingredients");
+	}
+
 	# Convert back the input sets hash to array
 	deep_set($product_ref, "nutrition", "input_sets",
 		convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_ref));

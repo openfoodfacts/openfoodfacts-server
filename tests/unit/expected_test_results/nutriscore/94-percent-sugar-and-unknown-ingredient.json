@@ -122,9 +122,9 @@
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
       "en:nutriscore-not-computed",
-      "en:nutrition-fruits-vegetables-nuts",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
-      "en:nutrition-fruits-vegetables-legumes"
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients"
    ],
    "nova_group" : 2,
    "nova_group_debug" : "",
@@ -254,7 +254,8 @@
             "per_quantity" : "100",
             "per_unit" : "g",
             "preparation" : "as_sold",
-            "source" : "estimate"
+            "source" : "estimate",
+            "source_description" : "Estimate from ingredients"
          }
       ]
    },
@@ -265,6 +266,10 @@
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 0,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
    "nutrition_score_warning_no_fiber" : 1,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Sugary snacks",

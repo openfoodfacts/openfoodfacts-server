@@ -1198,7 +1198,7 @@ sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($prod
 	}
 	elsif (defined $fruits_vegetable_nuts) {
 		$fruits = $fruits_vegetable_nuts;
-		if ($fruits_vegetable_nuts_source eq "estimated") {
+		if ($fruits_vegetable_nuts_source eq "estimate") {
 			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
 			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
 			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients");
@@ -1320,7 +1320,7 @@ sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref) {
 	if (defined $fruits_vegetables_legumes) {
 		# Check if the source is estimated
 		if (deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-legumes", "source")
-			eq "estimated")
+			eq "estimate")
 		{
 			$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients} = 1;
 			$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value}
@@ -1778,8 +1778,8 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 			else {
 				$key_nutrients++;
 				my $source = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "source");
-				$key_nutrients_sources{$source} = 0 unless exists $key_nutrients_sources{$source};
-				$key_nutrients_sources{$source}++;
+				$key_nutrients_sources{$source} = [] unless exists $key_nutrients_sources{$source};
+				push @{$key_nutrients_sources{$source}}, $nid;
 			}
 		}
 
@@ -1808,13 +1808,13 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 			not(    (defined $product_ref->{"nutrition_grades_tags"})
 				and ($product_ref->{"nutrition_grades_tags"}[0] eq "unknown"))
 		)
-		and (exists $key_nutrients_sources{"estimated"})
+		and (exists $key_nutrients_sources{"estimate"})
 		)
 	{
 		$estimated = 1;
 
 		# Check if all key nutrients are from estimated source
-		if ($key_nutrients == $key_nutrients_sources{"estimated"}) {
+		if ($key_nutrients == scalar @{$key_nutrients_sources{"estimate"}}) {
 			$product_ref->{nutrition_score_warning_nutriments_estimated} = 1;
 			add_tag($product_ref, "misc", "en:nutriscore-using-estimated-nutrition-facts");
 		}
@@ -1826,6 +1826,13 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 				.= "did not compute nutriscore because some nutrients are estimated and some are not" . " - ";
 			add_tag($product_ref, "misc", "en:nutriscore-mixed-nutrition-facts-sources");
 			$nutrients_available = 0;
+			# Indicate which nutrients are estimated and missing in the other sources
+			foreach my $nid (@{$key_nutrients_sources{"estimate"}}) {
+				add_tag($product_ref, "misc", "en:nutrition-not-enough-data-to-compute-nutrition-score");
+				$product_ref->{nutrition_score_debug} .= "missing $preparation $nid - ";
+				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data");
+				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data-$nid");
+			}
 		}
 	}
 

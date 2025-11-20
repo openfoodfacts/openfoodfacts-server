@@ -94,10 +94,11 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:nutriscore-using-estimated-nutrition-facts",
       "en:nutriscore-computed",
-      "en:nutrition-fruits-vegetables-nuts",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
-      "en:nutrition-fruits-vegetables-legumes",
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a"
    ],
@@ -173,9 +174,6 @@
                   },
                   {
                      "id" : "sugars",
-                     "new_grade" : "a",
-                     "new_score" : -3,
-                     "new_value" : 10,
                      "points" : 3,
                      "points_max" : 15,
                      "unit" : "g",
@@ -199,9 +197,6 @@
                "positive" : [
                   {
                      "id" : "proteins",
-                     "new_grade" : "a",
-                     "new_score" : -3,
-                     "new_value" : 2.5,
                      "points" : 0,
                      "points_max" : 7,
                      "unit" : "g",
@@ -209,9 +204,6 @@
                   },
                   {
                      "id" : "fiber",
-                     "new_grade" : "a",
-                     "new_score" : -3,
-                     "new_value" : 3.1,
                      "points" : 0,
                      "points_max" : 5,
                      "unit" : "g",
@@ -1025,7 +1017,8 @@
             "per_quantity" : "100",
             "per_unit" : "g",
             "preparation" : "as_sold",
-            "source" : "estimate"
+            "source" : "estimate",
+            "source_description" : "Estimate from ingredients"
          }
       ]
    },
@@ -1036,6 +1029,11 @@
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 100,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
+   "nutrition_score_warning_nutriments_estimated" : 1,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Fruits and vegetables",
    "pnns_groups_1_tags" : [
