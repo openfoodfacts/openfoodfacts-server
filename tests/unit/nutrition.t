@@ -1683,4 +1683,144 @@ compare_to_expected_results(
 		undef, "undefined modifier stays undef");
 }
 
+# Test get_non_estimated_nutrient_per_100g_or_100ml_for_preparation function
+
+# Test with packaging source, as_sold preparation, sodium nutrient
+{
+	my $product_ref = {
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					per_quantity => 100,
+					per_unit => "g",
+					nutrients => {
+						sodium => {
+							value => 2.5,
+							unit => "g"
+						}
+					}
+				}
+			]
+		}
+	};
+	my $value = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sodium");
+	is($value, 2.5, "get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns correct value for packaging source");
+}
+
+# Test with estimate source - should return undef
+{
+	my $product_ref = {
+		nutrition => {
+			input_sets => [
+				{
+					source => "estimate",
+					preparation => "as_sold",
+					per => "100g",
+					per_quantity => 100,
+					per_unit => "g",
+					nutrients => {
+						sodium => {
+							value => 2.5,
+							unit => "g"
+						}
+					}
+				}
+			]
+		}
+	};
+	my $value = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sodium");
+	is($value, undef, "get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns undef for estimate source");
+}
+
+# Test with different preparation - should return undef
+{
+	my $product_ref = {
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "prepared",
+					per => "100g",
+					per_quantity => 100,
+					per_unit => "g",
+					nutrients => {
+						sodium => {
+							value => 2.5,
+							unit => "g"
+						}
+					}
+				}
+			]
+		}
+	};
+	my $value = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sodium");
+	is($value, undef, "get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns undef for different preparation");
+}
+
+# Test with nutrient not present - should return undef
+{
+	my $product_ref = {
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					per_quantity => 100,
+					per_unit => "g",
+					nutrients => {
+						sugars => {
+							value => 5.0,
+							unit => "g"
+						}
+					}
+				}
+			]
+		}
+	};
+	my $value = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sodium");
+	is($value, undef, "get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns undef for missing nutrient");
+}
+
+# Test with multiple sets - should return value from highest priority set
+{
+	my $product_ref = {
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					per_quantity => 100,
+					per_unit => "g",
+					nutrients => {
+						sodium => {
+							value => 2.5,
+							unit => "g"
+						}
+					}
+				},
+				{
+					source => "manufacturer",
+					preparation => "as_sold",
+					per => "100g",
+					per_quantity => 100,
+					per_unit => "g",
+					nutrients => {
+						sodium => {
+							value => 3.0,
+							unit => "g"
+						}
+					}
+				}
+			]
+		}
+	};
+	my $value = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sodium");
+	is($value, 3.0, "get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns value from highest priority set (manufacturer over packaging)");
+}
+
 done_testing();

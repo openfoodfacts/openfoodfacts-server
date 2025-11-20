@@ -50,9 +50,9 @@
          "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
          "id" : "en:apple-juice",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 62.5,
+         "percent_estimate" : 70.5,
          "percent_max" : 100,
-         "percent_min" : 25,
+         "percent_min" : 41,
          "text" : "apple juice",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -62,7 +62,7 @@
          "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 18.75,
+         "percent_estimate" : 14.75,
          "percent_max" : 50,
          "percent_min" : 0,
          "text" : "water",
@@ -74,8 +74,8 @@
          "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 9.375,
-         "percent_max" : 33.3333333333333,
+         "percent_estimate" : 2.25,
+         "percent_max" : 4.5,
          "percent_min" : 0,
          "text" : "sugar",
          "vegan" : "yes",
@@ -84,8 +84,8 @@
       {
          "id" : "en:e968",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 9.375,
-         "percent_max" : 25,
+         "percent_estimate" : 12.5,
+         "percent_max" : 4.5,
          "percent_min" : 0,
          "text" : "erythritol",
          "vegan" : "yes",
@@ -199,9 +199,9 @@
             "fiber" : 0,
             "fiber_points" : 0,
             "fiber_value" : 0,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 62.5,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 70.5,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 4,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 62.5,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 70.5,
             "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat" : 0,
@@ -294,7 +294,7 @@
                      "points" : 4,
                      "points_max" : 6,
                      "unit" : "%",
-                     "value" : 62.5
+                     "value" : 70.5
                   }
                ]
             },
@@ -387,7 +387,7 @@
                "points" : 4,
                "points_max" : 6,
                "unit" : "%",
-               "value" : 62.5
+               "value" : 70.5
             }
          ]
       },
@@ -426,7 +426,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 9.375
+               "value" : 2.25
             },
             "energy" : {
                "source" : "packaging",
@@ -455,7 +455,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 62.5
+               "value" : 70.5
             },
             "fruits-vegetables-nuts" : {
                "modifier" : "~",
@@ -463,7 +463,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 62.5
+               "value" : 70.5
             },
             "proteins" : {
                "source" : "packaging",
@@ -543,20 +543,20 @@
                "added-sugars" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 9.375,
-                  "value_string" : "9.375"
+                  "value" : 2.25,
+                  "value_string" : "2.25"
                },
                "fruits-vegetables-legumes" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 62.5,
-                  "value_string" : "62.5"
+                  "value" : 70.5,
+                  "value_string" : "70.5"
                },
                "fruits-vegetables-nuts" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 62.5,
-                  "value_string" : "62.5"
+                  "value" : 70.5,
+                  "value_string" : "70.5"
                }
             },
             "per" : "100g",
@@ -576,9 +576,9 @@
    "nutrition_score_beverage" : 1,
    "nutrition_score_debug" : "",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 62.5,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 70.5,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 62.5,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 70.5,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Beverages",
    "pnns_groups_1_tags" : [
