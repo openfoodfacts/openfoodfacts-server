@@ -28,7 +28,7 @@ LANGUAGE_URLS = {
     'de-AT': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.de-DE.txt',
     'fr-BE': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.fr-FR.txt',
     'nl-BE': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.nl-NL.txt',
-    'br-BR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt',
+    'pt-BR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt',
     'ca-FR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.fr-FR.txt',
     'es-CO': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.es-ES.txt',
     'cs-CZ': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.cs-CZ.txt',
