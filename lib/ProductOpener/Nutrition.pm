@@ -151,12 +151,14 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 		return;
 	}
 
+	# Make sure the input sets are sorted by priority
+	sort_sets_by_priority($input_sets_ref);
+
 	# store original index to get index source of nutrients for generated set
 	my @input_sets = map {{index => $_, set => $input_sets_ref->[$_]}} 0 .. $#$input_sets_ref;
 	my $aggregated_nutrient_set_ref = {};
 
 	if (@input_sets) {
-		@input_sets = sort_sets_by_priority(@input_sets);
 		# remove sets with quantities that are impossible to transform to 100g
 		# ie sets with unknow per quantity
 		@input_sets = grep {defined $_->{set}{per_quantity} && $_->{set}{per_quantity} ne ""} @input_sets;
@@ -186,22 +188,19 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 =head2 sort_sets_by_priority
 
 Sorts hashes of nutrient sets in a given array based on a custom priority.
+The array is sorted in place and also returned.
 
 The priority is based on the sources, the per references and the preparation states present in the nutrient sets.
 
 =head3 Arguments
 
-=head4 @input_sets
+=head4 $input_sets_ref
 
-Unsorted array nutrient sets hashes
-
-=head3 Return values
-
-Sorted array nutrient sets hashes
+Reference to array of unsorted input nutrient sets
 
 =cut
 
-sub sort_sets_by_priority (@input_sets) {
+sub sort_sets_by_priority ($input_sets_ref) {
 	my %source_priority = (
 		manufacturer => 0,
 		packaging => 1,
@@ -225,27 +224,29 @@ sub sort_sets_by_priority (@input_sets) {
 		_default => 2,
 	);
 
-	return (
+	@$input_sets_ref =
+
 		sort {
-			my $source_key_a = defined $a->{set}{source} ? $a->{set}{source} : '_default';
-			my $source_key_b = defined $b->{set}{source} ? $b->{set}{source} : '_default';
-			my $source_a = $source_priority{$source_key_a};
-			my $source_b = $source_priority{$source_key_b};
+		my $source_key_a = defined $a->{source} ? $a->{source} : '_default';
+		my $source_key_b = defined $b->{source} ? $b->{source} : '_default';
+		my $source_a = $source_priority{$source_key_a};
+		my $source_b = $source_priority{$source_key_b};
 
-			my $per_key_a = defined $a->{set}{per} ? $a->{set}{per} : '_default';
-			my $per_key_b = defined $b->{set}{per} ? $b->{set}{per} : '_default';
-			my $per_a = $per_priority{$per_key_a};
-			my $per_b = $per_priority{$per_key_b};
+		my $per_key_a = defined $a->{per} ? $a->{per} : '_default';
+		my $per_key_b = defined $b->{per} ? $b->{per} : '_default';
+		my $per_a = $per_priority{$per_key_a};
+		my $per_b = $per_priority{$per_key_b};
 
-			my $preparation_key_a = defined $a->{set}{preparation} ? $a->{set}{preparation} : '_default';
-			my $preparation_key_b = defined $b->{set}{preparation} ? $b->{set}{preparation} : '_default';
-			my $preparation_a = $preparation_priority{$preparation_key_a};
-			my $preparation_b = $preparation_priority{$preparation_key_b};
+		my $preparation_key_a = defined $a->{preparation} ? $a->{preparation} : '_default';
+		my $preparation_key_b = defined $b->{preparation} ? $b->{preparation} : '_default';
+		my $preparation_a = $preparation_priority{$preparation_key_a};
+		my $preparation_b = $preparation_priority{$preparation_key_b};
 
-			# sort priority : source then per then preparation
-			return $source_a <=> $source_b || $per_a <=> $per_b || $preparation_a <=> $preparation_b;
-		} @input_sets
-	);
+		# sort priority : source then per then preparation
+		return $source_a <=> $source_b || $per_a <=> $per_b || $preparation_a <=> $preparation_b;
+		} @$input_sets_ref;
+
+	return @$input_sets_ref;
 }
 
 =head2 set_nutrient_values
@@ -545,6 +546,8 @@ Input sets are normalized:
 - input sets with no nutrients are removed
 - the source, preparation and per values from the input sets hash keys are set in the input set
 
+The nutrients sets are sorted with sort_sets_by_priority()
+
 =head3 Arguments
 
 =head4 $input_sets_hash_ref
@@ -625,6 +628,8 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_re
 			}
 		}
 	}
+
+	sort_sets_by_priority($input_sets_ref);
 
 	$log->debug("convert_nutrition_input_sets_hash_to_array: end", {input_sets_ref => $input_sets_ref})
 		if $log->is_debug();
