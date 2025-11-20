@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "قاعدة بيانات التعاونية وحرة ومفتوحة للمنتجات الغذائية من جميع أنحاء العالم."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "قاعدة بيانات تعاونية, مجانية و مفتوحة للمنتجات الغذائية للحيوانات الأليفة من جميع أنحاء العالم."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -2412,7 +2412,7 @@ msgstr "قم بتعديل المنتج مرة أخرى"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "البلد"
+msgstr "بلد"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -3725,6 +3725,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "أخطاء جودة البيانات"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "اكتمال جودة البيانات"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "معلومات جودة البيانات"
@@ -4067,7 +4071,7 @@ msgstr "الدرجة الغذائية"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "درجة الجودة الغذائية"
+msgstr ""
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -4077,7 +4081,7 @@ msgstr "نتيجة درجة الجودة الغذائية"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "درجة الجودة الغذائية"
+msgstr ""
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4611,7 +4615,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "درجة الجودة الغذائية"
+msgstr ""
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -5142,11 +5146,11 @@ msgstr "النتيجة البيئية"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "متنوع"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "متنوع"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5164,7 +5168,7 @@ msgstr "رقم"
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "شكل"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5172,7 +5176,7 @@ msgstr "الكمية الواردة"
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "مادة"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -6136,6 +6140,14 @@ msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "مساهمة"
 
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "اكتمال جودة البيانات"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "بعض المعلومات حول اكتمال جودة البيانات لهذا المنتج"
+
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
 msgstr "الأخطاء المكتشفة"
@@ -6350,17 +6362,17 @@ msgstr "تعرف على المزيد حول الدرجة البيئية"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "مباراة جيدة جدًا"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "مباراة جيدة"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "مباراة سيئة"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
@@ -6370,12 +6382,12 @@ msgstr "تطابق غير معروف"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "قد لا يتطابق"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "لا يتطابق"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6748,7 +6760,7 @@ msgstr "تم تحويل القيمة"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "عدد الوحدات"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6780,19 +6792,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "أدخل عدد وحدات التغليف من نفس الشكل والمادة الموجودة في المنتج."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "أدخل اسم الشكل المدرج في تعليمات إعادة التدوير إذا كانت متوفرة، أو حدد شكلاً."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "أدخل المادة المحددة إذا كان من الممكن تحديدها (غالبًا ما يمكن العثور على رمز المادة داخل مثلث على أجزاء التغليف)، أو مادة عامة (على سبيل المثال البلاستيك أو المعدن) إذا كنت غير متأكد."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "أدخل تعليمات إعادة التدوير فقط إذا كانت مدرجة على المنتج."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6802,7 +6814,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "أدخل الوزن الصافي أو الحجم الصافي وأشر إلى الوحدة (على سبيل المثال جرام أو مل)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7422,17 +7434,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "نوع المنتج"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "طعام"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "طعام الحيوانات الأليفة"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7620,4 +7632,64 @@ msgstr "لم نكتشف: {unwanted_ingredients}. ربما فاتتنا بعض ا
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "تعتمد هذه التفضيلات على فهم Open Food Facts لقائمة المكونات، وهناك دائمًا احتمال ألا تكون دقيقة أو كاملة، لذا تحقق دائمًا من المنتج بنفسك."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Fingerprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "التدخين يقتل"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "التبغ مُضرٌّ بالصحة بشكل خطير. لا تبدأ به. أقلع عنه الآن."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "التدخين مُسبب للإدمان. لا تبدأ به. التدخين قاتل - أقلع عنه الآن. يُسد التدخين الشرايين ويُسبب النوبات القلبية والسكتات الدماغية. يُسبب سرطان الرئة المميت. التدخين أثناء الحمل يُضر بطفلك. احمِ أطفالك: لا تجعلهم يتنفسون دخانك. يُمكن لطبيبك أو الصيدلي مساعدتك على الإقلاع عن التدخين. قد يُقلل التدخين من تدفق الدم ويُسبب العجز الجنسي. يُسبب التدخين شيخوخة الجلد. يُمكن أن يُلحق التدخين الضرر بالحيوانات المنوية ويُقلل الخصوبة. يحتوي الدخان على البنزين والنيتروزامين والفورمالديهايد وسيانيد الهيدروجين."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "السعر العام"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 يورو، 2.99 دولار أمريكي، 4.00 جنيه إسترليني"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "سعر التجزئة المقترح من الشركة المصنعة (MSRP)، باستثناء الخصومات والعروض الترويجية، كما هو موضح على عبوة المنتج أو موقع الشركة المصنعة (بما في ذلك الضرائب أو استبعادها وفقًا للتشريعات). استخدم قائمة مفصولة بفواصل إذا كانت الأسعار مُدرجة بعملات متعددة."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "الممتلكات الشخصية"
 
