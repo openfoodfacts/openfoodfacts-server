@@ -39,7 +39,7 @@ LANGUAGE_URLS = {
     'jp-JP': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.ja-JP.txt',
     'mx-MX': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.es-ES.txt',
     'nl-NL': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.nl-NL.txt',
-    'nz-NZ': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-AU.txt',
+    'en-NZ': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-AU.txt',
     'no-NO': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.no-NO.txt',
     'pl-PL': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.pl-PL.txt',
     'pt-BR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt',
