@@ -139,9 +139,21 @@ sub init_translated_text_routes_for_all_languages () {
 			# Remove leading slash if present
 			$translated_route =~ s|^/||;
 
+			# $translated_route must be a slug
+			die("$translated_route (translation of $translation_id in $target_lc) is not a slug while it should") unless ($translated_route =~ /[A-Za-z-]+/);
 			# We assume that a specific translated route maps to a single text id, regardless of language
 			# That means that two different text ids should not have the same translated route in different languages
 			# This is done because in routing, we match the route against a hash of routes that is not language specific
+			if (
+				(defined $texts_translated_route_to_text_id{$translated_route}) and
+				($texts_translated_route_to_text_id{$translated_route} ne $text_id)
+			) {
+				die(
+					"Already got " . 		
+					$texts_translated_route_to_text_id{$translated_route} .
+					" for $translated_route while trying to insert $text_id"
+				);
+			}
 			$texts_translated_route_to_text_id{$translated_route} = $text_id;
 			$texts_text_id_to_translated_route{$text_id}{$target_lc} = $translated_route;
 		}
