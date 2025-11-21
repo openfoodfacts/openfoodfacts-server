@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.83.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.82.1...v2.83.0) (2025-11-21)
+
+
+### Features
+
+* rule to block edits on a field condition ([#12664](https://github.com/openfoodfacts/openfoodfacts-server/issues/12664)) ([f24c1f4](https://github.com/openfoodfacts/openfoodfacts-server/commit/f24c1f4581a7e7f58e13169c83b850d53b4db66d))
+
+
+### Bug Fixes
+
+* add signup comment needed for dart plugin to register new users ([#12672](https://github.com/openfoodfacts/openfoodfacts-server/issues/12672)) ([a9ded2b](https://github.com/openfoodfacts/openfoodfacts-server/commit/a9ded2b3721672759e3f22dd381c2b53228fcb9f))
+* automatic routing for translated text routes ([#12651](https://github.com/openfoodfacts/openfoodfacts-server/issues/12651)) ([114b3e6](https://github.com/openfoodfacts/openfoodfacts-server/commit/114b3e604b7177f82f3f4d6cabe49c7ffd5abd2d))
+* enable unwanted attributes on OBF ([#12658](https://github.com/openfoodfacts/openfoodfacts-server/issues/12658)) ([97fc47d](https://github.com/openfoodfacts/openfoodfacts-server/commit/97fc47d7d18478c4bdb48e8eebc2d414e7c8c821))
+* extract Yuka params from GET JSON body ([#12687](https://github.com/openfoodfacts/openfoodfacts-server/issues/12687)) ([0cc5d60](https://github.com/openfoodfacts/openfoodfacts-server/commit/0cc5d60bd0a072b306968c74a306d4f7080e8686))
+* fix croatia labeler ([f334ade](https://github.com/openfoodfacts/openfoodfacts-server/commit/f334adefa8eea80dd0e37ee8aede733dbf24c1a4))
+* fix croatia labeler ([#12670](https://github.com/openfoodfacts/openfoodfacts-server/issues/12670)) ([f334ade](https://github.com/openfoodfacts/openfoodfacts-server/commit/f334adefa8eea80dd0e37ee8aede733dbf24c1a4))
+* Revise tobacco health warning message ([833277a](https://github.com/openfoodfacts/openfoodfacts-server/commit/833277a1946acd6d4ded462fe979a7730733c8de))
+* Revise tobacco health warning message ([#12684](https://github.com/openfoodfacts/openfoodfacts-server/issues/12684)) ([833277a](https://github.com/openfoodfacts/openfoodfacts-server/commit/833277a1946acd6d4ded462fe979a7730733c8de))
+* stop spinner after successful image move ([#12657](https://github.com/openfoodfacts/openfoodfacts-server/issues/12657)) ([7e647ab](https://github.com/openfoodfacts/openfoodfacts-server/commit/7e647ab67e5074d87ce42fc485b6b8b78d22cbbf))
+* Update budget year from 2025 to 2026 ([#12689](https://github.com/openfoodfacts/openfoodfacts-server/issues/12689)) ([805096e](https://github.com/openfoodfacts/openfoodfacts-server/commit/805096e5cd5ed5e99495f3d73b14f4a9517bae45))
+
 ## [2.82.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.82.0...v2.82.1) (2025-11-12)
 
 
