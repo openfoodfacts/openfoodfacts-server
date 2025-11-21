@@ -26,7 +26,7 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Lang qw/$lc/;
@@ -184,7 +184,7 @@ if ($move_to ne 'trash') {
 			"new product code does not exist yet, creating product",
 			{move_to => $move_to, move_to_id => $move_to_id}
 		) if $log->is_debug();
-		$new_product_ref = init_product($User_id, $Org_id, $move_to, $country);
+		$new_product_ref = init_product($User_id, $Org_id, $move_to, $request_ref->{country});
 		$new_product_ref->{interface_version_created} = $interface_version;
 		$new_product_ref->{lc} = $lc;
 

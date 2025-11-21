@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -70,8 +70,10 @@ BEGIN {
 		$crm_pwd
 		$serialize_to_json
 		$oidc_implementation_level
+		$oidc_discovery_url
 		$oidc_client_id
 		$oidc_client_secret
+		%slack_hook_urls
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -144,7 +146,6 @@ $redis_url = $ENV{REDIS_URL};
 # Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
 # enable folksonomy features
 $folksonomy_url = $ENV{FOLKSONOMY_URL};
-# recipe-estimator product service
 # To test a locally running recipe-estimator with product opener in a docker dev environment:
 # - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
 # $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
@@ -185,5 +186,20 @@ $serialize_to_json = $ENV{SERIALIZE_TO_JSON};
 
 $oidc_implementation_level = $ENV{OIDC_IMPLEMENTATION_LEVEL};
 $oidc_client_id = $ENV{OIDC_CLIENT_ID};
+$oidc_discovery_url = $ENV{OIDC_DISCOVERY_URL};
 $oidc_client_secret = $ENV{OIDC_CLIENT_SECRET};
+
+# Slack URLs
+%slack_hook_urls = ();
+if ((defined $ENV{SLACK_HOOK_URLS}) and ($ENV{SLACK_HOOK_URLS} ne '')) {
+	foreach my $kvp (split(',', $ENV{SLACK_HOOK_URLS})) {
+		$kvp =~ s/^\s+|\s+$//g;    # Trim leading and trailing whitespace
+		if (not($kvp =~ m/^(?<channel>.+)=(?<url>https?.+)$/)) {
+			next;
+		}
+
+		$slack_hook_urls{$+{channel}} = $+{url};
+	}
+}
+
 1;

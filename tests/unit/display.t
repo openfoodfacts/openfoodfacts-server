@@ -12,6 +12,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Web qw/display_field/;
 use ProductOpener::Lang qw/$lc lang separator_before_colon/;
 use ProductOpener::HTTP qw/request_param/;
+use ProductOpener::APIAttributeGroups qw/display_preferences_api display_attribute_groups_api/;
 
 # date tests
 my $t = 1472292529;
@@ -121,22 +122,6 @@ like($nutriscore_calculation_detail, qr/Proteins:\n2&nbsp;<\/strong>\/&nbsp;5/);
 like($nutriscore_calculation_detail, qr/Positive points: 2/);
 like($nutriscore_calculation_detail, qr/Negative points: 8/);
 like($nutriscore_calculation_detail, qr/<strong>Nutri-Score: C<\/strong>/);
-
-$lc = 'en';
-my $product_ref = {
-	states => ['en:front-photo-selected'],
-	states_hierarchy => ['en:front-photo-selected']
-};
-my $expected = lang('done_status') . separator_before_colon($lc) . q{:};
-like(display_field($product_ref, 'states'), qr/$expected/);
-
-$lc = 'en';
-$product_ref = {
-	states => ['en:front-photo-to-be-selected'],
-	states_hierarchy => ['en:front-photo-to-be-selected']
-};
-$expected = lang('to_do_status') . separator_before_colon($lc) . q{:};
-like(display_field($product_ref, 'states'), qr/$expected/);
 
 # should not loose the second facet at the end of the url on redirection
 my $facets_ref = {

@@ -7,6 +7,7 @@ on:
     - "docs/**"
     - ".github/workflows/generate-doc.yml"
     - "mkdocs.yml"
+    - ".spectral.yaml"
   push:
     # on merge to main, build and publish
     branches: [ "main" ]

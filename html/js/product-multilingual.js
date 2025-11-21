@@ -739,7 +739,7 @@ const maximumRecentEntriesPerTag = 10;
                             $("#imgsearchbutton_" + imagefield).show();
                             $("#imgsearchmsg_" + imagefield).hide();
 
-                            // showing the message "image recieved" once user uploads the image
+                            // showing the message "image received" once user uploads the image
                             if (typeof data_info === "string" && stringStartsWith(data_info, "protect")) {
                                 $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
                                 $("#imgsearchmsg_" + imagefield).show();
@@ -818,7 +818,7 @@ const maximumRecentEntriesPerTag = 10;
     };
 
     $('#back-btn').click(function () {
-        window.location.href = window.location.origin + '/product/' + window.code;
+        window.location.href = window.location.origin + '/product/' + code;
     });
 
     initLanguageAdding();
@@ -1107,6 +1107,15 @@ $("#delete_images").click({}, function (event) {
             error: function (textStatus) {
                 $('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + textStatus);
             },
+            complete: function () {
+                $('div[id="moveimagesmsg"]').delay(2000).fadeOut(300);
+                $("#delete_images").addClass("disabled");
+                $("#move_images").addClass("disabled");
+                $("#manage .ui-selected").first().each(function () {
+                    $("#delete_images").removeClass("disabled");
+                    $("#move_images").removeClass("disabled");
+                });
+            },
         });
 
     }
@@ -1148,6 +1157,7 @@ $("#move_images").click({}, function (event) {
                 $('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + textStatus);
             },
             complete: function () {
+                $('div[id="moveimagesmsg"]').delay(2000).fadeOut(300);
                 $("#move_images").addClass("disabled");
                 $("#move_images").addClass("disabled");
                 $("#manage .ui-selected").first().each(function () {

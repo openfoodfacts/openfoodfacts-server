@@ -431,6 +431,15 @@
                "id" : "soluble-fiber",
                "important" : false,
                "name" : "Soluble fiber",
+               "nutrients" : [
+                  {
+                     "display_in_edit_form" : false,
+                     "id" : "polydextrose",
+                     "important" : false,
+                     "name" : "Polydextrose",
+                     "unit" : "g"
+                  }
+               ],
                "unit" : "g"
             },
             {
