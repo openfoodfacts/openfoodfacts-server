@@ -177,6 +177,9 @@ init_translated_text_routes_for_all_languages();
 
 sub load_texts_from_lang_directory () {
 
+	# only load if not already done
+	return 1 if (%texts);
+
 	$lang_dir = $BASE_DIRS{LANG};
 
 	if (not -e $lang_dir) {
