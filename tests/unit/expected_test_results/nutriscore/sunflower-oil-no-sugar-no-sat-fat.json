@@ -111,7 +111,7 @@
             "is_red_meat_product" : 0,
             "is_water" : 0,
             "proteins" : 0,
-            "salt" : "0",
+            "salt" : 0,
             "saturated_fat" : null,
             "saturated_fat_ratio" : 0,
             "sugars" : 0
@@ -183,7 +183,7 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : "0"
+               "value" : 0
             },
             "sodium" : {
                "source" : "packaging",

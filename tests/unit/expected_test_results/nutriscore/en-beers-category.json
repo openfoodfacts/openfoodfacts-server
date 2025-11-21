@@ -85,7 +85,7 @@
             "is_water" : 0,
             "non_nutritive_sweeteners" : null,
             "proteins" : 0.2,
-            "salt" : "0.5",
+            "salt" : 0.5,
             "saturated_fat" : 0,
             "sugars" : 8.9
          },
@@ -153,7 +153,7 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : "0.5"
+               "value" : 0.5
             },
             "saturated-fat" : {
                "source" : "packaging",

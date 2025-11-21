@@ -399,7 +399,7 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 					= clone($aggregated_nutrient_set_ref->{nutrients}{"salt"});
 				$aggregated_nutrient_set_ref->{nutrients}{"sodium"}{value}
 					= remove_insignificant_digits(
-					convert_salt_to_sodium($aggregated_nutrient_set_ref->{nutrients}{"salt"}{value}));
+					convert_salt_to_sodium($aggregated_nutrient_set_ref->{nutrients}{"salt"}{value})) + 0;
 			}
 			elsif ((exists $aggregated_nutrient_set_ref->{nutrients}{"sodium"})
 				and not(exists $aggregated_nutrient_set_ref->{nutrients}{"salt"}))
@@ -408,7 +408,7 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 					= clone($aggregated_nutrient_set_ref->{nutrients}{"sodium"});
 				$aggregated_nutrient_set_ref->{nutrients}{"salt"}{value}
 					= remove_insignificant_digits(
-					convert_sodium_to_salt($aggregated_nutrient_set_ref->{nutrients}{"sodium"}{value}));
+					convert_sodium_to_salt($aggregated_nutrient_set_ref->{nutrients}{"sodium"}{value})) + 0;
 			}
 		}
 	}
