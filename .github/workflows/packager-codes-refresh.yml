@@ -1,5 +1,9 @@
 name: Packager codes refresh
 
+permissions:
+  contents: write
+  pull-requests: write
+
 on:
   # Allow to be run manually
   workflow_dispatch:
