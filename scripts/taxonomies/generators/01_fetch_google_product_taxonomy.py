@@ -48,7 +48,6 @@ LANGUAGE_URLS = {
     'sv-SE': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.sv-SE.txt',
     'fr-CH': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.fr-CH.txt',
     'de-CH': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.de-CH.txt',
-    'it-CH': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.it-CH.txt',
     'tr-TR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.tr-TR.txt',
 }
 
