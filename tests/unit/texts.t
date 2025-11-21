@@ -6,7 +6,8 @@ use utf8;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Texts qw/%texts_translated_route_to_text_id %texts/;
+use ProductOpener::Texts
+	qw/%texts_translated_route_to_text_id %texts init_translated_text_routes_for_all_languages load_texts_from_lang_directory/;
 
 init_translated_text_routes_for_all_languages();
 load_texts_from_lang_directory();
