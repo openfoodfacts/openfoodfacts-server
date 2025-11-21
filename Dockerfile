@@ -2,19 +2,23 @@
 # Base user uid / gid keep 1000 on prod, align with your user on dev
 ARG USER_UID=1000
 ARG USER_GID=1000
-# options for cpan installs
+# Options for cpan installs
 ARG CPANMOPTS=
+# ZXing library version
+ARG ZXING_VERSION=2.3.0
 
 ######################
-# Base modperl image stage
+# runtime-base: Minimal runtime dependencies
 ######################
-FROM debian:bullseye-slim AS modperl
+FROM debian:bullseye-slim AS runtime-base
 
 # BEGIN zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
 
 # Install ca-certificates, so that apt can connect to github pages with HTTPS
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
-    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt,sharing=locked \
+    rm -f /etc/apt/apt.conf.d/docker-clean && \
+    set -x && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
     ca-certificates
@@ -25,132 +29,53 @@ COPY ./docker/zxing-cpp-backport.sources /etc/apt/sources.list.d/
 
 # END zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
 
-# Install cpm to install cpanfile dependencies
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
-    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+# Install runtime dependencies only (no build tools, no -dev packages)
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt,sharing=locked \
+    rm -f /etc/apt/apt.conf.d/docker-clean && \
+    set -x && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
+        # Core runtime
         apache2 \
         apt-utils \
         cpanminus \
-        # being able to build things
-        g++ \
-        gcc \
         less \
         libapache2-mod-perl2 \
-        make \
         gettext \
         wget \
-        # images processing
+        # Image processing (runtime only)
         imagemagick \
         graphviz \
         tesseract-ocr \
-        # ftp client
+        # FTP client
         lftp \
-        # some compression utils
+        # Compression utilities
         gzip \
         tar \
         unzip \
         zip \
         pigz \
-        # useful to send mail
+        # Mail utilities
         mailutils \
-        # perlmagick \
-        #
-        # Packages from ./cpanfile:
-        # If cpanfile specifies a newer version than apt has, cpanm will install the newer version.
-        #
-        libfile-slurp-perl \
-        libtie-ixhash-perl \
-        libwww-perl \
+        # C libraries for XS modules (not -dev packages)
+        libzbar0 \
+        libpq5 \
+        libev4 \
+        # Complex Perl packages that need Debian packaging
         libimage-magick-perl \
-        libxml-encoding-perl  \
-        libtext-unaccent-perl \
-        libmime-lite-perl \
-        libcache-memcached-fast-perl \
-        libjson-pp-perl \
-        libclone-perl \
-        #11866: Delete following after Keycloak Migration:
-        libcrypt-passwdmd5-perl \
-        libencode-detect-perl \
-        libgraphics-color-perl \
-        libbarcode-zbar-perl \
-        libxml-feedpp-perl \
-        liburi-find-perl \
-        libxml-simple-perl \
-        libexperimental-perl \
         libapache2-request-perl \
-        libdigest-md5-perl \
-        libtime-local-perl \
-        libdbd-pg-perl \
-        libtemplate-perl \
-        liburi-escape-xs-perl \
-        libanyevent-redis-perl \
-        # NB: not available in ubuntu 1804 LTS:
-        libmath-random-secure-perl \
-        libfile-copy-recursive-perl \
-        libemail-stuffer-perl \
-        liblist-moreutils-perl \
-        libexcel-writer-xlsx-perl \
-        libpod-simple-perl \
-        liblog-any-perl \
-        liblog-log4perl-perl \
-        liblog-any-adapter-log4perl-perl \
-        # NB: not available in ubuntu 1804 LTS:
-        libgeoip2-perl \
-        libemail-valid-perl
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
-    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
-    # rerun apt update, because last RUN might be in cache
-    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
-      apt-get update || true \
-    ) && \
-    apt-get install -y --no-install-recommends \
-        #
-        # cpan dependencies that can be satisfied by apt even if the package itself can't:
-        #
-        # Action::Retry
-        libmath-fibonacci-perl \
-        # EV - event loop
-        libev-perl \
-        # Algorithm::CheckDigits
-        libprobe-perl-perl \
-        # CLDR::Number
-        libmath-round-perl \
-        libsoftware-license-perl \
-        libtest-differences-perl \
-        libtest-exception-perl \
-        # Data::Dumper::AutoEncode
-        # NB: not available in ubuntu 1804 LTS:
-        libmodule-build-pluggable-perl \
-        libclass-accessor-lite-perl \
-        # DateTime
-        libclass-singleton-perl \
-        # DateTime::Locale
-        libfile-sharedir-install-perl \
-        # File::chmod::Recursive
-        libfile-chmod-perl \
-        # GeoIP2
-        libdata-dumper-concise-perl \
-        libdata-printer-perl \
-        libdata-validate-ip-perl \
-        libio-compress-perl \
-        libjson-maybexs-perl \
-        libcpanel-json-xs-perl \
-        liblist-allutils-perl \
-        liblist-someutils-perl \
-        # GraphViz2
-        libdata-section-simple-perl \
-        libfile-which-perl \
-        libipc-run3-perl \
-        liblog-handler-perl \
-        libtest-deep-perl \
-        libwant-perl \
-        # Image::OCR::Tesseract
+        # Runtime-only Perl dependencies not in cpanfile
         libfile-find-rule-perl \
-        liblinux-usermod-perl \
-        # Locale::Maketext::Lexicon::Getcontext
         liblocale-maketext-lexicon-perl \
+        # Pure Perl dependencies without C components
+        libmath-fibonacci-perl \
+        libclass-singleton-perl \
+        libtext-unaccent-perl \
+        libxml-encoding-perl \
+        libxml-simple-perl \
+        # Keycloak migration dependencies (#11866)
+        libcrypt-passwdmd5-perl \
         # Log::Any::Adapter::TAP
         liblog-any-adapter-tap-perl \
         # Math::Random::Secure
@@ -174,8 +99,32 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # Test::Number::Delta
         libtest-number-delta-perl \
         libdevel-size-perl \
-        gnumeric \
-        # for dev
+        gnumeric
+
+######################
+# build-base: Add build tools and -dev packages
+######################
+FROM runtime-base AS build-base
+
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt,sharing=locked \
+    rm -f /etc/apt/apt.conf.d/docker-clean && \
+    set -x && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
+        # Build tools
+        g++ \
+        gcc \
+        make \
+        cmake \
+        pkg-config \
+        # Development libraries for XS module compilation
+        libzbar-dev \
+        libapreq2-dev \
+        libpq-dev \
+        libev-dev \
+        # ZXing from backport
+        libzxing-dev \
         # gnu readline
         libreadline-dev \
         # IO::AIO needed by Perl::LanguageServer
@@ -184,11 +133,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libapache2-mod-perl2-dev \
         # OpenSSL dev needed by OIDC::Lite
         libssl-dev \
-        # needed for  Imager::File::WEBP
+        # needed for Imager::File::WEBP
         libwebpmux3 \
-        # Imager::zxing - build deps
-        pkg-config \
-        libzxing-dev \
         # Imager::zxing - decoders
         libavif-dev \
         libde265-dev \
@@ -198,93 +144,141 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libwebp-dev \
         libx265-dev
 
-# Run www-data user AS host user 'off' or developper uid
-ARG USER_UID
-ARG USER_GID
-RUN usermod --uid $USER_UID www-data && \
-    groupmod --gid $USER_GID www-data
-
-
 ######################
-# Stage for installing/compiling cpanfile dependencies
+# builder: Compile Perl modules from cpanfile
 ######################
-FROM modperl AS builder
+FROM build-base AS builder
+
 ARG CPANMOPTS
+
 WORKDIR /tmp
 
-# Install Product Opener from the workdir.
-COPY ./cpanfile* /tmp/
-# Add ProductOpener runtime dependencies from cpan
-# we also add apt cache as some libraries might be installed from apt
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
-    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
-    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+# Copy cpanfile for dependency installation
+COPY cpanfile /tmp/
+
+# Install Perl modules from CPAN
+RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
     set -x && \
-    # also run apt update if needed because some package might need to apt install
-    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
-      apt-get update || true \
-    ) && \
-    # first install some dependencies that are not well handled
-    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
-    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
-    # in case of errors show build.log, but still, fail
-    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
+    cpanm --notest --quiet --local-lib /tmp/local --installto /tmp/local ${CPANMOPTS} --installdeps .
 
 ######################
-# backend production image stage
+# runnable: Production runtime (minimal, no build tools)
 ######################
-FROM modperl AS runnable
+FROM runtime-base AS runnable
 
-# Prepare Apache to include our custom config
-RUN rm /etc/apache2/sites-enabled/000-default.conf
+ARG USER_UID
+ARG USER_GID
 
-# Copy Perl libraries from the builder image
+# Copy compiled Perl modules from builder
 COPY --from=builder /tmp/local/ /opt/perl/local/
-ENV PERL5LIB="/opt/product-opener/lib/:/opt/perl/local/lib/perl5/"
-ENV PATH="/opt/perl/local/bin:${PATH}"
-# Set up apache2 to use npm prefork
-RUN \
-    a2dismod mpm_event && \
-    a2enmod mpm_prefork
 
-# Create writable dirs and change ownership to www-data
-RUN \
-    mkdir -p var/run/apache2/ && \
-    chown www-data:www-data var/run/apache2/ && \
-    for path in data html_data users products product_images orgs logs new_images deleted_products_images reverted_products deleted_private_products translate deleted_products deleted.images import_files tmp build-cache/taxonomies debug sftp; do \
-        mkdir -p /mnt/podata/${path}; \
-    done && \
-    chown www-data:www-data -R /mnt/podata && \
-    # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
-    # NOTE: do not changes those links for they are in a volume, or handle migration in entry-point
-    for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates; do \
-        ln -sf /opt/product-opener/${path} /mnt/podata/${path}; \
-    done && \
-    # Create some necessary files to ensure permissions in volumes
-    mkdir -p /opt/product-opener/html/data/ && \
-    mkdir -p /opt/product-opener/html/data/taxonomies/ && \
-    mkdir -p /opt/product-opener/html/images/products && \
-    chown www-data:www-data -R /opt/product-opener/html/ && \
-    # inter services directories (until we get a real solution)
-    for service in obf off opf opff; do \
-        mkdir -p /srv/$service; \
-        chown www-data:www-data -R /srv/$service; \
-    done && \
-    # logs dir
-    mkdir -p /var/log/apache2/ && \
-    chown www-data:www-data -R /var/log
-# Install Product Opener from the workdir
-COPY --chown=www-data:www-data . /opt/product-opener/
+# Copy zxing runtime library from build-base
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt,sharing=locked \
+    rm -f /etc/apt/apt.conf.d/docker-clean && \
+    set -x && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends libzxing2 && \
+    ldconfig
+
+# Set Perl environment
+ENV PERL5LIB=/opt/product-opener/lib/:/opt/perl/local/lib/perl5
+ENV PATH=/opt/perl/local/bin:${PATH}
+
+# Configure Apache
+RUN set -x && \
+    a2dismod mpm_event && \
+    a2enmod perl && \
+    a2enmod rewrite && \
+    a2enmod headers && \
+    a2enmod env && \
+    a2enmod expires && \
+    a2enmod deflate && \
+    a2enmod proxy && \
+    a2enmod proxy_http
+
+RUN set -x && \
+    rm /etc/apache2/sites-enabled/* && \
+    mkdir -p var/run/apache2/
+
+# Create www-data user with matching UID/GID
+RUN set -x && \
+    usermod -u ${USER_UID} www-data && \
+    groupmod -g ${USER_GID} www-data
+
+COPY docker/docker-entrypoint.sh /
 
 EXPOSE 80
-COPY ./docker/docker-entrypoint.sh /
-WORKDIR /opt/product-opener/
+
+WORKDIR /opt/product-opener
+
+COPY . /opt/product-opener/
+
 USER www-data
-ENTRYPOINT [ "/docker-entrypoint.sh" ]
-# default command is apache2ctl start
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["apache2ctl", "-D", "FOREGROUND"]
 
 ######################
-# Prod image is default
+# prod: Alias for runnable (default target)
 ######################
 FROM runnable AS prod
+
+######################
+# dev: Development image with build tools
+######################
+FROM build-base AS dev
+
+ARG USER_UID
+ARG USER_GID
+ARG CPANMOPTS
+
+# Copy compiled Perl modules from builder
+COPY --from=builder /tmp/local/ /opt/perl/local/
+
+# Install zxing runtime library
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt,sharing=locked \
+    rm -f /etc/apt/apt.conf.d/docker-clean && \
+    set -x && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends libzxing2 && \
+    ldconfig
+
+# Set Perl environment
+ENV PERL5LIB=/opt/product-opener/lib/:/opt/perl/local/lib/perl5
+ENV PATH=/opt/perl/local/bin:${PATH}
+
+# Configure Apache
+RUN set -x && \
+    a2dismod mpm_event && \
+    a2enmod perl && \
+    a2enmod rewrite && \
+    a2enmod headers && \
+    a2enmod env && \
+    a2enmod expires && \
+    a2enmod deflate && \
+    a2enmod proxy && \
+    a2enmod proxy_http
+
+RUN set -x && \
+    rm /etc/apache2/sites-enabled/* && \
+    mkdir -p var/run/apache2/
+
+# Create www-data user with matching UID/GID
+RUN set -x && \
+    usermod -u ${USER_UID} www-data && \
+    groupmod -g ${USER_GID} www-data
+
+COPY docker/docker-entrypoint.sh /
+
+EXPOSE 80
+
+WORKDIR /opt/product-opener
+
+COPY . /opt/product-opener/
+
+USER www-data
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["apache2ctl", "-D", "FOREGROUND"]
