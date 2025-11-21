@@ -53,9 +53,9 @@ use ProductOpener::Ingredients
 	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text detect_rare_crops/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 use ProductOpener::Food
-	qw/assign_categories_properties_to_product compute_estimated_nutrients compute_nova_group compute_nutriscore compute_nutrient_levels/;
+	qw/assign_categories_properties_to_product compute_nova_group compute_nutriscore compute_nutrient_levels/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
-use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set/;
+use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set compute_estimated_nutrients/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::EnvironmentalScore qw/compute_environmental_score/;
 use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
@@ -99,6 +99,7 @@ sub specific_processes_for_food_product ($product_ref) {
 	# Nutrition
 
 	compute_estimated_nutrients($product_ref);
+
 	generate_nutrient_aggregated_set($product_ref);
 
 	# Scores
