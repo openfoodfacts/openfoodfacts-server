@@ -179,19 +179,19 @@ sub init_translated_text_routes_for_all_languages () {
 
 %texts = ();
 
+$lang_dir = $BASE_DIRS{LANG};
+
+if (not -e $lang_dir) {
+	$lang_dir = "$BASE_DIRS{LANG}-default";
+	$log->warn(
+		"The $BASE_DIRS{LANG} directory does not exist. It should be copied from the openfoodfacts-web repository. Using default texts from $lang_dir"
+	) if $log->is_warn();
+}
+
 sub load_texts_from_lang_directory () {
 
 	# only load if not already done
 	return 1 if (%texts);
-
-	$lang_dir = $BASE_DIRS{LANG};
-
-	if (not -e $lang_dir) {
-		$lang_dir = "$BASE_DIRS{LANG}-default";
-		$log->warn(
-			"The $BASE_DIRS{LANG} directory does not exist. It should be copied from the openfoodfacts-web repository. Using default texts from $lang_dir"
-		) if $log->is_warn();
-	}
 
 	# Check both $lang_dir + flavor specific directory
 
