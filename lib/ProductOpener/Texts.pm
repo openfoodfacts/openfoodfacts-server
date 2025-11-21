@@ -127,6 +127,8 @@ my %texts_text_id_to_translation_id = (
 %texts_text_id_to_translated_route = ();
 
 sub init_translated_text_routes_for_all_languages () {
+	# return if already initialized 
+	return 1 if %texts_translated_route_to_text_id;
 
 	foreach my $text_id (sort keys %texts_text_id_to_translation_id) {
 
