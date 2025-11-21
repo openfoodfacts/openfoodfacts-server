@@ -444,10 +444,13 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 		}
 
 		# Generates the nutrition sets,
-		# which, for old data, are all from source "packaging"
+		# which, for old data, are all from source "packaging" if we are on the public platform,
+		# and "manufacturer" if we are on the pro platform and the product has an 'owner' field
+		my $source
+			= ($server_options{private_products} && defined $product_ref->{owner}) ? "manufacturer" : "packaging";
 		foreach my $set_type (keys %$new_nutrition_sets_ref) {
 			$new_nutrition_sets_ref->{$set_type}{preparation} = $nutrition_preparations_ref->{$set_type}{state};
-			$new_nutrition_sets_ref->{$set_type}{source} = "packaging";
+			$new_nutrition_sets_ref->{$set_type}{source} = $source;
 			$new_nutrition_sets_ref->{$set_type}{last_updated_t} = $update_time;
 
 			$new_nutrition_sets_ref->{$set_type}{per_unit}

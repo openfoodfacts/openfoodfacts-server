@@ -1707,7 +1707,8 @@ compare_to_expected_results(
 		}
 	};
 	my $value = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sodium");
-	is($value, 2.5, "get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns correct value for packaging source");
+	is($value, 2.5,
+		"get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns correct value for packaging source");
 }
 
 # Test with estimate source - should return undef
@@ -1757,7 +1758,8 @@ compare_to_expected_results(
 		}
 	};
 	my $value = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sodium");
-	is($value, undef, "get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns undef for different preparation");
+	is($value, undef,
+		"get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns undef for different preparation");
 }
 
 # Test with nutrient not present - should return undef
@@ -1782,7 +1784,8 @@ compare_to_expected_results(
 		}
 	};
 	my $value = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sodium");
-	is($value, undef, "get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns undef for missing nutrient");
+	is($value, undef,
+		"get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns undef for missing nutrient");
 }
 
 # Test with multiple sets - should return value from highest priority set
@@ -1820,7 +1823,9 @@ compare_to_expected_results(
 		}
 	};
 	my $value = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sodium");
-	is($value, 3.0, "get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns value from highest priority set (manufacturer over packaging)");
+	is($value, 3.0,
+		"get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns value from highest priority set (manufacturer over packaging)"
+	);
 }
 
 done_testing();

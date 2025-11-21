@@ -1409,7 +1409,7 @@ sub sugar_0_because_of_carbohydrates_0 ($nutrition_ref) {
 	return ((not defined $sugars) && (defined $carbohydrates) && ($carbohydrates == 0));
 }
 
-=head2 compute_nutriscore_data( $products_ref, $version )
+=head2 compute_nutriscore_data( $products_ref, $preparation, $version )
 
 Compute data for nutriscore computation.
 
@@ -1418,6 +1418,8 @@ Compute data for nutriscore computation.
 =head3 Arguments
 
 =head4 $product_ref - ref to the product
+
+=head4 $preparation - "as_sold" or "prepared"
 
 =head4 $version - version of nutriscore to compute data for. Either "2021" or "2023". Default is "2021"
 
@@ -1429,9 +1431,18 @@ Ref to a mapping suitable to call compute_nutriscore_score_and_grade
 
 =cut
 
-sub compute_nutriscore_data ($product_ref, $version = "2021") {
+sub compute_nutriscore_data ($product_ref, $preparation, $version = "2021") {
 
 	my $nutriscore_data_ref;
+
+	# If the preparation needed for the Nutri-Score does not match the aggregated set preparation,
+	# we temporarily rename the aggregated set so that we get undef values for the nutrients
+	my $aggregated_set_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
+	if ($preparation ne $aggregated_set_preparation) {
+		$product_ref->{nutrition}->{aggregated_set_temp_for_nutriscore}
+			= $product_ref->{nutrition}->{aggregated_set};
+		delete $product_ref->{nutrition}->{aggregated_set};
+	}
 
 	# The 2021 and 2023 version of the Nutri-Score need different nutrients
 	if ($version eq "2021") {
@@ -1530,6 +1541,13 @@ sub compute_nutriscore_data ($product_ref, $version = "2021") {
 	if (saturated_fat_0_because_of_fat_0($product_ref->{nutrition})) {
 		$nutriscore_data_ref->{saturated_fat} = 0;
 		$nutriscore_data_ref->{saturated_fat_ratio} = 0;
+	}
+
+	# Put back the original aggregated set if we had renamed it
+	if (defined $product_ref->{nutrition}->{aggregated_set_temp_for_nutriscore}) {
+		$product_ref->{nutrition}->{aggregated_set}
+			= $product_ref->{nutrition}->{aggregated_set_temp_for_nutriscore};
+		delete $product_ref->{nutrition}->{aggregated_set_temp_for_nutriscore};
 	}
 
 	return $nutriscore_data_ref;
@@ -1956,7 +1974,8 @@ sub compute_nutriscore ($product_ref, $current_version = "2023") {
 	my ($category_available, $nutriscore_applicable, $not_applicable_category)
 		= is_nutriscore_applicable_to_the_product_categories($product_ref);
 
-	my ($nutrients_available, $preparation) = check_availability_of_nutrients_needed_for_nutriscore($product_ref);
+	my ($nutrients_available, $preparation, $estimated)
+		= check_availability_of_nutrients_needed_for_nutriscore($product_ref);
 
 	if (not($nutriscore_applicable and $nutrients_available)) {
 		add_tag($product_ref, "misc", "en:nutriscore-not-computed");
@@ -1979,6 +1998,8 @@ sub compute_nutriscore ($product_ref, $current_version = "2023") {
 				"nutriscore_applicable" => $nutriscore_applicable,
 				"nutrients_available" => $nutrients_available,
 				"nutriscore_computed" => $nutriscore_applicable * $nutrients_available,
+				"preparation" => $preparation,
+				"estimated" => $estimated,
 			}
 		);
 
@@ -1987,7 +2008,8 @@ sub compute_nutriscore ($product_ref, $current_version = "2023") {
 		}
 
 		# Populate the data structure that will be passed to Food::Nutriscore
-		deep_set($product_ref, "nutriscore", $version, "data", compute_nutriscore_data($product_ref, $version));
+		deep_set($product_ref, "nutriscore", $version, "data",
+			compute_nutriscore_data($product_ref, $preparation, $version));
 
 		# Compute the Nutri-Score
 		my ($nutriscore_score, $nutriscore_grade);

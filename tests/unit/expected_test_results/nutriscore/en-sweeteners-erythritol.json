@@ -221,10 +221,12 @@
             "sugars_points" : 3,
             "sugars_value" : 4.5
          },
+         "estimated" : 0,
          "grade" : "c",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
+         "preparation" : "as_sold",
          "score" : 2
       },
       "2023" : {
@@ -315,10 +317,12 @@
             "positive_points" : 4,
             "positive_points_max" : 18
          },
+         "estimated" : 0,
          "grade" : "b",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
+         "preparation" : "as_sold",
          "score" : 0
       }
    },

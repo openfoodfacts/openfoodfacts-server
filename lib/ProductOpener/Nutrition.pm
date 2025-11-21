@@ -291,31 +291,23 @@ sub get_non_estimated_nutrient_per_100g_or_100ml_for_preparation ($product_ref, 
 		my $per_quantity = deep_get($set_ref, qw/per_quantity/);
 		my $nutrient_value = deep_get($set_ref, "nutrients", $nid, "value");
 
-		if (
-			(defined $source)
+		if (    (defined $source)
 			and ($source ne "estimate")
 			and (defined $preparation)
 			and ($set_preparation eq $preparation)
 			and (defined $per_quantity)
-			and (defined $nutrient_value)
-		)
+			and (defined $nutrient_value))
 		{
 			my $nutrient_ref = clone($set_ref->{nutrients}{$nid});
 			convert_nutrient_to_standard_unit($nutrient_ref, $nid);
-			convert_nutrient_to_100g(
-				$nutrient_ref,
-				$set_ref->{per},
-				$set_ref->{per_quantity},
-				$set_ref->{per_unit},
-				$set_ref->{per}
-			);
+			convert_nutrient_to_100g($nutrient_ref, $set_ref->{per}, $set_ref->{per_quantity},
+				$set_ref->{per_unit}, $set_ref->{per});
 			return $nutrient_ref->{value};
 		}
 	}
 
 	return undef;
 }
-
 
 =head2 set_nutrient_values
 
@@ -574,31 +566,31 @@ sub set_per_quantity_and_unit($product_ref, $input_set_ref) {
 		my $per = deep_get($input_set_ref, qw/per/);
 		return if not defined $per;
 		# Set the per quantity and unit for 100g, 100ml, 1l and 1kg
-					if ($per eq "100g") {
-						$input_set_ref->{per_quantity} = 100;
-						$input_set_ref->{per_unit} = "g";
-					}
-					elsif ($per eq "100ml") {
-						$input_set_ref->{per_quantity} = 100;
-						$input_set_ref->{per_unit} = "ml";
-					}
-					elsif ($per eq "1kg") {
-						$input_set_ref->{per_quantity} = 1000;
-						$input_set_ref->{per_unit} = "g";
-					}
-					elsif ($per eq "1l") {
-						$input_set_ref->{per_quantity} = 1000;
-						$input_set_ref->{per_unit} = "ml";
-					}
-					# If possible convert per serving to quantity + unit from product
-					elsif ($per eq "serving") {
-						if (    (defined $product_ref->{serving_quantity})
-							and (defined $product_ref->{serving_quantity_unit}))
-						{
-							$input_set_ref->{per_quantity} = $product_ref->{serving_quantity};
-							$input_set_ref->{per_unit} = $product_ref->{serving_quantity_unit};
-						}
-					}
+		if ($per eq "100g") {
+			$input_set_ref->{per_quantity} = 100;
+			$input_set_ref->{per_unit} = "g";
+		}
+		elsif ($per eq "100ml") {
+			$input_set_ref->{per_quantity} = 100;
+			$input_set_ref->{per_unit} = "ml";
+		}
+		elsif ($per eq "1kg") {
+			$input_set_ref->{per_quantity} = 1000;
+			$input_set_ref->{per_unit} = "g";
+		}
+		elsif ($per eq "1l") {
+			$input_set_ref->{per_quantity} = 1000;
+			$input_set_ref->{per_unit} = "ml";
+		}
+		# If possible convert per serving to quantity + unit from product
+		elsif ($per eq "serving") {
+			if (    (defined $product_ref->{serving_quantity})
+				and (defined $product_ref->{serving_quantity_unit}))
+			{
+				$input_set_ref->{per_quantity} = $product_ref->{serving_quantity};
+				$input_set_ref->{per_unit} = $product_ref->{serving_quantity_unit};
+			}
+		}
 
 	}
 	return;

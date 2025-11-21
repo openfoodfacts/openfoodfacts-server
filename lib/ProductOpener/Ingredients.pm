@@ -937,11 +937,11 @@ sub add_percent_max_for_ingredients_from_nutrition_facts ($product_ref) {
 	my @ingredient_max_values = ();
 
 	my $sugars_100g = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sugars");
-	if (defined $sugars_100g ) {
+	if (defined $sugars_100g) {
 		push @ingredient_max_values, {ingredientid => "en:sugar", value => $sugars_100g};
 	}
 	my $salt_100g = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "salt");
-	if (defined $salt_100g ) {
+	if (defined $salt_100g) {
 		push @ingredient_max_values, {ingredientid => "en:salt", value => $salt_100g};
 	}
 

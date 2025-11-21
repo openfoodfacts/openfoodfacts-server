@@ -159,10 +159,12 @@
             "sodium" : null,
             "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 1,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       },
       "2023" : {
          "category_available" : 1,
@@ -180,10 +182,12 @@
             "saturated_fat" : null,
             "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 1,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       }
    },
    "nutriscore_2021_tags" : [

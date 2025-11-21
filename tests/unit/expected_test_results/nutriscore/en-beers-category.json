@@ -66,11 +66,13 @@
             "sodium" : 200,
             "sugars" : 8.9
          },
+         "estimated" : 0,
          "grade" : "not-applicable",
          "not_applicable_category" : "en:alcoholic-beverages",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 0,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       },
       "2023" : {
          "category_available" : 1,
@@ -89,11 +91,13 @@
             "saturated_fat" : 0,
             "sugars" : 8.9
          },
+         "estimated" : 0,
          "grade" : "not-applicable",
          "not_applicable_category" : "en:alcoholic-beverages",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 0,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       }
    },
    "nutriscore_2021_tags" : [

@@ -102,9 +102,8 @@
       "en:nutriscore-missing-nutrition-data-saturated-fat",
       "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-not-computed",
-      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
-      "en:nutrition-all-nutriscore-values-known",
-      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients"
+      "en:nutrition-no-fruits-vegetables-nuts",
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
    ],
    "nova_group" : 1,
    "nova_group_debug" : "",
@@ -122,43 +121,47 @@
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : 19.8,
+            "fiber" : 0,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "proteins" : 14.4,
+            "proteins" : null,
             "saturated_fat" : null,
-            "sodium" : 74,
+            "sodium" : null,
             "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 1,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "prepared"
       },
       "2023" : {
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : 19.8,
-            "fruits_vegetables_legumes" : 0,
+            "fiber" : null,
+            "fruits_vegetables_legumes" : null,
             "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
             "non_nutritive_sweeteners" : 0,
-            "proteins" : 14.4,
-            "salt" : 0.19,
+            "proteins" : null,
+            "salt" : null,
             "saturated_fat" : null,
             "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 1,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "prepared"
       }
    },
    "nutriscore_2021_tags" : [
@@ -541,10 +544,7 @@
    ],
    "nutrition_score_beverage" : 1,
    "nutrition_score_debug" : "no score for category en:beverage-preparations without data for prepared product - missing prepared energy - missing prepared saturated-fat - missing prepared sugars",
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 0,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
+   "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Beverages",
    "pnns_groups_1_tags" : [
