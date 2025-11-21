@@ -111,3 +111,9 @@ taxonomies/*.all.txt
 # Shared services and other dependencies
 /deps
 /deps/*
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

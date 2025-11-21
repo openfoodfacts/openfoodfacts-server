@@ -16,6 +16,20 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3-gdbm
+
+    - name: Install Python dependencies
+      run: |
+        pip install -r scripts/packager-codes/requirements.txt
+
     - name: Upgrade assets
       run: make update_all_packager_codes
 
