@@ -1,214 +1,217 @@
-"source_column","target_column","target_database","comments"
-"id_unique","france:reparability_index:unique_id","Folksonomy Engine",
-"id_modele","code","Product Opener","Reject each entry which is not a correct EAN"
-"referentiel_id_modele","-",,"Rejected"
-"nom_modele","product_name","Product Opener","French language"
-"categorie_produit","categories","Product Opener","French language"
-"id_metteur_sur_le_marche","france:reparability_index:company:id:syderep or company:id:gln","Folksonomy Engine",
-"referentiel_id_metteur_sur_marche","-",,"Merged with the previous one"
-"nom_metteur_sur_le_marche","brands","Product Opener",
-"date_calcul","france:reparability_index:calculation_date","Folksonomy Engine",
-"url_tableau_detail_notation","france:reparability_index:scoring_details_url","Folksonomy Engine",
-"note_ir","labels","Product Opener","We should prefer Product Opener labels of the following serie: repairability-index-8-2-france"
-"note_c1","france:reparability_index:documentation_score","Folksonomy Engine",
-"note_c2","france:reparability_index:dismantlability_score","Folksonomy Engine",
-"note_c3","france:reparability_index:spare_parts_availability_score","Folksonomy Engine",
-"note_c4","france:reparability_index:price_score","Folksonomy Engine",
-"note_c5","france:reparability_index:specific_criteria_score","Folksonomy Engine",
-"note_c2.1","-",,
-"note_c2.2","-",,
-"note_c2.3","-",,
-"note_c3.1","-",,
-"note_c3.2","-",,
-"note_c3.3","-",,
-"note_c3.4","-",,
-"note_c5.1","-",,
-"note_c5.2","-",,
-"note_c5.3","-",,
-"lien_documentation","link","Product Opener","Sometimes its leads to the documentation, sometimes to the producers' website"
-"nom_piece_detachee_1_reparateur","france:reparability_index:spare_part:name:repairer:fr","Folksonomy Engine","Nested values. Eg. bla|bli|blo"
-"delai_jours_piece_detachee_1_reparateur","france:reparability_index:spare_part:delivery_days:repairer","Folksonomy Engine","Nested values. Eg. <3|<3|<3"
-"nb_annees_disponibilite_piece_detachee_1_reparateur","france:reparability_index:spare_part:availability_years:repairer","Folksonomy Engine","Nested values. Eg. >13|>13|>13"
-"nom_piece_detachee_2_reparateur","-",,
-"delai_jours_piece_detachee_2_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_2_reparateur","-",,
-"nom_piece_detachee_3_reparateur","-",,
-"delai_jours_piece_detachee_3_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_3_reparateur","-",,
-"nom_piece_detachee_4_reparateur","-",,
-"delai_jours_piece_detachee_4_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_4_reparateur","-",,
-"nom_piece_detachee_5_reparateur","-",,
-"delai_jours_piece_detachee_5_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_5_reparateur","-",,
-"nom_piece_detachee_6_reparateur","-",,
-"delai_jours_piece_detachee_6_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_6_reparateur","-",,
-"nom_piece_detachee_7_reparateur","-",,
-"delai_jours_piece_detachee_7_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_7_reparateur","-",,
-"nom_piece_detachee_8_reparateur","-",,
-"delai_jours_piece_detachee_8_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_8_reparateur","-",,
-"nom_piece_detachee_9_reparateur","-",,
-"delai_jours_piece_detachee_9_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_9_reparateur","-",,
-"nom_piece_detachee_10_reparateur","-",,
-"delai_jours_piece_detachee_10_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_10_reparateur","-",,
-"nom_piece_detachee_11_reparateur","-",,
-"delai_jours_piece_detachee_11_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_11_reparateur","-",,
-"nom_piece_detachee_12_reparateur","-",,
-"delai_jours_piece_detachee_12_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_12_reparateur","-",,
-"nom_piece_detachee_13_reparateur","-",,
-"delai_jours_piece_detachee_13_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_13_reparateur","-",,
-"nom_piece_detachee_14_reparateur","-",,
-"delai_jours_piece_detachee_14_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_14_reparateur","-",,
-"nom_piece_detachee_15_reparateur","-",,
-"delai_jours_piece_detachee_15_reparateur","-",,
-"nb_annees_disponibilite_piece_detachee_15_reparateur","-",,
-"nom_piece_detachee_1_producteur","france:reparability_index:spare_part:name:repairer:fr","Folksonomy Engine","Nested values. Eg. bla|bli|blo"
-"delai_jours_piece_detachee_1_producteur","france:reparability_index:spare_part:delivery_days:repairer","Folksonomy Engine","Nested values. Eg. <3|<3|<3"
-"nb_annees_disponibilite_piece_detachee_1_producteur","france:reparability_index:spare_part:availability_years:repairer","Folksonomy Engine","Nested values. Eg. >13|>13|>13"
-"nom_piece_detachee_2_producteur","-",,
-"delai_jours_piece_detachee_2_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_2_producteur","-",,
-"nom_piece_detachee_3_producteur","-",,
-"delai_jours_piece_detachee_3_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_3_producteur","-",,
-"nom_piece_detachee_4_producteur","-",,
-"delai_jours_piece_detachee_4_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_4_producteur","-",,
-"nom_piece_detachee_5_producteur","-",,
-"delai_jours_piece_detachee_5_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_5_producteur","-",,
-"nom_piece_detachee_6_producteur","-",,
-"delai_jours_piece_detachee_6_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_6_producteur","-",,
-"nom_piece_detachee_7_producteur","-",,
-"delai_jours_piece_detachee_7_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_7_producteur","-",,
-"nom_piece_detachee_8_producteur","-",,
-"delai_jours_piece_detachee_8_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_8_producteur","-",,
-"nom_piece_detachee_9_producteur","-",,
-"delai_jours_piece_detachee_9_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_9_producteur","-",,
-"nom_piece_detachee_10_producteur","-",,
-"delai_jours_piece_detachee_10_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_10_producteur","-",,
-"nom_piece_detachee_11_producteur","-",,
-"delai_jours_piece_detachee_11_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_11_producteur","-",,
-"nom_piece_detachee_12_producteur","-",,
-"delai_jours_piece_detachee_12_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_12_producteur","-",,
-"nom_piece_detachee_13_producteur","-",,
-"delai_jours_piece_detachee_13_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_13_producteur","-",,
-"nom_piece_detachee_14_producteur","-",,
-"delai_jours_piece_detachee_14_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_14_producteur","-",,
-"nom_piece_detachee_15_producteur","-",,
-"delai_jours_piece_detachee_15_producteur","-",,
-"nb_annees_disponibilite_piece_detachee_15_producteur","-",,
-"nom_piece_detachee_1_distributeur","france:reparability_index:spare_part:name:repairer:fr","Folksonomy Engine","Nested values. Eg. bla|bli|blo"
-"delai_jours_piece_detachee_1_distributeur","france:reparability_index:spare_part:delivery_days:repairer","Folksonomy Engine","Nested values. Eg. <3|<3|<3"
-"nb_annees_disponibilite_piece_detachee_1_distributeur","france:reparability_index:spare_part:availability_years:repairer","Folksonomy Engine","Nested values. Eg. >13|>13|>13"
-"nom_piece_detachee_2_distributeur","-",,
-"delai_jours_piece_detachee_2_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_2_distributeur","-",,
-"nom_piece_detachee_3_distributeur","-",,
-"delai_jours_piece_detachee_3_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_3_distributeur","-",,
-"nom_piece_detachee_4_distributeur","-",,
-"delai_jours_piece_detachee_4_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_4_distributeur","-",,
-"nom_piece_detachee_5_distributeur","-",,
-"delai_jours_piece_detachee_5_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_5_distributeur","-",,
-"nom_piece_detachee_6_distributeur","-",,
-"delai_jours_piece_detachee_6_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_6_distributeur","-",,
-"nom_piece_detachee_7_distributeur","-",,
-"delai_jours_piece_detachee_7_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_7_distributeur","-",,
-"nom_piece_detachee_8_distributeur","-",,
-"delai_jours_piece_detachee_8_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_8_distributeur","-",,
-"nom_piece_detachee_9_distributeur","-",,
-"delai_jours_piece_detachee_9_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_9_distributeur","-",,
-"nom_piece_detachee_10_distributeur","-",,
-"delai_jours_piece_detachee_10_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_10_distributeur","-",,
-"nom_piece_detachee_11_distributeur","-",,
-"delai_jours_piece_detachee_11_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_11_distributeur","-",,
-"nom_piece_detachee_12_distributeur","-",,
-"delai_jours_piece_detachee_12_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_12_distributeur","-",,
-"nom_piece_detachee_13_distributeur","-",,
-"delai_jours_piece_detachee_13_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_13_distributeur","-",,
-"nom_piece_detachee_14_distributeur","-",,
-"delai_jours_piece_detachee_14_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_14_distributeur","-",,
-"nom_piece_detachee_15_distributeur","-",,
-"delai_jours_piece_detachee_15_distributeur","-",,
-"nb_annees_disponibilite_piece_detachee_15_distributeur","-",,
-"nom_piece_detachee_1_consommateur","france:reparability_index:spare_part:name:repairer:fr","Folksonomy Engine","Nested values. Eg. bla|bli|blo"
-"delai_jours_piece_detachee_1_consommateur","france:reparability_index:spare_part:delivery_days:repairer","Folksonomy Engine","Nested values. Eg. <3|<3|<3"
-"nb_annees_disponibilite_piece_detachee_1_consommateur","france:reparability_index:spare_part:availability_years:repairer","Folksonomy Engine","Nested values. Eg. >13|>13|>13"
-"nom_piece_detachee_2_consommateur","-",,
-"delai_jours_piece_detachee_2_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_2_consommateur","-",,
-"nom_piece_detachee_3_consommateur","-",,
-"delai_jours_piece_detachee_3_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_3_consommateur","-",,
-"nom_piece_detachee_4_consommateur","-",,
-"delai_jours_piece_detachee_4_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_4_consommateur","-",,
-"nom_piece_detachee_5_consommateur","-",,
-"delai_jours_piece_detachee_5_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_5_consommateur","-",,
-"nom_piece_detachee_6_consommateur","-",,
-"delai_jours_piece_detachee_6_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_6_consommateur","-",,
-"nom_piece_detachee_7_consommateur","-",,
-"delai_jours_piece_detachee_7_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_7_consommateur","-",,
-"nom_piece_detachee_8_consommateur","-",,
-"delai_jours_piece_detachee_8_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_8_consommateur","-",,
-"nom_piece_detachee_9_consommateur","-",,
-"delai_jours_piece_detachee_9_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_9_consommateur","-",,
-"nom_piece_detachee_10_consommateur","-",,
-"delai_jours_piece_detachee_10_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_10_consommateur","-",,
-"nom_piece_detachee_11_consommateur","-",,
-"delai_jours_piece_detachee_11_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_11_consommateur","-",,
-"nom_piece_detachee_12_consommateur","-",,
-"delai_jours_piece_detachee_12_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_12_consommateur","-",,
-"nom_piece_detachee_13_consommateur","-",,
-"delai_jours_piece_detachee_13_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_13_consommateur","-",,
-"nom_piece_detachee_14_consommateur","-",,
-"delai_jours_piece_detachee_14_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_14_consommateur","-",,
-"nom_piece_detachee_15_consommateur","-",,
-"delai_jours_piece_detachee_15_consommateur","-",,
-"nb_annees_disponibilite_piece_detachee_15_consommateur","-",,
-"last_modified","-",,"Rejected (metadata related to data.gouv.fr)"
-"datagouv_dataset_id","-",,"Rejected (metadata related to data.gouv.fr)"
-"datagouv_resource_id","-",,"Rejected (metadata related to data.gouv.fr)"
-"datagouv_organization_or_owner","-",,"Rejected (metadata related to data.gouv.fr)"
-"is_orga","-",,"Rejected (metadata related to data.gouv.fr)"
-"created_at","-",,"Rejected (metadata related to data.gouv.fr)"
+"source_column","transformation","target_column","target_database","comments"
+"id_modele",,"code","Folksonomy Engine","EAN code for the product. Reject each entry which is not a correct one"
+"id_modele",,"code","Product Opener","EAN code for the product. Reject each entry which is not a correct one"
+"id_unique",,"-",,"Rejected: internal ID which does not matter"
+"referentiel_id_modele",,"-",,"Rejected"
+"nom_modele",,"product_name","Product Opener","French language"
+"nom_modele",,"model_name","Folksonomy Engine","The model name of the product"
+"categorie_produit",,"categories","Product Opener","French language"
+"categorie_produit","prefix_field","product_name","Product Opener","The category of the product prefixes the product name"
+"id_metteur_sur_le_marche",,"france:reparability_index:company:id","Folksonomy Engine",
+"referentiel_id_metteur_sur_marche",,"france:reparability_index:company:id:referential","Folksonomy Engine","It should have been merged with the previous one, but it makes conversion more difficult"
+"nom_metteur_sur_le_marche",,"brands","Product Opener",
+"date_calcul",,"france:reparability_index:calculation_date","Folksonomy Engine",
+"url_tableau_detail_notation",,"france:reparability_index:scoring_details_url","Folksonomy Engine",
+"note_ir",,"labels","Product Opener","We should prefer Product Opener labels of the following serie: repairability-index-8-2-france"
+"note_c1",,"france:reparability_index:documentation_score","Folksonomy Engine",
+"note_c2",,"france:reparability_index:dismantlability_score","Folksonomy Engine",
+"note_c3",,"france:reparability_index:spare_parts_availability_score","Folksonomy Engine",
+"note_c4",,"france:reparability_index:price_score","Folksonomy Engine",
+"note_c5",,"france:reparability_index:specific_criteria_score","Folksonomy Engine",
+"note_c2.1",,"-",,
+"note_c2.2",,"-",,
+"note_c2.3",,"-",,
+"note_c3.1",,"-",,
+"note_c3.2",,"-",,
+"note_c3.3",,"-",,
+"note_c3.4",,"-",,
+"note_c5.1",,"-",,
+"note_c5.2",,"-",,
+"note_c5.3",,"-",,
+"lien_documentation",,"link","Product Opener","Sometimes its leads to the documentation, sometimes to the producers' website"
+"nom_piece_detachee_1_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment; nested values. Eg. bla|bli|blo"
+"delai_jours_piece_detachee_1_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment; nested values. Eg. <3|<3|<3"
+"nb_annees_disponibilite_piece_detachee_1_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment; nested values. Eg. >13|>13|>13"
+"nom_piece_detachee_2_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_2_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_2_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_3_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_3_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_3_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_4_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_4_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_4_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_5_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_5_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_5_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_6_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_6_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_6_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_7_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_7_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_7_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_8_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_8_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_8_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_9_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_9_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_9_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_10_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_10_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_10_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_11_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_11_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_11_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_12_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_12_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_12_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_13_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_13_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_13_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_14_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_14_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_14_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_15_reparateur","add_to_list","france:reparability_index:spare_part:name:repairer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_15_reparateur","add_to_list","france:reparability_index:spare_part:delivery_days:repairer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_15_reparateur","add_to_list","france:reparability_index:spare_part:availability_years:repairer",,"Not imported for the moment"
+"nom_piece_detachee_1_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_1_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_1_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_2_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_2_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_2_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_3_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_3_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_3_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_4_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_4_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_4_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_5_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_5_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_5_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_6_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_6_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_6_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_7_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_7_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_7_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_8_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_8_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_8_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_9_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_9_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_9_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_10_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_10_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_10_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_11_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_11_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_11_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_12_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_12_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_12_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_13_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_13_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_13_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_14_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_14_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_14_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_15_producteur","add_to_list","france:reparability_index:spare_part:name:producer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_15_producteur","add_to_list","france:reparability_index:spare_part:delivery_days:producer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_15_producteur","add_to_list","france:reparability_index:spare_part:availability_years:producer",,"Not imported for the moment"
+"nom_piece_detachee_1_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_1_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_1_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_2_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_2_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_2_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_3_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_3_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_3_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_4_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_4_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_4_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_5_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_5_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_5_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_6_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_6_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_6_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_7_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_7_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_7_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_8_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_8_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_8_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_9_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_9_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_9_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_10_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_10_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_10_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_11_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_11_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_11_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_12_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_12_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_12_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_13_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_13_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_13_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_14_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_14_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_14_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_15_distributeur","add_to_list","france:reparability_index:spare_part:name:distributor:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_15_distributeur","add_to_list","france:reparability_index:spare_part:delivery_days:distributor",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_15_distributeur","add_to_list","france:reparability_index:spare_part:availability_years:distributor",,"Not imported for the moment"
+"nom_piece_detachee_1_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_1_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_1_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_2_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_2_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_2_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_3_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_3_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_3_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_4_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_4_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_4_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_5_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_5_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_5_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_6_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_6_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_6_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_7_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_7_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_7_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_8_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_8_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_8_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_9_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_9_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_9_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_10_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_10_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_10_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_11_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_11_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_11_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_12_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_12_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_12_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_13_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_13_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_13_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_14_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_14_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_14_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"nom_piece_detachee_15_consommateur","add_to_list","france:reparability_index:spare_part:name:consumer:fr",,"Not imported for the moment"
+"delai_jours_piece_detachee_15_consommateur","add_to_list","france:reparability_index:spare_part:delivery_days:consumer",,"Not imported for the moment"
+"nb_annees_disponibilite_piece_detachee_15_consommateur","add_to_list","france:reparability_index:spare_part:availability_years:consumer",,"Not imported for the moment"
+"last_modified",,"-",,"Rejected (metadata related to data.gouv.fr)"
+"datagouv_dataset_id",,"-",,"Rejected (metadata related to data.gouv.fr)"
+"datagouv_resource_id",,"-",,"Rejected (metadata related to data.gouv.fr)"
+"datagouv_organization_or_owner",,"-",,"Rejected (metadata related to data.gouv.fr)"
+"is_orga",,"-",,"Rejected (metadata related to data.gouv.fr)"
+"created_at",,"-",,"Rejected (metadata related to data.gouv.fr)"
