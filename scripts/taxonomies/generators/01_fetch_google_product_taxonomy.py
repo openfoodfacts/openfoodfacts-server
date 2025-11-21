@@ -199,7 +199,7 @@ def main():
     
     json_output = output_dir / "taxonomy_structure.json"
     with open(json_output, 'w', encoding='utf-8') as f:
-        json.dump(taxonomy_json, f, indent=2, ensure_ascii=False)
+        json.dump(taxonomy_json, f, indent=2, ensure_ascii=False, sort_keys=True)
     print(f"Saved taxonomy structure to {json_output}")
     
     # Fetch translations
@@ -208,7 +208,7 @@ def main():
     
     translations_output = output_dir / "translations.json"
     with open(translations_output, 'w', encoding='utf-8') as f:
-        json.dump(translations, f, indent=2, ensure_ascii=False)
+        json.dump(translations, f, indent=2, ensure_ascii=False, sort_keys=True)
     print(f"Saved translations to {translations_output}")
     
     # Summary
