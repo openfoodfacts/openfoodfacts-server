@@ -54,7 +54,8 @@ use ProductOpener::API qw/:all/;
 use ProductOpener::Tags
 	qw/%taxonomy_fields canonicalize_taxonomy_tag_linkeddata canonicalize_taxonomy_tag_weblink get_taxonomyid/;
 use ProductOpener::Food qw/%nutriments_labels/;
-use ProductOpener::Texts qw/%texts %texts_translated_route_to_text_id %texts_text_id_to_translated_route/;
+use ProductOpener::Texts
+	qw/%texts %texts_translated_route_to_text_id %texts_text_id_to_translated_route init_translated_text_routes_for_all_languages load_texts_from_lang_directory/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Redis qw/:all/;
 use ProductOpener::RequestStats qw/:all/;
@@ -134,6 +135,10 @@ sub load_routes() {
 		= (map {["$_:$tag_type_singular{products}{$_}", \&product_route]} keys %{$tag_type_singular{products}});
 
 	# text route : index, index-pro, ...
+
+	init_translated_text_routes_for_all_languages();
+	load_texts_from_lang_directory();
+
 	my @text_route;
 	foreach my $text (keys %texts) {
 		push @text_route, [
