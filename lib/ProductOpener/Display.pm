@@ -133,7 +133,7 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
-use ProductOpener::Index qw(%texts);
+use ProductOpener::Texts qw(%texts);
 use ProductOpener::Lang qw(:all);
 use ProductOpener::Images qw(display_image data_to_display_image add_images_urls_to_product);
 use ProductOpener::Food qw(:all);
