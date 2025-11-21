@@ -8,7 +8,7 @@ on:
 jobs:         
   synchronize-with-crowdin:
     name: Synchronisation of translations using Crowdin
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
     - name: Checkout
       uses: actions/checkout@v5
