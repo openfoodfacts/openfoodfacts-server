@@ -165,7 +165,7 @@
                "aggregated_origins" : [
                   {
                      "origin" : "en:unknown",
-                     "percent" : 100
+                     "percent" : 100.0
                   }
                ],
                "epi_score" : 0,
@@ -782,7 +782,7 @@
       "ingredients_with_specified_percent_n" : 0,
       "ingredients_with_specified_percent_sum" : 0,
       "ingredients_with_unspecified_percent_n" : 6,
-      "ingredients_with_unspecified_percent_sum" : 100,
+      "ingredients_with_unspecified_percent_sum" : 100.0,
       "ingredients_without_ciqual_codes" : [
          "en:colour",
          "en:e100",
@@ -956,6 +956,10 @@
          "unknown"
       ],
       "nutriscore_version" : "2023",
+      "nutrition" : {
+         "aggregated_set" : {},
+         "input_sets" : []
+      },
       "nutrition_data_per" : "100g",
       "nutrition_data_prepared_per" : "100g",
       "nutrition_grade_fr" : "unknown",
@@ -1053,7 +1057,7 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
-      "schema_version" : 1002,
+      "schema_version" : 1003,
       "serving_quantity" : 10,
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",

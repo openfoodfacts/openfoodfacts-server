@@ -47,16 +47,36 @@ my @tests = (
 			nutrition_data_per => "serving",
 			serving_size => "20",
 			ingredients_text => "100% fruits",
-			nutriments => {
-				"energy_serving" => 2591,
-				"fat_serving" => 50,
-				"saturated-fat_serving" => 9.7,
-				"sugars_serving" => 5.1,
-				"salt_serving" => 0,
-				"sodium_serving" => 0,
-				"proteins_serving" => 29,
-				"fiber_serving" => 5.5,
-			},
+			nutrition => {
+				aggregated_set => {
+					nutrients => {
+						energy => {
+							value => 2591
+						},
+						fat => {
+							value => 50
+						},
+						"saturated-fat" => {
+							value => 9.7
+						},
+						sugars => {
+							value => 5.1
+						},
+						salt => {
+							value => 0
+						},
+						sodium => {
+							value => 0
+						},
+						proteins => {
+							value => 29
+						},
+						fiber => {
+							value => 5.5
+						}
+					}
+				}
+			}
 		},
 		target_lc => 'fr',
 		target_cc => 'fr'

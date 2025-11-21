@@ -9,6 +9,14 @@
                "unit" : "g",
                "value" : 0
             },
+            "salt" : {
+               "modifier" : "<=",
+               "source" : "manufacturer",
+               "source_index" : 3,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : "5"
+            },
             "sodium" : {
                "modifier" : "<=",
                "source" : "manufacturer",
