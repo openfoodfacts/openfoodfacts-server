@@ -118,4 +118,8 @@ taxonomies/*.all.txt
 /deps
 /deps/*
 
-__pycache__
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
