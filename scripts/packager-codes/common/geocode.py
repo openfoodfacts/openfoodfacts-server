@@ -157,7 +157,7 @@ def geocode_csv(debug: bool, country_name: str, country_code: str, input_csv: st
         sleep_duration: Delay in seconds between API requests (default: 2.0)
         
     Returns:
-        Tuple of (success_count, failure_count, total_count)
+        Tuple of (failure_count, total_count)
     """
     print(f"{country_name} - Step - Geocoding addresses from {input_csv}")
     
