@@ -146,7 +146,7 @@ def geocode_csv(debug: bool, country_name: str, country_code: str, input_csv: st
     """
     Read preprocessed CSV and geocode all addresses.
     
-    proprocessed CSV contains: code, name, street, city, postalcode
+    preprocessed CSV contains: code, name, street, city, postalcode
     
     Args:
         debug: Enable debug logging
