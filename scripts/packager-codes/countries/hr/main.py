@@ -47,7 +47,7 @@ How to fix:
  - comment out 'cleanup_temp_files()' function to persist tmp files
  - run the code
  - find the packaging code where it fails
- - review the address (often due to typoe in the city name or street name)
+ - review the address (often due to typo in the city name or street name)
  - resume
 """
 
