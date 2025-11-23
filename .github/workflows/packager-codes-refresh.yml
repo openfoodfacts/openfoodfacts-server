@@ -36,7 +36,9 @@ jobs:
         pip install -r scripts/packager-codes/requirements.txt
 
     - name: Upgrade assets
-      run: make update_all_packager_codes
+      run: |
+        cd scripts/packager-codes
+        bash update_all_packager_codes.sh
 
     - name: Check for uncommitted changes
       id: check-changes

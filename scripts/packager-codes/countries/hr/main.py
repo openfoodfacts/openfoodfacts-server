@@ -63,7 +63,7 @@ from countries.hr.transform import preprocess_csv_croatia
 
 COUNTRY_NAME = 'Croatia'
 COUNTRY_CODE = 'hr'
-DEBUG = True
+DEBUG = False
 SLEEP_DURATION = 2.0
 
 
