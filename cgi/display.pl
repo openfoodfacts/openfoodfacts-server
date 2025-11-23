@@ -26,7 +26,7 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Routing qw/analyze_request/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;

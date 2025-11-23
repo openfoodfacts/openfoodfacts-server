@@ -29,7 +29,7 @@ binmode(STDOUT, ":encoding(UTF-8)");
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_fileid/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/%tags_fields %taxonomy_fields canonicalize_taxonomy_tag compute_field_tags get_taxonomyid/;
 use ProductOpener::Users qw/$User_id/;

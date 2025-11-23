@@ -44224,6 +44224,7 @@ es: Chips de patatas fritas onduladas
 fr: Chips de pommes de terre ondulées
 hr: Valoviti čips od krumpira
 lt: Banguoti bulvių traškučiai
+nl: Ribbelchips
 
 < en:Potato crisps
 en: Light potato crisps, Potato crisps with reduced fat
@@ -44237,6 +44238,11 @@ agribalyse_food_code:en: 4038
 ciqual_food_code:en: 4038
 ciqual_food_name:en: Potato crisps and related, reduced fat
 ciqual_food_name:fr: Chips de pommes de terre et assimilés, allégées en matière grasse
+
+< en:Potato crisps
+en: Potato crisps with salt
+nl: Aardappelchips met zout
+opposite:en: en:flavoured-potato-crisps
 
 < en:Potato crisps
 en: Potato crisps in sunflower oil
@@ -44283,6 +44289,7 @@ it: Patatine aromatizzate
 lt: Traškučiai su skoniu
 nl: Aardappelchips met smaak
 pt: Batatas fritas aromatizadas
+opposite:en: en:potato-crisps-with-salt
 
 < en:Flavoured potato crisps
 en: Ketchup crisps
@@ -52004,7 +52011,7 @@ ca: Llet en pols
 de: Milchpulver, Trockenmilchpulver
 es: Leche en polvo
 fi: maitojauheet
-fr: Laits en poudre, farines de lait, laits déshydratés
+fr: Laits en poudre, farines de lait, laits déshydratés, poudre de lait
 hr: Mlijeko u prahu
 it: Latte in polvere
 lt: Pieno milteliai
@@ -53291,7 +53298,7 @@ hr: Sirni namazi
 hu: Kenhető sajtok
 it: Formaggi spalmabili
 lt: Sūrio užtepėlės
-nl: Smeerkazen
+nl: Smeerkazen, Smeerkaas
 pt: Queijos para barrar
 agribalyse_proxy_food_code:en: 12315
 agribalyse_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, in a tub
@@ -59722,7 +59729,7 @@ en: Herb flavoured oils
 fr: Huiles aromatisées aux herbes
 hr: Ulja s okusom bilja
 ja: ハーブオイル
-nl: Gearomatiseerde oliën olies met kruiden
+nl: Gearomatiseerde oliën met kruiden
 
 < en:Vegetable oils
 en: Apricot kernel oil
@@ -63084,6 +63091,7 @@ en: Crunchy cereal clusters
 fr: Pépites de céréales croustillantes
 hr: Hrskave grozdove žitarica
 it: Croccanti grappoli di cereali
+nl: Krokante mueslis, Krokante muesli
 
 < en:Cereals with fruits
 < en:Crunchy cereal clusters
@@ -70157,6 +70165,14 @@ agribalyse_food_code:en: 13004
 ciqual_food_code:en: 13004
 ciqual_food_name:en: Avocado, pulp, raw
 ciqual_food_name:fr: Avocat, pulpe, cru
+
+< en:Avocados
+en: Hass avocados
+xx: Hass avocados
+
+< en: Avocados
+en: Ready-to-eat avocados
+nl: Eetrijpe avocados
 
 #### Bananas
 
@@ -96638,6 +96654,9 @@ origins:en: en:china
 protected_name_file_number:en: PGI-CN-0623
 protected_name_type:en: pgi
 
+< en:Chinese pasta
+nl: Mie
+
 < en:Pastas
 en: Bucatini
 xx: Bucatini
@@ -110283,7 +110302,7 @@ hu: jégsaláta
 it: insalata iceberg, lattuga iceberg
 la: Lactuca sativa var. capitata
 nb: isbergsalat
-nl: ijsbergsla
+nl: IJsbergsla
 pt: alface americana
 sv: Isbergssallad, isbergssallat
 # zh-tw:皺葉萵苣
@@ -119293,7 +119312,7 @@ nl: Crackers (ontbijt), Ontbijtcrackers
 
 < en:Appetizers
 < en:Biscuits and crackers
-en: Crackers(Appetizers)
+en: Crackers (Appetizers), Crackers(Appetizers)
 bg: Крекери
 ca: Galetes salades
 da: Crackers
