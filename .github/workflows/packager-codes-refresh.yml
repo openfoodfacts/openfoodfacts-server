@@ -8,6 +8,7 @@ on:
   # Allow to be run manually
   workflow_dispatch:
   schedule:
+  # Run at 19:00 UTC on the 1st day of each month
   - cron: "0 19 1 * *"
 
 jobs:
