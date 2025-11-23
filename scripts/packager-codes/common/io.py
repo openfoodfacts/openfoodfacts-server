@@ -23,7 +23,7 @@ import csv
 import os
 import shutil
 
-PACKAGER_CODES_DIR = '../../packager-codes'
+PACKAGER_CODES_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'packager-codes')
 
 def write_csv(country_name: str, output_file: str, rows: list):
     """
