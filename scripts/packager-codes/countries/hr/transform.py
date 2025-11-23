@@ -142,6 +142,7 @@ def preprocess_csv_croatia(country_name: str, input_csv: str, output_csv: str):
             name = row[2]
             street = row[3]
             
+            # 4. Extract address components
             city, postalcode = extract_city_and_postal(row[4])
             
             street = normalize_text(street, 'hr')
@@ -150,7 +151,7 @@ def preprocess_csv_croatia(country_name: str, input_csv: str, output_csv: str):
             standardized_row = [code, name, street, city, postalcode]
             output_rows.append(standardized_row)
         
-        # 6. Write with semicolon delimiter
+        # 5. Write with semicolon delimiter
         write_csv(country_name, output_csv, output_rows)
 
         print(f"{country_name} - Info - Preprocessed CSV Croatia saved: {output_csv} (rows: {len(output_rows)})")

@@ -154,7 +154,6 @@ def cached_get(debug: bool, country_name: str, url: str, cache, sleep_duration: 
 
     # Restart 3 times in case of empty response to make sure it is not an issue on API-side
     restart = True
-    i = 0
     if debug:
         print(f"{country_name} - Debug - Fetching from API: {url}")
     while restart:

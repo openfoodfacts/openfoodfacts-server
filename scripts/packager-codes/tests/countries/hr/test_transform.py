@@ -1,6 +1,5 @@
-from countries.hr.transform import is_valid_approval_code, extract_city_and_postal, preprocess_csv_croatia
+from countries.hr.transform import is_valid_approval_code, extract_city_and_postal
 import pytest
-from unittest.mock import patch
 
 # tests for is_valid_approval_code function
 
