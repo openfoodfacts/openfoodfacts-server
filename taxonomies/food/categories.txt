@@ -94,6 +94,10 @@ stopwords:de: und, mit, von
 # Careful: it should be the same main tag, not a synonym
 # Remark: add the property to the highest parent
 
+# In European Union food of animal origin must be tagged by a packaging code (a number in a circle). 
+# The followig tag is added to food of animal origin:
+# food_of_animal_origin:en: yes
+
 en: Incorrect product type
 bg: Неправилен product type
 ca: Tipus de producte incorrecte
@@ -44572,6 +44576,7 @@ uz: Sut mahsulotlari
 vi: Chế phẩm sữa
 yi: מילכיגס
 zh: 乳製品, 奶制品
+food_of_animal_origin:en: yes
 google_product_taxonomy_id:en: 428
 incompatible_with:en: categories:en:dairy-substitutes
 wikidata:en: Q185217
@@ -57863,6 +57868,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Honey (Shelf Stable)
 intake24_category_code:en: HONI
 nova:en: 2
+# food_of_animal_origin:en: yes # family farms/business might not possess packaging code
 
 < en:Honeys
 en: Honeys from Belgium, Belgian honeys
@@ -58621,6 +58627,7 @@ zh: 鸟蛋, 蛋
 # chicken egg as a proxy
 agribalyse_proxy_food_code:en: 22000
 food_groups:en: en:eggs
+food_of_animal_origin:en: yes
 gpc_category_code:en: 10006210
 gpc_category_description:en: Definition: Includes any products that can be described/observed as bird eggs in the shell that have been sorted to remove eggs of lower quality such as cracked and dirty eggs and are often sorted by size. Eggs may be unwashed, washed, washed and oiled, aged, and/or pasteurized in the shell. Definition Excludes: Specifically excludes nest-run eggs, checked and dirty eggs, and individually cooked eggs.
 gpc_category_name:en: In Shell Table Eggs
@@ -58977,6 +58984,7 @@ pl: Tłuszcze zwierzęce, Tłuscze zwierzęce
 pt: Gorduras animais
 ru: животные жиры, жиры животные
 zh: 动物脂肪
+food_of_animal_origin:en: yes
 nova:en: 2
 wikidata:en: Q1423543
 
@@ -77116,6 +77124,7 @@ ru: Продукты из мяса
 sv: Kött och dess produkter, Köttbaserade produkter
 tr: Et ürünleri
 zh: 肉制品
+food_of_animal_origin:en: yes
 wikidata:en: Q1427844
 
 < en:Meats and their products
@@ -99643,6 +99652,7 @@ th: อาหารทะเล
 tr: Deniz ürünleri
 zh: 海鲜
 food_groups:en: en:fish-and-seafood
+food_of_animal_origin:en: yes
 google_product_taxonomy_id:en: 4629
 intake24_category_code:en: C002
 pnns_group_2:en: Fish and seafood
@@ -118450,6 +118460,7 @@ nl: Vis vlees en eieren
 pt: Peixes e carnes e ovos
 ru: Рыба - мясо и яйца
 food_groups:en: en:fish-meat-eggs
+food_of_animal_origin:en: yes
 pnns_group_1:en: Fish Meat Eggs
 
 < en:Fish and meat and eggs
