@@ -1,6 +1,33 @@
 {
+  "dk": {
+    "country_name": "Denmark",
+    "header_keywords": [
+      "Name",
+      "Town",
+      "Category"
+    ],
+    "sources": [
+      {
+        "url": "https://foedevarestyrelsen.dk/kost-og-foedevarer/start-og-drift-af-foedevarevirksomhed/autorisation-og-registrering/registrerede-og-autorisede-foedevarevirksomheder",
+        "files": [
+          {
+            "last_filename": "Autoriserede_Foedevarevirksomheder_Excel.xlsx",
+            "sheets": {
+              "start": 2,
+              "end": 20
+            }
+          }
+        ]
+      }
+    ]
+  },
   "hr": {
     "country_name": "Croatia",
+    "header_keywords": [
+      "odobreni",
+      "subjekt",
+      "adresa"
+    ],
     "sources": [
       {
         "url": "http://veterinarstvo.hr/default.aspx?id=2423",

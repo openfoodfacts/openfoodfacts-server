@@ -3927,7 +3927,7 @@ HTML
 				if ($packager_codes{$canon_tagid}{cc} eq 'dk') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Denmark)
+$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{postalcode} $packager_codes{$canon_tagid}{city} (Denmark)
 </p>
 HTML
 						;

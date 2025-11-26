@@ -45,14 +45,14 @@ def build_nominatim_url(params: dict) -> str:
     return f"{base_url}?{query_string}"
 
 
-def simplify_query_params(country_name: str, params: dict, attempt: int, code: str) -> dict:
+def apply_simplification_strategy(country_name: str, params: dict, strategy_index: int, code: str) -> dict:
     """
-    Simplify query parameters when no results are found.
+    Apply a specific simplification strategy to query parameters.
     
     Args:
         country_name: Full country name for logging
         params: Current query parameters
-        attempt: Attempt number (1-3)
+        strategy_index: Strategy index (0-4)
         code: The establishment code for logging
         
     Returns:
@@ -60,20 +60,65 @@ def simplify_query_params(country_name: str, params: dict, attempt: int, code: s
     """
     params = params.copy()
     
-    if attempt == 1:
+    if strategy_index == 0:
+        # Try removing text after comma in street (e.g., "Sejerøvej 28, Horsekær" -> "Sejerøvej 28")
+        if 'street' in params and ',' in params['street']:
+            print(f"{country_name} - Warning - {code}: No results found. Retrying with street address before comma")
+            params['street'] = params['street'].split(',')[0].strip()
+    elif strategy_index == 1:
         if 'street' in params:
             print(f"{country_name} - Warning - {code}: No results found. Retrying without street")
             del params['street']
-    elif attempt == 2:
+    elif strategy_index == 2:
         if 'postalcode' in params:
             print(f"{country_name} - Warning - {code}: No results found. Retrying without postalcode")
             del params['postalcode']
-    elif attempt == 3:
+    elif strategy_index == 3:
         if 'city' in params and '-' in params['city']:
             print(f"{country_name} - Warning - {code}: No results found. Retrying with simplified city name (before hyphen)")
             params['city'] = params['city'].split('-')[0]
+    elif strategy_index == 4:
+        if 'city' in params:
+            print(f"{country_name} - Warning - {code}: No results found. Retrying without city")
+            del params['city']
         
-    return params
+    return params 
+
+
+def simplify_query_params(country_name: str, params: dict, attempt: int, code: str, initial_params: dict) -> dict:
+    """
+    Simplify query parameters when no results are found.
+    
+    Three rounds of simplification:
+    - Attempts 1-5: Apply strategies WITH country restrictions
+    - Attempt 6: Remove country restrictions and reset to initial params
+    - Attempts 7-11: Apply same strategies WITHOUT country restrictions
+    
+    Args:
+        country_name: Full country name for logging
+        params: Current query parameters
+        attempt: Attempt number (1-11)
+        code: The establishment code for logging
+        initial_params: Original query parameters
+        
+    Returns:
+        Modified parameters dictionary
+    """
+    if attempt <= 5:
+        # First pass: with country restrictions
+        strategy_index = attempt - 1
+        return apply_simplification_strategy(country_name, params, strategy_index, code)
+    elif attempt == 6:
+        # Remove country restrictions and reset to full address
+        print(f"{country_name} - Warning - {code}: No results found. Retrying without country restrictions")
+        params = initial_params.copy()
+        params.pop('country', None)
+        params.pop('countrycodes', None)
+        return params
+    else:
+        # Second pass: same strategies but without country restrictions (attempts 7-11)
+        strategy_index = attempt - 7
+        return apply_simplification_strategy(country_name, params, strategy_index, code)
 
 
 def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str, row: list, sleep_duration: float = 2.0) -> list:
@@ -111,6 +156,7 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
         'format': 'jsonv2'
     }
 
+    initial_params = params.copy()
     url = build_nominatim_url(params)
 
     if debug:
@@ -128,9 +174,9 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
                 failed = False
             else:
                 iter_failures += 1
-                print(f"{country_name} - Warning - {code}: No results found (attempt {iter_failures}/3)")
-                if iter_failures <= 3:
-                    params = simplify_query_params(country_name, params, iter_failures, code)
+                print(f"{country_name} - Warning - {code}: No results found (attempt {iter_failures}/11)")
+                if iter_failures <= 11:
+                    params = simplify_query_params(country_name, params, iter_failures, code, initial_params)
                     url = build_nominatim_url(params)
                     if debug:
                         print(f"{country_name} - Debug - {code}: Retrying with modified URL: {url}")

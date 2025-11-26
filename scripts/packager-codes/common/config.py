@@ -21,13 +21,69 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 import json
 import re
+from jsonschema import validate, ValidationError
 
 CONFIG_FILE = 'packager_sources_config.json'
 TEXT_REPLACEMENTS_FILE = 'packager_text_replacements_config.json'
 
+# JSON Schema for packager sources configuration
+CONFIG_SCHEMA = {
+    "type": "object",
+    "patternProperties": {
+        "^[a-z]{2}$": {  # Two-letter country codes
+            "type": "object",
+            "required": ["country_name", "sources"],
+            "properties": {
+                "country_name": {"type": "string"},
+                "header_keywords": {
+                    "type": "array",
+                    "items": {"type": "string"}
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": ["url", "files"],
+                        "properties": {
+                            "url": {"type": "string", "format": "uri"},
+                            "files": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "keyword": {"type": "string"},
+                                        "last_filename": {"type": "string"}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "additionalProperties": False
+}
+
+def validate_config(config: dict):
+    """
+    Validate configuration against JSON schema.
+    
+    Args:
+        config: Configuration dictionary to validate
+        
+    Raises:
+        ValidationError: If configuration doesn't match schema
+    """
+    try:
+        validate(instance=config, schema=CONFIG_SCHEMA)
+    except ValidationError as e:
+        raise ValueError(f"Configuration validation failed: {e.message}") from e
+
+
 def load_config():
     """
-    Load configuration from JSON file.
+    Load and validate configuration from JSON file.
 
     Returns:
         configuration dictionary
@@ -35,10 +91,15 @@ def load_config():
     Raises:
         FileNotFoundError: If config file doesn't exist
         json.JSONDecodeError: If config file contains invalid JSON
+        ValueError: If configuration is invalid
     """
     try:
         with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
+            config = json.load(f)
+        
+        validate_config(config)
+        return config
+        
     except FileNotFoundError as e:
         raise FileNotFoundError(f"Configuration file '{CONFIG_FILE}' not found") from e
     except json.JSONDecodeError as e:

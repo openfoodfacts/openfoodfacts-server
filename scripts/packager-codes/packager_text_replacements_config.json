@@ -1,4 +1,9 @@
 {
+  "dk": {
+    "cleanup_patterns": {
+      "remove_city_suffixes": "\\s+[A-ZÆØÅ]{1,3}$"
+    }
+  },
   "hr": {
     "abbreviations": {
       "sv.": "sveti ",

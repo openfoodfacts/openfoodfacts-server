@@ -23,8 +23,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 """
 This script automatically:
-1. Downloads the Excel file from the Croatian ministry of agriculture website
-   (Register of approved establishments dealing with food of animal origin)
+1. Downloads the Excel file from the official website
    http://veterinarstvo.hr/default.aspx?id=2423
    
    Target file format: "DD-MM-YYYY. svi odobreni objekti.xls"
@@ -37,8 +36,6 @@ This script automatically:
 5. Geocodes addresses using Nominatim OpenStreetMap API
 6. Outputs final CSV with coordinates
 
-Required Python packages:
-  pip install requests openpyxl pandas beautifulsoup4
   
 Note: The script will automatically select the latest file matching "svi odobreni objekti".
 
@@ -57,7 +54,7 @@ from common.config import load_config, save_config
 from common.download import download_excel_file
 from common.convert import convert_excel_to_csv
 from common.geocode import geocode_csv
-from common.io import move_output_to_packager_codes, cleanup_temp_files
+from common.io import generate_file_identifier, move_output_to_packager_codes, cleanup_temp_files
 from countries.hr.transform import preprocess_csv_croatia
 
 
@@ -65,36 +62,6 @@ COUNTRY_NAME = 'Croatia'
 COUNTRY_CODE = 'hr'
 DEBUG = False
 SLEEP_DURATION = 2.0
-
-
-def generate_file_identifier(keyword: str = None, last_filename: str = None) -> str:
-    """
-    Generate a unique identifier for temporary files based on keyword or filename.
-    
-    Args:
-        keyword: The keyword used to search for the file
-        last_filename: The last known filename
-        
-    Returns:
-        A sanitized identifier string
-    """
-    if keyword:
-        # Use keyword, sanitize for filename (remove spaces, special chars)
-        identifier = keyword.replace(' ', '_').replace('/', '_').replace('\\', '_')
-        # Limit length and remove non-alphanumeric except underscore
-        identifier = ''.join(c for c in identifier if c.isalnum() or c == '_')[:30]
-        return identifier.lower()
-    elif last_filename:
-        # Extract base name without extension
-        import os
-        base = os.path.splitext(last_filename)[0]
-        identifier = base.replace(' ', '_').replace('.', '_').replace('-', '_')
-        identifier = ''.join(c for c in identifier if c.isalnum() or c == '_')[:30]
-        return identifier.lower()
-    else:
-        # Fallback to generic identifier
-        return 'unknown'
-
 
 def process_source_file(country_name: str, country_code: str, debug: bool, 
                        source_idx: int, file_idx: int, 
@@ -185,11 +152,7 @@ def main():
         sys.exit(1)
     
     country_config = config[COUNTRY_CODE]
-    sources = country_config.get('sources', [])
-    
-    if not sources:
-        print(f"{COUNTRY_NAME} - Error - No sources configured for this country")
-        sys.exit(1)
+    sources = country_config['sources']
     
     total_sources = len(sources)
     successful_files = 0

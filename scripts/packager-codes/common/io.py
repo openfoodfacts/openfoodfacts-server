@@ -25,6 +25,36 @@ import shutil
 
 PACKAGER_CODES_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'packager-codes')
 
+
+def generate_file_identifier(keyword: str = None, last_filename: str = None) -> str:
+    """
+    Generate a unique identifier for temporary files based on keyword or filename.
+    
+    Args:
+        keyword: The keyword used to search for the file
+        last_filename: The last known filename
+        
+    Returns:
+        A sanitized identifier string
+    """
+    if keyword:
+        # Use keyword, sanitize for filename (remove spaces, special chars)
+        identifier = keyword.replace(' ', '_').replace('/', '_').replace('\\', '_')
+        # Limit length and remove non-alphanumeric except underscore
+        identifier = ''.join(c for c in identifier if c.isalnum() or c == '_')[:30]
+        return identifier.lower()
+    elif last_filename:
+        # Extract base name without extension
+        import os
+        base = os.path.splitext(last_filename)[0]
+        identifier = base.replace(' ', '_').replace('.', '_').replace('-', '_')
+        identifier = ''.join(c for c in identifier if c.isalnum() or c == '_')[:30]
+        return identifier.lower()
+    else:
+        # Fallback to generic identifier
+        return 'unknown'
+
+
 def write_csv(country_name: str, output_file: str, rows: list):
     """
     Write rows to CSV file.

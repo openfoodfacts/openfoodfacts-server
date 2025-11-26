@@ -22,9 +22,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import csv
 import re
 
+from common.config import load_config
 from common.csv_utils import get_data_rows, normalize_text
 from common.io import write_csv
 
+config = load_config()
+HEADER_KEYWORDS = config['hr']['header_keywords']
 
 def is_valid_approval_code(code: str) -> bool:
     """
@@ -42,9 +45,9 @@ def is_valid_approval_code(code: str) -> bool:
     code_lower = code.lower().rstrip('.').strip()
     if not code_lower or not code_lower[0].isdigit():
         return False
-
-    header_keywords = ['odobreni', 'no', 'br', 'app']    
-    if code_lower in header_keywords:
+    
+    # Check if code is actually a header keyword
+    if code_lower in HEADER_KEYWORDS:
         return False
     
     return True
@@ -114,9 +117,7 @@ def preprocess_csv_croatia(country_name: str, input_csv: str, output_csv: str):
             all_rows = list(reader)
         
         # 1. Use generic CSV detection with Croatian-specific header keywords
-        # Expected header contains: "RED. BR./No.", "Odobreni br./App. No.", "SUBJEKT U POSLOVANJU", etc.
-        header_keywords = ['odobreni', 'subjekt', 'adresa']
-        data_rows, expected_columns = get_data_rows(all_rows, header_keywords)
+        data_rows, expected_columns = get_data_rows(all_rows, HEADER_KEYWORDS)
         
         print(f"{country_name} - Info - Detected table structure: {expected_columns} columns, {len(data_rows)} data rows")
 
