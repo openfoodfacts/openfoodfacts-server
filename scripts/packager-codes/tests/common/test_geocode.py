@@ -11,22 +11,64 @@ def fake_cache():
 
 # tests for simplify_query_params function
 
+def test_simplify_query_params_comma_removal():
+    """Test strategy 0: Remove text after comma in street"""
+    params = {'street': 'Main St, Extra Info', 'city': 'Test', 'postalcode': '123', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
+    initial_params = params.copy()
+    updated_params = geocode.simplify_query_params("Testland", params, 1, "CODE", initial_params)
+    assert updated_params['street'] == 'Main St'
+
+
 def test_simplify_query_params_street_removal():
+    """Test strategy 1: Remove street entirely"""
     params = {'street': 'Main', 'city': 'Test', 'postalcode': '123', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
-    updated_params = geocode.simplify_query_params("Testland", params, 1, "CODE")
-    assert updated_params == {'city': 'Test', 'postalcode': '123', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
+    initial_params = params.copy()
+    updated_params = geocode.simplify_query_params("Testland", params, 2, "CODE", initial_params)
+    assert 'street' not in updated_params
+    assert updated_params['city'] == 'Test'
 
 
 def test_simplify_query_params_postal_removal():
+    """Test strategy 2: Remove postalcode"""
     params = {'city': 'Test', 'postalcode': '123', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
-    updated_params = geocode.simplify_query_params("Testland", params, 2, "CODE")
-    assert updated_params == {'city': 'Test', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
+    initial_params = params.copy()
+    updated_params = geocode.simplify_query_params("Testland", params, 3, "CODE", initial_params)
+    assert 'postalcode' not in updated_params
+    assert updated_params['city'] == 'Test'
 
 
 def test_simplify_query_params_simplify_city():
+    """Test strategy 3: Simplify city (before hyphen)"""
     params = {'city': 'New-City', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
-    updated_params = geocode.simplify_query_params("Testland", params, 3, "CODE")
-    assert updated_params == {'city': 'New', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
+    initial_params = params.copy()
+    updated_params = geocode.simplify_query_params("Testland", params, 4, "CODE", initial_params)
+    assert updated_params['city'] == 'New'
+
+
+def test_simplify_query_params_city_removal():
+    """Test strategy 4: Remove city entirely"""
+    params = {'city': 'Test', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
+    initial_params = params.copy()
+    updated_params = geocode.simplify_query_params("Testland", params, 5, "CODE", initial_params)
+    assert 'city' not in updated_params
+
+
+def test_simplify_query_params_remove_country():
+    """Test attempt 6: Remove country restrictions"""
+    params = {'street': 'Main', 'city': 'Test', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
+    initial_params = params.copy()
+    updated_params = geocode.simplify_query_params("Testland", params, 6, "CODE", initial_params)
+    assert 'country' not in updated_params
+    assert 'countrycodes' not in updated_params
+    assert updated_params['street'] == 'Main'  # Reset to initial params
+
+
+def test_simplify_query_params_second_round():
+    """Test attempt 7: Second round strategies without country"""
+    params = {'street': 'Main St, Extra', 'city': 'Test', 'format': 'jsonv2'}
+    initial_params = {'street': 'Main St, Extra', 'city': 'Test', 'country': 'Country', 'countrycodes': 'cc', 'format': 'jsonv2'}
+    updated_params = geocode.simplify_query_params("Testland", params, 7, "CODE", initial_params)
+    assert updated_params['street'] == 'Main St'  # Comma removal again
 
 # tests for convert_address_to_lat_lng function
 

@@ -27,7 +27,7 @@ from common.csv_utils import get_data_rows, normalize_text
 from common.io import write_csv
 
 config = load_config()
-HEADER_KEYWORDS = config['hr']['header_keywords']
+HEADER_KEYWORDS = [k.lower() for k in config['hr']['header_keywords']]
 
 def is_valid_approval_code(code: str) -> bool:
     """

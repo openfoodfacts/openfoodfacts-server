@@ -27,14 +27,14 @@ from common.csv_utils import get_data_rows, normalize_text
 from common.io import write_csv, cleanup_temp_files
 
 config = load_config()
-HEADER_KEYWORDS = config['dk']['header_keywords']
+HEADER_KEYWORDS = [k.lower() for k in config['dk']['header_keywords']]
 
 def is_valid_approval_code_denmark(code: str) -> bool:
     """
     Check if a code is a valid approval number (not header text).
     
-    Valid codes are numeric (possibly with letters/hyphens): "2", "123", "456-A", "M123"
-    Invalid: empty, header text, contains spaces/slashes, doesn't start with digit
+    Valid codes must contain at least one digit: "2", "123", "456-A", "M123", "DK4772"
+    Invalid: empty, header text (Name, Town, Category), text without numbers
     
     Args:
         code: The code to validate
@@ -47,6 +47,10 @@ def is_valid_approval_code_denmark(code: str) -> bool:
         return False
 
     if code_lower in HEADER_KEYWORDS:
+        return False
+    
+    # Must contain at least one digit to be a valid approval code
+    if not any(char.isdigit() for char in code_lower):
         return False
     
     return True
@@ -133,7 +137,9 @@ def preprocess_csv_denmark(country_name: str, input_csv: str, output_csv: str):
             if not is_valid_approval_code_denmark(raw_code):
                 continue
             
-            raw_code = raw_code.replace('DK', '').strip()
+            # Remove DK prefix if present (case-insensitive)
+            if raw_code.upper().startswith('DK'):
+                raw_code = raw_code[2:].strip()
             code = f"DK {raw_code} EF"
             name = row[1]
             

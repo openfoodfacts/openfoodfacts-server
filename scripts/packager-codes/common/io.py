@@ -23,7 +23,11 @@ import csv
 import os
 import shutil
 
-PACKAGER_CODES_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'packager-codes')
+# Go up from common/ -> packager-codes/ -> scripts/ -> repo_root, then to packager-codes/
+PACKAGER_CODES_DIR = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))),
+    'packager-codes'
+)
 
 
 def generate_file_identifier(keyword: str = None, last_filename: str = None) -> str:
