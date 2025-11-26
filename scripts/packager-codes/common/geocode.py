@@ -28,6 +28,7 @@ from common.io import write_csv
 
 
 CACHE_DB_BASE = 'geocode_cache'
+CACHE_DB_EXTENSION = '.db'
 
 
 def build_nominatim_url(params: dict) -> str:
@@ -137,7 +138,7 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
         [latitude, longitude] as strings
     """
 
-    cache_db = f"{CACHE_DB_BASE}_{country_code}"
+    cache_db = f"{CACHE_DB_BASE}_{country_code}{CACHE_DB_EXTENSION}"
 
     # Extract address components from standardized row
     # Columns: [0=code, 1=name, 2=street, 3=city, 4=postalcode]
