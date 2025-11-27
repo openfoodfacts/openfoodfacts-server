@@ -1798,6 +1798,11 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 				my $source = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "source");
 				$key_nutrients_sources{$source} = [] unless exists $key_nutrients_sources{$source};
 				push @{$key_nutrients_sources{$source}}, $nid;
+				# Add misc tags for nutrients coming from estimated source
+				if ($source eq "estimate") {
+					add_tag($product_ref, "misc", "en:nutriscore-estimated-$nid");
+					$product_ref->{nutrition_score_debug} .= "$preparation $nid estimated - ";
+				}
 			}
 		}
 
