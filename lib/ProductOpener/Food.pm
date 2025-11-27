@@ -2299,7 +2299,6 @@ sub compute_nova_group ($product_ref) {
 			"nova_group_tags", "nova_groups_markers", "nova_group_error"
 		]
 	);
-	remove_fields($product_ref->{nutriments}, ["nova-group", "nova-group_100g", "nova-group_serving"]);
 
 	$product_ref->{nova_group_debug} = "";
 
