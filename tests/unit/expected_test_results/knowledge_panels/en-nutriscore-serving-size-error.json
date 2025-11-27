@@ -689,16 +689,6 @@
             {
                "element_type" : "panel_group",
                "panel_group_element" : {
-                  "panel_group_id" : "packaging_recycling",
-                  "panel_ids" : [
-                     "packaging_recycling"
-                  ],
-                  "title" : "Packaging"
-               }
-            },
-            {
-               "element_type" : "panel_group",
-               "panel_group_element" : {
                   "panel_ids" : [
                      "origins_of_ingredients"
                   ],
@@ -1568,12 +1558,44 @@
          ],
          "evaluation" : "unknown",
          "expanded" : false,
+         "half_width_on_mobile" : true,
          "level" : "info",
          "title_element" : {
             "icon_color_from_evaluation" : true,
             "icon_url" : "https://server_domain/images/icons/dist/public.svg",
             "subtitle" : "Missing origins of ingredients information",
             "title" : "Origins of ingredients"
+         },
+         "topics" : [
+            "environment"
+         ]
+      },
+      "packaging" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                    The information about the packaging of this product is not filled in.\n                    ",
+                  "type" : "warning"
+               }
+            },
+            {
+               "action_element" : {
+                  "actions" : [
+                     "add_packaging_image"
+                  ],
+                  "html" : "Take a photo of the recycling information"
+               },
+               "element_type" : "action"
+            }
+         ],
+         "evaluation" : "unknown",
+         "level" : "info",
+         "title_element" : {
+            "evaluation" : "neutral",
+            "icon_color_from_evaluation" : true,
+            "icon_url" : "https://server_domain/images/icons/dist/packaging.svg",
+            "title" : "Missing packaging information for this product"
          },
          "topics" : [
             "environment"
@@ -1619,37 +1641,6 @@
          "level" : "info",
          "title_element" : {
             "title" : "Packaging materials"
-         },
-         "topics" : [
-            "environment"
-         ]
-      },
-      "packaging_recycling" : {
-         "elements" : [
-            {
-               "element_type" : "text",
-               "text_element" : {
-                  "html" : "\n                    The information about the packaging of this product is not filled in.\n                    ",
-                  "type" : "warning"
-               }
-            },
-            {
-               "action_element" : {
-                  "actions" : [
-                     "add_packaging_image"
-                  ],
-                  "html" : "Take a photo of the recycling information"
-               },
-               "element_type" : "action"
-            }
-         ],
-         "evaluation" : "unknown",
-         "level" : "info",
-         "title_element" : {
-            "evaluation" : "neutral",
-            "icon_color_from_evaluation" : true,
-            "icon_url" : "https://server_domain/images/icons/dist/packaging.svg",
-            "title" : "Missing packaging information for this product"
          },
          "topics" : [
             "environment"

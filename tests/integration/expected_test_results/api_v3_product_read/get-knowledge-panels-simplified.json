@@ -227,16 +227,6 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
-                     "panel_ids" : [
-                        "packaging_recycling"
-                     ],
-                     "title" : "Packaging"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
                      "panel_ids" : [
                         "origins_of_ingredients"
                      ],
@@ -247,7 +237,7 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "palm_oil"
+                        "threatened_species"
                      ],
                      "title" : "Threatened species"
                   }
@@ -261,6 +251,61 @@
                "environment"
             ],
             "type" : "card"
+         },
+         "environment_card_simplified" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "environmental_score"
+                     ]
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "environmental_labels_simplified",
+                        "origins_of_ingredients_simplified",
+                        "threatened_species_simplified",
+                        "packaging_simplified"
+                     ]
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "carbon_footprint"
+                     ]
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Environment"
+            },
+            "topics" : [
+               "environment"
+            ],
+            "type" : "card"
+         },
+         "environmental_labels_simplified" : {
+            "evaluation" : "neutral",
+            "expanded" : false,
+            "half_width_on_mobile" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg",
+               "subtitle" : "No labels with environmental benefits",
+               "title" : "Environmental labels"
+            },
+            "topics" : [
+               "environment"
+            ]
          },
          "environmental_score" : {
             "elements" : [
@@ -730,6 +775,36 @@
                         "ingredients_analysis_details"
                      ],
                      "title" : "Ingredients analysis"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Health"
+            },
+            "topics" : [
+               "health"
+            ],
+            "type" : "card"
+         },
+         "health_card_simplified" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "nutriscore_2023",
+                        "nutrient_levels"
+                     ]
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "nova",
+                        "additives"
+                     ]
                   }
                }
             ],
@@ -1449,12 +1524,74 @@
             ],
             "evaluation" : "unknown",
             "expanded" : false,
+            "half_width_on_mobile" : true,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "subtitle" : "Missing origins of ingredients information",
                "title" : "Origins of ingredients"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "origins_of_ingredients_simplified" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                The origins of the ingredients of this product are not indicated.<br><br>\n                If they are indicated on the packaging, you can modify the product sheet and add them.<br><br>\n                If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>.\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_origins"
+                     ],
+                     "html" : "Add the origins of ingredients for this product"
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "evaluation" : "unknown",
+            "expanded" : false,
+            "half_width_on_mobile" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
+               "subtitle" : "Missing origins of ingredients information",
+               "title" : "Origins of ingredients"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "title" : "Packaging with a medium impact"
             },
             "topics" : [
                "environment"
@@ -1609,54 +1746,11 @@
                "environment"
             ]
          },
-         "packaging_recycling" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_components"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_materials"
-                  }
-               }
-            ],
-            "evaluation" : "average",
-            "expanded" : true,
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "title" : "Packaging with a medium impact"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "palm_oil" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> \n                    ",
-                     "type" : "summary"
-                  }
-               }
-            ],
-            "evaluation" : "bad",
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
-               "subtitle" : "Drives deforestation and threatens species such as the orangutan",
-               "title" : "Contains palm oil"
-            },
-            "topics" : [
-               "environment"
-            ]
+         "packaging_simplified" : {
+            "json" : "{\n    \"level\" :\"info\",\n    \"topics\": [\n        \"environment\"\n    ],\n    \"expanded\": false,\n    \"half_width_on_mobile\": true,   \n\n\n\n    \n    \"evaluation\": \"average\",\n    \"title_element\": {\n        \"title\": \"Packaging\",\n        \"subtitle\": \"Packaging with a medium impact\",    \n    \n        \"icon_url\": \"http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg\",\n        \"icon_color_from_evaluation\": true,\n        \"icon_size\": \"small\"},        \n    \"expanded\": true,\n    \"elements\": [\n        {\n            \"element_type\": \"panel\",\n            \"panel_element\": {\n                    \"panel_id\": \"packaging_components\"}},\n        \n        {\n            \"element_type\": \"panel\",\n            \"panel_element\": {\n                \"panel_id\": \"packaging_materials\"}}]\n\n}\n",
+            "json_debug_url" : "http://static.openfoodfacts.localhost/files/debug/knowledge_panels/packaging_simplified4260392550101.json",
+            "json_error" : "Duplicate keys not allowed, at character offset 462 (before \"expanded\": true,\\n  ...\") at /opt/product-opener/lib/ProductOpener/KnowledgePanels.pm line 518.\n",
+            "template" : "api/knowledge-panels/environment/packaging_simplified.tt.json"
          },
          "product_card" : {
             "elements" : [
@@ -1785,77 +1879,18 @@
             ],
             "type" : "inline"
          },
-         "simplified_environment_card" : {
-            "elements" : [
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "environmental_score",
-                        "environmental_score_adjustments"
-                     ]
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "carbon_footprint"
-                     ]
-                  }
-               }
-            ],
-            "expanded" : true,
-            "title_element" : {
-               "title" : "Environment"
-            },
-            "topics" : [
-               "environment"
-            ],
-            "type" : "card"
-         },
-         "simplified_health_card" : {
-            "elements" : [
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "nutriscore_2023",
-                        "nutrient_levels"
-                     ]
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "nova",
-                        "additives"
-                     ]
-                  }
-               }
-            ],
-            "expanded" : true,
-            "title_element" : {
-               "title" : "Health"
-            },
-            "topics" : [
-               "health"
-            ],
-            "type" : "card"
-         },
          "simplified_root" : {
             "elements" : [
                {
                   "element_type" : "panel",
                   "panel_element" : {
-                     "panel_id" : "simplified_health_card"
+                     "panel_id" : "health_card_simplified"
                   }
                },
                {
                   "element_type" : "panel",
                   "panel_element" : {
-                     "panel_id" : "simplified_environment_card"
+                     "panel_id" : "environment_card_simplified"
                   }
                },
                {
@@ -1873,6 +1908,54 @@
             ],
             "expanded" : true,
             "type" : "root"
+         },
+         "threatened_species" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                        <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> \n                        ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
+               "subtitle" : "Drives deforestation and threatens species such as the orangutan",
+               "title" : "Contains palm oil"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "threatened_species_simplified" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                        Drives deforestation and threatens species such as the orangutan\n                        <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> \n                        ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "expanded" : false,
+            "half_width_on_mobile" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
+               "subtitle" : "Contains palm oil",
+               "title" : "Threatened species"
+            },
+            "topics" : [
+               "environment"
+            ]
          }
       }
    },
