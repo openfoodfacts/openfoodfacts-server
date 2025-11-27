@@ -753,7 +753,6 @@
          "en:nutriments-to-be-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
-         "en:traceability-codes-to-be-completed",
          "en:front-photo-to-be-selected",
          "en:product-name-completed",
          "en:quantity-completed",
@@ -768,8 +767,8 @@
             "general_information" : "0.40",
             "ingredients" : "0.50",
             "nutrition" : "0.33",
-            "overall" : "0.38",
-            "packaging" : "0.33"
+            "overall" : "0.42",
+            "packaging" : "0.50"
          }
       },
       "data_quality_errors_tags" : [],
@@ -790,7 +789,6 @@
          "en:nutriments-to-be-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
-         "en:traceability-codes-to-be-completed",
          "en:front-photo-to-be-selected",
          "en:product-name-completed",
          "en:quantity-completed",
@@ -1287,6 +1285,7 @@
       "generic_name" : "Tester",
       "generic_name_en" : "Tester",
       "id" : "4260392550101",
+      "images" : {},
       "informers_tags" : [
          "tests"
       ],
