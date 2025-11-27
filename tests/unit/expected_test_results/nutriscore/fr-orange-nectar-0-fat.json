@@ -146,6 +146,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:nutriscore-estimated-saturated-fat",
       "en:nutriscore-mixed-nutrition-facts-sources",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
@@ -965,7 +966,7 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 1,
-   "nutrition_score_debug" : "did not compute nutriscore because some nutrients are estimated and some are not - missing as_sold saturated-fat - ",
+   "nutrition_score_debug" : "as_sold saturated-fat estimateddid not compute nutriscore because some nutrients are estimated and some are not - missing as_sold saturated-fat - ",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 57,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,

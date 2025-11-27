@@ -134,6 +134,7 @@
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:all-ingredients-with-specified-percent",
+      "en:nutriscore-estimated-fiber",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-from-category",
       "en:nutrition-fruits-vegetables-nuts-from-category-en-tofu",
@@ -205,7 +206,7 @@
             "sugars_points" : 0,
             "sugars_value" : 1.5
          },
-         "estimated" : 0,
+         "estimated" : 1,
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
@@ -288,7 +289,7 @@
             "positive_points" : 12,
             "positive_points_max" : 17
          },
-         "estimated" : 0,
+         "estimated" : 1,
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
@@ -1108,7 +1109,7 @@
       "a"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "",
+   "nutrition_score_debug" : "as_sold fiber estimated",
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Cereals and potatoes",
    "pnns_groups_1_tags" : [

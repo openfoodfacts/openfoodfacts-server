@@ -152,6 +152,7 @@
       "en:some-ingredients-with-specified-percent",
       "en:all-ingredients-with-specified-percent",
       "en:at-least-5-ingredients-with-specified-percent",
+      "en:nutriscore-estimated-fiber",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
@@ -218,7 +219,7 @@
             "sugars_points" : 0,
             "sugars_value" : 1.5
          },
-         "estimated" : 0,
+         "estimated" : 1,
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
@@ -277,9 +278,6 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
-                     "new_grade" : "a",
-                     "new_score" : -14,
-                     "new_value" : 61,
                      "points" : 1,
                      "points_max" : 5,
                      "unit" : "%",
@@ -304,7 +302,7 @@
             "positive_points" : 13,
             "positive_points_max" : 17
          },
-         "estimated" : 0,
+         "estimated" : 1,
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
@@ -860,7 +858,7 @@
       "a"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "",
+   "nutrition_score_debug" : "as_sold fiber estimated",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 55,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,

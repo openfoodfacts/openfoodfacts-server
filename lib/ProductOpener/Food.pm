@@ -1774,6 +1774,7 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 	{
 		# compute the score only if all values are known
 		# for fiber, compute score without fiber points if the value is not known
+		# or use an estimate if available
 		# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
 
 		foreach my $nid ("energy", "fat", "saturated-fat", "sugars", "sodium", "proteins") {
@@ -1808,11 +1809,18 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 
 		# some categories of products do not have fibers > 0.7g (e.g. sodas)
 		# for others, display a warning when the value is missing
+		my $fiber_source = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fiber", "source");
 		if ((not deep_exists($product_ref, "nutrition", "aggregated_set", "nutrients", "fiber", "value"))
 			and not(has_tag($product_ref, "categories", "en:sodas")))
 		{
 			$product_ref->{nutrition_score_warning_no_fiber} = 1;
-			add_tag($product_ref, "misc", "en:nutrition-no-fiber");
+			add_tag($product_ref, "misc", "en:nutriscore-missing-fiber");
+		}
+		# Add a misc tag when fiber is estimated
+		elsif ((defined $fiber_source) and ($fiber_source eq "estimate")) {
+			add_tag($product_ref, "misc", "en:nutriscore-estimated-fiber");
+			$product_ref->{nutrition_score_debug} .= "$preparation fiber estimated - ";
+			$estimated = 1;
 		}
 	}
 

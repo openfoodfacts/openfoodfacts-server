@@ -99,8 +99,12 @@
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
+      "en:nutriscore-estimated-fat",
       "en:nutriscore-missing-nutrition-data-saturated-fat",
       "en:nutriscore-missing-nutrition-data-sugars",
+      "en:nutriscore-estimated-sodium",
+      "en:nutriscore-estimated-proteins",
+      "en:nutriscore-estimated-fiber",
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
@@ -132,7 +136,7 @@
             "sodium" : null,
             "sugars" : null
          },
-         "estimated" : 0,
+         "estimated" : 1,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 1,
@@ -156,7 +160,7 @@
             "saturated_fat" : null,
             "sugars" : null
          },
-         "estimated" : 0,
+         "estimated" : 1,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 1,
@@ -543,7 +547,7 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 1,
-   "nutrition_score_debug" : "no score for category en:beverage-preparations without data for prepared product - missing prepared energy - missing prepared saturated-fat - missing prepared sugars",
+   "nutrition_score_debug" : "no score for category en:beverage-preparations without data for prepared product - missing prepared energy - prepared fat estimated - missing prepared saturated-fat - missing prepared sugars - prepared sodium estimated - prepared proteins estimated - prepared fiber estimated",
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Beverages",

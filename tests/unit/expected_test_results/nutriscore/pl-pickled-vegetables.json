@@ -182,6 +182,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:nutriscore-estimated-fiber",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
@@ -249,7 +250,7 @@
             "sugars_points" : 0,
             "sugars_value" : 0
          },
-         "estimated" : 0,
+         "estimated" : 1,
          "grade" : "c",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
@@ -285,9 +286,6 @@
                   },
                   {
                      "id" : "salt",
-                     "new_grade" : "d",
-                     "new_score" : 14,
-                     "new_value" : 4,
                      "points" : 20,
                      "points_max" : 20,
                      "unit" : "g",
@@ -297,9 +295,6 @@
                "positive" : [
                   {
                      "id" : "fiber",
-                     "new_grade" : "d",
-                     "new_score" : 14,
-                     "new_value" : 3.1,
                      "points" : 0,
                      "points_max" : 5,
                      "unit" : "g",
@@ -330,7 +325,7 @@
             "positive_points" : 5,
             "positive_points_max" : 10
          },
-         "estimated" : 0,
+         "estimated" : 1,
          "grade" : "d",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
@@ -1142,7 +1137,7 @@
       "d"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "",
+   "nutrition_score_debug" : "as_sold fiber estimated",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 88.3920076117983,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
