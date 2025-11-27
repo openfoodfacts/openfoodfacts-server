@@ -1,4 +1,4 @@
-# Changelog
+# Changelog 
 
 ## [2.82.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.82.0...v2.82.1) (2025-11-12)
 
