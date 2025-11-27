@@ -290,26 +290,6 @@
                   "very_important",
                   "mandatory"
                ]
-            },
-            {
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/contains-unwanted-ingredients.svg",
-               "id" : "unwanted_ingredients",
-               "name" : "Unwanted ingredients",
-               "parameters" : [
-                  {
-                     "id" : "attribute_unwanted_ingredients_tags",
-                     "name" : "Unwanted ingredients",
-                     "tagtype" : "ingredients",
-                     "type" : "tags"
-                  }
-               ],
-               "setting_name" : "Unwanted ingredients",
-               "values" : [
-                  "not_important",
-                  "important",
-                  "very_important",
-                  "mandatory"
-               ]
             }
          ],
          "id" : "ingredients_analysis",

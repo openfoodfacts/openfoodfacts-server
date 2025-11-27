@@ -233,6 +233,16 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
+                     "panel_group_id" : "packaging",
+                     "panel_ids" : [
+                        "packaging"
+                     ],
+                     "title" : "Emballage"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
                      "panel_ids" : [
                         "origins_of_ingredients"
                      ],
