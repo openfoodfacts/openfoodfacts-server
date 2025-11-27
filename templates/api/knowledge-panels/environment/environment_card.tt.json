@@ -23,14 +23,14 @@
             },
         },
         [% END %]    
-        [% IF panels.packaging_recycling.defined %]
+        [% IF panels.packaging.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
                 "title": "[% edq(lang('environmental_score_packaging')) %]",
-                "panel_group_id": "packaging_recycling",
+                "panel_group_id": "packaging",
                 "panel_ids": [
-                    "packaging_recycling",
+                    "packaging",
                 ],
                 [% IF panel.packaging_image.defined %]
                 "image": [% encode_json(panel.packaging_image) %],
