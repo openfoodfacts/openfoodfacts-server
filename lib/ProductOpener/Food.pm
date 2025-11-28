@@ -1178,6 +1178,11 @@ sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($prod
 		return $nutriscore_category_override_for_fruits_vegetables_legumes;
 	}
 
+	# For the Nutri-Score, we use the aggregated_set nutrients
+	# We put prepared values in aggregated_set if we have prepared values.
+	# If the aggregated set is for the product as sold even though we need prepared values for the product category,
+	# we will not compute the Nutri-Score.
+
 	my $fruits_vegetable_nuts
 		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts", "value");
 	my $fruits_vegetable_nuts_source
@@ -1719,9 +1724,11 @@ To compute the Nutri-Score, we use the nutrition.aggregated_set
 
 =head4 $preparation: "as_sold" or "prepared"
 
+Indicates if the Nutri-Score should be computed on as sold or prepared values
+
 =head4 $estimated: 0 or 1
 
-Indicates if the Nutri-Score should be computed on as sold or prepared values
+Indicates if some of the nutrients needed were estimated
 
 =cut
 
