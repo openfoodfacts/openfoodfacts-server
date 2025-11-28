@@ -5471,20 +5471,20 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	my $decf = get_decimal_formatter($lc);
 
-		if ($count < 0) {
-			$error = lang("error_database");
-		}
-		elsif ($count == 0) {
-			$error = lang("no_products");
-		}
-		elsif ($count == 1) {
-			$html_count .= lang("1_product");
-		}
-		elsif ($count > 1) {
-			$html_count .= sprintf(lang("n_products"), $decf->format($count));
-		}
-		$template_data_ref->{error} = $error;
-		$template_data_ref->{html_count} = $html_count;
+	if ($count < 0) {
+		$error = lang("error_database");
+	}
+	elsif ($count == 0) {
+		$error = lang("no_products");
+	}
+	elsif ($count == 1) {
+		$html_count .= lang("1_product");
+	}
+	elsif ($count > 1) {
+		$html_count .= sprintf(lang("n_products"), $decf->format($count));
+	}
+	$template_data_ref->{error} = $error;
+	$template_data_ref->{html_count} = $html_count;
 
 	$template_data_ref->{country} = $request_ref->{country};
 	$template_data_ref->{world_subdomain} = get_world_subdomain();
