@@ -4,9 +4,7 @@
   <img height="48" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"/>
 </picture>
 
-
-
-[Looking for the Open Food Facts API doc ?](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/))
+[Looking for the Open Food Facts API doc ?](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/)
 
 # Open Food Facts - Product Opener (Web Server)
 
@@ -45,7 +43,6 @@ Open Food Facts is a non-profit association of volunteers. 25,000+ contributors 
 ### For everyone
 
 Food data is of public interest and must be open (i.e., available to everyone). The complete database is published as open data and can be reused by anyone and for any use. Check out the cool reuses or make your own!
-
 
 Visit the [website](https://world.openfoodfacts.org) for more info.
 <br><br>
@@ -155,10 +152,7 @@ Open Food Facts Personal Search project was funded through the <a href="https://
 a fund established by NLnet with financial support from the European Commission's <a href="https://ngi.eu">Next Generation Internet</a> programme.
 
 ---
-
-<div align="center">
-
+<div  style = "align:center;">
 <br />
 <a href="https://www.digitalpublicgoods.net/r/open-food-facts" target="_blank" rel="noopener noreferrer"><img src="https://github.com/DPGAlliance/dpg-resources/blob/main/docs/assets/dpg-badge.png?raw=true" width="100" alt="Digital Public Goods Badge"></a>
-
 </div>
