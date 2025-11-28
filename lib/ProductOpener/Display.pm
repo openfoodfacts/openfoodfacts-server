@@ -8079,17 +8079,6 @@ JS
 	if ((feature_enabled("environmental_score")) and (defined $product_ref->{environmental_score_data})) {
 
 		localize_environmental_score($request_ref->{cc}, $product_ref);
-
-		if (defined $product_ref->{environmental_score_data}{"grade"}) {
-			$template_data_ref->{environmental_score_grade} = uc($product_ref->{environmental_score_data}{"grade"});
-			$template_data_ref->{environmental_score_lc} = $product_ref->{environmental_score_data}{"grade"};
-		}
-
-		$template_data_ref->{environmental_score_score} = $product_ref->{environmental_score_data}{"score"};
-		$template_data_ref->{environmental_score_data} = $product_ref->{environmental_score_data};
-		$template_data_ref->{environmental_score_calculation_details}
-			= display_environmental_score_calculation_details($request_ref->{cc},
-			$product_ref->{environmental_score_data});
 	}
 
 	# 2025/02 - Determine which packaging components are in contact with food, so that we can display them
@@ -8323,162 +8312,34 @@ JS
 	$template_data_ref->{front_image_html} = $front_image;
 	$template_data_ref->{product_fields} = $product_fields;
 
-	# try to display ingredients in the local language if available
+	# special ingredients tags - were used for Open Beauty Facts
+	# currently not working - should be migrated to knowledge panels
 
-	my $ingredients_text = $product_ref->{ingredients_text};
-	my $ingredients_text_lang = $product_ref->{ingredients_lc};
+	# if ((defined $ingredients_text) and ($ingredients_text !~ /^\s*$/s) and (defined $special_tags{ingredients})) {
+	# 	$template_data_ref->{special_ingredients_tags} = 'defined';
 
-	if (defined $product_ref->{ingredients_text_with_allergens}) {
-		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
-	}
+	# 	my $special_html = "";
 
-	if (    (defined $product_ref->{"ingredients_text" . "_" . $lc})
-		and ($product_ref->{"ingredients_text" . "_" . $lc} ne ''))
-	{
-		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc};
-		$ingredients_text_lang = $lc;
-	}
+	# 	foreach my $special_tag_ref (@{$special_tags{ingredients}}) {
 
-	if (    (defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc})
-		and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne ''))
-	{
-		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc};
-		$ingredients_text_lang = $lc;
-	}
+	# 		my $tagid = $special_tag_ref->{tagid};
+	# 		my $type = $special_tag_ref->{type};
 
-	if (not defined $ingredients_text) {
-		$ingredients_text = "";
-	}
+	# 		if (   (($type eq 'without') and (not has_tag($product_ref, "ingredients", $tagid)))
+	# 			or (($type eq 'with') and (has_tag($product_ref, "ingredients", $tagid))))
+	# 		{
 
-	$ingredients_text =~ s/\n/<br>/g;
+	# 			$special_html
+	# 				.= "<li class=\"${type}_${tagid}_$lc\">"
+	# 				. lang("search_" . $type) . " "
+	# 				. display_taxonomy_tag_link($lc, "ingredients", $tagid)
+	# 				. "</li>\n";
+	# 		}
 
-	# Indicate if we are displaying ingredients in another language than the language of the interface
+	# 	}
 
-	my $ingredients_text_lang_html = "";
-
-	if (($ingredients_text ne "") and ($ingredients_text_lang ne $lc)) {
-		$ingredients_text_lang_html
-			= " (" . display_taxonomy_tag($lc, 'languages', $language_codes{$ingredients_text_lang}) . ")";
-	}
-
-	$template_data_ref->{ingredients_image} = display_image_box($product_ref, 'ingredients', \$minheight, $request_ref);
-	$template_data_ref->{ingredients_text_lang} = $ingredients_text_lang;
-	$template_data_ref->{ingredients_text} = $ingredients_text;
-
-	if ($User{moderator} and ($ingredients_text !~ /^\s*$/)) {
-		$template_data_ref->{User_moderator} = 'defined';
-
-		my $ilc = $ingredients_text_lang;
-		$template_data_ref->{ilc} = $ingredients_text_lang;
-
-		$request_ref->{initjs} .= <<JS
-
-	var editableText;
-
-	\$("#editingredients").click({},function(event) {
-		event.stopPropagation();
-		event.preventDefault();
-
-		var divHtml = \$("#ingredients_list").html();
-		var allergens = /(<span class="allergen">|<\\/span>)/g;
-		divHtml = divHtml.replace(allergens, '_');
-
-		var editableText = \$('<textarea id="ingredients_list" style="height:8rem" lang="$ilc" />');
-		editableText.val(divHtml);
-		\$("#ingredients_list").replaceWith(editableText);
-		editableText.focus();
-
-		\$("#editingredientsbuttondiv").hide();
-		\$("#saveingredientsbuttondiv").show();
-
-		\$(document).foundation('equalizer', 'reflow');
-
-	});
-
-
-	\$("#saveingredients").click({},function(event) {
-		event.stopPropagation();
-		event.preventDefault();
-
-		\$('div[id="saveingredientsbuttondiv"]').hide();
-		\$('div[id="saveingredientsbuttondiv_status"]').html('<img src="/images/misc/loading2.gif"> Saving ingredients_texts_$ilc');
-		\$('div[id="saveingredientsbuttondiv_status"]').show();
-
-		\$.post('/cgi/product_jqm_multilingual.pl',
-			{code: "$code", ingredients_text_$ilc :  \$("#ingredients_list").val(), comment: "Updated ingredients_texts_$ilc" },
-			function(data) {
-
-				\$('div[id="saveingredientsbuttondiv_status"]').html('Saved ingredients_texts_$ilc');
-				\$('div[id="saveingredientsbuttondiv"]').show();
-
-				\$(document).foundation('equalizer', 'reflow');
-			},
-			'json'
-		);
-
-		\$(document).foundation('equalizer', 'reflow');
-
-	});
-
-
-
-	\$("#wipeingredients").click({},function(event) {
-		event.stopPropagation();
-		event.preventDefault();
-		// alert(event.data.imagefield);
-		\$('div[id="wipeingredientsbuttondiv"]').html('<img src="/images/misc/loading2.gif"> Erasing ingredients_texts_$ilc');
-		\$.post('/cgi/product_jqm_multilingual.pl',
-			{code: "$code", ingredients_text_$ilc : "", comment: "Erased ingredients_texts_$ilc: too much bad data" },
-			function(data) {
-
-				\$('div[id="wipeingredientsbuttondiv"]').html("Erased ingredients_texts_$ilc");
-				\$('div[id="ingredients_list"]').html("");
-
-				\$(document).foundation('equalizer', 'reflow');
-			},
-			'json'
-		);
-
-		\$(document).foundation('equalizer', 'reflow');
-
-	});
-JS
-			;
-
-	}
-
-	$template_data_ref->{display_ingredients_in_lang} = sprintf(
-		lang("add_ingredients_in_language"),
-		display_taxonomy_tag($lc, 'languages', $language_codes{$request_lc})
-	);
-
-	# special ingredients tags
-
-	if ((defined $ingredients_text) and ($ingredients_text !~ /^\s*$/s) and (defined $special_tags{ingredients})) {
-		$template_data_ref->{special_ingredients_tags} = 'defined';
-
-		my $special_html = "";
-
-		foreach my $special_tag_ref (@{$special_tags{ingredients}}) {
-
-			my $tagid = $special_tag_ref->{tagid};
-			my $type = $special_tag_ref->{type};
-
-			if (   (($type eq 'without') and (not has_tag($product_ref, "ingredients", $tagid)))
-				or (($type eq 'with') and (has_tag($product_ref, "ingredients", $tagid))))
-			{
-
-				$special_html
-					.= "<li class=\"${type}_${tagid}_$lc\">"
-					. lang("search_" . $type) . " "
-					. display_taxonomy_tag_link($lc, "ingredients", $tagid)
-					. "</li>\n";
-			}
-
-		}
-
-		$template_data_ref->{special_html} = $special_html;
-	}
+	# 	$template_data_ref->{special_html} = $special_html;
+	# }
 
 	# Packaging
 
@@ -10225,27 +10086,6 @@ sub display_product_api ($request_ref) {
 		my $customized_product_ref
 			= customize_response_for_product($request_ref, $product_ref, single_param('fields') || 'all');
 
-		# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
-		# the "" values have been removed
-		# -> temporarily add back the _serving "" values
-		if ((user_agent =~ /Official Android App/) or (user_agent =~ /okhttp/)) {
-			if (defined $customized_product_ref->{nutriments}) {
-				foreach my $nid (keys %{$customized_product_ref->{nutriments}}) {
-					next if ($nid =~ /_/);
-					if (    (defined $customized_product_ref->{nutriments}{$nid . "_100g"})
-						and (not defined $customized_product_ref->{nutriments}{$nid . "_serving"}))
-					{
-						$customized_product_ref->{nutriments}{$nid . "_serving"} = "";
-					}
-					if (    (defined $customized_product_ref->{nutriments}{$nid . "_serving"})
-						and (not defined $customized_product_ref->{nutriments}{$nid . "_100g"}))
-					{
-						$customized_product_ref->{nutriments}{$nid . "_100g"} = "";
-					}
-				}
-			}
-		}
-
 		$response{product} = $customized_product_ref;
 
 		# Disable nested ingredients in ingredients field (bug #2883)
@@ -11106,56 +10946,6 @@ sub _format_comment ($comment) {
 	$comment =~ s/new image \d+( -)?//;
 
 	return $comment;
-}
-
-=head2 display_environmental_score_calculation_details( $environmental_score_cc, $environmental_score_data_ref )
-
-Generates HTML code with information on how the Eco-score was computed for a particular product.
-
-=head3 Parameters
-
-=head4 country code $environmental_score_cc
-
-=head4 environmental_score data $environmental_score_data_ref
-
-=cut
-
-sub display_environmental_score_calculation_details ($environmental_score_cc, $environmental_score_data_ref) {
-
-	# Generate a data structure that we will pass to the template engine
-
-	my $template_data_ref = dclone($environmental_score_data_ref);
-
-	# Eco-score Calculation Template
-
-	my $html;
-	process_template('web/pages/product/includes/environmental_score_details.tt.html', $template_data_ref, \$html)
-		|| return "template error: " . $tt->error();
-
-	return $html;
-}
-
-=head2 display_environmental_score_calculation_details_simple_html( $environmental_score_cc, $environmental_score_data_ref )
-
-Generates simple HTML code (to display in a mobile app) with information on how the Eco-score was computed for a particular product.
-
-=cut
-
-sub display_environmental_score_calculation_details_simple_html ($environmental_score_cc, $environmental_score_data_ref)
-{
-
-	# Generate a data structure that we will pass to the template engine
-
-	my $template_data_ref = dclone($environmental_score_data_ref);
-
-	# Eco-score Calculation Template
-
-	my $html;
-	process_template('web/pages/product/includes/environmental_score_details_simple_html.tt.html',
-		$template_data_ref, \$html)
-		|| return "template error: " . $tt->error();
-
-	return $html;
 }
 
 =head2 search_and_analyze_recipes ($request_ref, $query_ref)
