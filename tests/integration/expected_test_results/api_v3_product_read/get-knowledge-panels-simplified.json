@@ -1757,10 +1757,34 @@
             ]
          },
          "packaging_simplified" : {
-            "json" : "{\n    \"level\" :\"info\",\n    \"topics\": [\n        \"environment\"\n    ],\n    \"expanded\": false,\n    \"half_width_on_mobile\": true,   \n\n\n\n    \n    \"evaluation\": \"average\",\n    \"title_element\": {\n        \"title\": \"Packaging\",\n        \"subtitle\": \"Packaging with a medium impact\",    \n    \n        \"icon_url\": \"http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg\",\n        \"icon_color_from_evaluation\": true,\n        \"icon_size\": \"small\"},        \n    \"expanded\": true,\n    \"elements\": [\n        {\n            \"element_type\": \"panel\",\n            \"panel_element\": {\n                    \"panel_id\": \"packaging_components\"}},\n        \n        {\n            \"element_type\": \"panel\",\n            \"panel_element\": {\n                \"panel_id\": \"packaging_materials\"}}]\n\n}\n",
-            "json_debug_url" : "http://static.openfoodfacts.localhost/files/debug/knowledge_panels/packaging_simplified4260392550101.json",
-            "json_error" : "Duplicate keys not allowed, at character offset 462 (before \"expanded\": true,\\n  ...\") at /opt/product-opener/lib/ProductOpener/KnowledgePanels.pm line 518.\n",
-            "template" : "api/knowledge-panels/environment/packaging_simplified.tt.json"
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : false,
+            "half_width_on_mobile" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "subtitle" : "Packaging with a medium impact",
+               "title" : "Packaging"
+            },
+            "topics" : [
+               "environment"
+            ]
          },
          "product_card" : {
             "elements" : [
