@@ -561,6 +561,21 @@ sub get_specific_nutrition_input_set($product_ref, $source, $preparation, $per) 
 	return;
 }
 
+=head2 set_per_quantity_and_unit($product_ref, $input_set_ref)
+
+Fill the per_quanity and per_unit field of nutrients input set,
+based upon the "per" value of the nutrient input set,
+or product serving_quantity and unit for "serving".
+
+=head3 Arguments
+
+=head4 $product_ref - product
+=head4 $input_set_ref - nutrient input set
+
+It is modified to add per_quantity and per_unit.
+
+=cut
+
 sub set_per_quantity_and_unit($product_ref, $input_set_ref) {
 	if (defined $input_set_ref) {
 		my $per = deep_get($input_set_ref, qw/per/);
@@ -775,6 +790,7 @@ sub get_preparations_for_product_type ($product_type) {
 	return @preparations;
 }
 
+# %valid_pers contains the possible values for nutrient input_set "per" field.
 my %valid_pers = (
 	'100g' => 1,
 	'100ml' => 1,
