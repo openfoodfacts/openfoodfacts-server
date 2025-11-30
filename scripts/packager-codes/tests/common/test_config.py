@@ -12,7 +12,7 @@ except ImportError:
 
 CONFIG_TEST_FILE = os.path.join(os.path.dirname(__file__), '../test_files/packager_sources_config_test.json')
 TEXT_REPLACEMENTS_TEST_FILE = os.path.join(os.path.dirname(__file__), '../test_files/packager_text_replacements_test.json')
-ACTUAL_CONFIG_FILE = 'packager_sources_config.json'
+ACTUAL_CONFIG_FILE = os.path.join(os.path.dirname(__file__), '../packager_sources_config.json')
 CONFIG_SCHEMA_FILE = os.path.join(os.path.dirname(__file__), '../packager_sources_config_schema.json')
 
 def test_load_config(monkeypatch):
@@ -27,8 +27,18 @@ def test_save_config():
         test_data = {
             "hr": {
                 "country_name": "Croatia",
-                "sources": [],
-                "last_filename": "03-11-2025. svi odobreni objekti.xls"
+                "sources": [
+                    {
+                        "url": "http://example.com/hr",
+                        "files": [
+                            {
+                                "type": "excel",
+                                "keyword": "test",
+                                "last_filename": "03-11-2025. svi odobreni objekti.xls"
+                            }
+                        ]
+                    }
+                ]
             }
         }
         json.dump(test_data, temp_file)
@@ -39,12 +49,12 @@ def test_save_config():
         config.CONFIG_FILE = temp_file_path
 
         cfg = config.load_config()
-        cfg["hr"]["last_filename"] = "NEW-FILE.xls"
+        cfg["hr"]["sources"][0]["files"][0]["last_filename"] = "NEW-FILE.xls"
         config.save_config(cfg)
 
         with open(temp_file_path, 'r', encoding='utf-8') as f:
             loaded = json.load(f)
-        assert loaded["hr"]["last_filename"] == "NEW-FILE.xls"
+        assert loaded["hr"]["sources"][0]["files"][0]["last_filename"] == "NEW-FILE.xls"
     
     finally:
         os.remove(temp_file_path)
