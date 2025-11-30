@@ -23,8 +23,10 @@ import csv
 import dbm
 from urllib.parse import urlencode
 
+from common.config import load_config
 from common.download import cached_get
 from common.io import write_csv
+import common.geocode_strategies as strategies_module
 
 
 CACHE_DB_BASE = 'geocode_cache'
@@ -46,80 +48,54 @@ def build_nominatim_url(params: dict) -> str:
     return f"{base_url}?{query_string}"
 
 
-def apply_simplification_strategy(country_name: str, params: dict, strategy_index: int, code: str) -> dict:
+def get_country_simplification_strategies(country_code: str, initial_params: dict = None):
     """
-    Apply a specific simplification strategy to query parameters.
+    Get country-specific simplification strategies from config.
     
     Args:
-        country_name: Full country name for logging
-        params: Current query parameters
-        strategy_index: Strategy index (0-4)
-        code: The establishment code for logging
-        
+        country_code: ISO country code (e.g., 'fi', 'dk', 'hr')
+        initial_params: Initial query parameters (needed for reset strategies)
+    
     Returns:
-        Modified parameters dictionary
+        List of strategy functions
     """
-    params = params.copy()
+    config = load_config()
     
-    if strategy_index == 0:
-        # Try removing text after comma in street (e.g., "Sejerøvej 28, Horsekær" -> "Sejerøvej 28")
-        if 'street' in params and ',' in params['street']:
-            print(f"{country_name} - Warning - {code}: No results found. Retrying with street address before comma")
-            params['street'] = params['street'].split(',')[0].strip()
-    elif strategy_index == 1:
-        if 'street' in params:
-            print(f"{country_name} - Warning - {code}: No results found. Retrying without street")
-            del params['street']
-    elif strategy_index == 2:
-        if 'postalcode' in params:
-            print(f"{country_name} - Warning - {code}: No results found. Retrying without postalcode")
-            del params['postalcode']
-    elif strategy_index == 3:
-        if 'city' in params and '-' in params['city']:
-            print(f"{country_name} - Warning - {code}: No results found. Retrying with simplified city name (before hyphen)")
-            params['city'] = params['city'].split('-')[0]
-    elif strategy_index == 4:
-        if 'city' in params:
-            print(f"{country_name} - Warning - {code}: No results found. Retrying without city")
-            del params['city']
+    if country_code not in config:
+        raise ValueError(f"Country code '{country_code}' not found in config")
+    
+    country_config = config[country_code]
+    strategy_names = country_config.get('geocoding_strategies', [])
+    
+    if not strategy_names:
+        # Default strategies if none configured
+        strategy_names = [
+            'strategy_split_street_comma',
+            'strategy_remove_street',
+            'strategy_remove_postalcode',
+            'strategy_split_city_hyphen'
+        ]
+    
+    # Convert strategy names to actual functions
+    strategy_functions = []
+    for name in strategy_names:
+        if name.startswith('strategy_reset_without'):
+            # Factory functions that need initial_params
+            if name == 'strategy_reset_without_city':
+                func = strategies_module.create_strategy_reset_without_city(initial_params)
+            elif name == 'strategy_reset_without_country':
+                func = strategies_module.create_strategy_reset_without_country(initial_params)
+            else:
+                raise ValueError(f"Unknown factory strategy: {name}")
+        else:
+            # Regular strategy functions
+            func = getattr(strategies_module, name, None)
+            if func is None:
+                raise ValueError(f"Unknown strategy: {name}")
         
-    return params 
-
-
-def simplify_query_params(country_name: str, params: dict, attempt: int, code: str, initial_params: dict) -> dict:
-    """
-    Simplify query parameters when no results are found.
+        strategy_functions.append(func)
     
-    Three rounds of simplification:
-    - Attempts 1-5: Apply strategies WITH country restrictions
-    - Attempt 6: Remove country restrictions and reset to initial params
-    - Attempts 7-11: Apply same strategies WITHOUT country restrictions
-    
-    Args:
-        country_name: Full country name for logging
-        params: Current query parameters
-        attempt: Attempt number (1-11)
-        code: The establishment code for logging
-        initial_params: Original query parameters
-        
-    Returns:
-        Modified parameters dictionary
-    """
-    if attempt <= 5:
-        # First pass: with country restrictions
-        strategy_index = attempt - 1
-        return apply_simplification_strategy(country_name, params, strategy_index, code)
-    elif attempt == 6:
-        # Remove country restrictions and reset to full address
-        print(f"{country_name} - Warning - {code}: No results found. Retrying without country restrictions")
-        params = initial_params.copy()
-        params.pop('country', None)
-        params.pop('countrycodes', None)
-        return params
-    else:
-        # Second pass: same strategies but without country restrictions (attempts 7-11)
-        strategy_index = attempt - 7
-        return apply_simplification_strategy(country_name, params, strategy_index, code)
+    return strategy_functions
 
 
 def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str, row: list, sleep_duration: float = 2.0) -> list:
@@ -157,11 +133,28 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
         'format': 'jsonv2'
     }
 
+    if debug:
+        param_strings = []
+        for key, value in params.items():
+            if key == 'format':
+                continue
+            if not value:
+                param_strings.append(f"{key}: NULL")
+            else:
+                param_strings.append(f"{key}: {value}")
+
+        print(f"{country_name} - Debug - Starting geocode {code}: Params: {', '.join(param_strings)}")
+
     initial_params = params.copy()
     url = build_nominatim_url(params)
 
     if debug:
-        print(f"{country_name} - Debug - {code}: Starting geocoding with initial URL")
+        print(f"{country_name} - Debug - {code}: Starting geocoding with initial URL: {url}")
+    
+    # Get country-specific strategies from config, passing initial_params
+    strategies = get_country_simplification_strategies(country_code, initial_params)
+    
+    max_attempts = len(strategies) + 1
     
     failed = True
     iter_failures = 0
@@ -175,9 +168,12 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
                 failed = False
             else:
                 iter_failures += 1
-                print(f"{country_name} - Warning - {code}: No results found (attempt {iter_failures}/11)")
-                if iter_failures <= 11:
-                    params = simplify_query_params(country_name, params, iter_failures, code, initial_params)
+                
+                print(f"{country_name} - Warning - {code}: No results found (attempt {iter_failures}/{max_attempts})")
+                if iter_failures < max_attempts:
+                    # Apply the next strategy
+                    strategy_func = strategies[iter_failures - 1]
+                    params = strategy_func(country_name, params, code)
                     url = build_nominatim_url(params)
                     if debug:
                         print(f"{country_name} - Debug - {code}: Retrying with modified URL: {url}")

@@ -22,8 +22,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import csv
 import pandas as pd
 
-from common.io import cleanup_temp_files
-
 
 def convert_excel_to_csv(country_name: str, excel_file: str, csv_file: str, sheet_index: int = 0):
     """
@@ -50,7 +48,14 @@ def convert_excel_to_csv(country_name: str, excel_file: str, csv_file: str, shee
         if df is None:
             raise RuntimeError("Could not read Excel file with any engine")
         
-        df.to_csv(csv_file, index=False, header=False, encoding='utf-8')
+        # Replace newlines within cells with spaces to prevent row splitting
+        # This handles cases where Excel cells contain line breaks
+        df = df.replace(to_replace=[r'\n', r'\r\n', r'\r'], value=' ', regex=True)
+        
+        # Save with proper quoting - use QUOTE_NONNUMERIC to quote all non-numeric fields
+        # This ensures that fields with special characters are properly quoted
+        df.to_csv(csv_file, index=False, header=False, encoding='utf-8', 
+                  quoting=csv.QUOTE_NONNUMERIC)
 
         print(f"{country_name} - Info - Converted to CSV: {csv_file} (rows: {len(df)}, columns: {len(df.columns)})")
         
@@ -94,7 +99,7 @@ def merge_csv_files(country_name: str, csv_files: list, output_file: str, skip_h
         
         # Remove duplicates and sort by code column
         print(f"{country_name} - Step - Removing duplicates from {output_file}")
-        df = pd.read_csv(output_file, encoding='utf-8', delimiter=';')
+        df = pd.read_csv(output_file, encoding='utf-8', delimiter=';', dtype=str, keep_default_na=False)
         original_count = len(df)
         df_deduplicated = df.drop_duplicates(keep='first')
         duplicates_removed = original_count - len(df_deduplicated)
@@ -109,10 +114,8 @@ def merge_csv_files(country_name: str, csv_files: list, output_file: str, skip_h
             print(f"{country_name} - Step - Sorting by code column")
             df_deduplicated = df_deduplicated.sort_values(by='code', key=lambda x: x.str.lower())
         
-        df_deduplicated.to_csv(output_file, index=False, encoding='utf-8', sep=';')
-        
-        # Clean up individual CSV files after successful merge
-        cleanup_temp_files(country_name, csv_files)
+        # Save with quoting to prevent any conversion issues
+        df_deduplicated.to_csv(output_file, index=False, encoding='utf-8', sep=';', quoting=csv.QUOTE_MINIMAL)
         
     except Exception as e:
         raise RuntimeError(f"Failed to merge CSV files: {e}") from e

@@ -103,6 +103,44 @@ def move_output_to_packager_codes(country_name: str, country_code: str, target_f
     os.remove(target_file)
 
 
+def find_preprocessed_csv_files(country_code: str) -> list:
+    """
+    Find preprocessed CSV files for a country code (excludes merged and target files).
+    These are the per-file preprocessed CSVs that need to be merged.
+    
+    Args:
+        country_code: Country code (e.g., 'fi', 'dk', 'hr')
+    
+    Returns:
+        List of preprocessed CSV file paths
+    """
+    import glob
+    pattern = f"{country_code}_*_preprocessed.csv"
+    csv_files = glob.glob(pattern)
+    return csv_files
+
+
+def find_temporary_files(country_code: str) -> list:
+    """
+    Find all temporary files for a country code (CSV and Excel).
+    This includes all intermediate files for cleanup.
+    
+    Args:
+        country_code: Country code (e.g., 'fi', 'dk', 'hr')
+    
+    Returns:
+        List of temporary file paths that match the pattern
+    """
+    import glob
+    temp_files = []
+    # Find all CSV files
+    temp_files.extend(glob.glob(f"{country_code}*.csv"))
+    # Find all Excel files (xls and xlsx)
+    temp_files.extend(glob.glob(f"{country_code}*.xls"))
+    temp_files.extend(glob.glob(f"{country_code}*.xlsx"))
+    return temp_files
+
+
 def cleanup_temp_files(country_name: str, temp_files: list = None):
     """
     Remove temporary files created during processing.
