@@ -733,6 +733,14 @@ jobs:
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
   
+    - name: TEMPORARY SET mongo8 in dependencies
+      run:
+        make clone_deps
+        cd deps/openfoodfacts-shared-services/
+        git checkout origin mongo-8
+      if: |
+        ( ${{ github.head_ref || github.ref_name }} ) == "test-mongo8"
+
     # Update dynamic test groups before running tests
     # Integration tests benefit more from timing-based grouping due to variable execution times
     - name: Update dynamic test groups
