@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Isang pagtutulungan, libre at bukas na datos ng mga produktong pagkain mula sa buong mundo."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -3713,6 +3713,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "pagkakumpleto ng kalidad ng data"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -6124,6 +6128,14 @@ msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
 
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Pagkumpleto ng Kalidad ng Data"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Ilang impormasyon tungkol sa pagkakumpleto ng kalidad ng data sa produktong ito"
+
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
 msgstr ""
@@ -7608,4 +7620,64 @@ msgstr "Hindi namin nakita ang: {unwanted_ingredients}. Maaaring may napalampas 
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Ang mga kagustuhang iyon ay batay sa pag-unawa ng Open Food Facts sa listahan ng mga sangkap at palaging may posibilidad na hindi ito tumpak o kumpleto, palaging suriin ang produkto sa iyong sarili."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Fingerprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Nakamamatay ang paninigarilyo"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Ang tabako ay malubhang nakakapinsala sa kalusugan. Huwag magsimula. Tumigil ka na."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Ang paninigarilyo ay lubhang nakakahumaling. Huwag simulan. Ang paninigarilyo ay nakamamatay - huminto ngayon. Ang paninigarilyo ay bumabara sa mga ugat at nagiging sanhi ng atake sa puso at stroke. Ang paninigarilyo ay nagdudulot ng nakamamatay na kanser sa baga. Ang paninigarilyo kapag buntis ay nakakapinsala sa iyong sanggol. Protektahan ang mga bata: huwag silang pasinghap ng usok mo. Matutulungan ka ng iyong doktor o parmasyutiko na huminto sa paninigarilyo. Maaaring bawasan ng paninigarilyo ang daloy ng dugo at maging sanhi ng kawalan ng lakas. Ang paninigarilyo ay nagdudulot ng pagtanda ng balat. Ang paninigarilyo ay maaaring makapinsala sa tamud at bumababa sa pagkamayabong. Ang usok ay naglalaman ng benzene, nitrosamines, formaldehyde at hydrogen cyanide."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Pampublikong presyo"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 EUR, 2.99 USD, 4.00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Manufacturer suggested retail price (MSRP), hindi kasama ang mga diskwento at promosyon, gaya ng nakasaad sa packaging ng produkto o sa site ng manufacturer (kasama o hindi kasama ang mga buwis batay sa batas). Gumamit ng listahang pinaghihiwalay ng kuwit kung nakalista ang mga presyo sa maraming pera."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Personalized na ari-arian"
 

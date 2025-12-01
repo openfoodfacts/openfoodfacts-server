@@ -133,7 +133,7 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
-use ProductOpener::Index qw(%texts);
+use ProductOpener::Texts qw(%texts);
 use ProductOpener::Lang qw(:all);
 use ProductOpener::Images qw(display_image data_to_display_image add_images_urls_to_product);
 use ProductOpener::Food qw(:all);
@@ -8117,9 +8117,9 @@ JS
 	# Option to show on the website product page the simplified panels used in the mobile app (for debugging)
 	# If activated, we replace the environment_card and health_card panels shown on the website with their simplified versions
 	# &simplified_panels=1
-	my $simplified_prefix = '';
+	my $simplified_suffix = '';
 	if (request_param($request_ref, "simplified_panels")) {
-		$simplified_prefix = 'simplified_';
+		$simplified_suffix = '_simplified';
 		# We enable the option to activate the simplified panels
 		$knowledge_panels_options_ref->{activate_knowledge_panels_simplified} = true;
 	}
@@ -8129,12 +8129,12 @@ JS
 	$template_data_ref->{environment_card_panel} = display_knowledge_panel(
 		$product_ref,
 		$product_ref->{"knowledge_panels_" . $lc},
-		$simplified_prefix . "environment_card"
+		"environment_card" . $simplified_suffix
 	);
 	$template_data_ref->{health_card_panel} = display_knowledge_panel(
 		$product_ref,
 		$product_ref->{"knowledge_panels_" . $lc},
-		$simplified_prefix . "health_card"
+		"health_card" . $simplified_suffix
 	);
 	if ($product_ref->{"knowledge_panels_" . $lc}{"secondhand_card"}) {
 		$template_data_ref->{secondhand_card_panel}

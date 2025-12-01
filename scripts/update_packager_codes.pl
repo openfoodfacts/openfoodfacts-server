@@ -28,7 +28,7 @@ use experimental qw/switch/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes
 	qw/$ec_code_regexp %geocode_addresses %packager_codes get_canon_local_authority normalize_packager_codes/;

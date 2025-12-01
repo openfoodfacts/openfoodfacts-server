@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -3703,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "தரவு தர முழுமை"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -4840,7 +4844,7 @@ msgstr "சுற்றுச்சூழல்"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "பச்சை-ஸ்கோர்"
+msgstr ""
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4853,7 +4857,7 @@ msgstr "பசுமை ஸ்கோர் என்பது A முதல் 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "பச்சை-ஸ்கோர்"
+msgstr ""
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -5104,19 +5108,19 @@ msgstr "தயாரிக்கப்பட்ட பொருளின் ஊ�
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "பச்சை-ஸ்கோர்"
+msgstr ""
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "பச்சை-ஸ்கோர்"
+msgstr ""
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "பச்சை-ஸ்கோர்"
+msgstr ""
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "பச்சை-ஸ்கோர்"
+msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -6113,6 +6117,14 @@ msgstr "பங்களிப்பு"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "பங்களிப்பு"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "தரவு தர முழுமை"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "இந்த தயாரிப்பின் தரவு தர முழுமை பற்றிய சில தகவல்கள்"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7598,4 +7610,64 @@ msgstr "எங்களுக்கு இது தெரியவில்ல�
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "அந்த விருப்பத்தேர்வுகள் மூலப்பொருள் பட்டியலைப் பற்றிய ஓபன் ஃபுட் ஃபேக்ட்ஸின் புரிதலை அடிப்படையாகக் கொண்டவை, மேலும் அது துல்லியமாகவோ அல்லது முழுமையாகவோ இல்லாமல் இருக்க எப்போதும் வாய்ப்பு உள்ளது, எப்போதும் தயாரிப்பை நீங்களே சரிபார்க்கவும்."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Fingerprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "புகைபிடித்தல் கொல்லும்"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "புகையிலை உடல்நலத்திற்குக் கடுமையான தீங்கு விளைவிக்கிறது. தொடங்காதே. இப்போதே நிறுத்து."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "புகைபிடித்தல் மிகவும் அடிமையாக்கும். தொடங்காதே. புகைபிடித்தல் கொல்லும் - இப்போதே நிறுத்து. புகைபிடித்தல் தமனிகளை அடைத்து மாரடைப்பு மற்றும் பக்கவாதத்தை ஏற்படுத்துகிறது. புகைபிடித்தல் ஆபத்தான நுரையீரல் புற்றுநோயை ஏற்படுத்துகிறது. கர்ப்பமாக இருக்கும்போது புகைபிடித்தல் உங்கள் குழந்தைக்கு தீங்கு விளைவிக்கும். குழந்தைகளைப் பாதுகாக்கவும்: உங்கள் புகையை அவர்களை சுவாசிக்க வைக்காதீர்கள். உங்கள் மருத்துவர் அல்லது உங்கள் மருந்தாளர் புகைபிடிப்பதை நிறுத்த உங்களுக்கு உதவ முடியும். புகைபிடித்தல் இரத்த ஓட்டத்தைக் குறைத்து ஆண்மைக் குறைவை ஏற்படுத்தும். புகைபிடித்தல் சருமத்தின் வயதை ஏற்படுத்துகிறது. புகைபிடித்தல் விந்தணுக்களை சேதப்படுத்தும் மற்றும் கருவுறுதலைக் குறைக்கும். புகையில் பென்சீன், நைட்ரோசமைன்கள், ஃபார்மால்டிஹைட் மற்றும் ஹைட்ரஜன் சயனைடு உள்ளன."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "பொது விலை"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 யூரோ, 2.99 அமெரிக்க டாலர், 4.00 ஜிபிபி"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "தயாரிப்பு பேக்கேஜிங் அல்லது உற்பத்தியாளரின் தளத்தில் (சட்டத்தின் அடிப்படையில் வரிகள் உட்பட அல்லது விலக்கு) குறிப்பிடப்பட்டுள்ளபடி, தள்ளுபடிகள் மற்றும் விளம்பரங்களைத் தவிர்த்து, உற்பத்தியாளர் பரிந்துரைக்கும் சில்லறை விலை (MSRP). பல நாணயங்களில் விலைகள் பட்டியலிடப்பட்டிருந்தால், காற்புள்ளியால் பிரிக்கப்பட்ட பட்டியலைப் பயன்படுத்தவும்."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "தனிப்பயனாக்கப்பட்ட சொத்து"
 

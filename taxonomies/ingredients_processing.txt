@@ -1734,7 +1734,11 @@ nb: tørrstoff
 sv: fast
 
 en: semi-solid
+es: semisólido
+fr: semi-solide
+it: semisolido
 ja: 半固体状
+pt: semissólido
 
 en: macerate
 hr: macerat
@@ -2119,6 +2123,7 @@ nl: ongekookt, ongekookte
 
 #< en:uncooked
 en: unblanched
+es: sin blanquear
 fr: non-blanchie
 
 # <de:gegart
@@ -2344,7 +2349,9 @@ en: unbromated, un-bromated
 ca: sense bromat
 es: sin bromato
 fr: sans bromate
+it: senza bromato
 pt: sem bromato
+ro: nebromatizat
 
 en: covered, coated
 ca: cobertura
@@ -2380,7 +2387,11 @@ uk: солоний, солона, солоне, солоні, солений, с
 #<en:salted
 < en:salted
 en: sea salted
-it: con sale marino, salato con sale marino, salata con sale marino, salati con sale marino, salate con sale marino
+de: mit Meersalz, mit Meer Salz, mit Meersalzen
+es: con sal marina, con sal del mar, salado con sal marina, salada con sal marina, salados con sal marina, saladas con sal marina
+fr: salé au sel de mer, salée au sel de mer, salés au sel de mer, salées au sel de mer
+it: con sale marino, salato con sale marino, salata con sale marino, salati con sale marino, salate con sale marino, salato con sale di mare, salata con sale di mare, salati con sale di mare, salate con sale di mare
+nl: met zeezout, met zee zout
 pt: com sal marinho, sem sal marinho
 
 < en:lightly salted
@@ -2392,6 +2403,9 @@ en: lightly sea salted
 #<en:salted
 < en:salted
 en: lightly salted
+de: leicht gesalzen, leicht gesalzene, leicht gesalzener, leicht gesalzenes
+es: ligeramente salado, ligeramente salada, ligeramente salados, ligeramente saladas
+fr: légèrement salé, légèrement salée, légèrement salés, légèrement salées
 it: leggermente salato, leggeremente salata, leggeremente salati, leggeremente salate
 nl: lichtgezouten, licht gezouten
 pl: lekko solone
@@ -2417,6 +2431,7 @@ sv: avsaltat
 #< en:salted
 fr: présalée
 it: presalato, presalata, presalati, presalate
+pt: pré-salgado, pré-salgada, pré-salgados, pré-salgadas
 
 #< en:salted
 en: unsalted, un-salted
@@ -2428,6 +2443,8 @@ it: senza sale, non salato
 nl: ongezouten
 pl: bez soli, niesolone
 pt: sem sal, não salgado
+ro: nesărat
+sv: osaltad
 uk: несолений, несолена, несолене, несолені, несолоний, несолона, несолоне, несолоні
 
 en: sweetened
@@ -2514,7 +2531,12 @@ sv: kanderad, kanderade
 #< en:candied
 en: semi candied, semi-candied
 de: halb kandiert, halb kandierte, halb kandierter, halb kandiertes
+es: semi confitado, semi confitada, semi confitados, semi confitadas
 fr: semi-confit, semi confit
+it: semi candito, semi candita, semi canditi, semi candite
+nl: half gekonfijt, half gekonfijte
+pt: semi confitado, semi confitada, semi confitados, semi confitadas
+ro: semi confiat, semi confiata, semi confiați, semi confiate
 sv: halv kanderad, halv kanderade, halv kanderade, halv kanderade
 
 #en:crystallized
@@ -2535,6 +2557,7 @@ uk: кристалізований, кристалізована, кристал
 
 < en:unsweetened
 de: ungezuckert, ungezuckerte, ungezuckerter, ungezuckertes
+
 
 en: oiled
 bg: маслен, маслена, маслени, маслено
@@ -2565,6 +2588,7 @@ it: con olio di girasole
 nl: met zonnebloemolie
 pl: z olejem słonecznikowym
 pt: com óleo de girassol
+ro: cu ulei de floarea-soarelui
 sv: med solrosolja
 
 de: geschwefelt, geschwefelte
@@ -2612,9 +2636,12 @@ fr: non traitée
 hu: kezeletlen
 it: non trattato, non trattati, non trattata, non trattate
 pt: não tratado, não tratada, não tratados, não tratadas
+ro: netratat, netratată, netratați, netratate
+sv: obehandlad, obehandlade
 
 en: rinsed
 da: skyllet
+fr: rincé, rincée, rincés, rincées
 sv: sköljd
 
 en: washed
@@ -2653,6 +2680,7 @@ it: non maltato, non maltata, senza malto
 nl: niet gemout, niet gemoute, niet gemouten
 pl: niesłodowana, niesłodowany, niesłodowane
 pt: não maltado, não maltada, sem malte
+sv: icke mältat, inte mältade
 
 en: deodorized
 ca: desodoritzat
@@ -2688,6 +2716,7 @@ fr: nixtamalisé, nixtamalisée, nixtamalisés, nixtamalisées
 it: nixtamalizzato, nixtamalizzata, nixtamalizzati, nixtamalizzate
 nl: nixtamaliseerd, nixtamaliseerde, nixtamaliseerdes, nixtamaliseerden
 pt: nixtamalizado, nixtamalizada, nixtamalizados, nixtamalizadas
+ro: nixtamalizat, nixtamalizată, nixtamalizați, nixtamalizate
 wikipedia:en: https://en.wikipedia.org/wiki/Nixtamalization
 
 # Ingredients like spices and herbs can be irradiated
@@ -2696,8 +2725,12 @@ de: bestrahlt, bestrahlt, bestrahlte, bestrahltes
 es: irradiado, irradiada, irradiados, irradiadas
 fr: irradié, irradiée, irradiés, irradiées
 it: irradiato, irradiata, irradiati, irradiate
+lt: apšvitintas, apšvitinta, apšvitinti
+lv: starojumā apstrādāts, starojumā apstrādāta, starojumā apstrādāti
 nl: bestraald, bestraalde, bestraalder, bestraaldes
 pt: irradiado, irradiada, irradiados, irradiadas
+ro: iradiat, iradiată, iradiați, iradiate
+uk: опромінений, опромінена, опромінене, опром
 
 en: non-irradiated, not treated with irradiation, without irradiation
 bg: неподложен на облъчване, без облъчване
@@ -2707,8 +2740,12 @@ es: no irradiado, no tratado con irradiación, sin irradiación
 fr: non irradié, non irradiée, non irradiés, non irradiées, sans irradiation
 hr: neozrađen, neobrađen zračenjem, bez zračenja
 it: non irradiato, non trattato con irradiazione, senza irradiazione
+lt: neirradiuotas, neteršiant spinduliuote
+lv: neirradiēts, netraucēts ar starojumu, bez starojuma
 nl: niet bestraald, niet behandeld met bestraling, zonder bestraling
 pt: não irradiado, não tratado com irradiação, sem irradiação
+ro: neiradiat, netratat prin iradiere, fără iradiere
+sv: icke bestrålad, inte behandlad med bestrålning, utan bestrålning
 
 
 #en:description:complete or partial removal of impurities in sugars, oils, fats and other natural materials by chemical/physical treatment
@@ -2720,6 +2757,9 @@ uk: рафінований, рафінована, рафіноване, рафі
 
 < en:refined
 en: physically refined
+fr: raffiné physiquement, raffinée physiquement, raffinés physiquement, raffinées physiquement
+it: raffinato fisicamente, raffinata fisicamente, raffinati fisicamente, raffinate fisicamente
+pt: refinado fisicamente, refinada fisicamente, refinados fisicamente, refinadas fisicamente
 
 #en:description:Complete or partial removal of mono- and disaccharides from molasses and other material containing sugar by chemical or physical means
 #en:Desugared, partially desugared
@@ -2754,6 +2794,9 @@ hr: bez laktoze
 it: delattosato, senza lattosio
 nl: lactosevrije
 pl: bez laktozy
+pt: sem lactose
+ro: fără lactoză
+sv: laktosfri
 uk: без лактози, безлактозний, безлактозна, безлактозне, безлактозні
 
 # result of a filtration
@@ -2770,7 +2813,11 @@ uk: фільтрат
 # microfiltration: filtration process where a contaminated fluid is passed through a special
 # pore-sized membrane filter to separate microorganisms and suspended particles from process liquid
 en: microfiltered, microfiltrated
+es: microfiltrado
 fr: microfiltré
+hu: mikrofiltrált
+it: microfiltrato
+pt: microfiltrado
 uk: мікрофільтрований, мікрофільтрована, мікрофільтроване, мікрофільтровані
 
 #######################################################################
@@ -2845,6 +2892,8 @@ hu: áztatott, áztatottak
 it: macerate, macerata, macerati
 pl: macerowane, macerowana, macerowane
 pt: maceradas, macerada, macerados
+ro: macerate, macerată, macerați
+sv: macererade, macererad
 
 # pickled can be in vinegar or salt
 
@@ -2937,19 +2986,25 @@ en: double smoked
 es: doble ahumado, doble ahumada, doble ahumados, doble ahumadas, doblemente ahumado
 fr: doublement fumé, fumé deux fois
 hu: duplán füstölt
+it: affumicato due volte
 pt: defumado duplo, defumada dupla
 
 #<en:smoked
 < en:smoked
 en: naturally smoked, natural smoked, all natural smoked
+es: ahumado de forma natural, ahumada de forma natural, ahumados de forma natural, ahumadas de forma natural
 fr: fumé naturellement, fumés naturellement, fumée naturellement, fumées naturellement
 hu: természetes módon füstölt, természetes úton füstölt
+it: affumicato naturalmente, affumicata naturalmente, affumicati naturalmente, affumicate naturalmente
 pt: fumado ao natural, fumada ao natural, fumados ao natural, fumadas ao natural, defumado ao natural, defumada ao natural, defumados ao natural, defumadas ao natural
+sv: naturligt rökt
 
 #<en:smoked
 < en:smoked
 en: lightly smoked
+es: ligeramente ahumado, ligeramente ahumada, ligeramente ahumados, ligeramente ahumadas
 fr: légèrement fumés
+it: leggermente affumicato, leggermente affumicata, leggermente affumicati, leggermente affumicate
 nb: lettrøkt, lettrøkte
 pl: podwędzany, podwędzane, podwędzana
 pt: levemente fumado, levemente fumada, levemente fumados, levemente fumadas, levemente defumado, levemente defumada, levemente defumados, levemente defumadas
@@ -3003,10 +3058,26 @@ sv: kallrökt med cabernetvin
 #<en:wood smoked
 < en:wood smoked
 en: alderwood smoked, smoked over alderwood
+de: erlenholzgeräuchert
+es: ahumado de madera de aliso
+fr: fumé au bois d'aulne
+hu: égerfán füstölt
+it: affumicato di ontano
+nl: gerookt op elsenhout
+pt: defumado de madeira de amieiro
+sv: rökt över alved
 
 # <en:wood smoked
 < en:wood smoked
 en: apple wood smoked
+de: apfelholzgeräuchert
+es: ahumado de madera de manzano
+fr: fumé au bois de pommier
+hu: almafán füstölt
+it: affumicato di melo
+nl: gerookt op appelhout
+pt: defumado de madeira de macieira
+sv: rökt över äppelved
 
 #<en:wood smoked
 < en:wood smoked
@@ -3034,6 +3105,12 @@ pt: defumado de madeira de cerejeira
 
 #< en:wood smoked
 de: edelholzrauch
+es: ahumado de maderas nobles
+fr: fumé au bois noble
+it: affumicato di legni nobili
+nl: gerookt op edelhout
+pt: defumado de madeiras nobres
+sv: rökt över ädellut
 
 #<en:wood smoked
 < en:wood smoked
@@ -3055,6 +3132,11 @@ en: hickory smoked cured with water
 # <en:wood smoked
 < en:wood smoked
 en: maple smoked
+fr: fumé à l'érable
+it: affumicato di acero
+nl: gerookt op esdoornhout
+pt: defumado de bordo
+sv: rökt över lönnved
 
 # <en:wood smoked
 < en:wood smoked
@@ -3102,6 +3184,8 @@ sv: inte rökt, omrökt
 
 # Geliermittel Pektin (aus Früchten).
 de: aus Früchten
+en: from fruits
+fr: à base de fruits
 
 hu: termesztett
 
@@ -3143,8 +3227,12 @@ en: hydrolysed, hydrolized
 de: hydrolisiert, hydrolisierte, hydrolisierten, hydrolisiertem, hydrolisierter, hydrolisiertes
 fr: Hydrolisé, hydrolisée, hydrolisés, hydrolisées
 hr: hidrolizat, hidrolizirane, hidrolizirano, hidrolizirani
+lt: hidrolizuotas, hidrolizuota, hidrolizuoti
+lv: hidrolizēts, hidrolizēta, hidrolizēti
 nl: gehydrolyseerd, gehydrolyseerde
 pl: hydrolizat, hydrolizowane
+ro: hidrolizat, hidrolizate
+sk: hydrolyzovaný, hydrolyzovaná, hydrolyzované
 sv: hydrolyserat
 uk: гідролізований, гідролізована, гідролізоване, гідролізовані
 nova:en: 4
@@ -3205,7 +3293,14 @@ nova:en: 4
 
 en: textured
 de: texturiert, texturierte, texturierter, texturiertes, texturierten, texturiertem
+es: texturizado, texturizada
 fr: texturé, texturée
+it: testurizzato, testurizzata
+nl: getextureerd
+pl: teksturowany, teksturowana, teksturowane
+pt: texturizado, texturizada
+ro: texturat, texturată, texturate, texturați
+sv: texturerad
 nova:en: 4
 
 < en:processed
@@ -3265,11 +3360,18 @@ fr: fraîchement infusé, fraîchement infusée, fraîchement infusés, fraîche
 nl: vers gezette
 
 en: prepared
+de: zubereitet, zubereitete, zubereiteter, zubereitetes, zubereiteten, zubereitetem
+es: preparado, preparada, preparados, preparadas
 fr: préparé, préparée, préparés, préparées
+it: preparato, preparata, preparati, preparate
+pt: preparado, preparada, preparados, preparadas
 
 < en:prepared
 en: freshly prepared
+es: recién preparado, recién preparada, recién preparados, recién preparadas
 fr: fraîchement préparé, fraîchement préparée, fraîchement préparés, fraîchement préparées
+it: fresco preparato, fresca preparata, freschi preparati, fresche preparate
+pt: recém preparado, recém preparada, recém preparados, recém preparadas
 
 #######################################################################
 #
@@ -3286,7 +3388,11 @@ zh: 粉
 < en:concentrated
 < en:powder
 en: concentrated or powder
+es: concentrado o en polvo
 fr: concentré ou en poudre
+it: concentrato o in polvere
+nl: geconcentreerd of poeder
+pt: concentrado ou em pó
 
 
 en: purified
