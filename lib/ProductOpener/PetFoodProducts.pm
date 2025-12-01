@@ -52,8 +52,8 @@ use vars @EXPORT_OK;
 use ProductOpener::Ingredients
 	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
-use ProductOpener::Food qw/assign_categories_properties_to_product compute_estimated_nutrients compute_nova_group/;
-use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set/;
+use ProductOpener::Food qw/assign_categories_properties_to_product compute_nova_group/;
+use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set compute_estimated_nutrients/;
 
 use Hash::Util;
 use Encode;

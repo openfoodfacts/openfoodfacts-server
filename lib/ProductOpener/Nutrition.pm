@@ -57,10 +57,12 @@ BEGIN {
 		&assign_nutrition_values_from_imported_csv_product
 		&assign_nutrition_values_from_imported_csv_product_old_fields
 		&assign_nutrition_values_from_request_object
+		&compute_estimated_nutrients
 		&add_nutrition_fields_from_product_to_populated_fields
 		&filter_out_nutrients_not_in_taxonomy
 		&convert_sodium_to_salt
 		&convert_salt_to_sodium
+		&get_non_estimated_nutrient_per_100g_or_100ml_for_preparation
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -76,6 +78,7 @@ use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_stan
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::API qw/add_error add_warning/;
+use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 
 # FIXME: remove single_param and use request_param
 use ProductOpener::HTTP qw/single_param request_param/;
@@ -83,6 +86,8 @@ use ProductOpener::HTTP qw/single_param request_param/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Numbers qw/convert_string_to_number remove_insignificant_digits/;
 use ProductOpener::Units qw/get_normalized_unit normalize_product_quantity_and_serving_size/;
+use ProductOpener::Ingredients
+	qw/estimate_added_sugars_percent_from_ingredients estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients/;
 
 use Log::Any qw($log);
 
@@ -147,12 +152,14 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 		return;
 	}
 
+	# Make sure the input sets are sorted by priority
+	sort_sets_by_priority($input_sets_ref);
+
 	# store original index to get index source of nutrients for generated set
 	my @input_sets = map {{index => $_, set => $input_sets_ref->[$_]}} 0 .. $#$input_sets_ref;
 	my $aggregated_nutrient_set_ref = {};
 
 	if (@input_sets) {
-		@input_sets = sort_sets_by_priority(@input_sets);
 		# remove sets with quantities that are impossible to transform to 100g
 		# ie sets with unknow per quantity
 		@input_sets = grep {defined $_->{set}{per_quantity} && $_->{set}{per_quantity} ne ""} @input_sets;
@@ -182,22 +189,19 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 =head2 sort_sets_by_priority
 
 Sorts hashes of nutrient sets in a given array based on a custom priority.
+The array is sorted in place and also returned.
 
 The priority is based on the sources, the per references and the preparation states present in the nutrient sets.
 
 =head3 Arguments
 
-=head4 @input_sets
+=head4 $input_sets_ref
 
-Unsorted array nutrient sets hashes
-
-=head3 Return values
-
-Sorted array nutrient sets hashes
+Reference to array of unsorted input nutrient sets
 
 =cut
 
-sub sort_sets_by_priority (@input_sets) {
+sub sort_sets_by_priority ($input_sets_ref) {
 	my %source_priority = (
 		manufacturer => 0,
 		packaging => 1,
@@ -221,27 +225,88 @@ sub sort_sets_by_priority (@input_sets) {
 		_default => 2,
 	);
 
-	return (
+	@$input_sets_ref =
+
 		sort {
-			my $source_key_a = defined $a->{set}{source} ? $a->{set}{source} : '_default';
-			my $source_key_b = defined $b->{set}{source} ? $b->{set}{source} : '_default';
-			my $source_a = $source_priority{$source_key_a};
-			my $source_b = $source_priority{$source_key_b};
+		my $source_key_a = defined $a->{source} ? $a->{source} : '_default';
+		my $source_key_b = defined $b->{source} ? $b->{source} : '_default';
+		my $source_a = $source_priority{$source_key_a};
+		my $source_b = $source_priority{$source_key_b};
 
-			my $per_key_a = defined $a->{set}{per} ? $a->{set}{per} : '_default';
-			my $per_key_b = defined $b->{set}{per} ? $b->{set}{per} : '_default';
-			my $per_a = $per_priority{$per_key_a};
-			my $per_b = $per_priority{$per_key_b};
+		my $per_key_a = defined $a->{per} ? $a->{per} : '_default';
+		my $per_key_b = defined $b->{per} ? $b->{per} : '_default';
+		my $per_a = $per_priority{$per_key_a};
+		my $per_b = $per_priority{$per_key_b};
 
-			my $preparation_key_a = defined $a->{set}{preparation} ? $a->{set}{preparation} : '_default';
-			my $preparation_key_b = defined $b->{set}{preparation} ? $b->{set}{preparation} : '_default';
-			my $preparation_a = $preparation_priority{$preparation_key_a};
-			my $preparation_b = $preparation_priority{$preparation_key_b};
+		my $preparation_key_a = defined $a->{preparation} ? $a->{preparation} : '_default';
+		my $preparation_key_b = defined $b->{preparation} ? $b->{preparation} : '_default';
+		my $preparation_a = $preparation_priority{$preparation_key_a};
+		my $preparation_b = $preparation_priority{$preparation_key_b};
 
-			# sort priority : source then per then preparation
-			return $source_a <=> $source_b || $per_a <=> $per_b || $preparation_a <=> $preparation_b;
-		} @input_sets
-	);
+		# sort priority : source then per then preparation
+		return $source_a <=> $source_b || $per_a <=> $per_b || $preparation_a <=> $preparation_b;
+		} @$input_sets_ref;
+
+	return @$input_sets_ref;
+}
+
+=head2 get_non_estimated_nutrient_per_100g_or_100ml_for_preparation ($product_ref, $preparation, $nid)
+
+Gets the value of a nutrient from the first non-estimated input set with per = 100g or 100ml.
+We take the first value defined in the sorted input set, that we can convert to 100g or 100ml.
+
+This function is needed to estimate the % of ingredients, in order to set the max for ingredients like salt and sugar.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+Reference to the product hash
+
+=head4 $preparation
+
+Preparation state to look for in the input sets
+
+=head4 $nid of the nutrient to get
+
+=cut
+
+sub get_non_estimated_nutrient_per_100g_or_100ml_for_preparation ($product_ref, $preparation, $nid) {
+
+	my $input_sets_ref = deep_get($product_ref, qw/nutrition input_sets/);
+
+	if (!defined $input_sets_ref) {
+		return undef;
+	}
+
+	# Make sure the input sets are sorted by priority
+	sort_sets_by_priority($input_sets_ref);
+
+	foreach my $set_ref (@{$input_sets_ref}) {
+		my $source = deep_get($set_ref, qw/source/);
+		my $set_preparation = deep_get($set_ref, qw/preparation/);
+		# We may have per = 100g but per_quantity undefined (e.g. from unit tests)
+		# So we call set_per_quantity_and_unit() to set per_quantity and per_unit
+		set_per_quantity_and_unit($product_ref, $set_ref);
+		my $per_quantity = deep_get($set_ref, qw/per_quantity/);
+		my $nutrient_value = deep_get($set_ref, "nutrients", $nid, "value");
+
+		if (    (defined $source)
+			and ($source ne "estimate")
+			and (defined $preparation)
+			and ($set_preparation eq $preparation)
+			and (defined $per_quantity)
+			and (defined $nutrient_value))
+		{
+			my $nutrient_ref = clone($set_ref->{nutrients}{$nid});
+			convert_nutrient_to_standard_unit($nutrient_ref, $nid);
+			convert_nutrient_to_100g($nutrient_ref, $set_ref->{per}, $set_ref->{per_quantity},
+				$set_ref->{per_unit}, $set_ref->{per});
+			return $nutrient_ref->{value};
+		}
+	}
+
+	return undef;
 }
 
 =head2 set_nutrient_values
@@ -326,7 +391,7 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 					= clone($aggregated_nutrient_set_ref->{nutrients}{"salt"});
 				$aggregated_nutrient_set_ref->{nutrients}{"sodium"}{value}
 					= remove_insignificant_digits(
-					convert_salt_to_sodium($aggregated_nutrient_set_ref->{nutrients}{"salt"}{value}));
+					convert_salt_to_sodium($aggregated_nutrient_set_ref->{nutrients}{"salt"}{value})) + 0;
 			}
 			elsif ((exists $aggregated_nutrient_set_ref->{nutrients}{"sodium"})
 				and not(exists $aggregated_nutrient_set_ref->{nutrients}{"salt"}))
@@ -335,7 +400,7 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 					= clone($aggregated_nutrient_set_ref->{nutrients}{"sodium"});
 				$aggregated_nutrient_set_ref->{nutrients}{"salt"}{value}
 					= remove_insignificant_digits(
-					convert_sodium_to_salt($aggregated_nutrient_set_ref->{nutrients}{"sodium"}{value}));
+					convert_sodium_to_salt($aggregated_nutrient_set_ref->{nutrients}{"sodium"}{value})) + 0;
 			}
 		}
 	}
@@ -496,6 +561,56 @@ sub get_specific_nutrition_input_set($product_ref, $source, $preparation, $per) 
 	return;
 }
 
+=head2 set_per_quantity_and_unit($product_ref, $input_set_ref)
+
+Fill the per_quanity and per_unit field of nutrients input set,
+based upon the "per" value of the nutrient input set,
+or product serving_quantity and unit for "serving".
+
+=head3 Arguments
+
+=head4 $product_ref - product
+=head4 $input_set_ref - nutrient input set
+
+It is modified to add per_quantity and per_unit.
+
+=cut
+
+sub set_per_quantity_and_unit($product_ref, $input_set_ref) {
+	if (defined $input_set_ref) {
+		my $per = deep_get($input_set_ref, qw/per/);
+		return if not defined $per;
+		# Set the per quantity and unit for 100g, 100ml, 1l and 1kg
+		if ($per eq "100g") {
+			$input_set_ref->{per_quantity} = 100;
+			$input_set_ref->{per_unit} = "g";
+		}
+		elsif ($per eq "100ml") {
+			$input_set_ref->{per_quantity} = 100;
+			$input_set_ref->{per_unit} = "ml";
+		}
+		elsif ($per eq "1kg") {
+			$input_set_ref->{per_quantity} = 1000;
+			$input_set_ref->{per_unit} = "g";
+		}
+		elsif ($per eq "1l") {
+			$input_set_ref->{per_quantity} = 1000;
+			$input_set_ref->{per_unit} = "ml";
+		}
+		# If possible convert per serving to quantity + unit from product
+		elsif ($per eq "serving") {
+			if (    (defined $product_ref->{serving_quantity})
+				and (defined $product_ref->{serving_quantity_unit}))
+			{
+				$input_set_ref->{per_quantity} = $product_ref->{serving_quantity};
+				$input_set_ref->{per_unit} = $product_ref->{serving_quantity_unit};
+			}
+		}
+
+	}
+	return;
+}
+
 =head2 get_nutrition_input_sets_in_a_hash ($product_ref)
 
 Returns the input sets of a product in a hash reference for easier access,
@@ -540,6 +655,8 @@ Input sets are normalized:
 - nutrient with a modifier "-" are removed and added to the unspecified nutrients array
 - input sets with no nutrients are removed
 - the source, preparation and per values from the input sets hash keys are set in the input set
+
+The nutrients sets are sorted with sort_sets_by_priority()
 
 =head3 Arguments
 
@@ -590,37 +707,19 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_re
 					$input_set_ref->{preparation} = $preparation;
 					$input_set_ref->{per} = $per;
 
-					# Set the per quantity and unit for 100g, 100ml, 1l and 1kg
-					if ($per eq "100g") {
-						$input_set_ref->{per_quantity} = 100;
-						$input_set_ref->{per_unit} = "g";
-					}
-					elsif ($per eq "100ml") {
-						$input_set_ref->{per_quantity} = 100;
-						$input_set_ref->{per_unit} = "ml";
-					}
-					elsif ($per eq "1kg") {
-						$input_set_ref->{per_quantity} = 1000;
-						$input_set_ref->{per_unit} = "g";
-					}
-					elsif ($per eq "1l") {
-						$input_set_ref->{per_quantity} = 1000;
-						$input_set_ref->{per_unit} = "ml";
-					}
-					elsif ($per eq "serving") {
-						if (    (defined $product_ref->{serving_quantity})
-							and (defined $product_ref->{serving_quantity_unit}))
-						{
-							$input_set_ref->{per_quantity} = $product_ref->{serving_quantity};
-							$input_set_ref->{per_unit} = $product_ref->{serving_quantity_unit};
-						}
-					}
+					set_per_quantity_and_unit($product_ref, $input_set_ref);
 
 					push(@{$input_sets_ref}, $input_set_ref);
 				}
 			}
 		}
 	}
+
+	sort_sets_by_priority($input_sets_ref);
+
+	$log->debug("convert_nutrition_input_sets_hash_to_array: end", {input_sets_ref => $input_sets_ref})
+		if $log->is_debug();
+
 	return $input_sets_ref;
 }
 
@@ -691,6 +790,15 @@ sub get_preparations_for_product_type ($product_type) {
 	return @preparations;
 }
 
+# %valid_pers contains the possible values for nutrient input_set "per" field.
+my %valid_pers = (
+	'100g' => 1,
+	'100ml' => 1,
+	'1kg' => 1,
+	'1l' => 1,
+	'serving' => 1,
+);
+
 =head2 get_pers_for_product_type
 
 Returns the list of valid per quantities for a given product type.
@@ -733,7 +841,10 @@ sub get_default_per_for_product ($product_ref, $preparation = "as_sold") {
 	my $category_default_per
 		= get_inherited_property_from_categories_tags($product_ref, "default_nutrition_${preparation}_per:en");
 	if (defined $category_default_per) {
-		$default_per = $category_default_per;
+		$category_default_per = lc($category_default_per);
+		if (exists $valid_pers{$category_default_per}) {
+			$default_per = $category_default_per;
+		}
 	}
 	return $default_per;
 }
@@ -770,8 +881,10 @@ sub get_unit_options_for_nutrient ($nid) {
 		@units = ('mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH", "\N{U+00B0}e", "\N{U+00B0}dH",
 			'gpg');
 	}
+	# fruits / vegetables / legumes / nuts for nutriscore 2021 and 2023 are always in percent
 	# pet nutrients (analytical_constituents) are always in percent
-	elsif (($nid eq 'crude-fat')
+	elsif (($nid =~ /^fruits/)
+		or ($nid eq 'crude-fat')
 		or ($nid eq 'crude-protein')
 		or ($nid eq 'crude-ash')
 		or ($nid eq 'crude-fibre')
@@ -1864,6 +1977,81 @@ sub assign_nutrition_values_from_request_object ($request_ref, $product_ref) {
 	return;
 }
 
+=head2 compute_estimated_nutrients ( $product_ref )
+
+Compute estimated nutrients from ingredients.
+
+If we have a high enough confidence (95% of the ingredients (by quantity) have a known nutrient profile),
+we store the result in an nutrient input set with the source "estimate".
+
+Otherwise we remove the estimated nutrients input set if it exists.
+
+=cut
+
+sub compute_estimated_nutrients ($product_ref) {
+
+	# We use a temporary input sets hash to ease setting values
+	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
+	my $source = "estimate";
+	my $preparation = "as_sold";
+	my $modifier = '~';    # estimated value modifier
+
+	# For the per, we get the default per for the product, and use 100g if it is a weight,
+	# or 100ml if it is a volume, as the estimated nutrients are always per 100g or 100ml.
+	# So for pet food, even though the default per is 1kg, we use 100g for the estimated nutrients.
+	my $per = get_default_per_for_product($product_ref, $preparation);
+	if ($per =~ /kg$/) {
+		$per = "100g";
+	}
+	elsif ($per =~ /l$/) {
+		$per = "100ml";
+	}
+
+	# compute estimated nutrients from ingredients
+	my $results_ref = estimate_nutrients_from_ingredients($product_ref->{ingredients});
+
+	# Remove any existing estimated nutrients input set
+	delete $input_sets_hash_ref->{$source}{$preparation}{$per};
+
+	# only take the result if we have at least 95% of ingredients with nutrients
+	if (($results_ref->{total} > 0) and (($results_ref->{total_with_nutrients} / $results_ref->{total}) >= 0.95)) {
+
+		while (my ($nid, $value) = each(%{$results_ref->{nutrients}})) {
+			my $unit = default_unit_for_nid($nid);
+			# We currently assign value_string (which will also set value)
+			# Not sure if it makes sense to only set value and have no value_string
+			assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
+				$per, $nid, $modifier, $value, $unit);
+		}
+	}
+
+	# Compute % of specific ingredients needed for Nutri-Score
+	if (defined $product_ref->{ingredients}) {
+		my $fruits_vegetable_nuts
+			= estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
+		my $fruits_vegetables_legumes
+			= estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
+		my $added_sugars = estimate_added_sugars_percent_from_ingredients($product_ref);
+		assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
+			$per, 'fruits-vegetables-nuts', $modifier, $fruits_vegetable_nuts, '%');
+		assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
+			$per, 'fruits-vegetables-legumes', $modifier, $fruits_vegetables_legumes, '%');
+		assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
+			$per, 'added-sugars', $modifier, $added_sugars, 'g');
+	}
+
+	# If some nutrients were estimated, include "Estimate from ingredients" as the source description
+	if (exists $input_sets_hash_ref->{$source}{$preparation}{$per}{nutrients}) {
+		deep_set($input_sets_hash_ref, $source, $preparation, $per, "source_description", "Estimate from ingredients");
+	}
+
+	# Convert back the input sets hash to array
+	deep_set($product_ref, "nutrition", "input_sets",
+		convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_ref));
+
+	return;
+}
+
 =head2 remove_empty_nutrient_values_and_set_unspecified_nutrients ($input_set_ref)
 
 Removes nutrients with empty values from an input set.
@@ -1897,8 +2085,8 @@ sub remove_empty_nutrient_values_and_set_unspecified_nutrients ($input_set_ref) 
 					push @{$input_set_ref->{unspecified_nutrients}}, $nid;
 				}
 			}
-			# If the value_string is undefined or empty, we remove the nutrient from the input set
-			elsif ((not defined $nutrient_ref->{value_string}) or ($nutrient_ref->{value_string} eq '')) {
+			# If the value is undefined, we remove the nutrient from the input set
+			elsif (not defined $nutrient_ref->{value}) {
 				delete $input_set_ref->{nutrients}{$nid};
 			}
 			# If the modifier is undefined or empty, we remove it from the nutrient

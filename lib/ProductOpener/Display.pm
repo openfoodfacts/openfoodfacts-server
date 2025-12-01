@@ -9384,67 +9384,33 @@ Reference to a data structure with needed data to display.
 
 sub data_to_display_nutrient_levels ($product_ref) {
 
+	return if not defined $product_ref->{nutrient_levels};
+
 	my $result_data_ref = {};
 
-	# Do not display traffic lights for baby foods
-	if (has_tag($product_ref, "categories", "en:baby-foods")) {
+	$result_data_ref->{nutrient_levels} = [];
 
-		$result_data_ref->{do_not_display} = 1;
-	}
+	foreach my $nutrient_level_ref (@nutrient_levels) {
+		my ($nid, $low, $high) = @{$nutrient_level_ref};
 
-	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
-	# unless we have nutrition data for the prepared product
+		if (    (defined $product_ref->{nutrient_levels})
+			and (defined $product_ref->{nutrient_levels}{$nid}))
+		{
+			my $nutrient_value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
 
-	my $prepared = "";
-
-	foreach my $category_tag ("en:dried-products-to-be-rehydrated",
-		"en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups")
-	{
-
-		if (has_tag($product_ref, "categories", $category_tag)) {
-
-			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
-				$prepared = '_prepared';
-				last;
-			}
-			else {
-				$result_data_ref->{do_not_display} = 1;
-			}
-		}
-	}
-
-	if (not $result_data_ref->{do_not_display}) {
-
-		$result_data_ref->{nutrient_levels} = [];
-
-		foreach my $nutrient_level_ref (@nutrient_levels) {
-			my ($nid, $low, $high) = @{$nutrient_level_ref};
-
-			if (    (defined $product_ref->{nutrient_levels})
-				and (defined $product_ref->{nutrient_levels}{$nid})
-				and (defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}))
-			{
-
-				push @{$result_data_ref->{nutrient_levels}}, {
-					nid => $nid,
-					nutrient_level => $product_ref->{nutrient_levels}{$nid},
-					evaluation => evaluate_nutrient_level($nid, $product_ref->{nutrient_levels}{$nid}),
-					nutrient_name => display_taxonomy_tag($lc, "nutrients", "zz:$nid"),
-					nutrient_quantity_in_grams =>
-						sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0,
-					nutrient_in_quantity => sprintf(
-						lang("nutrient_in_quantity"),
-						display_taxonomy_tag($lc, "nutrients", "zz:$nid"),
-						lang($product_ref->{nutrient_levels}{$nid} . "_quantity")
-					),
-					# Needed for the current display on product page, can be removed once transitioned fully to knowledge panels
-					nutrient_bold_in_quantity => sprintf(
-						lang("nutrient_in_quantity"),
-						"<b>" . display_taxonomy_tag($lc, "nutrients", "zz:$nid") . "</b>",
-						lang($product_ref->{nutrient_levels}{$nid} . "_quantity")
-					),
+			push @{$result_data_ref->{nutrient_levels}},
+				{
+				nid => $nid,
+				nutrient_level => $product_ref->{nutrient_levels}{$nid},
+				evaluation => evaluate_nutrient_level($nid, $product_ref->{nutrient_levels}{$nid}),
+				nutrient_name => display_taxonomy_tag($lc, "nutrients", "zz:$nid"),
+				nutrient_quantity_in_grams => sprintf("%.2e", $nutrient_value) + 0.0,
+				nutrient_in_quantity => sprintf(
+					lang("nutrient_in_quantity"),
+					display_taxonomy_tag($lc, "nutrients", "zz:$nid"),
+					lang($product_ref->{nutrient_levels}{$nid} . "_quantity")
+				),
 				};
-			}
 		}
 	}
 
@@ -10348,27 +10314,6 @@ sub display_product_api ($request_ref) {
 
 		my $customized_product_ref
 			= customize_response_for_product($request_ref, $product_ref, single_param('fields') || 'all');
-
-		# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
-		# the "" values have been removed
-		# -> temporarily add back the _serving "" values
-		if ((user_agent =~ /Official Android App/) or (user_agent =~ /okhttp/)) {
-			if (defined $customized_product_ref->{nutriments}) {
-				foreach my $nid (keys %{$customized_product_ref->{nutriments}}) {
-					next if ($nid =~ /_/);
-					if (    (defined $customized_product_ref->{nutriments}{$nid . "_100g"})
-						and (not defined $customized_product_ref->{nutriments}{$nid . "_serving"}))
-					{
-						$customized_product_ref->{nutriments}{$nid . "_serving"} = "";
-					}
-					if (    (defined $customized_product_ref->{nutriments}{$nid . "_serving"})
-						and (not defined $customized_product_ref->{nutriments}{$nid . "_100g"}))
-					{
-						$customized_product_ref->{nutriments}{$nid . "_100g"} = "";
-					}
-				}
-			}
-		}
 
 		$response{product} = $customized_product_ref;
 

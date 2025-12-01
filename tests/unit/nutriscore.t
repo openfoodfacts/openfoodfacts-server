@@ -37,61 +37,43 @@ my @tests = (
 			lc => "en",
 			categories => "cookies",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3460
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3460
+							},
+							fat => {
+								unit => "g",
+								value => 90
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 15
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 90
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 15
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -101,61 +83,43 @@ my @tests = (
 			lc => "en",
 			categories => "olive oils",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3460
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3460
+							},
+							fat => {
+								unit => "g",
+								value => 92
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 14
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 92
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 14
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -165,61 +129,43 @@ my @tests = (
 			lc => "en",
 			categories => "colza oils",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3760
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3760
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 7
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 100
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 7
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -229,61 +175,43 @@ my @tests = (
 			lc => "en",
 			categories => "walnut oils",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3378
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 100
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -293,61 +221,43 @@ my @tests = (
 			lc => "en",
 			categories => "sunflower oils",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3378
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 100
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -359,61 +269,43 @@ my @tests = (
 			lc => "en",
 			categories => "sunflower oils",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3378
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							carbohydrates => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 100
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						carbohydrates => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -426,54 +318,39 @@ my @tests = (
 			lc => "en",
 			categories => "sunflower oils",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3378
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							carbohydrates => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 100
-						},
-						carbohydrates => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -485,61 +362,43 @@ my @tests = (
 			lc => "en",
 			categories => "breakfast cereals",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 2450
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 2450
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 1.03
+							},
+							sugars => {
+								unit => "g",
+								value => 31
+							},
+							sodium => {
+								unit => "g",
+								value => 0.221
+							},
+							fiber => {
+								unit => "g",
+								value => 6.9
+							},
+							proteins => {
+								unit => "g",
+								value => 10.3
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 100
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1.03
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 31
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.221
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 6.9
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10.3
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				]
 			}
 		}
 	],
@@ -552,61 +411,43 @@ my @tests = (
 			lc => "en",
 			categories => "dairy drinks",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3378
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 10
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 5
+							},
+							sugars => {
+								unit => "g",
+								value => 10
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 2
+							},
+							proteins => {
+								unit => "g",
+								value => 5
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 2
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 			ingredients_text => "Water, sugar"
 		}
@@ -617,61 +458,43 @@ my @tests = (
 			lc => "en",
 			categories => "milk",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3378
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 10
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 5
+							},
+							sugars => {
+								unit => "g",
+								value => 10
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 2
+							},
+							proteins => {
+								unit => "g",
+								value => 5
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 2
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 			ingredients_text => "Milk"
 		}
@@ -682,61 +505,43 @@ my @tests = (
 			lc => "en",
 			categories => "dairy drinks",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3378
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 10
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 5
+							},
+							sugars => {
+								unit => "g",
+								value => 10
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 2
+							},
+							proteins => {
+								unit => "g",
+								value => 5
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 2
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 			ingredients_text => "Fresh milk 80%, sugar"
 		}
@@ -747,61 +552,43 @@ my @tests = (
 			lc => "en",
 			categories => "beverages",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3378
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 10
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 5
+							},
+							sugars => {
+								unit => "g",
+								value => 20
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 2
+							},
+							proteins => {
+								unit => "g",
+								value => 5
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 20
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 2
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 			ingredients_text => "Fresh milk 80%, sugar"
 		}
@@ -813,61 +600,43 @@ my @tests = (
 			lc => "en",
 			categories => "dairy drinks",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3378
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 10
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 5
+							},
+							sugars => {
+								unit => "g",
+								value => 20
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 2
+							},
+							proteins => {
+								unit => "g",
+								value => 5
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 20
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 2
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 			ingredients_text => "Milk, sugar"
 		}
@@ -880,62 +649,45 @@ my @tests = (
 			lc => "fr",
 			categories => "meals",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 667
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 667
+							},
+							fat => {
+								unit => "g",
+								value => 8.4
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 1.2
+							},
+							sugars => {
+								unit => "g",
+								value => 1.1
+							},
+							sodium => {
+								unit => "g",
+								value => 0.4
+							},
+							fiber => {
+								unit => "g",
+								value => 10.9
+							},
+							proteins => {
+								unit => "g",
+								value => 2.4
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 8.4
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1.2
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1.1
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.4
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10.9
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 2.4
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
+
 			ingredients_text => "Pleurotes* 69% (Origine UE), chapelure de mais"
 		}
 	],
@@ -949,61 +701,43 @@ my @tests = (
 			ingredients_text =>
 				"Tomate,concombre,poivron,oignon,eau,huile d'olive vierge extra (1,1%),vinaigre de vin,pain de riz,sel,ail,jus de citron,teneur en légumes: 89%",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 148
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 148
+							},
+							fat => {
+								unit => "g",
+								value => 10
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.2
+							},
+							sugars => {
+								unit => "g",
+								value => 3
+							},
+							sodium => {
+								unit => "g",
+								value => 0.2
+							},
+							fiber => {
+								unit => "g",
+								value => 1.1
+							},
+							proteins => {
+								unit => "g",
+								value => 0.9
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.2
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 3
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.2
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1.1
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.9
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
 
@@ -1017,54 +751,39 @@ my @tests = (
 			categories => "fruit-nectar",
 			ingredients_text => "Orange 47%, Water, Sugar, Carrots 10%",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 250
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 250
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 12
+							},
+							sodium => {
+								unit => "g",
+								value => 0.2
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0.5
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 12
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.2
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.5
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
 
@@ -1079,63 +798,46 @@ my @tests = (
 			lc => "en",
 			categories => "flavoured spring water",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 378
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 378
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 3
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 3
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 
 	# Cocoa and chocolate powders
@@ -1145,63 +847,46 @@ my @tests = (
 			lc => "en",
 			"categories" => "cocoa and chocolate powders",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 287
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 287
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 1.1
+							},
+							sugars => {
+								unit => "g",
+								value => 6.3
+							},
+							sodium => {
+								unit => "g",
+								value => 0.045
+							},
+							fiber => {
+								unit => "g",
+								value => 1.9
+							},
+							proteins => {
+								unit => "g",
+								value => 3.8
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1.1
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 6.3
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.045
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1.9
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 3.8
-						}
-					},
-					per => "100g",
-					preparation => "prepared"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "prepared"
+					}
+				],
+			},
 		}
+
 	],
 
 	# fruits and vegetables estimates from category or from ingredients
@@ -1212,63 +897,46 @@ my @tests = (
 			categories => "orange juices",
 			ingredients_text => "orange juice 50%, water, sugar",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 182
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 182
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 8.9
+							},
+							sodium => {
+								unit => "g",
+								value => 0.2
+							},
+							fiber => {
+								unit => "g",
+								value => 0.5
+							},
+							proteins => {
+								unit => "g",
+								value => 0.2
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 8.9
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.2
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.5
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.2
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	[
 		"en-orange-juice-category",
@@ -1276,63 +944,46 @@ my @tests = (
 			lc => "en",
 			categories => "orange juices",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 182
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 182
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 8.9
+							},
+							sodium => {
+								unit => "g",
+								value => 0.2
+							},
+							fiber => {
+								unit => "g",
+								value => 0.5
+							},
+							proteins => {
+								unit => "g",
+								value => 0.2
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 8.9
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.2
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.5
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.2
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# potatoes should not count as vegetables
 	[
@@ -1341,63 +992,46 @@ my @tests = (
 			lc => "en",
 			categories => "potatoes, vegetables",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 182
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 182
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 8.9
+							},
+							sodium => {
+								unit => "g",
+								value => 0.2
+							},
+							fiber => {
+								unit => "g",
+								value => 0.5
+							},
+							proteins => {
+								unit => "g",
+								value => 0.2
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 8.9
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.2
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.5
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.2
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 
 	# categories without Nutri-Score
@@ -1408,63 +1042,46 @@ my @tests = (
 			lc => "en",
 			categories => "beers",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 182
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 182
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 8.9
+							},
+							sodium => {
+								unit => "g",
+								value => 0.2
+							},
+							fiber => {
+								unit => "g",
+								value => 0.5
+							},
+							proteins => {
+								unit => "g",
+								value => 0.2
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 8.9
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.2
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.5
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.2
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 
 	# Nutri-Score from estimated nutrients
@@ -1500,56 +1117,42 @@ my @tests = (
 			categories => "sodas",
 			ingredients_text => "apple juice, water, sugar, aspartame",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 82
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 4.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 4.5
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.01
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# Erythritol is not counted as a non-nutritive sweetener
 	[
@@ -1559,56 +1162,42 @@ my @tests = (
 			categories => "sodas",
 			ingredients_text => "apple juice, water, sugar, erythritol",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 82
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 4.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 4.5
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.01
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	[
 		"fr-ice-tea-with-sweetener",
@@ -1618,56 +1207,42 @@ my @tests = (
 			ingredients_text =>
 				"Eau, sucre, fructose, acidifiants (acide citrique, acide malique), extrait de the noir (1,2g/l), jus de pêche à base de concentré (0,1%), correcteur d'acidité (citrate trisodique), arômes, antioxydant (acide ascorbique), édulcorant (glycosides de steviol)",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 82
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 4.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 4.5
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.01
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# vegetables flour / powder etc. do not count as vegetable for the Nutri-Score
 	[
@@ -1678,56 +1253,42 @@ my @tests = (
 			ingredients_text =>
 				"soy beans 30%, cooked soy beans 25%, soy beans powder 20%, cut freeze dried soy beans 15%, soy beans flour 10%",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 82
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 1.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 20
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1.5
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.01
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 20
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# vegetables that are deep fried do not count as vegetables for the Nutri-Score
 	[
@@ -1737,56 +1298,42 @@ my @tests = (
 			categories => "Parsnip Crisps",
 			ingredients_text => "parsnip 70%, red beet 30%",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 82
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 1.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 20
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1.5
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.01
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 20
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# vegetables that are processed (e.g. flour) do not count as vegetables for the Nutri-Score
 	# for some categories, we assume the vegetables are processed (e.g. soy beans in tofu)
@@ -1797,56 +1344,42 @@ my @tests = (
 			categories => "tofu",
 			ingredients_text => "soy beans 90%, water 9%, salt 1%",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 82
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 1.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 20
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1.5
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.01
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 20
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# For red meat products, the number of maximum protein points is set at 2 points
 	[
@@ -1855,56 +1388,42 @@ my @tests = (
 			lc => "en",
 			categories => "beef steaks",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 82
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 20
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 50
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 20
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 50
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	[
 		"en-red-meat-ambiguous-category-no-ingredients",
@@ -1912,56 +1431,42 @@ my @tests = (
 			lc => "en",
 			categories => "sausages",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 82
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 20
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 50
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 20
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 50
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	[
 		"en-red-meat-ambiguous-category-ingredients-with-lots-of-meat",
@@ -1970,56 +1475,42 @@ my @tests = (
 			categories => "sausages",
 			ingredients_text => "pork meat, lamb meat, chicken meat, salt 1%",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 82
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 20
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 50
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 20
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 50
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	[
 		"en-red-meat-ambiguous-category-ingredients-with-no-meat",
@@ -2028,56 +1519,42 @@ my @tests = (
 			categories => "sausages",
 			ingredients_text => "salmon, wheat flour, salt 1%",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 82
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 20
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 50
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 20
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 50
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	[
 		"en-red-meat-ambiguous-category-ingredients-with-very-little-meat",
@@ -2086,56 +1563,42 @@ my @tests = (
 			categories => "sausages",
 			ingredients_text => "eggs, wheat flour, water, rice flour, lamb 2%, salt 1%",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 82
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 20
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 50
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 20
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 10
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 50
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# Milk: considered a beverage in 2023 Nutri-Score
 	[
@@ -2144,56 +1607,42 @@ my @tests = (
 			lc => "en",
 			categories => "milk",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 195
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 195
+							},
+							fat => {
+								unit => "g",
+								value => 1.6
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 1
+							},
+							sugars => {
+								unit => "g",
+								value => 4.8
+							},
+							salt => {
+								unit => "g",
+								value => 0.1
+							},
+							proteins => {
+								unit => "g",
+								value => 3.3
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1.6
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 4.8
-						},
-						salt => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.1
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 3.3
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# Plant beverages: considered a beverage in 2023 Nutri-Score
 	[
@@ -2203,63 +1652,46 @@ my @tests = (
 			categories => "boissons végétales de soja",
 			ingredients_text => "Eau, fèves de soja 8%",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 178
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 178
+							},
+							fat => {
+								unit => "g",
+								value => 2.6
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.6
+							},
+							sugars => {
+								unit => "g",
+								value => 0.5
+							},
+							salt => {
+								unit => "g",
+								value => 0.03
+							},
+							fiber => {
+								unit => "g",
+								value => 0.5
+							},
+							proteins => {
+								unit => "g",
+								value => 3.9
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 2.6
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.6
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.5
-						},
-						salt => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.03
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.5
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 3.9
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# Cherry tomatoes
 	[
@@ -2269,63 +1701,46 @@ my @tests = (
 			categories => "cherry tomatoes",
 			ingredients_text => "cherry tomatoes",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 81
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 81
+							},
+							fat => {
+								unit => "g",
+								value => 0.26
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.056
+							},
+							sugars => {
+								unit => "g",
+								value => 2.48
+							},
+							fiber => {
+								unit => "g",
+								value => 1.2
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0.86
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.26
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.056
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 2.48
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1.2
-						},
-						salt => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.86
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# olive oil
 	[
@@ -2335,63 +1750,46 @@ my @tests = (
 			categories => "olive oil",
 			ingredients_text => "olive oil",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3367
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3367
+							},
+							fat => {
+								unit => "g",
+								value => 91
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 17
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 91
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 17
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						salt => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# olive oil, no ingredients specified
 	[
@@ -2400,63 +1798,46 @@ my @tests = (
 			lc => "en",
 			categories => "olive oil",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3367
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3367
+							},
+							fat => {
+								unit => "g",
+								value => 91
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 17
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 91
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 17
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						salt => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# olive oil, unrecognized ingredients specified
 	[
@@ -2466,63 +1847,46 @@ my @tests = (
 			categories => "olive oil",
 			ingredients_text => "some very fancy but unrecognized way of writing olive oil",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3367
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3367
+							},
+							fat => {
+								unit => "g",
+								value => 91
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 17
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 91
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 17
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						salt => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# avocado oil
 	[
@@ -2532,63 +1896,46 @@ my @tests = (
 			categories => "avocado oil",
 			ingredients_text => "avocado",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3448
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3448
+							},
+							fat => {
+								unit => "g",
+								value => 91.6
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 16.4
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 91.6
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 16.4
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						salt => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# mixed oil (isio 4 olive)
 	[
@@ -2599,63 +1946,46 @@ my @tests = (
 			ingredients_text =>
 				"Huile de colza 45%, huile de tournesol 30%, huile d'olive vierge extra 20%, huile de lin 5%, vitamine D",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3700
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3700
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 9.8
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 100
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 9.8
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						salt => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# rapeseed oil
 	[
@@ -2665,63 +1995,46 @@ my @tests = (
 			categories => "huile de colza",
 			ingredients_text => "Huile de colza",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 3400
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3400
+							},
+							fat => {
+								unit => "g",
+								value => 92
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 7.3
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 92
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 7.3
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						salt => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# Coconut milk -> for cooking, not considered a beverage in 2023 Nutri-Score
 	[
@@ -2731,63 +2044,46 @@ my @tests = (
 			categories => "lait de coco",
 			ingredients_text => "Noix de coco 60%, eau",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 178
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 178
+							},
+							fat => {
+								unit => "g",
+								value => 2.6
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.6
+							},
+							sugars => {
+								unit => "g",
+								value => 0.5
+							},
+							salt => {
+								unit => "g",
+								value => 0.03
+							},
+							fiber => {
+								unit => "g",
+								value => 0.5
+							},
+							proteins => {
+								unit => "g",
+								value => 3.9
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 2.6
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.6
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.5
-						},
-						salt => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.03
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.5
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 3.9
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# For products that contain water that is not consumed (e.g. canned vegetables)
 	# the % of fruits/vegetables must be estimated on the product without water
@@ -2798,63 +2094,46 @@ my @tests = (
 			ingredients_text => "eau 80%, sucre 10%, haricots verts 10%",
 			categories => "plat préparé",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 315
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 315
+							},
+							fat => {
+								unit => "g",
+								value => 0.9
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.1
+							},
+							sugars => {
+								unit => "g",
+								value => 3.6
+							},
+							salt => {
+								unit => "g",
+								value => 0.80
+							},
+							fiber => {
+								unit => "g",
+								value => 5.3
+							},
+							proteins => {
+								unit => "g",
+								value => 5.0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.9
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.1
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 3.6
-						},
-						salt => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.80
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5.3
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5.0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	[
 		"fr-canned-green-beans",
@@ -2863,63 +2142,46 @@ my @tests = (
 			ingredients_text => "eau 80%, sucre 10%, haricots verts 10%",
 			categories => "haricots verts en conserve",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 315
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 315
+							},
+							fat => {
+								unit => "g",
+								value => 0.9
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.1
+							},
+							sugars => {
+								unit => "g",
+								value => 3.6
+							},
+							salt => {
+								unit => "g",
+								value => 1.2
+							},
+							fiber => {
+								unit => "g",
+								value => 5.3
+							},
+							proteins => {
+								unit => "g",
+								value => 5.0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.9
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.1
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 3.6
-						},
-						salt => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1.2
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5.3
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5.0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
-			}
-		},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
+		}
+
 	],
 	# canned fruits: water is counted as it is consumed
 	[
@@ -2929,63 +2191,46 @@ my @tests = (
 			ingredients_text => "eau 80%, sucre 10%, ananas 10%",
 			categories => "ananas en conserve",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 315
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 315
+							},
+							fat => {
+								unit => "g",
+								value => 0.9
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.1
+							},
+							sugars => {
+								unit => "g",
+								value => 3.6
+							},
+							salt => {
+								unit => "g",
+								value => 1.2
+							},
+							fiber => {
+								unit => "g",
+								value => 5.3
+							},
+							proteins => {
+								unit => "g",
+								value => 5.0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.9
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.1
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 3.6
-						},
-						salt => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 1.2
-						},
-						fiber => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5.3
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 5.0
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
-		},
+		}
+
 	],
 	# Flavored syrup: beverage preparations should use the beverage formula
 	[
@@ -2995,56 +2240,42 @@ my @tests = (
 			categories => "flavored syrup",
 			ingredients_text => "apple juice, water, sugar, aspartame",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 82
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 4.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 4.5
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.01
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						}
-					},
-					per => "100g",
-					preparation => "prepared"
-				}
-			}
+						source => "packaging",
+						per => "100g",
+						preparation => "prepared"
+					}
+				],
+			},
 		}
+
 	],
 
 	# orange
@@ -3066,54 +2297,39 @@ my @tests = (
 			categories => "pickled vegetables",
 			ingredients_text => "52% rzodkiew biała, woda, koper, 0,6% czosnek, sól, chrzan",
 			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						energy => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "kJ",
-							value => 53
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 53
+							},
+							fat => {
+								unit => "g",
+								value => 0.1
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 2
+							},
+							proteins => {
+								unit => "g",
+								value => 0.7
+							}
 						},
-						fat => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.1
-						},
-						"saturated-fat" => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sugars => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0
-						},
-						sodium => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 2
-						},
-						proteins => {
-							source => "packaging",
-							source_index => 0,
-							source_per => "100g",
-							unit => "g",
-							value => 0.7
-						}
-					},
-					per => "100g",
-					preparation => "as_sold"
-				}
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				]
 			},
 		}
 	],
