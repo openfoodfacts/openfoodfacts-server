@@ -341,15 +341,6 @@ paths:
         See also [wiki page](https://wiki.openfoodfacts.org/Open_Food_Facts_Search_API_Version_2)
 
       parameters:
-        # code: comma separated list of barcodes
-        - name: code
-          in: query
-          description: Comma separated list of barcodes of the products to be fetched
-          required: false
-          schema:
-            type: string
-            examples:
-              - "3017620422003,4251105501381,8000500037568"
         # all tags parameters
         - $ref: "./schemas/tags_parameters.yaml#/properties/additives_tags"
         - $ref: "./schemas/tags_parameters.yaml#/properties/allergens_tags"
