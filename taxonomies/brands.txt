@@ -11,6 +11,9 @@
 # Note: an old draft owners/brands taxonomy lives in taxonomies/unused/brands.txt, but it is hierarchic, which is something we do not want in this taxonomy.
 # You can usefully read: https://wiki.openfoodfacts.org/Brands to get up and running on the subtleties of the topic.
 
+xx: No brand
+comment:en: to be used when absolutely no brand (or proxy brand) can be found on the packaging.
+
 xx: Abbot Kinney's
 wikidata:en: Q136824393
 
@@ -19,6 +22,9 @@ wikidata:en: Q136838017
 
 xx: AH Excellent, Albert Heijn Excellent
 wikidata:en: Q136928844
+
+xx: AH to go
+wikidata:en: Q137104297
 
 xx: Albert Heijn Terra
 wikidata:en: Q136837987
@@ -102,6 +108,9 @@ xx: Bodylab
 wikidata:en: Q27530939
 
 xx: bonÀrea
+
+xx: Boss Coffee
+wikidata:en: Q4947502
 
 xx: Brouwmeester
 wikidata:en: Q136929479
@@ -225,7 +234,14 @@ xx: Em-eukal
 xx: Estrella
 wikidata:en: Q6303102
 
+xx: Eurobakker
+wikidata:en: Q137176343
+
 xx: Fanta
+
+xx: Favorina
+comment:en: Private brand of Lidl for pralines
+wikidata:en: Q137149537
 
 xx: Fazer
 wikidata:en: Q996907
@@ -245,7 +261,12 @@ wikidata:en: Q5460271
 
 xx: Fontana
 
+xx: Frank Le Gourmand
+wikidata:en: Q137168617
+
 xx: Freshona
+comment:en: Private label of Lidl
+wikidata:en: Q137168327
 
 xx: GAAM
 
@@ -317,8 +338,16 @@ xx: ICA Basic, ICA Bas%c
 #< xx:ICA
 xx: ICA Selection
 
+xx: Ikbal
+ar: إقبال
+wikidata:en: Q137049723
+
 xx: IKEA
 wikidata:en: Q54078
+
+xx: Il Molino Chiavazza
+comment:en: brand not trademarked in the EU
+wikidata:en: Q137151953
 
 xx: Indus
 
@@ -336,8 +365,9 @@ xx: Jimmy's
 xx: JOZO
 wikidata:en: Q10538850
 
-xx: Jumbo, Jumbo's
+xx: JUMBO, Jumbo
 wikidata:en: Q136824505
+Comment:en: this brand seems only trademarked in the Benelux. It is a multipurpose brand that appears on goods, services, supermarkets and teh holding company.
 
 xx: Kania
 wikidata:en: Q136824610
@@ -388,6 +418,10 @@ wikidata:en: Q136914171
 
 xx: Leader Price, Leaderprice
 
+xx: Limax Spolka
+wikidata:en: Q137049303
+comment:en: a proxy brand of the packager
+
 xx: Lindahls
 
 xx: Loka
@@ -400,6 +434,9 @@ xx: Lotus Natur
 
 xx: Løgismose
 wikidata:en: Q6711394
+
+xx: Madame Magnifique
+comment:en: non-trademarked brand of Q137165248
 
 xx: Maggi
 wikidata:en: Q688424
@@ -477,6 +514,8 @@ wikidata:en: Q160746
 xx: NOCCO
 wikidata:en: Q97225239
 
+xx: Nosugar company
+
 xx: NS Galletas
 
 xx: næmt, naemt
@@ -503,11 +542,12 @@ wikidata:en: Q3102193
 xx: Petti
 
 xx: Picnic
-
 wikidata:en: Q136825786
 
 xx: Pierre Martinet
 wikidata:en: Q136824443
+
+xx: Pimélia
 
 # this (Swedish) brand was purchased by (Finnish) Oddlygood in 2023
 xx: Planti
@@ -757,6 +797,10 @@ xx: Zeina's
 
 xx: Zeta
 wikidata:en: Q10724505
+
+xx: Zwagerman
+wikidata:en: Q137104443
+comment:en: Benelux word trademark
 
 xx: Änglamark, Anglemark
 wikidata:en: Q65229572
