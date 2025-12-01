@@ -94,7 +94,9 @@ my @products = (
 			ingredients_text => "apple, water",
 			origin => "UK",
 			countries => "United Kingdom, Ireland",
-			categories => "breakfast cereals"
+			categories => "breakfast cereals",
+			nutriment_sugar_value => "15.1",
+			nutriment_sugar_unit => "g",
 		)
 	}
 	#
@@ -159,7 +161,15 @@ my $tests_ref = [
 		path => '/cgi/search.pl?action=process&json=1&fields=attribute_groups',
 		cookies => [{name => "attribute_unwanted_ingredients_tags", value => "en:water"}],
 		expected_status_code => 200,
-	}
+	},
+	# Search on nutrients
+	{
+		test_case => 'search-nutrient-sugar-greater-than-15g',
+			method => 'GET',
+			path => '/cgi/search.pl?action=process&json=1&sugars_100g=>15',
+			expected_status_code => 200,
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

@@ -4936,13 +4936,17 @@ sub add_params_to_query ($params_ref, $query_ref) {
 
 		# Conditions on nutrients
 
-		# e.g. saturated-fat_prepared_serving=<3=0
-		# the parameter name is exactly the same as the key in the nutriments hash of the product
+		# e.g. saturated-fat_prepared_serving=<3 , sugars_100g=<=10
+		# 2025/12/1: with the new nutrition schema update, we will remove support for searching nutrients per serving
+		# and we will search only on the aggregated nutrients set (which may be as sold or prepared, depending on product category)
 
-		elsif ($field =~ /^(.*?)_(100g|serving)$/) {
+		elsif ($field =~ /^(.*?)_(100g)$/) {
 
 			# We can have multiple conditions, separated with a comma
 			# e.g. sugars_100g=>10,<=20
+
+			my $nutrient = $1;
+			$nutrient =~ s/_prepared$//;	# Matching against aggregated set, which will be prepared or as sold depending on category
 
 			my $conditions = $params_ref->{$field};
 
@@ -4977,14 +4981,14 @@ sub add_params_to_query ($params_ref, $query_ref) {
 				);
 
 				if ($operator eq '=') {
-					$query_ref->{"nutriments." . $field}
+					$query_ref->{"nutrition.aggregated_set.nutrients.$nutrient.value"}
 						= $value + 0.0;    # + 0.0 to force scalar to be treated as a number
 				}
 				else {
 					if (not defined $query_ref->{$field}) {
-						$query_ref->{"nutriments." . $field} = {};
+						$query_ref->{"nutrition.aggregated_set.nutrients.$nutrient.value"} = {};
 					}
-					$query_ref->{"nutriments." . $field}{'$' . $mongo_operators{$operator}} = $value + 0.0;
+					$query_ref->{"nutrition.aggregated_set.nutrients.$nutrient.value"}{'$' . $mongo_operators{$operator}} = $value + 0.0;
 				}
 			}
 		}

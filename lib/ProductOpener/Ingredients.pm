@@ -8420,7 +8420,7 @@ fruits, vegetables, nuts, olive / walnut / rapeseed oil, so that we can compute
 the Nutri-Score fruit points if we don't have a value given by the manufacturer
 or estimated by users.
 
-Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} (and _serving)
+This function is called by ProductOpener::Nutrition::compute_estimated_nutrients ($product_ref)
 
 =cut
 
@@ -8554,7 +8554,7 @@ sub is_fruits_vegetables_legumes_for_fat_oil_nuts_seed ($ingredient_id, $process
 This function analyzes the ingredients to estimate the minimum percentage of
 fruits, vegetables, legumes, so that we can compute the Nutri-Score (2023) fruit points.
 
-Results are stored in $product_ref->{nutriments}{"fruits-vegetables-legumes-estimate-from-ingredients_100g"} (and _serving)
+This function is called by ProductOpener::Nutrition::compute_estimated_nutrients ($product_ref)
 
 =cut
 
