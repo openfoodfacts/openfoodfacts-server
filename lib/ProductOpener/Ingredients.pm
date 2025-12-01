@@ -5227,6 +5227,8 @@ my %phrases_before_ingredients_list = (
 
 	et => ['koostisosad', 'Koostis',],
 
+	eu => ['[Oo]sagaiak',],
+
 	fi => ['aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?', 'ainesosia', 'valmistusaineet', 'Kokoonpano', 'koostumus',],
 
 	fr => [

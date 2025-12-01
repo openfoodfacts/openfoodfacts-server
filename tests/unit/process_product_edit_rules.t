@@ -103,6 +103,14 @@ my @tests = (
 		result => 1,
 	},
 	{
+		id => "block_nutrients_salt_100g",
+		desc => "Block edit on a salt nutrient",
+		edit_rules => [{name => "Block salt", actions => [["block_nutriments_salt_100g"]]},],
+		product => {nutrients => {salt_100g => 1}},
+		form => {nutrients_salt_100g => 2},
+		result => 0,
+	},
+	{
 		id => "ignore_nutrients_salt_100g",
 		desc => "Remove edit on a salt nutrient",
 		edit_rules => [{name => "Disallow salt", actions => [["ignore_nutriments_salt_100g"]]},],
@@ -172,6 +180,14 @@ my @tests = (
 		form => {"brands" => "Another, Acme inc."},
 		result => 1,
 		delete_param => ["brands"],
+	},
+	{
+		id => "block_if_regexp_match_brand",
+		desc => "Block edit if string value match a regexp",
+		edit_rules =>
+			[{name => "Disallow ingredients", actions => [["block_if_regexp_match_brands", "(acme|hacky)"]]},],
+		form => {"brands" => "Another, Acme inc."},
+		result => 0,
 	},
 	{
 		id => "combine_actions",

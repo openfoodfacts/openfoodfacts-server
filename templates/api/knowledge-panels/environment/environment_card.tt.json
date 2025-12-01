@@ -13,15 +13,7 @@
             "panel_element": {
                 "panel_id": "environmental_score",
             },
-        },
-        [% IF panels.environmental_score_extended.defined %]
-        {
-            "element_type": "panel",
-            "panel_element": {
-                "panel_id": "environmental_score_extended",
-            },
-        },
-        [% END %]           
+        },      
         [% IF panels.carbon_footprint.defined %]
         {
             "element_type": "panel_group",
@@ -31,14 +23,14 @@
             },
         },
         [% END %]    
-        [% IF panels.packaging_recycling.defined %]
+        [% IF panels.packaging.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
                 "title": "[% edq(lang('environmental_score_packaging')) %]",
-                "panel_group_id": "packaging_recycling",
+                "panel_group_id": "packaging",
                 "panel_ids": [
-                    "packaging_recycling",
+                    "packaging",
                 ],
                 [% IF panel.packaging_image.defined %]
                 "image": [% encode_json(panel.packaging_image) %],
@@ -58,13 +50,13 @@
             },
         },        
         [% END %]
-        [% IF panels.palm_oil.defined %]
+        [% IF panels.threatened_species.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
                 "title": "[% edq(lang('environmental_score_threatened_species')) %]",
                 "panel_ids": [
-                    "palm_oil"
+                    "threatened_species"
                 ],
             },
         },
@@ -73,7 +65,7 @@
         {
             "element_type": "panel_group",
             "panel_group_element": {
-                "title": "[% edq(lang('labels_p')) FILTER ucfirst %]",
+                "title": "[% edq(lang('environmental_labels')) %]",
                 "panel_ids": [
                     [% FOREACH label IN product.environmental_score_data.adjustments.production_system.labels %]
                         "environment_label_[% label %]",

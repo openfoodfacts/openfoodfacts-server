@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	
     <style media="all">
@@ -714,8 +721,6 @@
                                 
                                     <option value="carbon-footprint" label="Carbon footprint">Carbon footprint</option>
                                 
-                                    <option value="carbon-footprint-from-meat-or-fish" label="Carbon footprint from meat or fish">Carbon footprint from meat or fish</option>
-                                
                                     <option value="carnitine" label="Carnitine">Carnitine</option>
                                 
                                     <option value="casein" label="Casein">Casein</option>
@@ -773,10 +778,6 @@
                                     <option value="fruits-vegetables-nuts-dried" label="Fruits‚ vegetables and nuts - dried">Fruits‚ vegetables and nuts - dried</option>
                                 
                                     <option value="fruits-vegetables-nuts" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils</option>
-                                
-                                    <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)</option>
-                                
-                                    <option value="fruits-vegetables-nuts-estimate" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)</option>
                                 
                                     <option value="galactose" label="Galactose">Galactose</option>
                                 
@@ -847,10 +848,6 @@
                                     <option value="known_ingredients_n" label="Number of recognized ingredients">Number of recognized ingredients</option>
                                 
                                     <option value="unknown_ingredients_n" label="Number of unrecognized ingredients">Number of unrecognized ingredients</option>
-                                
-                                    <option value="nutrition-score-fr" label="Nutrition score - France">Nutrition score - France</option>
-                                
-                                    <option value="nutrition-score-uk" label="Nutrition score - UK">Nutrition score - UK</option>
                                 
                                     <option value="oleic-acid" label="Oleic acid">Oleic acid</option>
                                 
@@ -981,6 +978,8 @@
                                     <option value="water-hardness" label="Water hardness">Water hardness</option>
                                 
                                     <option value="zinc" label="Zinc">Zinc</option>
+                                
+                                    <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="zz:fruits-vegetables-nuts-estimate-from-ingredients">zz:fruits-vegetables-nuts-estimate-from-ingredients</option>
                                 
                             </select>
                         </div>
@@ -1052,8 +1051,6 @@
                                 
                                     <option value="carbon-footprint" label="Carbon footprint">Carbon footprint</option>
                                 
-                                    <option value="carbon-footprint-from-meat-or-fish" label="Carbon footprint from meat or fish">Carbon footprint from meat or fish</option>
-                                
                                     <option value="carnitine" label="Carnitine">Carnitine</option>
                                 
                                     <option value="casein" label="Casein">Casein</option>
@@ -1111,10 +1108,6 @@
                                     <option value="fruits-vegetables-nuts-dried" label="Fruits‚ vegetables and nuts - dried">Fruits‚ vegetables and nuts - dried</option>
                                 
                                     <option value="fruits-vegetables-nuts" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils</option>
-                                
-                                    <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)</option>
-                                
-                                    <option value="fruits-vegetables-nuts-estimate" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)</option>
                                 
                                     <option value="galactose" label="Galactose">Galactose</option>
                                 
@@ -1185,10 +1178,6 @@
                                     <option value="known_ingredients_n" label="Number of recognized ingredients">Number of recognized ingredients</option>
                                 
                                     <option value="unknown_ingredients_n" label="Number of unrecognized ingredients">Number of unrecognized ingredients</option>
-                                
-                                    <option value="nutrition-score-fr" label="Nutrition score - France">Nutrition score - France</option>
-                                
-                                    <option value="nutrition-score-uk" label="Nutrition score - UK">Nutrition score - UK</option>
                                 
                                     <option value="oleic-acid" label="Oleic acid">Oleic acid</option>
                                 
@@ -1319,6 +1308,8 @@
                                     <option value="water-hardness" label="Water hardness">Water hardness</option>
                                 
                                     <option value="zinc" label="Zinc">Zinc</option>
+                                
+                                    <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="zz:fruits-vegetables-nuts-estimate-from-ingredients">zz:fruits-vegetables-nuts-estimate-from-ingredients</option>
                                 
                             </select>
                         </div>
@@ -1457,8 +1448,6 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="carbon-footprint" label="Carbon footprint">Carbon footprint</option>
                                     
-                                        <option value="carbon-footprint-from-meat-or-fish" label="Carbon footprint from meat or fish">Carbon footprint from meat or fish</option>
-                                    
                                         <option value="carnitine" label="Carnitine">Carnitine</option>
                                     
                                         <option value="casein" label="Casein">Casein</option>
@@ -1516,10 +1505,6 @@ get a cloud of products (scatter plot).</p>
                                         <option value="fruits-vegetables-nuts-dried" label="Fruits‚ vegetables and nuts - dried">Fruits‚ vegetables and nuts - dried</option>
                                     
                                         <option value="fruits-vegetables-nuts" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils</option>
-                                    
-                                        <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)</option>
-                                    
-                                        <option value="fruits-vegetables-nuts-estimate" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)</option>
                                     
                                         <option value="galactose" label="Galactose">Galactose</option>
                                     
@@ -1590,10 +1575,6 @@ get a cloud of products (scatter plot).</p>
                                         <option value="known_ingredients_n" label="Number of recognized ingredients">Number of recognized ingredients</option>
                                     
                                         <option value="unknown_ingredients_n" label="Number of unrecognized ingredients">Number of unrecognized ingredients</option>
-                                    
-                                        <option value="nutrition-score-fr" label="Nutrition score - France">Nutrition score - France</option>
-                                    
-                                        <option value="nutrition-score-uk" label="Nutrition score - UK">Nutrition score - UK</option>
                                     
                                         <option value="oleic-acid" label="Oleic acid">Oleic acid</option>
                                     
@@ -1724,6 +1705,8 @@ get a cloud of products (scatter plot).</p>
                                         <option value="water-hardness" label="Water hardness">Water hardness</option>
                                     
                                         <option value="zinc" label="Zinc">Zinc</option>
+                                    
+                                        <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="zz:fruits-vegetables-nuts-estimate-from-ingredients">zz:fruits-vegetables-nuts-estimate-from-ingredients</option>
                                     
                                 </select>
                                 <!-- hidden (unless the field value is "folksonomy") field for axis_[id]_folksonomy_property -->
@@ -1779,8 +1762,6 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="carbon-footprint" label="Carbon footprint">Carbon footprint</option>
                                     
-                                        <option value="carbon-footprint-from-meat-or-fish" label="Carbon footprint from meat or fish">Carbon footprint from meat or fish</option>
-                                    
                                         <option value="carnitine" label="Carnitine">Carnitine</option>
                                     
                                         <option value="casein" label="Casein">Casein</option>
@@ -1838,10 +1819,6 @@ get a cloud of products (scatter plot).</p>
                                         <option value="fruits-vegetables-nuts-dried" label="Fruits‚ vegetables and nuts - dried">Fruits‚ vegetables and nuts - dried</option>
                                     
                                         <option value="fruits-vegetables-nuts" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils</option>
-                                    
-                                        <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)</option>
-                                    
-                                        <option value="fruits-vegetables-nuts-estimate" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)</option>
                                     
                                         <option value="galactose" label="Galactose">Galactose</option>
                                     
@@ -1912,10 +1889,6 @@ get a cloud of products (scatter plot).</p>
                                         <option value="known_ingredients_n" label="Number of recognized ingredients">Number of recognized ingredients</option>
                                     
                                         <option value="unknown_ingredients_n" label="Number of unrecognized ingredients">Number of unrecognized ingredients</option>
-                                    
-                                        <option value="nutrition-score-fr" label="Nutrition score - France">Nutrition score - France</option>
-                                    
-                                        <option value="nutrition-score-uk" label="Nutrition score - UK">Nutrition score - UK</option>
                                     
                                         <option value="oleic-acid" label="Oleic acid">Oleic acid</option>
                                     
@@ -2046,6 +2019,8 @@ get a cloud of products (scatter plot).</p>
                                         <option value="water-hardness" label="Water hardness">Water hardness</option>
                                     
                                         <option value="zinc" label="Zinc">Zinc</option>
+                                    
+                                        <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="zz:fruits-vegetables-nuts-estimate-from-ingredients">zz:fruits-vegetables-nuts-estimate-from-ingredients</option>
                                     
                                 </select>
                                 <!-- hidden (unless the field value is "folksonomy") field for axis_[id]_folksonomy_property -->

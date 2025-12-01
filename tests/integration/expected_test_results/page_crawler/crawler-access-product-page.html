@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<meta name="x:card" content="product">
 <meta name="x:site" content="@OpenFoodFacts">
@@ -1037,6 +1044,10 @@ The score is calculated from the data of the nutrition facts table and the compo
                     Nutrition facts
                 </th>
                 
+                <th scope="col">
+                    As sold<br>for 100 g / 100 ml
+                </th>
+                
             </tr>
         </thead>
         <tbody>
@@ -1053,6 +1064,18 @@ The score is calculated from the data of the nutrition facts table and the compo
          
          >
             Fat
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
         </span>
     
                     </td>
@@ -1075,6 +1098,18 @@ The score is calculated from the data of the nutrition facts table and the compo
     
                     </td>
                 
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
             </tr>
             
             <tr>
@@ -1089,6 +1124,18 @@ The score is calculated from the data of the nutrition facts table and the compo
          
          >
             Carbohydrates
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
         </span>
     
                     </td>
@@ -1111,6 +1158,48 @@ The score is calculated from the data of the nutrition facts table and the compo
     
                     </td>
                 
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 2rem;"
+         
+         >
+            Added sugars
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0 g
+        </span>
+    
+                    </td>
+                
             </tr>
             
             <tr>
@@ -1125,6 +1214,18 @@ The score is calculated from the data of the nutrition facts table and the compo
          
          >
             Fiber
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
         </span>
     
                     </td>
@@ -1147,6 +1248,18 @@ The score is calculated from the data of the nutrition facts table and the compo
     
                     </td>
                 
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
             </tr>
             
             <tr>
@@ -1161,6 +1274,48 @@ The score is calculated from the data of the nutrition facts table and the compo
          
          >
             Salt
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0 %
         </span>
     
                     </td>
@@ -3270,15 +3425,15 @@ The score is calculated from the data of the nutrition facts table and the compo
                         
 
         
-            <h3 id="panel_group_packaging_recycling" class="panel_title_card">Packaging</h3>
+            <h3 id="panel_group_packaging" class="panel_title_card">Packaging</h3>
         
 
         
             
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: packaging -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_packaging_recycling"
+	<ul data-accordion class="panel_accordion accordion" id="panel_packaging"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -3286,7 +3441,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 <li class="accordion-navigation">
 
     
-        <a href="#panel_packaging_recycling_content" class="panel_title"
+        <a href="#panel_packaging_content" class="panel_title"
             
         >
             
@@ -3311,7 +3466,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
 
 	   	 <div
-	   	    id="panel_packaging_recycling_content"
+	   	    id="panel_packaging_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -3355,7 +3510,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: packaging -->
         
 
                         
@@ -3616,7 +3771,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
         <div>
             <a class="button small action-report_product_to_nutripatrol"
-                href="//nutripatrol.openfoodfacts.org/flag/product/?barcode=0200000000235&source=web&flavor=off">
+                href="//nutripatrol.localhost/flag/product/?barcode=0200000000235&source=web&flavor=off">
                 Report this product to our moderators
             </a>
         </div>

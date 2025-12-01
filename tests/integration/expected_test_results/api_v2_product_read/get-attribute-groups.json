@@ -6,15 +6,15 @@
             "attributes" : [
                {
                   "description" : "",
-                  "description_short" : "Very good nutritional quality",
-                  "grade" : "a",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-a-new-en.svg",
+                  "description_short" : "Average nutritional quality",
+                  "grade" : "c",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-en.svg",
                   "id" : "nutriscore",
-                  "match" : 81,
+                  "match" : 49.4444444444444,
                   "name" : "Nutri-Score",
                   "panel_id" : "nutriscore_2023",
                   "status" : "known",
-                  "title" : "Nutri-Score A"
+                  "title" : "Nutri-Score C"
                },
                {
                   "grade" : "e",

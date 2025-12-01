@@ -82,7 +82,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:brands-to-be-completed\"> en:brands-to-be-completed <br><span class=\"description\">The product brands need to be completed.</span> </li> <li id=\"data-error-en:expiration-date-to-be-completed\"> en:expiration-date-to-be-completed <br><span class=\"description\">The product expiration date needs to be completed.</span> </li> <li id=\"data-error-en:front-photo-to-be-selected\"> en:front-photo-to-be-selected <br><span class=\"description\">A front photo for the product needs to be selected.</span> </li> <li id=\"data-error-en:photo-and-data-to-be-checked-by-an-experienced-contributor\"> en:photo-and-data-to-be-checked-by-an-experienced-contributor <br><span class=\"description\">The product's photo and data need to be checked by an experienced contributor.</span> </li> <li id=\"data-error-en:traceability-codes-to-be-completed\"> en:traceability-codes-to-be-completed <br><span class=\"description\">The traceability codes need to be completed. These codes are in an ellipse.</span> </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:brands-to-be-completed\"> en:brands-to-be-completed <br><span class=\"description\">The product brands need to be completed.</span> </li> <li id=\"data-error-en:expiration-date-to-be-completed\"> en:expiration-date-to-be-completed <br><span class=\"description\">The product expiration date needs to be completed.</span> </li> <li id=\"data-error-en:front-photo-to-be-selected\"> en:front-photo-to-be-selected <br><span class=\"description\">A front photo for the product needs to be selected.</span> </li> <li id=\"data-error-en:photo-and-data-to-be-checked-by-an-experienced-contributor\"> en:photo-and-data-to-be-checked-by-an-experienced-contributor <br><span class=\"description\">The product's photo and data need to be checked by an experienced contributor.</span> </li> </ul>"
                   }
                },
                {
@@ -229,9 +229,9 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
+                     "panel_group_id" : "packaging",
                      "panel_ids" : [
-                        "packaging_recycling"
+                        "packaging"
                      ],
                      "title" : "Packaging"
                   }
@@ -812,6 +812,13 @@
                            "style" : "max-width:15rem",
                            "text" : "Nutrition facts",
                            "type" : "text"
+                        },
+                        {
+                           "column_group_id" : "product",
+                           "shown_by_default" : true,
+                           "text" : "As sold<br>for 100 g / 100 ml",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -822,6 +829,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fat"
+                              },
+                              {
+                                 "text" : "?"
                               }
                            ]
                         },
@@ -831,6 +841,9 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Saturated fat"
+                              },
+                              {
+                                 "text" : "?"
                               }
                            ]
                         },
@@ -840,6 +853,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Carbohydrates"
+                              },
+                              {
+                                 "text" : "?"
                               }
                            ]
                         },
@@ -849,6 +865,21 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Sugars"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 2,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Added sugars"
+                              },
+                              {
+                                 "text" : "~ 0 g"
                               }
                            ]
                         },
@@ -858,6 +889,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fiber"
+                              },
+                              {
+                                 "text" : "?"
                               }
                            ]
                         },
@@ -867,6 +901,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Proteins"
+                              },
+                              {
+                                 "text" : "?"
                               }
                            ]
                         },
@@ -876,6 +913,21 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Salt"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils"
+                              },
+                              {
+                                 "text" : "~ 0 %"
                               }
                            ]
                         }
@@ -918,12 +970,44 @@
             ],
             "evaluation" : "unknown",
             "expanded" : false,
+            "half_width_on_mobile" : true,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "subtitle" : "Missing origins of ingredients information",
                "title" : "Origins of ingredients"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    The information about the packaging of this product is not filled in.\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_packaging_image"
+                     ],
+                     "html" : "Take a photo of the recycling information"
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "evaluation" : "unknown",
+            "level" : "info",
+            "title_element" : {
+               "evaluation" : "neutral",
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "title" : "Missing packaging information for this product"
             },
             "topics" : [
                "environment"
@@ -973,37 +1057,6 @@
             "level" : "info",
             "title_element" : {
                "title" : "Packaging materials"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "packaging_recycling" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    The information about the packaging of this product is not filled in.\n                    ",
-                     "type" : "warning"
-                  }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "add_packaging_image"
-                     ],
-                     "html" : "Take a photo of the recycling information"
-                  },
-                  "element_type" : "action"
-               }
-            ],
-            "evaluation" : "unknown",
-            "level" : "info",
-            "title_element" : {
-               "evaluation" : "neutral",
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "title" : "Missing packaging information for this product"
             },
             "topics" : [
                "environment"

@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<meta name="x:card" content="product">
 <meta name="x:site" content="@OpenFoodFacts">
@@ -1577,6 +1584,496 @@ The score is calculated from the data of the nutrition facts table and the compo
 
 	<!-- end templates/web/panels/panel.tt.html - panel_id: nutriscore_2023 -->
         
+            
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: nutrient_levels -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_nutrient_levels"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_nutrient_levels_content" class="panel_title"
+            
+        >
+            
+            <img src="//static.openfoodfacts.localhost/images/icons/dist/nutrition.svg"
+                style="height:72px;float:left;margin-right:1rem;"
+                alt="icon"
+                
+                        class="filter-grey"
+                
+            >
+            
+            <h4 
+                class="evaluation_unknown_title"
+                
+            >
+                
+                Nutrient levels
+            </h4>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+	   	 <div
+	   	    id="panel_nutrient_levels_content"
+	   	    class="content panel_content active expand-for-large"
+	   	  >
+          
+              
+    <div class="panel_group">
+
+        
+
+                        
+
+        
+
+        
+            
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: nutrient_level_fat -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_nutrient_level_fat"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_nutrient_level_fat_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <img src="//static.openfoodfacts.localhost/images/misc/moderate.svg"
+                style="height:36px;float:left;margin-right:1rem;"
+                alt="icon"
+                
+            >
+            
+            <h4 
+                class="evaluation_average_title"
+                style="font-size:1.1rem;"
+            >
+                
+                Fat in moderate quantity (6.44%)
+            </h4>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+	   	 <div
+	   	    id="panel_nutrient_level_fat_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+<b>What you need to know</b>
+<ul>
+<li>A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases.</li>
+</ul>
+<br>
+<b>Recommendation</b>:
+<b>Limit the consumption of fat and saturated fat</b>
+<ul>
+<li>Choose products with lower fat and saturated fat content.</li>
+</ul>
+
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+
+           </div>
+    
+
+    
+        <em>Source:
+            <a href="//www.nhs.uk/live-well/eat-well/food-types/different-fats-nutrition/">National Health Service UK (NHS) - Fat: the facts
+                
+            </a>
+        </em>
+    
+    </div>
+
+    
+    </div>
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: nutrient_level_fat -->
+        
+            
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: nutrient_level_saturated-fat -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_nutrient_level_saturated-fat"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_nutrient_level_saturated-fat_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <img src="//static.openfoodfacts.localhost/images/misc/moderate.svg"
+                style="height:36px;float:left;margin-right:1rem;"
+                alt="icon"
+                
+            >
+            
+            <h4 
+                class="evaluation_average_title"
+                style="font-size:1.1rem;"
+            >
+                
+                Saturated fat in moderate quantity (3.65%)
+            </h4>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+	   	 <div
+	   	    id="panel_nutrient_level_saturated-fat_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+<b>What you need to know</b>
+<ul>
+<li>A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases.</li>
+</ul>
+<br>
+<b>Recommendation</b>:
+<b>Limit the consumption of fat and saturated fat</b>
+<ul>
+<li>Choose products with lower fat and saturated fat content.</li>
+</ul>
+
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+
+           </div>
+    
+
+    
+        <em>Source:
+            <a href="//www.nhs.uk/live-well/eat-well/food-types/different-fats-nutrition/">National Health Service UK (NHS) - Fat: the facts
+                
+            </a>
+        </em>
+    
+    </div>
+
+    
+    </div>
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: nutrient_level_saturated-fat -->
+        
+            
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: nutrient_level_sugars -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_nutrient_level_sugars"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_nutrient_level_sugars_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <img src="//static.openfoodfacts.localhost/images/misc/high.svg"
+                style="height:36px;float:left;margin-right:1rem;"
+                alt="icon"
+                
+            >
+            
+            <h4 
+                class="evaluation_bad_title"
+                style="font-size:1.1rem;"
+            >
+                
+                Sugars in high quantity (14.3%)
+            </h4>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+	   	 <div
+	   	    id="panel_nutrient_level_sugars_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+<b>What you need to know</b>
+<ul>
+<li>A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases.</li>
+</ul>
+<br>
+<b>Recommendation</b>:
+<b>Limit the consumption of sugar and sugary drinks</b>
+<ul>
+<li>Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day).</li>
+<li>Choose products with lower sugar content and reduce the consumption of products with added sugars.</li>
+</ul>
+
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+
+           </div>
+    
+
+    
+        <em>Source:
+            <a href="//www.nhs.uk/live-well/eat-well/food-types/how-does-sugar-in-our-diet-affect-our-health/">National Health Service UK (NHS) - Sugar: the facts
+                
+            </a>
+        </em>
+    
+    </div>
+
+    
+    </div>
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: nutrient_level_sugars -->
+        
+            
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: nutrient_level_salt -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_nutrient_level_salt"
+    
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_nutrient_level_salt_content" class="panel_title"
+            
+                style="padding:0.1rem;padding-left:1rem;"
+            
+        >
+            
+            <img src="//static.openfoodfacts.localhost/images/misc/moderate.svg"
+                style="height:36px;float:left;margin-right:1rem;"
+                alt="icon"
+                
+            >
+            
+            <h4 
+                class="evaluation_average_title"
+                style="font-size:1.1rem;"
+            >
+                
+                Salt in moderate quantity (1.41%)
+            </h4>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+	   	 <div
+	   	    id="panel_nutrient_level_salt_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+<b>What you need to know</b>
+<ul>
+<li>A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke.</li>
+<li>Many people who have high blood pressure do not know it, as there are often no symptoms.</li>
+<li>Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake.</li>
+</ul>
+<br>
+<b>Recommendation</b>:
+<b>Limit the consumption of salt and salted food</b>
+<ul>
+<li>Reduce the quantity of salt used when cooking, and don't salt again at the table.</li>
+<li>Limit the consumption of salty snacks and choose products with lower salt content.</li>
+</ul>
+
+           </div>
+    
+
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+
+           </div>
+    
+
+    
+        <em>Source:
+            <a href="//www.who.int/news-room/fact-sheets/detail/salt-reduction">World Health Organization (WHO) - Fact sheet - Salt reduction
+                
+            </a>
+        </em>
+    
+    </div>
+
+    
+    </div>
+              <div style="margin-bottom:0.5rem">
+       
+        <div>
+    
+
+
+    
+           <div class="panel_text">
+             
+
+           </div>
+    
+
+    
+        <em>Source:
+            <a href="//www.nhs.uk/live-well/eat-well/food-types/salt-nutrition/">National Health Service UK (NHS) - Salt: the facts
+                
+            </a>
+        </em>
+    
+    </div>
+
+    
+    </div>
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: nutrient_level_salt -->
+        
+
+                        
+        
+    </div>
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: nutrient_levels -->
+        
 
                         
         
@@ -1644,6 +2141,10 @@ The score is calculated from the data of the nutrition facts table and the compo
                     Nutrition facts
                 </th>
                 
+                <th scope="col">
+                    As sold<br>for 100 g / 100 ml
+                </th>
+                
             </tr>
         </thead>
         <tbody>
@@ -1659,7 +2160,49 @@ The score is calculated from the data of the nutrition facts table and the compo
              style="padding-left: 0rem;"
          
          >
+            Energy
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 1,249.028 kj<br>(296 kcal)
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
             Fat
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 6.435 g
         </span>
     
                     </td>
@@ -1682,6 +2225,48 @@ The score is calculated from the data of the nutrition facts table and the compo
     
                     </td>
                 
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 3.648 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 1rem;"
+         
+         >
+            Cholesterol
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 23.167 mg
+        </span>
+    
+                    </td>
+                
             </tr>
             
             <tr>
@@ -1696,6 +2281,18 @@ The score is calculated from the data of the nutrition facts table and the compo
          
          >
             Carbohydrates
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 51.635 g
         </span>
     
                     </td>
@@ -1718,6 +2315,288 @@ The score is calculated from the data of the nutrition facts table and the compo
     
                     </td>
                 
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 14.276 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 2rem;"
+         
+         >
+            Added sugars
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 11.111 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 2rem;"
+         
+         >
+            Sucrose
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 11.587 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 2rem;"
+         
+         >
+            Glucose
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.788 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 2rem;"
+         
+         >
+            Fructose
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 1.4 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 2rem;"
+         
+         >
+            Galactose
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.003 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 2rem;"
+         
+         >
+            Lactose
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.102 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 2rem;"
+         
+         >
+            Maltose
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.583 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 1rem;"
+         
+         >
+            Starch
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 32.944 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 1rem;"
+         
+         >
+            Polyols (sugar alcohols)
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.131 g
+        </span>
+    
+                    </td>
+                
             </tr>
             
             <tr>
@@ -1732,6 +2611,18 @@ The score is calculated from the data of the nutrition facts table and the compo
          
          >
             Fiber
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 4.067 g
         </span>
     
                     </td>
@@ -1754,6 +2645,18 @@ The score is calculated from the data of the nutrition facts table and the compo
     
                     </td>
                 
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 5.791 g
+        </span>
+    
+                    </td>
+                
             </tr>
             
             <tr>
@@ -1768,6 +2671,768 @@ The score is calculated from the data of the nutrition facts table and the compo
          
          >
             Salt
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 1.406 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Alcohol
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0 % vol
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Vitamin A
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 42.556 µg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Beta carotene
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Vitamin D (D3)
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.187 µg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Vitamin E
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.717 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Vitamin C (ascorbic acid)
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 1.028 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Vitamin B1 (Thiamin)
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.151 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Vitamin B2 (Riboflavin)
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.026 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Vitamin B3/PP (Niacin)
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.054 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Vitamin B6 (Pyridoxin)
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.074 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Vitamin B9 (Folic acid)
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 15.389 µg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Vitamin B12 (cobalamin)
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.05 µg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Vitamin B5 (Pantothenic acid)
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.332 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Potassium
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 182.568 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Calcium
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 19.828 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Phosphorus
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 131.778 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Iron
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 1.304 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Magnesium
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 42.091 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Zinc
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 1.103 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Copper
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0.168 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Manganese
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 1.234 mg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Selenium
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 6.517 µg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Iodine
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 32.149 µg
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 22.222 %
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Vitamin K1 (Phylloquinone)
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0 g
         </span>
     
                     </td>
@@ -4429,15 +6094,15 @@ Apple pies
                         
 
         
-            <h3 id="panel_group_packaging_recycling" class="panel_title_card">Packaging</h3>
+            <h3 id="panel_group_packaging" class="panel_title_card">Packaging</h3>
         
 
         
             
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: packaging -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_packaging_recycling"
+	<ul data-accordion class="panel_accordion accordion" id="panel_packaging"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -4445,7 +6110,7 @@ Apple pies
 <li class="accordion-navigation">
 
     
-        <a href="#panel_packaging_recycling_content" class="panel_title"
+        <a href="#panel_packaging_content" class="panel_title"
             
         >
             
@@ -4470,7 +6135,7 @@ Apple pies
     
 
 	   	 <div
-	   	    id="panel_packaging_recycling_content"
+	   	    id="panel_packaging_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -4514,7 +6179,7 @@ Apple pies
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: packaging -->
         
 
                         
@@ -4637,9 +6302,9 @@ Apple pies
         
             
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: palm_oil -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: threatened_species -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_palm_oil"
+	<ul data-accordion class="panel_accordion accordion" id="panel_threatened_species"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -4647,12 +6312,12 @@ Apple pies
 <li class="accordion-navigation">
 
     
-        <a href="#panel_palm_oil_content" class="panel_title"
+        <a href="#panel_threatened_species_content" class="panel_title"
             
         >
             
             <img src="//static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg"
-                style="height:72px;float:left;margin-right:1rem;"
+                style="height:36px;float:left;margin-right:1rem;"
                 alt="icon"
                 
                         class="filter-red"
@@ -4674,7 +6339,7 @@ Apple pies
     
 
 	   	 <div
-	   	    id="panel_palm_oil_content"
+	   	    id="panel_threatened_species_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -4687,8 +6352,8 @@ Apple pies
     
            <div class="panel_text">
              
-                    <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> 
-                    
+                        <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> 
+                        
            </div>
     
 
@@ -4702,7 +6367,7 @@ Apple pies
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: palm_oil -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: threatened_species -->
         
 
                         
@@ -4860,7 +6525,7 @@ Apple pies
     
         <div>
             <a class="button small action-report_product_to_nutripatrol"
-                href="//nutripatrol.openfoodfacts.org/flag/product/?barcode=3300000000001&source=web&flavor=off">
+                href="//nutripatrol.localhost/flag/product/?barcode=3300000000001&source=web&flavor=off">
                 Report this product to our moderators
             </a>
         </div>
@@ -5174,7 +6839,7 @@ display_product_summary("#product_summary", product);
 var page_type = "product";
 var default_preferences = {"ecoscore":"important","nova":"important","nutriscore":"very_important"};
 var preferences_text = "Classify products according to your preferences";
-var product = {"attribute_groups":[{"attributes":[{"description":"","description_short":"Lower nutritional quality","grade":"d","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg","id":"nutriscore","match":27.3333333333333,"name":"Nutri-Score","panel_id":"nutriscore_2023","status":"known","title":"Nutri-Score D"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg","id":"low_salt","missing":"Missing nutrition facts","name":"Salt","panel_id":"nutrition_facts_table","status":"unknown","title":"Salt in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg","id":"low_fat","missing":"Missing nutrition facts","name":"Fat","panel_id":"nutrition_facts_table","status":"unknown","title":"Fat in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg","id":"low_sugars","missing":"Missing nutrition facts","name":"Sugars","panel_id":"nutrition_facts_table","status":"unknown","title":"Sugars in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg","id":"low_saturated_fat","missing":"Missing nutrition facts","name":"Saturated fat","panel_id":"nutrition_facts_table","status":"unknown","title":"Saturated fat in unknown quantity"}],"id":"nutritional_quality","name":"Nutritional quality"},{"attributes":[{"debug":"en:gluten in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-gluten.svg","id":"allergens_no_gluten","match":0,"name":"Gluten","status":"known","title":"Contains: Gluten"},{"debug":"en:milk in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-milk.svg","id":"allergens_no_milk","match":0,"name":"Milk","status":"known","title":"Contains: Milk"},{"debug":"en:eggs in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-eggs.svg","id":"allergens_no_eggs","match":0,"name":"Eggs","status":"known","title":"Contains: Eggs"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg","id":"allergens_no_nuts","match":100,"name":"Nuts","status":"known","title":"Does not contain: Nuts"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg","id":"allergens_no_peanuts","match":100,"name":"Peanuts","status":"known","title":"Does not contain: Peanuts"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg","id":"allergens_no_sesame_seeds","match":100,"name":"Sesame seeds","status":"known","title":"Does not contain: Sesame seeds"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg","id":"allergens_no_soybeans","match":100,"name":"Soybeans","status":"known","title":"Does not contain: Soybeans"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg","id":"allergens_no_celery","match":100,"name":"Celery","status":"known","title":"Does not contain: Celery"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg","id":"allergens_no_mustard","match":100,"name":"Mustard","status":"known","title":"Does not contain: Mustard"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg","id":"allergens_no_lupin","match":100,"name":"Lupin","status":"known","title":"Does not contain: Lupin"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg","id":"allergens_no_fish","match":100,"name":"Fish","status":"known","title":"Does not contain: Fish"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg","id":"allergens_no_crustaceans","match":100,"name":"Crustaceans","status":"known","title":"Does not contain: Crustaceans"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg","id":"allergens_no_molluscs","match":100,"name":"Molluscs","status":"known","title":"Does not contain: Molluscs"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg","id":"allergens_no_sulphur_dioxide_and_sulphites","match":100,"name":"Sulphur dioxide and sulphites","status":"known","title":"Does not contain: Sulphur dioxide and sulphites"}],"id":"allergens","name":"Allergens","warning":"There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."},{"attributes":[{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/non-vegan.svg","id":"vegan","match":0,"name":"Vegan","panel_id":"ingredients_analysis_en:non-vegan","status":"known","title":"Non-vegan"},{"grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegetarian.svg","id":"vegetarian","match":100,"name":"Vegetarian","panel_id":"ingredients_analysis_en:vegetarian","status":"known","title":"Vegetarian"},{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-palm-oil.svg","id":"palm_oil_free","match":0,"name":"Palm oil free","panel_id":"ingredients_analysis_en:palm-oil","status":"known","title":"Palm oil"}],"id":"ingredients_analysis","name":"Ingredients","warning":"Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."},{"attributes":[{"grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg","id":"nova","match":75,"name":"NOVA group","panel_id":"nova","status":"known","title":"Processed foods"},{"grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/2-additives.svg","id":"additives","match":60,"name":"Additives","panel_id":"additives","status":"known","title":"2 additives"}],"id":"processing","name":"Food processing"},{"attributes":[{"description":"","description_short":"Low environmental impact","grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg","id":"ecoscore","match":60,"name":"Green-Score","panel_id":"environmental_score","status":"known","title":"Green-Score B"},{"description":"","description_short":"Almost no risk of deforestation","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg","id":"forest_footprint","match":99.9118518518518,"name":"Forest footprint","status":"known","title":"Very small forest footprint"}],"id":"environment","name":"Environment"},{"attributes":[{"description":"Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.","description_short":"Organic products promote ecological sustainability and biodiversity.","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/not-organic.svg","id":"labels_organic","match":0,"name":"Organic farming","status":"known","title":"Not an organic product"},{"description":"When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.","description_short":"Helps producers in developing countries.","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/fair-trade.svg","id":"labels_fair_trade","match":100,"name":"Fair trade","status":"known","title":"Fair trade product"}],"id":"labels","name":"Labels"}]};
+var product = {"attribute_groups":[{"attributes":[{"description":"","description_short":"Lower nutritional quality","grade":"d","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg","id":"nutriscore","match":27.3333333333333,"name":"Nutri-Score","panel_id":"nutriscore_2023","status":"known","title":"Nutri-Score D"},{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-high.svg","id":"low_salt","match":0,"name":"Salt","panel_id":"nutrient_level_salt","status":"known","title":"Salt in moderate quantity"},{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-high.svg","id":"low_fat","match":0,"name":"Fat","panel_id":"nutrient_level_fat","status":"known","title":"Fat in moderate quantity"},{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg","id":"low_sugars","match":0,"name":"Sugars","panel_id":"nutrient_level_sugars","status":"known","title":"Sugars in high quantity"},{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-high.svg","id":"low_saturated_fat","match":0,"name":"Saturated fat","panel_id":"nutrient_level_saturated_fat","status":"known","title":"Saturated fat in moderate quantity"}],"id":"nutritional_quality","name":"Nutritional quality"},{"attributes":[{"debug":"en:gluten in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-gluten.svg","id":"allergens_no_gluten","match":0,"name":"Gluten","status":"known","title":"Contains: Gluten"},{"debug":"en:milk in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-milk.svg","id":"allergens_no_milk","match":0,"name":"Milk","status":"known","title":"Contains: Milk"},{"debug":"en:eggs in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-eggs.svg","id":"allergens_no_eggs","match":0,"name":"Eggs","status":"known","title":"Contains: Eggs"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg","id":"allergens_no_nuts","match":100,"name":"Nuts","status":"known","title":"Does not contain: Nuts"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg","id":"allergens_no_peanuts","match":100,"name":"Peanuts","status":"known","title":"Does not contain: Peanuts"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg","id":"allergens_no_sesame_seeds","match":100,"name":"Sesame seeds","status":"known","title":"Does not contain: Sesame seeds"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg","id":"allergens_no_soybeans","match":100,"name":"Soybeans","status":"known","title":"Does not contain: Soybeans"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg","id":"allergens_no_celery","match":100,"name":"Celery","status":"known","title":"Does not contain: Celery"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg","id":"allergens_no_mustard","match":100,"name":"Mustard","status":"known","title":"Does not contain: Mustard"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg","id":"allergens_no_lupin","match":100,"name":"Lupin","status":"known","title":"Does not contain: Lupin"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg","id":"allergens_no_fish","match":100,"name":"Fish","status":"known","title":"Does not contain: Fish"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg","id":"allergens_no_crustaceans","match":100,"name":"Crustaceans","status":"known","title":"Does not contain: Crustaceans"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg","id":"allergens_no_molluscs","match":100,"name":"Molluscs","status":"known","title":"Does not contain: Molluscs"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg","id":"allergens_no_sulphur_dioxide_and_sulphites","match":100,"name":"Sulphur dioxide and sulphites","status":"known","title":"Does not contain: Sulphur dioxide and sulphites"}],"id":"allergens","name":"Allergens","warning":"There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."},{"attributes":[{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/non-vegan.svg","id":"vegan","match":0,"name":"Vegan","panel_id":"ingredients_analysis_en:non-vegan","status":"known","title":"Non-vegan"},{"grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegetarian.svg","id":"vegetarian","match":100,"name":"Vegetarian","panel_id":"ingredients_analysis_en:vegetarian","status":"known","title":"Vegetarian"},{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-palm-oil.svg","id":"palm_oil_free","match":0,"name":"Palm oil free","panel_id":"ingredients_analysis_en:palm-oil","status":"known","title":"Palm oil"}],"id":"ingredients_analysis","name":"Ingredients","warning":"Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."},{"attributes":[{"grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg","id":"nova","match":75,"name":"NOVA group","panel_id":"nova","status":"known","title":"Processed foods"},{"grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/2-additives.svg","id":"additives","match":60,"name":"Additives","panel_id":"additives","status":"known","title":"2 additives"}],"id":"processing","name":"Food processing"},{"attributes":[{"description":"","description_short":"Low environmental impact","grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg","id":"ecoscore","match":60,"name":"Green-Score","panel_id":"environmental_score","status":"known","title":"Green-Score B"},{"description":"","description_short":"Almost no risk of deforestation","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg","id":"forest_footprint","match":99.9118518518518,"name":"Forest footprint","status":"known","title":"Very small forest footprint"}],"id":"environment","name":"Environment"},{"attributes":[{"description":"Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.","description_short":"Organic products promote ecological sustainability and biodiversity.","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/not-organic.svg","id":"labels_organic","match":0,"name":"Organic farming","status":"known","title":"Not an organic product"},{"description":"When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.","description_short":"Helps producers in developing countries.","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/fair-trade.svg","id":"labels_fair_trade","match":100,"name":"Fair trade","status":"known","title":"Fair trade product"}],"id":"labels","name":"Labels"}]};
 var product_type = "food";
 </script>
 
