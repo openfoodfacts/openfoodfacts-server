@@ -1093,7 +1093,7 @@ async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copy
     msgDiv.innerHTML = '<img src="/images/misc/loading2.gif" /> ' + escapeHtml(loadingMsg);
     msgDiv.style.display = 'block';
 
-    const formData = new URLSearchParams(new FormData(document.getElementById('product_form')));
+    const formData = new FormData(document.getElementById('product_form'));
     formData.append('code', code);
     formData.append('move_to_override', moveTo);
     if (copyData !== null) {
@@ -1105,10 +1105,7 @@ async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copy
     try {
         const response = await fetch("/cgi/product_image_move.pl", {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: formData.toString()
+            body: formData
         });
 
         if (!response.ok) {
