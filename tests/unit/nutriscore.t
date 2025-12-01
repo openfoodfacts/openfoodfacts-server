@@ -2370,13 +2370,6 @@ foreach my $test_ref (@tests) {
 	# Detect possible improvements
 	detect_possible_improvements_nutriscore($product_ref, 2023);
 
-	print STDERR "proteins 3: " . $product_ref->{nutrition}{aggregated_set}{nutrients}{proteins}{value} . "\n"
-		if defined $product_ref->{nutrition}
-		and defined $product_ref->{nutrition}{aggregated_set}
-		and defined $product_ref->{nutrition}{aggregated_set}{nutrients}
-		and defined $product_ref->{nutrition}{aggregated_set}{nutrients}{proteins}
-		and defined $product_ref->{nutrition}{aggregated_set}{nutrients}{proteins}{value};
-
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",
 		$update_expected_results, {id => $testid});
 }
