@@ -95,7 +95,7 @@ my @products = (
 			origin => "UK",
 			countries => "United Kingdom, Ireland",
 			categories => "breakfast cereals",
-			nutriment_sugar_value => "15.1",
+			nutriment_sugars => "15.1",
 			nutriment_sugar_unit => "g",
 		)
 	}
@@ -165,9 +165,9 @@ my $tests_ref = [
 	# Search on nutrients
 	{
 		test_case => 'search-nutrient-sugar-greater-than-15g',
-			method => 'GET',
-			path => '/cgi/search.pl?action=process&json=1&sugars_100g=>15',
-			expected_status_code => 200,
+		method => 'GET',
+		path => '/cgi/search.pl?action=process&json=1&sugars_100g=>15',
+		expected_status_code => 200,
 	},
 
 ];

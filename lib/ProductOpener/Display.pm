@@ -4946,7 +4946,8 @@ sub add_params_to_query ($params_ref, $query_ref) {
 			# e.g. sugars_100g=>10,<=20
 
 			my $nutrient = $1;
-			$nutrient =~ s/_prepared$//;	# Matching against aggregated set, which will be prepared or as sold depending on category
+			$nutrient =~ s/_prepared$//
+				;    # Matching against aggregated set, which will be prepared or as sold depending on category
 
 			my $conditions = $params_ref->{$field};
 
@@ -4988,7 +4989,8 @@ sub add_params_to_query ($params_ref, $query_ref) {
 					if (not defined $query_ref->{$field}) {
 						$query_ref->{"nutrition.aggregated_set.nutrients.$nutrient.value"} = {};
 					}
-					$query_ref->{"nutrition.aggregated_set.nutrients.$nutrient.value"}{'$' . $mongo_operators{$operator}} = $value + 0.0;
+					$query_ref->{"nutrition.aggregated_set.nutrients.$nutrient.value"}
+						{'$' . $mongo_operators{$operator}} = $value + 0.0;
 				}
 			}
 		}
