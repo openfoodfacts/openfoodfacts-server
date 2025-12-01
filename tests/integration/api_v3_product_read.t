@@ -292,7 +292,13 @@ my $tests_ref = [
 		query_string => '?fields=knowledge_panels&activate_knowledge_panels_simplified=true',
 		expected_status_code => 200,
 	},
-
+	# v3.5 new nutrition schema
+	{
+		test_case => 'get-existing-product-api-v3-5',
+		method => 'GET',
+		path => '/api/v3.5/product/4260392550101',
+		expected_status_code => 200,
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
