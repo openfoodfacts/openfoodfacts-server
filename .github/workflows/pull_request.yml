@@ -734,7 +734,7 @@ jobs:
       run: ./.github/scripts/setup_git.sh
   
     - name: TEMPORARY SET mongo8 in dependencies
-      run:
+      run: |
         make clone_deps
         cd deps/openfoodfacts-shared-services/
         git checkout origin mongo-8
