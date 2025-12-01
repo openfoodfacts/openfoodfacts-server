@@ -15,11 +15,9 @@ use ProductOpener::Cache qw/$memd/;
 # We need to flush memcached so that cached queries from other tests (e.g. web_html.t) don't interfere with this test
 $memd->flush_all;
 
-wait_application_ready();
-
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
+remove_all_users();
 
 my $ua = new_client();
 

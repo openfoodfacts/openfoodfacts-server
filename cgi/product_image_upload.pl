@@ -27,7 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Lang qw/$lc lang/;
@@ -70,8 +70,8 @@ my $request_ref = ProductOpener::Display::init_request();
 $log->debug(
 	"parsing code",
 	{
-		subdomain => $subdomain,
-		original_subdomain => $original_subdomain,
+		subdomain => $request_ref->{subdomain},
+		original_subdomain => $request_ref->{original_subdomain},
 		user => $User_id,
 		code => $code,
 		previous_code => $previous_code,
@@ -206,13 +206,22 @@ if ($imagefield) {
 
 	if (not $product_ref) {
 		$log->info("product code does not exist yet, creating product", {code => $code});
-		$product_ref = init_product($User_id, $Org_id, $code, $country);
+		$product_ref = init_product($User_id, $Org_id, $code, $request_ref->{country});
 		$product_ref->{interface_version_created} = $interface_version;
 		$product_ref->{lc} = $lc;
 		store_product($User_id, $product_ref, "Creating product (image upload)");
 	}
 	else {
 		$log->info("product code already exists", {code => $code});
+	}
+
+	my $proceed_with_edit = process_product_edit_rules($product_ref);
+	$log->debug("edit rules processed", {proceed_with_edit => $proceed_with_edit}) if $log->is_debug();
+	if (not $proceed_with_edit) {
+		my $data = encode_json({status => 'status not ok - edit against edit rules'});
+		$log->debug("JSON data output", {data => $data}) if $log->is_debug();
+		print header(-type => 'application/json', -charset => 'utf-8') . $data;
+		exit;
 	}
 
 	my $product_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));
@@ -287,7 +296,7 @@ if ($imagefield) {
 		}
 	}
 	else {
-		# Image uploaded successfully
+		# Image uploaded successfully
 
 		my $image_data_ref = {
 			imgid => $imgid,

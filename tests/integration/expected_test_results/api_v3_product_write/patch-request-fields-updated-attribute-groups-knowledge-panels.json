@@ -239,7 +239,8 @@
                }
             ],
             "id" : "ingredients_analysis",
-            "name" : "Ingredients"
+            "name" : "Ingredients",
+            "warning" : "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
          },
          {
             "attributes" : [
@@ -339,9 +340,9 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
+                     "panel_group_id" : "packaging",
                      "panel_ids" : [
-                        "packaging_recycling"
+                        "packaging"
                      ],
                      "title" : "Packaging"
                   }
@@ -689,13 +690,6 @@
                            "style" : "max-width:15rem",
                            "text" : "Nutrition facts",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : true,
-                           "text" : "As sold<br>for 100 g / 100 ml",
-                           "text_for_small_screens" : "100g",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -706,9 +700,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fat"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -718,9 +709,6 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Saturated fat"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -730,9 +718,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Carbohydrates"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -742,9 +727,6 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Sugars"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -754,9 +736,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fiber"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -766,9 +745,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Proteins"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -778,9 +754,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Salt"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         }
@@ -823,12 +796,40 @@
             ],
             "evaluation" : "unknown",
             "expanded" : false,
+            "half_width_on_mobile" : true,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "subtitle" : "Missing origins of ingredients information",
                "title" : "Origins of ingredients"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "title" : "Packaging with a medium impact"
             },
             "topics" : [
                "environment"
@@ -900,33 +901,6 @@
             "level" : "info",
             "title_element" : {
                "title" : "Packaging materials"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "packaging_recycling" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_components"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_materials"
-                  }
-               }
-            ],
-            "evaluation" : "average",
-            "expanded" : true,
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "title" : "Packaging with a medium impact"
             },
             "topics" : [
                "environment"

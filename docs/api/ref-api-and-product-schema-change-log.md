@@ -32,11 +32,22 @@ Note: API v3 is under active development, and the API and corresponding product 
 
 ## Schema version and API version change log
 
-### 2025-06-23 - Product version 1003 - API version 3.4 - New product nutrition facts structure
+### 2025-126-01 - Product version 1003 - API version 3.5 - New product nutrition facts structure
 
 Breaking changes:
 - The nutrition facts structure has been changed to have a structure it lacked and better align with the current uses and needs of the database (see [2025 - API - Nutrition Facts Schema and API](https://docs.google.com/document/d/19ZRrlWJraJm61E6U7AwxQ1uubPDvmSuNfl9F1oLC0Tg) for new structure and discussions)
 - **This product version is still currently under active development**
+
+### 2025-06-11 - Product version 1002 (no change) - API version 3.4 - New attributes with parameters
+
+Breaking changes:
+- product attributes can now have parameters, such as a list of tags (used for the new Unwanted ingredients attribute)
+
+To avoid displaying product attributes with parameters that apps cannot handle yet, the /api/v[0-2]/attributes_groups API
+does not return attributes with parameters.
+
+This does not affect the product READ API, if the attribute parameters are sent, then the value of the attribute will be returned
+by the product READ API (e.g. /api/v2/product) even if the version is less than 3.4.
 
 ### 2025-06-11 - Product version 1002 - API version 3.3 - New uploaded and selected images structure, new API for image upload and selection
 

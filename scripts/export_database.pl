@@ -35,7 +35,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/search_and_export_products/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -57,6 +57,7 @@ use Storable qw/dclone/;
 use Encode;
 #use DateTime qw/:all/;
 use POSIX qw(strftime);
+use Data::DeepAccess qw(deep_get);
 
 init_emb_codes();
 
@@ -129,7 +130,7 @@ foreach my $field (@export_fields) {
 }
 
 $fields_ref->{empty} = 1;
-$fields_ref->{nutriments} = 1;
+$fields_ref->{nutrition} = 1;
 $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
 $fields_ref->{lc} = 1;
@@ -292,6 +293,11 @@ XML
 
 		while (my $product_ref = $cursor->next) {
 
+			# Note: we do not upgrade the schema of the products, they are read directly from MongoDB.
+			# This means that some old products may not have all the fields we expect (e.g. for the migration to the new nutrition schema)
+			# One possibility could be to upgrade products read from MongoDB (but it could add a lot of overhead if we do it on all products)
+			# For those types of changes, we can also suspend the export for a few days, and instead run upgrade_all_products.pl once.
+
 			# Skip empty products and products without code
 			# We filter them here instead of in the query
 			next if not $product_ref->{code};
@@ -437,8 +443,10 @@ XML
 
 			foreach my $nid (@nutrients_to_export) {
 
-				if (defined $product_ref->{nutriments}{$nid . "_100g"}) {
-					my $value = $product_ref->{nutriments}{$nid . "_100g"};
+				# New nutrition schema: we export values from the aggregated set, which is in per 100g or per 100ml
+				my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+				if (defined $value) {
 					if ($value =~ /e/) {
 						# 7e-05 1.71e-06
 						$value = sprintf("%.10f", $value);

@@ -8,10 +8,15 @@ use Data::Dumper;
 $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
+use ProductOpener::APIAttributeGroups qw/display_preferences_api display_attribute_groups_api/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Web qw/display_field/;
 use ProductOpener::Lang qw/$lc lang separator_before_colon/;
 use ProductOpener::HTTP qw/request_param/;
+use ProductOpener::Tags qw/build_tags_taxonomy build_all_taxonomies/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # date tests
 my $t = 1472292529;
@@ -74,70 +79,6 @@ is($request_ref->{structured_response}[3]{id}, 'mandatory');
 is($request_ref->{structured_response}[3]{factor}, 4);
 is($request_ref->{structured_response}[3]{minimum_match}, 20);
 
-my $product_nutriscore_data_ref = {
-	nutriscore => {
-		"2021" => {
-			'score' => 6,
-			'grade' => 'c',
-			data => {
-				'negative_points' => 8,
-				'proteins_points' => 2,
-				'proteins' => '3.9',
-				'sodium_points' => 1,
-				'sugars_value' => 15,
-				'positive_points' => 2,
-				'is_water' => 0,
-				'fruits_vegetables_nuts_colza_walnut_olive_oils_points' => 0,
-				'fruits_vegetables_nuts_colza_walnut_olive_oils' => 0,
-				'energy_points' => 1,
-				'fruits_vegetables_nuts_colza_walnut_olive_oils_value' => 0,
-				'fiber_value' => 0,
-				'sugars' => 15,
-				'is_fat' => 0,
-				'proteins_value' => '3.9',
-				'is_beverage' => 0,
-				'sodium' => 160,
-				'saturated_fat_ratio' => 70,
-				'energy' => 573,
-				'fiber' => 0,
-				'saturated_fat' => '3.5',
-				'saturated_fat_ratio_value' => 70,
-				'saturated_fat_value' => '3.5',
-				'sugars_points' => 3,
-				'sodium_value' => 160,
-				'fiber_points' => 0,
-				'is_cheese' => 0,
-				'energy_value' => 573,
-				'saturated_fat_ratio_points' => 10,
-				'saturated_fat_points' => 3
-			}
-		}
-	}
-};
-
-my $nutriscore_calculation_detail = display_nutriscore_calculation_details_2021($product_nutriscore_data_ref);
-like($nutriscore_calculation_detail, qr/Nutritional score: 6/);
-like($nutriscore_calculation_detail, qr/Proteins:\n2&nbsp;<\/strong>\/&nbsp;5/);
-like($nutriscore_calculation_detail, qr/Positive points: 2/);
-like($nutriscore_calculation_detail, qr/Negative points: 8/);
-like($nutriscore_calculation_detail, qr/<strong>Nutri-Score: C<\/strong>/);
-
-$lc = 'en';
-my $product_ref = {
-	states => ['en:front-photo-selected'],
-	states_hierarchy => ['en:front-photo-selected']
-};
-my $expected = lang('done_status') . separator_before_colon($lc) . q{:};
-like(display_field($product_ref, 'states'), qr/$expected/);
-
-$lc = 'en';
-$product_ref = {
-	states => ['en:front-photo-to-be-selected'],
-	states_hierarchy => ['en:front-photo-to-be-selected']
-};
-$expected = lang('to_do_status') . separator_before_colon($lc) . q{:};
-like(display_field($product_ref, 'states'), qr/$expected/);
-
 # should not loose the second facet at the end of the url on redirection
 my $facets_ref = {
 	tags => [
@@ -195,5 +136,201 @@ is($facets_ref->{'redirect'}, '/facets/categories/breads/data-quality');
 $request_ref->{body_json}{labels_tags} = 'en:organic';
 is(request_param($request_ref, 'unexisting_field'), undef);
 is(request_param($request_ref, 'labels_tags'), 'en:organic') or diag Dumper request_param($request_ref, 'labels_tags');
+
+# tests of the display of products with the new nutrition schema (version 1003)
+my @tests = (
+	[
+		"nutrition-facts-table",
+		{
+			nutrition_data => "on",
+			serving_size => "100g",
+			serving_quantity => 100,
+			nutrition_data_per => "100g",
+			product_type => "food",
+			code => "0000109165808",
+			id => "0000109165808",
+			categories => "",
+			categories_tags => [],
+			nutrition => {
+				aggregated_set => {
+					nutrients => {
+						caffeine => {
+							unit => "g",
+							value => 2
+						},
+						calcium => {
+							unit => "g",
+							value => 0.3
+						},
+						carbohydrates => {
+							unit => "g",
+							value => 0
+						},
+						energy => {
+							unit => "kJ",
+							value => 0
+						},
+						"energy-kcal" => {
+							unit => "kcal",
+							value => 0
+						},
+						fat => {
+							unit => "g",
+							value => 0
+						},
+						proteins => {
+							unit => "g",
+							value => 0
+						},
+						salt => {
+							unit => "g",
+							value => 3.75
+						},
+						sodium => {
+							unit => "g",
+							value => 1.5
+						}
+					},
+					preparation => "as_sold"
+				}
+			}
+		}
+	],
+	[
+		"nutrition-facts-table-liquid",
+		{
+			nutrition_data => "on",
+			serving_size => "100ml",
+			serving_quantity => 100,
+			nutrition_data_per => "100ml",
+			product_type => "food",
+			code => "0000109165808",
+			id => "0000109165808",
+			categories => "",
+			categories_tags => [],
+			nutrition => {
+				aggregated_set => {
+					nutrients => {
+						caffeine => {
+							unit => "g",
+							value => 2
+						},
+						calcium => {
+							unit => "g",
+							value => 0.3
+						},
+						carbohydrates => {
+							unit => "g",
+							value => 0
+						},
+						energy => {
+							unit => "kJ",
+							value => 0
+						},
+						"energy-kcal" => {
+							unit => "kcal",
+							value => 0
+						},
+						fat => {
+							unit => "g",
+							value => 0
+						},
+						proteins => {
+							unit => "g",
+							value => 0
+						},
+						salt => {
+							unit => "g",
+							value => 3.75
+						},
+						sodium => {
+							unit => "g",
+							value => 1.5
+						}
+					},
+					preparation => "as_sold"
+				}
+			}
+		}
+	],
+	[
+		"nutrition-facts-table-no-nutrition-data",
+		{
+			nutrition_data => "on",
+			serving_size => "100g",
+			serving_quantity => 100,
+			nutrition_data_per => "100g",
+			product_type => "food",
+			code => "0000109165808",
+			id => "0000109165808",
+			categories => "",
+			categories_tags => [],
+			nutrition => {
+				aggregated_set => {
+					nutrients => {},
+					preparation => "as_sold"
+				}
+			}
+		}
+	],
+	[
+		"nutrition-facts-table-pet-food",
+		{
+			nutrition_data => "on",
+			serving_size => "100g",
+			serving_quantity => 100,
+			nutrition_data_per => "100g",
+			product_type => "petfood",
+			code => "0000109165808",
+			id => "0000109165808",
+			categories => "",
+			categories_tags => [],
+			nutrition => {
+				aggregated_set => {
+					nutrients => {
+						carbohydrates => {
+							unit => "g",
+							value => 0
+						},
+						energy => {
+							unit => "kJ",
+							value => 0
+						},
+						"energy-kcal" => {
+							unit => "kcal",
+							value => 0
+						},
+						fat => {
+							unit => "g",
+							value => 2
+						},
+						fiber => {
+							unit => "g",
+							value => 0.25
+						}
+					},
+					preparation => "as_sold"
+				}
+			}
+		}
+	]
+);
+
+# load the necessary taxonomy for the tests
+build_all_taxonomies(0);
+$ProductOpener::Display::nutriment_table = 'off_europe';
+
+foreach my $test_ref (@tests) {
+	my $testid = $test_ref->[0];
+	my $product_test_ref = $test_ref->[1];
+	my $comparisons_ref = $test_ref->[2];
+	my $request_ref = $test_ref->[3];
+
+	my $nutrition_facts_panel = data_to_display_nutrition_table($product_test_ref, $comparisons_ref, $request_ref);
+
+	compare_to_expected_results($nutrition_facts_panel, "$expected_result_dir/$testid.json",
+		$update_expected_results, {id => $testid});
+
+}
 
 done_testing();

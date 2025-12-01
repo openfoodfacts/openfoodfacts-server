@@ -52,44 +52,40 @@
                   "title" : "Nutri-Score C"
                },
                {
-                  "description_short" : "0.0502 g / 100 g",
-                  "grade" : "a",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-high.svg",
                   "id" : "low_salt",
-                  "match" : 96.6533333333333,
+                  "match" : 0,
                   "name" : "Salt",
                   "panel_id" : "nutrient_level_salt",
                   "status" : "known",
                   "title" : "Salt in low quantity"
                },
                {
-                  "description_short" : "8.5 g / 100 g",
-                  "grade" : "b",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-high.svg",
                   "id" : "low_fat",
-                  "match" : 60.5882352941176,
+                  "match" : 0,
                   "name" : "Fat",
                   "panel_id" : "nutrient_level_fat",
                   "status" : "known",
                   "title" : "Fat in moderate quantity"
                },
                {
-                  "description_short" : "12.5 g / 100 g",
                   "grade" : "e",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id" : "low_sugars",
-                  "match" : 20,
+                  "match" : 0,
                   "name" : "Sugars",
                   "panel_id" : "nutrient_level_sugars",
                   "status" : "known",
                   "title" : "Sugars in moderate quantity"
                },
                {
-                  "description_short" : "5.6 g / 100 g",
                   "grade" : "e",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-high.svg",
                   "id" : "low_saturated_fat",
-                  "match" : 17.6,
+                  "match" : 0,
                   "name" : "Saturated fat",
                   "panel_id" : "nutrient_level_saturated_fat",
                   "status" : "known",
@@ -280,7 +276,8 @@
                }
             ],
             "id" : "ingredients_analysis",
-            "name" : "Ingredients"
+            "name" : "Ingredients",
+            "warning" : "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
          },
          {
             "attributes" : [
@@ -383,44 +380,40 @@
                   "title" : "Nutri-Score C"
                },
                {
-                  "description_short" : "0.0502 g / 100 g",
-                  "grade" : "a",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-high.svg",
                   "id" : "low_salt",
-                  "match" : 96.6533333333333,
+                  "match" : 0,
                   "name" : "Salt",
                   "panel_id" : "nutrient_level_salt",
                   "status" : "known",
                   "title" : "Salt in low quantity"
                },
                {
-                  "description_short" : "8.5 g / 100 g",
-                  "grade" : "b",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-high.svg",
                   "id" : "low_fat",
-                  "match" : 60.5882352941176,
+                  "match" : 0,
                   "name" : "Fat",
                   "panel_id" : "nutrient_level_fat",
                   "status" : "known",
                   "title" : "Fat in moderate quantity"
                },
                {
-                  "description_short" : "12.5 g / 100 g",
                   "grade" : "e",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id" : "low_sugars",
-                  "match" : 20,
+                  "match" : 0,
                   "name" : "Sugars",
                   "panel_id" : "nutrient_level_sugars",
                   "status" : "known",
                   "title" : "Sugars in moderate quantity"
                },
                {
-                  "description_short" : "5.6 g / 100 g",
                   "grade" : "e",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-high.svg",
                   "id" : "low_saturated_fat",
-                  "match" : 17.6,
+                  "match" : 0,
                   "name" : "Saturated fat",
                   "panel_id" : "nutrient_level_saturated_fat",
                   "status" : "known",
@@ -611,7 +604,8 @@
                }
             ],
             "id" : "ingredients_analysis",
-            "name" : "Ingredients"
+            "name" : "Ingredients",
+            "warning" : "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
          },
          {
             "attributes" : [
@@ -743,15 +737,40 @@
          "0xxxxxxxxxxxx"
       ],
       "complete" : 0,
-      "completeness" : 0.5,
+      "completeness" : 0.4,
       "correctors_tags" : [],
       "created_t" : "--ignore--",
       "creator" : "tests",
       "data_quality_bugs_tags" : [],
-      "data_quality_errors_tags" : [
-         "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
-         "en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
+      "data_quality_completeness_tags" : [
+         "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+         "en:ingredients-en-photo-to-be-selected",
+         "en:ingredients-en-completed",
+         "en:ingredients-completed-at-least-for-one-language",
+         "en:nutrition-photo-to-be-selected",
+         "en:categories-completed",
+         "en:nutriments-to-be-completed",
+         "en:packaging-photo-to-be-selected",
+         "en:packagings-completed",
+         "en:front-photo-to-be-selected",
+         "en:product-name-completed",
+         "en:quantity-completed",
+         "en:brands-to-be-completed",
+         "en:expiration-date-to-be-completed"
       ],
+      "data_quality_dimensions" : {
+         "accuracy" : {
+            "overall" : "0.00"
+         },
+         "completeness" : {
+            "general_information" : "0.40",
+            "ingredients" : "0.50",
+            "nutrition" : "0.33",
+            "overall" : "0.42",
+            "packaging" : "0.50"
+         }
+      },
+      "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
@@ -760,19 +779,29 @@
          "en:food-groups-3-unknown"
       ],
       "data_quality_tags" : [
+         "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+         "en:ingredients-en-photo-to-be-selected",
+         "en:ingredients-en-completed",
+         "en:ingredients-completed-at-least-for-one-language",
+         "en:nutrition-photo-to-be-selected",
+         "en:categories-completed",
+         "en:nutriments-to-be-completed",
+         "en:packaging-photo-to-be-selected",
+         "en:packagings-completed",
+         "en:front-photo-to-be-selected",
+         "en:product-name-completed",
+         "en:quantity-completed",
+         "en:brands-to-be-completed",
+         "en:expiration-date-to-be-completed",
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
-         "en:energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:environmental-score-production-system-no-label",
-         "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
-         "en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
+         "en:environmental-score-production-system-no-label"
       ],
       "data_quality_warnings_tags" : [
-         "en:energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-production-system-no-label"
       ],
@@ -783,7 +812,7 @@
                   {
                      "epi_score" : 0,
                      "origin" : "en:unknown",
-                     "percent" : 100,
+                     "percent" : 100.0,
                      "transportation_score" : 0
                   }
                ],
@@ -1255,6 +1284,7 @@
       "generic_name" : "Tester",
       "generic_name_en" : "Tester",
       "id" : "0200000000034",
+      "images" : {},
       "informers_tags" : [
          "tests"
       ],
@@ -1426,7 +1456,7 @@
       "ingredients_with_specified_percent_n" : 0,
       "ingredients_with_specified_percent_sum" : 0,
       "ingredients_with_unspecified_percent_n" : 6,
-      "ingredients_with_unspecified_percent_sum" : 100,
+      "ingredients_with_unspecified_percent_sum" : 100.0,
       "ingredients_without_ciqual_codes" : [
          "en:colour",
          "en:e100",
@@ -1667,9 +1697,9 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
+                     "panel_group_id" : "packaging",
                      "panel_ids" : [
-                        "packaging_recycling"
+                        "packaging"
                      ],
                      "title" : "Packaging"
                   }
@@ -1687,7 +1717,7 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "palm_oil"
+                        "threatened_species"
                      ],
                      "title" : "Threatened species"
                   }
@@ -1769,6 +1799,26 @@
                "title" : "Green-Score C",
                "type" : "grade"
             },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "environmental_score_adjustments" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "environmental_score_origins_of_ingredients",
+                        "environmental_score_packaging",
+                        "environmental_score_production_system",
+                        "environmental_score_threatened_species"
+                     ]
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
             "topics" : [
                "environment"
             ]
@@ -3054,13 +3104,6 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "As sold<br>per serving (10 g)",
-                           "text_for_small_screens" : "per serving",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -3074,9 +3117,6 @@
                               },
                               {
                                  "text" : "400 kj<br>(96 kcal)"
-                              },
-                              {
-                                 "text" : "40 kj<br>(10 kcal)"
                               }
                            ]
                         },
@@ -3089,9 +3129,6 @@
                               },
                               {
                                  "text" : "8.5 g"
-                              },
-                              {
-                                 "text" : "0.85 g"
                               }
                            ]
                         },
@@ -3104,9 +3141,6 @@
                               },
                               {
                                  "text" : "5.6 g"
-                              },
-                              {
-                                 "text" : "0.56 g"
                               }
                            ]
                         },
@@ -3119,9 +3153,6 @@
                               },
                               {
                                  "text" : "10.5 g"
-                              },
-                              {
-                                 "text" : "1.05 g"
                               }
                            ]
                         },
@@ -3134,9 +3165,18 @@
                               },
                               {
                                  "text" : "12.5 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 2,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Added sugars"
                               },
                               {
-                                 "text" : "1.25 g"
+                                 "text" : "~ 0 g"
                               }
                            ]
                         },
@@ -3149,9 +3189,6 @@
                               },
                               {
                                  "text" : "2 g"
-                              },
-                              {
-                                 "text" : "0.2 g"
                               }
                            ]
                         },
@@ -3164,9 +3201,6 @@
                               },
                               {
                                  "text" : "4.5 g"
-                              },
-                              {
-                                 "text" : "0.45 g"
                               }
                            ]
                         },
@@ -3179,9 +3213,6 @@
                               },
                               {
                                  "text" : "0.05 g"
-                              },
-                              {
-                                 "text" : "0.005 g"
                               }
                            ]
                         },
@@ -3190,13 +3221,10 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils"
                               },
                               {
-                                 "text" : "58.333 %"
-                              },
-                              {
-                                 "text" : "58.333 %"
+                                 "text" : "~ 58.333 %"
                               }
                            ]
                         }
@@ -3239,12 +3267,40 @@
             ],
             "evaluation" : "unknown",
             "expanded" : false,
+            "half_width_on_mobile" : true,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "subtitle" : "Missing origins of ingredients information",
                "title" : "Origins of ingredients"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "title" : "Packaging with a medium impact"
             },
             "topics" : [
                "environment"
@@ -3399,55 +3455,6 @@
                "environment"
             ]
          },
-         "packaging_recycling" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_components"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_materials"
-                  }
-               }
-            ],
-            "evaluation" : "average",
-            "expanded" : true,
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "title" : "Packaging with a medium impact"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "palm_oil" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> \n                    ",
-                     "type" : "summary"
-                  }
-               }
-            ],
-            "evaluation" : "bad",
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
-               "subtitle" : "Drives deforestation and threatens species such as the orangutan",
-               "title" : "Contains palm oil"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
          "product_card" : {
             "elements" : [
                {
@@ -3574,6 +3581,29 @@
                "health"
             ],
             "type" : "inline"
+         },
+         "threatened_species" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                        <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> \n                        ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
+               "subtitle" : "Drives deforestation and threatens species such as the orangutan",
+               "title" : "Contains palm oil"
+            },
+            "topics" : [
+               "environment"
+            ]
          }
       },
       "known_ingredients_n" : 8,
@@ -3675,66 +3705,255 @@
          "en:salt-in-low-quantity"
       ],
       "nutriments" : {
-         "carbohydrates" : 10.5,
+         "acidity_100g" : null,
+         "acidity_unit" : null,
+         "added-salt_100g" : null,
+         "added-salt_unit" : null,
+         "added-sugars_100g" : 0,
+         "added-sugars_modifier" : "~",
+         "added-sugars_unit" : "g",
+         "alcohol_100g" : null,
+         "alcohol_unit" : null,
+         "alpha-linolenic-acid_100g" : null,
+         "alpha-linolenic-acid_unit" : null,
+         "arachidic-acid_100g" : null,
+         "arachidic-acid_unit" : null,
+         "arachidonic-acid_100g" : null,
+         "arachidonic-acid_unit" : null,
+         "behenic-acid_100g" : null,
+         "behenic-acid_unit" : null,
+         "beta-carotene_100g" : null,
+         "beta-carotene_unit" : null,
+         "beta-glucan_100g" : null,
+         "beta-glucan_unit" : null,
+         "bicarbonate_100g" : null,
+         "bicarbonate_unit" : null,
+         "biotin_100g" : null,
+         "biotin_unit" : null,
+         "butyric-acid_100g" : null,
+         "butyric-acid_unit" : null,
+         "caffeine_100g" : null,
+         "caffeine_unit" : null,
+         "calcium_100g" : null,
+         "calcium_unit" : null,
+         "capric-acid_100g" : null,
+         "capric-acid_unit" : null,
+         "caproic-acid_100g" : null,
+         "caproic-acid_unit" : null,
+         "caprylic-acid_100g" : null,
+         "caprylic-acid_unit" : null,
+         "carbohydrates-total_100g" : null,
+         "carbohydrates-total_unit" : null,
          "carbohydrates_100g" : 10.5,
-         "carbohydrates_serving" : 1.05,
          "carbohydrates_unit" : "g",
-         "carbohydrates_value" : 10.5,
-         "energy" : 400,
-         "energy-kj" : 400,
+         "carbon-footprint_100g" : null,
+         "carbon-footprint_unit" : null,
+         "carnitine_100g" : null,
+         "carnitine_unit" : null,
+         "casein_100g" : null,
+         "casein_unit" : null,
+         "cerotic-acid_100g" : null,
+         "cerotic-acid_unit" : null,
+         "chloride_100g" : null,
+         "chloride_unit" : null,
+         "chlorophyl_100g" : null,
+         "chlorophyl_unit" : null,
+         "cholesterol_100g" : null,
+         "cholesterol_unit" : null,
+         "choline_100g" : null,
+         "choline_unit" : null,
+         "chromium_100g" : null,
+         "chromium_unit" : null,
+         "cocoa_100g" : null,
+         "cocoa_unit" : null,
+         "collagen-meat-protein-ratio_100g" : null,
+         "collagen-meat-protein-ratio_unit" : null,
+         "copper_100g" : null,
+         "copper_unit" : null,
+         "dihomo-gamma-linolenic-acid_100g" : null,
+         "dihomo-gamma-linolenic-acid_unit" : null,
+         "docosahexaenoic-acid_100g" : null,
+         "docosahexaenoic-acid_unit" : null,
+         "eicosapentaenoic-acid_100g" : null,
+         "eicosapentaenoic-acid_unit" : null,
+         "elaidic-acid_100g" : null,
+         "elaidic-acid_unit" : null,
+         "energy-from-fat_100g" : null,
+         "energy-from-fat_unit" : null,
+         "energy-kcal_100g" : null,
+         "energy-kcal_unit" : null,
          "energy-kj_100g" : 400,
-         "energy-kj_serving" : 40,
          "energy-kj_unit" : "kJ",
-         "energy-kj_value" : 400,
-         "energy-kj_value_computed" : 585.5,
          "energy_100g" : 400,
-         "energy_serving" : 40,
          "energy_unit" : "kJ",
-         "energy_value" : 400,
-         "fat" : 8.5,
+         "erucic-acid_100g" : null,
+         "erucic-acid_unit" : null,
+         "erythritol_100g" : null,
+         "erythritol_unit" : null,
          "fat_100g" : 8.5,
-         "fat_serving" : 0.85,
          "fat_unit" : "g",
-         "fat_value" : 8.5,
-         "fiber" : 2,
          "fiber_100g" : 2,
-         "fiber_serving" : 0.2,
          "fiber_unit" : "g",
-         "fiber_value" : 2,
-         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 58.3333333333333,
-         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 58.3333333333333,
-         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 58.3333333333333,
-         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 58.3333333333333,
-         "nova-group" : 4,
-         "nova-group_100g" : 4,
-         "nova-group_serving" : 4,
-         "nutrition-score-fr" : 7,
-         "nutrition-score-fr_100g" : 7,
-         "proteins" : 4.5,
+         "fluoride_100g" : null,
+         "fluoride_unit" : null,
+         "folates_100g" : null,
+         "folates_unit" : null,
+         "fructose_100g" : null,
+         "fructose_unit" : null,
+         "fruits-vegetables-legumes_100g" : 58.3333333333333,
+         "fruits-vegetables-legumes_modifier" : "~",
+         "fruits-vegetables-legumes_unit" : "%",
+         "fruits-vegetables-nuts-dried_100g" : null,
+         "fruits-vegetables-nuts-dried_unit" : null,
+         "fruits-vegetables-nuts_100g" : 58.3333333333333,
+         "fruits-vegetables-nuts_modifier" : "~",
+         "fruits-vegetables-nuts_unit" : "%",
+         "galactose_100g" : null,
+         "galactose_unit" : null,
+         "gamma-linolenic-acid_100g" : null,
+         "gamma-linolenic-acid_unit" : null,
+         "glucose_100g" : null,
+         "glucose_unit" : null,
+         "glycemic-index_100g" : null,
+         "glycemic-index_unit" : null,
+         "gondoic-acid_100g" : null,
+         "gondoic-acid_unit" : null,
+         "inositol_100g" : null,
+         "inositol_unit" : null,
+         "insoluble-fiber_100g" : null,
+         "insoluble-fiber_unit" : null,
+         "iodine_100g" : null,
+         "iodine_unit" : null,
+         "iron_100g" : null,
+         "iron_unit" : null,
+         "isomalt_100g" : null,
+         "isomalt_unit" : null,
+         "lactose_100g" : null,
+         "lactose_unit" : null,
+         "lauric-acid_100g" : null,
+         "lauric-acid_unit" : null,
+         "lignoceric-acid_100g" : null,
+         "lignoceric-acid_unit" : null,
+         "linoleic-acid_100g" : null,
+         "linoleic-acid_unit" : null,
+         "magnesium_100g" : null,
+         "magnesium_unit" : null,
+         "maltitol_100g" : null,
+         "maltitol_unit" : null,
+         "maltodextrins_100g" : null,
+         "maltodextrins_unit" : null,
+         "maltose_100g" : null,
+         "maltose_unit" : null,
+         "manganese_100g" : null,
+         "manganese_unit" : null,
+         "mead-acid_100g" : null,
+         "mead-acid_unit" : null,
+         "melissic-acid_100g" : null,
+         "melissic-acid_unit" : null,
+         "methylsulfonylmethane_100g" : null,
+         "methylsulfonylmethane_unit" : null,
+         "molybdenum_100g" : null,
+         "molybdenum_unit" : null,
+         "monounsaturated-fat_100g" : null,
+         "monounsaturated-fat_unit" : null,
+         "montanic-acid_100g" : null,
+         "montanic-acid_unit" : null,
+         "myristic-acid_100g" : null,
+         "myristic-acid_unit" : null,
+         "nervonic-acid_100g" : null,
+         "nervonic-acid_unit" : null,
+         "nitrate_100g" : null,
+         "nitrate_unit" : null,
+         "nucleotides_100g" : null,
+         "nucleotides_unit" : null,
+         "oleic-acid_100g" : null,
+         "oleic-acid_unit" : null,
+         "omega-3-fat_100g" : null,
+         "omega-3-fat_unit" : null,
+         "omega-6-fat_100g" : null,
+         "omega-6-fat_unit" : null,
+         "omega-9-fat_100g" : null,
+         "omega-9-fat_unit" : null,
+         "palmitic-acid_100g" : null,
+         "palmitic-acid_unit" : null,
+         "pantothenic-acid_100g" : null,
+         "pantothenic-acid_unit" : null,
+         "ph_100g" : null,
+         "ph_unit" : null,
+         "phosphorus_100g" : null,
+         "phosphorus_unit" : null,
+         "phylloquinone_100g" : null,
+         "phylloquinone_unit" : null,
+         "polydextrose_100g" : null,
+         "polydextrose_unit" : null,
+         "polyols_100g" : null,
+         "polyols_unit" : null,
+         "polyunsaturated-fat_100g" : null,
+         "polyunsaturated-fat_unit" : null,
+         "potassium_100g" : null,
+         "potassium_unit" : null,
          "proteins_100g" : 4.5,
-         "proteins_serving" : 0.45,
          "proteins_unit" : "g",
-         "proteins_value" : 4.5,
-         "salt" : 0.0502,
+         "psicose_100g" : null,
+         "psicose_unit" : null,
          "salt_100g" : 0.0502,
-         "salt_serving" : 0.00502,
-         "salt_unit" : "mg",
-         "salt_value" : 50.2,
-         "saturated-fat" : 5.6,
+         "salt_unit" : "g",
          "saturated-fat_100g" : 5.6,
-         "saturated-fat_serving" : 0.56,
          "saturated-fat_unit" : "g",
-         "saturated-fat_value" : 5.6,
-         "sodium" : 0.02008,
+         "selenium_100g" : null,
+         "selenium_unit" : null,
+         "serum-proteins_100g" : null,
+         "serum-proteins_unit" : null,
+         "silica_100g" : null,
+         "silica_unit" : null,
          "sodium_100g" : 0.02008,
-         "sodium_serving" : 0.00201,
-         "sodium_unit" : "mg",
-         "sodium_value" : 20.08,
-         "sugars" : 12.5,
+         "sodium_unit" : "g",
+         "soluble-fiber_100g" : null,
+         "soluble-fiber_unit" : null,
+         "sorbitol_100g" : null,
+         "sorbitol_unit" : null,
+         "starch_100g" : null,
+         "starch_unit" : null,
+         "stearic-acid_100g" : null,
+         "stearic-acid_unit" : null,
+         "sucrose_100g" : null,
+         "sucrose_unit" : null,
          "sugars_100g" : 12.5,
-         "sugars_serving" : 1.25,
          "sugars_unit" : "g",
-         "sugars_value" : 12.5
+         "sulphate_100g" : null,
+         "sulphate_unit" : null,
+         "taurine_100g" : null,
+         "taurine_unit" : null,
+         "trans-fat_100g" : null,
+         "trans-fat_unit" : null,
+         "unsaturated-fat_100g" : null,
+         "unsaturated-fat_unit" : null,
+         "vitamin-a_100g" : null,
+         "vitamin-a_unit" : null,
+         "vitamin-b12_100g" : null,
+         "vitamin-b12_unit" : null,
+         "vitamin-b1_100g" : null,
+         "vitamin-b1_unit" : null,
+         "vitamin-b2_100g" : null,
+         "vitamin-b2_unit" : null,
+         "vitamin-b6_100g" : null,
+         "vitamin-b6_unit" : null,
+         "vitamin-b9_100g" : null,
+         "vitamin-b9_unit" : null,
+         "vitamin-c_100g" : null,
+         "vitamin-c_unit" : null,
+         "vitamin-d_100g" : null,
+         "vitamin-d_unit" : null,
+         "vitamin-e_100g" : null,
+         "vitamin-e_unit" : null,
+         "vitamin-k_100g" : null,
+         "vitamin-k_unit" : null,
+         "vitamin-pp_100g" : null,
+         "vitamin-pp_unit" : null,
+         "water-hardness_100g" : null,
+         "water-hardness_unit" : null,
+         "zinc_100g" : null,
+         "zinc_unit" : null
       },
       "nutriscore" : {
          "2021" : {
@@ -3768,10 +3987,12 @@
                "sugars_points" : 2,
                "sugars_value" : 12.5
             },
+            "estimated" : 0,
             "grade" : "c",
             "nutrients_available" : 1,
             "nutriscore_applicable" : 1,
             "nutriscore_computed" : 1,
+            "preparation" : "as_sold",
             "score" : 3
          },
          "2023" : {
@@ -3849,10 +4070,12 @@
                "positive_points" : 2,
                "positive_points_max" : 17
             },
+            "estimated" : 0,
             "grade" : "c",
             "nutrients_available" : 1,
             "nutriscore_applicable" : 1,
             "nutriscore_computed" : 1,
+            "preparation" : "as_sold",
             "score" : 7
          }
       },
@@ -3946,7 +4169,6 @@
       "nutriscore_version" : "2023",
       "nutrition_data" : "on",
       "nutrition_data_per" : "100g",
-      "nutrition_data_prepared_per" : "100g",
       "nutrition_grade_fr" : "c",
       "nutrition_grades" : "c",
       "nutrition_grades_tags" : [
@@ -4045,10 +4267,10 @@
       "serving_quantity" : 10,
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",
-      "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
-         "en:nutrition-facts-completed",
+         "en:nutrition-facts-to-be-completed",
          "en:ingredients-completed",
          "en:expiration-date-to-be-completed",
          "en:packaging-code-to-be-completed",
@@ -4063,7 +4285,7 @@
       ],
       "states_tags" : [
          "en:to-be-completed",
-         "en:nutrition-facts-completed",
+         "en:nutrition-facts-to-be-completed",
          "en:ingredients-completed",
          "en:expiration-date-to-be-completed",
          "en:packaging-code-to-be-completed",
@@ -4082,7 +4304,6 @@
       "traces_hierarchy" : [],
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
-      "unknown_nutrients_tags" : [],
       "vitamins_tags" : [],
       "weighers_tags" : []
    },

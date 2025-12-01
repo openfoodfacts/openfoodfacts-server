@@ -226,9 +226,9 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
+                     "panel_group_id" : "packaging",
                      "panel_ids" : [
-                        "packaging_recycling"
+                        "packaging"
                      ],
                      "title" : "Packaging"
                   }
@@ -246,7 +246,7 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "palm_oil"
+                        "threatened_species"
                      ],
                      "title" : "Threatened species"
                   }
@@ -328,6 +328,26 @@
                "title" : "Green-Score C",
                "type" : "grade"
             },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "environmental_score_adjustments" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "environmental_score_origins_of_ingredients",
+                        "environmental_score_packaging",
+                        "environmental_score_production_system",
+                        "environmental_score_threatened_species"
+                     ]
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
             "topics" : [
                "environment"
             ]
@@ -1568,13 +1588,6 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "As sold<br>per serving (10 g)",
-                           "text_for_small_screens" : "per serving",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -1588,9 +1601,6 @@
                               },
                               {
                                  "text" : "400 kj<br>(96 kcal)"
-                              },
-                              {
-                                 "text" : "40 kj<br>(10 kcal)"
                               }
                            ]
                         },
@@ -1603,9 +1613,6 @@
                               },
                               {
                                  "text" : "8.5 g"
-                              },
-                              {
-                                 "text" : "0.85 g"
                               }
                            ]
                         },
@@ -1618,9 +1625,6 @@
                               },
                               {
                                  "text" : "5.6 g"
-                              },
-                              {
-                                 "text" : "0.56 g"
                               }
                            ]
                         },
@@ -1633,9 +1637,6 @@
                               },
                               {
                                  "text" : "10.5 g"
-                              },
-                              {
-                                 "text" : "1.05 g"
                               }
                            ]
                         },
@@ -1648,9 +1649,18 @@
                               },
                               {
                                  "text" : "12.5 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 2,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Added sugars"
                               },
                               {
-                                 "text" : "1.25 g"
+                                 "text" : "~ 0 g"
                               }
                            ]
                         },
@@ -1663,9 +1673,6 @@
                               },
                               {
                                  "text" : "2 g"
-                              },
-                              {
-                                 "text" : "0.2 g"
                               }
                            ]
                         },
@@ -1678,9 +1685,6 @@
                               },
                               {
                                  "text" : "4.5 g"
-                              },
-                              {
-                                 "text" : "0.45 g"
                               }
                            ]
                         },
@@ -1693,9 +1697,6 @@
                               },
                               {
                                  "text" : "0.05 g"
-                              },
-                              {
-                                 "text" : "0.005 g"
                               }
                            ]
                         },
@@ -1704,13 +1705,10 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils"
                               },
                               {
-                                 "text" : "58.333 %"
-                              },
-                              {
-                                 "text" : "58.333 %"
+                                 "text" : "~ 58.333 %"
                               }
                            ]
                         }
@@ -1753,12 +1751,40 @@
             ],
             "evaluation" : "unknown",
             "expanded" : false,
+            "half_width_on_mobile" : true,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "subtitle" : "Missing origins of ingredients information",
                "title" : "Origins of ingredients"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "title" : "Packaging with a medium impact"
             },
             "topics" : [
                "environment"
@@ -1913,55 +1939,6 @@
                "environment"
             ]
          },
-         "packaging_recycling" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_components"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_materials"
-                  }
-               }
-            ],
-            "evaluation" : "average",
-            "expanded" : true,
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "title" : "Packaging with a medium impact"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "palm_oil" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> \n                    ",
-                     "type" : "summary"
-                  }
-               }
-            ],
-            "evaluation" : "bad",
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
-               "subtitle" : "Drives deforestation and threatens species such as the orangutan",
-               "title" : "Contains palm oil"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
          "recommendation_ultra_processed_foods" : {
             "elements" : [
                {
@@ -2021,6 +1998,29 @@
                "health"
             ],
             "type" : "inline"
+         },
+         "threatened_species" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                        <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> \n                        ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
+               "subtitle" : "Drives deforestation and threatens species such as the orangutan",
+               "title" : "Contains palm oil"
+            },
+            "topics" : [
+               "environment"
+            ]
          }
       }
    },

@@ -28,7 +28,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/$static_subdomain/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -52,10 +52,10 @@ use JSON::MaybeXS;
 
 print STDERR ("Please fix this script before using it:\n"
 		. "1- do not write to lang/ (its git controlled)\n"
-		. "2- use Paths.pm for pathes (not /srv/sugar),\n"
+		. "2- use Paths.pm for paths (not /srv/sugar),\n"
 		. "3- only do one script of gen_sugar.pl and gen_sucre.pl,\n"
-		. "5- use matomo instead of GA\n"
 		. "4- fix bugs\n"
+		. "5- use matomo instead of GA\n"
 		. "Or perhaps rework all this to use a single html page + json data\n");
 die();
 

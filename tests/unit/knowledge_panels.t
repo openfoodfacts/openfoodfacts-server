@@ -6,6 +6,8 @@ use utf8;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 use JSON::MaybeXS;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
 
 my $json = JSON::MaybeXS->new->allow_nonref->canonical;
 
@@ -45,16 +47,36 @@ my @tests = (
 			nutrition_data_per => "serving",
 			serving_size => "20",
 			ingredients_text => "100% fruits",
-			nutriments => {
-				"energy_serving" => 2591,
-				"fat_serving" => 50,
-				"saturated-fat_serving" => 9.7,
-				"sugars_serving" => 5.1,
-				"salt_serving" => 0,
-				"sodium_serving" => 0,
-				"proteins_serving" => 29,
-				"fiber_serving" => 5.5,
-			},
+			nutrition => {
+				aggregated_set => {
+					nutrients => {
+						energy => {
+							value => 2591
+						},
+						fat => {
+							value => 50
+						},
+						"saturated-fat" => {
+							value => 9.7
+						},
+						sugars => {
+							value => 5.1
+						},
+						salt => {
+							value => 0
+						},
+						sodium => {
+							value => 0
+						},
+						proteins => {
+							value => 29
+						},
+						fiber => {
+							value => 5.5
+						}
+					}
+				}
+			}
 		},
 		target_lc => 'fr',
 		target_cc => 'fr'
@@ -128,10 +150,10 @@ foreach my $test_ref (@tests) {
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
 		print STDERR "testid: $testid\n";
-		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
+		is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
 	}
 	else {
-		diag Dumper $product_ref;
+		diag Dumper($product_ref);
 		fail("could not load $expected_result_dir/$testid.json");
 	}
 }

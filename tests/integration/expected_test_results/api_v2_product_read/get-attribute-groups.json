@@ -17,44 +17,40 @@
                   "title" : "Nutri-Score C"
                },
                {
-                  "description_short" : "0.0502 g / 100 g",
-                  "grade" : "a",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-high.svg",
                   "id" : "low_salt",
-                  "match" : 96.6533333333333,
+                  "match" : 0,
                   "name" : "Salt",
                   "panel_id" : "nutrient_level_salt",
                   "status" : "known",
                   "title" : "Salt in low quantity"
                },
                {
-                  "description_short" : "8.5 g / 100 g",
-                  "grade" : "b",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-high.svg",
                   "id" : "low_fat",
-                  "match" : 60.5882352941176,
+                  "match" : 0,
                   "name" : "Fat",
                   "panel_id" : "nutrient_level_fat",
                   "status" : "known",
                   "title" : "Fat in moderate quantity"
                },
                {
-                  "description_short" : "12.5 g / 100 g",
                   "grade" : "e",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id" : "low_sugars",
-                  "match" : 20,
+                  "match" : 0,
                   "name" : "Sugars",
                   "panel_id" : "nutrient_level_sugars",
                   "status" : "known",
                   "title" : "Sugars in moderate quantity"
                },
                {
-                  "description_short" : "5.6 g / 100 g",
                   "grade" : "e",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-high.svg",
                   "id" : "low_saturated_fat",
-                  "match" : 17.6,
+                  "match" : 0,
                   "name" : "Saturated fat",
                   "panel_id" : "nutrient_level_saturated_fat",
                   "status" : "known",
@@ -245,7 +241,8 @@
                }
             ],
             "id" : "ingredients_analysis",
-            "name" : "Ingredients"
+            "name" : "Ingredients",
+            "warning" : "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
          },
          {
             "attributes" : [
