@@ -91,7 +91,7 @@ my @products = (
 		(
 			code => '200000000046',
 			product_name => "More vegan breakfast cereals without palm oil",
-			ingredients_text => "apple, water",
+			ingredients_text => "apple, water, sugar 20%",
 			origin => "UK",
 			countries => "United Kingdom, Ireland",
 			categories => "breakfast cereals",
