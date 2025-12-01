@@ -69,14 +69,10 @@ BEGIN {
 		&compute_nutriscore_data
 		&compute_nutriscore
 		&compute_nova_group
-		&compute_nutrition_data_per_100g_and_per_serving
-		&compute_unknown_nutrients
 		&compute_nutrient_levels
 		&evaluate_nutrient_level
 		&compute_units_of_alcohol
-		&compute_estimated_nutrients
 
-		&has_nutrition_data_for_product_type
 		&compare_nutriments
 
 		&extract_nutrition_from_image
@@ -179,94 +175,6 @@ if (opendir(my $dh, "$BASE_DIRS{PRIVATE_DATA}/categories_stats")) {
 		}
 	}
 	closedir $dh;
-}
-
-# Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
-my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
-
-=head2 normalize_nutriment_value_and_modifier ( $value_ref, $modifier_ref )
-
-Each nutrient value is entered as a string (by users on the product edit form,
-or through the API). The string value may not always be numeric (e.g. it can include a < sign).
-
-This function normalizes the string value to remove signs, and stores extra information in the "modifier" field.
-
-=head3 Arguments
-
-=head4 string value reference $value_ref
-
-Input string value reference. The value will be normalized.
-
-=head4 modifier reference $modifier_ref
-
-Output modifier reference.
-
-=head3 Possible return values
-
-=head4 value
-
-- 0 if the input value indicates traces
-- Number (as a string)
-- undef for 'NaN' (not a number, sometimes sent by broken API clients)
-
-=head4 modifier
-
-<, >, ≤, ≥, ~ character sign, for lesser, greater, lesser or equal, greater or equal, and about
-- (minus sign) character when the input value is - (or other dashes) : indicates that the value is not present on the package
-
-=cut
-
-sub normalize_nutriment_value_and_modifier ($value_ref, $modifier_ref) {
-
-	${$modifier_ref} = undef;
-
-	return if not defined ${$value_ref};
-
-	# empty or null value
-	if ((${$value_ref} =~ /^\s*$/) or (lc(${$value_ref}) =~ /nan/)) {
-		${$value_ref} = undef;
-	}
-	# < , >, etc. signs
-	elsif (${$value_ref} =~ /(\&lt;=|<=|\N{U+2264})( )?/) {
-		${$value_ref} =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
-		${$modifier_ref} = "\N{U+2264}";
-	}
-	elsif (
-		${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?/i)
-	{
-		${$value_ref}
-			=~ s/(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?//i;
-		${$modifier_ref} = '<';
-	}
-	elsif (${$value_ref} =~ /(\&gt;=|>=|\N{U+2265})/) {
-		${$value_ref} =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
-		${$modifier_ref} = "\N{U+2265}";
-	}
-	elsif (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more|more than|más|mayor|superior)/i) {
-		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more|more than|más|mayor|superior)( )?//i;
-		${$modifier_ref} = '>';
-	}
-	elsif (${$value_ref} =~ /(env|environ|about|~|≈|aprox|alrededor)/i) {
-		${$value_ref} =~ s/(env|environ|about|~|≈|aprox|alrededor)( )?//i;
-		${$modifier_ref} = '~';
-	}
-	elsif (${$value_ref} =~ /(trace|traces|traza|trazas)/i) {
-		${$value_ref} = 0;
-		${$modifier_ref} = '~';
-	}
-	# - indicates that there is no value specified on the package
-	elsif (${$value_ref} =~ /^\s*$dashes\s*$/) {
-		${$value_ref} = undef;
-		${$modifier_ref} = '-';
-	}
-
-	# Remove extra spaces
-	if (defined ${$value_ref}) {
-		${$value_ref} =~ s/^\s+//;
-		${$value_ref} =~ s/\s+$//;
-	}
-
-	return;
 }
 
 =head2 default_unit_for_nid ( $nid)
@@ -426,11 +334,9 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'iodine-', 'caffeine-',
 			'taurine-', 'methylsulfonylmethane-',
 			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
+			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
@@ -493,10 +399,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'iodine-', 'caffeine-',
 			'taurine-', 'ph-',
 			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
-			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
-			'nutrition-score-fr-', 'nutrition-score-uk-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
 			'glycemic-index-', 'water-hardness-',
 			'choline-', 'phylloquinone-',
 			'beta-glucan-', 'inositol-',
@@ -559,11 +463,9 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
 			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
+			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
@@ -626,11 +528,9 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
 			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
+			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'sulfate-',
 			'nitrate-', 'acidity-',
 			'carbohydrates-', 'melatonin-',
@@ -689,11 +589,9 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
 			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
+			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
@@ -711,8 +609,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'vitamin-b2-', 'vitamin-pp-', 'vitamin-b6-', 'vitamin-b9-',
 			'folates-', 'vitamin-b12-', '#minerals', 'calcium',
 			'potassium-', 'phosphorus-', 'iron', 'alcohol',
-			'nutrition-score-fr-', 'sulphate-', 'nitrate-', 'acidity-',
-			'carbohydrates-',
+			'sulphate-', 'nitrate-', 'acidity-', 'carbohydrates-',
 		)
 	],
 	off_jp => [
@@ -763,11 +660,9 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
 			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
+			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
@@ -830,11 +725,9 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
 			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'fruits-vegetables-nuts-estimate-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'carbon-footprint-from-meat-or-fish-', 'nutrition-score-fr-',
-			'nutrition-score-uk-', 'glycemic-index-',
+			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
@@ -1250,7 +1143,7 @@ sub init_nutriscore_fruits_vegetables_nuts_by_category_sorted_2021() {
 	return;
 }
 
-=head2 compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref, $prepared)
+=head2 compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref)
 
 Compute the fruit % according to the Nutri-Score rules
 
@@ -1262,7 +1155,7 @@ The fruit ratio
 
 =cut
 
-sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($product_ref, $prepared) {
+sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($product_ref) {
 
 	init_nutriscore_fruits_vegetables_nuts_by_category_sorted_2021();
 
@@ -1285,38 +1178,39 @@ sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($prod
 		return $nutriscore_category_override_for_fruits_vegetables_legumes;
 	}
 
-	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
-		$fruits = 2 * $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"};
+	# For the Nutri-Score, we use the aggregated_set nutrients
+	# We put prepared values in aggregated_set if we have prepared values.
+	# If the aggregated set is for the product as sold even though we need prepared values for the product category,
+	# we will not compute the Nutri-Score.
+
+	my $fruits_vegetable_nuts
+		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts", "value");
+	my $fruits_vegetable_nuts_source
+		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts", "source");
+	my $fruits_vegetable_nuts_dried
+		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts-dried", "value");
+
+	if (defined $fruits_vegetable_nuts_dried) {
+		$fruits = 2 * $fruits_vegetable_nuts_dried;
 		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-dried");
 
-		if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
-			$fruits += $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
+		if (defined $fruits_vegetable_nuts) {
+			$fruits += $fruits_vegetable_nuts;
 			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts");
 		}
 
-		$fruits
-			= $fruits * 100 / (100 + $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"});
+		$fruits = $fruits * 100 / (100 + $fruits_vegetable_nuts_dried);
 	}
-	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
-		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
-		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts");
-	}
-	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"}) {
-		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"};
-		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
-		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-estimate");
-	}
-	# Use the estimate from the ingredients list if we have one
-	elsif (
-			(not defined $fruits)
-		and
-		(defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"})
-		)
-	{
-		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
-		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
-		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
-		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients");
+	elsif (defined $fruits_vegetable_nuts) {
+		$fruits = $fruits_vegetable_nuts;
+		if ($fruits_vegetable_nuts_source eq "estimate") {
+			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
+			$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
+			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients");
+		}
+		else {
+			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts");
+		}
 	}
 	else {
 		# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
@@ -1386,7 +1280,7 @@ sub init_nutriscore_fruits_vegetables_legumes_by_category_sorted_2023() {
 	return;
 }
 
-=head2 compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared)
+=head2 compute_nutriscore_2023_fruits_vegetables_legumes($product_ref)
 
 Compute the % of fruits, vegetables and legumes for the Nutri-Score 2023 algorithm.
 
@@ -1398,15 +1292,13 @@ Differences with the 2021 version:
 
 =head4 $product_ref - ref to the product
 
-=head4 $prepared - string contains either "" or "-prepared"
-
 =head3 Return values
 
 Return undef if no value could be computed or estimated.
 
 =cut
 
-sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) {
+sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref) {
 
 	init_nutriscore_fruits_vegetables_legumes_by_category_sorted_2023();
 
@@ -1427,15 +1319,22 @@ sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) 
 			+ 0;    # Add 0 to make the property value a number
 	}
 
-	my $fruits_vegetables_legumes = deep_get($product_ref, "nutriments",
-		"fruits-vegetables-legumes-estimate-from-ingredients" . $prepared . "_100g");
+	my $fruits_vegetables_legumes
+		= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-legumes", "value");
 
-	# First get a conservative estimate from the ingredients list
 	if (defined $fruits_vegetables_legumes) {
-		$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients} = 1;
-		$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value}
-			= $fruits_vegetables_legumes;
-		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients");
+		# Check if the source is estimated
+		if (deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-legumes", "source")
+			eq "estimate")
+		{
+			$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients} = 1;
+			$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value}
+				= $fruits_vegetables_legumes;
+			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients");
+		}
+		else {
+			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes");
+		}
 	}
 	# if we do not have ingredients, try to use the product category
 	else {
@@ -1459,24 +1358,20 @@ sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) 
 	return $fruits_vegetables_legumes;
 }
 
-=head2 saturated_fat_ratio( $nutriments_ref, $prepared )
+=head2 saturated_fat_ratio( $nutrition_ref )
 
 Compute saturated_fat_ratio as needed for nutriscore
 
 =head3 Arguments
 
-=head4 $nutriments_ref - ref to the nutriments of a product
-
-Reference to either the "nutriments" or "nutriments_estimated" structure.
-
-=head4 $prepared - string contains either "" or "prepared"
+=head4 $nutrition_ref - ref to the nutrition of a product
 
 =cut
 
-sub saturated_fat_ratio ($nutriments_ref, $prepared) {
+sub saturated_fat_ratio ($nutrition_ref) {
 
-	my $saturated_fat = $nutriments_ref->{"saturated-fat" . $prepared . "_100g"};
-	my $fat = $nutriments_ref->{"fat" . $prepared . "_100g"};
+	my $saturated_fat = deep_get($nutrition_ref, "aggregated_set", "nutrients", "saturated-fat", "value");
+	my $fat = deep_get($nutrition_ref, "aggregated_set", "nutrients", "fat", "value");
 	my $saturated_fat_ratio = 0;
 	if ((defined $saturated_fat) and ($saturated_fat > 0)) {
 		if ($fat <= 0) {
@@ -1487,47 +1382,39 @@ sub saturated_fat_ratio ($nutriments_ref, $prepared) {
 	return $saturated_fat_ratio;
 }
 
-=head2 saturated_fat_0_because_of_fat_0($nutriments_ref, $prepared)
+=head2 saturated_fat_0_because_of_fat_0 ($nutrition_ref)
 
 Detect if we are in the special case where we can detect saturated fat is 0 because fat is 0
 
 =head3 Arguments
 
-=head4 $nutriments_ref - ref to the nutriments of a product
-
-Reference to either the "nutriments" or "nutriments_estimated" structure.
-
-=head4 $prepared - string contains either "" or "prepared"
+=head4 $nutrition_ref - ref to the nutrition of a product
 
 =cut
 
-sub saturated_fat_0_because_of_fat_0 ($nutriments_ref, $prepared) {
-	my $fat = $nutriments_ref->{"fat" . $prepared . "_100g"};
-	return ((!defined $nutriments_ref->{"saturated-fat" . $prepared . "_100g"}) && (defined $fat) && ($fat == 0));
+sub saturated_fat_0_because_of_fat_0 ($nutrition_ref) {
+	my $saturated_fat = deep_get($nutrition_ref, "aggregated_set", "nutrients", "saturated-fat", "value");
+	my $fat = deep_get($nutrition_ref, "aggregated_set", "nutrients", "fat", "value");
+	return ((not defined $saturated_fat) && (defined $fat) && ($fat == 0));
 }
 
-=head2 sugar_0_because_of_carbohydrates_0($nutriments_ref, $prepared) {
+=head2 sugar_0_because_of_carbohydrates_0 ($nutrition_ref)
 
 Detect if we are in the special case where we can detect sugars are 0 because carbohydrates are 0
 
 =head3 Arguments
 
-=head4 $nutriments_ref - ref to the nutriments of a product
-
-Reference to either the "nutriments" or "nutriments_estimated" structure.
-
-=head4 $prepared - string contains either "" or "prepared"
+=head4 $nutrition_ref - ref to the nutrition of a product
 
 =cut
 
-sub sugar_0_because_of_carbohydrates_0 ($nutriments_ref, $prepared) {
-	my $carbohydrates = $nutriments_ref->{"carbohydrates" . $prepared . "_100g"};
-	return (   (!defined $nutriments_ref->{"sugars" . $prepared . "_100g"})
-			&& (defined $carbohydrates)
-			&& ($carbohydrates == 0));
+sub sugar_0_because_of_carbohydrates_0 ($nutrition_ref) {
+	my $sugars = deep_get($nutrition_ref, "aggregated_set", "nutrients", "sugars", "value");
+	my $carbohydrates = deep_get($nutrition_ref, "aggregated_set", "nutrients", "carbohydrates", "value");
+	return ((not defined $sugars) && (defined $carbohydrates) && ($carbohydrates == 0));
 }
 
-=head2 compute_nutriscore_data( $products_ref, $prepared, $nutriments_field )
+=head2 compute_nutriscore_data( $products_ref, $preparation, $version )
 
 Compute data for nutriscore computation.
 
@@ -1535,13 +1422,11 @@ Compute data for nutriscore computation.
 
 =head3 Arguments
 
-=head4 $nutriments_ref - ref to the nutriments of a product
+=head4 $product_ref - ref to the product
 
-Reference to either the "nutriments" or "nutriments_estimated" structure.
+=head4 $preparation - "as_sold" or "prepared"
 
-=head4 $prepared - string contains either "" or "prepared"
-
-=head4 $fruits - float - fruit % estimation
+=head4 $version - version of nutriscore to compute data for. Either "2021" or "2023". Default is "2021"
 
 =head4
 
@@ -1551,19 +1436,29 @@ Ref to a mapping suitable to call compute_nutriscore_score_and_grade
 
 =cut
 
-sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $version = "2021") {
-
-	my $nutriments_ref = $product_ref->{$nutriments_field};
+sub compute_nutriscore_data ($product_ref, $preparation, $version = "2021") {
 
 	my $nutriscore_data_ref;
+
+	# If the preparation needed for the Nutri-Score does not match the aggregated set preparation,
+	# we temporarily rename the aggregated set so that we get undef values for the nutrients
+	my $aggregated_set_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
+	if ($preparation ne $aggregated_set_preparation) {
+		$product_ref->{nutrition}->{aggregated_set_temp_for_nutriscore}
+			= $product_ref->{nutrition}->{aggregated_set};
+		delete $product_ref->{nutrition}->{aggregated_set};
+	}
 
 	# The 2021 and 2023 version of the Nutri-Score need different nutrients
 	if ($version eq "2021") {
 		# fruits, vegetables, nuts, olive / rapeseed / walnut oils - 2021
 		my $fruits_vegetables_nuts_colza_walnut_olive_oils
-			= compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref, $prepared);
+			= compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref);
 
 		my $is_fat = is_fat_for_nutrition_score($product_ref);
+
+		my $sodium = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "sodium", "value");
+		my $fiber = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fiber", "value");
 
 		$nutriscore_data_ref = {
 			is_beverage => $product_ref->{nutrition_score_beverage},
@@ -1571,35 +1466,36 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			is_cheese => is_cheese_for_nutrition_score($product_ref),
 			is_fat => $is_fat,
 
-			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
-			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
-			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
+			energy => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "energy", "value"),
+			sugars => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "sugars", "value"),
+			saturated_fat =>
+				deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "saturated-fat", "value"),
 			sodium => (
-				(defined $nutriments_ref->{"sodium" . $prepared . "_100g"})
-				? $nutriments_ref->{"sodium" . $prepared . "_100g"} * 1000
+				(defined $sodium)
+				? $sodium * 1000
 				: undef
 			),    # in mg,
 
 			fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits_vegetables_nuts_colza_walnut_olive_oils,
 			fiber => (
-				(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
-				? $nutriments_ref->{"fiber" . $prepared . "_100g"}
+				(defined $fiber)
+				? $fiber
 				: 0
 			),
-			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
+			proteins => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "proteins", "value"),
 		};
 
 		if ($is_fat) {
 			# Add the fat and saturated fat / fat ratio
-			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
-			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($nutriments_ref, $prepared);
+			$nutriscore_data_ref->{fat}
+				= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fat", "value");
+			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($product_ref->{nutrition});
 		}
 	}
 	else {
 		# fruits, vegetables, legumes - 2023
 		my $fruits_vegetables_legumes
-			= round_to_max_decimal_places(compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared),
-			1);
+			= round_to_max_decimal_places(compute_nutriscore_2023_fruits_vegetables_legumes($product_ref), 1);
 
 		my $is_fat_oil_nuts_seeds = is_fat_oil_nuts_seeds_for_nutrition_score($product_ref);
 		my $is_beverage = is_beverage_for_nutrition_score_2023($product_ref);
@@ -1611,21 +1507,23 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			is_fat_oil_nuts_seeds => $is_fat_oil_nuts_seeds,
 			is_red_meat_product => is_red_meat_product_for_nutrition_score($product_ref),
 
-			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
-			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
-			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
-			salt => $nutriments_ref->{"salt" . $prepared . "_100g"},
+			energy => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "energy", "value"),
+			sugars => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "sugars", "value"),
+			saturated_fat =>
+				deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "saturated-fat", "value"),
+			salt => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "salt", "value"),
 
 			fruits_vegetables_legumes => $fruits_vegetables_legumes,
-			fiber => $nutriments_ref->{"fiber" . $prepared . "_100g"},
-			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
+			fiber => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fiber", "value"),
+			proteins => deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "proteins", "value"),
 		};
 
 		if ($is_fat_oil_nuts_seeds) {
 			# Add the fat and saturated fat / fat ratio
-			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
+			$nutriscore_data_ref->{fat}
+				= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fat", "value");
 			$nutriscore_data_ref->{saturated_fat_ratio}
-				= round_to_max_decimal_places(saturated_fat_ratio($nutriments_ref, $prepared), 1);
+				= round_to_max_decimal_places(saturated_fat_ratio($product_ref->{nutrition}), 1);
 			# Compute the energy from saturates
 			if (defined $nutriscore_data_ref->{saturated_fat}) {
 				$nutriscore_data_ref->{energy_from_saturated_fat} = $nutriscore_data_ref->{saturated_fat} * 37;
@@ -1640,14 +1538,21 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 	# tweak data to take into account special cases
 
 	# if sugar is undefined but carbohydrates is 0, set sugars to 0
-	if (sugar_0_because_of_carbohydrates_0($nutriments_ref, $prepared)) {
+	if (sugar_0_because_of_carbohydrates_0($product_ref->{nutrition})) {
 		$nutriscore_data_ref->{sugars} = 0;
 	}
 	# if saturated_fat is undefined but fat is 0, set saturated_fat to 0
 	# as well as saturated_fat_ratio
-	if (saturated_fat_0_because_of_fat_0($nutriments_ref, $prepared)) {
+	if (saturated_fat_0_because_of_fat_0($product_ref->{nutrition})) {
 		$nutriscore_data_ref->{saturated_fat} = 0;
 		$nutriscore_data_ref->{saturated_fat_ratio} = 0;
+	}
+
+	# Put back the original aggregated set if we had renamed it
+	if (defined $product_ref->{nutrition}->{aggregated_set_temp_for_nutriscore}) {
+		$product_ref->{nutrition}->{aggregated_set}
+			= $product_ref->{nutrition}->{aggregated_set_temp_for_nutriscore};
+		delete $product_ref->{nutrition}->{aggregated_set_temp_for_nutriscore};
 	}
 
 	return $nutriscore_data_ref;
@@ -1688,18 +1593,6 @@ sub remove_nutriscore_fields ($product_ref) {
 			"nutriscore_tags",
 			"nutriscore_2021_tags",
 			"nutriscore_2023_tags",
-		]
-	);
-
-	# strip nutriments / score-type fields from the product
-	remove_fields(
-		$product_ref->{nutriments},
-		[
-			"nutrition-score", "nutrition-score_100g",
-			"nutrition-score_serving", "nutrition-score-fr",
-			"nutrition-score-fr_100g", "nutrition-score-fr_serving",
-			"nutrition-score-uk", "nutrition-score-uk_100g",
-			"nutrition-score-uk_serving"
 		]
 	);
 
@@ -1821,35 +1714,40 @@ Check that we know or can estimate the nutrients needed to compute the Nutri-Sco
 
 To compute the Nutri-Score, we use the nutrition.aggregated_set 
 
+=head3 Arguments
+
+=head4 $product_ref - ref to the product
+
 =head3 Return values
 
 =head4 $nutrients_available 0 or 1
 
-=head4 $prepared "" or "_prepared"
+=head4 $preparation: "as_sold" or "prepared"
 
-Suffix to indicate if the Nutri-Score should be computed on prepared values
+Indicates if the Nutri-Score should be computed on as sold or prepared values
 
-=head4 $nutriments_field "nutriments" or "nutriments_estimated"
+=head4 $estimated: 0 or 1
 
-Indicates which nutrients fields were used to compute the Nutri-Score.
+Indicates if some of the nutrients needed were estimated
 
 =cut
 
 sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 
 	my $nutrients_available = 1;
+	my $estimated = 0;
 
 	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
 	# unless we have nutrition data for the prepared product
 	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
 
-	my $prepared = '';
+	my $preparation = "as_sold";
 
 	my $category_tag = has_category_that_should_have_prepared_nutrition_data($product_ref);
 
 	if (defined $category_tag) {
 
-		$prepared = '_prepared';
+		$preparation = "prepared";
 
 		my $aggregated_set_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
 
@@ -1866,8 +1764,9 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 		}
 	}
 
-	# Track the number of key nutrients present
+	# Track the number of key nutrients present and their source
 	my $key_nutrients = 0;
+	my %key_nutrients_sources = ();
 
 	# Spring waters have grade A automatically, and have a different nutrition table without sugars etc.
 	# do not display warnings about missing fiber and fruits
@@ -1882,6 +1781,7 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 	{
 		# compute the score only if all values are known
 		# for fiber, compute score without fiber points if the value is not known
+		# or use an estimate if available
 		# foreach my $nid ("energy", "saturated-fat", "sugars", "sodium", "fiber", "proteins") {
 
 		foreach my $nid ("energy", "fat", "saturated-fat", "sugars", "sodium", "proteins") {
@@ -1890,67 +1790,91 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 				# we have two special cases where we can deduce data
 				next
 					if (
-					(
-						($nid eq "saturated-fat")
-						&& saturated_fat_0_because_of_fat_0($product_ref->{nutriments}, $prepared)
-					)
+					(($nid eq "saturated-fat") && saturated_fat_0_because_of_fat_0($product_ref->{nutrition}))
 					|| (($nid eq "sugars")
-						&& sugar_0_because_of_carbohydrates_0($product_ref->{nutriments}, $prepared))
+						&& sugar_0_because_of_carbohydrates_0($product_ref->{nutrition}))
 					);
 				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 				add_tag($product_ref, "misc", "en:nutrition-not-enough-data-to-compute-nutrition-score");
-				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared . "_100g - ";
+				$product_ref->{nutrition_score_debug} .= "missing $preparation $nid - ";
 				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data");
 				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data-$nid");
 				$nutrients_available = 0;
 			}
 			else {
 				$key_nutrients++;
+				my $source = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "source");
+				$key_nutrients_sources{$source} = [] unless exists $key_nutrients_sources{$source};
+				push @{$key_nutrients_sources{$source}}, $nid;
+				# Add misc tags for nutrients coming from estimated source
+				if ($source eq "estimate") {
+					add_tag($product_ref, "misc", "en:nutriscore-estimated-$nid");
+					$product_ref->{nutrition_score_debug} .= "$preparation $nid estimated - ";
+				}
 			}
 		}
 
 		# some categories of products do not have fibers > 0.7g (e.g. sodas)
 		# for others, display a warning when the value is missing
+		my $fiber_source = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fiber", "source");
 		if ((not deep_exists($product_ref, "nutrition", "aggregated_set", "nutrients", "fiber", "value"))
 			and not(has_tag($product_ref, "categories", "en:sodas")))
 		{
 			$product_ref->{nutrition_score_warning_no_fiber} = 1;
-			add_tag($product_ref, "misc", "en:nutrition-no-fiber");
+			add_tag($product_ref, "misc", "en:nutriscore-missing-fiber");
+		}
+		# Add a misc tag when fiber is estimated
+		elsif ((defined $fiber_source) and ($fiber_source eq "estimate")) {
+			add_tag($product_ref, "misc", "en:nutriscore-estimated-fiber");
+			$product_ref->{nutrition_score_debug} .= "$preparation fiber estimated - ";
+			$estimated = 1;
 		}
 	}
 
 	# Remove ending -
 	$product_ref->{nutrition_score_debug} =~ s/ - $//;
 
-	# TODO / FIXME: the source is now indicated in the aggregated set, the code below should be refactored in the loop above
-
-	# By default we use the "nutriments" hash as a source (specified nutrients),
-	# but if we don't have specified nutrients, we can use use the "nutriments_estimated" hash if it exists.
-	# If we have some specified nutrients but are missing required nutrients for the Nutri-Score,
-	# we do not use estimated nutrients, in order to encourage users to complete the nutrition facts
+	# If all key nutrients come from estimated nutrients, mark the product as such
+	# If some but not all key nutrients come from estimated nutrients, we do not use estimated nutrients
+	# in order to encourage users to complete the nutrition facts
 	# (that we know exist, and that we may even have a photo for).
 	# If we don't have nutrients at all (or the no nutriments checkbox is checked),
-	# we can use estimated nutrients for the Nutri-Score.
-	my $nutriments_field = "nutriments";
+	# we can use estimated nutrients for the Nutri-Score, if the category does not require prepared nutrients.
 
-	if (    (defined $product_ref->{"nutrition_grades_tags"})
-		and (($product_ref->{"nutrition_grades_tags"}[0] eq "unknown"))
-		and (($key_nutrients == 0) or ($product_ref->{no_nutrition_data}))
-		and ($prepared eq '')
-		and (defined $product_ref->{nutriments_estimated}))
+	if (
+		(
+			not(    (defined $product_ref->{"nutrition_grades_tags"})
+				and ($product_ref->{"nutrition_grades_tags"}[0] eq "unknown"))
+		)
+		and (exists $key_nutrients_sources{"estimate"})
+		)
 	{
-		$nutriments_field = "nutriments_estimated";
-		$product_ref->{nutrition_score_warning_nutriments_estimated} = 1;
-		add_tag($product_ref, "misc", "en:nutriscore-using-estimated-nutrition-facts");
-		$product_ref->{"nutrition_grades_tags"} = [];
+		$estimated = 1;
 
-		# Delete the warning for missing fiber, as we will get fiber from the estimate
-		delete $product_ref->{nutrition_score_warning_no_fiber};
-
-		$nutrients_available = 1;
+		# Check if all key nutrients are from estimated source
+		if ($key_nutrients == scalar @{$key_nutrients_sources{"estimate"}}) {
+			$product_ref->{nutrition_score_warning_nutriments_estimated} = 1;
+			add_tag($product_ref, "misc", "en:nutriscore-using-estimated-nutrition-facts");
+		}
+		else {
+			# Some nutrients are estimated, some are not
+			# Don't mix the sources to compute the Nutri-Score
+			$product_ref->{"nutrition_grades_tags"} = ["unknown"];
+			$product_ref->{nutrition_score_debug}
+				.= "did not compute nutriscore because some nutrients are estimated and some are not" . " - ";
+			add_tag($product_ref, "misc", "en:nutriscore-mixed-nutrition-facts-sources");
+			$nutrients_available = 0;
+			# Indicate which nutrients are estimated and missing in the other sources
+			foreach my $nid (@{$key_nutrients_sources{"estimate"}}) {
+				add_tag($product_ref, "misc", "en:nutrition-not-enough-data-to-compute-nutrition-score");
+				$product_ref->{nutrition_score_debug} .= "missing $preparation $nid - ";
+				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data");
+				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data-$nid");
+			}
+		}
 	}
 
-	return ($nutrients_available, $prepared, $nutriments_field);
+	return ($nutrients_available, $preparation, $estimated);
 }
 
 =head2 set_fields_for_current_version_of_nutriscore($product_ref, $current_version, $nutriscore_score, $nutriscore_grade)
@@ -1983,11 +1907,6 @@ sub set_fields_for_current_version_of_nutriscore ($product_ref, $version, $nutri
 	# Copy the resulting values to the main Nutri-Score fields
 	if (defined $nutriscore_score) {
 		$product_ref->{nutriscore_score} = $nutriscore_score;
-
-		# Fields used to display the Nutri-Score score inside nutrition facts table
-		# and to compute averages etc. for categories
-		$product_ref->{nutriments}{"nutrition-score-fr_100g"} = $nutriscore_score;
-		$product_ref->{nutriments}{"nutrition-score-fr"} = $nutriscore_score;
 
 		# In order to be able to sort by nutrition score in MongoDB,
 		# we create an opposite of the nutrition score
@@ -2075,7 +1994,7 @@ sub compute_nutriscore ($product_ref, $current_version = "2023") {
 	my ($category_available, $nutriscore_applicable, $not_applicable_category)
 		= is_nutriscore_applicable_to_the_product_categories($product_ref);
 
-	my ($nutrients_available, $prepared, $nutriments_field)
+	my ($nutrients_available, $preparation, $estimated)
 		= check_availability_of_nutrients_needed_for_nutriscore($product_ref);
 
 	if (not($nutriscore_applicable and $nutrients_available)) {
@@ -2099,6 +2018,8 @@ sub compute_nutriscore ($product_ref, $current_version = "2023") {
 				"nutriscore_applicable" => $nutriscore_applicable,
 				"nutrients_available" => $nutrients_available,
 				"nutriscore_computed" => $nutriscore_applicable * $nutrients_available,
+				"preparation" => $preparation,
+				"estimated" => $estimated,
 			}
 		);
 
@@ -2108,7 +2029,7 @@ sub compute_nutriscore ($product_ref, $current_version = "2023") {
 
 		# Populate the data structure that will be passed to Food::Nutriscore
 		deep_set($product_ref, "nutriscore", $version, "data",
-			compute_nutriscore_data($product_ref, $prepared, $nutriments_field, $version));
+			compute_nutriscore_data($product_ref, $preparation, $version));
 
 		# Compute the Nutri-Score
 		my ($nutriscore_score, $nutriscore_grade);
@@ -2144,263 +2065,6 @@ sub compute_nutriscore ($product_ref, $current_version = "2023") {
 	# 2023/08/17: as we are migrating from one version of the Nutri-Score to another, we set temporary fields
 	# to compare both versions.
 	set_fields_comparing_nutriscore_versions($product_ref, "2021", "2023");
-
-	return;
-}
-
-=head2 has_nutrition_data_for_product_type ($product_ref, $nutrition_product_type)
-
-Check if the product has nutrition data for the given type ("" or "_prepared").
-
-=head3 Arguments
-
-=head4 $product_ref - ref to the product
-
-=head4 $nutrition_product_type - string, either "" or "_prepared"
-
-=head3 Return values
-
-=head4 0 or 1
-
-=head4 0 if the product does not have nutrition data for the given type
-
-=head4 1 if the product has nutrition data for the given type
-
-=cut
-
-sub has_nutrition_data_for_product_type ($product_ref, $nutrition_product_type) {
-
-	if (not defined $product_ref->{nutriments}) {
-		return 0;
-	}
-
-	foreach my $nid (keys %{$product_ref->{nutriments}}) {
-		if (
-			(
-				   (($nutrition_product_type eq "") and ($nid !~ /_prepared/))
-				or (($nutrition_product_type eq "_prepared") and ($nid =~ /_prepared/))
-			)
-			and ($nid =~ /_(serving|100g)$/)
-			)
-		{
-			return 1;
-		}
-	}
-	return 0;
-}
-
-=head2 compute_nutrition_data_per_100g_and_per_serving ($product_ref)
-
-Input nutrition data is indicated per 100g or per serving.
-This function computes the nutrition data for the other quantity (per serving or per 100g) if we know the serving quantity.
-
-=cut
-
-sub compute_nutrition_data_per_100g_and_per_serving ($product_ref) {
-
-	# Make sure we have normalized the product quantity and the serving size
-	# in a normal setting, this function has already been called by analyze_and_enrich_product_data()
-	# but some test functions (e.g. in food.t) may call this function directly
-	normalize_product_quantity_and_serving_size($product_ref);
-
-	# Record if we have nutrient values for as sold or prepared types,
-	# so that we can check the nutrition_data and nutrition_data_prepared boxes if we have data
-	my %nutrition_data = ();
-	my $serving_quantity = $product_ref->{serving_quantity};
-
-	foreach my $product_type ("", "_prepared") {
-
-		# Energy
-		# Before November 2019, we only had one energy field with an input value in kJ or in kcal, and internally it was converted to kJ
-		# In Europe, the energy is indicated in both kJ and kcal, but there isn't a straightforward conversion between the 2: the energy is computed
-		# by summing some nutrients multiplied by an energy factor. That means we need to store both the kJ and kcal values.
-		# see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396
-
-		# If we have a value for energy-kj, use it for energy
-		if (defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_value"}) {
-			if (not defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"}) {
-				$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"} = "kJ";
-			}
-			assign_nid_modifier_value_and_unit(
-				$product_ref,
-				"energy" . $product_type,
-				$product_ref->{nutriments}{"energy-kj" . $product_type . "_modifier"},
-				$product_ref->{nutriments}{"energy-kj" . $product_type . "_value"},
-				$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"}
-			);
-		}
-		# Otherwise use the energy-kcal value for energy
-		elsif (defined $product_ref->{nutriments}{"energy-kcal" . $product_type}) {
-			if (not defined $product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}) {
-				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"} = "kcal";
-			}
-			assign_nid_modifier_value_and_unit(
-				$product_ref,
-				"energy" . $product_type,
-				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
-				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
-				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}
-			);
-		}
-		# Otherwise, if we have a value and a unit for the energy field, copy it to either energy-kj or energy-kcal
-		elsif ( (defined $product_ref->{nutriments}{"energy" . $product_type . "_value"})
-			and (defined $product_ref->{nutriments}{"energy" . $product_type . "_unit"}))
-		{
-
-			my $unit = lc($product_ref->{nutriments}{"energy" . $product_type . "_unit"});
-
-			assign_nid_modifier_value_and_unit(
-				$product_ref,
-				"energy-$unit" . $product_type,
-				$product_ref->{nutriments}{"energy" . $product_type . "_modifier"},
-				$product_ref->{nutriments}{"energy" . $product_type . "_value"},
-				$product_ref->{nutriments}{"energy" . $product_type . "_unit"}
-			);
-		}
-
-		if (not defined $product_ref->{"nutrition_data" . $product_type . "_per"}) {
-			$product_ref->{"nutrition_data" . $product_type . "_per"} = '100g';
-		}
-
-		if ($product_ref->{"nutrition_data" . $product_type . "_per"} eq 'serving') {
-
-			foreach my $nid (keys %{$product_ref->{nutriments}}) {
-				if (   ($product_type eq "") and ($nid =~ /_/)
-					or (($product_type eq "_prepared") and ($nid !~ /_prepared$/)))
-				{
-
-					next;
-				}
-				$nid =~ s/_prepared$//;
-
-				my $value = $product_ref->{nutriments}{$nid . $product_type};
-				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $value;
-				$product_ref->{nutriments}{$nid . $product_type . "_serving"}
-					=~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-				$product_ref->{nutriments}{$nid . $product_type . "_serving"} += 0.0;
-				delete $product_ref->{nutriments}{$nid . $product_type . "_100g"};
-
-				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
-					;    # $unit will be undef if the nutrient is not in the taxonomy
-
-				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
-				# otherwise we adjust the value for 100g
-				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
-					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $value + 0.0;
-				}
-				# Don't adjust the value for 100g if the serving quantity is 5 or less
-				elsif ((defined $serving_quantity) and ($serving_quantity > 5)) {
-					$product_ref->{nutriments}{$nid . $product_type . "_100g"}
-						= sprintf("%.2e", $value * 100.0 / $product_ref->{serving_quantity}) + 0.0;
-				}
-				# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
-				$nutrition_data{$product_type} = 1;
-			}
-		}
-		# nutrition_data_<_/prepared>_per eq '100g' or '1kg'
-		else {
-			foreach my $nid (keys %{$product_ref->{nutriments}}) {
-				if (   ($product_type eq "") and ($nid =~ /_/)
-					or (($product_type eq "_prepared") and ($nid !~ /_prepared$/)))
-				{
-
-					next;
-				}
-				$nid =~ s/_prepared$//;
-
-				# Value for 100g is the same as value shown in the nutrition table
-				$product_ref->{nutriments}{$nid . $product_type . "_100g"}
-					= $product_ref->{nutriments}{$nid . $product_type};
-				# get rid of non-digit prefixes if any
-				$product_ref->{nutriments}{$nid . $product_type . "_100g"}
-					=~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-				# set value as numeric
-				$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
-				delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
-
-				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
-					;    # $unit will be undef if the nutrient is not in the taxonomy
-
-				# petfood, Value for 100g is 10x smaller than in the nutrition table (kg)
-				if (    (defined $product_ref->{product_type})
-					and ($product_ref->{product_type} eq "petfood")
-					and (defined $unit)
-					and ($unit ne "%"))
-				{
-					$product_ref->{nutriments}{$nid . $product_type . "_100g"} /= 10;
-				}
-
-				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
-				# otherwise we adjust the value for the serving quantity
-				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
-					$product_ref->{nutriments}{$nid . $product_type . "_serving"}
-						= $product_ref->{nutriments}{$nid . $product_type} + 0.0;
-				}
-				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
-
-					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = sprintf("%.2e",
-						$product_ref->{nutriments}{$nid . $product_type} / 100.0 * $product_ref->{serving_quantity})
-						+ 0.0;
-				}
-				# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
-				$nutrition_data{$product_type} = 1;
-			}
-		}
-
-		# Carbon footprint
-
-		if (defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"}) {
-
-			if (defined $product_ref->{serving_quantity}) {
-				$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_serving"} = sprintf("%.2e",
-						  $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} / 100.0
-						* $product_ref->{serving_quantity}) + 0.0;
-			}
-
-			if (defined $product_ref->{product_quantity}) {
-				$product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_product"} = sprintf("%.2e",
-						  $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"} / 100.0
-						* $product_ref->{product_quantity}) + 0.0;
-			}
-		}
-
-		if (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"}) {
-
-			if (defined $product_ref->{serving_quantity}) {
-				$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_serving"} = sprintf("%.2e",
-						  $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} / 100.0
-						* $product_ref->{serving_quantity}) + 0.0;
-			}
-
-			if (defined $product_ref->{product_quantity}) {
-				$product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_product"} = sprintf("%.2e",
-						  $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"} / 100.0
-						* $product_ref->{product_quantity}) + 0.0;
-			}
-		}
-	}
-
-	# If we have nutrient data for as sold or prepared, make sure the checkbox are ticked
-	foreach my $product_type (sort keys %nutrition_data) {
-		$product_ref->{"nutrition_data" . $product_type} = 'on';
-	}
-
-	return;
-}
-
-sub compute_unknown_nutrients ($product_ref) {
-
-	$product_ref->{unknown_nutrients_tags} = [];
-
-	foreach my $nid (keys %{$product_ref->{nutriments}}) {
-
-		next if $nid =~ /_/;
-
-		if ((not exists_taxonomy_tag("nutrients", "zz:$nid")) and (defined $product_ref->{nutriments}{$nid . "_label"}))
-		{
-			push @{$product_ref->{unknown_nutrients_tags}}, $nid;
-		}
-	}
 
 	return;
 }
@@ -2587,12 +2251,14 @@ calculate the number of units of alcohol in one serving of an alcoholic beverage
 
 sub compute_units_of_alcohol ($product_ref, $serving_size_in_ml) {
 
+	my $alcohol = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "alcohol", "value");
+
 	if (    (defined $product_ref)
 		and (defined $serving_size_in_ml)
-		and (defined $product_ref->{nutriments}{'alcohol'})
+		and (defined $alcohol)
 		and (has_tag($product_ref, 'categories', 'en:alcoholic-beverages')))
 	{
-		return $serving_size_in_ml * ($product_ref->{nutriments}{'alcohol'} / 1000.0);
+		return $serving_size_in_ml * ($alcohol / 1000.0);
 	}
 	else {
 		return;
@@ -2640,7 +2306,6 @@ sub compute_nova_group ($product_ref) {
 			"nova_group_tags", "nova_groups_markers", "nova_group_error"
 		]
 	);
-	remove_fields($product_ref->{nutriments}, ["nova-group", "nova-group_100g", "nova-group_serving"]);
 
 	$product_ref->{nova_group_debug} = "";
 
@@ -2936,10 +2601,6 @@ sub compute_nova_group ($product_ref) {
 
 	$product_ref->{nova_group} += 0;
 
-	$product_ref->{nutriments}{"nova-group"} = $product_ref->{nova_group};
-	$product_ref->{nutriments}{"nova-group_100g"} = $product_ref->{nova_group};
-	$product_ref->{nutriments}{"nova-group_serving"} = $product_ref->{nova_group};
-
 	# Store nova_groups as a string
 
 	$product_ref->{nova_groups} = $product_ref->{nova_group};
@@ -3049,32 +2710,6 @@ sub assign_categories_properties_to_product ($product_ref) {
 	}
 
 	return;
-}
-
-=head2 compute_estimated_nutrients ( $product_ref )
-
-Compute estimated nutrients from ingredients.
-
-If we have a high enough confidence (95% of the ingredients (by quantity) have a known nutrient profile),
-we store the result in the nutriments_estimated hash.
-
-=cut
-
-sub compute_estimated_nutrients ($product_ref) {
-	my $results_ref = estimate_nutrients_from_ingredients($product_ref->{ingredients});
-
-	# only take the result if we have at least 95% of ingredients with nutrients
-	if (($results_ref->{total} > 0) and (($results_ref->{total_with_nutrients} / $results_ref->{total}) >= 0.95)) {
-		$product_ref->{nutriments_estimated} = {};
-		while (my ($nid, $value) = each(%{$results_ref->{nutrients}})) {
-			$product_ref->{nutriments_estimated}{$nid . '_100g'} = $value;
-		}
-	}
-	else {
-		delete $product_ref->{nutriments_estimated};
-	}
-
-	return $results_ref;
 }
 
 =head2 get_nutrient_unit ( $nid, $cc )
