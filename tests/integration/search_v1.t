@@ -95,8 +95,6 @@ my @products = (
 			origin => "UK",
 			countries => "United Kingdom, Ireland",
 			categories => "breakfast cereals",
-			nutriment_sugars => "15.1",
-			nutriment_sugar_unit => "g",
 		)
 	}
 	#
@@ -163,6 +161,7 @@ my $tests_ref = [
 		expected_status_code => 200,
 	},
 	# Search on nutrients
+	# Note: the test products have no nutrition facts set, but they get estimated nutrition facts from ingredients
 	{
 		test_case => 'search-nutrient-sugar-greater-than-15g',
 		method => 'GET',
