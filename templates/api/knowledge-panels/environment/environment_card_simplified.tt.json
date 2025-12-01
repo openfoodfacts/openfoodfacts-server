@@ -13,12 +13,20 @@
             "panel_group_element": {
                 "panel_ids": [
                     "environmental_score",
-                    [% IF panels.environmental_score_adjustments.defined %]
-                    "environmental_score_adjustments"
-                    [% END %]
                 ]
             }
         },
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "panel_ids": [
+                    "environmental_labels_simplified",
+                    "origins_of_ingredients_simplified",
+                    "threatened_species_simplified",
+                    "packaging_simplified",   
+                ],
+            },
+        },        
         [% IF panels.carbon_footprint.defined %]
         {
             "element_type": "panel_group",
