@@ -2436,7 +2436,9 @@ sub has_non_estimated_nutrition_data ($product_ref) {
 
 This function is used by ProductOpener::Product::complete_product_history_and_completeness()
 
-It serialize the nutrition data into key-value pairs for easier comparison of product history entries.
+It serialize the nutrition data into key-value pairs (flat hashmap) for easier comparison of product history entries.
+
+Estimates are not returned.
 
 =head3 Arguments
 
