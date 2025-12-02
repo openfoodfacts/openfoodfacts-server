@@ -90,6 +90,8 @@ BEGIN {
 
 		&estimate_nutriscore_2021_milk_percent_from_ingredients
 		&estimate_nutriscore_2023_red_meat_percent_from_ingredients
+		&estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients
+		&estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients
 		&estimate_added_sugars_percent_from_ingredients
 
 		&has_specific_ingredient_property
@@ -122,6 +124,7 @@ use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Units qw/normalize_quantity/;
 use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
+use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
 
 use Encode;
 use Clone qw(clone);
@@ -927,13 +930,17 @@ Add a percent_max value for salt and sugar ingredients, based on the nutrition f
 
 sub add_percent_max_for_ingredients_from_nutrition_facts ($product_ref) {
 
-	# Check if we have values for salt and sugar in the nutrition facts
+	# If the preperation for the nutrition aggregated set is "as_sold",
+	# we check if we have values for salt and sugar in the nutrition facts (with a source different than "estimate")
+	# In that case we can set max values for any ingredient or sub-ingredient that is (or is a child of) sugar or salt.
+
 	my @ingredient_max_values = ();
-	my $sugars_100g = deep_get($product_ref, qw(nutriments sugars_100g));
+
+	my $sugars_100g = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sugars");
 	if (defined $sugars_100g) {
 		push @ingredient_max_values, {ingredientid => "en:sugar", value => $sugars_100g};
 	}
-	my $salt_100g = deep_get($product_ref, qw(nutriments salt_100g));
+	my $salt_100g = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "salt");
 	if (defined $salt_100g) {
 		push @ingredient_max_values, {ingredientid => "en:salt", value => $salt_100g};
 	}
@@ -3501,9 +3508,6 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 		else {
 			estimate_ingredients_percent_service($product_ref, {}, []);
 		}
-
-		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
-		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
 	}
 	else {
 		remove_fields(
@@ -3512,20 +3516,6 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 				# assign_property_to_ingredients - may have been introduced in previous version
 				"ingredients_without_ciqual_codes",
 				"ingredients_without_ciqual_codes_n",
-			]
-		);
-		remove_fields(
-			$product_ref->{nutriments},
-			[
-				# estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients - may have been introduced in previous version
-				"fruits-vegetables-nuts-estimate-from-ingredients_100g",
-				"fruits-vegetables-nuts-estimate-from-ingredients_serving",
-				"fruits-vegetables-legumes-estimate-from-ingredients_100g",
-				"fruits-vegetables-legumes-estimate-from-ingredients_serving",
-				"fruits-vegetables-nuts-estimate-from-ingredients-prepared_100g",
-				"fruits-vegetables-nuts-estimate-from-ingredients-prepared_serving",
-				"fruits-vegetables-legumes-estimate-from-ingredients-prepared_100g",
-				"fruits-vegetables-legumes-estimate-from-ingredients-prepared_serving",
 			]
 		);
 	}
@@ -8311,7 +8301,7 @@ sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 	return ($percent, $water_percent);
 }
 
-=head2 estimate_ingredients_matching_function ( $product_ref, $match_function_ref, $nutrient_id = undef )
+=head2 estimate_ingredients_matching_function ( $product_ref, $match_function_ref)
 
 This function analyzes the ingredients to estimate the percentage of ingredients of a specific type
 (e.g. fruits/vegetables/legumes for the Nutri-Score).
@@ -8324,17 +8314,13 @@ This function analyzes the ingredients to estimate the percentage of ingredients
 
 Reference to a function that matches specific ingredients (e.g. fruits/vegetables/legumes)
 
-=head4 $nutrient_id (optional)
-
-If the $nutrient_id argument is defined, we also store the nutrient value in $product_ref->{nutriments}.
-
 =head3 Return value
 
 Estimated percentage of ingredients matching the function.
 
 =cut
 
-sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $nutrient_id = undef) {
+sub estimate_ingredients_matching_function ($product_ref, $match_function_ref) {
 
 	my ($percent, $water_percent);
 
@@ -8379,17 +8365,6 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $
 			and ((not defined $percent) or ($specific_ingredients_percent > $percent)))
 		{
 			$percent = $specific_ingredients_percent;
-		}
-	}
-
-	if (defined $nutrient_id) {
-		if (defined $percent) {
-			$product_ref->{nutriments}{$nutrient_id . "_100g"} = $percent;
-			$product_ref->{nutriments}{$nutrient_id . "_serving"} = $percent;
-		}
-		elsif (defined $product_ref->{nutriments}) {
-			delete $product_ref->{nutriments}{$nutrient_id . "_100g"};
-			delete $product_ref->{nutriments}{$nutrient_id . "_serving"};
 		}
 	}
 
@@ -8451,11 +8426,7 @@ Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimat
 
 sub estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ($product_ref) {
 
-	return estimate_ingredients_matching_function(
-		$product_ref,
-		\&is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils,
-		"fruits-vegetables-nuts-estimate-from-ingredients"
-	);
+	return estimate_ingredients_matching_function($product_ref, \&is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils);
 
 }
 
@@ -8598,9 +8569,7 @@ sub estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients 
 		$matching_function_ref = \&is_fruits_vegetables_legumes;
 	}
 
-	return estimate_ingredients_matching_function($product_ref, $matching_function_ref,
-		"fruits-vegetables-legumes-estimate-from-ingredients",
-	);
+	return estimate_ingredients_matching_function($product_ref, $matching_function_ref);
 }
 
 =head2 is_milk ( $ingredient_id, $processing = undef )
@@ -8676,7 +8645,6 @@ sub estimate_added_sugars_percent_from_ingredients ($product_ref) {
 			my ($ingredient_id, $processing) = @_;
 			return is_a("ingredients", $ingredient_id, "en:added-sugar");
 		},
-		#"added-sugars-estimate-from-ingredients"
 	);
 }
 

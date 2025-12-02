@@ -2,6 +2,13 @@
    "nutrition" : {
       "aggregated_set" : {
          "nutrients" : {
+            "energy" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 30
+            },
             "energy-kj" : {
                "source" : "packaging",
                "source_index" : 0,

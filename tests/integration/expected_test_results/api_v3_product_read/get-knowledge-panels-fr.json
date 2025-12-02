@@ -1286,13 +1286,6 @@
                            "text" : "Tel que vendu<br>pour 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "Tel que vendu<br>par portion (10 g)",
-                           "text_for_small_screens" : "par portion",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -1303,9 +1296,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Matières grasses"
-                              },
-                              {
-                                 "text" : "?"
                               },
                               {
                                  "text" : "?"
@@ -1321,9 +1311,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -1333,9 +1320,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Glucides"
-                              },
-                              {
-                                 "text" : "?"
                               },
                               {
                                  "text" : "?"
@@ -1351,9 +1335,18 @@
                               },
                               {
                                  "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 2,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sucres ajoutés"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "~ 0 g"
                               }
                            ]
                         },
@@ -1363,9 +1356,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fibres alimentaires"
-                              },
-                              {
-                                 "text" : "?"
                               },
                               {
                                  "text" : "?"
@@ -1381,9 +1371,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -1396,9 +1383,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -1407,13 +1391,10 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)"
+                                 "text" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive"
                               },
                               {
-                                 "text" : "58,333 %"
-                              },
-                              {
-                                 "text" : "58,333 %"
+                                 "text" : "~ 58,333 %"
                               }
                            ]
                         }

@@ -1234,13 +1234,6 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "As sold<br>per serving (10 g)",
-                           "text_for_small_screens" : "per serving",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -1251,9 +1244,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fat"
-                              },
-                              {
-                                 "text" : "?"
                               },
                               {
                                  "text" : "?"
@@ -1269,9 +1259,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -1281,9 +1268,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Carbohydrates"
-                              },
-                              {
-                                 "text" : "?"
                               },
                               {
                                  "text" : "?"
@@ -1299,9 +1283,18 @@
                               },
                               {
                                  "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 2,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Added sugars"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "~ 0 g"
                               }
                            ]
                         },
@@ -1311,9 +1304,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fiber"
-                              },
-                              {
-                                 "text" : "?"
                               },
                               {
                                  "text" : "?"
@@ -1329,9 +1319,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -1344,9 +1331,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -1355,13 +1339,10 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils"
                               },
                               {
-                                 "text" : "58.333 %"
-                              },
-                              {
-                                 "text" : "58.333 %"
+                                 "text" : "~ 58.333 %"
                               }
                            ]
                         }
