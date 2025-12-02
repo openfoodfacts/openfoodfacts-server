@@ -142,6 +142,7 @@ use ProductOpener::Redis qw/push_product_update_to_redis/;
 use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::Slack qw/send_slack_message/;
+use ProductOpener::Nutrition qw/has_non_estimated_nutrition_data get_nutrition_data_as_key_values_pairs/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -1726,14 +1727,11 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		$complete = 0;
 	}
 
+	my $no_nutrition_data_on_packaging = deep_get($current_ref, "nutrition", "no_nutrition_data_on_packaging");
+
 	if (
-		(
-			(
-					(defined $current_ref->{nutriments})
-				and (scalar grep {$_ !~ /^(nova|fruits-vegetables)/} keys %{$current_ref->{nutriments}}) > 0
-			)
-		)
-		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))
+
+		(defined $no_nutrition_data_on_packaging) or (has_non_estimated_nutrition_data($current_ref))
 		)
 	{
 		push @states_tags, "en:nutrition-facts-completed";
@@ -2227,7 +2225,8 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/$rev");
+		# We use retrieve_product to get the product at a specific revision, upgrading the schema if needed
+		my $product_ref = retrieve_product($product_id, 1, $rev);
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
@@ -2321,15 +2320,9 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				}
 			}
 
-			# Nutriments
-
-			if (defined $product_ref->{nutriments}) {
-				foreach my $nid (keys %{$product_ref->{nutriments}}) {
-					if ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne '')) {
-						$current{nutriments}{$nid} = $product_ref->{nutriments}{$nid};
-					}
-				}
-			}
+			# Nutrition data
+			# Record changes for all nutrition input sets
+			$current{nutrition} = get_nutrition_data_as_key_values_pairs($product_ref);
 
 			# Packagings components
 			if (defined $product_ref->{packagings}) {
@@ -2376,7 +2369,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 			record_user_edit_type($users_ref, "checkers", $product_ref->{last_checker});
 		}
 
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments', 'packagings') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packagings') {
 
 			defined $blame_ref->{$group} or $blame_ref->{$group} = {};
 
@@ -2409,9 +2402,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 						push @ids, $field . "_" . $language_code;
 					}
 				}
-			}
-			elsif ($group eq 'nutriments') {
-				@ids = @{$nutriments_lists{off_europe}};
 			}
 			elsif ($group eq 'packagings') {
 				@ids = ("data", "weights_measured");
@@ -3379,7 +3369,7 @@ sub compute_changes_diff_text ($change_ref) {
 	my $diffs = '';
 	if (defined $change_ref->{diffs}) {
 		my %diffs = %{$change_ref->{diffs}};
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packaging') {
 			if (defined $diffs{$group}) {
 				$diffs .= lang("change_$group") . " ";
 

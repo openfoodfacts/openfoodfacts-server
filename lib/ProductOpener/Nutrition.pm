@@ -63,6 +63,8 @@ BEGIN {
 		&convert_sodium_to_salt
 		&convert_salt_to_sodium
 		&get_non_estimated_nutrient_per_100g_or_100ml_for_preparation
+		&has_non_estimated_nutrition_data
+		&get_nutrition_data_as_key_values_pairs
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -2396,6 +2398,102 @@ Converts a salt value to its equivalent sodium value using the EU standard conve
 sub convert_salt_to_sodium ($salt_value) {
 
 	return $salt_value / 2.5;
+}
+
+=head2 has_non_estimated_nutrition_data ( $product_ref )
+
+Checks if the product has at least one nutrient with a non-estimated value
+
+=head3 Arguments
+
+=head4 $product_ref
+
+Reference to the product hash
+
+=cut
+
+sub has_non_estimated_nutrition_data ($product_ref) {
+
+	# Go through each input set, check if source is different than "estimate"
+	# Empty input sets should have been removed before calling this function
+
+	my $inputs_sets_array_ref = deep_get($product_ref, "nutrition", "input_sets");
+
+	if (defined $inputs_sets_array_ref) {
+		foreach my $input_set_ref (@{$inputs_sets_array_ref}) {
+			my $source = $input_set_ref->{source};
+			if (defined $source and ($source ne "estimate")) {
+				# We have at least one input set with a non-estimated source
+				return 1;
+			}
+		}
+	}
+
+	return 0;
+}
+
+=head2 get_nutrition_data_as_key_values_pairs ( $product_ref )
+
+This function is used by ProductOpener::Product::complete_product_history_and_completeness()
+
+It serialize the nutrition data into key-value pairs for easier comparison of product history entries.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+Reference to the product hash
+
+=head3 Returns
+
+A reference to a hash of key-value pairs representing the nutrition data of the product.
+
+=cut
+
+sub get_nutrition_data_as_key_values_pairs ($product_ref) {
+
+	my %nutrition_data_kv_pairs = ();
+
+	my $inputs_sets_array_ref = deep_get($product_ref, "nutrition", "input_sets");
+
+	if (defined $inputs_sets_array_ref) {
+		foreach my $input_set_ref (@{$inputs_sets_array_ref}) {
+			my $source = $input_set_ref->{source} || "";
+			my $preparation = $input_set_ref->{preparation} || "";
+			my $per = $input_set_ref->{per} || "";
+
+			# skip estimate from ingredients
+			if ($source eq "estimate") {
+				next;
+			}
+
+			# unspecified_nutrients
+			if (exists $input_set_ref->{unspecified_nutrients}
+				and ref($input_set_ref->{unspecified_nutrients}) eq 'ARRAY')
+			{
+				my @sorted_unspecified_nutrients = sort @{$input_set_ref->{unspecified_nutrients}};
+				$nutrition_data_kv_pairs{"${source}.${preparation}.${per}.unspecified_nutrients"}
+					= join(",", @sorted_unspecified_nutrients);
+			}
+
+			# nutrients
+			if (    (exists $input_set_ref->{nutrients})
+				and (ref($input_set_ref->{nutrients}) eq 'HASH'))
+			{
+				while (my ($nid, $nutrient_ref) = each(%{$input_set_ref->{nutrients}})) {
+					# Note: we skip value_string and only include value, in order to avoid listing 2 entries for 1 nutrient difference
+					foreach my $field ("modifier", "value", "unit") {
+						if (defined $nutrient_ref->{$field}) {
+							$nutrition_data_kv_pairs{"${source}.${preparation}.${per}.nutrients.${nid}.${field}"}
+								= $nutrient_ref->{$field};
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return \%nutrition_data_kv_pairs;
 }
 
 1;
