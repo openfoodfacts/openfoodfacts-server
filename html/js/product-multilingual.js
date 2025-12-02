@@ -1092,6 +1092,7 @@ async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copy
 
     msgDiv.innerHTML = '<img src="/images/misc/loading2.gif" /> ' + escapeHtml(loadingMsg);
     msgDiv.style.display = 'block';
+    msgDiv.style.opacity = '1';
 
     const formData = new FormData(document.getElementById('product_form'));
     formData.append('code', code);
@@ -1116,15 +1117,21 @@ async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copy
 
         if (data.error) {
             msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(data.error);
+            msgDiv.style.opacity = '1';
         } else {
             const linkHtml = data.code ? ` &rarr; <a href="${escapeHtml(data.url)}">${escapeHtml(data.code)}</a>` : '';
             msgDiv.innerHTML = escapeHtml(successMsg) + linkHtml;
+            msgDiv.style.opacity = '1';
         }
         $([]).selectcrop('init_images', data.images);
         $(".select_crop").selectcrop('show');
     } catch (error) {
         msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(error.message);
+        msgDiv.style.opacity = '1';
     } finally {
+        setTimeout(() => {
+            msgDiv.style.opacity = '0';
+        }, 1700);
         setTimeout(() => {
             msgDiv.style.display = 'none';
         }, 2000);
