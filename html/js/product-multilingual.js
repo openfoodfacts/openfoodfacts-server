@@ -1117,7 +1117,7 @@ async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copy
         if (data.error) {
             msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(data.error);
         } else {
-            const linkHtml = data.code ? ` &rarr; <a href="${escapeHtml(data.url)}">${escapeHtml(data.code)}</a>` : '';
+            const linkHtml = data.code ? ` &rarr; <a href="${encodeURI(data.url)}">${escapeHtml(data.code)}</a>` : '';
             msgDiv.innerHTML = escapeHtml(successMsg) + linkHtml;
         }
         $([]).selectcrop('init_images', data.images);
