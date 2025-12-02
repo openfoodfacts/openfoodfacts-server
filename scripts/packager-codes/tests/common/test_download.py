@@ -18,14 +18,21 @@ def mock_requests_get():
 # Tests for download_excel_file function
 
 def test_download_excel_file_direct_mode(tmp_path, mock_requests_get):
-    url = "https://example.com/files"
+    url = "https://example.com/page"
     output_file = tmp_path / "output.xlsx"
     expected_file_name = "file.xlsx"
 
-    mock_response = MagicMock()
-    mock_response.status_code = 200
-    mock_response.content = b"excel-content"
-    mock_requests_get.return_value = mock_response
+    # Mock HTML page with file link
+    html_content = '<html><body><a href="/downloads/file.xlsx">Download</a></body></html>'
+    page_response = MagicMock()
+    page_response.status_code = 200
+    page_response.content = html_content.encode()
+    
+    file_response = MagicMock()
+    file_response.status_code = 200
+    file_response.content = b"excel-content"
+    
+    mock_requests_get.side_effect = [page_response, file_response]
 
     result = download_excel_file(
         country_name="Testland",
@@ -35,7 +42,7 @@ def test_download_excel_file_direct_mode(tmp_path, mock_requests_get):
         expected_file_name=expected_file_name
     )
 
-    # In direct mode, function returns None
+    # In filename search mode, function returns None
     assert result is None
     assert output_file.exists()
     assert output_file.read_bytes() == b"excel-content"
