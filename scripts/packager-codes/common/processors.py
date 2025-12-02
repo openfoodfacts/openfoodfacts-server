@@ -96,5 +96,4 @@ def process_html_file(country_name: str, country_code: str,
     Returns:
         Tuple of (success: bool, new_filename: str or None)
     """
-    # TODO: Implement HTML scraping using BeautifulSoup
     raise NotImplementedError("HTML processing not yet implemented")

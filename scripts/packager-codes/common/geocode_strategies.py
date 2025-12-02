@@ -95,12 +95,12 @@ def create_strategy_reset_without_city(initial_params: dict):
     Returns:
         Strategy function
     """
-    def strategy_reset_without_city(country_name: str, params: dict, code: str) -> dict:
+    def strategy_reset_without_city(country_name: str, _params: dict, code: str) -> dict:
         """Reset to full address but remove city restrictions"""
         print(f"{country_name} - Warning - {code}: No results found. Retrying with full address without city restrictions")
-        params = initial_params.copy()
-        params.pop('city', None)
-        return params
+        new_params = initial_params.copy()
+        new_params.pop('city', None)
+        return new_params
                 
     return strategy_reset_without_city
 
@@ -128,12 +128,12 @@ def create_strategy_reset_without_country(initial_params: dict):
     Returns:
         Strategy function
     """
-    def strategy_reset_without_country(country_name: str, params: dict, code: str) -> dict:
+    def strategy_reset_without_country(country_name: str, _params: dict, code: str) -> dict:
         """Reset to full address but remove country restrictions"""
         print(f"{country_name} - Warning - {code}: No results found. Retrying with full address without country restrictions")
-        params = initial_params.copy()
-        params.pop('country', None)
-        params.pop('countrycodes', None)
-        return params
+        new_params = initial_params.copy()
+        new_params.pop('country', None)
+        new_params.pop('countrycodes', None)
+        return new_params
     
     return strategy_reset_without_country
