@@ -2269,12 +2269,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 
 			if (defined $product_ref->{images}) {
 
-				# Old revisions may have the old image schema, with uploaded and selected images at the root
-				if ((not defined $product_ref->{schema_version} or ($product_ref->{schema_version} < 1002))) {
-					ProductOpener::ProductSchemaChanges::convert_schema_1001_to_1002_refactor_images_object(
-						$product_ref);
-				}
-
 				# Uploaded images
 				if (defined $product_ref->{images}{uploaded}) {
 					foreach my $imgid (sort keys %{$product_ref->{images}{uploaded}}) {
