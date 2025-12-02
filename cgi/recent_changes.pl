@@ -27,7 +27,7 @@ use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/display_recent_changes init_request/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/:all/;
