@@ -1119,7 +1119,7 @@ async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copy
             msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(data.error);
             msgDiv.style.opacity = '1';
         } else {
-            const linkHtml = data.code ? ` &rarr; <a href="${escapeHtml(data.url)}">${escapeHtml(data.code)}</a>` : '';
+            const linkHtml = data.code ? ` &rarr; <a href="${encodeURI(data.url)}">${escapeHtml(data.code)}</a>` : '';
             msgDiv.innerHTML = escapeHtml(successMsg) + linkHtml;
             msgDiv.style.opacity = '1';
         }
@@ -1135,8 +1135,7 @@ async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copy
         setTimeout(() => {
             msgDiv.style.display = 'none';
         }, 2000);
-        deleteBtn.classList.remove('disabled');
-        moveBtn.classList.remove('disabled');
+        toggle_manage_images_buttons();
     }
 }
 
