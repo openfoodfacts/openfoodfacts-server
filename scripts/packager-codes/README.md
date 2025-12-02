@@ -12,7 +12,7 @@
             - start: which sheet to start extracting (starts from 0)
             - end: which sheet to stop extracting
          - header_keywords: used to drop columns above the header in Excel/csv, all keywords should appear in the row containing header.
-         - columns: which columns in Excel/csv corresponds code, name, street, cit, postalcode
+         - columns: which columns in Excel/csv correspond code, name, street, city, postalcode
          - code_format:
             - suffix (required): suffix to add after the code (for example, EU for HR 123 EU)
             - strip_prefix (optional): if file already contains prefix that needs to be dropped.
