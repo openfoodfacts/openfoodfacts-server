@@ -1588,13 +1588,6 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "As sold<br>per serving (10 g)",
-                           "text_for_small_screens" : "per serving",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -1608,9 +1601,6 @@
                               },
                               {
                                  "text" : "400 kj<br>(96 kcal)"
-                              },
-                              {
-                                 "text" : "40 kj<br>(10 kcal)"
                               }
                            ]
                         },
@@ -1623,9 +1613,6 @@
                               },
                               {
                                  "text" : "8.5 g"
-                              },
-                              {
-                                 "text" : "0.85 g"
                               }
                            ]
                         },
@@ -1638,9 +1625,6 @@
                               },
                               {
                                  "text" : "5.6 g"
-                              },
-                              {
-                                 "text" : "0.56 g"
                               }
                            ]
                         },
@@ -1653,9 +1637,6 @@
                               },
                               {
                                  "text" : "10.5 g"
-                              },
-                              {
-                                 "text" : "1.05 g"
                               }
                            ]
                         },
@@ -1668,9 +1649,18 @@
                               },
                               {
                                  "text" : "12.5 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 2,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Added sugars"
                               },
                               {
-                                 "text" : "1.25 g"
+                                 "text" : "~ 0 g"
                               }
                            ]
                         },
@@ -1683,9 +1673,6 @@
                               },
                               {
                                  "text" : "2 g"
-                              },
-                              {
-                                 "text" : "0.2 g"
                               }
                            ]
                         },
@@ -1698,9 +1685,6 @@
                               },
                               {
                                  "text" : "4.5 g"
-                              },
-                              {
-                                 "text" : "0.45 g"
                               }
                            ]
                         },
@@ -1713,9 +1697,6 @@
                               },
                               {
                                  "text" : "0.05 g"
-                              },
-                              {
-                                 "text" : "0.005 g"
                               }
                            ]
                         },
@@ -1724,13 +1705,10 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils"
                               },
                               {
-                                 "text" : "58.333 %"
-                              },
-                              {
-                                 "text" : "58.333 %"
+                                 "text" : "~ 58.333 %"
                               }
                            ]
                         }
