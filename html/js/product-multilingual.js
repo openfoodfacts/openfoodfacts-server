@@ -1128,8 +1128,7 @@ async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copy
         setTimeout(() => {
             msgDiv.style.display = 'none';
         }, 2000);
-        deleteBtn.classList.remove('disabled');
-        moveBtn.classList.remove('disabled');
+        toggle_manage_images_buttons();
     }
 }
 
