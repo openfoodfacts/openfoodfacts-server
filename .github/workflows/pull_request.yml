@@ -738,7 +738,7 @@ jobs:
         make clone_deps
         cd deps/openfoodfacts-shared-services/
         git fetch origin
-        git checkout -b mongo-8 --track origin-mongo-8
+        git checkout -b mongo-8 --track origin/mongo-8
       if: |
         ( ${{ github.head_ref || github.ref_name }} ) == "test-mongo8"
 
