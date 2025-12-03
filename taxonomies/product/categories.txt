@@ -7321,7 +7321,7 @@ cs: Deskové hry
 da: Brætspil
 de: Brettspiele
 es: Juegos de mesa
-fr: Jeux de plateau, Jeux de société, Jeu de société
+fr: Jeux de plateau, Jeux de société, Jeu de société, Jeux de société
 it: Giochi in scatola
 ja: ボードゲーム
 nl: Bordspellen
@@ -12138,6 +12138,10 @@ sv: Jaktkameror
 tr: Takip Kameraları
 google_product_taxonomy_id:en: 5402
 wikidata:en: Q1723004
+
+< en:Cameras
+en: Underwater cameras
+unspsc:en: 45121512
 
 < en:Cameras
 en: Video Cameras
@@ -21683,6 +21687,21 @@ carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/teleph
 unit_name:en: Basic phone
 unit_name:fr: Téléphone basique
 
+< en:Electronics
+en: Smart watches, Smartwatches
+
+< en:Smart watches
+en: WearOS smartwatches
+
+< en:Smart watches
+en: Apple smartwatches
+
+< en:Electronics
+en: Activity tracker
+
+< en:Electronics
+en: Fitness tracker
+
 < en:Telephony
 en: Mobile Phones, mobile phones, cell phones
 xx: Mobile Phones
@@ -21708,6 +21727,7 @@ en: Smartphones
 xx: Smartphones, Smartphone
 carbon_impact_fr_impactco2:en: 85.9
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/smartphone
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/smartphone/
 google_product_taxonomy_id:en: 267
 qfdmo_id:fr: 334
 qfdmo_name:fr: smartphone
@@ -22041,6 +22061,7 @@ pt: Computadores
 ru: Компьютеры
 sv: Datorer
 tr: Bilgisayarlar
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/ordinateur/
 google_product_taxonomy_id:en: 278
 qfdmo_name:fr: ordinateur
 wikidata:en: Q68
@@ -26636,6 +26657,12 @@ google_product_taxonomy_id:en: 356
 qfdmo_name:fr: cartouches
 wikidata:en: Q116970526
 
+< en: Toner & Inkjet Cartridges
+en: Toner cartridges
+
+< en: Toner & Inkjet Cartridges
+en: Inkjet cartridges
+
 < en:Printer\, Copier & Fax Machine Accessories
 en: Printer Duplexers
 xx: Printer Duplexers
@@ -27105,6 +27132,7 @@ sv: TV-apparater
 tr: Televizyonlar
 carbon_impact_fr_impactco2:en: 472
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/television
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/televiseur/
 google_product_taxonomy_id:en: 404
 qfdmo_id:fr: 335
 qfdmo_name:fr: television
@@ -36179,6 +36207,7 @@ pt: Ferros e sistemas de passar roupa
 ru: Утюги и гладильные системы
 sv: Strykjärn
 tr: Ütüler ve Ütüleme Sistemleri
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/centrale-vapeur-ou-fer-a-repasser/
 google_product_taxonomy_id:en: 5139
 qfdmo_name:fr: centrale-vapeur
 wikidata:en: Q117207755
@@ -36242,12 +36271,22 @@ sv: Tvättmaskiner
 tr: Çamaşır Makineleri
 carbon_impact_fr_impactco2:en: 510
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/lavelinge
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/lave-linge/
 google_product_taxonomy_id:en: 2195
 qfdmo_id:fr: 211
 qfdmo_name:fr: lave-linge
 unit_name:en: washing machine
 unit_name:fr: lave-linge
 wikidata:en: Q124441
+
+< en:Washing Machines
+en: Front-loading Washing Machines
+fr: Lave-linge à chargement frontal, lave-linge hublot
+
+< en:Washing Machines
+en: Top-loading Washing Machines
+fr: Lave-linge à chargement par le haut, lave-linge top
+wikidata:en: Q1634761
 
 < en:Household Appliances
 en: Ultrasonic Cleaners
@@ -36288,6 +36327,7 @@ sv: Dammsugare
 tr: Elektrik Süpürgeleri
 carbon_impact_fr_impactco2:en: 47.3
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/aspirateur
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/aspirateur/
 google_product_taxonomy_id:en: 619
 qfdmo_id:fr: 24
 qfdmo_name:fr: aspirateur
@@ -36299,6 +36339,14 @@ wikidata:en: Q11475
 fr: Robot-aspirateur
 qfdmo_id:fr: 299
 qfdmo_name:fr: robot-aspirateur
+
+< en:Vacuums
+en: Corded Vacuums
+fr: Aspirateur filaire
+
+< en:Vacuums
+en: Cordless vacuums
+fr: Aspirateur non filaire
 
 < en:Household Appliances
 en: Wallpaper Steamers
@@ -42396,6 +42444,7 @@ pt: Cafeteiras e máquinas de café expresso
 ru: Кофеварки и эспрессо-машины
 sv: Kaffebryggare och espressomaskiner
 tr: Kahve Makineleri ve Espresso Makineleri
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/machine-a-cafe/
 google_product_taxonomy_id:en: 736
 qfdmo_name:fr: machine-a-cafe
 wikidata:en: Q117207980
@@ -42630,6 +42679,7 @@ sv: Diskmaskiner
 tr: Bulaşık Makineleri
 carbon_impact_fr_impactco2:en: 468
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/electromenager/lavevaisselle
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/lave-vaisselle/
 google_product_taxonomy_id:en: 680
 qfdmo_id:fr: 180
 qfdmo_name:fr: lave-vaisselle
@@ -43470,6 +43520,7 @@ pt: Tampas para fogão
 ru: Вытяжки
 sv: Köksfläktar
 tr: Davlumbazlar
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/hotte-aspirante/
 google_product_taxonomy_id:en: 684
 qfdmo_id:fr: 180
 qfdmo_name:fr: hotte
@@ -48563,6 +48614,7 @@ pt: Cortadores de grama
 ru: Газонокосилки
 sv: Gräsklippare
 tr: Çim Biçme Makineleri
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/tondeuse-a-moteur-thermique/
 google_product_taxonomy_id:en: 694
 qfdmo_name:fr: tondeuse-a-gazon-electrique
 wikidata:en: Q260521
@@ -48788,6 +48840,7 @@ pt: Mangueiras de pressão
 ru: Мойки высокого давления
 sv: Högtryckstvättar
 tr: Basınçlı Yıkama Makineleri
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/nettoyeur-a-haute-pression/
 google_product_taxonomy_id:en: 1226
 qfdmo_id:fr: 347
 qfdmo_name:fr: nettoyeur-a-haute-pression-thermique
@@ -53872,6 +53925,24 @@ tr: Anma Töreni Malzemeleri
 google_product_taxonomy_id:en: 5606
 wikidata:en: Q117208402
 
+en: Burial or grave products
+
+< en:Burial or grave products
+en: Funeral ash box or cremation urn
+unspsc:en: 48131501
+
+< en:Burial or grave products
+en: Coffin
+unspsc:en: 48131502
+
+< en:Burial or grave products
+en: Shroud
+unspsc:en: 48131503
+
+< en:Burial or grave products
+en: Tombstone
+unspsc:en: 48131504
+
 < en:Memorial Ceremony Supplies
 en: Memorial Urns
 xx: Memorial Urns
@@ -54354,6 +54425,9 @@ tr: Septik Tankı ve Foseptik Çukuru Temizleyiciler
 google_product_taxonomy_id:en: 7470
 wikidata:en: Q116970743
 
+en: Adhesives & Sealants
+
+< en:Adhesives & Sealants
 < en:Building Consumables
 en: Hardware Glue & Adhesives
 xx: Hardware Glue & Adhesives
@@ -58595,6 +58669,7 @@ pt: Torneiras
 ru: Краны
 sv: Kranar
 tr: Musluklar
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/robinetterie/
 google_product_taxonomy_id:en: 2032
 wikidata:en: Q656656
 
@@ -65471,6 +65546,12 @@ google_product_taxonomy_id:en: 783
 wikidata:en: Q117208263
 
 < en:Media
+en: Published products, Publications
+
+< en:Media
+en: Printed publications, Printed media
+
+< en:Media
 en: Books
 xx: Books
 ar: كتب
@@ -67045,6 +67126,7 @@ tr: El İşi Yapışkanları ve Mıknatısları
 google_product_taxonomy_id:en: 505376
 wikidata:en: Q116960446
 
+< en:Adhesives & Sealants
 < en:Crafting Adhesives & Magnets
 en: Craft & Office Glue
 xx: Craft & Office Glue
@@ -83573,7 +83655,7 @@ cs: Pera
 da: Kuglepenne
 de: Schreibstifte\, Kugelschreiber & Füller
 es: Bolígrafos
-fr: Stylos
+fr: Stylos, Stylos bille
 it: Penne
 ja: ペン
 nl: Pennen
@@ -84193,7 +84275,15 @@ wikidata:en: Q768186
 en: Sport shoes
 de: Sportschuhe
 es: Zapatillas deportivas
+
+< en: Sport shoes
+da: Vandrestøvler
+de: Wanderstiefel
+es: Botas de senderismo
 fr: Chaussures de sport, Chaussures de marche, Chaussures de randonnée
+it: Scarponi da trekking
+ja: ハイキングブーツ
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/chaussures-de-randonnee/
 qfdmo_name:fr: chaussures-de-sport
 
 < en:Sporting Goods
@@ -95486,6 +95576,7 @@ pt: Bicicletas
 ru: Велосипеды
 sv: Cyklar
 tr: Bisikletler
+epargnonsnosressources_fr_link:en: https://epargnonsnosressources.gouv.fr/entretien/velo-a-assistance-electrique/
 google_product_taxonomy_id:en: 1026
 qfdmo_name:fr: velo
 wikidata:en: Q11442
@@ -101646,6 +101737,26 @@ tr: İlaçlar
 google_product_taxonomy_id:en: 518
 wikidata:en: Q116221216
 
+< en: Medicine & Drugs
+en: Antacid tablets
+
+< en: Medicine & Drugs
+en: Paracetamol tablets
+fr: Comprimés de paracétamol
+
+< en: Medicine & Drugs
+en: Cough & Cold Remedies
+de: Husten- & Erkältungsmittel
+
+< en: Medicine & Drugs
+en: Pain Relief Tablets
+es: Tabletas para el alivio del dolor
+fr: Comprimés contre la douleur
+it: Compresse per il sollievo dal dolore
+nl: Pijnstillende tabletten
+pl: Tabletki przeciwbólowe
+sv: Smärtstillande tabletter
+
 < en:Health Care
 en: Mobility & Accessibility
 xx: Mobility & Accessibility
@@ -104959,8 +105070,6 @@ de: Damenhygieneartikel
 es: Productos sanitarios femeninos
 fr: Produits d'hygiène féminine
 it: Accessori sanitari femminili
-ja: 生理用品
-nl: Menstruatieproducten
 no: Sanitærprodukter for kvinner
 pl: Środki do higieny intymnej dla kobiet
 pt: Suprimentos para a higiene feminina
@@ -104971,19 +105080,54 @@ google_product_taxonomy_id:en: 485
 wikidata:en: Q117207495
 
 < en: Feminine Sanitary Supplies
+en: Menstrual products
+xx: Menstrual products
+cs: Menstruační pomůcky
+da: Menstruationsprodukter
+de: Menstruationsprodukte
+es: Productos menstruales
 fr: Produits menstruels
+it: Prodotti mestruali
+ja: 生理用品
+nl: Menstruatieproducten
+no: Menstruasjonsprodukter
+pl: Produkty menstruacyjne
+pt: Produtos menstruais
+ru: Менструальные средства
+sv: Mensskydd
+tr: Menstrüel ürünler
 
-< fr: Produits menstruels
-fr: Produits menstruels reutilisables
+< en: Menstrual products
+en: Reusable Menstrual Products
+de: Wiederverwendbare Menstruationsprodukte
+es: Productos menstruales reutilizables
+fr: Produits menstruels réutilisables
+it: Prodotti mestruali riutilizzabili
 
-< fr: Produits menstruels reutilisables
+< en: Reusable Menstrual Products
+en: Menstrual Underwear
+de: Menstruationsunterwäsche
+es: Ropa interior menstrual
 fr: Culottes de règles
+it: Mutandine mestruali
+ja: 生理用ショーツ
+nl: Menstruatieondergoed
+no: Menstruasjonsundertøy
+pl: Majtki menstruacyjne
+pt: Calcinhas menstruais
+ru: Менструальное нижнее белье
+sv: Mensunderkläder
+tr: Regl Külotları
 
-< fr: Produits menstruels
+< en: Menstrual products
 en: Sanitary napkins
 de: Damenbinden
 es: Compresas sanitarias
 fr: Serviettes hygiéniques
+
+< en: Menstrual products
+en: Panty Liners
+fr: Protège lingerie
 
 < en:Feminine Sanitary Supplies
 en: Feminine Deodorant
@@ -106898,17 +107042,17 @@ google_product_taxonomy_id:en: 2508
 wikidata:en: Q117207544
 
 < en:Personal Care
-en: Sleeping Aids
+en: Sleeping Aids, Sleep Aids
 xx: Sleeping Aids
 cs: Pomůcky na zlepšení spánku
-da: Sovemidler
+da: Sovemidler, Søvnmidler
 de: Schlafhilfen
-es: Ayudas para conciliar el sueño
+es: Ayudas para conciliar el sueño, Ayudas para dormir
 fr: Aides au sommeil
 it: Ausili per il sonno
 ja: 安眠グッズ
 nl: Slaapmiddelen
-no: Sovemidler
+no: Sovemidler, Søvnmidler
 pl: Środki ułatwiające zasypianie
 pt: Auxiliares do sono
 ru: Средства для нормализации сна
