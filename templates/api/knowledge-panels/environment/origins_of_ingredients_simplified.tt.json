@@ -12,6 +12,7 @@
         "subtitle": "[% edq(lang('environmental_score_origins_of_ingredients_missing_information')) %]",
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
+        "icon_size": "small",
     },
     "elements": [
         {
@@ -52,6 +53,7 @@
         "title": "[% edq(lang('environmental_score_origins_of_ingredients')) %]",
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
+        "icon_size": "small",
     },
     "elements": [    
         {
