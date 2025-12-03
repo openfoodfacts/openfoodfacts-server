@@ -142,7 +142,7 @@ use ProductOpener::Redis qw/push_product_update_to_redis/;
 use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::Slack qw/send_slack_message/;
-use ProductOpener::Nutrition qw/has_non_estimated_nutrition_data get_nutrition_data_as_key_values_pairs/;
+use ProductOpener::Nutrition qw/has_non_estimated_nutrition_data get_nutrition_data_as_key_values_pairs has_no_nutrition_data_on_packaging/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -1649,8 +1649,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 			}
 			else {
 				if (    ($imagetype eq "nutrition")
-					and (defined $product_ref->{no_nutrition_data})
-					and ($product_ref->{no_nutrition_data} eq 'on'))
+					and (has_no_nutrition_data_on_packaging($current_ref)))
 				{
 					$images_completeness += $image_step;
 				}
@@ -1727,11 +1726,8 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		$complete = 0;
 	}
 
-	my $no_nutrition_data_on_packaging = deep_get($current_ref, "nutrition", "no_nutrition_data_on_packaging");
-
 	if (
-
-		(defined $no_nutrition_data_on_packaging) or (has_non_estimated_nutrition_data($current_ref))
+		(has_no_nutrition_data_on_packaging($current_ref) ) or (has_non_estimated_nutrition_data($current_ref))
 		)
 	{
 		push @states_tags, "en:nutrition-facts-completed";
@@ -2194,13 +2190,12 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 		'product_type', 'code',
 		'lang', 'product_name',
 		'generic_name', @ProductOpener::Config::product_fields,
-		@ProductOpener::Config::product_other_fields, 'no_nutrition_data',
-		'nutrition_data_per', 'nutrition_data_prepared_per',
+		@ProductOpener::Config::product_other_fields,
 		'serving_size', 'allergens',
 		'traces', 'ingredients_text'
 	);
 
-	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
+	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, packagings => {});
 	my %last = %previous;
 	my %current;
 
@@ -2255,7 +2250,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				uploaded_images => {},
 				selected_images => {},
 				fields => {},
-				nutriments => {},
 				packagings => {},
 			);
 

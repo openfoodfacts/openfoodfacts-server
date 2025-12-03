@@ -327,7 +327,7 @@ sub convert_schema_1002_to_1001_refactor_images_object ($product_ref) {
 	return;
 }
 
-=head2 1002 to 1003 - Refactor the product nutrition schema - API v3.4
+=head2 1002 to 1003 - Refactor the product nutrition schema - API v3.5
 
 The nutrition schema is updated to allow storing several nutrition sets
 
@@ -345,7 +345,7 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 	my $no_nutrition_data = defined $product_ref->{no_nutrition_data} && $product_ref->{no_nutrition_data} eq "on";
 
 	if ($no_nutrition_data) {
-		$product_ref->{nutrition}{no_nutrition_data} = true;
+		$product_ref->{nutrition}{no_nutrition_data_on_packaging} = true;
 	}
 	else {
 		my $nutrition_given_as_prepared
@@ -539,7 +539,7 @@ sub set_per_unit ($product_quantity_unit, $serving_quantity_unit, $set_type) {
 	return $per_unit;
 }
 
-=head2 1003 to 1002 - Refactor the product nutrition schema - API v3.4
+=head2 1003 to 1002 - Refactor the product nutrition schema - API v3.5
 
 The nutrition schema is updated to allow storing several nutrition input sets.
 To downgrade, we use only the aggregated set to generate the nutriments field.
@@ -552,7 +552,7 @@ as we will return only as sold data or prepared data, but not both as was possib
 sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref, $delete_nutrition_data = true) {
 
 	# No nutrition data
-	my $no_nutrition_data_on_packaging = deep_get($product_ref, "nutrition", "no_nutrition_data") // false;
+	my $no_nutrition_data_on_packaging = deep_get($product_ref, "nutrition", "no_nutrition_data_on_packaging") // false;
 	if ($no_nutrition_data_on_packaging) {
 		$product_ref->{no_nutrition_data} = "on";
 	}

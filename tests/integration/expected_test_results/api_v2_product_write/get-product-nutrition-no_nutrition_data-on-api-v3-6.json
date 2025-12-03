@@ -1,5 +1,6 @@
 {
    "code" : "1234567890007",
+   "errors" : [],
    "product" : {
       "_id" : "1234567890007",
       "_keywords" : [
@@ -106,7 +107,14 @@
          "en:environmental-score-production-system-no-label",
          "en:environmental-score-threatened-species-ingredients-missing"
       ],
-      "ecoscore_data" : {
+      "ecoscore_tags" : [
+         "unknown"
+      ],
+      "editors_tags" : [
+         "tests"
+      ],
+      "entry_dates_tags" : "--ignore--",
+      "environmental_score_data" : {
          "adjustments" : {
             "origins_of_ingredients" : {
                "aggregated_origins" : [
@@ -354,17 +362,17 @@
          "scores" : {},
          "status" : "unknown"
       },
-      "ecoscore_grade" : "unknown",
-      "ecoscore_tags" : [
+      "environmental_score_grade" : "unknown",
+      "environmental_score_tags" : [
          "unknown"
       ],
-      "editors_tags" : [
-         "tests"
-      ],
-      "entry_dates_tags" : "--ignore--",
       "food_groups_tags" : [],
       "id" : "1234567890007",
-      "images" : {},
+      "images" : {
+         "selected" : {
+            "ingredients" : {}
+         }
+      },
       "informers_tags" : [
          "tests"
       ],
@@ -411,7 +419,6 @@
          "en:packagings-number-of-components-0",
          "en:main-countries-new-product"
       ],
-      "no_nutrition_data" : "on",
       "nova_group_debug" : "no nova group when the product does not have ingredients",
       "nova_group_error" : "missing_ingredients",
       "nova_groups_tags" : [
@@ -478,6 +485,11 @@
          "unknown"
       ],
       "nutriscore_version" : "2023",
+      "nutrition" : {
+         "aggregated_set" : {},
+         "input_sets" : [],
+         "no_nutrition_data_on_packaging" : true
+      },
       "nutrition_grade_fr" : "unknown",
       "nutrition_grades" : "unknown",
       "nutrition_grades_tags" : [
@@ -509,7 +521,7 @@
       "product_type" : "food",
       "removed_countries_tags" : [],
       "rev" : 1,
-      "schema_version" : 998,
+      "schema_version" : 1003,
       "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
@@ -548,6 +560,11 @@
       "traces_tags" : [],
       "weighers_tags" : []
    },
-   "status" : 1,
-   "status_verbose" : "product found"
+   "result" : {
+      "id" : "product_found",
+      "lc_name" : "Product found",
+      "name" : "Product found"
+   },
+   "status" : "success",
+   "warnings" : []
 }
