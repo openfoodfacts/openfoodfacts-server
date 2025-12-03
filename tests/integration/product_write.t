@@ -28,25 +28,47 @@ my $token = get_token_using_password_credentials('tests', 'testtest')->{access_t
 $log->debug('test token', {token => $token}) if $log->is_debug();
 
 my $tests_ref = [
+    # Product not created yet, creating an empty product for the code
+	{
+		test_case => 'post-product-search-or-add',
+		method => 'POST',
+		path => '/cgi/product_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => "testtest",
+			action => "process",
+			type => "search_or_add",
+			code => "1234567890012",
+			lang => "en",
+		},
+		expected_status_code => 200,
+		expected_type => 'html',
+	},    
+    {
+        test_case => 'get-product-search-or-add',
+        method => 'GET',
+        path => '/api/v3.6/product/1234567890012',
+        expected_status_code => 200,
+    },
 	{
 		test_case => 'post-product-no-nutrition-data-on',
 		method => 'POST',
 		path => '/cgi/product_multilingual.pl',
 		form => {
-            user_id => "tests",
+			user_id => "tests",
 			password => "testtest",
-            action => "process",
-            type => "search_or_add",            
+			action => "process",
+			type => "edit",
 			code => "1234567890012",
 			lang => "en",
-            product_name_en => "English product name",
-            product_name_fr => "Nom du produit en français",
-            categories => "Breakfast cereals",
-            labels => "Organic, Gluten-Free",
-            no_nutrition_data => "on",
+			product_name_en => "English product name",
+			product_name_fr => "Nom du produit en français",
+			categories => "Breakfast cereals",
+			labels => "Organic, Gluten-Free",
+			no_nutrition_data => "on",
 		},
 		expected_status_code => 200,
-        expected_type => 'html',
+		expected_type => 'html',
 	},
 	{
 		test_case => 'get-product-no-nutrition-data-on',
@@ -54,59 +76,59 @@ my $tests_ref = [
 		path => '/api/v3.6/product/1234567890012',
 		expected_status_code => 200,
 	},
-    {
-        test_case => 'post-product-no-nutrition-data-off',
-        method => 'POST',
-        path => '/cgi/product_multilingual.pl',
-        form => {
-            user_id => "tests",
+	{
+		test_case => 'post-product-no-nutrition-data-off',
+		method => 'POST',
+		path => '/cgi/product_multilingual.pl',
+		form => {
+			user_id => "tests",
 			password => "testtest",
-            action => "process",
-            type => "edit",
-            code => "1234567890012",
-            lang => "en",
-            product_name_en => "English product name updated",
-            product_name_fr => "Nom du produit en français mis à jour",
-            # Not sending categories, changing labels
-            labels => "Fair Trade",
-            # no_nutrition_data not sent, so it is off
-            no_nutrition_data_displayed => 1,   # to indicate the checkbox was displayed
-        },
-        expected_status_code => 200,
-        expected_type => 'html',
-    },
-    {
-        test_case => 'get-product-no-nutrition-data-off',
-        method => 'GET',
-        path => '/api/v3.6/product/1234567890012',
-        expected_status_code => 200,
-    },
-    {
-        test_case => 'post-product-add-nutrition',
-        method => 'POST',
-        path => '/cgi/product_multilingual.pl',
-        form => {
-            user_id => "tests",
+			action => "process",
+			type => "edit",
+			code => "1234567890012",
+			lang => "en",
+			product_name_en => "English product name updated",
+			product_name_fr => "Nom du produit en français mis à jour",
+			# Not sending categories, changing labels
+			labels => "Fair Trade",
+			# no_nutrition_data not sent, so it is off
+			no_nutrition_data_displayed => 1,    # to indicate the checkbox was displayed
+		},
+		expected_status_code => 200,
+		expected_type => 'html',
+	},
+	{
+		test_case => 'get-product-no-nutrition-data-off',
+		method => 'GET',
+		path => '/api/v3.6/product/1234567890012',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'post-product-add-nutrition',
+		method => 'POST',
+		path => '/cgi/product_multilingual.pl',
+		form => {
+			user_id => "tests",
 			password => "testtest",
-            action => "process",
-            type => "edit",            
-            code => "1234567890012",
-            lang => "en",
-            serving_size => "30 g",
-            "nutrition_input_sets_as_sold_100g_nutrients_saturated-fat_value_string" => "5.0",
-		    "nutrition_input_sets_as_sold_100g_nutrients_saturated-fat_unit" => "g",
-            "nutrition_input_sets_prepared_serving_nutrients_salt_value_string" => "50",
-		    "nutrition_input_sets_prepared_serving_nutrients_salt_unit" => "mg",                        
-        },
-        expected_status_code => 200,
-        expected_type => 'html',
-    },
-    {
-        test_case => 'get-product-add-nutrition',
-        method => 'GET',
-        path => '/api/v3.6/product/1234567890012',
-        expected_status_code => 200,
-    },
+			action => "process",
+			type => "edit",
+			code => "1234567890012",
+			lang => "en",
+			serving_size => "30 g",
+			"nutrition_input_sets_as_sold_100g_nutrients_saturated-fat_value_string" => "5.0",
+			"nutrition_input_sets_as_sold_100g_nutrients_saturated-fat_unit" => "g",
+			"nutrition_input_sets_prepared_serving_nutrients_salt_value_string" => "50",
+			"nutrition_input_sets_prepared_serving_nutrients_salt_unit" => "mg",
+		},
+		expected_status_code => 200,
+		expected_type => 'html',
+	},
+	{
+		test_case => 'get-product-add-nutrition',
+		method => 'GET',
+		path => '/api/v3.6/product/1234567890012',
+		expected_status_code => 200,
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

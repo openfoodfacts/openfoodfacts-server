@@ -65,6 +65,7 @@ BEGIN {
 		&get_non_estimated_nutrient_per_100g_or_100ml_for_preparation
 		&has_non_estimated_nutrition_data
 		&get_nutrition_data_as_key_values_pairs
+		&has_no_nutrition_data_on_packaging
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -94,7 +95,8 @@ use ProductOpener::Ingredients
 use Log::Any qw($log);
 
 use Encode;
-use Data::DeepAccess qw(deep_get deep_set);
+use Data::DeepAccess qw(deep_exists deep_get deep_set);
+use boolean;
 
 =head1 FUNCTIONS
 
@@ -1164,6 +1166,43 @@ sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $sourc
 	return;
 }
 
+sub assign_no_nutrition_data_from_request_parameters ($request_ref, $product_ref) {
+
+	# Note: browsers do not send any value for checkboxes that are unchecked,
+	# so the web form also has a field (suffixed with _displayed) to allow us to uncheck the box.
+
+	# API:
+	# - check: no_nutrition_data is passed "on" or 1
+	# - uncheck: no_nutrition_data is passed an empty value ""
+	# - no action: the no_nutrition_data field is not sent, and no_nutrition_data_displayed is not sent
+	#
+	# Web:
+	# - check: no_nutrition_data is passed "on"
+	# - uncheck: no_nutrition_data is not sent but no_nutrition_data_displayed is sent
+
+	# We use only the no_nutrition_data checkbox to map it to no_nutrition_data_on_packaging
+	# The old nutrition_data and nutrition_data_prepared checkboxes were only used to show/hide the nutrition data sections on the web form
+	# They do not map to any field in the new product structure
+
+	foreach my $checkbox ("no_nutrition_data") {
+
+		if (defined request_param($request_ref, $checkbox)) {
+			my $checkbox_value = request_param($request_ref, $checkbox);
+			if (($checkbox_value eq '1') or ($checkbox_value eq "on")) {
+				$product_ref->{nutrition}{no_nutrition_data_on_packaging} = true;
+			}
+			elsif (deep_exists($product_ref, qw/nutrition no_nutrition_data_on_packaging/)) {
+				delete $product_ref->{nutrition}{no_nutrition_data_on_packaging};
+			}
+		}
+		elsif (defined request_param($request_ref, $checkbox . "_displayed")) {
+			if (deep_exists($product_ref, qw/nutrition no_nutrition_data_on_packaging/)) {
+				delete $product_ref->{nutrition}{no_nutrition_data_on_packaging};
+			}
+		}
+	}
+}
+
 =head2 assign_nutrition_values_from_old_request_parameters ( $request_ref, $product_ref, $nutriment_table, $source )
 
 This function provides backward compatibility for apps that use product edit API v2 (/cgi/product_jqm_multingual.pl)
@@ -1197,42 +1236,15 @@ sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_
 
 	$log->debug("Nutrition data") if $log->is_debug();
 
-	# Note: browsers do not send any value for checkboxes that are unchecked,
-	# so the web form also has a field (suffixed with _displayed) to allow us to uncheck the box.
-
-	# API:
-	# - check: no_nutrition_data is passed "on" or 1
-	# - uncheck: no_nutrition_data is passed an empty value ""
-	# - no action: the no_nutrition_data field is not sent, and no_nutrition_data_displayed is not sent
-	#
-	# Web:
-	# - check: no_nutrition_data is passed "on"
-	# - uncheck: no_nutrition_data is not sent but no_nutrition_data_displayed is sent
-
-	foreach my $checkbox ("no_nutrition_data", "nutrition_data", "nutrition_data_prepared") {
-
-		if (defined request_param($request_ref, $checkbox)) {
-			my $checkbox_value = request_param($request_ref, $checkbox);
-			if (($checkbox_value eq '1') or ($checkbox_value eq "on")) {
-				$product_ref->{$checkbox} = "on";
-			}
-			else {
-				$product_ref->{$checkbox} = "";
-			}
-		}
-		elsif (defined request_param($request_ref, $checkbox . "_displayed")) {
-			$product_ref->{$checkbox} = "";
-		}
-	}
+	assign_no_nutrition_data_from_request_parameters($request_ref, $product_ref);
 
 	# We use a temporary input sets hash to ease setting values
 	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
 
-	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+	if (has_no_nutrition_data_on_packaging($product_ref)) {
 
 		# Delete all nutrition input sets for the source
 		delete $input_sets_hash_ref->{$source};
-
 	}
 	else {
 
@@ -1376,6 +1388,8 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 		"assign_nutrition_values_from_request_parameters - start",
 		{source => $source, preparations => \@preparations, pers => \@pers}
 	) if $log->is_debug();
+
+	assign_no_nutrition_data_from_request_parameters($request_ref, $product_ref);
 
 	# We use a temporary input sets hash to ease setting values
 	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
@@ -2496,6 +2510,29 @@ sub get_nutrition_data_as_key_values_pairs ($product_ref) {
 	}
 
 	return \%nutrition_data_kv_pairs;
+}
+
+=head2 has_no_nutrition_data_on_packaging ( $product_ref )
+
+Checks if the product has the no_nutrition_data_on_packaging flag set to true.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+Reference to the product hash
+
+=cut
+
+sub has_no_nutrition_data_on_packaging ($product_ref) {
+
+	my $no_nutrition_data_on_packaging = deep_get($product_ref, "nutrition", "no_nutrition_data_on_packaging");
+
+	if ((defined $no_nutrition_data_on_packaging) and ($no_nutrition_data_on_packaging == true)) {
+		return 1;
+	}
+
+	return 0;
 }
 
 1;
