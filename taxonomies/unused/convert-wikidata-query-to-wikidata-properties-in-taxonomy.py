@@ -41,7 +41,7 @@ if duplicate_labels:
         print(f"  '{label}': {', '.join(qids)} (using {qids[-1]})")
     print()
 
-# Read the categories.wip.txt file
+# Read the ingredients.txt file
 try:
     with open('/taxonomies/food/ingredients.txt', 'r') as f:
         categories_content = f.read()
