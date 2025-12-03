@@ -55,7 +55,7 @@ for label, qid in label_to_qid.items():
             break
 
 # Write the updated content back to the file
-with open('/taxonomies/food/ingredients.txt', 'w') as f:
+with open('../food/ingredients.txt', 'w') as f:
     f.write(updated_content)
 
 print(f"\nFile updated successfully. {updated_count} entries were updated.")
