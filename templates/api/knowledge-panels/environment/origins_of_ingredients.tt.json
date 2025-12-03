@@ -4,6 +4,7 @@
         "environment"
     ],
     "expanded": false,
+    "half_width_on_mobile": true,      
 [% IF product.environmental_score_data.adjustments.origins_of_ingredients.warning == "origins_are_100_percent_unknown" %]
     "evaluation": "unknown",
     "title_element": {
