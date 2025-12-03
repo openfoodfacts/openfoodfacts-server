@@ -1,12 +1,11 @@
 name: Container Image Deployment CI
 
+# also see below, a NO_DEPLOY file can intentionally block deployment (the workflow will fail)
 on:
   push:
     branches:
       - main
       - deploy-*
-    tags:
-      - v*.*.*
 
 # Note on secrets used for connection
 # SSH_PRIVATE_KEY is the private key (shared between VM and host)
@@ -17,7 +16,7 @@ jobs:
     strategy:
       matrix:
         env:
-          - ${{ startsWith(github.ref, 'refs/tags/v') && 'off-org' || 'off-net' }}
+          - off-net
     environment: ${{ matrix.env }}
     concurrency: ${{ matrix.env }}
     steps:
@@ -50,12 +49,7 @@ jobs:
         echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
         echo "SSH_USERNAME=off" >> $GITHUB_ENV
 
-    - name: Set various variable for prod (org) deployment
-      if: matrix.env == 'off-org'
-      run: |
-        # FIXME: we do not deploy to prod currently
-        false
-
+    # use `sudo -u off touch /home/off/off-net/NO_DEPLOY` to stop deployment on staging 
     - name: Check for an eventual NO_DEPLOY file to put deployment on hold
       uses: appleboy/ssh-action@v1.2.2
       with:

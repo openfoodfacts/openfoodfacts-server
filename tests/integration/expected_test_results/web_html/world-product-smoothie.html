@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<meta name="x:card" content="product">
 <meta name="x:site" content="@OpenFoodFacts">
@@ -115,7 +122,7 @@
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <span><h2>Scan a product<h2></span>
+      <h2><span>Scan a product</span></h2>
       <button class="modal-close-button">&times;</button>
     </div>
     <div>
@@ -4355,15 +4362,15 @@ Apple pies
                         
 
         
-            <h3 id="panel_group_packaging_recycling" class="panel_title_card">Packaging</h3>
+            <h3 id="panel_group_packaging" class="panel_title_card">Packaging</h3>
         
 
         
             
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: packaging -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_packaging_recycling"
+	<ul data-accordion class="panel_accordion accordion" id="panel_packaging"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -4371,7 +4378,7 @@ Apple pies
 <li class="accordion-navigation">
 
     
-        <a href="#panel_packaging_recycling_content" class="panel_title"
+        <a href="#panel_packaging_content" class="panel_title"
             
         >
             
@@ -4396,7 +4403,7 @@ Apple pies
     
 
 	   	 <div
-	   	    id="panel_packaging_recycling_content"
+	   	    id="panel_packaging_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -4440,7 +4447,7 @@ Apple pies
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: packaging -->
         
 
                         
@@ -4563,9 +4570,9 @@ Apple pies
         
             
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: palm_oil -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: threatened_species -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_palm_oil"
+	<ul data-accordion class="panel_accordion accordion" id="panel_threatened_species"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -4573,12 +4580,12 @@ Apple pies
 <li class="accordion-navigation">
 
     
-        <a href="#panel_palm_oil_content" class="panel_title"
+        <a href="#panel_threatened_species_content" class="panel_title"
             
         >
             
             <img src="//static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg"
-                style="height:72px;float:left;margin-right:1rem;"
+                style="height:36px;float:left;margin-right:1rem;"
                 alt="icon"
                 
                         class="filter-red"
@@ -4600,7 +4607,7 @@ Apple pies
     
 
 	   	 <div
-	   	    id="panel_palm_oil_content"
+	   	    id="panel_threatened_species_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -4613,8 +4620,8 @@ Apple pies
     
            <div class="panel_text">
              
-                    <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> 
-                    
+                        <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> 
+                        
            </div>
     
 
@@ -4628,7 +4635,7 @@ Apple pies
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: palm_oil -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: threatened_species -->
         
 
                         

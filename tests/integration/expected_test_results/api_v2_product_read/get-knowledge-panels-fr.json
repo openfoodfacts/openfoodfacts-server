@@ -233,9 +233,9 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
+                     "panel_group_id" : "packaging",
                      "panel_ids" : [
-                        "packaging_recycling"
+                        "packaging"
                      ],
                      "title" : "Emballage"
                   }
@@ -253,7 +253,7 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "palm_oil"
+                        "threatened_species"
                      ],
                      "title" : "Espèces menacées"
                   }
@@ -335,6 +335,26 @@
                "title" : "Green-Score C",
                "type" : "grade"
             },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "environmental_score_adjustments" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "environmental_score_origins_of_ingredients",
+                        "environmental_score_packaging",
+                        "environmental_score_production_system",
+                        "environmental_score_threatened_species"
+                     ]
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
             "topics" : [
                "environment"
             ]
@@ -1805,12 +1825,40 @@
             ],
             "evaluation" : "unknown",
             "expanded" : false,
+            "half_width_on_mobile" : true,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "subtitle" : "Informations manquantes sur les origines des ingrédients",
                "title" : "Origines des ingrédients"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "title" : "Emballage à impact moyen"
             },
             "topics" : [
                "environment"
@@ -1965,55 +2013,6 @@
                "environment"
             ]
          },
-         "packaging_recycling" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_components"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_materials"
-                  }
-               }
-            ],
-            "evaluation" : "average",
-            "expanded" : true,
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "title" : "Emballage à impact moyen"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "palm_oil" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    <p>Les forêts tropicales d'Asie, d'Afrique et d'Amérique latine sont détruites pour créer et étendre les plantations de palmiers à huile. La déforestation contribue au changement climatique et met en danger des espèces telles que l'orang-outan, l'éléphant pygmée et le rhinocéros de Sumatra.</p> \n                    ",
-                     "type" : "summary"
-                  }
-               }
-            ],
-            "evaluation" : "bad",
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
-               "subtitle" : "Stimule la déforestation et menace des espèces telles que l'orang-outan",
-               "title" : "Contient de l'huile de palme"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
          "product_card" : {
             "elements" : [
                {
@@ -2140,6 +2139,29 @@
                "health"
             ],
             "type" : "inline"
+         },
+         "threatened_species" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                        <p>Les forêts tropicales d'Asie, d'Afrique et d'Amérique latine sont détruites pour créer et étendre les plantations de palmiers à huile. La déforestation contribue au changement climatique et met en danger des espèces telles que l'orang-outan, l'éléphant pygmée et le rhinocéros de Sumatra.</p> \n                        ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
+               "subtitle" : "Stimule la déforestation et menace des espèces telles que l'orang-outan",
+               "title" : "Contient de l'huile de palme"
+            },
+            "topics" : [
+               "environment"
+            ]
          }
       }
    },
