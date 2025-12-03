@@ -13,8 +13,8 @@ for item in query_data:
     if label and qid:
         label_to_qid[label.lower()] = qid
 
-# Read the categories.wip.txt file
-with open('/taxonomies/food/ingredients.txt', 'r') as f:
+# Read the ingredients.txt file
+with open('../food/ingredients.txt', 'r') as f:
     categories_content = f.read()
 
 # Process the categories.wip.txt file
