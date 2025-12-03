@@ -27,7 +27,7 @@ for label, qid in label_to_qid.items():
     
     # The label can be a value of any key.
     # The pattern looks for a line starting with a language code, a colon, and then the label.
-    pattern = r"^[a-z]{2,3}:\s*.*" + escaped_label
+    pattern = r"^[a-z]{2,3}:\s*" + escaped_label + r"\s*$"
     
     for match in re.finditer(pattern, updated_content, re.IGNORECASE | re.MULTILINE):
         start_index = match.start()
