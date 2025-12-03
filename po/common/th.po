@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "การทำงานร่วมกันของฐานข้อมูลฟรีและเปิดของผลิตภัณฑ์อาหารจากทั่วโลก"
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -915,7 +915,7 @@ msgstr "กฎหมายที่เกี่ยวข้อง"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/กฎหมายที่เกี่ยวข้อง"
+msgstr ""
 
 msgctxt "footer_privacy"
 msgid "Privacy"
@@ -924,7 +924,7 @@ msgstr "นโยบายความเป็นส่วนตัว"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr "นโยบายความเป็นส่วนตัว"
+msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
@@ -933,7 +933,7 @@ msgstr "กด"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr "/สื่อประชาสัมพันธ์"
+msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -942,7 +942,7 @@ msgstr "ข้อกำหนดการใช้งาน"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "/ข้อกำหนดการใช้งาน"
+msgstr ""
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -3710,6 +3710,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "ความสมบูรณ์ของคุณภาพข้อมูล"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -6121,6 +6125,14 @@ msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
 
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "ความสมบูรณ์ของคุณภาพข้อมูล"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "ข้อมูลบางส่วนเกี่ยวกับความสมบูรณ์ของคุณภาพข้อมูลบนผลิตภัณฑ์นี้"
+
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
 msgstr ""
@@ -7605,4 +7617,64 @@ msgstr "เราไม่ได้ตรวจพบ: {unwanted_ingredients}อ
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "การตั้งค่าเหล่านี้ขึ้นอยู่กับความเข้าใจของ Open Food Facts เกี่ยวกับรายการส่วนผสม และอาจมีความเป็นไปได้เสมอที่รายการส่วนผสมอาจไม่ถูกต้องหรือครบถ้วน โปรดตรวจสอบผลิตภัณฑ์ด้วยตนเองเสมอ"
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Fingerprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "การสูบบุหรี่ฆ่าคนได้"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "บุหรี่ทำลายสุขภาพอย่างร้ายแรง อย่าเริ่ม เลิกเดี๋ยวนี้"
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "การสูบบุหรี่ทำให้เสพติดได้สูง อย่าเริ่มสูบบุหรี่ บุหรี่ฆ่าคน – เลิกเดี๋ยวนี้ การสูบบุหรี่ทำให้หลอดเลือดอุดตันและทำให้เกิดอาการหัวใจวายและโรคหลอดเลือดสมอง การสูบบุหรี่ทำให้เกิดมะเร็งปอดที่ร้ายแรง การสูบบุหรี่ขณะตั้งครรภ์เป็นอันตรายต่อทารกในครรภ์ ปกป้องเด็ก: อย่าให้พวกเขาสูดดมควันบุหรี่ของคุณ แพทย์หรือเภสัชกรสามารถช่วยคุณเลิกสูบบุหรี่ได้ การสูบบุหรี่อาจลดการไหลเวียนของเลือดและทำให้เกิดภาวะหย่อนสมรรถภาพทางเพศ การสูบบุหรี่ทำให้ผิวหนังแก่ก่อนวัย การสูบบุหรี่สามารถทำลายอสุจิและลดความสามารถในการเจริญพันธุ์ ควันบุหรี่ประกอบด้วยเบนซิน ไนโตรซามีน ฟอร์มาลดีไฮด์ และไฮโดรเจนไซยาไนด์"
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "ราคาสาธารณะ"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 ยูโร, 2.99 ดอลลาร์สหรัฐ, 4.00 ปอนด์"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "ราคาขายปลีกที่ผู้ผลิตแนะนำ (MSRP) ไม่รวมส่วนลดและโปรโมชั่นต่างๆ ตามที่ระบุบนบรรจุภัณฑ์สินค้าหรือเว็บไซต์ของผู้ผลิต (รวมหรือไม่รวมภาษีตามกฎหมาย) หากแสดงราคาในหลายสกุลเงิน ให้ใช้รายการที่คั่นด้วยเครื่องหมายจุลภาค"
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "ทรัพย์สินส่วนบุคคล"
 

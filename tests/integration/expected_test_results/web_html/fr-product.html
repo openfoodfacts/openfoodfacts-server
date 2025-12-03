@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//fr.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<meta name="x:card" content="product">
 <meta name="x:site" content="@OpenFoodFactsfr">
@@ -4637,15 +4644,15 @@ Tartes aux pommes
                         
 
         
-            <h3 id="panel_group_packaging_recycling" class="panel_title_card">Emballage</h3>
+            <h3 id="panel_group_packaging" class="panel_title_card">Emballage</h3>
         
 
         
             
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: packaging -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_packaging_recycling"
+	<ul data-accordion class="panel_accordion accordion" id="panel_packaging"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -4653,7 +4660,7 @@ Tartes aux pommes
 <li class="accordion-navigation">
 
     
-        <a href="#panel_packaging_recycling_content" class="panel_title"
+        <a href="#panel_packaging_content" class="panel_title"
             
         >
             
@@ -4678,7 +4685,7 @@ Tartes aux pommes
     
 
 	   	 <div
-	   	    id="panel_packaging_recycling_content"
+	   	    id="panel_packaging_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -4722,7 +4729,7 @@ Tartes aux pommes
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: packaging -->
         
 
                         
@@ -4845,9 +4852,9 @@ Tartes aux pommes
         
             
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: palm_oil -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: threatened_species -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_palm_oil"
+	<ul data-accordion class="panel_accordion accordion" id="panel_threatened_species"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -4855,12 +4862,12 @@ Tartes aux pommes
 <li class="accordion-navigation">
 
     
-        <a href="#panel_palm_oil_content" class="panel_title"
+        <a href="#panel_threatened_species_content" class="panel_title"
             
         >
             
             <img src="//static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg"
-                style="height:72px;float:left;margin-right:1rem;"
+                style="height:36px;float:left;margin-right:1rem;"
                 alt="icon"
                 
                         class="filter-red"
@@ -4882,7 +4889,7 @@ Tartes aux pommes
     
 
 	   	 <div
-	   	    id="panel_palm_oil_content"
+	   	    id="panel_threatened_species_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -4895,8 +4902,8 @@ Tartes aux pommes
     
            <div class="panel_text">
              
-                    <p>Les forêts tropicales d'Asie, d'Afrique et d'Amérique latine sont détruites pour créer et étendre les plantations de palmiers à huile. La déforestation contribue au changement climatique et met en danger des espèces telles que l'orang-outan, l'éléphant pygmée et le rhinocéros de Sumatra.</p> 
-                    
+                        <p>Les forêts tropicales d'Asie, d'Afrique et d'Amérique latine sont détruites pour créer et étendre les plantations de palmiers à huile. La déforestation contribue au changement climatique et met en danger des espèces telles que l'orang-outan, l'éléphant pygmée et le rhinocéros de Sumatra.</p> 
+                        
            </div>
     
 
@@ -4910,7 +4917,7 @@ Tartes aux pommes
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: palm_oil -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: threatened_species -->
         
 
                         
