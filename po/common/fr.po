@@ -3725,6 +3725,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "bugs de qualité des données"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "exhaustivité de la qualité des données"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "informations sur la qualité des données"
@@ -6136,6 +6140,14 @@ msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Contribution"
 
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Exhaustivité de la qualité des données"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Quelques informations sur l'exhaustivité de la qualité des données sur ce produit"
+
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
 msgstr "Erreurs détectées"
@@ -7652,18 +7664,43 @@ msgstr "Sources externes"
 msgctxt "provided_by"
 msgid "Provided by"
 msgstr "Fourni par"
+
 msgctxt "recommendation_eu_tobacco_health_warning_title"
 msgid "Smoking kills"
 msgstr "Fumer tue"
 
 msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
-msgid "Tobacco seriously damages health. Don't start or quit now."
-msgstr "Le tabac nuit gravement à la santé. Ne commencez pas ou arrêtez maintenant."
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Le tabac nuit gravement à la santé. Ne commencez pas. Arrêtez dès maintenant."
 
 msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
-msgstr "Fumer est très addictif. Ne commencez pas. Fumer tue – arrêtez maintenant. Fumer bouche les artères et provoque des crises cardiaques et des accidents vasculaires cérébraux. Fumer cause un cancer du poumon fatal. Fumer pendant la grossesse nuit à votre bébé. Protégez les enfants : ne les obligez pas à respirer votre fumée. Votre médecin ou votre pharmacien peut vous aider à arrêter de fumer. Fumer peut réduire le flux sanguin et provoquer une impuissance. Fumer provoque le vieillissement de la peau. Fumer peut endommager le sperme et diminuer la fertilité. La fumée contient du benzène, des nitrosamines, du formaldéhyde et du cyanure d'hydrogène."
+msgstr "Fumer crée une forte dépendance. Ne commencez pas. Fumer tue – arrêtez tout de suite. Fumer obstrue les artères et provoque des crises cardiaques et des accidents vasculaires cérébraux. Fumer peut entraîner un cancer du poumon mortel. Fumer pendant la grossesse est nocif pour votre bébé. Protégez vos enfants : ne les forcez pas à respirer votre fumée. Votre médecin ou votre pharmacien peut vous aider à arrêter de fumer. Fumer peut réduire la circulation sanguine et provoquer l'impuissance. Fumer provoque le vieillissement de la peau. Fumer peut endommager les spermatozoïdes et diminuer la fertilité. La fumée contient du benzène, des nitrosamines, du formaldéhyde et du cyanure d'hydrogène."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Prix public"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Prix de détail suggéré par le fabricant (PDSF), hors remises et promotions, tel qu'indiqué sur l'emballage du produit ou sur le site du fabricant (taxes incluses ou exclues selon la législation en vigueur). Séparer les prix par des virgules si plusieurs devises sont indiquées."
 
 msgctxt "folksonomy_property"
 msgid "Personalized property"
-msgstr "Propriété personnalisée"
+msgstr "propriété personnalisée"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Ne contient pas d'huile de palme"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Pourrait contenir de l'huile de palme"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Labels environnementaux"

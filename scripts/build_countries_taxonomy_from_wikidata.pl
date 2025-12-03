@@ -28,7 +28,7 @@ use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::HTTP qw/create_user_agent/;
 
 use CGI qw/:cgi :form escapeHTML/;

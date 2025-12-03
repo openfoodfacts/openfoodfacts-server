@@ -1,5 +1,6 @@
 name: Container Image Deployment CI
 
+# also see below, a NO_DEPLOY file can intentionally block deployment (the workflow will fail)
 on:
   push:
     branches:
@@ -48,6 +49,7 @@ jobs:
         echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
         echo "SSH_USERNAME=off" >> $GITHUB_ENV
 
+    # use `sudo -u off touch /home/off/off-net/NO_DEPLOY` to stop deployment on staging 
     - name: Check for an eventual NO_DEPLOY file to put deployment on hold
       uses: appleboy/ssh-action@v1.2.2
       with:
