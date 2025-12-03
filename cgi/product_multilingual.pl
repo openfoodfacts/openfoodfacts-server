@@ -28,7 +28,7 @@ use ProductOpener::Auth qw/access_to_protected_resource get_oidc_implementation_
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Web qw/display_knowledge_panel get_languages_options_list/;
