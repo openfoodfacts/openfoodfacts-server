@@ -6,12 +6,28 @@ with open('../food/wikidata-query-output-example.json', 'r') as f:
     query_data = json.load(f)
 
 # Create a dictionary to map item labels to QIDs
+# Track duplicates to warn the user
 label_to_qid = {}
+duplicate_labels = {}
 for item in query_data:
     label = item.get('itemLabel')
     qid = item.get('item', '').split('/')[-1]
     if label and qid:
-        label_to_qid[label.lower()] = qid
+        label_lower = label.lower()
+        if label_lower in label_to_qid:
+            # Track duplicate labels with all their QIDs
+            if label_lower not in duplicate_labels:
+                duplicate_labels[label_lower] = [label_to_qid[label_lower]]
+            duplicate_labels[label_lower].append(qid)
+        label_to_qid[label_lower] = qid
+
+# Warn about duplicate labels
+if duplicate_labels:
+    print(f"Warning: {len(duplicate_labels)} duplicate label(s) found (case-insensitive).")
+    print("Only the last QID for each duplicate label will be used:")
+    for label, qids in duplicate_labels.items():
+        print(f"  '{label}': {', '.join(qids)} (using {qids[-1]})")
+    print()
 
 # Read the categories.wip.txt file
 with open('/taxonomies/food/ingredients.txt', 'r') as f:
