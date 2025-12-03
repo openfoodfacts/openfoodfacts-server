@@ -21,6 +21,9 @@ with open('/taxonomies/food/ingredients.txt', 'r') as f:
 updated_content = categories_content
 updated_count = 0
 
+# Collect all replacements first to avoid position shift issues
+replacements = []  # List of tuples: (block_start, block_end, new_block, label, qid)
+
 for label, qid in label_to_qid.items():
     # We need to be careful with special characters in the label
     escaped_label = re.escape(label)
@@ -46,13 +49,18 @@ for label, qid in label_to_qid.items():
         
         # Check if the block has a #wikidata:en: line
         if '#wikidata:en:' in block:
-            # Replace it with the new wikidata line
+            # Store the replacement info instead of modifying immediately
             new_block = block.replace('#wikidata:en:', f'wikidata:en: {qid}')
-            updated_content = updated_content[:block_start] + new_block + updated_content[block_end:]
-            updated_count += 1
-            print(f"Updated entry for '{label}' with QID '{qid}'")
-            # We assume one match is enough
+            replacements.append((block_start, block_end, new_block, label, qid))
+            # We assume one match is enough per label
             break
+
+# Apply replacements in reverse order (from end to start) to avoid position shift issues
+replacements.sort(key=lambda x: x[0], reverse=True)
+for block_start, block_end, new_block, label, qid in replacements:
+    updated_content = updated_content[:block_start] + new_block + updated_content[block_end:]
+    updated_count += 1
+    print(f"Updated entry for '{label}' with QID '{qid}'")
 
 # Write the updated content back to the file
 with open('../food/ingredients.txt', 'w') as f:
