@@ -109,7 +109,7 @@ Loads the AgriBalyse database.
 sub load_agribalyse_data() {
 
 	my $agribalyse_details_by_step_csv_file
-		= $data_root . "/external-data/environmental_score/agribalyse/AGRIBALYSE_vf.csv.2";
+		= $data_root . "/external-data/environmental_score/agribalyse/AGRIBALYSE_vf.csv.3";
 
 	my $rows_ref = [];
 
