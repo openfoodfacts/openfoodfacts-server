@@ -11,6 +11,8 @@
 # Note: an old draft owners/brands taxonomy lives in taxonomies/unused/brands.txt, but it is hierarchic, which is something we do not want in this taxonomy.
 # You can usefully read: https://wiki.openfoodfacts.org/Brands to get up and running on the subtleties of the topic.
 
+xx: No brand
+comment:en: to be used when absolutely no brand (or proxy brand) can be found on the packaging.
 
 xx: 3 Hammers
 wikidata:en: Q4636496
@@ -78,7 +80,6 @@ wikidata:en: Q948429
 xx: Akafuku Mochi
 wikidata:en: Q736196
 
-
 xx: Abbot Kinney's
 wikidata:en: Q136824393
 
@@ -88,6 +89,8 @@ wikidata:en: Q136838017
 xx: AH Excellent, Albert Heijn Excellent
 wikidata:en: Q136928844
 
+xx: AH to go
+wikidata:en: Q137104297
 
 xx: Albert Heijn Terra
 wikidata:en: Q136837987
@@ -319,6 +322,9 @@ wikidata:en: Q4918509
 xx: Bit-O-Honey
 wikidata:en: Q4918651
 
+xx: BitesWeLove
+wikidata:en: Q136996105
+
 xx: Björnekulla
 wikidata:en: Q112757315
 
@@ -363,6 +369,9 @@ wikidata:en: Q109266587
 xx: Bon Ice
 wikidata:en: Q4940970
 
+xx: Boss Coffee
+wikidata:en: Q4947502
+
 xx: Brouwmeester
 wikidata:en: Q136929479
 
@@ -370,6 +379,12 @@ xx: Bonne Maman
 
 xx: Bon o Bon
 wikidata:en: Q5577630
+
+xx: Carbonell
+wikidata:en: Q8262951
+
+xx: Carrefour BIO
+wikidata:en: Q55221138
 
 xx: bonÀrea
 
@@ -399,6 +414,10 @@ wikidata:en: Q16845825
 
 xx: bran flakes
 wikidata:en: Q55605867
+
+xx: Coop
+comment:en: This brand is used by different consumer cooperatives around the world. SOme disambiguation might be needed.
+wikidata:en: Q115764026
 
 xx: Branston
 wikidata:en: Q898848
@@ -445,6 +464,12 @@ wikidata:en: Q109914388
 xx: Brussels Ketjep Mayo
 wikidata:en: Q109914368
 
+xx: Délifrance
+wikidata:en: Q136996080
+# NL this brand is used by Home Baked Bread (Q136996055)
+
+xx: Delief
+
 xx: Brussels Ketjep Mostoed
 wikidata:en: Q109914580
 
@@ -462,6 +487,11 @@ wikidata:en: Q5002847
 
 xx: Butterfinger
 wikidata:en: Q1018081
+
+xx: Driscoll's
+wikidata:en: Q136955368
+
+xx: Dr. Oetker
 
 xx: Butterkist
 wikidata:en: Q5002989
@@ -505,6 +535,18 @@ wikidata:en: Q30638033
 xx: Calippo
 wikidata:en: Q595784
 
+xx: Eurobakker
+wikidata:en: Q137176343
+
+xx: Fanta
+
+xx: Favorina
+comment:en: Private brand of Lidl for pralines
+wikidata:en: Q137149537
+
+xx: Fazer
+wikidata:en: Q996907
+
 xx: CalorieMate
 wikidata:en: Q5023668
 
@@ -517,17 +559,43 @@ wikidata:en: Q4816890
 xx: Captain's Wafers
 wikidata:en: Q5036496
 
+xx: Flevosap
+wikidata:en: Q137177197
+
+xx: Flora
+wikidata:en: Q5460271
+
 xx: Caramac
 wikidata:en: Q1035359
 
 xx: Caramilk
 wikidata:en: Q2937863
 
+xx: Frank Le Gourmand
+wikidata:en: Q137168617
+
+xx: Freshona
+comment:en: Private label of Lidl
+wikidata:en: Q137168327
+
+xx: Frutesse
+comment:en: work trademark in Benelux
+wikidata:en: Q137177165
+
 xx: Carlos V chocolate bar
 wikidata:en: Q5042737
 
 xx: Carnation
 wikidata:en: Q2939676
+
+xx: Galbusera
+wikidata:en: Q137049250
+
+xx: Galbusera ZeroGrano
+comment:en: the EU trademark is expired
+wikidata:en: Q137049237
+
+xx: Garant
 
 xx: Carrefour BIO
 
@@ -547,6 +615,10 @@ xx: Chaque Jour Sans Gluten
 
 xx: Charleston Chew
 wikidata:en: Q5084112
+
+xx: Go Vega!
+commemt:en: no trademark found in Benelux or EU
+wikidata:en: Q137177089
 
 xx: Cheddars
 wikidata:en: Q5089198
@@ -596,11 +668,30 @@ wikidata:en: Q5097475
 xx: Ching's Secret
 wikidata:en: Q5100971
 
+xx: Ikbal
+ar: إقبال
+wikidata:en: Q137049723
+
+xx: IKEA
+wikidata:en: Q54078
+
+xx: Il Molino Chiavazza
+comment:en: brand not trademarked in the EU
+wikidata:en: Q137151953
+
+xx: Indus
+
 xx: Chio Chips
 wikidata:en: Q108201931
 
 xx: Chips Ahoy!
 wikidata:en: Q5101736
+
+xx: Ísey
+wikidata:en: Q16422529
+
+xx: Issawi Bageri, Bageri Issawi, Issawi, مخبز العيساوي, العيساوي
+#web:sv: https://www.issawi.se/
 
 xx: Chips Deluxe
 wikidata:en: Q5101733
@@ -613,6 +704,14 @@ wikidata:en: Q123626364
 
 xx: Chitose
 wikidata:en: Q28683805
+
+xx: JUMBO, Jumbo
+comment:en: this brand seems only trademarked in the Benelux. It is a multipurpose brand that appears on goods, services, supermarkets and teh holding company.
+wikidata:en: Q136824505
+
+xx: Kania
+comment:en: private brand of Lidl
+wikidata:en: Q136824610
 
 xx: Choc Nut
 wikidata:en: Q43401222
@@ -1716,6 +1815,10 @@ wikidata:en: Q6544682
 xx: Life Savers
 wikidata:en: Q3238376
 
+xx: Limax Spolka
+comment:en: a proxy brand of the packager
+wikidata:en: Q137049303
+
 xx: Lindahls
 
 xx: Lion Bar
@@ -2277,6 +2380,9 @@ xx: Lotus Natur
 xx: Løgismose
 wikidata:en: Q6711394
 
+xx: Madame Magnifique
+comment:en: non-trademarked brand of Q137165248
+
 xx: Maggi
 wikidata:en: Q688424
 
@@ -2369,6 +2475,8 @@ xx: Premieur
 xx: Premium Plus
 wikidata:en: Q7240466
 
+xx: Nosugar company
+
 xx: NS Galletas
 
 xx: næmt, naemt
@@ -2391,6 +2499,9 @@ wikidata:en: Q528187
 xx: Prior
 wikidata:en: Q7245402
 
+xx: Oot
+wikidata:en: Q137036335
+
 xx: Optimel
 wikidata:en: Q124221966
 
@@ -2401,11 +2512,12 @@ wikidata:en: Q3102193
 xx: Petti
 
 xx: Picnic
-
 wikidata:en: Q136825786
 
 xx: Pierre Martinet
 wikidata:en: Q136824443
+
+xx: Pimélia
 
 # this (Swedish) brand was purchased by (Finnish) Oddlygood in 2023
 xx: Planti
@@ -2576,6 +2688,9 @@ xx: Sabra
 wikidata:en: Q7396323
 
 xx: Royal
+
+xx: Royal Mediterranean
+wikidata:en: Q136984611
 
 xx: Saffola
 
@@ -3122,6 +3237,9 @@ wikidata:en: Q136841178
 xx: Venco
 wikidata:en: Q136933516
 
+xx: Vivani
+wikidata:en: Q2528978
+
 xx: Veritas
 
 xx: Vicente Vidal
@@ -3167,6 +3285,9 @@ xx: Vitasia
 
 xx: Vita d'Or
 # related/parent brand Lidl
+
+xx: Vivera
+wikidata:en: Q2492388
 
 xx: Vivo
 
@@ -3290,6 +3411,10 @@ wikidata:en: Q10724505
 
 xx: Zooper Dooper
 wikidata:en: Q29026070
+
+xx: Zwagerman
+comment:en: Benelux word trademark
+wikidata:en: Q137104443
 
 xx: Änglamark, Anglemark
 wikidata:en: Q65229572
