@@ -154,11 +154,11 @@ function select_nutriment(event, ui) {
                     for (const unitValue of entry) {
                         domElement.options[domElement.options.length] = new Option(unitValue, unitValue, false, unitValue.toLowerCase() == unit);
                     }
-        
+
                     if (ui.item.iu) {
                         domElement.options[domElement.options.length] = new Option('IU', 'IU', false, 'iu' == unit);
                     }
-        
+
                     return;
                 }
             }
@@ -1073,53 +1073,82 @@ $('#manage_images_accordion').on('toggled', function () {
     toggle_manage_images_buttons();
 });
 
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+
+
+    return div.innerHTML;
+}
+
+async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copyData = null) {
+
+    const deleteBtn = document.getElementById('delete_images');
+    const moveBtn = document.getElementById('move_images');
+    const msgDiv = document.querySelector('div[id="moveimagesmsg"]');
+
+    deleteBtn.classList.add('disabled');
+    moveBtn.classList.add('disabled');
+
+    msgDiv.innerHTML = '<img src="/images/misc/loading2.gif" /> ' + escapeHtml(loadingMsg);
+    msgDiv.style.display = 'block';
+    msgDiv.style.opacity = '1';
+
+    const formData = new FormData(document.getElementById('product_form'));
+    formData.append('code', code);
+    formData.append('move_to_override', moveTo);
+    if (copyData !== null) {
+        formData.append('copy_data_override', copyData);
+    }
+
+    formData.append('imgids', get_list_of_imgids());
+
+    try {
+        const response = await fetch("/cgi/product_image_move.pl", {
+            method: "POST",
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+
+        const data = await response.json();
+
+        if (data.error) {
+            msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(data.error);
+            msgDiv.style.opacity = '1';
+        } else {
+            const linkHtml = data.code ? ` &rarr; <a href="${encodeURI(data.url)}">${escapeHtml(data.code)}</a>` : '';
+            msgDiv.innerHTML = escapeHtml(successMsg) + linkHtml;
+            msgDiv.style.opacity = '1';
+        }
+        $([]).selectcrop('init_images', data.images);
+        $(".select_crop").selectcrop('show');
+    } catch (error) {
+        msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(error.message);
+        msgDiv.style.opacity = '1';
+    } finally {
+        setTimeout(() => {
+            msgDiv.style.opacity = '0';
+        }, 1700);
+        setTimeout(() => {
+            msgDiv.style.display = 'none';
+        }, 2000);
+        toggle_manage_images_buttons();
+    }
+}
+
 $("#delete_images").click({}, function (event) {
 
     event.stopPropagation();
     event.preventDefault();
 
-    if (!$("#delete_images").hasClass("disabled")) {
-
-        $("#delete_images").addClass("disabled");
-        $("#move_images").addClass("disabled");
-
-        $('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_deleting_images);
-        $('div[id="moveimagesmsg"]').show();
-
-        get_list_of_imgids();
-
-        $("#product_form").ajaxSubmit({
-
-            url: "/cgi/product_image_move.pl",
-            data: { code: code, move_to_override: "trash", imgids: get_list_of_imgids() },
-            dataType: 'json',
-            success: function (data) {
-
-                if (data.error) {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + data.error);
-                } else {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_deleted);
-                }
-                $([]).selectcrop('init_images', data.images);
-                $(".select_crop").selectcrop('show');
-
-            },
-            error: function (textStatus) {
-                $('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + textStatus);
-            },
-            complete: function () {
-                $('div[id="moveimagesmsg"]').delay(2000).fadeOut(300);
-                $("#delete_images").addClass("disabled");
-                $("#move_images").addClass("disabled");
-                $("#manage .ui-selected").first().each(function () {
-                    $("#delete_images").removeClass("disabled");
-                    $("#move_images").removeClass("disabled");
-                });
-            },
-        });
-
+    if ($("#delete_images").hasClass("disabled")) {
+      return;
     }
 
+    performImageAction(lang().product_js_deleting_images, lang().product_js_images_deleted, lang().product_js_images_delete_error, "trash");
 });
 
 $("#move_images").click({}, function (event) {
@@ -1127,48 +1156,11 @@ $("#move_images").click({}, function (event) {
     event.stopPropagation();
     event.preventDefault();
 
-    if (!$("#move_images").hasClass("disabled")) {
-
-        $("#delete_images").addClass("disabled");
-        $("#move_images").addClass("disabled");
-
-        $('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_moving_images);
-        $('div[id="moveimagesmsg"]').show();
-
-        get_list_of_imgids();
-
-        $("#product_form").ajaxSubmit({
-
-            url: "/cgi/product_image_move.pl",
-            data: { code: code, move_to_override: $("#move_to").val(), copy_data_override: $("#copy_data").prop("checked"), imgids: get_list_of_imgids() },
-            dataType: 'json',
-            success: function (data) {
-
-                if (data.error) {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + data.error);
-                } else {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_moved + ' &rarr; ' + data.link);
-                }
-                $([]).selectcrop('init_images', data.images);
-                $(".select_crop").selectcrop('show');
-
-            },
-            error: function (textStatus) {
-                $('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + textStatus);
-            },
-            complete: function () {
-                $('div[id="moveimagesmsg"]').delay(2000).fadeOut(300);
-                $("#move_images").addClass("disabled");
-                $("#move_images").addClass("disabled");
-                $("#manage .ui-selected").first().each(function () {
-                    $("#move_images").removeClass("disabled");
-                    $("#move_images").removeClass("disabled");
-                });
-            }
-        });
-
+    if ($("#move_images").hasClass("disabled")) {
+      return;
     }
 
+    performImageAction(lang().product_js_moving_images, lang().product_js_images_moved, lang().product_js_images_move_error, document.getElementById('move_to').value, document.getElementById('copy_data').checked);
 });
 
 // Nutrition facts
