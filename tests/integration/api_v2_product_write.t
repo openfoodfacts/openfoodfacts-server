@@ -252,7 +252,7 @@ my $tests_ref = [
 		test_case => 'get-product-nutrition-no_nutrition_data-on',
 		method => 'GET',
 		path => '/api/v2/product/1234567890007',
-	},	
+	},
 	{
 		test_case => 'post-product-nutrition-no_nutrition_data-empty',
 		method => 'POST',

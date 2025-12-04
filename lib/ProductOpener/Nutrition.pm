@@ -1184,23 +1184,23 @@ sub assign_no_nutrition_data_from_request_parameters ($request_ref, $product_ref
 	# The old nutrition_data and nutrition_data_prepared checkboxes were only used to show/hide the nutrition data sections on the web form
 	# They do not map to any field in the new product structure
 
-	foreach my $checkbox ("no_nutrition_data") {
+	my $checkbox_value = request_param($request_ref, "no_nutrition_data");
+	if (defined $checkbox_value) {
 
-		if (defined request_param($request_ref, $checkbox)) {
-			my $checkbox_value = request_param($request_ref, $checkbox);
-			if (($checkbox_value eq '1') or ($checkbox_value eq "on")) {
-				$product_ref->{nutrition}{no_nutrition_data_on_packaging} = true;
-			}
-			elsif (deep_exists($product_ref, qw/nutrition no_nutrition_data_on_packaging/)) {
-				delete $product_ref->{nutrition}{no_nutrition_data_on_packaging};
-			}
+		if (($checkbox_value eq '1') or ($checkbox_value eq "on")) {
+			$product_ref->{nutrition}{no_nutrition_data_on_packaging} = true;
 		}
-		elsif (defined request_param($request_ref, $checkbox . "_displayed")) {
-			if (deep_exists($product_ref, qw/nutrition no_nutrition_data_on_packaging/)) {
-				delete $product_ref->{nutrition}{no_nutrition_data_on_packaging};
-			}
+		elsif (deep_exists($product_ref, qw/nutrition no_nutrition_data_on_packaging/)) {
+			delete $product_ref->{nutrition}{no_nutrition_data_on_packaging};
 		}
 	}
+	elsif (defined request_param($request_ref, "no_nutrition_data_displayed")) {
+		if (deep_exists($product_ref, qw/nutrition no_nutrition_data_on_packaging/)) {
+			delete $product_ref->{nutrition}{no_nutrition_data_on_packaging};
+		}
+	}
+
+	return;
 }
 
 =head2 assign_nutrition_values_from_old_request_parameters ( $request_ref, $product_ref, $nutriment_table, $source )

@@ -28,7 +28,7 @@ my $token = get_token_using_password_credentials('tests', 'testtest')->{access_t
 $log->debug('test token', {token => $token}) if $log->is_debug();
 
 my $tests_ref = [
-    # Product not created yet, creating an empty product for the code
+	# Product not created yet, creating an empty product for the code
 	{
 		test_case => 'post-product-search-or-add',
 		method => 'POST',
@@ -43,13 +43,13 @@ my $tests_ref = [
 		},
 		expected_status_code => 200,
 		expected_type => 'html',
-	},    
-    {
-        test_case => 'get-product-search-or-add',
-        method => 'GET',
-        path => '/api/v3.6/product/1234567890012',
-        expected_status_code => 200,
-    },
+	},
+	{
+		test_case => 'get-product-search-or-add',
+		method => 'GET',
+		path => '/api/v3.6/product/1234567890012',
+		expected_status_code => 200,
+	},
 	{
 		test_case => 'post-product-no-nutrition-data-on',
 		method => 'POST',

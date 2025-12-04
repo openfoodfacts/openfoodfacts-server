@@ -142,7 +142,8 @@ use ProductOpener::Redis qw/push_product_update_to_redis/;
 use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::Slack qw/send_slack_message/;
-use ProductOpener::Nutrition qw/has_non_estimated_nutrition_data get_nutrition_data_as_key_values_pairs has_no_nutrition_data_on_packaging/;
+use ProductOpener::Nutrition
+	qw/has_non_estimated_nutrition_data get_nutrition_data_as_key_values_pairs has_no_nutrition_data_on_packaging/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -1726,10 +1727,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		$complete = 0;
 	}
 
-	if (
-		(has_no_nutrition_data_on_packaging($current_ref) ) or (has_non_estimated_nutrition_data($current_ref))
-		)
-	{
+	if ((has_no_nutrition_data_on_packaging($current_ref)) or (has_non_estimated_nutrition_data($current_ref))) {
 		push @states_tags, "en:nutrition-facts-completed";
 		$notempty++;
 		$completeness += $step;
@@ -2187,12 +2185,10 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 	# Read all previous versions to see which fields have been added or edited
 
 	my @fields = (
-		'product_type', 'code',
-		'lang', 'product_name',
-		'generic_name', @ProductOpener::Config::product_fields,
+		'product_type', 'code', 'lang', 'product_name', 'generic_name',
+		@ProductOpener::Config::product_fields,
 		@ProductOpener::Config::product_other_fields,
-		'serving_size', 'allergens',
-		'traces', 'ingredients_text'
+		'serving_size', 'allergens', 'traces', 'ingredients_text'
 	);
 
 	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, packagings => {});

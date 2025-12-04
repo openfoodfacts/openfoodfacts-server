@@ -154,8 +154,7 @@ sub compute_completeness_score($product_ref) {
 		add_tag($product_ref, "data_quality_completeness", "en:nutrition-photo-selected");
 		$completeness_nutrition_count++;
 	}
-	elsif ( has_no_nutrition_data_on_packaging($product_ref))
-	{
+	elsif (has_no_nutrition_data_on_packaging($product_ref)) {
 		$completeness_nutrition_count++;
 	}
 	else {
@@ -172,10 +171,8 @@ sub compute_completeness_score($product_ref) {
 	}
 	$completeness_nutrition_total++;
 	# 2-3- nutriments
-	if (
-			has_non_estimated_nutrition_data($product_ref) or 
-		has_no_nutrition_data_on_packaging($product_ref)
-		)
+	if (   has_non_estimated_nutrition_data($product_ref)
+		or has_no_nutrition_data_on_packaging($product_ref))
 	{
 		add_tag($product_ref, "data_quality_completeness", "en:nutriments-completed");
 		$completeness_nutrition_count++;
