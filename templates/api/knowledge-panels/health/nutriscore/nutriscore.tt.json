@@ -28,7 +28,7 @@
             [% END %]
         [% END %]
         // Display actions if we are missing data to compute the Nutri-Score
-        [% IF panel.nutriscore_unknown_reason %]
+        [% IF panel.nutriscore_unknown_reason == "missing_category" OR  panel.nutriscore_unknown_reason == "missing_nutrition_data" OR panel.nutriscore_unknown_reason == "missing_category_and_nutrition_data" %]
         {
             "element_type": "action",
             "action_element": {

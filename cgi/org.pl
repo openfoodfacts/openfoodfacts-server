@@ -26,13 +26,13 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_fileid/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Tags qw/canonicalize_tag_link/;
+use ProductOpener::Tags qw/canonicalize_tag_link country_to_cc/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::CRM qw/get_company_url/;
 
@@ -70,12 +70,7 @@ my $org_ref = retrieve_org($orgid);
 if (not defined $org_ref) {
 	$log->debug("org does not exist", {orgid => $orgid}) if $log->is_debug();
 
-	if ($request_ref->{admin} or $request_ref->{pro_moderator}) {
-		$template_data_ref->{org_does_not_exist} = 1;
-	}
-	else {
-		display_error_and_exit($request_ref, $Lang{error_org_does_not_exist}{$lc}, 404);
-	}
+	$template_data_ref->{org_does_not_exist} = 1;
 }
 
 # Does the user have permission to edit the org profile?
@@ -92,6 +87,10 @@ my @errors = ();
 if ($action eq 'process') {
 
 	if ($type eq 'edit') {
+		#11867: Add a honeypot field
+
+		#11867: Set org_id from Name if not set and return an error if the org already exists
+
 		my $delete = single_param('delete') // '';
 		if ($delete eq 'on') {
 			if ($request_ref->{admin}) {
@@ -156,6 +155,9 @@ if ($action eq 'process') {
 			if (not defined $org_ref->{name}) {
 				push @errors, $Lang{error_missing_org_name}{$lc};
 			}
+
+			#11867: If adding a new org check the org doesn't already exist and return an error if it does
+			# with suggestion to join the existing org
 
 			# Contact sections
 
@@ -377,7 +379,8 @@ if ($action eq 'display') {
 elsif ($action eq 'process') {
 
 	if ($type eq "edit") {
-
+		#11867: Set main contact to the current user if not an admin or moderator
+		# And add as a member and administrator
 		store_org($org_ref);
 		$template_data_ref->{result} = lang("edit_org_result");
 	}
@@ -469,6 +472,7 @@ foreach my $member_id (sort keys %{$org_ref->{members}}) {
 		$user_is_admin{$member_id} = 0;
 	}
 	my $member_user_ref = retrieve_user($member_id);
+	$member_user_ref->{user_cc} = country_to_cc($member_user_ref->{country});
 	push @org_members, $member_user_ref;
 }
 $template_data_ref->{org_members} = \@org_members;

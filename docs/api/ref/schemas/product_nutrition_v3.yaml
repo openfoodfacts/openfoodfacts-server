@@ -1,0 +1,109 @@
+components:
+  schemas:
+    ProductNutritionDataV3:
+      type: object
+      title: Product Nutrition Data
+      properties:
+        nutrition:
+          type: object
+          description: |
+            Fields related to the nutrition facts of a product
+
+            Input nutrient sets can be updated directly with API v3.
+
+            API v2 can still be used to update input sets for the default source (*packaging* on the public platform and *manufacturer* on the pro platform).
+          properties:
+            aggregated_set:
+              type: object
+              description: | 
+                A set that combines nutrient data from preferred sources, with normalized units, 
+                and for a normalized 100g or 100ml quantity.
+                
+                It takes values from multiple sources (by priority: manufacturer, packaging, usda, estimate)
+                and normalizes all values to the same unit: g for weights, kJ for energy and energy-kj, kcal for energy-kcal.
+
+                The aggregated_set is read-only, and cannot be modified directly. It is computed from the other nutrient sets available for the product.
+              allOf:
+                - $ref: "../schemas/product_nutrition_properties.yaml"
+                - $ref: "../schemas/nutrients_v3_with_source.yaml"
+            input_sets:
+              type: array
+              description: |
+                An array of nutrient sets of the product.
+
+                Each nutrient set represents a version of the nutrition facts, defined by a combination of:
+                - the source of the data (e.g. *packaging*, *manufacturer*, *estimate*).
+                - the preparation state (e.g. *as_sold* or *prepared*),
+                - the reference quantity (*per 100g*, *per 100ml* or *per serving*), and                
+
+                This structure allows capturing multiple nutritional profiles for a single product.
+              items:
+                type: object
+                allOf:
+                  - $ref: "../schemas/nutrients_v3_base.yaml"
+                  - $ref: "../schemas/product_nutrition_properties.yaml"
+                  - type: object
+                    properties:
+                      per_quantity:
+                        type: number
+                        minimum: 0
+                        description: |
+                          The nutrition data on the package can be per serving, per 100g or per 100ml.
+                          When the data is given per serving, 
+                          the actual quantity that defines one serving may vary between products 
+                          and is stored in this field.
+
+                          This is essential to understand to which quantity values in `nutrients` apply for.
+
+                          For example, if the label states "per 250g", then this field should be *250*.
+                        example: 250
+                      per_unit:
+                        type: string
+                        description: |
+                          The nutrition data on the package can be per serving, per 100g or per 100ml.
+                          When the data is given per serving, 
+                          the actual unit that defines one serving may vary between products 
+                          and is stored in this field.
+
+                          This is essential to understand to which quantity values in `nutrients` apply for.
+
+                          For example, if the label states "per 250g", then this field should be *g*.
+                        example: "g"
+                      source:
+                        type: string
+                        examples: 
+                          - packaging
+                          - manufacturer
+                          - usda
+                          - estimate
+                        description: |
+                          The nutrition data of products can be obtained through several sources.
+                      source_description:
+                        type: string
+                        description: |
+                          A description of the source used for this nutrition set.
+
+                          This provides more information on how and when the source was used.
+
+                          This property is optional.
+                        examples:
+                          - USDA non-branded foods 2025/04
+                          - Import from org-nestle-france through Equadis
+                          - "Estimate from ingredients”, “Estimate from category: Olive oils"
+                      last_updated_t:
+                        type: integer
+                        description: |
+                          A timestamp indicating when this nutrition set was last updated.
+                        examples:
+                          - 1631270265
+                          - 1512153487
+                      unspecified_nutrients:
+                        type: array
+                        description: |
+                          A list of nutrients that are typically present, but that are not specified for this particular product,
+                          especially for packaging source.
+
+                          This property is optional.
+                        items:
+                          type: string
+                        example: ["fibers"]

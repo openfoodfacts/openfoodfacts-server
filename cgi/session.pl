@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -26,11 +26,12 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Users qw/$User_id %User/;
 use ProductOpener::Lang qw/lang/;
+use ProductOpener::Auth qw/write_auth_deprecated_headers/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -55,6 +56,7 @@ if (defined $User_id) {
 	my $r = shift;
 	my $referer = $r->headers_in->{Referer};
 	my $url;
+	my $subdomain = $request_ref->{subdomain};
 
 	if ((defined $next_action) and ($code =~ /^(\d+)$/)) {
 		if ($next_action eq 'product_add') {
@@ -75,6 +77,7 @@ if (defined $User_id) {
 
 		$log->info("redirecting after login", {url => $url}) if $log->is_info();
 
+		write_auth_deprecated_headers();
 		$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
 		$r->headers_out->set(Location => "$url");
 		$r->status(302);
@@ -95,30 +98,34 @@ if (single_param('jqm')) {
 	my $data = encode_json(\%response);
 
 	write_cors_headers();
+	write_auth_deprecated_headers();
 	print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 }
 else {
 	my $template;
+	my $action = param('length');
 
-	if ((defined param('length')) and (param('length') eq 'logout')) {
+	if ((defined $action) and ($action eq 'logout')) {
 		# The user is signing out
 		$template = "signed_out";
 	}
 	elsif (defined $User_id) {
 		# The user is signed in
 		$template = "signed_in";
+		$request_ref->{title} = '';
 	}
 	else {
-		# The user is signing in: display the login form
+		# The user is signing in: display the login form
 		$template = "sign_in_form";
+		$request_ref->{title} = lang('sign_in');
 	}
 
 	process_template("web/pages/session/$template.tt.html", $template_data_ref, \$html)
 		or $html = "<p>" . $tt->error() . "</p>";
 
-	$request_ref->{title} = lang('session_title');
 	$request_ref->{content_ref} = \$html;
+
+	write_auth_deprecated_headers();
 	display_page($request_ref);
 }
-

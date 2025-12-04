@@ -12,7 +12,7 @@
 
 [% END %]
 
-[% IF type == 'add' || type == 'edit'  || type == 'delete' %]
+[% IF oidc_implementation_level < 3 && (type == 'add' || type == 'edit'  || type == 'delete') %]
 
     [% IF not user_id.defined %]
 

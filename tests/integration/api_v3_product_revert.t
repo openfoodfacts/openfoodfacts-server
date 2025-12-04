@@ -11,11 +11,9 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 # Create an admin
 my $admin_ua = new_client();
@@ -142,7 +140,7 @@ my $tests_ref = [
 	{
 		test_case => 'revert-product-good',
 		method => 'POST',
-		path => '/api/v3/product_revert',
+		path => '/api/v3.2/product_revert',
 		body => '{
 			"code": "1234567890100",
 			"rev": 1,

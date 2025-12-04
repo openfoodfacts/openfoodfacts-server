@@ -1,11 +1,9 @@
 {
-   "additives_n" : 2,
+   "additives_n" : 1,
    "additives_original_tags" : [
-      "en:e300",
       "en:e330"
    ],
    "additives_tags" : [
-      "en:e300",
       "en:e330"
    ],
    "amino_acids_tags" : [],
@@ -15,5 +13,7 @@
    "minerals_tags" : [],
    "nucleotides_tags" : [],
    "other_nutritional_substances_tags" : [],
-   "vitamins_tags" : []
+   "vitamins_tags" : [
+      "en:vitamin-c"
+   ]
 }

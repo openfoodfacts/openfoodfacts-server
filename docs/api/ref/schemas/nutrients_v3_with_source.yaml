@@ -1,0 +1,129 @@
+type: object
+properties:
+  nutrients:
+    type: object
+    description: |
+      All known nutrients for the product.
+
+      You can get all possible nutrients from the
+      [nutrients taxonomy](https://static.openfoodfacts.org/data/taxonomies/nutrients.json).
+
+      New nutrients are regularly added.
+
+      Clients should not break if they encounter an unexpected nutrient to preserve compatibility.
+    properties:
+      energy:
+        description: |
+          It is the same as `energy-kj` if we have it, or computed from `energy-kcal` otherwise
+
+          (per 100g or per serving) in kj
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      energy_kcal:
+        description: |
+          energy in kcal, if it is specified
+
+          (per 100g or per serving) in a standard unit (g or ml)
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      energy_kj:
+        description: |
+          energy in kj, if it is specified
+
+          (per 100g or per serving) in a standard unit (g or ml)
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      fat:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      saturated-fat:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      trans-fat:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      cholesterol:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      salt:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      sodium:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      carbohydrates:
+        description: |
+          This is the available carbohydrates (excluding fiber), also known as net carbohydrates
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      carbohydrates-total:
+        description: |
+          This follows the US / Canada definition of carbohydrates which includes fiber, also known as gross carbohydrates
+
+          (per 100g, per 100ml or per serving) in a standard unit (g or ml)
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      fiber:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      sugars:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      added-sugars:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      proteins:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      vitamin-d:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      calcium:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      iron:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+      potassium:
+        allOf:
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
+          - $ref: "../schemas/nutrients_source_v3.yaml"
+    additionalProperties: 
+      description: |
+        Quantity of other nutrients from the nutrients taxonomy.
+        
+        See [nutrients taxonomy file](https://static.openfoodfacts.org/data/taxonomies/nutrients.json) for all nutrients in Open Food Facts.
+
+        (per 100g, per 100ml or per serving) in a standard unit (g or ml)
+      allOf:
+        - $ref: "../schemas/nutrient_values_v3_base.yaml"
+        - type: object
+          properties:
+            source:
+              type: string
+              description: |
+                Indicates the original source like “packaging”, “manufacturer”, “estimate”, “usda”
+            source_per:
+              type: string
+              description: |
+                Indicates if the original source is per serving or per 100g, 100ml
