@@ -135,7 +135,7 @@ digit grouping separators or used to indicate decimals.
 
 sub convert_string_to_number ($value) {
 
-	return undef if (not defined $value);
+	return if (not defined $value);
 
 	$value =~ s/(\d) (\d)/$1$2/g;
 
