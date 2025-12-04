@@ -67,7 +67,9 @@
          "packaging" : "0.50"
       }
    },
-   "data_quality_errors_tags" : [],
+   "data_quality_errors_tags" : [
+      "en:nutrition-data-per-serving-missing-serving-size"
+   ],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:food-groups-1-unknown",
@@ -95,7 +97,8 @@
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label",
-      "en:environmental-score-threatened-species-ingredients-missing"
+      "en:environmental-score-threatened-species-ingredients-missing",
+      "en:nutrition-data-per-serving-missing-serving-size"
    ],
    "data_quality_warnings_tags" : [
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",

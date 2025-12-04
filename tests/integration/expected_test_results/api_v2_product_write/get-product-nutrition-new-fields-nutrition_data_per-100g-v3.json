@@ -75,6 +75,7 @@
       "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
          "en:no-packaging-data",
+         "en:nutrition-data-prepared",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown"
@@ -94,15 +95,18 @@
          "en:brands-to-be-completed",
          "en:expiration-date-to-be-completed",
          "en:no-packaging-data",
+         "en:nutrition-data-prepared",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
+         "en:nutrition-data-prepared-without-category-dried-products-to-be-rehydrated",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-packaging-packaging-data-missing",
          "en:environmental-score-production-system-no-label",
          "en:environmental-score-threatened-species-ingredients-missing"
       ],
       "data_quality_warnings_tags" : [
+         "en:nutrition-data-prepared-without-category-dried-products-to-be-rehydrated",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-packaging-packaging-data-missing",
          "en:environmental-score-production-system-no-label",
