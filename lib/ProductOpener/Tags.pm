@@ -1865,7 +1865,10 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 					if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
 						# this is a new synonym, add it using same canonical tagid
-						$synonyms{$tagtype}{$lc}{$tagid2} = $synonyms{$tagtype}{$lc}{$tagid};
+						my $lc_tagid = $synonyms{$tagtype}{$lc}{$tagid};
+						$synonyms{$tagtype}{$lc}{$tagid2} = $lc_tagid;
+						# also add it to extended synonyms
+						$synonyms_for_extended{$tagtype}{$lc}{$lc_tagid}{$tagid2} = 1;
 						#print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
 					}
 				}
