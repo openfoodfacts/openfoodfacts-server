@@ -67,9 +67,9 @@ location = /haz-su-donacion-a-open-food-facts {
 	try_files /donate/es.html =404;
 }
 
-# EE: anneta-to-openfoodfacts
+# ET: anneta-to-openfoodfacts (Estonian)
 location = /anneta-to-openfoodfacts {
-	try_files /donate/ee.html =404;
+	try_files /donate/et.html =404;
 }
 
 # FI
@@ -117,9 +117,9 @@ location = /donate-to-open-food-facts-lt {
 	try_files /donate/lt.html =404;
 }
 
-# LU
-location = /donate-to-open-food-facts-lu {
-	try_files /donate/lu.html =404;
+# LB: Luxembourgish
+location = /donate-to-open-food-facts-lb {
+	try_files /donate/lb.html =404;
 }
 
 # MG
@@ -142,7 +142,12 @@ location = /donate-to-open-food-facts-nb {
 	try_files /donate/nb.html =404;
 }
 
-# PL: Przekaż darowiznę na openfoodfacts
+# PL: Polish
+location = /donate-to-open-food-facts-pl {
+	try_files /donate/pl.html =404;
+}
+
+# RU: pozhertvovat (translated Russian URL)
 location = /pozhertvovat-open-food-facts {
 	try_files /donate/ru.html =404;
 }
@@ -197,9 +202,9 @@ location = /donate-to-open-food-facts-vi {
 	try_files /donate/vi.html =404;
 }
 
-# zh-cn: 捐赠给openfoodfacts Juānzèng gěi openfoodfacts
-location = /donate-to-open-food-facts-cn {
-	try_files /donate/cn.html =404;
+# ZH_CN: Chinese Simplified (捐赠给openfoodfacts)
+location = /donate-to-open-food-facts-zh {
+	try_files /donate/zh_CN.html =404;
 }
 
 location = /hunger-game {
