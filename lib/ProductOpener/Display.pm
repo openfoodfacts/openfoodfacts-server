@@ -9075,14 +9075,8 @@ sub compare_product_nutrition_facts_to_categories ($product_ref, $target_cc, $ma
 
 	my @comparisons = ();
 
-	if (
-		(
-			not(    (defined $product_ref->{not_comparable_nutrition_data})
-				and ($product_ref->{not_comparable_nutrition_data}))
-		)
-		and (defined $product_ref->{categories_tags})
-		and (scalar @{$product_ref->{categories_tags}} > 0)
-		)
+	if (    (defined $product_ref->{categories_tags})
+		and (scalar @{$product_ref->{categories_tags}} > 0))
 	{
 
 		my $categories_nutriments_ref = $categories_nutriments_per_country{$target_cc};
