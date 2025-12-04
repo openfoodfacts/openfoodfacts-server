@@ -1375,12 +1375,6 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 
 				foreach my $nutrient_header_ref (@{$json_ref->{$source_field}}) {
 
-					my $preparation = "as_sold";
-
-					if ($nutrient_header_ref->{preparationStateCode} eq "PREPARED") {
-						$preparation = "prepared";
-					}
-
 					my $preparation = $gs1_maps{preparationStateCode}{$nutrient_header_ref->{preparationStateCode}};
 
 					if (not defined $preparation) {

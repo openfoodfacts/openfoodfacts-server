@@ -1071,7 +1071,7 @@ CSS
 	my $checked = '';
 	my $tablestyle = 'display: table;';
 	my $disabled = '';
-	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+	if (has_no_nutrition_data_on_packaging($product_ref)) {
 		$checked = 'checked="checked"';
 		$tablestyle = 'display: none;';
 		$disabled = 'disabled="disabled"';

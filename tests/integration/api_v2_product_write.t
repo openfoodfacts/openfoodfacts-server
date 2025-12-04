@@ -241,6 +241,13 @@ my $tests_ref = [
 			no_nutrition_data => 'on',
 		}
 	},
+	# should get nutrition.no_nutrition_data_on_packaging = true
+	{
+		test_case => 'get-product-nutrition-no_nutrition_data-on-api-v3-6',
+		method => 'GET',
+		path => '/api/v3.6/product/1234567890007',
+	},
+	# should get no_nutrition_data = on (schema downgrade)
 	{
 		test_case => 'get-product-nutrition-no_nutrition_data-on',
 		method => 'GET',
