@@ -1,0 +1,83 @@
+<!-- start templates/[% template.name %] -->
+
+[% IF comparisons.defined && comparisons.size > 0 %]
+<p id="show_comparison">
+    [% FOREACH comparison IN comparisons %]
+        <input type="checkbox" id="[% comparison.col_id %]_checkbox" class="show_comparison_checkbox" [% IF comparison.checked %]checked="checked"[% END %]/>
+        <label for="[% comparison.col_id %]_checkbox">[% lang('show') %] <a href="[% comparison.link %]">[% comparison.name %]</a> ([% comparison.count %])</label><br>
+    [% END %]
+</p>
+[% END %]
+
+[% IF category_stats %]
+<p id="show_stats">
+    <input type="checkbox" id="stats_checkbox" class="show_stats_checkbox"/>
+    <label for="stats_checkbox">[% lang('show_category_stats') %]</label>
+</p>
+[% END %]
+
+<table id="nutrition_table" class="data_table" aria-label="[% nutrition_table.header.name %]">
+    <thead>
+        <tr>
+            <th>[% nutrition_table.header.name %]</th>
+            [% FOREACH column IN nutrition_table.header.columns %]
+                <th class="[% column.class %][% IF column.col_id %] [% column.col_id %][% END %]">[% column.name %]</th>
+            [% END %]
+        </tr>
+    </thead>
+    <tbody>
+        [% FOREACH row IN nutrition_table.rows %]
+            <tr id="nutriment_[% row.nid %]_tr">
+                <td>
+                    <span style="padding-left: [% row.level %]rem;">[% row.name %]</span>
+                </td>
+                [% FOREACH column IN row.columns %]
+                    <td class="[% column.class %]"[% IF column.rdfa %] [% column.rdfa %][% END %]>
+                        [% IF column.type == 'comparison' && column.percent.defined %]
+                            <span[% IF column.evaluation.defined %] class="evaluation_[% column.evaluation %]"[% END %]>[% column.percent %]</span>
+                        [% ELSE %]
+                            [% column.value %]
+                        [% END %]
+                    </td>
+                [% END %]
+            </tr>
+        [% END %]
+    </tbody>
+</table>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Helper function to toggle cell visibility by class name
+    function toggleCellsByClass(className, show) {
+        var cells = document.querySelectorAll('.' + className);
+        cells.forEach(function(cell) {
+            cell.style.display = show ? '' : 'none';
+        });
+    }
+
+    // Handle comparison column visibility
+    var comparisonCheckboxes = document.querySelectorAll('.show_comparison_checkbox');
+    comparisonCheckboxes.forEach(function(checkbox) {
+        var colId = checkbox.id.replace('_checkbox', '');
+        
+        checkbox.addEventListener('change', function() {
+            toggleCellsByClass(colId, this.checked);
+        });
+        
+        // Initialize visibility based on initial state
+        toggleCellsByClass(colId, checkbox.checked);
+    });
+
+    // Handle category stats visibility
+    var statsCheckbox = document.getElementById('stats_checkbox');
+    if (statsCheckbox) {
+        statsCheckbox.addEventListener('change', function() {
+            toggleCellsByClass('stats', this.checked);
+        });
+        // Initialize - stats hidden by default
+        toggleCellsByClass('stats', false);
+    }
+});
+</script>
+
+<!-- end templates/[% template.name %] -->
