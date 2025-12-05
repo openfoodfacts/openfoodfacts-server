@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.84.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.83.0...v2.84.0) (2025-12-05)
+
+
+### Features
+
+* Match QFDMO with the categories taxonomy to make it possible to give customized and local circular advice in France ([#12581](https://github.com/openfoodfacts/openfoodfacts-server/issues/12581)) ([af42610](https://github.com/openfoodfacts/openfoodfacts-server/commit/af42610516c0f3b1ba31bb957b1be2e01d6ce50a))
+* Tools for indice de réparabilité + Folksonomy Engine ([#12662](https://github.com/openfoodfacts/openfoodfacts-server/issues/12662)) ([9597208](https://github.com/openfoodfacts/openfoodfacts-server/commit/95972083a6dae27b8542aacddcdc8fe6ad22e15f))
+
+
+### Bug Fixes
+
+* add singular forms to extended synonyms json ([#12760](https://github.com/openfoodfacts/openfoodfacts-server/issues/12760)) ([6530337](https://github.com/openfoodfacts/openfoodfacts-server/commit/6530337eb7571a58f146af1a1965c907cbf23fcc))
+* Update donation year from 2025 to 2026 ([#12765](https://github.com/openfoodfacts/openfoodfacts-server/issues/12765)) ([8a0c934](https://github.com/openfoodfacts/openfoodfacts-server/commit/8a0c934e6ee8588f33163ca347aa72627a69ca21))
+
 ## [2.83.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.82.1...v2.83.0) (2025-12-02)
 
 
