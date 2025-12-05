@@ -135,6 +135,8 @@ digit grouping separators or used to indicate decimals.
 
 sub convert_string_to_number ($value) {
 
+	return if (not defined $value);
+
 	$value =~ s/(\d) (\d)/$1$2/g;
 
 	# In some languages like French, a comma is used instead of a dot to indicate decimals
