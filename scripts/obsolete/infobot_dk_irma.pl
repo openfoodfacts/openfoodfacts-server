@@ -25,9 +25,11 @@ use CGI::Carp qw(fatalsToBrowser);
 use Modern::Perl '2017';
 use utf8;
 
+use Log::Any::Adapter ('Stdout');
+
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -38,7 +40,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::HTTP qw/create_user_agent/;
+use ProductOpener::Slack qw/send_slack_message/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -223,30 +225,7 @@ while(<$IN>) {
 
 			print "notifying slack: $bot\n";
 
-			my $ua = create_user_agent();
-
-			my $server_endpoint = "https://hooks.slack.com/services/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";
-
-			# set custom HTTP request header fields
-			my $req = HTTP::Request->new(POST => $server_endpoint);
-			$req->header('content-type' => 'application/json');
-
-			# add POST data to HTTP request body
-			my $post_data = '{"channel": "#bots", "username": "infobot", "text": "' . $bot . '", "icon_emoji": ":rabbit:" }';
-			$req->content($post_data);
-
-			my $resp = $ua->request($req);
-			if ($resp->is_success) {
-				my $message = $resp->decoded_content;
-				print "Received reply: $message\n";
-			}
-			else {
-				print "HTTP POST error code: ", $resp->code, "\n";
-				print "HTTP POST error message: ", $resp->message, "\n";
-			}
-
-
-
+			send_slack_message('#bots', 'infobot', $bot, ':rabbit:');
 
 			$User_id = $botid;
 			store_product($product_ref, $comment);

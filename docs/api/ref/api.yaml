@@ -31,7 +31,7 @@ servers:
     url: "http://localhost:8080"
 
 paths:
-  "/api/v2/product/{barcode}":
+  "/api/v2/product/{code}":
     get:
       tags:
         - Products
@@ -41,9 +41,9 @@ paths:
         Can return all product details or specific fields like knowledge panels.
         
         Use the `blame` parameter to include information about who last modified each field of the product.
-      operationId: get-product-by-barcode
+      operationId: get-product-by-code
       parameters:
-        - name: barcode
+        - name: code
           in: path
           description: The barcode of the product to be fetched
           required: true
@@ -54,9 +54,14 @@ paths:
             examples:
               - "3017620422003"
         - $ref: "./parameters/requested_product_type.yaml#/components/parameters/RequestedProductType"
-        - $ref: "#/components/parameters/fields"
-        - $ref: "#/components/parameters/knowledge_panels_included"
-        - $ref: "#/components/parameters/knowledge_panels_excluded"
+        - $ref: "./parameters/cc.yaml#/components/parameters/Cc"
+        - $ref: "./parameters/lc.yaml#/components/parameters/Lc"        
+        - $ref: "./parameters/product_available_fields.yaml#/components/parameters/ProductAvailableFields"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelClient"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelsSimplified"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelPhysicalActivities"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsIncluded"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsExcluded"
         - $ref: "./parameters/blame.yaml#/components/parameters/Blame"
       responses:
         "200":
@@ -139,7 +144,7 @@ paths:
         Open Food Facts uses optical character recognition (OCR) to retrieve nutritional data and other information from the product labels.
       parameters:
         - $ref: "#/components/parameters/id"
-        - $ref: "#/components/parameters/code"
+        - $ref: "./parameters/code.yaml#/components/parameters/Code"
         - $ref: "#/components/parameters/process_image"
         - $ref: "#/components/parameters/ocr_engine"
       tags:
@@ -184,7 +189,7 @@ paths:
         the OFF API allows you to make api calls to automate this process.
         You can rotate existing photos by setting the angle to 90º, 180º, or 270º clockwise.
       parameters:
-        - $ref: "#/components/parameters/code"
+        - $ref: "./parameters/code.yaml#/components/parameters/Code"
         - $ref: "#/components/parameters/id"
         - $ref: "#/components/parameters/imgid"
         - $ref: "#/components/parameters/angle"
@@ -356,7 +361,7 @@ paths:
         - $ref: "./schemas/nutrition_search.yaml#/properties/nutrient_lower_than"
         - $ref: "./schemas/nutrition_search.yaml#/properties/nutrient_greater_than"
         - $ref: "./schemas/nutrition_search.yaml#/properties/nutrient_equal"
-        - $ref: "#/components/parameters/fields"
+        - $ref: "./parameters/product_available_fields.yaml#/components/parameters/ProductAvailableFields"
         - $ref: "#/components/parameters/sort_by"
         - $ref: "#/components/parameters/page"
         - $ref: "#/components/parameters/page_size"
@@ -377,7 +382,7 @@ paths:
                   type: string
       operationId: get-cgi-suggest.pl
       parameters:
-        - $ref: "#/components/parameters/tagtype"
+        - $ref: "./parameters/tagtype.yaml#/components/parameters/Tagtype"
         - $ref: "#/components/parameters/term"
       description: |
         For example , Dave is looking for packaging_shapes that contain the term "fe",
@@ -398,8 +403,8 @@ paths:
                 $ref: ./responses/get_nutrients.yaml
       operationId: get-cgi-nutrients.pl
       parameters:
-        - $ref: "#/components/parameters/cc"
-        - $ref: "#/components/parameters/lc"
+        - $ref: "./parameters/cc.yaml#/components/parameters/Cc"
+        - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
       description: |
         Used to display the nutrition facts table of a product, or to display a form to input those nutrition facts.
   /api/v2/attribute_groups:
@@ -426,7 +431,7 @@ paths:
                 title: get_attribute_groups_response
                 $ref: ./responses/get_attribute_groups.yaml
       parameters:
-        - $ref: "#/components/parameters/lc"
+        - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
   /api/v2/preferences:
     get:
       summary: Get Preferences Weights
@@ -438,7 +443,7 @@ paths:
         - Personal Search
       operationId: get-preferences
       parameters:
-        - $ref: "#/components/parameters/lc"
+        - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
       responses:
         "200":
           description: OK
@@ -497,10 +502,11 @@ components:
       description: |
         Session cookie containing user ID, username, and session token.
         The value is structured as: user_id&username&user_session&session_token
-        e.g. "user_id&exampleuser&user_session&abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLM"
+        e.g. "user_id&exampleuser&user_session&abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLM".
+        The session token is obtained after successful login via the `/cgi/session.pl` endpoint.
     userAgentAuth:
-      description: Authentication using User-Agent header
-        User-Agent header in the format 'app_name/app_version (email)'
+      description: Identification using the User-Agent header. This is recommended in all requests so that we can contact you if there are issues. If we cannot identify the source of problematic API queries, we may have to block them.
+        User-Agent header in the format 'app_name/app_version (URL or contact info)'
       type: apiKey
       in: header
       name: User-Agent
@@ -520,6 +526,8 @@ components:
       $ref: ./schemas/product_ingredients.yaml
     "Product-Nutrition":
       $ref: ./schemas/product_nutrition.yaml
+    "Product-Nutrition-v3.5":
+      $ref: "./schemas/product_nutrition_v3.yaml#/components/schemas/ProductNutritionDataV3"
     "Product-Nutriscore":
       $ref: "./schemas/product_nutriscore.yaml#/components/schemas/NutriscoreAll"
     "Product-Quality":
@@ -548,34 +556,6 @@ components:
         example: ingredients_en
       in: query
       name: id
-      required: true
-    cc:
-      schema:
-        type: string
-        example: "us"
-      in: query
-      name: cc
-      required: false
-      description: "2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request."
-    lc:
-      schema:
-        type: string
-        example: "fr"
-      in: query
-      name: lc
-      required: false
-      description: |
-        2 letter code of the language of the user.
-        Used for localizing some fields in returned values (e.g. knowledge panels).
-        If not passed, the language may be inferred by the Accept-Language header of the request,
-        or from the domain name prefix.
-    code:
-      schema:
-        type: string
-        example: "4251105501381"
-      in: query
-      name: code
-      description: Barcode of the product
       required: true
     process_image:
       schema:
@@ -647,31 +627,6 @@ components:
         * `scans_n`, `unique_scans_n` and `popularity_key` are about product popularity: number of scans on unique scans, rank of product
         * `created_t`, `last_modified_t`, are about creation and modification dates
         * `nothing`, tells not to sort at all (because if you do not provide the sort_by argument we default to sorting on popularity (for food) or last modification date)
-    fields:
-      $ref: ./parameters/product_available_fields.yaml#/components/parameters/ProductAvailableFields
-    knowledge_panels_included:
-      schema:
-        type: string
-        example: "heatlh_card, environment_card"
-      in: query
-      name: knowledge_panels_included
-      description: |
-        When knowledge_panels are requested, you can specify which panels should be in the response. All the others will be excluded.
-    knowledge_panels_excluded:
-      schema:
-        type: string
-        example: "heatlh_card, environment_card"
-      in: query
-      name: knowledge_panels_excluded
-      description: |
-        When knowledge_panels are requested, you can specify which panels to exclude from the response. All the others will be included.
-        If a panel is both excluded and included (with the knowledge_panels_excluded parameter), it will be excluded.
-    tagtype:
-      schema:
-        type: string
-        example: additives
-      in: query
-      name: tagtype
     term:
       schema:
         type: string
@@ -680,7 +635,7 @@ components:
       name: term
 
 security:
-  - {} # No authentication required by default (for read requests)
+  - userAgentAuth: [] # No authentication required by default (for read requests), but we recommend sending a User-Agent header in all requests.
 
 tags:
   - name: Products

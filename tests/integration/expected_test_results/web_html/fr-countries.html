@@ -31,6 +31,13 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//fr.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<link rel="stylesheet" href="//static.openfoodfacts.localhost/js/datatables.min.css">
 
@@ -108,7 +115,7 @@
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <span><h2>Scannez un produit<h2></span>
+      <h2><span>Scannez un produit</span></h2>
       <button class="modal-close-button">&times;</button>
     </div>
     <div>
@@ -348,9 +355,9 @@
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner__main-title">Merci de contribuer à notre collecte de fonds 2025</h3>
+        <h3 class="donation-banner__main-title">Merci de contribuer à notre collecte de fonds 2026</h3>
       </div>
       <div style="padding:1rem;">
         <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
@@ -467,8 +474,16 @@
 </div>
 
 <!-- end templates/web/pages/tag/tag.tt.html -->
-  <div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
+<!-- start templates/web/pages/countries_map/map_of_countries.tt.html -->
 
+<div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
+
+<script type="module">
+  import { displayWorldMap } from '//static.openfoodfacts.localhost/js/dist/display-list-of-tags.js';
+  displayWorldMap('#world-map', {"data":{"BE":1,"CH":1,"DE":5,"ES":1,"FR":7,"GB":4,"IT":2},"links":{"BE":"/facets/pays/belgique","CH":"/facets/pays/suisse","DE":"/facets/pays/allemagne","ES":"/facets/pays/espagne","FR":"/facets/pays/france","GB":"/facets/pays/royaume-uni","IT":"/facets/pays/italie"},"names":{"BE":"Belgique","CH":"Suisse","DE":"Allemagne","ES":"Espagne","FR":"France","GB":"Royaume-Uni","IT":"Italie"}});
+</script>
+
+<!-- end templates/web/pages/countries_map/map_of_countries.tt.html -->
 <p>7 pays :</p><div style="max-width:600px;"><table id="tagstable">
 <thead><tr><th>Pays</th><th>Produits</th><th>*</th></tr></thead>
 <tbody>
@@ -554,9 +569,9 @@
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2025</h3>
+        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2026</h3>
       </div>
       <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
       <ul>
@@ -672,7 +687,6 @@
 
 <script>
 $(function() {
-var countries_map_data=JSON.parse("{\"BE\":1,\"CH\":1,\"DE\":5,\"ES\":1,\"FR\":7,\"GB\":4,\"IT\":2}");var countries_map_links=JSON.parse("{\"BE\":\"/facets/pays/belgique\",\"CH\":\"/facets/pays/suisse\",\"DE\":\"/facets/pays/allemagne\",\"ES\":\"/facets/pays/espagne\",\"FR\":\"/facets/pays/france\",\"GB\":\"/facets/pays/royaume-uni\",\"IT\":\"/facets/pays/italie\"}");var countries_map_names=JSON.parse("{\"BE\":\"Belgique\",\"CH\":\"Suisse\",\"DE\":\"Allemagne\",\"ES\":\"Espagne\",\"FR\":\"France\",\"GB\":\"Royaume-Uni\",\"IT\":\"Italie\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 let oTable = $('#tagstable').DataTable({
 	language: {
 		search: "Recherche :",
@@ -696,9 +710,6 @@ let oTable = $('#tagstable').DataTable({
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/jsvectormap.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/world-merc.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/display-list-of-tags.js"></script>
 <script src="//static.openfoodfacts.localhost/js/datatables.min.js"></script>
 
 <script>

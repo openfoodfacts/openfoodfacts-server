@@ -362,7 +362,6 @@
       "en:nutriments-to-be-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
-      "en:traceability-codes-to-be-completed",
       "en:front-photo-to-be-selected",
       "en:product-name-to-be-completed",
       "en:quantity-to-be-completed",
@@ -377,8 +376,8 @@
          "general_information" : "0.00",
          "ingredients" : "0.00",
          "nutrition" : "0.33",
-         "overall" : "0.18",
-         "packaging" : "0.33"
+         "overall" : "0.20",
+         "packaging" : "0.50"
       }
    },
    "data_quality_errors_tags" : [],
@@ -398,7 +397,6 @@
       "en:nutriments-to-be-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
-      "en:traceability-codes-to-be-completed",
       "en:front-photo-to-be-selected",
       "en:product-name-to-be-completed",
       "en:quantity-to-be-completed",
@@ -825,6 +823,9 @@
       "en:milk-and-dairy-products",
       "en:cheese"
    ],
+   "images" : {
+      "selected" : {}
+   },
    "languages" : {},
    "languages_codes" : {},
    "languages_hierarchy" : [],
