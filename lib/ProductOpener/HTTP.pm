@@ -442,7 +442,8 @@ sub get_http_request_pnote($name, $r) {
 		return ($r->pnotes->{$name});
 	}
 
-	$log->error("get_http_request_pnote: request object does not have pnotes method (not in mod_perl?)");
+	$log->info("get_http_request_pnote: request object does not have pnotes method (not in mod_perl?)")
+		if $log->is_info();
 	return;
 }
 
