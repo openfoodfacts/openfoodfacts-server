@@ -24,7 +24,7 @@ ProductOpener::Apache2ChildExitHandler - Child Exit Handler for OpenTelemetry tr
 
 =head1 SYNOPSIS
 
-C<ProductOpener::Apache2ChildExitHandler> is a Apache 2.0 child exit handler that flushed any trace listeners.
+C<ProductOpener::Apache2ChildExitHandler> is a Apache 2.0 child exit handler that flushes any trace listeners.
 
 =cut
 
