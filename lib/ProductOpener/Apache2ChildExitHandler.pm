@@ -35,17 +35,17 @@ use ProductOpener::PerlStandards;
 use Log::Any '$log', default_adapter => 'Stderr';
 use Apache2::Const qw(:common);
 
-use Future::AsyncAwait;
 use OpenTelemetry;
 
-async sub handler {
+sub handler {
 	my $provider = OpenTelemetry->tracer_provider;
 	if (not($provider)) {
 		return;
 	}
 
+	my $flush_future = $provider->force_flush();
 	my $flush_result;
-	eval {$flush_result = await $provider->force_flush();};
+	eval {$flush_result = $flush_future->get();};
 	my $err = $@;
 	if ($err) {
 		$log->warn('ProductOpener::Apache2ChildExitHandler::handler: provider flush error', {error => $err})

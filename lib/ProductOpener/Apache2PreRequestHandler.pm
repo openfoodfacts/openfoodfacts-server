@@ -43,10 +43,13 @@ use ProductOpener::Version qw/$version/;
 use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
 
 # Obtain the current default tracer provider
-my $provider = OpenTelemetry->tracer_provider;
-
 sub handler {
 	my ($r) = @_;
+
+	my $provider = OpenTelemetry->tracer_provider;
+	if (not($provider)) {
+		return Apache2::Const::OK;
+	}
 
 	# Create a trace
 	my $tracer = $provider->tracer(name => 'ProductOpener', version => $version);

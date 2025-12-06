@@ -38,8 +38,6 @@ use Apache2::Const qw(:common);
 use OpenTelemetry::Trace::Span;
 use OpenTelemetry;
 
-my $provider = OpenTelemetry->tracer_provider;
-
 sub handler {
 	my $r = shift;
 

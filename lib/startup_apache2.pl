@@ -27,6 +27,8 @@
 
 use ProductOpener::PerlStandards;
 
+use EV;    # Load EV early for AnyEvent and Future event loop backend
+
 use Carp ();
 
 eval {Carp::confess('init')};    ## no critic (RequireCheckingReturnValueOfEval)
