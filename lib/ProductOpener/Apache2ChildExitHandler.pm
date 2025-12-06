@@ -36,6 +36,7 @@ use Log::Any '$log', default_adapter => 'Stderr';
 use Apache2::Const qw(:common);
 
 use Future::AsyncAwait;
+use OpenTelemetry;
 
 async sub handler {
 	my $provider = OpenTelemetry->tracer_provider;
