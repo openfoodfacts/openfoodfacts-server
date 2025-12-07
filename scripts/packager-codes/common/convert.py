@@ -67,6 +67,8 @@ def merge_csv_files(country_name: str, csv_files: list, output_file: str, skip_h
     """
     Merge multiple CSV files into a single CSV file.
     
+    Final file as no duplicates and is sorted by code.
+    
     Args:
         country_name: Name of the country for logging
         csv_files: List of CSV file paths to merge

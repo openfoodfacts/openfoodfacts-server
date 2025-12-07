@@ -59,6 +59,3 @@ def test_merge_csv_files(tmp_path):
     # Verify sorted order (case-insensitive alphabetical by code)
     codes = [line.split(';')[0] for line in lines[1:]]
     assert codes == ["AA-001", "MM-002", "ZZ-003"]
-
-
-

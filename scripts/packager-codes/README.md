@@ -7,16 +7,16 @@
       - files (1 Excel/pdf/csv file = 1 file)
          - type (required): excel, pdf, html, csv
          - keyword (optional): used to find the name of the file, use if file contains date in the name
-         - last_filename: used to find the name of the file (if keyword is defined and found file is same as last_filename, process will stop early)
+         - last_filename: used to find the name of the file. If keyword is defined and found file is same as last_filename, process will stop early. On the other hand, if keyword is defined and found file is different the last_filename will be updated at the end of a successful processing.
          - sheets (optional): sheet(s) in the Excel file to extract. If missing first sheet (0) will be extracted only. To extract single sheet, set same integer for start and end.
             - start: which sheet to start extracting (starts from 0)
             - end: which sheet to stop extracting
-         - header_keywords: used to drop columns above the header in Excel/csv, all keywords should appear in the row containing header.
+         - header_keywords: used to find header row, so that we can drop lines above the header in Excel/csv, all keywords should appear in the row containing header.
          - columns: which columns in Excel/csv correspond code, name, street, city, postalcode
          - code_format:
             - suffix (required): suffix to add after the code (for example, EU for HR 123 EU)
             - strip_prefix (optional): if file already contains prefix that needs to be dropped.
-         - address_extractor: strategy to apply if among the 3 columns (street, city, postalcode), some of them are merged into same column
+         - address_extractor: strategy to apply if among the 3 columns (street, city, postalcode), some of them are merged into same column. Strategies are defined in `common/transform.py`.
          - normalize_fields (optional): on which fields applies rules in `packager_text_replacements_config.json`
          - postalcode_format (optional): if it needs to have leading zeros.
 

@@ -25,7 +25,7 @@ def test_strategy_split_street_comma_no_comma():
     
     result = strategy_split_street_comma("Finland", params, "FI 123 EC")
     
-    assert result == {'street': 'Main St', 'city': 'Helsinki', 'postalcode': '00100'}
+    assert result is None
 
 
 def test_strategy_split_street_last_space():
@@ -43,7 +43,7 @@ def test_strategy_split_street_last_space_no_number():
     
     result = strategy_split_street_last_space("Finland", params, "FI 123 EC")
     
-    assert result == {'street': 'Main Street', 'city': 'Helsinki'}
+    assert result is None
 
 
 def test_strategy_remove_street():
@@ -61,8 +61,7 @@ def test_strategy_remove_street_already_removed():
     
     result = strategy_remove_street("Finland", params, "FI 123 EC")
     
-    assert 'street' not in result
-    assert result == params
+    assert result is None
 
 
 def test_strategy_remove_postalcode():
@@ -89,7 +88,7 @@ def test_strategy_split_city_hyphen_no_hyphen():
     
     result = strategy_split_city_hyphen("Finland", params, "FI 123 EC")
     
-    assert result == {'street': 'Main St', 'city': 'Helsinki', 'postalcode': '00100'}
+    assert result is None
 
 
 def test_strategy_remove_city():

@@ -22,12 +22,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import csv
 import os
 import shutil
+from pathlib import Path
 
 # Go up from common/ -> packager-codes/ -> scripts/ -> repo_root, then to packager-codes/
-PACKAGER_CODES_DIR = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))),
-    'packager-codes'
-)
+PACKAGER_CODES_DIR = Path(__file__).parent.parent.parent.parent / 'packager-codes'
 
 
 def generate_file_identifier(keyword: str = None, last_filename: str = None) -> str:
@@ -91,11 +89,11 @@ def move_output_to_packager_codes(country_name: str, country_code: str, target_f
     if not os.path.exists(target_file):
         raise FileNotFoundError(f"Output file {target_file} not found")
     
-    os.makedirs(PACKAGER_CODES_DIR, exist_ok=True)
+    PACKAGER_CODES_DIR.mkdir(parents=True, exist_ok=True)
     
     final_name = f"{country_code.upper()}-merge-UTF-8.csv"
     
-    target_file_path = os.path.join(PACKAGER_CODES_DIR, final_name)
+    target_file_path = PACKAGER_CODES_DIR / final_name
     
     shutil.copy2(target_file, target_file_path)
     print(f"{country_name} - Info - Copied {target_file} to {target_file_path}")

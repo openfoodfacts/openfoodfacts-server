@@ -48,7 +48,7 @@ def test_move_output_to_packager_codes(tmp_path, monkeypatch):
     target_file.write_text("data", encoding="utf-8")
 
     packager_dir = tmp_path / "packager-codes"
-    monkeypatch.setattr(io, "PACKAGER_CODES_DIR", str(packager_dir))
+    monkeypatch.setattr(io, "PACKAGER_CODES_DIR", packager_dir)
 
     io.move_output_to_packager_codes("Testland", "tl", str(target_file))
 

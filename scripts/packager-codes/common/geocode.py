@@ -154,35 +154,42 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
     # Get country-specific strategies from config, passing initial_params
     strategies = get_country_simplification_strategies(country_code, initial_params)
     
-    max_attempts = len(strategies) + 1
+    with dbm.open(cache_db, 'c') as cache:
+        data = cached_get(debug, country_name, url, cache, sleep_duration)
+        if data != []:
+            lat, lng = [data[0]['lat'], data[0]['lon']]
+            if debug:
+                print(f"{country_name} - Debug - {code}: Successfully geocoded (lat={lat}, lng={lng})")
+            return [lat, lng]
     
-    failed = True
-    iter_failures = 0
-    while failed:
+    for attempt, strategy_func in enumerate(strategies, start=1):
+        print(f"{country_name} - Warning - {code}: No results found (attempt {attempt}/{len(strategies) + 1})")
+        
+        # Apply strategy to modify params
+        modified_params = strategy_func(country_name, params, code)
+        
+        # Skip retry if strategy returned None (no modification made)
+        if modified_params is None:
+            if debug:
+                print(f"{country_name} - Debug - {code}: Strategy made no changes, skipping retry")
+            continue
+        
+        params = modified_params
+        url = build_nominatim_url(params)
+        
+        if debug:
+            print(f"{country_name} - Debug - {code}: Retrying with modified URL: {url}")
+        
         with dbm.open(cache_db, 'c') as cache:
             data = cached_get(debug, country_name, url, cache, sleep_duration)
             if data != []:
                 lat, lng = [data[0]['lat'], data[0]['lon']]
                 if debug:
                     print(f"{country_name} - Debug - {code}: Successfully geocoded (lat={lat}, lng={lng})")
-                failed = False
-            else:
-                iter_failures += 1
-                
-                print(f"{country_name} - Warning - {code}: No results found (attempt {iter_failures}/{max_attempts})")
-                if iter_failures < max_attempts:
-                    # Apply the next strategy
-                    strategy_func = strategies[iter_failures - 1]
-                    params = strategy_func(country_name, params, code)
-                    url = build_nominatim_url(params)
-                    if debug:
-                        print(f"{country_name} - Debug - {code}: Retrying with modified URL: {url}")
-                else:
-                    # Fail if all attempts fail - raise with address details for debugging
-                    address_info = f"street='{street}', city='{city}', postalcode='{postalcode}'"
-                    raise RuntimeError(f"{code}: Could not geocode after {iter_failures} attempts. Address: {address_info}. Final URL: {url}")
-
-    return [lat, lng]
+                return [lat, lng]
+    
+    address_info = f"street='{street}', city='{city}', postalcode='{postalcode}'"
+    raise RuntimeError(f"{code}: Could not geocode after {len(strategies) + 1} attempts. Address: {address_info}. Final URL: {url}")
 
 
 def geocode_csv(debug: bool, country_name: str, country_code: str, input_csv: str, output_csv: str, sleep_duration: float = 2.0) -> tuple:
