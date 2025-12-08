@@ -377,6 +377,7 @@
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
+      "en:no-nutrition-data",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -398,6 +399,7 @@
       "en:expiration-date-to-be-completed",
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
+      "en:no-nutrition-data",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
@@ -899,7 +901,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 285.375
+               "value" : 285.375,
+               "value_computed" : 285.495
             },
             "energy-kj" : {
                "modifier" : "~",
@@ -907,7 +910,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 1180.75
+               "value" : 1180.75,
+               "value_computed" : 1181.11
             },
             "fat" : {
                "modifier" : "~",

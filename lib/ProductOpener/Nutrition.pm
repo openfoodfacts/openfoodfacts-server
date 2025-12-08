@@ -280,7 +280,7 @@ sub get_non_estimated_nutrient_per_100g_or_100ml_for_preparation ($product_ref, 
 	my $input_sets_ref = deep_get($product_ref, qw/nutrition input_sets/);
 
 	if (!defined $input_sets_ref) {
-		return undef;
+		return;
 	}
 
 	# Make sure the input sets are sorted by priority
@@ -310,7 +310,7 @@ sub get_non_estimated_nutrient_per_100g_or_100ml_for_preparation ($product_ref, 
 		}
 	}
 
-	return undef;
+	return;
 }
 
 =head2 set_nutrient_values
