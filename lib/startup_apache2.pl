@@ -75,7 +75,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Units qw/:all/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Version qw/:all/;
