@@ -402,7 +402,7 @@ sub get_mongodb_client ($timeout = undef) {
 			if ($event->{type} eq 'command_started') {
 				my $commandName = $event->{commandName};
 				my $collection = $event->{command}->{$commandName} // 'unknown';
-				
+
 				my $provider = OpenTelemetry->tracer_provider;
 				if (not defined $provider) {
 					return;
@@ -411,7 +411,7 @@ sub get_mongodb_client ($timeout = undef) {
 				if (not defined $tracer) {
 					return;
 				}
-				
+
 				my $span = $tracer->create_span(
 					name => $commandName . ' ' . $collection,
 					kind => SPAN_KIND_CLIENT,

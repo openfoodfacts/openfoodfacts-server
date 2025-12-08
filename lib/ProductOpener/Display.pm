@@ -504,7 +504,10 @@ sub init_request ($request_ref = {}) {
 			if (defined $span_context) {
 				$log->context->{trace_id} = $span_context->hex_trace_id if $span_context->can('hex_trace_id');
 				$log->context->{span_id} = $span_context->hex_span_id if $span_context->can('hex_span_id');
-				if ($span_context->can('trace_flags') && $span_context->trace_flags && $span_context->trace_flags->can('to_string')) {
+				if (   $span_context->can('trace_flags')
+					&& $span_context->trace_flags
+					&& $span_context->trace_flags->can('to_string'))
+				{
 					$log->context->{trace_flags} = $span_context->trace_flags->to_string;
 				}
 				# Span ID == old request id
@@ -514,13 +517,13 @@ sub init_request ($request_ref = {}) {
 		if ($@) {
 			$log->warn("Failed to get span context: $@") if $log->is_warn();
 		}
-		
+
 		# Set span attribute after request ID is initialized
 		if (defined $log->context->{request}) {
 			$span->set_attribute('productopener.request', $log->context->{request});
 		}
 	}
-	
+
 	if (not defined $log->context->{request}) {
 		# No OTEL Span available or no valid context, generate a random id
 		$log->context->{request} = generate_token(16);
@@ -7780,14 +7783,13 @@ sub display_page ($request_ref) {
 	if (defined $span) {
 		eval {
 			my $span_context = $span->context;
-			if (
-				defined $span_context
+			if (   defined $span_context
 				&& $span_context->can('hex_trace_id')
 				&& $span_context->can('hex_span_id')
 				&& $span_context->can('trace_flags')
 				&& defined $span_context->trace_flags
-				&& $span_context->trace_flags->can('to_string')
-			) {
+				&& $span_context->trace_flags->can('to_string'))
+			{
 				$template_data_ref->{traceparent}
 					= '00-'
 					. $span_context->hex_trace_id . '-'
