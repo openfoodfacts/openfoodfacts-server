@@ -95,7 +95,9 @@
                "packaging" : "0.50"
             }
          },
-         "data_quality_errors_tags" : [],
+         "data_quality_errors_tags" : [
+            "en:nutrition-aggregated-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars"
+         ],
          "data_quality_info_tags" : [
             "en:packaging-data-incomplete",
             "en:ingredients-percent-analysis-ok",
@@ -125,10 +127,13 @@
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown",
+            "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
             "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
-            "en:environmental-score-production-system-no-label"
+            "en:environmental-score-production-system-no-label",
+            "en:nutrition-aggregated-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars"
          ],
          "data_quality_warnings_tags" : [
+            "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
             "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
             "en:environmental-score-production-system-no-label"
          ],
@@ -1885,7 +1890,9 @@
                "packaging" : "0.50"
             }
          },
-         "data_quality_errors_tags" : [],
+         "data_quality_errors_tags" : [
+            "en:nutrition-aggregated-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars"
+         ],
          "data_quality_info_tags" : [
             "en:no-packaging-data",
             "en:ingredients-percent-analysis-ok",
@@ -1915,11 +1922,14 @@
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown",
+            "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
             "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
             "en:environmental-score-packaging-packaging-data-missing",
-            "en:environmental-score-production-system-no-label"
+            "en:environmental-score-production-system-no-label",
+            "en:nutrition-aggregated-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars"
          ],
          "data_quality_warnings_tags" : [
+            "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
             "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
             "en:environmental-score-packaging-packaging-data-missing",
             "en:environmental-score-production-system-no-label"
@@ -2930,11 +2940,15 @@
             "en:food-groups-1-unknown",
             "en:food-groups-2-unknown",
             "en:food-groups-3-unknown",
+            "en:nutrition-estimate-as-sold-100g-value-under-0-01-g-salt",
+            "en:nutrition-aggregated-as-sold-100g-value-under-0-01-g-salt",
             "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
             "en:environmental-score-packaging-packaging-data-missing",
             "en:environmental-score-production-system-no-label"
          ],
          "data_quality_warnings_tags" : [
+            "en:nutrition-estimate-as-sold-100g-value-under-0-01-g-salt",
+            "en:nutrition-aggregated-as-sold-100g-value-under-0-01-g-salt",
             "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
             "en:environmental-score-packaging-packaging-data-missing",
             "en:environmental-score-production-system-no-label"
@@ -3926,11 +3940,15 @@
             "en:food-groups-1-known",
             "en:food-groups-2-known",
             "en:food-groups-3-unknown",
+            "en:nutrition-estimate-as-sold-100g-value-under-0-01-g-salt",
+            "en:nutrition-aggregated-as-sold-100g-value-under-0-01-g-salt",
             "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
             "en:environmental-score-packaging-packaging-data-missing",
             "en:environmental-score-production-system-no-label"
          ],
          "data_quality_warnings_tags" : [
+            "en:nutrition-estimate-as-sold-100g-value-under-0-01-g-salt",
+            "en:nutrition-aggregated-as-sold-100g-value-under-0-01-g-salt",
             "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
             "en:environmental-score-packaging-packaging-data-missing",
             "en:environmental-score-production-system-no-label"
@@ -5087,11 +5105,15 @@
             "en:food-groups-1-known",
             "en:food-groups-2-known",
             "en:food-groups-3-unknown",
+            "en:nutrition-estimate-as-sold-100g-value-under-0-01-g-salt",
+            "en:nutrition-aggregated-as-sold-100g-value-under-0-01-g-salt",
             "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
             "en:environmental-score-packaging-packaging-data-missing",
             "en:environmental-score-production-system-no-label"
          ],
          "data_quality_warnings_tags" : [
+            "en:nutrition-estimate-as-sold-100g-value-under-0-01-g-salt",
+            "en:nutrition-aggregated-as-sold-100g-value-under-0-01-g-salt",
             "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
             "en:environmental-score-packaging-packaging-data-missing",
             "en:environmental-score-production-system-no-label"
