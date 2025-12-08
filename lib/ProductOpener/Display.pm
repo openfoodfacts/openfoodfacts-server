@@ -498,18 +498,26 @@ sub init_request ($request_ref = {}) {
 
 	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
 	if (defined $span) {
-		$span->set_attribute('productopener.request', $log->context->{request});
-
 		# Add OTEL like properties to the log records
-		$log->context->{trace_id} = $span->context->hex_trace_id;
-		$log->context->{span_id} = $span->context->hex_span_id;
-		$log->context->{trace_flags} = $span->context->trace_flags->to_string;
-
-		# Span ID == old request id
-		$log->context->{request} = $log->context->{span_id};
+		my $span_context = $span->context;
+		if (defined $span_context) {
+			$log->context->{trace_id} = $span_context->hex_trace_id if $span_context->can('hex_trace_id');
+			$log->context->{span_id} = $span_context->hex_span_id if $span_context->can('hex_span_id');
+			if ($span_context->can('trace_flags') && $span_context->trace_flags && $span_context->trace_flags->can('to_string')) {
+				$log->context->{trace_flags} = $span_context->trace_flags->to_string;
+			}
+			# Span ID == old request id
+			$log->context->{request} = $log->context->{span_id} if defined $log->context->{span_id};
+		}
+		
+		# Set span attribute after request ID is initialized
+		if (defined $log->context->{request}) {
+			$span->set_attribute('productopener.request', $log->context->{request});
+		}
 	}
-	else {
-		# No OTEL Span available, generate a random id
+	
+	if (not defined $log->context->{request}) {
+		# No OTEL Span available or no valid context, generate a random id
 		$log->context->{request} = generate_token(16);
 	}
 
@@ -7764,12 +7772,23 @@ sub display_page ($request_ref) {
 	# add W3C traceparent to template data
 	my $r = Apache2::RequestUtil->request();
 	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
-	$template_data_ref->{traceparent}
-		= '00-'
-		. $span->context->hex_trace_id . '-'
-		. $span->context->hex_span_id . '-'
-		. $span->context->trace_flags->to_string
-		if (defined $span);
+	if (defined $span) {
+		my $span_context = $span->context;
+		if (
+			defined $span_context
+			&& $span_context->can('hex_trace_id')
+			&& $span_context->can('hex_span_id')
+			&& $span_context->can('trace_flags')
+			&& defined $span_context->trace_flags
+			&& $span_context->trace_flags->can('to_string')
+		) {
+			$template_data_ref->{traceparent}
+				= '00-'
+				. $span_context->hex_trace_id . '-'
+				. $span_context->hex_span_id . '-'
+				. $span_context->trace_flags->to_string;
+		}
+	}
 
 	my $html;
 	# ?content_only=1 -> only the content, no header, footer, etc.

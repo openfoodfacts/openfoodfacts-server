@@ -402,7 +402,17 @@ sub get_mongodb_client ($timeout = undef) {
 			if ($event->{type} eq 'command_started') {
 				my $commandName = $event->{commandName};
 				my $collection = $event->{command}->{$commandName} // 'unknown';
-				my $span = OpenTelemetry->tracer_provider->tracer()->create_span(
+				
+				my $provider = OpenTelemetry->tracer_provider;
+				if (not defined $provider) {
+					return;
+				}
+				my $tracer = $provider->tracer();
+				if (not defined $tracer) {
+					return;
+				}
+				
+				my $span = $tracer->create_span(
 					name => $commandName . ' ' . $collection,
 					kind => SPAN_KIND_CLIENT,
 					attributes => {
@@ -423,21 +433,25 @@ sub get_mongodb_client ($timeout = undef) {
 				OpenTelemetry::Context->current = OpenTelemetry::Trace->context_with_span($span);
 			}
 			elsif ($event->{type} eq 'command_succeeded') {
-				my %span_and_context = %{delete $spans{$event->{requestId}}};
-				my $span = $span_and_context{'span'};
-				my $previous_context = $span_and_context{'previous_context'};
-				$span->set_status(SPAN_STATUS_OK);
-				$span->end();
-				OpenTelemetry::Context->current = $previous_context;
+				if (exists $spans{$event->{requestId}}) {
+					my %span_and_context = %{delete $spans{$event->{requestId}}};
+					my $span = $span_and_context{'span'};
+					my $previous_context = $span_and_context{'previous_context'};
+					$span->set_status(SPAN_STATUS_OK);
+					$span->end();
+					OpenTelemetry::Context->current = $previous_context;
+				}
 			}
 			elsif ($event->{type} eq 'command_failed') {
-				my %span_and_context = %{delete $spans{$event->{requestId}}};
-				my $span = $span_and_context{'span'};
-				my $previous_context = $span_and_context{'previous_context'};
-				$span->set_status(SPAN_STATUS_ERROR, $event->{failure}->{message});
-				$span->record_exception($event->{failure});
-				$span->end();
-				OpenTelemetry::Context->current = $previous_context;
+				if (exists $spans{$event->{requestId}}) {
+					my %span_and_context = %{delete $spans{$event->{requestId}}};
+					my $span = $span_and_context{'span'};
+					my $previous_context = $span_and_context{'previous_context'};
+					$span->set_status(SPAN_STATUS_ERROR, $event->{failure}->{message});
+					$span->record_exception($event->{failure});
+					$span->end();
+					OpenTelemetry::Context->current = $previous_context;
+				}
 			}
 		}
 	);

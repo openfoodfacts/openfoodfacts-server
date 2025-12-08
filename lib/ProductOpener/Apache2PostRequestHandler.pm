@@ -20,11 +20,11 @@
 
 =head1 NAME
 
-ProductOpener::Apache2PostRequestHandler - Response Handler for OpenTelemetry tracing
+ProductOpener::Apache2PostRequestHandler - Cleanup Handler for OpenTelemetry tracing
 
 =head1 SYNOPSIS
 
-C<ProductOpener::Apache2PostRequestHandler> is a Apache 2.0 response handler output filter that can be used to trace the response data.
+C<ProductOpener::Apache2PostRequestHandler> is an Apache 2.0 cleanup handler (registered as PerlCleanupHandler) that is used to finalize trace spans after the response is sent.
 
 =cut
 

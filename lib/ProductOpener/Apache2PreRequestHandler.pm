@@ -20,11 +20,24 @@
 
 =head1 NAME
 
-ProductOpener::Apache2PreRequestHandler - Output Filter for OpenTelemetry tracing
+ProductOpener::Apache2PreRequestHandler - Pre-Request Handler for OpenTelemetry tracing
 
 =head1 SYNOPSIS
 
-C<ProductOpener::Apache2PreRequestHandler> is a Apache 2.0 output filter that can be used to trace the response data.
+C<ProductOpener::Apache2PreRequestHandler> is an Apache 2.0 pre-request handler (registered as PerlPostReadRequestHandler) that is used to trace incoming requests.
+
+=head1 DESCRIPTION
+
+This handler is invoked early in the Apache request processing pipeline, before the request is processed.
+It extracts trace context from incoming HTTP headers (traceparent) and creates a new span for the request.
+The span is stored in Apache's pnotes for use by other handlers.
+
+The OpenTelemetry SDK is initialized via environment variables:
+- OTEL_EXPORTER_OTLP_ENDPOINT: The OTLP collector endpoint
+- OTEL_SERVICE_NAME: The service name for traces
+- Other standard OTEL environment variables
+
+The SDK initialization happens automatically when the OpenTelemetry module is loaded.
 
 =cut
 
