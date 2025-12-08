@@ -2745,7 +2745,7 @@ $product_ref = {
 
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-aggregated-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
 	'energy not matching nutrients', 1
 );
 
