@@ -436,7 +436,7 @@ The value of the per-request note for the given key, or undef if not available.
 
 sub get_http_request_pnote($name, $r) {
 	$r = $r // Apache2::RequestUtil->request();
-	# we need to check if the request object is defined and has headers
+	# we need to check if the request object is defined and has pnotes method
 	# as this function may be called outside of mod_perl (e.g. in unit tests)
 	if ((defined $r) and ($r->can('pnotes'))) {
 		return ($r->pnotes->{$name});
