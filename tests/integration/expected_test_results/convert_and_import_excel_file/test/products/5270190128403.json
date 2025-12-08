@@ -93,7 +93,9 @@
          "packaging" : "0.50"
       }
    },
-   "data_quality_errors_tags" : [],
+   "data_quality_errors_tags" : [
+      "en:nutrition-aggregated-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars"
+   ],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
@@ -125,10 +127,17 @@
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
+      "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
+      "en:nutrition-estimate-as-sold-100g-value-under-0-01-g-salt",
+      "en:nutrition-aggregated-as-sold-100g-value-under-0-01-g-salt",
       "en:environmental-score-packaging-packaging-data-missing",
-      "en:environmental-score-production-system-no-label"
+      "en:environmental-score-production-system-no-label",
+      "en:nutrition-aggregated-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars"
    ],
    "data_quality_warnings_tags" : [
+      "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
+      "en:nutrition-estimate-as-sold-100g-value-under-0-01-g-salt",
+      "en:nutrition-aggregated-as-sold-100g-value-under-0-01-g-salt",
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label"
    ],
@@ -633,7 +642,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 90.5
+               "value" : 90.5,
+               "value_computed" : 90.29
             },
             "energy-kj" : {
                "modifier" : "~",
@@ -641,7 +651,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 383
+               "value" : 383,
+               "value_computed" : 382.02
             },
             "fat" : {
                "modifier" : "~",

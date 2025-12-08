@@ -407,7 +407,9 @@
          "packaging" : "0.50"
       }
    },
-   "data_quality_errors_tags" : [],
+   "data_quality_errors_tags" : [
+      "en:nutrition-aggregated-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars"
+   ],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
       "en:ingredients-percent-analysis-ok",
@@ -437,10 +439,13 @@
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
+      "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
       "en:environmental-score-packaging-unspecified-material",
-      "en:environmental-score-production-system-no-label"
+      "en:environmental-score-production-system-no-label",
+      "en:nutrition-aggregated-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars"
    ],
    "data_quality_warnings_tags" : [
+      "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
       "en:environmental-score-packaging-unspecified-material",
       "en:environmental-score-production-system-no-label"
    ],
@@ -1490,7 +1495,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 321.369318181818
+               "value" : 321.369318181818,
+               "value_computed" : 321.272954545455
             },
             "energy-kj" : {
                "modifier" : "~",
@@ -1498,7 +1504,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 1360.02840909091
+               "value" : 1360.02840909091,
+               "value_computed" : 1358.23626420455
             },
             "fat" : {
                "modifier" : "~",
