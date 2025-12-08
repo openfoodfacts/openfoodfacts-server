@@ -499,15 +499,20 @@ sub init_request ($request_ref = {}) {
 	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
 	if (defined $span) {
 		# Add OTEL like properties to the log records
-		my $span_context = $span->context;
-		if (defined $span_context) {
-			$log->context->{trace_id} = $span_context->hex_trace_id if $span_context->can('hex_trace_id');
-			$log->context->{span_id} = $span_context->hex_span_id if $span_context->can('hex_span_id');
-			if ($span_context->can('trace_flags') && $span_context->trace_flags && $span_context->trace_flags->can('to_string')) {
-				$log->context->{trace_flags} = $span_context->trace_flags->to_string;
+		eval {
+			my $span_context = $span->context;
+			if (defined $span_context) {
+				$log->context->{trace_id} = $span_context->hex_trace_id if $span_context->can('hex_trace_id');
+				$log->context->{span_id} = $span_context->hex_span_id if $span_context->can('hex_span_id');
+				if ($span_context->can('trace_flags') && $span_context->trace_flags && $span_context->trace_flags->can('to_string')) {
+					$log->context->{trace_flags} = $span_context->trace_flags->to_string;
+				}
+				# Span ID == old request id
+				$log->context->{request} = $log->context->{span_id} if defined $log->context->{span_id};
 			}
-			# Span ID == old request id
-			$log->context->{request} = $log->context->{span_id} if defined $log->context->{span_id};
+		};
+		if ($@) {
+			$log->warn("Failed to get span context: $@") if $log->is_warn();
 		}
 		
 		# Set span attribute after request ID is initialized
@@ -7773,20 +7778,25 @@ sub display_page ($request_ref) {
 	my $r = Apache2::RequestUtil->request();
 	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
 	if (defined $span) {
-		my $span_context = $span->context;
-		if (
-			defined $span_context
-			&& $span_context->can('hex_trace_id')
-			&& $span_context->can('hex_span_id')
-			&& $span_context->can('trace_flags')
-			&& defined $span_context->trace_flags
-			&& $span_context->trace_flags->can('to_string')
-		) {
-			$template_data_ref->{traceparent}
-				= '00-'
-				. $span_context->hex_trace_id . '-'
-				. $span_context->hex_span_id . '-'
-				. $span_context->trace_flags->to_string;
+		eval {
+			my $span_context = $span->context;
+			if (
+				defined $span_context
+				&& $span_context->can('hex_trace_id')
+				&& $span_context->can('hex_span_id')
+				&& $span_context->can('trace_flags')
+				&& defined $span_context->trace_flags
+				&& $span_context->trace_flags->can('to_string')
+			) {
+				$template_data_ref->{traceparent}
+					= '00-'
+					. $span_context->hex_trace_id . '-'
+					. $span_context->hex_span_id . '-'
+					. $span_context->trace_flags->to_string;
+			}
+		};
+		if ($@) {
+			$log->warn("Failed to generate traceparent: $@") if $log->is_warn();
 		}
 	}
 
