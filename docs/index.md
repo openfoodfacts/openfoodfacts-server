@@ -12,6 +12,8 @@ The repository for the project is at https://github.com/openfoodfacts/openfoodfa
 
 Do not hesitate to contribute to this documentation, this is highly appreciated.
 
+**Note:** All documentation changes are validated to ensure they can be properly transpiled to MDX format.
+
 ## Documentation organization
 
 The documentation is split between API documentation (for re-users, third party developers) and Developer documentation (for contributors).
