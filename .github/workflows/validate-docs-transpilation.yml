@@ -10,6 +10,8 @@ jobs:
   validate-transpilation:
     name: Validate MD to MDX Transpilation
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout PR source
