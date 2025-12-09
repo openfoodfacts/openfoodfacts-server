@@ -188,7 +188,7 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 
 	#Remove duplicates from list of sugars
 	my %seen;
-	@added_sugars_ingredients = grep { !$seen{$_}++ } @added_sugars_ingredients;
+	@added_sugars_ingredients = grep {!$seen{$_}++} @added_sugars_ingredients;
 
 	$log->debug("added sugars", {added_sugars_ingredients => \@added_sugars_ingredients})
 		if $log->is_debug();
