@@ -1,0 +1,130 @@
+name: 📝 Validate Documentation Transpilation
+
+on:
+  pull_request:
+    paths:
+      - "docs/**"
+      - ".github/workflows/validate-docs-transpilation.yml"
+
+jobs:
+  validate-transpilation:
+    name: Validate MD to MDX Transpilation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR source
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Create temporary directory structure
+        run: |
+          mkdir -p temp-docs/docs/product-opener
+          mkdir -p temp-docs/content/docs/Product-Opener
+
+      - name: Copy documentation to temp directory
+        run: |
+          echo "Copying documentation files..."
+          if [ -d "docs" ]; then
+            cp -r docs/* temp-docs/docs/product-opener/
+            echo "Documentation copied successfully"
+          else
+            echo "Error: docs directory not found"
+            exit 1
+          fi
+
+      - name: Transpile markdown files to MDX
+        run: |
+          echo "Testing transpilation from MD to MDX..."
+          cd temp-docs
+          if [ -d "docs/product-opener" ]; then
+            npx fumadocs-transpiler@latest --input docs/product-opener --output "content/docs/Product-Opener/(docs)" --verbose
+            echo "✅ Documentation transpiled successfully"
+          else
+            echo "❌ Error: Product Opener docs directory not found"
+            exit 1
+          fi
+
+      - name: Fix malformed code blocks
+        run: |
+          echo "Fixing malformed code block titles..."
+          cd temp-docs
+          find content/docs -name "*.mdx" -exec sed -i 's/^``` \+\(\w\+=.\+\)$/```text \1/' {} \;
+          echo "✅ Code block titles fixed"
+
+      - name: Fix internal links
+        run: |
+          echo "Fixing internal links from .md to directory format..."
+          cd temp-docs
+          find content/docs -name "*.mdx" -exec sed -i '/:\/\//! s|/index\.md|/|g; s|\([^)]*\)\.md|\1/|g' {} \;
+          echo "✅ Internal links fixed"
+
+      - name: Verify MDX files were created
+        run: |
+          echo "Verifying MDX file creation..."
+          cd temp-docs
+          MDX_COUNT=$(find content/docs -name "*.mdx" | wc -l)
+          echo "Found $MDX_COUNT MDX files"
+          
+          if [ "$MDX_COUNT" -eq 0 ]; then
+            echo "❌ Error: No MDX files were generated"
+            exit 1
+          fi
+          
+          echo "✅ MDX files generated successfully"
+          
+          # List generated files for verification
+          echo ""
+          echo "Generated MDX files:"
+          find content/docs -name "*.mdx" -type f | sort
+
+      - name: Check for syntax errors in MDX files
+        run: |
+          echo "Checking for basic syntax errors..."
+          cd temp-docs
+          
+          # Check for common MDX syntax issues
+          ERROR_COUNT=0
+          
+          # Check for unclosed code blocks
+          for file in $(find content/docs -name "*.mdx"); do
+            # Count backtick triplets
+            BACKTICK_COUNT=$(grep -c '^```' "$file" || true)
+            if [ $((BACKTICK_COUNT % 2)) -ne 0 ]; then
+              echo "⚠️  Warning: Potential unclosed code block in $file"
+              ERROR_COUNT=$((ERROR_COUNT + 1))
+            fi
+          done
+          
+          if [ "$ERROR_COUNT" -gt 0 ]; then
+            echo "❌ Found $ERROR_COUNT potential syntax issues"
+            echo "Please review the warnings above"
+            exit 1
+          fi
+          
+          echo "✅ No obvious syntax errors detected"
+
+      - name: Summary
+        if: success()
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ Documentation validation PASSED"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "Your documentation changes have been validated and can be safely merged."
+          echo "The MD to MDX transpilation process completed without errors."
+          echo ""
+          echo "When these changes are merged to main, they will be automatically"
+          echo "synchronized to the documentation repository."
+
+      - name: Cleanup
+        if: always()
+        run: |
+          echo "Cleaning up temporary files..."
+          rm -rf temp-docs
+          echo "✅ Cleanup complete"
