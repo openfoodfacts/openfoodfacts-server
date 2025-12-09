@@ -9508,6 +9508,7 @@ CSS
 					$unit = $product_ref->{nutriments}{$nid . "_unit"};
 				}
 			}
+			
 			my @columns;
 			my @extra_row_columns;
 
