@@ -54,6 +54,10 @@ jobs:
         run: |
           echo "Fixing malformed code block titles..."
           cd temp-docs
+          # The fumadocs transpiler adds titles to code blocks without specifying a language,
+          # which causes Shiki (syntax highlighter) to fail. This fixes code blocks by:
+          # - Finding lines starting with ``` followed by spaces and an attribute (e.g., ``` title="example")
+          # - Replacing them with ```text followed by the attribute (e.g., ```text title="example")
           find content/docs -name "*.mdx" -exec sed -i 's/^``` \+\(\w\+=.\+\)$/```text \1/' {} \;
           echo "✅ Code block titles fixed"
 
@@ -61,6 +65,11 @@ jobs:
         run: |
           echo "Fixing internal links from .md to directory format..."
           cd temp-docs
+          # Convert markdown file links to directory-style URLs for the docs site:
+          # - Transforms /docs/example.md -> /docs/example/
+          # - Transforms /docs/example/index.md -> /docs/example/
+          # - Skips external links (those containing ://)
+          # This matches the URL structure expected by the fumadocs documentation site
           find content/docs -name "*.mdx" -exec sed -i '/:\/\//! s|/index\.md|/|g; s|\([^)]*\)\.md|\1/|g' {} \;
           echo "✅ Internal links fixed"
 
@@ -88,12 +97,14 @@ jobs:
           echo "Checking for basic syntax errors..."
           cd temp-docs
           
-          # Check for common MDX syntax issues
+          # Perform basic validation of MDX files
           ERROR_COUNT=0
           
-          # Check for unclosed code blocks
+          # Check for unclosed code blocks by counting triple backticks
+          # Note: This is a simple heuristic that catches most obvious errors.
+          # It counts lines starting with ``` and ensures they come in pairs (open/close).
+          # More complex scenarios (backticks in comments, etc.) would require a full MDX parser.
           for file in $(find content/docs -name "*.mdx"); do
-            # Count backtick triplets
             BACKTICK_COUNT=$(grep -c '^```' "$file" || true)
             if [ $((BACKTICK_COUNT % 2)) -ne 0 ]; then
               echo "⚠️  Warning: Potential unclosed code block in $file"
