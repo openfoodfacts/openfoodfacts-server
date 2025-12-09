@@ -14,26 +14,39 @@ jobs:
       contents: read
 
     steps:
+      - name: Checkout documentation repository
+        uses: actions/checkout@v5
+        with:
+          repository: openfoodfacts/documentation
+          path: documentation-repo
+          fetch-depth: 1
+
       - name: Checkout PR source
         uses: actions/checkout@v5
         with:
+          path: server-repo
           fetch-depth: 1
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
           node-version: "24"
+          cache: "npm"
+          cache-dependency-path: documentation-repo/package-lock.json
 
-      - name: Create temporary directory structure
+      - name: Install documentation repository dependencies
         run: |
-          mkdir -p temp-docs/docs/product-opener
-          mkdir -p temp-docs/content/docs/Product-Opener
+          echo "Installing dependencies for documentation repository..."
+          cd documentation-repo
+          npm ci
+          echo "✅ Dependencies installed successfully"
 
-      - name: Copy documentation to temp directory
+      - name: Copy documentation to documentation repository
         run: |
           echo "Copying documentation files..."
-          if [ -d "docs" ]; then
-            cp -r docs/* temp-docs/docs/product-opener/
+          if [ -d "server-repo/docs" ]; then
+            mkdir -p documentation-repo/docs/product-opener
+            cp -r server-repo/docs/* documentation-repo/docs/product-opener/
             echo "Documentation copied successfully"
           else
             echo "Error: docs directory not found"
@@ -43,7 +56,7 @@ jobs:
       - name: Transpile markdown files to MDX
         run: |
           echo "Testing transpilation from MD to MDX..."
-          cd temp-docs
+          cd documentation-repo
           if [ -d "docs/product-opener" ]; then
             npx fumadocs-transpiler@latest --input docs/product-opener --output "content/docs/Product-Opener/(docs)" --verbose
             echo "✅ Documentation transpiled successfully"
@@ -55,7 +68,7 @@ jobs:
       - name: Fix malformed code blocks
         run: |
           echo "Fixing malformed code block titles..."
-          cd temp-docs
+          cd documentation-repo
           # The fumadocs transpiler adds titles to code blocks without specifying a language,
           # which causes Shiki (syntax highlighter) to fail. This fixes code blocks by:
           # - Finding lines starting with ``` followed by spaces and an attribute (e.g., ``` title="example")
@@ -66,7 +79,7 @@ jobs:
       - name: Fix internal links
         run: |
           echo "Fixing internal links from .md to directory format..."
-          cd temp-docs
+          cd documentation-repo
           # Convert markdown file links to directory-style URLs for the docs site:
           # - Transforms /docs/example.md -> /docs/example/
           # - Transforms /docs/example/index.md -> /docs/example/
@@ -75,10 +88,22 @@ jobs:
           find content/docs -name "*.mdx" -exec sed -i '/:\/\//! s|/index\.md|/|g; s|\([^)]*\)\.md|\1/|g' {} \;
           echo "✅ Internal links fixed"
 
+      - name: Copy documentation assets
+        run: |
+          echo "Copying documentation assets..."
+          cd documentation-repo
+          if [ -d "docs/product-opener/assets" ]; then
+            mkdir -p "content/docs/Product-Opener/(docs)/assets"
+            cp -r docs/product-opener/assets/* "content/docs/Product-Opener/(docs)/assets/"
+            echo "✅ Assets copied successfully"
+          else
+            echo "No assets directory found, skipping..."
+          fi
+
       - name: Verify MDX files were created
         run: |
           echo "Verifying MDX file creation..."
-          cd temp-docs
+          cd documentation-repo
           MDX_COUNT=$(find content/docs -name "*.mdx" | wc -l)
           echo "Found $MDX_COUNT MDX files"
           
@@ -97,7 +122,7 @@ jobs:
       - name: Check for syntax errors in MDX files
         run: |
           echo "Checking for basic syntax errors..."
-          cd temp-docs
+          cd documentation-repo
           
           # Perform basic validation of MDX files
           ERROR_COUNT=0
@@ -139,5 +164,5 @@ jobs:
         if: always()
         run: |
           echo "Cleaning up temporary files..."
-          rm -rf temp-docs
+          rm -rf documentation-repo server-repo
           echo "✅ Cleanup complete"
