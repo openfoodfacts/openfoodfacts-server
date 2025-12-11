@@ -312,7 +312,7 @@
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg",
                "name" : "Environmental labels",
                "type" : "string",
-               "value" : "No assessed labels"
+               "value_string" : "No assessed labels"
             },
             "topics" : [
                "environment"
@@ -1576,7 +1576,7 @@
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "name" : "Origins of ingredients",
                "type" : "string",
-               "value" : "Missing data"
+               "value_string" : "Missing data"
             },
             "topics" : [
                "environment"
@@ -1783,7 +1783,7 @@
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
                "name" : "Packaging",
                "type" : "string",
-               "value" : "Medium impact"
+               "value_string" : "Medium impact"
             },
             "topics" : [
                "environment"
@@ -1988,7 +1988,7 @@
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
                "name" : "Threatened species",
                "type" : "string",
-               "value" : "Contains palm oil"
+               "value_string" : "Contains palm oil"
             },
             "topics" : [
                "environment"
