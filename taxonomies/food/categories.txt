@@ -94,6 +94,10 @@ stopwords:de: und, mit, von
 # Careful: it should be the same main tag, not a synonym
 # Remark: add the property to the highest parent
 
+# In European Union food of animal origin must be tagged by a packaging code (a number in a circle).
+# The followig tag is added to food of animal origin:
+# food_of_animal_origin:en: yes
+
 en: Incorrect product type
 bg: Неправилен product type
 ca: Tipus de producte incorrecte
@@ -10435,7 +10439,7 @@ wikidata:en: Q25408
 < en:Beverage preparations
 en: Instant beverages, Instant hot beverages
 ca: Begudes instantànies
-de: Heißgetränke zum Aufgließen
+de: Heißgetränke zum Aufgießen
 es: Bebidas instantáneas, Bebidas para tomar calientes instantáneas
 fi: instant-juomat
 fr: Boissons instantanées, Boissons chaudes instantanées, boisson chaude instantanée
@@ -34735,6 +34739,16 @@ fr: Blocs de pain d'épices
 < en:Gingerbreads
 de: Oblaten-Lebkuchen
 
+< en:Gingerbreads
+en: Plain gingerbreads covered with chocolate
+de: Natur Lebkuchen mit Schokolade überzogen
+fr: Pains d'épices natures couverts de chocolat
+
+< en:Gingerbreads
+en: Filled gingerbreads covered with chocolate
+de: Gefüllte Lebkuchen mit Schokolade überzogen
+fr: Pains d'épices fourrés et couverts de chocolat
+
 < en:Biscuits and cakes
 en: Savoy-style sponge cake, Savoy cake, Savoy sponge cake
 fr: Biscuit de Savoie
@@ -37576,6 +37590,7 @@ ciqual_food_name:fr: Gâteau marbré
 oqali_family:en: fr:Biscuits et gateaux industriels - Gateaux marbres
 
 < en:Filled cakes
+< en:Gingerbreads
 fr: Nonnettes
 wikidata:en: Q3343365
 
@@ -40113,7 +40128,7 @@ hr: Kikiriki preliven čokoladom
 hu: Csokoládéval bevont mogyoró
 it: Arachidi ricoperte di cioccolato, Noccioline ricoperte di cioccolato
 lt: Žemės riešutai šokolade
-nl: Chocopindas
+nl: Chocopindas, Pindarotsjes
 pt: Amendoins cobertos com chocolate
 agribalyse_food_code:en: 31042
 ciqual_food_code:en: 31042
@@ -43953,6 +43968,18 @@ ciqual_food_code:en: 20066
 ciqual_food_name:en: Sweet corn, canned, drained
 ciqual_food_name:fr: Maïs doux, appertisé, égoutté
 
+< en:Cereals and their products
+en: Brick sheets, Baked filo pastry sheets without fat, Baked phyllo pastry sheets without fat
+fr: Feuilles de brick, Feuilles de brick cuite à sec sans matière grasse
+hr: Limovi od opeke
+nl: Brick vellen
+ciqual_food_code:en: 23430
+ciqual_food_name:en: Filo or phyllo pastry sheets, baked, without fat
+ciqual_food_name:fr: Feuille de brick, cuite à sec sans matière grasse
+
+< en:Cereals and their products
+en: Puff pastry molds for vol-au-vent
+fr: Moules feuilletés pour vol-au-vent ou bouchées la reine
 
 < en:White beans
 fr: Lingots blancs
@@ -44171,6 +44198,7 @@ opposite:en: en:bananas, en: dried-bananas
 < en:Crisps
 en: Lentil Crisps
 fr: Chips de lentilles
+nl: Linzenchips
 
 < en:Cereals and potatoes
 < en:Crisps
@@ -44572,6 +44600,7 @@ uz: Sut mahsulotlari
 vi: Chế phẩm sữa
 yi: מילכיגס
 zh: 乳製品, 奶制品
+food_of_animal_origin:en: yes
 google_product_taxonomy_id:en: 428
 incompatible_with:en: categories:en:dairy-substitutes
 wikidata:en: Q185217
@@ -57863,6 +57892,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Honey (Shelf Stable)
 intake24_category_code:en: HONI
 nova:en: 2
+# food_of_animal_origin:en: yes # family farms/business might not possess packaging code
 
 < en:Honeys
 en: Honeys from Belgium, Belgian honeys
@@ -58621,6 +58651,7 @@ zh: 鸟蛋, 蛋
 # chicken egg as a proxy
 agribalyse_proxy_food_code:en: 22000
 food_groups:en: en:eggs
+food_of_animal_origin:en: yes
 gpc_category_code:en: 10006210
 gpc_category_description:en: Definition: Includes any products that can be described/observed as bird eggs in the shell that have been sorted to remove eggs of lower quality such as cracked and dirty eggs and are often sorted by size. Eggs may be unwashed, washed, washed and oiled, aged, and/or pasteurized in the shell. Definition Excludes: Specifically excludes nest-run eggs, checked and dirty eggs, and individually cooked eggs.
 gpc_category_name:en: In Shell Table Eggs
@@ -58977,6 +59008,7 @@ pl: Tłuszcze zwierzęce, Tłuscze zwierzęce
 pt: Gorduras animais
 ru: животные жиры, жиры животные
 zh: 动物脂肪
+food_of_animal_origin:en: yes
 nova:en: 2
 wikidata:en: Q1423543
 
@@ -77116,6 +77148,7 @@ ru: Продукты из мяса
 sv: Kött och dess produkter, Köttbaserade produkter
 tr: Et ürünleri
 zh: 肉制品
+food_of_animal_origin:en: yes
 wikidata:en: Q1427844
 
 < en:Meats and their products
@@ -79933,7 +79966,7 @@ ciqual_food_name:en: Croissant filled with ham and cheese
 ciqual_food_name:fr: Croissant au jambon fromage
 
 < en:Puff pastry meals
-en: Vol-au-vent, Filled vol-au-vent
+en: Vol-au-vent in puff pastries, Filled vol-au-vent
 de: Vol-au-vent, Königin-Pasteten, Pastetli, Bouchée
 fr: Bouchée à la reine, Bouchée à la reine garnie
 hr: Vol-au-vent
@@ -79943,19 +79976,26 @@ ciqual_food_name:en: Vol-au-vent, filled (average)
 ciqual_food_name:fr: Bouchée à la reine, garnie (aliment moyen)
 wikidata:en: Q304868
 
-< en:Vol-au-vent
+< en:Vol-au-vent in puff pastries
 en: Vol-au-vent with fish and seafood
 fr: Bouchées à la reine au poisson et aux fruits de mer, Bouchées à la reine au poisson, Bouchées à la reine aux fruits de mer
 agribalyse_food_code:en: 25503
 ciqual_food_code:en: 25503
 ciqual_food_name:en: Vol-au-vent with fish and seafood
 
-< en:Vol-au-vent
+< en:Vol-au-vent in puff pastries
 en: Vol-au-vent with meat, Vol-au-vent with poultry, Vol-au-vent with quenelle
 fr: Bouchées à la reine à la viande, Bouchée à la reine à la viande
 agribalyse_food_code:en: 25412
 ciqual_food_code:en: 25412
 ciqual_food_name:en: Vol-au-vent, with meat/poultry/quenelle
+
+< en:Meals with meat
+en: Vol-au-vent in sauce, Vol-au-vent
+fr: Vol-au-vent en sauce
+
+< en:Meals with meat
+fr: Garnitures pour bouchées à reine
 
 < en:Puff pastry meals
 fr: Paniers feuilletés
@@ -83833,6 +83873,12 @@ fr: Langòs surgelés
 en: Filled pinsa
 it: Pinsa farcita
 
+< en:Frozen foods
+< en:Meals
+en: Frozen topped baguettes
+de: Tiefgefrorene belegte Baguettes
+fr: Baguettes garnies surgelées
+
 # don't put in meals because this category contains "mini appetizer pizzas"
 en: Pizzas pies and quiches, Pizza pies and quiches
 bg: Пица и киш
@@ -85275,6 +85321,36 @@ ciqual_food_code:en: 6260
 ciqual_food_name:en: Burger, beef based, 15% fat, raw
 ciqual_food_name:fr: Haché à base de bœuf ou Préparation de viande hachée de boeuf, 15% MG, cru
 
+< en:Meats and their products
+en: Snails and their products
+fr: Escargots et dérivés
+
+< en:Meat preparations
+< en:Snails and their products
+en: Snails preparations
+es: Preparado de caracoles
+fi: Etanavalmisteet
+hr: Preparati od puževa
+lt: Sraigių ruošiniai
+nl: Producten met slakken
+zh: 蜗牛准备材料
+
+< en:Puff pastry appetizers
+< en:Snails preparations
+en: Mini appetizer puff pastries with snails
+fr: Mini feuilletés apéritifs aux escargots
+
+< en:Puff pastry meals
+< en:Snails preparations
+en: Large puff pastries with snails, Snails in puff pastry
+fr: Grands feuilletés aux escargots, Feuilleté aux escargots
+hr: Pužići u lisnatom tijestu
+lt: Sraigės sloksniuotoje tešloje
+agribalyse_food_code:en: 25399
+ciqual_food_code:en: 25399
+ciqual_food_name:en: Snails in puff pastry
+ciqual_food_name:fr: Feuilleté aux escargots
+
 < en:Meats
 en: Snails
 bg: Охлюви
@@ -85300,9 +85376,32 @@ wikidata:en: Q308841
 
 < en:Snails
 en: Prepared snails
+fr: Escargots préparés
 gpc_category_code:en: 10005776
 gpc_category_description:en: Definition: Includes products from animals of the species Helix aspersa that have been subjected to one or more further manufacturing processes such as being cooked, dried, cured, ground, or reformed. Definition Excludes: Excludes Land Snail - Unprepared/Unprocessed.
 gpc_category_name:en: Land Snail - Prepared/Processed
+
+< en: Prepared snails
+en: Cooked snails in parsley butter
+fr: Escargot en sauce au beurre persillé cuit
+hr: Kuhani puževi na peršinovom maslacu
+lt: Sraigės virtame petražolių svieste
+agribalyse_food_code:en: 10042
+ciqual_food_code:en: 10042
+ciqual_food_name:en: Snail in parsley butter, cooked
+ciqual_food_name:fr: Escargot en sauce au beurre persillé, cuit
+
+< en:Cooked snails in parsley butter
+< en:Frozen snails
+en: Frozen cooked snails in parsley butter
+fr: Escargots en sauce au beurre persillé cuits surgelés
+
+< en:Frozen snails
+en: Frozen snails in parsley butter
+fr: Escargots en sauce au beurre persillé surgelés
+agribalyse_proxy_food_code:en: 10042
+agribalyse_proxy_food_name:en: Snail in parsley butter, cooked
+agribalyse_proxy_food_name:fr: Escargot en sauce au beurre persillé, cuit
 
 < en:Snails
 en: Snails from Burgundy
@@ -85326,49 +85425,6 @@ hr: Konzervirani puževi
 lt: Konservuotos sraigės
 nl: Slakken in blik/pot
 zh: 罐装蜗牛, 罐装田螺
-
-< en:Meat preparations
-< en:Snails
-en: Snails preparations
-es: Preparado de caracoles
-fi: Etanavalmisteet
-fr: Escargots préparés
-hr: Preparati od puževa
-lt: Sraigių ruošiniai
-nl: Producten met slakken
-zh: 蜗牛准备材料
-
-< en:Snails
-en: Cooked snails in parsley butter
-fr: Escargot en sauce au beurre persillé cuit
-hr: Kuhani puževi na peršinovom maslacu
-lt: Sraigės virtame petražolių svieste
-agribalyse_food_code:en: 10042
-ciqual_food_code:en: 10042
-ciqual_food_name:en: Snail in parsley butter, cooked
-ciqual_food_name:fr: Escargot en sauce au beurre persillé, cuit
-
-< en:Cooked snails in parsley butter
-< en:Frozen snails
-en: Frozen cooked snails in parsley butter
-fr: Escargots en sauce au beurre persillé cuits surgelés
-
-< en:Frozen snails
-en: Frozen snails in parsley butter
-fr: Escargots en sauce au beurre persillé surgelés
-agribalyse_proxy_food_code:en: 10042
-agribalyse_proxy_food_name:en: Snail in parsley butter, cooked
-agribalyse_proxy_food_name:fr: Escargot en sauce au beurre persillé, cuit
-
-< en:Snails
-en: Snails in puff pastry
-fr: Feuilleté aux escargots
-hr: Pužići u lisnatom tijestu
-lt: Sraigės sloksniuotoje tešloje
-agribalyse_food_code:en: 25399
-ciqual_food_code:en: 25399
-ciqual_food_name:en: Snails in puff pastry
-ciqual_food_name:fr: Feuilleté aux escargots
 
 < en:Snails
 en: Cooked snails, Cooked snail without added fat
@@ -96851,6 +96907,21 @@ it: Tagliatelle alla bolognese
 ja: タリアテッレ・アッラ・ボロネーゼ
 nl: Bolognese tagliatelle
 
+< en:Bolognese-style pasta
+en: Bolognese linguine
+de: Bolognese-Linguine
+es: Linguine a la boloñesa
+fr: Linguine à la bolognaise
+hr: Bolognese linguine
+it: Linguine alla bolognese
+nl: Bolognese linguine
+sv: Linguine bolognese
+
+< en:Bolognese linguine
+< en:Frozen pasta dishes
+en: Frozen bolognese linguine
+sv: Frussen linguine bolognese
+
 < en:Pasta dishes
 en: Pasta with fish
 de: Nudeln mit Fisch
@@ -97268,6 +97339,11 @@ ru: Блюда из макарон
 sv: Pastarätter
 intake24_category_code:en: PTDH
 wikidata:en: Q18679685
+
+< en:Frozen meals
+< en:Pasta dishes
+en: Frozen pasta dishes, Frozen meals with pasta
+sv: Frusna pastarätter
 
 < en:Pasta dishes
 en: Pot noodles
@@ -99643,6 +99719,7 @@ th: อาหารทะเล
 tr: Deniz ürünleri
 zh: 海鲜
 food_groups:en: en:fish-and-seafood
+food_of_animal_origin:en: yes
 google_product_taxonomy_id:en: 4629
 intake24_category_code:en: C002
 pnns_group_2:en: Fish and seafood
@@ -110320,6 +110397,10 @@ agribalyse_proxy_food_name:fr: Laitue iceberg, crue
 ciqual_food_code:en: 20123
 ciqual_food_name:fr: Batavia, crue
 
+< en:Lettuces
+en: Frillice iceberg lettuces, Frillice lettuces
+sv: Krispsallader, Krispsallad
+
 < en:Culinary plants
 < en:Onions and their products
 #<en:ingredient:en:vegetable
@@ -117489,7 +117570,7 @@ en: Mini appetizer croissants
 fr: Mini croissants apéritifs
 
 < en:Puff pastry appetizers
-en: Sausage rolls
+en: Mini sausage rolls, Sausage rolls
 de: Wurstrollen
 fr: Roulés à la saucisse, roulés aux saucisses, feuilletés à la saucisse
 hr: Kolutići kobasica
@@ -118446,6 +118527,7 @@ nl: Vis vlees en eieren
 pt: Peixes e carnes e ovos
 ru: Рыба - мясо и яйца
 food_groups:en: en:fish-meat-eggs
+food_of_animal_origin:en: yes
 pnns_group_1:en: Fish Meat Eggs
 
 < en:Fish and meat and eggs
@@ -121056,15 +121138,6 @@ hr: Hrana i piće za noć vještica
 it: Alimenti e bevande per Halloween
 nl: Halloween-levensmiddelen, Halloween-levensmiddel
 
-< en:Puff pastry meals
-en: Puff pastries with ham and cheese, puff pastry with ham and cheese
-fr: Feuilletés jambon fromage
-hr: Lisnato pecivo sa šunkom i sirom
-nl: Ham-kaas-soesjes
-agribalyse_food_code:en: 8395
-ciqual_food_code:en: 8395
-ciqual_food_name:en: Ham, in a pastry crusty
-
 < en:Meals
 en: Cheese soufflés, Cheese soufflé
 fr: Soufflés au fromage, Soufflé au fromage
@@ -121083,15 +121156,11 @@ wikidata:en: Q5503338
 
 < en:Friands
 < en:Puff pastry meals
-en: Sausage friands, Puff pastries with sausage, puff pastry with sausage
+en: Large sausage rolls, Sausage friands, Puff pastries with sausage, puff pastry with sausage
 fr: Friands à la saucisse
 hr: Prijatelji kobasica
 nl: Worst friands
 #wikidata:en:
-
-< en:Sausage friands
-en: Frozen sausage friands
-fr: Friands à la saucisse surgelés
 
 < en:Friands
 < en:Puff pastry meals
@@ -121710,27 +121779,19 @@ hr: Lisnato pecivo od povrća
 nl: Soesjes met groente
 
 < en:Friands
-< en:Puff pastry meals
-en: Ham and cheese in puffed pastry
-fr: Feuilleté jambon fromage
+en: Puff pastries with ham and cheese, puff pastry with ham and cheese, Ham and cheese in puffed pastry
+fr: Feuilletés jambon fromage, Feuilleté jambon fromage
+hr: Lisnato pecivo sa šunkom i sirom
+nl: Ham-kaas-soesjes
 agribalyse_food_code:en: 25508
 ciqual_food_code:en: 25508
 ciqual_food_name:en: Ham and cheese in puffed pastry
 
 < en:Friands
-< en:Puff pastry meals
 en: Fish or seafood in puff pastry
 fr: Feuilleté au poisson et/ou fruits de mer
 ciqual_food_code:en: 25151
 ciqual_food_name:en: Fish or seafood in puff pastry
-
-en: Brick sheets, Baked filo pastry sheets without fat, Baked phyllo pastry sheets without fat
-fr: Feuilles de brick, Feuilles de brick cuite à sec sans matière grasse
-hr: Limovi od opeke
-nl: Brick vellen
-ciqual_food_code:en: 23430
-ciqual_food_name:en: Filo or phyllo pastry sheets, baked, without fat
-ciqual_food_name:fr: Feuille de brick, cuite à sec sans matière grasse
 
 < en:Meals
 en: Khatfa, Phyllo pastry, Filo pastry

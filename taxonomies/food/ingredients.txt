@@ -35552,6 +35552,7 @@ is: Sojabaun
 it: semi di soia
 ja: 大豆, だいず
 ku: fasulyeya soyayê
+la: glycine max
 lt: Gauruotoji soja, sojų pupelės
 lv: sojas pupas
 ms: Kacang soya
@@ -35762,6 +35763,7 @@ da: edamame bønner
 de: Edamame Bohnen
 fr: edamame, haricots edamame, fèves de soja edamame, edamame fèves, fève edamame
 hr: edamame
+hu: edamame szója, hámozott szójabab
 it: edamame
 ja: 枝豆, えだ豆, えだまめ
 nl: edamamebonen
@@ -48346,7 +48348,7 @@ hr: mješavina povrća
 it: mix di verdure
 pl: mieszanka warzyw, mieszanka warzywna
 ru: овощи
-sv: grönsaksmix
+sv: grönsaksblandning, grönsaksmix
 # usage:en:vegetable blend (carrot, onion, parsley)
 
 < en:vegetable
@@ -49018,7 +49020,7 @@ mr: पालक
 my: ဟင်းနုနွယ်
 nb: spinat
 ne: पालुङ्गो
-nl: spinazie
+nl: spinazie, babyspinazie
 nn: Spinat
 nv: Waaʼ
 oc: espinarc
@@ -49397,11 +49399,10 @@ ciqual_food_name:fr: Pissenlit, cru
 #100 @2021-10-06
 eurocode_2_group_3:en: 8.10.44
 
-#description:en:Frillice iceberg lettuce is a cross of curly endive and iceberg lettuce, with the taste and texture of iceberg and the frilly top of the curly endive.
-
 < en:lettuce
 en: frillice iceberg lettuce, frillice lettuce
-sv: krispsallad
+sv: krispsallad, kripsallad
+description:en: Frillice iceberg lettuce is a cross of curly endive and iceberg lettuce, with the taste and texture of iceberg and the frilly top of the curly endive.
 
 < en:frillice iceberg lettuce
 en: green frillice iceberg lettuce
@@ -54033,6 +54034,28 @@ sv: modifierad tapiokastärkelse, modifierad tapioka stärkelse
 
 # Is this the same as tapioca starch? This is not cassave flour, as that is diluted.
 
+###################################################################################################
+#
+#                                Tigernut
+#
+###################################################################################################
+< en:tuber
+en: tigernut
+ca: xufa, xufas
+de: Tigernuss, Erdmandel
+es: chufa, xufa, chufas, xufas
+hr: tigrasti orah
+it: zigolo dolce
+wikipedia:en: https://en.wikipedia.org/wiki/Cyperus_esculentus
+
+< en:tigernut
+en: tigernut milk
+ca: orxata de chufa, orxata de xufa
+de: Erdmandelmilch
+es: horchata de chufa
+hr: tigrovo mlijeko
+it: latte di chufa
+
 
 # description:en:Yam is the common name for some plant species in the genus Dioscorea (family Dioscoreaceae) that form edible tubers.
 # In some places, other (unrelated) root vegetables are sometimes referred to as "yams".
@@ -54328,7 +54351,7 @@ it: fiocco di patata, fiocchi di patate
 nl: aardappelvlokken
 pl: płatki ziemniaczane
 ru: картофельние хлопья, картофельные-хлопья
-sv: potatisflingor
+sv: potatisflingor, potatisflinga
 # fr:flocon-de-pomme-de-terre has 937 products in 12 languages @2018-10-15
 
 < en:potato flakes
@@ -58128,7 +58151,7 @@ he: שעועית מצויה
 hi: सामान्य फलियाँ
 hr: grah
 ht: Pwa nouris
-hu: Veteménybab, Közönséges bab
+hu: veteménybab, Közönséges bab, tarkabab
 hy: լոբի
 id: Buncis
 io: Fazeolo
@@ -58231,6 +58254,7 @@ fa: لوبیا سبز
 fr: haricot vert, haricots verts, haricot princesse, haricots princesses
 he: שעועית ירוקה
 hr: grah mahunar, mahuna zelena
+hu: zöldbab
 it: fagiolino, fagiolo verde, fagiolini, fagioli verdi, Fagiolini verdi
 ja: インゲンマメ, インゲン豆, いんげん豆, インゲン, いんげん, サヤインゲン
 ko: 풋강낭콩
@@ -58590,6 +58614,7 @@ de: Pinto Bohnen, Pintobohnen
 es: frijol pinto
 fr: Haricots pinto
 hr: grah crnobijeli
+hu: pinto bab, pintos bab
 it: fagioli pinto
 sv: pintobönor, pintoböna
 eurocode_2_group_3:en: 7.10.30
@@ -58622,7 +58647,7 @@ sv: stora vita bönor
 < en:white beans
 en: lingot beans, white lingot beans
 fr: lingots blancs, lingo blanc, haricots lingots blancs, haricots blancs lingots, lingot, lingots, lingots blancs
-hu: lingot bab
+hu: lingot bab, fehér bab
 it: fagioli lingotti
 rare_crop:en: yes
 
@@ -58661,6 +58686,7 @@ es: Alubias negras
 fi: mustapapu, mustapavut
 fr: haricot noir, haricots noirs
 hr: crni grah
+hu: feketebab
 it: Fagioli neri
 nl: Zwarte bonen
 pl: fasola czarna, fasoli czarnej
@@ -58687,6 +58713,7 @@ eurocode_2_group_4:en: 7.10.30.20
 
 < en:pulse
 en: kidney bean
+hu: Vörösbab
 it: fagiolo rosso
 pl: fasola czerwona kidney
 eurocode_2_group_3:en: 7.10.30
@@ -58701,6 +58728,7 @@ es: Alubias rojas, judias rojas
 fi: punaiset kidneypavut, kidneypapu
 fr: haricot rouge, haricots rouges
 hr: crveni grah
+hu: vesebab
 it: fagioli rossi
 ja: 金時豆, 赤インゲン豆
 nl: Rode bonen
@@ -58890,6 +58918,7 @@ dv: ލޫބިޔާ
 fi: lehmäpapu, pitkäpapu
 fr: dolique à oeil noir, cornille
 hr: crnooki grašak
+hu: homoki bab
 id: Kacang tunggak
 ja: 黒目豆
 kn: ಅಲಸಂದೆ
@@ -58958,7 +58987,7 @@ nl: extra fijne groene flageolets
 # only "sweet" varieties of lupin are used for human food
 
 < en:pulse
-en: lupin bean, lupin, lupines, lupine, sweet lupin, lupini, lupini beans
+en: lupin bean, lupine bean, lupin, lupines, lupine, sweet lupin, lupini, lupini beans
 ar: ترمس
 az: Acıpaxla
 ba: әсе борсаҡ
@@ -59035,7 +59064,7 @@ wikidata:en: Q13582643
 wikipedia:en: https://en.wikipedia.org/wiki/Lupin_bean
 
 < en:lupin
-en: white lupin
+en: white lupin, white lupine
 fr: lupin blanc, lupin blanc doux
 hr: bijela lupina
 hu: fehér csillagfürt
@@ -59044,7 +59073,7 @@ la: lupinus albus
 rare_crop:en: yes
 
 < en:lupin
-en: blue lupine
+en: blue lupin, blue lupine
 fr: lupin bleu, lupin bleu doux
 hr: plava lupina
 hu: kék csillagfürt
@@ -59052,7 +59081,7 @@ it: lupino blu
 la: lupinus angustifolius
 
 < en:lupin
-en: yellow lupin
+en: yellow lupin, yellow lupine
 fr: lupin jaune, lupin jaune doux
 hr: žuta lupina
 hu: sárga csillagfürt
@@ -59258,7 +59287,7 @@ fi: Adsukipapu
 fr: haricot azuki, haricots azuki
 he: אזוקי
 hr: adzuki grah
-hu: Azukibab
+hu: Azukibab, Adzuki bab
 id: Kacang azuki
 it: fagiolo azuki, fagioli azuki
 ja: アズキ, 小豆
@@ -59312,7 +59341,7 @@ gu: ચોળા
 he: לוביה
 hi: लोबिया
 hr: kravlji grah
-hu: tehénborsó, homoki bab
+hu: tehénborsó
 is: Augnbaun
 it: fagiolo dall'occhio
 ja: ササゲ
@@ -59746,6 +59775,7 @@ es: guisante verde, guisantes verdes
 fi: vihreät herneet, vihreä herne
 fr: pois vert
 hr: grašak zeleni
+hu: zöldborsó
 it: piselli verde
 ja: グリーンピース
 kk: көк буршақ
@@ -59880,7 +59910,7 @@ fa: لپه
 fi: halkaistu herne, halkaistut herneet
 fr: pois cassé, pois cassés
 hr: cijepani grašak
-hu: Sárgaborsó
+hu: Felesborsó
 it: piselli spezzati
 ko: 완두 짜개
 ms: Kacang dal
@@ -59916,25 +59946,30 @@ it: piselli verdi spezzati
 nl: groene spliterwten
 # ingredient/fr:pois-casses-verts has 13 products in 4 languages
 
+< en: split pea
+en: yellow split pea
+fr: pois cassé jaune, pois cassés jaunes
+hu: sárgaborsó
 
 # popular in Latvia
 < en:pea
 en: grey pea, grey peas
 fr: pois gris
 hr: sivi grašak
+hu: szürke borsó, szürkeborsó
 it: pisello grigio
 la: pisum sativum subsp. arvense
 sv: gråärtan
 rare_crop:en: yes
 
 < en:pea
-en: grass pea, grass peas, cicerchia, blue sweet pea, chickling pea
+en: grass pea, grasspea, grass peas, cicerchia, blue sweet pea, chickling pea
 de: Saat-Platterbse
 es: almorta, Chícharo, chicharo
 fi: peltonätkelmä
 fr: pois carré, pois carrés, gesse
 hr: trava grašak
-hu: Szegletes lednek
+hu: szegletes lednek, szeges lednek
 it: cicerchia
 la: lathyrus sativus
 pt: chícharo
@@ -60114,6 +60149,7 @@ es: lentejas verdes
 fi: vihreä linssi, vihreät linssit
 fr: lentille verte, lentilles vertes
 hr: leća zelena
+hu: zöld lencse
 it: lenticchie verdi
 nl: groene linzen
 pl: soczewica zielona, soczewicy zielonej
@@ -60137,7 +60173,10 @@ fr: Lentilles vertes du Berry
 # 8@2019-06-06
 
 < en:green lentils
+en: Puy lentils
 fr: lentilles vertes du Puy, lentilles vertes du Puy AOP
+hu: Puy lencse
+la: lens culinaris puyensis
 
 < en:green lentils
 en: cooked green lentils
@@ -60153,6 +60192,11 @@ nl: gekookte groene linzen
 fr: lentilles vertes précuites
 # ingredient/fr:lentilles-vertes-précuites has 49 products @2019-06-02
 
+< en: lentils
+en: yellow lentils
+fr: lentilles jaunes
+hu: sárga lencse
+
 < en:lentils
 en: red lentils
 bg: червена леща
@@ -60161,6 +60205,7 @@ es: lentejas rojas
 fi: punainen linssi, punaiset linssit
 fr: lentilles corail, lentilles rouges, lentilles corail rouge
 hr: leća svijetlo crvena, leća tamnocrvena, leća crvena
+hu: vöröslencse
 it: lenticchie rosse
 ja: 赤レンズ豆
 nl: rode linzen
@@ -60198,6 +60243,7 @@ fr: lentilles rouges décortiquées
 en: black lentils
 fr: lentilles noires
 hr: crna leća
+hu: fekete lencse
 it: lenticchie nere
 pl: soczewica czarna, soczewicy czarnej, czarna soczewica, czarnej soczewicy
 
@@ -60206,6 +60252,7 @@ en: Beluga lentils
 de: Beluga Linsen, Belugalinsen
 fr: lentilles noires Beluga, lentilles Béluga
 hr: beluga leća
+hu: beluga lencse
 it: lenticchie beluga
 pl: soczewica Beluga, soczewica czarna Beluga
 # 8@2019-06-06
@@ -60222,6 +60269,7 @@ en: brown lentils
 de: braune Linsen
 fr: lentilles brunes
 hr: smeđa leća
+hu: barna lencse
 it: lenticchie marroni
 pl: soczewica brązowa
 
@@ -61492,7 +61540,7 @@ gu: મગફળી
 ha: Gyaɗa
 he: בוטן, בוטנים, חמאת בוטנים
 hr: kikiriki, kikirikija
-hu: földimogyoró
+hu: földimogyoró, amerikaimogyoró
 ia: cacahuete
 it: arachide, arachidi
 ja: ラッカセイ, 落花生
@@ -61828,28 +61876,6 @@ it: pasta al gusto di pistacchio
 en: pistachio filling
 hr: punjenje od pistacija
 it: ripieno al pistacchio
-
-###################################################################################################
-#
-#                                Tigernut
-#
-###################################################################################################
-< en:tree nut
-en: tigernut
-ca: xufa, xufas
-de: Tigernuss, Erdmandel
-es: chufa, xufa, chufas, xufas
-hr: tigrasti orah
-it: zigolo dolce
-wikipedia:en: https://en.wikipedia.org/wiki/Cyperus_esculentus
-
-< en:tigernut
-en: tigernut milk
-ca: orxata de chufa, orxata de xufa
-de: Erdmandelmilch
-es: horchata de chufa
-hr: tigrovo mlijeko
-it: latte di chufa
 
 ###################################################################################################
 #
@@ -64201,7 +64227,7 @@ pt: pimenta-caiena
 ro: piper cayenne
 ru: перец кайенский
 sk: kajenské korenie
-sv: cayennepeppar, cayenne, kajennpeppar
+sv: cayennepeppar, cayenne, kajennpeppar, cayenpeppar
 th: พริกชี้ฟ้า
 tl: siling kayena
 uk: Перець каєнський
@@ -86863,6 +86889,7 @@ it: fibra di pisello
 nl: erwtenvezel, erwtvezel
 pl: błonnik grochowy, błonnik grochu, włókna grochu
 ro: fibre de mazare
+sv: ärtfiber
 # ingredient/fr:fibre-de-pois has 173 products in 7 languages @2019-04-21
 
 < en:vegetable fiber
@@ -89416,7 +89443,7 @@ pt: pão ralado
 ru: Панировочные сухари
 sk: Strúhanka
 sl: krušne drobtine
-sv: panering, ströbröd, paneringsmjöl, brödsmulor, skorpmjöl, kryddpanering
+sv: panering, ströbröd, paneringsmjöl, brödsmulor, skorpmjöl, kryddpanering, skorpsmula
 uk: Паніровка
 vi: Vụn bánh mì
 zh: 麵包屑
@@ -92510,11 +92537,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Worcestershire_sauce
 # ingredient/fr:sauce-worcestershire has 30 products in 3 languages @2019-04-30
 # usage:de:Worcestershire Sauce (Malzessig, Melasse, Wasser, Kochsalz, Zwiebeln, Knoblauch, Zucker, Gewürze, Sardellen, Tamarindenextrakt, natürliche Aromen)
 
-
-# description:en:BOLOGNESE SAUCE is a meat-based sauce in Italian cuisine. It is customarily used to dress tagliatelle al ragù and to prepare lasagne alla bolognese.
-
 < en:sauce
 en: bolognese sauce
+xx: bolognese
 ar: صلصة البولونيز
 az: Bolonyeze sousu
 bg: сос Болонезе
@@ -92538,18 +92563,18 @@ ru: Болоньезе
 sv: köttfärssås, bolognesesås
 uk: Болоньєзе
 zh: 蕃茄肉醬
+# ast: Boloñesa
+# zh-hans: 蕃茄肉酱
+# zh-hant: 蕃茄肉醬
+# zh-hk: 蕃茄肉醬
 # category:en:bolognese-sauce
 # ingredient/fr:sauce-bolognaise has 54 products in 5 Languages @2019-04-30
 ciqual_food_code:en: 11114
 ciqual_food_name:en: Tomato sauce, with meat or Bolognese sauce, prepacked
 ciqual_food_name:fr: Sauce tomate à la viande ou Sauce bolognaise, préemballée
-# ast:Boloñesa
-# zh-hans:蕃茄肉酱
-# zh-hant:蕃茄肉醬
-# zh-hk:蕃茄肉醬
+description:en: BOLOGNESE SAUCE is a meat-based sauce in Italian cuisine. It is customarily used to dress tagliatelle al ragù and to prepare lasagne alla bolognese.
 wikidata:en: Q1162965
 wikipedia:en: https://en.wikipedia.org/wiki/Bolognese_sauce
-
 
 # description:en:VINAIGRETTE is made by mixing an oil with something acidic such as vinegar or lemon juice. The mixture can be enhanced with salt, herbs and/or spices. It is used most commonly as a salad dressing, but can also be used as a marinade.
 
