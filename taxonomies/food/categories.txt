@@ -60367,9 +60367,10 @@ ja: ヴァージンオリーブオイル
 lt: Gryni alyvuogių aliejai
 nl: Virgin olijfoliën
 pl: Oliwa z oliwek virgin
-sv: Jungfruolivoljor, Virgin olivoljor
+sv: Jungfruolivoljor, Virgin olivoljor, Jungfruoljor
+wikidata:en: Q57656262
 
-< en:Olive oils
+< en:Virgin olive oils
 en: Extra-virgin olive oils, Extra virgin olive oil
 bg: Маслиново масло екстра върджин, Дървено масло екстра върджин, Зехтин екстра върджин
 ca: Oli d'oliva verge extra
@@ -60386,12 +60387,27 @@ nl: Extra vierge olijfoliën
 pl: Oliwa z oliwek extra virgin
 pt: Azeites virgem extra
 ru: Оливковое масло первого отжима
+sv: Extra jungfruolivoljor, Extra jungfruoljor
 agribalyse_food_code:en: 17270
 ciqual_food_code:en: 17270
 ciqual_food_name:en: Olive oil, extra virgin
 ciqual_food_name:fr: Huile d'olive vierge extra
+description:en: Extra virgin olive oil is the highest grade of virgin olive oil derived by cold mechanical extraction without use of solvents or refining methods.
 expected_ingredients:en: en:olive-oil
 expected_nutriscore_grade:en: b
+wikidata:en: Q14789810
+
+< en:Virgin olive oils
+en: Refined olive oils
+de: Raffinierte Olivenöle, Raffiniertes Olivenöl
+es: Aceites de oliva refinados, Aceites de oliva a partir de aceites de oliva refinados y aceites de oliva vírgenes
+fr: Huiles d'olive raffinées, Huiles d'olive-composées d'huiles d'olive raffinées et d'huiles d'olive vierges
+hr: Rafinirana maslinova ulja
+hu: Finomított olívaolajok
+it: Olio d'oliva raffinato
+lt: Rafinuoti alyvuogių aliejai
+nl: Geraffineerde olijfoliën
+description:en: Refined olive oil is virgin oil refined using charcoal and other chemical and physical filters, methods which do not alter the glyceridic structure.
 
 < en:Olive oils
 en: Olive pomace oils
@@ -60403,22 +60419,11 @@ nl: Vruchtenpulp-olijfoliën
 wikidata:en: Q7087235
 
 < en:Olive oils
-en: Refined olive oils
-de: Raffinierte Olivenöle, Raffiniertes Olivenöl
-es: Aceites de oliva refinados, Aceites de oliva a partir de aceites de oliva refinados y aceites de oliva vírgenes
-fr: Huiles d'olive raffinées, Huiles d'olive-composées d'huiles d'olive raffinées et d'huiles d'olive vierges
-hr: Rafinirana maslinova ulja
-hu: Finomított olívaolajok
-it: Olio d'oliva raffinato
-lt: Rafinuoti alyvuogių aliejai
-nl: Geraffineerde olijfoliën
-
-< en:Olive oils
 en: Olive oil mixes
 fr: Mélanges de huiles d'olives
 hr: Mješavine maslinovog ulja
 nl: Olijfoliemelanges, olijfoliemixes
-#description:en:Olive oils that combine olive oils with multiple processing grades
+description:en: Olive oils that combine olive oils with multiple processing grades
 
 < en:Olive oils
 en: Olive oils from France, French olive oils, Olive oil from France, French olive oil
@@ -60509,7 +60514,7 @@ nl: Olijfoliën uit de Provence, Olijfolies uit de Provence, Provençaalse olijf
 origins:en: en:france, en:provence
 protected_name_file_number:en: PDO-FR-02421
 protected_name_type:en: pdo
-#wikidata:en:
+wikidata:en: Q3142825
 
 ############ ITALIAN OLIVE OILS
 
@@ -61329,6 +61334,11 @@ lt: Alyvuogių aliejai iš Ispanijos
 nl: Olijfoliën uit Spanje, Olijfolies uit Spanje, Spaanse olijfolies, Spaanse olijfoliën
 origins:en: en:spain
 #wikidata:en:
+
+< en:Extra-virgin olive oils
+< en:Olive oils from Spain
+en: Extra-virgin olive oils from Spain, Spanish extra-virgin olive oils
+sv: Extra jungfruolivoljor från Spanien, Spanska extra jungfruolivoljor
 
 # also a pdo hoeny from this region
 < en:Olive oils from Spain
