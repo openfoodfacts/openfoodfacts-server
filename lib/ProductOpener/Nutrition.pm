@@ -78,6 +78,7 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 	if (!defined $input_sets_ref) {
 		return;
 	}
+
 	# store original index to get index source of nutrients for generated set
 	my @input_sets = map {{index => $_, set => $input_sets_ref->[$_]}} 0 .. $#$input_sets_ref;
 	my $aggregated_nutrient_set_ref = {};
@@ -85,7 +86,7 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 	if (@input_sets) {
 		@input_sets = sort_sets_by_priority(@input_sets);
 		# remove sets with quantities that are impossible to transform to 100g
-		# ie sets with unknow serving quantity
+		# ie sets with unknow per quantity
 		@input_sets = grep {defined $_->{set}{per_quantity} && $_->{set}{per_quantity} ne ""} @input_sets;
 
 		if (defined $input_sets[0] and %{$input_sets[0]} and %{$input_sets[0]{set}}) {
