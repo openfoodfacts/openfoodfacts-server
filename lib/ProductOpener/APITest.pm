@@ -358,7 +358,7 @@ sub create_test_users($admin = undef, $moderator = undef) {
 
 	# Create a normal user
 	my $ua = new_client();
-	my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+	my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 	my $resp = create_user($ua, \%create_user_args);
 	ok(!html_displays_error($resp));
 	$users{user} = $ua;
