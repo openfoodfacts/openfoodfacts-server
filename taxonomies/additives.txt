@@ -104,6 +104,7 @@ e_number:en: 100
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of curcumin (E 100) as a food additive
 efsa_evaluation_date:en: 2010-09-06
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2010.1679
+organic_eu:en: not authorized
 vegan:en: yes
 vegetarian:en: yes
 # azb:E100, کورکومین
@@ -290,6 +291,7 @@ efsa_evaluation:en: Scientific Opinion on the re-evaluation of riboflavin (E 101
 efsa_evaluation_date:en: 2013-10-22
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3357
 wikidata:en: Q376061
+# Additif non autorisé en Europe (liste N° 1129/2011 du 11 Novembre 2011)
 
 
 en: E102, Tartrazine, Yellow 5, Yellow number 5, Yellow no 5, Yellow no5, FD&C Yellow 5, FD&C Yellow no 5, FD&C Yellow no5, FD and C Yellow no. 5, FD and C Yellow 5, Yellow 5 lake
@@ -3605,6 +3607,9 @@ vi: E171, Titani dioxide
 zh: E171, 二氧化鈦
 additives_classes:en: en:colour
 anses_additives_of_interest:en: yes
+# description:en:TITANIUM DIOXIDE, also known as titanium(IV) oxide or titania, is the naturally occurring oxide of titanium, chemical formula TiO2. Generally, it is sourced from ilmenite, rutile and anatase. It has a wide range of applications, including paint, sunscreen and food coloring.
+authorized_in_europe:en: no
+authorized_in_the_usa:en: yes
 # azb:E171, تیتانیوم دی اوکسید
 # sco:E171, titanium dioxide
 # sr-ec:E171, титанијум диоксид
@@ -3626,7 +3631,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q193521
 wikipedia:en: https://en.wikipedia.org/wiki/Titanium_dioxide
-# description:en:TITANIUM DIOXIDE, also known as titanium(IV) oxide or titania, is the naturally occurring oxide of titanium, chemical formula TiO2. Generally, it is sourced from ilmenite, rutile and anatase. It has a wide range of applications, including paint, sunscreen and food coloring.
 
 #<en:E171
 #en:colorant E171
@@ -4105,11 +4109,12 @@ sk: E201, Sórbát sodný, sodný (E\,E)-hexa-2\,4-dienoát
 sl: E201, Natrijev sorbat, natrijev (E\,E)-heksa-2\,4-dienoat
 sv: E201, Natriumsorbat, natrium (E\,E)-hexa-2\,4-dienoat
 additives_classes:en: en:preservative
+authorized_in_europe:en: no
+authorized_in_the_usa:en: yes
 e_number:en: 201
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q420152
-
 
 
 en: E202, Potassium sorbate
@@ -4220,6 +4225,8 @@ sv: E203, Kalciumsorbat
 ta: E203, கால்சியம் சார்பேட்டு
 vi: E203, Canxi sorbat
 additives_classes:en: en:preservative
+authorized_in_europe:en: no
+authorized_in_the_usa:en: yes
 description:en: CALCIUM SORBATE  is the calcium salt of sorbic acid. Calcium sorbate is a polyunsaturated fatty acid salt.
 # ingredient/fr:sorbate-de-calcium has 38 products in french @2019-03-03
 # conservateur : sorbate de calcium (papier traité)
@@ -4541,6 +4548,8 @@ tr: E216, Propil para-hidroksibenzoat
 uk: E216, Пропіл пара-гідроксибензоат
 vi: E216, Propyl para-hydroxybenzoate
 zh: E216, 羟苯丙酯
+authorized_in_europe:en: no
+authorized_in_the_usa:en: yes
 e_number:en: 216
 vegan:en: yes
 vegetarian:en: yes
@@ -5718,6 +5727,7 @@ sv: E249, Kaliumnitrit
 additives_classes:en: en:preservative
 anses_additives_of_interest:en: yes
 e_number:en: 249
+risks:en: en:mutagenic, en:teratogenic
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q409179
@@ -8250,11 +8260,12 @@ ro: E324, Etoxiquină
 sk: E324, Ethoxyquin
 sl: E324, Ethoxyquin
 sv: E324, Ethoxyquin
+authorized_in_europe:en: no
+authorized_in_the_usa:en: yes
 e_number:en: 324
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q1657816
-
 
 
 
@@ -9883,6 +9894,8 @@ sk: E342, Amóniumfosfát, monoamóniumfosfát, diamóniumfosfát
 sl: E342, Amonijev fosfat, monoamonijev fosfat, diamonijev fosfat
 sv: E342, Ammoniumfosfat, monoammoniumfosfat, diammoniumfosfat
 additives_classes:en: en:stabiliser, en:thickener
+authorized_in_europe:en: no
+authorized_in_the_usa:en: yes
 e_number:en: 342
 vegan:en: yes
 vegetarian:en: yes
@@ -16089,6 +16102,8 @@ sk: E488, Etoxylované mono- a diglyceridy
 sl: E488, Etoksilirani mono- in digliceridi
 sv: E488, Etoxilerade mono- och diglycerider
 zh: E488, 乙氧基化单甘油酯和双甘油酯
+authorized_in_europe:en: no
+authorized_in_the_usa:en: yes
 e_number:en: 488
 vegan:en: yes
 vegetarian:en: yes
@@ -19640,10 +19655,13 @@ ro: E586, 4-hexilrezorcinol, 4-hexil-1\,3-benzendiol
 sk: E586, 4-hexylrezorcinol, 4-hexyl-1\,3-benzéndiol
 sl: E586, 4-heksilresorcinol, 4-heksil-1\,3-benzendiol
 sv: E586, 4-hexylresorcinol, 4-Hexyl-1\,3-bensendiol
+authorized_categories:en: Unprocessed molluscs, en: Unprocessed crustaceans
 e_number:en: 586
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of 4-hexylresorcinol (E 586) as a food additive
 efsa_evaluation_date:en: 2014-04-24
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2014.3643
+# https://ec.europa.eu/food/food-feed-portal/screen/food-additives/search/details/POL-FAD-IMPORT-3251
+wikidata:en: Q229969
 
 en: E620, Glutamic acid, L-Glutamic acid
 xx: E620
@@ -20296,6 +20314,7 @@ zh: E636, 麦芽酚
 e_number:en: 636
 vegan:en: yes
 vegetarian:en: yes
+wikidata:en: Q420648
 
 en: E637, Ethyl maltol
 xx: E637
@@ -20323,6 +20342,7 @@ sv: E637, Etylmaltol
 e_number:en: 637
 vegan:en: yes
 vegetarian:en: yes
+wikidata:en: Q930843
 
 en: E638
 xx: E638
@@ -20408,9 +20428,6 @@ e_number:en: 639
 vegan:en: yes
 vegetarian:en: yes
 
-
-
-
 en: E640, Glycine and its sodium salt
 xx: E640
 bg: E640, Глицин и натриевата му сол
@@ -20435,12 +20452,11 @@ ro: E640, Glicina și sarea sa de sodiu
 sk: E640, Glycín a jeho sodná soľ
 sl: E640, Glicin in njegova natrijeva sol
 sv: E640, Glycin och natriumglycinat
+description:en: GLYCINE is produced mainly from gelatin, which is derived from animal bones. It is therefore not suitable for vegans, vegetarians and, as long as the origin is not known, not for Jews, Muslims and Hindus. Only the producer can provide the origin of the product.
 e_number:en: 640
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q18967228
-# comment:en:GLYCINE is produced mainly from gelatin, which is derived from animal bones. It is therefore not suitable for vegans, vegetarians and, as long as the origin is not known, not for Jews, Muslims and Hindus. Only the producer can provide the origin of the product.
-
 
 < en:E640
 en: E640(i), Glycine
@@ -22329,6 +22345,8 @@ th: E924, โพแทสเซียมโบรเมต
 tr: E924, Potasyum bromat
 uk: E924, Бромат калію
 zh: E924, 溴酸钾
+authorized_in_europe:en: no
+authorized_in_the_usa:en: yes
 e_number:en: 924
 vegan:en: yes
 vegetarian:en: yes
@@ -22377,6 +22395,8 @@ tr: E924a, Potasyum bromat
 uk: E924a, Бромат калію
 vi: E924a, Kali bromat
 zh: E924a, 溴酸钾
+authorized_in_europe:en: no
+authorized_in_the_usa:en: yes
 e_number:en: 924a
 vegan:en: yes
 vegetarian:en: yes
@@ -22452,6 +22472,8 @@ ro: E925, Clor
 sk: E925, chlór
 sl: E925, klor
 sv: E925, klor
+authorized_in_europe:en: no
+authorized_in_the_usa:en: yes
 e_number:en: 925
 vegan:en: yes
 vegetarian:en: yes
@@ -22575,6 +22597,8 @@ tr: E927a, Azodikarbamid
 uk: E927a, Азодикарбонамід
 vi: E927a, Azodicarbonamide
 zh: E927a, 偶氮甲酰胺
+authorized_in_europe:en: no
+authorized_in_the_usa:en: yes
 # synchronised with wikidata 21-08-2020
 e_number:en: 927a
 vegan:en: yes
@@ -23571,11 +23595,14 @@ additives_classes:en: en:sweetener
 # zh-sg:E951, 阿斯巴甜
 # zh-tw:E951, 阿斯巴甜
 e_number:en: 951
+efsa_authorized:en: yes
 efsa_evaluation:en: Scientific Opinion on the re-evaluation of aspartame (E 951) as a food additive.
 efsa_evaluation_adi:en: 40
 efsa_evaluation_date:en: 2013-12-10
 efsa_evaluation_overexposure_risk:en: en:no
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3496
+fda_authorized:en: yes
+jecfa_authorized:en: yes
 # ingredient/fr:e951 has 59 products @2019-03-24
 # additive/e951-aspartame has 3046 products in 23 languages @2019-03-24
 non_nutritive_sweetener:en: yes
@@ -24277,6 +24304,7 @@ sweetener:en: yes
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q414089
+# Additif non autorisé en Europe (liste N° 1129/2011 du 11 Novembre 2011)
 
 en: E964, Polyglycitol syrup
 xx: E964
@@ -24320,6 +24348,7 @@ sweetener:en: yes
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18601425
+# Additif non autorisé en Europe (liste N° 1129/2011 du 11 Novembre 2011)
 
 en: E965, maltitol
 xx: E965
@@ -24696,6 +24725,7 @@ e_number:en: 1000
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q287415
+# Additif non autorisé en Europe (liste N° 1129/2011 du 11 Novembre 2011)
 
 en: E1001, Choline salt
 xx: E1001
@@ -24737,6 +24767,8 @@ mandatory_additive_class:en: en:emulsifier
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q18668392
+# Additif non autorisé en Europe (liste N° 1129/2011 du 11 Novembre 2011)
+# https://ec.europa.eu/growth/tools-databases/cosing/details/28387
 
 # description:en:AMYLASE are enzymes that catalyse the hydrolysis of starch into sugars.
 
@@ -25098,6 +25130,10 @@ sv: E1200, Polydextros
 tr: E1200, Polidekstroz
 additives_classes:en: en:humectant, en:stabiliser, en:thickener
 e_number:en: 1200
+efsa_evaluation_date:en: 27/10/2015
+efsa_evaluation_opinion:en: Scientific Opinion on the re-evaluation of cochineal, carminic acid, carmines (E 120) as a food additive
+efsa_evaluation_url:en: https://www.efsa.europa.eu/en/efsajournal/pub/4288
+risks:en: May cause allergic reactions
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q424616
@@ -26338,6 +26374,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q83253
 # comment:en:E1518 can be used by all religious groups, vegetarians and vegans.
+# https://ec.europa.eu/food/food-feed-portal/screen/food-additives/search/details/POL-FAD-IMPORT-3329
 
 en: E1519, Benzyl alcohol, Phenylcarbinol, Phenylmethyl alcohol, Benzenemethanol
 xx: E1519
