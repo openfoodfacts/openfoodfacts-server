@@ -9,7 +9,7 @@
     "evaluation": "unknown",
     "title_element": {
         "name": "[% edq(lang('environmental_score_origins_of_ingredients')) %]",
-        "value": "[% edq(lang('missing_data')) %]",
+        "value_string": "[% edq(lang('missing_data')) %]",
         "type": "string",
         "icon_color_from_evaluation": true,
         "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
@@ -41,15 +41,15 @@
     [% IF product.environmental_score_data.adjustments.origins_of_ingredients.value <= 0 %]
     "evaluation": "bad",
     "title_element": {
-        "value": "[% edq(lang('high_impact')) %]",
+        "value_string": "[% edq(lang('high_impact')) %]",
     [% ELSIF product.environmental_score_data.adjustments.origins_of_ingredients.value <= 15 %]
     "evaluation": "average",
     "title_element": {
-        "value": "[% edq(lang('medium_impact')) %]",    
+        "value_string": "[% edq(lang('medium_impact')) %]",    
     [% ELSE %]
     "evaluation": "good",
     "title_element": {
-        "value": "[% edq(lang('low_impact')) %]",
+        "value_string": "[% edq(lang('low_impact')) %]",
     [% END %]
         "name": "[% edq(lang('environmental_score_origins_of_ingredients')) %]",
         "type": "string",

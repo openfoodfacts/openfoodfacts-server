@@ -133,6 +133,8 @@
             </h4>
             [% IF panel.title_element.subtitle.defined %]
                 <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.subtitle %]</span>
+            [% ELSIF panel.title.value_string.defined %]
+                <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value_string %]</span>  
             [% ELSIF panel.title_element.value.defined %]
                 [% IF panel.title.element.type.defined AND panel.title.element.type == "percent" %]
                     <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value %]%</span>
