@@ -8,8 +8,9 @@
 [% IF NOT (product.packagings.size) %]
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% edq(lang('environmental_score_packaging')) %]",
-        "subtitle": "[% edq(lang('environmental_score_packaging_missing_information')) %]",
+        "name": "[% edq(lang('environmental_score_packaging')) %]",
+        "value": "[% edq(lang('missing_data')) %]",
+        "type": "string",
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_color_from_evaluation": true,
         "evaluation": "neutral",               
@@ -42,24 +43,22 @@
     [% IF NOT product.environmental_score_data.adjustments.packaging.value.defined %]
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% edq(lang('environmental_score_packaging')) %]",
-        "subtitle": "[% edq(lang('packaging')) %]",
+        "value": "[% edq(lang('impact_non_assessed')) %]",
     [% ELSIF product.environmental_score_data.adjustments.packaging.value <= -15 %]
     "evaluation": "bad",
     "title_element": {
-        "title": "[% edq(lang('environmental_score_packaging')) %]",
-        "subtitle": "[% edq(lang('environmental_score_packaging_impact_high')) %]",
+        "value": "[% edq(lang('high_impact')) %]",
     [% ELSIF product.environmental_score_data.adjustments.packaging.value <= -5 %]
     "evaluation": "average",
     "title_element": {
-        "title": "[% edq(lang('environmental_score_packaging')) %]",
-        "subtitle": "[% edq(lang('environmental_score_packaging_impact_medium')) %]",    
+        "value": "[% edq(lang('medium_impact')) %]",    
     [% ELSE %]
     "evaluation": "good",
     "title_element": {
-        "title": "[% edq(lang('environmental_score_packaging')) %]",
-        "subtitle": "[% edq(lang('environmental_score_packaging_impact_low')) %]",
+        "value": "[% edq(lang('low_impact')) %]",
     [% END %]
+        "name": "[% edq(lang('environmental_score_packaging')) %]",
+        "type": "string",
         "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
         "icon_color_from_evaluation": true,
         "icon_size": "small",
