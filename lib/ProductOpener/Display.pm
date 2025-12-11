@@ -9915,7 +9915,10 @@ CSS
 
 Generates HTML to display a nutrition table.
 
-Use  data produced by data_to_display_nutrition_table
+Use data produced by data_to_display_nutrition_table
+
+This function is no longer used to display the nutrition table on product pages (replaced by a knowledge panel),
+but it is used to show average nutrition tables for categories.
 
 =head3 Arguments
 
