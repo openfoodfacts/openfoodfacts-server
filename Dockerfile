@@ -2,7 +2,9 @@
 # Base user uid / gid keep 1000 on prod, align with your user on dev
 ARG USER_UID=1000
 ARG USER_GID=1000
-# options for cpan installs
+# Options for Perl dependency installation
+# Use --with-develop to include development dependencies
+# Passed to Carton, which manages dependencies via cpanfile.snapshot
 ARG CPANMOPTS=
 
 ######################
@@ -25,14 +27,17 @@ COPY --chown=root:root  ./docker/zxing-cpp-backport.sources /etc/apt/sources.lis
 
 # END zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
 
-# Install cpm to install cpanfile dependencies
+# Install Carton and cpanminus for Perl dependency management
+# Carton provides reproducible builds via cpanfile.snapshot lockfile
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
         apache2 \
         apt-utils \
+        ca-certificates \
         cpanminus \
+        carton \
         # being able to build things
         g++ \
         gcc \
@@ -216,7 +221,10 @@ WORKDIR /tmp
 
 # Install Product Opener from the workdir.
 COPY ./cpanfile* /tmp/
-# Add ProductOpener runtime dependencies from cpan
+# Install ProductOpener runtime dependencies using Carton for reproducible builds
+# Carton uses cpanfile.snapshot (if present) to ensure exact dependency versions
+# If no snapshot exists, it generates one from cpanfile
+# See docs/dev/how-to-generate-cpanfile-snapshot.md for details
 # we also add apt cache as some libraries might be installed from apt
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
@@ -226,9 +234,22 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
       apt-get update || true \
     ) && \
+    # Set Carton install path
+    export PERL_CARTON_PATH=/tmp/local && \
     # first install some dependencies that are not well handled
     cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
-    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
+    # Use Carton for deterministic dependency installation when snapshot exists
+    # Otherwise fall back to cpanm for flexibility with CPANMOPTS
+    if [ -f cpanfile.snapshot ]; then \
+        echo "Using cpanfile.snapshot for reproducible build..." && \
+        # Carton --deployment mode installs exact versions from snapshot
+        carton install --deployment; \
+    else \
+        echo "No cpanfile.snapshot found, using cpanm with cpanfile..." && \
+        # Use cpanm for initial installation or when features are needed
+        # This will generate snapshot on next Carton run
+        cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .; \
+    fi \
     # in case of errors show build.log, but still, fail
     || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
 
