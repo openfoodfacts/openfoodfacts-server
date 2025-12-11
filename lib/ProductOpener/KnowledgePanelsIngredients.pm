@@ -186,6 +186,10 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 	# Go through the ingredients structure, and check if they have the added_sugar:en:yes property
 	my @added_sugars_ingredients = get_ingredients_with_parent($product_ref->{ingredients}, "en:added-sugar");
 
+	#Remove duplicates from list of sugars
+	my %seen;
+	@added_sugars_ingredients = grep {!$seen{$_}++} @added_sugars_ingredients;
+
 	$log->debug("added sugars", {added_sugars_ingredients => \@added_sugars_ingredients})
 		if $log->is_debug();
 
