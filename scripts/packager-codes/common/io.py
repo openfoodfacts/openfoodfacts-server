@@ -22,8 +22,40 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import csv
 import os
 import shutil
+from pathlib import Path
 
-PACKAGER_CODES_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'packager-codes')
+# Go up from common/ -> packager-codes/ -> scripts/ -> repo_root, then to packager-codes/
+PACKAGER_CODES_DIR = Path(__file__).parent.parent.parent.parent / 'packager-codes'
+
+
+def generate_file_identifier(keyword: str = None, last_filename: str = None) -> str:
+    """
+    Generate a unique identifier for temporary files based on keyword or filename.
+    
+    Args:
+        keyword: The keyword used to search for the file
+        last_filename: The last known filename
+        
+    Returns:
+        A sanitized identifier string
+    """
+    if keyword:
+        # Use keyword, sanitize for filename (remove spaces, special chars)
+        identifier = keyword.replace(' ', '_').replace('/', '_').replace('\\', '_')
+        # Limit length and remove non-alphanumeric except underscore
+        identifier = ''.join(c for c in identifier if c.isalnum() or c == '_')[:30]
+        return identifier.lower()
+    elif last_filename:
+        # Extract base name without extension
+        import os
+        base = os.path.splitext(last_filename)[0]
+        identifier = base.replace(' ', '_').replace('.', '_').replace('-', '_')
+        identifier = ''.join(c for c in identifier if c.isalnum() or c == '_')[:30]
+        return identifier.lower()
+    else:
+        # Fallback to generic identifier
+        return 'unknown'
+
 
 def write_csv(country_name: str, output_file: str, rows: list):
     """
@@ -57,16 +89,54 @@ def move_output_to_packager_codes(country_name: str, country_code: str, target_f
     if not os.path.exists(target_file):
         raise FileNotFoundError(f"Output file {target_file} not found")
     
-    os.makedirs(PACKAGER_CODES_DIR, exist_ok=True)
+    PACKAGER_CODES_DIR.mkdir(parents=True, exist_ok=True)
     
     final_name = f"{country_code.upper()}-merge-UTF-8.csv"
     
-    target_file_path = os.path.join(PACKAGER_CODES_DIR, final_name)
+    target_file_path = PACKAGER_CODES_DIR / final_name
     
     shutil.copy2(target_file, target_file_path)
     print(f"{country_name} - Info - Copied {target_file} to {target_file_path}")
     
     os.remove(target_file)
+
+
+def find_preprocessed_csv_files(country_code: str) -> list:
+    """
+    Find preprocessed CSV files for a country code (excludes merged and target files).
+    These are the per-file preprocessed CSVs that need to be merged.
+    
+    Args:
+        country_code: Country code (e.g., 'fi', 'dk', 'hr')
+    
+    Returns:
+        List of preprocessed CSV file paths
+    """
+    import glob
+    pattern = f"{country_code}_*_preprocessed.csv"
+    csv_files = glob.glob(pattern)
+    return csv_files
+
+
+def find_temporary_files(country_code: str) -> list:
+    """
+    Find all temporary files for a country code (CSV and Excel).
+    This includes all intermediate files for cleanup.
+    
+    Args:
+        country_code: Country code (e.g., 'fi', 'dk', 'hr')
+    
+    Returns:
+        List of temporary file paths that match the pattern
+    """
+    import glob
+    temp_files = []
+    # Find all CSV files
+    temp_files.extend(glob.glob(f"{country_code}*.csv"))
+    # Find all Excel files (xls and xlsx)
+    temp_files.extend(glob.glob(f"{country_code}*.xls"))
+    temp_files.extend(glob.glob(f"{country_code}*.xlsx"))
+    return temp_files
 
 
 def cleanup_temp_files(country_name: str, temp_files: list = None):

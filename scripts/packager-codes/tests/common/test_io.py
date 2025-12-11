@@ -1,6 +1,20 @@
 from common import io
 import pytest
 
+# test for generate_file_identifier function
+
+@pytest.mark.parametrize(
+    "keyword, last_filename, expected",
+    [
+        ("svi odobreni objekti", None, "svi_odobreni_objekti"),
+        ("keyword/with\\chars", None, "keyword_with_chars"),
+        (None, "03-11-2025. svi odobreni objekti.xls", "03_11_2025__svi_odobreni_objek"),
+        (None, None, "unknown"),
+    ]
+)
+def test_generate_file_identifier(keyword, last_filename, expected):
+    assert io.generate_file_identifier(keyword, last_filename) == expected
+
 # test for write_csv function
 
 def test_write_csv(tmp_path):
@@ -34,7 +48,7 @@ def test_move_output_to_packager_codes(tmp_path, monkeypatch):
     target_file.write_text("data", encoding="utf-8")
 
     packager_dir = tmp_path / "packager-codes"
-    monkeypatch.setattr(io, "PACKAGER_CODES_DIR", str(packager_dir))
+    monkeypatch.setattr(io, "PACKAGER_CODES_DIR", packager_dir)
 
     io.move_output_to_packager_codes("Testland", "tl", str(target_file))
 
