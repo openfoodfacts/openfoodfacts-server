@@ -681,7 +681,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "கண்டறியக்கூடிய குறியீடுகள்"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -701,7 +701,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "கண்டறியும் குறியீடு"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -726,7 +726,7 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "பிழை"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -936,7 +936,7 @@ msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr ""
+msgstr "பயன்பாட்டு விதிமுறைகள்"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -1464,7 +1464,7 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 msgctxt "names"
 msgid "Names"
@@ -1565,11 +1565,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "ஊட்டச்சத்து உண்மைகள்"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "ஊட்டச்சத்து உண்மைகள்"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1633,7 +1633,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "ஒரு பரிமாறலுக்கு"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
@@ -1641,7 +1641,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "ஊட்டச்சத்து உண்மைகள்"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1850,7 +1850,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "ஒரு ஊட்டச்சத்தைச் சேர்க்கவும்."
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -2014,7 +2014,7 @@ msgstr ""
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "தயாரிப்புகள்"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -2070,7 +2070,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "கடவுச்சொல்லை மீட்டமைக்க"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2411,7 +2411,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "பரிமாறும் அளவு"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
@@ -2491,7 +2491,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "கடைகள்"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2507,7 +2507,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "கடை"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2568,7 +2568,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "தெரியவில்லை"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -2790,7 +2790,7 @@ msgstr ""
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -3444,7 +3444,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "தோற்றம்"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3452,7 +3452,7 @@ msgstr ""
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "ஊட்டச்சத்து உண்மைகள்"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -4319,7 +4319,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "முடிந்தது"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4422,7 +4422,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "தவறான பார்கோடு"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4665,7 +4665,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "உணவு பதப்படுத்தும் நிலை தெரியவில்லை"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -4938,7 +4938,7 @@ msgstr ""
 
 msgctxt "org_name"
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
@@ -4966,7 +4966,7 @@ msgstr ""
 
 msgctxt "contact_name"
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 msgctxt "contact_address"
 msgid "Address"
@@ -5124,11 +5124,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "இதர"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "இதர"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5146,7 +5146,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "வடிவம்"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5154,7 +5154,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "பொருள்"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -6340,22 +6340,22 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "மிகவும் நல்ல பொருத்தம்"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "நல்ல பொருத்தம்"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "மோசமான பொருத்தம்"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "தெரியாத பொருத்தம்"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6365,7 +6365,7 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "பொருந்தவில்லை"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6545,7 +6545,7 @@ msgstr "உள்நுழை"
 
 msgctxt "sign_out"
 msgid "Sign out"
-msgstr ""
+msgstr "வெளியேறு"
 
 msgctxt "your_contributions"
 msgid "Your contributions"
@@ -6738,7 +6738,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "அலகுகளின் எண்ணிக்கை"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6770,19 +6770,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "தயாரிப்பில் உள்ள அதே வடிவம் மற்றும் பொருளின் பேக்கேஜிங் அலகுகளின் எண்ணிக்கையை உள்ளிடவும்."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "மறுசுழற்சி வழிமுறைகளில் பட்டியலிடப்பட்டுள்ள வடிவப் பெயரை உள்ளிடவும், அல்லது ஒரு வடிவத்தைத் தேர்ந்தெடுக்கவும்."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "குறிப்பிட்ட பொருளைத் தீர்மானிக்க முடிந்தால் அதை உள்ளிடவும் (ஒரு முக்கோணத்திற்குள் ஒரு பொருள் குறியீடு பெரும்பாலும் பேக்கேஜிங் பாகங்களில் காணலாம்), அல்லது உங்களுக்குத் தெரியாவிட்டால் ஒரு பொதுவான பொருளை (எடுத்துக்காட்டாக, பிளாஸ்டிக் அல்லது உலோகம்) உள்ளிடவும்."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "மறுசுழற்சி வழிமுறைகள் தயாரிப்பில் பட்டியலிடப்பட்டிருந்தால் மட்டுமே அவற்றை உள்ளிடவும்."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6792,7 +6792,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "நிகர எடை அல்லது நிகர அளவை உள்ளிட்டு அலகைக் குறிப்பிடவும் (எடுத்துக்காட்டாக g அல்லது ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7412,17 +7412,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "தயாரிப்பு வகை"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "உணவு"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "செல்லப்பிராணி உணவு"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7670,4 +7670,16 @@ msgstr "தயாரிப்பு பேக்கேஜிங் அல்ல�
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "தனிப்பயனாக்கப்பட்ட சொத்து"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "பாமாயில் இல்லை"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "பாமாயில் இருக்கலாம்"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "சுற்றுச்சூழல் லேபிள்கள்"
 

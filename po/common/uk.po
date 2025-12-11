@@ -926,7 +926,7 @@ msgstr "Конфіденційність"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "Конфіденційність"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -1725,7 +1725,7 @@ msgstr "Товари, які не включають в себе складни�
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr "Упаковка"
+msgstr "Пакування"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -3487,7 +3487,7 @@ msgstr "Фото товару"
 
 msgctxt "fields_group_packaging"
 msgid "Packaging"
-msgstr "Упаковка"
+msgstr "Пакування"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -5158,7 +5158,7 @@ msgstr "Частини пакування"
 # A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
 msgctxt "packaging_part_short"
 msgid "Packaging"
-msgstr "Упаковка"
+msgstr "Пакування"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5676,7 +5676,7 @@ msgstr "Обробляється"
 
 msgctxt "environmental_score_packaging"
 msgid "Packaging"
-msgstr "Упаковка"
+msgstr "Пакування"
 
 msgctxt "environmental_score_transportation"
 msgid "Transportation"
@@ -7702,4 +7702,16 @@ msgstr "Рекомендована роздрібна ціна виробник�
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Персоналізована власність"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Не містить пальмової олії"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Може містити пальмову олію"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Екологічні етикетки"
 
