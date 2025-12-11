@@ -310,8 +310,9 @@
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg",
-               "subtitle" : "No labels with environmental benefits",
-               "title" : "Environmental labels"
+               "name" : "Environmental labels",
+               "type" : "string",
+               "value" : "No assessed labels"
             },
             "topics" : [
                "environment"
@@ -1573,8 +1574,9 @@
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
-               "subtitle" : "Missing origins of ingredients information",
-               "title" : "Origins of ingredients"
+               "name" : "Origins of ingredients",
+               "type" : "string",
+               "value" : "Missing data"
             },
             "topics" : [
                "environment"
@@ -1779,8 +1781,9 @@
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "subtitle" : "Packaging with a medium impact",
-               "title" : "Packaging"
+               "name" : "Packaging",
+               "type" : "string",
+               "value" : "Medium impact"
             },
             "topics" : [
                "environment"
@@ -1957,7 +1960,6 @@
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
-               "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
                "subtitle" : "Drives deforestation and threatens species such as the orangutan",
                "title" : "Contains palm oil"
@@ -1984,8 +1986,9 @@
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
-               "subtitle" : "Contains palm oil",
-               "title" : "Threatened species"
+               "name" : "Threatened species",
+               "type" : "string",
+               "value" : "Contains palm oil"
             },
             "topics" : [
                "environment"
