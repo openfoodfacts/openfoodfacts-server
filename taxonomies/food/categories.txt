@@ -94,7 +94,7 @@ stopwords:de: und, mit, von
 # Careful: it should be the same main tag, not a synonym
 # Remark: add the property to the highest parent
 
-# In European Union food of animal origin must be tagged by a packaging code (a number in a circle). 
+# In European Union food of animal origin must be tagged by a packaging code (a number in a circle).
 # The followig tag is added to food of animal origin:
 # food_of_animal_origin:en: yes
 
@@ -96907,6 +96907,21 @@ it: Tagliatelle alla bolognese
 ja: タリアテッレ・アッラ・ボロネーゼ
 nl: Bolognese tagliatelle
 
+< en:Bolognese-style pasta
+en: Bolognese linguine
+de: Bolognese-Linguine
+es: Linguine a la boloñesa
+fr: Linguine à la bolognaise
+hr: Bolognese linguine
+it: Linguine alla bolognese
+nl: Bolognese linguine
+sv: Linguine bolognese
+
+< en:Bolognese linguine
+< en:Frozen pasta dishes
+en: Frozen bolognese linguine
+sv: Frussen linguine bolognese
+
 < en:Pasta dishes
 en: Pasta with fish
 de: Nudeln mit Fisch
@@ -97324,6 +97339,11 @@ ru: Блюда из макарон
 sv: Pastarätter
 intake24_category_code:en: PTDH
 wikidata:en: Q18679685
+
+< en:Frozen meals
+< en:Pasta dishes
+en: Frozen pasta dishes, Frozen meals with pasta
+sv: Frusna pastarätter
 
 < en:Pasta dishes
 en: Pot noodles
