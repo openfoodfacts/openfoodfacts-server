@@ -16,7 +16,7 @@ concurrency:
 jobs:
   CodeQL-Build:
     name: "CodeQL Analysis"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
 
     steps:
     - name: Checkout repository
