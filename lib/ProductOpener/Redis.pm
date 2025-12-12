@@ -157,17 +157,8 @@ sub subscribe_to_redis_streams () {
 
 sub _read_user_streams($search_from) {
 	# Listen for user-deleted events so that we can redact product contributions for this flavor
-	# This will block for up to 5 seceonds waiting for messages and return a maximum of 1000
-	my @streams = ('COUNT', 1000, 'BLOCK', 5000, 'STREAMS', 'user-deleted');
-	# If this process handles global events then also listen for the user-registered events from Keycloak
-	if ($process_global_redis_events) {
-		push(@streams, 'user-registered');
-		push(@streams, $search_from);
-	}
-	# Note the message index to search from is provided at the end of the list in the same order as the list of keys
-	push(@streams, $search_from);
-
-	#12279 TODO: Also catch user-updated. Need to catch user-registered for all processes in order to add to cache
+	# This will block for up to 5 seconds waiting for messages and return a maximum of 1000
+	my @streams = ('COUNT', 1000, 'BLOCK', 5000, 'STREAMS', 'user-deleted', 'user-registered', 'user-updated', $search_from, $search_from, $search_from);
 
 	$log->info("Reading from Redis", {streams => \@streams}) if $log->is_info();
 	$redis_client->xread(
@@ -208,6 +199,9 @@ sub process_xread_stream_reply($reply_ref) {
 		elsif ($stream[0] eq 'user-deleted') {
 			$last_processed_message_id = _process_deleted_users_stream($stream[1]);
 		}
+		elsif ($stream[0] eq 'user-updated') {
+			$last_processed_message_id = _process_updated_users_stream($stream[1]);
+		}
 
 	}
 
@@ -229,50 +223,59 @@ sub _process_registered_users_stream($stream_values_ref) {
 			$message_hash{$key} = $value;
 		}
 
-		#12279 TODO: Can cache user here once additional attributes are included
 		my $user_id = $message_hash{'userName'};
 		my $newsletter = $message_hash{'newsletter'};
 		my $requested_org = $message_hash{'requestedOrg'};
 		my $email = $message_hash{'email'};
 		my $clientId = $message_hash{'clientId'};
+		my $cache_user_ref = {
+			userid => $user_id,
+			email => $email,
+			name => $message_hash{'name'},
+			preferred_language => $message_hash{'locale'},
+			country => cc_to_country($message_hash{'country'})
+		};
+		$memd->set("user/$user_id", $cache_user_ref);
 
 		$log->info("User registered", {user_id => $user_id, newsletter => $newsletter})
 			if $log->is_info();
 
-		# Create the user preferences if they don't exist and set the properties
-		my $user_ref = retrieve_user($user_id);
-		if ($user_ref) {
-			if (defined $requested_org) {
-				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => $requested_org);
+		if ($process_global_redis_events) {
+			# Create the user preferences if they don't exist and set the properties
+			my $user_ref = retrieve_user($user_id);
+			if ($user_ref) {
+				if (defined $requested_org) {
+					$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => $requested_org);
 
-				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
+					my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
 
-				if ($requested_org_id ne "") {
-					$user_ref->{requested_org_id} = $requested_org_id;
-					$user_ref->{pro} = 1;
+					if ($requested_org_id ne "") {
+						$user_ref->{requested_org_id} = $requested_org_id;
+						$user_ref->{pro} = 1;
+					}
+				}
+				store_user_preferences($user_ref);
+
+				my $args_ref = {userid => $user_id};
+
+				# Register interest in joining an organization
+				if (defined $requested_org) {
+					queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
+				}
+
+				if (not defined $clientId or $clientId ne 'OFF_PRO') {
+					# Don't send normal welcome email for users that sign-up via the pro platform
+					queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+				}
+
+				# Subscribe to newsletter
+				if (defined $newsletter and $newsletter eq 'subscribe') {
+					queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
 				}
 			}
-			store_user_preferences($user_ref);
-
-			my $args_ref = {userid => $user_id};
-
-			# Register interest in joining an organization
-			if (defined $requested_org) {
-				queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
+			else {
+				$log->warn("User $user_id not found when processing user registered event") if $log->is_warn();
 			}
-
-			if (not defined $clientId or $clientId ne 'OFF_PRO') {
-				# Don't send normal welcome email for users that sign-up via the pro platform
-				queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
-			}
-
-			# Subscribe to newsletter
-			if (defined $newsletter and $newsletter eq 'subscribe') {
-				queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
-			}
-		}
-		else {
-			$log->warn("User $user_id not found when processing user registered event") if $log->is_warn();
 		}
 
 		$last_processed_message_id = $message_id;
@@ -307,6 +310,37 @@ sub _process_deleted_users_stream($stream_values_ref) {
 		my $job_id = queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
 		$log->info("[" . localtime() . "] User deletion queued", {args_ref => $args_ref, job_id => $job_id})
 			if $log->is_info();
+
+		$last_processed_message_id = $message_id;
+	}
+
+	return $last_processed_message_id;
+}
+
+sub _process_updated_users_stream($stream_values_ref) {
+	my $last_processed_message_id;
+
+	foreach my $outer_ref (@{$stream_values_ref}) {
+		my @outer = @{$outer_ref};
+		my $message_id = $outer[0];
+		my @values = @{$outer[1]};
+
+		my %message_hash;
+		for (my $i = 0; $i < scalar(@values); $i += 2) {
+			my $key = $values[$i];
+			my $value = $values[$i + 1];
+			$message_hash{$key} = $value;
+		}
+
+		my $user_id = $message_hash{'userName'};
+		my $cache_user_ref = {
+			userid => $user_id,
+			email => $message_hash{'email'},
+			name => $message_hash{'name'},
+			preferred_language => $message_hash{'locale'},
+			country => cc_to_country($message_hash{'country'})
+		};
+		$memd->set("user/$user_id", $cache_user_ref);
 
 		$last_processed_message_id = $message_id;
 	}
