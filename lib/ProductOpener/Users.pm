@@ -1206,7 +1206,7 @@ sub retrieve_user_preferences_by_email($email) {
 # store user information that is not reflected in Keycloak
 sub store_user_preferences ($user_ref) {
 	my $user_preferences = {%$user_ref};
-	if (get_oidc_implementation_level() > 1) {
+	if (get_oidc_implementation_level() > 2) {
 		# Make a shallow clone and delete the PII from the user data once Keycloak has become the master source
 		delete $user_preferences->{email};
 		delete $user_preferences->{name};
