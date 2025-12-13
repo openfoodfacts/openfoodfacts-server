@@ -159,7 +159,10 @@ sub subscribe_to_redis_streams () {
 sub _read_user_streams($search_from) {
 	# Listen for user-deleted events so that we can redact product contributions for this flavor
 	# This will block for up to 5 seconds waiting for messages and return a maximum of 1000
-	my @streams = ('COUNT', 1000, 'BLOCK', 5000, 'STREAMS', 'user-deleted', 'user-registered', 'user-updated', $search_from, $search_from, $search_from);
+	my @streams = (
+		'COUNT', 1000, 'BLOCK', 5000, 'STREAMS', 'user-deleted',
+		'user-registered', 'user-updated', $search_from, $search_from, $search_from
+	);
 
 	$log->info("Reading from Redis", {streams => \@streams}) if $log->is_info();
 	$redis_client->xread(
@@ -221,7 +224,7 @@ sub message_to_hash($outer_ref) {
 		$message_hash{$key} = $value;
 	}
 
-	return ($message_id, %message_hash)
+	return ($message_id, %message_hash);
 }
 
 sub cache_user(%message_hash) {
@@ -277,7 +280,8 @@ sub _process_registered_users_stream($stream_values_ref) {
 
 				# Register interest in joining an organization
 				if (defined $requested_org) {
-					queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
+					queue_job(
+						process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
 				}
 
 				if (not defined $clientId or $clientId ne 'OFF-PRO') {
@@ -287,7 +291,8 @@ sub _process_registered_users_stream($stream_values_ref) {
 
 				# Subscribe to newsletter
 				if (defined $newsletter and $newsletter eq 'subscribe') {
-					queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
+					queue_job(
+						subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
 				}
 			}
 			else {
