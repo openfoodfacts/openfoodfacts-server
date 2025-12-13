@@ -61,6 +61,7 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
 use ProductOpener::Cache qw/$memd/;
+use ProductOpener::Tags qw/cc_to_country/;
 
 use AnyEvent;
 use AnyEvent::RipeRedis;
@@ -208,39 +209,55 @@ sub process_xread_stream_reply($reply_ref) {
 	return $last_processed_message_id,;
 }
 
+sub message_to_hash($outer_ref) {
+	my @outer = @{$outer_ref};
+	my $message_id = $outer[0];
+	my @values = @{$outer[1]};
+
+	my %message_hash;
+	for (my $i = 0; $i < scalar(@values); $i += 2) {
+		my $key = $values[$i];
+		my $value = $values[$i + 1];
+		$message_hash{$key} = $value;
+	}
+
+	return ($message_id, %message_hash)
+}
+
+sub cache_user(%message_hash) {
+	my $user_id = $message_hash{'userName'};
+	my $cache_user_ref = {
+		userid => $user_id,
+		email => $message_hash{'email'},
+		name => $message_hash{'name'},
+		preferred_language => $message_hash{'locale'}
+	};
+	# The following can be undefined so add separately
+	$cache_user_ref->{country} = cc_to_country($message_hash{'country'});
+
+	$memd->set("user/$user_id", $cache_user_ref);
+
+	return;
+}
+
 sub _process_registered_users_stream($stream_values_ref) {
 	my $last_processed_message_id;
 
 	foreach my $outer_ref (@{$stream_values_ref}) {
-		my @outer = @{$outer_ref};
-		my $message_id = $outer[0];
-		my @values = @{$outer[1]};
+		my ($message_id, %message_hash) = message_to_hash($outer_ref);
 
-		my %message_hash;
-		for (my $i = 0; $i < scalar(@values); $i += 2) {
-			my $key = $values[$i];
-			my $value = $values[$i + 1];
-			$message_hash{$key} = $value;
-		}
-
-		my $user_id = $message_hash{'userName'};
-		my $newsletter = $message_hash{'newsletter'};
-		my $requested_org = $message_hash{'requestedOrg'};
-		my $email = $message_hash{'email'};
-		my $clientId = $message_hash{'clientId'};
-		my $cache_user_ref = {
-			userid => $user_id,
-			email => $email,
-			name => $message_hash{'name'},
-			preferred_language => $message_hash{'locale'},
-			country => cc_to_country($message_hash{'country'})
-		};
-		$memd->set("user/$user_id", $cache_user_ref);
-
-		$log->info("User registered", {user_id => $user_id, newsletter => $newsletter})
-			if $log->is_info();
+		cache_user(%message_hash);
 
 		if ($process_global_redis_events) {
+			my $user_id = $message_hash{'userName'};
+			my $newsletter = $message_hash{'newsletter'};
+			my $requested_org = $message_hash{'requestedOrg'};
+			my $email = $message_hash{'email'};
+			my $clientId = $message_hash{'clientId'};
+
+			$log->info("User registered", {user_id => $user_id, newsletter => $newsletter})
+				if $log->is_info();
+
 			# Create the user preferences if they don't exist and set the properties
 			my $user_ref = retrieve_user($user_id);
 			if ($user_ref) {
@@ -263,7 +280,7 @@ sub _process_registered_users_stream($stream_values_ref) {
 					queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
 				}
 
-				if (not defined $clientId or $clientId ne 'OFF_PRO') {
+				if (not defined $clientId or $clientId ne 'OFF-PRO') {
 					# Don't send normal welcome email for users that sign-up via the pro platform
 					queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
 				}
@@ -288,16 +305,7 @@ sub _process_deleted_users_stream($stream_values_ref) {
 	my $last_processed_message_id;
 
 	foreach my $outer_ref (@{$stream_values_ref}) {
-		my @outer = @{$outer_ref};
-		my $message_id = $outer[0];
-		my @values = @{$outer[1]};
-
-		my %message_hash;
-		for (my $i = 0; $i < scalar(@values); $i += 2) {
-			my $key = $values[$i];
-			my $value = $values[$i + 1];
-			$message_hash{$key} = $value;
-		}
+		my ($message_id, %message_hash) = message_to_hash($outer_ref);
 
 		# Remove user from the cache
 		my $userid = $message_hash{'userName'};
@@ -321,26 +329,9 @@ sub _process_updated_users_stream($stream_values_ref) {
 	my $last_processed_message_id;
 
 	foreach my $outer_ref (@{$stream_values_ref}) {
-		my @outer = @{$outer_ref};
-		my $message_id = $outer[0];
-		my @values = @{$outer[1]};
+		my ($message_id, %message_hash) = message_to_hash($outer_ref);
 
-		my %message_hash;
-		for (my $i = 0; $i < scalar(@values); $i += 2) {
-			my $key = $values[$i];
-			my $value = $values[$i + 1];
-			$message_hash{$key} = $value;
-		}
-
-		my $user_id = $message_hash{'userName'};
-		my $cache_user_ref = {
-			userid => $user_id,
-			email => $message_hash{'email'},
-			name => $message_hash{'name'},
-			preferred_language => $message_hash{'locale'},
-			country => cc_to_country($message_hash{'country'})
-		};
-		$memd->set("user/$user_id", $cache_user_ref);
+		cache_user(%message_hash);
 
 		$last_processed_message_id = $message_id;
 	}
