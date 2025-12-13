@@ -15810,6 +15810,18 @@ uk: Оливкова олія
 vi: Dầu ô liu
 yi: שמן־זית
 zh: 橄欖油
+#arz: زيت زيتون
+#ast: Aceite d'oliva
+#ceb: Lana sa oliba
+#ext: Aceiti d'oliva
+#hak: Kám-lám-yù
+#lfn: Olio de oliva
+#nap: Uoglio 'e auliva
+#nds: Olivenööl
+#olo: Oliivuvoi
+#roa-rup: Untulemnu di masinu
+#sco: Olive ile
+#yue: 橄欖油
 carbon_footprint_fr_foodges_ingredient:fr: Huile d'olive
 carbon_footprint_fr_foodges_value:fr: 2.6
 #ingredient/olive-oil 26977 in 33 @2021-08-20
@@ -15825,18 +15837,6 @@ ecobalyse:en: f1b219e6-7a77-429b-b372-461e3ad0d3bd
 from_palm_oil:en: no
 nutriscore_fruits_vegetables_nuts:en: yes
 wikidata:en: Q93165
-# arz:زيت زيتون
-# ast:Aceite d'oliva
-# ceb:Lana sa oliba
-# ext:Aceiti d'oliva
-# hak:Kám-lám-yù
-# lfn:Olio de oliva
-# nap:Uoglio 'e auliva
-# nds:Olivenööl
-# olo:Oliivuvoi
-# roa-rup:Untulemnu di masinu
-# sco:Olive ile
-# yue:橄欖油
 wikipedia:en: https://en.wikipedia.org/wiki/Olive_oil
 
 < en:olive oil
@@ -15878,6 +15878,7 @@ no: virgin olivenolje, jomfru olivenolje
 pl: Oliwa z oliwek z pierwszego tłoczenia, Oliwa z oliwek virgin
 pt: azeite de oliva virgem, azeite virgem
 sv: jungfruolivolja, virgin olivolja
+wikidata:en: Q57656262
 
 < en:olive oil
 fr: huile d'olive extra
@@ -15905,6 +15906,13 @@ ciqual_food_code:en: 17270
 ciqual_food_name:en: Olive oil, extra virgin
 ciqual_food_name:fr: Huile d'olive vierge extra
 ecobalyse:en: fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac
+wikidata:en: Q14789810
+
+< en:extra virgin olive oil
+en: Spanish extra virgin olive oil
+da: spansk ekstra jomfruolivenolie
+sv: spansk extra jungfruolivolja, spansk extra jungfruolja
+origin:en: en:spain
 
 < en:extra virgin olive oil
 es: aceite de oliva virgen extra de Lubrín
@@ -15915,6 +15923,7 @@ fr: huile d'olive chemlali extra vierge
 < en:olive oil
 en: organic olive oil
 bg: био зехтин, био маслиново масло
+da: økologisk olivenolie
 de: Bio-Olivenöl
 fi: luomu oliiviöljy
 fr: Huile d'olive bio
@@ -15924,9 +15933,10 @@ it: Olio di oliva biologico
 nl: olie van biologische olijven
 pl: organiczna oliwa z oliwek
 pt: azeite biológico, azeite de oliva biológico
+sv: ekologisk olivolja
 # ingredient/nl:olie-van-biologische-olijven has 2 products @2019-05-24
 
-< en:olive oil
+< en:virgin olive oil
 en: refined olive oil
 bg: рафиниран зехтин, рафинирано маслиново масло
 de: raffiniertes Olivenöl, Olivenöl raffiniert
@@ -15936,17 +15946,21 @@ hr: rafinirano maslinovo ulje
 it: Olio di oliva raffinato
 pl: rafinowana oliwa z oliwek
 pt: azeite refinado, azeite de oliva refinado
+sv: raffinerad olivolja
+description:en: Refined olive oil is virgin oil refined using charcoal and other chemical and physical filters, methods which do not alter the glyceridic structure.
 
 < en:olive oil
 en: unrefined olive oil
 hr: nerafinirano maslinovo ulje
 it: olio di oliva non raffinato
 nl: ongeraffineerde olijfolie
+sv: oraffinerad olivolja
 
 < en:extra virgin olive oil
 < en:organic olive oil
 en: organic extra virgin olive oil
 bg: био екстра върджин зехтин
+da: økologisk ekstra jomfruolivenolie
 de: Natives Bio-Olivenöl Extra
 es: aceite de oliva extra virgen orgánico
 fi: luomu ekstra-neitsytoliiviöljy
@@ -15956,11 +15970,13 @@ hu: extra szűz bio olívaolaj, bio extra szűz olívaolaj
 it: Olio di oliva extra vergine biologico
 nl: biologische extra olijfolie van de eerste persing
 pt: azeite extra virgem biológico, azeite virgem extra biológico, azeite de oliva extra virgem biológico, azeite de oliva virgem extra biológico
+sv: ekologisk extra jungfruolivolja
 # ingredient/fr:huile-d'olive-vierge-extra-biologique has 25 products in 2 languages @2019-05-23
 # ingredient/fr:huile-d-olive-vierge-extra-issue-de-l-agriculture-biologique has 12 products in 2 languages @2019-05-25
 
 < en:organic olive oil
 en: Spanish organic olive oil
+da: spansk økologisk olivenolie
 de: Spanisches Bio-Olivenöl
 fi: luomu espanjalainen oliiviöljy
 fr: Huile d’olive bio d’Espagne
@@ -15968,6 +15984,7 @@ hr: španjolsko organsko maslinovo ulje
 it: olio d'oliva biologico spagnolo
 nl: olie van biologische Spaanse olijven
 pt: azeite biológico espanhol, azeite biológico de Espanha, azeite de oliva biológico espanhol, azeite de oliva biológico de Espanha
+sv: spansk ekologisk olivolja, ekologisk spansk olivolja
 # nl:olie-van-biologische-spaanse-olijven has 2 products @2019-05-24
 
 < en:olive oil
@@ -48348,7 +48365,7 @@ hr: mješavina povrća
 it: mix di verdure
 pl: mieszanka warzyw, mieszanka warzywna
 ru: овощи
-sv: grönsaksmix
+sv: grönsaksblandning, grönsaksmix
 # usage:en:vegetable blend (carrot, onion, parsley)
 
 < en:vegetable
@@ -54351,7 +54368,7 @@ it: fiocco di patata, fiocchi di patate
 nl: aardappelvlokken
 pl: płatki ziemniaczane
 ru: картофельние хлопья, картофельные-хлопья
-sv: potatisflingor
+sv: potatisflingor, potatisflinga
 # fr:flocon-de-pomme-de-terre has 937 products in 12 languages @2018-10-15
 
 < en:potato flakes
@@ -63483,12 +63500,10 @@ sv: sesampasta, sesam-kräm, sesam pasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-sésame
 # 105 products in 4 languages @2018-10-05
 
-
-
 #category/tahini
 < en:sesame paste
 en: tahini, tahini paste, sesame tahini
-xx: tahini
+xx: tahini, tahina
 ar: طحينة
 be: Тахіні
 bg: Тахан, сусамов тахан
@@ -63497,20 +63512,19 @@ cs: tahina
 de: Tahina, Tahin
 el: Ταχίνι
 eo: Sezama pasto
-es: Tahini, tahin, tahina
+es: tahini, tahin
 et: tahhiini, tahiini
 fa: ارده
-fr: crème de sésame, tahin, tahina, tahiné
+fr: crème de sésame, tahin, tahiné
 he: טחינה
 hi: ताहिनी
-hr: tahini
 hy: Թահին
 it: Tahina, pasta di semi di sesamo
 ja: 芝麻醤
 ko: 참깨 소스
 nl: tahin
 pa: ਤਾਹੀਨੀ
-pl: tahini, tahina, pasta sezamowa tahina, pasta sezamowa tahini
+pl: tahini, pasta sezamowa tahina, pasta sezamowa tahini
 pt: tahine
 ro: tahină
 ru: тахини
@@ -64227,7 +64241,7 @@ pt: pimenta-caiena
 ro: piper cayenne
 ru: перец кайенский
 sk: kajenské korenie
-sv: cayennepeppar, cayenne, kajennpeppar
+sv: cayennepeppar, cayenne, kajennpeppar, cayenpeppar
 th: พริกชี้ฟ้า
 tl: siling kayena
 uk: Перець каєнський
@@ -86889,6 +86903,7 @@ it: fibra di pisello
 nl: erwtenvezel, erwtvezel
 pl: błonnik grochowy, błonnik grochu, włókna grochu
 ro: fibre de mazare
+sv: ärtfiber
 # ingredient/fr:fibre-de-pois has 173 products in 7 languages @2019-04-21
 
 < en:vegetable fiber
@@ -89442,7 +89457,7 @@ pt: pão ralado
 ru: Панировочные сухари
 sk: Strúhanka
 sl: krušne drobtine
-sv: panering, ströbröd, paneringsmjöl, brödsmulor, skorpmjöl, kryddpanering
+sv: panering, ströbröd, paneringsmjöl, brödsmulor, skorpmjöl, kryddpanering, skorpsmula
 uk: Паніровка
 vi: Vụn bánh mì
 zh: 麵包屑
@@ -92536,11 +92551,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Worcestershire_sauce
 # ingredient/fr:sauce-worcestershire has 30 products in 3 languages @2019-04-30
 # usage:de:Worcestershire Sauce (Malzessig, Melasse, Wasser, Kochsalz, Zwiebeln, Knoblauch, Zucker, Gewürze, Sardellen, Tamarindenextrakt, natürliche Aromen)
 
-
-# description:en:BOLOGNESE SAUCE is a meat-based sauce in Italian cuisine. It is customarily used to dress tagliatelle al ragù and to prepare lasagne alla bolognese.
-
 < en:sauce
 en: bolognese sauce
+xx: bolognese
 ar: صلصة البولونيز
 az: Bolonyeze sousu
 bg: сос Болонезе
@@ -92564,18 +92577,18 @@ ru: Болоньезе
 sv: köttfärssås, bolognesesås
 uk: Болоньєзе
 zh: 蕃茄肉醬
+# ast: Boloñesa
+# zh-hans: 蕃茄肉酱
+# zh-hant: 蕃茄肉醬
+# zh-hk: 蕃茄肉醬
 # category:en:bolognese-sauce
 # ingredient/fr:sauce-bolognaise has 54 products in 5 Languages @2019-04-30
 ciqual_food_code:en: 11114
 ciqual_food_name:en: Tomato sauce, with meat or Bolognese sauce, prepacked
 ciqual_food_name:fr: Sauce tomate à la viande ou Sauce bolognaise, préemballée
-# ast:Boloñesa
-# zh-hans:蕃茄肉酱
-# zh-hant:蕃茄肉醬
-# zh-hk:蕃茄肉醬
+description:en: BOLOGNESE SAUCE is a meat-based sauce in Italian cuisine. It is customarily used to dress tagliatelle al ragù and to prepare lasagne alla bolognese.
 wikidata:en: Q1162965
 wikipedia:en: https://en.wikipedia.org/wiki/Bolognese_sauce
-
 
 # description:en:VINAIGRETTE is made by mixing an oil with something acidic such as vinegar or lemon juice. The mixture can be enhanced with salt, herbs and/or spices. It is used most commonly as a salad dressing, but can also be used as a marinade.
 
