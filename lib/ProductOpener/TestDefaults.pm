@@ -59,7 +59,7 @@ A basic user.
 =cut
 
 %default_user_form = (
-	email => 'test@test.com',
+	email => 'test@example.com',
 	userid => "tests",
 	name => "Test",
 	password => $test_password,
