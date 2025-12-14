@@ -2730,9 +2730,9 @@ sub country_to_cc ($country) {
 
 sub cc_to_country($cc) {
 	if (not defined $cc) {
-		return;
+		return "";
 	}
-	return $country_codes{$cc};
+	return $country_codes{$cc} // "";
 }
 
 sub init_languages() {

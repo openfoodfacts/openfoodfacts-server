@@ -56,7 +56,7 @@ use vars @EXPORT_OK;
 use Log::Any qw/$log/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Minion qw/queue_job/;
-use ProductOpener::Users qw/retrieve_user store_user_preferences/;
+use ProductOpener::Users qw/retrieve_user store_user_preferences retrieve_user_preferences/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
@@ -233,13 +233,23 @@ sub cache_user(%message_hash) {
 		userid => $user_id,
 		email => $message_hash{'email'},
 		name => $message_hash{'name'},
-		preferred_language => $message_hash{'locale'}
+		preferred_language => $message_hash{'locale'},
+		country => cc_to_country($message_hash{'country'})
 	};
-	# The following can be undefined so add separately
-	$cache_user_ref->{country} = cc_to_country($message_hash{'country'});
-
 	$memd->set("user/$user_id", $cache_user_ref);
 
+	# At level 2 we keep the STO file in sync with Keycloak
+	# This ensures that any services still at Level 1 can read the data
+	if (get_oidc_implementation_level() == 2) {
+		my $user_preferences = retrieve_user_preferences($user_id);
+		if ($user_preferences) {
+			$user_preferences->{email} = $cache_user_ref->{email};
+			$user_preferences->{name} = $cache_user_ref->{name};
+			$user_preferences->{country} = $cache_user_ref->{country};
+			$user_preferences->{preferred_language} = $cache_user_ref->{preferred_language};
+			store_user_preferences($user_preferences);
+		}
+	}
 	return;
 }
 
