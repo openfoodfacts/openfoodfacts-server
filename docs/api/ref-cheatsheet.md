@@ -44,6 +44,30 @@ You can send prepared nutritional values
 * nutriment_energy-kj (regular)
 * nutriment_energy-kj_prepared (prepared)
 
+## Read Product Data
+
+### Get product with blame information
+
+To get information about who last modified each field of a product, add the `blame` parameter:
+
+```text
+https://world.openfoodfacts.org/api/v2/product/3017620422003.json?blame=1
+```
+
+This returns additional `blame` information showing:
+- `userid`: Who last modified each field
+- `t`: Timestamp of the modification
+- `rev`: Revision number
+- `value`: Current value of the field
+
+### Limit response fields
+
+Use the `fields` parameter to get only specific product data:
+
+```text
+https://world.openfoodfacts.org/api/v2/product/3017620422003.json?fields=product_name,brands,nutriments
+```
+
 ## Search for Products
 
 **Important:** full text search currently works only for v1 API (or search-a-licious, which is in beta)
@@ -85,4 +109,25 @@ You can use comma to separate multiple values of a query parameter. This allows 
 
 ```text
 https://world.openfoodfacts.org/api/v2/search?code=3263859883713,8437011606013,6111069000451&fields=code,product_name
+```
+
+## Get taxonomy-based suggestions (v3 API)
+
+The v3 API provides suggestions based on taxonomy fields such as synonyms, categories, and packaging shapes.
+
+### Reference documentation:
+https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/taxonomy_suggestions
+
+### Example requests:
+Get suggestions from synonyms
+```text
+https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=labels&lc=fr&string=f&get_synonyms=1
+```
+Get suggestions for a specific category
+```text
+https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=categories&string=organic
+```
+Get suggestions based on packaging shape
+```text
+https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=packaging_materials&shape=box
 ```

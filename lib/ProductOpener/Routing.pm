@@ -45,23 +45,27 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
-use ProductOpener::Display
-	qw/$formatted_subdomain %index_tag_types_set display_robots_txt_and_exit init_request redirect_to_url single_param get_owner_pretty_path/;
+use ProductOpener::Products qw/is_valid_code normalize_code product_url/;
+use ProductOpener::Display qw/%index_tag_types_set display_robots_txt_and_exit init_request/;
+use ProductOpener::HTTP qw/extension_and_query_parameters_to_redirect_url redirect_to_url single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::Tags
 	qw/%taxonomy_fields canonicalize_taxonomy_tag_linkeddata canonicalize_taxonomy_tag_weblink get_taxonomyid/;
 use ProductOpener::Food qw/%nutriments_labels/;
-use ProductOpener::Index qw/%texts/;
+use ProductOpener::Texts
+	qw/%texts %texts_translated_route_to_text_id %texts_text_id_to_translated_route init_translated_text_routes_for_all_languages load_texts_from_lang_directory/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Redis qw/:all/;
 use ProductOpener::RequestStats qw/:all/;
+use ProductOpener::URL qw/get_owner_pretty_path/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Log::Any qw($log);
+use Net::CIDR qw/cidrlookup/;
 
 # Specific logger to track rate-limiter operations
 our $ratelimiter_log = Log::Any->get_logger(category => 'ratelimiter');
@@ -112,11 +116,13 @@ sub load_routes() {
 		['properties', \&properties_route],
 		['property', \&properties_route],
 		['products', \&products_route],
+		['content', \&content_route],
+		['facets', \&facets_route],
 		# with priority
 		['', \&index_route],
 		['^(?<page>\d+)$', \&index_route, {regex => 1}],
 		['org/[orgid]/', \&org_route],
-		# Known tag type? Catch all if no route matched
+		# Deprecated facet route… Catch all if no route matched
 		['.*', \&facets_route, {regex => 1}],
 	];
 
@@ -129,6 +135,10 @@ sub load_routes() {
 		= (map {["$_:$tag_type_singular{products}{$_}", \&product_route]} keys %{$tag_type_singular{products}});
 
 	# text route : index, index-pro, ...
+
+	init_translated_text_routes_for_all_languages();
+	load_texts_from_lang_directory();
+
 	my @text_route;
 	foreach my $text (keys %texts) {
 		push @text_route, [
@@ -142,13 +152,41 @@ sub load_routes() {
 		];
 	}
 
+	# translated text routes
+	my @translated_text_route;
+	foreach my $text_id (sort keys %texts_text_id_to_translated_route) {
+		foreach my $target_lc (sort keys %{$texts_text_id_to_translated_route{$text_id}}) {
+			my $translated_route = $texts_text_id_to_translated_route{$text_id}{$target_lc};
+			$log->debug("adding translated text route",
+				{text_id => $text_id, target_lc => $target_lc, translated_route => $translated_route})
+				if $log->is_debug();
+			push @translated_text_route, [
+				$translated_route,
+				\&text_route,
+				{
+					onlyif => sub ($request_ref) {
+						my $return_value
+							= ((defined $texts{$text_id}{$request_ref->{lc}}) or (defined $texts{$text_id}{'en'}));
+						$log->debug("checking translated text route",
+							{text_id => $text_id, return_value => $return_value})
+							if $log->is_debug();
+						return $return_value;
+					}
+				}
+			];
+		}
+	}
+
 	# Renamed text : en/nova-groups-for-food-processing -> nova, ...
 	my @redirect_text_route = ();
 	if (defined $options{redirect_texts}) {
 		# we use a custom regex to exactly match "en/nova-groups-for-food-processing"
 		@redirect_text_route = (map {["\^$_\$", \&redirect_text_route, {regex => 1}]} keys %{$options{redirect_texts}});
 	}
-	push(@$routes, @missions_route, @product_route, @text_route, @lc_product_route, @redirect_text_route,);
+	push(@$routes,
+		@missions_route, @product_route, @text_route,
+		@translated_text_route, @lc_product_route, @redirect_text_route,
+	);
 
 	register_route($routes);
 
@@ -256,10 +294,12 @@ sub org_route($request_ref) {
 		my @errors = ();
 		my $moderator;
 		if ($request_ref->{admin} or $User{pro_moderator}) {
+			# Could probably just do retrieve_user_preferences here but we may be moving the moderator flag into Keycloak at some point...
 			$moderator = retrieve_user($request_ref->{user_id});
 			ProductOpener::Users::check_edit_owner($moderator, \@errors, $orgid);
 		}
 		else {
+			#11867: Provide link to join existing org
 			$request_ref->{status_code} = 404;
 			$request_ref->{error_message} = lang("error_invalid_address");
 			return;
@@ -267,7 +307,7 @@ sub org_route($request_ref) {
 		if (scalar @errors eq 0) {
 			set_owner_id($request_ref);
 			# will save the pro_moderator_owner field
-			store_user($moderator);
+			store_user_preferences($moderator);
 		}
 		else {
 			$request_ref->{status_code} = 404;
@@ -277,7 +317,7 @@ sub org_route($request_ref) {
 	}
 
 	$request_ref->{ownerid} = $Owner_id;
-	$request_ref->{canon_rel_url} = get_owner_pretty_path();
+	$request_ref->{canon_rel_url} = get_owner_pretty_path($Owner_id);
 
 	# remove the org/orgid
 	splice(@{$request_ref->{components}}, 0, 2);
@@ -312,6 +352,19 @@ sub api_route($request_ref) {
 	if ($api_action =~ /^products?/) {    # api/v3/product/[code]
 		param("code", $components[3]);
 		$request_ref->{code} = $components[3];
+		# We also have a specific endpoint for image upload
+		# /api/v3/product/[barcode]/images
+		# And an endpoint DELETE /api/v3/product/[barcode]/images/uploaded/[imgid]
+		if ((defined $components[4]) and ($components[4] eq "images")) {
+			$api_action = "product_images";
+			if ((defined $components[5]) and ($components[5] eq "uploaded") and (defined $components[6])) {
+				$request_ref->{imgid} = $components[6];
+			}
+			elsif (not scalar @components == 5) {
+				# endpoint not recognized
+				$request_ref->{status_code} = 404;
+			}
+		}
 	}
 	elsif ($api_action eq "tag") {    # api/v3/tag/[type]/[tagid]
 		param("tagtype", $components[3]);
@@ -410,9 +463,16 @@ sub mission_route($request_ref) {
 sub product_route($request_ref) {
 	$log->debug("request looks like a product", {components => $request_ref->{components}}) if $log->is_debug();
 
-	if ($request_ref->{components}[1] =~ /^\d/) {
+	if (is_valid_code($request_ref->{components}[1])) {
+		my $code = $request_ref->{components}[1];
+		my $normalized_code = normalize_code($code);
+		if ($code ne $normalized_code) {
+			# redirect to normalized code
+			$request_ref->{redirect} = product_url($normalized_code);
+			return 1;
+		}
 		$request_ref->{product} = 1;
-		$request_ref->{code} = $request_ref->{components}[1];
+		$request_ref->{code} = $code;
 		$request_ref->{titleid} = $request_ref->{components}[2] // '';
 		$request_ref->{rate_limiter_bucket} = "product";
 		set_request_stats_value($request_ref->{stats}, "route", "product");
@@ -426,13 +486,38 @@ sub product_route($request_ref) {
 
 # index, index-pro, ...
 sub text_route($request_ref) {
-	my $text = $request_ref->{components}[0];
+	my $requested_route = $request_ref->{components}[0];
 
-	$log->debug("text_route", {textid => \%texts, text => $text}) if $log->is_debug();
+	$log->debug("text_route", {textids => \%texts, requested_route => $requested_route}) if $log->is_debug();
 
-	if (defined $texts{$text}{$request_ref->{lc}} || defined $texts{$text}{'en'}) {
-		$request_ref->{text} = $text;
-		$request_ref->{canon_rel_url} = "/" . $text;
+	my $text_id;
+
+	# Check if the text id is a translated route
+	if (defined $texts_translated_route_to_text_id{$requested_route}) {
+		$text_id = $texts_translated_route_to_text_id{$requested_route};
+	}
+	else {
+		$text_id = $requested_route;
+	}
+
+	# If the requested route is not the translated route for the text id in the requested language, redirect to it
+	if (defined $texts_text_id_to_translated_route{$text_id}{$request_ref->{lc}}) {
+		my $correct_translated_route = $texts_text_id_to_translated_route{$text_id}{$request_ref->{lc}};
+		if ($requested_route ne $correct_translated_route) {
+			$request_ref->{redirect}
+				= $request_ref->{formatted_subdomain} . "/"
+				. $correct_translated_route
+				. extension_and_query_parameters_to_redirect_url($request_ref);
+			$log->info('redirect_text_route', {textid => $text_id, redirect => $request_ref->{redirect}})
+				if $log->is_info();
+			return 1;
+		}
+	}
+
+	# Check that the text id exists in the requested language or in English
+	if ((defined $texts{$text_id}{$request_ref->{lc}}) or (defined $texts{$text_id}{'en'})) {
+		$request_ref->{text} = $text_id;
+		$request_ref->{canon_rel_url} = "/" . $text_id;
 		set_request_stats_value($request_ref->{stats}, "route", "text");
 	}
 	else {
@@ -449,43 +534,62 @@ sub redirect_text_route($request_ref) {
 
 	my $text = $request_ref->{components}[1];
 	$request_ref->{redirect}
-		= $formatted_subdomain
+		= $request_ref->{formatted_subdomain}
 		. $request_ref->{canon_rel_url} . '/'
 		. $options{redirect_texts}{$request_ref->{lc} . '/' . $text};
 	$log->info('redirect_text_route', {textid => $text, redirect => $request_ref->{redirect}})
 		if $log->is_info();
-	redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	return 1;
 }
 
-# lc:product/[code]
-sub lc_product_route($request_ref) {
-	# check the product code looks like a number
-	if ($request_ref->{components}[1] =~ /^\d/) {
-		$request_ref->{redirect}
-			= $formatted_subdomain
-			. $request_ref->{canon_rel_url} . '/'
-			. $tag_type_singular{products}{$request_ref->{lc}} . '/'
-			. $request_ref->{components}[1];
-		redirect_to_url($request_ref, 302, $request_ref->{redirect});
+# small util for facets_route: get the tag type for a facet in singular or plural
+sub _get_facet_tagtype($component, $target_lc) {
+	my $tagtype = undef;
+	my $is_singular = undef;
+	my $lc = $target_lc;
+	# try plural first, this is the target everywhere (in case plural is the same as singular)
+	if (defined $tag_type_from_plural{$target_lc}{$component}) {
+		$tagtype = $tag_type_from_plural{$target_lc}{$component};
 	}
-	else {
-		$request_ref->{status_code} = 404;
-		$request_ref->{error_message} = lang("error_invalid_address");
+	elsif (defined $tag_type_from_plural{"en"}{$component}) {
+		$tagtype = $tag_type_from_plural{"en"}{$component};
+		$lc = "en";
 	}
-	return 1;
+	elsif (defined $tag_type_from_singular{$target_lc}{$component}) {
+		$tagtype = $tag_type_from_singular{$target_lc}{$component};
+		$is_singular = 1;
+	}
+	elsif (defined $tag_type_from_singular{"en"}{$component}) {
+		$tagtype = $tag_type_from_singular{"en"}{$component};
+		$is_singular = 1;
+		$lc = "en";
+	}
+	return ($tagtype, $lc, $is_singular);
 }
 
 sub facets_route($request_ref) {
 
+	my $is_obsolete_url = undef;
+
 	my $target_lc = $request_ref->{lc};
-	$request_ref->{canon_rel_url} = '';
+	# On pro platform, URLs are prefixed with the organization id: /org/org-id
+	$request_ref->{canon_rel_url} = get_owner_pretty_path($Owner_id);
 	my $canon_rel_url_suffix = '';
+
+	# add the facets prefix to the canonical_url
+	# the facets prefix may not be in older facet urls (before we prefixed them with /facets), in which case we don't consume the first component and mark the url obsolete
+	$request_ref->{canon_rel_url} .= "/facets";
+	if ($request_ref->{components}[0] eq "facets") {
+		shift @{$request_ref->{components}};
+	}
+	else {
+		$is_obsolete_url = 1;
+	}
 
 	# We may have a page number
 	if (scalar @{$request_ref->{components}} > 0) {
 		# The last component can be a page number
-		if (($request_ref->{components}[-1] =~ /^\d+$/) and ($request_ref->{components}[-1] <= 1000)) {
+		if ($request_ref->{components}[-1] =~ /^\d+$/) {
 			$request_ref->{page} = pop @{$request_ref->{components}};
 			$log->debug("got a page number", {$request_ref->{page}}) if $log->is_debug();
 		}
@@ -494,10 +598,16 @@ sub facets_route($request_ref) {
 	# Extract tag type / tag value pairs and store them in an array $request_ref->{tags}
 	# e.g. /category/breakfast-cereals/label/organic/brand/monoprix
 	extract_tagtype_and_tag_value_pairs_from_components($request_ref);
+	# get is_obsolete_url computation
+	$is_obsolete_url ||= $request_ref->{is_obsolete_url};
+	delete $request_ref->{is_obsolete_url};
 
+	# remaining components that are not in pairs
 	my @components = @{$request_ref->{components}};
 
-	# list of (categories) tags with stats for a nutriment
+	$log->debug("facets_route - components: ", @{$request_ref->{components}}) if $log->is_debug();
+
+	# special case: list of (categories) tags with stats for a nutriment
 	if (    ($#components == 1)
 		and (defined $tag_type_from_plural{$target_lc}{$components[0]})
 		and ($tag_type_from_plural{$target_lc}{$components[0]} eq "categories")
@@ -510,28 +620,25 @@ sub facets_route($request_ref) {
 		$canon_rel_url_suffix .= "/" . $components[1];
 		pop @components;
 		pop @components;
-		$log->debug("request looks like a list of tags - categories with nutrients",
-			{groupby => $request_ref->{groupby_tagtype}, stats_nid => $request_ref->{stats_nid}})
-			if $log->is_debug();
+		$log->debug(
+			"facets_route - request looks like a list of tags - categories with nutrients",
+			{groupby => $request_ref->{groupby_tagtype}, stats_nid => $request_ref->{stats_nid}}
+		) if $log->is_debug();
 	}
 
 	# if we have at least one component, check if the last component is a plural of a tagtype -> list of tags
 	if (defined $components[-1]) {
-
-		my $lc;
-		if (defined $tag_type_from_plural{$target_lc}{$components[-1]}) {
-			$lc = $target_lc;
-		}
-		elsif (defined $tag_type_from_plural{'en'}{$components[-1]}) {
-			$lc = 'en';
-		}
-
-		if (defined $lc) {
-			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
+		my ($tagtype, $lc, $is_singular) = _get_facet_tagtype($components[-1], $target_lc);
+		if (defined $tagtype) {
+			$request_ref->{groupby_tagtype} = $tagtype;
+			$is_obsolete_url ||= $is_singular;
+			pop @components;
 			# use $target_lc for canon url
 			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
-			$log->debug("request looks like a list of tags", {groupby => $request_ref->{groupby_tagtype}, lc => $lc})
-				if $log->is_debug();
+			$log->debug(
+				"facets_route - request looks like a list of tags",
+				{groupby => $request_ref->{groupby_tagtype}, lc => $lc}
+			) if $log->is_debug();
 		}
 	}
 
@@ -539,18 +646,34 @@ sub facets_route($request_ref) {
 	if ((defined $components[0]) and ($components[0] eq 'points')) {
 		$request_ref->{points} = 1;
 		$request_ref->{canon_rel_url} .= "/points";
-	}
-
-	if ($#components >= 0) {
-		# We have a component left, but we don't know what it is
-		$log->warn("invalid address, confused by number of components left", {left_components => \@components})
-			if $log->is_warn();
-		$request_ref->{status_code} = 404;
-		$request_ref->{error_message} = lang("error_invalid_address");
-		return;
+		shift @components;
 	}
 
 	$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;
+	$request_ref->{canon_rel_url} .= ("/" . $request_ref->{page}) if (defined $request_ref->{page});
+
+	if (scalar @components >= 1) {
+		# We have a component left, but we don't know what it is
+		# and we know we are the last route
+		$log->warn("facets_route - invalid address, confused by number of components left",
+			{left_components => \@components})
+			if $log->is_warn();
+		$request_ref->{status_code} = 404;
+		$request_ref->{error_message} = lang("error_invalid_address");
+		delete $request_ref->{canon_rel_url};
+		return;
+	}
+
+	if ($is_obsolete_url) {
+		# redirect to the canonical url with some minor modifications:
+		# remove lc: in tags and page number if it's 1
+		my $redirect_url = $request_ref->{canon_rel_url};
+		$redirect_url =~ s!/${target_lc}:!/!g;
+		$redirect_url =~ s!/1$!!;
+		$request_ref->{redirect} = $redirect_url;
+		$request_ref->{redirect} .= extension_and_query_parameters_to_redirect_url($request_ref);
+		$request_ref->{redirect_status} = 301;
+	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
 		$request_ref->{rate_limiter_bucket} = "facet_tags";
@@ -624,9 +747,10 @@ sub register_route($routes_to_register) {
 			# use a hash key for fast match
 			# do not overwrite existing routes (e.g. a text route that matches a well known route)
 			if (exists $routes{$pattern}) {
-				$log->warn("route already exists", {pattern => $pattern}) if $log->is_warn();
+				$log->debug("route already exists", {pattern => $pattern}) if $log->is_debug();
 			}
 			else {
+				$log->debug("added route", {pattern => $pattern}) if $log->is_debug();
 				$routes{$pattern} = {handler => $handler, opt => $opt};
 			}
 		}
@@ -658,7 +782,7 @@ sub match_route ($request_ref) {
 
 	my $tmp_query_string = join("/", @{$request_ref->{components}});
 	# components can be gradually eaten by handlers recusively.
-	# We can't rely on the full query string sanitized at the begining.
+	# We can't rely on the full query string sanitized at the beginning.
 	# e.g.
 	# (_analyze_request_impl)
 	# 	-> (match_route) 'org/[orgid]/product/1234'
@@ -700,7 +824,7 @@ sub sanitize_request($request_ref) {
 
 	# Remove ref and utm_* parameters
 	# Examples:
-	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
+	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=x.com&utm_campaign=buffer
 	# https://world.openfoodfacts.org/?ref=producthunt
 
 	if ($request_ref->{query_string} =~ /(\&|\?)(utm_|ref=)/) {
@@ -730,6 +854,7 @@ sub sanitize_request($request_ref) {
 
 			param($parameter, 1);
 			$request_ref->{query_string} =~ s/\.$parameter(\b|$)//;
+			$request_ref->{extension} = $parameter;
 
 			$log->debug("parameter was set from extension in URL path",
 				{parameter => $parameter, value => $request_ref->{$parameter}})
@@ -744,7 +869,8 @@ sub sanitize_request($request_ref) {
 	# some sites like FB can add query parameters, remove all of them
 	# make sure that all query parameters of interest have already been consumed above
 
-	$request_ref->{query_string} =~ s/(\&|\?).*//;
+	$request_ref->{query_string} =~ s/(?:\&|\?)(.*)//;
+	$request_ref->{query_parameters} = $1;
 
 	$log->debug("analyzing query_string, step 3 - removed all query parameters",
 		{query_string => $request_ref->{query_string}})
@@ -776,9 +902,14 @@ sub sanitize_request($request_ref) {
 
 Extract tag type / tag value pairs and store them in an array $request_ref->{tags}
 
-e.g. /category/breakfast-cereals/label/organic/brand/monoprix
+e.g. /categories/breakfast-cereals/labels/organic/brands/monoprix
 
 Tags can be prefixed by a - to indicate that we want products without this tag
+
+Tags that where not recognized are left in $request_ref->{components}
+
+Note that we also handle singular tags types like "brand" or "category",
+but mark them as obsolete (needs a redirect)
 
 =cut
 
@@ -788,31 +919,28 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref) {
 
 	$request_ref->{tags} = [];
 	my $components_ref = $request_ref->{components};
+	my $is_obsolete_url = undef;
 
-	while (
-		(scalar @$components_ref >= 2)
-		and (  (defined $tag_type_from_singular{$target_lc}{$components_ref->[0]})
-			or (defined $tag_type_from_singular{"en"}{$components_ref->[0]}))
-		)
-	{
-		my $tagtype;
+	# unpacking tags / values pairs
+	my $found = 1;
+	while ((scalar @$components_ref >= 2) and $found) {
+		my ($tagtype, $lc, $is_singular) = _get_facet_tagtype($components_ref->[0], $target_lc);
+		$found = defined $tagtype;
+		next unless $found;
+
+		shift @$components_ref;    # consume tag type
+								   # even one singular make the url obsolete
+		$is_obsolete_url ||= $is_singular;
+
 		my $tag_prefix;
 		my $tag;
 		my $tagid;
 
-		$log->debug("request looks like a singular tag",
-			{lc => $target_lc, tagtype => $components_ref->[0], tagid => $components_ref->[1]})
+		$log->debug("request looks like a tagtype / tag value pair",
+			{lc => $target_lc, tagtype => $tagtype, tagid => $components_ref->[1]})
 			if $log->is_debug();
 
-		# If the first component is a valid singular tag type, use it as the tag type
-		if (defined $tag_type_from_singular{$target_lc}{$components_ref->[0]}) {
-			$tagtype = $tag_type_from_singular{$target_lc}{shift @$components_ref};
-		}
-		# Otherwise, use "en" as the default language and try again
-		else {
-			$tagtype = $tag_type_from_singular{"en"}{shift @$components_ref};
-		}
-
+		# consume
 		$tag = shift @$components_ref;
 
 		# if there is a leading dash - before the tag, it indicates we want products without it
@@ -847,7 +975,7 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref) {
 		}
 
 		$request_ref->{canon_rel_url}
-			.= "/" . $tag_type_singular{$tagtype}{$target_lc} . "/" . $tag_prefix . $tagid;
+			.= "/" . $tag_type_plural{$tagtype}{$target_lc} . "/" . $tag_prefix . $tagid;
 
 		# Add the tag properties to the list of tags
 		push @{$request_ref->{tags}}, {tagtype => $tagtype, tag => $tagid, tagid => $tagid, tag_prefix => $tag_prefix};
@@ -869,6 +997,8 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref) {
 			$request_ref->{tag2_prefix} = $tag_prefix;
 		}
 	}
+
+	$request_ref->{is_obsolete_url} = $is_obsolete_url;
 
 	return;
 }
@@ -1021,6 +1151,15 @@ sub set_rate_limit_attributes ($request_ref, $ip) {
 			else {
 				# The user has reached the rate-limit, we block the request
 				$request_ref->{rate_limiter_blocking} = 1;
+
+				# Unless the IP is in an allowed block
+				if (defined $options{rate_limit_allow_list_blocks}) {
+					if (Net::CIDR::cidrlookup($ip, @{$options{rate_limit_allow_list_blocks}})) {
+						$request_ref->{rate_limiter_blocking} = 0;
+						$block_message
+							= "Rate-limiter blocking is disabled for the user, but the user has reached the rate-limit and the IP address is in an allowed block";
+					}
+				}
 			}
 		}
 		else {

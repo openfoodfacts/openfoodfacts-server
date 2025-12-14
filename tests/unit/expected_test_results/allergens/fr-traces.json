@@ -1,0 +1,42 @@
+{
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_hierarchy" : [],
+   "allergens_tags" : [],
+   "ingredients_lc" : "fr",
+   "ingredients_text" : "Traces éventuelles de céréales contenant du gluten, fruits à coques, arachide, soja et oeuf.",
+   "ingredients_text_fr" : "Traces éventuelles de céréales contenant du gluten, fruits à coques, arachide, soja et oeuf.",
+   "ingredients_text_with_allergens" : "Traces éventuelles de céréales contenant du <span class=\"allergen\">gluten</span>, <span class=\"allergen\">fruits à coques</span>, <span class=\"allergen\">arachide</span>, <span class=\"allergen\">soja</span> et <span class=\"allergen\">oeuf</span>.",
+   "ingredients_text_with_allergens_fr" : "Traces éventuelles de céréales contenant du <span class=\"allergen\">gluten</span>, <span class=\"allergen\">fruits à coques</span>, <span class=\"allergen\">arachide</span>, <span class=\"allergen\">soja</span> et <span class=\"allergen\">oeuf</span>.",
+   "lang" : "fr",
+   "languages" : {
+      "en:french" : 1
+   },
+   "languages_codes" : {
+      "fr" : 1
+   },
+   "languages_hierarchy" : [
+      "en:french"
+   ],
+   "languages_tags" : [
+      "en:french",
+      "en:1"
+   ],
+   "lc" : "fr",
+   "traces" : "",
+   "traces_from_ingredients" : "gluten, fruits à coques, arachide, soja, oeuf",
+   "traces_hierarchy" : [
+      "en:eggs",
+      "en:gluten",
+      "en:nuts",
+      "en:peanuts",
+      "en:soybeans"
+   ],
+   "traces_tags" : [
+      "en:eggs",
+      "en:gluten",
+      "en:nuts",
+      "en:peanuts",
+      "en:soybeans"
+   ]
+}

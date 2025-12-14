@@ -52,6 +52,12 @@ my @tests = (
 	# allergens in parenthesis should not change the nova score but should appear in allergens
 	[{lc => "hr", ingredients_text_hr => "Krupica od durum pšenice (gluten), voda."}, 1],
 
+	# added nova:en: 4 property to some processings
+	[{lc => "fr", ingredients_text_fr => "Farine de blé modifiée"}, 4],
+	[{lc => "en", ingredients_text_en => "Modified cornflour"}, 4],
+	[{lc => "en", ingredients_text_en => "Modified whey"}, 4],
+	[{lc => "en", ingredients_text_en => "Modified strawberry"}, 4],
+
 );
 
 foreach my $test_ref (@tests) {

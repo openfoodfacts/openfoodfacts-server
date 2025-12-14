@@ -143,9 +143,9 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
+                     "panel_group_id" : "packaging",
                      "panel_ids" : [
-                        "packaging_recycling"
+                        "packaging"
                      ],
                      "title" : "Packaging"
                   }
@@ -163,7 +163,7 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "palm_oil"
+                        "threatened_species"
                      ],
                      "title" : "Threatened species"
                   }
@@ -245,6 +245,26 @@
                "title" : "Green-Score C",
                "type" : "grade"
             },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "environmental_score_adjustments" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "environmental_score_origins_of_ingredients",
+                        "environmental_score_packaging",
+                        "environmental_score_production_system",
+                        "environmental_score_threatened_species"
+                     ]
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
             "topics" : [
                "environment"
             ]
@@ -558,7 +578,7 @@
             "title_element" : {
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
-               "subtitle" : "Product: Some product - 100 g",
+               "subtitle" : "Product: Some product – 100 g",
                "title" : "Impact for this product: C (Score: 47/100)",
                "type" : "grade"
             },
@@ -587,6 +607,7 @@
             ],
             "evaluation" : "unknown",
             "expanded" : false,
+            "half_width_on_mobile" : true,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
@@ -598,13 +619,40 @@
                "environment"
             ]
          },
+         "packaging" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "title" : "Packaging with a medium impact"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
          "packaging_components" : {
             "elements" : [
                {
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 × \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
@@ -615,7 +663,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "bad",
-                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 × \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Discard",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
@@ -626,7 +674,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "neutral",
-                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 × \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
                      "icon_alt" : "Unknown",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
@@ -747,39 +795,24 @@
                "environment"
             ]
          },
-         "packaging_recycling" : {
+         "root" : {
             "elements" : [
                {
                   "element_type" : "panel",
                   "panel_element" : {
-                     "panel_id" : "packaging_components"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_materials"
+                     "panel_id" : "environment_card"
                   }
                }
             ],
-            "evaluation" : "average",
             "expanded" : true,
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "title" : "Packaging with a medium impact"
-            },
-            "topics" : [
-               "environment"
-            ]
+            "type" : "root"
          },
-         "palm_oil" : {
+         "threatened_species" : {
             "elements" : [
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> \n                    ",
+                     "html" : "\n                        <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> \n                        ",
                      "type" : "summary"
                   }
                }
@@ -795,18 +828,6 @@
             "topics" : [
                "environment"
             ]
-         },
-         "root" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "environment_card"
-                  }
-               }
-            ],
-            "expanded" : true,
-            "type" : "root"
          }
       }
    },

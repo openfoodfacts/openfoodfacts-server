@@ -29,6 +29,7 @@
                "id" : "low_salt",
                "missing" : "Missing nutrition facts",
                "name" : "Salt",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Salt in unknown quantity"
             },
@@ -38,6 +39,7 @@
                "id" : "low_fat",
                "missing" : "Missing nutrition facts",
                "name" : "Fat",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Fat in unknown quantity"
             },
@@ -47,6 +49,7 @@
                "id" : "low_sugars",
                "missing" : "Missing nutrition facts",
                "name" : "Sugars",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Sugars in unknown quantity"
             },
@@ -56,6 +59,7 @@
                "id" : "low_saturated_fat",
                "missing" : "Missing nutrition facts",
                "name" : "Saturated fat",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Saturated fat in unknown quantity"
             }
@@ -244,7 +248,8 @@
             }
          ],
          "id" : "ingredients_analysis",
-         "name" : "Ingredients"
+         "name" : "Ingredients",
+         "warning" : "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
       },
       {
          "attributes" : [
@@ -275,8 +280,7 @@
       {
          "attributes" : [
             {
-               "description" : "",
-               "description_short" : "Unknown environmental impact",
+               "description_short" : "Missing a precise category",
                "grade" : "unknown",
                "icon_url" : "https://server_domain/images/attributes/dist/green-score-unknown.svg",
                "id" : "ecoscore",
@@ -346,11 +350,35 @@
       "en:code-missing",
       "en:created-missing"
    ],
+   "data_quality_completeness_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-to-be-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed"
+   ],
+   "data_quality_dimensions" : {
+      "accuracy" : {
+         "overall" : "0.00"
+      },
+      "completeness" : {
+         "general_information" : "0.00",
+         "ingredients" : "0.00",
+         "nutrition" : "0.33",
+         "overall" : "0.20",
+         "packaging" : "0.50"
+      }
+   },
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -359,9 +387,19 @@
       "en:main-language-missing",
       "en:code-missing",
       "en:created-missing",
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-to-be-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed",
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
@@ -624,6 +662,9 @@
       "unknown"
    ],
    "food_groups_tags" : [],
+   "images" : {
+      "selected" : {}
+   },
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9510",
@@ -676,15 +717,6 @@
       "en:maybe-vegan",
       "en:maybe-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:tapioca",
-      "en:starch",
-      "en:palm-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:palm-oil-and-fat",
-      "en:enzyme"
-   ],
    "ingredients_lc" : "en",
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
@@ -722,7 +754,7 @@
       "en:tapioca"
    ],
    "ingredients_without_ecobalyse_ids_n" : 2,
-   "known_ingredients_n" : 7,
+   "known_ingredients_n" : 3,
    "languages" : {},
    "languages_codes" : {},
    "languages_hierarchy" : [],
@@ -758,10 +790,6 @@
          [
             "ingredients",
             "en:starch"
-         ],
-         [
-            "ingredients",
-            "en:enzyme"
          ]
       ]
    },

@@ -45,9 +45,9 @@ TXT
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
-use ProductOpener::Store qw/retrieve store/;
+use ProductOpener::Store qw/retrieve_object store_object object_path_exists move_object remove_object link_object/;
 use ProductOpener::Paths qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -111,12 +111,12 @@ while (my $product_ref = $cursor->next) {
 
 	print STDERR "reverting product $code\n";
 
-	if (!-e "$BASE_DIRS{PRODUCTS}/$path") {
+	if (!object_path_exists("$BASE_DIRS{PRODUCTS}/$path")) {
 		print STDERR "$BASE_DIRS{PRODUCTS}/$path does not exist, skipping\n";
 		next;
 	}
 
-	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}
@@ -163,14 +163,12 @@ while (my $product_ref = $cursor->next) {
 			# some products seem to have the same rev multiple times in the changes history
 			# avoid putting them twice
 			if (not exists $deleted_revs{$rev}) {
-				my $target = "$path/$rev.sto";
+				my $target = "$path/$rev";
 				$target =~ s/\//_/g;    # substitute "/" by _ to have a filename
-				my $cmd = "mv $BASE_DIRS{PRODUCTS}/$path/$rev.sto $BASE_DIRS{REVERTED_PRODUCTS}/$target";
-				print STDERR "$code - $cmd\n";
+				print STDERR "$code - moving revision $target\n";
 				if (not $pretend) {
 					# move revision to reverted folder to keep track
-					move("$BASE_DIRS{PRODUCTS}/$path/$rev.sto", "$BASE_DIRS{REVERTED_PRODUCTS}/$target")
-						or die "Could not execute $cmd : $!\n";
+					move_object("$BASE_DIRS{PRODUCTS}/$path/$rev", "$BASE_DIRS{REVERTED_PRODUCTS}/$target");
 				}
 				# mark revision as removed
 				$deleted_revs{$rev} = 1;
@@ -181,38 +179,29 @@ while (my $product_ref = $cursor->next) {
 	# We have moved all revisions we don't want and have a list in %deleted_revs
 	# No update the product
 	if ($after_first_change) {
-		my $target = "$path/product.sto";
-		$target =~ s/\//_/g;
-		# keep a copy of current product
-		my $cmd = "mv $BASE_DIRS{PRODUCTS}/$path/product.sto $BASE_DIRS{REVERTED_PRODUCTS}/$target";
-		print STDERR "$code - $cmd\n";
-		# move does not work for symlinks on different file systems
-		#move("$BASE_DIRS{PRODUCTS}/$path/product.sto", "$BASE_DIRS{REVERTED_PRODUCTS}/$target") or die "Could not execute $cmd : $!\n";
+		# Just remove the original product link (no point copying it)
+		print STDERR "$code - removing product\n";
 		if (not $pretend) {
-			(system($cmd) == 0) or die "Could not execute $cmd : $!\n";
+			remove_object("$BASE_DIRS{PRODUCTS}/$path/product");
 		}
-		# and a copy of changes.sto
-		$target = "$path/changes.sto" . "." . time();
+		# move a copy of changes.sto
+		my $target = "$path/changes" . "." . time();
 		$target =~ s/\//_/g;
-		$cmd = "mv $BASE_DIRS{PRODUCTS}/$path/changes.sto $target";
-		print STDERR "$code - $cmd\n";
+		print STDERR "$code - moving changes $target\n";
 		if (not $pretend) {
-			move("$BASE_DIRS{PRODUCTS}/$path/changes.sto", "$BASE_DIRS{REVERTED_PRODUCTS}/$target")
-				or die "Could not execute $cmd : $!\n";
+			move_object("$BASE_DIRS{PRODUCTS}/$path/changes", "$BASE_DIRS{REVERTED_PRODUCTS}/$target");
 		}
 		# we had edits prior target user edits, rewind product to those changes
 		if ($previous_rev > 0) {
 			# restore revision prior to target user changes
-			$cmd = "ln -s $previous_rev.sto $BASE_DIRS{PRODUCTS}/$path/product.sto";
-			print STDERR "$code - $cmd\n";
+			print STDERR "$code - linking product to $previous_rev\n";
 			if (not $pretend) {
-				symlink("$previous_rev.sto", "$BASE_DIRS{PRODUCTS}/$path/product.sto")
-					or die "Could not execute $cmd : $!\n";
+				link_object($previous_rev, "$BASE_DIRS{PRODUCTS}/$path/product");
 			}
 			# restore changes.sto
-			print STDERR "updating $BASE_DIRS{PRODUCTS}/$path/changes.sto\n";
+			print STDERR "updating $BASE_DIRS{PRODUCTS}/$path/changes\n";
 			if (not $pretend) {
-				store("$BASE_DIRS{PRODUCTS}/$path/changes.sto", $new_changes_ref);
+				store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $new_changes_ref);
 			}
 		}
 

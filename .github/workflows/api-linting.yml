@@ -1,0 +1,31 @@
+name: OpenAPI Spec Linting
+
+on:
+  pull_request:
+    paths:
+      - 'docs/api/ref/**/*.yaml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/api/ref/**/*.yaml'
+
+jobs:
+  lint-api:
+    name: Lint OpenAPI Spec Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: Run Spectral lint
+        uses: stoplightio/spectral-action@latest
+        with:
+          file_glob: 'docs/api/ref/*.yaml'
+          spectral_ruleset: .spectral.yaml

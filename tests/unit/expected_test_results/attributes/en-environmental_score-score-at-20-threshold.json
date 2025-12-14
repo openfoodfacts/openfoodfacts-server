@@ -25,6 +25,7 @@
                "id" : "low_salt",
                "missing" : "Missing nutrition facts",
                "name" : "Salt",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Salt in unknown quantity"
             },
@@ -34,6 +35,7 @@
                "id" : "low_fat",
                "missing" : "Missing nutrition facts",
                "name" : "Fat",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Fat in unknown quantity"
             },
@@ -43,6 +45,7 @@
                "id" : "low_sugars",
                "missing" : "Missing nutrition facts",
                "name" : "Sugars",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Sugars in unknown quantity"
             },
@@ -52,6 +55,7 @@
                "id" : "low_saturated_fat",
                "missing" : "Missing nutrition facts",
                "name" : "Saturated fat",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Saturated fat in unknown quantity"
             }
@@ -237,7 +241,8 @@
             }
          ],
          "id" : "ingredients_analysis",
-         "name" : "Ingredients"
+         "name" : "Ingredients",
+         "warning" : "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
       },
       {
          "attributes" : [
@@ -350,10 +355,34 @@
       "en:code-missing",
       "en:created-missing"
    ],
+   "data_quality_completeness_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-to-be-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed"
+   ],
+   "data_quality_dimensions" : {
+      "accuracy" : {
+         "overall" : "0.00"
+      },
+      "completeness" : {
+         "general_information" : "0.00",
+         "ingredients" : "0.00",
+         "nutrition" : "0.33",
+         "overall" : "0.20",
+         "packaging" : "0.50"
+      }
+   },
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -362,8 +391,18 @@
       "en:main-language-missing",
       "en:code-missing",
       "en:created-missing",
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutriments-to-be-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed",
       "en:no-packaging-data",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
@@ -780,6 +819,9 @@
       "d"
    ],
    "food_groups_tags" : [],
+   "images" : {
+      "selected" : {}
+   },
    "ingredients_text" : "",
    "languages" : {},
    "languages_codes" : {},

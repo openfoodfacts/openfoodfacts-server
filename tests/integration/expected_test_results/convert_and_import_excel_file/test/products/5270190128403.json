@@ -18,9 +18,13 @@
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "brands" : "World Test",
+   "brands_hierarchy" : [
+      "xx:World Test"
+   ],
    "brands_imported" : "World Test",
+   "brands_lc" : "xx",
    "brands_tags" : [
-      "world-test"
+      "xx:world-test"
    ],
    "categories_properties" : {},
    "categories_properties_tags" : [
@@ -61,21 +65,61 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
+   "data_quality_completeness_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:ingredients-fr-photo-to-be-selected",
+      "en:ingredients-fr-completed",
+      "en:ingredients-completed-at-least-for-one-language",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-to-be-completed",
+      "en:nutriments-to-be-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-completed",
+      "en:expiration-date-to-be-completed"
+   ],
+   "data_quality_dimensions" : {
+      "accuracy" : {
+         "overall" : "0.00"
+      },
+      "completeness" : {
+         "general_information" : "0.40",
+         "ingredients" : "0.50",
+         "nutrition" : "0.00",
+         "overall" : "0.33",
+         "packaging" : "0.50"
+      }
+   },
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
    ],
    "data_quality_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:ingredients-fr-photo-to-be-selected",
+      "en:ingredients-fr-completed",
+      "en:ingredients-completed-at-least-for-one-language",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-to-be-completed",
+      "en:nutriments-to-be-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-completed",
+      "en:expiration-date-to-be-completed",
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:environmental-score-extended-data-not-computed",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
@@ -345,6 +389,11 @@
    "generic_name_fr" : "Bananes",
    "generic_name_fr_imported" : "Bananes",
    "id" : "5270190128403",
+   "images" : {
+      "selected" : {
+         "ingredients" : {}
+      }
+   },
    "informers_tags" : [
       "test-user"
    ],
@@ -367,10 +416,6 @@
       "en:palm-oil-free",
       "en:vegan",
       "en:vegetarian"
-   ],
-   "ingredients_hierarchy" : [
-      "en:banana",
-      "en:fruit"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 1,
@@ -402,7 +447,7 @@
    "ingredients_without_ecobalyse_ids" : [],
    "ingredients_without_ecobalyse_ids_n" : 0,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
-   "known_ingredients_n" : 2,
+   "known_ingredients_n" : 1,
    "lang" : "fr",
    "lang_imported" : "fr",
    "languages" : {
@@ -614,6 +659,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
+   "schema_version" : 1002,
    "sources" : [
       {
          "fields" : [

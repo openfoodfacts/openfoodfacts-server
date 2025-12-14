@@ -1,0 +1,60 @@
+name: Test Dynamic Test Grouping
+
+on:
+  workflow_dispatch:
+
+      
+permissions:
+  contents: read
+  
+jobs:
+  test_grouping:
+    name: Test Dynamic Test Grouping
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+    
+    - name: Test script locally
+      run: |
+        echo "🥫 Testing dynamic test grouper script..."
+        python3 scripts/dynamic_test_grouper.py --type=unit --groups=6
+        
+        echo ""
+        echo "🥫 Testing integration test grouping..."
+        python3 scripts/dynamic_test_grouper.py --type=integration --groups=9
+        
+        echo ""
+        echo "🥫 Testing cache functionality..."
+        mkdir -p .test_groups_cache
+        python3 scripts/dynamic_test_grouper.py --type=unit --groups=6 > .test_groups_cache/unit_groups.mk
+        
+        echo "Generated Makefile groups:"
+        cat .test_groups_cache/unit_groups.mk | head -3
+        
+        echo ""
+        echo "🥫 Testing force regeneration..."
+        python3 scripts/dynamic_test_grouper.py --type=unit --groups=6 --force
+    
+    - name: Test update script
+      run: |
+        echo "🥫 Testing update script..."
+        ./.github/scripts/update_test_groups.sh --stats
+        
+        echo ""
+        echo "🥫 Checking generated files..."
+        ls -la .test_groups_cache/
+    
+    - name: Test with Docker backend
+      run: |
+        echo "🥫 Testing with Docker backend..."
+        # We'll use the backend container to test the script
+        docker run --rm -v "$(pwd):/opt/product-opener" \
+          --workdir /opt/product-opener \
+          ubuntu:20.04 \
+          bash -c "
+            apt-get update -qq &&
+            apt-get install -y -qq python3 &&
+            python3 scripts/dynamic_test_grouper.py --type=unit --groups=3
+          "

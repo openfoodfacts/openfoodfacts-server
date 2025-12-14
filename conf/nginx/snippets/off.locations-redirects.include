@@ -218,32 +218,3 @@ location = /donate {
 	return 301 https://$host/donate-to-open-food-facts;
 }
 
-# 2022-06-13 Redirect press pages to blog post about the new Flutter app
-# FR
-location = /presse {
-	return 302 https://blog.openfoodfacts.org/fr/communique-de-presse-nouvelle-appli;
-}
-
-# EN
-location = /press {
-	return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
-}
-
-# ES
-location = /prensa {
-	    return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
-}
-
-# IT
-location = /stampa {
-	    return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
-}
-
-# EN
-location = /press-and-blogs {
-	return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
-}
-
-location = /pers {
-	return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
-}

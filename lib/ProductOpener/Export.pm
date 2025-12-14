@@ -93,13 +93,14 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/retrieve_json/;
+use ProductOpener::Store qw/retrieve_object/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/%language_fields %tags_fields %taxonomy_fields list_taxonomy_tags_in_language/;
 use ProductOpener::Display qw/search_and_export_products/;
 use ProductOpener::Food qw/%nutriments_tables/;
 use ProductOpener::Data qw/get_products_collection/;
-use ProductOpener::Products qw/add_images_urls_to_product product_path/;
+use ProductOpener::Products qw/product_path/;
+use ProductOpener::Images qw/add_images_urls_to_product $valid_image_types_regexp/;
 use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 
@@ -165,6 +166,12 @@ and importing to the public database.
 
 Obsolete products are in the products_obsolete collection.
 
+=head4 mongo_timeout_ms - optional - specific mongoDB timeout
+
+Use it if you need to export big collections.
+This should only be used from scripts
+(not for the web, as it would monopolize Apache workers and make server unresponsive)
+
 =head4 Return value
 
 Count of the exported documents.
@@ -189,6 +196,7 @@ sub export_csv ($args_ref) {
 	my $export_canonicalized_tags_fields
 		= $args_ref->{export_canonicalized_tags_fields};    # e.g. include "categories_tags" and not only "categories"
 	my $export_cc = $args_ref->{cc} || "world";    # used to localize Environmental-Score fields
+	my $mongo_timeout_ms = $args_ref->{mongo_timeout_ms} || undef;
 
 	$log->debug("export_csv - start", {args_ref => $args_ref}) if $log->is_debug();
 
@@ -215,12 +223,14 @@ sub export_csv ($args_ref) {
 
 		my $obsolete = ($collection eq "products_obsolete") ? 1 : 0;
 
-		my $count = get_products_collection({obsolete => $obsolete})->count_documents($query_ref);
+		my $count = get_products_collection({obsolete => $obsolete, timeout => $mongo_timeout_ms})
+			->count_documents($query_ref);
 
 		$log->debug("export_csv - documents to export", {count => $count, collection => $collection})
 			if $log->is_debug();
 
-		$cursors{$collection} = get_products_collection({obsolete => $obsolete})->find($query_ref);
+		$cursors{$collection}
+			= get_products_collection({obsolete => $obsolete, timeout => $mongo_timeout_ms})->find($query_ref);
 		$cursors{$collection}->immortal(1);
 	}
 
@@ -238,7 +248,7 @@ sub export_csv ($args_ref) {
 		# and a sort key as the value so that the CSV columns are in the order of $options{import_export_fields_groups}
 		my %populated_fields = ();
 
-		# Loop on collections
+		# Loop on collections
 		foreach my $collection (@collections) {
 
 			while (my $product_ref = $cursors{$collection}->next) {
@@ -543,7 +553,7 @@ sub export_csv ($args_ref) {
 
 					if (not defined $scans_ref) {
 						# Load the scan data
-						$scans_ref = retrieve_json("$BASE_DIRS{PRODUCTS}/$product_path/scans.json");
+						$scans_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$product_path/scans");
 					}
 					if (not defined $scans_ref) {
 						$scans_ref = {};
@@ -591,33 +601,44 @@ sub export_csv ($args_ref) {
 							$added_images_urls = 1;
 						}
 
-						if ($field =~ /^image_(.*)_file/) {
+						# Other images
+						if ($field =~ /^image_other_(\d+)_file$/) {
 							# File path for the image on the server, used for exporting from producers platform to public database
+							my $other = $1;
 
-							my $imagefield = $1;
-
-							if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
+							if (defined $other_images{$product_ref->{code} . "." . $other}) {
 								$value
 									= "$BASE_DIRS{PRODUCTS_IMAGES}/"
 									. $product_path . "/"
-									. $product_ref->{images}{$imagefield}{imgid} . ".jpg";
-							}
-							elsif (defined $other_images{$product_ref->{code} . "." . $imagefield}) {
-								$value
-									= "$BASE_DIRS{PRODUCTS_IMAGES}/"
-									. $product_path . "/"
-									. $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
+									. $other_images{$product_ref->{code} . "." . $other}{imgid} . ".jpg";
 							}
 						}
-						elsif ($field =~ /^image_(.*)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/)
+
+						# Selected images
+						elsif ($field =~ /^image_(.+)_(.+)_file/) {
+							# File path for the image on the server, used for exporting from producers platform to public database
+
+							my $image_type = $1;
+							my $image_lc = $2;
+
+							my $imgid = deep_get($product_ref, ("images", "selected", $image_type, $image_lc, "imgid"));
+
+							if (defined $imgid) {
+								$value = "$BASE_DIRS{PRODUCTS_IMAGES}/" . $product_path . "/" . $imgid . ".jpg";
+							}
+						}
+
+						elsif ($field
+							=~ /^image_($valid_image_types_regexp)_(\w\w)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/
+							)
 						{
 							# Coordinates for image cropping
-							my $imagefield = $1;
-							my $coord = $2;
+							my $image_type = $1;
+							my $image_lc = $2;
+							my $coord = $3;
 
-							if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
-								$value = $product_ref->{images}{$imagefield}{$coord};
-							}
+							$value = deep_get($product_ref,
+								("images", "selected", $image_type, $image_lc, "generation", $coord));
 						}
 						elsif ($field =~ /^image_(ingredients|nutrition|packaging)_json$/) {
 							if (defined $product_ref->{"image_$1_url"}) {
@@ -690,23 +711,32 @@ sub include_image_paths ($product_ref, $populated_fields_ref, $other_images_ref)
 
 	# First list the selected images
 	my %selected_images = ();
-	foreach my $imageid (sort keys %{$product_ref->{images}}) {
+	if (defined $product_ref->{images}{selected}) {
+		foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
+			foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
 
-		if ($imageid =~ /^(front|ingredients|nutrition|packaging|other)_(\w\w)$/) {
+				$selected_images{$product_ref->{images}{selected}{$image_type}{$image_lc}{imgid}} = 1;
+				$populated_fields_ref->{"image_" . $image_type . "_" . $image_lc . "_file"}
+					= sprintf("%08d", 10 * 1000) . "_" . $image_type . "_" . $image_lc;
 
-			$selected_images{$product_ref->{images}{$imageid}{imgid}} = 1;
-			$populated_fields_ref->{"image_" . $imageid . "_file"} = sprintf("%08d", 10 * 1000) . "_" . $imageid;
-			# Also export the crop coordinates
-			foreach my $coord (qw(x1 x2 y1 y2 angle normalize white_magic coordinates_image_size)) {
-				if (
-					(defined $product_ref->{images}{$imageid}{$coord})
-					and (  ($coord !~ /^(x|y)/)
-						or ($product_ref->{images}{$imageid}{$coord} != -1)
-					)    # -1 is passed when the image is not cropped
-					)
-				{
-					$populated_fields_ref->{"image_" . $imageid . "_" . $coord}
-						= sprintf("%08d", 10 * 1000) . "_" . $imageid . "_" . $coord;
+				# Also export the crop coordinates
+				if (defined $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}) {
+
+					foreach my $gen_field (qw(x1 x2 y1 y2 angle normalize white_magic coordinates_image_size)) {
+
+						my $gen_value = deep_get($product_ref,
+							("images", "selected", $image_type, $image_lc, "generation", $gen_field));
+
+						if (
+							(defined $gen_value)
+							and (  ($gen_field !~ /^(x|y)/)
+								or ($gen_value != -1))    # -1 is passed when the image is not cropped
+							)
+						{
+							$populated_fields_ref->{"image_" . $image_type . "_" . $image_lc . "_" . $gen_field}
+								= sprintf("%08d", 10 * 1000) . "_" . $image_type . "_" . $image_lc . "_" . $gen_field;
+						}
+					}
 				}
 			}
 		}
@@ -714,16 +744,19 @@ sub include_image_paths ($product_ref, $populated_fields_ref, $other_images_ref)
 
 	# Then list unselected images as other
 	my $other = 0;
-	foreach my $imageid (sort keys %{$product_ref->{images}}) {
+	if (defined $product_ref->{images}{uploaded}) {
+		foreach my $imageid (sort keys %{$product_ref->{images}{uploaded}}) {
 
-		if (($imageid =~ /^(\d+)$/) and (not defined $selected_images{$imageid})) {
-			$other++;
-			$populated_fields_ref->{"image_" . "other_" . $other . "_file"}
-				= sprintf("%08d", 10 * 1000) . "_" . "other_" . $other;
-			# Keep the imgid for second loop on products
-			$other_images_ref->{$product_ref->{code} . "." . "other_" . $other} = {imgid => $imageid};
+			if (($imageid =~ /^(\d+)$/) and (not defined $selected_images{$imageid})) {
+				$other++;
+				$populated_fields_ref->{"image_" . "other_" . $other . "_file"}
+					= sprintf("%08d", 10 * 1000) . "_" . "other_" . $other;
+				# Keep the imgid for second loop on products
+				$other_images_ref->{$product_ref->{code} . "." . "other_" . $other} = {imgid => $imageid};
+			}
 		}
 	}
+
 	return;
 }
 

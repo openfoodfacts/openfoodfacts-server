@@ -274,24 +274,24 @@ $product_ref = {
 		sodium_100g => 0.4,    # above 0.12 and 0.04 and 0.005
 		salt_100g => 1,    # above 0.3 and 0.1 and 0.0125
 		fiber_100g => 2,    # below 3 and 6
-		"vitamin-a_100g" => 0.0007,    # below 0.0008 and 0.0016
-		"vitamin-d_100g" => 0.000004,    # below 0.000005 and 0.00001
-		"vitamin-e_100g" => 0.009,    # below 0.01 and 0.02
-		"vitamin-c_100g" => 0.05,    # below 0.06 and 0.12
-		"vitamin-b1_100g" => 0.0013,    # below 0.0014 and 0.0028
-		"vitamin-b2_100g" => 0.0015,    # below 0.0016 and 0.0032
-		"vitamin-b3_100g" => 0.017,    # below 0.018 and 0.036
-		"vitamin-b6_100g" => 0.001,    # below 0.002 and 0.004
-		"vitamin-b9_100g" => 0.0001,    # below 0.0002 and 0.0004
-		"vitamin-b12_100g" => 0.0000009,    # below 0.000001 and 0.000002
-		"biotin_100g" => 0.00014,    # below 0.00015 and 0.0003
-		"pantothenic-acid_100g" => 0.005,    # below 0.006 and 0.012
-		"calcium_100g" => 0.7,    # below 0.8 and 1.6
-		"phosphorus_100g" => 0.7,    # below 0.8 and 1.6
-		"iron_100g" => 0.013,    # below 0.014 and 0.028
-		"magnesium_100g" => 0.2,    # below 0.3 and 0.6
-		"zinc_100g" => 0.014,    # below 0.015 and 0.03
-		"iodine_100g" => 0.00014,    # below 0.00015 and 0.0003
+		"vitamin-a_100g" => 0.00011,    # below 0.00012 and 0.00024 (15% of 800 µg and 1600 µg)
+		"vitamin-d_100g" => 0.00000074,    # below 0.00000075 and 0.0000015 (15% of 5 µg and 10 µg)
+		"vitamin-e_100g" => 0.0014,    # below 0.0015 and 0.003 (15% of 10 mg and 20 mg)
+		"vitamin-c_100g" => 0.008,    # below 0.009 and 0.018 (15% of 60 mg and 120 mg)
+		"vitamin-b1_100g" => 0.0002,    # below 0.00021 and 0.00042 (15% of 1.4 mg and 2.8 mg)
+		"vitamin-b2_100g" => 0.00023,    # below 0.00024 and 0.00048 (15% of 1.6 mg and 3.2 mg)
+		"vitamin-b3_100g" => 0.0026,    # below 0.0027 and 0.0054 (15% of 18 mg and 36 mg)
+		"vitamin-b6_100g" => 0.0002,    # below 0.0003 and 0.0006 (15% of 2 mg and 4 mg)
+		"vitamin-b9_100g" => 0.00002,    # below 0.00003 and 0.00006 (15% of 200 µg and 400 µg)
+		"vitamin-b12_100g" => 0.00000014,    # below 0.00000015 and 0.0000003 (15% of 1 µg and 2 µg)
+		"biotin_100g" => 0.0000224,    # below 0.0000225 and 0.000045 (15% of 0.15 mg and 0.3 mg)
+		"pantothenic-acid_100g" => 0.0008,    # below 0.0009 and 0.0018 (15% of 6 mg and 12 mg)
+		"calcium_100g" => 0.11,    # below 0.12 and 0.24 (15% of 800 mg and 1600 mg)
+		"phosphorus_100g" => 0.11,    # below 0.12 and 0.24 (15% of 800 mg and 1600 mg)
+		"iron_100g" => 0.002,    # below 0.0021 and 0.0042 (15% of 14 mg and 28 mg)
+		"magnesium_100g" => 0.044,    # below 0.045 and 0.09 (15% of 300 mg and 600 mg)
+		"zinc_100g" => 0.00224,    # below 0.00225 and 0.0045 (15% of 15 mg and 30 mg)
+		"iodine_100g" => 0.0000224,    # below 0.0000225 and 0.000045 (15% of 150 µg and 300 µg)
 		"alpha-linolenic-acid_100g" => 0.2    # below 0.3 and 0.6
 	},
 	quantity => "500 mg",
@@ -398,182 +398,182 @@ check_quality_and_test_product_has_quality_tag(
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-a-source-label-claim-but-vitamin-a-below-0.0008',
+	'en:vitamin-a-source-label-claim-but-vitamin-a-below-0.00012',
 	'under limitation for vitamin-a source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-a-label-claim-but-vitamin-a-below-0.0016',
+	'en:rich-in-vitamin-a-label-claim-but-vitamin-a-below-0.00024',
 	'under limitation for rich in vitamin-a label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-d-source-label-claim-but-vitamin-d-below-5e-06',
+	'en:vitamin-d-source-label-claim-but-vitamin-d-below-7.5e-07',
 	'under limitation for vitamin-d source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-d-label-claim-but-vitamin-d-below-1e-05',
+	'en:rich-in-vitamin-d-label-claim-but-vitamin-d-below-1.5e-06',
 	'under limitation for rich in vitamin-d label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-e-source-label-claim-but-vitamin-e-below-0.01',
+	'en:vitamin-e-source-label-claim-but-vitamin-e-below-0.0015',
 	'under limitation for vitamin-e source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-e-label-claim-but-vitamin-e-below-0.02',
+	'en:rich-in-vitamin-e-label-claim-but-vitamin-e-below-0.003',
 	'under limitation for rich in vitamin-e label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-c-source-label-claim-but-vitamin-c-below-0.06',
+	'en:vitamin-c-source-label-claim-but-vitamin-c-below-0.009',
 	'under limitation for vitamin-c source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-c-label-claim-but-vitamin-c-below-0.12',
+	'en:rich-in-vitamin-c-label-claim-but-vitamin-c-below-0.018',
 	'under limitation for rich in vitamin-c label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-b1-source-label-claim-but-vitamin-b1-below-0.0014',
+	'en:vitamin-b1-source-label-claim-but-vitamin-b1-below-0.00021',
 	'under limitation for vitamin-b1 source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-b1-label-claim-but-vitamin-b1-below-0.0028',
+	'en:rich-in-vitamin-b1-label-claim-but-vitamin-b1-below-0.00042',
 	'under limitation for rich in vitamin-b1 label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-b2-source-label-claim-but-vitamin-b2-below-0.0016',
+	'en:vitamin-b2-source-label-claim-but-vitamin-b2-below-0.00024',
+	'under limitation for vitamin-b2 source label', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:rich-in-vitamin-b2-label-claim-but-vitamin-b2-below-0.00048',
+	'under limitation for rich in vitamin-b2 label', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vitamin-b3-source-label-claim-but-vitamin-b3-below-0.0027',
 	'under limitation for vitamin-b3 source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-b2-label-claim-but-vitamin-b2-below-0.0032',
+	'en:rich-in-vitamin-b3-label-claim-but-vitamin-b3-below-0.0054',
 	'under limitation for rich in vitamin-b3 label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-b3-source-label-claim-but-vitamin-b3-below-0.018',
-	'under limitation for vitamin-b3 source label', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:rich-in-vitamin-b3-label-claim-but-vitamin-b3-below-0.036',
-	'under limitation for rich in vitamin-b3 label', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vitamin-b6-source-label-claim-but-vitamin-b6-below-0.002',
+	'en:vitamin-b6-source-label-claim-but-vitamin-b6-below-0.0003',
 	'under limitation for vitamin-b6 source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-b6-label-claim-but-vitamin-b6-below-0.004',
+	'en:rich-in-vitamin-b6-label-claim-but-vitamin-b6-below-0.0006',
 	'under limitation for rich in vitamin-b6 label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-b9-source-label-claim-but-vitamin-b9-below-0.0002',
+	'en:vitamin-b9-source-label-claim-but-vitamin-b9-below-3e-05',
 	'under limitation for vitamin-b9 source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-b9-label-claim-but-vitamin-b9-below-0.0004',
+	'en:rich-in-vitamin-b9-label-claim-but-vitamin-b9-below-6e-05',
 	'under limitation for rich in vitamin-b9 label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-b12-source-label-claim-but-vitamin-b12-below-1e-06',
+	'en:vitamin-b12-source-label-claim-but-vitamin-b12-below-1.5e-07',
 	'under limitation for vitamin-b12 source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-b12-label-claim-but-vitamin-b12-below-2e-06',
+	'en:rich-in-vitamin-b12-label-claim-but-vitamin-b12-below-3e-07',
 	'under limitation for rich in vitamin-b12 label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:source-of-biotin-label-claim-but-biotin-below-0.00015',
+	'en:source-of-biotin-label-claim-but-biotin-below-2.25e-05',
 	'under limitation for biotin source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-biotin-label-claim-but-biotin-below-0.0003',
+	'en:high-in-biotin-label-claim-but-biotin-below-4.5e-05',
 	'under limitation for high in biotin label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:source-of-pantothenic-acid-label-claim-but-pantothenic-acid-below-0.006',
+	'en:source-of-pantothenic-acid-label-claim-but-pantothenic-acid-below-0.0009',
 	'under limitation for pantothenic-acid source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-pantothenic-acid-label-claim-but-pantothenic-acid-below-0.012',
+	'en:high-in-pantothenic-acid-label-claim-but-pantothenic-acid-below-0.0018',
 	'under limitation for high in pantothenic-acid label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:calcium-source-label-claim-but-calcium-below-0.8',
+	'en:calcium-source-label-claim-but-calcium-below-0.12',
 	'under limitation for calcium source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-calcium-label-claim-but-calcium-below-1.6',
+	'en:high-in-calcium-label-claim-but-calcium-below-0.24',
 	'under limitation for high in calcium label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:phosphore-source-label-claim-but-phosphorus-below-0.8',
+	'en:phosphore-source-label-claim-but-phosphorus-below-0.12',
 	'under limitation for phosphore source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-phosphore-label-claim-but-phosphorus-below-1.6',
+	'en:high-in-phosphore-label-claim-but-phosphorus-below-0.24',
 	'under limitation for high in phosphore label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:iron-source-label-claim-but-iron-below-0.014',
+	'en:iron-source-label-claim-but-iron-below-0.0021',
 	'under limitation for iron source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-iron-label-claim-but-iron-below-0.028',
+	'en:high-in-iron-label-claim-but-iron-below-0.0042',
 	'under limitation for high in iron label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:magnesium-source-label-claim-but-magnesium-below-0.3',
+	'en:magnesium-source-label-claim-but-magnesium-below-0.045',
 	'under limitation for magnesium source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-magnesium-label-claim-but-magnesium-below-0.6',
+	'en:high-in-magnesium-label-claim-but-magnesium-below-0.09',
 	'under limitation for high in magnesium label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:zinc-source-label-claim-but-zinc-below-0.015',
+	'en:zinc-source-label-claim-but-zinc-below-0.00225',
 	'under limitation for zinc source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-zinc-label-claim-but-zinc-below-0.03',
+	'en:high-in-zinc-label-claim-but-zinc-below-0.0045',
 	'under limitation for high in zinc label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:iodine-source-label-claim-but-iodine-below-0.00015',
+	'en:iodine-source-label-claim-but-iodine-below-2.25e-05',
 	'under limitation for iodine source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-iodine-label-claim-but-iodine-below-0.0003',
+	'en:high-in-iodine-label-claim-but-iodine-below-4.5e-05',
 	'under limitation for high in iodine label', 1
 );
 check_quality_and_test_product_has_quality_tag(

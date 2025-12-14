@@ -11,15 +11,13 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 my $ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($ua, \%create_user_args);
 
 # Create some products
@@ -265,6 +263,33 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3.1/product/4260392550101',
 		query_string => '?fields=environmental_score_score,environmental_score_grade,environmental_score_data',
+		expected_status_code => 200,
+	},
+
+	# Get attributes with unwanted_ingredients using a cookie
+	{
+		test_case => 'get-attributes-unwanted-ingredients-milk',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=attribute_groups',
+		cookies => [{name => "attribute_unwanted_ingredients_tags", value => "en:milk,en:chocolate"}],
+		expected_status_code => 200,
+	},
+	# Get attributes with unwanted_ingredients using a query parameter
+	{
+		test_case => 'get-attributes-unwanted-ingredients-milk-query-param',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=attribute_groups&attribute_unwanted_ingredients_tags=en:milk,en:chocolate',
+		expected_status_code => 200,
+	},
+
+	# Get simplified knowledge panels
+	{
+		test_case => 'get-knowledge-panels-simplified',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=knowledge_panels&activate_knowledge_panels_simplified=true',
 		expected_status_code => 200,
 	},
 

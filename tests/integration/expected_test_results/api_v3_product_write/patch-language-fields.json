@@ -44,23 +44,6 @@
       "ingredients_text_fr" : "lait 80%, sucre, poudre de cacao",
       "lc" : "en"
    },
-   "status" : "success_with_warnings",
-   "warnings" : [
-      {
-         "field" : {
-            "default_value" : "en",
-            "id" : "tags_lc"
-         },
-         "impact" : {
-            "id" : "warning",
-            "lc_name" : "Warning",
-            "name" : "Warning"
-         },
-         "message" : {
-            "id" : "missing_field",
-            "lc_name" : "Missing field",
-            "name" : "Missing field"
-         }
-      }
-   ]
+   "status" : "success",
+   "warnings" : []
 }

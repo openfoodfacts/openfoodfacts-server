@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "세계 각국에서 식품의 협업 무료 오픈 데이터베이스."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -44,7 +44,33 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "세계 각국에서의 화장품에 대해 협업하는 무료 오픈 데이터베이스."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgstr ""
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "세계 각국에서 사료의 협업 무료 오픈 데이터베이스."
+
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -238,9 +264,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "고급 검색 및 그래프"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "과음은 건강에 해롭습니다."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "과도한 알코올 섭취는 건강에 해로우며, 적당히 섭취해야 합니다."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -266,17 +293,25 @@ msgctxt "also_edited_by"
 msgid "Product page also edited by"
 msgstr "상품 페이지는 다음 사람들에 의해 수정되었습니다."
 
+msgctxt "analytical_constituents"
+msgid "Analytical constituents"
+msgstr ""
+
+msgctxt "analytical_constituents_per_1kg"
+msgid "for 1 kg"
+msgstr ""
+
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "안드로이드 APK"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 msgstr ""
 
 msgctxt "android_app_icon_alt_text"
@@ -323,10 +358,6 @@ msgstr "Open Food Facts 프로젝트를 위해 기부할 수도 있습니다."
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "프로듀서 관리자 매뉴얼"
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -532,17 +563,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "상품을 삭제하기"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "페이지 삭제"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "이미지를 삭제하기"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr ""
+msgid "Delete the user"
+msgstr "사용자 삭제"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -627,6 +654,14 @@ msgstr "계정 매개 변수"
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "귀하의 계정 매개변수가 변경되었습니다."
+
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "환경 설정"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "귀하의 기본 설정이 변경되었습니다."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -2371,7 +2406,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "국가"
+msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2720,6 +2755,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "NutriScore 영양 등급"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "제품 삭제"
@@ -2735,10 +2771,6 @@ msgstr "제품을 삭제함"
 msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "이 제품의 페이지를 삭제하시겠습니까?"
-
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "사용자 삭제"
 
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
@@ -3687,6 +3719,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "데이터 품질 버그"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "데이터 품질 완전성"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "데이터 품질 정보"
@@ -3772,7 +3808,7 @@ msgstr "가능한 개선"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr "/수입품"
+msgstr ""
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -4160,10 +4196,6 @@ msgstr "우리는 당신의 지원이 필요합니다!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "기부를 부탁합니다"
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "과도한 알코올 섭취는 건강에 해로우며, 적당히 섭취해야 합니다."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -4601,17 +4633,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Nutri-Score를 계산하기 위한 누락된 데이터"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Nutri-Score 미적용"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score 적용 안됨"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "카테고리에 해당되지 않음"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr "카테고리에 해당하지 않음: {category}"
+msgid "Not applicable for the category: {category}"
+msgstr "{category}카테고리에는 적용되지 않습니다."
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4625,13 +4657,15 @@ msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
 msgstr "평균 영양 품질"
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
-msgid "Poor nutritional quality"
-msgstr "열악한 영양 품질"
+msgid "Lower nutritional quality"
+msgstr ""
 
+# lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
-msgid "Bad nutritional quality"
-msgstr "나쁜 영양 품질"
+msgid "Lower nutritional quality"
+msgstr ""
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4653,6 +4687,10 @@ msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "식품 가공이 없거나 거의 없음(NOVA 그룹)"
 
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr ""
+
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
@@ -4671,8 +4709,17 @@ msgid "Processed foods"
 msgstr "가공 식품"
 
 msgctxt "attribute_nova_4_description_short"
-msgid "Ultra processed foods"
-msgstr "초가공식품"
+msgid "Ultra-processed foods"
+msgstr "가공 식품"
+
+msgctxt "attribute_nova_4_1_marker"
+msgid "1 ultra-processing marker"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_attribute_nova_4_markers"
+msgid "{number} ultra-processing markers"
+msgstr ""
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4821,7 +4868,20 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "낮은 환경 영향(Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score (environmental_score) from A to E which makes it easy to compare the impact of food products on the environment."
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr ""
+
+# Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
+msgctxt "attribute_ecoscore_name"
+msgid "Green-Score"
+msgstr "친환경 점수"
+
+msgctxt "attribute_ecoscore_setting_name"
+msgid "Low environmental impact (Green-Score)"
+msgstr "낮은 환경 영향(Green-Score)"
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
 msgstr ""
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
@@ -4981,6 +5041,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr ""
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "일련번호"
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "문의 양식"
@@ -5006,25 +5070,25 @@ msgctxt "environmental_impact"
 msgid "Environmental impact"
 msgstr "환경적 영향"
 
-# Numerical score for the Eco-score (do not translate Eco-score)
+# Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
-msgid "Eco-score score"
-msgstr "에코 점수"
+msgid "Green-Score score"
+msgstr ""
 
-# Letter grade from A to E for the Eco-score (do not translate Eco-score)
+# Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
-msgid "Eco-score grade"
-msgstr "에코 점수 등급"
+msgid "Green-Score grade"
+msgstr ""
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
-msgid "Details of the calculation of the Eco-score"
-msgstr "Eco-score 계산의 세부 사항"
+msgid "Details of the calculation of the Green-Score"
+msgstr ""
 
-# do not translate Eco-score
+# do not translate Green-Score
 msgctxt "environmental_score_information"
-msgid "Information about the Eco-score"
-msgstr "에코 점수에 대한 정보"
+msgid "Information about the Green-Score"
+msgstr ""
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5055,6 +5119,18 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "누락된 영양 성분"
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "준비된 제품의 영양 정보가 누락되었습니다."
+
+msgctxt "ecoscore_p"
+msgid "Green-Score"
+msgstr "친환경 점수"
+
+msgctxt "ecoscore_s"
+msgid "Green-Score"
+msgstr "친환경 점수"
+
 msgctxt "environmental_score_p"
 msgid "Green-Score"
 msgstr "친환경 점수"
@@ -5062,6 +5138,14 @@ msgstr "친환경 점수"
 msgctxt "environmental_score_s"
 msgid "Green-Score"
 msgstr "친환경 점수"
+
+msgctxt "misc_p"
+msgid "Miscellaneous"
+msgstr "기타"
+
+msgctxt "misc_s"
+msgid "Miscellaneous"
+msgstr "기타"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5223,8 +5307,8 @@ msgstr "이 플랫폼은 또한 제품에 대한 심층 분석을 제공합니�
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
-msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "Nutri-Score, NOVA 및 Eco-score와 같은 지표를 계산하고 이를 개선하기 위한 제안을 자동으로 식별합니다(예: 약간의 구성 변경으로 더 나은 Nutri-Score 등급을 얻을 수 있는 모든 제품)."
+msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5358,12 +5442,12 @@ msgid "User is being deleted. This may take a few minutes."
 msgstr ""
 
 msgctxt "attribute_environmental_score_not_applicable_title"
-msgid "Green-Score not yet applicable"
-msgstr "Green-Score는 아직 적용되지 않음"
+msgid "Green-Score not applicable"
+msgstr ""
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
-msgid "Not yet applicable for the category"
-msgstr "아직 카테고리에 적용되지 않음"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
@@ -5381,6 +5465,10 @@ msgstr "에코 점수가 계산되지 않음"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "알 수 없는 환경적 영향"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "정확한 카테고리가 누락되었습니다"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5658,10 +5746,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "이 제품의 성분에 대한 정보는 제공되지 않았습니다."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Green-Score의 보다 정확한 계산을 위해 제품 페이지를 편집하고 추가할 수 있습니다."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "비율"
@@ -5682,9 +5766,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "이 제품의 포장에 대한 정보가 충분히 정확하지 않습니다(포장의 모든 구성 요소의 정확한 모양 및 재료)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Green-Score의 보다 정확한 계산을 위해 제품 페이지를 수정하여 추가할 수 있습니다."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Green-Score의 보다 정확한 계산을 위해 제품 페이지를 편집하고 추가할 수 있습니다."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5830,6 +5920,11 @@ msgstr ""
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
+msgstr ""
+
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
 msgstr ""
 
 msgctxt "donation_list_2024_main"
@@ -6020,6 +6115,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "준비된 제품의 영양 정보가 누락되었습니다."
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Nutri-Score를 계산하려면 상품 카테고리와 영양 성분이 지정되어 있어야 합니다."
@@ -6035,6 +6134,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "데이터 품질 완전성"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "이 제품의 데이터 품질 완전성에 대한 몇 가지 정보"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6107,6 +6214,10 @@ msgstr "누락된 카테고리"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "누락된 영양 성분"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "준비된 영양 정보가 누락되었습니다"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6187,6 +6298,10 @@ msgid "No ingredients containing palm oil detected"
 msgstr "팜유 포함 성분 감지되지 않음"
 
 msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr ""
+
+msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr ""
 
@@ -6289,6 +6404,10 @@ msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "Green-Score를 계산할 수 있도록 정확한 상품 카테고리를 추가해주실 수 있나요?"
 
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "이 제품에 대한 카테고리는 Green-Score를 계산하기에 충분히 정확하지 않습니다. 더 정확한 제품 카테고리를 추가해 주시겠습니까?"
+
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
 msgstr "재료 추가"
@@ -6370,6 +6489,10 @@ msgstr ""
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
+msgstr ""
+
+msgctxt "action_report_product_to_nutripatrol"
+msgid "Report this product to our moderators"
 msgstr ""
 
 # Used as a header for key facts
@@ -6517,6 +6640,10 @@ msgctxt "api_result_product_not_found"
 msgid "Product not found"
 msgstr ""
 
+msgctxt "api_result_product_found_with_a_different_product_type"
+msgid "Product found with a different product type"
+msgstr ""
+
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr ""
@@ -6539,6 +6666,10 @@ msgstr ""
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
+msgstr ""
+
+msgctxt "api_message_invalid_product_type"
+msgid "Invalid product type"
 msgstr ""
 
 msgctxt "api_message_invalid_type_must_be_object"
@@ -6569,6 +6700,38 @@ msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
 msgstr ""
 
+msgctxt "api_message_image_already_uploaded"
+msgid "Image already uploaded"
+msgstr "이미지가 이미 업로드되었습니다"
+
+msgctxt "api_message_image_too_small"
+msgid "Image too small"
+msgstr "이미지가 너무 작습니다"
+
+msgctxt "api_result_image_uploaded"
+msgid "Image uploaded"
+msgstr "이미지 업로드됨"
+
+msgctxt "api_result_image_not_uploaded"
+msgid "Image not uploaded"
+msgstr "이미지가 업로드되지 않았습니다"
+
+msgctxt "api_result_image_selected"
+msgid "Image selected"
+msgstr "이미지 선택됨"
+
+msgctxt "api_result_image_not_selected"
+msgid "Image not selected"
+msgstr "이미지가 선택되지 않았습니다"
+
+msgctxt "api_result_image_deleted"
+msgid "Image deleted"
+msgstr "이미지가 삭제되었습니다"
+
+msgctxt "api_result_image_not_deleted"
+msgid "Image not deleted"
+msgstr "이미지가 삭제되지 않았습니다"
+
 msgctxt "api_impact_none"
 msgid "None"
 msgstr ""
@@ -6592,7 +6755,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "단위 수"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6624,19 +6787,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "제품에 포함된 동일한 모양과 재질의 포장 단위의 수량을 입력하세요."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "재활용 지침에 나와 있는 모양 이름이 있으면 입력하거나 모양을 선택하세요."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "구체적인 재료가 확인 가능한 경우(삼각형 안의 재료 코드는 종종 포장 부품에서 발견됨) 해당 재료를 입력하거나, 확실하지 않은 경우 일반적인 재료(예: 플라스틱이나 금속)를 입력하세요."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "제품에 재활용 지침이 적혀 있는 경우에만 해당 지침을 입력하세요."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6646,7 +6809,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "순중량이나 순부피를 입력하고 단위(예: g 또는 ml)를 표시하세요."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -6854,6 +7017,18 @@ msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
 msgstr ""
 
+msgctxt "nutriscore_new_computation_title"
+msgid "Discover the new Nutri-Score!"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_description"
+msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
+msgstr ""
+
+msgctxt "nutriscore_new_computation_link_text"
+msgid "Discover all the improvements of the new Nutri-Score"
+msgstr ""
+
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
 msgstr ""
@@ -6948,6 +7123,11 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
+# duplicate with "report_problem_panel_title"
+msgctxt "report_problem_navigation"
+msgid "Report a problem"
+msgstr ""
+
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
 msgstr ""
@@ -6968,14 +7148,13 @@ msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr ""
 
+msgctxt "report_to_nutripatrol_explain"
+msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
+msgstr ""
+
 msgctxt "description"
 msgid "Description"
 msgstr "설명"
-
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr ""
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
@@ -6996,6 +7175,10 @@ msgstr ""
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr ""
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "로그인하려면 쿠키를 허용해야 합니다."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
@@ -7203,12 +7386,12 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "수리가능성 지수 적용 불가"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "카테고리에 해당되지 않음"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
@@ -7234,4 +7417,274 @@ msgstr ""
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr ""
+
+msgctxt "estimate"
+msgid "estimate"
+msgstr ""
+
+# information on several ingredients, in plural in languages like French
+msgctxt "ingredient_information"
+msgid "Ingredient information"
+msgstr ""
+
+msgctxt "product_type"
+msgid "Product type"
+msgstr "제품 유형"
+
+# Food product type
+msgctxt "product_type_food"
+msgid "Food"
+msgstr "음식"
+
+# Pet food product type
+msgctxt "product_type_petfood"
+msgid "Pet food"
+msgstr "반려동물 사료"
+
+# Beauty product type
+msgctxt "product_type_beauty"
+msgid "Beauty"
+msgstr ""
+
+# General product product type
+msgctxt "product_type_product"
+msgid "Product"
+msgstr "생성물"
+
+msgctxt "recommendation_limit_ultra_processed_foods_title"
+msgid "Limit ultra-processed foods"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
+msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
+msgstr ""
+
+msgctxt "recommendation_limit_ultra_processed_foods_text"
+msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
+msgstr ""
+
+msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
+msgid "Discover the evolution of the Nutri-Score grades of your products"
+msgstr ""
+
+msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
+msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
+msgstr ""
+
+msgctxt "in_contact_with_food"
+msgid "In contact with food"
+msgstr ""
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr ""
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "삭제"
+
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr ""
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr ""
+
+msgctxt "update_nutrients_data"
+msgid "Update nutrients data"
+msgstr ""
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr ""
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr ""
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr ""
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "스캔"
+
+msgctxt "reset_preferences_details_beauty"
+msgid "Organic farming and fair trade"
+msgstr "유기농업과 공정무역"
+
+msgctxt "reset_preferences_details_food"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Green-Score 및 식품 가공 수준(NOVA)"
+
+msgctxt "reset_preferences_details_product"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "reset_preferences_details_pet_food"
+msgid "Organic farming and fair trade"
+msgstr "유기농업과 공정무역"
+
+msgctxt "action_report_image_to_nutripatrol"
+msgid "Report this image to our moderators"
+msgstr "이 이미지를 관리자에게 신고하세요"
+
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Nutri-Score를 계산하기 위해 제공량 값 및/또는 단위가 누락되었습니다."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>>는 업계와 무관한 비영리 협회에서 제작합니다. 모두를 위해, 모두에 의해, 그리고 모두의 후원으로 제작됩니다. Open Food Facts에 기부하여 저희 활동을 지원해 주세요.<br/><b>감사합니다!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>>는 업계와 무관한 비영리 협회에서 제작했습니다. 모두를 위해, 모두에 의해, 그리고 모두의 후원으로 만들어졌습니다. Open Food Facts에 기부하시거나 Lilo 검색 엔진을 이용하셔서 저희 활동을 지원해 주세요.<br/><b>감사합니다!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "릴로 검색 엔진"
+
+msgctxt "robots_not_served_here"
+msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
+msgstr "로봇의 과도한 악용으로 인해 신원이 확인되지 않은 사용자에게 이 페이지를 제공할 수 없습니다. Open Food Facts의 모든 기능을 이용하려면 무료 Open Food Facts 계정을 생성하세요."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "성분의 유래"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "제품 정보"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "원자재 정보"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_title"
+msgid "Contains added sugars"
+msgstr "첨가당이 포함되어 있습니다"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_subtitle"
+msgid "Added sugars:"
+msgstr "첨가당:"
+
+msgctxt "estimated_quantity_of_added_sugars"
+msgid "Estimated quantity of added sugars in ingredients"
+msgstr "재료에 첨가된 설탕의 추정량"
+
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "첨가당량"
+
+msgctxt "search_products_in_same_category_without_added_sugars"
+msgid "Search for products in the same category without added sugars:"
+msgstr "추가 설탕이 없는 동일 카테고리의 제품을 검색하세요:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "원치 않는 성분"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "이러한 선호도는 Open Food Facts가 성분 목록을 이해한 바에 따른 것이며 정확하지 않을 수 있으므로 항상 제품을 직접 확인하세요."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "원치 않는 성분의 존재 여부는 알 수 없음"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "원치 않는 성분이 검출되지 않았습니다"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "원치 않는 성분이 포함되어 있습니다"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "일부 성분이 인식되지 않았습니다."
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "감지하지 못했습니다: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "{unwanted_ingredients}를 감지하지 못했습니다. 일부 재료가 누락되었을 수 있으니, 항상 재료 목록을 확인해 주세요."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "이러한 선호도는 Open Food Facts가 성분 목록을 이해한 바에 따른 것이며, 정확하지 않거나 완전하지 않을 가능성이 항상 있으므로 항상 제품을 직접 확인하세요."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Fingerprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "흡연은 사람을 죽인다"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "담배는 건강에 심각한 해를 끼칩니다. 시작하지 마세요. 지금 당장 끊으세요."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "흡연은 중독성이 매우 강합니다. 시작하지 마세요. 흡연은 생명을 위협합니다. 지금 당장 끊으세요. 흡연은 동맥을 막고 심장마비와 뇌졸중을 유발합니다. 흡연은 치명적인 폐암을 유발합니다. 임신 중 흡연은 태아에게 해롭습니다. 아이들을 보호하세요. 흡연을 하지 않도록 하세요. 의사나 약사가 금연을 도울 수 있습니다. 흡연은 혈류를 감소시키고 발기부전을 유발할 수 있습니다. 흡연은 피부 노화를 유발합니다. 흡연은 정자를 손상시키고 생식 능력을 저하시킬 수 있습니다. 흡연에는 벤젠, 니트로사민, 포름알데히드, 시안화수소가 포함되어 있습니다."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "공개 가격"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 유로, 2.99 미국 달러, 4.00 파운드"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "제조업체 권장 소비자 가격(MSRP)은 제품 포장 또는 제조업체 웹사이트에 표시된 할인 및 프로모션을 제외한 가격입니다(법률에 따른 세금 포함 또는 제외). 여러 통화로 표시된 가격은 쉼표로 구분하여 입력하세요."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "개인화된 재산"
 

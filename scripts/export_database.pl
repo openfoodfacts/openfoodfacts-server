@@ -35,14 +35,14 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/search_and_export_products/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Images qw/:all/;
+use ProductOpener::Images qw/:all add_images_urls_to_product/;
 use ProductOpener::Lang qw/$lc  %lang_lc/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Products qw/add_images_urls_to_product product_url/;
+use ProductOpener::Products qw/product_url/;
 use ProductOpener::Food qw/%nutriments_tables/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
@@ -93,6 +93,9 @@ sub sanitize_field_content {
 	}
 	return $content;
 }
+
+# Record if the script had errors
+my $errors = 0;
 
 my %tags_fields = (
 	packaging => 1,
@@ -239,7 +242,7 @@ XML
 
 	my @nutrients_to_export = ();
 
-	foreach my $nid (@{$nutriments_tables{"europe"}}) {
+	foreach my $nid (@{$nutriments_tables{"off_europe"}}) {
 
 		$nid =~ /^#/ and next;
 
@@ -522,7 +525,8 @@ XML
 
 	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
 	my $csv_size_old = (-s $csv_filename) // 0;
-	# Sort lines by code, except header line
+
+	print "Sort lines by code, except header line: $csv_filename.temp to $csv_filename.temp2\n";
 	system("(head -1 $csv_filename.temp && (tail -n +2 $csv_filename.temp | sort)) > $csv_filename.temp2");
 	unlink "$csv_filename.temp";
 	my $csv_size_new = (-s "$csv_filename.temp2") // 0;
@@ -534,6 +538,7 @@ XML
 	else {
 		print STDERR "Not overwriting previous CSV. Old size = $csv_size_old, new size = $csv_size_new.\n";
 		unlink "$csv_filename.temp2";
+		$errors++;
 	}
 
 	my %links = ();
@@ -591,8 +596,11 @@ XML
 	else {
 		print STDERR "Not overwriting previous RDF. Old size = $rdf_size_old, new size = $rdf_size_new.\n";
 		unlink "$rdf_filename.temp";
+		$errors++;
 	}
 
 }
 
-exit(0);
+print "--- End of $0\n";
+
+exit($errors);

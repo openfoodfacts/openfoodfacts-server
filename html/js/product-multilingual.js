@@ -20,7 +20,7 @@
 
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
-/*global lang admin otherNutriments Tagify*/
+/*global lang admin otherNutriments initializeTagifyInput*/
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
 
 //Polyfill, just in case
@@ -30,17 +30,17 @@ if (!Array.isArray) {
     };
 }
 
-var code;
-var current_cropbox;
-var images = [];
-var imgids = {};
-var img_path;
-var angles = {};
-var imagefield_imgid = {};
-var imagefield_url = {};
-var use_low_res_images = false;
+let code;
+let current_cropbox;
+let images = [];
+const imgids = {};
+let img_path;
+const angles = {};
+const imagefield_imgid = {};
+const imagefield_url = {};
+let use_low_res_images = false;
 
-var units = [
+ const units = [
     ['g', 'mg', "\u00B5g", '% DV'],
     ['mol/l', 'moll/l', 'mmol/l', 'mval/l', 'ppm', "\u00B0rH", "\u00B0fH", "\u00B0e", "\u00B0dH", 'gpg'],
     ['kJ', 'kcal'],
@@ -154,11 +154,11 @@ function select_nutriment(event, ui) {
                     for (const unitValue of entry) {
                         domElement.options[domElement.options.length] = new Option(unitValue, unitValue, false, unitValue.toLowerCase() == unit);
                     }
-        
+
                     if (ui.item.iu) {
                         domElement.options[domElement.options.length] = new Option('IU', 'IU', false, 'iu' == unit);
                     }
-        
+
                     return;
                 }
             }
@@ -213,7 +213,6 @@ function rotate_image(event) {
 
     $('img#crop_' + imagefield).cropper('rotate', angle);
 
-    //var selection = $('img#crop_' + imagefield ).cropper('getData');
     const selection = $('img#crop_' + imagefield).cropper('getCropBoxData');
 
     selection.x = selection.left;
@@ -529,196 +528,24 @@ function update_display(imagefield, first_display, protected_product) {
 function initializeTagifyInputs() {
     document.
         querySelectorAll("input.tagify-me").
-        forEach((input) => initializeTagifyInput(input));
-}
+        forEach((input) => initializeTagifyInput(input, maximumRecentEntriesPerTag)); // defined in tagify-init.js
 
-const maximumRecentEntriesPerTag = 10;
-
-function initializeTagifyInput(el) {
-    const input = new Tagify(el, {
-        autocomplete: true,
-        whitelist: get_recents(el.id) || [],
-        dropdown: {
-            highlightFirst: false,
-            enabled: 0,
-            maxItems: 100
-        }
-    });
-
-    let abortController;
-    let debounceTimer;
-    const timeoutWait = 300;
-    let value = "";
-
-    function updateSuggestions(show) {
-        if (value) {
-            const lc = (/^\w\w:/).exec(value);
-            const term = lc ? value.substring(lc[0].length) : value;
-            if (show) {
-                input.dropdown.show(term);
-            }
-        } else {
-            input.whitelist = get_recents(el.id) || [];
-            if (show) {
-                input.dropdown.show();
-            }
-        }
-    }
-
-    function autocompleteWithSearch(newValue) {
-        value = newValue;
-        input.whitelist = null; // reset the whitelist
-
-        if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
-            clearTimeout(debounceTimer);
-
-            debounceTimer = setTimeout(function () {
-                // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
-                if (abortController) {
-                    abortController.abort();
-                }
-
-                abortController = new AbortController();
-
-                fetch(el.dataset.autocomplete + "&string=" + value + "&get_synonyms=1", {
-                    signal: abortController.signal
-                }).
-                    then((RES) => RES.json()).
-                    then(function (json) {
-                        const lc = (/^\w\w:/).exec(value);
-                        let whitelist = Object.values(json.matched_synonyms);
-                        if (lc) {
-                            whitelist = whitelist.map(function (e) {
-                                return {"value": lc + e, "searchBy": e};
-                            });
-                        }
-                        const synonymMap = Object.create(null);
-                        // eslint-disable-next-line guard-for-in
-                        for (const k in json.matched_synonyms) {
-                            synonymMap[json.matched_synonyms[k]] = k;
-                        }
-                        input.synonymMap = synonymMap;
-                        input.whitelist = whitelist;
-                        updateSuggestions(true); // render the suggestions dropdown
-                    });
-            }, timeoutWait);
-        }
-        updateSuggestions(true);
-    }
-
-    input.on("input", function (event) {
-        autocompleteWithSearch(event.detail.value);
-    });
-
-    input.on("edit:input", function (event) {
-        autocompleteWithSearch(event.detail.data.newValue);
-    });
-
-    input.on("edit:start", function (event) {
-        autocompleteWithSearch(event.detail.data.value);
-    });
-
-    input.on("change", function () {
-        value = "";
-        updateSuggestions(false);
-    });
-
-    input.on("edit:updated", function () {
-        value = "";
-        updateSuggestions(false);
-    });
-
-    input.on("dropdown:show", function() {
-        if (!input.synonymMap) {
-            return;
-        }
-        $(input.DOM.dropdown).find("div.tagify__dropdown__item").each(function(_,e) {
-            let synonymName = e.getAttribute("value");
-            const lc = (/^\w\w:/).exec(synonymName);
-            if (lc) {
-                synonymName = synonymName.substring(3);
-            }
-            const canonicalName = input.synonymMap[synonymName];
-            if (canonicalName && canonicalName !== synonymName) {
-                e.innerHTML += " (&rarr; <i>" + canonicalName + "</i>)";
-            }
-        });
-    });
-
-    input.on("add", function (event) {
-        let obj;
-
-        try {
-            obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-        } catch (err) {
-            if (err.name == "NS_ERROR_FILE_CORRUPTED") {
-                obj = null;
-            }
-        }
-
-        const tag = event.detail.data.value;
-        if (obj === null) {
-            obj = {};
-            obj[el.id] = [tag];
-        } else if (obj[el.id] === null || !Array.isArray(obj[el.id])) {
-            obj[el.id] = [tag];
-        } else if (obj[el.id].indexOf(tag) == -1) {
-            if (obj[el.id].length >= maximumRecentEntriesPerTag) {
-                obj[el.id].pop();
-            }
-
-            obj[el.id].unshift(tag);
-        }
-
-        try {
-            window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
-        } catch (err) {
-            if (err.name == "NS_ERROR_FILE_CORRUPTED") {
-                // Don't to anything
-            }
-        }
-
-        value = "";
-        updateSuggestions(false);
-    });
-
-    input.on("focus", function () {
-        value = "";
-        updateSuggestions(false);
-    });
-
-    input.on("blur", function () {
-        value = "";
-        updateSuggestions(false);
-    });
-
+    // Before submitting the form, we need to convert the Tagify values (array of objects) to a simple comma-separated string
     document.
         getElementById("product_form").
         addEventListener("submit", function () {
-            el.value = input.value.map((obj) => obj.value).join(",");
+            document.
+                querySelectorAll("input.tagify-me").
+                forEach((input) => {
+                    // Parse the Tagify value (JSON string) into an array of objects
+                    const tagifyValues = JSON.parse(input.value || "[]");
+                    // Map the objects to their `value` property and join them into a string
+                    input.value = tagifyValues.map((obj) => obj.value).join(",");
+                });
         });
 }
 
-function get_recents(tagfield) {
-    let obj;
-    try {
-        obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-    } catch (e) {
-        if (e.name == "NS_ERROR_FILE_CORRUPTED") {
-            obj = null;
-        }
-    }
-
-    if (
-        obj !== null &&
-        typeof obj[tagfield] !== "undefined" &&
-        obj[tagfield] !== null
-    ) {
-        return obj[tagfield];
-    }
-
-    return [];
-}
+const maximumRecentEntriesPerTag = 10;
 
 (function ($) {
 
@@ -912,7 +739,7 @@ function get_recents(tagfield) {
                             $("#imgsearchbutton_" + imagefield).show();
                             $("#imgsearchmsg_" + imagefield).hide();
 
-                            // showing the message "image recieved" once user uploads the image
+                            // showing the message "image received" once user uploads the image
                             if (typeof data_info === "string" && stringStartsWith(data_info, "protect")) {
                                 $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
                                 $("#imgsearchmsg_" + imagefield).show();
@@ -991,7 +818,7 @@ function get_recents(tagfield) {
     };
 
     $('#back-btn').click(function () {
-        window.location.href = window.location.origin + '/product/' + window.code;
+        window.location.href = window.location.origin + '/product/' + code;
     });
 
     initLanguageAdding();
@@ -1246,44 +1073,82 @@ $('#manage_images_accordion').on('toggled', function () {
     toggle_manage_images_buttons();
 });
 
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+
+
+    return div.innerHTML;
+}
+
+async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copyData = null) {
+
+    const deleteBtn = document.getElementById('delete_images');
+    const moveBtn = document.getElementById('move_images');
+    const msgDiv = document.querySelector('div[id="moveimagesmsg"]');
+
+    deleteBtn.classList.add('disabled');
+    moveBtn.classList.add('disabled');
+
+    msgDiv.innerHTML = '<img src="/images/misc/loading2.gif" /> ' + escapeHtml(loadingMsg);
+    msgDiv.style.display = 'block';
+    msgDiv.style.opacity = '1';
+
+    const formData = new FormData(document.getElementById('product_form'));
+    formData.append('code', code);
+    formData.append('move_to_override', moveTo);
+    if (copyData !== null) {
+        formData.append('copy_data_override', copyData);
+    }
+
+    formData.append('imgids', get_list_of_imgids());
+
+    try {
+        const response = await fetch("/cgi/product_image_move.pl", {
+            method: "POST",
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+
+        const data = await response.json();
+
+        if (data.error) {
+            msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(data.error);
+            msgDiv.style.opacity = '1';
+        } else {
+            const linkHtml = data.code ? ` &rarr; <a href="${encodeURI(data.url)}">${escapeHtml(data.code)}</a>` : '';
+            msgDiv.innerHTML = escapeHtml(successMsg) + linkHtml;
+            msgDiv.style.opacity = '1';
+        }
+        $([]).selectcrop('init_images', data.images);
+        $(".select_crop").selectcrop('show');
+    } catch (error) {
+        msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(error.message);
+        msgDiv.style.opacity = '1';
+    } finally {
+        setTimeout(() => {
+            msgDiv.style.opacity = '0';
+        }, 1700);
+        setTimeout(() => {
+            msgDiv.style.display = 'none';
+        }, 2000);
+        toggle_manage_images_buttons();
+    }
+}
+
 $("#delete_images").click({}, function (event) {
 
     event.stopPropagation();
     event.preventDefault();
 
-    if (!$("#delete_images").hasClass("disabled")) {
-
-        $("#delete_images").addClass("disabled");
-        $("#move_images").addClass("disabled");
-
-        $('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_deleting_images);
-        $('div[id="moveimagesmsg"]').show();
-
-        get_list_of_imgids();
-
-        $("#product_form").ajaxSubmit({
-
-            url: "/cgi/product_image_move.pl",
-            data: { code: code, move_to_override: "trash", imgids: get_list_of_imgids() },
-            dataType: 'json',
-            success: function (data) {
-
-                if (data.error) {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + data.error);
-                } else {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_deleted);
-                }
-                $([]).selectcrop('init_images', data.images);
-                $(".select_crop").selectcrop('show');
-
-            },
-            error: function (textStatus) {
-                $('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + textStatus);
-            },
-        });
-
+    if ($("#delete_images").hasClass("disabled")) {
+      return;
     }
 
+    performImageAction(lang().product_js_deleting_images, lang().product_js_images_deleted, lang().product_js_images_delete_error, "trash");
 });
 
 $("#move_images").click({}, function (event) {
@@ -1291,47 +1156,11 @@ $("#move_images").click({}, function (event) {
     event.stopPropagation();
     event.preventDefault();
 
-    if (!$("#move_images").hasClass("disabled")) {
-
-        $("#delete_images").addClass("disabled");
-        $("#move_images").addClass("disabled");
-
-        $('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_moving_images);
-        $('div[id="moveimagesmsg"]').show();
-
-        get_list_of_imgids();
-
-        $("#product_form").ajaxSubmit({
-
-            url: "/cgi/product_image_move.pl",
-            data: { code: code, move_to_override: $("#move_to").val(), copy_data_override: $("#copy_data").prop("checked"), imgids: get_list_of_imgids() },
-            dataType: 'json',
-            success: function (data) {
-
-                if (data.error) {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + data.error);
-                } else {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_moved + ' &rarr; ' + data.link);
-                }
-                $([]).selectcrop('init_images', data.images);
-                $(".select_crop").selectcrop('show');
-
-            },
-            error: function (textStatus) {
-                $('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + textStatus);
-            },
-            complete: function () {
-                $("#move_images").addClass("disabled");
-                $("#move_images").addClass("disabled");
-                $("#manage .ui-selected").first().each(function () {
-                    $("#move_images").removeClass("disabled");
-                    $("#move_images").removeClass("disabled");
-                });
-            }
-        });
-
+    if ($("#move_images").hasClass("disabled")) {
+      return;
     }
 
+    performImageAction(lang().product_js_moving_images, lang().product_js_images_moved, lang().product_js_images_move_error, document.getElementById('move_to').value, document.getElementById('copy_data').checked);
 });
 
 // Nutrition facts

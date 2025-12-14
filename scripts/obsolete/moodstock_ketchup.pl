@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -27,7 +27,7 @@ use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -38,7 +38,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
-
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -180,7 +180,6 @@ if (defined $agemax) {
 			my $path = product_path($product_ref->{code});
 
 			require HTTP::Request::Common;
-			require LWP::UserAgent;
 			require LWP::Authen::Digest;
 			HTTP::Request::Common->import();
 
@@ -192,7 +191,7 @@ if (defined $agemax) {
 			(-e $image_filename) or next;
 
 			# Boilerplate
-			my $browser = LWP::UserAgent->new();
+			my $browser = create_user_agent();
 			$browser->credentials("api.moodstocks.com:80","Moodstocks API",$key,$secret);
 			my $ep = "http://api.moodstocks.com/v2";
 			my $resource = $ep."/ref/".$encodedid;

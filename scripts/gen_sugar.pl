@@ -28,7 +28,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/$static_subdomain/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -52,10 +52,10 @@ use JSON::MaybeXS;
 
 print STDERR ("Please fix this script before using it:\n"
 		. "1- do not write to lang/ (its git controlled)\n"
-		. "2- use Paths.pm for pathes (not /srv/sugar),\n"
+		. "2- use Paths.pm for paths (not /srv/sugar),\n"
 		. "3- only do one script of gen_sugar.pl and gen_sucre.pl,\n"
-		. "5- use matomo instead of GA\n"
 		. "4- fix bugs\n"
+		. "5- use matomo instead of GA\n"
 		. "Or perhaps rework all this to use a single html page + json data\n");
 die();
 
@@ -524,7 +524,7 @@ $zoom
 <div id="sharebuttons">
 <div style="float:left;margin-right:15px;width:150px;color:darkblue;background:white;padding:10px;">See if your friends know the answer!</div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation"
-src="https://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFactsUK&amp;count=vertical&amp;lang=fr&amp;text=How%20much%20sugar%20in%20$escapedname%20%3F" style="width:65px; height:63px;"></iframe></div>
+src="https://platform.x.com/widgets/tweet_button.html?via=OpenFoodFactsUK&amp;count=vertical&amp;lang=fr&amp;text=How%20much%20sugar%20in%20$escapedname%20%3F" style="width:65px; height:63px;"></iframe></div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://howmuchsugar.in/$id" layout="box_count"></fb:like></div>
 <div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="https://howmuchsugar.in/$id"></g:plusone></div>
 </div>

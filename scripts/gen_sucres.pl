@@ -28,7 +28,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang store/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -522,7 +522,7 @@ $zoom
 <div id="sharebuttons">
 <div style="float:left;margin-right:15px;width:150px;color:darkblue;background:white;padding:10px;">Posez la question à vos amis !</div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation"
-src="https://platform.twitter.com/widgets/tweet_button.html?via=CombienDeSucres&amp;count=vertical&amp;lang=fr&amp;text=Combien%20de%20sucres%20dans%20$escapedname%20%3F" style="width:65px; height:63px;"></iframe></div>
+src="https://platform.x.com/widgets/tweet_button.html?via=CombienDeSucres&amp;count=vertical&amp;lang=fr&amp;text=Combien%20de%20sucres%20dans%20$escapedname%20%3F" style="width:65px; height:63px;"></iframe></div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://combiendesucres.fr/$id" layout="box_count"></fb:like></div>
 <div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="https://combiendesucres.fr/$id"></g:plusone></div>
 </div>

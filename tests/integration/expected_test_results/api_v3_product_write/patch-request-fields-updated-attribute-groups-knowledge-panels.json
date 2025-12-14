@@ -23,6 +23,7 @@
                   "id" : "low_salt",
                   "missing" : "Missing nutrition facts",
                   "name" : "Salt",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Salt in unknown quantity"
                },
@@ -32,6 +33,7 @@
                   "id" : "low_fat",
                   "missing" : "Missing nutrition facts",
                   "name" : "Fat",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Fat in unknown quantity"
                },
@@ -41,6 +43,7 @@
                   "id" : "low_sugars",
                   "missing" : "Missing nutrition facts",
                   "name" : "Sugars",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Sugars in unknown quantity"
                },
@@ -50,6 +53,7 @@
                   "id" : "low_saturated_fat",
                   "missing" : "Missing nutrition facts",
                   "name" : "Saturated fat",
+                  "panel_id" : "nutrition_facts_table",
                   "status" : "unknown",
                   "title" : "Saturated fat in unknown quantity"
                }
@@ -235,7 +239,8 @@
                }
             ],
             "id" : "ingredients_analysis",
-            "name" : "Ingredients"
+            "name" : "Ingredients",
+            "warning" : "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
          },
          {
             "attributes" : [
@@ -271,8 +276,7 @@
          {
             "attributes" : [
                {
-                  "description" : "",
-                  "description_short" : "Unknown environmental impact",
+                  "description_short" : "Missing a precise category",
                   "grade" : "unknown",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                   "id" : "ecoscore",
@@ -336,9 +340,9 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
+                     "panel_group_id" : "packaging",
                      "panel_ids" : [
-                        "packaging_recycling"
+                        "packaging"
                      ],
                      "title" : "Packaging"
                   }
@@ -385,7 +389,7 @@
             "title_element" : {
                "grade" : "unknown",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
-               "subtitle" : "Unknown environmental impact",
+               "subtitle" : "Missing a precise category",
                "title" : "Green-Score not computed",
                "type" : "grade"
             },
@@ -615,7 +619,7 @@
                "grade" : "unknown",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-en.svg",
                "subtitle" : "Missing category and nutrition facts",
-               "title" : "Nutri-Score UNKNOWN",
+               "title" : "Nutri-Score unknown",
                "type" : "grade"
             },
             "topics" : [
@@ -820,6 +824,7 @@
             ],
             "evaluation" : "unknown",
             "expanded" : false,
+            "half_width_on_mobile" : true,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
@@ -831,13 +836,40 @@
                "environment"
             ]
          },
+         "packaging" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "title" : "Packaging with a medium impact"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
          "packaging_components" : {
             "elements" : [
                {
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "neutral",
-                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Bag\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Bag\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "Unknown",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
@@ -902,32 +934,16 @@
                "environment"
             ]
          },
-         "packaging_recycling" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_components"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_materials"
-                  }
-               }
-            ],
-            "evaluation" : "average",
+         "product_card" : {
+            "elements" : [],
             "expanded" : true,
-            "level" : "info",
             "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "title" : "Packaging with a medium impact"
+               "title" : "Product information"
             },
             "topics" : [
-               "environment"
-            ]
+               "product"
+            ],
+            "type" : "card"
          },
          "report_problem_card" : {
             "elements" : [
@@ -965,6 +981,12 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "report_problem_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "product_card"
                   }
                }
             ],

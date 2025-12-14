@@ -117,34 +117,16 @@
          "percent_estimate" : 0,
          "percent_max" : 0,
          "percent_min" : 0,
-         "text" : "vitamine D"
+         "text" : "vitamine D",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
-         "en:vitamin-d"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:vitamin-d"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
-   ],
-   "ingredients_hierarchy" : [
-      "en:colza-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:rapeseed-oil",
-      "en:sunflower-oil",
-      "en:vegetable-oil",
-      "en:extra-virgin-olive-oil",
-      "en:olive-oil",
-      "en:virgin-olive-oil",
-      "en:linseed-oil",
-      "en:vitamin-d"
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 5,
@@ -173,7 +155,8 @@
       "en:olive-oil",
       "en:virgin-olive-oil",
       "en:linseed-oil",
-      "en:vitamin-d"
+      "en:vitamin-d",
+      "en:vitamins"
    ],
    "ingredients_text" : "Huile de colza 45%, huile de tournesol 30%, huile d'olive vierge extra 20%, huile de lin 5%, vitamine D",
    "ingredients_with_specified_percent_n" : 4,
@@ -188,7 +171,7 @@
       "en:vitamin-d"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
-   "known_ingredients_n" : 11,
+   "known_ingredients_n" : 5,
    "lc" : "fr",
    "minerals_tags" : [],
    "misc_tags" : [
@@ -512,6 +495,7 @@
       "c"
    ],
    "nutriscore_version" : "2023",
+   "nutrition_data" : "on",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "c",

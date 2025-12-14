@@ -11,15 +11,13 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 my $ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($ua, \%create_user_args);
 
 # Create some products
@@ -177,6 +175,13 @@ my $tests_ref = [
 		path => '/api/v2/product/200000000034',
 		query_string =>
 			'?fields=knowledge_panels&knowledge_panels_included=health_card,environment_card&knowledge_panels_excluded=health_card',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-with-blame',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?blame=1',
 		expected_status_code => 200,
 	},
 	# Test authentication
