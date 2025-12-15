@@ -66,6 +66,6 @@ $ua = new_client();
 create_user($ua, \%create_user_args);
 $user = retrieve_user('bobnocountry');
 is($user->{email}, 'bobnocountry@example.com', "User created");
-is($user->{country}, undef, "User created with no country");
+is($user->{country}, "", "User created with no country");
 
 done_testing();
