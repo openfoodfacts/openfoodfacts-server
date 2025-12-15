@@ -471,6 +471,7 @@ jobs:
         image-ref: openfoodfacts-server/backend:dev
         format: 'sarif'
         output: backend-trivy.sarif
+        trivy-config: trivy.yaml
         vuln-type: 'os,library'
         scanners: 'vuln,secret,config,license'
         severity: 'CRITICAL,HIGH,MEDIUM,LOW'
@@ -521,6 +522,7 @@ jobs:
         image-ref: openfoodfacts-server/frontend:dev
         format: 'sarif'
         output: frontend-trivy.sarif
+        trivy-config: trivy.yaml
         vuln-type: 'os,library'
         scanners: 'vuln,secret,config,license'
         severity: 'CRITICAL,HIGH,MEDIUM,LOW'
