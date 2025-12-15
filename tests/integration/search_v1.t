@@ -146,7 +146,8 @@ my $tests_ref = [
 	{
 		test_case => 'search-specific-barcodes-gs1-digital-link-alt',
 		method => 'GET',
-		path => '/api/v2/search?code=https%3A%2F%2Fexample.com%2F01%2F200000000039%3F17%3D271200&fields=code,product_name',
+		path =>
+			'/api/v2/search?code=https%3A%2F%2Fexample.com%2F01%2F200000000039%3F17%3D271200&fields=code,product_name',
 		expected_status_code => 200,
 	},
 	{
