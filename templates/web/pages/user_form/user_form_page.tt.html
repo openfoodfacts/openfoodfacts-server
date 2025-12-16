@@ -81,7 +81,14 @@
 					[% ELSIF field.field == 'userid' %]
                         [% IF type == 'edit' %]
                             <label for="[% field.field %]"> [% field.label %]</label>
-                            <p id="userid"><a href="/editor/[% field.value %]">[% field.value %]</a></p>
+                            <p id="userid">
+                                <a href="/editor/[% field.value %]">[% field.value %]</a>
+                                [% IF user_ref.pro || user_ref.org %]
+                                    <span class="label success" style="margin-left:8px;">
+                                        🏭 [% lang('producer') %]
+                                    </span>
+                                [% END %]
+                            </p>
                         [% ELSE %]
                             <label for="[% field.field %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
                             <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="username" onkeyup="normalize_string_value(this)" />
