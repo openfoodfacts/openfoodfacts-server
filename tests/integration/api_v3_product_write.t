@@ -21,7 +21,7 @@ remove_all_users();
 
 my $ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($ua, \%create_user_args);
 
 my $token = get_token_using_password_credentials('tests', 'testtest')->{access_token};
