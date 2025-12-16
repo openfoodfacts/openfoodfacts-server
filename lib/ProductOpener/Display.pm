@@ -1264,7 +1264,7 @@ sub display_text ($request_ref) {
 
 	my $textid = $request_ref->{text};
 
-	if ($textid =~ /open-food-facts-mobile-app|application-mobile-open-food-facts|application-mobile-open-beauty-facts|application-mobile-open-pet-food-facts|application-mobile-open-products-facts|open-beauty-facts-mobile-app|open-pet-food-facts-mobile-app|open-products-facts-mobile-app/) {
+	if ($textid =~ /(?:open-(food|beauty|pet-food|products)-facts-mobile-app|application-mobile-open-(food|beauty|pet-food|products)-facts)/) {
 		# we want the mobile app landing page to be included in a <div class="row">
 		# so we display it under the `banner` page format, which is the page format
 		# used on product pages, with a colored banner on top
