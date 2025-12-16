@@ -218,6 +218,9 @@ sub create_user ($ua, $args_ref, $is_edit = 0) {
 	my $before_create_ts = time();
 
 	my %fields = %{clone($args_ref)};
+	if (not defined $fields{email}) {
+		$fields{email} = $fields{userid} . '@example.com';
+	}
 	my $tail = tail_log_start();
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
 	if (not $response->is_success) {
@@ -358,7 +361,7 @@ sub create_test_users($admin = undef, $moderator = undef) {
 
 	# Create a normal user
 	my $ua = new_client();
-	my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+	my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 	my $resp = create_user($ua, \%create_user_args);
 	ok(!html_displays_error($resp));
 	$users{user} = $ua;

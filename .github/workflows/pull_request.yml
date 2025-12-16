@@ -25,18 +25,21 @@ jobs:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
     outputs:
-      code_modified: ${{ steps.filter.outputs.code_modified }}
+      code_modified: ${{ steps.filter.outputs.code }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-
-      - name: Get changed files
-        uses: step-security/changed-files@v46
-        id: changed_files
-
-      - name: Filter non-markdown and non-docs files
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
         id: filter
-        run: ./.github/scripts/path-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}"
+        with:
+          # FIXME: we need to consider more than these files
+          # We need to consider every file in the repository and have it in a category
+          # Maybe using negative match: https://github.com/micromatch/picomatch?tab=readme-ov-file#advanced-globbing
+          filters: |
+            code:
+            - '**/*'       # Catch everything else
+            - '!**/*.md'   # Exclude all Markdown files
+            - '!docs/**'   # Exclude docs/ folder
+          predicate-quantifier: 'every'
 
   lint:
     name: 🕵️‍♀️ NPM lint
@@ -420,7 +423,7 @@ jobs:
           --validate \
           --output /workspace/perl-sbom.json
     - name: Upload Perl SBOM as artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: perl-sbom
         path: perl-sbom.json
@@ -463,11 +466,12 @@ jobs:
         artifact-name: backend-sbom
         dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     - name: Trivy scan for backend image
-      uses: aquasecurity/trivy-action@0.28.0
+      uses: aquasecurity/trivy-action@0.33.1
       with:
         image-ref: openfoodfacts-server/backend:dev
         format: 'sarif'
         output: backend-trivy.sarif
+        trivy-config: trivy.yaml
         vuln-type: 'os,library'
         scanners: 'vuln,secret,config,license'
         severity: 'CRITICAL,HIGH,MEDIUM,LOW'
@@ -475,7 +479,7 @@ jobs:
         cache: true
         skip-dirs: opt/product-opener/build-cache/,opt/product-opener/taxonomies
     - name: Upload Trivy results to GitHub Security
-      uses: github/codeql-action/upload-sarif@v3
+      uses: github/codeql-action/upload-sarif@v4
       if: always()
       with:
         sarif_file: backend-trivy.sarif
@@ -513,18 +517,19 @@ jobs:
         artifact-name: frontend-sbom
         dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     - name: Trivy scan for frontend image
-      uses: aquasecurity/trivy-action@0.28.0
+      uses: aquasecurity/trivy-action@0.33.1
       with:
         image-ref: openfoodfacts-server/frontend:dev
         format: 'sarif'
         output: frontend-trivy.sarif
+        trivy-config: trivy.yaml
         vuln-type: 'os,library'
         scanners: 'vuln,secret,config,license'
         severity: 'CRITICAL,HIGH,MEDIUM,LOW'
         ignore-unfixed: true
         cache: true
     - name: Upload Trivy results to GitHub Security
-      uses: github/codeql-action/upload-sarif@v3
+      uses: github/codeql-action/upload-sarif@v4
       if: always()
       with:
         sarif_file: frontend-trivy.sarif
