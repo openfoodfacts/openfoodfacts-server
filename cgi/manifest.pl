@@ -27,7 +27,7 @@ use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/init_request/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc lang/;

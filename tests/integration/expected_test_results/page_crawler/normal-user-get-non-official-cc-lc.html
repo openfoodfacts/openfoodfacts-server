@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//ch-es.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	
     <style media="all">
@@ -106,7 +113,7 @@
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <h2><span>Scan a product</span></h2>
+      <h2><span>Escanear un producto</span></h2>
       <button class="modal-close-button">&times;</button>
     </div>
     <div>
@@ -115,7 +122,7 @@
     <div>
     </div>
     <div >
-      <label for="barcode-modal-input">Or enter barcode manually</label>
+      <label for="barcode-modal-input">O introducir manualmente el código de barras</label>
       <div class="barcode-modal-group">
         <input type="text" id="barcode-modal-input" class="barcode-modal-input" inputmode="numeric" pattern="\d*" />
         <button class="barcode-modal-button button" id="barcode-modal-button" disabled>Escanear</button>
@@ -241,7 +248,7 @@
 									<div class="columns postfix-button-wrapper is_hidden">
   <button
     type="button"
-    title="Scan a product"
+    title="Escanear un producto"
     class="button barcode-scanner-button"
     id="barcode-scanner-button"
   >
@@ -345,9 +352,9 @@
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner__main-title">Please give to our 2025 Fundraiser</h3>
+        <h3 class="donation-banner__main-title">Por favor, contribuye a nuestra campaña de recaudación de fondos 2026</h3>
       </div>
       <div style="padding:1rem;">
         <p>Your donations fund the day-to-day operations of our non-profit association:</p>
@@ -566,9 +573,9 @@
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Please give to our 2025 Fundraiser</h3>
+        <h3 class="donation-banner-footer__main-title">Por favor, contribuye a nuestra campaña de recaudación de fondos 2026</h3>
       </div>
       <p>Your donations fund the day-to-day operations of our non-profit association:</p>
       <ul>
