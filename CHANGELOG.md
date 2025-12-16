@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.84.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.83.0...v2.84.0) (2025-12-15)
+
+
+### Features
+
+* Match QFDMO with the categories taxonomy to make it possible to give customized and local circular advice in France ([#12581](https://github.com/openfoodfacts/openfoodfacts-server/issues/12581)) ([af42610](https://github.com/openfoodfacts/openfoodfacts-server/commit/af42610516c0f3b1ba31bb957b1be2e01d6ce50a))
+* Tools for indice de réparabilité + Folksonomy Engine ([#12662](https://github.com/openfoodfacts/openfoodfacts-server/issues/12662)) ([9597208](https://github.com/openfoodfacts/openfoodfacts-server/commit/95972083a6dae27b8542aacddcdc8fe6ad22e15f))
+
+
+### Bug Fixes
+
+* add email to be able to create test user ([#12785](https://github.com/openfoodfacts/openfoodfacts-server/issues/12785)) ([b12c6a3](https://github.com/openfoodfacts/openfoodfacts-server/commit/b12c6a3cc3826d75ace214ca505cc68a7a62d8e6))
+* add singular forms to extended synonyms json ([#12760](https://github.com/openfoodfacts/openfoodfacts-server/issues/12760)) ([6530337](https://github.com/openfoodfacts/openfoodfacts-server/commit/6530337eb7571a58f146af1a1965c907cbf23fcc))
+* added check for duplicates in sugar list ([#12779](https://github.com/openfoodfacts/openfoodfacts-server/issues/12779)) ([6dce9f4](https://github.com/openfoodfacts/openfoodfacts-server/commit/6dce9f4768f73e7a73e011b68206cc12ad6de11d))
+* Refresh user cache when user details are updated in Keycloak ([#12790](https://github.com/openfoodfacts/openfoodfacts-server/issues/12790)) ([3f152ac](https://github.com/openfoodfacts/openfoodfacts-server/commit/3f152ac82df4f474b5dce7f7f4a6b187b284cc56))
+* simplified environmental panels ([#12787](https://github.com/openfoodfacts/openfoodfacts-server/issues/12787)) ([7dc0b65](https://github.com/openfoodfacts/openfoodfacts-server/commit/7dc0b650b1f92885c5268c775617c9582eb5104e))
+* Update donation year from 2025 to 2026 ([#12765](https://github.com/openfoodfacts/openfoodfacts-server/issues/12765)) ([8a0c934](https://github.com/openfoodfacts/openfoodfacts-server/commit/8a0c934e6ee8588f33163ca347aa72627a69ca21))
+
 ## [2.83.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.82.1...v2.83.0) (2025-12-02)
 
 

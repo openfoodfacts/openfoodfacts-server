@@ -423,7 +423,7 @@ jobs:
           --validate \
           --output /workspace/perl-sbom.json
     - name: Upload Perl SBOM as artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: perl-sbom
         path: perl-sbom.json
@@ -466,11 +466,12 @@ jobs:
         artifact-name: backend-sbom
         dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     - name: Trivy scan for backend image
-      uses: aquasecurity/trivy-action@0.28.0
+      uses: aquasecurity/trivy-action@0.33.1
       with:
         image-ref: openfoodfacts-server/backend:dev
         format: 'sarif'
         output: backend-trivy.sarif
+        trivy-config: trivy.yaml
         vuln-type: 'os,library'
         scanners: 'vuln,secret,config,license'
         severity: 'CRITICAL,HIGH,MEDIUM,LOW'
@@ -478,7 +479,7 @@ jobs:
         cache: true
         skip-dirs: opt/product-opener/build-cache/,opt/product-opener/taxonomies
     - name: Upload Trivy results to GitHub Security
-      uses: github/codeql-action/upload-sarif@v3
+      uses: github/codeql-action/upload-sarif@v4
       if: always()
       with:
         sarif_file: backend-trivy.sarif
@@ -516,18 +517,19 @@ jobs:
         artifact-name: frontend-sbom
         dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     - name: Trivy scan for frontend image
-      uses: aquasecurity/trivy-action@0.28.0
+      uses: aquasecurity/trivy-action@0.33.1
       with:
         image-ref: openfoodfacts-server/frontend:dev
         format: 'sarif'
         output: frontend-trivy.sarif
+        trivy-config: trivy.yaml
         vuln-type: 'os,library'
         scanners: 'vuln,secret,config,license'
         severity: 'CRITICAL,HIGH,MEDIUM,LOW'
         ignore-unfixed: true
         cache: true
     - name: Upload Trivy results to GitHub Security
-      uses: github/codeql-action/upload-sarif@v3
+      uses: github/codeql-action/upload-sarif@v4
       if: always()
       with:
         sarif_file: frontend-trivy.sarif
