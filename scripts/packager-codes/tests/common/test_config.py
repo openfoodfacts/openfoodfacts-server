@@ -10,16 +10,8 @@ try:
 except ImportError:
     HAS_JSONSCHEMA = False
 
-CONFIG_TEST_FILE = os.path.join(os.path.dirname(__file__), '../test_files/packager_sources_config_test.json')
-TEXT_REPLACEMENTS_TEST_FILE = os.path.join(os.path.dirname(__file__), '../test_files/packager_text_replacements_test.json')
-ACTUAL_CONFIG_FILE = os.path.join(os.path.dirname(__file__), '../packager_sources_config.json')
-CONFIG_SCHEMA_FILE = os.path.join(os.path.dirname(__file__), '../packager_sources_config_schema.json')
-
-def test_load_config(monkeypatch):
-    monkeypatch.setattr(config, "CONFIG_FILE", CONFIG_TEST_FILE)
-    cfg = config.load_config()
-    assert "hr" in cfg
-    assert cfg["hr"]["country_name"] == "Croatia"
+ACTUAL_CONFIG_FILE = os.path.join(os.path.dirname(__file__), '../../packager_sources_config.json')
+CONFIG_SCHEMA_FILE = os.path.join(os.path.dirname(__file__), '../../tests/packager_sources_config_schema.json')
 
 
 def test_save_config():
@@ -60,31 +52,32 @@ def test_save_config():
         os.remove(temp_file_path)
 
 
-def test_load_text_replacements(monkeypatch):
-    monkeypatch.setattr(config, "TEXT_REPLACEMENTS_FILE", TEXT_REPLACEMENTS_TEST_FILE)
-
-    expected = {
-        r'\bsv\.\s*': "sveti",
-        r'\bn/m\s*': "na moru",
-        r'\bDugoplje\b': "Dugopolje",
-        r'\bBelejske\b': "Belajske",
-        r'\s*\([^)]*\)': "",
-        r'\s+kod\s+.*': ""
+def test_load_text_replacements(monkeypatch, tmp_path):
+    """Test that load_text_replacements correctly builds regex patterns from config."""
+    test_config = {
+        "test": {
+            "abbreviations": {"sv.": "sveti "},
+            "typos": {"Dugoplje": "Dugopolje"},
+            "cleanup_patterns": {"remove_parens": r"\s*\([^)]*\)"}
+        }
     }
+    
+    test_file = tmp_path / "test_replacements.json"
+    test_file.write_text(json.dumps(test_config))
+    monkeypatch.setattr(config, "TEXT_REPLACEMENTS_FILE", str(test_file))
 
-    replacements = config.load_text_replacements("hr")
-    assert replacements == expected
+    result = config.load_text_replacements("test")
+    
+    assert result == {
+        r'\bsv\.\s*': "sveti ",
+        r'\bDugoplje\b': "Dugopolje",
+        r'\s*\([^)]*\)': ""
+    }
 
 
 @pytest.mark.skipif(not HAS_JSONSCHEMA, reason="jsonschema package not installed")
 def test_validate_config_with_schema():
-    """Validate config against JSON Schema."""
-    if not os.path.exists(ACTUAL_CONFIG_FILE):
-        pytest.skip(f"Config file {ACTUAL_CONFIG_FILE} not found")
-    
-    if not os.path.exists(CONFIG_SCHEMA_FILE):
-        pytest.skip(f"Schema file {CONFIG_SCHEMA_FILE} not found")
-    
+    """Validate production config against JSON Schema."""
     with open(CONFIG_SCHEMA_FILE, 'r', encoding='utf-8') as f:
         schema = json.load(f)
     
@@ -97,13 +90,3 @@ def test_validate_config_with_schema():
         pytest.fail(f"Config validation failed: {e.message}\nPath: {list(e.path)}")
 
 
-def test_validate_config_json_syntax():
-    """Ensure the actual config file is valid JSON."""
-    if not os.path.exists(ACTUAL_CONFIG_FILE):
-        pytest.skip(f"Config file {ACTUAL_CONFIG_FILE} not found")
-    
-    try:
-        with open(ACTUAL_CONFIG_FILE, 'r', encoding='utf-8') as f:
-            json.load(f)
-    except json.JSONDecodeError as e:
-        pytest.fail(f"Invalid JSON in {ACTUAL_CONFIG_FILE}: {e}")

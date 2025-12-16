@@ -246,7 +246,8 @@ def preprocess_csv(country_name: str, country_code: str, input_csv: str,
             # Clean cell values
             row = [cell.replace(';', ',').replace('"', '').replace("'", "").strip() for cell in row]
             
-            # Check minimum row length
+            # Check minimum row length, a row should contain at least the number of columns provided in columns mapping
+            # a count lower than that indicates an incomplete row (row in 2 lines, for example), bottom of page text, etc.
             min_col_index = max(columns.values())
             if len(row) <= min_col_index:
                 continue
