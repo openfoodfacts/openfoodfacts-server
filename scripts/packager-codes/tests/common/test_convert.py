@@ -27,3 +27,35 @@ def test_convert_excel_to_csv():
     finally:
         if os.path.exists(csv_file):
             os.remove(csv_file)
+
+
+def test_merge_csv_files(tmp_path):
+    """Test merging multiple CSV files with deduplication and sorting"""
+    country_name = "Testland"
+    
+    # Create test CSV files
+    csv1 = tmp_path / "test1.csv"
+    csv2 = tmp_path / "test2.csv"
+    csv3 = tmp_path / "test3.csv"
+    output = tmp_path / "merged.csv"
+    
+    # Write test data with duplicates and unsorted codes
+    csv1.write_text("code;name;city\nZZ-003;Name3;City3\nAA-001;Name1;City1\n", encoding='utf-8')
+    csv2.write_text("code;name;city\nMM-002;Name2;City2\n", encoding='utf-8')
+    csv3.write_text("code;name;city\nAA-001;Name1;City1\n", encoding='utf-8')  # Duplicate
+    
+    # Merge files
+    convert.merge_csv_files(country_name, [str(csv1), str(csv2), str(csv3)], str(output), skip_headers=True)
+    
+    # Read and verify
+    assert output.exists()
+    content = output.read_text(encoding='utf-8')
+    lines = content.strip().split('\n')
+    
+    # Should have header + 3 unique rows (duplicate removed)
+    assert len(lines) == 4
+    assert lines[0] == "code;name;city"
+    
+    # Verify sorted order (case-insensitive alphabetical by code)
+    codes = [line.split(';')[0] for line in lines[1:]]
+    assert codes == ["AA-001", "MM-002", "ZZ-003"]
