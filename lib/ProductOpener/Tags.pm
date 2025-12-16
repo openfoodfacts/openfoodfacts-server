@@ -184,7 +184,7 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die get_files_for_t
 use ProductOpener::Lang qw/$lc  %Lang %tag_type_plural %tag_type_singular lang/;
 use ProductOpener::Text qw/normalize_percentages regexp_escape/;
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
-use ProductOpener::Index qw/$lang_dir/;
+use ProductOpener::Texts qw/$lang_dir/;
 use ProductOpener::HTTP qw/create_user_agent/;
 
 use Clone qw(clone);
@@ -1865,7 +1865,10 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 					if (not defined $synonyms{$tagtype}{$lc}{$tagid2}) {
 						# this is a new synonym, add it using same canonical tagid
-						$synonyms{$tagtype}{$lc}{$tagid2} = $synonyms{$tagtype}{$lc}{$tagid};
+						my $lc_tagid = $synonyms{$tagtype}{$lc}{$tagid};
+						$synonyms{$tagtype}{$lc}{$tagid2} = $lc_tagid;
+						# also add it to extended synonyms
+						$synonyms_for_extended{$tagtype}{$lc}{$lc_tagid}{$tagid2} = 1;
 						#print STDERR "taxonomy - more synonyms - tagid2: $tagid2 - tagid: $tagid\n";
 					}
 				}
@@ -2727,9 +2730,9 @@ sub country_to_cc ($country) {
 
 sub cc_to_country($cc) {
 	if (not defined $cc) {
-		return;
+		return "";
 	}
-	return $country_codes{$cc};
+	return $country_codes{$cc} // "";
 }
 
 sub init_languages() {

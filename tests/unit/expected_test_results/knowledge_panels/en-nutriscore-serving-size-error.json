@@ -37,7 +37,6 @@
       "en:nutriments-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
-      "en:traceability-codes-to-be-completed",
       "en:front-photo-to-be-selected",
       "en:product-name-to-be-completed",
       "en:quantity-to-be-completed",
@@ -52,8 +51,8 @@
          "general_information" : "0.00",
          "ingredients" : "0.00",
          "nutrition" : "0.67",
-         "overall" : "0.27",
-         "packaging" : "0.33"
+         "overall" : "0.30",
+         "packaging" : "0.50"
       }
    },
    "data_quality_errors_tags" : [],
@@ -76,7 +75,6 @@
       "en:nutriments-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
-      "en:traceability-codes-to-be-completed",
       "en:front-photo-to-be-selected",
       "en:product-name-to-be-completed",
       "en:quantity-to-be-completed",
@@ -499,6 +497,9 @@
       "c"
    ],
    "food_groups_tags" : [],
+   "images" : {
+      "selected" : {}
+   },
    "ingredients" : [
       {
          "id" : "en:fruit",
@@ -688,9 +689,9 @@
             {
                "element_type" : "panel_group",
                "panel_group_element" : {
-                  "panel_group_id" : "packaging_recycling",
+                  "panel_group_id" : "packaging",
                   "panel_ids" : [
-                     "packaging_recycling"
+                     "packaging"
                   ],
                   "title" : "Packaging"
                }
@@ -1567,12 +1568,44 @@
          ],
          "evaluation" : "unknown",
          "expanded" : false,
+         "half_width_on_mobile" : true,
          "level" : "info",
          "title_element" : {
             "icon_color_from_evaluation" : true,
             "icon_url" : "https://server_domain/images/icons/dist/public.svg",
             "subtitle" : "Missing origins of ingredients information",
             "title" : "Origins of ingredients"
+         },
+         "topics" : [
+            "environment"
+         ]
+      },
+      "packaging" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                    The information about the packaging of this product is not filled in.\n                    ",
+                  "type" : "warning"
+               }
+            },
+            {
+               "action_element" : {
+                  "actions" : [
+                     "add_packaging_image"
+                  ],
+                  "html" : "Take a photo of the recycling information"
+               },
+               "element_type" : "action"
+            }
+         ],
+         "evaluation" : "unknown",
+         "level" : "info",
+         "title_element" : {
+            "evaluation" : "neutral",
+            "icon_color_from_evaluation" : true,
+            "icon_url" : "https://server_domain/images/icons/dist/packaging.svg",
+            "title" : "Missing packaging information for this product"
          },
          "topics" : [
             "environment"
@@ -1618,37 +1651,6 @@
          "level" : "info",
          "title_element" : {
             "title" : "Packaging materials"
-         },
-         "topics" : [
-            "environment"
-         ]
-      },
-      "packaging_recycling" : {
-         "elements" : [
-            {
-               "element_type" : "text",
-               "text_element" : {
-                  "html" : "\n                    The information about the packaging of this product is not filled in.\n                    ",
-                  "type" : "warning"
-               }
-            },
-            {
-               "action_element" : {
-                  "actions" : [
-                     "add_packaging_image"
-                  ],
-                  "html" : "Take a photo of the recycling information"
-               },
-               "element_type" : "action"
-            }
-         ],
-         "evaluation" : "unknown",
-         "level" : "info",
-         "title_element" : {
-            "evaluation" : "neutral",
-            "icon_color_from_evaluation" : true,
-            "icon_url" : "https://server_domain/images/icons/dist/packaging.svg",
-            "title" : "Missing packaging information for this product"
          },
          "topics" : [
             "environment"
