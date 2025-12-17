@@ -30,7 +30,7 @@ my @products = (
 	{
 		%{dclone(\%default_product_form)},
 		(
-			code => '200000000034',
+			code => '2000000000343',
 			product_name => "test_1",
 			generic_name => "Tester",
 			ingredients_text => "apple, milk, eggs, palm oil",
@@ -41,7 +41,7 @@ my @products = (
 	{
 		%{dclone(\%default_product_form)},
 		(
-			code => '200000000037',
+			code => '2000000000374',
 			product_name => "vegan & palm oil free",
 			generic_name => "Tester",
 			ingredients_text => "fruit, rice",
@@ -51,7 +51,7 @@ my @products = (
 	{
 		%{dclone(\%default_product_form)},
 		(
-			code => '200000000038',
+			code => '2000000000381',
 			product_name => "palm oil free & non vegan",
 			generic_name => "Tester",
 			quantity => "100 ml",
@@ -64,7 +64,7 @@ my @products = (
 	{
 		%{dclone(\%default_product_form)},
 		(
-			code => '200000000039',
+			code => '2000000000398',
 			lang => "es",
 			product_name => "Vegan Test Snack with palm oil",
 			generic_name => "Tester",
@@ -76,7 +76,7 @@ my @products = (
 	{
 		%{dclone(\%default_product_form)},
 		(
-			code => '200000000045',
+			code => '2000000000459',
 			lang => "es",
 			product_name => "Vegan breakfast cereals without palm oil",
 			generic_name => "Tester",
@@ -89,7 +89,7 @@ my @products = (
 	{
 		%{dclone(\%default_product_form)},
 		(
-			code => '200000000046',
+			code => '2000000000466',
 			product_name => "More vegan breakfast cereals without palm oil",
 			ingredients_text => "apple, water",
 			origin => "UK",
@@ -121,7 +121,33 @@ my $tests_ref = [
 	{
 		test_case => 'search-specific-barcodes',
 		method => 'GET',
-		path => '/api/v2/search?code=200000000039,200000000038,200000000034&fields=code,product_name',
+		path => '/api/v2/search?code=2000000000398,2000000000381,2000000000343&fields=code,product_name',
+		expected_status_code => 200,
+	},
+	# Additional GS1 formats that should be recognized and reduced to the GTIN
+	{
+		test_case => 'search-specific-barcodes-gs1-bracketed-ai',
+		method => 'GET',
+		path => '/api/v2/search?code=%2801%2902000000000398%2822%292A&fields=code,product_name',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'search-specific-barcodes-gs1-fnc1-unbracketed',
+		method => 'GET',
+		path => '/api/v2/search?code=%1D0102000000000398&fields=code,product_name',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'search-specific-barcodes-gs1-raw-ai',
+		method => 'GET',
+		path => '/api/v2/search?code=01020000000003980217231231&fields=code,product_name',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'search-specific-barcodes-gs1-digital-link-alt',
+		method => 'GET',
+		path =>
+			'/api/v2/search?code=https%3A%2F%2Fexample.com%2F01%2F02000000000398%3F17%3D271200&fields=code,product_name',
 		expected_status_code => 200,
 	},
 	{
