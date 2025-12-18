@@ -109,7 +109,7 @@ $folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
 							  # Tells that session_cookie (which is normally limitted by ip)
 							  # can be trusted also for those ip addresses
 	ip_whitelist_session_cookie => ["172.19.0.1"],
-	minion_backend => {'Pg' => 'postgresql://off:Zo4pByAt2tt@10.1.0.120/minion'},
+	minion_backend => {'Pg' => 'postgresql://off:******@10.1.0.120/minion'},
 	minion_local_queue => "openfoodfacts.org",
 
 	# Only for producers platform
