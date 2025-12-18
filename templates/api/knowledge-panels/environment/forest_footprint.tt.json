@@ -17,16 +17,16 @@
             "text_element": {
                 "type": "summary",
                 "html": `
-                <p><strong>[% edq(lang("ingredients_requiring_soy")) %]</strong></p>
+                <p><strong>[% edq(lang("forest_footprint")) %]</strong></p>
                 <p>[% edq(lang("forest_footprint_one_line_explanation")) %]</p>
                 `
             }
         },
-        [% IF product.forest_footprint_data.ingredients.defined && product.forest_footprint_data.ingredients.size %]
+        [% IF product.forest_footprint_data.ingredients_from_soy_count %]
         {
             "element_type": "table",
             "table_element": {
-                "id": "forest_footprint_table",
+                "id": "forest_footprint_soy_table",
                 "title": "[% edq(lang("ingredients_requiring_soy")) %]",
                 "columns": [
                     {
@@ -63,7 +63,10 @@
                     }
                 ],
                 "rows": [
+                    [% SET first = 1 %]
                     [% FOREACH ingredient IN product.forest_footprint_data.ingredients %]
+                    [% IF ingredient.category_type == "ingredients_from_soy" %]
+                    [% IF not first %],[% END %]
                     {
                         "values": [
                             {
@@ -73,10 +76,10 @@
                                 "text": "[% ingredient.type.name %]"
                             },
                             {
-                                "text": "[% ingredient.percent FILTER format("%.2f"); %] %"
+                                "text": "[% round(ingredient.percent) %] %"
                             },
                             {
-                                "text": "[% ingredient.processing_factor * 100 FILTER format("%d"); %] %"
+                                "text": "[% round(ingredient.processing_factor * 100) %] %"
                             },
                             {
                                 "text": "[% ingredient.type.soy_feed_factor %]"
@@ -85,13 +88,102 @@
                                 "text": "[% ingredient.type.soy_yield %]"
                             },
                             {
-                                "text": "[% ingredient.type.deforestation_risk * 100 FILTER format("%d"); %] %"
+                                "text": "[% round(ingredient.type.deforestation_risk * 100) %] %"
                             },
                             {
                                 "text": "[% ingredient.footprint_per_kg FILTER format("%.2f"); %]"
                             }
                         ]
-                    }[% UNLESS loop.last %],[% END %]
+                    }
+                    [% SET first = 0 %]
+                    [% END %]
+                    [% END %]
+                ]
+            }
+        },
+        [% END %]
+        [% IF product.forest_footprint_data.ingredients_count %]
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "forest_footprint_ingredients_table",
+                "title": "[% edq(lang("ingredients_causing_deforestation")) %]",
+                "columns": [
+                    {
+                        "text": "[% edq(lang("ingredients_s")) FILTER ucfirst %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("percent_in_product")) %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("categories_s")).ucfirst %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("processing_factor")) %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("origin")) %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("origin_forest_footprint")) %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("labels_s")).ucfirst %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("deforestation_risk")) %]<br><span style=\"font-weight:normal\">(%)</span>",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("forest_footprint")) %]<br><span style=\"font-weight:normal\">([% edq(lang("square_meters_per_kg_of_food")) %])</span>",
+                        "type": "text"
+                    }
+                ],
+                "rows": [
+                    [% SET first = 1 %]
+                    [% FOREACH ingredient IN product.forest_footprint_data.ingredients %]
+                    [% IF ingredient.category_type == "ingredients" %]
+                    [% IF not first %],[% END %]
+                    {
+                        "values": [
+                            {
+                                "text": "[% display_taxonomy_tag(ingredient.tag_type, ingredient.tag_id) %]"
+                            },
+                            {
+                                "text": "[% round(ingredient.percent) %] %"
+                            },
+                            {
+                                "text": "[% display_taxonomy_tag("ingredients", "en:" _ ingredient.category).ucfirst%]"
+                            },
+                            {
+                                "text": "[% ingredient.processing_factor %]"
+                            },
+                            {
+                                "text": "[% IF ingredient.origin != 'en:other' %][% display_taxonomy_tag('origins', ingredient.origin) %][% END %]"
+                            },
+                            {
+                                "text": "[% ingredient.origin_footprint_per_kg %]"
+                            },
+                            {
+                                "text": "[% IF ingredient.label %][% display_taxonomy_tag('labels', ingredient.label) %][% END %]"
+                            },
+                            {
+                                "text": "[% round(ingredient.deforestation_risk) %] %"
+                            },
+                            {
+                                "text": "[% ingredient.footprint_per_kg FILTER format("%.2f"); %]"
+                            }
+                        ]
+                    }
+                    [% SET first = 0 %]
+                    [% END %]
                     [% END %]
                 ]
             }
