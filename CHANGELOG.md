@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.85.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.85.0...v2.85.1) (2025-12-18)
+
+
+### Bug Fixes
+
+* add Forest Footprint knowledge panel ([#12811](https://github.com/openfoodfacts/openfoodfacts-server/issues/12811)) ([7ba3a5a](https://github.com/openfoodfacts/openfoodfacts-server/commit/7ba3a5a7c15f2e58124157b61f0c37d64c3ce53a))
+
 ## [2.85.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.84.0...v2.85.0) (2025-12-18)
 
 
