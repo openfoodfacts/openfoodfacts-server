@@ -63,7 +63,8 @@ To deploy you need to execute the following steps:
    ```bash
    sudo systemctl daemon-reload
    sudo systemctl restart nginx
-   sudo systemctl restart apache2 cloud_vision_ocr@$SERVICE.service minion@$SERVICE.service redis_listener@$SERVICE.service
-   # On off
-   sudo systemctl restart apache2@priority
+   # we need start / stop for apache2 because restart does not reload perl modules
+   sudo systemctl stop apache2 && sudo systemctl start apache2
+   [[ "$SERVICE" = off ]] && sudo systemctl stop apache2@priority && sudo systemctl start apache2@priority
+   sudo systemctl restart cloud_vision_ocr@$SERVICE.service minion@$SERVICE.service redis_listener@$SERVICE.service
    ```
