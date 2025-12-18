@@ -2080,10 +2080,10 @@ git<span class="w"> </span>checkout<span class="w"> </span><span class="nv">$VER
 <li>restart services
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
 sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>nginx
-sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2<span class="w"> </span>cloud_vision_ocr@<span class="nv">$SERVICE</span>.service<span class="w"> </span>minion@<span class="nv">$SERVICE</span>.service<span class="p">;</span><span class="w"> </span><span class="se">\</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2<span class="w"> </span>cloud_vision_ocr@<span class="nv">$SERVICE</span>.service<span class="w"> </span>minion@<span class="nv">$SERVICE</span>.service
-<span class="c1"># On off</span>
-sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2@priority<span class="p">;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2@priority
+<span class="c1"># we need start / stop for apache2 because restart does not reload perl modules</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2
+<span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SERVICE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>off<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2@priority<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2@priority
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>cloud_vision_ocr@<span class="nv">$SERVICE</span>.service<span class="w"> </span>minion@<span class="nv">$SERVICE</span>.service<span class="w"> </span>redis_listener@<span class="nv">$SERVICE</span>.service
 </code></pre></div></li>
 </ol>
 
