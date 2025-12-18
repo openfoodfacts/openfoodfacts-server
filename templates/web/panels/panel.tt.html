@@ -352,7 +352,7 @@
     #---------------------------------------------------------------------- ~%]
 
     [% table_element = element_ref.table_element %]
-    <table[% IF element.table_id %] id="[% table_element.table_id %]"[% END %] aria-label="[% table_element.title %]">
+    <table[% IF element.id %] id="[% table_element.id %]"[% END %] aria-label="[% table_element.title %]">
         <thead>
             <tr>
                 [% FOREACH column IN table_element.columns %]
