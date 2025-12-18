@@ -258,6 +258,12 @@
                      ],
                      "title" : "Espèces menacées"
                   }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "forest_footprint"
+                  }
                }
             ],
             "expanded" : true,
@@ -671,6 +677,107 @@
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg",
                "subtitle" : "Produit : Some product – 100 g",
                "title" : "Impact pour ce produit: D (Score: 44/100)",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "forest_footprint" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <p><strong>Ingrédients nécessitant du soja</strong></p>\n                <p>L'empreinte forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation.</p>\n                ",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Ingrédient",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Type",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "% dans le produit",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Facteur de transformation<br><span style=\"font-weight:normal\">(% d'aliments après transformation)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Facteur de l'alimentation au soja<br><span style=\"font-weight:normal\">(kg de soja par kg d'aliment)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Rendement du soja<br><span style=\"font-weight:normal\">(kg de soja par m²)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Risque de déforestation<br><span style=\"font-weight:normal\">(%)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Empreinte forêt<br><span style=\"font-weight:normal\">(m² par kg d'aliment)</span>",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "forest_footprint_table",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Œuf"
+                              },
+                              {
+                                 "text" : "Oeufs Bio"
+                              },
+                              {
+                                 "text" : "10.42 %"
+                              },
+                              {
+                                 "text" : "100 %"
+                              },
+                              {
+                                 "text" : "0.028"
+                              },
+                              {
+                                 "text" : "0.18"
+                              },
+                              {
+                                 "text" : "10 %"
+                              },
+                              {
+                                 "text" : "0.00"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Ingrédients nécessitant du soja"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    <h3>Empreinte forêt totale</h3>\n                    <p><strong>0.00 m² par kg d'aliment</strong></p>\n                ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
+               "name" : "Empreinte forêt",
+               "subtitle" : "Pas de risque de déforestation",
+               "title" : "Très petite empreinte forêt",
                "type" : "grade"
             },
             "topics" : [
