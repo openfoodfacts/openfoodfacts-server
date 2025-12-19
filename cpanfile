@@ -86,14 +86,13 @@ requires 'Log::Log4perl', '>= 1.54, < 2.0'; # liblog-log4perl-perl
 requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl-perl
 
 # Retry
-requires 'Action::CircuitBreaker';
-requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 requires 'LWP::UserAgent::Plugin';
 requires 'LWP::UserAgent::Plugin::Retry';
 
 # AnyEvent
 requires 'AnyEvent';
 requires 'AnyEvent::Inotify::Simple';
+requires 'EV';  # High-performance event loop for async operations, compatible with AnyEvent and Future
 
 # more Apache stuff
 requires 'Apache::Bootstrap';  # needed by Apache2::Connection::XForwardedFor
@@ -128,6 +127,13 @@ requires 'Text::Levenshtein';
 
 # To handle IP and IP blocks white lists
 requires 'Net::CIDR'; # libnet-cidr-perl
+
+# OpenTelemetry
+requires 'OpenTelemetry', '>= 0.033';
+requires 'OpenTelemetry::SDK', '>= 0.028';
+requires 'OpenTelemetry::Exporter::OTLP', '>= 0.021';
+requires 'Feature::Compat::Try', '0.05'; # For finally before 5.35
+requires 'Syntax::Keyword::Dynamically';
 
 on 'test' => sub {
   requires 'Test2::V0';

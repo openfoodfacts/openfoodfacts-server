@@ -127,9 +127,10 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::HTTP
-	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param create_user_agent);
+	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param create_user_agent get_http_request_pnote);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve retrieve_object);
 use ProductOpener::Config qw(:all);
+use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Users qw(:all);
@@ -191,6 +192,9 @@ use Devel::Size qw(size total_size);
 use Data::DeepAccess qw(deep_get deep_set);
 use Log::Log4perl;
 use Tie::IxHash;
+
+use OpenTelemetry::Context;
+use OpenTelemetry::Integration 'LWP::UserAgent';
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -484,10 +488,46 @@ sub init_request ($request_ref = {}) {
 
 	$request_ref->{stats} = init_request_stats();
 
+	my $r = Apache2::RequestUtil->request();
+	my $headers_in = $r->headers_in;
+	my $headers_out = $r->headers_out;
+
 	# Clear the context
 	delete $log->context->{user_id};
 	delete $log->context->{user_session};
-	$log->context->{request} = generate_token(16);
+
+	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
+	if (defined $span) {
+		# Add OTEL like properties to the log records
+		eval {
+			my $span_context = $span->context;
+			if (defined $span_context) {
+				$log->context->{trace_id} = $span_context->hex_trace_id if $span_context->can('hex_trace_id');
+				$log->context->{span_id} = $span_context->hex_span_id if $span_context->can('hex_span_id');
+				if (   $span_context->can('trace_flags')
+					&& $span_context->trace_flags
+					&& $span_context->trace_flags->can('to_string'))
+				{
+					$log->context->{trace_flags} = $span_context->trace_flags->to_string;
+				}
+				# Span ID == old request id
+				$log->context->{request} = $log->context->{span_id} if defined $log->context->{span_id};
+			}
+		};
+		if ($@) {
+			$log->warn("Failed to get span context: $@") if $log->is_warn();
+		}
+
+		# Set span attribute after request ID is initialized
+		if (defined $log->context->{request}) {
+			$span->set_attribute('productopener.request', $log->context->{request});
+		}
+	}
+
+	if (not defined $log->context->{request}) {
+		# No OTEL Span available or no valid context, generate a random id
+		$log->context->{request} = generate_token(16);
+	}
 
 	# Initialize the request object
 	$request_ref->{referer} = referer();
@@ -539,7 +579,6 @@ sub init_request ($request_ref = {}) {
 	$request_ref->{header} = '';
 	$request_ref->{bodyabout} = '';
 
-	my $r = Apache2::RequestUtil->request();
 	$request_ref->{method} = $r->method();
 
 	my $cc = 'world';
@@ -547,13 +586,13 @@ sub init_request ($request_ref = {}) {
 	@lcs = ();
 	my $country = 'en:world';
 
-	$r->headers_out->set(Server => "Product Opener");
+	$headers_out->set(Server => "Product Opener");
 	# temporarily remove X-Frame-Options: DENY, needed for graphs - 2023/11/23
-	#$r->headers_out->set("X-Frame-Options" => "DENY");
-	$r->headers_out->set("X-Content-Type-Options" => "nosniff");
-	$r->headers_out->set("X-Download-Options" => "noopen");
-	$r->headers_out->set("X-XSS-Protection" => "1; mode=block");
-	$r->headers_out->set("X-Request-ID" => $log->context->{request});
+	#$headers_out->set("X-Frame-Options" => "DENY");
+	$headers_out->set("X-Content-Type-Options" => "nosniff");
+	$headers_out->set("X-Download-Options" => "noopen");
+	$headers_out->set("X-XSS-Protection" => "1; mode=block");
+	$headers_out->set("X-Request-ID" => $log->context->{request});
 
 	# sub-domain format:
 	#
@@ -569,6 +608,12 @@ sub init_request ($request_ref = {}) {
 	local $log->context->{hostname} = $hostname;
 	local $log->context->{ip} = remote_addr();
 	local $log->context->{query_string} = $request_ref->{original_query_string};
+
+	if (defined $span) {
+		$span->set_attribute('url.query', $request_ref->{original_query_string});
+		$span->set_attribute('client.address', remote_addr());
+		$span->set_name($r->method . ' ' . $ENV{SCRIPT_NAME});
+	}
 
 	$subdomain =~ s/\..*//;
 
@@ -828,6 +873,9 @@ sub init_request ($request_ref = {}) {
 	}
 
 	$request_ref->{user_id} = $User_id;
+	if (defined $span) {
+		$span->set_attribute('user.id', $User_id);
+	}
 
 	# %admin is defined in Config.pm
 	# admins can change permissions for all users
@@ -1123,6 +1171,8 @@ sub display_no_index_page_and_exit () {
 	print header(%$http_headers_ref);
 
 	my $r = Apache2::RequestUtil->request();
+	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
+	$span->set_attribute('http.response.status_code', 200) if (defined $span);
 	$r->rflush;
 	# Setting the status makes mod_perl append a default error to the body
 	# Send 200 instead.
@@ -1148,6 +1198,8 @@ sub display_too_many_requests_page_and_exit() {
 		= '<!DOCTYPE html><html><head><meta name="robots" content="noindex"></head><body><h1>TOO MANY REQUESTS</h1><p>You are sending too many requests to our servers.</p><p>To know more about the rate limits we enforce, please refer to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/#rate-limits">rate-limit section in our documentation</a>.</p><p>If you need to download data about a large number of products, it\'s preferable to <a href="https://world.openfoodfacts.org/data">download a data dump</a>. If this is unexpected, contact us on Slack or write us an email at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>.</p></body></html>';
 
 	my $r = Apache2::RequestUtil->request();
+	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
+	$span->set_attribute('http.response.status_code', 429) if (defined $span);
 	$r->rflush;
 	$r->custom_response(429, $html);
 	exit();
@@ -7738,6 +7790,31 @@ sub display_page ($request_ref) {
 	$template_data_ref->{initjs} = $request_ref->{initjs};
 	$template_data_ref->{request} = $request_ref;
 
+	# add W3C traceparent to template data
+	my $r = Apache2::RequestUtil->request();
+	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
+	if (defined $span) {
+		eval {
+			my $span_context = $span->context;
+			if (   defined $span_context
+				&& $span_context->can('hex_trace_id')
+				&& $span_context->can('hex_span_id')
+				&& $span_context->can('trace_flags')
+				&& defined $span_context->trace_flags
+				&& $span_context->trace_flags->can('to_string'))
+			{
+				$template_data_ref->{traceparent}
+					= '00-'
+					. $span_context->hex_trace_id . '-'
+					. $span_context->hex_span_id . '-'
+					. $span_context->trace_flags->to_string;
+			}
+		};
+		if ($@) {
+			$log->warn("Failed to generate traceparent: $@") if $log->is_warn();
+		}
+	}
+
 	my $html;
 	# ?content_only=1 -> only the content, no header, footer, etc.
 	if (($user_agent =~ /smoothie/i) or (single_param('content_only'))) {
@@ -7779,7 +7856,7 @@ sub display_page ($request_ref) {
 
 	print header(%$http_headers_ref);
 
-	my $r = Apache2::RequestUtil->request();
+	$span->set_attribute('http.response.status_code', $status_code) if (defined $span);
 	$r->rflush;
 	# Setting the status makes mod_perl append a default error to the body
 	# Send 200 instead.
@@ -10262,6 +10339,8 @@ sub display_structured_response ($request_ref) {
 		}
 	) if $log->is_debug();
 
+	my $status_code = $request_ref->{status_code} // 200;
+
 	if (single_param("xml")) {
 
 		# my $xs = XML::Simple->new(NoAttr => 1, NumericEscape => 2);
@@ -10317,8 +10396,6 @@ sub display_structured_response ($request_ref) {
 			$jsonp = single_param('callback');
 		}
 
-		my $status_code = $request_ref->{status_code} // 200;
-
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
 			write_cors_headers();
@@ -10341,6 +10418,8 @@ sub display_structured_response ($request_ref) {
 	}
 
 	my $r = Apache2::RequestUtil->request();
+	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
+	$span->set_attribute('http.response.status_code', $status_code) if (defined $span);
 	$r->rflush;
 	$r->status(200);
 
