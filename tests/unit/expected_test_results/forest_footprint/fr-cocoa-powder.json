@@ -1,62 +1,46 @@
 {
    "forest_footprint_data" : {
-      "footprint_per_kg" : 1.43712574850299,
-      "grade" : "c",
+      "footprint_per_kg" : 1770,
+      "grade" : "e",
       "ingredients" : [
          {
-            "category" : "chicken",
-            "category_type" : "ingredients_from_soy",
-            "conditions_tags" : [
-               [
-                  "labels",
-                  "en:organic"
-               ]
-            ],
-            "footprint_per_kg" : 1.43712574850299,
-            "matching_tag_id" : "en:chicken-meat",
+            "category" : "cocoa",
+            "category_type" : "ingredients",
+            "deforestation_risk" : "100",
+            "footprint_per_kg" : 1770,
+            "label" : "",
+            "matching_tag_id" : "en:cocoa-powder",
+            "origin" : "en:other",
+            "origin_footprint_per_kg" : "1500",
             "percent" : 100,
             "percent_estimate" : 100,
-            "processing_factor" : 0.75,
-            "tag_id" : "en:chicken-fillet",
-            "tag_type" : "ingredients",
-            "type" : {
-               "deforestation_risk" : 0.32,
-               "name" : "Poulet Bio",
-               "soy_feed_factor" : 0.9,
-               "soy_yield" : 0.2672
-            }
+            "processing_factor" : "1.18",
+            "tag_id" : "en:fat-reduced-cocoa-powder",
+            "tag_type" : "ingredients"
          }
       ],
-      "ingredients_count" : 0,
-      "ingredients_from_soy_count" : 1,
+      "ingredients_count" : 1,
+      "ingredients_from_soy_count" : 0,
       "total_ingredients_count" : 1
    },
    "ingredients" : [
       {
-         "ciqual_food_code" : "36018",
-         "id" : "en:chicken-fillet",
+         "ciqual_food_code" : "18100",
+         "id" : "en:fat-reduced-cocoa-powder",
          "is_in_taxonomy" : 1,
-         "labels" : "en:organic",
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "text" : "Filet de poulet",
-         "vegan" : "no",
-         "vegetarian" : "no"
+         "text" : "Cacao maigre en poudre",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {
-      "en:non-vegan" : [
-         "en:chicken-fillet"
-      ],
-      "en:non-vegetarian" : [
-         "en:chicken-fillet"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:non-vegan",
-      "en:non-vegetarian"
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 1,
@@ -65,16 +49,16 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:chicken-fillet"
+      "en:fat-reduced-cocoa-powder"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:chicken-fillet",
-      "en:poultry",
-      "en:chicken",
-      "en:chicken-meat"
+      "en:fat-reduced-cocoa-powder",
+      "en:plant",
+      "en:cocoa",
+      "en:cocoa-powder"
    ],
-   "ingredients_text" : "Filet de poulet bio",
+   "ingredients_text" : "Cacao maigre en poudre",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
@@ -82,14 +66,14 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:chicken-fillet"
+      "en:fat-reduced-cocoa-powder"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
    "lc" : "fr",
    "misc_tags" : [
       "en:forest-footprint-computed",
-      "en:forest-footprint-c"
+      "en:forest-footprint-e"
    ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,

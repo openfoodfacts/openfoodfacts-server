@@ -1,72 +1,62 @@
 {
    "forest_footprint_data" : {
-      "footprint_per_kg" : 2.14467408585056,
+      "footprint_per_kg" : 1500,
       "grade" : "e",
       "ingredients" : [
          {
-            "category" : "chicken",
-            "category_type" : "ingredients_from_soy",
-            "conditions_tags" : [],
-            "footprint_per_kg" : 2.14467408585056,
-            "matching_tag_id" : "en:chicken",
+            "category" : "cocoa",
+            "category_type" : "ingredients",
+            "deforestation_risk" : "100",
+            "footprint_per_kg" : 1500,
+            "label" : "",
+            "matching_tag_id" : "en:cocoa",
+            "origin" : "en:other",
+            "origin_footprint_per_kg" : "1500",
             "percent" : 100,
             "percent_estimate" : 100,
-            "processing_factor" : 1,
-            "tag_id" : "en:chicken",
-            "tag_type" : "ingredients",
-            "type" : {
-               "deforestation_risk" : 0.71,
-               "name" : "Poulet Importé",
-               "soy_feed_factor" : 0.95,
-               "soy_yield" : 0.3145
-            }
+            "processing_factor" : "1",
+            "tag_id" : "en:cocoa",
+            "tag_type" : "ingredients"
          }
       ],
-      "ingredients_count" : 0,
-      "ingredients_from_soy_count" : 1,
+      "ingredients_count" : 1,
+      "ingredients_from_soy_count" : 0,
       "total_ingredients_count" : 1
    },
    "ingredients" : [
       {
-         "ciqual_proxy_food_code" : "36005",
-         "id" : "en:chicken",
+         "ciqual_proxy_food_code" : "18100",
+         "id" : "en:cocoa",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "text" : "Poulet",
-         "vegan" : "no",
-         "vegetarian" : "no"
+         "text" : "cocoa",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {
-      "en:non-vegan" : [
-         "en:chicken"
-      ],
-      "en:non-vegetarian" : [
-         "en:chicken"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:non-vegan",
-      "en:non-vegetarian"
+      "en:vegan",
+      "en:vegetarian"
    ],
-   "ingredients_lc" : "fr",
+   "ingredients_lc" : "en",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
       "1",
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:chicken"
+      "en:cocoa"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:chicken",
-      "en:poultry"
+      "en:cocoa",
+      "en:plant"
    ],
-   "ingredients_text" : "Poulet",
+   "ingredients_text" : "cocoa",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
@@ -74,11 +64,11 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:chicken"
+      "en:cocoa"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
-   "lc" : "fr",
+   "lc" : "en",
    "misc_tags" : [
       "en:forest-footprint-computed",
       "en:forest-footprint-e"
