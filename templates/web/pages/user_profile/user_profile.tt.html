@@ -1,5 +1,8 @@
 <!-- start templates/[% template.name %] -->
 [% IF edit_profile %]
+<div class="user_welcome">
+    <h2>[% lang("Welcome!") | none %] [% userid %]</h2>
+</div>
 	<!-- Edit product page -->
 	<div class="edit_button">
 		<a href="/cgi/user.pl?userid=[% userid %]&type=edit&action=display" class="button small" title= "[% edq(lang('edit_user_profile')) %]">
