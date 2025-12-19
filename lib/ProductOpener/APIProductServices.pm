@@ -52,6 +52,7 @@ Currently implemented services:
 - estimate_ingredients_percent : compute percent_min, percent_max, percent_estimate for each ingredient in the ingredients object
 - analyze_ingredients : analyze the ingredients object and return a summary object
 - estimate_environmental_cost_ingredients : estimate the environmental cost of a given product (see Ecobalyse)
+- check_quality : check quality of product data and return data_quality_*_tags fields
 
 =head4 product
 
@@ -256,6 +257,7 @@ my %service_functions = (
 	estimate_environmental_impact => \&ProductOpener::EnvironmentalImpact::estimate_environmental_impact_service,
 	determine_food_contact_of_packaging_components =>
 		\&ProductOpener::PackagingFoodContact::determine_food_contact_of_packaging_components_service,
+	check_quality => \&ProductOpener::DataQuality::check_quality_service,
 );
 
 sub check_product_services_api_input ($request_ref) {

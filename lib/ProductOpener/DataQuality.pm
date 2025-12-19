@@ -76,6 +76,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&check_quality
+		&check_quality_service
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -150,6 +151,44 @@ sub check_quality ($product_ref) {
 			detect_possible_improvements($product_ref);
 		}
 	}
+
+	return;
+}
+
+=head2 check_quality_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
+
+Service wrapper for check_quality() that can be run through ProductOpener::APIProductServices.
+
+This service checks the quality of product data and populates the data_quality tags fields.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
+
+=head4 $errors_ref
+
+reference to an array of error messages
+
+=cut
+
+sub check_quality_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
+
+	# Run the quality checks
+	check_quality($product_ref);
+
+	# Mark all the data_quality fields as updated
+	$updated_product_fields_ref->{data_quality_tags} = 1;
+	$updated_product_fields_ref->{data_quality_bugs_tags} = 1;
+	$updated_product_fields_ref->{data_quality_completeness_tags} = 1;
+	$updated_product_fields_ref->{data_quality_info_tags} = 1;
+	$updated_product_fields_ref->{data_quality_warnings_tags} = 1;
+	$updated_product_fields_ref->{data_quality_errors_tags} = 1;
 
 	return;
 }

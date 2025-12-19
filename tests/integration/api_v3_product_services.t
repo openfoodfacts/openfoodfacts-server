@@ -205,6 +205,45 @@ JSON
 JSON
 	},
 
+	# check_quality service - minimal product
+	{
+		test_case => 'check-quality-service-minimal',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => <<JSON
+{
+	"services":["check_quality"],
+	"product": {
+		"lc": "en"
+	}
+}
+JSON
+	},
+
+	# check_quality service - nutrition data with all identical values (should trigger quality error)
+	{
+		test_case => 'check-quality-service-nutrition-all-identical',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => <<JSON
+{
+	"services":["check_quality"],
+	"product": {
+		"lc": "en",
+		"nutriments": {
+			"energy_100g": 10,
+			"fat_100g": 10,
+			"saturated-fat_100g": 10,
+			"carbohydrates_100g": 10,
+			"sugars_100g": 10,
+			"proteins_100g": 10,
+			"salt_100g": 10
+		}
+	}
+}
+JSON
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
