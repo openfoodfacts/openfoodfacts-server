@@ -8,19 +8,31 @@
 # A business can be entered in the producer field of a product, either by its name of wikidata id.
 
 
-
+xx: AB Foods Polska Sp. z.o.o., AB Foods Polska
+wikidata:en: Q136892978
 
 xx: Agidra, Q137392498
 comment:en: en:distributor
 wikidata:en: Q137392498
 
-xx: Albert Heijn B.V., Q1653985
+xx: Albert Heijn B.V., Albert Heijn
 comment:en: no role specified
 wikidata:en: Q1653985
 
+xx: Alimex
+wikidata:en: Q132070077
+
+xx: Asia Express Food B.V., Asia Express Food
+role:en: importer
+wikidata:en: Q132051486
+
 xx: Concorp Jirnsum, Q136460368
 comment:en: producer
+role:en: importer
 wikidata:en: Q136460368
+
+xx: Dekamarkt
+wikidata:en: Q2489350
 
 xx: Danerolles B.V.
 comment:en: no role specified
@@ -47,12 +59,35 @@ xx: Gepo Vleeswaren B.V.
 code: NL 534 EG
 wikidata:en: Q137427861
 
+xx: Go-Tan B.V.
+wikidata:en: Q137442291
+
+xx: Inproba B.V.
+wikidata:en: Q137439764
+
+xx: Interdis
+wikidata:en: Q116304361
+
 xx: Johma
 wikidata:en: Q2291698
 
 xx: Jumbo Supermarkten B.V.
 comment:en: consumer contact
 wikidata:en: Q2262314
+
+xx: かどや製油
+en: Kadoya Sesame Mills Inc., Kadoya Sesame Mills
+jp: かどや製油
+wikidata:en: Q11263994
+
+xx: Koningsvogel B.V.
+wikidata:en: Q137442140
+
+xx: Koninklijke Euroma B.V.
+wikidata:en: Q110069602
+
+xx: La vie est belle
+wikidata:en: Q49116253
 
 xx: Lidl Nederland GmbH
 wikidata:en: Q137208902
@@ -68,6 +103,9 @@ wikidata:en: Q137439458
 xx: Mondelez France SAS
 comment:en: consumer contact France
 wikidata:en: Q62098652
+
+xx: Oriental Food Co. Ltd.
+wikidata:en: Q137442415
 
 xx: Perfetti van Nelle Benelux B.V., Q612524
 comment:en: No role specified
@@ -96,6 +134,16 @@ xx: Societé Affineurs Franc-Comtois Reunis
 code: FR 25.039.003
 wikidata:en: Q137426255
 
+xx: Sorgel Distribution France
+wikidata:en: Q137440791
+
+xx: Tang Frères S.A., Tang Frères
+comment:en: role is importer
+wikidata:en: Q1005336
+
+xx: Thuan Phong Co. Ltd., Thuan Phong
+wikidata:en: Q137459167
+
 xx: Vagne
 wikidata:en: Q137426227
 
@@ -116,6 +164,9 @@ wikidata:en: Q113486516
 xx: Vrumona
 comment:en: Manufacturer
 wikidata:en: Q2291657
+
+xx: Yonca Gida Sanayi A.Ş.
+wikidata:en: Q137442458
 
 xx: Wsp-Food B.V., Q137399739, NL 3776 EG
 code:en: NL 3776 EG
