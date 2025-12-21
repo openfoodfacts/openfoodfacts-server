@@ -1,5 +1,47 @@
 # Changelog
 
+## [2.85.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.85.0...v2.85.1) (2025-12-18)
+
+
+### Bug Fixes
+
+* add Forest Footprint knowledge panel ([#12811](https://github.com/openfoodfacts/openfoodfacts-server/issues/12811)) ([7ba3a5a](https://github.com/openfoodfacts/openfoodfacts-server/commit/7ba3a5a7c15f2e58124157b61f0c37d64c3ce53a))
+
+## [2.85.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.84.0...v2.85.0) (2025-12-18)
+
+
+### Features
+
+* Follow-up Sunrise 2027 support ([#12796](https://github.com/openfoodfacts/openfoodfacts-server/issues/12796)) ([69acfdd](https://github.com/openfoodfacts/openfoodfacts-server/commit/69acfdd1bf1c136d97af0f4c624c2ed9b2741346))
+
+
+### Bug Fixes
+
+* enable minion on every servers ([#12810](https://github.com/openfoodfacts/openfoodfacts-server/issues/12810)) ([bd60868](https://github.com/openfoodfacts/openfoodfacts-server/commit/bd608689327456a3d313dc2461a04bd132da3e36))
+* missing template for categories nutrition table ([#12782](https://github.com/openfoodfacts/openfoodfacts-server/issues/12782)) ([4c04090](https://github.com/openfoodfacts/openfoodfacts-server/commit/4c04090761c1c82e53324414a55f404467bbf324))
+* remove broken transformation id in ecobalyse integration ([#12806](https://github.com/openfoodfacts/openfoodfacts-server/issues/12806)) ([878449a](https://github.com/openfoodfacts/openfoodfacts-server/commit/878449a24ee5d29853d7361907808a5fa080151a))
+* remove unused 'lol' LOLcat language code ([#12807](https://github.com/openfoodfacts/openfoodfacts-server/issues/12807)) ([1e8e12c](https://github.com/openfoodfacts/openfoodfacts-server/commit/1e8e12cc7379ad5062a7cac2d61129bd643583af))
+* small improvements to ingredients analysis testing tool ([#12803](https://github.com/openfoodfacts/openfoodfacts-server/issues/12803)) ([2019dbb](https://github.com/openfoodfacts/openfoodfacts-server/commit/2019dbb6698c7000dff974dc68c8a3384decc03c))
+* upgrade to Agribalyse 3.2 ([#12761](https://github.com/openfoodfacts/openfoodfacts-server/issues/12761)) ([9615449](https://github.com/openfoodfacts/openfoodfacts-server/commit/96154497eaa449f743580e4cbc3180ba1e510ac3))
+
+## [2.84.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.83.0...v2.84.0) (2025-12-15)
+
+
+### Features
+
+* Match QFDMO with the categories taxonomy to make it possible to give customized and local circular advice in France ([#12581](https://github.com/openfoodfacts/openfoodfacts-server/issues/12581)) ([af42610](https://github.com/openfoodfacts/openfoodfacts-server/commit/af42610516c0f3b1ba31bb957b1be2e01d6ce50a))
+* Tools for indice de réparabilité + Folksonomy Engine ([#12662](https://github.com/openfoodfacts/openfoodfacts-server/issues/12662)) ([9597208](https://github.com/openfoodfacts/openfoodfacts-server/commit/95972083a6dae27b8542aacddcdc8fe6ad22e15f))
+
+
+### Bug Fixes
+
+* add email to be able to create test user ([#12785](https://github.com/openfoodfacts/openfoodfacts-server/issues/12785)) ([b12c6a3](https://github.com/openfoodfacts/openfoodfacts-server/commit/b12c6a3cc3826d75ace214ca505cc68a7a62d8e6))
+* add singular forms to extended synonyms json ([#12760](https://github.com/openfoodfacts/openfoodfacts-server/issues/12760)) ([6530337](https://github.com/openfoodfacts/openfoodfacts-server/commit/6530337eb7571a58f146af1a1965c907cbf23fcc))
+* added check for duplicates in sugar list ([#12779](https://github.com/openfoodfacts/openfoodfacts-server/issues/12779)) ([6dce9f4](https://github.com/openfoodfacts/openfoodfacts-server/commit/6dce9f4768f73e7a73e011b68206cc12ad6de11d))
+* Refresh user cache when user details are updated in Keycloak ([#12790](https://github.com/openfoodfacts/openfoodfacts-server/issues/12790)) ([3f152ac](https://github.com/openfoodfacts/openfoodfacts-server/commit/3f152ac82df4f474b5dce7f7f4a6b187b284cc56))
+* simplified environmental panels ([#12787](https://github.com/openfoodfacts/openfoodfacts-server/issues/12787)) ([7dc0b65](https://github.com/openfoodfacts/openfoodfacts-server/commit/7dc0b650b1f92885c5268c775617c9582eb5104e))
+* Update donation year from 2025 to 2026 ([#12765](https://github.com/openfoodfacts/openfoodfacts-server/issues/12765)) ([8a0c934](https://github.com/openfoodfacts/openfoodfacts-server/commit/8a0c934e6ee8588f33163ca347aa72627a69ca21))
+
 ## [2.83.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.82.1...v2.83.0) (2025-12-02)
 
 

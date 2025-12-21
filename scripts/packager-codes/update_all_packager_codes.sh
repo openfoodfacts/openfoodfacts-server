@@ -3,34 +3,22 @@
 SCRIPTS_DIR=$(dirname "$0")
 failed_scripts=()
 
-# Define a function for running a script with exception handling
-run_script() {
-    echo "🚀 Starting $1..."
-    if $SCRIPTS_DIR/$1; then
-        echo "✅ Successfully executed $1."
-    else
-        echo "❌ Error occurred in $1."
-        failed_scripts+=("$1")
-    fi
-}
-
-# List of scripts to run
-scripts=(
-    # "de-packagers-refresh.pl"
-    # "ee-packagers-xml2tsv.pl"
-    # "es-packagers-html2csv.pl"
-    # "fi-packagers-xls2csv.pl"
-    # "fr-packagers-refresh.pl"
-    "hr-packagers-refresh.py"
-    # "poland_packager_code.py"
-    # "portugal-concatenate-csv-sections.py"
-    # "portugal-geocode.sh"
-    # "se-packagers-html2tsv.pl"
+# Countries to process with unified main.py
+countries=(
+    "dk"
+    "fi"
+    "hr"
 )
 
-# Run each script
-for script in "${scripts[@]}"; do
-    run_script "$script"
+# Process countries using unified main.py
+for country in "${countries[@]}"; do
+    echo "🚀 Starting $country..."
+    if python3 $SCRIPTS_DIR/main.py "$country"; then
+        echo "✅ Successfully processed $country."
+    else
+        echo "❌ Error occurred processing $country."
+        failed_scripts+=("main.py $country")
+    fi
 done
 
 # Update packager codes database

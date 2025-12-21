@@ -23,11 +23,14 @@ import csv
 import dbm
 from urllib.parse import urlencode
 
+from common.config import load_config
 from common.download import cached_get
 from common.io import write_csv
+import common.geocode_strategies as strategies_module
 
 
 CACHE_DB_BASE = 'geocode_cache'
+CACHE_DB_EXTENSION = '.db'
 
 
 def build_nominatim_url(params: dict) -> str:
@@ -45,35 +48,54 @@ def build_nominatim_url(params: dict) -> str:
     return f"{base_url}?{query_string}"
 
 
-def simplify_query_params(country_name: str, params: dict, attempt: int, code: str) -> dict:
+def get_country_simplification_strategies(country_code: str, initial_params: dict = None):
     """
-    Simplify query parameters when no results are found.
+    Get country-specific simplification strategies from config.
     
     Args:
-        country_name: Full country name for logging
-        params: Current query parameters
-        attempt: Attempt number (1-3)
-        code: The establishment code for logging
-        
-    Returns:
-        Modified parameters dictionary
-    """
-    params = params.copy()
+        country_code: ISO country code (e.g., 'fi', 'dk', 'hr')
+        initial_params: Initial query parameters (needed for reset strategies)
     
-    if attempt == 1:
-        if 'street' in params:
-            print(f"{country_name} - Warning - {code}: No results found. Retrying without street")
-            del params['street']
-    elif attempt == 2:
-        if 'postalcode' in params:
-            print(f"{country_name} - Warning - {code}: No results found. Retrying without postalcode")
-            del params['postalcode']
-    elif attempt == 3:
-        if 'city' in params and '-' in params['city']:
-            print(f"{country_name} - Warning - {code}: No results found. Retrying with simplified city name (before hyphen)")
-            params['city'] = params['city'].split('-')[0]
+    Returns:
+        List of strategy functions
+    """
+    config = load_config()
+    
+    if country_code not in config:
+        raise ValueError(f"Country code '{country_code}' not found in config")
+    
+    country_config = config[country_code]
+    strategy_names = country_config.get('geocoding_strategies', [])
+    
+    if not strategy_names:
+        # Default strategies if none configured
+        strategy_names = [
+            'strategy_split_street_comma',
+            'strategy_remove_street',
+            'strategy_remove_postalcode',
+            'strategy_split_city_hyphen'
+        ]
+    
+    # Convert strategy names to actual functions
+    strategy_functions = []
+    for name in strategy_names:
+        if name.startswith('strategy_reset_without'):
+            # Factory functions that need initial_params
+            if name == 'strategy_reset_without_city':
+                func = strategies_module.create_strategy_reset_without_city(initial_params)
+            elif name == 'strategy_reset_without_country':
+                func = strategies_module.create_strategy_reset_without_country(initial_params)
+            else:
+                raise ValueError(f"Unknown factory strategy: {name}")
+        else:
+            # Regular strategy functions
+            func = getattr(strategies_module, name, None)
+            if func is None:
+                raise ValueError(f"Unknown strategy: {name}")
         
-    return params
+        strategy_functions.append(func)
+    
+    return strategy_functions
 
 
 def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str, row: list, sleep_duration: float = 2.0) -> list:
@@ -92,7 +114,7 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
         [latitude, longitude] as strings
     """
 
-    cache_db = f"{CACHE_DB_BASE}_{country_code}"
+    cache_db = f"{CACHE_DB_BASE}_{country_code}{CACHE_DB_EXTENSION}"
 
     # Extract address components from standardized row
     # Columns: [0=code, 1=name, 2=street, 3=city, 4=postalcode]
@@ -111,35 +133,63 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
         'format': 'jsonv2'
     }
 
+    if debug:
+        param_strings = []
+        for key, value in params.items():
+            if key == 'format':
+                continue
+            if not value:
+                param_strings.append(f"{key}: NULL")
+            else:
+                param_strings.append(f"{key}: {value}")
+
+        print(f"{country_name} - Debug - Starting geocode {code}: Params: {', '.join(param_strings)}")
+
+    initial_params = params.copy()
     url = build_nominatim_url(params)
 
     if debug:
-        print(f"{country_name} - Debug - {code}: Starting geocoding with initial URL")
+        print(f"{country_name} - Debug - {code}: Starting geocoding with initial URL: {url}")
     
-    failed = True
-    iter_failures = 0
-    while failed:
+    # Get country-specific strategies from config, passing initial_params
+    strategies = get_country_simplification_strategies(country_code, initial_params)
+    
+    with dbm.open(cache_db, 'c') as cache:
+        data = cached_get(debug, country_name, url, cache, sleep_duration)
+        if data != []:
+            lat, lng = [data[0]['lat'], data[0]['lon']]
+            if debug:
+                print(f"{country_name} - Debug - {code}: Successfully geocoded (lat={lat}, lng={lng})")
+            return [lat, lng]
+    
+    for attempt, strategy_func in enumerate(strategies, start=1):
+        print(f"{country_name} - Warning - {code}: No results found (attempt {attempt}/{len(strategies) + 1})")
+        
+        # Apply strategy to modify params
+        modified_params = strategy_func(country_name, params, code)
+        
+        # Skip retry if strategy returned None (no modification made)
+        if modified_params is None:
+            if debug:
+                print(f"{country_name} - Debug - {code}: Strategy made no changes, skipping retry")
+            continue
+        
+        params = modified_params
+        url = build_nominatim_url(params)
+        
+        if debug:
+            print(f"{country_name} - Debug - {code}: Retrying with modified URL: {url}")
+        
         with dbm.open(cache_db, 'c') as cache:
             data = cached_get(debug, country_name, url, cache, sleep_duration)
             if data != []:
                 lat, lng = [data[0]['lat'], data[0]['lon']]
                 if debug:
                     print(f"{country_name} - Debug - {code}: Successfully geocoded (lat={lat}, lng={lng})")
-                failed = False
-            else:
-                iter_failures += 1
-                print(f"{country_name} - Warning - {code}: No results found (attempt {iter_failures}/3)")
-                if iter_failures <= 3:
-                    params = simplify_query_params(country_name, params, iter_failures, code)
-                    url = build_nominatim_url(params)
-                    if debug:
-                        print(f"{country_name} - Debug - {code}: Retrying with modified URL: {url}")
-                else:
-                    # Fail if all attempts fail - raise with address details for debugging
-                    address_info = f"street='{street}', city='{city}', postalcode='{postalcode}'"
-                    raise RuntimeError(f"{code}: Could not geocode after {iter_failures} attempts. Address: {address_info}. Final URL: {url}")
-
-    return [lat, lng]
+                return [lat, lng]
+    
+    address_info = f"street='{street}', city='{city}', postalcode='{postalcode}'"
+    raise RuntimeError(f"{code}: Could not geocode after {len(strategies) + 1} attempts. Address: {address_info}. Final URL: {url}")
 
 
 def geocode_csv(debug: bool, country_name: str, country_code: str, input_csv: str, output_csv: str, sleep_duration: float = 2.0) -> tuple:

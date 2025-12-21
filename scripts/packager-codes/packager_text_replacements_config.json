@@ -1,4 +1,19 @@
 {
+  "dk": {
+    "cleanup_patterns": {
+      "remove_city_suffixes": "\\s+[A-ZÆØÅ]{1,3}$"
+    }
+  },
+  "fi": {
+    "typos": {
+        "Meijeriti": "Meijeritie"
+    },
+    "cleanup_patterns": {
+      "remove_footnotes": "[¹1²2][⁾)]$",
+      "remove_unwanted_prefixes": "^AX-",
+      "remove_post_office_suffixes": " AS$"
+    }
+  },
   "hr": {
     "abbreviations": {
       "sv.": "sveti ",
