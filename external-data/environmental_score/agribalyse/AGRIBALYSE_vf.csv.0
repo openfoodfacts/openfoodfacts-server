@@ -1,18 +1,23 @@
-,"Ce fichier contient les données AGRIBALYSE 3.1.1 pour les produits alimentaires consommés en France. Ces données ont vocation à contribuer à la transition environnementale des systèmes agricoles et alimentaires.  Ces données sont fondées sur la méthode de l’Analyse du Cycle de Vie (ACV), qui fournit des indicateurs d’impacts environnementaux des produits, incluant toutes les étapes (du champ à l’assiette) et les différents enjeux (climat, eau, air, sol…).  Elles sont construites à partir d'un certains nombres d'hypothèses et selon un cadre méthodologique précis. Ces données scientifiques nécessitent d'être adaptées en fonction de leur contexte et des utilisateurs. Il est nécessaire de prendre connaissance du ""Guide d'utilisateur"" pour éviter les contre-sens ou des usages inadaptés. Plus largement une large documentation est disponible et garantie la transparence des travaux. Ces travaux innovants sont évolutifs et des améliorations et mises à jour auront lieu les prochaines années. Toutes les informations et contacts sur www.agribalyse.fr"
-,"Développeurs de la 3.0 : GINGKO 21; SAYARI; BLONK Consultants; INRAE (partie agricole)"
-,"Revue Critique de la 3.0 : RIVM, GreenDelta, Peter Koch Consulting"
-,"Mise à jour de la 3.1 : EVEA S.A.S Coopérative"
-,"Revue Critique de la 3.1 : GIS REVALIM et EVEA S.A.S Coopérative"
+,"Ce fichier contient les données AGRIBALYSE 3.2 pour les produits alimentaires consommés en France. Ces données ont vocation à contribuer à la transition environnementale des systèmes agricoles et alimentaires.  Ces données sont fondées sur la méthode de l’Analyse du Cycle de Vie (ACV), qui fournit des indicateurs d’impacts environnementaux des produits, incluant toutes les étapes (du champ à l’assiette) et les différents enjeux (climat, eau, air, sol…).  Elles sont construites à partir d'un certains nombres d'hypothèses et selon un cadre méthodologique précis. Ces données scientifiques nécessitent d'être adaptées en fonction de leur contexte et des utilisateurs. Il est nécessaire de prendre connaissance du ""Guide d'utilisateur"" pour éviter les contre-sens ou des usages inadaptés. Plus largement une large documentation est disponible et garantie la transparence des travaux. Ces travaux innovants sont évolutifs et des améliorations et mises à jour auront lieu les prochaines années. Toutes les informations et contacts sur www.agribalyse.fr"
+,"Dans tous les onglets, les résultats d'impacts sont donnés pour 1 kg de produit consommé chez le consommateur, intègrant notamment les pertes aux étapes intermédiaires. L'amont agricole correspond à une production conventionnelle."
+,"Dans l'onglet ""Synthèse"", l'approche emballage représente le type de modélisation utilisé pour l'emballage du produit alimentaire. PACK AGB signifie que l'emballage a été modélisé spécifiquement pour ce produit, PACK PROXY signifie que l'emballage du produit est approximé par celui d'un produit proche. Pour plus d'information, voir la documentation associée au projet PACK AGB."
+,"Dans l'onglet ""Détail étape"", les impacts environnementaux d'1 kg de produit consommé sont exprimés par étapes de cycle de vie (agriculture, transformation, emballage, transport, supermarché et distribution, consommation) afin d'analyser les effets à chaque étape, et ce, pour chaque kilogramme de produit. Les impacts sont donnés pour 1kg de produit consommé chez le consommateur, intègrant notamment les pertes aux étapes intermédiaires. Les étapes rassemblent les éléments suivants : 
+- Consommation : impacts de la préparation et/ou du stockage du produit chez le consommateur (cuisson, stockage au frais ...).
+- Supermarché et distribution : impacts de l'étape du centre de distribution et de la vente en magasin : consommations d’énergie, d’eau, de chaleur, émissions de fluides réfrigérants, etc.
+- Transport : impacts du transport d’approvisionnement des matières première agricoles jusqu'aux usines de transformation, ainsi que du transport du produit entre l'usine de fabrication, le centre de distribution et le magasin. Le transport entre le magasin et le consommateur n'est pas compris.
+- Emballage : impacts de la fabrication et de la mise en forme des matériaux, ainsi que de leur fin de vie. Inclue l'approvisionnement des emballages jusqu'à l'usine de fabrication du produit.
+- Transformation : impacts des processus agroalimentaires nécessaires pour transformer les produits agricoles brut (consommations d'énergie, d'eau, etc.).
+- Agriculture : impacts de la production agricole des ingrédients du produit."
+,"7 PRODUITS APPARAISSENT EN DOUBLON. Il s'agit des produits correspondants aux codes CIQUAL suivants : 26232, 26013, 25998, 26037, 26034, 27029, 9901
+Cela est dû à une correction d'une erreur d'attribution d'emballage détectée suite à la publication de la version 3.2 dans les logiciels ACV. Pour ces produits: 
+- les lignes en rouge correspondent aux valeurs non corrigées, c'est-à-dire identiques à la version 3.2 dans les logiciels ACV
+- les lignes en noir correspondent aux valeurs corrigées (donc non alignées avec la version 3.2 disponible actuellement dans les logiciels ACV)"
+,"ERREUR REPEREE CONCERNANT LES OEUFS : Nous avons détecté une erreur concernant les facteurs d'impacts relatifs aux produits ""Oeufs"" (et donc à tous les produits contenant des oeufs). Les impacts affichés en l'état sont considérés comme sous-évalués. Une mise à jour est en cours."
+,"ERREUR REPEREE CONCERNANT LE QUINOA : Nous avons détecté une erreur concernant les facteurs d'impacts relatifs au produit agricole ""Quinoa FR"" (et donc à tous les produits alimentaires contenant du quinia). Les impacts affichés en l'état dans ce tableur sont considérés comme sur-évalués (les lignes concernées aparaissent en rouge). Une mise à jour est en cours."
+,"Mise à jour de la 3.2 : EVEA S.A, Means-InOut INRAE pour l'amont agricole, et les membres et adhérents du GIS REVALIM"
+,"Revue Critique de la 3.2 : GIS REVALIM et EVEA S.A"
 ,"Licence : Licence Ouverte ""Etalab"""
-,"Version : Agribalyse v3.1.1; Juillet 2023"
-,"Date dernière modification : 18/09/2023"
-,
-,
+,"Version : Agribalyse v3.2; Septembre 2024"
+,"Date dernière modification : 21/08/2025"
 ,"La base de données est propriétée de l'ADEME, elle est pilotée au sein du GIS Revalim."
-,
-,
-,
-,
-,
-,
-,
+,www.agribalyse.fr

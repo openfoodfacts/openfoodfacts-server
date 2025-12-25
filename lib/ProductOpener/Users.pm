@@ -1206,7 +1206,7 @@ sub retrieve_user_preferences_by_email($email) {
 # store user information that is not reflected in Keycloak
 sub store_user_preferences ($user_ref) {
 	my $user_preferences = {%$user_ref};
-	if (get_oidc_implementation_level() > 1) {
+	if (get_oidc_implementation_level() > 2) {
 		# Make a shallow clone and delete the PII from the user data once Keycloak has become the master source
 		delete $user_preferences->{email};
 		delete $user_preferences->{name};
@@ -1593,7 +1593,6 @@ sub init_user ($request_ref) {
 		}
 
 		if (defined $user_id) {
-			#12279 TODO: This will call out to Keycloak on every page refresh which may not be a good thing
 			$user_ref = retrieve_user($user_id);
 
 			if (defined $user_ref) {
@@ -1642,7 +1641,7 @@ sub init_user ($request_ref) {
 
 					if (get_oidc_implementation_level() >= 2) {
 						# Add Keycloak information to the session if we are using Keycloak for back-channel authentication
-						#12279 TODO: We should probably remove the access_token, et.c from the user.sto file as it contains PII
+						#12279 TODO: We should probably remove the access_token, etc. from the user.sto file as it contains PII
 						my $session_ref = $user_ref->{'user_sessions'}{$user_session};
 						$request_ref->{access_token} = $session_ref->{access_token} if $session_ref->{access_token};
 						$request_ref->{access_expires_at} = $session_ref->{access_expires_at}
