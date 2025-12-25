@@ -28,7 +28,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Users qw/$Owner_id/;
