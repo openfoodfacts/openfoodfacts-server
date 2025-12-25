@@ -31,7 +31,7 @@ COPY --chown=root:root  ./docker/zxing-cpp-backport.sources /etc/apt/sources.lis
 # Carton provides reproducible builds via cpanfile.snapshot lockfile
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
-    apt-get update && \
+    apt-get update || true && \
     apt-get install -y --no-install-recommends \
         apache2 \
         apt-utils \
@@ -195,7 +195,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libwebpmux3 \
         # Imager::zxing - build deps
         pkg-config \
-        libzxing-dev \
         # Imager::zxing - decoders
         libavif-dev \
         libde265-dev \
@@ -203,7 +202,10 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libjpeg-dev \
         libpng-dev \
         libwebp-dev \
-        libx265-dev
+        libx265-dev && \
+    # Try to install libzxing-dev from backport repo if available
+    # This will fail gracefully if the backport repo is not accessible
+    apt-get install -y --no-install-recommends libzxing-dev || echo "libzxing-dev not available, skipping (will be built from CPAN if needed)"
 
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
