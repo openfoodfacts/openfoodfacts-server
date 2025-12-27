@@ -232,6 +232,7 @@ my %contains_regexps = (
 	en => "contains",
 	bg => "съдържа",
 	ca => "conté",
+	cs => "obsahují",
 	da => "indeholder",
 	es => "contiene",
 	et => "sisaldab",
