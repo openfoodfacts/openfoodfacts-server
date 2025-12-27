@@ -2861,6 +2861,9 @@ Text to analyze
 							'bs' => [
 								'u promjenljivom odnosu',    # in a variable ratio
 							],
+							'cs' => [
+								'v různém poměru',    # in variable proportions
+							],
 
 							'da' => [
 								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
