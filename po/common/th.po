@@ -682,7 +682,7 @@ msgstr "ผลิตภัณฑ์ที่บรรจุโดยบริษ
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "รหัสการตรวจสอบย้อนกลับ"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -702,7 +702,7 @@ msgstr "ผลิตภัณฑ์ที่มีรหัสตรวจสอ
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "รหัสตรวจสอบย้อนกลับ"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -727,7 +727,7 @@ msgstr "วันที่เพิ่มผลิตภัณฑ์"
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "ข้อผิดพลาด"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -2076,7 +2076,7 @@ msgstr "จำสถานที่ซื้อและเก็บไว้ส
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "รีเซ็ตรหัสผ่าน"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2441,7 +2441,7 @@ msgstr "ลงชื่อเข้าใช้"
 
 msgctxt "share"
 msgid "Share"
-msgstr ""
+msgstr "แบ่งปัน"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2513,7 +2513,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "เก็บ"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -3451,7 +3451,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "ต้นกำเนิด"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -4326,7 +4326,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "เสร็จแล้ว"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4429,7 +4429,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "บาร์โค้ดไม่ถูกต้อง"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4672,7 +4672,7 @@ msgstr "ไม่ได้คำนวณ NOVA groups"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "ไม่ทราบระดับการแปรรูปอาหาร"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -5131,11 +5131,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "เบ็ดเตล็ด"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "เบ็ดเตล็ด"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5153,7 +5153,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "รูปร่าง"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5161,7 +5161,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "วัสดุ"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -6363,22 +6363,22 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "แมตช์ที่ยอดเยี่ยมมาก"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "แมตช์ที่ดี"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "การจับคู่ที่ไม่ดี"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "ไม่พบการจับคู่"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6388,7 +6388,7 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "ไม่ตรงกัน"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6761,7 +6761,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "จำนวนหน่วย"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6793,19 +6793,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "ป้อนจำนวนหน่วยบรรจุภัณฑ์ที่มีรูปร่างและวัสดุเดียวกันที่บรรจุอยู่ในผลิตภัณฑ์"
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "ระบุชื่อรูปทรงตามที่ระบุไว้ในคำแนะนำการรีไซเคิล หากมี หรือเลือกรูปทรงที่ต้องการ"
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "หากสามารถระบุวัสดุได้ ให้ป้อนรหัสวัสดุที่เฉพาะเจาะจง (โดยปกติจะมีรหัสวัสดุอยู่ภายในรูปสามเหลี่ยมบนชิ้นส่วนบรรจุภัณฑ์) หรือหากไม่แน่ใจ ให้ระบุวัสดุทั่วไป (เช่น พลาสติกหรือโลหะ)"
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "ระบุคำแนะนำในการรีไซเคิลเฉพาะในกรณีที่ระบุไว้บนผลิตภัณฑ์เท่านั้น"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6815,7 +6815,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "ป้อนน้ำหนักสุทธิหรือปริมาตรสุทธิ และระบุหน่วย (เช่น กรัม หรือ มิลลิลิตร)"
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7435,17 +7435,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "ประเภทผลิตภัณฑ์"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "อาหาร"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "อาหารสัตว์เลี้ยง"
 
 # Beauty product type
 msgctxt "product_type_beauty"
