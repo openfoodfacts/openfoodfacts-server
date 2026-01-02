@@ -269,7 +269,7 @@ function display_unwanted_ingredients_preferences() {
     // Initialize tagify on the unwanted ingredients input field if we have it
     if (attribute_unwanted_ingredients_enabled) {
         // We need to load tagify library if not already loaded
-        if (globalThis.Tagify === undefined) {
+        if ( typeof globalThis.Tagify === "undefined") {
             // Load tagify JS and CSS
             // We use jQuery to load the CSS file dynamically
             $.when(
@@ -552,7 +552,7 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
       const hasPrefsPanel = $(target_selection_form).find("#user_product_preferences").length > 0;
 
       if (!hasPrefsPanel) {
-        if (displayed_user_product_preferences !== undefined) {
+        if ( typeof displayed_user_product_preferences !== "undefined") {
           displayed_user_product_preferences = false;
         }
         display_user_product_preferences(target_selected, target_selection_form, change);
