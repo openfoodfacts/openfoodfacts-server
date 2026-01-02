@@ -358,32 +358,39 @@ A reference to a list of hashes with every country code and their label in the $
 =cut
 
 sub get_countries_options_list ($target_lc, $exclude_world = 1) {
-	# if already computed send it back
-	my @countries_list = ();
-	if (defined $countries_options_lists{$target_lc}) {
-		@countries_list = @{$countries_options_lists{$target_lc}};
-	}
-	else {
-		# compute countries list
-		my @tags_list = get_all_taxonomy_entries("countries");
-		foreach my $tag (@tags_list) {
-			my $country = display_taxonomy_tag($target_lc, "countries", $tag);
-			# remove eventual language prefix
-			my $country_no_code = $country;
-			$country_no_code =~ s/^\w\w://;
-			# Adding to the list the modified string
-			push @countries_list, {value => $tag, label => $country_no_code, prefixed => $country};
-		}
-		# sort by name
-		@countries_list = sort {$unicode_collate->cmp($a->{label}, $b->{label})} @countries_list;
-		# cache
-		$countries_options_lists{$target_lc} = \@countries_list;
-	}
-	if ($exclude_world) {
-		# remove world
-		@countries_list = grep {$_->{value} ne "world"} @countries_list;
-	}
-	return \@countries_list;
+    my @countries_list = ();
+    if (defined $countries_options_lists{$target_lc}) {
+        @countries_list = @{$countries_options_lists{$target_lc}};
+    }
+    else {
+        my @tags_list = get_all_taxonomy_entries("countries");
+        foreach my $tag (@tags_list) {
+
+            # NEW: hide historical countries
+            my $properties_ref = get_taxonomy_tag("countries", $tag);
+            next if defined $properties_ref->{no_longer_exists};
+
+            my $country = display_taxonomy_tag($target_lc, "countries", $tag);
+            my $country_no_code = $country;
+            $country_no_code =~ s/^\w\w://;
+
+            push @countries_list, {
+                value    => $tag,
+                label    => $country_no_code,
+                prefixed => $country
+            };
+        }
+
+        @countries_list = sort {$unicode_collate->cmp($a->{label}, $b->{label})} @countries_list;
+        $countries_options_lists{$target_lc} = \@countries_list;
+    }
+
+    if ($exclude_world) {
+        @countries_list = grep { $_->{value} ne "world" } @countries_list;
+    }
+
+    return \@countries_list;
 }
+
 
 1;
