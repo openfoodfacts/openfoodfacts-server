@@ -33,7 +33,7 @@ jobs:
         fetch-depth: 1
     
     # Restore test groups cache to analyze current performance
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
