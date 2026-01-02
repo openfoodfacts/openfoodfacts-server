@@ -141,7 +141,7 @@ msgstr ""
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Добродошли!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -681,7 +681,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "Кодови за праћење"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -701,7 +701,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "код за праћење"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -1851,7 +1851,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "Додајте хранљиву материју"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -3445,7 +3445,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Порекло"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -4320,7 +4320,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Готово"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4423,7 +4423,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Неважећи бар код"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4666,7 +4666,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Ниво обраде хране непознат"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -5125,11 +5125,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Разно"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Разно"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5147,7 +5147,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "Облик"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5155,7 +5155,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Материјал"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -6357,22 +6357,22 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Веома добра утакмица"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "Добро поклапање"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Лоше подударање"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "Непознато подударање"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6382,7 +6382,7 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "Не подудара се"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6562,7 +6562,7 @@ msgstr "Prijavite se"
 
 msgctxt "sign_out"
 msgid "Sign out"
-msgstr ""
+msgstr "Одјавите се"
 
 msgctxt "your_contributions"
 msgid "Your contributions"
@@ -6755,7 +6755,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Број јединица"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6787,19 +6787,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Унесите број јединица паковања истог облика и материјала које се налазе у производу."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Унесите назив облика наведен у упутствима за рециклажу ако су доступна или изаберите облик."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Унесите специфичан материјал ако се може утврдити (шифра материјала унутар троугла се често може наћи на деловима паковања) или генерички материјал (на пример, пластика или метал) ако нисте сигурни."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Упутства за рециклажу унесите само ако су наведена на производу."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6809,7 +6809,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Унесите нето тежину или нето запремину и назначите јединицу (на пример г или мл)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7429,17 +7429,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Тип производа"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Храна"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Храна за кућне љубимце"
 
 # Beauty product type
 msgctxt "product_type_beauty"
