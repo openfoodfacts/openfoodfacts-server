@@ -5315,11 +5315,10 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"nova_group" => 1,
 			"nutrient_levels" => 1,
 			# Only the nutrients needed for the nutrient levels
-			"nutrition.aggregated_set" => 1,
-			#"nutrition.aggregated_set.nutrients.salt.value" => 1,
-			#"nutrition.aggregated_set.nutrients.sugars.value" => 1,
-			#"nutrition.aggregated_set.nutrients.fat.value" => 1,
-			#"nutrition.aggregated_set.nutrients.saturated-fat.value" => 1,
+			"nutrition.aggregated_set.nutrients.salt.value" => 1,
+			"nutrition.aggregated_set.nutrients.sugars.value" => 1,
+			"nutrition.aggregated_set.nutrients.fat.value" => 1,
+			"nutrition.aggregated_set.nutrients.saturated-fat.value" => 1,
 			# Get only the Nutri-Score fields needed to compute attributes
 			"nutriscore.2021.score" => 1,
 			"nutriscore.2021.grade" => 1,
