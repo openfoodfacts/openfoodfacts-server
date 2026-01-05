@@ -5263,6 +5263,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		# by Attributes.pm to compute attributes.
 		# This list should be updated if new attributes are added.
 		$fields_ref = {
+			# we need the schema version so that we can update (or not update) products to the latest schema version
+			"schema_version" => 1,
 			# we do not need the _id tag (it currently contains the barcode, same as "code" field)
 			"_id" => 0,
 			# generic fields
@@ -5313,14 +5315,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"nova_group" => 1,
 			"nutrient_levels" => 1,
 			# Only the nutrients needed for the nutrient levels
-			"nutriments.salt_100g" => 1,
-			"nutriments.salt_prepared_100g" => 1,
-			"nutriments.sugar_100g" => 1,
-			"nutriments.sugar_prepared_100g" => 1,
-			"nutriments.fat_100g" => 1,
-			"nutriments.fat_prepared_100g" => 1,
-			"nutriments.saturated-fat_100g" => 1,
-			"nutriments.saturated-fat_prepared_100g" => 1,
+			"nutrition.aggregated_set" => 1,
+			#"nutrition.aggregated_set.nutrients.salt.value" => 1,
+			#"nutrition.aggregated_set.nutrients.sugars.value" => 1,
+			#"nutrition.aggregated_set.nutrients.fat.value" => 1,
+			#"nutrition.aggregated_set.nutrients.saturated-fat.value" => 1,
 			# Get only the Nutri-Score fields needed to compute attributes
 			"nutriscore.2021.score" => 1,
 			"nutriscore.2021.grade" => 1,

@@ -2728,18 +2728,17 @@ is(is_european_product($product_ref), 1, 'Spain is an EU country');
 # energy does not match nutrients
 $product_ref = {
 	nutrition => {
-		aggregated_set =>
-			{
-				preparation => "as_sold",
-				per => "100g",
-				nutrients => {
-					"energy-kj" => {value => 5, unit => "kj"},
-					"carbohydrates" => {value => 10, unit => "g"},
-					"fat" => {value => 20, unit => "g"},
-					"proteins" => {value => 30, unit => "g"},
-					"fiber" => {value => 2, unit => "g"},
-				}
+		aggregated_set => {
+			preparation => "as_sold",
+			per => "100g",
+			nutrients => {
+				"energy-kj" => {value => 5, unit => "kj"},
+				"carbohydrates" => {value => 10, unit => "g"},
+				"fat" => {value => 20, unit => "g"},
+				"proteins" => {value => 30, unit => "g"},
+				"fiber" => {value => 2, unit => "g"},
 			}
+		}
 	}
 };
 
