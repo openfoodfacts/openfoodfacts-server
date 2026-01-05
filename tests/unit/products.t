@@ -37,6 +37,9 @@ is(normalize_code('https://dalgiardino.com/01/09506000134376/10/ABC/21/123456?17
 	'9506000134376', 'should reduce GS1 Digital Link URI to GTIN');
 is(normalize_code('https://example.com/01/00012345000058?17=271200'),
 	'0012345000058', 'should reduce GS1 Digital Link URI to GTIN');
+is(normalize_code('HTTPS://EXAMPLE.COM/01/12312312312333/10/ABC123?99=TESTING'),
+	'12312312312333', 'should reduce upper case GS1 Digital Link URI to GTIN')
+	;    # https://www.gs1.org/standards/gs1-barcodes/gs1-barcode-syntax-resource
 is(normalize_code('https://world.openfoodfacts.org/'), '', 'non-GS1 URIs should return an empty string');
 is(normalize_code('http://spam.zip/'), '', 'non-GS1 URIs should return an empty string');
 is(normalize_code('0100360505082919'),
