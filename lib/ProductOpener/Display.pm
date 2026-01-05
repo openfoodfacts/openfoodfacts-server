@@ -8048,7 +8048,7 @@ JS
 		$title .= " version $rev";
 	}
 
-	$description = sprintf(lang("product_description"), $title);
+	$description = sprintf(lang("product_description_$flavor"), $title);
 
 	$request_ref->{canon_url} = product_url($product_ref);
 
