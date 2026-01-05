@@ -235,6 +235,7 @@ my %contains_regexps = (
 	en => "contains",
 	bg => "съдържа",
 	ca => "conté",
+	cs => "obsahují",
 	da => "indeholder",
 	es => "contiene",
 	et => "sisaldab",
@@ -2866,6 +2867,9 @@ Text to analyze
 						my %ignore_regexps = (
 							'bs' => [
 								'u promjenljivom odnosu',    # in a variable ratio
+							],
+							'cs' => [
+								'v různém poměru',    # in variable proportions
 							],
 
 							'da' => [

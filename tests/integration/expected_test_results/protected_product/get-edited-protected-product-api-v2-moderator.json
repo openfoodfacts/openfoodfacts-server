@@ -108,11 +108,11 @@
          }
       },
       "data_quality_errors_tags" : [
-         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kcal-greater-than-in-kj",
-         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kcal-does-not-match-value-in-kj",
-         "en:nutrition-aggregated-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
-         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
+         "en:nutrition-energy-value-in-kcal-greater-than-in-kj",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
+         "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
+         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
@@ -144,17 +144,17 @@
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
          "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
-         "en:nutrition-aggregated-as-sold-100g-value-under-0-001-g-salt",
+         "en:nutrition-value-under-0-001-g-salt",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kcal-greater-than-in-kj",
-         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kcal-does-not-match-value-in-kj",
-         "en:nutrition-aggregated-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
-         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
+         "en:nutrition-energy-value-in-kcal-greater-than-in-kj",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
+         "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
+         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_warnings_tags" : [
          "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
-         "en:nutrition-aggregated-as-sold-100g-value-under-0-001-g-salt",
+         "en:nutrition-value-under-0-001-g-salt",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"
       ],
       "ecoscore_data" : {

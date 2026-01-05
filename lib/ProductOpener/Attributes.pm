@@ -310,6 +310,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 	}
 	elsif ($attribute_id eq "forest_footprint") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-a.svg";
+		$attribute_ref->{panel_id} = "forest_footprint";
 	}
 	elsif ($attribute_id eq "nova") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nova-group-1.svg";

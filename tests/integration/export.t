@@ -114,6 +114,8 @@ my $query_ref = {};
 my $separator = "\t";
 
 # Export database script to generate CSV exports of the whole database
+# Note: the test update seems to fail if the expected results files already exist.
+# remove tests/integration/expected_test_results/export_database/ before updating expected results.
 
 # unlink CSV export if it exists, and launch script
 my $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/en.$server_domain.products.csv";
