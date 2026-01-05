@@ -72,7 +72,10 @@
             "packaging" : "0.50"
          }
       },
-      "data_quality_errors_tags" : [],
+      "data_quality_errors_tags" : [
+         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
+      ],
       "data_quality_info_tags" : [
          "en:no-packaging-data",
          "en:food-groups-1-unknown",
@@ -97,12 +100,18 @@
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-packaging-packaging-data-missing",
          "en:environmental-score-production-system-no-label",
-         "en:environmental-score-threatened-species-ingredients-missing"
+         "en:environmental-score-threatened-species-ingredients-missing",
+         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_warnings_tags" : [
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-packaging-packaging-data-missing",
          "en:environmental-score-production-system-no-label",
@@ -509,7 +518,8 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "kJ",
-                  "value" : 450
+                  "value" : 450,
+                  "value_computed" : 1783.7
                },
                "fat" : {
                   "source" : "packaging",
@@ -573,6 +583,7 @@
                   "energy-kj" : {
                      "unit" : "kJ",
                      "value" : 450,
+                     "value_computed" : 1783.7,
                      "value_string" : "450"
                   },
                   "fat" : {

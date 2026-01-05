@@ -119,6 +119,21 @@
                {
                   "element_type" : "text",
                   "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:no-nutrition-data\"> No nutrition data </li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_nutrition_facts"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
                      "html" : "<ul> <li id=\"data-error-en:no-packaging-data\"> No packaging data <br><span class=\"description\">No packaging data - Packaging is one of the components of the Environmental Score, and thus it's important to have packaging data.</span> </li> </ul>"
                   }
                },

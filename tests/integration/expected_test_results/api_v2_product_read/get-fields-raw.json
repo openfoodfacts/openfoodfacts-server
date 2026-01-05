@@ -114,7 +114,11 @@
             "packaging" : "0.50"
          }
       },
-      "data_quality_errors_tags" : [],
+      "data_quality_errors_tags" : [
+         "en:nutrition-aggregated-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
+      ],
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
          "en:ingredients-percent-analysis-ok",
@@ -142,10 +146,19 @@
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
+         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:environmental-score-production-system-no-label"
+         "en:environmental-score-production-system-no-label",
+         "en:nutrition-aggregated-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-aggregated-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_warnings_tags" : [
+         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-production-system-no-label"
       ],
@@ -1141,7 +1154,8 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "kJ",
-                  "value" : 400
+                  "value" : 400,
+                  "value_computed" : 585.5
                },
                "fat" : {
                   "source" : "packaging",
@@ -1223,6 +1237,7 @@
                   "energy-kj" : {
                      "unit" : "kJ",
                      "value" : 400,
+                     "value_computed" : 585.5,
                      "value_string" : "400"
                   },
                   "fat" : {
