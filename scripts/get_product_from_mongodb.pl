@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
