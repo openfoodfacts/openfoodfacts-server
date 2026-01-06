@@ -693,6 +693,13 @@ sub api_compatibility_for_field ($field, $api_version) {
 		}
 	}
 
+	# Old nutrition schema with nutriments hash: we need to keep nutrition so that it can be converted back to nutriments
+	if ($api_version < 3.5) {
+		if ($field eq "nutriments") {
+			$field = "nutrition";
+		}
+	}
+
 	return $field;
 }
 
@@ -823,6 +830,9 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		localize_environmental_score($request_ref->{cc}, $product_ref);
 	}
 
+	# Used to handle old API V2 requests for specific nutrients
+	my @old_requested_nutrients = ();
+
 	# lets compute each requested field
 	foreach my $field (@fields) {
 
@@ -902,24 +912,19 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 			next;
 		}
 
-		# Apps can request the full nutriments hash
+		# In API V2, apps could request the full nutriments hash
 		# or specific nutrients:
 		# - saturated-fat_prepared_100g : return field at top level
 		# - nutrients|nutriments.sugars_serving : return field in nutrients / nutriments hash
+		# -> with the new nutrition schema, this is complex to handle:
+		# we first need nutrition data to be converted to the old %nutriments hash,
+		# and then we will filter the requested fields after
 		if ($field =~ /^((nutrients|nutriments)\.)?((.*)_(100g|serving))$/) {
 			my $return_hash = $2;
 			my $nutrient = $3;
-			if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nutrient})) {
-				if (defined $return_hash) {
-					if (not defined $customized_product_ref->{$return_hash}) {
-						$customized_product_ref->{$return_hash} = {};
-					}
-					$customized_product_ref->{$return_hash}{$nutrient} = $product_ref->{nutriments}{$nutrient};
-				}
-				else {
-					$customized_product_ref->{$nutrient} = $product_ref->{nutriments}{$nutrient};
-				}
-			}
+			push @old_requested_nutrients, [$return_hash, $nutrient];
+			# Make sure we keep the nutrition field so that it can then be converted to the old nutriments hash
+			$customized_product_ref->{nutrition} = $product_ref->{nutrition};
 			next;
 		}
 
@@ -993,6 +998,28 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	}
 
 	api_compatibility_for_product_response($customized_product_ref, $request_ref->{api_version});
+
+	# Handle old requested nutrients from API V2
+	if (scalar @old_requested_nutrients > 0) {
+		# The new nutrition structure has been converted to the old nutriments hash
+		# we now need to filter the nutriments hash to keep only the requested nutrients
+		# Copy the nutriments hash and delete it, then re-add only the requested nutrients
+		my $full_nutriments_ref = dclone($customized_product_ref->{nutriments});
+		delete $customized_product_ref->{nutriments};
+		foreach my $requested_nutrient_ref (@old_requested_nutrients) {
+			my ($return_hash, $nutrient) = @$requested_nutrient_ref;
+			if (defined $full_nutriments_ref->{$nutrient}) {
+				if (defined $return_hash) {
+					# return in nutriments / nutrients hash
+					deep_set($customized_product_ref, $return_hash, $nutrient, $full_nutriments_ref->{$nutrient});
+				}
+				else {
+					# return at top level
+					$customized_product_ref->{$nutrient} = $full_nutriments_ref->{$nutrient};
+				}
+			}
+		}
+	}
 
 	# Remove the schema field if it was not requested
 	if ($added_schema_version) {

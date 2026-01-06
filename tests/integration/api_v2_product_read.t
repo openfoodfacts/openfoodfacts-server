@@ -212,12 +212,12 @@ my $tests_ref = [
 		query_string => '?fields=nutriments',
 		expected_status_code => 200,
 	},
-	# ?fields=nutriments_salt_100g
+	# ?fields=nutriments.salt_100g
 	{
 		test_case => 'get-nutriments-salt-100g',
 		method => 'GET',
 		path => '/api/v2/product/200000000034',
-		query_string => '?fields=nutriments_salt_100g',
+		query_string => '?fields=nutriments.salt_100g',
 		expected_status_code => 200,
 	},
 	# ?fields=salt_100g
@@ -228,7 +228,7 @@ my $tests_ref = [
 		query_string => '?fields=salt_100g',
 		expected_status_code => 200,
 	},
-	
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
