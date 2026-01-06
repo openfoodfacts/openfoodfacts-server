@@ -141,6 +141,9 @@ use ProductOpener::HTTP qw/single_param create_user_agent/;
 use ProductOpener::Redis qw/push_product_update_to_redis/;
 use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Slack qw/send_slack_message/;
+use ProductOpener::Nutrition
+	qw/has_non_estimated_nutrition_data get_nutrition_data_as_key_values_pairs has_no_nutrition_data_on_packaging/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -441,7 +444,7 @@ sub _try_normalize_code_gs1 ($code) {
 				$ai_data_str = $encoder->ai_data_str();
 			}
 		}
-		elsif ($code =~ /^http?s:\/\/.+/) {
+		elsif ($code =~ /^http?s:\/\/.+/i) {
 			# Code could be a GS1 unbracketed AI element string
 			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
 			if ($encoder->data_str($code)) {
@@ -1647,8 +1650,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 			}
 			else {
 				if (    ($imagetype eq "nutrition")
-					and (defined $product_ref->{no_nutrition_data})
-					and ($product_ref->{no_nutrition_data} eq 'on'))
+					and (has_no_nutrition_data_on_packaging($current_ref)))
 				{
 					$images_completeness += $image_step;
 				}
@@ -1725,16 +1727,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		$complete = 0;
 	}
 
-	if (
-		(
-			(
-					(defined $current_ref->{nutriments})
-				and (scalar grep {$_ !~ /^(nova|fruits-vegetables)/} keys %{$current_ref->{nutriments}}) > 0
-			)
-		)
-		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))
-		)
-	{
+	if ((has_no_nutrition_data_on_packaging($current_ref)) or (has_non_estimated_nutrition_data($current_ref))) {
 		push @states_tags, "en:nutrition-facts-completed";
 		$notempty++;
 		$completeness += $step;
@@ -2192,16 +2185,13 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 	# Read all previous versions to see which fields have been added or edited
 
 	my @fields = (
-		'product_type', 'code',
-		'lang', 'product_name',
-		'generic_name', @ProductOpener::Config::product_fields,
-		@ProductOpener::Config::product_other_fields, 'no_nutrition_data',
-		'nutrition_data_per', 'nutrition_data_prepared_per',
-		'serving_size', 'allergens',
-		'traces', 'ingredients_text'
+		'product_type', 'code', 'lang', 'product_name', 'generic_name',
+		@ProductOpener::Config::product_fields,
+		@ProductOpener::Config::product_other_fields,
+		'serving_size', 'allergens', 'traces', 'ingredients_text'
 	);
 
-	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
+	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, packagings => {});
 	my %last = %previous;
 	my %current;
 
@@ -2226,7 +2216,8 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/$rev");
+		# We use retrieve_product to get the product at a specific revision, upgrading the schema if needed
+		my $product_ref = retrieve_product($product_id, 1, $rev);
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
@@ -2255,7 +2246,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				uploaded_images => {},
 				selected_images => {},
 				fields => {},
-				nutriments => {},
 				packagings => {},
 			);
 
@@ -2269,12 +2259,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 
 			if (defined $product_ref->{images}) {
 
-				# Old revisions may have the old image schema, with uploaded and selected images at the root
-				if ((not defined $product_ref->{schema_version} or ($product_ref->{schema_version} < 1002))) {
-					ProductOpener::ProductSchemaChanges::convert_schema_1001_to_1002_refactor_images_object(
-						$product_ref);
-				}
-
 				# Uploaded images
 				if (defined $product_ref->{images}{uploaded}) {
 					foreach my $imgid (sort keys %{$product_ref->{images}{uploaded}}) {
@@ -2287,9 +2271,10 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
 						foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
 							$current{selected_images}{$image_type . '_' . $image_lc}
-								= $product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} . ' '
-								. $product_ref->{images}{selected}{$image_type}{$image_lc}{rev} . ' '
-								. $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry};
+								= ($product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} // '') . ' '
+								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{rev} // '') . ' '
+								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry}
+									// '');
 						}
 					}
 				}
@@ -2319,15 +2304,9 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				}
 			}
 
-			# Nutriments
-
-			if (defined $product_ref->{nutriments}) {
-				foreach my $nid (keys %{$product_ref->{nutriments}}) {
-					if ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne '')) {
-						$current{nutriments}{$nid} = $product_ref->{nutriments}{$nid};
-					}
-				}
-			}
+			# Nutrition data
+			# Record changes for all nutrition input sets
+			$current{nutrition} = get_nutrition_data_as_key_values_pairs($product_ref);
 
 			# Packagings components
 			if (defined $product_ref->{packagings}) {
@@ -2374,7 +2353,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 			record_user_edit_type($users_ref, "checkers", $product_ref->{last_checker});
 		}
 
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments', 'packagings') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packagings') {
 
 			defined $blame_ref->{$group} or $blame_ref->{$group} = {};
 
@@ -2407,9 +2386,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 						push @ids, $field . "_" . $language_code;
 					}
 				}
-			}
-			elsif ($group eq 'nutriments') {
-				@ids = @{$nutriments_lists{off_europe}};
 			}
 			elsif ($group eq 'packagings') {
 				@ids = ("data", "weights_measured");
@@ -2994,12 +2970,14 @@ C<ignore> alone, ignore every edits.
 You can also have rules of the form
 C<ignore_FIELD> and C<warn_FIELD> which will ignore (or notify) edits on the specific field.
 
+C<block_FIELD> will block any edit if the field is present or match a condition (see below).
+
 Note that ignore rules also create a notification.
 
 For nutriments use C<nutriments_NUTRIMENT_NAME> for C<FIELD>.
 
 You can guard the rule on the field with a condition:
-C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
+C<block_if_CONDITION_FIELD>, C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
 This time it's to check the value the user want's to add.
 
 C<CONDITION> is one of the following:
@@ -3153,8 +3131,8 @@ sub process_product_edit_rules ($product_ref) {
 						$proceed_with_edit = 0;
 					}
 					# rules with conditions
-					elsif (
-						$action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match))?_?(.*)$/)
+					elsif ($action
+						=~ /^(ignore|warn|block)(_if_(existing|0|greater|lesser|equal|match|regexp_match))?_?(.*)$/)
 					{
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
@@ -3287,6 +3265,10 @@ sub process_product_edit_rules ($product_ref) {
 									$log->info("edit_rule: Removed $default_field") if $log->is_info();
 								}
 							}
+							elsif ($type eq 'block') {
+								$log->info("block action => do not proceed with edits") if $log->is_debug();
+								$proceed_with_edit = 0;
+							}
 						}
 
 					}
@@ -3326,47 +3308,13 @@ sub process_product_edit_rules ($product_ref) {
 										$emoji = ":pear:";
 									}
 
-									my $ua = create_user_agent();
-									my $server_endpoint
-										= "https://hooks.slack.com/services/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";
-
-									my $msg = $action_log;
-
-									# set custom HTTP request header fields
-									my $req = HTTP::Request->new(POST => $server_endpoint);
-									$req->header('content-type' => 'application/json');
-
-									# add POST data to HTTP request body
-									my $post_data
-										= '{"channel": "#'
-										. $channel
-										. '", "username": "editrules", "text": "'
-										. $msg
-										. '", "icon_emoji": "'
-										. $emoji . '" }';
-									$req->content_type("text/plain; charset='utf8'");
-									$req->content(Encode::encode_utf8($post_data));
-
-									my $resp = $ua->request($req);
-									if ($resp->is_success) {
-										my $message = $resp->decoded_content;
-										$log->info("Notification sent to Slack successfully", {response => $message})
-											if $log->is_info();
-									}
-									else {
-										$log->warn(
-											"Notification could not be sent to Slack",
-											{code => $resp->code, response => $resp->message}
-										) if $log->is_warn();
-									}
-
+									send_slack_message($channel, 'editrules', $action_log, $emoji);
 								}
 							}
 						}
 					}
 				}
 			}
-
 		}
 	}
 
@@ -3405,7 +3353,7 @@ sub compute_changes_diff_text ($change_ref) {
 	my $diffs = '';
 	if (defined $change_ref->{diffs}) {
 		my %diffs = %{$change_ref->{diffs}};
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packaging') {
 			if (defined $diffs{$group}) {
 				$diffs .= lang("change_$group") . " ";
 

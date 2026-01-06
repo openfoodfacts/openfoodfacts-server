@@ -83,7 +83,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/get_string_id_for_lang retrieve retrieve_object store_object/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/get_imagefield_from_string process_image_crop process_image_upload/;
@@ -2207,16 +2207,20 @@ sub import_csv_file ($args_ref) {
 
 		# Construct Yes and No regexps with English + local language
 		my $yes_regexp = '1|' . $yes{en};
-		if ((defined $imported_product_ref->{lc}) and ($imported_product_ref->{lc} ne 'en')) {
+		if (    (defined $imported_product_ref->{lc})
+			and ($imported_product_ref->{lc} ne 'en')
+			and (defined $yes{$imported_product_ref->{lc}}))
+		{
 			$yes_regexp .= '|' . $yes{$imported_product_ref->{lc}};
 		}
 
 		my $no_regexp = '0|' . $no{en};
-		if ((defined $imported_product_ref->{lc}) and ($imported_product_ref->{lc} ne 'en')) {
+		if (    (defined $imported_product_ref->{lc})
+			and ($imported_product_ref->{lc} ne 'en')
+			and (defined $no{$imported_product_ref->{lc}}))
+		{
 			$no_regexp .= '|' . $no{$imported_product_ref->{lc}};
-		}
-
-		# Go through all the possible fields that can be imported
+		}    # Go through all the possible fields that can be imported
 		foreach my $field (@param_fields) {
 
 			preprocess_field($imported_product_ref, $product_ref, $field, $yes_regexp, $no_regexp);

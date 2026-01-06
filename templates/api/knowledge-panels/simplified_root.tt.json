@@ -1,0 +1,50 @@
+{
+    "type": "root",
+    "expanded": true,
+    "elements": [
+        [% IF panel.has_health_card %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "health_card_simplified",
+            },
+        },
+        [% END %]
+        [% IF panel.has_environment_card %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "environment_card_simplified",
+            },
+        },
+        [% END %]
+        [% IF panel.has_product_card %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "product_card",
+            },
+        },
+        [% END %]
+        [% IF panel.has_report_problem_card %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "report_problem_card",
+            },
+        },
+        [% END %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "prices_card",
+            },
+        },
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "folksonomy_card",
+            },
+        },
+    ],
+}

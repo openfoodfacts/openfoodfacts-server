@@ -44,33 +44,12 @@
                "unit" : "g",
                "value" : 7.7
             },
-            "fruits-vegetables-legumes-estimate-from-ingredients" : {
-               "source" : "packaging",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "%",
-               "value" : 0
-            },
-            "fruits-vegetables-nuts-estimate-from-ingredients" : {
-               "source" : "packaging",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "%",
-               "value" : 0
-            },
             "nova-group" : {
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
                "value" : 4
-            },
-            "nutrition-score-fr" : {
-               "source" : "packaging",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "g",
-               "value" : 9
             },
             "proteins" : {
                "source" : "packaging",
@@ -155,25 +134,10 @@
                   "value" : 7.7,
                   "value_string" : "7.7"
                },
-               "fruits-vegetables-legumes-estimate-from-ingredients" : {
-                  "unit" : "%",
-                  "value" : 0,
-                  "value_string" : "0"
-               },
-               "fruits-vegetables-nuts-estimate-from-ingredients" : {
-                  "unit" : "%",
-                  "value" : 0,
-                  "value_string" : "0"
-               },
                "nova-group" : {
                   "unit" : "g",
                   "value" : 4,
                   "value_string" : "4"
-               },
-               "nutrition-score-fr" : {
-                  "unit" : "g",
-                  "value" : 9,
-                  "value_string" : "9"
                },
                "proteins" : {
                   "unit" : "g",

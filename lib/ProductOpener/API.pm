@@ -84,7 +84,7 @@ use ProductOpener::APIProductRead qw/read_product_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
 use ProductOpener::APIProductImagesUpload qw/upload_product_image_api delete_product_image_api/;
 use ProductOpener::APIProductRevert qw/revert_product_api/;
-use ProductOpener::APIProductServices qw/product_services_api/;
+use ProductOpener::APIProductServices qw/product_services_api external_sources_api/;
 use ProductOpener::APITagRead qw/read_tag_api/;
 use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
 use ProductOpener::APITaxonomy qw/taxonomy_canonicalize_tags_api taxonomy_display_tags_api/;
@@ -414,9 +414,9 @@ my $dispatch_table = {
 		OPTIONS => sub {return;},    # Just return CORS headers
 		DELETE => \&delete_product_image_api,
 	},
-	# Product revert
+	# Product revert
 	product_revert => {
-		# Check that the method is POST (GET may be dangerous: it would allow to revert a product by just clicking or loading a link)
+		# Check that the method is POST (GET may be dangerous: it would allow to revert a product by just clicking or loading a link)
 		POST => \&revert_product_api,
 	},
 	# Product services
@@ -461,6 +461,12 @@ my $dispatch_table = {
 	preferences => {
 		GET => \&preferences_api,
 		HEAD => \&preferences_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# External sources (translated)
+	external_sources => {
+		GET => \&external_sources_api,
+		HEAD => \&external_sources_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 	},
 
@@ -847,22 +853,6 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 			next;
 		}
 
-		# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
-		if ($field eq "nutrition_table_html") {
-			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef, $request_ref);
-			next;
-		}
-
-		# Environmental-Score details in simple HTML
-		if ($field eq "environmental_score_details_simple_html") {
-			if ((1 or $show_environmental_score) and (defined $product_ref->{environmental_score_data})) {
-				$customized_product_ref->{$field}
-					= display_environmental_score_calculation_details_simple_html($request_ref->{cc},
-					$product_ref->{environmental_score_data});
-			}
-			next;
-		}
-
 		# fields in %language_fields can have different values by language
 		# by priority, return the first existing value in the language requested,
 		# possibly multiple languages if sent ?lc=fr,nl for instance,
@@ -1106,7 +1096,6 @@ sub process_auth_header ($request_ref, $r) {
 	}
 
 	$request_ref->{access_token} = $token;
-	#12279 TODO: We probably shouldn't do this as it will call out to Keycloak for every request
 	my $user_ref = retrieve_user_using_token($access_token, $request_ref);
 	unless (defined $user_ref) {
 		$log->info('User not found and not created') if $log->is_info();

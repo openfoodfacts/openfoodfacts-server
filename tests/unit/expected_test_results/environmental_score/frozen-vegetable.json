@@ -245,27 +245,27 @@
       },
       "agribalyse" : {
          "agribalyse_food_code" : "20009",
-         "co2_agriculture" : 0.080693939,
-         "co2_consumption" : 0.032140419,
-         "co2_distribution" : 0.010751711,
+         "co2_agriculture" : 0.0828,
+         "co2_consumption" : 0.0323,
+         "co2_distribution" : 0.0189,
          "co2_packaging" : 0,
-         "co2_processing" : 0,
-         "co2_total" : 0.364321099,
-         "co2_transportation" : 0.24073503,
+         "co2_processing" : 6.65e-05,
+         "co2_total" : 0.396,
+         "co2_transportation" : 0.262,
          "code" : "20009",
-         "dqr" : "2.15",
-         "ef_agriculture" : 0.033424421,
-         "ef_consumption" : 0.0012749462,
-         "ef_distribution" : 0.0021986266,
+         "dqr" : "2.2443864745246707",
+         "ef_agriculture" : 0.0214,
+         "ef_consumption" : 0.00132,
+         "ef_distribution" : 0.00288,
          "ef_packaging" : 0,
-         "ef_processing" : 0,
-         "ef_total" : 0.0556780358,
-         "ef_transportation" : 0.018780042,
+         "ef_processing" : 2.01e-05,
+         "ef_total" : 0.0453,
+         "ef_transportation" : 0.0196,
          "is_beverage" : 0,
          "name_en" : "Carrot, raw",
          "name_fr" : "Carotte, crue",
          "score" : 99,
-         "version" : "3.1.1"
+         "version" : "3.2"
       },
       "grade" : "a-plus",
       "grades" : {
@@ -470,12 +470,6 @@
       "en:environmental-score-changed",
       "en:environmental-score-grade-changed"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
-   },
    "packaging_materials_tags" : [
       "en:plastic"
    ],

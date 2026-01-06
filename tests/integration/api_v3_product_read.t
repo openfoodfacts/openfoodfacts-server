@@ -17,7 +17,7 @@ remove_all_users();
 
 my $ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($ua, \%create_user_args);
 
 # Create some products
@@ -284,6 +284,21 @@ my $tests_ref = [
 		expected_status_code => 200,
 	},
 
+	# Get simplified knowledge panels
+	{
+		test_case => 'get-knowledge-panels-simplified',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=knowledge_panels&activate_knowledge_panels_simplified=true',
+		expected_status_code => 200,
+	},
+	# v3.5 new nutrition schema
+	{
+		test_case => 'get-existing-product-api-v3-5',
+		method => 'GET',
+		path => '/api/v3.5/product/4260392550101',
+		expected_status_code => 200,
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

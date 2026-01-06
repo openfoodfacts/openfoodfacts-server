@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//fr.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
@@ -125,7 +132,7 @@
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <span><h2>Scannez un produit<h2></span>
+      <h2><span>Scannez un produit</span></h2>
       <button class="modal-close-button">&times;</button>
     </div>
     <div>
@@ -388,9 +395,9 @@
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner__main-title">Merci de contribuer à notre collecte de fonds 2025</h3>
+        <h3 class="donation-banner__main-title">Merci de contribuer à notre collecte de fonds 2026</h3>
       </div>
       <div style="padding:1rem;">
         <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
@@ -17359,6 +17366,266 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 
                                 
 
+                                    <tr id="nutrient_polydextrose_tr" class="nutrient_main" style="display:none">
+                                        <td>
+                                            <label class="nutrient_label" for="nutrient_polydextrose">
+                                                Polydextrose
+                                                
+                                            </label>
+                                        </td>
+
+                                        <!-- loop on preparation and per to get the input sets for the selected source -->
+                                        
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_100g" >
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100g_nutrients_polydextrose_value_string" name="nutrition_input_sets_as_sold_100g_nutrients_polydextrose_value_string" value="" autocomplete="off"/>
+
+                                                    <!-- FIXME checks need to be made to work on all columns -->
+                                                    <span id="nutrient_question_mark_polydextrose" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_polydextrose" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_polydextrose_unit" id="nutrition_input_sets_as_sold_100g_nutrients_polydextrose_unit" name="nutrition_input_sets_as_sold_100g_nutrients_polydextrose_unit">
+                                                            
+                                                                <option value="g" selected="selected" >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_100ml" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100ml_nutrients_polydextrose_value_string" name="nutrition_input_sets_as_sold_100ml_nutrients_polydextrose_value_string" value="" autocomplete="off"/>
+
+                                                    <!-- FIXME checks need to be made to work on all columns -->
+                                                    <span id="nutrient_question_mark_polydextrose" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_polydextrose" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_polydextrose_unit" id="nutrition_input_sets_as_sold_100ml_nutrients_polydextrose_unit" name="nutrition_input_sets_as_sold_100ml_nutrients_polydextrose_unit">
+                                                            
+                                                                <option value="g" selected="selected" >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_1l" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_1l_nutrients_polydextrose_value_string" name="nutrition_input_sets_as_sold_1l_nutrients_polydextrose_value_string" value="" autocomplete="off"/>
+
+                                                    <!-- FIXME checks need to be made to work on all columns -->
+                                                    <span id="nutrient_question_mark_polydextrose" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_polydextrose" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_polydextrose_unit" id="nutrition_input_sets_as_sold_1l_nutrients_polydextrose_unit" name="nutrition_input_sets_as_sold_1l_nutrients_polydextrose_unit">
+                                                            
+                                                                <option value="g" selected="selected" >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_serving" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_serving_nutrients_polydextrose_value_string" name="nutrition_input_sets_as_sold_serving_nutrients_polydextrose_value_string" value="" autocomplete="off"/>
+
+                                                    <!-- FIXME checks need to be made to work on all columns -->
+                                                    <span id="nutrient_question_mark_polydextrose" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_polydextrose" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_polydextrose_unit" id="nutrition_input_sets_as_sold_serving_nutrients_polydextrose_unit" name="nutrition_input_sets_as_sold_serving_nutrients_polydextrose_unit">
+                                                            
+                                                                <option value="g" selected="selected" >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                        
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_100g" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100g_nutrients_polydextrose_value_string" name="nutrition_input_sets_prepared_100g_nutrients_polydextrose_value_string" value="" autocomplete="off"/>
+
+                                                    <!-- FIXME checks need to be made to work on all columns -->
+                                                    <span id="nutrient_question_mark_polydextrose" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_polydextrose" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_polydextrose_unit" id="nutrition_input_sets_prepared_100g_nutrients_polydextrose_unit" name="nutrition_input_sets_prepared_100g_nutrients_polydextrose_unit">
+                                                            
+                                                                <option value="g" selected="selected" >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_100ml" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100ml_nutrients_polydextrose_value_string" name="nutrition_input_sets_prepared_100ml_nutrients_polydextrose_value_string" value="" autocomplete="off"/>
+
+                                                    <!-- FIXME checks need to be made to work on all columns -->
+                                                    <span id="nutrient_question_mark_polydextrose" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_polydextrose" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_polydextrose_unit" id="nutrition_input_sets_prepared_100ml_nutrients_polydextrose_unit" name="nutrition_input_sets_prepared_100ml_nutrients_polydextrose_unit">
+                                                            
+                                                                <option value="g" selected="selected" >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_1l" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_1l_nutrients_polydextrose_value_string" name="nutrition_input_sets_prepared_1l_nutrients_polydextrose_value_string" value="" autocomplete="off"/>
+
+                                                    <!-- FIXME checks need to be made to work on all columns -->
+                                                    <span id="nutrient_question_mark_polydextrose" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_polydextrose" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_polydextrose_unit" id="nutrition_input_sets_prepared_1l_nutrients_polydextrose_unit" name="nutrition_input_sets_prepared_1l_nutrients_polydextrose_unit">
+                                                            
+                                                                <option value="g" selected="selected" >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_serving" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_serving_nutrients_polydextrose_value_string" name="nutrition_input_sets_prepared_serving_nutrients_polydextrose_value_string" value="" autocomplete="off"/>
+
+                                                    <!-- FIXME checks need to be made to work on all columns -->
+                                                    <span id="nutrient_question_mark_polydextrose" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_polydextrose" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_polydextrose_unit" id="nutrition_input_sets_prepared_serving_nutrients_polydextrose_unit" name="nutrition_input_sets_prepared_serving_nutrients_polydextrose_unit">
+                                                            
+                                                                <option value="g" selected="selected" >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                        
+
+                                        <!-- Global nutrient unit column-->
+                                        <td class="nutrient_unit_col">
+                                            
+                                                
+                                                    <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_polydextrose_unit" name="nutrition_input_sets_prepared_serving_nutrients_polydextrose_unit">
+                                                        
+                                                            <option value="g" selected="selected" >g</option>
+                                                        
+                                                            <option value="mg"  >mg</option>
+                                                        
+                                                            <option value="µg"  >mcg/µg</option>
+                                                        
+                                                    </select>
+                                                
+                                            
+                                        </td>
+
+                                    </tr>
+
+                                
+
                                     <tr id="nutrient_insoluble-fiber_tr" class="nutrient_main" style="display:none">
                                         <td>
                                             <label class="nutrient_label" for="nutrient_insoluble-fiber">
@@ -29315,15 +29582,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts_unit" id="nutrition_input_sets_as_sold_100g_nutrients_fruits-vegetables-nuts_unit" name="nutrition_input_sets_as_sold_100g_nutrients_fruits-vegetables-nuts_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29343,15 +29602,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts_unit" id="nutrition_input_sets_as_sold_100ml_nutrients_fruits-vegetables-nuts_unit" name="nutrition_input_sets_as_sold_100ml_nutrients_fruits-vegetables-nuts_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29371,15 +29622,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts_unit" id="nutrition_input_sets_as_sold_1l_nutrients_fruits-vegetables-nuts_unit" name="nutrition_input_sets_as_sold_1l_nutrients_fruits-vegetables-nuts_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29399,15 +29642,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts_unit" id="nutrition_input_sets_as_sold_serving_nutrients_fruits-vegetables-nuts_unit" name="nutrition_input_sets_as_sold_serving_nutrients_fruits-vegetables-nuts_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29429,15 +29664,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts_unit" id="nutrition_input_sets_prepared_100g_nutrients_fruits-vegetables-nuts_unit" name="nutrition_input_sets_prepared_100g_nutrients_fruits-vegetables-nuts_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29457,15 +29684,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts_unit" id="nutrition_input_sets_prepared_100ml_nutrients_fruits-vegetables-nuts_unit" name="nutrition_input_sets_prepared_100ml_nutrients_fruits-vegetables-nuts_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29485,15 +29704,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts_unit" id="nutrition_input_sets_prepared_1l_nutrients_fruits-vegetables-nuts_unit" name="nutrition_input_sets_prepared_1l_nutrients_fruits-vegetables-nuts_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29513,15 +29724,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts_unit" id="nutrition_input_sets_prepared_serving_nutrients_fruits-vegetables-nuts_unit" name="nutrition_input_sets_prepared_serving_nutrients_fruits-vegetables-nuts_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29532,15 +29735,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                         <td class="nutrient_unit_col">
                                             
                                                 
-                                                    <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_fruits-vegetables-nuts_unit" name="nutrition_input_sets_prepared_serving_nutrients_fruits-vegetables-nuts_unit">
-                                                        
-                                                            <option value="g"  >g</option>
-                                                        
-                                                            <option value="mg"  >mg</option>
-                                                        
-                                                            <option value="µg"  >mcg/µg</option>
-                                                        
-                                                    </select>
+                                                    <span class="nutrient_unit">%</span>
                                                 
                                             
                                         </td>
@@ -29575,15 +29770,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-dried_unit" id="nutrition_input_sets_as_sold_100g_nutrients_fruits-vegetables-nuts-dried_unit" name="nutrition_input_sets_as_sold_100g_nutrients_fruits-vegetables-nuts-dried_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29603,15 +29790,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-dried_unit" id="nutrition_input_sets_as_sold_100ml_nutrients_fruits-vegetables-nuts-dried_unit" name="nutrition_input_sets_as_sold_100ml_nutrients_fruits-vegetables-nuts-dried_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29631,15 +29810,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-dried_unit" id="nutrition_input_sets_as_sold_1l_nutrients_fruits-vegetables-nuts-dried_unit" name="nutrition_input_sets_as_sold_1l_nutrients_fruits-vegetables-nuts-dried_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29659,15 +29830,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-dried_unit" id="nutrition_input_sets_as_sold_serving_nutrients_fruits-vegetables-nuts-dried_unit" name="nutrition_input_sets_as_sold_serving_nutrients_fruits-vegetables-nuts-dried_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29689,15 +29852,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-dried_unit" id="nutrition_input_sets_prepared_100g_nutrients_fruits-vegetables-nuts-dried_unit" name="nutrition_input_sets_prepared_100g_nutrients_fruits-vegetables-nuts-dried_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29717,15 +29872,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-dried_unit" id="nutrition_input_sets_prepared_100ml_nutrients_fruits-vegetables-nuts-dried_unit" name="nutrition_input_sets_prepared_100ml_nutrients_fruits-vegetables-nuts-dried_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29745,15 +29892,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-dried_unit" id="nutrition_input_sets_prepared_1l_nutrients_fruits-vegetables-nuts-dried_unit" name="nutrition_input_sets_prepared_1l_nutrients_fruits-vegetables-nuts-dried_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29773,15 +29912,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                                     <span style="display:none">
 
                                                     
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-dried_unit" id="nutrition_input_sets_prepared_serving_nutrients_fruits-vegetables-nuts-dried_unit" name="nutrition_input_sets_prepared_serving_nutrients_fruits-vegetables-nuts-dried_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
+                                                        <span class="nutrient_unit">%</span>
                                                     
                                                     </span>
                                                 </td>
@@ -29792,275 +29923,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                         <td class="nutrient_unit_col">
                                             
                                                 
-                                                    <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_fruits-vegetables-nuts-dried_unit" name="nutrition_input_sets_prepared_serving_nutrients_fruits-vegetables-nuts-dried_unit">
-                                                        
-                                                            <option value="g"  >g</option>
-                                                        
-                                                            <option value="mg"  >mg</option>
-                                                        
-                                                            <option value="µg"  >mcg/µg</option>
-                                                        
-                                                    </select>
-                                                
-                                            
-                                        </td>
-
-                                    </tr>
-
-                                
-
-                                    <tr id="nutrient_fruits-vegetables-nuts-estimate_tr" class="nutrient_main" style="display:none">
-                                        <td>
-                                            <label class="nutrient_label" for="nutrient_fruits-vegetables-nuts-estimate">
-                                                Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation manuelle avec la liste des ingrédients)
-                                                
-                                            </label>
-                                        </td>
-
-                                        <!-- loop on preparation and per to get the input sets for the selected source -->
-                                        
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_as_sold_100g" >
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100g_nutrients_fruits-vegetables-nuts-estimate_value_string" name="nutrition_input_sets_as_sold_100g_nutrients_fruits-vegetables-nuts-estimate_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_fruits-vegetables-nuts-estimate" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_fruits-vegetables-nuts-estimate" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-estimate_unit" id="nutrition_input_sets_as_sold_100g_nutrients_fruits-vegetables-nuts-estimate_unit" name="nutrition_input_sets_as_sold_100g_nutrients_fruits-vegetables-nuts-estimate_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_as_sold_100ml" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100ml_nutrients_fruits-vegetables-nuts-estimate_value_string" name="nutrition_input_sets_as_sold_100ml_nutrients_fruits-vegetables-nuts-estimate_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_fruits-vegetables-nuts-estimate" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_fruits-vegetables-nuts-estimate" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-estimate_unit" id="nutrition_input_sets_as_sold_100ml_nutrients_fruits-vegetables-nuts-estimate_unit" name="nutrition_input_sets_as_sold_100ml_nutrients_fruits-vegetables-nuts-estimate_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_as_sold_1l" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_1l_nutrients_fruits-vegetables-nuts-estimate_value_string" name="nutrition_input_sets_as_sold_1l_nutrients_fruits-vegetables-nuts-estimate_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_fruits-vegetables-nuts-estimate" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_fruits-vegetables-nuts-estimate" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-estimate_unit" id="nutrition_input_sets_as_sold_1l_nutrients_fruits-vegetables-nuts-estimate_unit" name="nutrition_input_sets_as_sold_1l_nutrients_fruits-vegetables-nuts-estimate_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_as_sold_serving" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_serving_nutrients_fruits-vegetables-nuts-estimate_value_string" name="nutrition_input_sets_as_sold_serving_nutrients_fruits-vegetables-nuts-estimate_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_fruits-vegetables-nuts-estimate" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_fruits-vegetables-nuts-estimate" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-estimate_unit" id="nutrition_input_sets_as_sold_serving_nutrients_fruits-vegetables-nuts-estimate_unit" name="nutrition_input_sets_as_sold_serving_nutrients_fruits-vegetables-nuts-estimate_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                        
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_prepared_100g" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100g_nutrients_fruits-vegetables-nuts-estimate_value_string" name="nutrition_input_sets_prepared_100g_nutrients_fruits-vegetables-nuts-estimate_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_fruits-vegetables-nuts-estimate" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_fruits-vegetables-nuts-estimate" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-estimate_unit" id="nutrition_input_sets_prepared_100g_nutrients_fruits-vegetables-nuts-estimate_unit" name="nutrition_input_sets_prepared_100g_nutrients_fruits-vegetables-nuts-estimate_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_prepared_100ml" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100ml_nutrients_fruits-vegetables-nuts-estimate_value_string" name="nutrition_input_sets_prepared_100ml_nutrients_fruits-vegetables-nuts-estimate_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_fruits-vegetables-nuts-estimate" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_fruits-vegetables-nuts-estimate" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-estimate_unit" id="nutrition_input_sets_prepared_100ml_nutrients_fruits-vegetables-nuts-estimate_unit" name="nutrition_input_sets_prepared_100ml_nutrients_fruits-vegetables-nuts-estimate_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_prepared_1l" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_1l_nutrients_fruits-vegetables-nuts-estimate_value_string" name="nutrition_input_sets_prepared_1l_nutrients_fruits-vegetables-nuts-estimate_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_fruits-vegetables-nuts-estimate" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_fruits-vegetables-nuts-estimate" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-estimate_unit" id="nutrition_input_sets_prepared_1l_nutrients_fruits-vegetables-nuts-estimate_unit" name="nutrition_input_sets_prepared_1l_nutrients_fruits-vegetables-nuts-estimate_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_prepared_serving" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_serving_nutrients_fruits-vegetables-nuts-estimate_value_string" name="nutrition_input_sets_prepared_serving_nutrients_fruits-vegetables-nuts-estimate_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_fruits-vegetables-nuts-estimate" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_fruits-vegetables-nuts-estimate" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_fruits-vegetables-nuts-estimate_unit" id="nutrition_input_sets_prepared_serving_nutrients_fruits-vegetables-nuts-estimate_unit" name="nutrition_input_sets_prepared_serving_nutrients_fruits-vegetables-nuts-estimate_unit">
-                                                            
-                                                                <option value="g"  >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                        
-
-                                        <!-- Global nutrient unit column-->
-                                        <td class="nutrient_unit_col">
-                                            
-                                                
-                                                    <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_fruits-vegetables-nuts-estimate_unit" name="nutrition_input_sets_prepared_serving_nutrients_fruits-vegetables-nuts-estimate_unit">
-                                                        
-                                                            <option value="g"  >g</option>
-                                                        
-                                                            <option value="mg"  >mg</option>
-                                                        
-                                                            <option value="µg"  >mcg/µg</option>
-                                                        
-                                                    </select>
+                                                    <span class="nutrient_unit">%</span>
                                                 
                                             
                                         </td>
@@ -31093,266 +30956,6 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                             
                                                 
                                                     <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_carbon-footprint_unit" name="nutrition_input_sets_prepared_serving_nutrients_carbon-footprint_unit">
-                                                        
-                                                            <option value="g" selected="selected" >g</option>
-                                                        
-                                                            <option value="mg"  >mg</option>
-                                                        
-                                                            <option value="µg"  >mcg/µg</option>
-                                                        
-                                                    </select>
-                                                
-                                            
-                                        </td>
-
-                                    </tr>
-
-                                
-
-                                    <tr id="nutrient_carbon-footprint-from-meat-or-fish_tr" class="nutrient_main" style="display:none">
-                                        <td>
-                                            <label class="nutrient_label" for="nutrient_carbon-footprint-from-meat-or-fish">
-                                                Empreinte carbone de la viande ou du poisson
-                                                
-                                            </label>
-                                        </td>
-
-                                        <!-- loop on preparation and per to get the input sets for the selected source -->
-                                        
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_as_sold_100g" >
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100g_nutrients_carbon-footprint-from-meat-or-fish_value_string" name="nutrition_input_sets_as_sold_100g_nutrients_carbon-footprint-from-meat-or-fish_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_carbon-footprint-from-meat-or-fish" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_carbon-footprint-from-meat-or-fish" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_carbon-footprint-from-meat-or-fish_unit" id="nutrition_input_sets_as_sold_100g_nutrients_carbon-footprint-from-meat-or-fish_unit" name="nutrition_input_sets_as_sold_100g_nutrients_carbon-footprint-from-meat-or-fish_unit">
-                                                            
-                                                                <option value="g" selected="selected" >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_as_sold_100ml" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100ml_nutrients_carbon-footprint-from-meat-or-fish_value_string" name="nutrition_input_sets_as_sold_100ml_nutrients_carbon-footprint-from-meat-or-fish_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_carbon-footprint-from-meat-or-fish" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_carbon-footprint-from-meat-or-fish" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_carbon-footprint-from-meat-or-fish_unit" id="nutrition_input_sets_as_sold_100ml_nutrients_carbon-footprint-from-meat-or-fish_unit" name="nutrition_input_sets_as_sold_100ml_nutrients_carbon-footprint-from-meat-or-fish_unit">
-                                                            
-                                                                <option value="g" selected="selected" >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_as_sold_1l" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_1l_nutrients_carbon-footprint-from-meat-or-fish_value_string" name="nutrition_input_sets_as_sold_1l_nutrients_carbon-footprint-from-meat-or-fish_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_carbon-footprint-from-meat-or-fish" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_carbon-footprint-from-meat-or-fish" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_carbon-footprint-from-meat-or-fish_unit" id="nutrition_input_sets_as_sold_1l_nutrients_carbon-footprint-from-meat-or-fish_unit" name="nutrition_input_sets_as_sold_1l_nutrients_carbon-footprint-from-meat-or-fish_unit">
-                                                            
-                                                                <option value="g" selected="selected" >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_as_sold_serving" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_serving_nutrients_carbon-footprint-from-meat-or-fish_value_string" name="nutrition_input_sets_as_sold_serving_nutrients_carbon-footprint-from-meat-or-fish_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_carbon-footprint-from-meat-or-fish" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_carbon-footprint-from-meat-or-fish" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_carbon-footprint-from-meat-or-fish_unit" id="nutrition_input_sets_as_sold_serving_nutrients_carbon-footprint-from-meat-or-fish_unit" name="nutrition_input_sets_as_sold_serving_nutrients_carbon-footprint-from-meat-or-fish_unit">
-                                                            
-                                                                <option value="g" selected="selected" >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                        
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_prepared_100g" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100g_nutrients_carbon-footprint-from-meat-or-fish_value_string" name="nutrition_input_sets_prepared_100g_nutrients_carbon-footprint-from-meat-or-fish_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_carbon-footprint-from-meat-or-fish" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_carbon-footprint-from-meat-or-fish" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_carbon-footprint-from-meat-or-fish_unit" id="nutrition_input_sets_prepared_100g_nutrients_carbon-footprint-from-meat-or-fish_unit" name="nutrition_input_sets_prepared_100g_nutrients_carbon-footprint-from-meat-or-fish_unit">
-                                                            
-                                                                <option value="g" selected="selected" >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_prepared_100ml" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100ml_nutrients_carbon-footprint-from-meat-or-fish_value_string" name="nutrition_input_sets_prepared_100ml_nutrients_carbon-footprint-from-meat-or-fish_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_carbon-footprint-from-meat-or-fish" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_carbon-footprint-from-meat-or-fish" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_carbon-footprint-from-meat-or-fish_unit" id="nutrition_input_sets_prepared_100ml_nutrients_carbon-footprint-from-meat-or-fish_unit" name="nutrition_input_sets_prepared_100ml_nutrients_carbon-footprint-from-meat-or-fish_unit">
-                                                            
-                                                                <option value="g" selected="selected" >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_prepared_1l" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_1l_nutrients_carbon-footprint-from-meat-or-fish_value_string" name="nutrition_input_sets_prepared_1l_nutrients_carbon-footprint-from-meat-or-fish_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_carbon-footprint-from-meat-or-fish" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_carbon-footprint-from-meat-or-fish" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_carbon-footprint-from-meat-or-fish_unit" id="nutrition_input_sets_prepared_1l_nutrients_carbon-footprint-from-meat-or-fish_unit" name="nutrition_input_sets_prepared_1l_nutrients_carbon-footprint-from-meat-or-fish_unit">
-                                                            
-                                                                <option value="g" selected="selected" >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                                <td class="nutrient_col nutrition_input_sets_prepared_serving" style="display:none">
-                                                    
-
-                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_serving_nutrients_carbon-footprint-from-meat-or-fish_value_string" name="nutrition_input_sets_prepared_serving_nutrients_carbon-footprint-from-meat-or-fish_value_string" value="" autocomplete="off"/>
-
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_carbon-footprint-from-meat-or-fish" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_carbon-footprint-from-meat-or-fish" class="sugars_warning">Please enter a valid value.</span>
-
-                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
-                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
-                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
-                                                    <span style="display:none">
-
-                                                    
-                                                        <select class="nutrient_unit nutrient_carbon-footprint-from-meat-or-fish_unit" id="nutrition_input_sets_prepared_serving_nutrients_carbon-footprint-from-meat-or-fish_unit" name="nutrition_input_sets_prepared_serving_nutrients_carbon-footprint-from-meat-or-fish_unit">
-                                                            
-                                                                <option value="g" selected="selected" >g</option>
-                                                            
-                                                                <option value="mg"  >mg</option>
-                                                            
-                                                                <option value="µg"  >mcg/µg</option>
-                                                            
-                                                        </select>
-                                                    
-                                                    </span>
-                                                </td>
-                                            
-                                        
-
-                                        <!-- Global nutrient unit column-->
-                                        <td class="nutrient_unit_col">
-                                            
-                                                
-                                                    <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_carbon-footprint-from-meat-or-fish_unit" name="nutrition_input_sets_prepared_serving_nutrients_carbon-footprint-from-meat-or-fish_unit">
                                                         
                                                             <option value="g" selected="selected" >g</option>
                                                         
@@ -34866,7 +34469,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 <ul id="history_list">
   
   <li>
-    <time datetime="--ignore--">--ignore--</time> - <a href="/facets/editeurs/tests" lang="no_language">tests</a> Données (Ajout : product_type, code, lang, product_name, quantity, brands, categories, labels, link, countries, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr, product_name_fr) -- Nutriments (Ajout : nutrition-score-fr)   - (app)  &nbsp;
+    <time datetime="--ignore--">--ignore--</time> - <a href="/facets/editeurs/tests" lang="no_language">tests</a> Données (Ajout : product_type, code, lang, product_name, quantity, brands, categories, labels, link, countries, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr, product_name_fr)   - (app)  &nbsp;
     <a href="/produit/3300000000002/tarte-aux-pommes-et-aux-framboise-bio-les-tartes-de-robert?rev=1" class="button tiny">Voir cette révision</a>
     
   </li>
@@ -34995,9 +34598,9 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2025</h3>
+        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2026</h3>
       </div>
       <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
       <ul>
@@ -35353,6 +34956,7 @@ var other_nutrients = [
 { "id" : "maltitol", "text" : "Maltitol"},
 { "id" : "sorbitol", "text" : "Sorbitol"},
 { "id" : "soluble-fiber", "text" : "Fibres solubles"},
+{ "id" : "polydextrose", "text" : "Polydextrose"},
 { "id" : "insoluble-fiber", "text" : "Fibres insolubles"},
 { "id" : "casein", "text" : "Caséine"},
 { "id" : "serum-proteins", "text" : "Protéines sériques"},
@@ -35395,7 +34999,6 @@ var other_nutrients = [
 { "id" : "ph", "text" : "PH"},
 { "id" : "fruits-vegetables-nuts", "text" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive"},
 { "id" : "fruits-vegetables-nuts-dried", "text" : "Fruits‚ légumes et noix - séchés"},
-{ "id" : "fruits-vegetables-nuts-estimate", "text" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation manuelle avec la liste des ingrédients)"},
 { "id" : "collagen-meat-protein-ratio", "text" : "Rapport collagène sur protéines de viande (maximum)"},
 { "id" : "cocoa", "text" : "Cacao (minimum)"},
 { "id" : "chlorophyl", "text" : "Chlorophyl"},

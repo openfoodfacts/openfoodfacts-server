@@ -28,7 +28,7 @@ use ProductOpener::Auth qw/access_to_protected_resource get_oidc_implementation_
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Web qw/display_knowledge_panel get_languages_options_list/;
@@ -39,7 +39,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food
-	qw/%nutriments_tables %other_nutriments_lists compute_nutrition_data_per_100g_and_per_serving get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
+	qw/%nutriments_tables %other_nutriments_lists get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -814,9 +814,6 @@ sub display_input_field ($product_ref, $field, $language, $request_ref) {
 
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
-	# Populate the energy-kcal or energy-kj field from the energy field if it exists
-	compute_nutrition_data_per_100g_and_per_serving($product_ref);
-
 	my $template_data_ref_display = {};
 
 	$log->debug("displaying product", {code => $code}) if $log->is_debug();
@@ -1074,7 +1071,7 @@ CSS
 	my $checked = '';
 	my $tablestyle = 'display: table;';
 	my $disabled = '';
-	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+	if (has_no_nutrition_data_on_packaging($product_ref)) {
 		$checked = 'checked="checked"';
 		$tablestyle = 'display: none;';
 		$disabled = 'disabled="disabled"';
@@ -1169,7 +1166,6 @@ CSS
 		if (
 			($nutrient !~ /-$/)
 			# FIXME: add an or condition that is true if we have a value or modifier in any of the input sets for the selected source
-			or ($nid eq 'new_0') or ($nid eq 'new_1')
 			)
 		{
 			$nutrient_shown = 1;
@@ -1233,14 +1229,12 @@ CSS
 
 						# If we have a modifier, include it in the value_string
 						if (defined $input_set_nutrient_ref->{modifier}) {
-							$input_set_nutrient_ref->{modifier} eq '<' and $value_string = "&lt; $value_string";
-							$input_set_nutrient_ref->{modifier} eq "\N{U+2264}"
-								and $value_string = "&le; $value_string";
-							$input_set_nutrient_ref->{modifier} eq '>' and $value_string = "&gt; $value_string";
-							$input_set_nutrient_ref->{modifier} eq "\N{U+2265}"
-								and $value_string = "&ge; $value_string";
-							$input_set_nutrient_ref->{modifier} eq '~' and $value_string = "~ $value_string";
-							$input_set_nutrient_ref->{modifier} eq '-' and $value_string = '-';
+							$value_string = "&lt; $value_string" if $input_set_nutrient_ref->{modifier} eq '<';
+							$value_string = "&le; $value_string" if $input_set_nutrient_ref->{modifier} eq "\N{U+2264}";
+							$value_string = "&gt; $value_string" if $input_set_nutrient_ref->{modifier} eq '>';
+							$value_string = "&ge; $value_string" if $input_set_nutrient_ref->{modifier} eq "\N{U+2265}";
+							$value_string = "~ $value_string" if $input_set_nutrient_ref->{modifier} eq '~';
+							$value_string = '-' if $input_set_nutrient_ref->{modifier} eq '-';
 						}
 
 						# Record that we have nutrition data for this input set and this nutrient

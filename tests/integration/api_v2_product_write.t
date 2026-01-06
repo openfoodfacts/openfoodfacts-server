@@ -21,7 +21,7 @@ remove_all_users();
 
 my $ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($ua, \%create_user_args);
 
 my $token = get_token_using_password_credentials('tests', 'testtest')->{access_token};
@@ -241,6 +241,13 @@ my $tests_ref = [
 			no_nutrition_data => 'on',
 		}
 	},
+	# should get nutrition.no_nutrition_data_on_packaging = true
+	{
+		test_case => 'get-product-nutrition-no_nutrition_data-on-api-v3-6',
+		method => 'GET',
+		path => '/api/v3.6/product/1234567890007',
+	},
+	# should get no_nutrition_data = on (schema downgrade)
 	{
 		test_case => 'get-product-nutrition-no_nutrition_data-on',
 		method => 'GET',

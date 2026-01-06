@@ -109,7 +109,7 @@ Loads the AgriBalyse database.
 sub load_agribalyse_data() {
 
 	my $agribalyse_details_by_step_csv_file
-		= $data_root . "/external-data/environmental_score/agribalyse/AGRIBALYSE_vf.csv.2";
+		= $data_root . "/external-data/environmental_score/agribalyse/AGRIBALYSE_vf.csv.3";
 
 	my $rows_ref = [];
 
@@ -134,12 +134,14 @@ sub load_agribalyse_data() {
 
 		my $row_ref;
 
-		# Skip 3 first lines
+		# Skip 4 first lines
+		$csv->getline($io);
 		$csv->getline($io);
 		$csv->getline($io);
 		$csv->getline($io);
 
 		while ($row_ref = $csv->getline($io)) {
+			next if (not defined $row_ref->[0]) or ($row_ref->[0] eq "");
 			$agribalyse{$row_ref->[0]} = {
 				code => $row_ref->[0],    # Agribalyse code = Ciqual code
 				name_fr => $row_ref->[4],    # Nom du Produit en Français
@@ -163,6 +165,8 @@ sub load_agribalyse_data() {
 				version => $agribalyse_version
 			};
 		}
+		$log->info("loaded agribalyse data", {number_of_items => scalar keys %agribalyse})
+			if $log->is_info();
 	}
 	else {
 		die("Could not open agribalyse CSV $agribalyse_details_by_step_csv_file: $!");
@@ -1564,7 +1568,7 @@ sub compute_environmental_score_origins_of_ingredients_adjustment ($product_ref)
 			) if $log->is_error();
 		}
 
-		$epi_score += $environmental_score_data{origins}{$origin_id}{epi_score} * $percent / 100;
+		$epi_score += ($environmental_score_data{origins}{$origin_id}{epi_score} // 0) * $percent / 100;
 		foreach my $cc (@environmental_score_countries_enabled_sorted) {
 			$transportation_scores{$cc}
 				+= ($environmental_score_data{origins}{$origin_id}{"transportation_score_" . $cc} // 0)
@@ -1885,9 +1889,9 @@ sub localize_environmental_score ($request_cc, $product_ref) {
 				{
 
 					my $origin_id = $origin_ref->{origin};
-					$origin_ref->{epi_score} = $environmental_score_data{origins}{$origin_id}{epi_score} + 0;
+					$origin_ref->{epi_score} = ($environmental_score_data{origins}{$origin_id}{epi_score} // 0) + 0;
 					$origin_ref->{transportation_score}
-						= $environmental_score_data{origins}{$origin_id}{"transportation_score_" . $cc} + 0;
+						= ($environmental_score_data{origins}{$origin_id}{"transportation_score_" . $cc} // 0) + 0;
 				}
 			}
 		}
