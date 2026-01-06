@@ -1138,15 +1138,13 @@ sub check_energy_for_input_set ($product_ref, $nutrition_set_ref, $set_id, $data
 
 		# energy in kcal greater than in kj
 		if ($energy_kcal > $energy_kj) {
-			push @{$product_ref->{$data_quality_tags}},
-				"en:${set_id}-energy-value-in-kcal-greater-than-in-kj";
+			push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-energy-value-in-kcal-greater-than-in-kj";
 
 			# additionally check if kcal value and kj value are reversed. Exact opposite condition as next error below
 			if (    ($energy_kcal > 3.7 * $energy_kj - 2)
 				and ($energy_kcal < 4.7 * $energy_kj + 2))
 			{
-				push @{$product_ref->{$data_quality_tags}},
-					"en:${set_id}-energy-value-in-kcal-and-kj-are-reversed";
+				push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-energy-value-in-kcal-and-kj-are-reversed";
 			}
 		}
 
@@ -1156,8 +1154,7 @@ sub check_energy_for_input_set ($product_ref, $nutrition_set_ref, $set_id, $data
 		if (   ($energy_kj < 3.7 * $energy_kcal - 2)
 			or ($energy_kj > 4.7 * $energy_kcal + 2))
 		{
-			push @{$product_ref->{$data_quality_tags}},
-				"en:${set_id}-energy-value-in-kcal-does-not-match-value-in-kj";
+			push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-energy-value-in-kcal-does-not-match-value-in-kj";
 		}
 	}
 
@@ -1219,8 +1216,7 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 		)
 	{
 
-		push @{$product_ref->{$data_quality_tags}},
-			"en:${set_id}-sugars-plus-starch-greater-than-carbohydrates";
+		push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-sugars-plus-starch-greater-than-carbohydrates";
 	}
 
 	# sugar + starch + fiber cannot be greater than total carbohydrates
