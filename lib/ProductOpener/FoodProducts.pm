@@ -63,6 +63,8 @@ use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_c
 
 use Log::Any qw($log);
 
+use Data::DeepAccess qw(deep_exists);
+
 =head2 specific_processes_for_food_product ( $ingredients_ref )
 
 Runs specific processes for food products:
@@ -115,6 +117,28 @@ sub specific_processes_for_food_product ($product_ref) {
 
 	# Determine packaging components in contact with food
 	determine_food_contact_of_packaging_components_service($product_ref);
+
+	# Add some labels from nutrition data (e.g. glycemic index, carbon footprint)
+	add_labels_from_nutrition_data($product_ref);
+
+	return;
+}
+
+sub add_labels_from_nutrition_data ($product_ref) {
+
+	if (deep_exists($product_ref, 'nutrition', 'aggregated_set', 'nutrients', 'carbon-footprint'))
+
+	{
+		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
+		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
+	}
+
+	if (deep_exists($product_ref, 'nutrition', 'aggregated_set', 'nutrients', 'glycemic-index'))
+
+	{
+		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
+		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
+	}
 
 	return;
 }
