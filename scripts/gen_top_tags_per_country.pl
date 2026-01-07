@@ -148,7 +148,6 @@ foreach my $country (keys %{$properties{countries}}, 'en:world') {
 delete $fields_ref->{users_tags};
 # more fields to get
 $fields_ref->{creator} = 1;
-$fields_ref->{nutriments} = 1;
 $fields_ref->{created_t} = 1;
 $fields_ref->{complete} = 1;
 $fields_ref->{completed_t} = 1;
@@ -210,17 +209,16 @@ while (my $product_ref = $cursor->next) {
 	if (
 			(defined $code)
 		and (defined $product_ref->{nutriments})
-		and (  ((defined $product_ref->{nutriments}{alcohol}) and ($product_ref->{nutriments}{alcohol} ne ''))
-			or ((defined $product_ref->{nutriments}{energy}) and ($product_ref->{nutriments}{energy} ne '')))
+		and (  ((defined $product_ref->{nutriments}{alcohol_100g}) and ($product_ref->{nutriments}{alcohol_100g} ne ''))
+			or ((defined $product_ref->{nutriments}{energy_100g}) and ($product_ref->{nutriments}{energy_100g} ne '')))
 		)
 	{
-
 		$products_nutriments{$code} = {};
-		foreach my $nid (keys %{$product_ref->{nutriments}}) {
-			next if $nid =~ /_/;
-			next if ($product_ref->{nutriments}{$nid} eq '');
-
-			$products_nutriments{$code}{$nid} = $product_ref->{nutriments}{$nid . "_100g"};
+		foreach my $value (keys %{$product_ref->{nutriments}}) {
+			if ($value =~ /^([^_]+)_100g$/) {
+				my $nid = $1;
+				$products_nutriments{$code}{$nid} = $product_ref->{nutriments}{$nid . "_100g"};
+			}
 		}
 		if (defined $product_ref->{"nutrition_grade_fr"}) {
 			$products_nutriments{$code}{"nutrition-grade"}
@@ -445,9 +443,13 @@ foreach my $country (keys %{$properties{countries}}) {
 	# Category stats for nutriments
 
 	my $min_products = 10;
+	# On dev server we have less products, so use a smaller minimum
+	if ($server_domain =~ /localhost$/) {
+		$min_products = 2;
+	}
 	my %categories = ();
 
-	foreach my $tagid (keys %{$countries_categories{$country}}) {
+	foreach my $tagid (sort keys %{$countries_categories{$country}}) {
 
 		# Compute mean, standard deviation etc.
 
@@ -455,7 +457,7 @@ foreach my $country (keys %{$properties{countries}}) {
 		my $n = 0;
 		my %nutriments = ();
 
-		foreach my $code (keys %{$countries_categories{$country}{$tagid}}) {
+		foreach my $code (sort keys %{$countries_categories{$country}{$tagid}}) {
 
 			$count++;
 
