@@ -374,11 +374,11 @@ print STDERR $script_out;
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
-	# Call the /api/v3/reload_categories_stats API to load the generated stats
+	# Call the /api/v3/_reload_categories_stats API to load the generated stats
 	{
 		test_case => 'reload-categories-stats',
 		method => 'GET',
-		path => '/api/v3/reload_categories_stats',
+		path => '/api/v3/_reload_categories_stats',
 		expected_status_code => 200,
 	},
 	# Add an image to one product

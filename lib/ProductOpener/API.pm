@@ -469,8 +469,9 @@ my $dispatch_table = {
 		HEAD => \&external_sources_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 	},
-	# Used for testing purposes to reload categories stats without restarting the server
-	reload_categories_stats => {
+	# Internal API used for testing purposes to reload categories stats without restarting the server
+	# Prefixed with _ to indicate that it is not intended for public use
+	_reload_categories_stats => {
 		GET => \&reload_categories_stats_api,
 		POST => \&reload_categories_stats_api,
 	},
@@ -553,7 +554,7 @@ sub reload_categories_stats_api ($request_ref) {
 	}
 
 	use ProductOpener::Food qw/load_categories_nutriments_per_country/;
-	load_categories_nutriments_per_country();
+	load_categories_nutriments_per_country(1);	# force reload
 	my $response_ref = $request_ref->{api_response};
 	$response_ref->{result} = {id => "categories_stats_reloaded"};
 
