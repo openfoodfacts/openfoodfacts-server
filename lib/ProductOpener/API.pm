@@ -469,7 +469,12 @@ my $dispatch_table = {
 		HEAD => \&external_sources_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 	},
-
+	# Internal API used for testing purposes to reload categories stats without restarting the server
+	# Prefixed with _ to indicate that it is not intended for public use
+	_reload_categories_stats => {
+		GET => \&reload_categories_stats_api,
+		POST => \&reload_categories_stats_api,
+	},
 };
 
 sub process_api_request ($request_ref) {
@@ -512,6 +517,49 @@ sub process_api_request ($request_ref) {
 	send_api_response($request_ref);
 
 	$log->debug("process_api_request - stop", {request => $request_ref}) if $log->is_debug();
+	return;
+}
+
+=head2 reload_categories_stats_api ($request_ref)
+
+Reload categories stats from disk.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=cut
+
+sub reload_categories_stats_api ($request_ref) {
+
+	$log->info("reload_categories_stats_api - reloading categories stats") if $log->is_info();
+
+	# Check that we are on a development server (domain ends with .localhost)
+	if ($server_domain !~ /\.localhost$/) {
+		$log->warn("reload_categories_stats_api - not allowed on non-development server",
+			{server_domain => $server_domain})
+			if $log->is_warn();
+		add_error(
+			$request_ref->{api_response},
+			{
+				message => {id => "not_allowed_on_production_server"},
+				field => {id => "server_domain", value => $server_domain},
+				impact => {id => "failure"},
+			},
+			403
+		);
+		return;
+	}
+
+	use ProductOpener::Food qw/load_categories_nutriments_per_country/;
+	load_categories_nutriments_per_country(1);    # force reload
+	my $response_ref = $request_ref->{api_response};
+	$response_ref->{result} = {id => "categories_stats_reloaded"};
+
+	$log->info("reload_categories_stats_api - done reloading categories stats") if $log->is_info();
+
 	return;
 }
 

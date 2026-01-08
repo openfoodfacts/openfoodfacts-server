@@ -558,6 +558,528 @@
 </script>
 
 <!-- end templates/web/pages/tags_map/map_of_tags.tt.html -->
+<h2>Tableau nutritionnel</h2><p>Composition nutritionnelle moyenne pour les 3 produits de la catégorie Desserts dont les informations nutritionnelles sont connues (sur un total de  3 produits).</p><!-- start templates/web/pages/product/includes/nutrition_facts_table.tt.html -->
+
+<!-- Nutrition facts table -->
+
+
+<!--  Stats for categories -->
+
+	<div>
+		<input id="show_stats" type="checkbox">
+		<label for="show_stats">
+			Afficher les informations statistiques
+			<span class="show-for-xlarge-up">
+				: écart type, minimum, maximum, 10ème et 90ème centiles
+			</span>
+		</label>
+	</div>
+
+	
+
+
+
+<table id="nutrition_data_table" class="data_table">
+<caption style="display:none">Tableau nutritionnel</caption>
+
+	<!--  Generating table header -->
+	<thead class="nutriment_header">
+		<tr>
+			<th scope="col">Tableau nutritionnel</th>
+			
+				<th class="nutriment_value " scope="col">Tel que vendu<br>pour 100 g / 100 ml</th>
+			
+				<th class="nutriment_value stats" scope="col">Ecart type</th>
+			
+				<th class="nutriment_value stats" scope="col">Minimum</th>
+			
+				<th class="nutriment_value stats" scope="col">10ème centile</th>
+			
+				<th class="nutriment_value stats" scope="col">Médiane</th>
+			
+				<th class="nutriment_value stats" scope="col">90ème centile</th>
+			
+				<th class="nutriment_value stats" scope="col">Maximum</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+		<!--  Generating table body -->
+		
+
+			<tr id="nutriment_energy_tr" class="nutriment_main">
+				<td class="nutriment_label">
+					Énergie
+				</td>
+
+				
+					
+						<td class="nutriment_value " property="food:energyPer100g" content="1100">
+							1 100 kj<br>(270 kcal)
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							100 kj<br>(30 kcal)
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							1 000 kj<br>(240 kcal)
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							1 000 kj<br>(240 kcal)
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							1 200 kj<br>(300 kcal)
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							1 200 kj<br>(300 kcal)
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							1 200 kj<br>(300 kcal)
+						</td>
+					
+				
+			</tr>
+
+		
+
+			<tr id="nutriment_fat_tr" class="nutriment_main">
+				<td class="nutriment_label">
+					Matières grasses
+				</td>
+
+				
+					
+						<td class="nutriment_value " property="food:fatPer100g" content="11">
+							11 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							1 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							10 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							10 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							12 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							12 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							12 g
+						</td>
+					
+				
+			</tr>
+
+		
+
+			<tr id="nutriment_saturated-fat_tr" class="nutriment_sub">
+				<td class="nutriment_label">
+					Acides gras saturés
+				</td>
+
+				
+					
+						<td class="nutriment_value " property="food:saturatedFatPer100g" content="0.5">
+							0,5 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							0 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							0,5 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							0,5 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							0,5 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							5 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							5 g
+						</td>
+					
+				
+			</tr>
+
+		
+
+			<tr id="nutriment_carbohydrates_tr" class="nutriment_main">
+				<td class="nutriment_label">
+					Glucides
+				</td>
+
+				
+					
+						<td class="nutriment_value " property="food:carbohydratesPer100g" content="30">
+							30 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							0 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							30 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							30 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							30 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							30 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							30 g
+						</td>
+					
+				
+			</tr>
+
+		
+
+			<tr id="nutriment_sugars_tr" class="nutriment_sub">
+				<td class="nutriment_label">
+					Sucres
+				</td>
+
+				
+					
+						<td class="nutriment_value " property="food:sugarsPer100g" content="22.5">
+							22,5 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							2,5 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							20 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							20 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							25 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							25 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							25 g
+						</td>
+					
+				
+			</tr>
+
+		
+
+			<tr id="nutriment_fiber_tr" class="nutriment_main">
+				<td class="nutriment_label">
+					Fibres alimentaires
+				</td>
+
+				
+					
+						<td class="nutriment_value " property="food:fiberPer100g" content="2">
+							2 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							0 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							2 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							2 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							4 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							4 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							4 g
+						</td>
+					
+				
+			</tr>
+
+		
+
+			<tr id="nutriment_proteins_tr" class="nutriment_main">
+				<td class="nutriment_label">
+					Protéines
+				</td>
+
+				
+					
+						<td class="nutriment_value " property="food:proteinsPer100g" content="3">
+							3 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							0 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							3 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							3 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							3 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							3 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							3 g
+						</td>
+					
+				
+			</tr>
+
+		
+
+			<tr id="nutriment_salt_tr" class="nutriment_main">
+				<td class="nutriment_label">
+					Sel
+				</td>
+
+				
+					
+						<td class="nutriment_value " property="food:saltPer100g" content="0.75">
+							0,75 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							0,25 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							0,5 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							0,5 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							1 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							1 g
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							1 g
+						</td>
+					
+				
+			</tr>
+
+		
+
+			<tr id="nutriment_fruits-vegetables-nuts-estimate-from-ingredients_tr" class="nutriment_main">
+				<td class="nutriment_label">
+					Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)
+				</td>
+
+				
+					
+						<td class="nutriment_value " property="food:fruitsVegetablesNutsEstimateFromIngredientsPer100g" content="18.8">
+							18,8 %
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							18,8 %
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							0 %
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							0 %
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							37,5 %
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							37,5 %
+						</td>
+					
+				
+					
+						<td class="nutriment_value stats">
+							37,5 %
+						</td>
+					
+				
+			</tr>
+
+		
+	</tbody>
+
+</table>
+
+<!-- end templates/web/pages/product/includes/nutrition_facts_table.tt.html -->
 
                 </div>
                 
@@ -915,6 +1437,33 @@ display_user_product_preferences("#preferences_selected", "#preferences_selectio
 });
 rank_and_display_products("#search_results", products, contributor_prefs);
 
+if ($.cookie('show_stats') == '1') {
+	$('#show_stats').prop('checked',true);
+}
+else {
+	$('#show_stats').prop('checked',false);
+}
+
+if ($('#show_stats').prop('checked')) {
+	$(".stats").show();
+}
+else {
+	$(".stats").hide();
+}
+
+$("#show_stats").change(function () {
+	if ($('#show_stats').prop('checked')) {
+		$.cookie('show_stats', '1', { expires: 365 });
+		$(".stats").show();
+	}
+	else {
+		$.cookie('show_stats', null);
+		$(".stats").hide();
+	}
+}
+);
+
+
 
 });
 </script>
@@ -940,51 +1489,54 @@ var products = [
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":29.4444444444444,
+                  "match":31.5555555555556,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score D"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short":"1 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg",
                   "id":"low_salt",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":45,
                   "name":"Sel",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sel en quantité inconnue"
+                  "panel_id":"nutrient_level_salt",
+                  "status":"known",
+                  "title":"Sel en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short":"12 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                   "id":"low_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":48.2352941176471,
                   "name":"Matières grasses",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Matières grasses en quantité inconnue"
+                  "panel_id":"nutrient_level_fat",
+                  "status":"known",
+                  "title":"Matières grasses en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":0,
                   "name":"Sucres",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sucres en quantité inconnue"
+                  "panel_id":"nutrient_level_sugars",
+                  "status":"known",
+                  "title":"Sucres en quantité élevée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short":"0.5 g / 100 g",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-low.svg",
                   "id":"low_saturated_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":93.3333333333333,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Acides gras saturés en quantité inconnue"
+                  "panel_id":"nutrient_level_saturated_fat",
+                  "status":"known",
+                  "title":"Acides gras saturés en faible quantité"
                }
             ],
             "id":"nutritional_quality",
@@ -1273,51 +1825,54 @@ var products = [
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":27.3333333333333,
+                  "match":33.6666666666667,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score D"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short":"1 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg",
                   "id":"low_salt",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":45,
                   "name":"Sel",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sel en quantité inconnue"
+                  "panel_id":"nutrient_level_salt",
+                  "status":"known",
+                  "title":"Sel en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short":"12 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                   "id":"low_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":48.2352941176471,
                   "name":"Matières grasses",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Matières grasses en quantité inconnue"
+                  "panel_id":"nutrient_level_fat",
+                  "status":"known",
+                  "title":"Matières grasses en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":0,
                   "name":"Sucres",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sucres en quantité inconnue"
+                  "panel_id":"nutrient_level_sugars",
+                  "status":"known",
+                  "title":"Sucres en quantité élevée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short":"0.5 g / 100 g",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-low.svg",
                   "id":"low_saturated_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":93.3333333333333,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Acides gras saturés en quantité inconnue"
+                  "panel_id":"nutrient_level_saturated_fat",
+                  "status":"known",
+                  "title":"Acides gras saturés en faible quantité"
                }
             ],
             "id":"nutritional_quality",
@@ -1602,55 +2157,58 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Données manquantes pour calculer le Nutri-Score",
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
+                  "description_short":"Moins bonne qualité nutritionnelle",
+                  "grade":"d",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":0,
+                  "match":33.6666666666667,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
-                  "status":"unknown",
-                  "title":"Nutri-Score inconnu"
+                  "status":"known",
+                  "title":"Nutri-Score D"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short":"0.5 g / 100 g",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg",
                   "id":"low_salt",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":70,
                   "name":"Sel",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sel en quantité inconnue"
+                  "panel_id":"nutrient_level_salt",
+                  "status":"known",
+                  "title":"Sel en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short":"10 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                   "id":"low_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":55.2941176470588,
                   "name":"Matières grasses",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Matières grasses en quantité inconnue"
+                  "panel_id":"nutrient_level_fat",
+                  "status":"known",
+                  "title":"Matières grasses en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":0,
                   "name":"Sucres",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sucres en quantité inconnue"
+                  "panel_id":"nutrient_level_sugars",
+                  "status":"known",
+                  "title":"Sucres en quantité élevée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short":"5 g / 100 g",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-medium.svg",
                   "id":"low_saturated_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":20,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Acides gras saturés en quantité inconnue"
+                  "panel_id":"nutrient_level_saturated_fat",
+                  "status":"known",
+                  "title":"Acides gras saturés en quantité modérée"
                }
             ],
             "id":"nutritional_quality",
