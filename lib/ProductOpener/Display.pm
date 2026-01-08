@@ -9096,7 +9096,6 @@ sub compare_product_nutrition_facts_to_categories ($product_ref, $target_cc, $ma
 				if (    (defined $categories_nutriments_ref->{$cid})
 					and (defined $categories_nutriments_ref->{$cid}{stats}))
 				{
-
 					push @comparisons,
 						{
 						id => $cid,
@@ -9235,7 +9234,60 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 		push @cols, $product_preparation . '100g';
 	}
 
-	# Comparisons with other products, categories, recommended daily values etc. (removed)
+	# Comparisons with other products, categories, recommended daily values etc.
+	if ((defined $comparisons_ref) and (scalar @{$comparisons_ref} > 0)) {
+
+		# Add a comparisons array to the template data structure
+
+		$template_data_ref->{comparisons} = [];
+
+		my $i = 0;
+
+		foreach my $comparison_ref (@{$comparisons_ref}) {
+
+			my $col_id = "compare_" . $i;
+
+			push @cols, $col_id;
+
+			$columns{$col_id} = {
+				"scope" => "comparisons",
+				"name" => lang("compared_to") . lang("sep") . ": " . $comparison_ref->{name},
+				"class" => $col_id,
+			};
+
+			$log->debug("displaying nutrition table comparison column",
+				{colid => $col_id, id => $comparison_ref->{id}, name => $comparison_ref->{name}})
+				if $log->is_debug();
+
+			my $checked = 0;
+			if (defined $comparison_ref->{show}) {
+				$checked = 1;
+			}
+			else {
+				$request_ref->{styles} .= <<CSS
+.$col_id { display:none }
+CSS
+					;
+			}
+
+			my $checked_html = "";
+			if ($checked) {
+				$checked_html = ' checked="checked"';
+			}
+
+			push @{$template_data_ref->{comparisons}},
+				{
+				col_id => $col_id,
+				checked => $checked,
+				name => $comparison_ref->{name},
+				link => $comparison_ref->{link},
+				count => $comparison_ref->{count},
+				};
+
+			$i++;
+		}
+	}
+
 	# Stats for categories (removed)
 
 	# Data for the nutrition table header
