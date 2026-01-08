@@ -953,13 +953,16 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 				)
 				)
 			{
-				# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
-				if (   ($computed_energy < ($specified_energy * 0.7 - 5))
-					or ($computed_energy > ($specified_energy * 1.3 + 5)))
+				# Compare to specified energy value with a tolerance
+				# Relax tolerance for kcal to avoid false positives due to rounding
+				my $tolerance_low  = ($unit eq "kcal") ? 0.6 : 0.7;
+				my $tolerance_high = ($unit eq "kcal") ? 1.4 : 1.3;
+
+				if (   ($computed_energy < ($specified_energy * $tolerance_low - 5))
+    				or ($computed_energy > ($specified_energy * $tolerance_high + 5)))
 				{
-					# we have a quality problem
-					push @{$product_ref->{data_quality_errors_tags}},
-						"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
+    				push @{$product_ref->{data_quality_errors_tags}},
+        				"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
 				}
 
 				# Compare to specified energy value with a tolerance of 15% + an additiontal tolerance of 5

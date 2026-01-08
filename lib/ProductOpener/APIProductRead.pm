@@ -106,7 +106,7 @@ sub read_product_api ($request_ref) {
 				impact => {id => "failure"},
 			}
 		);
-		$response_ref->{result} = {id => "product_not_found"};
+		return;
 	}
 	else {
 		# Check that the product exist, is published, is not deleted, and has not moved to a new url
