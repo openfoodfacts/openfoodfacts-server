@@ -176,7 +176,7 @@ sub load_categories_nutriments_per_country($force_reload = 0) {
 
 	# If already loaded, do not reload unless forced
 	return if (keys %categories_nutriments_per_country) and (not $force_reload);
-	
+
 	%categories_nutriments_per_country = ();
 
 	if (opendir(my $dh, "$BASE_DIRS{PRIVATE_DATA}/categories_stats")) {
