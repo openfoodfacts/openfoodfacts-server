@@ -66,7 +66,7 @@ BEGIN {
 		&display_error
 		&display_error_and_exit
 
-		&add_product_nutriment_to_stats
+		&add_product_nutrient_to_stats
 		&compute_stats_for_products
 		&compare_product_nutrition_facts_to_categories
 		&data_to_display_nutrition_table
@@ -1966,9 +1966,6 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			}
 
 			my $td_nutriments = '';
-			#if ($tagtype eq 'categories') {
-			#	$td_nutriments .= "<td style=\"text-align:right\">" . $countries_tags{$country}{$tagtype . "_nutriments"}{$tagid} . "</td>";
-			#}
 
 			# known tag?
 
@@ -1982,7 +1979,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 						if ((defined $categories_nutriments_ref->{$tagid})) {
 							$td_nutriments
 								.= "<td>"
-								. $categories_nutriments_ref->{$tagid}{nutriments}
+								. $categories_nutriments_ref->{$tagid}{nutrients}
 								{$request_ref->{stats_nid} . '_' . $col} . "</td>";
 						}
 						else {
@@ -6191,7 +6188,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		# Add values to stats, and set min axis
 		foreach my $axis ('x', 'y') {
 			my $field = $graph_ref->{"axis_" . $axis};
-			add_product_nutriment_to_stats(\%nutriments, $field, $data{$axis});
+			add_product_nutrient_to_stats(\%nutriments, $field, $data{$axis});
 		}
 
 		# Identify the series id
@@ -8958,49 +8955,49 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 	return $result_data_ref;
 }
 
-sub add_product_nutriment_to_stats ($nutriments_ref, $nid, $value) {
+sub add_product_nutrient_to_stats ($values_ref, $nid, $value) {
 
 	if ((defined $value) and ($value ne '')) {
 
-		if (not defined $nutriments_ref->{"${nid}_n"}) {
-			$nutriments_ref->{"${nid}_n"} = 0;
-			$nutriments_ref->{"${nid}_s"} = 0;
-			$nutriments_ref->{"${nid}_array"} = [];
+		if (not defined $values_ref->{"${nid}_n"}) {
+			$values_ref->{"${nid}_n"} = 0;
+			$values_ref->{"${nid}_s"} = 0;
+			$values_ref->{"${nid}_array"} = [];
 		}
 
-		$nutriments_ref->{"${nid}_n"}++;
-		$nutriments_ref->{"${nid}_s"} += $value + 0.0;
-		push @{$nutriments_ref->{"${nid}_array"}}, $value + 0.0;
+		$values_ref->{"${nid}_n"}++;
+		$values_ref->{"${nid}_s"} += $value + 0.0;
+		push @{$values_ref->{"${nid}_array"}}, $value + 0.0;
 
 	}
 	return 1;
 }
 
-sub compute_stats_for_products ($stats_ref, $nutriments_ref, $count, $n, $min_products, $id) {
+sub compute_stats_for_products ($stats_ref, $values_ref, $count, $n, $min_products, $id) {
 
 	#my $stats_ref        ->    where we will store the stats
-	#my $nutriments_ref   ->    values for some nutriments
+	#my $values_ref   ->    values for some nutriments
 	#my $count            ->    total number of products (including products that have no values for the nutriments we are interested in)
 	#my $n                ->    number of products with defined values for specified nutriments
 	#my $min_products     ->    min number of products needed to compute stats
 	#my $id               ->    id (e.g. category id)
 
 	$stats_ref->{stats} = 1;
-	$stats_ref->{nutriments} = {};
+	$stats_ref->{nutrients} = {};
 	$stats_ref->{id} = $id;
 	$stats_ref->{count} = $count;
 	$stats_ref->{n} = $n;
 
-	foreach my $nid (keys %{$nutriments_ref}) {
+	foreach my $nid (keys %{$values_ref}) {
 		next if $nid !~ /_n$/;
 		$nid = $`;
 
-		next if ($nutriments_ref->{"${nid}_n"} < $min_products);
+		next if ($values_ref->{"${nid}_n"} < $min_products);
 
 		# Compute the mean and standard deviation, without the bottom and top 5% (so that huge outliers
 		# that are likely to be errors in the data do not completely overweight the mean and std)
 
-		my @values = sort {$a <=> $b} @{$nutriments_ref->{"${nid}_array"}};
+		my @values = sort {$a <=> $b} @{$values_ref->{"${nid}_array"}};
 		my $nb_values = $#values + 1;
 		my $kept_values = 0;
 		my $sum_of_kept_values = 0;
@@ -9016,7 +9013,7 @@ sub compute_stats_for_products ($stats_ref, $nutriments_ref, $count, $n, $min_pr
 
 		my $mean_for_kept_values = $sum_of_kept_values / $kept_values;
 
-		$nutriments_ref->{"${nid}_mean"} = $mean_for_kept_values;
+		$values_ref->{"${nid}_mean"} = $mean_for_kept_values;
 
 		my $sum_of_square_differences_for_kept_values = 0;
 		$i = 0;
@@ -9029,33 +9026,33 @@ sub compute_stats_for_products ($stats_ref, $nutriments_ref, $count, $n, $min_pr
 		}
 		my $std_for_kept_values = sqrt($sum_of_square_differences_for_kept_values / $kept_values);
 
-		$nutriments_ref->{"${nid}_std"} = $std_for_kept_values;
+		$values_ref->{"${nid}_std"} = $std_for_kept_values;
 
-		$stats_ref->{nutriments}{"${nid}_n"} = $nutriments_ref->{"${nid}_n"};
-		$stats_ref->{nutriments}{"$nid"} = $nutriments_ref->{"${nid}_mean"};
-		$stats_ref->{nutriments}{"${nid}_100g"} = sprintf("%.2e", $nutriments_ref->{"${nid}_mean"}) + 0.0;
-		$stats_ref->{nutriments}{"${nid}_std"} = sprintf("%.2e", $nutriments_ref->{"${nid}_std"}) + 0.0;
+		$stats_ref->{nutrients}{"${nid}_n"} = $values_ref->{"${nid}_n"};
+		$stats_ref->{nutrients}{"$nid"} = $values_ref->{"${nid}_mean"};
+		$stats_ref->{nutrients}{"${nid}_100g"} = sprintf("%.2e", $values_ref->{"${nid}_mean"}) + 0.0;
+		$stats_ref->{nutrients}{"${nid}_std"} = sprintf("%.2e", $values_ref->{"${nid}_std"}) + 0.0;
 
 		if ($nid =~ /^energy/) {
-			$stats_ref->{nutriments}{"${nid}_100g"} = int($stats_ref->{nutriments}{"${nid}_100g"} + 0.5);
-			$stats_ref->{nutriments}{"${nid}_std"} = int($stats_ref->{nutriments}{"${nid}_std"} + 0.5);
+			$stats_ref->{nutrients}{"${nid}_100g"} = int($stats_ref->{nutrients}{"${nid}_100g"} + 0.5);
+			$stats_ref->{nutrients}{"${nid}_std"} = int($stats_ref->{nutrients}{"${nid}_std"} + 0.5);
 		}
 
-		$stats_ref->{nutriments}{"${nid}_min"} = sprintf("%.2e", $values[0]) + 0.0;
-		$stats_ref->{nutriments}{"${nid}_max"} = sprintf("%.2e", $values[$nutriments_ref->{"${nid}_n"} - 1]) + 0.0;
-		#$stats_ref->{nutriments}{"${nid}_5"} = $nutriments_ref->{"${nid}_array"}[int ( ($nutriments_ref->{"${nid}_n"} - 1) * 0.05) ];
-		#$stats_ref->{nutriments}{"${nid}_95"} = $nutriments_ref->{"${nid}_array"}[int ( ($nutriments_ref->{"${nid}_n"}) * 0.95) ];
-		$stats_ref->{nutriments}{"${nid}_10"}
-			= sprintf("%.2e", $values[int(($nutriments_ref->{"${nid}_n"} - 1) * 0.10)]) + 0.0;
-		$stats_ref->{nutriments}{"${nid}_90"}
-			= sprintf("%.2e", $values[int(($nutriments_ref->{"${nid}_n"}) * 0.90)]) + 0.0;
-		$stats_ref->{nutriments}{"${nid}_50"}
-			= sprintf("%.2e", $values[int(($nutriments_ref->{"${nid}_n"}) * 0.50)]) + 0.0;
+		$stats_ref->{nutrients}{"${nid}_min"} = sprintf("%.2e", $values[0]) + 0.0;
+		$stats_ref->{nutrients}{"${nid}_max"} = sprintf("%.2e", $values[$values_ref->{"${nid}_n"} - 1]) + 0.0;
+		#$stats_ref->{nutrients}{"${nid}_5"} = $values_ref->{"${nid}_array"}[int ( ($values_ref->{"${nid}_n"} - 1) * 0.05) ];
+		#$stats_ref->{nutrients}{"${nid}_95"} = $values_ref->{"${nid}_array"}[int ( ($values_ref->{"${nid}_n"}) * 0.95) ];
+		$stats_ref->{nutrients}{"${nid}_10"}
+			= sprintf("%.2e", $values[int(($values_ref->{"${nid}_n"} - 1) * 0.10)]) + 0.0;
+		$stats_ref->{nutrients}{"${nid}_90"}
+			= sprintf("%.2e", $values[int(($values_ref->{"${nid}_n"}) * 0.90)]) + 0.0;
+		$stats_ref->{nutrients}{"${nid}_50"}
+			= sprintf("%.2e", $values[int(($values_ref->{"${nid}_n"}) * 0.50)]) + 0.0;
 
 		#print STDERR "-> lc: lc -category $tagid - count: $count - n: nutriments: " . $nn . "$n \n";
 		#print "categories stats - cc: $request_ref->{cc} - n: $n- values for category $id: " . join(", ", @values) . "\n";
-		#print "tagid: $id - nid: $nid - 100g: " .  $stats_ref->{nutriments}{"${nid}_100g"}  . " min: " . $stats_ref->{nutriments}{"${nid}_min"} . " - max: " . $stats_ref->{nutriments}{"${nid}_max"} .
-		#	"mean: " . $stats_ref->{nutriments}{"${nid}_mean"} . " - median: " . $stats_ref->{nutriments}{"${nid}_50"} . "\n";
+		#print "tagid: $id - nid: $nid - 100g: " .  $stats_ref->{nutrients}{"${nid}_100g"}  . " min: " . $stats_ref->{nutrients}{"${nid}_min"} . " - max: " . $stats_ref->{nutrients}{"${nid}_max"} .
+		#	"mean: " . $stats_ref->{nutrients}{"${nid}_mean"} . " - median: " . $stats_ref->{nutrients}{"${nid}_50"} . "\n";
 
 	}
 

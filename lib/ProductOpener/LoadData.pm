@@ -58,7 +58,7 @@ use ProductOpener::NutritionCiqual qw(load_ciqual_data);
 use ProductOpener::Routing qw(load_routes);
 use ProductOpener::CRM qw(init_crm_data);
 use ProductOpener::GS1 qw/load_gpc_category_codes_from_categories_taxonomy/;
-use ProductOpener::Food qw/load_categories_nutriments_per_country/;
+use ProductOpener::Stats qw/load_categories_stats_per_country/;
 
 =head1 FUNCTIONS
 
@@ -97,7 +97,7 @@ sub load_data() {
 
 	load_gpc_category_codes_from_categories_taxonomy();
 
-	load_categories_nutriments_per_country();
+	load_categories_nutrients_per_country();
 
 	$log->debug("loading data - done") if $log->is_debug();
 	return;

@@ -27,7 +27,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Texts qw/:all/;
-use ProductOpener::Display qw/$static_subdomain add_product_nutriment_to_stats compute_stats_for_products/;
+use ProductOpener::Display qw/$static_subdomain add_product_nutrient_to_stats compute_stats_for_products/;
 use ProductOpener::Tags
 	qw/%country_languages %properties canonicalize_taxonomy_tag_link display_taxonomy_tag exists_taxonomy_tag/;
 use ProductOpener::Users qw/:all/;
@@ -47,6 +47,7 @@ use Storable qw/dclone/;
 use Encode;
 use File::Path qw(mkpath);
 use JSON::MaybeXS;
+use Data::DeepAccess qw(deep_get);
 
 # Output will be in the $BASE_DIRS{PRIVATE_DATA} directory
 # data/index: data related to the Open Food Hunt operation (old): points for countries, users and ambassadors
@@ -65,7 +66,6 @@ my @fields = qw (
 	manufacturing_places
 	ingredients
 	labels
-	nutriments
 	allergens
 	traces
 	users
@@ -112,7 +112,6 @@ my %dates = ();
 my $fields_ref = {code => 1};
 my %tags = ();
 # $country => $tag_type / "$tagtype"
-# also $country => $tag_type_nutriments / "$tagtype"
 my %countries_tags = ();
 # hashmap of all seen codes
 my %codes = ();
@@ -132,7 +131,6 @@ foreach my $country (keys %{$properties{countries}}, 'en:world') {
 	$countries_tags{$country} = {};
 	foreach my $tagtype (@fields) {
 		$countries_tags{$country}{$tagtype} = {};
-		$countries_tags{$country}{$tagtype . "_nutriments"} = {};
 	}
 	$dates{$country} = {};
 	$countries_dates{$country} = {};
@@ -152,7 +150,7 @@ $fields_ref->{created_t} = 1;
 $fields_ref->{complete} = 1;
 $fields_ref->{completed_t} = 1;
 
-$fields_ref->{nutriments} = 1;
+$fields_ref->{nutrition} = 1;
 $fields_ref->{nutrition_grade_fr} = 1;
 
 # Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
@@ -168,7 +166,7 @@ my $cursor
 
 $cursor->immortal(1);
 
-my %products_nutriments = ();
+my %products_nutrients = ();
 my %countries_categories = ();
 
 my %countries_counts = ();
@@ -203,29 +201,18 @@ while (my $product_ref = $cursor->next) {
 		#print STDERR "code $code seen $codes{$code} times!\n";
 	}
 
-	# Populate $products_nutriments{$code} with values for fields that we are going to compute stats on
+	# Populate $products_nutrients{$code} with values for fields that we are going to compute stats on
 
-	# Products with nutriments
-	if (
-			(defined $code)
-		and (defined $product_ref->{nutriments})
-		and (  ((defined $product_ref->{nutriments}{alcohol_100g}) and ($product_ref->{nutriments}{alcohol_100g} ne ''))
-			or ((defined $product_ref->{nutriments}{energy_100g}) and ($product_ref->{nutriments}{energy_100g} ne '')))
-		)
-	{
-		$products_nutriments{$code} = {};
-		foreach my $value (keys %{$product_ref->{nutriments}}) {
-			if ($value =~ /^([^_]+)_100g$/) {
-				my $nid = $1;
-				$products_nutriments{$code}{$nid} = $product_ref->{nutriments}{$nid . "_100g"};
-			}
-		}
-		if (defined $product_ref->{"nutrition_grade_fr"}) {
-			$products_nutriments{$code}{"nutrition-grade"}
-				= $nutrition_grades_to_n{$product_ref->{"nutrition_grade_fr"}};
-			#print "NUT - nid: nutrition_grade_fr : $product_ref->{nutrition_grade_fr} \n";
+	# Products with nutrition data
+	my $nutrients_ref = deep_get($product_ref, qw(nutrition aggregated_set nutrients));
+	if (defined $nutrients_ref)	{
+		$products_nutrients{$code} = {};
+		foreach my $nid (keys %{$nutrients_ref}) {
+			$products_nutrients{$code}{$nid} = $nutrients_ref->{$nid}{value};
 		}
 	}
+
+	# TODO: we could also compute stats for Nutri-Score, Nutri-Score grade, NOVA group, Green-Score, number of ingredients, additives etc.
 
 	# Compute points
 
@@ -309,7 +296,6 @@ while (my $product_ref = $cursor->next) {
 	foreach my $tagtype (@fields) {
 
 		$tags{$tagtype} = {};
-		$tags{$tagtype . "_nutriments"} = {};
 
 		if ($tagtype eq 'users') {
 			$tags{$tagtype}{$product_ref->{creator}}++;
@@ -317,19 +303,6 @@ while (my $product_ref = $cursor->next) {
 		elsif (defined $product_ref->{$tagtype . "_tags"}) {
 			foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
 				$tags{$tagtype}{$tagid}++;
-
-				if ($tagtype eq 'ingredients') {
-					#print STDERR "code: $code - ingredient: $tagid \n";
-				}
-
-				# nutriment info?
-				next if (not defined $product_ref->{nutriments});
-				next if (not defined $product_ref->{nutriments}{energy});
-				next if (not defined $product_ref->{nutriments}{proteins});
-				next if (not defined $product_ref->{nutriments}{carbohydrates});
-				next if (not defined $product_ref->{nutriments}{fat});
-				$tags{$tagtype . "_nutriments"}{$tagid}++;
-
 			}
 		}
 
@@ -343,9 +316,6 @@ while (my $product_ref = $cursor->next) {
 					defined $countries_categories{$country}{$tagid} or $countries_categories{$country}{$tagid} = {};
 					$countries_categories{$country}{$tagid}{$code} = 1;
 				}
-			}
-			foreach my $tagid (keys %{$tags{$tagtype . "_nutriments"}}) {
-				$countries_tags{$country}{$tagtype . "_nutriments"}{$tagid} += $tags{$tagtype . "_nutriments"}{$tagid};
 			}
 		}
 	}
@@ -440,7 +410,7 @@ foreach my $country (keys %{$properties{countries}}) {
 
 	my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
 
-	# Category stats for nutriments
+	# Category stats for nutrients
 
 	my $min_products = 10;
 	# On dev server we have less products, so use a smaller minimum
@@ -455,34 +425,29 @@ foreach my $country (keys %{$properties{countries}}) {
 
 		my $count = 0;
 		my $n = 0;
-		my %nutriments = ();
+		my %nutrients = ();
 
 		foreach my $code (sort keys %{$countries_categories{$country}{$tagid}}) {
 
 			$count++;
 
-			next if (not defined $products_nutriments{$code});
+			next if (not defined $products_nutrients{$code});
 
 			$n++;
 
-			foreach my $nid (keys %{$products_nutriments{$code}}) {
-
-				if ($nid eq 'nutrition-grade') {
-					#print "NUT - code: $code - nid: nutrition-grade\n";
-				}
-				add_product_nutriment_to_stats(\%nutriments, $nid, $products_nutriments{$code}{$nid});
+			foreach my $nid (keys %{$products_nutrients{$code}}) {
+				add_product_nutrient_to_stats(\%nutrients, $nid, $products_nutrients{$code}{$nid});
 			}
 		}
 
 		if ($n >= $min_products) {
 
 			$categories{$tagid} = {};
-			compute_stats_for_products($categories{$tagid}, \%nutriments, $count, $n, $min_products, $tagid);
-
+			compute_stats_for_products($categories{$tagid}, \%nutrients, $count, $n, $min_products, $tagid);
 		}
 	}
 
-	store("$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_nutriments_per_country.$cc.sto", \%categories);
+	store("$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_nutrients_per_country.$cc.sto", \%categories);
 
 	# Dates
 
@@ -938,6 +903,9 @@ ensure_dir_created_or_die($stats_dir);
 open(my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_countries.js");
 print $OUT $html;
 close $OUT;
+
+my $n_products_nutrition = scalar keys %products_nutrients;
+print "Number of products with nutrition data: $n_products_nutrition\n";
 
 exit(0);
 
