@@ -54,6 +54,7 @@ BEGIN {
 		@nutrient_levels
 
 		%categories_nutriments_per_country
+		&load_categories_nutriments_per_country
 
 		&normalize_nutriment_value_and_modifier
 		&assign_nid_modifier_value_and_unit
@@ -165,16 +166,25 @@ sub check_nutriscore_categories_exist_in_taxonomy() {
 # the stats are displayed on category pages and used in product pages,
 # as well as in data quality checks and improvement opportunity detection
 
-if (opendir(my $dh, "$BASE_DIRS{PRIVATE_DATA}/categories_stats")) {
-	foreach my $file (readdir($dh)) {
-		if ($file =~ /categories_nutriments_per_country.(\w+).sto$/) {
-			my $country_cc = $1;
-			$categories_nutriments_per_country{$country_cc}
-				= retrieve(
-				"$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_nutriments_per_country.$country_cc.sto");
+sub load_categories_nutriments_per_country($force_reload = 0) {
+
+	# If already loaded, do not reload unless forced
+	return if (keys %categories_nutriments_per_country) and (not $force_reload);
+
+	%categories_nutriments_per_country = ();
+
+	if (opendir(my $dh, "$BASE_DIRS{PRIVATE_DATA}/categories_stats")) {
+		foreach my $file (readdir($dh)) {
+			if ($file =~ /categories_nutriments_per_country.(\w+).sto$/) {
+				my $country_cc = $1;
+				$categories_nutriments_per_country{$country_cc}
+					= retrieve(
+					"$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_nutriments_per_country.$country_cc.sto");
+			}
 		}
+		closedir $dh;
 	}
-	closedir $dh;
+	return;
 }
 
 =head2 default_unit_for_nid ( $nid)

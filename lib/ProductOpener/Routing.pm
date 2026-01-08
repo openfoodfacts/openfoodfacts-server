@@ -53,7 +53,6 @@ use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_ty
 use ProductOpener::API qw/:all/;
 use ProductOpener::Tags
 	qw/%taxonomy_fields canonicalize_taxonomy_tag_linkeddata canonicalize_taxonomy_tag_weblink get_taxonomyid/;
-use ProductOpener::Food qw/%nutriments_labels/;
 use ProductOpener::Texts
 	qw/%texts %texts_translated_route_to_text_id %texts_text_id_to_translated_route init_translated_text_routes_for_all_languages load_texts_from_lang_directory/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
@@ -607,23 +606,11 @@ sub facets_route($request_ref) {
 
 	$log->debug("facets_route - components: ", @{$request_ref->{components}}) if $log->is_debug();
 
-	# special case: list of (categories) tags with stats for a nutriment
-	if (    ($#components == 1)
-		and (defined $tag_type_from_plural{$target_lc}{$components[0]})
-		and ($tag_type_from_plural{$target_lc}{$components[0]} eq "categories")
-		and (defined $nutriments_labels{$target_lc}{$components[1]}))
-	{
-
-		$request_ref->{groupby_tagtype} = $tag_type_from_plural{$target_lc}{$components[0]};
-		$request_ref->{stats_nid} = $nutriments_labels{$target_lc}{$components[1]};
-		$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
-		$canon_rel_url_suffix .= "/" . $components[1];
-		pop @components;
-		pop @components;
-		$log->debug(
-			"facets_route - request looks like a list of tags - categories with nutrients",
-			{groupby => $request_ref->{groupby_tagtype}, stats_nid => $request_ref->{stats_nid}}
-		) if $log->is_debug();
+	# categories group by can have a stats_nid parameter to add nutrition stats to list of categories
+	if (defined single_param("stats_nid")) {
+		$request_ref->{stats_nid} = single_param("stats_nid");
+		$log->debug("facets_route - got stats_nid parameter", {stats_nid => $request_ref->{stats_nid}})
+			if $log->is_debug();
 	}
 
 	# if we have at least one component, check if the last component is a plural of a tagtype -> list of tags
