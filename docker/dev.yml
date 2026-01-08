@@ -3,6 +3,7 @@
   build:
     context: .
     dockerfile: Dockerfile
+    target: dev
     # align user id
     args:
       USER_UID: ${USER_UID:-1000}
