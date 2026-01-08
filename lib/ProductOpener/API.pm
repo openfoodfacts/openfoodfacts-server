@@ -553,8 +553,8 @@ sub reload_categories_stats_api ($request_ref) {
 		return;
 	}
 
-	use ProductOpener::Food qw/load_categories_nutriments_per_country/;
-	load_categories_nutriments_per_country(1);    # force reload
+	use ProductOpener::Stats qw/load_categories_stats_per_country/;
+	load_categories_stats_per_country(1);    # force reload
 	my $response_ref = $request_ref->{api_response};
 	$response_ref->{result} = {id => "categories_stats_reloaded"};
 

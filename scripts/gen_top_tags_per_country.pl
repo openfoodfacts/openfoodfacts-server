@@ -27,7 +27,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Texts qw/:all/;
-use ProductOpener::Display qw/$static_subdomain add_product_nutrient_to_stats compute_stats_for_products/;
+use ProductOpener::Display qw/$static_subdomain/;
 use ProductOpener::Tags
 	qw/%country_languages %properties canonicalize_taxonomy_tag_link display_taxonomy_tag exists_taxonomy_tag/;
 use ProductOpener::Users qw/:all/;
@@ -40,6 +40,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::Stats qw/add_product_value_to_stats compute_stats_for_products/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -436,7 +437,7 @@ foreach my $country (keys %{$properties{countries}}) {
 			$n++;
 
 			foreach my $nid (keys %{$products_nutrients{$code}}) {
-				add_product_nutrient_to_stats(\%nutrients, $nid, $products_nutrients{$code}{$nid});
+				add_product_value_to_stats(\%nutrients, $nid, $products_nutrients{$code}{$nid});
 			}
 		}
 

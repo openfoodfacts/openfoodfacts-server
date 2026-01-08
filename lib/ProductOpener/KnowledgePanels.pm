@@ -76,6 +76,7 @@ use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
 use ProductOpener::KnowledgePanelsProduct qw/create_product_card_panel/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
+use ProductOpener::Stats qw/compare_product_nutrition_facts_to_categories/;
 
 use JSON::MaybeXS;
 use Encode;
@@ -1350,7 +1351,7 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 	{
 
 		# Compare the product nutrition facts to the most specific category
-		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_cc, 1);
+		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_lc, $target_cc, 1);
 		#my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 		create_panel_from_json_template("nutrition_facts_table",

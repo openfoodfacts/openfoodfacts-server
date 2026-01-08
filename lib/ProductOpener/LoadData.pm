@@ -97,7 +97,7 @@ sub load_data() {
 
 	load_gpc_category_codes_from_categories_taxonomy();
 
-	load_categories_nutrients_per_country();
+	load_categories_stats_per_country();
 
 	$log->debug("loading data - done") if $log->is_debug();
 	return;

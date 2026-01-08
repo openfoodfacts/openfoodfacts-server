@@ -66,9 +66,8 @@ BEGIN {
 		&display_error
 		&display_error_and_exit
 
-		&add_product_nutrient_to_stats
+		&add_product_value_to_stats
 		&compute_stats_for_products
-		&compare_product_nutrition_facts_to_categories
 		&data_to_display_nutrition_table
 		&data_to_display_nutrition_table_old_nutrition_schema
 		&display_nutrition_table
@@ -167,6 +166,7 @@ use ProductOpener::RequestStats qw(:all);
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
 use ProductOpener::ConfigEnv qw/:all/;
+use ProductOpener::Stats qw/:all/;
 
 use Encode;
 use URI::Escape::XS qw/uri_escape/;
@@ -1850,7 +1850,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 
 		my $th_nutriments = '';
 
-		my $categories_nutriments_ref = $categories_nutriments_per_country{$request_ref->{cc}};
+		my $categories_stats_ref = $categories_stats_per_country{$request_ref->{cc}};
 		my @cols = ();
 
 		if ($tagtype eq 'categories') {
@@ -1976,11 +1976,11 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 				if (defined $request_ref->{stats_nid}) {
 
 					foreach my $col (@cols) {
-						if ((defined $categories_nutriments_ref->{$tagid})) {
+						if ((defined $categories_stats_ref->{$tagid})) {
 							$td_nutriments
 								.= "<td>"
-								. $categories_nutriments_ref->{$tagid}{nutrients}
-								{$request_ref->{stats_nid} . '_' . $col} . "</td>";
+								. $categories_stats_ref->{$tagid}{values}{$request_ref->{stats_nid}{$col}}
+								. "</td>";
 						}
 						else {
 							$td_nutriments .= "<td></td>";
@@ -4202,14 +4202,14 @@ HTML
 			and ($tagtype eq 'categories'))
 		{
 
-			my $categories_nutriments_ref = $categories_nutriments_per_country{$request_ref->{cc}};
+			my $categories_stats_ref = $categories_stats_per_country{$request_ref->{cc}};
 
 			$log->debug("checking if this category has stored statistics",
 				{cc => $request_ref->{cc}, tagtype => $tagtype, tagid => $tagid})
 				if $log->is_debug();
-			if (    (defined $categories_nutriments_ref)
-				and (defined $categories_nutriments_ref->{$canon_tagid})
-				and (defined $categories_nutriments_ref->{$canon_tagid}{stats}))
+			if (    (defined $categories_stats_ref)
+				and (defined $categories_stats_ref->{$canon_tagid})
+				and (defined $categories_stats_ref->{$canon_tagid}{stats}))
 			{
 				$log->debug(
 					"statistics found for the tag, addind stats to description",
@@ -4221,11 +4221,11 @@ HTML
 					. lang("nutrition_data") . "</h2>" . "<p>"
 					. sprintf(
 					lang("nutrition_data_average"),
-					$categories_nutriments_ref->{$canon_tagid}{n},
-					$display_tag, $categories_nutriments_ref->{$canon_tagid}{count}
+					$categories_stats_ref->{$canon_tagid}{n},
+					$display_tag, $categories_stats_ref->{$canon_tagid}{count}
 					)
 					. "</p>"
-					. display_nutrition_table($categories_nutriments_ref->{$canon_tagid}, undef, $request_ref);
+					. display_nutrition_table($categories_stats_ref->{$canon_tagid}, undef, $request_ref);
 			}
 		}
 
@@ -6188,7 +6188,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		# Add values to stats, and set min axis
 		foreach my $axis ('x', 'y') {
 			my $field = $graph_ref->{"axis_" . $axis};
-			add_product_nutrient_to_stats(\%nutriments, $field, $data{$axis});
+			add_product_value_to_stats(\%nutriments, $field, $data{$axis});
 		}
 
 		# Identify the series id
@@ -8953,176 +8953,6 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 	}
 
 	return $result_data_ref;
-}
-
-sub add_product_nutrient_to_stats ($values_ref, $nid, $value) {
-
-	if ((defined $value) and ($value ne '')) {
-
-		if (not defined $values_ref->{"${nid}_n"}) {
-			$values_ref->{"${nid}_n"} = 0;
-			$values_ref->{"${nid}_s"} = 0;
-			$values_ref->{"${nid}_array"} = [];
-		}
-
-		$values_ref->{"${nid}_n"}++;
-		$values_ref->{"${nid}_s"} += $value + 0.0;
-		push @{$values_ref->{"${nid}_array"}}, $value + 0.0;
-
-	}
-	return 1;
-}
-
-sub compute_stats_for_products ($stats_ref, $values_ref, $count, $n, $min_products, $id) {
-
-	#my $stats_ref        ->    where we will store the stats
-	#my $values_ref   ->    values for some nutriments
-	#my $count            ->    total number of products (including products that have no values for the nutriments we are interested in)
-	#my $n                ->    number of products with defined values for specified nutriments
-	#my $min_products     ->    min number of products needed to compute stats
-	#my $id               ->    id (e.g. category id)
-
-	$stats_ref->{stats} = 1;
-	$stats_ref->{nutrients} = {};
-	$stats_ref->{id} = $id;
-	$stats_ref->{count} = $count;
-	$stats_ref->{n} = $n;
-
-	foreach my $nid (keys %{$values_ref}) {
-		next if $nid !~ /_n$/;
-		$nid = $`;
-
-		next if ($values_ref->{"${nid}_n"} < $min_products);
-
-		# Compute the mean and standard deviation, without the bottom and top 5% (so that huge outliers
-		# that are likely to be errors in the data do not completely overweight the mean and std)
-
-		my @values = sort {$a <=> $b} @{$values_ref->{"${nid}_array"}};
-		my $nb_values = $#values + 1;
-		my $kept_values = 0;
-		my $sum_of_kept_values = 0;
-
-		my $i = 0;
-		foreach my $value (@values) {
-			$i++;
-			next if ($i <= $nb_values * 0.05);
-			next if ($i >= $nb_values * 0.95);
-			$kept_values++;
-			$sum_of_kept_values += $value;
-		}
-
-		my $mean_for_kept_values = $sum_of_kept_values / $kept_values;
-
-		$values_ref->{"${nid}_mean"} = $mean_for_kept_values;
-
-		my $sum_of_square_differences_for_kept_values = 0;
-		$i = 0;
-		foreach my $value (@values) {
-			$i++;
-			next if ($i <= $nb_values * 0.05);
-			next if ($i >= $nb_values * 0.95);
-			$sum_of_square_differences_for_kept_values
-				+= ($value - $mean_for_kept_values) * ($value - $mean_for_kept_values);
-		}
-		my $std_for_kept_values = sqrt($sum_of_square_differences_for_kept_values / $kept_values);
-
-		$values_ref->{"${nid}_std"} = $std_for_kept_values;
-
-		$stats_ref->{nutrients}{"${nid}_n"} = $values_ref->{"${nid}_n"};
-		$stats_ref->{nutrients}{"$nid"} = $values_ref->{"${nid}_mean"};
-		$stats_ref->{nutrients}{"${nid}_100g"} = sprintf("%.2e", $values_ref->{"${nid}_mean"}) + 0.0;
-		$stats_ref->{nutrients}{"${nid}_std"} = sprintf("%.2e", $values_ref->{"${nid}_std"}) + 0.0;
-
-		if ($nid =~ /^energy/) {
-			$stats_ref->{nutrients}{"${nid}_100g"} = int($stats_ref->{nutrients}{"${nid}_100g"} + 0.5);
-			$stats_ref->{nutrients}{"${nid}_std"} = int($stats_ref->{nutrients}{"${nid}_std"} + 0.5);
-		}
-
-		$stats_ref->{nutrients}{"${nid}_min"} = sprintf("%.2e", $values[0]) + 0.0;
-		$stats_ref->{nutrients}{"${nid}_max"} = sprintf("%.2e", $values[$values_ref->{"${nid}_n"} - 1]) + 0.0;
-		#$stats_ref->{nutrients}{"${nid}_5"} = $values_ref->{"${nid}_array"}[int ( ($values_ref->{"${nid}_n"} - 1) * 0.05) ];
-		#$stats_ref->{nutrients}{"${nid}_95"} = $values_ref->{"${nid}_array"}[int ( ($values_ref->{"${nid}_n"}) * 0.95) ];
-		$stats_ref->{nutrients}{"${nid}_10"}
-			= sprintf("%.2e", $values[int(($values_ref->{"${nid}_n"} - 1) * 0.10)]) + 0.0;
-		$stats_ref->{nutrients}{"${nid}_90"}
-			= sprintf("%.2e", $values[int(($values_ref->{"${nid}_n"}) * 0.90)]) + 0.0;
-		$stats_ref->{nutrients}{"${nid}_50"}
-			= sprintf("%.2e", $values[int(($values_ref->{"${nid}_n"}) * 0.50)]) + 0.0;
-
-		#print STDERR "-> lc: lc -category $tagid - count: $count - n: nutriments: " . $nn . "$n \n";
-		#print "categories stats - cc: $request_ref->{cc} - n: $n- values for category $id: " . join(", ", @values) . "\n";
-		#print "tagid: $id - nid: $nid - 100g: " .  $stats_ref->{nutrients}{"${nid}_100g"}  . " min: " . $stats_ref->{nutrients}{"${nid}_min"} . " - max: " . $stats_ref->{nutrients}{"${nid}_max"} .
-		#	"mean: " . $stats_ref->{nutrients}{"${nid}_mean"} . " - median: " . $stats_ref->{nutrients}{"${nid}_50"} . "\n";
-
-	}
-
-	return;
-}
-
-=head2 compare_product_nutrition_facts_to_categories ($product_ref, $target_cc, $max_number_of_categories)
-
-Compares a product nutrition facts to average nutrition facts of each of its categories.
-
-=head3 Arguments
-
-=head4 Product reference $product_ref
-
-=head4 Target country code $target_cc
-
-=head4 Max number of categories $max_number_of_categories
-
-If defined, we will limit the number of categories returned, and keep the most specific categories.
-
-=head3 Return values
-
-Reference to a comparisons data structure that can be passed to the data_to_display_nutrition_table() function.
-
-=cut
-
-sub compare_product_nutrition_facts_to_categories ($product_ref, $target_cc, $max_number_of_categories) {
-
-	my @comparisons = ();
-
-	if (    (defined $product_ref->{categories_tags})
-		and (scalar @{$product_ref->{categories_tags}} > 0))
-	{
-
-		my $categories_nutriments_ref = $categories_nutriments_per_country{$target_cc};
-
-		if (defined $categories_nutriments_ref) {
-
-			foreach my $cid (@{$product_ref->{categories_tags}}) {
-
-				if (    (defined $categories_nutriments_ref->{$cid})
-					and (defined $categories_nutriments_ref->{$cid}{stats}))
-				{
-					push @comparisons,
-						{
-						id => $cid,
-						name => display_taxonomy_tag($lc, 'categories', $cid),
-						link => "/facets" . canonicalize_taxonomy_tag_link($lc, 'categories', $cid),
-						nutriments => compare_nutriments($product_ref, $categories_nutriments_ref->{$cid}),
-						count => $categories_nutriments_ref->{$cid}{count},
-						n => $categories_nutriments_ref->{$cid}{n},
-						};
-				}
-			}
-
-			if ($#comparisons > -1) {
-				@comparisons = sort {$a->{count} <=> $b->{count}} @comparisons;
-				$comparisons[0]{show} = 1;
-			}
-
-			# Limit the number of categories returned
-			if (defined $max_number_of_categories) {
-				while (@comparisons > $max_number_of_categories) {
-					pop @comparisons;
-				}
-			}
-		}
-	}
-
-	return \@comparisons;
 }
 
 =head2 data_to_display_nutrition_table ( $product_ref, $comparisons_ref )
