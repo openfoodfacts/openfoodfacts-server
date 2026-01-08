@@ -190,6 +190,7 @@ sub load_categories_nutriments_per_country($force_reload = 0) {
 		}
 		closedir $dh;
 	}
+	return;
 }
 
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
