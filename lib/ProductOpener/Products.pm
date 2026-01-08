@@ -2426,17 +2426,28 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 
 			foreach my $id (@ids) {
 
+				# The diff id may later include the values, in addition to the field id
+				# e.g. salt X -> Y, if the value is not too long
+				my $max_value_length_in_diff_id = 20;
+				my $diff_id = $id;
+
 				my $diff = undef;
 
 				if (    ((not defined $previous{$group}{$id}) or ($previous{$group}{$id} eq ''))
 					and ((defined $current{$group}{$id}) and ($current{$group}{$id} ne '')))
 				{
 					$diff = 'add';
+					if (($group !~ /images/) and (length($current{$group}{$id}) <= $max_value_length_in_diff_id)) {
+						$diff_id .= ' ' . $current{$group}{$id};
+					}
 				}
 				elsif ( ((defined $previous{$group}{$id}) and ($previous{$group}{$id} ne ''))
 					and ((not defined $current{$group}{$id}) or ($current{$group}{$id} eq '')))
 				{
 					$diff = 'delete';
+					if (($group !~ /images/) and (length($previous{$group}{$id}) <= $max_value_length_in_diff_id)) {
+						$diff_id .= ' ' . $previous{$group}{$id};
+					}
 				}
 				elsif ( (defined $previous{$group}{$id})
 					and (defined $current{$group}{$id})
@@ -2453,6 +2464,12 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 						}
 					) if $log->is_debug();
 					$diff = 'change';
+					if (    ($group !~ /images/)
+						and (length($previous{$group}{$id}) <= $max_value_length_in_diff_id)
+						and (length($current{$group}{$id}) <= $max_value_length_in_diff_id))
+					{
+						$diff_id .= ' ' . $previous{$group}{$id} . ' -> ' . $current{$group}{$id};
+					}
 				}
 
 				if (defined $diff) {
@@ -2478,7 +2495,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 
 					defined $diffs{$group} or $diffs{$group} = {};
 					defined $diffs{$group}{$diff} or $diffs{$group}{$diff} = [];
-					push @{$diffs{$group}{$diff}}, $id;
+					push @{$diffs{$group}{$diff}}, $diff_id;
 
 					# Attribution and last_image_t
 
