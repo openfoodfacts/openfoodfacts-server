@@ -2285,18 +2285,19 @@ sub compare_nutrients ($a_ref, $b_ref) {
 		$log->trace("compare_nutrients", {nid => $nid}) if $log->is_trace();
 
 		my $nutrition_nid = substr($nid, 0, -5);
+		my $b_value = $b_ref->{nutriments}{$nid};
+
 		if ($b_ref->{nutriments}{$nid} ne '') {    # do the following if the comparison quantity exists, ie is not ""
 
-			$nutriments{$nid} = $b_ref->{nutriments}{$nid};
+			$nutriments{$nid} = $b_value;
 
-			if (    ($b_ref->{nutriments}{$nid} > 0)
+			if (    ($b_value > 0)
 				and (defined $a_ref->{nutrition}{aggregated_set}{nutrients}{$nutrition_nid})
 				and (defined $a_ref->{nutrition}{aggregated_set}{nutrients}{$nutrition_nid}{value}))
 			{
 				# compute what percent the $a_ref value differs from the $b_ref value
 				my $a_value = $a_ref->{nutrition}{aggregated_set}{nutrients}{$nutrition_nid}{value};
-				$nutriments{"${nid}_%"}
-					= ($a_value - $b_ref->{nutriments}{$nid}) / $b_ref->{nutriments}{$nid} * 100;
+				$nutriments{"${nid}_%"} = ($a_value - $b_value) / $b_value * 100;
 			}
 			$log->trace("compare_nutrients",
 				{nid => $nid, value => $nutriments{$nid}, percent => $nutriments{"$nid.%"}})
