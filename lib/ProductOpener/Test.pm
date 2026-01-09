@@ -247,6 +247,11 @@ sub remove_all_products () {
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
+	# Also remove category stats
+	remove_tree($BASE_DIRS{PRIVATE_DATA} . "/categories_stats", {keep_root => 0, error => \$err});
+	if (@$err) {
+		confess("not able to remove some category stats directories: " . join(":", @$err));
+	}
 }
 
 =head2 remove_all_users ()

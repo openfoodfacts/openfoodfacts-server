@@ -51,7 +51,7 @@ BEGIN {
 use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
-use ProductOpener::Food qw(%categories_nutriments_per_country);
+use ProductOpener::Stats qw(%categories_stats_per_country);
 use ProductOpener::Units qw(extract_standard_unit);
 
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
@@ -1498,7 +1498,7 @@ Compare with the most specific category that has enough products to compute stat
 
 sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 
-	my $categories_nutriments_ref = $categories_nutriments_per_country{"world"};
+	my $categories_stats_ref = $categories_stats_per_country{"world"};
 
 	$log->debug("compare_nutrition_facts_with_products_from_same_category - start") if $log->debug();
 
@@ -1509,8 +1509,8 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 
 	while (
 		($i >= 0)
-		and not((defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]})
-			and (defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]}{nutriments}))
+		and not((defined $categories_stats_ref->{$product_ref->{categories_tags}[$i]})
+			and (defined $categories_stats_ref->{$product_ref->{categories_tags}[$i]}{values}))
 		)
 	{
 		$i--;
@@ -1531,9 +1531,9 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 
 		foreach my $nid (@nutrients) {
 
-			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
-				and ($product_ref->{nutriments}{$nid . "_100g"} ne "")
-				and (defined $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}))
+			if (    (defined $product_ref->{values}{$nid}{"100g"})
+				and ($product_ref->{values}{$nid}{"100g"} ne "")
+				and (defined $categories_stats_ref->{$specific_category}{values}{$nid}{std}))
 			{
 
 				# check if the value is in the range of the mean +- 3 * standard deviation
@@ -1546,16 +1546,16 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 					"compare_nutrition_facts_with_products_from_same_category",
 					{
 						nid => $nid,
-						product_100g => $product_ref->{nutriments}{$nid . "_100g"},
-						category_100g => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"},
-						category_std => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
+						product_100g => $product_ref->{values}{$nid}{"100g"},
+						category_100g => $categories_stats_ref->{$specific_category}{values}{$nid}{"100g"},
+						category_std => $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					}
 				) if $log->is_debug();
 
 				if (
-					$product_ref->{nutriments}{$nid . "_100g"} < (
-						$categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"}
-							- 4 * $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
+					$product_ref->{values}{$nid}{"100g"} < (
+						$categories_stats_ref->{$specific_category}{values}{$nid}{"100g"}
+							- 4 * $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					)
 					)
 				{
@@ -1564,9 +1564,9 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 						"en:nutrition-value-very-low-for-category-" . $nid;
 				}
 				elsif (
-					$product_ref->{nutriments}{$nid . "_100g"} > (
-						$categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"}
-							+ 4 * $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
+					$product_ref->{values}{$nid}{"100g"} > (
+						$categories_stats_ref->{$specific_category}{values}{$nid}{"100g"}
+							+ 4 * $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					)
 					)
 				{

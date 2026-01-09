@@ -2561,10 +2561,11 @@ sub extract_text_from_image ($product_ref, $image_type, $image_lc, $field, $requ
 	# DOCUMENT_TEXT_DETECTION does not bring significant advantages
 	# See https://github.com/openfoodfacts/openfoodfacts-server/issues/9723
 	{type => 'TEXT_DETECTION'},
-	{type => 'LOGO_DETECTION'},
-	{type => 'LABEL_DETECTION'},
-	{type => 'SAFE_SEARCH_DETECTION'},
-	{type => 'FACE_DETECTION'},
+	# Disable other Cloud Vision temporarily to save credits
+	# {type => 'LOGO_DETECTION'},
+	# {type => 'LABEL_DETECTION'},
+	# {type => 'SAFE_SEARCH_DETECTION'},
+	# {type => 'FACE_DETECTION'},
 );
 
 @CLOUD_VISION_FEATURES_TEXT = ({type => 'TEXT_DETECTION'});

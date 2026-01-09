@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.86.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.85.1...v2.86.0) (2026-01-07)
+
+
+### Features
+
+* redis_listener activated on all flavors ([#12814](https://github.com/openfoodfacts/openfoodfacts-server/issues/12814)) ([610359d](https://github.com/openfoodfacts/openfoodfacts-server/commit/610359d8c32ce64ab1cd3a05904c34e7f5f73a9e))
+
+
+### Bug Fixes
+
+* disable temporarily Google Vision extraction other than text ([#12865](https://github.com/openfoodfacts/openfoodfacts-server/issues/12865)) ([1c6db47](https://github.com/openfoodfacts/openfoodfacts-server/commit/1c6db4785da07b4dac378bfad95400b5a0428e3d))
+* simplified knowledge panels ([#12819](https://github.com/openfoodfacts/openfoodfacts-server/issues/12819)) ([055e0d2](https://github.com/openfoodfacts/openfoodfacts-server/commit/055e0d22d18c68c2c9b7dbb2b5ad74864a610586))
+
 ## [2.85.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.85.0...v2.85.1) (2025-12-18)
 
 
