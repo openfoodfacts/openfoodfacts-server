@@ -2935,12 +2935,17 @@ sub review_product_type ($product_ref) {
 
 Process the edit_rules (see C<@edit_rules> in in Config file).
 
+Note: edit 
+
 =head3 where it applies
 
 It applies in all API/form that edit the product.
 It applies to apply an image crop.
 
 It does not block image upload.
+
+Note: product edit rules were designed for API v0, v1 and v2.
+In v3, parameters are passed in a currently different way, so it is very likely that some rules will not apply correctly.
 
 =head3 edit_rules structure
 
@@ -3153,8 +3158,8 @@ sub process_product_edit_rules ($product_ref) {
 							# nutrient 100g ? remove 100g to get value in request
 							$default_field = $`;
 						}
-						elsif ($field =~ /nutriments_.*$/) {
-							# also consider nutrient_100g
+						elsif ($field =~ /nutriment_.*$/) {
+							# also consider nutriment_100g
 							$default_field = $field . "_100g";
 						}
 
@@ -3489,21 +3494,8 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	$log->debug("analyze_and_enrich_product_data - start") if $log->is_debug();
 
-	# Initialiaze the misc_tags, they will be populated by functions called by this function
+	# Initialize the misc_tags, they will be populated by functions called by this function
 	$product_ref->{misc_tags} = [];
-
-	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-	}
-
-	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
-		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
-	}
 
 	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
 
