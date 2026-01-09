@@ -1973,18 +1973,14 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			if ($tagtype eq 'categories') {
 
 				if (defined $request_ref->{stats_nid}) {
+					my $nid = $request_ref->{stats_nid};
+					# remove possible lang prefix (en: or zz:)
+					$nid =~ s/^(en|zz)://;
 
 					foreach my $col (@cols) {
-						if ((defined $categories_stats_ref->{$tagid})) {
-							$td_nutriments
-								.= "<td>"
-								. $categories_stats_ref->{$tagid}{values}{$request_ref->{stats_nid}}{$col}
-								. "</td>";
-						}
-						else {
-							$td_nutriments .= "<td></td>";
-							# next;	 # datatables sorting does not work with empty values
-						}
+						my $value = deep_get($categories_stats_ref, $tagid, 'values',
+							$request_ref->{stats_nid}, $col) || "-";
+						$td_nutriments .= "<td>" . $value . "</td>";
 					}
 				}
 				else {
@@ -4211,7 +4207,7 @@ HTML
 				and (defined $categories_stats_ref->{$canon_tagid}{stats}))
 			{
 				$log->debug(
-					"statistics found for the tag, addind stats to description",
+					"statistics found for the tag, adding stats to description",
 					{cc => $request_ref->{cc}, tagtype => $tagtype, tagid => $tagid}
 				) if $log->is_debug();
 
