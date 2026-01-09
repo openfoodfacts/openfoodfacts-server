@@ -73,7 +73,7 @@ BEGIN {
 		&evaluate_nutrient_level
 		&compute_units_of_alcohol
 
-		&compare_nutriments
+		&compare_nutrients
 
 		&extract_nutrition_from_image
 
@@ -2265,48 +2265,15 @@ sub compute_units_of_alcohol ($product_ref, $serving_size_in_ml) {
 	}
 }
 
-sub compare_nutriments ($a_ref, $b_ref) {
+sub compare_nutrients ($a_ref, $b_ref) {
 
 	# $a_ref can be a product, a category, ajr etc. -> needs {nutriments}{$nid} values
 	# $b_ref is the value references
 	my %nutriments = ();
 
-	if ($a_ref->{product_type} eq "food" || $a_ref->{product_type} eq "petfood") {
-		%nutriments = compare_nutrients_with_nutrition($a_ref, $b_ref);
-	}
-	else {
-		%nutriments = compare_nutrients_with_nutriments($a_ref, $b_ref);
-	}
+	%nutriments = compare_nutrients_with_nutrition($a_ref, $b_ref);
 
 	return \%nutriments;
-}
-
-sub compare_nutrients_with_nutriments ($a_ref, $b_ref) {
-	my %nutriments = ();
-
-	foreach my $nid (keys %{$b_ref->{nutriments}}) {
-		next
-			if $nid !~ /_100g$/
-			;    # next nutrient if $nid does not end with _100g, so only normalized nutrient quantities are compared
-		$log->trace("compare_nutriments", {nid => $nid}) if $log->is_trace();
-		if ($b_ref->{nutriments}{$nid} ne '') {    # do the following if the comparison quantity exists, ie is not ""
-			$nutriments{$nid} = $b_ref->{nutriments}{$nid};
-			if (    ($b_ref->{nutriments}{$nid} > 0)
-				and (defined $a_ref->{nutriments}{$nid})
-				and ($a_ref->{nutriments}{$nid} ne ''))
-			{
-				# compute what percent the $a_ref value differs from the $b_ref value ( (A-B)/B x 100 )
-				$nutriments{"${nid}_%"}
-					= ($a_ref->{nutriments}{$nid} - $b_ref->{nutriments}{$nid}) / $b_ref->{nutriments}{$nid} * 100;
-			}
-			$log->trace("compare_nutriments",
-				{nid => $nid, value => $nutriments{$nid}, percent => $nutriments{"$nid.%"}})
-				if $log->is_trace();
-		}
-	}
-
-	return %nutriments;
-
 }
 
 sub compare_nutrients_with_nutrition ($a_ref, $b_ref) {
@@ -2317,7 +2284,7 @@ sub compare_nutrients_with_nutrition ($a_ref, $b_ref) {
 		# with the new nutrition schema, the nutrient names appearing in $a_ref don't have suffixes
 		# so the "_100g" part is removed when checking nutrients for $a_ref
 		next if $nid !~ /_100g$/;
-		$log->trace("compare_nutriments", {nid => $nid}) if $log->is_trace();
+		$log->trace("compare_nutrients", {nid => $nid}) if $log->is_trace();
 
 		my $nutrition_nid = substr($nid, 0, -5);
 		if ($b_ref->{nutriments}{$nid} ne '') {    # do the following if the comparison quantity exists, ie is not ""
@@ -2329,19 +2296,11 @@ sub compare_nutrients_with_nutrition ($a_ref, $b_ref) {
 				and (defined $a_ref->{nutrition}{aggregated_set}{nutrients}{$nutrition_nid}{value}))
 			{
 				# compute what percent the $a_ref value differs from the $b_ref value
-				# if the $a_ref value is given per serving, compute the value per 100g/ml before
-				my $a_value;
-				if ($a_ref->{nutrition}{aggregated_set}{per} eq "serving") {
-					$a_value = $a_ref->{nutrition}{aggregated_set}{nutrients}{$nutrition_nid}{value} * 100
-						/ $a_ref->{serving_quantity};
-				}
-				else {
-					$a_value = $a_ref->{nutrition}{aggregated_set}{nutrients}{$nutrition_nid}{value};
-				}
+				my $a_value = $a_ref->{nutrition}{aggregated_set}{nutrients}{$nutrition_nid}{value};
 				$nutriments{"${nid}_%"}
 					= ($a_value - $b_ref->{nutriments}{$nid}) / $b_ref->{nutriments}{$nid} * 100;
 			}
-			$log->trace("compare_nutriments",
+			$log->trace("compare_nutrients",
 				{nid => $nid, value => $nutriments{$nid}, percent => $nutriments{"$nid.%"}})
 				if $log->is_trace();
 		}
