@@ -66,8 +66,7 @@ BEGIN {
 		&display_error
 		&display_error_and_exit
 
-		&add_product_value_to_stats
-		&compute_stats_for_products
+		&compare_product_nutrition_facts_to_categories
 		&data_to_display_nutrition_table
 		&data_to_display_nutrition_table_old_nutrition_schema
 		&display_nutrition_table
@@ -1979,7 +1978,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 						if ((defined $categories_stats_ref->{$tagid})) {
 							$td_nutriments
 								.= "<td>"
-								. $categories_stats_ref->{$tagid}{values}{$request_ref->{stats_nid}{$col}}
+								. $categories_stats_ref->{$tagid}{values}{$request_ref->{stats_nid}}{$col}
 								. "</td>";
 						}
 						else {
@@ -8953,6 +8952,72 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 	}
 
 	return $result_data_ref;
+}
+
+=head2 compare_product_nutrition_facts_to_categories ($product_ref, $target_cc, $max_number_of_categories)
+
+Compares a product nutrition facts to average nutrition facts of each of its categories.
+
+=head3 Arguments
+
+=head4 Product reference $product_ref
+
+=head4 Target country code $target_cc
+
+=head4 Max number of categories $max_number_of_categories
+
+If defined, we will limit the number of categories returned, and keep the most specific categories.
+
+=head3 Return values
+
+Reference to a comparisons data structure that can be passed to the data_to_display_nutrition_table() function.
+
+=cut
+
+sub compare_product_nutrition_facts_to_categories ($product_ref, $target_lc, $target_cc, $max_number_of_categories) {
+
+	my @comparisons = ();
+
+	if (    (defined $product_ref->{categories_tags})
+		and (scalar @{$product_ref->{categories_tags}} > 0))
+	{
+
+		my $categories_stats_ref = $categories_stats_per_country{$target_cc};
+
+		if (defined $categories_stats_ref) {
+
+			foreach my $cid (@{$product_ref->{categories_tags}}) {
+
+				if (    (defined $categories_stats_ref->{$cid})
+					and (defined $categories_stats_ref->{$cid}{stats}))
+				{
+					push @comparisons,
+						{
+						id => $cid,
+						name => display_taxonomy_tag($target_lc, 'categories', $cid),
+						link => "/facets" . canonicalize_taxonomy_tag_link($target_lc, 'categories', $cid),
+						nutriments => compare_nutriments($product_ref, $categories_stats_ref->{$cid}),
+						count => $categories_stats_ref->{$cid}{count},
+						n => $categories_stats_ref->{$cid}{n},
+						};
+				}
+			}
+
+			if ($#comparisons > -1) {
+				@comparisons = sort {$a->{count} <=> $b->{count}} @comparisons;
+				$comparisons[0]{show} = 1;
+			}
+
+			# Limit the number of categories returned
+			if (defined $max_number_of_categories) {
+				while (@comparisons > $max_number_of_categories) {
+					pop @comparisons;
+				}
+			}
+		}
+	}
+
+	return \@comparisons;
 }
 
 =head2 data_to_display_nutrition_table ( $product_ref, $comparisons_ref )

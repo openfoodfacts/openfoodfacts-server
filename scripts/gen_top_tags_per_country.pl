@@ -448,7 +448,7 @@ foreach my $country (keys %{$properties{countries}}) {
 		}
 	}
 
-	store("$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_nutrients_per_country.$cc.sto", \%categories);
+	store("$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_stats_per_country.$cc.sto", \%categories);
 
 	# Dates
 
@@ -637,6 +637,9 @@ HTML
 	# also always add english
 	push @languages, "en" unless grep {$_ eq 'en'} @languages;
 	foreach my $lc (@languages) {
+
+		# skip language codes that don't have 2 letters
+		next if length($lc) != 2;
 
 		my $series = '';
 
