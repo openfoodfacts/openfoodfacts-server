@@ -12,6 +12,9 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Tags qw/exists_taxonomy_tag has_tag get_property %properties/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::FoodProducts qw/:all/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # Note: the categories en:unsweetened-beverages, en:sweetened-beverages, en:artificially-sweetened-beverages
 # are now only added temporarily when we compute food groups, they are not kept in the product categories
@@ -309,9 +312,57 @@ my %form = ();
 	}
 }
 
-is(has_nutrition_data_for_product_type({}, ""), 0);
-is(has_nutrition_data_for_product_type({nutriments => {"sugars_100g" => 5}}, ""), 1);
-is(has_nutrition_data_for_product_type({nutriments => {"sugars_100g" => 0}}, "_prepared"), 0);
-is(has_nutrition_data_for_product_type({nutriments => {"sugars_prepared_serving" => 10}}, "_prepared"), 1);
+# test compare_nutrients
+my @comparison_tests = (
+	[
+		"nutrients-comparisons",
+		{
+			nutrition => {
+				aggregated_set => {
+					nutrients => {
+						"fat" => {
+							value => 30.9
+						},
+						"salt" => {
+							value => 4
+						},
+						"energy" => {
+							value => 2252
+						},
+						"saturated-fats" => {
+							value => 2.4
+						},
+						"proteins" => {
+							value => 7.2
+						}
+					},
+					preparation => "as_sold",
+					per => "100g",
+				}
+			}
+		},
+		{
+			nutriments => {
+				energy_100g => 1055,
+				fat_100g => -10,
+				"saturated-fats_100g" => 13,
+				sugars_100g => 2,
+				salt_100g => 4
+			}
+		}
+	]
+);
+
+foreach my $test_ref (@comparison_tests) {
+	my $testid = $test_ref->[0];
+	my $product_test_ref = $test_ref->[1];
+	my $reference_test_ref = $test_ref->[2];
+
+	my $comparisons = compare_nutrients($product_test_ref, $reference_test_ref);
+
+	compare_to_expected_results($comparisons, "$expected_result_dir/$testid.json",
+		$update_expected_results, {id => $testid});
+
+}
 
 done_testing();

@@ -8992,7 +8992,7 @@ sub compare_product_nutrition_facts_to_categories ($product_ref, $target_lc, $ta
 						id => $cid,
 						name => display_taxonomy_tag($target_lc, 'categories', $cid),
 						link => "/facets" . canonicalize_taxonomy_tag_link($target_lc, 'categories', $cid),
-						nutriments => compare_nutriments($product_ref, $categories_stats_ref->{$cid}),
+						nutriments => compare_nutrients($product_ref, $categories_stats_ref->{$cid}),
 						count => $categories_stats_ref->{$cid}{count},
 						n => $categories_stats_ref->{$cid}{n},
 						};
