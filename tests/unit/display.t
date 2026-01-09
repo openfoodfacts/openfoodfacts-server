@@ -353,7 +353,7 @@ my @display_tests = (
 		},
 		[
 			{
-				name => "en:Spreads",
+				name => "Spreads",
 				n => 1,
 				count => 100,
 				nutriments => {
