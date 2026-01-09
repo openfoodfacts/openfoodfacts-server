@@ -202,6 +202,33 @@ my $tests_ref = [
 		expected_status_code => 403,
 		expected_type => "html",
 	},
+
+	# Nutrition facts using old nutriments structure
+	# This is to ensure backward compatibility once we migrate to the new nutrition structure
+	{
+		test_case => 'get-nutriments',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=nutriments',
+		expected_status_code => 200,
+	},
+	# ?fields=nutriments.salt_100g
+	{
+		test_case => 'get-nutriments-salt-100g',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=nutriments.salt_100g',
+		expected_status_code => 200,
+	},
+	# ?fields=salt_100g
+	{
+		test_case => 'get-salt-100g',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=salt_100g',
+		expected_status_code => 200,
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

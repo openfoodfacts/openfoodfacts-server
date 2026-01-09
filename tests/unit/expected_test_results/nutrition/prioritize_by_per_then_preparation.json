@@ -4,7 +4,7 @@
          "nutrients" : {
             "sugars" : {
                "source" : "packaging",
-               "source_index" : 1,
+               "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
                "value" : 5.2
@@ -14,6 +14,20 @@
          "preparation" : "as_sold"
       },
       "input_sets" : [
+         {
+            "nutrients" : {
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : 5.2,
+                  "value_string" : "5.2"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         },
          {
             "nutrients" : {
                "sodium" : {
@@ -27,20 +41,6 @@
             "per_quantity" : "250",
             "per_unit" : "g",
             "preparation" : "prepared",
-            "source" : "packaging"
-         },
-         {
-            "nutrients" : {
-               "sugars" : {
-                  "unit" : "g",
-                  "value" : 5.2,
-                  "value_string" : "5.2"
-               }
-            },
-            "per" : "100g",
-            "per_quantity" : "100",
-            "per_unit" : "g",
-            "preparation" : "as_sold",
             "source" : "packaging"
          }
       ]
