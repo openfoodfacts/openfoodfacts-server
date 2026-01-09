@@ -2265,18 +2265,16 @@ sub compute_units_of_alcohol ($product_ref, $serving_size_in_ml) {
 	}
 }
 
+=head2 compare_nutrients ($a_ref, $b_ref)
+
+For each comparable nutrient in both $a_ref and $b_ref, compute what percent the $a_ref value differs from the $b_ref value
+
+=cut
+
 sub compare_nutrients ($a_ref, $b_ref) {
 
-	# $a_ref can be a product, a category, ajr etc. -> needs {nutriments}{$nid} values
+	# $a_ref can be a product, a category, ajr etc. -> needs {nutrition}{aggregated_set}{$nutrition_nid}{value}
 	# $b_ref is the value references
-	my %nutriments = ();
-
-	%nutriments = compare_nutrients_with_nutrition($a_ref, $b_ref);
-
-	return \%nutriments;
-}
-
-sub compare_nutrients_with_nutrition ($a_ref, $b_ref) {
 	my %nutriments = ();
 
 	foreach my $nid (keys %{$b_ref->{nutriments}}) {
@@ -2306,7 +2304,7 @@ sub compare_nutrients_with_nutrition ($a_ref, $b_ref) {
 		}
 	}
 
-	return %nutriments;
+	return \%nutriments;
 
 }
 
