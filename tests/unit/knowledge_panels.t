@@ -81,6 +81,45 @@ my @tests = (
 		target_lc => 'fr',
 		target_cc => 'fr'
 	},
+	# added sugars tests
+	# english test with "with added sugar" ingredient
+	{
+		'id' => 'en-ingredients-with-added-sugar',
+		'product' => {
+			lc => "en",
+			ingredients_text => "Sugar, wheat flour, butter",
+		},
+		target_lc => 'en',
+		target_cc => 'us'
+	},
+	# added sugars in input nutrition facts
+	{
+		'id' => 'en-nutrition-facts-added-sugars',
+		'product' => {
+			lc => "en",
+			ingredients_text => "Sugar, wheat flour, butter",
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							"added-sugars" => {
+								value_string => "20",
+								value => 20,
+								unit => "g",
+							},
+						}
+					}
+				]
+			},
+		},
+		target_lc => 'en',
+		target_cc => 'us'
+	},
 );
 
 foreach my $test_ref (@tests) {
