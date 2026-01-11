@@ -902,7 +902,7 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 		# We need at a minimum carbohydrates, fat and proteins to be defined to compute
 		# energy.
 		if (    (defined $specified_energy)
-			and (defined $nutriments_ref->{"carbohydrates_value"})
+			and ((defined $nutriments_ref->{"carbohydrates_value"}) or (defined $nutriments_ref->{"carbohydrates-total_value"}))
 			and (defined $nutriments_ref->{"fat_value"})
 			and (defined $nutriments_ref->{"proteins_value"}))
 		{
@@ -930,7 +930,12 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 
 					$grams -= $product_ref->{nutriments}{$nid_minus . "_value"} || 0;
 				}
-				$grams += $product_ref->{nutriments}{$nid . "_value"} || 0;
+				if ($nid eq "carbohydrates") {
+					$grams += $product_ref->{nutriments}{$nid . "_value"} // $product_ref->{nutriments}{"carbohydrates-total_value"} // 0;
+				}
+				else {
+					$grams += $product_ref->{nutriments}{$nid . "_value"} || 0;
+				}
 				$computed_energy += $grams * $energy_per_gram;
 			}
 

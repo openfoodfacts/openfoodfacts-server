@@ -515,7 +515,39 @@ ok(
 	'energy not matching nutrient'
 ) or diag Dumper $product_ref;
 
-# en:nutrition-value-negative-$nid should be raised - for nutriments (except nutriments containing "nutrition-score") below 0
+# US-style carbohydrates-total (includes fiber) - energy matches nutrients
+$product_ref = {
+	nutriments => {
+		"energy-kj_value" => 1435,
+		"carbohydrates-total_value" => 10,
+		"fat_value" => 20,
+		"proteins_value" => 30,
+		"fiber_value" => 2,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy matching nutrients with carbohydrates-total (US-style)'
+) or diag Dumper $product_ref;
+
+# US-style carbohydrates-total - energy does not match nutrients
+$product_ref = {
+	nutriments => {
+		"energy-kj_value" => 5,
+		"carbohydrates-total_value" => 10,
+		"fat_value" => 20,
+		"proteins_value" => 30,
+		"fiber_value" => 2,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+is($product_ref->{nutriments}{"energy-kj_value_computed"}, 1436);
+ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy not matching nutrients with carbohydrates-total (US-style)')
+	or diag Dumper $product_ref;
+
+
 $product_ref = {
 	nutriments => {
 		"proteins_100g" => -1,
