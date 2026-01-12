@@ -15,14 +15,14 @@ my $json = JSON::MaybeXS->new->allow_nonref->canonical;
 my $code = shift @ARGV;
 
 if (!$code) {
-    die "Usage: $0 <product_code>\n";
+	die "Usage: $0 <product_code>\n";
 }
 
 # Retrieve the product from MongoDB
 my $product_ref = retrieve_product($code);
 
 if (!$product_ref) {
-    die "Product with code $code not found\n";
+	die "Product with code $code not found\n";
 }
 
 # Dump the product to STDOUT as JSON

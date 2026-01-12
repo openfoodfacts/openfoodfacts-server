@@ -2251,36 +2251,43 @@ sub compute_units_of_alcohol ($product_ref, $serving_size_in_ml) {
 
 For each comparable nutrient in both $a_ref and $b_ref, compute what percent the $a_ref value differs from the $b_ref value
 
+=head3 Arguments
+
+=head4 $a_ref - ref to a product, a category, ajr etc.
+
+=head4 $b_ref - ref to a structure with nutrient values to compare to
+
+=head3 Return values
+
+=head4 $nutrients_ref - ref to a hash with the nutrient values from $b_ref and the percent difference between $a_ref and $b_ref values
+
 =cut
 
 sub compare_nutrients ($a_ref, $b_ref) {
 
 	# $a_ref can be a product, a category, ajr etc. -> needs {nutrition}{aggregated_set}{$nid}{value}
 	# $b_ref is the value references
-	my %nutrients = ();
+	my $nutrients_ref = {};
 
 	foreach my $nid (keys %{$b_ref->{values}}) {
 
 		my $a_value = deep_get($a_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
-		my $b_value = $b_ref->{values}{$nid};
+		my $b_value = $b_ref->{values}{$nid}{mean};
 
-				$log->trace("compare_nutrients", {nid => $nid, a_value => $a_value, b_value => $b_value}) if $log->is_trace();
+		$log->trace("compare_nutrients", {nid => $nid, a_value => $a_value, b_value => $b_value}) if $log->is_trace();
 
 		if ($b_value ne '') {    # do the following if the comparison quantity exists, ie is not ""
 
-			$nutrients{$nid} = $b_value;
+			deep_set($nutrients_ref, $nid, "mean", $b_value);
 
-			if (    ($b_value > 0) and (defined $a_value)) {
+			if (($b_value > 0) and (defined $a_value)) {
 				# compute what percent the $a_ref value differs from the $b_ref value
-				$nutrients{"${nid}_%"} = ($a_value - $b_value) / $b_value * 100;
+				deep_set($nutrients_ref, ${nid}, "mean_percent", ($a_value - $b_value) / $b_value * 100);
 			}
-			$log->trace("compare_nutrients",
-				{nid => $nid, value => $nutrients{$nid}, percent => $nutrients{"${nid}_%"}})
-				if $log->is_trace();
 		}
 	}
 
-	return \%nutrients;
+	return $nutrients_ref;
 
 }
 

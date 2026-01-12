@@ -49,16 +49,16 @@ my @tests = (
 						per_unit => "g",
 						source => "packaging",
 						nutrients => {
-                            "carbon-footprint" => {
-                                value_string => "5",
-                                value => 5,
-                                unit => "g",
-                            },
-                            "glycemic-index" => {
-                                value_string => "55",
-                                value => 55,
-                                unit => "",
-                            },
+							"carbon-footprint" => {
+								value_string => "5",
+								value => 5,
+								unit => "g",
+							},
+							"glycemic-index" => {
+								value_string => "55",
+								value => 55,
+								unit => "",
+							},
 						}
 					}
 				]

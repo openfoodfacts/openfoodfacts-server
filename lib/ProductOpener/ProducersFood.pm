@@ -48,8 +48,7 @@ BEGIN {
 use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
-use ProductOpener::Food
-	qw(check_availability_of_nutrients_needed_for_nutriscore compute_nutriscore_data);
+use ProductOpener::Food qw(check_availability_of_nutrients_needed_for_nutriscore compute_nutriscore_data);
 use ProductOpener::Nutriscore qw(:all);
 use ProductOpener::Stats qw(%categories_stats_per_country);
 

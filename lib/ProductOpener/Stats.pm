@@ -41,8 +41,8 @@ BEGIN {
 
 		%categories_stats_per_country
 		&load_categories_stats_per_country
-        &add_product_value_to_stats
-        &compute_stats_for_products
+		&add_product_value_to_stats
+		&compute_stats_for_products
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -64,9 +64,9 @@ sub add_product_value_to_stats ($values_ref, $key, $value) {
 
 	if ((defined $value) and ($value ne '')) {
 
-        if (not defined $values_ref->{$key}) {
-            $values_ref->{$key} = {n => 0, s => 0, array => []};
-        }
+		if (not defined $values_ref->{$key}) {
+			$values_ref->{$key} = {n => 0, s => 0, array => []};
+		}
 
 		$values_ref->{$key}{n}++;
 		$values_ref->{$key}{s} += $value + 0.0;
@@ -149,19 +149,19 @@ sub compute_stats_for_products ($stats_ref, $values_ref, $count, $n, $min_produc
 		$values_ref->{$key}{std} = $std_for_kept_values;
 
 		$stats_ref->{values}{$key} = {
-            n => $values_ref->{$key}{n},
-            mean => $values_ref->{$key}{mean},
-            "100g" => sprintf("%.2e", $values_ref->{$key}{mean}) + 0.0,
-            std => sprintf("%.2e", $values_ref->{$key}{std}) + 0.0,
-            min => sprintf("%.2e", $values_ref->{$key}{array}[0]) + 0.0,
-            max => sprintf("%.2e", $values_ref->{$key}{array}[$#{$values_ref->{$key}{array}}]) + 0.0,
-            "10" => sprintf("%.2e", $values_ref->{$key}{array}[int(($values_ref->{$key}{n} - 1) * 0.10)]) + 0.0,
-            "90" => sprintf("%.2e", $values_ref->{$key}{array}[int(($values_ref->{$key}{n}) * 0.90)]) + 0.0,
-            "50" => sprintf("%.2e", $values_ref->{$key}{array}[int(($values_ref->{$key}{n}) * 0.50)]) + 0.0,
-        };
+			n => $values_ref->{$key}{n},
+			mean => $values_ref->{$key}{mean},
+			"100g" => sprintf("%.2e", $values_ref->{$key}{mean}) + 0.0,
+			std => sprintf("%.2e", $values_ref->{$key}{std}) + 0.0,
+			min => sprintf("%.2e", $values_ref->{$key}{array}[0]) + 0.0,
+			max => sprintf("%.2e", $values_ref->{$key}{array}[$#{$values_ref->{$key}{array}}]) + 0.0,
+			"10" => sprintf("%.2e", $values_ref->{$key}{array}[int(($values_ref->{$key}{n} - 1) * 0.10)]) + 0.0,
+			"90" => sprintf("%.2e", $values_ref->{$key}{array}[int(($values_ref->{$key}{n}) * 0.90)]) + 0.0,
+			"50" => sprintf("%.2e", $values_ref->{$key}{array}[int(($values_ref->{$key}{n}) * 0.50)]) + 0.0,
+		};
 
 		if ($key =~ /^energy/) {
-            # We want round values for energy
+			# We want round values for energy
 			$stats_ref->{values}{$key}{"100g"} = int($stats_ref->{values}{$key}{"100g"} + 0.5);
 			$stats_ref->{values}{$key}{std} = int($stats_ref->{values}{$key}{std} + 0.5);
 		}
@@ -193,17 +193,17 @@ sub load_categories_stats_per_country($force_reload = 0) {
 
 	%categories_stats_per_country = ();
 
-    my $dir = $BASE_DIRS{PRIVATE_DATA} . "/categories_stats";
-    if (! -d $dir) {
-        $dir = $BASE_DIRS{PRIVATE_DATA_TESTS} . "/categories_stats";
-    }
+	my $dir = $BASE_DIRS{PRIVATE_DATA} . "/categories_stats";
+	if (!-d $dir) {
+		$dir = $BASE_DIRS{PRIVATE_DATA_TESTS} . "/categories_stats";
+	}
 
 	if (opendir(my $dh, $dir)) {
-        $log->info("Loading categories stats per country from $dir");
+		$log->info("Loading categories stats per country from $dir");
 		foreach my $file (sort readdir($dh)) {
 			if ($file =~ /categories_stats_per_country.(\w+).sto$/) {
 				my $country_cc = $1;
-                $log->debug("Loading categories stats for country $country_cc");
+				$log->debug("Loading categories stats for country $country_cc");
 				$categories_stats_per_country{$country_cc}
 					= retrieve(
 					"$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_stats_per_country.$country_cc.sto");

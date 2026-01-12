@@ -206,7 +206,7 @@ while (my $product_ref = $cursor->next) {
 
 	# Products with nutrition data
 	my $nutrients_ref = deep_get($product_ref, qw(nutrition aggregated_set nutrients));
-	if (defined $nutrients_ref)	{
+	if (defined $nutrients_ref) {
 		$products_nutrients{$code} = {};
 		foreach my $nid (keys %{$nutrients_ref}) {
 			$products_nutrients{$code}{$nid} = $nutrients_ref->{$nid}{value};
