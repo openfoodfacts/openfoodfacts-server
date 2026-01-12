@@ -2,7 +2,7 @@
 
 The Open Food Facts Events API is used to track events occurring on Open Food Facts, such as product edits, scans, or photo uploads. It powers the leaderboard and badge system, allowing users to see their contributions and achievements.
 
-# Why you'd use this API
+## Why you'd use this API
 - Track user activity and contributions on Open Food Facts
 - Build gamification features like leaderboards and badges
 - Get insights into edit patterns and user engagement
