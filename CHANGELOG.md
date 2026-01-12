@@ -1,5 +1,42 @@
 # Changelog
 
+## [2.86.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.85.1...v2.86.0) (2026-01-07)
+
+
+### Features
+
+* redis_listener activated on all flavors ([#12814](https://github.com/openfoodfacts/openfoodfacts-server/issues/12814)) ([610359d](https://github.com/openfoodfacts/openfoodfacts-server/commit/610359d8c32ce64ab1cd3a05904c34e7f5f73a9e))
+
+
+### Bug Fixes
+
+* disable temporarily Google Vision extraction other than text ([#12865](https://github.com/openfoodfacts/openfoodfacts-server/issues/12865)) ([1c6db47](https://github.com/openfoodfacts/openfoodfacts-server/commit/1c6db4785da07b4dac378bfad95400b5a0428e3d))
+* simplified knowledge panels ([#12819](https://github.com/openfoodfacts/openfoodfacts-server/issues/12819)) ([055e0d2](https://github.com/openfoodfacts/openfoodfacts-server/commit/055e0d22d18c68c2c9b7dbb2b5ad74864a610586))
+
+## [2.85.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.85.0...v2.85.1) (2025-12-18)
+
+
+### Bug Fixes
+
+* add Forest Footprint knowledge panel ([#12811](https://github.com/openfoodfacts/openfoodfacts-server/issues/12811)) ([7ba3a5a](https://github.com/openfoodfacts/openfoodfacts-server/commit/7ba3a5a7c15f2e58124157b61f0c37d64c3ce53a))
+
+## [2.85.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.84.0...v2.85.0) (2025-12-18)
+
+
+### Features
+
+* Follow-up Sunrise 2027 support ([#12796](https://github.com/openfoodfacts/openfoodfacts-server/issues/12796)) ([69acfdd](https://github.com/openfoodfacts/openfoodfacts-server/commit/69acfdd1bf1c136d97af0f4c624c2ed9b2741346))
+
+
+### Bug Fixes
+
+* enable minion on every servers ([#12810](https://github.com/openfoodfacts/openfoodfacts-server/issues/12810)) ([bd60868](https://github.com/openfoodfacts/openfoodfacts-server/commit/bd608689327456a3d313dc2461a04bd132da3e36))
+* missing template for categories nutrition table ([#12782](https://github.com/openfoodfacts/openfoodfacts-server/issues/12782)) ([4c04090](https://github.com/openfoodfacts/openfoodfacts-server/commit/4c04090761c1c82e53324414a55f404467bbf324))
+* remove broken transformation id in ecobalyse integration ([#12806](https://github.com/openfoodfacts/openfoodfacts-server/issues/12806)) ([878449a](https://github.com/openfoodfacts/openfoodfacts-server/commit/878449a24ee5d29853d7361907808a5fa080151a))
+* remove unused 'lol' LOLcat language code ([#12807](https://github.com/openfoodfacts/openfoodfacts-server/issues/12807)) ([1e8e12c](https://github.com/openfoodfacts/openfoodfacts-server/commit/1e8e12cc7379ad5062a7cac2d61129bd643583af))
+* small improvements to ingredients analysis testing tool ([#12803](https://github.com/openfoodfacts/openfoodfacts-server/issues/12803)) ([2019dbb](https://github.com/openfoodfacts/openfoodfacts-server/commit/2019dbb6698c7000dff974dc68c8a3384decc03c))
+* upgrade to Agribalyse 3.2 ([#12761](https://github.com/openfoodfacts/openfoodfacts-server/issues/12761)) ([9615449](https://github.com/openfoodfacts/openfoodfacts-server/commit/96154497eaa449f743580e4cbc3180ba1e510ac3))
+
 ## [2.84.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.83.0...v2.84.0) (2025-12-15)
 
 
