@@ -139,10 +139,11 @@ class POFileParser:
         quoted_str = quoted_str.strip()
         if quoted_str.startswith('"') and quoted_str.endswith('"'):
             quoted_str = quoted_str[1:-1]
-        # Unescape basic sequences
+        # Unescape basic sequences (order matters - backslash must be last)
         quoted_str = quoted_str.replace('\\n', '\n')
         quoted_str = quoted_str.replace('\\t', '\t')
         quoted_str = quoted_str.replace('\\"', '"')
+        quoted_str = quoted_str.replace('\\\\', '\\')
         return quoted_str
 
 
