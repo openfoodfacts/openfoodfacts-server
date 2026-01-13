@@ -18,11 +18,9 @@ Usage: python3 scripts/check-translation-quality.py [--pr-mode] [--file FILE]
 import os
 import re
 import sys
-import subprocess
 from pathlib import Path
-from typing import List, Dict, Tuple, Optional
+from typing import List, Dict
 import argparse
-import html
 
 # Brand names and terms that should NEVER be translated
 UNTRANSLATABLE_TERMS = [

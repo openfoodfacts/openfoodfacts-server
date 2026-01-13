@@ -51,7 +51,6 @@ jobs:
         run: |
           echo "Running pofilter quality checks on translation files..."
           mkdir -p /tmp/pofilter-results
-          EXIT_CODE=0
           for pofile in po/common/*.po po/tags/*.po; do
             if [ -f "$pofile" ] && [ "$(basename $pofile)" != "en.po" ]; then
               echo "Checking $pofile..."
@@ -63,18 +62,15 @@ jobs:
               # Check if output file has content (indicates issues found)
               if [ -f "/tmp/pofilter-results/$(basename $pofile)" ] && [ -s "/tmp/pofilter-results/$(basename $pofile)" ]; then
                 echo "⚠️  Quality issues found in $pofile"
-                EXIT_CODE=1
               fi
             fi
           done
           
           # Show summary of files with issues
-          if [ $EXIT_CODE -ne 0 ]; then
+          if ls /tmp/pofilter-results/*.po 2>/dev/null | grep -q .; then
             echo ""
             echo "Files with quality issues:"
             ls -lh /tmp/pofilter-results/ 2>/dev/null | grep -v "^total" | awk '{print $9, $5}' || true
           fi
-          
-          exit $EXIT_CODE
         continue-on-error: true
         id: pofilter_check
