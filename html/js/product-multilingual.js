@@ -40,7 +40,7 @@ const imagefield_imgid = {};
 const imagefield_url = {};
 let use_low_res_images = false;
 
- const units = [
+const units = [
     ['g', 'mg', "\u00B5g", '% DV'],
     ['mol/l', 'moll/l', 'mmol/l', 'mval/l', 'ppm', "\u00B0rH", "\u00B0fH", "\u00B0e", "\u00B0dH", 'gpg'],
     ['kJ', 'kcal'],
@@ -321,10 +321,22 @@ function change_image(imagefield, imgid) {
         event.stopPropagation();
         event.preventDefault();
 
-        let selection = $('img#crop_' + imagefield).cropper('getData');
+        const cropper = croppers[imagefield];
+        let selection = { x: 0, y: 0, width: 0, height: 0 };
+        if (cropper) {
+            const cropperSelection = cropper.getCropperSelection();
+            if (cropperSelection && cropperSelection.width > 0) {
+                selection = {
+                    x: cropperSelection.x,
+                    y: cropperSelection.y,
+                    width: cropperSelection.width,
+                    height: cropperSelection.height
+                };
+            }
+        }
 
-        if (!selection) {
-            selection = { 'x1': -1, 'y1': -1, 'x2': -1, 'y2': -1 };
+        if (!selection || selection.width === 0) {
+            selection = { 'x': -1, 'y': -1, 'width': 0, 'height': 0 };
         }
         // alert(event.data.imagefield);
         $("." + crop_button).blur();
@@ -362,11 +374,39 @@ function change_image(imagefield, imgid) {
             });
     });
 
-    $('img#crop_' + imagefield).on('ready', function () {
-        $("#rotate_left_" + imagefield).attr("disabled", false);
-        $("#rotate_right_" + imagefield).attr("disabled", false);
-        $("." + crop_button).attr("disabled", false);
-    });
+    const imgElement = document.getElementById('crop_' + imagefield);
+
+    if (croppers[imagefield]) {
+        croppers[imagefield].destroy();
+        delete croppers[imagefield];
+    }
+
+    function initCropper(zoomOnWheel) {
+        if (croppers[imagefield]) {
+            croppers[imagefield].destroy();
+            delete croppers[imagefield];
+        }
+        croppers[imagefield] = new Cropper(imgElement, {
+            container: '#cropimgdiv_' + imagefield
+        });
+
+        const cropper = croppers[imagefield];
+        const cropperImage = cropper.getCropperImage();
+        const cropperCanvas = cropper.getCropperCanvas();
+
+        if (cropperImage) {
+            cropperImage.$ready().then(function () {
+                $("#rotate_left_" + imagefield).attr("disabled", false);
+                $("#rotate_right_" + imagefield).attr("disabled", false);
+                $("." + crop_button).attr("disabled", false);
+            });
+        }
+
+        if (cropperCanvas && zoomOnWheel) {
+            cropperCanvas.scaleStep = 0.1;
+        }
+    }
+
     $("#rotate_left_" + imagefield).attr("disabled", true);
     $("#rotate_right_" + imagefield).attr("disabled", true);
     $("." + crop_button).attr("disabled", true);
@@ -374,33 +414,11 @@ function change_image(imagefield, imgid) {
     $("#rotate_left_" + imagefield).click({ imagefield: imagefield, angle: -90 }, rotate_image);
     $("#rotate_right_" + imagefield).click({ imagefield: imagefield, angle: 90 }, rotate_image);
 
-    $('img#crop_' + imagefield).click(function () {
-        $('img#crop_' + imagefield).cropper('clear');
-    });
-
-    $('img#crop_' + imagefield).cropper({
-        "viewMode": 2,
-        "guides": false,
-        "autoCrop": false,
-        "zoomable": true,
-        "zoomOnWheel": false,
-        "zoomOnTouch": false,
-        "toggleDragModeOnDblclick": true,
-        "checkCrossOrigin": false
-    });
+    initCropper(false);
 
     $("#zoom_on_wheel_" + imagefield).change(function () {
         const zoomOnWheel = $("#zoom_on_wheel_" + imagefield).is(':checked');
-        $('img#crop_' + imagefield).cropper('destroy').cropper({
-            "viewMode": 2,
-            "guides": false,
-            "autoCrop": false,
-            "zoomable": true,
-            "zoomOnWheel": zoomOnWheel,
-            "zoomOnTouch": false,
-            "toggleDragModeOnDblclick": true,
-            "checkCrossOrigin": false
-        });
+        initCropper(zoomOnWheel);
     });
 
     $(document).foundation('equalizer', 'reflow');
@@ -1145,7 +1163,7 @@ $("#delete_images").click({}, function (event) {
     event.preventDefault();
 
     if ($("#delete_images").hasClass("disabled")) {
-      return;
+        return;
     }
 
     performImageAction(lang().product_js_deleting_images, lang().product_js_images_deleted, lang().product_js_images_delete_error, "trash");
@@ -1157,7 +1175,7 @@ $("#move_images").click({}, function (event) {
     event.preventDefault();
 
     if ($("#move_images").hasClass("disabled")) {
-      return;
+        return;
     }
 
     performImageAction(lang().product_js_moving_images, lang().product_js_images_moved, lang().product_js_images_move_error, document.getElementById('move_to').value, document.getElementById('copy_data').checked);
@@ -1166,7 +1184,7 @@ $("#move_images").click({}, function (event) {
 // Nutrition facts
 
 $(function () {
-    $('#nutrition_data').change(function() {
+    $('#nutrition_data').change(function () {
         if ($(this).prop('checked')) {
             $('#nutrition_data_instructions').show();
             $('.nutriment_col').show();
@@ -1179,7 +1197,7 @@ $(function () {
         $(document).foundation('equalizer', 'reflow');
     });
 
-    $('input[name=nutrition_data_per]').change(function() {
+    $('input[name=nutrition_data_per]').change(function () {
         if ($('input[name=nutrition_data_per]:checked').val() == '100g') {
             $('#nutrition_data_100g').show();
             $('#nutrition_data_serving').hide();
@@ -1191,7 +1209,7 @@ $(function () {
         $(document).foundation('equalizer', 'reflow');
     });
 
-    $('#nutrition_data_prepared').change(function() {
+    $('#nutrition_data_prepared').change(function () {
         if ($(this).prop('checked')) {
             $('#nutrition_data_prepared_instructions').show();
             $('.nutriment_col_prepared').show();
@@ -1204,7 +1222,7 @@ $(function () {
         $(document).foundation('equalizer', 'reflow');
     });
 
-    $('input[name=nutrition_data_prepared_per]').change(function() {
+    $('input[name=nutrition_data_prepared_per]').change(function () {
         if ($('input[name=nutrition_data_prepared_per]:checked').val() == '100g') {
             $('#nutrition_data_prepared_100g').show();
             $('#nutrition_data_prepared_serving').hide();
@@ -1216,7 +1234,7 @@ $(function () {
         $(document).foundation('equalizer', 'reflow');
     });
 
-    $('#no_nutrition_data').change(function() {
+    $('#no_nutrition_data').change(function () {
         if ($(this).prop('checked')) {
             $('#nutrition_data_div').hide();
         } else {
@@ -1226,23 +1244,23 @@ $(function () {
 
 });
 
-function show_warning(should_show, nutrient_id, warning_message){
-    if(should_show) {
-        $('#nutriment_'+nutrient_id).css("background-color", "rgb(255 237 235)");
-        $('#nutriment_question_mark_'+nutrient_id).css("display", "inline-table");
-        $('#nutriment_sugars_warning_'+nutrient_id).text(warning_message);
+function show_warning(should_show, nutrient_id, warning_message) {
+    if (should_show) {
+        $('#nutriment_' + nutrient_id).css("background-color", "rgb(255 237 235)");
+        $('#nutriment_question_mark_' + nutrient_id).css("display", "inline-table");
+        $('#nutriment_sugars_warning_' + nutrient_id).text(warning_message);
     }
     // clear the warning only if the warning message we don't show is the same as the existing warning
     // so that we don't remove a warning on sugars > 100g if we change carbohydrates
-    else if (warning_message == $('#nutriment_sugars_warning_'+nutrient_id).text()) {
-        $('#nutriment_'+nutrient_id).css("background-color", "white");
-        $('#nutriment_question_mark_'+nutrient_id).css("display", "none");
+    else if (warning_message == $('#nutriment_sugars_warning_' + nutrient_id).text()) {
+        $('#nutriment_' + nutrient_id).css("background-color", "white");
+        $('#nutriment_question_mark_' + nutrient_id).css("display", "none");
     }
 }
 
 function check_nutrient(nutrient_id) {
     // check the changed nutrient value
-    const nutrient_value = $('#nutriment_' + nutrient_id).val().replace(',','.').replace(/^(<|>|~)/, '');
+    const nutrient_value = $('#nutriment_' + nutrient_id).val().replace(',', '.').replace(/^(<|>|~)/, '');
     const nutrient_unit = $('#nutriment_' + nutrient_id + '_unit').val();
 
     // define the max valid value
@@ -1282,11 +1300,11 @@ function check_nutrient(nutrient_id) {
     // check that nutrients are sound (e.g. sugars is not above carbohydrates)
     // but only if the changed nutrient does not have a warning
     // otherwise we may clear the sugars or saturated-fat warning
-    if (! is_above_or_below_max) {
-        const fat_value = $('#nutriment_fat').val().replace(',','.');
-        const carbohydrates_value = $('#nutriment_carbohydrates').val().replace(',','.');
-        const sugars_value = $('#nutriment_sugars').val().replace(',','.');
-        const saturated_fats_value = $('#nutriment_saturated-fat').val().replace(',','.');
+    if (!is_above_or_below_max) {
+        const fat_value = $('#nutriment_fat').val().replace(',', '.');
+        const carbohydrates_value = $('#nutriment_carbohydrates').val().replace(',', '.');
+        const sugars_value = $('#nutriment_sugars').val().replace(',', '.');
+        const saturated_fats_value = $('#nutriment_saturated-fat').val().replace(',', '.');
 
         const is_sugars_above_carbohydrates = parseFloat(carbohydrates_value) < parseFloat(sugars_value);
         show_warning(is_sugars_above_carbohydrates, 'sugars', lang().product_js_sugars_warning);
@@ -1299,10 +1317,10 @@ function check_nutrient(nutrient_id) {
 $(function () {
     $('.nutriment_value_as_sold').each(function () {
         const nutrient_id = this.id.replace('nutriment_', '');
-        this.oninput = function() {
+        this.oninput = function () {
             check_nutrient(nutrient_id);
         };
         check_nutrient(nutrient_id);
     });
-    }
+}
 );
