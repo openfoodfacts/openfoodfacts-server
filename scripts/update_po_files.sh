@@ -44,7 +44,7 @@ update_po_files_from_pot() {
             # --backup=none: don't create backup files
             # --quiet: less verbose output
             # --previous: keep previous msgid strings as comments for translators
-            if msgmerge --update --backup=none --quiet --previous "$po_file" "$pot_file" 2>&1; then
+            if msgmerge --update --no-wrap --backup=none --quiet --previous "$po_file" "$pot_file" 2>&1; then
                 echo -e "${GREEN}✓${NC}"
                 updated_count=$((updated_count + 1))
             else
