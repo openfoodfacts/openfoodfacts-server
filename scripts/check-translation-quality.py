@@ -19,7 +19,7 @@ import os
 import re
 import sys
 from pathlib import Path
-from typing import List, Dict
+from typing import List, Dict, Any
 import argparse
 
 # Brand names and terms that should NEVER be translated
@@ -84,7 +84,7 @@ class POFileParser:
         """Extract language code from filename (e.g., 'fr' from 'fr.po')"""
         return Path(self.file_path).stem
     
-    def parse(self) -> List[Dict[str, any]]:
+    def parse(self) -> List[Dict[str, Any]]:
         """Parse .po file and return list of translation entries"""
         entries = []
         current_entry = {}
@@ -359,7 +359,11 @@ class TranslationQualityChecker:
                                msgid: str, msgstr: str):
         """Check if URLs have consistent language codes"""
         # Pattern for world-xx.openfoodfacts.org and variants
-        url_pattern = r'world-([a-z]{2}(?:_[A-Z]{2})?)\.(open(?:food|beauty|petfood)facts|openpriceguide)\.org'
+        # Matches: world-[language_code].[site].org
+        # where language_code can be 'fr', 'pt_BR', etc.
+        # and site can be openfoodfacts, openbeautyfacts, openpetfoodfacts, or openpriceguide
+        url_pattern = (r'world-([a-z]{2}(?:_[A-Z]{2})?)\.'
+                      r'(open(?:food|beauty|petfood)facts|openpriceguide)\.org')
         
         msgstr_urls = re.findall(url_pattern, msgstr)
         

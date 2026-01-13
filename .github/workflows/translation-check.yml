@@ -50,27 +50,28 @@ jobs:
       - name: Run pofilter quality checks
         run: |
           echo "Running pofilter quality checks on translation files..."
-          mkdir -p /tmp/pofilter-results
+          RESULTS_DIR="${RUNNER_TEMP:-/tmp}/pofilter-results"
+          mkdir -p "$RESULTS_DIR"
           for pofile in po/common/*.po po/tags/*.po; do
             if [ -f "$pofile" ] && [ "$(basename $pofile)" != "en.po" ]; then
               echo "Checking $pofile..."
               # Run pofilter with common quality checks
               # Check for: accelerators, escapes, newlines, tabs, urls, variables, xmltags
               pofilter -t accelerators -t escapes -t newlines -t tabs -t urls -t variables -t xmltags \
-                "$pofile" "/tmp/pofilter-results/$(basename $pofile)" 2>&1 | head -20 || true
+                "$pofile" "$RESULTS_DIR/$(basename $pofile)" 2>&1 | head -20 || true
               
               # Check if output file has content (indicates issues found)
-              if [ -f "/tmp/pofilter-results/$(basename $pofile)" ] && [ -s "/tmp/pofilter-results/$(basename $pofile)" ]; then
+              if [ -f "$RESULTS_DIR/$(basename $pofile)" ] && [ -s "$RESULTS_DIR/$(basename $pofile)" ]; then
                 echo "⚠️  Quality issues found in $pofile"
               fi
             fi
           done
           
           # Show summary of files with issues
-          if ls /tmp/pofilter-results/*.po 2>/dev/null | grep -q .; then
+          if ls "$RESULTS_DIR"/*.po 2>/dev/null | grep -q .; then
             echo ""
             echo "Files with quality issues:"
-            ls -lh /tmp/pofilter-results/ 2>/dev/null | grep -v "^total" | awk '{print $9, $5}' || true
+            ls -lh "$RESULTS_DIR/" 2>/dev/null | grep -v "^total" | awk '{print $9, $5}' || true
           fi
         continue-on-error: true
         id: pofilter_check

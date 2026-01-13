@@ -12,6 +12,7 @@ import os
 import sys
 import json
 import subprocess
+import tempfile
 from pathlib import Path
 from typing import List, Dict
 
@@ -134,7 +135,7 @@ def main():
     print(comment_body)
     
     # Write to file for GitHub Actions to use
-    output_file = Path("/tmp/translation-pr-comment.md")
+    output_file = Path(tempfile.gettempdir()) / "translation-pr-comment.md"
     output_file.write_text(comment_body)
     print(f"\nComment written to {output_file}")
     
