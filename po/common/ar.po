@@ -2066,7 +2066,7 @@ msgstr "المنتجات التي لا تباع في %s"
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr "كمية"
+msgstr "الكميه"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -3814,7 +3814,7 @@ msgstr "تحسينات ممكنة"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/ استيراد المنتجات"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -4071,7 +4071,7 @@ msgstr "الدرجة الغذائية"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -4081,7 +4081,7 @@ msgstr "نتيجة درجة الجودة الغذائية"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4615,7 +4615,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -5984,6 +5984,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "ملصقات ذات فوائد بيئية عالية جدًا"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "لا توجد ملصقات تقييمية"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "بعض الفوائد البيئية"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "فوائد بيئية عالية"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "فوائد بيئية عالية جداً"
+
 msgctxt "other"
 msgid "Other"
 msgstr "أخرى"
@@ -6170,51 +6186,51 @@ msgstr "معلومات جودة البيانات"
 
 msgctxt "data_quality_info_panel_subtitle"
 msgid "Some infos about data quality on this product"
-msgstr ""
+msgstr "بعض المعلومات حول جودة البيانات لهذا المنتج"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
-msgstr ""
+msgstr "مقارنةً بـ"
 
 # name of an activity / a sport
 msgctxt "activity_walking"
 msgid "Walking"
-msgstr ""
+msgstr "المشي"
 
 # name of an activity / a sport
 msgctxt "activity_swimming"
 msgid "Swimming"
-msgstr ""
+msgstr "السباحة"
 
 # name of an activity / a sport
 msgctxt "activity_bicycling"
 msgid "Bicycling"
-msgstr ""
+msgstr "ركوب الدراجات"
 
 # name of an activity / a sport
 msgctxt "activity_running"
 msgid "Running"
-msgstr ""
+msgstr "الجري"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_energy_per_100g"
 msgid "{kj} kJ per 100g"
-msgstr ""
+msgstr "{kj} كيلوجول لكل 100 غرام"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_equal_to_walking_minutes_or_steps"
 msgid "Equal to walking {minutes} minutes or {steps} steps"
-msgstr ""
+msgstr "ما يعادل المشي لمدة {minutes} دقيقة أو {steps} خطوة"
 
 # Don't translate {kg} and {lb}, it will be replaced by a number
 msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
-msgstr ""
+msgstr "استهلاك الطاقة لشخص يزن {kg} كغ / {lb} رطل"
 
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
-msgstr ""
+msgstr "الفئة مفقودة"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
@@ -6226,7 +6242,7 @@ msgstr "معلومات غذائية مفقودة"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
-msgstr ""
+msgstr "الفئة والحقائق الغذائية مفقودة"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -6489,77 +6505,77 @@ msgstr "أضف أي ملصق موجود على هذا المنتج"
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "أضف البلد الذي وجدت فيه هذا المنتج"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "التقط صورة لرموز التتبع"
 
 msgctxt "action_report_product_to_nutripatrol"
 msgid "Report this product to our moderators"
-msgstr ""
+msgstr "أبلِغ مشرفينا عن هذا المنتج"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
-msgstr ""
+msgstr "ما تحتاج إلى معرفته"
 
 msgctxt "knowledge_panels_recommendation"
 msgid "Recommendation"
-msgstr ""
+msgstr "توصية"
 
 msgctxt "nutrient_info_salt_risk"
 msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
-msgstr ""
+msgstr "يمكن أن يؤدي الاستهلاك العالي من الملح (أو الصوديوم) إلى رفع ضغط الدم، مما قد يزيد خطر الإصابة بأمراض القلب والسكتة الدماغية."
 
 msgctxt "nutrient_info_salt_high_blood_pressure"
 msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
-msgstr ""
+msgstr "كثير من الأشخاص الذين يعانون ارتفاع ضغط الدم لا يعلمون بذلك، إذ غالبًا لا توجد أعراض."
 
 msgctxt "nutrient_info_salt_high_consumption"
 msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
-msgstr ""
+msgstr "يستهلك معظم الناس كميات مفرطة من الملح (بمعدل 9 إلى 12 غرامًا يوميًا)، أي نحو ضعفي الحد الأقصى الموصى به للاستهلاك."
 
 msgctxt "nutrient_recommendation_salt_title"
 msgid "Limit the consumption of salt and salted food"
-msgstr ""
+msgstr "حدّ من استهلاك الملح والأطعمة المالحة"
 
 msgctxt "nutrient_recommendation_salt_cooking_and_table"
 msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
-msgstr ""
+msgstr "قلّل كمية الملح المستخدمة عند الطهي، ولا تُضِف مزيدًا من الملح على المائدة."
 
 msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
 msgid "Limit the consumption of salty snacks and choose products with lower salt content."
-msgstr ""
+msgstr "حدّ من استهلاك الوجبات الخفيفة المالحة واختر منتجات ذات محتوى أقل من الملح."
 
 msgctxt "nutrient_info_sugars_risk"
 msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
-msgstr ""
+msgstr "يمكن أن يؤدي الاستهلاك العالي للسكر إلى زيادة الوزن وتسوس الأسنان، كما يزيد من خطر الإصابة بمرض السكري من النوع الثاني والأمراض القلبية الوعائية."
 
 msgctxt "nutrient_recommendation_sugars_title"
 msgid "Limit the consumption of sugar and sugary drinks"
-msgstr ""
+msgstr "حدّ من استهلاك السكر والمشروبات السكرية"
 
 msgctxt "nutrient_recommendation_sugars_drinks"
 msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
-msgstr ""
+msgstr "يجب الحدّ قدر الإمكان من المشروبات السكرية (مثل المشروبات الغازية، ومشروبات الفواكه، والعصائر والرحيق)، بحيث لا تزيد عن كوب واحد في اليوم."
 
 msgctxt "nutrient_recommendation_sugars_food"
 msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
-msgstr ""
+msgstr "اختر منتجات ذات محتوى أقل من السكر وقلّل استهلاك المنتجات المحتوية على سكريات مضافة."
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "يمكن أن يؤدي الاستهلاك العالي للدهون، وخاصة الدهون المشبعة، إلى رفع الكوليسترول، مما يزيد خطر الإصابة بأمراض القلب."
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr ""
+msgstr "قلّل استهلاك الدهون والدهون المشبعة"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr ""
+msgstr "اختر منتجات ذات محتوى أقل من الدهون والدهون المشبعة."
 
 msgctxt "sign_in"
 msgid "Sign in"
@@ -6579,42 +6595,42 @@ msgstr "المنتجات المضافة"
 
 msgctxt "products_edited"
 msgid "Products edited"
-msgstr ""
+msgstr "المنتجات المعدلة"
 
 msgctxt "products_photographed"
 msgid "Products photographed"
-msgstr ""
+msgstr "المنتجات المصوَّرة"
 
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
 msgid "Matching with your preferences"
-msgstr ""
+msgstr "مطابقة لتفضيلاتك"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr ""
+msgstr "انضمّ إلينا على &lt;a href=&quot;{url}&quot;&gt;Slack&lt;/a&gt;"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
 msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
-msgstr ""
+msgstr "اطّلع على &lt;a href=&quot;{url}&quot;&gt;مدونة قواعد السلوك&lt;/a&gt;"
 
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
 msgid "Follow us: {links}"
-msgstr ""
+msgstr "تابِعنا: {links}"
 
 # Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
 msgctxt "footer_install_the_app_exclamation_mark"
 msgid "Install the app!"
-msgstr ""
+msgstr "ثبّت التطبيق!"
 
 # HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "امسح <span id=\"foods\">أطعمتك</span> <span id=\"everyday\">اليومية</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6635,51 +6651,51 @@ msgstr "البيئة"
 
 msgctxt "api_result_failure"
 msgid "Failure"
-msgstr ""
+msgstr "فشل"
 
 msgctxt "api_result_product_found"
 msgid "Product found"
-msgstr ""
+msgstr "تم العثور على المنتج"
 
 msgctxt "api_result_product_not_found"
 msgid "Product not found"
-msgstr ""
+msgstr "لم يُعثر على المنتج"
 
 msgctxt "api_result_product_found_with_a_different_product_type"
 msgid "Product found with a different product type"
-msgstr ""
+msgstr "تم العثور على المنتج بنوع منتج مختلف"
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
-msgstr ""
+msgstr "تم تحديث المنتج"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
-msgstr ""
+msgstr "إجراء API غير صالح"
 
 msgctxt "api_message_invalid_api_method"
 msgid "Invalid API method"
-msgstr ""
+msgstr "طريقة API غير صالحة"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "محتوى الطلب فارغ"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
-msgstr ""
+msgstr "JSON غير صالح في محتوى الطلب"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
-msgstr ""
+msgstr "رمز غير صالح"
 
 msgctxt "api_message_invalid_product_type"
 msgid "Invalid product type"
-msgstr ""
+msgstr "نوع منتج غير صالح"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
-msgstr ""
+msgstr "نوع غير صالح: يجب أن يكون كائنًا"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
@@ -6747,7 +6763,7 @@ msgstr "تحذير"
 
 msgctxt "api_impact_failure"
 msgid "Failure"
-msgstr ""
+msgstr "فشل"
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
@@ -7060,15 +7076,15 @@ msgstr ""
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "يمكن أن يؤدي الاستهلاك العالي للدهون، وخاصة الدهون المشبعة، إلى رفع الكوليسترول، مما يزيد خطر الإصابة بأمراض القلب."
 
 msgctxt "nutrient_info_saturated_fat_ratio_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "يمكن أن يؤدي الاستهلاك العالي للدهون، وخاصة الدهون المشبعة، إلى رفع الكوليسترول، مما يزيد خطر الإصابة بأمراض القلب."
 
 msgctxt "nutrient_info_energy_from_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "يمكن أن يؤدي الاستهلاك العالي للدهون، وخاصة الدهون المشبعة، إلى رفع الكوليسترول، مما يزيد خطر الإصابة بأمراض القلب."
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
@@ -7100,7 +7116,7 @@ msgstr ""
 
 msgctxt "api_status_failure"
 msgid "Failure"
-msgstr ""
+msgstr "فشل"
 
 msgctxt "api_result_product_reverted"
 msgid "Product reverted to the specified revision"
@@ -7499,7 +7515,7 @@ msgstr ""
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
-msgstr ""
+msgstr "متوفر على F-Droid"
 
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
@@ -7692,4 +7708,36 @@ msgstr "سعر التجزئة المقترح من الشركة المصنعة (M
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "الممتلكات الشخصية"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "لا يحتوي على زيت النخيل"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "قد يحتوي على زيت النخيل"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "الملصقات البيئية"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "البيانات المفقودة"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "تأثير قوي"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "تأثير متوسط"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "تأثير منخفض"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "لم يتم تقييم الأثر"
 
