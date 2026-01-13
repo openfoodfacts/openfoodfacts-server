@@ -368,19 +368,10 @@ foreach my $product_ref (@products) {
 # Upload 1 image for the last product 3300000000013 so that we can test image display and caching of image urls in search results
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/upload_images";
 
-# # Generate nutrient stats per category and country
-# my $script_out = `perl scripts/gen_top_tags_per_country.pl`;
-# print STDERR $script_out;
+# Note: the tests below rely on having category stats loaded from tests/integration/data/category_stats/
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
-	# # Call the /api/v3/_reload_categories_stats API to load the generated stats
-	# {
-	# 	test_case => 'reload-categories-stats',
-	# 	method => 'GET',
-	# 	path => '/api/v3/_reload_categories_stats',
-	# 	expected_status_code => 200,
-	# },
 	# Add an image to one product
 	{
 		test_case => 'post-product-image',
