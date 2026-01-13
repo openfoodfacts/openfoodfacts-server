@@ -27,7 +27,8 @@ jobs:
       - name: Install gettext and translation tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y gettext translate-toolkit
+          sudo apt-get install -y gettext
+          pip install translate-toolkit
       
       - name: Validate translation file format
         run: |
@@ -46,11 +47,6 @@ jobs:
         continue-on-error: true
         id: pr_comments
       
-      - name: Install translate-toolkit for advanced checks
-        run: |
-          pip install translate-toolkit
-        continue-on-error: true
-      
       - name: Run pofilter quality checks
         run: |
           echo "Running pofilter quality checks on translation files..."
@@ -60,7 +56,6 @@ jobs:
             if [ -f "$pofile" ] && [ "$(basename $pofile)" != "en.po" ]; then
               echo "Checking $pofile..."
               # Run pofilter with common quality checks
-              # --gnome: Use GNOME translation guidelines
               # Check for: accelerators, escapes, newlines, tabs, urls, variables, xmltags
               pofilter -t accelerators -t escapes -t newlines -t tabs -t urls -t variables -t xmltags \
                 "$pofile" "/tmp/pofilter-results/$(basename $pofile)" 2>&1 | head -20 || true

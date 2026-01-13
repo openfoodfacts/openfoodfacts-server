@@ -15,9 +15,23 @@ import subprocess
 from pathlib import Path
 from typing import List, Dict
 
-# Import the translation checker
-sys.path.insert(0, str(Path(__file__).parent))
-from check_translation_quality import TranslationQualityChecker
+# Add scripts directory to path for imports
+script_dir = Path(__file__).parent
+sys.path.insert(0, str(script_dir))
+
+# Import the translation checker - handle both module import and direct execution
+try:
+    from check_translation_quality import TranslationQualityChecker
+except ImportError:
+    # If running as script, load the module directly
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "check_translation_quality", 
+        script_dir / "check-translation-quality.py"
+    )
+    check_translation_quality = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(check_translation_quality)
+    TranslationQualityChecker = check_translation_quality.TranslationQualityChecker
 
 
 def get_changed_po_files() -> List[str]:
