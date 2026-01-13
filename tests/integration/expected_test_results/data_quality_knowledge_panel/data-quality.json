@@ -927,7 +927,7 @@
                                  "text" : "Fat"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -939,7 +939,7 @@
                                  "text" : "Saturated fat"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -951,7 +951,7 @@
                                  "text" : "Carbohydrates"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -963,7 +963,7 @@
                                  "text" : "Sugars"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -987,7 +987,7 @@
                                  "text" : "Fiber"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -999,7 +999,7 @@
                                  "text" : "Proteins"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -1012,6 +1012,30 @@
                               },
                               {
                                  "text" : "120 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sodium"
+                              },
+                              {
+                                 "text" : "48 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Alcohol"
+                              },
+                              {
+                                 "text" : "-"
                               }
                            ]
                         },
