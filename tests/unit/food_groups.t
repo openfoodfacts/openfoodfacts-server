@@ -6,10 +6,12 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::FoodGroups qw/compute_food_groups/;
-use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::FoodProducts qw/:all/;
 use ProductOpener::Tags qw/compute_field_tags/;
 
 my @tests = (
@@ -19,12 +21,14 @@ my @tests = (
 	# Products with categories
 	[
 		{
+			"lc" => "en",
 			"categories" => "milk chocolate",
 		},
 		['en:sugary-snacks', 'en:chocolate-products']
 	],
 	[
 		{
+			"lc" => "en",
 			"categories" => "mackerels",
 		},
 		[
@@ -36,6 +40,7 @@ my @tests = (
 	],
 	[
 		{
+			"lc" => "en",
 			"categories" => "chicken thighs",
 		},
 		['en:fish-meat-eggs', 'en:meat', 'en:poultry']
@@ -43,6 +48,7 @@ my @tests = (
 	# Check that if a meat is not poultry, we get a level 3 en:meat-other-than-poultry entry
 	[
 		{
+			"lc" => "en",
 			"categories" => "lamb leg",
 		},
 		['en:fish-meat-eggs', 'en:meat', 'en:meat-other-than-poultry']
@@ -83,18 +89,38 @@ my @tests = (
 		},
 		['en:beverages', 'en:unsweetened-beverages']
 	],
+	# Beverage with alcohol nutrient >= 1% should be in alcoholic beverages
+	[
+		{
+			"categories" => "beverages",
+			"lc" => "en",
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							alcohol => {
+								unit => "g",
+								value => 5
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				]
+			},
+		},
+		['en:alcoholic-beverages']
+	],
 );
 
 foreach my $test_ref (@tests) {
 
 	my $product_ref = $test_ref->[0];
 
-	compute_field_tags($product_ref, "en", "categories");
+	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 
-	# We need to process the ingredient tags, as some food groups depend on the presence of sugar, sweeteners etc.
-	if (defined $product_ref->{ingredients_text}) {
-		extract_ingredients_from_text($product_ref);
-	}
+	specific_processes_for_food_product($product_ref);
 
 	compute_food_groups($product_ref);
 

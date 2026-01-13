@@ -58,6 +58,8 @@ use ProductOpener::Food qw/is_beverage_for_nutrition_score_2021/;
 
 use Log::Any qw($log);
 
+use Data::DeepAccess qw(deep_get);
+
 # Note: the %pnns structure is a hash of sub-groups (aka "PNNS groups 2") to groups (aka "PNNN groups 1").
 # The structure is used by compute_pnns_groups() that will be replaced by compute_food_groups()
 # The %pnns structure will be replaced by the new food_groups taxonomy.
