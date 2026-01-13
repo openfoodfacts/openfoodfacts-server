@@ -18,10 +18,61 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - name: install gettext (i18n) tools
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - name: Install gettext and translation tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y gettext
-      - name: Validate translation files
+          sudo apt-get install -y gettext translate-toolkit
+      
+      - name: Validate translation file format
         run: |
           scripts/check-translations.sh
+      
+      - name: Check translation quality
+        run: |
+          python3 scripts/check-translation-quality.py
+        continue-on-error: true
+        id: quality_check
+      
+      - name: Install translate-toolkit for advanced checks
+        run: |
+          pip install translate-toolkit
+        continue-on-error: true
+      
+      - name: Run pofilter quality checks
+        run: |
+          echo "Running pofilter quality checks on translation files..."
+          mkdir -p /tmp/pofilter-results
+          EXIT_CODE=0
+          for pofile in po/common/*.po po/tags/*.po; do
+            if [ -f "$pofile" ] && [ "$(basename $pofile)" != "en.po" ]; then
+              echo "Checking $pofile..."
+              # Run pofilter with common quality checks
+              # --gnome: Use GNOME translation guidelines
+              # Check for: accelerators, escapes, newlines, tabs, urls, variables, xmltags
+              pofilter -t accelerators -t escapes -t newlines -t tabs -t urls -t variables -t xmltags \
+                "$pofile" "/tmp/pofilter-results/$(basename $pofile)" 2>&1 | head -20 || true
+              
+              # Check if output file has content (indicates issues found)
+              if [ -f "/tmp/pofilter-results/$(basename $pofile)" ] && [ -s "/tmp/pofilter-results/$(basename $pofile)" ]; then
+                echo "⚠️  Quality issues found in $pofile"
+                EXIT_CODE=1
+              fi
+            fi
+          done
+          
+          # Show summary of files with issues
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo ""
+            echo "Files with quality issues:"
+            ls -lh /tmp/pofilter-results/ 2>/dev/null | grep -v "^total" | awk '{print $9, $5}' || true
+          fi
+          
+          exit $EXIT_CODE
+        continue-on-error: true
+        id: pofilter_check
