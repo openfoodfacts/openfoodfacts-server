@@ -60,7 +60,7 @@ def parse_brands_file(filepath: str) -> Tuple[List[str], List[Tuple[str, List[st
                 brand_entries.append((sort_key, current_entry))
                 current_entry = []
                 sort_key = None
-            # else: blank line before any brand entry, skip it
+            # Blank line before any brand entry, skip it
         elif line.startswith('xx:'):
             # Start of a new brand entry
             # Extract the brand name for sorting
@@ -78,10 +78,8 @@ def parse_brands_file(filepath: str) -> Tuple[List[str], List[Tuple[str, List[st
         elif sort_key is not None:
             # Metadata line for current brand entry
             current_entry.append(line)
-        else:
-            # Line before any brand entry started - skip it
-            # (e.g., stray lines in the body that aren't part of any entry)
-            pass
+        # else: Line before any brand entry started - skip it
+        #       (e.g., stray lines in the body that aren't part of any entry)
     
     # Handle case where last entry doesn't end with blank line
     if current_entry and sort_key is not None:
