@@ -20,7 +20,7 @@
 
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
-/*global lang admin otherNutriments initializeTagifyInput*/
+/*global lang admin otherNutriments initializeTagifyInput Cropper*/
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
 
 //Polyfill, just in case
@@ -38,6 +38,7 @@ let img_path;
 const angles = {};
 const imagefield_imgid = {};
 const imagefield_url = {};
+const croppers = {};
 let use_low_res_images = false;
 
 const units = [
@@ -335,7 +336,7 @@ function change_image(imagefield, imgid) {
             }
         }
 
-        if (!selection || selection.width === 0) {
+        if (selection.width === 0) {
             selection = { 'x': -1, 'y': -1, 'width': 0, 'height': 0 };
         }
         // alert(event.data.imagefield);
@@ -386,20 +387,32 @@ function change_image(imagefield, imgid) {
             croppers[imagefield].destroy();
             delete croppers[imagefield];
         }
+        const containerElement = document.getElementById('cropimgdiv_' + imagefield);
         croppers[imagefield] = new Cropper(imgElement, {
-            container: '#cropimgdiv_' + imagefield
+            container: containerElement
         });
 
         const cropper = croppers[imagefield];
         const cropperImage = cropper.getCropperImage();
         const cropperCanvas = cropper.getCropperCanvas();
 
-        if (cropperImage) {
-            cropperImage.$ready().then(function () {
-                $("#rotate_left_" + imagefield).attr("disabled", false);
-                $("#rotate_right_" + imagefield).attr("disabled", false);
-                $("." + crop_button).attr("disabled", false);
-            });
+        function enableCropControls() {
+            $("#rotate_left_" + imagefield).attr("disabled", false);
+            $("#rotate_right_" + imagefield).attr("disabled", false);
+            $("." + crop_button).attr("disabled", false);
+        }
+
+        if (cropperImage && typeof cropperImage.$ready === "function") {
+            cropperImage.$ready()
+                .then(function () {
+                    enableCropControls();
+                })
+                .catch(function (error) {
+                    console.error("Error while waiting for cropper image to be ready:", error);
+                    enableCropControls();
+                });
+        } else {
+            enableCropControls();
         }
 
         if (cropperCanvas && zoomOnWheel) {
