@@ -7,7 +7,7 @@
     "expand_for": "large",
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% IF panel.title.defined %][% edq(panel.title) %)[% ELSE %][% edq(lang('nutrition_data_table')) %][% END %]",
+        "title": "[% IF panel.title.defined %][% edq(panel.title) %][% ELSE %][% edq(lang('nutrition_data_table')) %][% END %]",
         [% IF panel.subtitle.defined %]"subtitle": "[% edq(panel.subtitle) %]",[% END %]
         "icon_url": "[% static_subdomain %]/images/icons/dist/scale-balance.svg",
         "icon_color_from_evaluation": true,
