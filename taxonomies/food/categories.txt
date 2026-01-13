@@ -34917,7 +34917,7 @@ ru: Хлебные продукты
 sv: Panerade produkter
 
 < en:Breaded products
-< en:Cheeses
+< en:Cheese preparations
 en: Breaded cheeses
 de: Panierter Käse
 fr: Fromages panés
@@ -44027,6 +44027,7 @@ food_groups:en: en:appetizers
 pnns_group_2:en: Appetizers
 wikidata:en: Q220964
 
+< en:Breaded products
 < en:Salty snacks
 en: Arancini
 xx: Arancini
@@ -97928,10 +97929,9 @@ ja: コーヒーエクレア
 nl: Koffie-eclairs
 
 < en:Pastries
-en: Open pies, Open pie, Flan tart with eggs
+en: Flan tarts, Flan tart with eggs
+xx: Flans pâtissiers
 fr: Flans pâtissiers, flan pâtissier, Flan pâtissier aux oeufs, Flan à la parisienne
-hr: Otvorene pite
-nl: Puddingtaarten
 agribalyse_food_code:en: 23525
 ciqual_food_code:en: 23525
 ciqual_food_name:en: Flan tart with eggs
@@ -108005,6 +108005,11 @@ nl: Ingemaakte jalapeño peper
 < en:Sliced jalapeños
 en: Pickled sliced jalapeños
 
+< en:Friggitelli
+< en:Pickled peppers
+en: Pickled friggitelli
+sv: Inlagta feferoni
+
 < en:Mushrooms
 < en:Vegetable pickles
 en: Pickled Mushrooms, Mushrooms in oil
@@ -110811,6 +110816,11 @@ en: Sliced jalapeños
 da: Jalapeño i skiver
 fi: Viipaloitu jalapeño
 sv: Skivad jalapeño
+
+< en:Peppers
+en: Friggitelli
+sv: Feferoni, Peperoni
+wikidata:en: Q16861000
 
 < en:Sweet Peppers
 fr: Le Pepper Mont Jolien
@@ -117617,7 +117627,11 @@ nl: Saucijzenbroodjes
 food_groups:en: en:salty-and-fatty-products
 pnns_group_2:en: Salty and fatty products
 
-< en:Puff pastry appetizers
+< en:Appetizers
+en: Choux pastry appetizers
+fr: Choux apéritifs
+
+< en:Choux pastry appetizers
 en: Small cheese chou, Small cheese pastry puff, Gougère
 fr: Gougères, Gougère
 agribalyse_food_code:en: 25437
