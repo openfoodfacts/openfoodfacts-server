@@ -2215,7 +2215,7 @@
                                  "text" : "Fat"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -2227,7 +2227,7 @@
                                  "text" : "Saturated fat"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -2239,7 +2239,7 @@
                                  "text" : "Carbohydrates"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -2251,7 +2251,7 @@
                                  "text" : "Sugars"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -2275,7 +2275,7 @@
                                  "text" : "Fiber"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -2287,7 +2287,7 @@
                                  "text" : "Proteins"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -2299,7 +2299,31 @@
                                  "text" : "Salt"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sodium"
+                              },
+                              {
+                                 "text" : "-"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Alcohol"
+                              },
+                              {
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -2788,249 +2812,33 @@
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
       "nutriments" : {
-         "acidity_100g" : null,
-         "acidity_unit" : null,
-         "added-salt_100g" : null,
-         "added-salt_unit" : null,
          "added-sugars_100g" : 0,
          "added-sugars_modifier" : "~",
          "added-sugars_unit" : "g",
          "alcohol_100g" : null,
          "alcohol_unit" : null,
-         "alpha-linolenic-acid_100g" : null,
-         "alpha-linolenic-acid_unit" : null,
-         "arachidic-acid_100g" : null,
-         "arachidic-acid_unit" : null,
-         "arachidonic-acid_100g" : null,
-         "arachidonic-acid_unit" : null,
-         "behenic-acid_100g" : null,
-         "behenic-acid_unit" : null,
-         "beta-carotene_100g" : null,
-         "beta-carotene_unit" : null,
-         "beta-glucan_100g" : null,
-         "beta-glucan_unit" : null,
-         "bicarbonate_100g" : null,
-         "bicarbonate_unit" : null,
-         "biotin_100g" : null,
-         "biotin_unit" : null,
-         "butyric-acid_100g" : null,
-         "butyric-acid_unit" : null,
-         "caffeine_100g" : null,
-         "caffeine_unit" : null,
-         "calcium_100g" : null,
-         "calcium_unit" : null,
-         "capric-acid_100g" : null,
-         "capric-acid_unit" : null,
-         "caproic-acid_100g" : null,
-         "caproic-acid_unit" : null,
-         "caprylic-acid_100g" : null,
-         "caprylic-acid_unit" : null,
-         "carbohydrates-total_100g" : null,
-         "carbohydrates-total_unit" : null,
          "carbohydrates_100g" : null,
          "carbohydrates_unit" : null,
-         "carbon-footprint_100g" : null,
-         "carbon-footprint_unit" : null,
-         "carnitine_100g" : null,
-         "carnitine_unit" : null,
-         "casein_100g" : null,
-         "casein_unit" : null,
-         "cerotic-acid_100g" : null,
-         "cerotic-acid_unit" : null,
-         "chloride_100g" : null,
-         "chloride_unit" : null,
-         "chlorophyl_100g" : null,
-         "chlorophyl_unit" : null,
-         "cholesterol_100g" : null,
-         "cholesterol_unit" : null,
-         "choline_100g" : null,
-         "choline_unit" : null,
-         "chromium_100g" : null,
-         "chromium_unit" : null,
-         "cocoa_100g" : null,
-         "cocoa_unit" : null,
-         "collagen-meat-protein-ratio_100g" : null,
-         "collagen-meat-protein-ratio_unit" : null,
-         "copper_100g" : null,
-         "copper_unit" : null,
-         "dihomo-gamma-linolenic-acid_100g" : null,
-         "dihomo-gamma-linolenic-acid_unit" : null,
-         "docosahexaenoic-acid_100g" : null,
-         "docosahexaenoic-acid_unit" : null,
-         "eicosapentaenoic-acid_100g" : null,
-         "eicosapentaenoic-acid_unit" : null,
-         "elaidic-acid_100g" : null,
-         "elaidic-acid_unit" : null,
-         "energy-from-fat_100g" : null,
-         "energy-from-fat_unit" : null,
-         "energy_100g" : null,
-         "energy_unit" : null,
-         "erucic-acid_100g" : null,
-         "erucic-acid_unit" : null,
-         "erythritol_100g" : null,
-         "erythritol_unit" : null,
          "fat_100g" : null,
          "fat_unit" : null,
          "fiber_100g" : null,
          "fiber_unit" : null,
-         "fluoride_100g" : null,
-         "fluoride_unit" : null,
-         "folates_100g" : null,
-         "folates_unit" : null,
-         "fructose_100g" : null,
-         "fructose_unit" : null,
          "fruits-vegetables-legumes_100g" : 58.3333333333333,
          "fruits-vegetables-legumes_modifier" : "~",
          "fruits-vegetables-legumes_unit" : "%",
-         "fruits-vegetables-nuts-dried_100g" : null,
-         "fruits-vegetables-nuts-dried_unit" : null,
          "fruits-vegetables-nuts_100g" : 58.3333333333333,
          "fruits-vegetables-nuts_modifier" : "~",
          "fruits-vegetables-nuts_unit" : "%",
-         "galactose_100g" : null,
-         "galactose_unit" : null,
-         "gamma-linolenic-acid_100g" : null,
-         "gamma-linolenic-acid_unit" : null,
-         "glucose_100g" : null,
-         "glucose_unit" : null,
-         "glycemic-index_100g" : null,
-         "glycemic-index_unit" : null,
-         "gondoic-acid_100g" : null,
-         "gondoic-acid_unit" : null,
-         "inositol_100g" : null,
-         "inositol_unit" : null,
-         "insoluble-fiber_100g" : null,
-         "insoluble-fiber_unit" : null,
-         "iodine_100g" : null,
-         "iodine_unit" : null,
-         "iron_100g" : null,
-         "iron_unit" : null,
-         "isomalt_100g" : null,
-         "isomalt_unit" : null,
-         "lactose_100g" : null,
-         "lactose_unit" : null,
-         "lauric-acid_100g" : null,
-         "lauric-acid_unit" : null,
-         "lignoceric-acid_100g" : null,
-         "lignoceric-acid_unit" : null,
-         "linoleic-acid_100g" : null,
-         "linoleic-acid_unit" : null,
-         "magnesium_100g" : null,
-         "magnesium_unit" : null,
-         "maltitol_100g" : null,
-         "maltitol_unit" : null,
-         "maltodextrins_100g" : null,
-         "maltodextrins_unit" : null,
-         "maltose_100g" : null,
-         "maltose_unit" : null,
-         "manganese_100g" : null,
-         "manganese_unit" : null,
-         "mead-acid_100g" : null,
-         "mead-acid_unit" : null,
-         "melissic-acid_100g" : null,
-         "melissic-acid_unit" : null,
-         "methylsulfonylmethane_100g" : null,
-         "methylsulfonylmethane_unit" : null,
-         "molybdenum_100g" : null,
-         "molybdenum_unit" : null,
-         "monounsaturated-fat_100g" : null,
-         "monounsaturated-fat_unit" : null,
-         "montanic-acid_100g" : null,
-         "montanic-acid_unit" : null,
-         "myristic-acid_100g" : null,
-         "myristic-acid_unit" : null,
-         "nervonic-acid_100g" : null,
-         "nervonic-acid_unit" : null,
-         "nitrate_100g" : null,
-         "nitrate_unit" : null,
-         "nucleotides_100g" : null,
-         "nucleotides_unit" : null,
-         "oleic-acid_100g" : null,
-         "oleic-acid_unit" : null,
-         "omega-3-fat_100g" : null,
-         "omega-3-fat_unit" : null,
-         "omega-6-fat_100g" : null,
-         "omega-6-fat_unit" : null,
-         "omega-9-fat_100g" : null,
-         "omega-9-fat_unit" : null,
-         "palmitic-acid_100g" : null,
-         "palmitic-acid_unit" : null,
-         "pantothenic-acid_100g" : null,
-         "pantothenic-acid_unit" : null,
-         "ph_100g" : null,
-         "ph_unit" : null,
-         "phosphorus_100g" : null,
-         "phosphorus_unit" : null,
-         "phylloquinone_100g" : null,
-         "phylloquinone_unit" : null,
-         "polydextrose_100g" : null,
-         "polydextrose_unit" : null,
-         "polyols_100g" : null,
-         "polyols_unit" : null,
-         "polyunsaturated-fat_100g" : null,
-         "polyunsaturated-fat_unit" : null,
-         "potassium_100g" : null,
-         "potassium_unit" : null,
          "proteins_100g" : null,
          "proteins_unit" : null,
-         "psicose_100g" : null,
-         "psicose_unit" : null,
          "salt_100g" : null,
          "salt_unit" : null,
          "saturated-fat_100g" : null,
          "saturated-fat_unit" : null,
-         "selenium_100g" : null,
-         "selenium_unit" : null,
-         "serum-proteins_100g" : null,
-         "serum-proteins_unit" : null,
-         "silica_100g" : null,
-         "silica_unit" : null,
-         "soluble-fiber_100g" : null,
-         "soluble-fiber_unit" : null,
-         "sorbitol_100g" : null,
-         "sorbitol_unit" : null,
-         "starch_100g" : null,
-         "starch_unit" : null,
-         "stearic-acid_100g" : null,
-         "stearic-acid_unit" : null,
-         "sucrose_100g" : null,
-         "sucrose_unit" : null,
+         "sodium_100g" : null,
+         "sodium_unit" : null,
          "sugars_100g" : null,
-         "sugars_unit" : null,
-         "sulphate_100g" : null,
-         "sulphate_unit" : null,
-         "taurine_100g" : null,
-         "taurine_unit" : null,
-         "trans-fat_100g" : null,
-         "trans-fat_unit" : null,
-         "unsaturated-fat_100g" : null,
-         "unsaturated-fat_unit" : null,
-         "vitamin-a_100g" : null,
-         "vitamin-a_unit" : null,
-         "vitamin-b12_100g" : null,
-         "vitamin-b12_unit" : null,
-         "vitamin-b1_100g" : null,
-         "vitamin-b1_unit" : null,
-         "vitamin-b2_100g" : null,
-         "vitamin-b2_unit" : null,
-         "vitamin-b6_100g" : null,
-         "vitamin-b6_unit" : null,
-         "vitamin-b9_100g" : null,
-         "vitamin-b9_unit" : null,
-         "vitamin-c_100g" : null,
-         "vitamin-c_unit" : null,
-         "vitamin-d_100g" : null,
-         "vitamin-d_unit" : null,
-         "vitamin-e_100g" : null,
-         "vitamin-e_unit" : null,
-         "vitamin-k_100g" : null,
-         "vitamin-k_unit" : null,
-         "vitamin-pp_100g" : null,
-         "vitamin-pp_unit" : null,
-         "water-hardness_100g" : null,
-         "water-hardness_unit" : null,
-         "zinc_100g" : null,
-         "zinc_unit" : null
+         "sugars_unit" : null
       },
       "nutriscore" : {
          "2021" : {

@@ -1405,7 +1405,7 @@
                                  "text" : "Matières grasses"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -1417,7 +1417,7 @@
                                  "text" : "Acides gras saturés"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -1429,7 +1429,7 @@
                                  "text" : "Glucides"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -1441,7 +1441,7 @@
                                  "text" : "Sucres"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -1465,7 +1465,7 @@
                                  "text" : "Fibres alimentaires"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -1477,7 +1477,7 @@
                                  "text" : "Protéines"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -1489,7 +1489,31 @@
                                  "text" : "Sel"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sodium"
+                              },
+                              {
+                                 "text" : "-"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Alcool"
+                              },
+                              {
+                                 "text" : "-"
                               }
                            ]
                         },
