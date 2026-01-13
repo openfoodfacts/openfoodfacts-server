@@ -2627,7 +2627,7 @@ bs: Mlijeko
 ca: llet, ingredients de la llet
 ce: Шура
 co: Latti
-cs: Mléko
+cs: mléko, mléka
 cv: Сĕт
 cy: Llaeth
 da: Mælk, mælke, mælks
@@ -14798,7 +14798,7 @@ ciqual_food_name:fr: Huile combinée (mélange d'huiles)
 en: vegetable fat, vegetal fat, vegetable fats, vegetable shortening
 bg: растителна мазнина, растителни мазнини
 ca: Greixos vegetals
-cs: Rostlinný tuk
+cs: rostlinný tuk, rostlinné tuky
 da: vegetabilsk fedt
 de: pflanzliche Fette, pflanzliches Fett, pflanzenfett
 el: φυτικά λίπη
@@ -20391,7 +20391,7 @@ sv: smakberedning
 en: natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
 bg: натурален аромат, натурални ароматизанти, натурален ароматизант, естествен ароматизант, естествени ароматизанти, натурални аромати, натурален ароматизатор, естествени овкусители, натурални овкусители
 ca: Aroma natural, aromes naturals
-cs: přírodní aroma, přírod aroma
+cs: přírodní aroma, přirodni aromata
 da: naturlig aroma, naturlige smagsstoffer, naturlige aromaer
 de: natürliches Aroma, natürliche Aromen, natürliche Aromastoffe
 es: aroma natural, aromas naturales, saborizante natural
@@ -43282,9 +43282,9 @@ ak: kube
 ar: نارجيل
 bg: Кокосов орех, кокос
 ca: coco, cocos
-cs: kokosový ořech
-da: kokos, kokosnød, kokosnødder
-de: Kokos, Kokosnuss, Kokosnüsse
+cs: kokosový ořech, kokos
+da: kokosnød, kokosnødder, kokos
+de: Kokosnuss, Kokosnüsse, Kokos
 ee: Eneh
 el: καρύδα
 eo: kokosnukso
@@ -56662,6 +56662,16 @@ es: ñora, ñoras
 hr: ljuta crvena paprika
 it: peperoncino rosso piccante
 
+< en:capsicum annuum
+< en:chili pepper
+en: friggitello, friggitelli, Golden Greek pepper, Sweet Italian pepper, Tuscan pepper, pepperoncini
+sv: feferoni, peperoni
+wikidata:en: Q16861000
+
+< en:friggitello
+en: hot friggitello
+sv: stark feferoni
+
 < en:chili pepper
 en: peri-peri, peri peri, piri-piri, pili-pili, pili pili
 de: Piri Piri, Piri-Piri
@@ -61367,7 +61377,7 @@ fi: karamellisoidut hasselpähkinät
 en: hazelnut paste
 bg: лешникова паста, крем лешник
 ca: pasta d'avellana, pasta d'avellanes
-cs: oříšková pasta
+cs: lískooříšková pasta
 da: hasselnödmasse
 de: Haselnussmus, Haselnüsspaste, Haselnusspaste, Haselnussmasse, Haselnussmark
 es: pasta de avellana, pasta de avellanas
@@ -61710,6 +61720,7 @@ allergens:en: en:peanuts
 < en:peanut
 en: peanut butter, peanut paste, Peanut butter or peanut paste
 bg: фъстъчено масло, фъстъчена паста
+cs: arašídové máslo, arašídová pasta
 de: Erdnussbutter
 es: crema de cacahuete, crema de maní
 fr: beurre d'arachide, beurre de cacahuète, beurre de cacahouète, pâte d'arachide
@@ -68351,6 +68362,21 @@ nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q3229775
 wikipedia:en: https://en.wikipedia.org/wiki/Caper
 
+< en:plant
+en: cactus
+ar: صبار
+da: kaktus
+eo: kaktoj
+fi: kaktus
+la: cactaceae
+nb: kaktus
+nn: kaktus
+sv: kaktus
+vi: xương rồng
+yi: קאקטוס
+zh: 仙人掌
+wikidata:en: Q14560
+
 ###################################################################################################
 #
 #                                Equisetum arvense
@@ -71199,7 +71225,7 @@ en: vanilla extract
 ar: مستخلص فانيليا عي
 bg: ванилов екстракт, екстракт от ванилия
 ca: extracte de vainilla
-cs: vanilkový výtažek, vanilkový extrakt
+cs: vanilkový extrakt, extrakt z vanilky, vanilkový výtažek
 da: vaniljeekstrakt, vaniljeessens
 de: Vanilleextrakt, Vanille Extrakt
 el: απόσταγμα βανίλιας
@@ -83442,7 +83468,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Coffea_canephora
 < en:coffee
 en: coffee beans
 bg: кафе на зърна
-de: Kaffeebohnen
+de: Kaffeebohnen, Kaffee-Bohnen
 es: Granos de café
 fi: kahvipavut
 fr: café en grains
@@ -86173,7 +86199,7 @@ bg: жълтък, яйчен жълтък, яйчни жълтъци
 bn: কুসুম
 bs: Žumance
 ca: rovell d'ou, gema d'ou
-cs: žloutek
+cs: žloutek, žloutky, vaječný žloutek, vaječné žloutky
 cy: melynwy
 da: æggeblomme, æggeblommer
 de: Eigelb

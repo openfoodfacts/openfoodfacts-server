@@ -251,6 +251,12 @@
                      ],
                      "title" : "Threatened species"
                   }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "forest_footprint"
+                  }
                }
             ],
             "expanded" : true,
@@ -720,6 +726,107 @@
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg",
                "subtitle" : "Product: Some product – 100 g",
                "title" : "Impact for this product: D (Score: 44/100)",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "forest_footprint" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <p><strong>Ingredients requiring soy</strong></p>\n                <p>The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation</p>\n                ",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Ingredient",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Type",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "% in product",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Processing factor<br><span style=\"font-weight:normal\">(% of food after processing)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Soy feed factor<br><span style=\"font-weight:normal\">(kg of soy per kg of food)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Soy yield<br><span style=\"font-weight:normal\">(kg of soy per m²)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Deforestation risk<br><span style=\"font-weight:normal\">(%)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Forest footprint<br><span style=\"font-weight:normal\">(m² per kg of food)</span>",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "forest_footprint_table",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Egg"
+                              },
+                              {
+                                 "text" : "Oeufs Bio"
+                              },
+                              {
+                                 "text" : "10.42 %"
+                              },
+                              {
+                                 "text" : "100 %"
+                              },
+                              {
+                                 "text" : "0.028"
+                              },
+                              {
+                                 "text" : "0.18"
+                              },
+                              {
+                                 "text" : "10 %"
+                              },
+                              {
+                                 "text" : "0.00"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Ingredients requiring soy"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    <h3>Total forest footprint</h3>\n                    <p><strong>0.00 m² per kg of food</strong></p>\n                ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
+               "name" : "Forest footprint",
+               "subtitle" : "Almost no risk of deforestation",
+               "title" : "Very small forest footprint",
                "type" : "grade"
             },
             "topics" : [
