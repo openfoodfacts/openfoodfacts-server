@@ -469,7 +469,6 @@ my $dispatch_table = {
 		HEAD => \&external_sources_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 	},
-
 };
 
 sub process_api_request ($request_ref) {

@@ -64,7 +64,6 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Users qw/$User_id/;
-use ProductOpener::Food qw/%categories_nutriments_per_country/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
@@ -1350,7 +1349,7 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 	{
 
 		# Compare the product nutrition facts to the most specific category
-		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_cc, 1);
+		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_lc, $target_cc, 1);
 		#my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 		create_panel_from_json_template("nutrition_facts_table",

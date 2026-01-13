@@ -247,6 +247,9 @@ sub remove_all_products () {
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
+	# Note: we do not remove categories stats from PRIVATE_DATA and TEST_PRIVATE_DATA
+	# In integration tests, PRIVATE_DATA/categories_stats should not exist,
+	# and categories stats should be loaded from TEST_PRIVATE_DATA/categories_stats
 }
 
 =head2 remove_all_users ()

@@ -53,8 +53,6 @@ BEGIN {
 
 		@nutrient_levels
 
-		%categories_nutriments_per_country
-
 		&normalize_nutriment_value_and_modifier
 		&assign_nid_modifier_value_and_unit
 
@@ -159,22 +157,6 @@ sub check_nutriscore_categories_exist_in_taxonomy() {
 	}
 
 	return;
-}
-
-# Load nutrient stats for all categories and countries
-# the stats are displayed on category pages and used in product pages,
-# as well as in data quality checks and improvement opportunity detection
-
-if (opendir(my $dh, "$BASE_DIRS{PRIVATE_DATA}/categories_stats")) {
-	foreach my $file (readdir($dh)) {
-		if ($file =~ /categories_nutriments_per_country.(\w+).sto$/) {
-			my $country_cc = $1;
-			$categories_nutriments_per_country{$country_cc}
-				= retrieve(
-				"$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_nutriments_per_country.$country_cc.sto");
-		}
-	}
-	closedir $dh;
 }
 
 =head2 default_unit_for_nid ( $nid)
@@ -2269,43 +2251,43 @@ sub compute_units_of_alcohol ($product_ref, $serving_size_in_ml) {
 
 For each comparable nutrient in both $a_ref and $b_ref, compute what percent the $a_ref value differs from the $b_ref value
 
+=head3 Arguments
+
+=head4 $a_ref - ref to a product, a category, ajr etc.
+
+=head4 $b_ref - ref to a structure with nutrient values to compare to
+
+=head3 Return values
+
+=head4 $nutrients_ref - ref to a hash with the nutrient values from $b_ref and the percent difference between $a_ref and $b_ref values
+
 =cut
 
 sub compare_nutrients ($a_ref, $b_ref) {
 
-	# $a_ref can be a product, a category, ajr etc. -> needs {nutrition}{aggregated_set}{$nutrition_nid}{value}
+	# $a_ref can be a product, a category, ajr etc. -> needs {nutrition}{aggregated_set}{$nid}{value}
 	# $b_ref is the value references
-	my %nutriments = ();
+	my $nutrients_ref = {};
 
-	foreach my $nid (keys %{$b_ref->{nutriments}}) {
-		# next nutrient if $nid does not end with _100g, so only normalized nutrient quantities are compared
-		# with the new nutrition schema, the nutrient names appearing in $a_ref don't have suffixes
-		# so the "_100g" part is removed when checking nutrients for $a_ref
-		next if $nid !~ /_100g$/;
-		$log->trace("compare_nutrients", {nid => $nid}) if $log->is_trace();
+	foreach my $nid (keys %{$b_ref->{values}}) {
 
-		my $nutrition_nid = substr($nid, 0, -5);
-		my $b_value = $b_ref->{nutriments}{$nid};
+		my $a_value = deep_get($a_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+		my $b_value = $b_ref->{values}{$nid}{mean};
 
-		if ($b_ref->{nutriments}{$nid} ne '') {    # do the following if the comparison quantity exists, ie is not ""
+		$log->trace("compare_nutrients", {nid => $nid, a_value => $a_value, b_value => $b_value}) if $log->is_trace();
 
-			$nutriments{$nid} = $b_value;
+		if ($b_value ne '') {    # do the following if the comparison quantity exists, ie is not ""
 
-			if (    ($b_value > 0)
-				and (defined $a_ref->{nutrition}{aggregated_set}{nutrients}{$nutrition_nid})
-				and (defined $a_ref->{nutrition}{aggregated_set}{nutrients}{$nutrition_nid}{value}))
-			{
+			deep_set($nutrients_ref, $nid, "mean", $b_value);
+
+			if (($b_value > 0) and (defined $a_value)) {
 				# compute what percent the $a_ref value differs from the $b_ref value
-				my $a_value = $a_ref->{nutrition}{aggregated_set}{nutrients}{$nutrition_nid}{value};
-				$nutriments{"${nid}_%"} = ($a_value - $b_value) / $b_value * 100;
+				deep_set($nutrients_ref, ${nid}, "mean_percent", ($a_value - $b_value) / $b_value * 100);
 			}
-			$log->trace("compare_nutrients",
-				{nid => $nid, value => $nutriments{$nid}, percent => $nutriments{"$nid.%"}})
-				if $log->is_trace();
 		}
 	}
 
-	return \%nutriments;
+	return $nutrients_ref;
 
 }
 
