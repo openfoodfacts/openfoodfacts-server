@@ -41,7 +41,6 @@ const jsLibSrc = [
   "./node_modules/@yaireo/tagify/dist/tagify.js",
   "./node_modules/cropperjs/dist/cropper.js",
   "./node_modules/jquery-cropper/dist/jquery-cropper.js",
-  "./node_modules/jquery-form/src/jquery.form.js",
   "./node_modules/highcharts/highcharts.js",
   "./node_modules/jsvectormap/dist/jsvectormap.esm.js",
   "./node_modules/jsvectormap/dist/maps/world-merc.js",

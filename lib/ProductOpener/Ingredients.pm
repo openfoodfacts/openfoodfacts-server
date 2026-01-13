@@ -232,6 +232,7 @@ my %contains_regexps = (
 	en => "contains",
 	bg => "съдържа",
 	ca => "conté",
+	cs => "obsahují",
 	da => "indeholder",
 	es => "contiene",
 	et => "sisaldab",
@@ -2860,6 +2861,9 @@ Text to analyze
 							'bs' => [
 								'u promjenljivom odnosu',    # in a variable ratio
 							],
+							'cs' => [
+								'v různém poměru',    # in variable proportions
+							],
 
 							'da' => [
 								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
@@ -5236,6 +5240,8 @@ my %phrases_before_ingredients_list = (
 	es => ['composición', 'ingredientes',],
 
 	et => ['koostisosad', 'Koostis',],
+
+	eu => ['[Oo]sagaiak',],
 
 	fi => ['aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?', 'ainesosia', 'valmistusaineet', 'Kokoonpano', 'koostumus',],
 

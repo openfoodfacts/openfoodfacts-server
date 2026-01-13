@@ -27,7 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Lang qw/$lc lang/;
@@ -215,6 +215,15 @@ if ($imagefield) {
 		$log->info("product code already exists", {code => $code});
 	}
 
+	my $proceed_with_edit = process_product_edit_rules($product_ref);
+	$log->debug("edit rules processed", {proceed_with_edit => $proceed_with_edit}) if $log->is_debug();
+	if (not $proceed_with_edit) {
+		my $data = encode_json({status => 'status not ok - edit against edit rules'});
+		$log->debug("JSON data output", {data => $data}) if $log->is_debug();
+		print header(-type => 'application/json', -charset => 'utf-8') . $data;
+		exit;
+	}
+
 	my $product_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));
 	if ((not defined $product_name) or ($product_name eq "")) {
 		$product_name = $code;
@@ -287,7 +296,7 @@ if ($imagefield) {
 		}
 	}
 	else {
-		# Image uploaded successfully
+		# Image uploaded successfully
 
 		my $image_data_ref = {
 			imgid => $imgid,

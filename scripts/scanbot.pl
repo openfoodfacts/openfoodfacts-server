@@ -32,7 +32,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/retrieve_object store_object object_exists write_json/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Tags qw/add_tags_to_field canonicalize_taxonomy_tag/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;

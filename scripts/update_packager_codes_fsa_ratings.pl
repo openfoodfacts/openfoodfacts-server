@@ -26,7 +26,7 @@ use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/%packager_codes normalize_packager_codes/;
 use ProductOpener::HTTP qw/create_user_agent/;

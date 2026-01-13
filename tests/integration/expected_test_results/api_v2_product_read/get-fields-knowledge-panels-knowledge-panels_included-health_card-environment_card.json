@@ -117,8 +117,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 82.7495737087632,
-                                 "text" : "82.7 %"
+                                 "percent" : 63.5097493036212,
+                                 "text" : "63.5 %"
                               }
                            ]
                         },
@@ -130,8 +130,8 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 7.99360717123991,
-                                 "text" : "8.0 %"
+                                 "percent" : 5.20891364902507,
+                                 "text" : "5.2 %"
                               }
                            ]
                         },
@@ -143,8 +143,8 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 3.84664413195817,
-                                 "text" : "3.8 %"
+                                 "percent" : 24.5125348189415,
+                                 "text" : "24.5 %"
                               }
                            ]
                         },
@@ -156,8 +156,8 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 4.72963136534393,
-                                 "text" : "4.7 %"
+                                 "percent" : 5.90529247910863,
+                                 "text" : "5.9 %"
                               }
                            ]
                         },
@@ -169,7 +169,7 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 0.680543622694777,
+                                 "percent" : 0.749303621169916,
                                  "text" : "0.7 %"
                               }
                            ]
@@ -193,14 +193,14 @@
                   }
                }
             ],
-            "evaluation" : "good",
+            "evaluation" : "average",
             "expanded" : false,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/car.svg",
-               "subtitle" : "286 g CO₂e per 100g of product",
-               "title" : "Equal to driving 1.5 km in a petrol car"
+               "subtitle" : "359 g CO₂e per 100g of product",
+               "title" : "Equal to driving 1.9 km in a petrol car"
             },
             "topics" : [
                "environment"
@@ -226,9 +226,9 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
+                     "panel_group_id" : "packaging",
                      "panel_ids" : [
-                        "packaging_recycling"
+                        "packaging"
                      ],
                      "title" : "Packaging"
                   }
@@ -246,9 +246,15 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "palm_oil"
+                        "threatened_species"
                      ],
                      "title" : "Threatened species"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "forest_footprint"
                   }
                }
             ],
@@ -321,11 +327,11 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
+               "grade" : "d",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg",
                "name" : "Green-Score",
-               "subtitle" : "Moderate environmental impact",
-               "title" : "Green-Score C",
+               "subtitle" : "High environmental impact",
+               "title" : "Green-Score D",
                "type" : "grade"
             },
             "topics" : [
@@ -357,7 +363,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/24000\">Biscuit (cookie)</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.34\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 2.86\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
+                     "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/24000\">Biscuit (cookie)</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.37\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 3.59\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
                      "type" : "summary"
                   }
                },
@@ -384,8 +390,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 80.2029225619529,
-                                 "text" : "80.2 %"
+                                 "percent" : 68.4782608695652,
+                                 "text" : "68.5 %"
                               }
                            ]
                         },
@@ -397,8 +403,8 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 12.040444241013,
-                                 "text" : "12.0 %"
+                                 "percent" : 10.1358695652174,
+                                 "text" : "10.1 %"
                               }
                            ]
                         },
@@ -410,8 +416,8 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 3.16410766408558,
-                                 "text" : "3.2 %"
+                                 "percent" : 15.5163043478261,
+                                 "text" : "15.5 %"
                               }
                            ]
                         },
@@ -423,8 +429,8 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 3.20347042397247,
-                                 "text" : "3.2 %"
+                                 "percent" : 4.45652173913044,
+                                 "text" : "4.5 %"
                               }
                            ]
                         },
@@ -436,8 +442,8 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 1.38905510897607,
-                                 "text" : "1.4 %"
+                                 "percent" : 1.45923913043478,
+                                 "text" : "1.5 %"
                               }
                            ]
                         },
@@ -467,7 +473,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/lca.svg",
                "subtitle" : "Category: Biscuit (cookie)",
-               "title" : "Average impact of products of the same category: B (Score: 70/100)",
+               "title" : "Average impact of products of the same category: B (Score: 67/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -652,17 +658,118 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Life cycle analysis score: 70<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 47/100\n                ",
+                     "html" : "\n                Life cycle analysis score: 67<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 44/100\n                ",
                      "type" : "summary"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
+               "grade" : "d",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg",
                "subtitle" : "Product: Some product – 100 g",
-               "title" : "Impact for this product: C (Score: 47/100)",
+               "title" : "Impact for this product: D (Score: 44/100)",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "forest_footprint" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <p><strong>Ingredients requiring soy</strong></p>\n                <p>The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation</p>\n                ",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Ingredient",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Type",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "% in product",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Processing factor<br><span style=\"font-weight:normal\">(% of food after processing)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Soy feed factor<br><span style=\"font-weight:normal\">(kg of soy per kg of food)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Soy yield<br><span style=\"font-weight:normal\">(kg of soy per m²)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Deforestation risk<br><span style=\"font-weight:normal\">(%)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Forest footprint<br><span style=\"font-weight:normal\">(m² per kg of food)</span>",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "forest_footprint_table",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Egg"
+                              },
+                              {
+                                 "text" : "Oeufs Bio"
+                              },
+                              {
+                                 "text" : "10.42 %"
+                              },
+                              {
+                                 "text" : "100 %"
+                              },
+                              {
+                                 "text" : "0.028"
+                              },
+                              {
+                                 "text" : "0.18"
+                              },
+                              {
+                                 "text" : "10 %"
+                              },
+                              {
+                                 "text" : "0.00"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Ingredients requiring soy"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    <h3>Total forest footprint</h3>\n                    <p><strong>0.00 m² per kg of food</strong></p>\n                ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
+               "name" : "Forest footprint",
+               "subtitle" : "Almost no risk of deforestation",
+               "title" : "Very small forest footprint",
                "type" : "grade"
             },
             "topics" : [
@@ -914,7 +1021,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;13050 – percent_min:&nbsp;16.6666666666667 – percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;19051 – percent_min:&nbsp;0 – percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;22000 – percent_min:&nbsp;0 – percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil – vegan:&nbsp;yes – vegetarian:&nbsp;yes – from_palm_oil:&nbsp;yes – ciqual_food_code:&nbsp;16129 – percent_min:&nbsp;0 – percent_max:&nbsp;25</li>\n<li><span>coloring</span> -> en:colour – percent_min:&nbsp;0 – percent_max:&nbsp;20<ol id=\"ordered_ingredients_list\">\n<li><span>curcumin</span> -> en:e100 – vegan:&nbsp;yes – vegetarian:&nbsp;yes – percent_min:&nbsp;0 – percent_max:&nbsp;20</li>\n</ol>\n</li>\n<li><span>emulsifier</span> -> en:emulsifier – percent_min:&nbsp;0 – percent_max:&nbsp;16.6666666666667<ol id=\"ordered_ingredients_list\">\n<li><span>soy lecithin</span> -> en:soya-lecithin – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;42200 – percent_min:&nbsp;0 – percent_max:&nbsp;16.6666666666667</li>\n</ol>\n</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;13050 – percent_min:&nbsp;16.6666666666667 – percent_estimate:&nbsp;58.3333333333333 – percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;19051 – percent_min:&nbsp;0 – percent_estimate:&nbsp;20.8333333333333 – percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;22000 – percent_min:&nbsp;0 – percent_estimate:&nbsp;10.4166666666667 – percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil – vegan:&nbsp;yes – vegetarian:&nbsp;yes – from_palm_oil:&nbsp;yes – ciqual_food_code:&nbsp;16129 – percent_min:&nbsp;0 – percent_estimate:&nbsp;5.20833333333333 – percent_max:&nbsp;25</li>\n<li><span>coloring</span> -> en:colour – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;20<ol id=\"ordered_ingredients_list\">\n<li><span>curcumin</span> -> en:e100 – vegan:&nbsp;yes – vegetarian:&nbsp;yes – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;20</li>\n</ol>\n</li>\n<li><span>emulsifier</span> -> en:emulsifier – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;16.6666666666667<ol id=\"ordered_ingredients_list\">\n<li><span>soy lecithin</span> -> en:soya-lecithin – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;42200 – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;16.6666666666667</li>\n</ol>\n</li>\n</ol>\n"
                   }
                },
                {
@@ -1125,9 +1232,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/moderate.svg",
                "name" : "Fat",
-               "title" : "Fat in moderate quantity (8.5%)",
-               "type" : "percentage",
-               "value" : 8.5
+               "title" : "Fat in moderate quantity (8.5%)"
             },
             "topics" : [
                "health"
@@ -1171,9 +1276,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/low.svg",
                "name" : "Salt",
-               "title" : "Salt in low quantity (0.0502%)",
-               "type" : "percentage",
-               "value" : 0.0502
+               "title" : "Salt in low quantity (0.0502%)"
             },
             "topics" : [
                "health"
@@ -1207,9 +1310,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
                "name" : "Saturated fat",
-               "title" : "Saturated fat in high quantity (5.6%)",
-               "type" : "percentage",
-               "value" : 5.6
+               "title" : "Saturated fat in high quantity (5.6%)"
             },
             "topics" : [
                "health"
@@ -1243,9 +1344,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/moderate.svg",
                "name" : "Sugars",
-               "title" : "Sugars in moderate quantity (12.5%)",
-               "type" : "percentage",
-               "value" : 12.5
+               "title" : "Sugars in moderate quantity (12.5%)"
             },
             "topics" : [
                "health"
@@ -1773,12 +1872,40 @@
             ],
             "evaluation" : "unknown",
             "expanded" : false,
+            "half_width_on_mobile" : true,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "subtitle" : "Missing origins of ingredients information",
                "title" : "Origins of ingredients"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "title" : "Packaging with a medium impact"
             },
             "topics" : [
                "environment"
@@ -1933,55 +2060,6 @@
                "environment"
             ]
          },
-         "packaging_recycling" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_components"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_materials"
-                  }
-               }
-            ],
-            "evaluation" : "average",
-            "expanded" : true,
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "title" : "Packaging with a medium impact"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "palm_oil" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> \n                    ",
-                     "type" : "summary"
-                  }
-               }
-            ],
-            "evaluation" : "bad",
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
-               "subtitle" : "Drives deforestation and threatens species such as the orangutan",
-               "title" : "Contains palm oil"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
          "recommendation_ultra_processed_foods" : {
             "elements" : [
                {
@@ -2041,6 +2119,28 @@
                "health"
             ],
             "type" : "inline"
+         },
+         "threatened_species" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                        <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> \n                        ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
+               "subtitle" : "Drives deforestation and threatens species such as the orangutan",
+               "title" : "Contains palm oil"
+            },
+            "topics" : [
+               "environment"
+            ]
          }
       }
    },

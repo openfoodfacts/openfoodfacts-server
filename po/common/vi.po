@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Một cơ sở dữ liệu hợp tác, tự do và cởi mở của các sản phẩm thực phẩm từ khắp nơi trên thế giới."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "Cơ sở dữ liệu hợp tác, miễn phí và mở về các sản phẩm thức ăn cho thú nuôi từ khắp nơi trên thế giới."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -2409,7 +2409,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Quốc gia"
+msgstr ""
 
 msgctxt "select_lang"
 msgid "Language"
@@ -3722,6 +3722,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "lỗi về chất lượng dữ liệu"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "chất lượng dữ liệu hoàn chỉnh"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "thông tin về chất lượng dữ liệu"
@@ -4064,7 +4068,7 @@ msgstr "Điểm dinh dưỡng"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "Điểm dinh dưỡng"
+msgstr ""
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -4074,7 +4078,7 @@ msgstr "Điểm dinh dưỡng"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "Điểm dinh dưỡng"
+msgstr ""
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4608,7 +4612,7 @@ msgstr "Chất lượng dinh dưỡng"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "Điểm dinh dưỡng"
+msgstr ""
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -6133,6 +6137,14 @@ msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
 
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Chất lượng dữ liệu hoàn chỉnh"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Một số thông tin về chất lượng dữ liệu đầy đủ của sản phẩm này"
+
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
 msgstr ""
@@ -6745,7 +6757,7 @@ msgstr "Giá trị quy đổi"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Số lượng đơn vị"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -7419,17 +7431,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Loại sản phẩm"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Đồ ăn"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Thức ăn cho thú cưng"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7617,4 +7629,64 @@ msgstr "Chúng tôi không phát hiện: {unwanted_ingredients}. Chúng tôi có
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Những sở thích đó dựa trên sự hiểu biết của Open Food Facts về danh sách thành phần và luôn có khả năng danh sách này không chính xác hoặc không đầy đủ, hãy luôn tự mình kiểm tra sản phẩm."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Fingerprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Hút thuốc lá giết người"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Thuốc lá gây hại nghiêm trọng cho sức khỏe. Đừng bắt đầu. Hãy bỏ thuốc ngay."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Hút thuốc gây nghiện cao. Đừng bắt đầu. Hút thuốc gây tử vong – hãy bỏ ngay. Hút thuốc làm tắc nghẽn động mạch và gây ra các cơn đau tim và đột quỵ. Hút thuốc gây ung thư phổi tử vong. Hút thuốc khi mang thai gây hại cho em bé của bạn. Bảo vệ trẻ em: đừng để chúng hít phải khói thuốc của bạn. Bác sĩ hoặc dược sĩ có thể giúp bạn cai thuốc lá. Hút thuốc có thể làm giảm lưu lượng máu và gây liệt dương. Hút thuốc gây lão hóa da. Hút thuốc có thể gây tổn hại đến tinh trùng và làm giảm khả năng sinh sản. Khói thuốc chứa benzen, nitrosamine, formaldehyde và hydrogen cyanide."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Giá công khai"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Giá bán lẻ đề xuất của nhà sản xuất (MSRP), chưa bao gồm chiết khấu và khuyến mãi, được ghi trên bao bì sản phẩm hoặc trên trang web của nhà sản xuất (bao gồm hoặc không bao gồm thuế theo quy định của pháp luật). Sử dụng danh sách phân cách bằng dấu phẩy nếu giá được liệt kê bằng nhiều loại tiền tệ."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Tài sản cá nhân"
 

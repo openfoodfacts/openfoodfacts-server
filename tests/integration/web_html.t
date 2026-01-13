@@ -562,6 +562,13 @@ my $tests_ref = [
 		path => '/products/3300000000001,3300000000002',
 		expected_type => 'html',
 	},
+	# /products with multiple various GS1 format barcodes
+	{
+		test_case => 'world-products-multiple-codes-gs1-formats',
+		path =>
+			'/products/https%3A%2F%2Fid.gs1.org%2F01%2F03564703999971%2F10%2FABC%2F21%2F123456%3F17%3D211200+%1D010356470399997210ABC123%1D1524050431030002753922499',
+		expected_type => 'html',
+	},
 	# Request a page with ?content_only=1 to remove the header and footer
 	{
 		test_case => 'world-product-content-only',

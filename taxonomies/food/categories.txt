@@ -94,6 +94,10 @@ stopwords:de: und, mit, von
 # Careful: it should be the same main tag, not a synonym
 # Remark: add the property to the highest parent
 
+# In European Union food of animal origin must be tagged by a packaging code (a number in a circle).
+# The followig tag is added to food of animal origin:
+# food_of_animal_origin:en: yes
+
 en: Incorrect product type
 bg: Неправилен product type
 ca: Tipus de producte incorrecte
@@ -7282,6 +7286,10 @@ nl: Aloe Vera sappen
 pl: Napoje z aloesem, Napoje aloesowe
 #wikidata:en:
 
+< en: Fruit and vegetable juices
+en: Ginger juices
+nl: Gembersappen
+
 < en:Fruit-based beverages
 en: Beverages with orange
 bg: Напитки с портокал
@@ -10435,7 +10443,7 @@ wikidata:en: Q25408
 < en:Beverage preparations
 en: Instant beverages, Instant hot beverages
 ca: Begudes instantànies
-de: Heißgetränke zum Aufgließen
+de: Heißgetränke zum Aufgießen
 es: Bebidas instantáneas, Bebidas para tomar calientes instantáneas
 fi: instant-juomat
 fr: Boissons instantanées, Boissons chaudes instantanées, boisson chaude instantanée
@@ -33721,7 +33729,6 @@ nl: Gedroogde drankpoeders
 pt: Bebidas desidratadas
 ru: Растворимые напитки
 
-< en:Cereals and potatoes
 < en:Dried products to be rehydrated
 < en:Mashed potatoes
 en: Instant mashed potatoes, dehydrated mashed potatoes
@@ -33739,7 +33746,6 @@ ciqual_proxy_food_name:en: Potato puree, made from flakes, reconstituted with se
 ciqual_proxy_food_name:fr: Pomme de terre, purée à base de flocons, reconstituée avec lait demi-écrémé et eau, non salée
 wikidata:en: Q3411001
 
-< en:Cereals and potatoes
 < en:Mashed potatoes
 en: Potato puree made from flakes reconstituted with whole milk with added fat
 fr: Purée de pommes de terre à base de flocons reconstituée avec lait entier
@@ -33748,7 +33754,6 @@ ciqual_food_code:en: 4017
 ciqual_food_name:en: Potato puree, made from flakes, reconstituted with whole milk, with added fat
 ciqual_food_name:fr: Pomme de terre, purée à base de flocons, reconstituée avec lait entier, matière grasse
 
-< en:Cereals and potatoes
 < en:Mashed potatoes
 en: Unsalted potato puree with milk and butter
 fr: Purée de pommes de terre non salée au lait et au beurre
@@ -33757,7 +33762,6 @@ ciqual_food_code:en: 4018
 ciqual_food_name:en: Potato puree, with milk and butter, unsalted
 ciqual_food_name:fr: Pomme de terre, purée, avec lait et beurre, non salée
 
-< en:Cereals and potatoes
 < en:Mashed potatoes
 en: Unsalted Potato puree made from flakes reconstituted with semi-skimmed milk and water
 fr: Purée de pommes de terre non salée à base de flocons reconstituée avec lait demi-écrémé et eau
@@ -33775,7 +33779,6 @@ ciqual_food_code:en: 4022
 ciqual_food_name:en: Potato flakes, dehydrated, plain
 ciqual_food_name:fr: Pomme de terre, flocons déshydratés, nature
 
-< en:Cereals and potatoes
 < en:Dried products to be rehydrated
 < en:Mashed potatoes
 en: Dehydrated potato flakes with milk, Dehydrated potato flakes with cream
@@ -33784,14 +33787,6 @@ agribalyse_food_code:en: 4016
 ciqual_food_code:en: 4016
 ciqual_food_name:en: Potato flakes, dehydrated, with milk or cream
 ciqual_food_name:fr: Pomme de terre, flocons déshydratés, au lait ou à la crème
-
-< en:Mashed potatoes
-en: Sweet potato puree cooked with cream
-fr: Purée de patates douces cuisinée à la crème, Purée de patate douce cuisinée à la crème
-agribalyse_food_code:en: 4103
-ciqual_food_code:en: 4103
-ciqual_food_name:en: Sweet potato, puree, cooked with cream
-ciqual_food_name:fr: Patate douce, purée, cuisinée à la crème
 
 
 # Biscuits and cakes
@@ -34735,6 +34730,16 @@ fr: Blocs de pain d'épices
 < en:Gingerbreads
 de: Oblaten-Lebkuchen
 
+< en:Gingerbreads
+en: Plain gingerbreads covered with chocolate
+de: Natur Lebkuchen mit Schokolade überzogen
+fr: Pains d'épices natures couverts de chocolat
+
+< en:Gingerbreads
+en: Filled gingerbreads covered with chocolate
+de: Gefüllte Lebkuchen mit Schokolade überzogen
+fr: Pains d'épices fourrés et couverts de chocolat
+
 < en:Biscuits and cakes
 en: Savoy-style sponge cake, Savoy cake, Savoy sponge cake
 fr: Biscuit de Savoie
@@ -34906,7 +34911,7 @@ ru: Хлебные продукты
 sv: Panerade produkter
 
 < en:Breaded products
-< en:Cheeses
+< en:Cheese preparations
 en: Breaded cheeses
 de: Panierter Käse
 fr: Fromages panés
@@ -35711,14 +35716,9 @@ ciqual_food_name:fr: Pain, baguette, courante
 sales_format:en: weight, package
 wikidata:en: Q208172
 
-
 < en:Baguettes
 en: Frozen baguettes
 fr: Baguettes surgelées
-
-< en:Breads
-fr: Pains de tradition française, pain de tradition française, pains traditionnels français, pain traditionnel français, pains traditionnels de France, pain traditionnel de France, pains tradition, pain tradition
-#Synonyms are the terms defined in the decret : https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000727617
 
 < en:Baguettes
 < fr:Pains de tradition française
@@ -35731,7 +35731,6 @@ ciqual_food_name:fr: Pain, baguette, de tradition française
 sales_format:en: weight, package
 
 < en:Baguettes
-< fr:Pains de tradition française
 en: Country-style French baguette bread, Country-style French bread bread
 fr: Baguette de campagne, Boule de pain de campagne
 agribalyse_food_code:en: 7100
@@ -35740,26 +35739,7 @@ ciqual_food_name:en: Country-style bread, French bread (baguette or ball)
 ciqual_food_name:fr: Pain, baguette ou boule, de campagne
 
 < en:Baguettes
-< fr:Pains de tradition française
-en: Wholemeal bread made with flour type 150, Integral bread made with flour type 150
-fr: Pain complet à la farine T150, Pain intégral à la farine T150
-agribalyse_food_code:en: 7110
-ciqual_food_code:en: 7110
-ciqual_food_name:en: Bread, wholemeal or integral bread (made with flour type 150)
-ciqual_food_name:fr: Pain complet ou intégral (à la farine T150)
-
-< en:Baguettes
-< fr:Pains de tradition française
-en: Country-style home-made bread with flour for bread making machine
-fr: Pain de campagne fait maison avec farine pour machine à pain
-agribalyse_food_code:en: 7261
-ciqual_food_code:en: 7261
-ciqual_food_name:en: Country-style bread, home-made (with flour for bread making machine)
-ciqual_food_name:fr: Pain de campagne maison (avec farine pour machine à pain)
-
-< en:Baguettes
-< fr:Pains de tradition française
-en: Unsalted French bread, French bread without salt
+en: Unsalted baguettes, Unsalted French bread, French bread without salt
 fr: Baguettes de pain sans sel
 agribalyse_food_code:en: 7160
 ciqual_food_code:en: 7160
@@ -35767,58 +35747,33 @@ ciqual_food_name:en: Bread, French bread, without salt
 ciqual_food_name:fr: Pain, baguette, sans sel
 
 < en:Baguettes
-< fr:Pains de tradition française
-en: French bread multigrain from bakery, French bread baguette multigrain from bakery, French bread ball multigrain from bakery
-fr: Pain artisanal aux céréales et graines, Baguette artisanale aux céréales et graines, Boule de pain artisanale aux céréales et graines
-agribalyse_food_code:en: 7255
-ciqual_food_code:en: 7255
-ciqual_food_name:en: Bread, French bread, (baguette or ball), multigrain, from bakery
-ciqual_food_name:fr: Pain, baguette ou boule, aux céréales et graines, artisanal
+< en:Sourdough breads
+en: Sourdough baguettes, French baguette with yeast
+fr: Baguettes au levain, Baguette de pain au levain, Baguette au levain
+agribalyse_food_code:en: 7002
+ciqual_food_code:en: 7002
+ciqual_food_name:en: Bread, French bread (baguette or ball), with yeast
+ciqual_food_name:fr: Pain, baguette ou boule, au levain
 
-< en:Baguettes
-< fr:Pains de tradition française
-en: Brown bread baguette with flour type 80, Brown bread baguette with flour type 110, Brown bread ball with flour type 80, Brown bread ball with flour type 110
-fr: Baguettes de pain à la farine T80, Baguettes de pain à la farine T110, Boules de pain à la farine T80, Boules de pain à la farine T110
+< en:Breads
+fr: Pains de tradition française, pain de tradition française, pains traditionnels français, pain traditionnel français, pains traditionnels de France, pain traditionnel de France, pains tradition, pain tradition
+#Synonyms are the terms defined in the decret : https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000727617
+
+< en:Breads
+en: Breads with T80 to T110 flour, Brown bread baguette with flour type 80, Brown bread baguette with flour type 110, Brown bread ball with flour type 80, Brown bread ball with flour type 110
+fr: Pains à la farine de T80 à T110, Baguettes de pain à la farine T80, Baguettes de pain à la farine T110, Boules de pain à la farine T80, Boules de pain à la farine T110
 agribalyse_food_code:en: 7010
 ciqual_food_code:en: 7010
 ciqual_food_name:en: Brown bread, French bread (baguette or ball), with flour type 80 or 110
 ciqual_food_name:fr: Pain, baguette ou boule, bis (à la farine T80 ou T110)
 
-< en:Baguettes
-< fr:Pains de tradition française
-en: Baguette made with type T55-T110 flour, Bread ball made with type T55-T110 flour
-fr: Pain bio en baguette, baguette de pain bio, Baguette de pains bio à la farine T55 jusqu'à T110, Boules de pain bio à la farine T55 jusqu'à T110
-agribalyse_food_code:en: 7025
-ciqual_food_code:en: 7025
-ciqual_food_name:en: Bread (baguette or ball), made with type T55-T110 flour
-ciqual_food_name:fr: Pain, baguette ou boule, bio (à la farine T55 jusqu'à T110)
-
-< en:Baguettes
-< fr:Pains de tradition française
-en: French bread ball
-fr: Pain français, Boule de pain français
-agribalyse_food_code:en: 7012
-ciqual_food_code:en: 7012
-ciqual_food_name:en: Bread, French bread, ball, 400g
-ciqual_food_name:fr: Pain courant français, 400g ou boule
-
-< en:Baguettes
-< fr:Pains de tradition française
-en: French baguette with yeast
-fr: Baguette de pain au levain, Baguette au levain
-agribalyse_food_code:en: 7002
-ciqual_food_code:en: 7002
-ciqual_food_name:en: Bread, French bread (baguette or ball), with yeast
-ciqual_food_name:fr: Pain, baguette ou boule, au levain
-
-< fr:Pains de tradition française
-en: French bread ball with yeast
-fr: Boule de pain au levain, Boule au levain
-agribalyse_food_code:en: 7002
-ciqual_food_code:en: 7002
-ciqual_food_name:en: Bread, French bread (baguette or ball), with yeast
-ciqual_food_name:fr: Pain, baguette ou boule, au levain
-
+< en:Breads
+en: Breads with seeds, French bread multigrain from bakery, French bread baguette multigrain from bakery, French bread ball multigrain from bakery
+fr: Pains au graines, Pain artisanal aux céréales et graines, Baguette artisanale aux céréales et graines, Boule de pain artisanale aux céréales et graines
+agribalyse_food_code:en: 7255
+ciqual_food_code:en: 7255
+ciqual_food_name:en: Bread, French bread, (baguette or ball), multigrain, from bakery
+ciqual_food_name:fr: Pain, baguette ou boule, aux céréales et graines, artisanal
 
 < en:Breads
 en: Bread crumbs, breadcrumbs
@@ -35923,19 +35878,23 @@ es: Picos de pan, Picos
 wikidata:en: Q6075158
 
 < en:Breads
-en: Wholemeal breads, Brown breads
+en: Wholemeal breads, Brown breads, Wholemeal bread made with flour type 150, Integral bread made with flour type 150
 bg: Пълнозърнест хляб
 da: Fuldkornsbrød
 de: Vollkornbrote, Vollkornbrot
 es: Panes integrales, Pan integral
 fi: Tummat leivät
-fr: Pains complets, pain complet
+fr: Pains complets, pain complet, Pain complet à la farine T150, Pain intégral à la farine T150
 hr: Integralni kruhovi
 it: Pani integrali
 lt: Pilno grūdo duonos
 nl: Bruine broden, Bruinbrood, Bruin brood, Volkoren broden
 ro: Pâine brună, Pâine neagră
 ru: Цельнозерновой хлеб
+agribalyse_food_code:en: 7110
+ciqual_food_code:en: 7110
+ciqual_food_name:en: Bread, wholemeal or integral bread (made with flour type 150)
+ciqual_food_name:fr: Pain complet ou intégral (à la farine T150)
 intake24_category_code:en: BBRD
 sales_format:en: package, item
 wikidata:en: Q940999
@@ -35943,7 +35902,13 @@ wikidata:en: Q940999
 < en:Breads
 en: Sourdough breads
 da: Surdejsbrød
+Fr: Pains au levain
 sv: Surdegsbröd
+agribalyse_food_code:en: 7002
+ciqual_food_code:en: 7002
+ciqual_food_name:en: Bread, French bread (baguette or ball), with yeast
+ciqual_food_name:fr: Pain, baguette ou boule, au levain
+Wikidata:en: Q3360560
 
 < en:Breads
 en: Dried breads
@@ -36417,7 +36382,7 @@ ciqual_food_name:fr: Pain grillé, tranches, multicéréale
 
 < en:Breads
 en: Unleavened breads, Azymes, Matzah
-de: Ungesäuertes Brot, Azyma
+de: Ungesäuertes Brot, Azyma, Matzen
 es: Panes ácimos, Pan ácimo
 fi: happamattomat leivät
 fr: Pains azymes, pain azyme
@@ -37576,6 +37541,7 @@ ciqual_food_name:fr: Gâteau marbré
 oqali_family:en: fr:Biscuits et gateaux industriels - Gateaux marbres
 
 < en:Filled cakes
+< en:Gingerbreads
 fr: Nonnettes
 wikidata:en: Q3343365
 
@@ -40113,7 +40079,7 @@ hr: Kikiriki preliven čokoladom
 hu: Csokoládéval bevont mogyoró
 it: Arachidi ricoperte di cioccolato, Noccioline ricoperte di cioccolato
 lt: Žemės riešutai šokolade
-nl: Chocopindas
+nl: Chocopindas, Pindarotsjes
 pt: Amendoins cobertos com chocolate
 agribalyse_food_code:en: 31042
 ciqual_food_code:en: 31042
@@ -43953,6 +43919,18 @@ ciqual_food_code:en: 20066
 ciqual_food_name:en: Sweet corn, canned, drained
 ciqual_food_name:fr: Maïs doux, appertisé, égoutté
 
+< en:Cereals and their products
+en: Brick sheets, Baked filo pastry sheets without fat, Baked phyllo pastry sheets without fat
+fr: Feuilles de brick, Feuilles de brick cuite à sec sans matière grasse
+hr: Limovi od opeke
+nl: Brick vellen
+ciqual_food_code:en: 23430
+ciqual_food_name:en: Filo or phyllo pastry sheets, baked, without fat
+ciqual_food_name:fr: Feuille de brick, cuite à sec sans matière grasse
+
+< en:Cereals and their products
+en: Puff pastry molds for vol-au-vent
+fr: Moules feuilletés pour vol-au-vent ou bouchées la reine
 
 < en:White beans
 fr: Lingots blancs
@@ -44043,6 +44021,7 @@ food_groups:en: en:appetizers
 pnns_group_2:en: Appetizers
 wikidata:en: Q220964
 
+< en:Breaded products
 < en:Salty snacks
 en: Arancini
 xx: Arancini
@@ -44171,9 +44150,10 @@ opposite:en: en:bananas, en: dried-bananas
 < en:Crisps
 en: Lentil Crisps
 fr: Chips de lentilles
+nl: Linzenchips
 
-< en:Cereals and potatoes
 < en:Crisps
+< en:Potatoes and their products
 en: Potato crisps, potato chips
 bg: Картофен чипс
 ca: Xips de patata
@@ -44472,6 +44452,19 @@ wikidata:en: Q1524389
 en: Flavoured corn crisps, Flavoured corn chips, Flavoured tortilla chips
 fr: Chips de maïs aromatisées
 
+< en:Cereals and potatoes
+< en:Chips and fries
+en: Sweet potato fries
+Fr: Frites de patate douce
+
+< en:Cereals and potatoes
+en: Mashed sweet potatoes, Sweet potato puree cooked with cream
+fr: Purées de patates douces, Purée de patates douces cuisinée à la crème, Purée de patate douce cuisinée à la crème
+agribalyse_food_code:en: 4103
+ciqual_food_code:en: 4103
+ciqual_food_name:en: Sweet potato, puree, cooked with cream
+ciqual_food_name:fr: Patate douce, purée, cuisinée à la crème
+
 < en:Chips and fries
 en: Fries
 bg: Пържени картофи
@@ -44488,17 +44481,49 @@ google_product_taxonomy_id:en: 2392
 intake24_category_code:en: CHIP
 wikidata:en: Q152088
 
+< en: Potato preparations
 < en:Chips and fries
+xx: Pommes noisettes
 bg: Картофени ноазети
 fr: Pommes noisettes
 wikidata:en: Q2244571
 
+< en:Frozen fried potatoes
+< xx:Pommes noisettes
+en: Frozen pommes noisettes, Frozen pre-fried mashed potato balls
+fr: Pommes noisettes surgelées, Pommes de terre noisette surgelées
+agribalyse_food_code:en: 4013
+ciqual_food_code:en: 4013
+ciqual_food_name:en: Mashed potato balls pre-fried, frozen, raw
+ciqual_food_name:fr: Pomme de terre noisette, surgelée, crue
+
 < en:Chips and fries
+< en:Potato preparations
+xx: Pommes dauphines
 fr: Pommes dauphines
 agribalyse_proxy_food_code:en: 4021
 agribalyse_proxy_food_name:en: Dauphine potato, frozen, cooked
 agribalyse_proxy_food_name:fr: Pomme de terre dauphine, surgelée, cuite
 wikidata:en: Q3396004
+
+< en:Frozen fried potatoes
+< xx:Pommes dauphines
+en: Frozen pommes dauphines, Frozen dauphine potatoes, Frozen cooked dauphine potato
+fr: Pommes dauphines surgelées, Pomme de terre dauphine surgelée, Pomme de terre dauphine cuite surgelée
+hr: Smrznuti dauphine krumpir
+lt: Šaldytos dauphine bulvės
+agribalyse_food_code:en: 4021
+ciqual_food_code:en: 4021
+ciqual_food_name:en: Dauphine potato, frozen, cooked
+ciqual_food_name:fr: Pomme de terre dauphine, surgelée, cuite
+
+< en:Frozen fried potatoes
+en: Frozen duchesse potatoes, Frozen cooked duchesse potato
+fr: Pommes duchesses surgelées, Pomme de terre duchesse surgelée, Pomme de terre duchesse cuite surgelée
+agribalyse_food_code:en: 4034
+ciqual_food_code:en: 4034
+ciqual_food_name:en: Duchesse potato, frozen, cooked
+ciqual_food_name:fr: Pomme de terre duchesse, surgelée, cuite
 
 < en:Fries
 en: Takeaway fries
@@ -44572,6 +44597,7 @@ uz: Sut mahsulotlari
 vi: Chế phẩm sữa
 yi: מילכיגס
 zh: 乳製品, 奶制品
+food_of_animal_origin:en: yes
 google_product_taxonomy_id:en: 428
 incompatible_with:en: categories:en:dairy-substitutes
 wikidata:en: Q185217
@@ -47858,7 +47884,7 @@ ciqual_food_name:en: Fermented milk or dairy specialty, yogurt type, plain, with
 ciqual_food_name:fr: Lait fermenté ou spécialité laitière type yaourt, nature, au bifidus
 
 < en:Fermented dairy desserts
-en: Faiselles, Drained soft fresh cheese around 6% fat
+en: Faisselles, Drained soft fresh cheese around 6% fat, Faiselles
 fr: Faisselles
 agribalyse_food_code:en: 19641
 ciqual_food_code:en: 19641
@@ -57863,6 +57889,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Honey (Shelf Stable)
 intake24_category_code:en: HONI
 nova:en: 2
+# food_of_animal_origin:en: yes # family farms/business might not possess packaging code
 
 < en:Honeys
 en: Honeys from Belgium, Belgian honeys
@@ -58621,6 +58648,7 @@ zh: 鸟蛋, 蛋
 # chicken egg as a proxy
 agribalyse_proxy_food_code:en: 22000
 food_groups:en: en:eggs
+food_of_animal_origin:en: yes
 gpc_category_code:en: 10006210
 gpc_category_description:en: Definition: Includes any products that can be described/observed as bird eggs in the shell that have been sorted to remove eggs of lower quality such as cracked and dirty eggs and are often sorted by size. Eggs may be unwashed, washed, washed and oiled, aged, and/or pasteurized in the shell. Definition Excludes: Specifically excludes nest-run eggs, checked and dirty eggs, and individually cooked eggs.
 gpc_category_name:en: In Shell Table Eggs
@@ -58977,6 +59005,7 @@ pl: Tłuszcze zwierzęce, Tłuscze zwierzęce
 pt: Gorduras animais
 ru: животные жиры, жиры животные
 zh: 动物脂肪
+food_of_animal_origin:en: yes
 nova:en: 2
 wikidata:en: Q1423543
 
@@ -59376,9 +59405,11 @@ nl: Plantaardige vetten
 pl: Tłuszcze roślinne
 pt: Gorduras vegetals
 ru: Растительные жиры, Жиры растительные
+sv: Vegetabiliska fetter
 th: ไขมันจากพืช
 tr: Bitkisel yağ
 zh: 蔬菜脂肪
+wikidata:en: Q11870297
 
 < en:Vegetable fats
 en: Shelf-stable vegetable fats
@@ -59669,6 +59700,7 @@ en: Vegetable oils, Plant-based oils
 bg: Растителни масла
 ca: Olis vegetals
 cs: Rostlinné oleje
+da: Vegetabilske olier, Planteolier
 de: Pflanzenöle
 es: Aceites vegetales, Aceites de origen vegetal
 fi: kasvisöljyt
@@ -59697,6 +59729,7 @@ wikidata:en: Q4739805
 
 < en:Vegetable oils
 en: Flavoured oils
+da: Olier med smag
 de: Aromatisierte Öle
 es: Aceites aromatizados
 fr: Huiles aromatisées
@@ -59766,6 +59799,7 @@ wikidata:en: Q4944279
 
 < en:Vegetable oils
 en: Frying oil
+da: Fritureolier
 fr: Huile pour friture
 hr: Ulje za prženje
 ja: 揚げ油
@@ -59865,6 +59899,7 @@ wikidata:en: Q175933
 
 < en:Cereal oils
 en: Sesame oils
+da: Sesamolier
 de: Sesamöle
 es: Aceites de sésamo
 fi: seesamiöljyt
@@ -59917,6 +59952,7 @@ wikidata:en: Q811663
 
 < en:Vegetable oils
 en: Fruit and fruit seed oils
+da: Frugt- og frugtfrøolier
 de: Frucht- und Fruchtsamenöle, Öle aus Früchten oder Fruchtsamen
 es: Aceites de frutas y semillas de frutas
 fi: Hedelmä- ja hedelmänsiemenöljyt
@@ -60024,6 +60060,7 @@ wikidata:en: Q3819066
 
 < en:Vegetable oils
 en: Hemp oils, Hempseed oils
+da: Hampolier, Hampfrøolier
 de: Hanföle
 es: Aceites de cáñamo
 fi: Hamppuöljyt, Hampunsiemenöljyt
@@ -60050,6 +60087,7 @@ zh: 豆类油
 < en:Legume oils
 < en:Nut oils
 en: Peanut oils
+da: Jordnøddeolier, Jordnødolier, Peanutolier
 de: Erdnussöle
 es: Aceites de cacahuete, Aceites de maní
 fi: Maapähkinäöljyt
@@ -60070,6 +60108,7 @@ wikidata:en: Q265878
 < en:Legume oils
 en: Soybean oils, Soy oil
 bg: Соево олио
+da: Sojaolier
 de: Sojaöle, Sojabohnenöle
 es: Aceites de soja
 fr: Huile de soja
@@ -60087,6 +60126,7 @@ wikidata:en: Q926892
 
 < en:Vegetable oils
 en: Mixed vegetable oils, blended vegetable oils, combined vegetable oils, vegetable oil mixes
+da: Blandinger af vegetabilske olier
 es: Mezclas de aceites vegetales
 fi: Kasvisöljysekoitukset
 fr: Mélanges d'huiles, huiles combinées, Huile combinée, mélange d'huiles
@@ -60125,6 +60165,7 @@ wikidata:en: Q910958
 < en:Nuts and their products
 < en:Vegetable oils
 en: Nut oils
+da: Nøddeolier
 de: Nussöle
 es: Aceites de frutos de cáscara, Aceites de frutos secos
 fi: pähkinäöljyt
@@ -60139,6 +60180,7 @@ zh: 坚果油
 
 < en:Nut oils
 en: Almond oils
+da: Mandelolier
 de: Mandelöle
 es: Aceites de almendras
 fr: Huiles d'amande
@@ -60156,6 +60198,7 @@ wikidata:en: Q1164590
 
 < en:Nut oils
 en: Hazelnut oils
+da: Hasselnødolier, Hasselnøddeolier
 de: Haselnussöle
 es: Aceites de avellanas
 fi: hasselpähkinäöljyt
@@ -60188,6 +60231,7 @@ wikidata:en: Q2264972
 < en:Nut oils
 en: Pecan oils, Pecannut oils
 bg: Олио от пекан
+da: Pekannødolier, Pekannøddeolier
 es: Aceites de nuez pecana
 fr: Huiles de noix de pécan
 hr: Pekan ulja
@@ -60199,6 +60243,7 @@ wikidata:en: Q7158627
 
 < en:Nut oils
 en: Pine nut oils
+da: Pinjekerneolier
 es: Aceites de piñones
 fr: Huiles de pignons de pin
 hr: Ulja pinjola
@@ -60209,6 +60254,7 @@ wikidata:en: Q184315
 < en:Nut oils
 en: Pistachio oils
 bg: Олио от шамфъстък
+da: Pistacieolier
 de: Pistazienöle
 es: Aceites de pistacho
 fr: Huiles de pistache
@@ -60222,6 +60268,7 @@ wikidata:en: Q3820506
 < en:Nut oils
 en: Walnut oils
 bg: Орехово олио
+da: Valnødolier, Valnøddeolier
 de: Walnussöle
 es: Aceites de nueces
 fi: saksanpähkinäöljyt
@@ -60257,6 +60304,7 @@ en: Olive oil sprays
 < en:Flavoured oils
 < en:Olive tree products
 en: Flavoured olive oils
+da: Olivenolier med smag
 fr: Huiles d'olive aromatisées
 hr: Aromatizirana maslinova ulja
 nl: Gearomatiseerde olijfolies
@@ -60264,6 +60312,7 @@ nl: Gearomatiseerde olijfolies
 < en:Citrus flavoured oils
 < en:Flavoured olive oils
 en: Citrus flavoured olive oils
+da: Olivenolier med citrussmag, Olivenolier med smag af citrus
 fr: Huiles d'olive aromatisées à la citron
 hr: Maslinova ulja s okusom citrusa
 nl: Gearomatiseerde olijfolies met citrus
@@ -60294,7 +60343,7 @@ nl: Gearomatiseerde olijf olies met kruiden
 en: Olive oils
 bg: Зехтин, Дървено масло
 ca: Olis d'oliva
-da: Olivenolie
+da: Olivenolier, Olivenolie
 de: Olivenöle, Olivenöl
 es: Aceites de oliva, Aceites de oliva y de orujo de oliva
 fi: oliiviöljyt
@@ -60305,6 +60354,7 @@ hu: Olívaolajok
 it: Olio di oliva
 ja: オリーブオイル, オリーブ油
 lt: Alyvuogių aliejai
+nb: Olivenoljer
 nl: Olijfoliën, Olijfolie
 pl: Oliwa z oliwek
 pt: Azeite de oliva
@@ -60324,6 +60374,7 @@ wikidata:en: Q93165
 en: Virgin olive oils
 bg: Върджин зехтини
 ca: Olis d’oliva verge
+da: Jomfruolivenolier
 de: Native Olivenöle, Natives Olivenöl
 es: Aceites de oliva virgen, Aceites de oliva vírgenes
 fi: neitsytoliiviöljyt
@@ -60333,33 +60384,51 @@ hu: Szűz olívaolajok, Szűz olívaolaj
 it: Olio vergine di oliva
 ja: ヴァージンオリーブオイル
 lt: Gryni alyvuogių aliejai
+nb: Virgin olivenoljer
 nl: Virgin olijfoliën
 pl: Oliwa z oliwek virgin
-sv: Jungfruolivoljor, Virgin olivoljor
+sv: Jungfruolivoljor, Virgin olivoljor, Jungfruoljor
+wikidata:en: Q57656262
 
-< en:Olive oils
+< en:Virgin olive oils
 en: Extra-virgin olive oils, Extra virgin olive oil
 bg: Маслиново масло екстра върджин, Дървено масло екстра върджин, Зехтин екстра върджин
 ca: Oli d'oliva verge extra
 de: Native Olivenöle Extra, Natives Olivenöl Extra
 es: Aceites de oliva virgen extra, Aceite de oliva virgen extra
-fi: Ekstra-neitsytoliiviöljyt
+fi: Ekstra-neitsytoliiviöljyt, Extra-neitsytoliiviöljyt
 fr: Huiles d'olive vierges extra, Huile d'olive vierge extra
 hr: ekstra djevičanska maslinova ulja, ekstra djevičansko maslinovo ulje
 hu: Extra szűz olívaolajok, Extra szűz olívaolaj
 it: Olio extra vergine di oliva
 ja: エキストラヴァージンオリーブオイル
 lt: Pirmo spaudimo alyvuogių aliejai, ypač grynas alyvuogių aliejus
+nb: Extra virgin olivenoljer
 nl: Extra vierge olijfoliën
 pl: Oliwa z oliwek extra virgin
 pt: Azeites virgem extra
 ru: Оливковое масло первого отжима
+sv: Extra jungfruolivoljor, Extra jungfruoljor
 agribalyse_food_code:en: 17270
 ciqual_food_code:en: 17270
 ciqual_food_name:en: Olive oil, extra virgin
 ciqual_food_name:fr: Huile d'olive vierge extra
+description:en: Extra virgin olive oil is the highest grade of virgin olive oil derived by cold mechanical extraction without use of solvents or refining methods.
 expected_ingredients:en: en:olive-oil
 expected_nutriscore_grade:en: b
+wikidata:en: Q14789810
+
+< en:Virgin olive oils
+en: Refined olive oils
+de: Raffinierte Olivenöle, Raffiniertes Olivenöl
+es: Aceites de oliva refinados, Aceites de oliva a partir de aceites de oliva refinados y aceites de oliva vírgenes
+fr: Huiles d'olive raffinées, Huiles d'olive-composées d'huiles d'olive raffinées et d'huiles d'olive vierges
+hr: Rafinirana maslinova ulja
+hu: Finomított olívaolajok
+it: Olio d'oliva raffinato
+lt: Rafinuoti alyvuogių aliejai
+nl: Geraffineerde olijfoliën
+description:en: Refined olive oil is virgin oil refined using charcoal and other chemical and physical filters, methods which do not alter the glyceridic structure.
 
 < en:Olive oils
 en: Olive pomace oils
@@ -60371,26 +60440,16 @@ nl: Vruchtenpulp-olijfoliën
 wikidata:en: Q7087235
 
 < en:Olive oils
-en: Refined olive oils
-de: Raffinierte Olivenöle, Raffiniertes Olivenöl
-es: Aceites de oliva refinados, Aceites de oliva a partir de aceites de oliva refinados y aceites de oliva vírgenes
-fr: Huiles d'olive raffinées, Huiles d'olive-composées d'huiles d'olive raffinées et d'huiles d'olive vierges
-hr: Rafinirana maslinova ulja
-hu: Finomított olívaolajok
-it: Olio d'oliva raffinato
-lt: Rafinuoti alyvuogių aliejai
-nl: Geraffineerde olijfoliën
-
-< en:Olive oils
 en: Olive oil mixes
 fr: Mélanges de huiles d'olives
 hr: Mješavine maslinovog ulja
 nl: Olijfoliemelanges, olijfoliemixes
-#description:en:Olive oils that combine olive oils with multiple processing grades
+description:en: Olive oils that combine olive oils with multiple processing grades
 
 < en:Olive oils
 en: Olive oils from France, French olive oils, Olive oil from France, French olive oil
 bg: Френско дървено масло, френски зехтин
+da: Olivenolier fra Frankrig, Franske olivenolier
 de: Olivenöle aus Frankreich, Französische Olivenöle
 es: Aceites de oliva de Francia
 fi: Ranskalaiset oliiviöljyt
@@ -60400,6 +60459,7 @@ hu: Olívaolajok Franciaországból
 it: Olio d'oliva francese
 lt: Alyvuogių aliejai iš Prancūzijos
 nl: Olijfoliën uit Frankrijk, Olijfolies uit Frankrijk, Franse olijfoliën, Franse olijfolies
+sv: Olivoljor från Frankrike, Franska olivoljor
 # Disabled for safety: origins:en: en:France
 #wikidata:en:
 
@@ -60477,13 +60537,21 @@ nl: Olijfoliën uit de Provence, Olijfolies uit de Provence, Provençaalse olijf
 origins:en: en:france, en:provence
 protected_name_file_number:en: PDO-FR-02421
 protected_name_type:en: pdo
-#wikidata:en:
+wikidata:en: Q3142825
 
 ############ ITALIAN OLIVE OILS
 
+< en:Fats
+en: Italian oils and fats
+da: Italienske olier og fedtstoffer
+fr: Huiles et graisses italiennes
+sv: Italienska oljor och fetter
+
+< en:Italian oils and fats
 < en:Olive oils
 en: Olive oils from Italy, Italian olive oils, Olive oil from Italy, Italian olive oil
 bg: Италианско дървено масло, италиански зехтин
+da: Olivenolier fra Italien, Italienske olivenolier
 de: Olivenöle von Italien
 fi: Italialaiset oliiviöljyt
 fr: Huiles d'olive d'Italie
@@ -60492,8 +60560,15 @@ hu: Olívaolajok Olaszországból
 it: Oli d'oliva dall'Italia
 lt: Alyvuogių aliejai iš Italijos
 nl: Olijfoliën uit Italië, Olijfolies uit Italië, Italiaanse olijfolies, Italiaanse olijfoliën
+sv: Olivoljor från Italien, Italienska olivoljor
 # Disabled for safety: origins:en: en:Italy
 #wikidata:en:
+
+< en:Extra-virgin olive oils
+< en:Olive oils from Italy
+en: Extra-virgin olive oils from Italy, Italian extra-virgin olive oils
+da: Ekstra jomfruolivenolier fra Italien, Italienske ekstra jomfruolivenolier
+sv: Extra jungfruolivoljor från Italien, Italienska extra jungfruolivoljor
 
 < en:Olive oils from Italy
 en: Olive oils from Alto Crotonese
@@ -60505,10 +60580,6 @@ origins:en: en:italy
 protected_name_file_number:en: PDO-IT-0200
 protected_name_type:en: pdo
 #wikidata:en:
-
-< en:Fats
-en: Italian oils and fats
-fr: Huiles et graisses italiennes
 
 < en:Olive oils from Italy
 en: Olive oils from Aprutino Pescarese
@@ -61060,9 +61131,11 @@ protected_name_type:en: pdo
 
 < en:Fats
 en: Greek oils and fats
+da: Græske olier og fedtstoffer
 fr: Huiles et graisses grecques
 hr: Grčka ulja i masti
 lt: Aliejai ir riebalai iš Graikijos
+sv: Grekiska oljor och fetter
 origins:en: en:greece
 #wikidata:en:
 
@@ -61277,7 +61350,9 @@ protected_name_type:en: pgi
 
 < en:Olive oils
 en: Olive oils from Hungary, Hungarian olive oils
+da: Olivenolier fra Ungarn, Ungarnske olivenolier
 nl: Olijfolies uit Hongarije
+sv: Olivoljor från Ungern, Ungerska olivoljor
 
 < en:Olive oils from Hungary
 hu: Őrségi tökmagolaj
@@ -61289,14 +61364,22 @@ protected_name_type:en: pgi
 < en:Olive oils
 en: Olive oils from Spain, Spanish olive oils
 bg: Испанско дървено масло, испански зехтин
+da: Olivenolier fra Spanien, Spanske olivenolier
 de: Olivenöle aus Spanien
 es: Aceites de oliva de España, Aceites de oliva españoles
 fr: Huiles d'olive d'Espagne
 hr: Maslinova ulja iz Španjolske
 lt: Alyvuogių aliejai iš Ispanijos
 nl: Olijfoliën uit Spanje, Olijfolies uit Spanje, Spaanse olijfolies, Spaanse olijfoliën
+sv: Olivoljor från Spanien, Spanska olivoljor
 origins:en: en:spain
 #wikidata:en:
+
+< en:Extra-virgin olive oils
+< en:Olive oils from Spain
+en: Extra-virgin olive oils from Spain, Spanish extra-virgin olive oils
+da: Ekstra jomfruolivenolier fra Spanien, Spanske ekstra jomfruolivenolier
+sv: Extra jungfruolivoljor från Spanien, Spanska extra jungfruolivoljor
 
 # also a pdo hoeny from this region
 < en:Olive oils from Spain
@@ -61694,6 +61777,7 @@ protected_name_type:en: pdo
 < en:Olive oils
 en: Olive oils from Greece, Greek olive oils, Olive oils from Greece, Greek olive oil
 bg: Гръцко дървено масло, гръцки зехтин
+da: Olivenolier fra Grækenland, Græske olivenolier
 de: Olivenöle aus Griechenland
 el: Eλαιόλαδα από την Ελλάδα
 fr: Huiles d'olive de Grèce
@@ -61702,8 +61786,15 @@ hu: Olívaolajok Görögországból
 it: Olio d'oliva greco
 lt: Alyvuogių aliejai iš Graikijos
 nl: Olijfoliën uit Griekenland, Griekse olijfoliën, Olijfolies uit Griekenland, Griekse olijfolies
+sv: Olivoljor från Grekland, Grekiska olivoljor
 origins:en: en:greece
 #wikidata:en:
+
+< en:Extra-virgin olive oils
+< en:Olive oils from Greece
+en: Extra-virgin olive oils from Greece, Greek extra-virgin olive oils
+da: Ekstra jomfruolivenolier fra Grækenland, Græske ekstra jomfruolivenolier
+sv: Extra jungfruolivoljor från Grekland, Grekiska extra jungfruolivoljor
 
 < en:Olive oils from Greece
 en: Olive oils from Agios Mattheos Kerkyras
@@ -62052,6 +62143,7 @@ fr: Huiles d'olive de Portugal
 hr: Maslinova ulja iz portugala
 lt: Alyvuogių aliejai iš Portugalijos
 nl: Olijfoliën uit Portugal, Portugese olijfoliën, Olijfolies uit Portugal, Portugese olijfolies
+sv: Olivoljor från Portugal, Portugisiska olivoljor
 origins:en: en:portugal
 
 < en:Olive oils from Portugal
@@ -62155,47 +62247,58 @@ wikipedia:pt: https://pt.wikipedia.org/wiki/Azeite_de_Trás-os-Montes
 
 < en:Olive oils
 en: Olive oils from Maroc, Maroccan olive oils
+da: Olivenolier fra Marokko, Marokkanske olivenolier
 fr: Huiles d'olive de Maroc
 hr: Marokanska maslinova ulja
 lt: Alyvuogių aliejai iš Maroko
 nl: Olijfoliën uit Marokko, Olijfolies uit Marokko, Marokkaanse olijfolies, Marokkaanse olijfoliën
+sv: Olivoljor från Marocko, Marockanska olivoljor
 origins:en: en:morocco
 
 < en:Olive oils
 en: Olive oils from Tunisia, Tunisian olive oils
+da: Olivenolier fra Tunesien, Tunesiske olivenolier
 fr: Huiles d'olive de Tunisie
 hr: Maslinovo ulje iz tunisa
 lt: Alyvuogių aliejai iš Tuniso
 nl: Olijfoliën uit Tunesië, Olijfolies uit Tunesië, Tunesische olijfolies, Tunesische olijfoliën
+sv: Olivoljor från Tunisien, Tunisiska olivoljor
 origins:en: en:tunisia
 
 < en:Olive oils
 en: Olive oils from Algeria, Algerian olive oils
+da: Olivenolier fra Algeriet, Algeriske olivenolier
 fr: Huiles d'olive d'Algerie
 hr: Maslinova ulja iz alžira
 lt: Alyvuogių aliejai iš Alžyro
 nl: Olijfoliën uit Algerije, Olijfolies uit Algerije, Algeriaanse olijfolies, Algeriaanse olijfoliën
+sv: Olivoljor från Algeriet, Algeriska olivoljor
 origins:en: en:algeria
 
 < en:Olive oils
 en: Olive oils from South Africa, South African olive oils
+da: Olivenolier fra Sydafrika, Sydafrikanske olivenolier
 fr: Huiles d'olive d'Afrique du Sud
 hr: Maslinova ulja iz Južne Afrike
 lt: Alyvuogių aliejai iš Pietų Afrikos
 nl: Olijfoliën uit Zuid-Afrika, Olijfolies uit Zuid-Afrika, Zuid-Afrikaanse olijfolies, Zuid-Afrikaanse olijfoliën
+sv: Olivoljor från Sydafrika, Sydafrikanska olivoljor
 origins:en: en:south-africa
 
 < en:Olive oils
 en: Olive oils from Argentina, Argentinian olive oils
+da: Olivenolier fra Argentina, Argentinske olivenolier
 fr: Huiles d'olive d'Argentine
 hr: Maslinova ulja iz argentine
 lt: Alyvuogių aliejai iš Argentinos
 nl: Olijfoliën uit ZuidArgentina, Olijfolies uit ArgentinaAfrika, Argentijnse olijfolies, Argentijnse olijfoliën
+sv: Olivoljor från Argentina, Argentinska olivoljor
 origins:en: en:argentina
 
 < en:Vegetable oils
 en: Palm oils
 bg: Палмово масло
+da: Palmeolier
 de: Palmöle
 es: Aceites de palma
 fr: Huiles de palme, Huiles de palme alimentaire, Huiles de palm
@@ -62396,6 +62499,7 @@ wikidata:en: Q16642513
 en: Sunflower oils, Sunflower oil
 bg: Слънчогледово олио
 ca: Oli de gira-sol
+da: Solsikkeolier
 de: Sonnenblumenöle
 es: Aceites de girasol, Aceite de girasol
 fi: Auringonkukkaöljyt
@@ -65728,24 +65832,6 @@ it: Alimenti a base vegetale essiccati surgelati
 lt: Šalčiu džiovinti augaliniai maisto produktai, liofilizuoti augaliniai maisto produktai
 nl: Plantaardige gevriesdroogde producten
 
-< en:Frozen foods
-en: Frozen dauphine potatoes
-fr: Pommes dauphine surgelées, Pomme de terre dauphine surgelée
-hr: Smrznuti dauphine krumpir
-lt: Šaldytos dauphine bulvės
-agribalyse_food_code:en: 4020
-ciqual_food_code:en: 4020
-ciqual_food_name:en: Dauphine potato, frozen, raw
-ciqual_food_name:fr: Pomme de terre dauphine, surgelée, crue
-
-< en:Frozen foods
-en: Frozen duchesse potatoes
-fr: Pommes duchesse surgelées, Pomme de terre duchesse surgelée
-agribalyse_food_code:en: 4042
-ciqual_food_code:en: 4042
-ciqual_food_name:en: Duchesse potato, frozen, raw
-ciqual_food_name:fr: Pomme de terre duchesse, surgelée, crue
-
 #generic frozen fried potatoes
 < en:Frozen foods
 en: Frozen fried potatoes
@@ -65873,31 +65959,6 @@ fr: Quartiers de pommes de terre surgelés
 
 < en:Frozen fried potatoes
 fr: Figurines de pommes de terre surgelées
-
-< en:Frozen fried potatoes
-en: Frozen pre-fried mashed potato balls
-fr: Pommes noisettes surgelées, Pommes de terre noisette surgelées
-agribalyse_food_code:en: 4013
-ciqual_food_code:en: 4013
-ciqual_food_name:en: Mashed potato balls pre-fried, frozen, raw
-ciqual_food_name:fr: Pomme de terre noisette, surgelée, crue
-
-< en:Frozen fried potatoes
-< fr:Pommes dauphines
-en: Frozen cooked dauphine potato
-fr: Pommes dauphines surgelées, Pomme de terre dauphine cuite surgelée
-agribalyse_food_code:en: 4021
-ciqual_food_code:en: 4021
-ciqual_food_name:en: Dauphine potato, frozen, cooked
-ciqual_food_name:fr: Pomme de terre dauphine, surgelée, cuite
-
-< en:Frozen fried potatoes
-en: Frozen cooked duchesse potato
-fr: Pommes duchesses surgelées, Pomme de terre duchesse cuite surgelée
-agribalyse_food_code:en: 4034
-ciqual_food_code:en: 4034
-ciqual_food_name:en: Duchesse potato, frozen, cooked
-ciqual_food_name:fr: Pomme de terre duchesse, surgelée, cuite
 
 < en:Desserts
 < en:Frozen foods
@@ -77116,6 +77177,7 @@ ru: Продукты из мяса
 sv: Kött och dess produkter, Köttbaserade produkter
 tr: Et ürünleri
 zh: 肉制品
+food_of_animal_origin:en: yes
 wikidata:en: Q1427844
 
 < en:Meats and their products
@@ -79933,7 +79995,7 @@ ciqual_food_name:en: Croissant filled with ham and cheese
 ciqual_food_name:fr: Croissant au jambon fromage
 
 < en:Puff pastry meals
-en: Vol-au-vent, Filled vol-au-vent
+en: Vol-au-vent in puff pastries, Filled vol-au-vent
 de: Vol-au-vent, Königin-Pasteten, Pastetli, Bouchée
 fr: Bouchée à la reine, Bouchée à la reine garnie
 hr: Vol-au-vent
@@ -79943,19 +80005,26 @@ ciqual_food_name:en: Vol-au-vent, filled (average)
 ciqual_food_name:fr: Bouchée à la reine, garnie (aliment moyen)
 wikidata:en: Q304868
 
-< en:Vol-au-vent
+< en:Vol-au-vent in puff pastries
 en: Vol-au-vent with fish and seafood
 fr: Bouchées à la reine au poisson et aux fruits de mer, Bouchées à la reine au poisson, Bouchées à la reine aux fruits de mer
 agribalyse_food_code:en: 25503
 ciqual_food_code:en: 25503
 ciqual_food_name:en: Vol-au-vent with fish and seafood
 
-< en:Vol-au-vent
+< en:Vol-au-vent in puff pastries
 en: Vol-au-vent with meat, Vol-au-vent with poultry, Vol-au-vent with quenelle
 fr: Bouchées à la reine à la viande, Bouchée à la reine à la viande
 agribalyse_food_code:en: 25412
 ciqual_food_code:en: 25412
 ciqual_food_name:en: Vol-au-vent, with meat/poultry/quenelle
+
+< en:Meals with meat
+en: Vol-au-vent in sauce, Vol-au-vent
+fr: Vol-au-vent en sauce
+
+< en:Meals with meat
+fr: Garnitures pour bouchées à reine
 
 < en:Puff pastry meals
 fr: Paniers feuilletés
@@ -83833,6 +83902,12 @@ fr: Langòs surgelés
 en: Filled pinsa
 it: Pinsa farcita
 
+< en:Frozen foods
+< en:Meals
+en: Frozen topped baguettes
+de: Tiefgefrorene belegte Baguettes
+fr: Baguettes garnies surgelées
+
 # don't put in meals because this category contains "mini appetizer pizzas"
 en: Pizzas pies and quiches, Pizza pies and quiches
 bg: Пица и киш
@@ -85275,6 +85350,36 @@ ciqual_food_code:en: 6260
 ciqual_food_name:en: Burger, beef based, 15% fat, raw
 ciqual_food_name:fr: Haché à base de bœuf ou Préparation de viande hachée de boeuf, 15% MG, cru
 
+< en:Meats and their products
+en: Snails and their products
+fr: Escargots et dérivés
+
+< en:Meat preparations
+< en:Snails and their products
+en: Snails preparations
+es: Preparado de caracoles
+fi: Etanavalmisteet
+hr: Preparati od puževa
+lt: Sraigių ruošiniai
+nl: Producten met slakken
+zh: 蜗牛准备材料
+
+< en:Puff pastry appetizers
+< en:Snails preparations
+en: Mini appetizer puff pastries with snails
+fr: Mini feuilletés apéritifs aux escargots
+
+< en:Puff pastry meals
+< en:Snails preparations
+en: Large puff pastries with snails, Snails in puff pastry
+fr: Grands feuilletés aux escargots, Feuilleté aux escargots
+hr: Pužići u lisnatom tijestu
+lt: Sraigės sloksniuotoje tešloje
+agribalyse_food_code:en: 25399
+ciqual_food_code:en: 25399
+ciqual_food_name:en: Snails in puff pastry
+ciqual_food_name:fr: Feuilleté aux escargots
+
 < en:Meats
 en: Snails
 bg: Охлюви
@@ -85300,9 +85405,32 @@ wikidata:en: Q308841
 
 < en:Snails
 en: Prepared snails
+fr: Escargots préparés
 gpc_category_code:en: 10005776
 gpc_category_description:en: Definition: Includes products from animals of the species Helix aspersa that have been subjected to one or more further manufacturing processes such as being cooked, dried, cured, ground, or reformed. Definition Excludes: Excludes Land Snail - Unprepared/Unprocessed.
 gpc_category_name:en: Land Snail - Prepared/Processed
+
+< en: Prepared snails
+en: Cooked snails in parsley butter
+fr: Escargot en sauce au beurre persillé cuit
+hr: Kuhani puževi na peršinovom maslacu
+lt: Sraigės virtame petražolių svieste
+agribalyse_food_code:en: 10042
+ciqual_food_code:en: 10042
+ciqual_food_name:en: Snail in parsley butter, cooked
+ciqual_food_name:fr: Escargot en sauce au beurre persillé, cuit
+
+< en:Cooked snails in parsley butter
+< en:Frozen snails
+en: Frozen cooked snails in parsley butter
+fr: Escargots en sauce au beurre persillé cuits surgelés
+
+< en:Frozen snails
+en: Frozen snails in parsley butter
+fr: Escargots en sauce au beurre persillé surgelés
+agribalyse_proxy_food_code:en: 10042
+agribalyse_proxy_food_name:en: Snail in parsley butter, cooked
+agribalyse_proxy_food_name:fr: Escargot en sauce au beurre persillé, cuit
 
 < en:Snails
 en: Snails from Burgundy
@@ -85326,49 +85454,6 @@ hr: Konzervirani puževi
 lt: Konservuotos sraigės
 nl: Slakken in blik/pot
 zh: 罐装蜗牛, 罐装田螺
-
-< en:Meat preparations
-< en:Snails
-en: Snails preparations
-es: Preparado de caracoles
-fi: Etanavalmisteet
-fr: Escargots préparés
-hr: Preparati od puževa
-lt: Sraigių ruošiniai
-nl: Producten met slakken
-zh: 蜗牛准备材料
-
-< en:Snails
-en: Cooked snails in parsley butter
-fr: Escargot en sauce au beurre persillé cuit
-hr: Kuhani puževi na peršinovom maslacu
-lt: Sraigės virtame petražolių svieste
-agribalyse_food_code:en: 10042
-ciqual_food_code:en: 10042
-ciqual_food_name:en: Snail in parsley butter, cooked
-ciqual_food_name:fr: Escargot en sauce au beurre persillé, cuit
-
-< en:Cooked snails in parsley butter
-< en:Frozen snails
-en: Frozen cooked snails in parsley butter
-fr: Escargots en sauce au beurre persillé cuits surgelés
-
-< en:Frozen snails
-en: Frozen snails in parsley butter
-fr: Escargots en sauce au beurre persillé surgelés
-agribalyse_proxy_food_code:en: 10042
-agribalyse_proxy_food_name:en: Snail in parsley butter, cooked
-agribalyse_proxy_food_name:fr: Escargot en sauce au beurre persillé, cuit
-
-< en:Snails
-en: Snails in puff pastry
-fr: Feuilleté aux escargots
-hr: Pužići u lisnatom tijestu
-lt: Sraigės sloksniuotoje tešloje
-agribalyse_food_code:en: 25399
-ciqual_food_code:en: 25399
-ciqual_food_name:en: Snails in puff pastry
-ciqual_food_name:fr: Feuilleté aux escargots
 
 < en:Snails
 en: Cooked snails, Cooked snail without added fat
@@ -96851,6 +96936,21 @@ it: Tagliatelle alla bolognese
 ja: タリアテッレ・アッラ・ボロネーゼ
 nl: Bolognese tagliatelle
 
+< en:Bolognese-style pasta
+en: Bolognese linguine
+de: Bolognese-Linguine
+es: Linguine a la boloñesa
+fr: Linguine à la bolognaise
+hr: Bolognese linguine
+it: Linguine alla bolognese
+nl: Bolognese linguine
+sv: Linguine bolognese
+
+< en:Bolognese linguine
+< en:Frozen pasta dishes
+en: Frozen bolognese linguine
+sv: Frussen linguine bolognese
+
 < en:Pasta dishes
 en: Pasta with fish
 de: Nudeln mit Fisch
@@ -97268,6 +97368,11 @@ ru: Блюда из макарон
 sv: Pastarätter
 intake24_category_code:en: PTDH
 wikidata:en: Q18679685
+
+< en:Frozen meals
+< en:Pasta dishes
+en: Frozen pasta dishes, Frozen meals with pasta
+sv: Frusna pastarätter
 
 < en:Pasta dishes
 en: Pot noodles
@@ -97814,10 +97919,9 @@ ja: コーヒーエクレア
 nl: Koffie-eclairs
 
 < en:Pastries
-en: Open pies, Open pie, Flan tart with eggs
+en: Flan tarts, Flan tart with eggs
+xx: Flans pâtissiers
 fr: Flans pâtissiers, flan pâtissier, Flan pâtissier aux oeufs, Flan à la parisienne
-hr: Otvorene pite
-nl: Puddingtaarten
 agribalyse_food_code:en: 23525
 ciqual_food_code:en: 23525
 ciqual_food_name:en: Flan tart with eggs
@@ -99643,6 +99747,7 @@ th: อาหารทะเล
 tr: Deniz ürünleri
 zh: 海鲜
 food_groups:en: en:fish-and-seafood
+food_of_animal_origin:en: yes
 google_product_taxonomy_id:en: 4629
 intake24_category_code:en: C002
 pnns_group_2:en: Fish and seafood
@@ -107890,6 +107995,11 @@ nl: Ingemaakte jalapeño peper
 < en:Sliced jalapeños
 en: Pickled sliced jalapeños
 
+< en:Friggitelli
+< en:Pickled peppers
+en: Pickled friggitelli
+sv: Inlagta feferoni
+
 < en:Mushrooms
 < en:Vegetable pickles
 en: Pickled Mushrooms, Mushrooms in oil
@@ -110320,6 +110430,10 @@ agribalyse_proxy_food_name:fr: Laitue iceberg, crue
 ciqual_food_code:en: 20123
 ciqual_food_name:fr: Batavia, crue
 
+< en:Lettuces
+en: Frillice iceberg lettuces, Frillice lettuces
+sv: Krispsallader, Krispsallad
+
 < en:Culinary plants
 < en:Onions and their products
 #<en:ingredient:en:vegetable
@@ -110591,7 +110705,7 @@ fr: Poivrons jaunes
 he: גמבות צהובות, פלפלים צהובים
 hr: Žute slatke paprike
 ja: 黄ピーマン
-nl: Paprikas(geel), Gele paprikas
+nl: Paprikas (geel), Gele paprikas, Paprikas(geel)
 agribalyse_food_code:en: 20168
 ciqual_food_code:en: 20168
 ciqual_food_name:en: Sweet pepper, yellow, raw
@@ -110692,6 +110806,11 @@ en: Sliced jalapeños
 da: Jalapeño i skiver
 fi: Viipaloitu jalapeño
 sv: Skivad jalapeño
+
+< en:Peppers
+en: Friggitelli
+sv: Feferoni, Peperoni
+wikidata:en: Q16861000
 
 < en:Sweet Peppers
 fr: Le Pepper Mont Jolien
@@ -114907,7 +115026,7 @@ hr: Ocat od jabukovače
 hu: Almaecet
 it: Aceto di mele, Aceto di sidro, Aceto di sidro di mele, Aceti di sidro, Aceti di sidro di mele
 ja: リンゴ酢, りんご酢, アップルサイダービネガー
-nl: Ciderazijnen
+nl: Ciderazijnen, Appelazijnen
 pl: Ocet jabłkowy
 agribalyse_food_code:en: 11090
 ciqual_food_code:en: 11090
@@ -117489,7 +117608,7 @@ en: Mini appetizer croissants
 fr: Mini croissants apéritifs
 
 < en:Puff pastry appetizers
-en: Sausage rolls
+en: Mini sausage rolls, Sausage rolls
 de: Wurstrollen
 fr: Roulés à la saucisse, roulés aux saucisses, feuilletés à la saucisse
 hr: Kolutići kobasica
@@ -117497,7 +117616,11 @@ nl: Saucijzenbroodjes
 food_groups:en: en:salty-and-fatty-products
 pnns_group_2:en: Salty and fatty products
 
-< en:Puff pastry appetizers
+< en:Appetizers
+en: Choux pastry appetizers
+fr: Choux apéritifs
+
+< en:Choux pastry appetizers
 en: Small cheese chou, Small cheese pastry puff, Gougère
 fr: Gougères, Gougère
 agribalyse_food_code:en: 25437
@@ -118446,6 +118569,7 @@ nl: Vis vlees en eieren
 pt: Peixes e carnes e ovos
 ru: Рыба - мясо и яйца
 food_groups:en: en:fish-meat-eggs
+food_of_animal_origin:en: yes
 pnns_group_1:en: Fish Meat Eggs
 
 < en:Fish and meat and eggs
@@ -119961,7 +120085,7 @@ nl_be: Puree, Moes
 ru: Пюре
 wikidata:en: Q636056
 
-< en:Cereals and potatoes
+< en:Potatoes and their products
 en: Prepared potatoes
 fr: Pommes de terre préparées
 hr: Pripremljeni krumpir
@@ -120073,7 +120197,7 @@ ciqual_food_code:en: 4014
 ciqual_food_name:en: Potato, steamed, vacuum-packed
 ciqual_food_name:fr: Pomme de terre vapeur, sous vide
 
-< en:Cereals and potatoes
+< en:Potatoes and their products
 en: Potato preparations
 de: Kartoffelzubereitungen
 fi: Perunavalmisteet
@@ -121056,15 +121180,6 @@ hr: Hrana i piće za noć vještica
 it: Alimenti e bevande per Halloween
 nl: Halloween-levensmiddelen, Halloween-levensmiddel
 
-< en:Puff pastry meals
-en: Puff pastries with ham and cheese, puff pastry with ham and cheese
-fr: Feuilletés jambon fromage
-hr: Lisnato pecivo sa šunkom i sirom
-nl: Ham-kaas-soesjes
-agribalyse_food_code:en: 8395
-ciqual_food_code:en: 8395
-ciqual_food_name:en: Ham, in a pastry crusty
-
 < en:Meals
 en: Cheese soufflés, Cheese soufflé
 fr: Soufflés au fromage, Soufflé au fromage
@@ -121083,15 +121198,11 @@ wikidata:en: Q5503338
 
 < en:Friands
 < en:Puff pastry meals
-en: Sausage friands, Puff pastries with sausage, puff pastry with sausage
+en: Large sausage rolls, Sausage friands, Puff pastries with sausage, puff pastry with sausage
 fr: Friands à la saucisse
 hr: Prijatelji kobasica
 nl: Worst friands
 #wikidata:en:
-
-< en:Sausage friands
-en: Frozen sausage friands
-fr: Friands à la saucisse surgelés
 
 < en:Friands
 < en:Puff pastry meals
@@ -121710,27 +121821,19 @@ hr: Lisnato pecivo od povrća
 nl: Soesjes met groente
 
 < en:Friands
-< en:Puff pastry meals
-en: Ham and cheese in puffed pastry
-fr: Feuilleté jambon fromage
+en: Puff pastries with ham and cheese, puff pastry with ham and cheese, Ham and cheese in puffed pastry
+fr: Feuilletés jambon fromage, Feuilleté jambon fromage
+hr: Lisnato pecivo sa šunkom i sirom
+nl: Ham-kaas-soesjes
 agribalyse_food_code:en: 25508
 ciqual_food_code:en: 25508
 ciqual_food_name:en: Ham and cheese in puffed pastry
 
 < en:Friands
-< en:Puff pastry meals
 en: Fish or seafood in puff pastry
 fr: Feuilleté au poisson et/ou fruits de mer
 ciqual_food_code:en: 25151
 ciqual_food_name:en: Fish or seafood in puff pastry
-
-en: Brick sheets, Baked filo pastry sheets without fat, Baked phyllo pastry sheets without fat
-fr: Feuilles de brick, Feuilles de brick cuite à sec sans matière grasse
-hr: Limovi od opeke
-nl: Brick vellen
-ciqual_food_code:en: 23430
-ciqual_food_name:en: Filo or phyllo pastry sheets, baked, without fat
-ciqual_food_name:fr: Feuille de brick, cuite à sec sans matière grasse
 
 < en:Meals
 en: Khatfa, Phyllo pastry, Filo pastry

@@ -442,7 +442,7 @@ sub _try_normalize_code_gs1 ($code) {
 				$ai_data_str = $encoder->ai_data_str();
 			}
 		}
-		elsif ($code =~ /^http?s:\/\/.+/) {
+		elsif ($code =~ /^http?s:\/\/.+/i) {
 			# Code could be a GS1 unbracketed AI element string
 			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
 			if ($encoder->data_str($code)) {
@@ -2996,12 +2996,14 @@ C<ignore> alone, ignore every edits.
 You can also have rules of the form
 C<ignore_FIELD> and C<warn_FIELD> which will ignore (or notify) edits on the specific field.
 
+C<block_FIELD> will block any edit if the field is present or match a condition (see below).
+
 Note that ignore rules also create a notification.
 
 For nutriments use C<nutriments_NUTRIMENT_NAME> for C<FIELD>.
 
 You can guard the rule on the field with a condition:
-C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
+C<block_if_CONDITION_FIELD>, C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
 This time it's to check the value the user want's to add.
 
 C<CONDITION> is one of the following:
@@ -3155,8 +3157,8 @@ sub process_product_edit_rules ($product_ref) {
 						$proceed_with_edit = 0;
 					}
 					# rules with conditions
-					elsif (
-						$action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match))?_?(.*)$/)
+					elsif ($action
+						=~ /^(ignore|warn|block)(_if_(existing|0|greater|lesser|equal|match|regexp_match))?_?(.*)$/)
 					{
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
@@ -3289,6 +3291,10 @@ sub process_product_edit_rules ($product_ref) {
 									$log->info("edit_rule: Removed $default_field") if $log->is_info();
 								}
 							}
+							elsif ($type eq 'block') {
+								$log->info("block action => do not proceed with edits") if $log->is_debug();
+								$proceed_with_edit = 0;
+							}
 						}
 
 					}
@@ -3335,7 +3341,6 @@ sub process_product_edit_rules ($product_ref) {
 					}
 				}
 			}
-
 		}
 	}
 

@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -1415,12 +1415,12 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "پیدا کردن"
+msgstr ""
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr "/پیدا کردن"
+msgstr ""
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -3702,6 +3702,10 @@ msgstr ""
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
+
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "کامل بودن کیفیت داده‌ها"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -6114,6 +6118,14 @@ msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
 
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "کامل بودن کیفیت داده‌ها"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "برخی اطلاعات در مورد کامل بودن کیفیت داده‌ها در این محصول"
+
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
 msgstr ""
@@ -7598,4 +7610,64 @@ msgstr "ما متوجه نشدیم: {unwanted_ingredients}. ممکن است بر
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "این ترجیحات بر اساس درک Open Food Facts از لیست مواد تشکیل دهنده است و همیشه این احتمال وجود دارد که دقیق یا کامل نباشد، همیشه خودتان محصول را بررسی کنید."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Fingerprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "سیگار کشیدن باعث مرگ می‌شود"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "دخانیات به طور جدی به سلامتی آسیب می‌رساند. شروع نکنید. همین حالا ترک کنید."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "سیگار کشیدن بسیار اعتیادآور است. شروع نکنید. سیگار کشیدن کشنده است - همین حالا ترک کنید. سیگار کشیدن شریان‌ها را مسدود می‌کند و باعث حملات قلبی و سکته مغزی می‌شود. سیگار کشیدن باعث سرطان ریه کشنده می‌شود. سیگار کشیدن در دوران بارداری به نوزاد شما آسیب می‌رساند. از کودکان محافظت کنید: آنها را مجبور به استنشاق دود خود نکنید. پزشک یا داروساز شما می‌تواند به شما در ترک سیگار کمک کند. سیگار کشیدن ممکن است جریان خون را کاهش داده و باعث ناتوانی جنسی شود. سیگار کشیدن باعث پیری پوست می‌شود. سیگار کشیدن می‌تواند به اسپرم آسیب برساند و باروری را کاهش دهد. دود حاوی بنزن، نیتروزامین، فرمالدئید و سیانید هیدروژن است."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "قیمت عمومی"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "۳.۵۰ یورو، ۲.۹۹ دلار آمریکا، ۴.۰۰ پوند انگلیس"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "قیمت خرده فروشی پیشنهادی سازنده (MSRP)، بدون احتساب تخفیف‌ها و تبلیغات، همانطور که در بسته بندی محصول یا سایت سازنده ذکر شده است (شامل یا بدون احتساب مالیات بر اساس قانون). اگر قیمت‌ها به چندین ارز ذکر شده است، از لیست جدا شده با کاما استفاده کنید."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "ملک شخصی‌سازی‌شده"
 
