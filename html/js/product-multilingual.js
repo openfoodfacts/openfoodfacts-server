@@ -20,7 +20,7 @@
 
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
-/*global lang admin initializeTagifyInput other_nutrients*/
+/*global lang admin initializeTagifyInput other_nutrients:writable*/ // we change other_nutrients to remove nutrients when they are added
 /*exported upload_image update_image update_nutrition_image_copy*/
 
 //Polyfill, just in case
