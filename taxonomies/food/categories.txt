@@ -33735,7 +33735,6 @@ nl: Gedroogde drankpoeders
 pt: Bebidas desidratadas
 ru: Растворимые напитки
 
-< en:Cereals and potatoes
 < en:Dried products to be rehydrated
 < en:Mashed potatoes
 en: Instant mashed potatoes, dehydrated mashed potatoes
@@ -33753,7 +33752,6 @@ ciqual_proxy_food_name:en: Potato puree, made from flakes, reconstituted with se
 ciqual_proxy_food_name:fr: Pomme de terre, purée à base de flocons, reconstituée avec lait demi-écrémé et eau, non salée
 wikidata:en: Q3411001
 
-< en:Cereals and potatoes
 < en:Mashed potatoes
 en: Potato puree made from flakes reconstituted with whole milk with added fat
 fr: Purée de pommes de terre à base de flocons reconstituée avec lait entier
@@ -33762,7 +33760,6 @@ ciqual_food_code:en: 4017
 ciqual_food_name:en: Potato puree, made from flakes, reconstituted with whole milk, with added fat
 ciqual_food_name:fr: Pomme de terre, purée à base de flocons, reconstituée avec lait entier, matière grasse
 
-< en:Cereals and potatoes
 < en:Mashed potatoes
 en: Unsalted potato puree with milk and butter
 fr: Purée de pommes de terre non salée au lait et au beurre
@@ -33771,7 +33768,6 @@ ciqual_food_code:en: 4018
 ciqual_food_name:en: Potato puree, with milk and butter, unsalted
 ciqual_food_name:fr: Pomme de terre, purée, avec lait et beurre, non salée
 
-< en:Cereals and potatoes
 < en:Mashed potatoes
 en: Unsalted Potato puree made from flakes reconstituted with semi-skimmed milk and water
 fr: Purée de pommes de terre non salée à base de flocons reconstituée avec lait demi-écrémé et eau
@@ -33789,7 +33785,6 @@ ciqual_food_code:en: 4022
 ciqual_food_name:en: Potato flakes, dehydrated, plain
 ciqual_food_name:fr: Pomme de terre, flocons déshydratés, nature
 
-< en:Cereals and potatoes
 < en:Dried products to be rehydrated
 < en:Mashed potatoes
 en: Dehydrated potato flakes with milk, Dehydrated potato flakes with cream
@@ -33798,14 +33793,6 @@ agribalyse_food_code:en: 4016
 ciqual_food_code:en: 4016
 ciqual_food_name:en: Potato flakes, dehydrated, with milk or cream
 ciqual_food_name:fr: Pomme de terre, flocons déshydratés, au lait ou à la crème
-
-< en:Mashed potatoes
-en: Sweet potato puree cooked with cream
-fr: Purée de patates douces cuisinée à la crème, Purée de patate douce cuisinée à la crème
-agribalyse_food_code:en: 4103
-ciqual_food_code:en: 4103
-ciqual_food_name:en: Sweet potato, puree, cooked with cream
-ciqual_food_name:fr: Patate douce, purée, cuisinée à la crème
 
 
 # Biscuits and cakes
@@ -34930,7 +34917,7 @@ ru: Хлебные продукты
 sv: Panerade produkter
 
 < en:Breaded products
-< en:Cheeses
+< en:Cheese preparations
 en: Breaded cheeses
 de: Panierter Käse
 fr: Fromages panés
@@ -44040,6 +44027,7 @@ food_groups:en: en:appetizers
 pnns_group_2:en: Appetizers
 wikidata:en: Q220964
 
+< en:Breaded products
 < en:Salty snacks
 en: Arancini
 xx: Arancini
@@ -44170,8 +44158,8 @@ en: Lentil Crisps
 fr: Chips de lentilles
 nl: Linzenchips
 
-< en:Cereals and potatoes
 < en:Crisps
+< en:Potatoes and their products
 en: Potato crisps, potato chips
 bg: Картофен чипс
 ca: Xips de patata
@@ -44470,6 +44458,19 @@ wikidata:en: Q1524389
 en: Flavoured corn crisps, Flavoured corn chips, Flavoured tortilla chips
 fr: Chips de maïs aromatisées
 
+< en:Cereals and potatoes
+< en:Chips and fries
+en: Sweet potato fries
+Fr: Frites de patate douce
+
+< en:Cereals and potatoes
+en: Mashed sweet potatoes, Sweet potato puree cooked with cream
+fr: Purées de patates douces, Purée de patates douces cuisinée à la crème, Purée de patate douce cuisinée à la crème
+agribalyse_food_code:en: 4103
+ciqual_food_code:en: 4103
+ciqual_food_name:en: Sweet potato, puree, cooked with cream
+ciqual_food_name:fr: Patate douce, purée, cuisinée à la crème
+
 < en:Chips and fries
 en: Fries
 bg: Пържени картофи
@@ -44486,17 +44487,49 @@ google_product_taxonomy_id:en: 2392
 intake24_category_code:en: CHIP
 wikidata:en: Q152088
 
+< en: Potato preparations
 < en:Chips and fries
+xx: Pommes noisettes
 bg: Картофени ноазети
 fr: Pommes noisettes
 wikidata:en: Q2244571
 
+< en:Frozen fried potatoes
+< xx:Pommes noisettes
+en: Frozen pommes noisettes, Frozen pre-fried mashed potato balls
+fr: Pommes noisettes surgelées, Pommes de terre noisette surgelées
+agribalyse_food_code:en: 4013
+ciqual_food_code:en: 4013
+ciqual_food_name:en: Mashed potato balls pre-fried, frozen, raw
+ciqual_food_name:fr: Pomme de terre noisette, surgelée, crue
+
 < en:Chips and fries
+< en:Potato preparations
+xx: Pommes dauphines
 fr: Pommes dauphines
 agribalyse_proxy_food_code:en: 4021
 agribalyse_proxy_food_name:en: Dauphine potato, frozen, cooked
 agribalyse_proxy_food_name:fr: Pomme de terre dauphine, surgelée, cuite
 wikidata:en: Q3396004
+
+< en:Frozen fried potatoes
+< xx:Pommes dauphines
+en: Frozen pommes dauphines, Frozen dauphine potatoes, Frozen cooked dauphine potato
+fr: Pommes dauphines surgelées, Pomme de terre dauphine surgelée, Pomme de terre dauphine cuite surgelée
+hr: Smrznuti dauphine krumpir
+lt: Šaldytos dauphine bulvės
+agribalyse_food_code:en: 4021
+ciqual_food_code:en: 4021
+ciqual_food_name:en: Dauphine potato, frozen, cooked
+ciqual_food_name:fr: Pomme de terre dauphine, surgelée, cuite
+
+< en:Frozen fried potatoes
+en: Frozen duchesse potatoes, Frozen cooked duchesse potato
+fr: Pommes duchesses surgelées, Pomme de terre duchesse surgelée, Pomme de terre duchesse cuite surgelée
+agribalyse_food_code:en: 4034
+ciqual_food_code:en: 4034
+ciqual_food_name:en: Duchesse potato, frozen, cooked
+ciqual_food_name:fr: Pomme de terre duchesse, surgelée, cuite
 
 < en:Fries
 en: Takeaway fries
@@ -47857,7 +47890,7 @@ ciqual_food_name:en: Fermented milk or dairy specialty, yogurt type, plain, with
 ciqual_food_name:fr: Lait fermenté ou spécialité laitière type yaourt, nature, au bifidus
 
 < en:Fermented dairy desserts
-en: Faiselles, Drained soft fresh cheese around 6% fat
+en: Faisselles, Drained soft fresh cheese around 6% fat, Faiselles
 fr: Faisselles
 agribalyse_food_code:en: 19641
 ciqual_food_code:en: 19641
@@ -65806,24 +65839,6 @@ it: Alimenti a base vegetale essiccati surgelati
 lt: Šalčiu džiovinti augaliniai maisto produktai, liofilizuoti augaliniai maisto produktai
 nl: Plantaardige gevriesdroogde producten
 
-< en:Frozen foods
-en: Frozen dauphine potatoes
-fr: Pommes dauphine surgelées, Pomme de terre dauphine surgelée
-hr: Smrznuti dauphine krumpir
-lt: Šaldytos dauphine bulvės
-agribalyse_food_code:en: 4020
-ciqual_food_code:en: 4020
-ciqual_food_name:en: Dauphine potato, frozen, raw
-ciqual_food_name:fr: Pomme de terre dauphine, surgelée, crue
-
-< en:Frozen foods
-en: Frozen duchesse potatoes
-fr: Pommes duchesse surgelées, Pomme de terre duchesse surgelée
-agribalyse_food_code:en: 4042
-ciqual_food_code:en: 4042
-ciqual_food_name:en: Duchesse potato, frozen, raw
-ciqual_food_name:fr: Pomme de terre duchesse, surgelée, crue
-
 #generic frozen fried potatoes
 < en:Frozen foods
 en: Frozen fried potatoes
@@ -65951,31 +65966,6 @@ fr: Quartiers de pommes de terre surgelés
 
 < en:Frozen fried potatoes
 fr: Figurines de pommes de terre surgelées
-
-< en:Frozen fried potatoes
-en: Frozen pre-fried mashed potato balls
-fr: Pommes noisettes surgelées, Pommes de terre noisette surgelées
-agribalyse_food_code:en: 4013
-ciqual_food_code:en: 4013
-ciqual_food_name:en: Mashed potato balls pre-fried, frozen, raw
-ciqual_food_name:fr: Pomme de terre noisette, surgelée, crue
-
-< en:Frozen fried potatoes
-< fr:Pommes dauphines
-en: Frozen cooked dauphine potato
-fr: Pommes dauphines surgelées, Pomme de terre dauphine cuite surgelée
-agribalyse_food_code:en: 4021
-ciqual_food_code:en: 4021
-ciqual_food_name:en: Dauphine potato, frozen, cooked
-ciqual_food_name:fr: Pomme de terre dauphine, surgelée, cuite
-
-< en:Frozen fried potatoes
-en: Frozen cooked duchesse potato
-fr: Pommes duchesses surgelées, Pomme de terre duchesse cuite surgelée
-agribalyse_food_code:en: 4034
-ciqual_food_code:en: 4034
-ciqual_food_name:en: Duchesse potato, frozen, cooked
-ciqual_food_name:fr: Pomme de terre duchesse, surgelée, cuite
 
 < en:Desserts
 < en:Frozen foods
@@ -97939,10 +97929,9 @@ ja: コーヒーエクレア
 nl: Koffie-eclairs
 
 < en:Pastries
-en: Open pies, Open pie, Flan tart with eggs
+en: Flan tarts, Flan tart with eggs
+xx: Flans pâtissiers
 fr: Flans pâtissiers, flan pâtissier, Flan pâtissier aux oeufs, Flan à la parisienne
-hr: Otvorene pite
-nl: Puddingtaarten
 agribalyse_food_code:en: 23525
 ciqual_food_code:en: 23525
 ciqual_food_name:en: Flan tart with eggs
@@ -108016,6 +108005,11 @@ nl: Ingemaakte jalapeño peper
 < en:Sliced jalapeños
 en: Pickled sliced jalapeños
 
+< en:Friggitelli
+< en:Pickled peppers
+en: Pickled friggitelli
+sv: Inlagta feferoni
+
 < en:Mushrooms
 < en:Vegetable pickles
 en: Pickled Mushrooms, Mushrooms in oil
@@ -110822,6 +110816,11 @@ en: Sliced jalapeños
 da: Jalapeño i skiver
 fi: Viipaloitu jalapeño
 sv: Skivad jalapeño
+
+< en:Peppers
+en: Friggitelli
+sv: Feferoni, Peperoni
+wikidata:en: Q16861000
 
 < en:Sweet Peppers
 fr: Le Pepper Mont Jolien
@@ -117628,7 +117627,11 @@ nl: Saucijzenbroodjes
 food_groups:en: en:salty-and-fatty-products
 pnns_group_2:en: Salty and fatty products
 
-< en:Puff pastry appetizers
+< en:Appetizers
+en: Choux pastry appetizers
+fr: Choux apéritifs
+
+< en:Choux pastry appetizers
 en: Small cheese chou, Small cheese pastry puff, Gougère
 fr: Gougères, Gougère
 agribalyse_food_code:en: 25437
@@ -120093,7 +120096,7 @@ nl_be: Puree, Moes
 ru: Пюре
 wikidata:en: Q636056
 
-< en:Cereals and potatoes
+< en:Potatoes and their products
 en: Prepared potatoes
 fr: Pommes de terre préparées
 hr: Pripremljeni krumpir
@@ -120205,7 +120208,7 @@ ciqual_food_code:en: 4014
 ciqual_food_name:en: Potato, steamed, vacuum-packed
 ciqual_food_name:fr: Pomme de terre vapeur, sous vide
 
-< en:Cereals and potatoes
+< en:Potatoes and their products
 en: Potato preparations
 de: Kartoffelzubereitungen
 fi: Perunavalmisteet
