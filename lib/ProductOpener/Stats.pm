@@ -58,6 +58,10 @@ use ProductOpener::Store qw(retrieve);
 
 =head2 add_product_value_to_stats ($values_ref, $key, $value)
 
+This build a collection (C<$value_ref>) were for each nutrients (or other numeric attribute), C<$key>, we store the accumulate values for that nutrient (C<s>), number of instances <n> and each values C<array>).
+
+We will then pass C<$values_ref> to C<compute_stats_for_products>.
+
 =cut
 
 sub add_product_value_to_stats ($values_ref, $key, $value) {
@@ -86,7 +90,10 @@ Where we will store the stats.
 
 =head4 Values reference $values_ref
 
-Values for some nutrients (or other numeric values).
+Values for some nutrients (or other numeric values),
+with accumulated values and number of products considered
+(it is different from C<$n> as some products might not have a value).
+See C<add_product_value_to_stats>
 
 =head4 Total number of products $count
 
