@@ -378,41 +378,48 @@ build_all_taxonomies(0);
 $ProductOpener::Display::nutriment_table = 'off_europe';
 
 # populate the hash for the comparison column tests
-%ProductOpener::Food::categories_nutriments_per_country = (
+%ProductOpener::Stats::categories_stats_per_country = (
 	'fr' => {
 		'fr:pates-a-tartiner' => {
-			stats => {
-				energy_100g => 2450,
-				fat_100g => 20,
-				'saturated-fat_100g' => 5,
-				sugars_100g => 30,
-				salt_100g => 1.2,
-			},
-			nutriments => {
-				energy_100g => 10,
-				fat_100g => 20,
-				"saturated-fats_100g" => 30,
-				sugars_100g => 40,
-				salt_100g => 50
-			},
+			stats => 1,
+			id => 'fr:pates-a-tartiner',
 			count => 100,
 			n => 1,
+			values => {
+				energy => {mean => 10},
+				fat => {mean => 20},
+				"saturated-fats" => {mean => 30},
+				sugars => {mean => 40},
+				salt => {mean => 50}
+			},
 		},
 		'fr:boissons' => {
-			energy_100g => 50,
-			fat_100g => 0,
-			'saturated-fat_100g' => 0,
-			sugars_100g => 12,
-			salt_100g => 0,
+			stats => 1,
+			id => 'fr:boissons',
+			count => 50,
+			n => 1,
+			values => {
+				energy => {mean => 50},
+				fat => {mean => 0},
+				'saturated-fat' => {mean => 0},
+				sugars => {mean => 12},
+				salt => {mean => 0},
+			},
 		},
 	},
 	'en' => {
 		'en:snacks' => {
-			energy_100g => 500,
-			fat_100g => 25,
-			'saturated-fat_100g' => 6,
-			sugars_100g => 35,
-			salt_100g => 1.5,
+			stats => 1,
+			id => 'en:snacks',
+			count => 25,
+			n => 1,
+			values => {
+				energy => {mean => 500},
+				fat => {mean => 25},
+				'saturated-fat' => {mean => 6},
+				sugars => {mean => 35},
+				salt => {mean => 1.5},
+			},
 		},
 	},
 );
@@ -435,55 +442,67 @@ my @comparison_tests = (
 	[
 		"comparisons",
 		{
-			nutrition_data => "on",
-			serving_size => "100g",
-			serving_quantity => 100,
-			nutrition_data_per => "100g",
-			product_type => "food",
-			code => "0000109165808",
-			id => "0000109165808",
-			categories => "",
-			categories_tags => [],
-			nutrition => {
-				aggregated_set => {
-					nutrients => {
-						"fat" => {
-							value => 30.9
+			product => {
+				nutrition_data => "on",
+				serving_size => "100g",
+				serving_quantity => 100,
+				nutrition_data_per => "100g",
+				product_type => "food",
+				code => "0000109165808",
+				id => "0000109165808",
+				categories => "",
+				categories_tags => [],
+				nutrition => {
+					aggregated_set => {
+						nutrients => {
+							"fat" => {
+								value => 30.9
+							},
+							"salt" => {
+								value => undef
+							},
+							"energy" => {
+								value => 2252
+							},
 						},
-						"salt" => {
-							value => undef
-						},
-						"energy" => {
-							value => 2252
-						},
-					},
-					preparation => "as_sold",
-					per => "100g",
-				}
+						preparation => "as_sold",
+						per => "100g",
+					}
+				},
+				categories_tags => [
+					"en:breakfasts", "en:spreads",
+					"en:sweet-spreads", "fr:pates-a-tartiner",
+					"en:hazelnut-spreads", "en:chocolate-spreads",
+					"en:cocoa-and-hazelnuts-spreads"
+				]
 			},
-			categories_tags => [
-				"en:breakfasts", "en:spreads",
-				"en:sweet-spreads", "fr:pates-a-tartiner",
-				"en:hazelnut-spreads", "en:chocolate-spreads",
-				"en:cocoa-and-hazelnuts-spreads"
-			]
+			target_lc => "fr",
+			target_cc => "fr",
+			max_number_of_categories => 3
 		},
-		"fr", 1
 	]
 );
 
 foreach my $test_ref (@comparison_tests) {
 	my $testid = $test_ref->[0];
-	my $product_test_ref = $test_ref->[1];
-	my $target_cc = $test_ref->[2];
-	my $max_number_of_categories = $test_ref->[3];
+	my $product_test_ref = $test_ref->[1]{product};
+	my $target_cc = $test_ref->[1]{target_cc};
+	my $target_lc = $test_ref->[1]{target_lc};
+	my $max_number_of_categories = $test_ref->[1]{max_number_of_categories};
 
 	my $comparisons
-		= compare_product_nutrition_facts_to_categories($product_test_ref, $target_cc, $max_number_of_categories);
+		= compare_product_nutrition_facts_to_categories($product_test_ref, $target_lc, $target_cc,
+		$max_number_of_categories);
 
 	compare_to_expected_results($comparisons, "$expected_result_dir/$testid.json",
 		$update_expected_results, {id => $testid});
 
 }
+
+is([ProductOpener::Display::get_search_field_title_and_details("additives_n")],
+	["Number of additives", "", "", "allowDecimals:false,\n"]);
+is([ProductOpener::Display::get_search_field_title_and_details("nova_group")],
+	["NOVA group", "", "", "allowDecimals:false,\n"]);
+is([ProductOpener::Display::get_search_field_title_and_details("fat")], ["Fat", " (g for 100 g / 100 ml)", "g", ""]);
 
 done_testing();

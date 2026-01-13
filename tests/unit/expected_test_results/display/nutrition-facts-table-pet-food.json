@@ -50,7 +50,7 @@
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
-                  "value" : "?"
+                  "value" : "-"
                }
             ],
             "level" : 1,
@@ -78,7 +78,7 @@
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
-                  "value" : "?"
+                  "value" : "-"
                }
             ],
             "level" : 1,
@@ -106,7 +106,7 @@
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
-                  "value" : "?"
+                  "value" : "-"
                }
             ],
             "level" : 0,
@@ -120,12 +120,40 @@
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
-                  "value" : "?"
+                  "value" : "-"
                }
             ],
             "level" : 0,
             "name" : "Salt",
             "nid" : "salt"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "-"
+               }
+            ],
+            "level" : 0,
+            "name" : "Sodium",
+            "nid" : "sodium"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "-"
+               }
+            ],
+            "level" : 0,
+            "name" : "Alcohol",
+            "nid" : "alcohol"
          }
       ]
    }

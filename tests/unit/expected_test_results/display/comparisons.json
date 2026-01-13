@@ -1,19 +1,29 @@
 [
-  {
-    "name": "fr:P\u00e2tes \u00e0 tartiner",
-    "n": 1,
-    "count": 100,
-    "nutriments": {
-        "saturated-fats_100g": 30,
-        "fat_100g": 20,
-        "energy_100g_%": "22420",
-        "fat_100g_%": "54.5",
-        "salt_100g": 50,
-        "energy_100g": 10,
-        "sugars_100g": 40
-    },
-    "id": "fr:pates-a-tartiner",
-    "show": 1,
-    "link": "/facets/categories/fr:pates-a-tartiner"
-  }
+   {
+      "count" : 100,
+      "id" : "fr:pates-a-tartiner",
+      "link" : "/facets/categories/pates-a-tartiner",
+      "n" : 1,
+      "name" : "Pâtes à tartiner",
+      "nutrients" : {
+         "energy" : {
+            "mean" : 10,
+            "mean_percent" : 22420.0
+         },
+         "fat" : {
+            "mean" : 20,
+            "mean_percent" : 54.5
+         },
+         "salt" : {
+            "mean" : 50
+         },
+         "saturated-fats" : {
+            "mean" : 30
+         },
+         "sugars" : {
+            "mean" : 40
+         }
+      },
+      "show" : 1
+   }
 ]

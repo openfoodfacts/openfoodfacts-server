@@ -1,4 +1,13 @@
 {
+   "comparisons" : [
+      {
+         "checked" : 1,
+         "col_id" : "compare_0",
+         "count" : 100,
+         "link" : "/facets/categories/en:spreads",
+         "name" : "Spreads"
+      }
+   ],
    "nutrition_table" : {
       "header" : {
          "columns" : [
@@ -11,14 +20,10 @@
                "short_name" : "100g"
             },
             {
-               "col_id": "compare_0",
-               "scope":"comparisons",
-<<<<<<< HEAD
-				   "name": "Compared to: en:Spreads",
-=======
-				   "name": "Compared to: Spreads",
->>>>>>> new-nutrition-update
-				   "class": "compare_0"
+               "class" : "compare_0",
+               "col_id" : "compare_0",
+               "name" : "Compared to: Spreads",
+               "scope" : "comparisons"
             }
          ],
          "name" : "Nutrition facts"
@@ -33,6 +38,13 @@
                   "rdfa" : " property=\"food:energyPer100g\" content=\"0\"",
                   "type" : "normal",
                   "value" : "0 kj<br>(0 kcal)"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
                }
             ],
             "level" : 0,
@@ -47,6 +59,13 @@
                   "rdfa" : " property=\"food:fatPer100g\" content=\"0\"",
                   "type" : "normal",
                   "value" : "0 g"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
                }
             ],
             "level" : 0,
@@ -60,6 +79,13 @@
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
+                  "value" : "-"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
                   "value" : "?"
                }
             ],
@@ -75,6 +101,13 @@
                   "rdfa" : " property=\"food:carbohydratesPer100g\" content=\"0\"",
                   "type" : "normal",
                   "value" : "0 g"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
                }
             ],
             "level" : 0,
@@ -88,6 +121,13 @@
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
+                  "value" : "-"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
                   "value" : "?"
                }
             ],
@@ -102,6 +142,13 @@
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
+                  "value" : "-"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
                   "value" : "?"
                }
             ],
@@ -116,6 +163,13 @@
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
+                  "value" : "-"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
                   "value" : "?"
                }
             ],
@@ -131,25 +185,61 @@
                   "rdfa" : " property=\"food:saltPer100g\" content=\"3.75\"",
                   "type" : "normal",
                   "value" : "3.75 g"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
                }
             ],
             "level" : 0,
             "name" : "Salt",
             "nid" : "salt"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "-"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Sodium",
+            "nid" : "sodium"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "-"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Alcohol",
+            "nid" : "alcohol"
          }
       ]
-   },
-   "comparisons": [
-      {
-         "col_id": "compare_0",
-		   "checked": 1,
-<<<<<<< HEAD
-		   "name": "en:Spreads",
-=======
-		   "name": "Spreads",
->>>>>>> new-nutrition-update
-		   "link": "/facets/categories/en:spreads",
-		   "count": 100
-	   }
-   ]
+   }
 }
