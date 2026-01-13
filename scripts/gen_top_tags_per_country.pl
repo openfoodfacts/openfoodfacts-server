@@ -50,13 +50,23 @@ use File::Path qw(mkpath);
 use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_get);
 
-# Output will be in the $BASE_DIRS{PRIVATE_DATA} directory
+# By default, output will be in the $data_dir directory
 # data/index: data related to the Open Food Hunt operation (old): points for countries, users and ambassadors
 # data/categories_stats: statistics for the nutrients of categories, used to compare products to their categories
 
-ensure_dir_created_or_die("$BASE_DIRS{PRIVATE_DATA}/index");
-ensure_dir_created_or_die("$BASE_DIRS{PRIVATE_DATA}/categories_stats");
+# For integration tests, PRIVATE_DATA/categories_stats should not exist,
+# and we will load category stats from tests/data/category_stats/ (TEST_PRIVATE_DATA/categories_stats)
 
+# Allow to pass a different directory as first argument
+my $data_dir = $BASE_DIRS{PRIVATE_DATA};
+if (defined $ARGV[0]) {
+	$data_dir = $ARGV[0];
+}
+
+print STDERR "Generating top tags per country in $data_dir\n";
+
+ensure_dir_created_or_die("$data_dir/index");
+ensure_dir_created_or_die("$data_dir/categories_stats");
 # Generate a list of the top brands, categories, users, additives etc.
 
 my @fields = qw (
@@ -357,7 +367,7 @@ while (my $product_ref = $cursor->next) {
 # compute points
 # Read ambassadors.txt
 my %ambassadors = ();
-if (open(my $IN, q{<}, "$BASE_DIRS{PRIVATE_DATA}/ambassadors.txt")) {
+if (open(my $IN, q{<}, "$data_dir/ambassadors.txt")) {
 	while (<$IN>) {
 		chomp();
 		if (/\s+/) {
@@ -368,7 +378,7 @@ if (open(my $IN, q{<}, "$BASE_DIRS{PRIVATE_DATA}/ambassadors.txt")) {
 	}
 }
 else {
-	print STDERR "$BASE_DIRS{PRIVATE_DATA}/ambassadors.txt does not exist\n";
+	print STDERR "$data_dir/ambassadors.txt does not exist\n";
 }
 
 my %ambassadors_countries_points = (_all_ => {});
@@ -398,11 +408,11 @@ foreach my $country (keys %countries_points) {
 	}
 }
 
-store("$BASE_DIRS{PRIVATE_DATA}/index/countries_points.sto", \%countries_points);
-store("$BASE_DIRS{PRIVATE_DATA}/index/users_points.sto", \%users_points);
+store("$data_dir/index/countries_points.sto", \%countries_points);
+store("$data_dir/index/users_points.sto", \%users_points);
 
-store("$BASE_DIRS{PRIVATE_DATA}/index/ambassadors_countries_points.sto", \%ambassadors_countries_points);
-store("$BASE_DIRS{PRIVATE_DATA}/index/ambassadors_users_points.sto", \%ambassadors_users_points);
+store("$data_dir/index/ambassadors_countries_points.sto", \%ambassadors_countries_points);
+store("$data_dir/index/ambassadors_users_points.sto", \%ambassadors_users_points);
 
 foreach my $country (keys %{$properties{countries}}) {
 
@@ -448,7 +458,7 @@ foreach my $country (keys %{$properties{countries}}) {
 		}
 	}
 
-	store("$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_stats_per_country.$cc.sto", \%categories);
+	store("$data_dir/categories_stats/categories_stats_per_country.$cc.sto", \%categories);
 
 	# Dates
 
