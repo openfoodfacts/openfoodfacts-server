@@ -265,26 +265,65 @@ class TranslationQualityChecker:
         
         # Check specific known bad translations
         bad_translations = {
-            'open food facts': ['faches', 'matfakta', 'fakta om'],
-            'open beauty facts': ['fakta om', 'skjønnhetssaker'],
-            'open pet food facts': ['fakta om', 'kjæledyrmat'],
-            'open prices': ['priser', 'åpne priser'],
-            'green-score': ['pontuação verde', 'pontuacao verde', 'verde'],
+            'open food facts': [
+                'faches', 'matfakta', 'fakta om', 'alimentacion', 'alimentación',
+                'dobèrta', 'dobèrts', 'ouvert', 'ouverte', 'abierto', 'abierta',
+                'aberto', 'aberta', 'aperto', 'aperta', 'otwarty', 'otwarte',
+                'åpne', 'åpen', 'öppen', 'avoin', 'avoimet', 'açık',
+                'offene', 'offener', 'offenes', 'offenen', 'открыт', 'открытые'
+            ],
+            'open beauty facts': [
+                'skjønnhetssaker', 'bellezza', 'beleza', 'beauté', 'belleza',
+                'schönheit', 'красота', 'güzellik', 'kauneus'
+            ],
+            'open pet food facts': [
+                'kjæledyrmat', 'animali', 'animais', 'animaux', 'mascotas',
+                'haustier', 'питомец', 'evcil', 'lemmikki'
+            ],
+            'open prices': [
+                'priser', 'prix', 'precios', 'prezzi', 'preços', 'preise',
+                'цены', 'fiyatlar', 'hinnat', 'åpne priser', 'prix ouverts',
+                'precios abiertos', 'prezzi aperti', 'preços abertos'
+            ],
+            'green-score': [
+                'pontuação verde', 'pontuacao verde', 'verde', 'vert', 'grün',
+                'verde puntuación', 'punteggio verde', 'grüne bewertung',
+                'зелёный', 'yeşil', 'vihreä', 'grønn', 'grön', 'zöld'
+            ],
         }
         
         term_key = term.lower()
         if term_key in bad_translations:
             for bad_trans in bad_translations[term_key]:
                 if bad_trans in msgstr_lower:
-                    return True
+                    # Make sure it's not just a coincidence (e.g., "verde" in a description)
+                    # by checking if the term itself is NOT present
+                    if term.lower() not in msgstr_lower:
+                        return True
         
         # Generic check: if msgstr contains words that suggest translation
-        # (like "open" translated to "åpne", "dobèrta", etc.)
-        if 'open' in term.lower():
-            open_translations = ['åpne', 'dobèrta', 'dobèrts', 'ouvert']
-            for trans in open_translations:
-                if trans in msgstr_lower:
-                    return True
+        # but the original term is missing
+        if term.lower() not in msgstr_lower:
+            # Check for translations of "Open"
+            if 'open' in term.lower():
+                open_translations = [
+                    'åpne', 'åpen', 'dobèrta', 'dobèrts', 'ouvert', 'ouverte',
+                    'abierto', 'abierta', 'aberto', 'aberta', 'aperto', 'aperta',
+                    'öppen', 'avoin', 'açık', 'offene', 'offener', 'открыт'
+                ]
+                for trans in open_translations:
+                    if trans in msgstr_lower:
+                        return True
+            
+            # Check for translations of "Facts"
+            if 'facts' in term.lower():
+                facts_translations = [
+                    'faches', 'fakta', 'faits', 'hechos', 'fatos', 'fatti',
+                    'daten', 'факты', 'gerçekler', 'tietoja'
+                ]
+                for trans in facts_translations:
+                    if trans in msgstr_lower:
+                        return True
         
         return False
     

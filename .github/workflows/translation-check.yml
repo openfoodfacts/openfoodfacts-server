@@ -39,6 +39,13 @@ jobs:
         continue-on-error: true
         id: quality_check
       
+      - name: Generate PR review comments for changed files
+        if: github.event_name == 'pull_request'
+        run: |
+          python3 scripts/generate-translation-pr-comments.py
+        continue-on-error: true
+        id: pr_comments
+      
       - name: Install translate-toolkit for advanced checks
         run: |
           pip install translate-toolkit
