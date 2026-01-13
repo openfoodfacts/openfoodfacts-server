@@ -593,6 +593,12 @@ my $tests_ref = [
 		path => '/cgi/product_image.pl?code=3300000000013&id=front_fr',
 		expected_type => 'html',
 	},
+	# search.pl scatter plot on nutrition data
+	{
+		test_case => 'world-search-scatter-plot-nutrition-sugars-fat',
+		path => '/cgi/search.pl?action=process&search_terms=apple&axis_x=sugars&axis_y=fat&graph=1',
+		expected_type => 'html',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
