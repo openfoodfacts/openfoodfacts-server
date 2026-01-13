@@ -92,24 +92,18 @@ def sort_brands(brand_entries: List[Tuple[str, List[str]]]) -> List[Tuple[str, L
     """
     Sort brand entries using the same method as the test: LANG='C.UTF-8' sort -bf
     """
-    # Create a mapping from xx: line to entry and collect all xx: lines
-    entry_map = {}
-    xx_lines = []
-    for key, entry_lines in brand_entries:
-        # Find the actual xx: line from the entry
-        xx_line = None
+    # Extract xx: lines for sorting
+    xx_lines_and_entries = []
+    for _, entry_lines in brand_entries:
         for line in entry_lines:
             if line.startswith('xx:'):
-                xx_line = line.rstrip('\n')
+                xx_lines_and_entries.append((line.rstrip('\n'), entry_lines))
                 break
-        if xx_line:
-            entry_map[xx_line] = (key, entry_lines)
-            xx_lines.append(xx_line + '\n')
     
-    # Use external sort command to match the test's behavior
+    # Sort using external sort command
     result = subprocess.run(
         ['sort', '-bf'],
-        input=''.join(xx_lines),
+        input='\n'.join(xx for xx, _ in xx_lines_and_entries),
         capture_output=True,
         text=True,
         env={'LANG': 'C.UTF-8'}
@@ -121,12 +115,17 @@ def sort_brands(brand_entries: List[Tuple[str, List[str]]]) -> List[Tuple[str, L
     
     sorted_xx_lines = result.stdout.strip().split('\n')
     
-    # Build sorted list based on the sorted xx: lines
+    # Map xx: line to entry
+    xx_map = {xx: entry for xx, entry in xx_lines_and_entries}
+    
+    # Return sorted entries with their sort keys
     sorted_entries = []
-    for sorted_line in sorted_xx_lines:
-        sorted_line = sorted_line.rstrip('\n')
-        if sorted_line in entry_map:
-            sorted_entries.append(entry_map[sorted_line])
+    for xx_line in sorted_xx_lines:
+        if xx_line in xx_map:
+            entry_lines = xx_map[xx_line]
+            # Extract first brand name as sort_key (for consistency with parse function)
+            sort_key = xx_line[4:].split(',')[0].strip()
+            sorted_entries.append((sort_key, entry_lines))
     
     return sorted_entries
 

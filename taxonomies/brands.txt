@@ -11,8 +11,8 @@
 # Note: an old draft owners/brands taxonomy lives in taxonomies/unused/brands.txt, but it is hierarchic, which is something we do not want in this taxonomy.
 # You can usefully read: https://wiki.openfoodfacts.org/Brands to get up and running on the subtleties of the topic.
 
-xx: No brand
-comment:en: to be used when absolutely no brand (or proxy brand) can be found on the packaging.
+xx: 1de Beste
+wikidata:en: Q136929195
 
 xx: 3 Hammers
 wikidata:en: Q4636496
@@ -47,6 +47,9 @@ wikidata:en: Q4663628
 xx: Abbey Crunch
 wikidata:en: Q109535897
 
+xx: Abbot Kinney's
+wikidata:en: Q136824393
+
 xx: Abuelita
 wikidata:en: Q4670535
 
@@ -65,6 +68,12 @@ wikidata:en: Q96371532
 xx: agemomiji
 wikidata:en: Q11498439
 
+xx: AH Excellent, Albert Heijn Excellent
+wikidata:en: Q136928844
+
+xx: AH to go
+wikidata:en: Q137104297
+
 xx: AirHeads
 wikidata:en: Q4697660
 
@@ -80,26 +89,22 @@ wikidata:en: Q948429
 xx: Akafuku Mochi
 wikidata:en: Q736196
 
-xx: Abbot Kinney's
-wikidata:en: Q136824393
-
-xx: Albert Heijn, AH
-wikidata:en: Q136838017
-
-xx: AH Excellent, Albert Heijn Excellent
-wikidata:en: Q136928844
-
-xx: AH to go
-wikidata:en: Q137104297
+xx: Al'fez
+wikidata:en: Q136892984
 
 xx: Albert Heijn Terra
 wikidata:en: Q136837987
+
+xx: Albert Heijn, AH
+wikidata:en: Q136838017
 
 xx: Aldi
 
 xx: Alesto
 wikidata:en: Q137428531
 
+xx: Alisa
+wikidata:en: Q137513962
 
 xx: All-Bran
 wikidata:en: Q4727808
@@ -110,6 +115,12 @@ wikidata:en: Q4732020
 xx: Allinson
 wikidata:en: Q4732697
 
+xx: Almhof
+wikidata:en: Q136825392
+
+xx: Almhof hoekje
+# a subbrand of Almhof for dessert with sprinklings in a hoekje
+
 xx: Almond Joy
 wikidata:en: Q4733893
 
@@ -118,19 +129,6 @@ wikidata:en: Q4033817
 
 xx: Alpha-Bits
 wikidata:en: Q4734898
-
-
-xx: Al'fez
-wikidata:en: Q136892984
-
-xx: Alisa
-wikidata:en: Q137513962
-
-xx: Almhof
-wikidata:en: Q136825392
-
-xx: Almhof hoekje
-# a subbrand of Almhof for dessert with sprinklings in a hoekje
 
 xx: alpro
 wikidata:en: Q136824379
@@ -149,6 +147,9 @@ xx: anamma
 xx: Andes Chocolate Mints
 wikidata:en: Q4754282
 
+xx: Andros
+wikidata:en: Q137477221
+
 xx: Andy Capp's
 wikidata:en: Q4760492
 
@@ -163,6 +164,9 @@ wikidata:en: Q48732208
 
 xx: Animal Bar
 wikidata:en: Q19864335
+
+xx: Anna & Clara's
+# subbrand of Søstrene Grene
 
 xx: Antonelli Bros Ltd
 wikidata:en: Q22101867
@@ -179,33 +183,25 @@ wikidata:en: Q4785296
 xx: Arctic Zero
 wikidata:en: Q98033964
 
-xx: Amanie
-# subbrand of Lidl
-xx: Andros
-wikidata:en: Q137477221
-
 xx: Arla
 wikidata:en: Q674575
 
-xx: Anna & Clara's
-# subbrand of Søstrene Grene
+xx: Arnott's Shapes
+wikidata:en: Q4795388
 
 xx: Aroy-D
 wikidata:en: Q137460581
-
-xx: Asia Green Garden
-
-xx: Aubel
-#v no EU trademark registered
-
-xx: Arnott's Shapes
-wikidata:en: Q4795388
 
 xx: Arun Icecreams
 wikidata:en: Q97738125
 
 xx: Asahimame
 wikidata:en: Q11511859
+
+xx: Asia Green Garden
+
+xx: Aubel
+#v no EU trademark registered
 
 xx: Aunt Jemima
 wikidata:en: Q2871822
@@ -239,13 +235,13 @@ wikidata:en: Q60747081
 xx: Bar One
 wikidata:en: Q28126631
 
-xx: Baronie
-wikidata:en: Q137300630
-
 xx: Barebells
 
 xx: Barkleys
 wikidata:en: Q136929948
+
+xx: Baronie
+wikidata:en: Q137300630
 
 xx: Barratt
 wikidata:en: Q109229390
@@ -259,12 +255,14 @@ wikidata:en: Q16839470
 xx: Bear Brand
 wikidata:en: Q27207017
 
-
 xx: Beauvais
 wikidata:en: Q12303007
 
 xx: Bega Group
 wikidata:en: Q22906698
+
+xx: Beillevaire
+wikidata:en: Q137478612
 
 xx: Belvita
 wikidata:en: Q4884916
@@ -281,9 +279,6 @@ wikidata:en: Q828367
 
 xx: Besshiame
 wikidata:en: Q11396678
-
-xx: Beillevaire
-wikidata:en: Q137478612
 
 #< xx:Unilever
 xx: Best Foods
@@ -307,17 +302,17 @@ wikidata:en: Q4905854
 xx: Big Turk
 wikidata:en: Q4906619
 
-xx: Bioheme
-wikidata:en: Q137512976
-
 xx: Bio Today
 wikidata:en: Q136929973
-
-xx: biorganica nuova
 
 xx: Bio Village
 
 xx: Bio+
+
+xx: Bioheme
+wikidata:en: Q137512976
+
+xx: biorganica nuova
 
 #< xx:Lotus Bakeries
 xx: Biscoff
@@ -376,33 +371,15 @@ wikidata:en: Q109266587
 xx: Bon Ice
 wikidata:en: Q4940970
 
-xx: Domaine Bassac
-wikidata:en: Q137569515
-
-xx: bonÀrea
+xx: Bon o Bon
+wikidata:en: Q5577630
 
 xx: Bongran
 wikidata:en: Q137512889
 
-xx: Boss Coffee
-wikidata:en: Q4947502
-
-xx: Bostan
-wikidata:en: Q137459231
-
-xx: Brouwmeester
-wikidata:en: Q136929479
-
 xx: Bonne Maman
 
-xx: Bon o Bon
-wikidata:en: Q5577630
-
-xx: Carbonell
-wikidata:en: Q8262951
-
-xx: Carrefour BIO
-wikidata:en: Q55221138
+xx: bonÀrea
 
 xx: bonÀrea
 
@@ -411,6 +388,12 @@ wikidata:en: Q4943785
 
 xx: BOS Ice Tea
 wikidata:en: Q16987966
+
+xx: Boss Coffee
+wikidata:en: Q4947502
+
+xx: Bostan
+wikidata:en: Q137459231
 
 xx: Botan Rice Candy
 wikidata:en: Q4948413
@@ -432,10 +415,6 @@ wikidata:en: Q16845825
 
 xx: bran flakes
 wikidata:en: Q55605867
-
-xx: Coop
-comment:en: This brand is used by different consumer cooperatives around the world. Some disambiguation might be needed.
-wikidata:en: Q115764026
 
 xx: Branston
 wikidata:en: Q898848
@@ -461,23 +440,14 @@ wikidata:en: Q124284843
 xx: Brinta
 wikidata:en: Q2184872
 
+xx: Brouwmeester
+wikidata:en: Q136929479
+
 xx: Brown Cow
 wikidata:en: Q4976116
 
 xx: Brussels Ketjep
 wikidata:en: Q109914347
-
-xx: Coop naturaplan
-wikidata:en: Q137481545
-
-xx: Coppola Salerno, Coppola
-#web:en: https://www.coppolasalerno.com/
-
-xx: Danerolles
-wikidata:en: Q137400053
-
-xx: Dansukker, Dan Sukker
-#web:en: https://www.dansukker.com/
 
 xx: Brussels Ketjep Andalose
 wikidata:en: Q116487533
@@ -494,18 +464,6 @@ wikidata:en: Q109914388
 xx: Brussels Ketjep Mayo
 wikidata:en: Q109914368
 
-xx: Deka's Keuken
-wikidata:en: Q137458930
-
-xx: Delicata, AH Delicata
-comment:en: private chocolate label of Albert Heijn
-wikidata:en: Q137351879
-
-xx: Délifrance
-wikidata:en: Q136996080
-# NL this brand is used by Home Baked Bread (Q136996055)
-
-
 xx: Brussels Ketjep Mostoed
 wikidata:en: Q109914580
 
@@ -518,22 +476,11 @@ wikidata:en: Q4996520
 xx: Bun Bars
 wikidata:en: Q4997382
 
-xx: De Zaanse Hoeve
-comment:en: Private label of Albert Heijn
-
-xx: Diamant
-
 xx: Butterball
 wikidata:en: Q5002847
 
 xx: Butterfinger
 wikidata:en: Q1018081
-
-xx: Driscoll's
-wikidata:en: Q136955368
-
-xx: Dr. Oetker
-wikidata:en: Q137476942
 
 xx: Butterkist
 wikidata:en: Q5002989
@@ -577,19 +524,6 @@ wikidata:en: Q30638033
 xx: Calippo
 wikidata:en: Q595784
 
-xx: Eurobakker
-wikidata:en: Q137176343
-
-xx: Euroma
-wikidata:en: Q137440717
-
-xx: Fanta
-
-xx: Favorina
-comment:en: Private brand of Lidl for pralines
-wikidata:en: Q137149537
-
-
 xx: CalorieMate
 wikidata:en: Q5023668
 
@@ -602,34 +536,14 @@ wikidata:en: Q4816890
 xx: Captain's Wafers
 wikidata:en: Q5036496
 
-xx: Flevosap
-wikidata:en: Q137177197
-
-xx: Flora
-wikidata:en: Q5460271
-
 xx: Caramac
 wikidata:en: Q1035359
 
 xx: Caramilk
 wikidata:en: Q2937863
 
-xx: Font Vella
-wikidata:en: Q3811351
-
-xx: Frank Le Gourmand
-wikidata:en: Q137168617
-
-xx: Freshona
-comment:en: Private label of Lidl
-wikidata:en: Q137168327
-
-xx: fresh & easy
-wikidata:en: Q137568908
-
-xx: Frutesse
-comment:en: work trademark in Benelux
-wikidata:en: Q137177165
+xx: Carbonell
+wikidata:en: Q8262951
 
 xx: Carlos V chocolate bar
 wikidata:en: Q5042737
@@ -637,14 +551,7 @@ wikidata:en: Q5042737
 xx: Carnation
 wikidata:en: Q2939676
 
-xx: Galbusera
-wikidata:en: Q137049250
-
-xx: Galbusera ZeroGrano
-comment:en: the EU trademark is expired
-wikidata:en: Q137049237
-
-xx: Garant
+xx: Carrefour BIO
 
 xx: Carrefour BIO
 
@@ -657,6 +564,8 @@ wikidata:en: Q2598611
 xx: Cerelac
 wikidata:en: Q5064145
 
+xx: Chalo
+
 xx: Cham-ggae Ramyeon
 wikidata:en: Q28445822
 
@@ -664,13 +573,6 @@ xx: Chaque Jour Sans Gluten
 
 xx: Charleston Chew
 wikidata:en: Q5084112
-
-xx: Go-Tan, Go Tan
-wikidata:en: Q137442304
-
-xx: Go Vega!
-comment:en: no trademark found in Benelux or EU
-wikidata:en: Q137177089
 
 xx: Cheddars
 wikidata:en: Q5089198
@@ -681,46 +583,20 @@ wikidata:en: Q2425291
 xx: Cheez Whiz
 wikidata:en: Q536691
 
-xx: Grain de Sail
-wikidata:en: Q137570852
-
-xx: Grillon d'Or
-wikidata:en: Q137569393
-
-xx: Grøn Balance
-#web:da: https://www.grønbalance.dk/
-wikidata:en: Q65410727
-
 xx: Cheez-It
 wikidata:en: Q5089476
 
 xx: Cheezies
 wikidata:en: Q5089483
 
-xx: Chalo
-
 xx: Chef Select
 # only sold in Lidl, also subbrand of Lidl
-
-xx: HappyVore
-wikidata:en: Q137477235
-
-xx: Haribo
-wikidata:en: Q169552
-
 
 xx: Cherry Blossom
 wikidata:en: Q5092285
 
 xx: Cherry Mash
 wikidata:en: Q5092430
-
-xx: Hünkar
-wikidata:en: Q137440806
-
-#< xx:Unilever
-xx: Hellmann's, Hellmann's est. 1913, Hellmanns
-wikidata:en: Q809061
 
 xx: Cherry Ripe
 wikidata:en: Q5092460
@@ -743,37 +619,11 @@ wikidata:en: Q5097475
 xx: Ching's Secret
 wikidata:en: Q5100971
 
-#< xx:ICA
-xx: ICA i❤️eco, ICA I Love Eco, i love eco, I Love Eco ICA, ICA i♥eco, i♥eco, i❤️eco, ICA i <3 eco, i <3 eco, I Heart Eco, ICA eco
-#web:sv: https://www.ica.se/icas-egna-varor/varumarken/ica-i-love-eco/
-
-#< xx:ICA
-xx: ICA Selection
-
-xx: Ikbal
-ar: إقبال
-wikidata:en: Q137049723
-
-xx: IKEA
-wikidata:en: Q54078
-
-xx: Il Molino Chiavazza
-comment:en: brand not trademarked in the EU
-wikidata:en: Q137151953
-
-xx: Indus
-
 xx: Chio Chips
 wikidata:en: Q108201931
 
 xx: Chips Ahoy!
 wikidata:en: Q5101736
-
-xx: Ísey
-wikidata:en: Q16422529
-
-xx: Issawi Bageri, Bageri Issawi, Issawi, مخبز العيساوي, العيساوي
-#web:sv: https://www.issawi.se/
 
 xx: Chips Deluxe
 wikidata:en: Q5101733
@@ -786,28 +636,6 @@ wikidata:en: Q123626364
 
 xx: Chitose
 wikidata:en: Q28683805
-
-xx: Jardin Bio étic
-wikidata:en: Q137591022
-
-xx: Jimmy's
-
-xx: Johma
-wikidata:en: Q137400555
-
-xx: Jonnie Boer
-wikidata:en: Q137440721
-
-xx: JOZO
-wikidata:en: Q10538850
-
-xx: JUMBO, Jumbo
-comment:en: this brand seems only trademarked in the Benelux. It is a multipurpose brand that appears on goods, services, supermarkets and teh holding company.
-wikidata:en: Q136824505
-
-xx: Kania
-comment:en: private brand of Lidl
-wikidata:en: Q136824610
 
 xx: Choc Nut
 wikidata:en: Q43401222
@@ -824,11 +652,6 @@ wikidata:en: Q113624924
 xx: Chocolate Aguila
 wikidata:en: Q108190515
 
-xx: Kit Kat
-wikidata:en: Q367251
-
-xx: Kleinste Soepfabriek
-
 xx: Chocolate Panda
 wikidata:en: Q118141647
 
@@ -838,20 +661,10 @@ wikidata:en: Q103827445
 xx: Chocos
 wikidata:en: Q5103700
 
-xx: Koningsvogel
-wikidata:en: Q137442154
-
-xx: KOTI, KOTISINAPPI, KOTI sinappi, KOTISENAP, KOTI senap
-#web:en: https://www.kotisinappi.fi/english
-#web:fi: https://www.kotisinappi.fi/
-#web:sv: https://www.kotisinappi.fi/svenska
-
+xx: Choice
 
 xx: Chokay
 wikidata:en: Q136951951
-
-
-xx: Choice
 
 xx: Chokito
 wikidata:en: Q5104232
@@ -912,19 +725,27 @@ wikidata:en: Q5148335
 xx: Combos
 wikidata:en: Q5150941
 
+xx: Completa
+
 xx: Cook Do
 wikidata:en: Q11194892
 
 xx: Cool Whip
 wikidata:en: Q5167367
 
-xx: Completa
-
-# This brand is used by different consumer cooperatives around the world
+xx: Coop
+wikidata:en: Q115764026
+description:en: This brand is used by different consumer cooperatives around the world
 
 xx: Coop
 wikidata:en: Q115764026
 description:en: This brand is used by different consumer cooperatives around the world
+
+xx: Coop naturaplan
+wikidata:en: Q137481545
+
+xx: Coppola Salerno, Coppola
+#web:en: https://www.coppolasalerno.com/
 
 xx: Coppola Salerno, Coppola
 #web:en: https://www.coppolasalerno.com/
@@ -957,6 +778,8 @@ wikidata:en: Q5184078
 xx: Crispy Critters
 wikidata:en: Q5186068
 
+xx: Crownfield
+
 xx: Crunch 'n Munch
 wikidata:en: Q5190087
 
@@ -968,6 +791,8 @@ wikidata:en: Q5190104
 
 xx: Crystal Hot Sauce
 wikidata:en: Q5191218
+
+xx: Culinea
 
 xx: Culinea
 
@@ -986,16 +811,10 @@ wikidata:en: Q108898648
 xx: Curly Wurly
 wikidata:en: Q5194897
 
-
-xx: Crownfield
-
-xx: Culinea
+xx: DA
 
 xx: Daelmans
 wikidate:en: Q136842173
-
-
-xx: DA
 
 xx: Dafgårds, Gunnar Dafgård
 wikidata:en: Q5618977
@@ -1005,16 +824,22 @@ wikidata:en: Q5208618
 
 xx: Dahls
 
+xx: Daily Chef
+
 xx: Dairylea
 wikidata:en: Q5209593
-
-xx: Daily Chef
 
 xx: Dan Cake, DanCake
 wikidata:en: Q12307101
 
+xx: Danerolles
+wikidata:en: Q137400053
+
 xx: Danimals
 wikidata:en: Q115478274
+
+xx: Dansukker, Dan Sukker
+#web:en: https://www.dansukker.com/
 
 xx: Dansukker, Dan Sukker
 #web:en: https://www.dansukker.com/
@@ -1039,72 +864,61 @@ wikidata:en: Q931123
 xx: De Nieuwe Keuken
 wikidata:en: Q124569511
 
-xx: Del's
-wikidata:en: Q5252843
-
-xx: Dekamarkt
-
-xx: Delief
-
 xx: de Vleeschmeesters
 wikidata:en: Q136842208
 
-xx: Donny Craves Vegan Koek
-wikidata:en: Q136929463
+xx: De Zaanse Hoeve
+comment:en: Private label of Albert Heijn
 
-xx: Deluxe
-# subbrand of xx:Lidl
+xx: Deka's Keuken
+wikidata:en: Q137458930
 
-xx: Diamant
+xx: Dekamarkt
 
-xx: dmBio, dm Bio
+xx: Del's
+wikidata:en: Q5252843
+
+xx: Delicata, AH Delicata
+comment:en: private chocolate label of Albert Heijn
+wikidata:en: Q137351879
 
 xx: Delicje Szampańskie
 wikidata:en: Q123298756
 
+xx: Delief
+
+xx: Deluxe
+# subbrand of xx:Lidl
 
 xx: Demae Itcho
 wikidata:en: Q877072
 
-
 xx: Denby Dale Pies
 wikidata:en: Q23461486
+
+xx: Diamant
+
+xx: Diamant
 
 xx: DiGiorno
 wikidata:en: Q5269993
 
-xx: Duyvis
-wikidata:en: Q2189294
-
-xx: Délisse
-
-
-xx: EasiYo
-
-xx: Egelykke
-
 xx: Dinty Moore
 wikidata:en: Q105758244
 
+xx: dmBio, dm Bio
 
 xx: Doll Instant Noodle
 wikidata:en: Q7257088
 
+xx: Domaine Bassac
+wikidata:en: Q137569515
+
 xx: Domty
 wikidata:en: Q135478610
 
-xx: Elix
-
-xx: Emmi
-wikidata:en: Q136824621
-
-xx: Em-eukal
-
-xx: Estrella
-wikidata:en: Q6303102
-
-xx: Fanta
-
+xx: Donny Craves Vegan Koek
+wikidata:en: Q136929463
 
 xx: Dooley's
 wikidata:en: Q2065310
@@ -1127,6 +941,9 @@ wikidata:en: Q5302392
 xx: Dr. Oetker
 wikidata:en: Q688668
 
+xx: Dr. Oetker
+wikidata:en: Q688668
+
 xx: Dream
 wikidata:en: Q5306266
 
@@ -1136,6 +953,9 @@ wikidata:en: Q5306483
 xx: Drifter
 wikidata:en: Q5307466
 
+xx: Driscoll's
+wikidata:en: Q136955368
+
 xx: Drumstick
 wikidata:en: Q5309307
 
@@ -1143,18 +963,6 @@ xx: DUG
 
 xx: Duke's Mayonnaise
 wikidata:en: Q5312718
-
-xx: Golden Power
-
-xx: Golden Sun
-wikidata:en: Q136825332
-
-xx: Grafenwalder
-wikidata:en: Q2181927
-
-xx: Go Vega!
-
-xx: Grainway
 
 xx: Dum Dum Pop
 wikidata:en: Q5313580
@@ -1168,7 +976,18 @@ wikidata:en: Q5315332
 xx: Durra
 #web:en: https://www.aldurra.com/
 
+xx: Duyvis
+wikidata:en: Q2189294
+
+xx: Délifrance
+wikidata:en: Q136996080
+# NL this brand is used by Home Baked Bread (Q136996055)
+
 xx: Délisse
+
+xx: Délisse
+
+xx: EasiYo
 
 xx: Easy Cheese
 wikidata:en: Q5331102
@@ -1181,6 +1000,8 @@ wikidata:en: Q108248560
 
 xx: Edy's Pie
 wikidata:en: Q477334
+
+xx: Egelykke
 
 xx: Egg Beaters
 wikidata:en: Q5347802
@@ -1205,6 +1026,13 @@ xx: El Taco Truck, El Taco Truck AB, Taco Truck
 xx: Eldorado
 wikidata:en: Q5324313
 
+xx: Elix
+
+xx: Em-eukal
+
+xx: Emmi
+wikidata:en: Q136824621
+
 xx: Energen
 wikidata:en: Q28163862
 
@@ -1214,11 +1042,20 @@ wikidata:en: Q17219643
 xx: Estrella
 wikidata:en: Q6303102
 
+xx: Estrella
+wikidata:en: Q6303102
+
 xx: Estrella Azul
 wikidata:en: Q124693280
 
+xx: Eurobakker
+wikidata:en: Q137176343
+
 xx: Eurocrem
 wikidata:en: Q12751665
+
+xx: Euroma
+wikidata:en: Q137440717
 
 xx: Extra Strong Mints
 wikidata:en: Q20709534
@@ -1231,6 +1068,14 @@ wikidata:en: Q5433442
 
 xx: Fandangos
 wikidata:en: Q106645447
+
+xx: Fanta
+
+xx: Fanta
+
+xx: Favorina
+comment:en: Private brand of Lidl for pralines
+wikidata:en: Q137149537
 
 xx: Fazer
 wikidata:en: Q996907
@@ -1274,11 +1119,20 @@ wikidata:en: Q125552125
 xx: Fleischmann's yeast
 wikidata:en: Q5458526
 
+xx: Flevosap
+wikidata:en: Q137177197
+
+xx: Flora
+wikidata:en: Q5460271
+
 xx: Flora
 wikidata:en: Q5460271
 
 xx: Flyte
 wikidata:en: Q5463680
+
+xx: Font Vella
+wikidata:en: Q3811351
 
 xx: Fontana
 
@@ -1288,17 +1142,25 @@ wikidata:en: Q5467800
 xx: Fox's U-bet chocolate syrup
 wikidata:en: Q5476500
 
+xx: Frank Le Gourmand
+wikidata:en: Q137168617
+
 xx: Freaky Ice
 wikidata:en: Q5494294
 
 xx: Freddo
 wikidata:en: Q5496835
 
+xx: fresh & easy
+wikidata:en: Q137568908
+
 xx: Fresh Express Incorporated
 wikidata:en: Q106490016
 
 xx: Freshen Up Gum
 wikidata:en: Q5503044
+
+xx: Freshona
 
 xx: Freshona
 
@@ -1329,6 +1191,10 @@ wikidata:en: Q5506395
 xx: Fruit Stripe
 wikidata:en: Q5506381
 
+xx: Frutesse
+comment:en: work trademark in Benelux
+wikidata:en: Q137177165
+
 xx: Fry's Chocolate Cream
 wikidata:en: Q5506544
 
@@ -1347,6 +1213,9 @@ wikidata:en: Q49853
 xx: Fuse
 wikidata:en: Q5509974
 
+xx: g'woon, gwoon
+wikidata:en: Q136875635
+
 xx: GAAM
 
 xx: Galaxy
@@ -1361,11 +1230,20 @@ wikidata:en: Q18151405
 xx: Galaxy Minstrels
 wikidata:en: Q5518132
 
+xx: Galbusera
+wikidata:en: Q137049250
+
+xx: Galbusera ZeroGrano
+comment:en: the EU trademark is expired
+wikidata:en: Q137049237
+
 xx: Gale's
 wikidata:en: Q5518251
 
 xx: Gallina Blanca
 wikidata:en: Q61831842
+
+xx: Garant
 
 xx: Garant
 
@@ -1385,6 +1263,13 @@ xx: Gestus
 xx: Ginger Snaps
 wikidata:en: Q8074890
 
+xx: Go Vega!
+
+xx: Go Vega!
+
+xx: Go-Tan, Go Tan
+wikidata:en: Q137442304
+
 xx: Gobstopper
 wikidata:en: Q1533561
 
@@ -1399,6 +1284,10 @@ wikidata:en: Q3110068
 
 xx: Golden Nuggets
 wikidata:en: Q5579683
+
+xx: Golden Power
+
+xx: Golden Sun
 
 xx: Golden Sun
 
@@ -1420,6 +1309,14 @@ wikidata:en: Q29468015
 xx: GooGoo Cluster
 wikidata:en: Q5582335
 
+xx: Grafenwalder
+wikidata:en: Q2181927
+
+xx: Grain de Sail
+wikidata:en: Q137570852
+
+xx: Grainway
+
 xx: Grainway
 
 xx: Grandma Brown's Baked Beans
@@ -1436,17 +1333,19 @@ xx: Green Star
 xx: Grey Poupon
 wikidata:en: Q3116568
 
+xx: Grillon d'Or
+wikidata:en: Q137569393
+
 xx: Grøn Balance
 #web:da: https://www.grønbalance.dk/
 wikidata:en: Q65410727
 
+xx: Grøn Balance
+#web:da: https://www.grønbalance.dk/
+wikidata:en: Q65410727
 
 xx: Gulden's
 wikidata:en: Q5617340
-
-xx: g'woon, gwoon
-wikidata:en: Q136875635
-
 
 xx: H-E-B, HEB
 wikidata:en: Q830621
@@ -1467,6 +1366,12 @@ xx: Hanegal
 
 xx: Hankey Bannister
 wikidata:en: Q5648533
+
+xx: HappyVore
+wikidata:en: Q137477235
+
+xx: Haribo
+wikidata:en: Q169552
 
 xx: Haribo
 wikidata:en: Q169552
@@ -1510,6 +1415,10 @@ wikidata:en: Q125608781
 
 xx: Heinz Sandwich Spread
 wikidata:en: Q3105957
+
+#< xx:Unilever
+xx: Hellmann's, Hellmann's est. 1913, Hellmanns
+wikidata:en: Q809061
 
 #< xx:Unilever
 xx: Hellmann's, Hellmann's est. 1913, Hellmanns
@@ -1595,6 +1504,9 @@ wikidata:en: Q1143333
 
 xx: Hälsans Kök
 
+xx: Hünkar
+wikidata:en: Q137440806
+
 xx: I Can't Believe It's Not Butter!
 wikidata:en: Q5976378
 
@@ -1611,6 +1523,13 @@ xx: ICA Asia
 xx: ICA Basic, ICA Bas%c
 
 #< xx:ICA
+xx: ICA i❤️eco, ICA I Love Eco, i love eco, I Love Eco ICA, ICA i♥eco, i♥eco, i❤️eco, ICA i <3 eco, i <3 eco, I Heart Eco, ICA eco
+#web:sv: https://www.ica.se/icas-egna-varor/varumarken/ica-i-love-eco/
+
+#< xx:ICA
+xx: ICA Selection
+
+#< xx:ICA
 xx: ICA Selection
 
 xx: Ice Breakers
@@ -1625,8 +1544,19 @@ wikidata:en: Q4041258
 xx: IJsboerke
 wikidata:en: Q2559824
 
+xx: Ikbal
+ar: إقبال
+wikidata:en: Q137049723
+
 xx: IKEA
 wikidata:en: Q54078
+
+xx: IKEA
+wikidata:en: Q54078
+
+xx: Il Molino Chiavazza
+comment:en: brand not trademarked in the EU
+wikidata:en: Q137151953
 
 xx: Imperial Big Meal
 wikidata:en: Q125635312
@@ -1639,6 +1569,8 @@ wikidata:en: Q100156149
 
 xx: indomie
 wikidata:en: Q27859
+
+xx: Indus
 
 xx: Indus
 
@@ -1657,6 +1589,9 @@ wikidata:en: Q11585397
 xx: Issawi Bageri, Bageri Issawi, Issawi, مخبز العيساوي, العيساوي
 #web:sv: https://www.issawi.se/
 
+xx: Issawi Bageri, Bageri Issawi, Issawi, مخبز العيساوي, العيساوي
+#web:sv: https://www.issawi.se/
+
 xx: Itoin Senbei
 wikidata:en: Q11606834
 
@@ -1665,6 +1600,9 @@ wikidata:en: Q112813989
 
 xx: Jacob's Club
 wikidata:en: Q17116139
+
+xx: Jardin Bio étic
+wikidata:en: Q137591022
 
 xx: Jays Foods
 wikidata:en: Q6167962
@@ -1690,16 +1628,27 @@ wikidata:en: Q6192249
 xx: Jimmy Dean
 wikidata:en: Q6199965
 
+xx: Jimmy's
+
+xx: Jimmy's
+
 xx: Jiro-ame
 wikidata:en: Q11269495
+
+xx: Johma
+wikidata:en: Q137400555
 
 xx: Jolly Rancher
 wikidata:en: Q16980826
 
+xx: Jonnie Boer
+wikidata:en: Q137440721
+
 xx: Joyride Sweets
 wikidata:en: Q134983416
 
-xx: Jimmy's
+xx: JOZO
+wikidata:en: Q10538850
 
 xx: JOZO
 wikidata:en: Q10538850
@@ -1709,6 +1658,13 @@ wikidata:en: Q3188294
 
 xx: Jujyfruits
 wikidata:en: Q6305384
+
+xx: JUMBO, Jumbo
+comment:en: this brand seems only trademarked in the Benelux. It is a multipurpose brand that appears on goods, services, supermarkets and teh holding company.
+wikidata:en: Q136824505
+
+xx: Jumbo, Jumbo's
+wikidata:en: Q136824505
 
 xx: Junior Mints
 wikidata:en: Q6313366
@@ -1740,14 +1696,11 @@ wikidata:en: Q11643285
 xx: Kame Manjū
 wikidata:en: Q112053209
 
-xx: Jumbo, Jumbo's
-wikidata:en: Q136824505
-
 xx: Kania
 wikidata:en: Q136824610
 
-xx: Kiekeboe
-wikidata:en: Q136880977
+xx: Kania
+wikidata:en: Q136824610
 
 xx: Kaptein
 wikidate:en: Q136825884
@@ -1771,6 +1724,9 @@ wikidata:en: Q1229505
 
 xx: Kid Cuisine
 wikidata:en: Q16998337
+
+xx: Kiekeboe
+wikidata:en: Q136880977
 
 xx: Kielecki Mayonnaise
 wikidata:en: Q11766465
@@ -1811,6 +1767,11 @@ wikidata:en: Q6416809
 xx: Kit Kat
 wikidata:en: Q367251
 
+xx: Kit Kat
+wikidata:en: Q367251
+
+xx: Kleinste Soepfabriek
+
 xx: Kleinste Soepfabriek
 
 xx: Knorr
@@ -1825,6 +1786,9 @@ wikidata:en: Q116601648
 xx: Koka noodles
 wikidata:en: Q17051199
 
+xx: Koningsvogel
+wikidata:en: Q137442154
+
 xx: Kool-Aid
 wikidata:en: Q1531983
 
@@ -1833,6 +1797,11 @@ wikidata:en: Q1260250
 
 xx: Koshinoyuki
 wikidata:en: Q27620694
+
+xx: KOTI, KOTISINAPPI, KOTI sinappi, KOTISENAP, KOTI senap
+#web:en: https://www.kotisinappi.fi/english
+#web:fi: https://www.kotisinappi.fi/
+#web:sv: https://www.kotisinappi.fi/svenska
 
 xx: KOTI, KOTISINAPPI, KOTI sinappi, KOTISENAP, KOTI senap
 #web:en: https://www.kotisinappi.fi/english
@@ -1854,11 +1823,10 @@ wikidata:en: Q25488759
 xx: Krave Jerky
 wikidata:en: Q19605575
 
+xx: Krekeltje
 
 xx: Kruidvat
 wikidata:en: Q136868232
-
-xx: Krekeltje
 
 xx: Kryddhuset
 #web:sv: https://kryddhusetiljung.se/
@@ -1878,6 +1846,9 @@ wikidata:en: Q6461810
 xx: La Lechera
 wikidata:en: Q16242454
 
+xx: La vie est belle
+wikidata:en: Q137440477
+
 xx: La Vosgienne
 wikidata:en: Q3213934
 
@@ -1893,13 +1864,10 @@ wikidata:en: Q28407666
 xx: Lance Inc.
 wikidata:en: Q6483430
 
-xx: Lay's
-wikidata:en: Q723513
-
 xx: Larnaudie, Jean Larnaudie
 
-xx: La vie est belle
-wikidata:en: Q137440477
+xx: Lay's
+wikidata:en: Q136914164
 
 xx: Lay's
 wikidata:en: Q136914164
@@ -1907,11 +1875,18 @@ wikidata:en: Q136914164
 xx: Lay's Max
 wikidata:en: Q136914171
 
-
 xx: Leader Price, Leaderprice
 
 xx: Lean Cuisine
 wikidata:en: Q6509437
+
+xx: Lee Kum Kee, 李錦記, 李锦记, Lee Kim Kee
+zh: 李錦記
+#web:en: https://lkk.com/
+wikidata:en: Q855533
+
+xx: Leerdammer
+wikidata:en: Q137322826
 
 xx: Lemonilo
 wikidata:en: Q101432536
@@ -1919,28 +1894,23 @@ wikidata:en: Q101432536
 xx: Lender's Bagels
 wikidata:en: Q6522333
 
+xx: Les Prés d'Ariège
+wikidata:en: Q137510641
+
 xx: Life
 wikidata:en: Q6544682
 
 xx: Life Savers
 wikidata:en: Q3238376
 
-xx: Leerdammer
-wikidata:en: Q137322826
-
-xx: Lee Kum Kee, 李錦記, 李锦记, Lee Kim Kee
-zh: 李錦記
-#web:en: https://lkk.com/
-wikidata:en: Q855533
-
-xx: Les Prés d'Ariège
-wikidata:en: Q137510641
-
 xx: Limax Spolka
 comment:en: a proxy brand of the packager
 wikidata:en: Q137049303
 
 xx: Lindahls
+
+xx: Lindt, Lindt & Sprüngl
+wikidata:en: Q152822
 
 xx: Lion Bar
 wikidata:en: Q1827229
@@ -1954,11 +1924,16 @@ wikidata:en: Q84613621
 xx: Loka
 wikidata:en: Q10568903
 
+xx: Loka
+wikidata:en: Q10568903
+
 xx: Lorna Doone
 wikidata:en: Q17042158
 
 xx: Lotte Ghana
 wikidata:en: Q6684912
+
+xx: Lotus Natur
 
 xx: Lotus, Lotus Bakeries, Lotus Since 1932
 wikidata:en: Q590113
@@ -1990,6 +1965,12 @@ wikidata:en: Q22080519
 xx: Luzianne
 wikidata:en: Q6706599
 
+xx: Lyttos
+# Associated brand: Aldi
+
+xx: Løgismose
+wikidata:en: Q6711394
+
 xx: Løgismose
 wikidata:en: Q6711394
 
@@ -2005,8 +1986,17 @@ wikidata:en: Q26085043
 xx: Mackintosh's Toffee
 wikidata:en: Q6724547
 
+xx: Madame Magnifique
+comment:en: non-trademarked brand of Q137165248
+
+xx: Maggi
+wikidata:en: Q688424
+
 xx: Magic Spoon
 wikidata:en: Q113489440
+
+xx: Magioni
+wikidata:en: Q137393512
 
 xx: Magnolia
 wikidata:en: Q6731926
@@ -2023,6 +2013,9 @@ wikidata:en: Q116642911
 
 xx: Major Grey's Chutney
 wikidata:en: Q16997223
+
+xx: Malaco
+wikidata:en: Q4346282
 
 xx: Malaco
 wikidata:en: Q4346282
@@ -2050,7 +2043,12 @@ xx: Marca Guia
 xx: Marie Callender's
 wikidata:en: Q6762784
 
-xx: Marks & Spencers, Marks and Spencers
+xx: Markant
+
+xx: Marks & Spencers, Marks and Spencers, Marks and Spencer, M&S
+wikidata:en: Q714491
+
+xx: Marks & Spencers, Marks and Spencers, Marks and Spencer, M&S
 wikidata:en: Q714491
 
 xx: Marmite
@@ -2082,23 +2080,36 @@ wikidata:en: Q1912172
 xx: Maynards Bassetts
 wikidata:en: Q30637687
 
+xx: Maza
+wikidata:en: Q136912666
+
 xx: Mazuibō
 wikidata:en: Q86727050
 
 xx: Maître CoQ
-wikidata:en: Q104150886
+
+xx: Maître CoQ
 
 xx: McVitie's
-wikidata:en: Q557614
+
+xx: McVitie's
 
 xx: Mekupelet
 wikidata:en: Q6810615
+
+xx: Melkan
+# dairy producer
+
+xx: Melkan
+# dairy producer
 
 xx: Mello Yello
 wikidata:en: Q6813153
 
 xx: Melona
 wikidata:en: Q6813542
+
+xx: Melvita
 
 xx: Mentos
 wikidata:en: Q1046535
@@ -2119,6 +2130,10 @@ xx: Mike and Ike
 wikidata:en: Q6849381
 
 xx: Milbona
+wikidata:en: Q136824789
+
+xx: Milbona
+wikidata:en: Q136824789
 
 xx: Milk Duds
 wikidata:en: Q6857984
@@ -2132,11 +2147,20 @@ wikidata:en: Q5986560
 xx: Milka
 wikidata:en: Q757388
 
+xx: Milka
+wikidata:en: Q757388
+
+xx: Milner
+wikidata:en: Q115574159
+
 xx: Milo
 wikidata:en: Q1204628
 
 xx: Mini Eggs
 wikidata:en: Q6865029
+
+xx: Minute Maid
+wikidata:en: Q136859200
 
 xx: MiO
 wikidata:en: Q6826924
@@ -2219,6 +2243,8 @@ wikidata:en: Q6944783
 xx: My/Mo Mochi Ice Cream
 wikidata:en: Q104844654
 
+xx: mãe terra
+
 xx: Nabob
 wikidata:en: Q6956983
 
@@ -2241,6 +2267,10 @@ wikidata:en: Q48750489
 
 xx: Nature Valley
 wikidata:en: Q23661669
+
+xx: Nature's Pride
+
+xx: Naturli'
 
 xx: Naturli'
 
@@ -2293,6 +2323,9 @@ wikidata:en: Q17108537
 xx: Nissin Chikin Ramen
 wikidata:en: Q11172466
 
+xx: No brand
+comment:en: to be used when absolutely no brand (or proxy brand) can be found on the packaging.
+
 xx: No Name
 wikidata:en: Q3472452
 
@@ -2302,11 +2335,15 @@ wikidata:en: Q97225239
 xx: Northman
 wikidata:en: Q118610367
 
+xx: Nosugar company
+
 xx: NotCo
 wikidata:en: Q101609467
 
 xx: Now and Later
 wikidata:en: Q7065905
+
+xx: NS Galletas
 
 xx: Nucrem
 wikidata:en: Q5573091
@@ -2334,9 +2371,10 @@ wikidata:en: Q7070588
 
 xx: næmt, naemt
 
+xx: næmt, naemt
+
 xx: Oatly
 wikidata:en: Q10605824
-
 
 xx: Oatmeal Creme Pie
 wikidata:en: Q109058076
@@ -2362,8 +2400,20 @@ wikidata:en: Q16258109
 xx: Old El Paso
 wikidata:en: Q600407
 
+xx: Oldtimers
+wikidata:en: Q137393008
+
 xx: OLW, Old London Wasa
 wikidata:en: Q1775404
+
+xx: OLW, Old London Wasa
+wikidata:en: Q1775404
+
+xx: Oot
+wikidata:en: Q137036335
+
+xx: Optimel
+wikidata:en: Q124221966
 
 xx: Orange Bakery
 wikidata:en: Q113023049
@@ -2407,6 +2457,9 @@ wikidata:en: Q69595135
 xx: Parkay
 wikidata:en: Q7138197
 
+xx: Patak's
+wikidata:en: Q137459252
+
 xx: Paxo
 wikidata:en: Q7156499
 
@@ -2439,6 +2492,8 @@ wikidata:en: Q3376797
 
 xx: Petti
 
+xx: Petti
+
 xx: Pez
 wikidata:en: Q1500277
 
@@ -2451,8 +2506,16 @@ wikidata:en: Q7182999
 xx: PhillySwirl
 wikidata:en: Q125989832
 
+xx: Picnic
+wikidata:en: Q136825786
+
+xx: Pierre Martinet
+wikidata:en: Q136824443
+
 xx: Pillsbury holiday sugar cookies
 wikidata:en: Q114779420
+
+xx: Pimélia
 
 xx: Pink Sauce
 wikidata:en: Q113466947
@@ -2471,8 +2534,13 @@ wikidata:en: Q85793479
 
 xx: Planti
 
+xx: Planti
+
 xx: Plazma
 wikidata:en: Q110047332
+
+xx: PLUS
+wikidata:en: Q136875384
 
 xx: Plus
 wikidata:en: Q17022128
@@ -2483,40 +2551,10 @@ wikidata:en: Q3906863
 xx: Pocky
 wikidata:en: Q1068307
 
-
-xx: Lindt, Lindt & Sprüngl
-wikidata:en: Q152822
-
-xx: Loka
-wikidata:en: Q10568903
-
+xx: Poiesz
 
 xx: Polly
 wikidata:en: Q85846949
-
-xx: Lotus Natur
-
-xx: Løgismose
-wikidata:en: Q6711394
-
-xx: Madame Magnifique
-comment:en: non-trademarked brand of Q137165248
-
-xx: Maggi
-wikidata:en: Q688424
-
-xx: Magioni
-wikidata:en: Q137393512
-
-xx: Maître CoQ
-
-xx: Lyttos
-# Associated brand: Aldi
-
-xx: mãe terra
-
-xx: Malaco
-wikidata:en: Q4346282
 
 xx: Polly Waffle
 wikidata:en: Q7225840
@@ -2526,11 +2564,6 @@ wikidata:en: Q3907640
 
 xx: Pop Mie
 wikidata:en: Q7229038
-
-xx: Markant
-
-xx: Marks & Spencers, Marks and Spencers, Marks and Spencer, M&S
-wikidata:en: Q714491
 
 xx: Pop Rocks
 wikidata:en: Q2448091
@@ -2547,33 +2580,6 @@ wikidata:en: Q116773100
 xx: Poppycock
 wikidata:en: Q7229586
 
-
-xx: Maza
-wikidata:en: Q136912666
-
-xx: Melkan
-wikidata:en: Q136913078
-
-xx: Melvita
-
-
-xx: McVitie's
-
-xx: Melkan
-# dairy producer
-
-xx: Milbona
-wikidata:en: Q136824789
-
-xx: Milka
-wikidata:en: Q757388
-
-xx: Milner
-wikidata:en: Q115574159
-
-xx: Minute Maid
-wikidata:en: Q136859200
-
 xx: Popsicle
 wikidata:en: Q2270260
 
@@ -2586,9 +2592,7 @@ wikidata:en: Q7236175
 xx: Prego
 wikidata:en: Q7239913
 
-xx: Nature's Pride
-
-xx: Naturli'
+xx: Premier
 
 xx: Premier
 
@@ -2597,14 +2601,11 @@ xx: Premieur
 xx: Premium Plus
 wikidata:en: Q7240466
 
-xx: Nosugar company
-
-xx: NS Galletas
-
-xx: næmt, naemt
-
 xx: President's Choice
 wikidata:en: Q845185
+
+xx: Priméal
+wikidata:en: Q137393142
 
 xx: Prince Noodles
 wikidata:en: Q15907946
@@ -2621,53 +2622,11 @@ wikidata:en: Q528187
 xx: Prior
 wikidata:en: Q7245402
 
-xx: Oldtimers
-wikidata:en: Q137393008
-
-xx: OLW, Old London Wasa
-wikidata:en: Q1775404
-
-xx: Oot
-wikidata:en: Q137036335
-
-xx: Optimel
-wikidata:en: Q124221966
-
-xx: Pågen, Pågen AB
-wikidata:en: Q3102193
-
-xx: Patak's
-wikidata:en: Q137459252
-
-xx: Petti
-
-xx: Picnic
-wikidata:en: Q136825786
-
-xx: Pierre Martinet
-wikidata:en: Q136824443
-
-xx: Pimélia
-
-# this (Swedish) brand was purchased by (Finnish) Oddlygood in 2023
-xx: Planti
-
-xx: PLUS
-wikidata:en: Q136875384
-
-
-xx: Poiesz
-
-xx: Premier
+xx: ProActiv
+wikidata:en: Q136880765
 
 xx: Product 19
 wikidata:en: Q7247733
-
-xx: Priméal
-wikidata:en: Q137393142
-
-xx: ProActiv
-wikidata:en: Q136880765
 
 xx: Progresso
 wikidata:en: Q136952902
@@ -2682,11 +2641,12 @@ wikidata:en: Q6143883
 xx: Pulse
 wikidata:en: Q30606500
 
-
 xx: Purasana
 
-
 xx: Pureness
+
+xx: Pågen, Pågen AB
+wikidata:en: Q3102193
 
 xx: Pågen, Pågen AB
 wikidata:en: Q3102193
@@ -2790,6 +2750,8 @@ wikidata:en: Q7360610
 xx: Rolo
 wikidata:en: Q1900223
 
+xx: Roosterz & Co
+
 xx: Route 11 Potato Chips
 wikidata:en: Q98072947
 
@@ -2799,16 +2761,18 @@ wikidata:en: Q7372263
 xx: Rowntree's Fruit Pastilles
 wikidata:en: Q7372265
 
+xx: Royal
+
 xx: Royal Dansk
 wikidata:en: Q96402924
 
-xx: Ruffles
-wikidata:en: Q2947936
-
-xx: Roosterz & Co
-
+xx: Royal Mediterranean
+wikidata:en: Q136984611
 
 xx: Roze Bunker
+
+xx: Ruffles
+wikidata:en: Q2947936
 
 xx: Rydbergs
 
@@ -2819,11 +2783,6 @@ xx: Récoltons l'Avenir, Récoltons l'Avenir l'agriculture durable
 
 xx: Sabra
 wikidata:en: Q7396323
-
-xx: Royal
-
-xx: Royal Mediterranean
-wikidata:en: Q136984611
 
 xx: Saffola
 
@@ -2849,13 +2808,13 @@ xx: Santa Maria, Santa Maria Norge AS
 xx: Satsumaimo Caramel
 wikidata:en: Q11268063
 
+xx: Sawa
+
 xx: Sawara Bayashi
 wikidata:en: Q11383028
 
 xx: Saxa
 wikidata:en: Q7428762
-
-xx: Sawa
 
 xx: Schulstad
 wikidata:en: Q12334753
@@ -2875,12 +2834,11 @@ wikidata:en: Q125619000
 xx: Secret Stadium Sauce
 wikidata:en: Q7444112
 
-xx: Sennari
-wikidata:en: Q11405208
-
-
 xx: Semper
 wikidata:en: Q136913700
+
+xx: Sennari
+wikidata:en: Q11405208
 
 xx: Sevan
 
@@ -2914,8 +2872,17 @@ wikidata:en: Q2381598
 xx: SIA Glass, SIA
 wikidata:en: Q7390267
 
+xx: Signature Foods
+web:en: en: www.signaturefoods.com
+
+xx: Signature Foods Tapas
+#subbrand of xx:Signature Foods
+
 xx: Silk (brand)
 wikidata:en: Q7515167
+
+xx: Silvo
+wikidata:en: Q137552503
 
 xx: Sisu
 wikidata:en: Q5400820
@@ -2962,24 +2929,14 @@ wikidata:en: Q60788295
 xx: Smarties
 wikidata:en: Q12069294
 
+xx: Smikkelhuys
+wikidata:en: Q136930176
+
 xx: Smorz
 wikidata:en: Q7546479
 
 xx: Snack Barz
 wikidata:en: Q7546870
-
-xx: Smikkelhuys
-wikidata:en: Q136930176
-
-
-xx: Signature Foods
-web:en: en: www.signaturefoods.com
-
-xx: Signature Foods Tapas
-#subbrand of xx:Signature Foods
-
-xx: Silvo
-wikidata:en: Q137552503
 
 xx: Snack Fan
 # related_brand:en: en:aldi
@@ -2993,6 +2950,8 @@ xx: Solero
 wikidata:en: Q1759129
 
 xx: Solevita
+
+xx: Sonko
 
 xx: Sonrisas
 wikidata:en: Q6132336
@@ -3009,10 +2968,6 @@ wikidata:en: Q7565075
 xx: Sour Punch
 wikidata:en: Q7565077
 
-xx: Sonko
-
-xx: Søstrene Grene
-
 xx: Soutenons nos agriculteurs
 
 xx: Space Raiders
@@ -3024,15 +2979,14 @@ wikidata:en: Q7572807
 xx: Special K
 wikidata:en: Q3492829
 
+xx: Spree
+wikidata:en: Q7580308
 
 xx: Stacy's Pita Chips
 wikidata:en: Q85847312
 
 xx: Star Bar
 wikidata:en: Q1596995
-
-xx: Spree
-wikidata:en: Q7580308
 
 xx: Star Nutrition
 
@@ -3057,6 +3011,8 @@ wikidata:en: Q7623701
 xx: Subaru Monaka
 wikidata:en: Q11312646
 
+xx: Sum & Sam
+
 xx: Summit Candy Bar
 wikidata:en: Q7637782
 
@@ -3078,8 +3034,6 @@ wikidata:en: Q7642630
 xx: Sushi Take Out
 wikidata:en: Q130214155
 
-xx: Sum & Sam
-
 #< xx:Scandic Food
 xx: Svansø
 
@@ -3100,6 +3054,8 @@ wikidata:en: Q7661457
 
 xx: Södervidinge
 wikidata:en: Q10688845
+
+xx: Søstrene Grene
 
 xx: Ta'ami
 wikidata:en: Q31197957
@@ -3150,11 +3106,11 @@ wikidata:en: Q7694018
 xx: Terrabusi
 wikidata:en: Q108197751
 
-xx: The Nation's Noodle
-wikidata:en: Q16998436
-
 xx: The Bridge
 wikidata:en: Q137513415
+
+xx: The Nation's Noodle
+wikidata:en: Q16998436
 
 xx: Thise
 #web:da: https://thise.dk/
@@ -3181,6 +3137,8 @@ wikidata:en: Q7805061
 xx: Tiny but Mighty Popcorn
 wikidata:en: Q39056555
 
+xx: Tlant
+
 xx: Toblerone
 wikidata:en: Q215707
 
@@ -3195,8 +3153,6 @@ wikidata:en: Q109558143
 
 xx: Tofurky
 wikidata:en: Q7813014
-
-xx: Tlant
 
 xx: Tokapi
 
@@ -3215,6 +3171,9 @@ wikidata:en: Q134378851
 xx: Topic
 wikidata:en: Q3532084
 
+xx: Tortex
+wikidata:en: Q1747471
+
 xx: Torti
 wikidata:en: Q20502487
 
@@ -3229,10 +3188,6 @@ wikidata:en: Q99434048
 
 xx: Tracker
 wikidata:en: Q7831549
-
-
-xx: Tortex
-wikidata:en: Q1747471
 
 #< xx:Trader Joe's
 xx: Trader Darwin's
@@ -3261,6 +3216,9 @@ wikidata:en: Q7844698
 xx: Trolli Gummi Pop
 wikidata:en: Q131411126
 
+xx: Trophy Smaakmakers
+# associated brand: xx:Aldi
+
 xx: Tropolis
 wikidata:en: Q7846256
 
@@ -3270,20 +3228,17 @@ wikidata:en: Q22131217
 xx: TTL Hua Tiao Chicken Noodles
 wikidata:en: Q56272127
 
-xx: Tunes
-wikidata:en: Q56857265
-
-xx: Tupla
-wikidata:en: Q4413006
-
 xx: Tuana
 wikidata:en: Q136933479
 
 xx: Tuc
 # owner: Mondelez
 
-xx: Trophy Smaakmakers
-# associated brand: xx:Aldi
+xx: Tunes
+wikidata:en: Q56857265
+
+xx: Tupla
+wikidata:en: Q4413006
 
 xx: Turini
 
@@ -3298,7 +3253,6 @@ wikidata:en: Q7858438
 
 xx: Twist
 wikidata:en: Q124418279
-
 
 xx: Twix
 wikidata:en: Q869733
@@ -3349,8 +3303,19 @@ wikidata:en: Q4008334
 
 xx: Valsølille
 
+xx: Van 't Huijs
+wikidata:en: Q137384962
+
 xx: Van Camp's
 wikidata:en: Q7913230
+
+xx: Van de Boom
+wikidata:en: Q136891976
+
+xx: Van Delft
+wikidata:en: Q136952141
+
+xx: Van Eigen Deeg
 
 xx: Vega
 wikidata:en: Q48803460
@@ -3364,27 +3329,19 @@ wikidata:en: Q7919370
 xx: Velveeta Shells & Cheese
 wikidata:en: Q25040559
 
-xx: Van Delft
-wikidata:en: Q136952141
-
-xx: Van de Boom
-wikidata:en: Q136891976
-
-xx: Van Eigen Deeg
-
-xx: Van 't Huijs
-wikidata:en: Q137384962
-
 xx: Vemondo
 wikidata:en: Q136841178
 
 xx: Venco
 wikidata:en: Q136933516
 
-xx: Vivani
-wikidata:en: Q2528978
-
 xx: Veritas
+
+xx: Verkade
+
+xx: Verpaco
+
+xx: Verstegen
 
 xx: Vicente Vidal
 wikidata:en: Q24192271
@@ -3392,10 +3349,25 @@ wikidata:en: Q24192271
 xx: Violet Crumble
 wikidata:en: Q7933234
 
+xx: Vita d'Or
+# related/parent brand Lidl
+
 xx: Vitamin Castella
 wikidata:en: Q65241784
 
 xx: Vitasia
+wikidata:en: Q137300729
+
+xx: Vitasia
+wikidata:en: Q137300729
+
+xx: Vivani
+wikidata:en: Q2528978
+
+xx: Vivera
+wikidata:en: Q2492388
+
+xx: Vivo
 
 xx: Vlasic Pickles
 wikidata:en: Q7939012
@@ -3418,23 +3390,6 @@ wikidata:en: Q7963703
 
 xx: Warheads
 wikidata:en: Q7969405
-
-xx: Verkade
-
-xx: Verpaco
-
-xx: Verstegen
-
-xx: Vitasia
-wikidata:en: Q137300729
-
-xx: Vita d'Or
-# related/parent brand Lidl
-
-xx: Vivera
-wikidata:en: Q2492388
-
-xx: Vivo
 
 xx: wasa
 wikidata:en: Q2298302
@@ -3487,6 +3442,9 @@ wikidata:en: Q126726162
 xx: Wispa
 wikidata:en: Q15197142
 
+xx: Wolf
+wikidata:en: Q136841107
+
 xx: Wolf Brand Chili
 wikidata:en: Q8029804
 
@@ -3501,12 +3459,6 @@ wikidata:en: Q113077616
 
 xx: Xavier
 wikidata:en: Q11268660
-
-xx: Wolf
-wikidata:en: Q136841107
-
-xx: Yonca
-wikidata:en: Q137442478
 
 xx: Xtra, Xtra Coop
 wikidata:en: Q11902541
@@ -3527,6 +3479,9 @@ wikidata:en: Q11280364
 
 xx: Yeo's, Yeos
 
+xx: Yonca
+wikidata:en: Q137442478
+
 xx: York Peppermint Pattie
 wikidata:en: Q8055510
 
@@ -3539,17 +3494,16 @@ wikidata:en: Q8059414
 xx: Yukimi Daifuku
 wikidata:en: Q8060727
 
-xx: Zagnut
-wikidata:en: Q8064401
-
-
-xx: Zanetti
-
 xx: Zaanlander
 # cheese brand of xx: Albert Heijn
 
+xx: Zagnut
+wikidata:en: Q8064401
+
 xx: Zandvliet
 wikidata:en: Q137477005
+
+xx: Zanetti
 
 xx: Zeina's
 
@@ -3569,6 +3523,9 @@ wikidata:en: Q137104443
 xx: Änglamark, Anglemark
 wikidata:en: Q65229572
 
+xx: Ísey
+wikidata:en: Q16422529
+
 xx: ØGO
 
 xx: Økoladen
@@ -3578,8 +3535,5 @@ xx: Økolivet, Øko Livet
 
 xx: Ōte Manjū
 wikidata:en: Q11435539
-
-xx: 1de Beste
-wikidata:en: Q136929195
 
 xx: 움트리
