@@ -85,6 +85,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libdbd-pg-perl \
         libtemplate-perl \
         liburi-escape-xs-perl \
+        libxml-libxslt-perl \
+        libdata-table-perl \
         libanyevent-redis-perl \
         # NB: not available in ubuntu 1804 LTS:
         libmath-random-secure-perl \

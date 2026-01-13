@@ -18,7 +18,7 @@ remove_all_users();
 
 #new common user agent
 my $ua = new_client();
-my %create_client_args = (%default_user_form, (email => 'bob@test.com'));
+my %create_client_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($ua, \%create_client_args);
 
 #new admin user agent - admin user has to be created before the deletion
@@ -45,7 +45,7 @@ if (get_oidc_implementation_level() < 5) {
 
 	my %delete_form = (
 		name => 'Test',
-		email => 'bob@test.com',
+		email => 'bob@example.com',
 		password => '',
 		confirm_password => '',
 		delete => 'on',
@@ -104,7 +104,7 @@ my $response_userid = $admin->get($url_userid);
 #checking if the edit page of the common ua is well deleted
 like($response_userid->content, qr/Invalid user\./, "the userid edit page is well deleted");
 
-my $url_email = construct_test_url('/cgi/user.pl?type=edit&userid=bob@test.com', "world");
+my $url_email = construct_test_url('/cgi/user.pl?type=edit&userid=bob@example.com', "world");
 my $response_email = $admin->get($url_email);
 #checking if the edit page of the common ua is well deleted
 like($response_email->content, qr/Invalid user\./, "the email edit page is well deleted");
