@@ -52,10 +52,17 @@ def parse_brands_file(filepath: str) -> Tuple[List[str], List[Tuple[str, List[st
     pending_parent_comment = []
     
     for line in body_lines:
-        if line.startswith('#<'):
-            # Parent comment line - save it for the next brand entry
-            pending_parent_comment.append(line)
+        # Handle blank lines first - they separate entries
+        if line.strip() == '':
+            if sort_key is not None:
+                # End of a brand entry
+                current_entry.append(line)
+                brand_entries.append((sort_key, current_entry))
+                current_entry = []
+                sort_key = None
+            # else: blank line before any brand entry, skip it
         elif line.startswith('xx:'):
+            # Start of a new brand entry
             # Extract the brand name for sorting
             # Remove "xx: " prefix and get first brand name (before comma)
             brand_text = line[4:].strip()
@@ -65,13 +72,16 @@ def parse_brands_file(filepath: str) -> Tuple[List[str], List[Tuple[str, List[st
             # Include any pending parent comment lines
             current_entry = pending_parent_comment + [line]
             pending_parent_comment = []
+        elif line.startswith('#<'):
+            # Parent comment line - save it for the next brand entry
+            pending_parent_comment.append(line)
         elif sort_key is not None:
+            # Metadata line for current brand entry
             current_entry.append(line)
-            # Check if this is the end of the entry (blank line)
-            if line.strip() == '':
-                brand_entries.append((sort_key, current_entry))
-                current_entry = []
-                sort_key = None
+        else:
+            # Line before any brand entry started - skip it
+            # (e.g., stray lines in the body that aren't part of any entry)
+            pass
     
     # Handle case where last entry doesn't end with blank line
     if current_entry and sort_key is not None:
