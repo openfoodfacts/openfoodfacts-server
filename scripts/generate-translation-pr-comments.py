@@ -45,9 +45,15 @@ def get_changed_po_files() -> List[str]:
             text=True,
             check=True
         )
-        files = result.stdout.strip().split('\n')
-        # Filter for .po files
-        po_files = [f for f in files if f.endswith('.po') and os.path.exists(f)]
+        output = result.stdout.strip()
+        
+        # Handle empty output
+        if not output:
+            return []
+            
+        files = output.split('\n')
+        # Filter for .po files that exist
+        po_files = [f for f in files if f and f.endswith('.po') and os.path.exists(f)]
         return po_files
     except subprocess.CalledProcessError:
         print("Error: Could not get list of changed files", file=sys.stderr)

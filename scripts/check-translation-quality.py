@@ -330,7 +330,12 @@ class TranslationQualityChecker:
                            msgid: str, msgstr: str):
         """Check if placeholders like %s, %d are consistent"""
         # Find all placeholders in msgid and msgstr
-        placeholder_pattern = r'%[sd]|%\([^)]+\)[sd]'
+        # Matches printf-style format specifiers:
+        # - Simple: %s, %d, %i, %f, etc.
+        # - With width/precision: %.2f, %10s, %5d
+        # - With modifiers: %ld, %lld, %zu
+        # - Named: %(name)s, %(value)d
+        placeholder_pattern = r'%(?:\([^)]+\))?(?:[-+0 #])?(?:\*|\d+)?(?:\.(?:\*|\d+))?(?:[hlLzjt])?[sdifuxXoeEgGcpnaAbBSCyYmMdHImMSjwWUVzZ%]'
         
         msgid_placeholders = re.findall(placeholder_pattern, msgid)
         msgstr_placeholders = re.findall(placeholder_pattern, msgstr)
