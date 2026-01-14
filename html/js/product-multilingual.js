@@ -20,8 +20,17 @@
 
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
-/*global lang admin otherNutriments initializeTagifyInput Cropper*/
+/*global lang admin otherNutriments initializeTagifyInput*/
 /*exported add_line upload_image update_image update_nutrition_image_copy*/
+
+// Dynamic import for Cropper.js ESM module
+let CropperModule = null;
+async function getCropper() {
+    if (!CropperModule) {
+        CropperModule = await import('cropperjs');
+    }
+    return CropperModule.default;
+}
 
 //Polyfill, just in case
 if (!Array.isArray) {
@@ -382,12 +391,13 @@ function change_image(imagefield, imgid) {
         delete croppers[imagefield];
     }
 
-    function initCropper(zoomOnWheel) {
+    async function initCropper(zoomOnWheel) {
         if (croppers[imagefield]) {
             croppers[imagefield].destroy();
             delete croppers[imagefield];
         }
         const containerElement = document.getElementById('cropimgdiv_' + imagefield);
+        const Cropper = await getCropper();
         croppers[imagefield] = new Cropper(imgElement, {
             container: containerElement
         });
