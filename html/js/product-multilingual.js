@@ -412,18 +412,7 @@ function change_image(imagefield, imgid) {
             $("." + crop_button).attr("disabled", false);
         }
 
-        if (cropperImage && typeof cropperImage.$ready === "function") {
-            cropperImage.$ready()
-                .then(function () {
-                    enableCropControls();
-                })
-                .catch(function (error) {
-                    console.error("Error while waiting for cropper image to be ready:", error);
-                    enableCropControls();
-                });
-        } else {
-            enableCropControls();
-        }
+        cropperImage.$ready(enableCropControls);
 
         if (cropperCanvas && zoomOnWheel) {
             cropperCanvas.scaleStep = 0.1;
