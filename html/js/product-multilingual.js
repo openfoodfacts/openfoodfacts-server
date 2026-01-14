@@ -398,11 +398,11 @@ function change_image(imagefield, imgid) {
         }
         const containerElement = document.getElementById('cropimgdiv_' + imagefield);
         const Cropper = await getCropper();
-        croppers[imagefield] = new Cropper(imgElement, {
+        const cropper = new Cropper(imgElement, {
             container: containerElement
         });
+        croppers[imagefield] = cropper;
 
-        const cropper = croppers[imagefield];
         const cropperImage = cropper.getCropperImage();
         const cropperCanvas = cropper.getCropperCanvas();
 
