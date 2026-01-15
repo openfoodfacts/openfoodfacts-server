@@ -29,6 +29,9 @@ UNTRANSLATABLE_TERMS = [
     "Open Pet Food Facts",
     "Open Prices",
     "Green-Score",
+    "Nutri-Score",
+    "NutriScore",
+    "Nova",
 ]
 
 # Mapping of language codes to their variations used in filenames
