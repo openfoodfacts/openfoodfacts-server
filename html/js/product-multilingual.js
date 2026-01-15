@@ -335,13 +335,23 @@ function change_image(imagefield, imgid) {
         let selection = { x: 0, y: 0, width: 0, height: 0 };
         if (cropper) {
             const cropperSelection = cropper.getCropperSelection();
-            if (cropperSelection && cropperSelection.width > 0) {
-                selection = {
-                    x: cropperSelection.x,
-                    y: cropperSelection.y,
-                    width: cropperSelection.width,
-                    height: cropperSelection.height
-                };
+            if (cropperSelection) {
+                // Support both direct properties and a possible `$active` selection (Cropper.js v2 style)
+                const selectionSource = (cropperSelection.$active && typeof cropperSelection.$active === 'object')
+                    ? cropperSelection.$active
+                    : cropperSelection;
+                const selWidth = typeof selectionSource.width === 'number' ? selectionSource.width : 0;
+                const selHeight = typeof selectionSource.height === 'number' ? selectionSource.height : 0;
+                const selX = typeof selectionSource.x === 'number' ? selectionSource.x : 0;
+                const selY = typeof selectionSource.y === 'number' ? selectionSource.y : 0;
+                if (selWidth > 0) {
+                    selection = {
+                        x: selX,
+                        y: selY,
+                        width: selWidth,
+                        height: selHeight
+                    };
+                }
             }
         }
 
@@ -386,11 +396,6 @@ function change_image(imagefield, imgid) {
 
     const imgElement = document.getElementById('crop_' + imagefield);
 
-    if (croppers[imagefield]) {
-        croppers[imagefield].destroy();
-        delete croppers[imagefield];
-    }
-
     async function initCropper(zoomOnWheel) {
         if (croppers[imagefield]) {
             croppers[imagefield].destroy();
@@ -398,13 +403,6 @@ function change_image(imagefield, imgid) {
         }
         const containerElement = document.getElementById('cropimgdiv_' + imagefield);
         const Cropper = await getCropper();
-        const cropper = new Cropper(imgElement, {
-            container: containerElement
-        });
-        croppers[imagefield] = cropper;
-
-        const cropperImage = cropper.getCropperImage();
-        const cropperCanvas = cropper.getCropperCanvas();
 
         function enableCropControls() {
             $("#rotate_left_" + imagefield).attr("disabled", false);
@@ -412,11 +410,14 @@ function change_image(imagefield, imgid) {
             $("." + crop_button).attr("disabled", false);
         }
 
-        cropperImage.$ready(enableCropControls);
-
-        if (cropperCanvas && zoomOnWheel) {
-            cropperCanvas.scaleStep = 0.1;
-        }
+        const cropper = new Cropper(imgElement, {
+            container: containerElement,
+            zoomOnWheel: !!zoomOnWheel,
+            // Use a small zoom step on wheel to mirror the previous scaleStep = 0.1
+            wheelZoomRatio: 0.1,
+            ready: enableCropControls
+        });
+        croppers[imagefield] = cropper;
     }
 
     $("#rotate_left_" + imagefield).attr("disabled", true);
@@ -426,11 +427,15 @@ function change_image(imagefield, imgid) {
     $("#rotate_left_" + imagefield).click({ imagefield: imagefield, angle: -90 }, rotate_image);
     $("#rotate_right_" + imagefield).click({ imagefield: imagefield, angle: 90 }, rotate_image);
 
-    initCropper(false);
+    initCropper(false).catch(function (error) {
+        console.error('Failed to initialize cropper:', error);
+    });
 
     $("#zoom_on_wheel_" + imagefield).change(function () {
         const zoomOnWheel = $("#zoom_on_wheel_" + imagefield).is(':checked');
-        initCropper(zoomOnWheel);
+        initCropper(zoomOnWheel).catch(function (error) {
+            console.error('Failed to reinitialize cropper:', error);
+        });
     });
 
     $(document).foundation('equalizer', 'reflow');
