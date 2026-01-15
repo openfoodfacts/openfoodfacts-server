@@ -2395,7 +2395,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					my %seen;
 					grep {!$seen{$_}++} @_;
 				};
-				@ids = $uniq->(keys %{$current{$group}}, keys %{$previous{$group}});
+				@ids = sort $uniq->(keys %{$current{$group}}, keys %{$previous{$group}});
 			}
 
 			foreach my $id (@ids) {
