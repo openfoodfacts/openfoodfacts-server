@@ -5987,10 +5987,38 @@ sub get_search_field_path_components ($field) {
 	}
 	# we assume other fields are nutrients ids
 	else {
-		@fields = ("nutriments", $field . "_100g");
+		@fields = ("nutrition", "aggregated_set", "nutrients", $field, "value");
 	}
 	return @fields;
 }
+
+=head2 get_search_field_title_and_details ($field)
+
+Given a search field name, return the title, unit, unit2 and allow_decimals details
+
+=head3 Arguments
+
+=head4 $field
+
+Search field name
+
+=head3 Returns
+
+=head4 $title
+
+Title to display for the field
+
+=head4 $unit Unit to display after the title
+
+For nutrients, includes "per 100g" information
+
+=head4 $unit2 Unit to display in the tooltip for each product
+
+Does not include "per 100g" information (already displayed in the tooltip above all nutrients)
+
+=head4 $allow_decimals Whether decimals are allowed for the field
+
+=cut
 
 sub get_search_field_title_and_details ($field) {
 
@@ -6052,11 +6080,8 @@ sub get_search_field_title_and_details ($field) {
 	}
 	else {
 		$title = display_taxonomy_tag($lc, "nutrients", "zz:" . $field);
-		$unit2 = $title;    # displayed in the tooltip
-		$unit
-			= " ("
-			. (get_property("nutrients", "zz:" . $field, "unit:en") // 'g') . " "
-			. lang("nutrition_data_per_100g") . ")";
+		$unit2 = get_property("nutrients", "zz:" . $field, "unit:en") // 'g';
+		$unit = " (" . $unit2 . " " . lang("nutrition_data_per_100g") . ")";
 		$unit =~ s/\&nbsp;/ /g;
 	}
 
@@ -6409,7 +6434,7 @@ HTML
 
 	my $stats_ref = {};
 
-	compute_stats_for_products($stats_ref, \%nutrients, $count, $i, 5, 'search');
+	compute_stats_for_products($stats_ref, \%nutrients, $count, $i, 2, 'search');
 
 	# We use knowledge panels to display nutrition facts for the result set
 
@@ -6984,6 +7009,12 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		my $field = $graph_ref->{"axis_$axis"};
 		# If the field starts with folksonomy. , we will get the values from Folksonomy Engine as they are not in MongoDB
 		next if ($field =~ /^folksonomy\.(.+)$/);
+		# histogram has no axis_y value, or it is 'products_n'
+		next
+			if ($axis eq 'y')
+			and ((not defined $graph_ref->{axis_y})
+			or ($graph_ref->{axis_y} eq '')
+			or ($graph_ref->{axis_y} eq 'products_n'));
 		# Get the field path components
 		my @fields = get_search_field_path_components($field);
 		# Convert to dot notation to get the MongoDB field
