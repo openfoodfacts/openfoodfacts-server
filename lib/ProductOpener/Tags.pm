@@ -1226,9 +1226,72 @@ sub put_file_to_cache ($source, $target) {
 	return;
 }
 
+=head2 cleanup_old_cache_files ($tagtype, $cache_root)
+
+Clean up old cache files for a taxonomy, keeping only the 5 most recent file sets.
+Each taxonomy cache set consists of 5 files with the same hash.
+This prevents the cache from growing indefinitely (issue #12893).
+
+=head3 Arguments
+
+=head4 $tagtype - The taxonomy type (e.g., "labels", "categories")
+
+=head4 $cache_root - The path to the cache directory
+
+=cut
+
+sub cleanup_old_cache_files ($tagtype, $cache_root) {
+	# File types for each taxonomy cache set
+	my @file_types = ('json', 'full.json', 'extended.json', 'result.txt', 'result.json');
+
+	# Maximum number of cache sets to keep per taxonomy
+	my $max_cache_sets = 5;
+
+	# Find all cache files for this taxonomy type
+	opendir(my $dh, $cache_root) or return;
+	my @files = readdir($dh);
+	closedir($dh);
+
+	# Extract unique hashes and their modification times
+	# Pattern: $tagtype.$hash.<type>
+	my %hash_times;
+	foreach my $file (@files) {
+		if ($file =~ /^\Q$tagtype\E\.([a-f0-9]+)\./) {
+			my $hash = $1;
+			my $file_path = "$cache_root/$file";
+			my $mtime = (stat($file_path))[9];
+			# Keep track of the most recent modification time for each hash
+			if (!defined $hash_times{$hash} || $mtime > $hash_times{$hash}) {
+				$hash_times{$hash} = $mtime;
+			}
+		}
+	}
+
+	# Sort hashes by modification time (newest first)
+	my @sorted_hashes = sort {$hash_times{$b} <=> $hash_times{$a}} keys %hash_times;
+
+	# Delete cache files for hashes beyond the maximum to keep
+	if (scalar(@sorted_hashes) > $max_cache_sets) {
+		my @hashes_to_delete = @sorted_hashes[$max_cache_sets .. $#sorted_hashes];
+		foreach my $hash (@hashes_to_delete) {
+			foreach my $type (@file_types) {
+				my $file = "$cache_root/$tagtype.$hash.$type";
+				if (-e $file) {
+					unlink($file);
+				}
+			}
+		}
+		my $deleted_count = scalar(@hashes_to_delete);
+		print "Cleaned up $deleted_count old cache set(s) for $tagtype taxonomy\n";
+	}
+
+	return;
+}
+
 sub put_to_cache ($tagtype, $cache_prefix) {
 	my $tag_data_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result//$tagtype";
 	my $tag_www_root = "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype";
+	my $cache_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies";
 
 	put_file_to_cache("$tag_www_root.json", "$cache_prefix.json");
 	put_file_to_cache("$tag_www_root.full.json", "$cache_prefix.full.json");
@@ -1237,6 +1300,9 @@ sub put_to_cache ($tagtype, $cache_prefix) {
 	put_file_to_cache("$tag_data_root.result.json", "$cache_prefix.result.json");
 	# note: we don't put errors to cache as it is a non sense, errors are to be fixed before
 	# and you need them only if you touch the taxonomy hence rebuild it (and thus have them locally)
+
+	# Clean up old cache files, keeping only the 5 most recent sets per taxonomy
+	cleanup_old_cache_files($tagtype, $cache_root);
 
 	return;
 }
