@@ -8906,6 +8906,7 @@ pl: Napoje na bazie warzyw
 < en:Vegetable-based beverages
 en: Vegetable juices
 bg: Зеленчукови сокове
+da: Grønsagsjuicer
 de: Gemüsesäfte
 es: Zumos de verduras y hortalizas
 fi: kasvismehut
@@ -8917,6 +8918,7 @@ ja: 野菜ジュース
 lt: Daržovių sultys
 nl: Groentesappen, Groentesap, Groentensap
 pl: Sok warzywny, Soki warzywne
+sv: Grönsaksjuicer
 tr: Sebze suyu
 zh: 蔬菜汁
 ciqual_food_code:en: 2075
@@ -8939,10 +8941,13 @@ gpc_category_name:en: Vegetable Juice - Ready to Drink (Perishable)
 
 < en:Vegetable juices
 en: Frozen vegetable juices
+da: Frosne grønsagsjuicer
+sv: Frussna grönsaksjuicer
 
 < en:Vegetable juices
 en: Carrot juices
 bg: Сок от моркови
+da: Gulerodsjuicer
 de: Karottensäfte
 es: Zumos de zanahoria
 fi: porkkanamehut
@@ -8955,6 +8960,7 @@ lt: Morkų sultys
 nl: Wortelsappen, Wortelsap
 pl: Soki marchewkowe
 ru: Морковные соки
+sv: Morotsjuicer
 tr: Havuç suyu
 zh: 胡萝卜汁
 wikidata:en: Q1190074
@@ -8970,12 +8976,15 @@ lt: Koncentruotos morkų sultys
 nl: Wortelsappen uit concentraat, Wortelsap uit concentraat
 
 < en:Carrot juices
-en: Pure carrot juice
+en: Pure carrot juices, Pure carrot juice
+da: Rene gulerodsjuicer
 fr: Jus de carotte pur jus
+sv: Rena morotsjuicer
 agribalyse_food_code:en: 2006
 ciqual_food_code:en: 2006
 ciqual_food_name:en: Carrot juice, pure juice
 ciqual_food_name:fr: Jus de carotte, pur jus
+expected_ingredients:en: en:carrot
 
 < en:Vegetable juices
 en: Beetroot juices
