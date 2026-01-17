@@ -1229,8 +1229,6 @@ sub put_file_to_cache ($source, $target) {
 =head2 cleanup_old_cache_files ($tagtype, $cache_root)
 
 Clean up old cache files for a taxonomy, keeping only the 5 most recent file sets.
-Each taxonomy cache set consists of 5 files with the same hash.
-This prevents the cache from growing indefinitely (issue #12893).
 
 =head3 Arguments
 
@@ -1253,7 +1251,6 @@ sub cleanup_old_cache_files ($tagtype, $cache_root) {
 	closedir($dh);
 
 	# Extract unique hashes and their modification times
-	# Pattern: $tagtype.$hash.<type>
 	my %hash_times;
 	foreach my $file (@files) {
 		if ($file =~ /^\Q$tagtype\E\.([a-f0-9]+)\./) {
