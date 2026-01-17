@@ -6365,7 +6365,7 @@ msgstr "لم نتمكن من التعرف على بعض المكونات وتح�
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
-msgstr ""
+msgstr "إلغاء تحديد الصورة"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
@@ -6699,11 +6699,11 @@ msgstr "نوع غير صالح: يجب أن يكون كائنًا"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr ""
+msgstr "نوع خاطئ: يجب ان تكون مصفوفه"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr ""
+msgstr "نوع خاطئ: يجب ان يكون عدد صحيح"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
@@ -6711,15 +6711,15 @@ msgstr "نوع غير صالح: يجب أن يكون رقم"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
-msgstr ""
+msgstr "مساحة مفقودة"
 
 msgctxt "api_message_unrecognized_field"
 msgid "Unrecognized field"
-msgstr ""
+msgstr "مساحة غير معروفة"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
-msgstr ""
+msgstr "قيمة غير معروفة"
 
 msgctxt "api_message_image_already_uploaded"
 msgid "Image already uploaded"
@@ -6767,7 +6767,7 @@ msgstr "فشل"
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
-msgstr ""
+msgstr "تم تجاهل المساحة"
 
 msgctxt "api_impact_value_converted"
 msgid "Value converted"
@@ -6781,29 +6781,29 @@ msgstr "عدد الوحدات"
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "وزن وحدة واحدة فارغة"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "كمية المنتج الموجودة في كل وحدة"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
 msgid "Help categorize more {title} on Hunger Games"
-msgstr ""
+msgstr "ساعد في تصنيف المزيد من {title} حول Hunger Games"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "تم إدراج جميع أجزاء تغليف المنتج."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "اسم المستخدم وكلمة المرور غير صحيحين"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "قيمة غير صالحة: يجب أن تكون 0 أو 1"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
@@ -6825,7 +6825,7 @@ msgstr "أدخل تعليمات إعادة التدوير فقط إذا كانت
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr ""
+msgstr "أزل أي بقايا طعام واغسل وجفف غلاف المنتج قبل وزنه. يُفضل استخدام ميزان بدقة 0.1 غرام أو 0.01 غرام."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
@@ -6834,7 +6834,7 @@ msgstr "أدخل الوزن الصافي أو الحجم الصافي وأشر �
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
-msgstr ""
+msgstr "استيراد وتصدير المنتجات"
 
 msgctxt "add_products"
 msgid "Add products"
@@ -6843,23 +6843,23 @@ msgstr "أضف المنتجات"
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
 msgid "Install the app to add products"
-msgstr ""
+msgstr "قم بتثبيت التطبيق لإضافة المنتجات"
 
 msgctxt "search_and_analyze_products"
 msgid "Search and analyze products"
-msgstr ""
+msgstr "البحث عن المنتجات وتحليلها"
 
 msgctxt "resources"
 msgid "Resources"
-msgstr ""
+msgstr "الموارد"
 
 msgctxt "pro_platform_user_guide"
 msgid "Pro platform user guide"
-msgstr ""
+msgstr "دليل مستخدم المنصة الاحترافية"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr ""
+msgstr "أسئلة وأجوبة للمنتجين"
 
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
@@ -6868,87 +6868,87 @@ msgstr "الرجاء إدخال قيمة بين 0 و {max}."
 
 msgctxt "please_ask_users_create_account_first"
 msgid "Please ask the following users to create an Open Food Facts account first:"
-msgstr ""
+msgstr "يرجى مطالبة المستخدمين التاليين بإنشاء حساب على منصة Open Food Facts أولاً:"
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
-msgstr ""
+msgstr "تمت إضافة المستخدمين إلى المؤسسة بنجاح:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
-msgstr ""
+msgstr "يجب ألا تتجاوز نسبة السكريات نسبة الكربوهيدرات."
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr ""
+msgstr "يجب ألا تكون نسبة الدهون المشبعة أعلى من نسبة الدهون."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
-msgstr ""
+msgstr "مواد التغليف"
 
 msgctxt "packaging_weight_total"
 msgid "Packaging weight"
-msgstr ""
+msgstr "وزن التغليف"
 
 msgctxt "packaging_weight_100g"
 msgid "Packaging weight per 100 g of product"
-msgstr ""
+msgstr "وزن التغليف لكل 100 غرام من المنتج"
 
 msgctxt "packaging_weight_100g_mean"
 msgid "Mean packaging weight per 100 g of product"
-msgstr ""
+msgstr "متوسط وزن التغليف لكل 100 غرام من المنتج"
 
 msgctxt "total"
 msgid "Total"
-msgstr ""
+msgstr "المجموع"
 
 msgctxt "packaging_material_products_percent"
 msgid "% of products containing the material"
-msgstr ""
+msgstr "% من المنتجات المحتوية على المادة"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "% من المنتجات المحتوية على معظم المادة"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
-msgstr ""
+msgstr "للمنتجات التي تحتوي على المادة"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
-msgstr ""
+msgstr "للمنتجات التي تحتوي في الغالب على المادة"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
-msgstr ""
+msgstr "نسبة إلى جميع المنتجات"
 
 msgctxt "preferred_language"
 msgid "Preferred Language"
-msgstr ""
+msgstr "اللغة المفضلة"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
-msgstr ""
+msgstr "أرقام مكونات التغليف"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr ""
+msgstr "عدد مكونات التغليف"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
-msgstr ""
+msgstr "جميع المواد"
 
 msgctxt "weight"
 msgid "Weight"
-msgstr ""
+msgstr "الوزن"
 
 msgctxt "weight_100g"
 msgid "Weight per 100g of product"
-msgstr ""
+msgstr "الوزن لكل 100 غرام من المنتج"
 
 msgctxt "weight_percent"
 msgid "Weight percent"
-msgstr ""
+msgstr "النسبة المئوية للوزن"
 
 msgctxt "nutriscore_component_energy"
 msgid "Energy"
@@ -6968,7 +6968,7 @@ msgstr "الدهون المشبعة"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr ""
+msgstr "الدهون المشبعة / الدهون"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6976,11 +6976,11 @@ msgstr "ملح"
 
 msgctxt "nutriscore_component_non_nutritive_sweeteners"
 msgid "Non-nutritive sweeteners"
-msgstr ""
+msgstr "المحليات غير المغذية"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr ""
+msgstr "الفواكه والخضراوات والبقوليات"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6992,67 +6992,67 @@ msgstr "البروتينات"
 
 msgctxt "presence"
 msgid "Presence"
-msgstr ""
+msgstr "الحضور"
 
 msgctxt "absence"
 msgid "Absence"
-msgstr ""
+msgstr "الغياب"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "يُعتبر هذا المنتج ماءً لحساب مؤشر القيمة الغذائية (Nutri-Score)."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "يُعتبر هذا المنتج دهونًا أو زيوتًا أو مكسرات أو بذورًا لحساب مؤشر القيمة الغذائية."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "يُعتبر هذا المنتج جبنًا عند حساب مؤشر القيمة الغذائية (Nutri-Score)."
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "يُعتبر هذا المنتج من منتجات اللحوم الحمراء عند حساب مؤشر القيمة الغذائية (Nutri-Score)."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr ""
+msgstr "يتم احتساب النقاط الخاصة بالبروتينات لأن المنتج يعتبر مشروبًا."
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr ""
+msgstr "يتم احتساب النقاط الخاصة بالبروتينات لأن المنتج يعتبر جبناً."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr ""
+msgstr "يتم احتساب النقاط الخاصة بالبروتينات لأن النقاط السالبة أقل من 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "يتم احتساب النقاط الخاصة بالبروتينات لأن النقاط السلبية أقل من 11."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "لا يتم احتساب النقاط الخاصة بالبروتينات لأن النقاط السالبة أكبر من أو تساوي 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "لا يتم احتساب النقاط الخاصة بالبروتينات لأن النقاط السالبة أكبر من أو تساوي 11."
 
 msgctxt "nutriscore_new_computation_title"
 msgid "Discover the new Nutri-Score!"
-msgstr ""
+msgstr "اكتشف نظام Nutri-Score الجديد!"
 
 msgctxt "nutriscore_new_computation_description"
 msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
-msgstr ""
+msgstr "<p>يتم تطوير حساب مؤشر التغذية لتقديم توصيات أفضل بناءً على أحدث الأدلة العلمية.</p><p>التحسينات الرئيسية:</p><ul><li>تحسين النتيجة لبعض الأسماك الدهنية والزيوت الغنية بالدهون الصحية</li><li>تحسين النتيجة للمنتجات الكاملة الغنية بالألياف</li><li>انخفاض النتيجة للمنتجات التي تحتوي على الكثير من الملح أو السكر</li><li>انخفاض النتيجة للحوم الحمراء (مقارنة بالدواجن)</li></ul>"
 
 msgctxt "nutriscore_new_computation_link_text"
 msgid "Discover all the improvements of the new Nutri-Score"
-msgstr ""
+msgstr "اكتشف جميع التحسينات التي طرأت على نظام Nutri-Score الجديد"
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "Nutri-Score هو شعار يشير إلى الجودة الغذائية الشاملة للمنتجات."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
@@ -7134,7 +7134,7 @@ msgstr ""
 # sweetener (additive), singular
 msgctxt "sweetener"
 msgid "sweetener"
-msgstr ""
+msgstr "محلّي"
 
 msgctxt "action_edit_product"
 msgid "Complete or correct product information"
