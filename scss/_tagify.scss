@@ -1,0 +1,112 @@
+﻿// Tagify SCSS for Open Food Facts - Issue #10030
+// Migrate from CSS to SCSS and update styling to match new design
+
+// Import base tagify styles
+@import "../node_modules/@yaireo/tagify/dist/tagify.css";
+
+// Import project design system
+@import "variables";
+@import "settings";
+
+// Custom styling for OFF design
+.tagify {
+    --tagify-dd-color-primary: #84bd3a;
+    --tags-border-color: #84bd3a;
+    
+    border-width: 2px;
+    border-radius: 8px;
+    
+    &:focus-within {
+        border-color: #5a8a29;
+        box-shadow: 0 0 0 4px rgba(132, 189, 58, 0.2);
+    }
+}
+
+.tagify__tag {
+    background: #84bd3a;
+    color: white;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.15s ease;
+    
+    &:hover:not([readonly]) {
+        background: #6da032;
+    }
+}
+
+.tagify__dropdown {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    &__item {
+        &--active {
+            background: rgba(132, 189, 58, 0.1);
+        }
+        
+        &--selected {
+            background: #84bd3a;
+            color: white;
+        }
+    }
+}
+
+// ========== RESPONSIVE DESIGN ==========
+
+// Tablet (1024px and below)
+@media (max-width: 1024px) {
+    .tagify {
+        font-size: 15px;
+    }
+}
+
+// Mobile (768px and below)
+@media (max-width: 768px) {
+    .tagify {
+        font-size: 14px;
+    }
+}
+
+// Small mobile (480px and below)
+@media (max-width: 480px) {
+    .tagify {
+        font-size: 13px;
+        padding: 4px;
+        
+        .tagify__tag {
+            padding: 3px 6px;
+            font-size: 12px;
+        }
+    }
+}
+
+// Touch devices
+@media (hover: none) and (pointer: coarse) {
+    .tagify {
+        .tagify__tag {
+            padding: 8px 12px;
+            margin: 4px;
+        }
+    }
+}
+
+// Print styles
+@media print {
+    .tagify {
+        border: 1px solid #000 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        color: #000 !important;
+        
+        .tagify__tag {
+            background: #fff !important;
+            color: #000 !important;
+            border: 1px solid #000;
+            box-shadow: none !important;
+        }
+        
+        .tagify__input,
+        .tagify__dropdown {
+            display: none !important;
+        }
+    }
+}
