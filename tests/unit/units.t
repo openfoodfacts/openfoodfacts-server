@@ -193,13 +193,4 @@ is(get_standard_unit("kj"), "kj");
 is(get_standard_unit("mmol/l"), "mmol/l");
 is(get_standard_unit("ppm"), "mmol/l");
 
-is(get_normalized_unit("kg"), "kg");
-is(get_normalized_unit("KG"), "kg");
-is(get_normalized_unit(" kg"), "kg");
-is(get_normalized_unit("g"), "g");
-is(get_normalized_unit("G"), "g");
-is(get_normalized_unit("some unknown unit"), undef);
-is(get_normalized_unit(""), "");
-is(get_normalized_unit(undef), undef);
-
 done_testing();

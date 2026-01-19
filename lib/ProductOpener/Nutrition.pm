@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding utf8
+
 =head1 NAME
 
 ProductOpener::Nutrition - functions related to nutrition facts of food products
@@ -88,7 +90,7 @@ use ProductOpener::HTTP qw/single_param request_param/;
 
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Numbers qw/convert_string_to_number remove_insignificant_digits/;
-use ProductOpener::Units qw/get_normalized_unit normalize_product_quantity_and_serving_size/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::Ingredients
 	qw/estimate_added_sugars_percent_from_ingredients estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients/;
 
@@ -567,13 +569,14 @@ sub get_specific_nutrition_input_set($product_ref, $source, $preparation, $per) 
 
 =head2 set_per_quantity_and_unit($product_ref, $input_set_ref)
 
-Fill the per_quanity and per_unit field of nutrients input set,
+Fill the per_quantity and per_unit field of nutrients input set,
 based upon the "per" value of the nutrient input set,
 or product serving_quantity and unit for "serving".
 
 =head3 Arguments
 
 =head4 $product_ref - product
+
 =head4 $input_set_ref - nutrient input set
 
 It is modified to add per_quantity and per_unit.

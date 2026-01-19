@@ -50,7 +50,6 @@ BEGIN {
 		&normalize_quantity
 		&extract_standard_unit
 		&get_standard_unit
-		&get_normalized_unit
 		&normalize_product_quantity_and_serving_size
 
 	);    # symbols to export on request
@@ -367,32 +366,6 @@ sub get_standard_unit ($unit) {
 		}
 	}
 	return $standard_unit;
-}
-
-=head2 get_normalized_unit($unit_string)
-
-Given a string representing a unit, returns the corresponding unit from the units taxonomy.
-
-=head3 Parameters
-
-=head4 $unit_string
-
-String representing a unit.
-
-=head3 Return values
-
-Unit corresponding to the given string, or undef if no corresponding unit was found.
-
-=cut
-
-sub get_normalized_unit ($unit_string) {
-	my $unit;
-	if (defined $unit_string) {
-		$unit_string = lc($unit_string);
-		$unit_string =~ s/^\s+|\s+$//g;    # trim leading and trailing spaces
-		$unit = $units_names{$unit_string};    # $unit can be undefined
-	}
-	return $unit;
 }
 
 =head2 normalize_serving_size($serving)
