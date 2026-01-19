@@ -92,7 +92,6 @@ class POFileParser:
         entries = []
         current_entry = {}
         current_field = None
-        line_num = 0
         
         with open(self.file_path, 'r', encoding='utf-8') as f:
             for line_num, line in enumerate(f, 1):
@@ -142,12 +141,35 @@ class POFileParser:
         quoted_str = quoted_str.strip()
         if quoted_str.startswith('"') and quoted_str.endswith('"'):
             quoted_str = quoted_str[1:-1]
-        # Unescape basic sequences (order matters - backslash must be last)
-        quoted_str = quoted_str.replace('\\n', '\n')
-        quoted_str = quoted_str.replace('\\t', '\t')
-        quoted_str = quoted_str.replace('\\"', '"')
-        quoted_str = quoted_str.replace('\\\\', '\\')
-        return quoted_str
+        
+        # Use a proper escape sequence decoder
+        # Replace escape sequences in the correct order
+        result = []
+        i = 0
+        while i < len(quoted_str):
+            if quoted_str[i] == '\\' and i + 1 < len(quoted_str):
+                next_char = quoted_str[i + 1]
+                if next_char == 'n':
+                    result.append('\n')
+                    i += 2
+                elif next_char == 't':
+                    result.append('\t')
+                    i += 2
+                elif next_char == '\\':
+                    result.append('\\')
+                    i += 2
+                elif next_char == '"':
+                    result.append('"')
+                    i += 2
+                else:
+                    # Unknown escape sequence, keep as is
+                    result.append(quoted_str[i])
+                    i += 1
+            else:
+                result.append(quoted_str[i])
+                i += 1
+        
+        return ''.join(result)
 
 
 class TranslationQualityChecker:
@@ -205,8 +227,22 @@ class TranslationQualityChecker:
             self.issues.append(issue)
         else:
             # Check for specific tag types only when overall counts match
-            for tag_type in ['<a', '</a>', '<strong>', '</strong>', '<em>', '</em>', 
-                            '<span', '</span>', '<p>', '</p>']:
+            for tag_type in [
+                '<a', '</a>',
+                '<strong>', '</strong>',
+                '<em>', '</em>',
+                '<span', '</span>',
+                '<p>', '</p>',
+                '<br>', '<br/>',
+                '<sub>', '</sub>',
+                '<sup>', '</sup>',
+                '<b>', '</b>',
+                '<i>', '</i>',
+                '<div', '</div>',
+                '<ul', '</ul>',
+                '<ol', '</ol>',
+                '<li', '</li>',
+            ]:
                 msgid_count = msgid.count(tag_type)
                 msgstr_count = msgstr.count(tag_type)
                 if msgid_count != msgstr_count:
@@ -229,17 +265,18 @@ class TranslationQualityChecker:
         
         for term in UNTRANSLATABLE_TERMS:
             if term in msgid:
-                # Check if the term is in msgstr but modified
+                # Check if the term is in msgstr with exact case match
                 if term not in msgstr and msgstr:
+                    # Check if it's present with wrong casing
+                    if term.lower() in msgstr.lower():
+                        issue = TranslationIssue(
+                            self.file_path, line_num, "BRAND_NAME_CASE_MISMATCH",
+                            msgid, msgstr,
+                            f"'{term}' must be preserved with exact casing. Found different casing in msgstr."
+                        )
+                        self.issues.append(issue)
                     # Try to detect if it was translated
-                    # Look for variations of the term
-                    term_lower = term.lower()
-                    msgstr_lower = msgstr.lower()
-                    
-                    # Check for partial matches or translations
-                    # This is a heuristic - we're looking for similar length strings
-                    # that might be translations of the brand name
-                    if self._might_be_translation(term, msgstr):
+                    elif self._might_be_translation(term, msgstr):
                         issue = TranslationIssue(
                             self.file_path, line_num, "BRAND_NAME_TRANSLATED",
                             msgid, msgstr,
@@ -262,7 +299,6 @@ class TranslationQualityChecker:
         # "Open Food Facts" -> "åpne matfakta" (Norwegian)
         # "Green-Score" -> "Pontuação Verde" (Portuguese)
         
-        term_words = term.lower().split()
         msgstr_lower = msgstr.lower()
         
         # Check specific known bad translations
@@ -338,7 +374,7 @@ class TranslationQualityChecker:
         # - With width/precision: %.2f, %10s, %5d
         # - With modifiers: %ld, %lld, %zu
         # - Named: %(name)s, %(value)d
-        placeholder_pattern = r'%(?:\([^)]+\))?(?:[-+0 #])?(?:\*|\d+)?(?:\.(?:\*|\d+))?(?:[hlLzjt])?[sdifuxXoeEgGcpnaAbBSCyYmMdHImMSjwWUVzZ%]'
+        placeholder_pattern = r'%(?:\([^)]+\))?(?:[-+0 #])?(?:\*|\d+)?(?:\.(?:\*|\d+))?(?:[hlLzjt])?[sdifuxXoeEgGcpnaAbBSCyYmMHIjwWUVzZ%]'
         
         msgid_placeholders = re.findall(placeholder_pattern, msgid)
         msgstr_placeholders = re.findall(placeholder_pattern, msgstr)

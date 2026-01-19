@@ -10,54 +10,79 @@ Usage: python3 scripts/generate-translation-pr-comments.py
 
 import os
 import sys
-import json
 import subprocess
 import tempfile
 from pathlib import Path
 from typing import List, Dict
 
-# Add scripts directory to path for imports
+# Import the translation checker from the hyphenated filename using importlib
+import importlib.util
+
 script_dir = Path(__file__).parent
 sys.path.insert(0, str(script_dir))
 
-# Import the translation checker - handle both module import and direct execution
-try:
-    from check_translation_quality import TranslationQualityChecker
-except ImportError:
-    # If running as script, load the module directly
-    import importlib.util
-    spec = importlib.util.spec_from_file_location(
-        "check_translation_quality", 
-        script_dir / "check-translation-quality.py"
-    )
-    check_translation_quality = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(check_translation_quality)
-    TranslationQualityChecker = check_translation_quality.TranslationQualityChecker
+spec = importlib.util.spec_from_file_location(
+    "check_translation_quality",
+    script_dir / "check-translation-quality.py",
+)
+check_translation_quality = importlib.util.module_from_spec(spec)
+if spec.loader is None:
+    raise ImportError("Could not load check-translation-quality.py module")
+spec.loader.exec_module(check_translation_quality)
+TranslationQualityChecker = check_translation_quality.TranslationQualityChecker
 
 
 def get_changed_po_files() -> List[str]:
     """Get list of .po files changed in the current PR"""
-    try:
-        # Get the list of changed files
-        result = subprocess.run(
-            ['git', 'diff', '--name-only', 'origin/main...HEAD'],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        output = result.stdout.strip()
-        
-        # Handle empty output
-        if not output:
-            return []
-            
-        files = output.split('\n')
-        # Filter for .po files that exist
-        po_files = [f for f in files if f and f.endswith('.po') and os.path.exists(f)]
-        return po_files
-    except subprocess.CalledProcessError:
-        print("Error: Could not get list of changed files", file=sys.stderr)
-        return []
+    # Determine candidate diff ranges, preferring CI-provided refs when available
+    base_ref = os.getenv("GITHUB_BASE_REF")
+    head_ref = os.getenv("GITHUB_HEAD_REF") or "HEAD"
+
+    candidate_ranges = []
+
+    # If running in GitHub Actions, use the provided base/head refs first
+    if base_ref:
+        candidate_ranges.append(f"{base_ref}...{head_ref}")
+        candidate_ranges.append(f"origin/{base_ref}...{head_ref}")
+
+    # Fall back to common default branch names and remotes
+    candidate_ranges.extend([
+        "origin/main...HEAD",
+        "origin/master...HEAD",
+        "main...HEAD",
+        "master...HEAD",
+    ])
+
+    # Try each candidate range until one works
+    for diff_range in candidate_ranges:
+        try:
+            result = subprocess.run(
+                ['git', 'diff', '--name-only', diff_range],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            output = result.stdout.strip()
+
+            # Handle empty output
+            if not output:
+                return []
+
+            files = output.split('\n')
+            # Filter for .po files that exist
+            po_files = [f for f in files if f and f.endswith('.po') and os.path.exists(f)]
+            return po_files
+        except subprocess.CalledProcessError:
+            # Try the next candidate range
+            continue
+
+    # If we reach here, none of the candidate ranges worked
+    print(
+        "Error: Could not determine list of changed files; "
+        "no valid git diff range found.",
+        file=sys.stderr,
+    )
+    return []
 
 
 def check_changed_files() -> Dict[str, List]:
