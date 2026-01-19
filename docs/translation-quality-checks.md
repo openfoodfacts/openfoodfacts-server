@@ -18,6 +18,9 @@ The translation quality checker helps maintain high-quality translations for Ope
 - Open Pet Food Facts
 - Open Prices
 - Green-Score
+- Nutri-Score
+- NutriScore
+- Nova
 
 **Why:** These are proper nouns and brand names that must remain consistent across all languages for brand recognition and legal reasons.
 
