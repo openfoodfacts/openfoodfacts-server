@@ -69,10 +69,10 @@ sub product_with_energy_has_quality_tag($$$) {
 	return;
 }
 
-# en:nutrition-value-over-3911-energy - does not add tag, if there is no nutriments.
-my $product_ref_without_nutriments = {lc => "de"};
+# en:nutrition-value-over-3911-energy - does not add tag, if there is no nutrients.
+my $product_ref_without_nutrients = {lc => "de"};
 check_quality_and_test_product_has_quality_tag(
-	$product_ref_without_nutriments,
+	$product_ref_without_nutrients,
 	'en:nutrition-packaging-as-sold-100g-value-over-3911-energy',
 	'product does not have en:nutrition-packaging-as-sold-100g-value-over-3911-energy tag as it has no nutrients', 0
 );
@@ -276,7 +276,7 @@ ok(
 		$product_ref, 'data_quality',
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
-	'dried product category with undefined nutriments hash is flagged for issue 1466'
+	'dried product category with undefined nutrition hash is flagged for issue 1466'
 ) or diag Dumper $product_ref;
 
 $product_ref = {
@@ -618,7 +618,7 @@ check_quality_and_test_product_has_quality_tag(
 	'energy not matching nutrient', 0
 );
 
-# en:nutrition-value-negative-$nid should be raised - for nutriments below 0
+# en:nutrition-value-negative-$nid should be raised - for nutrients below 0
 $product_ref = {
 	nutrition => {
 		input_sets => [
@@ -636,10 +636,10 @@ $product_ref = {
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-producer-as-sold-100g-value-negative-proteins',
-	'nutriment should have positive value', 1
+	'nutrient should have positive value', 1
 );
 
-# en:nutrition-value-negative-$nid warning only should be raised - for nutriments containing "estimate"
+# en:nutrition-value-negative-$nid warning only should be raised - for nutrients containing "estimate"
 $product_ref = {
 	nutrition => {
 		input_sets => [
@@ -657,13 +657,13 @@ $product_ref = {
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-estimate-as-sold-100g-value-negative-fruits-vegetables-nuts',
-	'negative nutriments containg "estimate" should not raise error',
+	'negative nutrients containg "estimate" should not raise error',
 	0, 'data_quality_errors'
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-estimate-as-sold-100g-value-negative-fruits-vegetables-nuts',
-	'negative nutriments containg "estimate" should raise warning only',
+	'negative nutrients containg "estimate" should raise warning only',
 	1, 'data_quality_warnings'
 );
 
@@ -998,7 +998,7 @@ check_quality_and_test_product_has_quality_tag(
 	'en:nutrition-producer-as-sold-100g-values-are-all-identical',
 	'all identical values and above 1 in the nutrition table 2', 1
 );
-## should have enough input nutriments
+## should have enough input nutrients
 $product_ref = {
 	nutrition => {
 		input_sets => [
@@ -1018,7 +1018,7 @@ $product_ref = {
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-producer-as-sold-100g-values-are-all-identical',
-	'all identical values and above 1 in the nutrition table BUT not enough nutriments given', 0
+	'all identical values and above 1 in the nutrition table BUT not enough nutrients given', 0
 );
 
 # sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars
@@ -2567,14 +2567,25 @@ ok(
 
 # Test case for fiber content having ">" symbol
 $product_ref = {
-	nutriments => {
-		fiber_100g => 5,
-		'soluble-fiber_100g' => 1,
-		'soluble-fiber_modifier' => '>',
-		'insoluble-fiber_100g' => 5,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"fiber" => {value => 5, unit => "g"},
+					"soluble-fiber" => {value => 1, unit => "g", modifier => '>'},
+					"insoluble-fiber" => {value => 5, unit => "g"},
+				}
+			}
+		]
 	},
 	data_quality_errors_tags => [],
 };
+ProductOpener::DataQuality::check_quality($product_ref);
+
+# FIXME: missing a test here?
 
 # Test case for fiber content beside other element having "<"
 $product_ref = {
@@ -2605,7 +2616,7 @@ ok(
 	'insoluble-fiber_100g larger than fiber_100g'
 ) or diag Dumper $product_ref;
 
-# Test case for sum fiber subnutriment comparison with fiber (0.01 difference should be fine)
+# Test case for sum fiber sub-nutrient comparison with fiber (0.01 difference should be fine)
 $product_ref = {
 	nutrition => {
 		input_sets => [
@@ -2634,7 +2645,7 @@ ok(
 	'insoluble-fiber_100g larger than fiber_100g'
 ) or diag Dumper $product_ref;
 
-# Test case for sum fiber subnutriment comparison with fiber (0.02 difference should be raise error)
+# Test case for sum fiber sub-nutrient comparison with fiber (0.02 difference should be raise error)
 $product_ref = {
 	nutrition => {
 		input_sets => [

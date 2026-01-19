@@ -1465,8 +1465,6 @@ sub check_expected_nutriscore_grade_for_category ($product_ref) {
 	my ($expected_nutriscore_grade, $category_id)
 		= get_inherited_property_from_categories_tags($product_ref, "expected_nutriscore_grade:en");
 
-	print STDERR "expected_nutriscore_grade: $expected_nutriscore_grade\n";
-
 	if (
 		# exclude error if nutriscore cannot be calculated due to missing nutrients information (see issue #9297)
 		(

@@ -15,7 +15,7 @@ use File::Basename qw/dirname/;
 
 use Storable qw/dclone/;
 
-wait_application_ready();
+wait_application_ready(__FILE__);
 
 remove_all_users();
 
