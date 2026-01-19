@@ -203,20 +203,20 @@ class TranslationQualityChecker:
                 f"msgstr has {len(msgstr_tags)} tags"
             )
             self.issues.append(issue)
-        
-        # Check for specific tag types
-        for tag_type in ['<a', '</a>', '<strong>', '</strong>', '<em>', '</em>', 
-                        '<span', '</span>', '<p>', '</p>']:
-            msgid_count = msgid.count(tag_type)
-            msgstr_count = msgstr.count(tag_type)
-            if msgid_count != msgstr_count:
-                issue = TranslationIssue(
-                    self.file_path, line_num, "HTML_TAG_TYPE_MISMATCH",
-                    msgid, msgstr,
-                    f"Tag '{tag_type}' count differs: msgid has {msgid_count}, "
-                    f"msgstr has {msgstr_count}"
-                )
-                self.issues.append(issue)
+        else:
+            # Check for specific tag types only when overall counts match
+            for tag_type in ['<a', '</a>', '<strong>', '</strong>', '<em>', '</em>', 
+                            '<span', '</span>', '<p>', '</p>']:
+                msgid_count = msgid.count(tag_type)
+                msgstr_count = msgstr.count(tag_type)
+                if msgid_count != msgstr_count:
+                    issue = TranslationIssue(
+                        self.file_path, line_num, "HTML_TAG_TYPE_MISMATCH",
+                        msgid, msgstr,
+                        f"Tag '{tag_type}' count differs: msgid has {msgid_count}, "
+                        f"msgstr has {msgstr_count}"
+                    )
+                    self.issues.append(issue)
     
     def _check_brand_names(self, entry: dict, line_num: int, msgid: str, 
                            msgstr: str, comments: list):
