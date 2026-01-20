@@ -59,7 +59,7 @@ $log->debug('test token', {token => $token}) if $log->is_debug();
 # -> especially for packaging source, list of nutrients that are typically present, but that are not specified for this particular product
 # e.g. [“fibers”] in EU
 # -> limit to specific values? (e.g. “fibers”, “calcium” etc.)
-# Decision: in description, specify that this is only for nutrients that are typically displayed in nutrition facts tables in at least one country (available in Food.pm code %nutriments_table)
+# Decision: in description, specify that this is only for nutrients that are typically displayed in nutrition facts tables in at least one country (available in Food.pm code %nutrients_table)
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [

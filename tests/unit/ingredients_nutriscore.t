@@ -137,14 +137,13 @@ foreach my $test_ref (@ingredients_text_tests) {
 
 	specific_processes_for_food_product($product_ref);
 
-	is(
-		deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts", "value"),
-		$expected_fruits_2021
-	) or diag Dumper {ingredients => $product_ref->{ingredients}, nutrition => $product_ref->{nutrition}};
+	is(deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts", "value"),
+		$expected_fruits_2021)
+		or diag Dumper {ingredients => $product_ref->{ingredients}, nutrition => $product_ref->{nutrition}};
 
 	is(
-			deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-legumes", "value"),
-		,
+		deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-legumes", "value"),
+
 		$expected_fruits_2023
 	) or diag Dumper {ingredients => $product_ref->{ingredients}, nutrition => $product_ref->{nutrition}};
 }

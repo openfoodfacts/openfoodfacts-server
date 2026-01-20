@@ -790,8 +790,8 @@ my @tests = (
 	],
 
 	# spring waters
-	["spring-water-no-nutrition", {lc => "en", categories => "spring water", nutriments => {}}],
-	["flavored-spring-water-no-nutrition", {lc => "en", categories => "flavoured spring water", nutriments => {}}],
+	["spring-water-no-nutrition", {lc => "en", categories => "spring water"}],
+	["flavored-spring-water-no-nutrition", {lc => "en", categories => "flavoured spring water"}],
 	[
 		"flavored-spring-with-nutrition",
 		{

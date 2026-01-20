@@ -158,7 +158,7 @@ compute_and_test_completeness(
 );
 
 compute_and_test_completeness({nutrition => {no_nutrition_data_on_packaging => true}},
-	"0.20", 'product with no_nutrition_data on and no nutriments and not from animal origin category');
+	"0.20", 'product with no_nutrition_data on and no nutrition data and not from animal origin category');
 
 compute_and_test_completeness({}, "0.00", 'product without nutrition data');
 
