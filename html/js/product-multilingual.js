@@ -871,9 +871,13 @@ $(function () {
     $('#add_nutrient_select').val(null).trigger('change');
 
     $("#add_nutrient_select").on("select2:select", function (e) {
-        // get the selected id, and show the corresponding line with id "nutrient_<id>_tr"
+        // get the selected id, and show the corresponding row with id "nutrient_<id>_tr"
+        // move the corresponding row to the bottom of the table, just before the add_nutrient_tr row
         const id = e.params.data.id;
-        $("#nutrient_" + id + "_tr").show();
+        const nutrientRow = $('#nutrient_' + id + '_tr');
+        const inputRow = $('#add_nutrient_tr');
+        nutrientRow.insertBefore(inputRow);
+        inputRow.show();
 
         // remove the selected nutrient from the other_nutrients array
         other_nutrients = other_nutrients.filter(function (item) {
