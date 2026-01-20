@@ -1426,8 +1426,8 @@ sub check_expected_nutriscore_grade_for_category ($product_ref) {
 		and (defined $expected_nutriscore_grade)
 		and (($expected_nutriscore_grade =~ /^([a-e]){1}$/i))
 		# nutriscore calculated but unexpected nutriscore grade
-		and (defined $product_ref->{nutriscore_grade_fr})
-		and ($product_ref->{nutriscore_grade_fr} ne $expected_nutriscore_grade)
+		and (defined $product_ref->{nutriscore_grade})
+		and ($product_ref->{nutriscore_grade} ne $expected_nutriscore_grade)
 		)
 	{
 		push @{$product_ref->{data_quality_errors_tags}},

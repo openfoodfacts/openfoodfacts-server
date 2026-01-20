@@ -1546,7 +1546,7 @@ $product_ref = {
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
 	],
-	nutrition_grade_fr => "d",
+	nutriscore_grade => "d",
 	nutriscore => {
 		2023 => {"nutrients_available" => 1,},
 	},
@@ -1569,7 +1569,7 @@ $product_ref = {
 		"en:ice-cream-tubs", "en:virgin-olive-oils",
 		"en:extra-virgin-olive-oils", "fr:glace-aux-calissons"
 	],
-	nutrition_grade_fr => "d",
+	nutriscore_grade => "d",
 	nutriscore => {
 		2023 => {"nutrients_available" => 1,},
 	},
