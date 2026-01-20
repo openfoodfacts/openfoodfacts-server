@@ -1185,6 +1185,9 @@ sub get_from_cache ($tagtype, @files) {
 	if ($got_from_cache) {
 		print "obtained taxonomy for $tagtype from " . ('', 'local', 'GitHub')[$got_from_cache] . " cache.\n";
 		$cache_prefix = '';
+		# Clean up old cache files when fetching from cache
+		my $cache_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies";
+		cleanup_old_cache_files($tagtype, $cache_root);
 	}
 
 	return $cache_prefix;
@@ -1239,9 +1242,6 @@ Clean up old cache files for a taxonomy, keeping only the 5 most recent file set
 =cut
 
 sub cleanup_old_cache_files ($tagtype, $cache_root) {
-	# File types for each taxonomy cache set
-	my @file_types = ('json', 'full.json', 'extended.json', 'result.txt', 'result.json');
-
 	# Maximum number of cache sets to keep per taxonomy
 	my $max_cache_sets = 5;
 
@@ -1267,19 +1267,24 @@ sub cleanup_old_cache_files ($tagtype, $cache_root) {
 	# Sort hashes by modification time (newest first)
 	my @sorted_hashes = sort {$hash_times{$b} <=> $hash_times{$a}} keys %hash_times;
 
-	# Delete cache files for hashes beyond the maximum to keep
+	# Delete all cache files for hashes beyond the maximum to keep
 	if (scalar(@sorted_hashes) > $max_cache_sets) {
 		my @hashes_to_delete = @sorted_hashes[$max_cache_sets .. $#sorted_hashes];
+		my $deleted_files = 0;
 		foreach my $hash (@hashes_to_delete) {
-			foreach my $type (@file_types) {
-				my $file = "$cache_root/$tagtype.$hash.$type";
-				if (-e $file) {
-					unlink($file);
+			# Delete all files prefixed with this hash
+			foreach my $file (@files) {
+				if ($file =~ /^\Q$tagtype\E\.\Q$hash\E\./) {
+					my $file_path = "$cache_root/$file";
+					if (-e $file_path) {
+						unlink($file_path);
+						$deleted_files++;
+					}
 				}
 			}
 		}
 		my $deleted_count = scalar(@hashes_to_delete);
-		print "Cleaned up $deleted_count old cache set(s) for $tagtype taxonomy\n";
+		print "Cleaned up $deleted_count old cache set(s) ($deleted_files files) for $tagtype taxonomy\n";
 	}
 
 	return;
