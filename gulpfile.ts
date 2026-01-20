@@ -67,24 +67,20 @@ export function icons() {
   console.log("Processing icons (simplified version)");
   
   // Skip svgmin to avoid Windows parsing issues
-  const processed = src("**/*.svg", { cwd: "./icons" })
-    .pipe(dest("./html/images/icons/dist"));
+  const processed = src("**/*.svg", { cwd: "./icons" }).
+    pipe(dest("./html/images/icons/dist"));
 
-  const compressed = processed
-    .pipe(gzip())
-    .pipe(dest("./html/images/icons/dist"));
+  const compressed = processed.pipe(gzip()).pipe(dest("./html/images/icons/dist"));
 
   return processed && compressed;
 }
 
 export function attributesIcons() {
-  const processed = src("*.svg", { cwd: "./html/images/attributes/src" })
-    .pipe(svgmin())
-    .pipe(dest("./html/images/attributes/dist"));
+  const processed = src("*.svg", { cwd: "./html/images/attributes/src" }).
+    pipe(svgmin()).
+    pipe(dest("./html/images/attributes/dist"));
 
-  const compressed = processed
-    .pipe(gzip())
-    .pipe(dest("./html/images/attributes/dist"));
+  const compressed = processed.pipe(gzip()).pipe(dest("./html/images/attributes/dist"));
 
   return processed && compressed;
 }
@@ -92,22 +88,20 @@ export function attributesIcons() {
 export function css() {
   console.log("(re)building css");
 
-  const processed = src(sassSrc)
-    .pipe(init())
-    .pipe(
+  const processed = src(sassSrc).
+    pipe(init()).
+    pipe(
       sass({
         errLogToConsole: true,
         outputStyle: "expanded",
         includePaths: ["./node_modules/foundation-sites/scss"],
       }).on("error", sass.logError)
-    )
-    .pipe(minifyCSS())
-    .pipe(write("."))
-    .pipe(dest("./html/css/dist"));
+    ).
+    pipe(minifyCSS()).
+    pipe(write(".")).
+    pipe(dest("./html/css/dist"));
 
-  const compressed = processed
-    .pipe(gzip())
-    .pipe(dest("./html/css/dist"));
+  const compressed = processed.pipe(gzip()).pipe(dest("./html/css/dist"));
 
   return processed && compressed;
 }
@@ -116,15 +110,13 @@ export function copyJs() {
   const processed = src(jsLibSrc, {
     // prefer jquery from package.json to foundation-vendored copy
     ignore: "./node_modules/foundation-sites/js/vendor/jquery.js",
-  })
-    .pipe(init())
-    .pipe(terser())
-    .pipe(write("."))
-    .pipe(dest("./html/js/dist"));
+  }).
+    pipe(init()).
+    pipe(terser()).
+    pipe(write(".")).
+    pipe(dest("./html/js/dist"));
 
-  const compressed = processed
-    .pipe(gzip())
-    .pipe(dest("./html/js/dist"));
+  const compressed = processed.pipe(gzip()).pipe(dest("./html/js/dist"));
 
   return processed && compressed;
 }
@@ -132,15 +124,13 @@ export function copyJs() {
 export function buildJs() {
   console.log("(re)building js");
 
-  const processed = src(jsSrc)
-    .pipe(init())
-    .pipe(terser())
-    .pipe(write("."))
-    .pipe(dest("./html/js/dist"));
+  const processed = src(jsSrc).
+    pipe(init()).
+    pipe(terser()).
+    pipe(write(".")).
+    pipe(dest("./html/js/dist"));
 
-  const compressed = processed
-    .pipe(gzip())
-    .pipe(dest("./html/js/dist"));
+  const compressed = processed.pipe(gzip()).pipe(dest("./html/js/dist"));
 
   return processed && compressed;
 }
@@ -155,16 +145,14 @@ function buildjQueryUi() {
     "./node_modules/jquery-ui/ui/unique-id.js",
     "./node_modules/jquery-ui/ui/widgets/autocomplete.js",
     "./node_modules/jquery-ui/ui/widgets/menu.js",
-  ])
-    .pipe(init())
-    .pipe(terser())
-    .pipe(concat("jquery-ui.js"))
-    .pipe(write("."))
-    .pipe(dest("./html/js/dist"));
+  ]).
+    pipe(init()).
+    pipe(terser()).
+    pipe(concat("jquery-ui.js")).
+    pipe(write(".")).
+    pipe(dest("./html/js/dist"));
 
-  const compressed = processed
-    .pipe(gzip())
-    .pipe(dest("./html/js/dist"));
+  const compressed = processed.pipe(gzip()).pipe(dest("./html/js/dist"));
 
   return processed && compressed;
 }
@@ -175,16 +163,14 @@ function jQueryUiThemes() {
     "./node_modules/jquery-ui/themes/base/autocomplete.css",
     "./node_modules/jquery-ui/themes/base/menu.css",
     "./node_modules/jquery-ui/themes/base/theme.css",
-  ])
-    .pipe(init())
-    .pipe(minifyCSS())
-    .pipe(concat("jquery-ui.css"))
-    .pipe(write("."))
-    .pipe(dest("./html/css/dist/jqueryui/themes/base"));
+  ]).
+    pipe(init()).
+    pipe(minifyCSS()).
+    pipe(concat("jquery-ui.css")).
+    pipe(write(".")).
+    pipe(dest("./html/css/dist/jqueryui/themes/base"));
 
-  const compressed = processed
-    .pipe(gzip())
-    .pipe(dest("./html/css/dist/jqueryui/themes/base"));
+  const compressed = processed.pipe(gzip()).pipe(dest("./html/css/dist/jqueryui/themes/base"));
 
   return processed && compressed;
 }
@@ -198,15 +184,13 @@ function copyCss() {
     // "./node_modules/@yaireo/tagify/dist/tagify.css", // REMOVED - Now included via SCSS
     "./node_modules/cropperjs/dist/cropper.css",
     "./node_modules/select2/dist/css/select2.min.css",
-  ])
-    .pipe(init())
-    .pipe(minifyCSS())
-    .pipe(write("."))
-    .pipe(dest("./html/css/dist"));
+  ]).
+    pipe(init()).
+    pipe(minifyCSS()).
+    pipe(write(".")).
+    pipe(dest("./html/css/dist"));
 
-  const compressed = processed
-    .pipe(gzip())
-    .pipe(dest("./html/css/dist"));
+  const compressed = processed.pipe(gzip()).pipe(dest("./html/css/dist"));
 
   return processed && compressed;
 }
