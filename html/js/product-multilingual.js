@@ -874,8 +874,9 @@ $(function () {
         // get the selected id, and show the corresponding row with id "nutrient_<id>_tr"
         // move the corresponding row to the bottom of the table, just before the add_nutrient_tr row
         const id = e.params.data.id;
-        const row = $('#nutrient_' + id + '_tr');
-        $('#add_nutrient_tr').before(row);
+        const nutrientRow = $('#nutrient_' + id + '_tr');
+        const inputRow = $('#add_nutrient_tr');
+        nutrientRow.insertBefore(inputRow);
         row.show();
 
         // remove the selected nutrient from the other_nutrients array
