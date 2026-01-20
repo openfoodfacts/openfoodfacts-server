@@ -39,7 +39,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food
-	qw/%nutriments_tables %other_nutriments_lists get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
+	qw/%nutrients_tables %other_nutriments_lists get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -1143,7 +1143,7 @@ CSS
 	$template_data_ref_display->{nutrients} = \@nutrients;
 	$template_data_ref_display->{input_sets} = \%input_sets;
 
-	foreach my $nutrient (@{$nutriments_tables{$nutriment_table}}) {
+	foreach my $nutrient (@{$nutrients_tables{$nutriment_table}}) {
 
 		my $nutrient_ref = {};
 

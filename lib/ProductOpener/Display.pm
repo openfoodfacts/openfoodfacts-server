@@ -9224,7 +9224,7 @@ CSS
 
 	# Display estimate of fruits, vegetables, nuts from the analysis of the ingredients list
 	my @nutrients = ();
-	foreach my $nutrient (@{$nutriments_tables{$nutriment_table}}) {
+	foreach my $nutrient (@{$nutrients_tables{$nutriment_table}}) {
 		push @nutrients, $nutrient;
 		if (($nutrient eq "fruits-vegetables-nuts-estimate-")) {
 			push @nutrients, "fruits-vegetables-nuts-estimate-from-ingredients-";

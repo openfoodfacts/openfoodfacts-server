@@ -1225,7 +1225,7 @@ Reference to the product hash where the nutrition data will be stored.
 
 =head4 $nutriment_table
 
-The nutriment table to use. It should be one of the keys of %nutriments_tables in Config.pm
+The nutriment table to use. It should be one of the keys of %nutrients_tables in Config.pm
 
 =head4 $source
 
@@ -1302,7 +1302,7 @@ sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_
 				}
 			}
 
-			foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}) {
+			foreach my $nutriment (@{$nutrients_tables{$nutriment_table}}) {
 				next if $nutriment =~ /^\#/;
 
 				my $nid = $nutriment;
@@ -1374,7 +1374,7 @@ Reference to the product hash where the nutrition data will be stored.
 
 =head4 $nutriment_table
 
-The nutriment table to use. It should be one of the keys of %nutriments_tables in Config.pm
+The nutriment table to use. It should be one of the keys of %nutrients_tables in Config.pm
 
 =head4 $source
 
@@ -1399,7 +1399,7 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 
 	# Assign all the nutrient values
 
-	foreach my $nutrient (@{$nutriments_tables{$nutriment_table}}) {
+	foreach my $nutrient (@{$nutrients_tables{$nutriment_table}}) {
 		next if $nutrient =~ /^\#/;
 
 		my $nid = $nutrient;
@@ -1466,7 +1466,7 @@ Reference to the product hash where the nutrition data will be stored.
 
 =head4 $nutriment_table
 
-The nutriment table to use. It should be one of the keys of %nutriments_tables in Config.pm
+The nutriment table to use. It should be one of the keys of %nutrients_tables in Config.pm
 
 =head4 $source
 
@@ -2269,7 +2269,7 @@ sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populat
 						# Go through the nutriment table
 						my $nutrient_number = 0;
 
-						foreach my $nutriment (@{$nutriments_tables{off_europe}}) {
+						foreach my $nutriment (@{$nutrients_tables{off_europe}}) {
 
 							next if $nutriment =~ /^\#/;
 							my $nid = $nutriment;

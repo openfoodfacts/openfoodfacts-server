@@ -43,7 +43,7 @@ use ProductOpener::Images qw/:all add_images_urls_to_product/;
 use ProductOpener::Lang qw/$lc  %lang_lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/product_url/;
-use ProductOpener::Food qw/%nutriments_tables/;
+use ProductOpener::Food qw/%nutrients_tables/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Text qw/xml_escape/;
@@ -243,7 +243,7 @@ XML
 
 	my @nutrients_to_export = ();
 
-	foreach my $nid (@{$nutriments_tables{"off_europe"}}) {
+	foreach my $nid (@{$nutrients_tables{"off_europe"}}) {
 
 		$nid =~ /^#/ and next;
 
