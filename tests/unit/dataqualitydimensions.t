@@ -162,7 +162,6 @@ compute_and_test_completeness({nutrition => {no_nutrition_data_on_packaging => t
 
 compute_and_test_completeness({}, "0.00", 'product without nutrition data');
 
-
 $product_ref = {
 	nutrition => {
 		input_sets => [
@@ -179,8 +178,7 @@ $product_ref = {
 };
 specific_processes_for_food_product($product_ref);
 
-compute_and_test_completeness($product_ref,
-	"0.10", 'product with nutrition data and not from animal origin category');
+compute_and_test_completeness($product_ref, "0.10", 'product with nutrition data and not from animal origin category');
 
 $product_ref = {
 	nutrition => {

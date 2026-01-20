@@ -1814,7 +1814,7 @@ sub select_ingredients_lc ($product_ref) {
 	my @ingredients_text_fields = sort grep {/^ingredients_text_(\w\w)$/} (keys %$product_ref);
 
 	# Put the main language first
-	if (defined $product_ref->{lc}) {	# Should always be defined, except in old unit tests
+	if (defined $product_ref->{lc}) {    # Should always be defined, except in old unit tests
 		unshift @ingredients_text_fields, "ingredients_text_" . $product_ref->{lc};
 	}
 

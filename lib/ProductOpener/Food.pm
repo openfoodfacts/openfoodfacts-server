@@ -1425,7 +1425,7 @@ sub compute_nutriscore_data ($product_ref, $preparation, $version = "2021") {
 	# If the preparation needed for the Nutri-Score does not match the aggregated set preparation,
 	# we temporarily rename the aggregated set so that we get undef values for the nutrients
 	my $aggregated_set_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
-	if ($preparation ne $aggregated_set_preparation) {
+	if ((defined $aggregated_set_preparation) and ($preparation ne $aggregated_set_preparation)) {
 		$product_ref->{nutrition}->{aggregated_set_temp_for_nutriscore}
 			= $product_ref->{nutrition}->{aggregated_set};
 		delete $product_ref->{nutrition}->{aggregated_set};
