@@ -114804,42 +114804,29 @@ hr: Sojini maslaci
 nl: Sojaboonpastas
 pt: Manteigas de soja
 
-
 < en:Legumes and their products
 < en:Meat alternatives
+xx: Tofu
 en: tofu, Tofus, bean curds
-an: Tofu
 ar: توفو
-az: Tofu
 ba: Тофу
 be: Тофу
 bg: Тофу
 bn: তফু
 br: tofou
-ca: tofu
-cs: tofu
 cv: Тофу
 cy: toffw
-da: tofu
 de: Tofu, Bohnenquark, Bohnenkäse
 el: Τόφου
 eo: Tofuo
 es: Tofu, Tofus
-et: tofu
-eu: Tofu
 fa: توفو
-fi: tofu
-fr: tofu
 ga: tófú
-gl: Tofu
 he: טופו
 hi: टोफ़ू
-hr: Tofu
-hu: Tofu
 hy: Տոֆու
 id: tahu
 is: Tófú
-it: Tofu
 ja: 豆腐
 jv: Tahu
 ka: ტოფუ
@@ -114847,36 +114834,40 @@ kk: Тофу
 km: តៅហ៊ូ
 kn: ಟೋಫ಼ು
 ko: 두부
-lb: Tofu
 lo: ເຕົາຮູ້
-lt: Sojų varškė, tofu
+lt: Sojų varškė
 lv: tofu, tofoe
 mk: то́фу
 ms: Tauhu
 my: တိုဟူး
-nb: tofu
 ne: तोफु
 nl: tofu, Tahoe
-nn: tofu
 or: ଟୋଫୁ
 pa: ਟੋਫੂ
-pl: tofu
-pt: tofu
-ro: tofu
 ru: тофу
-sh: Tofu
-sk: tofu
-sq: tofu
 sr: Тофу
 su: Tahu
-sv: tofu
 ta: டோஃபூ
 th: เต้าหู้
 tl: Tokwa
-tr: tofu
 uk: Тофу
 vi: Đậu phụ
 zh: 豆腐
+#cdo: Dâu-hô
+#hak: Theu-fú
+#lzh: 豆腐
+#map-bms: Tahu
+#nan: 豆腐
+#pnb: توفو
+#sr-ec: Тофу
+#yue: 豆腐
+#zh-hans: 豆腐
+#zh-hant: 豆腐
+#zh-hk: 豆腐
+#zh-mo: 豆腐
+#zh-my: 豆腐
+#zh-sg: 豆腐
+#zh-tw: 豆腐
 agribalyse_food_code:en: 20904
 ciqual_food_code:en: 20904
 ciqual_food_name:en: Tofu, plain
@@ -114885,25 +114876,6 @@ description:en: Tofu is a food prepared by coagulating soy milk and then pressin
 google_product_taxonomy_id:en: 5809
 nova:en: 3
 nutriscore_category_override_for_fruits_vegetables_legumes:en: 0
-# ast:Tofu
-# bar:Tofu
-# cdo:Dâu-hô
-# hak:Theu-fú
-# lzh:豆腐
-# map-bms:Tahu
-# nan:豆腐
-# pnb:توفو
-# sco:tofu
-# sr-ec:Тофу
-# sr-el:Tofu
-# yue:豆腐
-# zh-hans:豆腐
-# zh-hant:豆腐
-# zh-hk:豆腐
-# zh-mo:豆腐
-# zh-my:豆腐
-# zh-sg:豆腐
-# zh-tw:豆腐
 wikidata:en: Q177378
 wikipedia:en: https://en.wikipedia.org/wiki/Tofu
 
@@ -114914,6 +114886,10 @@ hr: Obični tofu
 nl: Tofu natuur
 pl: Tofu naturalne
 sv: Tofu naturell
+agribalyse_food_code:en: 20904
+ciqual_food_code:en: 20904
+ciqual_food_name:en: Tofu, plain
+ciqual_food_name:fr: Tofu, nature
 
 < en:Tofu
 en: Smoked tofu
@@ -114926,9 +114902,36 @@ pl: Tofu wędzone
 sv: Rökt tofu, tofu rökt
 agribalyse_food_code:en: 20912
 
+< en:Smoked tofu
+en: Beech wood smoked tofu
+sv: Bokspånsrökt tofu, Tofu bokspånsrökt
+
+< en:Smoked tofu
+en: Alder wood smoked tofu
+sv: Alspånsrökt tofu
+
 < en:Tofu
 en: Fried tofu
+da: Ristet tofu
 fr: Tofu frit
+sv: Friterad tofu
+
+< en:Tofu
+en: Marinated tofu
+da: Marineret tofu
+sv: Marinerad tofu
+
+< en:Marinated tofu
+en: Soy marinated tofu
+sv: Sojamarinerad tofu, Tofu marinerad i soja
+
+< en:Marinated tofu
+en: Soy and ginger marinated tofu
+sv: Soja- och ingefäramarinerad tofu, Tofu marinerad i soja och ingefära
+
+< en:Marinated tofu
+en: Herb marinated tofu
+sv: Örtmarinerad tofu, Tofu marinerad med örter
 
 < en:Legumes and their products
 < en:Meat alternatives

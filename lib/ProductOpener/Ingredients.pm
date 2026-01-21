@@ -1374,7 +1374,7 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		ro => "(?:tara de origine)",
 		rs => "(?:zemlja porekla)",
 		sl => "(?:(?:država|krajina) porekla|gojeno(?: v))",
-		sv => "(?:ursprung)",
+		sv => "(?:ursprung|odlade inom)",
 		uk => "(?:kраїна походження)",
 	);
 
