@@ -47,7 +47,11 @@ BEGIN {
 	@EXPORT_OK = qw(
 
 		&load_forest_footprint_data
+		&load_forest_footprint_soy_data
+		&load_forest_footprint_ingredients_data
 		&compute_forest_footprint
+
+		%forest_footprint_data
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -62,17 +66,29 @@ use ProductOpener::Store qw/get_string_id_for_lang/;
 use Storable qw(dclone freeze);
 use Text::CSV();
 
-my %forest_footprint_data = (ingredients_categories => []);
+%forest_footprint_data = (ingredients_categories => []);
 
 =head1 FUNCTIONS
 
 =head2 load_forest_footprint_data ()
 
-Loads data needed to compute the forest footprint.
+Loads all forest footprint data: soy data and ingredients data.
 
 =cut
 
 sub load_forest_footprint_data() {
+	load_forest_footprint_soy_data();
+	load_forest_footprint_ingredients_data();
+	return;
+}
+
+=head2 load_forest_footprint_soy_data ()
+
+Loads data needed to compute the forest footprint for soy.
+
+=cut
+
+sub load_forest_footprint_soy_data() {
 
 	my $errors = 0;
 
@@ -177,8 +193,13 @@ sub load_forest_footprint_data() {
 			# ingredients_fr=viande de poulet	0,75
 			# We will reverse the order as the most specific items come last
 
-			my $ingredients_category_data_ref
-				= {category => "chicken", ingredients => [], categories => [], types => \@types};
+			my $ingredients_category_data_ref = {
+				category => "chicken",
+				ingredients => [],
+				categories => [],
+				types => \@types,
+				category_type => "ingredients_from_soy"
+			};
 
 			for (my $j = 12; $j < scalar(@rows) - 1; $j++) {
 
@@ -232,6 +253,98 @@ sub load_forest_footprint_data() {
 	return;
 }
 
+=head2 load_forest_footprint_ingredients_data ()
+
+Loads data for ingredients that cause deforestation (other than soy).
+
+=cut
+
+sub load_forest_footprint_ingredients_data() {
+
+	my $errors = 0;
+
+	my $ingredients_dir = $data_root . "/external-data/forest-footprint/envol-vert/ingredients";
+
+	opendir(my $dh, $ingredients_dir) or die("Could not open ingredients directory $ingredients_dir: $!");
+
+	while (my $ingredient = readdir($dh)) {
+
+		next if ($ingredient =~ /^\./);    # skip . and ..
+
+		my $ingredient_dir = "$ingredients_dir/$ingredient";
+
+		next unless (-d $ingredient_dir);
+
+		$log->debug("loading forest footprint data for ingredient category", {ingredient => $ingredient})
+			if $log->is_debug();
+
+		# Create a category data ref similar to soy
+		my $ingredients_category_data_ref = {
+			category => $ingredient,
+			ingredients => [],
+			labels => [],
+			origins => [],
+			category_type => "ingredients"
+		};
+
+		# Define the files and their corresponding tagtypes
+		my %files_tagtypes = (
+			'ingredients.tsv' => 'ingredients',
+			'labels.tsv' => 'labels',
+			'origins.tsv' => 'origins',
+		);
+
+		foreach my $file (keys %files_tagtypes) {
+			my $tagtype = $files_tagtypes{$file};
+			my $filepath = "$ingredient_dir/$file";
+			if (-f $filepath) {
+				open(my $fh, '<:encoding(UTF-8)', $filepath) or die("Could not open $filepath: $!");
+				while (my $line = <$fh>) {
+					chomp $line;
+					next if $line =~ /^\s*$/ or $line =~ /^#/;
+					if ($line =~ /^([^\t]+)\t(.+)$/) {
+						my $tag_name = $1;
+						my $value = $2;
+						# Clean the value: remove spaces, convert , to ., remove ending %
+						$value =~ s/\s//g;
+						$value =~ s/,/./g;
+						$value =~ s/%$//;
+						# Canonicalize the tag
+						my $tagid = canonicalize_taxonomy_tag('en', $tagtype, $tag_name);
+						if ((not exists_taxonomy_tag($tagtype, $tagid)) and ($tagid ne "en:other")) {
+							$log->error(
+								"forest footprint $tagtype tag does not exist in taxonomy",
+								{tagtype => $tagtype, tagid => $tagid, tag_name => $tag_name}
+							) if $log->is_error();
+							$errors++;
+						}
+						else {
+							push @{$ingredients_category_data_ref->{$tagtype}}, [$tagid, $value];
+						}
+					}
+				}
+				close $fh;
+			}
+			else {
+				$log->error("forest footprint ingredient data file does not exist", {file => $filepath})
+					if $log->is_error();
+				$errors++;
+			}
+		}
+
+		# Push to ingredients_categories
+		push @{$forest_footprint_data{ingredients_categories}}, $ingredients_category_data_ref;
+	}
+
+	closedir $dh;
+
+	if ($errors) {
+		die("$errors unrecognized tags in ingredients data");
+	}
+
+	return;
+}
+
 =head2 compute_forest_footprint ( $product_ref )
 
 C<compute_forest_footprint()> computes the forest footprint of a food product, and stores the details of the computation.
@@ -280,9 +393,21 @@ sub compute_forest_footprint ($product_ref) {
 	# Compute total footprint
 	if (scalar(@{$product_ref->{forest_footprint_data}{ingredients}}) > 0) {
 		$product_ref->{forest_footprint_data}{footprint_per_kg} = 0;
+		my $ingredients_from_soy_count = 0;
+		my $ingredients_count = 0;
 		foreach my $ingredient_ref (@{$product_ref->{forest_footprint_data}{ingredients}}) {
 			$product_ref->{forest_footprint_data}{footprint_per_kg} += $ingredient_ref->{footprint_per_kg};
+			if ($ingredient_ref->{category_type} eq "ingredients_from_soy") {
+				$ingredients_from_soy_count++;
+			}
+			elsif ($ingredient_ref->{category_type} eq "ingredients") {
+				$ingredients_count++;
+			}
 		}
+		$product_ref->{forest_footprint_data}{ingredients_from_soy_count} = $ingredients_from_soy_count;
+		$product_ref->{forest_footprint_data}{ingredients_count} = $ingredients_count;
+		$product_ref->{forest_footprint_data}{total_ingredients_count}
+			= scalar(@{$product_ref->{forest_footprint_data}{ingredients}});
 
 		# Assign a A to E grade (used for icons and descriptions)
 
@@ -312,22 +437,17 @@ sub compute_forest_footprint ($product_ref) {
 	return;
 }
 
-=head2 add_footprint ( $product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, $footprint_ref )
+=head2 add_footprint_for_ingredient_from_soy ( $product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, $footprint_ref )
 
 This function is called when we have an ingredient or a category for which we have a forest footprint.
 It determines the type of the footprint based on labels, origins etc. and adds a corresponding footprint
 to the list of footprints for the products (possibly several if the product has multiple ingredients with a footprint)
-
-=head3 Synopsis
-
-add_footprint($product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, {
-							tag => ["ingredients", $ingredients_ref->{id}, $category_ingredient_id],
-							percent_estimate => $ingredients_ref->{percent_estimate},
-					});
 					
 =cut
 
-sub add_footprint ($product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, $footprint_ref) {
+sub add_footprint_for_ingredient_from_soy ($product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref,
+	$footprint_ref)
+{
 
 	# Check which type has matching conditions for the product
 
@@ -392,6 +512,8 @@ sub add_footprint ($product_ref, $ingredient_ref, $footprints_ref, $ingredients_
 
 			$footprint_ref->{type} = $cloned_type_ref;
 			$footprint_ref->{conditions_tags} = \@conditions_tags;
+			$footprint_ref->{category} = $ingredients_category_ref->{category};
+			$footprint_ref->{category_type} = $ingredients_category_ref->{category_type};
 			$footprint_ref->{footprint_per_kg}
 				= ($footprint_ref->{percent} / 100)
 				/ $footprint_ref->{processing_factor}
@@ -403,6 +525,113 @@ sub add_footprint ($product_ref, $ingredient_ref, $footprints_ref, $ingredients_
 
 			last;
 		}
+	}
+	return;
+}
+
+=head2 add_footprint_for_ingredient ( $product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref, $footprint_ref )
+
+This function is called for ingredients that cause deforestation directly (not through soy).
+It checks for matching labels and origins, and computes the footprint by multiplying processing_factor,
+deforestation_risk (divided by 100 as it is a percent), and origin_footprint_per_kg.
+				
+=cut
+
+sub add_footprint_for_ingredient ($product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref,
+	$footprint_ref)
+{
+
+	# Find processing_factor
+	my $processing_factor;
+	foreach my $ref (@{$ingredients_category_ref->{ingredients}}) {
+		my ($tagid, $value) = @$ref;
+		if ($tagid eq $footprint_ref->{matching_tag_id}) {
+			$processing_factor = $value;
+			last;
+		}
+	}
+
+	# Find deforestation_risk: value for matching label, or "en:other" if none
+	my $deforestation_risk;
+	my $label_tagid;
+	foreach my $ref (@{$ingredients_category_ref->{labels}}) {
+		my ($tagid, $value) = @$ref;
+		my $has_label = 0;
+		if (has_tag($product_ref, "labels", $tagid)) {
+			$has_label = 1;
+		}
+		elsif ( defined $ingredient_ref
+			and defined $ingredient_ref->{labels}
+			and $ingredient_ref->{labels} =~ /(?:^|,)$tagid(?:,|$)/)
+		{
+			$has_label = 1;
+		}
+		if ($has_label) {
+			$deforestation_risk = $value;
+			$label_tagid = $tagid;
+			last;
+		}
+		elsif ($tagid eq "en:other") {
+			$deforestation_risk = $value;    # use as default if no match
+			$label_tagid = $tagid unless defined $label_tagid;
+		}
+	}
+
+	# Find origin_footprint_per_kg: value for matching origin, or "en:other" if none
+	my $origin_footprint_per_kg;
+	my $origin_tagid;
+	foreach my $ref (@{$ingredients_category_ref->{origins}}) {
+		my ($tagid, $value) = @$ref;
+		my $has_origin = 0;
+		if (has_tag($product_ref, "origins", $tagid)) {
+			$has_origin = 1;
+		}
+		elsif ( defined $ingredient_ref
+			and defined $ingredient_ref->{origins}
+			and $ingredient_ref->{origins} =~ /(?:^|,)$tagid(?:,|$)/)
+		{
+			$has_origin = 1;
+		}
+		if ($has_origin) {
+			$origin_footprint_per_kg = $value;
+			$origin_tagid = $tagid;
+			last;
+		}
+		elsif ($tagid eq "en:other") {
+			$origin_footprint_per_kg = $value;    # use as default if no match
+			$origin_tagid = $tagid unless defined $origin_tagid;
+		}
+	}
+
+	# If all values are found, compute the footprint
+	if (defined $processing_factor and defined $deforestation_risk and defined $origin_footprint_per_kg) {
+		$footprint_ref->{footprint_per_kg}
+			= $processing_factor
+			* $deforestation_risk / 100
+			* $origin_footprint_per_kg
+			* ($footprint_ref->{percent} / 100);
+		$footprint_ref->{category} = $ingredients_category_ref->{category};
+		$footprint_ref->{category_type} = $ingredients_category_ref->{category_type};
+		$footprint_ref->{processing_factor} = $processing_factor;
+		$footprint_ref->{deforestation_risk} = $deforestation_risk;
+		$footprint_ref->{origin_footprint_per_kg} = $origin_footprint_per_kg;
+		$footprint_ref->{origin} = $origin_tagid // "other";
+		$footprint_ref->{label} = ($label_tagid and $label_tagid ne "en:other") ? $label_tagid : "";
+		push @$footprints_ref, $footprint_ref;
+	}
+	else {
+		$log->error(
+			"could not compute forest footprint for ingredient - missing data",
+			{
+				ingredient_id => $footprint_ref->{tag_id},
+				processing_factor => $processing_factor,
+				deforestation_risk => $deforestation_risk,
+				origin_footprint_per_kg => $origin_footprint_per_kg,
+				footprint_ref => $footprint_ref
+			}
+		) if $log->is_error();
+		# This should not happen as we should have an ingredient, and default values for labels and origins
+		die("could not compute forest footprint for ingredient - missing data");
 	}
 	return;
 }
@@ -519,8 +748,14 @@ sub compute_footprints_of_ingredients ($product_ref, $footprints_ref, $ingredien
 						$footprint_ref->{percent_estimate} = $ingredient_ref->{percent_estimate};
 					}
 
-					add_footprint($product_ref, $ingredient_ref, $footprints_ref, $ingredients_category_ref,
-						$footprint_ref);
+					if ($ingredients_category_ref->{category_type} eq "ingredients_from_soy") {
+						add_footprint_for_ingredient_from_soy($product_ref, $ingredient_ref, $footprints_ref,
+							$ingredients_category_ref, $footprint_ref);
+					}
+					elsif ($ingredients_category_ref->{category_type} eq "ingredients") {
+						add_footprint_for_ingredient($product_ref, $ingredient_ref, $footprints_ref,
+							$ingredients_category_ref, $footprint_ref);
+					}
 
 					$current_ingredient_category = $category_ingredient_id;
 					$ingredients_with_footprint += 1;
@@ -590,7 +825,7 @@ sub compute_footprint_of_category ($product_ref, $footprints_ref) {
 				$log->debug("compute_footprint_of_category - category match", {category_id => $category_id})
 					if $log->is_debug();
 
-				add_footprint(
+				add_footprint_for_ingredient_from_soy(
 					$product_ref,
 					undef,
 					$footprints_ref,

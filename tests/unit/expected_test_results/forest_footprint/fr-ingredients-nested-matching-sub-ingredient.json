@@ -4,6 +4,8 @@
       "grade" : "d",
       "ingredients" : [
          {
+            "category" : "chicken",
+            "category_type" : "ingredients_from_soy",
             "conditions_tags" : [
                [
                   "origins",
@@ -24,7 +26,10 @@
                "soy_yield" : 0.3175
             }
          }
-      ]
+      ],
+      "ingredients_count" : 0,
+      "ingredients_from_soy_count" : 1,
+      "total_ingredients_count" : 1
    },
    "ingredients" : [
       {

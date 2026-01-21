@@ -5602,8 +5602,8 @@ msgid "If you use the same column on multiple lines to provide images URLs for a
 msgstr "Si vous utilisez la même colonne sur plusieurs lignes pour fournir les URL des images d'un même produit, vous pouvez utiliser ce champ pour indiquer le type de l'image : face, ingrédients, nutrition ou emballage."
 
 msgctxt "forest_footprint_one_line_explanation"
-msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr "L'empreinte forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation."
+msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation, in addition to ingredients whose cultivation is directly linked to deforestation."
+msgstr "L'empreinte forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation, en plus des ingrédients dont la culture est directement liée à la déforestation."
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
@@ -7740,3 +7740,7 @@ msgstr "Faible impact"
 msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
 msgstr "Impact non évalué"
+
+msgctxt "origin_forest_footprint"
+msgid "Forest footprint for the origin"
+msgstr "Empreinte forêt pour l'origine"

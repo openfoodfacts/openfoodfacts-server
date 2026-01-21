@@ -14,11 +14,25 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Test qw/init_expected_results/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
-use ProductOpener::ForestFootprint qw/compute_forest_footprint load_forest_footprint_data/;
+use ProductOpener::ForestFootprint qw/compute_forest_footprint load_forest_footprint_data %forest_footprint_data/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 load_forest_footprint_data();
+
+# Test that cocoa is in ingredients_categories
+my $cocoa_category;
+foreach my $category (@{$ProductOpener::ForestFootprint::forest_footprint_data{ingredients_categories}}) {
+	if ($category->{category} eq 'cocoa') {
+		$cocoa_category = $category;
+		last;
+	}
+}
+ok(defined $cocoa_category, "cocoa category found in ingredients_categories");
+is($cocoa_category->{category_type}, "ingredients", "cocoa category_type is ingredients");
+ok(scalar @{$cocoa_category->{ingredients}} > 0, "cocoa has ingredients loaded");
+ok(scalar @{$cocoa_category->{labels}} > 0, "cocoa has labels loaded");
+ok(scalar @{$cocoa_category->{origins}} > 0, "cocoa has origins loaded");
 
 my @tests = (
 
@@ -85,6 +99,37 @@ my @tests = (
 			ingredients_text => "viande de poulet traitée en salaison [kangourou, eau, saumure]",
 		}
 	],
+	# Cocoa products
+	[
+		'fr-ingredients-chocolat-noir',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Chocolat noir (pâte de cacao, sucre, beurre de cacao, émulsifiant : lécithine de soja, vanille)",
+		}
+	],
+	[
+		'fr-ingredients-chocolat-bio-equateur',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Chocolat (pâte de cacao* (origine Equateur), sucre de canne*, beurre de cacao*, émulsifiant : lécithine de tournesol*, vanille*). *Ingrédients issus de l'agriculture biologique.",
+		}
+	],
+	[
+		'fr-cocoa-powder',
+		{
+			lc => "fr",
+			ingredients_text => "Cacao maigre en poudre",
+		}
+	],
+	[
+		'en-ingredients-cocoa',
+		{
+			lc => "en",
+			ingredients_text => "cocoa",
+		}
+	]
 
 );
 
