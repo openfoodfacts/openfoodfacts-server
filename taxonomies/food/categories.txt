@@ -34911,7 +34911,7 @@ ru: Хлебные продукты
 sv: Panerade produkter
 
 < en:Breaded products
-< en:Cheeses
+< en:Cheese preparations
 en: Breaded cheeses
 de: Panierter Käse
 fr: Fromages panés
@@ -35918,21 +35918,30 @@ gpc_category_name:en: Dried Breads (Shelf Stable)
 
 < en:Breads
 en: Crispbreads
+da: Knækbrød
 de: Knäckebrote, Knäckebrot
 fr: Pains croustillants, Pain croustillant
 hr: Hrskavi kruhovi
+nb: Knekkebrød
 nl: Knäckebrot, Knäckebröd
+nn: Knekkebrød
 pl: Pieczywo chrupkie
+sv: Knäckebröd
+wikidata:en: Q251981
 
 < en: Crispbreads
-en: Crispbreads(wholemeal)
+en: Crispbreads (wholemeal), Crispbreads(wholemeal)
+da: Fuldkornsknækbrød, Knækbrød (fuldkorn)
 fr: Pains croustillants complets
-nl: Knäckebrot(volkoren)
+nl: Knäckebrot (volkoren)
+sv: Fullkornsknäckebröd, Knäckebröd (fullkorn)
 
 < en: Crispbreads
-en: Crispbreads(non-wholemeal)
+en: Crispbreads (non-wholemeal), Crispbreads(non-wholemeal)
+da: Knækbrød (ikke-fuldkorn)
 fr: Pains croustillants non-complets
-nl: Knäckebrot(niet-volkoren)
+nl: Knäckebrot (niet-volkoren)
+sv: Knäckebröd (icke-fullkorn)
 
 #Extruded crispbread is not bread
 < en:Cereals and potatoes
@@ -44021,6 +44030,7 @@ food_groups:en: en:appetizers
 pnns_group_2:en: Appetizers
 wikidata:en: Q220964
 
+< en:Breaded products
 < en:Salty snacks
 en: Arancini
 xx: Arancini
@@ -56248,7 +56258,7 @@ opposite:en: en:salted-nuts
 en: Mixed nuts, Nut mix
 de: Nussmischung
 fr: Mélanges de fruits à coque
-nl: Notenmelanges, Gemengde noten
+nl: Notenmelanges, Gemengde noten, notenmix
 opposite:en: en:brazil-nuts
 sales_format:en: package, weight
 
@@ -57653,11 +57663,11 @@ wco_hs_heading:en: 20.08
 
 #do not put in nut butters, peanut is not a nut
 < en:Legume butters
-en: Peanut butters, peanut paste
+en: Peanut butters, peanut paste, peanut creme
 bg: Фъстъчено масло
 ca: Mantega de cacauet
 de: Erdnussbutter
-es: Mantecas de cacahuete, Cremas de cacahuete, Crema de maní
+es: Mantecas de cacahuete, Cremas de cacahuete, Crema de maní, Crema de cacaheute, Pasta de maní
 fi: maapähkinävoit
 fr: Beurres de cacahuètes, beurres d’arachide, Purées de cacahuète, Purée de cacahuète, Purées d'arachide, Purée d'arachide, Pâtes à tartiner aux cacahuètes, beurre de cacahuète, pâte d'arachide
 he: חמאות בוטנים
@@ -57680,19 +57690,25 @@ wco_hs_code:en: 2008.11
 wco_hs_heading:en: 20.08
 wikidata:en: Q147651
 
-
 < en:Peanut butters
 en: Crunchy peanut butters
 fr: Beurres de cacahuetes croustillants
 hr: Hrskavi maslaci od kikirikija
 lt: Traškūs žemės riešutų sviestai
+nl: Pindakzen met stukjes pinda
 
 #contains only peanut, no added whatever
 < en:Peanut butters
 en: Pure peanut butters
+fr: Pur beurre de cacahuettes
 hr: Čisti maslac od kikirikija
 lt: Žemės riešutų sviestai (100%)
 nl: Pindakazen (100% pinda)
+
+< en:Legume butters
+en: Flavoured peanut butters
+nl: Gearomatiseerde pindkazen, Pindakazen (gearomatiseerd)
+comment:en: Peanut butters with added ingredients, like spices, peppers, etc.
 
 < en:Nut butters
 en: Pistachio butters
@@ -73697,6 +73713,7 @@ pl: Sól
 pt: Sais
 ru: Соль
 sv: Salter, salt
+th: เกลือบริโภค
 tr: Tuz
 zh: 盐类
 agribalyse_proxy_food_code:en: 11017
@@ -73781,6 +73798,7 @@ lt: Jūros druskos
 nl: Zeezouten
 pl: Sól morska
 ru: Морская соль
+sv: Havssalter
 agribalyse_proxy_food_code:en: 11017
 agribalyse_proxy_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
@@ -73794,6 +73812,8 @@ it: Sale iodato
 ja: ヨウ素添加塩
 lt: Joduota druska
 pl: Sól jodowana
+sv: Salter med jod
+th: เกลือบริโภค เสริมไอโอดีน
 agribalyse_proxy_food_code:en: 11017
 agribalyse_proxy_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
@@ -75643,16 +75663,17 @@ fr: Sauces véganes façon béchamel
 < en:Sauces
 en: Peanut sauces
 de: Erdnusssauce
-fr: Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
+fr: Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
 hr: Umaci od kikirikija
 lt: Žemės riešutų padažai
 nl: Pindasauzen
 pl: Sosy z orzeszków ziemnych
 wikidata:en: Q107310187
 
-#peanut suaces with added spices
+#peanut sauces with added spices
 < en:Peanut sauces
 en: Satay sauces
+fr: Sauces saté, Sauce saté
 hr: Satay umaci
 ja: サテソース
 nl: Satésauzen
@@ -80869,7 +80890,7 @@ fr: Sauté de veau
 fr: Axoa de veau
 
 < en:Veal meat dishes
-en: Veal blanquette, Veal blanquettes, Veal stew in white sauce
+en: Veal blanquettes, Veal blanquette, Veal stew in white sauce
 fr: Blanquettes de veau, blanquettes de veaux, blanquette de veau
 hr: Teleći kolačić
 nl: Witte kalfsvlees
@@ -80878,6 +80899,14 @@ ciqual_food_code:en: 25001
 ciqual_food_name:en: Veal stew in white sauce
 ciqual_food_name:fr: Blanquette de veau
 wikidata:en: Q1191278
+
+< en:Veal blanquettes
+en: Veal blanquettes without side dishes
+fr: Blanquettes de veau sans accompagnements
+
+< en:Veal blanquettes
+en: Veal blanquettes with side dishes
+fr: Blanquettes de veau avec accompagnements
 
 < en:Beef dishes
 en: Beef Wellington
@@ -80924,12 +80953,12 @@ ciqual_food_name:en: Burgundy-style beef stew
 ciqual_food_name:fr: Boeuf bourguignon
 
 < en:Bœufs bourguignons
-en: Cooked beef stew meat
-fr: Boeuf bourguignon cuit, Pot au feu de boeuf cuit
-agribalyse_food_code:en: 6230
-ciqual_food_code:en: 6230
-ciqual_food_name:en: Beef, stewing meat, cooked
-ciqual_food_name:fr: Boeuf, à bourguignon ou pot-au-feu, cuit
+en: Bœufs bourguignons without side dishes
+Fr: Bœufs bourguignons sans accompagnements
+
+< en:Bœufs bourguignons
+en: Bœufs bourguignons with side dishes
+Fr: Bœufs bourguignons avec accompagnements
 
 < en:Beef
 en: Beef stew meat
@@ -81128,7 +81157,16 @@ intake24_category_code:en: CDSH
 
 < en:Meals with chicken
 en: Sweet and sour chicken
+fr: Poulet aigre doux
 wikidata:en: Q2918637
+
+< en:Sweet and sour chicken
+en: Sweet and sour chicken without side dishes
+fr: Poulet aigre doux sans accompagnements
+
+< en:Sweet and sour chicken
+en: Sweet and sour chicken with side dishes
+fr: Poulets aigre doux avec accompagnements
 
 < en:Meals with chicken
 fr: Parmentiers de poulet
@@ -81145,6 +81183,14 @@ ro: Tajine de pui
 agribalyse_food_code:en: 25204
 ciqual_food_code:en: 25204
 ciqual_food_name:en: Chicken tagine
+
+< en:Chicken tajine
+en: Chicken tajine without side dishes
+fr: Tajines de poulet sans accompagnements
+
+< en:Chicken tajine
+en: Chicken tajine with side dishes
+fr: Tajines de poulet avec accompagnements
 
 < en:Meals with chicken
 en: Chicken curry
@@ -81169,6 +81215,14 @@ fr: Poulet au curry et au lait de coco
 agribalyse_food_code:en: 25174
 ciqual_food_code:en: 25174
 ciqual_food_name:en: Chicken with curry and coconut milk sauce
+
+< en: Chicken curry
+en: Chicken curry without side dishes
+fr: Poulets au curry sans accompagnements
+
+< en:Chicken curry
+en: Chicken curry with side dishes
+fr: Poulets au curry avec accompagnements
 
 < en:Meals with chicken
 en: Chicken Basque style
@@ -81224,6 +81278,14 @@ zh: 鸡肉提卡马沙拉
 description:en: Chicken marinated in a Yogurt tomato sauce. It is known to have a creamy texture.
 wikidata:en: Q654159
 
+< en:Chicken tikka masala
+en: Chicken tikka masala without side dishes
+fr: Poulets tikka masala sans accompagnements
+
+< en:Chicken tikka masala
+en: Chicken tikka masala with side dishes
+fr: Poulets tikka masala avec accompagnements
+
 < en:Meals with chicken
 en: Tandoori chicken
 de: Tandoori-Huhn
@@ -81240,6 +81302,12 @@ wikidata:en: Q1057649
 en: Butter chicken
 xx: Butter chicken
 wikidata:en: Q1322549
+
+< en:Butter chicken
+en: Butter chicken without side dishes
+
+< en:Butter chicken
+en: Butter chicken with side dishes
 
 < en:Meals with meat
 en: Goat dishes, Goat meals
@@ -81308,6 +81376,14 @@ ciqual_food_code:en: 25111
 ciqual_food_name:en: Chili con carne
 ciqual_food_name:fr: Chili con carne
 wikidata:en: Q863794
+
+< en:Chili con carne
+en: Chili con carne without side dishes
+fr: Chili con carne sans accompagnements
+
+< en:Chili con carne
+en: Chili con carne with side dishes
+fr: Chili con carne avec accompagnements
 
 < en:Meals with meat
 en: Osso buco
@@ -97935,7 +98011,7 @@ fr: Meringues, meringue
 hr: Meringe
 it: Meringhe
 ja: メレンゲ
-nl: Schuimpjes
+nl: Schuimpjes, Meringues
 nl_be: Schuimpjes, Meringue
 agribalyse_food_code:en: 24520
 ciqual_food_code:en: 24520
@@ -107994,6 +108070,11 @@ nl: Ingemaakte jalapeño peper
 < en:Sliced jalapeños
 en: Pickled sliced jalapeños
 
+< en:Friggitelli
+< en:Pickled peppers
+en: Pickled friggitelli
+sv: Inlagta feferoni
+
 < en:Mushrooms
 < en:Vegetable pickles
 en: Pickled Mushrooms, Mushrooms in oil
@@ -110800,6 +110881,11 @@ en: Sliced jalapeños
 da: Jalapeño i skiver
 fi: Viipaloitu jalapeño
 sv: Skivad jalapeño
+
+< en:Peppers
+en: Friggitelli
+sv: Feferoni, Peperoni
+wikidata:en: Q16861000
 
 < en:Sweet Peppers
 fr: Le Pepper Mont Jolien
@@ -117605,7 +117691,11 @@ nl: Saucijzenbroodjes
 food_groups:en: en:salty-and-fatty-products
 pnns_group_2:en: Salty and fatty products
 
-< en:Puff pastry appetizers
+< en:Appetizers
+en: Choux pastry appetizers
+fr: Choux apéritifs
+
+< en:Choux pastry appetizers
 en: Small cheese chou, Small cheese pastry puff, Gougère
 fr: Gougères, Gougère
 agribalyse_food_code:en: 25437

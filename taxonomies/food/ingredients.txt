@@ -8905,7 +8905,7 @@ sv: salt, koksalt, bordssalt, bordssalt utan jod
 ta: உப்பு
 te: ఉప్పు
 tg: Намак
-th: เกลือ
+th: เกลือ, เกลือแกง
 tl: Asin
 tr: tuz, Yemek tuzu
 ug: تۇز
@@ -8958,7 +8958,10 @@ wikidata:en: Q11254
 wikipedia:en: https://en.wikipedia.org/wiki/Salt
 
 < en:salt
+en: evaporated salt
+da: sydesalt
 de: Siedesalz
+wikidata:en: Q123028095
 
 < en:salt
 en: finegrained salt
@@ -8973,6 +8976,20 @@ nl: Fijn zout
 pt: Sal fino
 ru: мелкая соль
 zh: 细盐
+
+< en:salt
+en: medium-coarse salt
+de: mittelgrobes Salz
+
+< en:salt
+en: salt from the Alps
+de: Alpensalz
+origins:en: en:the-alps
+
+< en:medium-coarse salt
+< en:salt from the Alps
+en: medium-coarse salt from the Alps
+de: Mittelgrobes Alpensalz
 
 < en:salt
 en: rock salt
@@ -56662,6 +56679,16 @@ es: ñora, ñoras
 hr: ljuta crvena paprika
 it: peperoncino rosso piccante
 
+< en:capsicum annuum
+< en:chili pepper
+en: friggitello, friggitelli, Golden Greek pepper, Sweet Italian pepper, Tuscan pepper, pepperoncini
+sv: feferoni, peperoni
+wikidata:en: Q16861000
+
+< en:friggitello
+en: hot friggitello
+sv: stark feferoni
+
 < en:chili pepper
 en: peri-peri, peri peri, piri-piri, pili-pili, pili pili
 de: Piri Piri, Piri-Piri
@@ -88606,6 +88633,20 @@ vegan:en: maybe
 vegetarian:en: yes
 wikidata:en: Q7802
 wikipedia:en: https://en.wikipedia.org/wiki/Bread
+
+< en:bread
+en: crispbread
+da: knækbrød
+de: Knäckebrot
+nb: knekkebrød
+nn: knekkebrød
+sv: knäckebröd
+wikidata:en: Q251981
+
+< en:crispbread
+en: wheat crispbread
+da: hvedeknækbrød
+sv: veteknäckebröd
 
 < en:bread
 en: special bread
