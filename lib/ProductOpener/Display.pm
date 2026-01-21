@@ -6245,7 +6245,6 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 		$series_n{$seriesid}++;
 		$i++;
-
 	}
 
 	my $series_data = '';
