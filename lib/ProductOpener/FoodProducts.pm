@@ -85,7 +85,7 @@ sub specific_processes_for_food_product ($product_ref) {
 	extract_additives_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
 
-	# Rare crops / Neglected and Underutilized Crops (NUCs) (DIVINFOOD project)
+	# Rare crops / Neglected and Underutilized Crops (NUCs) (DIVINFOOD project)
 	detect_rare_crops($product_ref);
 
 	# Category analysis
@@ -95,7 +95,7 @@ sub specific_processes_for_food_product ($product_ref) {
 	assign_categories_properties_to_product($product_ref);
 	compute_food_groups($product_ref);
 
-	# Nutrition data per 100g and per serving size
+	# Nutrition data per 100g and per serving size
 
 	fix_salt_equivalent($product_ref);
 	compute_nutrition_data_per_100g_and_per_serving($product_ref);
