@@ -162,12 +162,9 @@ $fields_ref->{nutrition_grade_fr} = 1;
 # NB: if this query reports a "Sort exceeded memory limit" error , then that
 # could mean that it is not using the created_t index as expected - when
 # it does, it can immediately instantiate and return the cursor iterator
-my $cursor
-	= get_products_collection({timeout => 3 * 60 * 60 * 1000})
-        # ->query({'empty' => {"\$ne" => 1}})  # prevents created_t index usage; use next-if-empty in Perl instead
-	->find()
-	->sort({created_t => 1})
-	->fields($fields_ref);
+my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})
+	# ->query({'empty' => {"\$ne" => 1}})  # prevents created_t index usage; use next-if-empty in Perl instead
+	->find()->sort({created_t => 1})->fields($fields_ref);
 
 $cursor->immortal(1);
 
