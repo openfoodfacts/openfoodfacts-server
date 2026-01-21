@@ -4691,7 +4691,7 @@ msgstr "Brak lub małe przetwarzanie żywności (dla grupy NOVA)"
 
 msgctxt "attribute_nova_setting_note"
 msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
-msgstr ""
+msgstr "Aby określić stopień przetworzenia produktu, opieramy się na liście składników (markery, metody przetwarzania) i kategoriach."
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4721,7 +4721,7 @@ msgstr "1 wskaźnik ultraprzetworzenia"
 # variable names between { } must not be translated
 msgctxt "f_attribute_nova_4_markers"
 msgid "{number} ultra-processing markers"
-msgstr ""
+msgstr "{number} znaczniki ultraprzetwarzania"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -5926,7 +5926,7 @@ msgstr "Prosimy o wsparcie naszej zbiórki funduszy w 2024 roku"
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr ""
+msgstr "Prosimy o wsparcie naszej zbiórki {year}"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
@@ -7327,7 +7327,7 @@ msgstr "Produkty eksportowane"
 
 msgctxt "opportunities_to_improve_nutriscore"
 msgid "Opp. for Nutri-Score improvements"
-msgstr ""
+msgstr "Przeciwko ulepszeniom Nutri-Score"
 
 msgctxt "date_of_last_update"
 msgid "Date of last update"
@@ -7359,7 +7359,7 @@ msgstr "Lista organizacji"
 
 msgctxt "open_org"
 msgid "Open org"
-msgstr ""
+msgstr "Otwarta organizacja"
 
 msgctxt "secondhand"
 msgid "Secondhand"
@@ -7379,7 +7379,7 @@ msgstr "Używane produkty"
 
 msgctxt "used_products_subtitle"
 msgid "Buy this product used, or search for a similar used product"
-msgstr ""
+msgstr "Kup ten produkt używany lub wyszukaj podobny używany produkt"
 
 msgctxt "attribute_repairability_index_france_name"
 msgid "Repairability index"
@@ -7387,20 +7387,20 @@ msgstr "Wskaźnik naprawialności"
 
 msgctxt "attribute_repairability_index_france_setting_name"
 msgid "Good repairability"
-msgstr ""
+msgstr "Dobra możliwość naprawy"
 
 msgctxt "attribute_repairability_index_france_setting_note"
 msgid "Mandatory rating in France for certain products since 2021"
-msgstr ""
+msgstr "Obowiązkowa ocena niektórych produktów we Francji od 2021 r."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_repairability_index_france_grade_title"
 msgid "Repairability index %s"
-msgstr ""
+msgstr "Wskaźnik możliwości naprawy %s"
 
 msgctxt "attribute_repairability_index_france_unknown_title"
 msgid "Repairability index unknown"
-msgstr ""
+msgstr "Nieznany wskaźnik możliwości naprawy"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
 msgid "Repairability index not applicable"
@@ -7413,31 +7413,31 @@ msgstr "Nie dotyczy tej kategorii"
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
 msgid "Applicable only for categories: {categories}"
-msgstr ""
+msgstr "Dotyczy tylko kategorii: {categories}"
 
 msgctxt "attribute_repairability_index_france_very_good_description_short"
 msgid "Very good repairability"
-msgstr ""
+msgstr "Bardzo dobra możliwość naprawy"
 
 msgctxt "attribute_repairability_index_france_good_description_short"
 msgid "Good repairability"
-msgstr ""
+msgstr "Dobra możliwość naprawy"
 
 msgctxt "attribute_repairability_index_france_average_description_short"
 msgid "Average repairability"
-msgstr ""
+msgstr "Średnia możliwość naprawy"
 
 msgctxt "attribute_repairability_index_france_poor_description_short"
 msgid "Poor repairability"
-msgstr ""
+msgstr "Słaba możliwość naprawy"
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
-msgstr ""
+msgstr "Słaba możliwość naprawy"
 
 msgctxt "estimate"
 msgid "estimate"
-msgstr ""
+msgstr "oszacować"
 
 # information on several ingredients, in plural in languages like French
 msgctxt "ingredient_information"
@@ -7461,7 +7461,7 @@ msgstr "Karma dla zwierząt"
 # Beauty product type
 msgctxt "product_type_beauty"
 msgid "Beauty"
-msgstr ""
+msgstr "Uroda"
 
 # General product product type
 msgctxt "product_type_product"
@@ -7478,15 +7478,15 @@ msgstr "Ograniczenie spożycia żywności ultraprzetworzonej zmniejsza ryzyko wy
 
 msgctxt "recommendation_limit_ultra_processed_foods_text"
 msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
-msgstr ""
+msgstr "Z licznych badań wynika, że mniejsze spożycie żywności wysoko przetworzonej wiąże się ze zmniejszonym ryzykiem wystąpienia niezakaźnych chorób przewlekłych, takich jak otyłość, nadciśnienie i cukrzyca."
 
 msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
 msgid "Discover the evolution of the Nutri-Score grades of your products"
-msgstr ""
+msgstr "Odkryj ewolucję ocen Nutri-Score Twoich produktów"
 
 msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
 msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
-msgstr ""
+msgstr "Dodaj produkty według kategorii, listy składników i informacji o wartościach odżywczych, aby sprawdzić zmiany ich ocen Nutri-Score."
 
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
@@ -7502,12 +7502,12 @@ msgstr "Usuń"
 
 msgctxt "f_add_product_to_our_database"
 msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
-msgstr ""
+msgstr "Czy {barcode} to kod kreskowy produktu, który posiadasz? Jeśli tak, dodaj go do bazy danych. Zajmie to tylko kilka minut."
 
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr ""
+msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7515,11 +7515,11 @@ msgstr "Dostępne na F-Droid"
 
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
-msgstr ""
+msgstr "Aktualizacja danych o składnikach odżywczych"
 
 msgctxt "update_nutrition_facts"
 msgid "Extract nutrition facts"
-msgstr ""
+msgstr "Wyciągnij informacje o wartościach odżywczych"
 
 msgctxt "scan_a_product"
 msgid "Scan a product"
@@ -7543,7 +7543,7 @@ msgstr "Nutri-Score, Green-Score i poziom przetwarzania żywności (NOVA)"
 
 msgctxt "reset_preferences_details_product"
 msgid "Good repairability"
-msgstr ""
+msgstr "Dobra możliwość naprawy"
 
 msgctxt "reset_preferences_details_pet_food"
 msgid "Organic farming and fair trade"
@@ -7647,35 +7647,35 @@ msgstr "Preferencje te opierają się na analizie listy składników przez Open 
 
 msgctxt "external_sources_empreinte_souffrance_name"
 msgid "Suffering Fingerprint"
-msgstr ""
+msgstr "Odcisk palca cierpienia"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
-msgstr ""
+msgstr "Wskaźnik cierpienia zwierząt obliczany według produktu"
 
 msgctxt "section_animal_welfare_title"
 msgid "Animal welfare"
-msgstr ""
+msgstr "Dobrostan zwierząt"
 
 msgctxt "external_panels"
 msgid "External Knowledge Panels"
-msgstr ""
+msgstr "Zewnętrzne panele wiedzy"
 
 msgctxt "external_panel_unavailable"
 msgid "Panel unavailable"
-msgstr ""
+msgstr "Panel niedostępny"
 
 msgctxt "external_panel_unavailable_for_product"
 msgid "Panel unavailable for this product"
-msgstr ""
+msgstr "Panel niedostępny dla tego produktu"
 
 msgctxt "external_sources"
 msgid "External sources"
-msgstr ""
+msgstr "Źródła zewnętrzne"
 
 msgctxt "provided_by"
 msgid "Provided by"
-msgstr ""
+msgstr "Dostarczone przez"
 
 msgctxt "recommendation_eu_tobacco_health_warning_title"
 msgid "Smoking kills"
