@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2019-07-08 13:16\n"
+"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Language-Team: Chinese Traditional, Hong Kong\n"
+"Language: zh_HK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_HK\n"
-"Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-08 13:16\n"
-"Language-Team: Chinese Traditional, Hong Kong\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
@@ -162,6 +162,22 @@ msgstr "成分"
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "ingredients:singular"
 msgid "ingredient"
+msgstr "成分"
+
+#. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
+#, fuzzy
+#| msgctxt "ingredients:plural"
+#| msgid "ingredients"
+msgctxt "ingredients_original:plural"
+msgid "ingredients-original"
+msgstr "成分"
+
+#. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
+#, fuzzy
+#| msgctxt "ingredients:singular"
+#| msgid "ingredient"
+msgctxt "ingredients_original:singular"
+msgid "ingredient-original"
 msgstr "成分"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
@@ -395,6 +411,16 @@ msgid "store"
 msgstr "商店"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
+msgctxt "taxonomies_enhancer:plural"
+msgid "taxonomies-enhancer"
+msgstr ""
+
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
+msgctxt "taxonomies_enhancer:singular"
+msgid "taxonomies-enhancer"
+msgstr ""
+
+#. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "traces:plural"
 msgid "traces"
 msgstr "追蹤"
@@ -537,3 +563,212 @@ msgctxt "ingredients_analysis:plural"
 msgid "ingredients-analysis"
 msgstr ""
 
+msgctxt "data_quality:plural"
+msgid "data-quality"
+msgstr "data-quality"
+
+msgctxt "data_quality:singular"
+msgid "data-quality"
+msgstr "data-quality"
+
+msgctxt "data_quality_bugs:plural"
+msgid "data-quality-bugs"
+msgstr "data-quality-bugs"
+
+msgctxt "data_quality_bugs:singular"
+msgid "data-quality-bug"
+msgstr "data-quality-bug"
+
+msgctxt "data_quality_info:plural"
+msgid "data-quality-info"
+msgstr "data-quality-info"
+
+msgctxt "data_quality_info:singular"
+msgid "data-quality-info"
+msgstr "data-quality-info"
+
+msgctxt "data_quality_warnings:plural"
+msgid "data-quality-warnings"
+msgstr "data-quality-warnings"
+
+msgctxt "data_quality_warnings:singular"
+msgid "data-quality-warning"
+msgstr "data-quality-warning"
+
+msgctxt "data_quality_errors:plural"
+msgid "data-quality-errors"
+msgstr "data-quality-errors"
+
+msgctxt "data_quality_errors:singular"
+msgid "data-quality-error"
+msgstr "data-quality-error"
+
+msgctxt "data_quality_warnings_producers:plural"
+msgid "data-quality-warnings-producers"
+msgstr "data-quality-warnings-producers"
+
+msgctxt "data_quality_warnings_producers:singular"
+msgid "data-quality-warning-producers"
+msgstr "data-quality-warning-producers"
+
+msgctxt "data_quality_errors_producers:plural"
+msgid "data-quality-errors-producers"
+msgstr "data-quality-errors-producers"
+
+msgctxt "data_quality_errors_producers:singular"
+msgid "data-quality-error-producers"
+msgstr "data-quality-error-producers"
+
+msgctxt "improvements:plural"
+msgid "possible-improvements"
+msgstr "possible-improvements"
+
+msgctxt "improvements:singular"
+msgid "possible-improvement"
+msgstr "possible-improvement"
+
+msgctxt "imports:plural"
+msgid "imports"
+msgstr "imports"
+
+msgctxt "imports:singular"
+msgid "import"
+msgstr "import"
+
+msgctxt "teams:plural"
+msgid "teams"
+msgstr "teams"
+
+msgctxt "teams:singular"
+msgid "team"
+msgstr "team"
+
+#, fuzzy
+#| msgctxt "categories:plural"
+#| msgid "categories"
+msgctxt "categories_properties:singular"
+msgid "categories-properties"
+msgstr "類別"
+
+#, fuzzy
+#| msgctxt "categories:plural"
+#| msgid "categories"
+msgctxt "categories_properties:plural"
+msgid "categories-properties"
+msgstr "類別"
+
+msgctxt "owners:plural"
+msgid "owners"
+msgstr "owners"
+
+msgctxt "owners:singular"
+msgid "owner"
+msgstr "owner"
+
+msgctxt "ecoscore:plural"
+msgid "environmental_score"
+msgstr "environmental_score"
+
+msgctxt "ecoscore:singular"
+msgid "environmental_score"
+msgstr "environmental_score"
+
+msgctxt "food_groups:plural"
+msgid "food-groups"
+msgstr "food-groups"
+
+msgctxt "food_groups:singular"
+msgid "food-group"
+msgstr "food-group"
+
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
+msgctxt "weighers:plural"
+msgid "weighers"
+msgstr ""
+
+#. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
+msgctxt "weighers:singular"
+msgid "weigher"
+msgstr ""
+
+#. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
+#, fuzzy
+#| msgctxt "packaging:plural"
+#| msgid "packaging"
+msgctxt "packaging_shapes:plural"
+msgid "packaging-shapes"
+msgstr "包裝"
+
+#. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
+#, fuzzy
+#| msgctxt "packaging:plural"
+#| msgid "packaging"
+msgctxt "packaging_shapes:singular"
+msgid "packaging-shape"
+msgstr "包裝"
+
+#. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
+#, fuzzy
+#| msgctxt "packaging:plural"
+#| msgid "packaging"
+msgctxt "packaging_materials:plural"
+msgid "packaging-materials"
+msgstr "包裝"
+
+#. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
+#, fuzzy
+#| msgctxt "packaging:plural"
+#| msgid "packaging"
+msgctxt "packaging_materials:singular"
+msgid "packaging-materials"
+msgstr "包裝"
+
+#. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
+#, fuzzy
+#| msgctxt "packaging:plural"
+#| msgid "packaging"
+msgctxt "packaging_recycling:plural"
+msgid "packaging-recycling"
+msgstr "包裝"
+
+#. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
+#, fuzzy
+#| msgctxt "packaging:plural"
+#| msgid "packaging"
+msgctxt "packaging_recycling:singular"
+msgid "packaging-recycling"
+msgstr "包裝"
+
+#, fuzzy
+#| msgctxt "nutriments:singular"
+#| msgid "nutrient"
+msgctxt "nutriscore:plural"
+msgid "nutri-score"
+msgstr "營養"
+
+#, fuzzy
+#| msgctxt "nutriments:singular"
+#| msgid "nutrient"
+msgctxt "nutriscore:singular"
+msgid "nutri-score"
+msgstr "營養"
+
+# Please do not translate nutri-score
+msgctxt "nutriscore_2021:plural"
+msgid "nutri-score-2021"
+msgstr "nutri-score-2021"
+
+# Please do not translate nutri-score
+msgctxt "nutriscore_2021:singular"
+msgid "nutri-score-2021"
+msgstr "nutri-score-2021"
+
+# Please do not translate nutri-score
+msgctxt "nutriscore_2023:plural"
+msgid "nutri-score-2023"
+msgstr "nutri-score-2023"
+
+# Please do not translate nutri-score
+msgctxt "nutriscore_2023:singular"
+msgid "nutri-score-2023"
+msgstr "nutri-score-2023"
