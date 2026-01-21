@@ -30,19 +30,19 @@ msgstr ""
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
-msgstr ""
+msgstr "/open-food-facts-mobile-app"
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr ""
+msgstr "ინგრედიენტების, ასევე მთელი მსოფლიოს კოსმეტიკური პროდუქტების შესახებ ინფორმაციის თანამშრომლობითი, უფასო და ღია მონაცემთა ბაზა"
 
 msgctxt "tagline_obf"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr ""
+msgstr "Open Beauty Facts აგროვებს ინფორმაციასა და მონაცემებს კოსმეტიკური პროდუქტების შესახებ მთელი მსოფლიოდან."
 
 msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr ""
+msgstr "კოსმეტიკური პროდუქტების თანამშრომლობითი, უფასო და ღია მონაცემთა ბაზა მთელი მსოფლიოდან."
 
 # OPF
 msgctxt "site_description_opf"
@@ -68,16 +68,16 @@ msgstr "Open Pet Food Facts აგროვებს ინფორმაცი
 
 msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgstr "მსოფლიოს სხვადასხვა კუთხიდან შინაური ცხოველების საკვების პროდუქტების თანამშრომლობითი, უფასო და ღია მონაცემთა ბაზა."
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
-msgstr ""
+msgstr "/open-beauty-facts-mobile-app"
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "და <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook ჯგუფი კონტრიბუტორებისთვის</a>"
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
@@ -85,7 +85,7 @@ msgstr ""
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "პროდუქტის ეს გვერდი არ არის სრული. თქვენ შეგიძლიათ დაგვეხმაროთ მის დასრულებაში მისი რედაქტირებით და ჩვენს მიერ არსებული ფოტოებიდან დამატებითი მონაცემების დამატებით, ან <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> ან <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>აპლიკაციის გამოყენებით დამატებითი ფოტოების გადაღებით. გმადლობთ!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -141,7 +141,7 @@ msgstr "რეგისტრაცია"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "კეთილი იყოს თქვენი მობრძანება!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -303,7 +303,7 @@ msgstr "1 კგ-სთვის"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
-msgstr ""
+msgstr "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
@@ -755,7 +755,7 @@ msgstr "არასწორი ელ. ფოსტის მისამა�
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
-msgstr ""
+msgstr "პაროლი უნდა იყოს მინიმუმ 6 სიმბოლოს სიგრძის."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
@@ -852,7 +852,7 @@ msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
-msgstr ""
+msgstr "ქცევის კოდექსი"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
@@ -894,7 +894,10 @@ msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "გამოგვყევით <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> და\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
+"-ზე"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -1651,7 +1654,8 @@ msgstr ""
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "ცხრილში ნაგულისხმევად ჩამოთვლილია ხშირად მითითებული საკვები ნივთიერებები. თუ ის ეტიკეტზე არ არის, ველი ცარიელი დატოვეთ.<br/>დამატებითი საკვები ნივთიერებების (ვიტამინების, მინერალების, ქოლესტერინის და ა.შ.) დამატება შეგიძლიათ\n"
+"ცხრილის ბოლო რიგში მათი სახელწოდების პირველი ასოების აკრეფით."
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
@@ -2241,7 +2245,8 @@ msgstr "შედეგები გრაფიკზე"
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr ""
+msgstr "ჰისტოგრამის მისაღებად აირჩიეთ ის, რისი გამოსახვაც გსურთ ჰორიზონტალურ ღერძზე, ან აირჩიეთ ორი ღერძი პროდუქტების ღრუბლის (გაფანტვის დიაგრამა)\n"
+"მისაღებად."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
@@ -4088,11 +4093,11 @@ msgstr "<a href=\"\">პროექტის გასაგრძელებ�
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "გმადლობთ!"
 
 msgctxt "thank_you_very_much"
 msgid "Thank you very much!"
-msgstr ""
+msgstr "დიდი მადლობა!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -4604,7 +4609,7 @@ msgstr "როდესაც თქვენ ყიდულობთ სამ
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
-msgstr ""
+msgstr "კვებითი ღირებულება"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
@@ -4646,7 +4651,7 @@ msgstr "არ ეხება კატეგორიას: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
-msgstr ""
+msgstr "ძალიან კარგი კვებითი ხარისხი"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
@@ -4697,7 +4702,7 @@ msgstr "ნოვა %s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr ""
+msgstr "დაუმუშავებელი ან მინიმალურად დამუშავებული საკვები"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
@@ -6580,7 +6585,7 @@ msgstr ""
 
 msgctxt "your_contributions"
 msgid "Your contributions"
-msgstr ""
+msgstr "თქვენი წვლილი"
 
 msgctxt "products_added"
 msgid "Products added"
@@ -6801,19 +6806,19 @@ msgstr "არასწორი მნიშვნელობა: უნდა
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "შეიყვანეთ პროდუქტში შემავალი ერთი და იგივე ფორმისა და მასალის შესაფუთი ერთეულების რაოდენობა."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "შეიყვანეთ გადამუშავების ინსტრუქციებში მითითებული ფორმის სახელი, თუ ისინი ხელმისაწვდომია, ან აირჩიეთ ფორმა."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "შეიყვანეთ კონკრეტული მასალა, თუ მისი დადგენა შესაძლებელია (სამკუთხედის შიგნით მასალის კოდი ხშირად შეგიძლიათ იპოვოთ შეფუთვის ნაწილებზე), ან ზოგადი მასალა (მაგალითად, პლასტმასი ან ლითონი), თუ არ ხართ დარწმუნებული."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "გადამუშავების ინსტრუქციები შეიყვანეთ მხოლოდ იმ შემთხვევაში, თუ ისინი პროდუქტზეა ჩამოთვლილი."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6823,7 +6828,7 @@ msgstr "აწონვამდე ამოიღეთ დარჩენი�
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "შეიყვანეთ წმინდა წონა ან წმინდა მოცულობა და მიუთითეთ ერთეული (მაგალითად, გ ან მლ)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -6945,7 +6950,7 @@ msgstr "წონის პროცენტი"
 
 msgctxt "nutriscore_component_energy"
 msgid "Energy"
-msgstr ""
+msgstr "ენერგია"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
@@ -6953,11 +6958,11 @@ msgstr "ენერგია ნაჯერი ცხიმებიდან"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
-msgstr ""
+msgstr "შაქრები"
 
 msgctxt "nutriscore_component_saturated_fat"
 msgid "Saturated fat"
-msgstr ""
+msgstr "ნაჯერი ცხიმი"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
@@ -6981,7 +6986,7 @@ msgstr "ბოჭკოვანი"
 
 msgctxt "nutriscore_component_proteins"
 msgid "Proteins"
-msgstr ""
+msgstr "ცილები"
 
 msgctxt "presence"
 msgid "Presence"
@@ -7344,7 +7349,7 @@ msgstr "ავტომატური ყოველდღიური ექ�
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
-msgstr ""
+msgstr "გაუმჯობესებები"
 
 msgctxt "products_with_changes_since_last_export"
 msgid "Products with changes since last export"
@@ -7572,11 +7577,11 @@ msgstr "რობოტების მხრიდან ხშირი ბო
 
 msgctxt "origin_of_ingredients"
 msgid "Origin of ingredients"
-msgstr ""
+msgstr "ინგრედიენტების წარმოშობა"
 
 msgctxt "origin_of_product"
 msgid "Origin of product"
-msgstr ""
+msgstr "პროდუქტის წარმოშობა"
 
 msgctxt "product_information"
 msgid "Product information"
