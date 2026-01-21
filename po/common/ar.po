@@ -6609,12 +6609,12 @@ msgstr "مطابقة لتفضيلاتك"
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr ""
+msgstr "انضم إلينا على <a href=\"{url}\">Slack</a>"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
 msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
-msgstr ""
+msgstr "اكتشف مدونة قواعد السلوك الخاصة بنا <a href=\"{url}\"></a>"
 
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
@@ -7343,11 +7343,11 @@ msgstr "عدد المنتجات على المنصة العامة"
 
 msgctxt "number_of_products_on_producer_platform"
 msgid "Number of products on producer platform"
-msgstr ""
+msgstr "عدد المنتجات على منصة المنتج"
 
 msgctxt "automated_daily_export_to_public_platform"
 msgid "Automatic daily export to public platform"
-msgstr ""
+msgstr "تصدير تلقائي يومي إلى منصة عامة"
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
@@ -7355,56 +7355,56 @@ msgstr ""
 
 msgctxt "products_with_changes_since_last_export"
 msgid "Products with changes since last export"
-msgstr ""
+msgstr "المنتجات التي طرأت عليها تغييرات منذ آخر عملية تصدير"
 
 msgctxt "organization_list"
 msgid "Organization list"
-msgstr ""
+msgstr "قائمة المنظمات"
 
 msgctxt "open_org"
 msgid "Open org"
-msgstr ""
+msgstr "منظمة مفتوحة"
 
 msgctxt "secondhand"
 msgid "Secondhand"
-msgstr ""
+msgstr "اليد الثانية"
 
 msgctxt "donated_products_title"
 msgid "Donations"
-msgstr ""
+msgstr "التبرعات"
 
 msgctxt "donated_products_subtitle"
 msgid "Give this product, or search for a similar donated product"
-msgstr ""
+msgstr "تبرع بهذا المنتج، أو ابحث عن منتج مماثل تم التبرع به."
 
 msgctxt "used_products_title"
 msgid "Used products"
-msgstr ""
+msgstr "منتجات مستعملة"
 
 msgctxt "used_products_subtitle"
 msgid "Buy this product used, or search for a similar used product"
-msgstr ""
+msgstr "اشترِ هذا المنتج مستعملًا، أو ابحث عن منتج مستعمل مماثل."
 
 msgctxt "attribute_repairability_index_france_name"
 msgid "Repairability index"
-msgstr ""
+msgstr "مؤشر قابلية الإصلاح"
 
 msgctxt "attribute_repairability_index_france_setting_name"
 msgid "Good repairability"
-msgstr ""
+msgstr "قابلية جيدة للإصلاح"
 
 msgctxt "attribute_repairability_index_france_setting_note"
 msgid "Mandatory rating in France for certain products since 2021"
-msgstr ""
+msgstr "التصنيف الإلزامي في فرنسا لبعض المنتجات منذ عام 2021"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_repairability_index_france_grade_title"
 msgid "Repairability index %s"
-msgstr ""
+msgstr "مؤشر قابلية الإصلاح %s"
 
 msgctxt "attribute_repairability_index_france_unknown_title"
 msgid "Repairability index unknown"
-msgstr ""
+msgstr "مؤشر قابلية الإصلاح غير معروف"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
 msgid "Repairability index not applicable"
@@ -7417,36 +7417,36 @@ msgstr "غير قابل للتطبيق على الفئة"
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
 msgid "Applicable only for categories: {categories}"
-msgstr ""
+msgstr "ينطبق فقط على الفئات: {categories}"
 
 msgctxt "attribute_repairability_index_france_very_good_description_short"
 msgid "Very good repairability"
-msgstr ""
+msgstr "قابلية إصلاح جيدة جداً"
 
 msgctxt "attribute_repairability_index_france_good_description_short"
 msgid "Good repairability"
-msgstr ""
+msgstr "قابلية جيدة للإصلاح"
 
 msgctxt "attribute_repairability_index_france_average_description_short"
 msgid "Average repairability"
-msgstr ""
+msgstr "متوسط قابلية الإصلاح"
 
 msgctxt "attribute_repairability_index_france_poor_description_short"
 msgid "Poor repairability"
-msgstr ""
+msgstr "ضعف قابلية الإصلاح"
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
-msgstr ""
+msgstr "صعوبة الإصلاح"
 
 msgctxt "estimate"
 msgid "estimate"
-msgstr ""
+msgstr "تقدير"
 
 # information on several ingredients, in plural in languages like French
 msgctxt "ingredient_information"
 msgid "Ingredient information"
-msgstr ""
+msgstr "معلومات عن المكونات"
 
 msgctxt "product_type"
 msgid "Product type"
@@ -7465,7 +7465,7 @@ msgstr "طعام الحيوانات الأليفة"
 # Beauty product type
 msgctxt "product_type_beauty"
 msgid "Beauty"
-msgstr ""
+msgstr "جمال"
 
 # General product product type
 msgctxt "product_type_product"
@@ -7474,31 +7474,31 @@ msgstr "نتاج"
 
 msgctxt "recommendation_limit_ultra_processed_foods_title"
 msgid "Limit ultra-processed foods"
-msgstr ""
+msgstr "قلل من تناول الأطعمة فائقة المعالجة"
 
 msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
 msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
-msgstr ""
+msgstr "يؤدي الحد من تناول الأطعمة فائقة المعالجة إلى تقليل خطر الإصابة بالأمراض المزمنة غير المعدية"
 
 msgctxt "recommendation_limit_ultra_processed_foods_text"
 msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
-msgstr ""
+msgstr "وقد وجدت العديد من الدراسات أن انخفاض استهلاك الأطعمة فائقة المعالجة يرتبط بانخفاض خطر الإصابة بالأمراض المزمنة غير المعدية، مثل السمنة وارتفاع ضغط الدم والسكري."
 
 msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
 msgid "Discover the evolution of the Nutri-Score grades of your products"
-msgstr ""
+msgstr "اكتشف تطور درجات Nutri-Score لمنتجاتك"
 
 msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
 msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
-msgstr ""
+msgstr "أضف المنتجات مع تصنيفها وقائمة مكوناتها ومعلومات التغذية لاكتشاف تطور درجاتها في مؤشر التغذية (Nutri-Score)."
 
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
-msgstr ""
+msgstr "ملامسة الطعام"
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
-msgstr ""
+msgstr "اتصل بنا"
 
 msgctxt "delete"
 msgid "Delete"
@@ -7506,12 +7506,12 @@ msgstr "حذف"
 
 msgctxt "f_add_product_to_our_database"
 msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
-msgstr ""
+msgstr "هل الرمز الشريطي {barcode} خاص بمنتج لديك؟ إذا كان الأمر كذلك، يُرجى إضافته إلى قاعدة البيانات. لن يستغرق الأمر سوى بضع دقائق."
 
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr ""
+msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7519,19 +7519,19 @@ msgstr "متوفر على F-Droid"
 
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
-msgstr ""
+msgstr "تحديث بيانات العناصر الغذائية"
 
 msgctxt "update_nutrition_facts"
 msgid "Extract nutrition facts"
-msgstr ""
+msgstr "حقائق غذائية مستخلصة"
 
 msgctxt "scan_a_product"
 msgid "Scan a product"
-msgstr ""
+msgstr "امسح المنتج ضوئيًا"
 
 msgctxt "or_enter_barcode_manually"
 msgid "Or enter barcode manually"
-msgstr ""
+msgstr "أو أدخل الرمز الشريطي يدويًا"
 
 msgctxt "scan"
 msgid "Scan"
@@ -7547,7 +7547,7 @@ msgstr "درجة الجودة الغذائية و الدرجة البيئية و
 
 msgctxt "reset_preferences_details_product"
 msgid "Good repairability"
-msgstr ""
+msgstr "قابلية جيدة للإصلاح"
 
 msgctxt "reset_preferences_details_pet_food"
 msgid "Organic farming and fair trade"
