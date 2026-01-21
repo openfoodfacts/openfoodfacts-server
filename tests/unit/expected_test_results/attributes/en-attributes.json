@@ -408,11 +408,7 @@
          "packaging" : "0.50"
       }
    },
-   "data_quality_errors_tags" : [
-      "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
-      "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-      "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
-   ],
+   "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
       "en:ingredients-percent-analysis-ok",
@@ -440,15 +436,16 @@
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
-      "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
-      "en:environmental-score-packaging-unspecified-material",
-      "en:environmental-score-production-system-no-label",
       "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
       "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-      "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
+      "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+      "en:environmental-score-packaging-unspecified-material",
+      "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
-      "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
+      "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
+      "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+      "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
       "en:environmental-score-packaging-unspecified-material",
       "en:environmental-score-production-system-no-label"
    ],

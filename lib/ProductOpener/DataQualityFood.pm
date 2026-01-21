@@ -1054,20 +1054,25 @@ sub check_nutrition_data ($product_ref) {
 			my $per = deep_get($nutrition_set_ref, "per") || "unknown-per";
 			$set_id = "nutrition-${source}-${preparation}-${per}";
 			$set_id =~ s/[^a-z0-9]+/-/g;
-			# We will generate warnings for input sets
-			my $data_quality_tags = "data_quality_warnings_tags";
-			check_nutrition_data_for_input_set($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags);
+			# Do not generate errors for estimated sets
 			if (not(defined $nutrition_set_ref->{source} and $nutrition_set_ref->{source} eq "estimate")) {
+				# We will generate errors for input sets
+				my $data_quality_tags = "data_quality_errors_tags";
+				check_nutrition_data_for_input_set($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags);
 				check_nutrition_data_energy_computation($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags);
 			}
 		}
 	}
 
 	# Also check the aggregated nutrition set
+	# Note: it is likely that there will be a lot of errors here, as the aggregated set is computed
+	# from multiple input sets, some of which may be estimated.
+	# So we only generate warnings.
+	# We will have to review if those warnings are useful or not, and possibly remove them altogether.
 	my $aggregated_nutrition_set_ref = deep_get($product_ref, "nutrition", "aggregated_set");
 	if (defined $aggregated_nutrition_set_ref) {
 		# We will generate errors for the aggregated set
-		my $data_quality_tags = "data_quality_errors_tags";
+		my $data_quality_tags = "data_quality_warnings_tags";
 		# For the aggregated set, we used a fixed set id (matching tags we generated before the nutrition data restructure in 2025)
 		my $set_id = "nutrition";
 		check_nutrition_data_for_input_set($product_ref, $aggregated_nutrition_set_ref, $set_id, $data_quality_tags);

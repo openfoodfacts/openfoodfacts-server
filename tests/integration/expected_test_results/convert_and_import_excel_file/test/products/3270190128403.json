@@ -164,12 +164,7 @@
          "packaging" : "0.50"
       }
    },
-   "data_quality_errors_tags" : [
-      "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-      "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-      "en:nutrition-energy-value-in-kcal-does-not-match-value-computed-from-other-nutrients",
-      "en:nutrition-energy-value-in-kcal-may-not-match-value-computed-from-other-nutrients"
-   ],
+   "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
       "en:ingredients-percent-analysis-ok",
@@ -199,7 +194,6 @@
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown",
-      "en:nutrition-estimate-as-sold-100g-value-under-0-01-g-salt",
       "en:nutrition-value-under-0-01-g-salt",
       "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
       "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
@@ -207,8 +201,11 @@
       "en:nutrition-energy-value-in-kcal-may-not-match-value-computed-from-other-nutrients"
    ],
    "data_quality_warnings_tags" : [
-      "en:nutrition-estimate-as-sold-100g-value-under-0-01-g-salt",
-      "en:nutrition-value-under-0-01-g-salt"
+      "en:nutrition-value-under-0-01-g-salt",
+      "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+      "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+      "en:nutrition-energy-value-in-kcal-does-not-match-value-computed-from-other-nutrients",
+      "en:nutrition-energy-value-in-kcal-may-not-match-value-computed-from-other-nutrients"
    ],
    "data_sources" : "Producers, Producer - carrefour",
    "data_sources_imported" : "Producers, Producer - carrefour",

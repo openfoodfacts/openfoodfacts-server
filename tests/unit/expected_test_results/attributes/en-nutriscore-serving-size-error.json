@@ -385,11 +385,7 @@
          "packaging" : "0.50"
       }
    },
-   "data_quality_errors_tags" : [
-      "en:nutrition-value-over-105-fat",
-      "en:nutrition-value-over-105-proteins",
-      "en:nutrition-value-total-over-105"
-   ],
+   "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
@@ -421,15 +417,18 @@
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
+      "en:nutrition-value-over-105-fat",
+      "en:nutrition-value-over-105-proteins",
+      "en:nutrition-value-total-over-105",
       "en:nutrition-data-per-serving-serving-quantity-is-not-recognized",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
-      "en:environmental-score-production-system-no-label",
-      "en:nutrition-value-over-105-fat",
-      "en:nutrition-value-over-105-proteins",
-      "en:nutrition-value-total-over-105"
+      "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
+      "en:nutrition-value-over-105-fat",
+      "en:nutrition-value-over-105-proteins",
+      "en:nutrition-value-total-over-105",
       "en:nutrition-data-per-serving-serving-quantity-is-not-recognized",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",

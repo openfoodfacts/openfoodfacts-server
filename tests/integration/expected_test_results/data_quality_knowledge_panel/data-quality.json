@@ -125,17 +125,8 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj\"> Nutrition - Energy value in kcal does not match value in kJ <br><span class=\"description\">The energy value in kJ must be about 4.2 times greater than the value in kcal</span> </li> <li id=\"data-error-en:nutrition-value-over-105-salt\"> Nutrition value over 105 - Salt <br><span class=\"description\">Salt value is over 105g per 100g,which is impossible.</span> </li> <li id=\"data-error-en:nutrition-value-total-over-105\"> Nutrition value total over 105 <br><span class=\"description\">The sum of nutrient values for 100 g or 100 ml is greater than 100 g. It is very likely that there is at least one value or unit error.</span> </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:nutrition-packaging-as-sold-100g-energy-value-in-kcal-does-not-match-value-in-kj\"> Nutrition-packaging-as-sold-100g-energy-value-in-kcal-does-not-match-value-in-kj </li> <li id=\"data-error-en:nutrition-packaging-as-sold-100g-value-over-105-salt\"> Nutrition-packaging-as-sold-100g-value-over-105-salt </li> <li id=\"data-error-en:nutrition-packaging-as-sold-100g-value-total-over-105\"> Nutrition-packaging-as-sold-100g-value-total-over-105 </li> </ul>"
                   }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "add_nutrition_facts"
-                     ],
-                     "html" : ""
-                  },
-                  "element_type" : "action"
                }
             ],
             "evaluation" : "bad",
@@ -208,6 +199,21 @@
                {
                   "element_type" : "text",
                   "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj\"> Nutrition - Energy value in kcal does not match value in kJ <br><span class=\"description\">The energy value in kJ must be about 4.2 times greater than the value in kcal</span> </li> <li id=\"data-error-en:nutrition-value-over-105-salt\"> Nutrition value over 105 - Salt <br><span class=\"description\">Salt value is over 105g per 100g,which is impossible.</span> </li> <li id=\"data-error-en:nutrition-value-total-over-105\"> Nutrition value total over 105 <br><span class=\"description\">The sum of nutrient values for 100 g or 100 ml is greater than 100 g. It is very likely that there is at least one value or unit error.</span> </li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_nutrition_facts"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
                      "html" : "<ul> <li id=\"data-error-en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown\"> Environmental Score origins of ingredients origins are 100 percent unknown <br><span class=\"description\">Origins of ingredients are one of the Environmental Score components. They are currently extracted from the ingredient list and the Origins field.</span> </li> </ul>"
                   }
                },
@@ -238,7 +244,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:environmental-score-production-system-no-label\"> Environmental Score - production system - no label </li> <li id=\"data-error-en:nutrition-packaging-as-sold-100g-energy-value-in-kcal-does-not-match-value-in-kj\"> Nutrition-packaging-as-sold-100g-energy-value-in-kcal-does-not-match-value-in-kj </li> <li id=\"data-error-en:nutrition-packaging-as-sold-100g-value-over-105-salt\"> Nutrition-packaging-as-sold-100g-value-over-105-salt </li> <li id=\"data-error-en:nutrition-packaging-as-sold-100g-value-total-over-105\"> Nutrition-packaging-as-sold-100g-value-total-over-105 </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:environmental-score-production-system-no-label\"> Environmental Score - production system - no label </li> </ul>"
                   }
                }
             ],

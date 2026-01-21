@@ -93,9 +93,7 @@
          "packaging" : "0.50"
       }
    },
-   "data_quality_errors_tags" : [
-      "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars"
-   ],
+   "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
@@ -127,16 +125,13 @@
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
-      "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
-      "en:nutrition-estimate-as-sold-100g-value-under-0-01-g-salt",
+      "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
       "en:nutrition-value-under-0-01-g-salt",
       "en:environmental-score-packaging-packaging-data-missing",
-      "en:environmental-score-production-system-no-label",
-      "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars"
+      "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
-      "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
-      "en:nutrition-estimate-as-sold-100g-value-under-0-01-g-salt",
+      "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
       "en:nutrition-value-under-0-01-g-salt",
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label"
