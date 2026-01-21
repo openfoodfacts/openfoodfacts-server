@@ -38646,7 +38646,6 @@ ciqual_food_name:fr: Calissons d'Aix en Provence
 wikidata:en: Q34674117
 
 < en:Cocoa and its products
-#should contain only chocolates and not pralines, which are a confectionery made with chocolate, and should be classified in Bonbons
 < en:Sweet snacks
 en: Chocolates, chocolate products
 bg: Шоколади
@@ -38672,6 +38671,7 @@ sv: Choklad, Chokladprodukter
 th: ช็อกโกแลต
 tr: Çikolatalar, Çikolatalı ürünler
 zh: 巧克力
+comment:en: should contain only chocolates and not pralines, which are a confectionery made with chocolate, and should be classified in Bonbons
 food_groups:en: en:chocolate-products
 nova:en: 3
 pnns_group_2:en: Chocolate products
@@ -38687,7 +38687,6 @@ protected_name_file_number:en: PGI-IT-02314
 protected_name_type:en: pgi
 wikidata:en: Q1790835
 
-# This category refers to assorted chocolate squares and bars, not bonbons/pralines
 < en:Chocolates
 en: Assorted chocolates
 de: Verschiedene Schokoladen
@@ -38700,6 +38699,7 @@ it: Assortimento di cioccolati
 lt: Įvairūs šokoladai
 nl: Chocolade-assortimenten
 zh: 什锦巧克力
+comment:en: This category refers to assorted chocolate squares and bars, not bonbons/pralines
 #wikidata:en:Q5103648 Life is like a wikipedia disambiguation page.
 
 < en:Chocolates
@@ -39267,7 +39267,6 @@ ciqual_food_code:en: 31018
 ciqual_food_name:en: Milk chocolate bar, with dried fruits (nuts, almonds, raisins, praline)
 ciqual_food_name:fr: Chocolat au lait aux fruits secs (noisettes, amandes, raisins, praline), tablette
 
-#Dark chocolate is a chocolate without milk or vegetable milk. It contains at least 43% cocoa in the EU.
 < en:Chocolates
 en: Dark chocolates, dark chocolate
 bg: Тъмен шоколад
@@ -39295,6 +39294,7 @@ zh: 黑巧克力
 agribalyse_proxy_food_code:en: 31005
 agribalyse_proxy_food_name:en: Dark chocolate bar, less than 70% cocoa
 agribalyse_proxy_food_name:fr: Chocolat noir à moins de 70% de cacao, à croquer, tablette
+comment:en: Dark chocolate is a chocolate without milk or vegetable milk. It contains at least 43% cocoa in the EU.
 wikidata:en: Q277628
 #if you use all those German synonyms you have nothing left for the subcategories. I'd say Dunkle Schokoladen would be enough
 
@@ -39805,6 +39805,23 @@ fr: barre de chocolat au lait frais avec génoise
 agribalyse_food_code:en: 31099
 ciqual_food_code:en: 31099
 ciqual_food_name:en: Chocolate snack bar, dairy filling with sponge cake
+
+< en:Chocolates
+da: Pålægschokolader, Pålægschokolade
+nb: Påleggssjokolader
+sv: Påläggschoklader
+wikidata:en: Q4992035
+wikipedia:en: https://en.wikipedia.org/wiki/P%C3%A5l%C3%A6gschokolade
+
+< da:Pålægschokolader
+< en:Dark chocolates
+da: Mørke pålægschokolader, Mørk pålægschokolade
+sv: Mörka påläggschoklader
+
+< da:Pålægschokolader
+< en:Milk chocolates
+da: Mælkepålægschokolader, Lyse pålægschokolader, Lys pålægschokolade
+sv: Ljusa påläggschoklader
 
 < en:Cocoa and its products
 < en:Confectioneries
