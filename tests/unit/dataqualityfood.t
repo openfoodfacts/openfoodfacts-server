@@ -664,6 +664,12 @@ check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-estimate-as-sold-100g-value-negative-fruits-vegetables-nuts',
 	'negative nutrients containg "estimate" should raise warning only',
+	0, 'data_quality_warnings'
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-negative-fruits-vegetables-nuts',
+	'negative nutrients containg "estimate" should raise warning only',
 	1, 'data_quality_warnings'
 );
 
