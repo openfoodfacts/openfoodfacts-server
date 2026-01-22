@@ -511,10 +511,7 @@
       "unknown"
    ],
    "nutriscore_version" : "2023",
-   "nutrition" : {
-      "aggregated_set" : {},
-      "input_sets" : []
-   },
+   "nutrition" : {},
    "nutrition_grade_fr" : "unknown",
    "nutrition_grades" : "unknown",
    "nutrition_grades_tags" : [
@@ -595,7 +592,8 @@
       {
          "fields" : [
             "allergens",
-            "traces"
+            "traces",
+            "nutrition"
          ],
          "id" : null,
          "images" : [],
