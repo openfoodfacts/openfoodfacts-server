@@ -783,7 +783,7 @@ sub check_nutriscore_grades ($product_ref) {
 
 	if ((defined $product_ref->{nutriscore_grade_producer}) and (defined $product_ref->{nutriscore_grade})) {
 
-		if ($product_ref->{nutriscore_grade_fr_producer} eq $product_ref->{nutriscore_grade}) {
+		if ($product_ref->{nutriscore_grade_producer} eq $product_ref->{nutriscore_grade}) {
 			push @{$product_ref->{data_quality_info_tags}}, "en:nutriscore-grade-producer-same-ok";
 		}
 		else {
