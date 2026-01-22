@@ -75624,7 +75624,7 @@ ciqual_food_name:fr: Quatre épices
 en: Sauces
 bg: Сосове
 ca: Salses
-da: Saucer
+da: Sovse, Sovser, Saucer, Sovs, Sauce
 de: Saucen, Soßen
 es: Salsas
 et: Kasten, kaste
@@ -75642,7 +75642,7 @@ pl: Sosy
 pt: Molhos
 ro: sosuri
 ru: Соусы, Соус
-sv: Såser, sås
+sv: Såser, Sås
 th: กลุ่มผลิตภัณฑ์ไส้กรอก
 tr: Sos
 zh: 酱汁
@@ -75672,6 +75672,7 @@ nl: Gedroogde sauzen, Gedroogde saus
 < en:Sauces
 en: Vegetarian sauces
 bg: Вегетариански сосове
+da: Vegetariske sovse, Vegetariske sovser, Vegetariske saucer
 fr: Sauces végétariennes
 hr: Vegetarijanski umaci
 lt: Vegetariški padažai
@@ -75701,12 +75702,20 @@ gpc_category_name:en: Sauces - Cooking (Shelf Stable)
 
 < en:Pasta sauces
 < en:Vegetarian sauces
-en: Bolognese-style vegetarian sauces
+en: Bolognese-style vegetarian sauces, Vegetarian bolognese sauces
 bg: Вегетариански сос болонезе
+da: Vegetariske bolognesesaucer
 fr: Sauces végétariennes façon bolognese
 hr: Vegetarijanski umaci na bolonjski način
 lt: Bolonijos stiliaus vegetariški padažai
+sv: Vegetarianska bolognesesåser
 agribalyse_food_code:en: 11219
+
+< en:Bolognese-style vegetarian sauces
+< en:Vegan sauces
+en: Bolognese-style vegan sauces, Vegan bolognese sauces
+da: Veganske bolognesesaucer
+sv: Veganska bolognesesåser
 
 < en:Pasta sauces
 < en:Vegetarian sauces
@@ -75718,6 +75727,7 @@ lt: Carbonara stiliaus vegetariški padažai
 < en:Vegetarian sauces
 en: Vegan sauces
 bg: Веган сосове
+da: Veganske sovse, Veganske saucer
 fr: Sauces véganes
 hr: Veganski umaci
 lt: Veganiški padažai
