@@ -68,6 +68,7 @@ BEGIN {
 		&has_non_estimated_nutrition_data
 		&get_nutrition_data_as_key_values_pairs
 		&has_no_nutrition_data_on_packaging
+		&remove_empty_nutrition_data
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -131,6 +132,9 @@ sub generate_nutrient_aggregated_set ($product_ref) {
 	if (defined $aggregated_set_ref) {
 		deep_set($product_ref, qw/nutrition aggregated_set/, $aggregated_set_ref);
 	}
+
+	remove_empty_nutrition_data($product_ref);
+
 	return;
 }
 
@@ -2538,4 +2542,37 @@ sub has_no_nutrition_data_on_packaging ($product_ref) {
 	return 0;
 }
 
+=head2 remove_empty_nutrition_data ( $product_ref )
+
+Remove the empty nutrition data (empty input_sets and/or aggregated_set),
+and the nutrition hash if it is empty.
+
+=cut
+
+sub remove_empty_nutrition_data ($product_ref) {
+
+	# Remove empty input sets
+	my $input_sets_ref = deep_get($product_ref, "nutrition", "input_sets");
+	my $aggregated_set_ref = deep_get($product_ref, "nutrition", "aggregated_set");
+	if ((defined $input_sets_ref) and (ref($input_sets_ref) eq 'ARRAY') and (scalar(@{$input_sets_ref}) == 0)) {
+		delete $product_ref->{nutrition}{input_sets};
+	}
+	if (    (defined $aggregated_set_ref)
+		and (ref($aggregated_set_ref) eq 'HASH')
+		and (scalar(keys %{$aggregated_set_ref}) == 0))
+	{
+		delete $product_ref->{nutrition}{aggregated_set};
+	}
+	# Remove nutrition if empty
+	if (    (defined $product_ref->{nutrition})
+		and (ref($product_ref->{nutrition}) eq 'HASH')
+		and (scalar(keys %{$product_ref->{nutrition}}) == 0))
+	{
+		delete $product_ref->{nutrition};
+	}
+
+	return;
+}
+
 1;
+
