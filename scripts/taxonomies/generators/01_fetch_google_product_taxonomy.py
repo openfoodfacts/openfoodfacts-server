@@ -24,30 +24,30 @@ LANGUAGE_URLS = {
     'fr-FR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.fr-FR.txt',
     'de-DE': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.de-DE.txt',
     'es-ES': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.es-ES.txt',
-    'au-AU': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-GB.txt',
-    'at-AT': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.de-DE.txt',
-    'be-FR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.fr-FR.txt',
-    'be-NL': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.nl-NL.txt',
-    'br-BR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt',
-    'ca-FR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.fr-FR.txt',
-    'co-CO': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.es-ES.txt',
-    'cz-CZ': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.cs-CZ.txt',
-    'dk-DK': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.da-DK.txt',
-    'gb-GB': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-GB.txt',
-    'ie-IE': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-GB.txt',
+    'en-AU': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-AU.txt',
+    'de-AT': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.de-DE.txt',
+    'fr-BE': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.fr-FR.txt',
+    'nl-BE': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.nl-NL.txt',
+    'pt-BR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt',
+    'en-CA': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-US.txt',
+    'fr-CA': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.fr-FR.txt',
+    'es-CO': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.es-ES.txt',
+    'cs-CZ': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.cs-CZ.txt',
+    'da-DK': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.da-DK.txt',
+    'en-GB': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-GB.txt',
+    'en-IE': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-GB.txt',
     'it-IT': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.it-IT.txt',
-    'jp-JP': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.ja-JP.txt',
-    'mx-MX': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.es-ES.txt',
+    'ja-JP': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.ja-JP.txt',
+    'es-MX': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.es-ES.txt',
     'nl-NL': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.nl-NL.txt',
-    'nz-NZ': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-AU.txt',
+    'en-NZ': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.en-AU.txt',
     'no-NO': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.no-NO.txt',
     'pl-PL': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.pl-PL.txt',
     'pt-BR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt',
     'ru-RU': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.ru-RU.txt',
-    'se-SE': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.sv-SE.txt',
-    'ch-FR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.fr-CH.txt',
-    'ch-DE': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.de-CH.txt',
-    'ch-IT': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.it-CH.txt',
+    'sv-SE': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.sv-SE.txt',
+    'fr-CH': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.fr-CH.txt',
+    'de-CH': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.de-CH.txt',
     'tr-TR': 'https://www.google.com/basepages/producttype/taxonomy-with-ids.tr-TR.txt',
 }
 
@@ -199,7 +199,7 @@ def main():
     
     json_output = output_dir / "taxonomy_structure.json"
     with open(json_output, 'w', encoding='utf-8') as f:
-        json.dump(taxonomy_json, f, indent=2, ensure_ascii=False)
+        json.dump(taxonomy_json, f, indent=2, ensure_ascii=False, sort_keys=True)
     print(f"Saved taxonomy structure to {json_output}")
     
     # Fetch translations
@@ -208,7 +208,7 @@ def main():
     
     translations_output = output_dir / "translations.json"
     with open(translations_output, 'w', encoding='utf-8') as f:
-        json.dump(translations, f, indent=2, ensure_ascii=False)
+        json.dump(translations, f, indent=2, ensure_ascii=False, sort_keys=True)
     print(f"Saved translations to {translations_output}")
     
     # Summary
