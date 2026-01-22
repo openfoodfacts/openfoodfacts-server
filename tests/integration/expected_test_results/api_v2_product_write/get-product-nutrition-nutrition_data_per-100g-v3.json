@@ -51,7 +51,7 @@
          "en:ingredients-en-to-be-completed",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
-         "en:nutriments-completed",
+         "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -73,8 +73,8 @@
          }
       },
       "data_quality_errors_tags" : [
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_info_tags" : [
          "en:no-packaging-data",
@@ -88,7 +88,7 @@
          "en:ingredients-en-to-be-completed",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
-         "en:nutriments-completed",
+         "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -100,18 +100,18 @@
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-packaging-packaging-data-missing",
          "en:environmental-score-production-system-no-label",
          "en:environmental-score-threatened-species-ingredients-missing",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_warnings_tags" : [
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-packaging-packaging-data-missing",
          "en:environmental-score-production-system-no-label",
@@ -430,7 +430,6 @@
       ],
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
-      "nutriments" : {},
       "nutriscore" : {
          "2021" : {
             "category_available" : 0,

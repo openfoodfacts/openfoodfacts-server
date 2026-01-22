@@ -55,7 +55,7 @@
       "en:ingredients-fr-to-be-completed",
       "en:nutrition-photo-to-be-selected",
       "en:categories-to-be-completed",
-      "en:nutriments-to-be-completed",
+      "en:nutrition-to-be-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -90,7 +90,7 @@
       "en:ingredients-fr-to-be-completed",
       "en:nutrition-photo-to-be-selected",
       "en:categories-to-be-completed",
-      "en:nutriments-to-be-completed",
+      "en:nutrition-to-be-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -434,7 +434,6 @@
    ],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
-   "nutriments" : {},
    "nutriscore" : {
       "2021" : {
          "category_available" : 0,
@@ -493,10 +492,7 @@
       "unknown"
    ],
    "nutriscore_version" : "2023",
-   "nutrition" : {
-      "aggregated_set" : {},
-      "input_sets" : []
-   },
+   "nutrition" : {},
    "nutrition_grade_fr" : "unknown",
    "nutrition_grades" : "unknown",
    "nutrition_grades_tags" : [

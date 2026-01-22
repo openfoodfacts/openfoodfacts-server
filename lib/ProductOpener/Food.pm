@@ -45,7 +45,7 @@ BEGIN {
 		%nutriments_labels
 
 		%cc_nutriment_table
-		%nutriments_tables
+		%nutrients_tables
 		%valid_nutrients
 
 		%other_nutriments_lists
@@ -55,8 +55,6 @@ BEGIN {
 
 		&normalize_nutriment_value_and_modifier
 		&assign_nid_modifier_value_and_unit
-
-		&canonicalize_nutriment
 
 		&is_beverage_for_nutrition_score_2021
 		&is_fat_oil_nuts_seeds_for_nutrition_score
@@ -228,7 +226,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 	opff_default => "opff_europe"
 );
 
-=head2 %nutriments_tables
+=head2 %nutrients_tables
 
 An array that condition how nutrients are displayed.
 
@@ -259,7 +257,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 =cut
 
 # http://healthycanadians.gc.ca/eating-nutrition/label-etiquetage/tips-conseils/nutrition-fact-valeur-nutritive-eng.php
-%nutriments_tables = (
+%nutrients_tables = (
 	off_europe => [
 		(
 			'!energy-kj', '!energy-kcal',
@@ -739,10 +737,10 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 # Compute a hash of all nutrients that are valid in at least one region for the site flavor (opf, off, ...)
 %valid_nutrients = ();
 
-foreach my $region (keys %nutriments_tables) {
+foreach my $region (keys %nutrients_tables) {
 	# Use the flavor (off, opff) to select regions that start with the flavor
 	next if $region !~ /^$flavor\_/;
-	foreach (@{$nutriments_tables{$region}}) {
+	foreach (@{$nutrients_tables{$region}}) {
 		my $nutriment = $_;    # copy instead of alias
 		$nutriment =~ s/^(-|!)+//g;
 		$nutriment =~ s/-$//g;
@@ -752,12 +750,12 @@ foreach my $region (keys %nutriments_tables) {
 
 # Compute the list of nutriments that are not shown by default so that they can be suggested
 
-foreach my $region (keys %nutriments_tables) {
+foreach my $region (keys %nutrients_tables) {
 
 	$nutriments_lists{$region} = [];
 	$other_nutriments_lists{$region} = [];
 
-	foreach (@{$nutriments_tables{$region}}) {
+	foreach (@{$nutrients_tables{$region}}) {
 
 		my $nutriment = $_;    # copy instead of alias
 
@@ -773,41 +771,6 @@ foreach my $region (keys %nutriments_tables) {
 		$nutriment =~ s/-$//g;
 		push @{$nutriments_lists{$region}}, $nutriment;
 	}
-}
-
-=head2 canonicalize_nutriment ( $product_ref )
-
-Canonicalizes the nutrients input by the user in the nutrition table product edit.
-This sub converts these nutrients (which are arguments to this function), into a recognizable/standard form.
-
-=head3 Parameters
-
-Two strings are passed,
-$target_lc: The language in which the nutriment is (example: "en", "fr")
-$nutrient: The nutrient that needs to be canonicalized. (the user input nutrient, example: "AGS", "unsaturated-fat")
-
-=head3 Return values
-
-Returns the $nid (a string)
-
-Example: For the parameter "dont saturés", we get the $nid as "saturated fat"
-
-=cut
-
-sub canonicalize_nutriment ($target_lc, $nutrient) {
-
-	my $nid = canonicalize_taxonomy_tag($target_lc, "nutrients", $nutrient);
-
-	if ($nid =~ /^zz:/) {
-		# Recognized nutrients start with zz: -> remove zz: to get the nid
-		$nid = $';
-	}
-	else {
-		# Unrecognized nutrients start with the language code (e.g. fr:)
-		# -> turn it to fr-
-		$nid = get_string_id_for_lang($lc, $nid);
-	}
-	return $nid;
 }
 
 =head2 is_beverage_for_nutrition_score_2021 ( $product_ref )
@@ -1425,7 +1388,7 @@ sub compute_nutriscore_data ($product_ref, $preparation, $version = "2021") {
 	# If the preparation needed for the Nutri-Score does not match the aggregated set preparation,
 	# we temporarily rename the aggregated set so that we get undef values for the nutrients
 	my $aggregated_set_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
-	if ($preparation ne $aggregated_set_preparation) {
+	if ((defined $aggregated_set_preparation) and ($preparation ne $aggregated_set_preparation)) {
 		$product_ref->{nutrition}->{aggregated_set_temp_for_nutriscore}
 			= $product_ref->{nutrition}->{aggregated_set};
 		delete $product_ref->{nutrition}->{aggregated_set};

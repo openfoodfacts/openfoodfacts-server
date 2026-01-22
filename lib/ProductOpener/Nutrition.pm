@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+=encoding utf8
+
 =head1 NAME
 
 ProductOpener::Nutrition - functions related to nutrition facts of food products
@@ -66,6 +68,7 @@ BEGIN {
 		&has_non_estimated_nutrition_data
 		&get_nutrition_data_as_key_values_pairs
 		&has_no_nutrition_data_on_packaging
+		&remove_empty_nutrition_data
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -88,7 +91,7 @@ use ProductOpener::HTTP qw/single_param request_param/;
 
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Numbers qw/convert_string_to_number remove_insignificant_digits/;
-use ProductOpener::Units qw/get_normalized_unit normalize_product_quantity_and_serving_size/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::Ingredients
 	qw/estimate_added_sugars_percent_from_ingredients estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients/;
 
@@ -129,6 +132,9 @@ sub generate_nutrient_aggregated_set ($product_ref) {
 	if (defined $aggregated_set_ref) {
 		deep_set($product_ref, qw/nutrition aggregated_set/, $aggregated_set_ref);
 	}
+
+	remove_empty_nutrition_data($product_ref);
+
 	return;
 }
 
@@ -567,13 +573,14 @@ sub get_specific_nutrition_input_set($product_ref, $source, $preparation, $per) 
 
 =head2 set_per_quantity_and_unit($product_ref, $input_set_ref)
 
-Fill the per_quanity and per_unit field of nutrients input set,
+Fill the per_quantity and per_unit field of nutrients input set,
 based upon the "per" value of the nutrient input set,
 or product serving_quantity and unit for "serving".
 
 =head3 Arguments
 
 =head4 $product_ref - product
+
 =head4 $input_set_ref - nutrient input set
 
 It is modified to add per_quantity and per_unit.
@@ -1222,7 +1229,7 @@ Reference to the product hash where the nutrition data will be stored.
 
 =head4 $nutriment_table
 
-The nutriment table to use. It should be one of the keys of %nutriments_tables in Config.pm
+The nutriment table to use. It should be one of the keys of %nutrients_tables in Config.pm
 
 =head4 $source
 
@@ -1299,7 +1306,7 @@ sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_
 				}
 			}
 
-			foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}) {
+			foreach my $nutriment (@{$nutrients_tables{$nutriment_table}}) {
 				next if $nutriment =~ /^\#/;
 
 				my $nid = $nutriment;
@@ -1371,7 +1378,7 @@ Reference to the product hash where the nutrition data will be stored.
 
 =head4 $nutriment_table
 
-The nutriment table to use. It should be one of the keys of %nutriments_tables in Config.pm
+The nutriment table to use. It should be one of the keys of %nutrients_tables in Config.pm
 
 =head4 $source
 
@@ -1396,7 +1403,7 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 
 	# Assign all the nutrient values
 
-	foreach my $nutrient (@{$nutriments_tables{$nutriment_table}}) {
+	foreach my $nutrient (@{$nutrients_tables{$nutriment_table}}) {
 		next if $nutrient =~ /^\#/;
 
 		my $nid = $nutrient;
@@ -1463,7 +1470,7 @@ Reference to the product hash where the nutrition data will be stored.
 
 =head4 $nutriment_table
 
-The nutriment table to use. It should be one of the keys of %nutriments_tables in Config.pm
+The nutriment table to use. It should be one of the keys of %nutrients_tables in Config.pm
 
 =head4 $source
 
@@ -2266,7 +2273,7 @@ sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populat
 						# Go through the nutriment table
 						my $nutrient_number = 0;
 
-						foreach my $nutriment (@{$nutriments_tables{off_europe}}) {
+						foreach my $nutriment (@{$nutrients_tables{off_europe}}) {
 
 							next if $nutriment =~ /^\#/;
 							my $nid = $nutriment;
@@ -2535,4 +2542,37 @@ sub has_no_nutrition_data_on_packaging ($product_ref) {
 	return 0;
 }
 
+=head2 remove_empty_nutrition_data ( $product_ref )
+
+Remove the empty nutrition data (empty input_sets and/or aggregated_set),
+and the nutrition hash if it is empty.
+
+=cut
+
+sub remove_empty_nutrition_data ($product_ref) {
+
+	# Remove empty input sets
+	my $input_sets_ref = deep_get($product_ref, "nutrition", "input_sets");
+	my $aggregated_set_ref = deep_get($product_ref, "nutrition", "aggregated_set");
+	if ((defined $input_sets_ref) and (ref($input_sets_ref) eq 'ARRAY') and (scalar(@{$input_sets_ref}) == 0)) {
+		delete $product_ref->{nutrition}{input_sets};
+	}
+	if (    (defined $aggregated_set_ref)
+		and (ref($aggregated_set_ref) eq 'HASH')
+		and (scalar(keys %{$aggregated_set_ref}) == 0))
+	{
+		delete $product_ref->{nutrition}{aggregated_set};
+	}
+	# Remove nutrition if empty
+	if (    (defined $product_ref->{nutrition})
+		and (ref($product_ref->{nutrition}) eq 'HASH')
+		and (scalar(keys %{$product_ref->{nutrition}}) == 0))
+	{
+		delete $product_ref->{nutrition};
+	}
+
+	return;
+}
+
 1;
+

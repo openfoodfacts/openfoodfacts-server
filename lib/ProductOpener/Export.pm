@@ -59,7 +59,7 @@ It is also used in the C<scripts/export_csv_file.pl> script.
 =head1 DESCRIPTION
 
 Use the list of fields from C<Product::Opener::Config::options{import_export_fields_groups}>
-and the list of nutrients from C<Product::Opener::Food::nutriments_tables> to list fields
+and the list of nutrients from C<Product::Opener::Food::nutrients_tables> to list fields
 that need to be exported.
 
 The results of the query are scanned a first time to compute the list of non-empty columns.
@@ -97,7 +97,7 @@ use ProductOpener::Store qw/retrieve_object/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/%language_fields %tags_fields %taxonomy_fields list_taxonomy_tags_in_language/;
 use ProductOpener::Display qw/search_and_export_products/;
-use ProductOpener::Food qw/%nutriments_tables/;
+use ProductOpener::Food qw/%nutrients_tables/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Products qw/product_path/;
 use ProductOpener::Images qw/add_images_urls_to_product $valid_image_types_regexp/;

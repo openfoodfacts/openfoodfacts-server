@@ -170,15 +170,15 @@ sub compute_completeness_score($product_ref) {
 		add_tag($product_ref, "data_quality_completeness", "en:categories-to-be-completed");
 	}
 	$completeness_nutrition_total++;
-	# 2-3- nutriments
+	# 2-3- nutrition data
 	if (   has_non_estimated_nutrition_data($product_ref)
 		or has_no_nutrition_data_on_packaging($product_ref))
 	{
-		add_tag($product_ref, "data_quality_completeness", "en:nutriments-completed");
+		add_tag($product_ref, "data_quality_completeness", "en:nutrition-completed");
 		$completeness_nutrition_count++;
 	}
 	else {
-		add_tag($product_ref, "data_quality_completeness", "en:nutriments-to-be-completed");
+		add_tag($product_ref, "data_quality_completeness", "en:nutrition-to-be-completed");
 	}
 	$completeness_nutrition_total++;
 

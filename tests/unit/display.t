@@ -356,14 +356,12 @@ my @display_tests = (
 				name => "Spreads",
 				n => 1,
 				count => 100,
-				nutriments => {
-					"saturated-fats_100g" => 30,
-					fat_100g => 20,
-					"energy_100g_%" => "22420",
-					"fat_100g_%" => "54.5",
-					salt_100g => 50,
-					energy_100g => 10,
-					sugars_100g => 40
+				values => {
+					energy => {mean => 10},
+					fat => {mean => 20},
+					"saturated-fat" => {mean => 30},
+					sugars => {mean => 40},
+					salt => {mean => 50}
 				},
 				id => "en:spreads",
 				show => 1,

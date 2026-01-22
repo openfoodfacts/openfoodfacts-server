@@ -180,7 +180,10 @@
             "per_quantity" : "100",
             "per_unit" : "g",
             "preparation" : "prepared",
-            "source" : "packaging"
+            "source" : "packaging",
+            "unspecified_nutrients" : [
+               "alcohol"
+            ]
          },
          {
             "last_updated_t" : "--ignore--",
@@ -256,11 +259,11 @@
             "per_quantity" : "100",
             "per_unit" : "g",
             "preparation" : "as_sold",
-            "source" : "packaging"
+            "source" : "packaging",
+            "unspecified_nutrients" : [
+               "added-sugars"
+            ]
          }
-      ],
-      "unspecified_nutrients" : [
-         "added-sugars"
       ]
    },
    "schema_version" : 1003,

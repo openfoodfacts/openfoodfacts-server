@@ -6231,7 +6231,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 		# create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
-		$series{$seriesid} .= JSON::MaybeXS->new->encode(\%data) . ',';
+		$series{$seriesid} .= JSON::MaybeXS->new->canonical->encode(\%data) . ',';
 		# count entries / series
 		defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 		$series_n{$seriesid}++;
@@ -9224,7 +9224,7 @@ CSS
 
 	# Display estimate of fruits, vegetables, nuts from the analysis of the ingredients list
 	my @nutrients = ();
-	foreach my $nutrient (@{$nutriments_tables{$nutriment_table}}) {
+	foreach my $nutrient (@{$nutrients_tables{$nutriment_table}}) {
 		push @nutrients, $nutrient;
 		if (($nutrient eq "fruits-vegetables-nuts-estimate-")) {
 			push @nutrients, "fruits-vegetables-nuts-estimate-from-ingredients-";

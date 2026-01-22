@@ -32,7 +32,7 @@
       "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
       "en:nutrition-photo-to-be-selected",
       "en:categories-to-be-completed",
-      "en:nutriments-completed",
+      "en:nutrition-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -53,9 +53,7 @@
          "packaging" : "0.50"
       }
    },
-   "data_quality_errors_tags" : [
-      "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars"
-   ],
+   "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
@@ -70,7 +68,7 @@
       "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
       "en:nutrition-photo-to-be-selected",
       "en:categories-to-be-completed",
-      "en:nutriments-completed",
+      "en:nutrition-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -83,14 +81,13 @@
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
-      "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
+      "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
-      "en:environmental-score-production-system-no-label",
-      "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars"
+      "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
-      "en:nutrition-estimate-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
+      "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label"
@@ -1268,7 +1265,6 @@
    "nucleotides_tags" : [],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
-   "nutriments" : {},
    "nutriscore" : {
       "2021" : {
          "category_available" : 0,

@@ -13,6 +13,7 @@ use ProductOpener::Tags qw/exists_taxonomy_tag has_tag get_property %properties/
 use ProductOpener::Food qw/:all/;
 use ProductOpener::FoodProducts qw/:all/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::Nutrition qw/assign_nutrition_values_from_old_request_parameters/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -161,19 +162,9 @@ specific_processes_for_food_product($product_ref);
 
 is($product_ref->{nutrition_score_beverage}, 0);
 
-# Check that nutrients typed in by users in the nutrition table product edit form are recognized
-is(canonicalize_nutriment("en", "saturated"), "saturated-fat");
-is(canonicalize_nutriment("en", "of which saturated"), "saturated-fat");
-is(canonicalize_nutriment("fr", "dont sucre"), "sugars");
-is(canonicalize_nutriment("fr", "dont saturés"), "saturated-fat");
-is(canonicalize_nutriment("fr", "ARA"), "arachidonic-acid");
-is(canonicalize_nutriment("fr", "AGS"), "saturated-fat");
-is(canonicalize_nutriment("en", "some unknown nutrient"), "en-some-unknown-nutrient");
-is(canonicalize_nutriment("fr", "un nutriment inconnu"), "fr-un-nutriment-inconnu");
+# Check that the nutrients defined in %nutrients_tables are defined in the nutrients taxonomy
 
-# Check that the nutrients defined in %nutriments_tables are defined in the nutrients taxonomy
-
-foreach (@{$nutriments_tables{europe}}) {
+foreach (@{$nutrients_tables{europe}}) {
 
 	my $nid = $_;    # Copy instead of alias
 
@@ -250,46 +241,47 @@ my @tests = (
 			'nutriments' => {}
 		},
 		expected_product_ref => {
-			'nutriments' => {
-				'energy' => '0.4',
-				'energy_100g' => '0.4',
-				'energy_unit' => 'kJ',
-				'energy_value' => '0.4',
-				'energy-kj' => '0.4',
-				'energy-kj_100g' => '0.4',
-				'energy-kj_unit' => 'kJ',
-				'energy-kj_value' => '0.4',
-				'fat' => '4',
-				'fat_100g' => '4',
-				'fat_unit' => 'g',
-				'fat_value' => '4',
-				'salt' => '1',
-				'salt_100g' => '1',
-				'salt_unit' => 'g',
-				'salt_value' => '1'
-			},
-			nutrition_data => 'on',
-			nutrition_data_per => "100g",
-			nutrition_data_prepared_per => "100g",
-		},
+			'nutriments' => {},
+			'nutrition' => {
+				'input_sets' => [
+					{
+						'nutrients' => {
+							'energy-kj' => {
+								'unit' => 'kJ',
+								'value' => '0.4',
+								'value_string' => '0.4'
+							},
+							'fat' => {
+								'unit' => 'g',
+								'value' => 4,
+								'value_string' => 4
+							},
+							'salt' => {
+								'unit' => 'g',
+								'value' => 1,
+								'value_string' => '1'
+							}
+						},
+						'per' => '100g',
+						'per_quantity' => 100,
+						'per_unit' => 'g',
+						'preparation' => 'as_sold',
+						'source' => 'packaging'
+					}
+				]
+			}
+			}
+
+		,
 	}
 );
 my %form = ();
 {
-	# monkey patch single_param
-	my $display_module = mock 'ProductOpener::Display' => (
+	# monkey patch request_param
+	my $products_module = mock 'ProductOpener::Nutrition' => (
 		override => [
-			single_param => sub {
-				my ($name) = @_;
-				return scalar $form{$name};
-			}
-		]
-	);
-	# because this is a direct import in Food we have to monkey patch here too
-	my $products_module = mock 'ProductOpener::Food' => (
-		override => [
-			single_param => sub {
-				my ($name) = @_;
+			request_param => sub {
+				my ($request_ref, $name) = @_;
 				return scalar $form{$name};
 			}
 		]
@@ -300,8 +292,8 @@ my %form = ();
 			my $desc = $test_ref->{desc};
 			my %product = %{$test_ref->{product_ref}};
 			%form = %{$test_ref->{form}};
-			assign_nutriments_values_from_request_parameters(\%product, $test_ref->{nutriment_table});
-			compute_nutrition_data_per_100g_and_per_serving(\%product);
+			assign_nutrition_values_from_old_request_parameters({}, \%product, $test_ref->{nutriment_table},
+				"packaging");
 
 			is(\%product, $test_ref->{expected_product_ref}, "Result for $id - $desc") || diag Dumper \%product;
 

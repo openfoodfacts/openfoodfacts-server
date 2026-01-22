@@ -78,7 +78,7 @@
       "en:ingredients-completed-at-least-for-one-language",
       "en:nutrition-photo-to-be-selected",
       "en:categories-completed",
-      "en:nutriments-completed",
+      "en:nutrition-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -114,7 +114,7 @@
       "en:ingredients-completed-at-least-for-one-language",
       "en:nutrition-photo-to-be-selected",
       "en:categories-completed",
-      "en:nutriments-completed",
+      "en:nutrition-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -129,6 +129,7 @@
       "en:food-groups-3-unknown",
       "en:ingredients-unknown-score-above-0",
       "en:ingredients-100-percent-unknown",
+      "en:nutriscore-grade-producer-mismatch-nok",
       "en:nutri-score-grade-from-producer-does-not-match-calculated-grade",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
@@ -137,6 +138,7 @@
    "data_quality_warnings_tags" : [
       "en:ingredients-unknown-score-above-0",
       "en:ingredients-100-percent-unknown",
+      "en:nutriscore-grade-producer-mismatch-nok",
       "en:nutri-score-grade-from-producer-does-not-match-calculated-grade",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
@@ -534,7 +536,6 @@
    "nucleotides_tags" : [],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
-   "nutriments" : {},
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,

@@ -270,6 +270,7 @@ my @tests = (
 				"vitamin-d_value" => 11,
 
 				"added-sugars_modifier" => "-",
+				"alcohol_prepared_modifier" => "-",
 			},
 		}
 	],

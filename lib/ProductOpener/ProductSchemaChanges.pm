@@ -68,7 +68,8 @@ use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
 use ProductOpener::Images qw/normalize_generation_ref/;
-use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy/;
+use ProductOpener::Nutrition
+	qw/generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy remove_empty_nutrition_data/;
 
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
@@ -338,7 +339,6 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 	my $update_time = time() + 0;
 
 	$product_ref->{nutrition} = {};
-	$product_ref->{nutrition}{unspecified_nutrients} = [];
 
 	# only create sets for which the nutrient values are given and not computed
 	my $new_nutrition_sets_ref = {};
@@ -432,17 +432,6 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 
 		my @nutrients = keys %hash_nutrients;
 
-		# add unspecified nutrients to the unspecified list
-		# those nutrients won't be added to the nutrient sets
-		foreach my $nutrient (@nutrients) {
-			# if nutrient modifier is "-" then this nutrient is unspecified
-			if (defined $product_ref->{nutriments}{$nutrient . "_modifier"}
-				and $product_ref->{nutriments}{$nutrient . "_modifier"} eq "-")
-			{
-				push(@{$product_ref->{nutrition}{unspecified_nutrients}}, $nutrient);
-			}
-		}
-
 		# Generates the nutrition sets,
 		# which, for old data, are all from source "packaging" if we are on the public platform,
 		# and "manufacturer" if we are on the pro platform and the product has an 'owner' field
@@ -474,21 +463,36 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 
 			foreach my $nutrient (@nutrients) {
 				# only add the nutrient value if it is provided for the set type
-				if (defined $product_ref->{nutriments}{$nutrient . '_' . $set_type} && !any {$_ eq $nutrient}
-					@{$product_ref->{nutrition}{unspecified_nutrients}})
-				{
-					my $nutrient_value = $product_ref->{nutriments}{$nutrient . '_' . $set_type};
+				# or if we have a - modifier for this nutrient
+
+				my $nutrient_value = $product_ref->{nutriments}{$nutrient . '_' . $set_type};
+				my $nutrient_modifier
+					= deep_get($product_ref, "nutriments",
+					$nutrient . $nutrition_preparations_ref->{$set_type}{modifier_state} . "_modifier");
+
+				if ((defined $nutrient_value) or (defined $nutrient_modifier)) {
 					my $nutrient_set_ref = {};
+
+					# First check if there is a modifier for this nutrient, so that we can skip unspecified nutrients
+
+					if (defined $nutrient_modifier) {
+
+						if ($nutrient_modifier eq "-") {
+							# this nutrient is unspecified, we do not add it to the nutrient set
+							defined $new_nutrition_sets_ref->{$set_type}{unspecified_nutrients}
+								or $new_nutrition_sets_ref->{$set_type}{unspecified_nutrients} = [];
+							push @{$new_nutrition_sets_ref->{$set_type}{unspecified_nutrients}}, $nutrient;
+							next;
+						}
+
+						$nutrient_set_ref->{modifier} = $nutrient_modifier;
+					}
+
 					$nutrient_set_ref->{value} = $nutrient_value;
 					$nutrient_set_ref->{unit} = default_unit_for_nid($nutrient);
 					# the 1002 version products do not have a value string so the float value is converted to string
 					$nutrient_set_ref->{value_string} = sprintf("%s", $nutrient_value);
 
-					my $nutrient_field_modifier
-						= $nutrient . ($nutrition_preparations_ref->{$set_type}{modifier_state}) . "_modifier";
-					if (defined $product_ref->{nutriments}{$nutrient_field_modifier}) {
-						$nutrient_set_ref->{modifier} = $product_ref->{nutriments}{$nutrient_field_modifier};
-					}
 					$new_nutrition_sets_ref->{$set_type}{nutrients}{$nutrient} = $nutrient_set_ref;
 				}
 			}
@@ -505,6 +509,8 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 	# generate the aggregated set with the created sets
 	$product_ref->{nutrition}{aggregated_set}
 		= generate_nutrient_aggregated_set_from_sets($product_ref->{nutrition}{input_sets});
+
+	remove_empty_nutrition_data($product_ref);
 
 	# delete the old nutrition schema from the product and other now useless fields
 	delete $product_ref->{nutriments};

@@ -93,7 +93,7 @@
          "en:ingredients-completed-at-least-for-one-language",
          "en:nutrition-photo-to-be-selected",
          "en:categories-completed",
-         "en:nutriments-completed",
+         "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -115,9 +115,9 @@
          }
       },
       "data_quality_errors_tags" : [
-         "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
+         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
@@ -133,7 +133,7 @@
          "en:ingredients-completed-at-least-for-one-language",
          "en:nutrition-photo-to-be-selected",
          "en:categories-completed",
-         "en:nutriments-completed",
+         "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -146,19 +146,19 @@
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
-         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:environmental-score-production-system-no-label",
          "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
          "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
-      ],
-      "data_quality_warnings_tags" : [
+         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:environmental-score-production-system-no-label",
          "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
          "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients"
+      ],
+      "data_quality_warnings_tags" : [
+         "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-production-system-no-label"
       ],
@@ -911,7 +911,6 @@
          "en:sugars-in-moderate-quantity",
          "en:salt-in-low-quantity"
       ],
-      "nutriments" : {},
       "nutriscore" : {
          "2021" : {
             "category_available" : 1,
