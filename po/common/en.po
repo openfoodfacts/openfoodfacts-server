@@ -4871,8 +4871,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Low environmental impact (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4884,8 +4884,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Low environmental impact (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5981,6 +5981,22 @@ msgstr "Labels with high environmental benefits"
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr "Labels with very high environmental benefits"
+
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "No assessed labels"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Some environmental benefits"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "High environmental benefits"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Very high environmental benefits"
 
 msgctxt "other"
 msgid "Other"
@@ -7690,4 +7706,36 @@ msgstr "Manufacturer suggested retail price (MSRP), excluding discounts and prom
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Personalized property"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Does not contain palm oil"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "May contain palm oil"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Environmental labels"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Missing data"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "High impact"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Medium impact"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Low impact"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Impact not assessed"
 

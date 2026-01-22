@@ -803,7 +803,7 @@ msgstr "Ar šo e-pastu nav neviena konta"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr "Šāds turnīrs neeksistē."
+msgstr "Šāds lietotājvārds nepastāv."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
@@ -5977,6 +5977,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etiķetes ar ļoti augstu ieguvumu videi"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Nav novērtētu etiķešu"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Daži ieguvumi videi"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Augsti ieguvumi videi"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Ļoti augsti ieguvumi videi"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Citi"
@@ -6360,7 +6376,7 @@ msgstr "Ļoti laba spēle"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr "Laba spēle"
+msgstr "Laba atbilstība"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
@@ -7685,4 +7701,36 @@ msgstr "Ražotāja ieteiktā mazumtirdzniecības cena (MSRP), neieskaitot atlaid
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Personalizēts īpašums"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Nesatur palmu eļļu"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Var saturēt palmu eļļu"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Vides marķējumi"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Trūkstošie dati"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Augsta ietekme"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Vidēja ietekme"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Zema ietekme"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Ietekme nav novērtēta"
 

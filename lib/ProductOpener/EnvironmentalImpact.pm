@@ -105,11 +105,6 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# Initialisation of the payload structure
 	my $payload = {
 		ingredients => [],
-		transform => {
-			"id" => "83b897cf-9ed2-5604-83b4-67fab8606d35",
-			# name: "Cuisson"
-			"mass" => 545
-		},
 		packaging => [],
 		distribution => "ambient",
 		preparation => ["refrigeration"]
