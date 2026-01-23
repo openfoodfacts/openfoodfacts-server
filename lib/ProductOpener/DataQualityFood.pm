@@ -806,15 +806,6 @@ sub check_nutriscore_grades ($product_ref) {
 	return;
 }
 
-=head2 check_nutrition_data_energy_computation ( PRODUCT_REF )
-
-Checks related to the nutrition facts values.
-
-In particular, checks for obviously invalid values (e.g. more than 105 g of any nutrient for 100 g / 100 ml).
-105 g is used instead of 100 g, because for some liquids, 100 ml can weight more than 100 g.
-
-=cut
-
 # Nutrients to energy conversion
 # Currently only supporting Europe's method (similar to US and Canada 4-4-9, 4-4-9-7 and 4-4-9-7-2)
 
@@ -949,8 +940,8 @@ sub check_nutrition_data_energy_computation ($product_ref, $nutrition_set_ref, $
 				if (   ($computed_energy < ($specified_energy * 0.85 - 5))
 					or ($computed_energy > ($specified_energy * 1.15 + 5)))
 				{
-					# we have a quality warning
-					push @{$product_ref->{$data_quality_tags}},
+					# we have a quality warning, don't use $data_quality_tags here
+					push @{$product_ref->{data_quality_warnings_tags}},
 						"en:${set_id}-energy-value-in-$unit-may-not-match-value-computed-from-other-nutrients";
 				}
 			}
