@@ -1171,7 +1171,9 @@ sub retrieve_user ($user_id) {
 		$keycloak_user_ref = $keycloak->find_user_by_username($user_id);
 
 		# encrypted_password is write only for OIDC Level 2 and above
-		$user_ref->{encrypted_password} = undef;
+		if ($user_ref) {
+			$user_ref->{encrypted_password} = undef;
+		}
 	}
 	if ($keycloak_user_ref) {
 		$user_ref //= {};
