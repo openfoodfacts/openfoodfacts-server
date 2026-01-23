@@ -30,7 +30,7 @@ msgstr "Együttműködésen alapuló, ingyenes és nyílt élelmiszeradatbázis 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
-msgstr ""
+msgstr "/open-food-facts-mobile-app"
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -2406,7 +2406,7 @@ msgstr "Termék szerkesztése újra"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Ország"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5978,6 +5978,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Nagyon magas környezeti előnyökkel rendelkező címkék"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Nincsenek értékelt címkék"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Néhány környezeti előny"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Magas környezeti előnyök"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Nagyon magas környezeti előnyök"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Egyéb"
@@ -7686,4 +7702,36 @@ msgstr "A gyártó által javasolt kiskereskedelmi ár (MSRP), a kedvezmények �
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Személyre szabott ingatlan"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Nem tartalmaz pálmaolajat"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Pálmaolajat tartalmazhat"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Környezetvédelmi címkék"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Hiányzó adatok"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Nagy hatású"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Közepes hatás"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Alacsony hatású"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "A hatás nem került felmérésre"
 
