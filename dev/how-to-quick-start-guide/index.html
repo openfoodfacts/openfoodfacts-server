@@ -1719,6 +1719,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Docker Desktop Prerequisite">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos-users-use-virtiofs-to-avoid-file-sync-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        macOS Users: Use VirtioFS to Avoid File Sync Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2725,6 +2742,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Docker Desktop Prerequisite">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos-users-use-virtiofs-to-avoid-file-sync-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        macOS Users: Use VirtioFS to Avoid File Sync Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -3100,6 +3134,16 @@ grep<span class="w"> </span>-P<span class="w"> </span>uses<span class="w"> </spa
 <li>ensure you allow enough memory for your VMs (at least 4G)</li>
 <li>ensure you Enabled host networking (in Resources / Network)</li>
 </ul>
+<h4 id="macos-users-use-virtiofs-to-avoid-file-sync-issues">macOS Users: Use VirtioFS to Avoid File Sync Issues<a class="headerlink" href="#macos-users-use-virtiofs-to-avoid-file-sync-issues" title="Permanent link">#</a></h4>
+<p>If you're on macOS and run into "missing taxonomy files" errors when running <code>make dev</code>, the culprit is usually Docker's file sharing being a bit slow. Switching to VirtioFS fixes this:</p>
+<ol>
+<li>Open <strong>Docker Desktop</strong> and go to <strong>Settings</strong> (the gear icon)</li>
+<li>Head to <strong>Resources</strong> → <strong>File Sharing</strong></li>
+<li>Select <strong>VirtioFS</strong> under "Virtual file shares"</li>
+<li>Hit <strong>Apply &amp; Restart</strong></li>
+</ol>
+<p>VirtioFS is way faster than the default and should sort out any timing issues. You'll need macOS 12.5 or later for this to work.</p>
+<p>Still having trouble? Try bumping up Docker's resources—6-8 GB of memory and 4+ CPU cores usually does the trick.</p>
 <h2 id="2-fork-and-clone-the-repository-from-github">2. Fork and clone the repository from GitHub<a class="headerlink" href="#2-fork-and-clone-the-repository-from-github" title="Permanent link">#</a></h2>
 <blockquote>
 <p><em>You must have a GitHub account and fork the project if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works.</em></p>
