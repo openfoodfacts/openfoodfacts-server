@@ -282,6 +282,7 @@ sub remove_all_users () {
 	# Wait for minion jobs triggered by Redis complete as otherwise can get race conditions with the main test
 	if ($keycloak_users_affected and get_oidc_implementation_level() > 1) {
 		my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts);
+		# print STDERR "[" . localtime() . "] Delete jobs: " . JSON::encode_json($jobs_ref) . "\n";
 	}
 
 	return;
