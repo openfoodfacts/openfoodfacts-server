@@ -266,9 +266,9 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
+                     "panel_group_id" : "packaging",
                      "panel_ids" : [
-                        "packaging_recycling"
+                        "packaging"
                      ],
                      "title" : "Packaging"
                   }
@@ -538,7 +538,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>water</span> -> en:water – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;18066 – percent_min:&nbsp;50 – percent_max:&nbsp;100</li>\n<li><span class=\"text_info unknown_ingredient\">test_ingredient</span> -> en:test-ingredient – percent_min:&nbsp;0 – percent_max:&nbsp;50</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>water</span> -> en:water – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;18066 – percent_min:&nbsp;50 – percent_estimate:&nbsp;75 – percent_max:&nbsp;100</li>\n<li><span class=\"text_info unknown_ingredient\">test_ingredient</span> -> en:test-ingredient – percent_min:&nbsp;0 – percent_estimate:&nbsp;25 – percent_max:&nbsp;50</li>\n</ol>\n"
                   }
                },
                {
@@ -758,9 +758,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
                "name" : "Salt",
-               "title" : "Salt in high quantity (120%)",
-               "type" : "percentage",
-               "value" : 120
+               "title" : "Salt in high quantity (120%)"
             },
             "topics" : [
                "health"
@@ -1090,12 +1088,44 @@
             ],
             "evaluation" : "unknown",
             "expanded" : false,
+            "half_width_on_mobile" : true,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "subtitle" : "Missing origins of ingredients information",
                "title" : "Origins of ingredients"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    The information about the packaging of this product is not filled in.\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_packaging_image"
+                     ],
+                     "html" : "Take a photo of the recycling information"
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "evaluation" : "unknown",
+            "level" : "info",
+            "title_element" : {
+               "evaluation" : "neutral",
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "title" : "Missing packaging information for this product"
             },
             "topics" : [
                "environment"
@@ -1145,37 +1175,6 @@
             "level" : "info",
             "title_element" : {
                "title" : "Packaging materials"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "packaging_recycling" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    The information about the packaging of this product is not filled in.\n                    ",
-                     "type" : "warning"
-                  }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "add_packaging_image"
-                     ],
-                     "html" : "Take a photo of the recycling information"
-                  },
-                  "element_type" : "action"
-               }
-            ],
-            "evaluation" : "unknown",
-            "level" : "info",
-            "title_element" : {
-               "evaluation" : "neutral",
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "title" : "Missing packaging information for this product"
             },
             "topics" : [
                "environment"
