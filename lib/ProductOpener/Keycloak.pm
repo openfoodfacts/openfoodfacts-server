@@ -158,14 +158,22 @@ We create the user properties file locally before, and we create the user in key
 =cut
 
 sub create_or_update_user ($self, $user_ref, $password = undef) {
-	my $credential
-		= defined $password
-		? {
-		type => 'password',
-		temporary => $JSON::PP::false,
-		value => $password
-		}
-		: convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'});
+	my $credential = undef;
+
+	if (defined $password) {
+		# User explicitly set a new password
+		$credential = {
+			type => 'password',
+			temporary => $JSON::PP::false,
+			value => $password
+		};
+	}
+	# Only sync encrypted password on user creation, not updates
+	elsif (not $self->find_keycloak_user_by_username($user_ref->{userid}, 1)) {
+		# User doesn't exist in Keycloak yet, migrate their encrypted password
+		$credential = convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'});
+	}
+	# Otherwise: Don't send any credential - this preserves the Keycloak password
 
 	# Need to sanitise user's name for Keycloak
 	my $name = $user_ref->{name};
@@ -194,7 +202,7 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 		emailVerified => $JSON::PP::true,    # TODO: Keep this for compat with current register endpoint?
 		enabled => $JSON::PP::true,
 		username => $userid,
-		credentials => [$credential],
+		credentials => $credential ? [$credential] : [],
 		createdTimestamp => ($user_ref->{registered_t} // time()) * 1000,
 		attributes => {
 			name => $keycloak_user_ref->{name},
