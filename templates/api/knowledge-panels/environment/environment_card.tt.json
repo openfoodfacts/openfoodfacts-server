@@ -61,6 +61,14 @@
             },
         },
         [% END %]        
+        [% IF panels.forest_footprint.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "forest_footprint",
+            },
+        },
+        [% END %]
         [% IF product.environmental_score_data.adjustments.production_system.value.defined AND product.environmental_score_data.adjustments.production_system.value != 0 %]
         {
             "element_type": "panel_group",

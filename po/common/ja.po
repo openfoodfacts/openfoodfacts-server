@@ -926,7 +926,7 @@ msgstr "プライバシー"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -2408,7 +2408,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "国"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5980,6 +5980,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "環境上の非常に大きな利点を示すラベルあり"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "評価ラベルなし"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "環境面での利点"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "高い環境メリット"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "非常に高い環境メリット"
+
 msgctxt "other"
 msgid "Other"
 msgstr "その他"
@@ -7688,4 +7704,36 @@ msgstr "メーカー希望小売価格（MSRP）で、割引やプロモーシ�
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "パーソナライズされた財産"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "パーム油は含まれていません"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "パーム油を含む場合があります"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "環境ラベル"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "欠損データ"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "大きな影響"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "中程度の影響"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "低影響"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "影響は評価されていない"
 

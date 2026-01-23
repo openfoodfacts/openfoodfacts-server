@@ -877,6 +877,12 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	# Forest footprint
+	if (defined $product_ref->{forest_footprint_data}) {
+		create_panel_from_json_template("forest_footprint", "api/knowledge-panels/environment/forest_footprint.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	# Create the environment_card panel
 	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc);
 	create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",

@@ -442,7 +442,7 @@ sub _try_normalize_code_gs1 ($code) {
 				$ai_data_str = $encoder->ai_data_str();
 			}
 		}
-		elsif ($code =~ /^http?s:\/\/.+/) {
+		elsif ($code =~ /^http?s:\/\/.+/i) {
 			# Code could be a GS1 unbracketed AI element string
 			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
 			if ($encoder->data_str($code)) {

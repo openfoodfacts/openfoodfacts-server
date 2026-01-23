@@ -26,18 +26,14 @@
       ],
       "preparation" : [
          "refrigeration"
-      ],
-      "transform" : {
-         "id" : "7541cf94-1d4d-4d1c-99e3-a9d5be0e7569",
-         "mass" : 545
-      }
+      ]
    },
    "results" : {
       "distribution" : {
          "total" : {
             "acd" : 0,
             "cch" : 0,
-            "ecs" : 0.312013,
+            "ecs" : 0.236748,
             "etf" : 0,
             "etf-c" : 0,
             "fru" : 0,
@@ -51,7 +47,6 @@
             "mru" : 0,
             "ozd" : 0,
             "pco" : 0,
-            "pef" : 0.382154,
             "pma" : 0,
             "swe" : 0,
             "tre" : 0,
@@ -62,7 +57,7 @@
             "impacts" : {
                "acd" : 0,
                "cch" : 0,
-               "ecs" : 0.782012,
+               "ecs" : 0.867418,
                "etf" : 0,
                "etf-c" : 0,
                "fru" : 0,
@@ -76,7 +71,6 @@
                "mru" : 0,
                "ozd" : 0,
                "pco" : 0,
-               "pef" : 0.797585,
                "pma" : 0,
                "swe" : 0,
                "tre" : 0,
@@ -105,7 +99,6 @@
          "mru" : 0,
          "ozd" : 0,
          "pco" : 0,
-         "pef" : 0,
          "pma" : 0,
          "swe" : 0,
          "tre" : 0,
@@ -114,7 +107,7 @@
       "perKg" : {
          "acd" : 0,
          "cch" : 0,
-         "ecs" : 1561.48,
+         "ecs" : 520.557,
          "etf" : 0,
          "etf-c" : 0,
          "fru" : 0,
@@ -128,7 +121,6 @@
          "mru" : 0,
          "ozd" : 0,
          "pco" : 0,
-         "pef" : 735.061,
          "pma" : 0,
          "swe" : 0,
          "tre" : 0,
@@ -137,7 +129,7 @@
       "preparation" : {
          "acd" : 0,
          "cch" : 0,
-         "ecs" : 0.187588,
+         "ecs" : 0.140439,
          "etf" : 0,
          "etf-c" : 0,
          "fru" : 0,
@@ -151,7 +143,6 @@
          "mru" : 0,
          "ozd" : 0,
          "pco" : 0,
-         "pef" : 0.229457,
          "pma" : 0,
          "swe" : 0,
          "tre" : 0,
@@ -162,7 +153,7 @@
          "ingredientsTotal" : {
             "acd" : 0,
             "cch" : 0,
-            "ecs" : 123.171,
+            "ecs" : 36.5289,
             "etf" : 0,
             "etf-c" : 0,
             "fru" : 0,
@@ -176,7 +167,6 @@
             "mru" : 0,
             "ozd" : 0,
             "pco" : 0,
-            "pef" : 43.1533,
             "pma" : 0,
             "swe" : 0,
             "tre" : 0,
@@ -185,7 +175,7 @@
          "total" : {
             "acd" : 0,
             "cch" : 0,
-            "ecs" : 144.717,
+            "ecs" : 47.4275,
             "etf" : 0,
             "etf-c" : 0,
             "fru" : 0,
@@ -199,7 +189,6 @@
             "mru" : 0,
             "ozd" : 0,
             "pco" : 0,
-            "pef" : 67.319,
             "pma" : 0,
             "swe" : 0,
             "tre" : 0,
@@ -207,17 +196,17 @@
          },
          "totalBonusImpact" : {
             "cropDiversity" : 0,
-            "hedges" : -0.184829,
+            "hedges" : -0.184657,
             "livestockDensity" : 0,
             "microfibers" : 0,
             "outOfEuropeEOL" : 0,
             "permanentPasture" : 0,
-            "plotSize" : -0.718796
+            "plotSize" : -0.71812
          },
          "transform" : {
             "acd" : 0,
             "cch" : 0,
-            "ecs" : 13.2028,
+            "ecs" : 0,
             "etf" : 0,
             "etf-c" : 0,
             "fru" : 0,
@@ -231,7 +220,6 @@
             "mru" : 0,
             "ozd" : 0,
             "pco" : 0,
-            "pef" : 15.4848,
             "pma" : 0,
             "swe" : 0,
             "tre" : 0,
@@ -242,7 +230,7 @@
             "impacts" : {
                "acd" : 0,
                "cch" : 0,
-               "ecs" : 8.3429,
+               "ecs" : 10.8986,
                "etf" : 0,
                "etf-c" : 0,
                "fru" : 0,
@@ -256,7 +244,6 @@
                "mru" : 0,
                "ozd" : 0,
                "pco" : 0,
-               "pef" : 8.68098,
                "pma" : 0,
                "swe" : 0,
                "tre" : 0,
@@ -269,7 +256,7 @@
          }
       },
       "scoring" : {
-         "all" : 1561.48,
+         "all" : 520.557,
          "biodiversity" : 0,
          "climate" : 0,
          "health" : 0,
@@ -278,7 +265,7 @@
       "total" : {
          "acd" : 0,
          "cch" : 0,
-         "ecs" : 145.999,
+         "ecs" : 48.6721,
          "etf" : 0,
          "etf-c" : 0,
          "fru" : 0,
@@ -292,7 +279,6 @@
          "mru" : 0,
          "ozd" : 0,
          "pco" : 0,
-         "pef" : 68.7282,
          "pma" : 0,
          "swe" : 0,
          "tre" : 0,
@@ -304,7 +290,7 @@
          "impacts" : {
             "acd" : 0,
             "cch" : 0,
-            "ecs" : 9.12491,
+            "ecs" : 11.766,
             "etf" : 0,
             "etf-c" : 0,
             "fru" : 0,
@@ -318,7 +304,6 @@
             "mru" : 0,
             "ozd" : 0,
             "pco" : 0,
-            "pef" : 9.47857,
             "pma" : 0,
             "swe" : 0,
             "tre" : 0,
@@ -330,5 +315,5 @@
          "seaCooled" : 0
       }
    },
-   "webUrl" : "https://ecobalyse.beta.gouv.fr/#/food/ecs/eyJpbmdyZWRpZW50cyI6W3siaWQiOiI5YjQ3NmY4ZS0wOGMyLTQ0MDYtOTE5OC0xZmIyZTAwN2YwMDAiLCJtYXNzIjo1MH0seyJpZCI6IjQ1NjU4YzMyLTY2ZDktNDMwNS1hMzRiLTIxZDZhNGNlZjg5YyIsIm1hc3MiOjI1fSx7ImlkIjoiNjAxODRkZTItY2M5ZS00NjE4LTkyNGEtYjhmZWNmMDgwYzhiIiwibWFzcyI6MTMuMDAwMDAwMDAwMDAwMDAyfSx7ImlkIjoiMzNkMmYzYzItZmZhMi00Yjk2LTgxMWUtNTBjMWM4NjcwZTI2IiwibWFzcyI6OC43fSx7ImlkIjoiM2Q3ZjgwOGItNzdjNS00MjA3LTk2OGQtZmVlYTZkZmQ5NDk2IiwibWFzcyI6My4zfV0sInRyYW5zZm9ybSI6eyJpZCI6Ijc1NDFjZjk0LTFkNGQtNGQxYy05OWUzLWE5ZDViZTBlNzU2OSIsIm1hc3MiOjU0NX0sImRpc3RyaWJ1dGlvbiI6ImFtYmllbnQiLCJwcmVwYXJhdGlvbiI6WyJyZWZyaWdlcmF0aW9uIl19"
+   "webUrl" : "https://ecobalyse.beta.gouv.fr/#/food/ecs/eyJpbmdyZWRpZW50cyI6W3siaWQiOiI5YjQ3NmY4ZS0wOGMyLTQ0MDYtOTE5OC0xZmIyZTAwN2YwMDAiLCJtYXNzIjo1MH0seyJpZCI6IjQ1NjU4YzMyLTY2ZDktNDMwNS1hMzRiLTIxZDZhNGNlZjg5YyIsIm1hc3MiOjI1fSx7ImlkIjoiNjAxODRkZTItY2M5ZS00NjE4LTkyNGEtYjhmZWNmMDgwYzhiIiwibWFzcyI6MTMuMDAwMDAwMDAwMDAwMDAyfSx7ImlkIjoiMzNkMmYzYzItZmZhMi00Yjk2LTgxMWUtNTBjMWM4NjcwZTI2IiwibWFzcyI6OC43fSx7ImlkIjoiM2Q3ZjgwOGItNzdjNS00MjA3LTk2OGQtZmVlYTZkZmQ5NDk2IiwibWFzcyI6My4zfV0sImRpc3RyaWJ1dGlvbiI6ImFtYmllbnQiLCJwcmVwYXJhdGlvbiI6WyJyZWZyaWdlcmF0aW9uIl19"
 }

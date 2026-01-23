@@ -3927,7 +3927,7 @@ HTML
 				if ($packager_codes{$canon_tagid}{cc} eq 'dk') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Denmark)
+$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{postalcode} $packager_codes{$canon_tagid}{city} (Denmark)
 </p>
 HTML
 						;
@@ -3938,6 +3938,15 @@ HTML
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{razon_social}<br>
 $packager_codes{$canon_tagid}{provincia_localidad}
+</p>
+HTML
+						;
+				}
+
+				if ($packager_codes{$canon_tagid}{cc} eq 'fi') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{postalcode} $packager_codes{$canon_tagid}{city} (Finland)
 </p>
 HTML
 						;
@@ -3955,8 +3964,8 @@ HTML
 
 				if ($packager_codes{$canon_tagid}{cc} eq 'hr') {
 					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{approved_establishment}<br>
-$packager_codes{$canon_tagid}{street_address} $packager_codes{$canon_tagid}{town_and_postal_code} ($packager_codes{$canon_tagid}{county})
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{city} $packager_codes{$canon_tagid}{postalcode} (Croatia/Hrvatska)
 </p>
 HTML
 						;
@@ -5689,9 +5698,13 @@ JS
 	my $search_terms = '';
 	if (defined single_param('search_terms')) {
 		$search_terms = remove_tags_and_quote(decode utf8 => single_param('search_terms'));
-		if (is_valid_code($search_terms)) {
-			$template_data_ref->{code} = $search_terms;
-			my $add_product_message = f_lang("f_add_product_to_our_database", {barcode => $search_terms});
+		# Normalize possible barcodes using GS1-aware normalizer so inputs like
+		# GS1 element strings, GS1 Digital Link URIs, or UPC12 get converted
+		# to canonical GTIN/EAN forms before validation.
+		my ($normalized_code, undef) = normalize_code($search_terms);
+		if (defined $normalized_code && is_valid_code($normalized_code)) {
+			$template_data_ref->{code} = $search_terms;    # use original input to support additional AIs
+			my $add_product_message = f_lang("f_add_product_to_our_database", {barcode => $normalized_code});
 			$template_data_ref->{add_product_message} = $add_product_message;
 		}
 	}
@@ -9915,7 +9928,10 @@ CSS
 
 Generates HTML to display a nutrition table.
 
-Use  data produced by data_to_display_nutrition_table
+Use data produced by data_to_display_nutrition_table
+
+This function is no longer used to display the nutrition table on product pages (replaced by a knowledge panel),
+but it is used to show average nutrition tables for categories.
 
 =head3 Arguments
 
@@ -10650,10 +10666,14 @@ sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref,
 			.= "<li>" . "<span$class>" . $ingredient_ref->{text} . "</span>" . " -> " . $ingredient_ref->{id};
 
 		foreach my $property (
-			qw(origin labels vegan vegetarian from_palm_oil ciqual_food_code ciqual_proxy_food_code percent_min percent percent_max)
+			qw(origin labels vegan vegetarian from_palm_oil ciqual_food_code ciqual_proxy_food_code percent_min percent percent_estimate percent_max)
 			)
 		{
 			if (defined $ingredient_ref->{$property}) {
+				# Skip percent_estimate if percent is defined
+				if (($property eq 'percent_estimate') and (defined $ingredient_ref->{percent})) {
+					next;
+				}
 				${$ingredients_list_ref} .= ' – ' . $property . ":&nbsp;" . $ingredient_ref->{$property};
 			}
 		}
