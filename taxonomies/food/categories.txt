@@ -2,6 +2,7 @@
 # also: don't add synonyms if they are already the name of an individual category, in that case add the synonym to the category
 
 synonyms:en: caramelised, caramelized
+
 synonyms:en: flavoured, flavored
 
 synonyms:en: pasteurised, pasteurized, pasterized
@@ -44051,21 +44052,10 @@ lt: Sūrio kroketai
 nl: Kaaskroketten
 
 < en:Salty snacks
+< en:Shrimp preparations
 fr: Croquettes aux crevettes
 bg: Крокети със скариди
 nl: Garnalenkroketten
-
-< en:Flavoured potato crisps
-en: Prawn cocktail crisps
-de: Garnelencocktail Chips
-fr: Chips cocktail de crevettes, Chips de crevette
-hr: Koktel čips od kozica
-lt: Krevečių kokteilių traškučiai, krevečių krekeriai
-nl: Garnalenchips
-agribalyse_food_code:en: 38104
-ciqual_food_code:en: 38104
-ciqual_food_name:en: Prawn crackers
-ciqual_food_name:fr: Chips de crevette
 
 < en:Crisps
 en: Cassava crisps
@@ -44081,11 +44071,12 @@ agribalyse_proxy_food_name:fr: Chips de crevette
 #wikidata:en:
 
 < en:Cassava crisps
-en: Prawn crackers
-de: Krabbenchips, Krupuk
-fr: Chips de manioc à la crevette, chips de manioc aux crevettes, chips à la crevette au manioc, chips aux crevettes au manioc, chips au manioc à la crevette, chips au manioc aux crevettes
-hr: Krekeri od kozica
-nl: Garnalenkroepoek
+en: Prawn crackers, Prawn cocktail crisps
+de: Krabbenchips, Krupuk, Garnelencocktail Chips
+fr: Chips de manioc à la crevette, chips de manioc aux crevettes, chips à la crevette au manioc, chips aux crevettes au manioc, chips au manioc à la crevette, chips au manioc aux crevettes, Chips cocktail de crevettes, Chips de crevette
+hr: Krekeri od kozica, Koktel čips od kozica
+lt: Krevečių kokteilių traškučiai, krevečių krekeriai
+nl: Garnalenkroepoek, Garnalenchips
 agribalyse_proxy_food_code:en: 38104
 agribalyse_proxy_food_name:en: Prawn crackers
 agribalyse_proxy_food_name:fr: Chips de crevette
@@ -80308,7 +80299,6 @@ ciqual_food_code:en: 25188
 ciqual_food_name:en: Risotto, w seafood
 ciqual_food_name:fr: Risotto, aux fruits de mer
 
-
 < en:Risotto with seafood
 en: Crab risottos
 fr: Risottos au crabe
@@ -80316,6 +80306,7 @@ agribalyse_proxy_food_code:en: 25188
 agribalyse_proxy_food_name:en: Risotto, w seafood
 agribalyse_proxy_food_name:fr: Risotto, aux fruits de mer
 
+< en:Meals with shrimps
 < en:Risotto with seafood
 en: Shrimp risottos
 fr: Risottos aux crevettes
@@ -80588,14 +80579,6 @@ hr: Jela sa škampima
 lt: Patiekalai su krevetėmis
 nl: Schaaldiermaaltijd, Schaaldiermaaltijden
 #wikidata:en:
-
-< en:Meals with shrimps
-en: Shrimp fritters
-fr: Beignet de crevette, Beignets de crevette
-agribalyse_food_code:en: 10023
-ciqual_food_code:en: 10023
-ciqual_food_name:en: Shrimp fritters
-ciqual_food_name:fr: Beignet de crevette
 
 < en:Meals
 en: Meals with fish, fish dishes
@@ -100896,6 +100879,19 @@ fr: Écrevisse surgelée
 < en:Cooked crayfish
 en: Frozen cooked crayfish
 fr: Écrevisse cuite surgelée
+
+< en:Seafood
+en: Shrimp preparations
+fr: Préparations aux crevettes
+
+< en:Appetizers
+< en:Shrimp preparations
+en: Shrimp fritters
+fr: Beignet de crevette, Beignets de crevette
+agribalyse_food_code:en: 10023
+ciqual_food_code:en: 10023
+ciqual_food_name:en: Shrimp fritters
+ciqual_food_name:fr: Beignet de crevette
 
 < en:Crustaceans
 en: Shrimps
