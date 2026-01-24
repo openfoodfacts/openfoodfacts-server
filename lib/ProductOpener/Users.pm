@@ -1172,7 +1172,7 @@ sub retrieve_user ($user_id) {
 
 		# encrypted_password is write only for OIDC Level 2 and above
 		if ($user_ref) {
-			$user_ref->{encrypted_password} = undef;
+			delete $user_ref->{encrypted_password};
 		}
 	}
 	if ($keycloak_user_ref) {
