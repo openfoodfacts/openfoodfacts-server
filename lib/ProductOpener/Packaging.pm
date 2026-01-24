@@ -488,6 +488,14 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 			}
 		}
 	}
+	# if a shape is defined and it has its own weight , prefer it over default 
+	if(
+		defined $packaging_ref->{shape} && defined
+		$packaging_ref->{shape}{weight}
+	)
+	{
+		$packaging_ref->{weight_measured} = $packaging_ref->{shape}{weight};
+	}
 
 	# Shape, material and recycling
 	foreach my $property ("shape", "material", "recycling") {
