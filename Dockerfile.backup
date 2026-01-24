@@ -1,4 +1,4 @@
-﻿# syntax=docker/dockerfile:1.2
+# syntax=docker/dockerfile:1.2
 # Base user uid / gid keep 1000 on prod, align with your user on dev
 ARG USER_UID=1000
 ARG USER_GID=1000
@@ -228,7 +228,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     ) && \
     # first install some dependencies that are not well handled
     cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
-    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . --force \
+    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
     # in case of errors show build.log, but still, fail
     || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
 
@@ -290,4 +290,3 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 # Prod image is default
 ######################
 FROM runnable AS prod
-

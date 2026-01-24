@@ -1,4 +1,3 @@
-/* eslint-disable no-undefined */
 /*global lang */
 /*global preferences_text*/ // depends on which type of page the preferences are shown on
 /*global default_preferences*/ // depends on flavor: OFF, OBF etc.

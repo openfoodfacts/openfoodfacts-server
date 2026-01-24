@@ -2,7 +2,7 @@
 // Migrate from CSS to SCSS and update styling to match new design
 
 // Import base tagify styles
-@import "../node_modules/@yaireo/tagify/dist/tagify.css";
+@import "~@yaireo/tagify/src/tagify";
 
 // Import project design system
 @import "variables";
@@ -10,27 +10,29 @@
 
 // Custom styling for OFF design
 .tagify {
-    --tagify-dd-color-primary: #84bd3a;
-    --tags-border-color: #84bd3a;
     
+    --tagify-dd-color-primary: $primary-color; 
+    --tags-border-color: $primary-color;      
+
     border-width: 2px;
     border-radius: 8px;
     
     &:focus-within {
-        border-color: #5a8a29;
-        box-shadow: 0 0 0 4px rgba(132, 189, 58, 0.2);
+         border-color: darken($primary-color, 15%); 
+        box-shadow: 0 0 0 4px rgba($primary-color, 0.2); 
+        
     }
 }
 
 .tagify__tag {
-    background: #84bd3a;
+    background: $primary-color; 
     color: white;
     border-radius: 6px;
     font-weight: 500;
     transition: all 0.15s ease;
     
     &:hover:not([readonly]) {
-        background: #6da032;
+         background: darken($primary-color, 10%); 
     }
 }
 
@@ -40,11 +42,11 @@
     
     &__item {
         &--active {
-            background: rgba(132, 189, 58, 0.1);
+            background: rgba($primary-color, 0.1); 
         }
         
         &--selected {
-            background: #84bd3a;
+            background: $primary-color;
             color: white;
         }
     }

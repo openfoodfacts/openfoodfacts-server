@@ -64,9 +64,6 @@ const imagesSrc = [
 
 // FIXED: Simplified icons function for Windows compatibility
 export function icons() {
-  console.log("Processing icons (simplified version)");
-  
-  // Skip svgmin to avoid Windows parsing issues
   const processed = src("**/*.svg", { cwd: "./icons" }).
     pipe(dest("./html/images/icons/dist"));
 
