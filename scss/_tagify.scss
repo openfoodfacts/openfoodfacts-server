@@ -7,6 +7,7 @@
 
 // 2. OFF Brand Customizations
 $off-green: #84bd3a;
+// stylelint-disable-next-line scss/no-global-function-names
 $off-green-dark: darken($off-green, 10%);
 $off-grey: #f5f5f5;
 $off-border: #e0e0e0;
