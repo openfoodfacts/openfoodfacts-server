@@ -36,7 +36,6 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Paths qw/:all/;
@@ -56,8 +55,37 @@ use Data::Dumper;
 use Getopt::Long;
 
 my $move = 0;
+my $flavor;
+my $num_moved = 0;
+my $num_errors = 0;
 
-GetOptions('move' => \$move,);
+GetOptions(
+	'move' => \$move,
+	'flavor=s' => \$flavor,
+);
+
+if (!defined $flavor) {
+	die "ERROR: Please specify --flavor (obf, opf, or opff)\n";
+}
+
+if ($flavor !~ /^(obf|opf|opff)$/) {
+	die "ERROR: Invalid flavor '$flavor'. Must be one of: obf, opf, opff\n";
+}
+
+print "Processing flavor: $flavor\n";
+
+# Get MongoDB collections
+my $off_products_collection;
+my $off_obsolete_products_collection;
+if ($move) {
+	eval {
+		$off_products_collection = get_products_collection({database => 'off'});
+		$off_obsolete_products_collection = get_products_collection({database => 'off', obsolete => 1});
+	};
+	if ($@) {
+		die "ERROR: Failed to connect to OFF MongoDB collections: $@\n";
+	}
+}
 
 my @dirs_without_product_sto = ();
 my @empty_dirs = ();
@@ -139,22 +167,29 @@ sub move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 			print STDERR
 				"moved /mnt/$flavor/images/products/$dir/$dir2/$dir3/$dir4 to /srv/off/html/images/products/$dir/$dir2/$dir3/$dir4\n";
 		}
-		else {
-			print STDERR
-				"could not move /mnt/$flavor/images/products/$dir/$dir2/$dir3/$dir4 to /srv/off/html/images/products/$dir/$dir2/$dir3/$dir4: $!\n";
-			die;
-		}
-	}
-	die;
+	
 	return;
 }
 
 sub check_if_we_can_move_product_dir_to_off ($dir, $dir2, $dir3, $dir4) {
 	# Check if the product.sto file exists locally
-	my $local_product_ref = retrieve("/mnt/$flavor/products/$dir/$dir2/$dir3/$dir4/product.sto");
+	my $local_product_ref;
+	eval {
+		$local_product_ref = retrieve("/mnt/$flavor/products/$dir/$dir2/$dir3/$dir4/product.sto");
+	};
+	if ($@) {
+		print STDERR "ERROR: Failed to retrieve local product: $@\n";
+	}
+	
 	if ($local_product_ref) {
 		# Check if the product exists on OFF
-		my $off_product_ref = retrieve("/srv/off/products/$dir/$dir2/$dir3/$dir4/product.sto");
+		my $off_product_ref;
+		eval {
+			$off_product_ref = retrieve("/srv/off/products/$dir/$dir2/$dir3/$dir4/product.sto");
+		};
+		if ($@) {
+			print STDERR "ERROR: Failed to retrieve OFF product: $@\n";
+		}
 		if ($off_product_ref) {
 			push @products_existing_on_off, "$dir/$dir2/$dir3/$dir4";
 			# Check if the product is deleted on OFF
@@ -253,6 +288,15 @@ print STDERR "Products existing on OFF and not deleted on OFF or locally: "
 	. scalar @products_existing_on_off_and_not_deleted_on_off_or_locally . "\n";
 print STDERR "Dirs without product.sto: " . scalar @dirs_without_product_sto . "\n";
 print STDERR "Empty dirs: " . scalar @empty_dirs . "\n";
+
+if ($move) {
+	print "\nMigration complete:\n";
+	print "  Products moved: $num_moved\n";
+	print "  Errors: $num_errors\n";
+}
+else {
+	print "\nDry run complete. Use --move to actually move products.\n";
+}
 
 exit(0);
 

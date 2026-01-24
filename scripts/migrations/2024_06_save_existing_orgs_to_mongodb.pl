@@ -24,23 +24,69 @@ use Modern::Perl '2017';
 use utf8;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
+use ProductOpener::Checkpoint;
 
 my $orgs_collection = get_orgs_collection();
 
 sub main {
+	my $checkpoint = ProductOpener::Checkpoint->new;
+	my $last_processed_id = $checkpoint->{value};
+	my $can_process = $last_processed_id ? 0 : 1;
+	
 	my @orgs = list_org_ids();
 	my $count = scalar @orgs;
-	my $i = 0;
+	my $num_updated = 0;
+	my $num_skipped = 0;
+	my $num_errors = 0;
+	
+	print "Starting migration of $count organizations to MongoDB...\n";
 
 	foreach my $org_id (@orgs) {
+		# Resume logic
+		if (not $can_process) {
+			if ($org_id eq $last_processed_id) {
+				$can_process = 1;
+				# Don't skip - re-process the last item in case it failed
+			}
+			else {
+				next;    # Skip items before the checkpoint
+			}
+		}
+		
 		my $org_ref = retrieve_org($org_id);
-		next if not defined $org_ref;
-		my $return = $orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
-		print STDERR "return $return\n";
-		$i++;
+		if (not defined $org_ref) {
+			print "WARNING: Skipping org $org_id (not found or deleted)\n";
+			$num_skipped++;
+			$checkpoint->update($org_id);
+			next;
+		}
+		
+		eval {
+			my $result = $orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
+			if ($result->matched_count || $result->upserted_id) {
+				$num_updated++;
+			}
+			else {
+				print "WARNING: No documents matched or upserted for org $org_id\n";
+			}
+		};
+		if ($@) {
+			print "ERROR: Failed to save org $org_id to MongoDB: $@\n";
+			$num_errors++;
+		}
+		
+		$checkpoint->update($org_id);
+		
+		if (($num_updated + $num_skipped + $num_errors) % 100 == 0) {
+			print "Progress: $num_updated updated, $num_skipped skipped, $num_errors errors\n";
+		}
 	}
 
-	print STDERR "$count organizations to update - $i organizations not empty or deleted\n";
+	print "\nMigration complete:\n";
+	print "  Total organizations: $count\n";
+	print "  Updated: $num_updated\n";
+	print "  Skipped: $num_skipped\n";
+	print "  Errors: $num_errors\n";
 	return;
 }
 

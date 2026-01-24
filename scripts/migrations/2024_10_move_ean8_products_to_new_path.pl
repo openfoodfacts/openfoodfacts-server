@@ -62,8 +62,15 @@ print $log "move_ean8_products_to_new_path.pl started at " . localtime() . "\n";
 
 open(my $csv, ">>", "$data_root/logs/move_ean8_products_to_new_path.csv");
 
-my $products_collection = get_products_collection();
-my $obsolete_products_collection = get_products_collection({obsolete => 1});
+my $products_collection;
+my $obsolete_products_collection;
+eval {
+	$products_collection = get_products_collection();
+	$obsolete_products_collection = get_products_collection({obsolete => 1});
+};
+if ($@) {
+	die "ERROR: Failed to connect to MongoDB collections: $@\n";
+}
 
 sub normalize_code_zeroes($code) {
 
@@ -148,7 +155,7 @@ sub ensure_dir_created_or_die ($new_path, $mode = oct(755)) {
 	# ensure the rest of the path
 	foreach my $component (split(/\//, $suffix)) {
 		$prefix .= "/$component";
-		(-e $prefix) or mkdir($prefix);
+		(-e $prefix) or mkdir($prefix) or die "ERROR: Could not create directory $prefix: $!\n";
 	}
 	return (-e $new_path);
 }
@@ -426,16 +433,19 @@ foreach my $orgid (@orgids) {
 		elsif ($dir !~ /^\.+$/) {
 			# Product directories at the root, with a different number than 3 digits
 			if (-e "$data_root/products$org_path/$dir/product.sto") {
-				push @products, $dir;
-				$d++;
-				(($d % 1000) == 1) and print STDERR "$d products - $dir\n";
-			}
-		}
-		elsif ($dir !~ /^\.+$/) {
-			print STDERR "invalid code: $dir\n";
-			$invalid++;
-			if ($move) {
-				move_dir_to_invalid_codes($dir, $org_path);
+				# Check if it's a valid code
+				if ($dir =~ /^\d+$/) {
+					push @products, $dir;
+					$d++;
+					(($d % 1000) == 1) and print STDERR "$d products - $dir\n";
+				}
+				else {
+					print STDERR "invalid code: $dir\n";
+					$invalid++;
+					if ($move) {
+						move_dir_to_invalid_codes($dir, $org_path);
+					}
+				}
 			}
 		}
 	}
@@ -462,6 +472,12 @@ foreach my $orgid (@orgids) {
 		my $new_path = new_product_path_from_id($new_product_id);
 
 		my $product_ref = retrieve_product($old_product_id, "include_deleted");
+		
+		if (!defined $product_ref) {
+			print STDERR "ERROR: Could not retrieve product $old_product_id\n";
+			print $log "ERROR: Could not retrieve product $old_product_id\n";
+			next;
+		}
 
 		my $deleted = $product_ref->{deleted} ? "deleted" : "";
 		my $obsolete = $product_ref->{obsolete} ? "obsolete" : "";
@@ -609,16 +625,29 @@ foreach my $orgid (@orgids) {
 							if ($new_code ne $code) {
 
 								my $product_ref = retrieve_product($new_product_id, "include_deleted");
-								$product_ref->{code} = $new_code . '';
-								$product_ref->{id} = $product_ref->{code} . '';    # treat id as string;
-								$product_ref->{_id} = $new_product_id . '';    # treat id as string;
-									# Delete the old code from MongoDB collections
-								$products_collection->delete_one({_id => $old_product_id});
-								$obsolete_products_collection->delete_one({_id => $old_product_id});
-								# If the product is not deleted, store_product will add the new code to MongoDB
-								store_product("fix-code-bot", $product_ref, "changed code from $code to $new_code");
-								print STDERR "updated code from $code to $new_code in .sto file and MongoDB\n";
-								print $log "updated code from $code to $new_code in .sto file and MongoDB\n";
+								if (defined $product_ref) {
+									$product_ref->{code} = $new_code . '';
+									$product_ref->{id} = $product_ref->{code} . '';    # treat id as string;
+									$product_ref->{_id} = $new_product_id . '';    # treat id as string;
+									
+									eval {
+										# Store the product with new code first
+										store_product("fix-code-bot", $product_ref, "changed code from $code to $new_code");
+										# Only delete the old code after successful store
+										$products_collection->delete_one({_id => $old_product_id});
+										$obsolete_products_collection->delete_one({_id => $old_product_id});
+										print STDERR "updated code from $code to $new_code in .sto file and MongoDB\n";
+										print $log "updated code from $code to $new_code in .sto file and MongoDB\n";
+									};
+									if ($@) {
+										print STDERR "ERROR: Failed to update code from $code to $new_code: $@\n";
+										print $log "ERROR: Failed to update code from $code to $new_code: $@\n";
+									}
+								}
+								else {
+									print STDERR "ERROR: Could not retrieve product $new_product_id for code update\n";
+									print $log "ERROR: Could not retrieve product $new_product_id for code update\n";
+								}
 							}
 						}
 
@@ -706,6 +735,9 @@ print STDERR "moved: $moved\n";
 print STDERR "not moved: $not_moved\n";
 print STDERR "same path: $same_path\n";
 print STDERR "changed code: $changed_code\n";
+
+close($log) or warn "WARNING: Failed to close log file: $!\n";
+close($csv) or warn "WARNING: Failed to close csv file: $!\n";
 
 exit(0);
 

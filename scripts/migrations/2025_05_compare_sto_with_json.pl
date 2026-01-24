@@ -54,8 +54,11 @@ while (my $path = $next->()) {
 	if (not $can_process) {
 		if ($path eq $last_processed_path) {
 			$can_process = 1;
+			# Don't skip - re-process the last item in case it failed
 		}
-		next;    # we don't want to process the product again
+		else {
+			next;    # Skip items before the checkpoint
+		}
 	}
 	$checkpoint->update($path);
 	next if ($path =~ /.*scans$/);    # We expect scans to not have an STO file

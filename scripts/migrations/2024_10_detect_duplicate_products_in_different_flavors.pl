@@ -22,40 +22,50 @@ my %flavor_with_most_data_size = ();
 
 foreach my $obsolete (0, 1) {
 	foreach my $flavor ("off", "obf", "opf", "opff") {
-		my $products_collection
-			= get_products_collection({database => $flavor, obsolete => $obsolete, timeout => $socket_timeout_ms});
+		eval {
+			my $products_collection
+				= get_products_collection({database => $flavor, obsolete => $obsolete, timeout => $socket_timeout_ms});
 
-		my $cursor = $products_collection->query({})
-			->fields({_id => 1, code => 1, owner => 1, product_name => 1, brands => 1, scans_n => 1});
-		$cursor->immortal(1);
+			my $cursor = $products_collection->query({})
+				->fields({_id => 1, code => 1, owner => 1, product_name => 1, brands => 1, scans_n => 1});
+			$cursor->immortal(1);
 
-		while (my $product_ref = $cursor->next) {
-			my $code = $product_ref->{code};
-			$flavors{all}{$code}++;
-			$flavors{$flavor}{$code}++;
-			# Check which flavor has the biggest product file
-			my $path = product_path($product_ref);
-			if (not defined $flavor_with_most_data{$code}) {
-				$flavor_with_most_data{$code} = $flavor;
-				$flavor_with_most_data_size{$code} = (-s "/srv/$flavor/products/$path/product.sto") || 0;
-			}
-			if (((-s "/srv/$flavor/products/$path/product.sto") || 0) > $flavor_with_most_data_size{$code}) {
-				# retrieve the product to check it's not deleted
-				my $flavor_product_ref = retrieve("/srv/$flavor/products/$path/product.sto");
-				if ((defined $flavor_product_ref) and (not $flavor_product_ref->{deleted})) {
+			while (my $product_ref = $cursor->next) {
+				my $code = $product_ref->{code};
+				$flavors{all}{$code}++;
+				$flavors{$flavor}{$code}++;
+				# Check which flavor has the biggest product file
+				my $path = product_path($product_ref);
+				my $product_file_path = "/srv/$flavor/products/$path/product.sto";
+				
+				if (not defined $flavor_with_most_data{$code}) {
 					$flavor_with_most_data{$code} = $flavor;
-					$flavor_with_most_data_size{$code} = (-s "/srv/$flavor/products/$path/product.sto") || 0;
+					$flavor_with_most_data_size{$code} = (-s $product_file_path) || 0;
+				}
+				if (((-s $product_file_path) || 0) > $flavor_with_most_data_size{$code}) {
+					# retrieve the product to check it's not deleted
+					my $flavor_product_ref;
+					eval {
+						$flavor_product_ref = retrieve($product_file_path);
+					};
+					if (!$@ && (defined $flavor_product_ref) and (not $flavor_product_ref->{deleted})) {
+						$flavor_with_most_data{$code} = $flavor;
+						$flavor_with_most_data_size{$code} = (-s $product_file_path) || 0;
+					}
+				}
+				if (($product_ref->{scans_n} || 0) > ($scans{$code} || 0)) {
+					$scans{$code} = $product_ref->{scans_n} || 0;
+				}
+				if (not defined $product_names{$code}) {
+					$product_names{$code} = $product_ref->{product_name};
+				}
+				if (not defined $brands{$code}) {
+					$brands{$code} = $product_ref->{brands};
 				}
 			}
-			if (($product_ref->{scans_n} || 0) > ($scans{$code} || 0)) {
-				$scans{$code} = $product_ref->{scans_n} || 0;
-			}
-			if (not defined $product_names{$code}) {
-				$product_names{$code} = $product_ref->{product_name};
-			}
-			if (not defined $brands{$code}) {
-				$brands{$code} = $product_ref->{brands};
-			}
+		};
+		if ($@) {
+			print STDERR "ERROR: Failed to process flavor $flavor (obsolete=$obsolete): $@\n";
 		}
 	}
 }
@@ -66,7 +76,8 @@ foreach my $flavor (keys %flavors) {
 
 my $d = 0;
 
-open(my $out, ">:encoding(UTF-8)", "/srv/off/html/files/duplicate_products.csv");
+open(my $out, ">:encoding(UTF-8)", "/srv/off/html/files/duplicate_products.csv")
+	or die "ERROR: Cannot open output file /srv/off/html/files/duplicate_products.csv: $!\n";
 print $out
 	"flavor_with_most_data\tcode\tflavor_with_most_data_size\tproduct_name\tbrands\tscans\toff\tobf\topf\topff\n";
 
@@ -105,5 +116,7 @@ foreach my $code (sort keys %{$flavors{all}}) {
 	print $out "\n";
 	$d++;
 }
+
+close($out) or warn "WARNING: Failed to close output file: $!\n";
 
 print "\n\n" . $d . " duplicate products\n\n";

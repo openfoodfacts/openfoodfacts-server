@@ -27,38 +27,109 @@ use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
 use ProductOpener::Users qw/retrieve_user/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Checkpoint;
+use ProductOpener::Checkpoint;
 
 my $orgs_collection = get_orgs_collection();
 
 sub main {
+	my $checkpoint = ProductOpener::Checkpoint->new;
+	my $last_processed_id = $checkpoint->{value};
+	my $can_process = $last_processed_id ? 0 : 1;
+	
 	my @orgs = list_org_ids();
 	my $count = scalar @orgs;
-	my $i = 0;
+	my $num_updated = 0;
+	my $num_skipped = 0;
+	my $num_errors = 0;
+	
+	print "Starting migration of $count organizations...\n";
 
 	foreach my $org_id (@orgs) {
+		# Resume logic
+		if (not $can_process) {
+			if ($org_id eq $last_processed_id) {
+				$can_process = 1;
+				# Don't skip - re-process the last item in case it failed
+			}
+			else {
+				next;    # Skip items before the checkpoint
+			}
+		}
+		
 		my $org_ref = retrieve_org($org_id);
-		next if not defined $org_ref;
+		if (not defined $org_ref) {
+			print "WARNING: Skipping org $org_id (not found or deleted)\n";
+			$num_skipped++;
+			$checkpoint->update($org_id);
+			next;
+		}
 
 		my $creator_username = $org_ref->{creator};
-		next if not defined $creator_username;
+		if (not defined $creator_username) {
+			$num_skipped++;
+			$checkpoint->update($org_id);
+			next;
+		}
 
 		my $creator_user_ref = retrieve_user($creator_username);
-		next if not defined $creator_user_ref;
+		if (not defined $creator_user_ref) {
+			print "WARNING: Creator user $creator_username not found for org $org_id\n";
+			$num_skipped++;
+			$checkpoint->update($org_id);
+			next;
+		}
 
 		my $creator_email = $creator_user_ref->{email};
-		next if not defined $creator_email;
+		if (not defined $creator_email) {
+			$num_skipped++;
+			$checkpoint->update($org_id);
+			next;
+		}
+		
+		# Check if update is needed
+		if (defined $org_ref->{creator_email} && $org_ref->{creator_email} eq $creator_email) {
+			$num_skipped++;
+			$checkpoint->update($org_id);
+			next;
+		}
 
 		$org_ref->{creator_email} = $creator_email;
-
-		my $return = $orgs_collection->update_one({"org_id" => $org_ref->{org_id}},
-			{'$set' => {"creator_email" => $creator_email}});
-		store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
-
-		print STDERR "Updated organization $org_id with creator's email $creator_email. Return: $return\n";
-		$i++;
+		
+		eval {
+			# Store to file first to avoid inconsistent state
+			store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
+			
+			# Then update MongoDB
+			my $result = $orgs_collection->update_one({"org_id" => $org_ref->{org_id}},
+				{'$set' => {"creator_email" => $creator_email}});
+			
+			if ($result->modified_count || $result->matched_count) {
+				$num_updated++;
+				print "Updated organization $org_id with creator's email $creator_email\n";
+			}
+			else {
+				print "WARNING: MongoDB update didn't match any documents for org $org_id\n";
+				$num_errors++;
+			}
+		};
+		if ($@) {
+			print "ERROR: Failed to update org $org_id: $@\n";
+			$num_errors++;
+		}
+		
+		$checkpoint->update($org_id);
+		
+		if (($num_updated + $num_skipped + $num_errors) % 100 == 0) {
+			print "Progress: $num_updated updated, $num_skipped skipped, $num_errors errors\n";
+		}
 	}
 
-	print STDERR "$count organizations to update - $i organizations not empty or deleted\n";
+	print "\nMigration complete:\n";
+	print "  Total organizations: $count\n";
+	print "  Updated: $num_updated\n";
+	print "  Skipped: $num_skipped\n";
+	print "  Errors: $num_errors\n";
 	return;
 }
 
