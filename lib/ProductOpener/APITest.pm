@@ -329,7 +329,6 @@ sub create_user_in_keycloak ($user_ref) {
 	return 1;
 }
 
-
 =head2 create_user($ua, $user_ref)
 
 Call API to create a user in Keycloak which will in turn create the user in ProductOpener via Redis
@@ -352,7 +351,6 @@ sub create_user ($ua, $user_ref) {
 
 	return $access_token;
 }
-
 
 =head2 create_test_users($admin=undef, $moderator=undef)
 

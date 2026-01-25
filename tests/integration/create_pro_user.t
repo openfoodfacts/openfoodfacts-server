@@ -51,10 +51,7 @@ ok(!html_displays_error($resp), "no error on admin adding moderator role");
 
 # A user comes along, creates its profile and requests to be part of an org
 my $user_ua = new_client();
-my %user_form = (
-	%{clone(\%default_user_form)},
-	requested_org => "Acme Inc."
-);
+my %user_form = (%{clone(\%default_user_form)}, requested_org => "Acme Inc.");
 my $log_path = "/var/log/apache2/log4perl.log";
 if (get_oidc_implementation_level() > 1) {
 	# Emails will be in the Minion log once Keycloak is the master source of truth
