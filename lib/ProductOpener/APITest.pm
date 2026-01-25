@@ -204,7 +204,7 @@ sub new_client () {
 	return $ua;
 }
 
-=head2 create_user($ua, $args_ref)
+=head2 create_user_legacy($ua, $args_ref)
 
 Call API to create a user. This legacy method will be deprecated at some point
 
@@ -326,12 +326,7 @@ sub create_user_in_keycloak ($user_ref) {
 	# Wait for the welcome email job before proceeding so the user is fully created
 	get_minion_jobs("welcome_user", $before_create_ts);
 
-	# Get an access token for the user and add to a client for authenticated requests
-	my $access_token = get_token_using_password_credentials($user_ref->{userid}, $user_ref->{password})->{access_token};
-	my $ua = new_client();
-	$ua->default_header('Authorization' => 'Bearer ' . $access_token);
-
-	return $ua;
+	return 1;
 }
 
 
