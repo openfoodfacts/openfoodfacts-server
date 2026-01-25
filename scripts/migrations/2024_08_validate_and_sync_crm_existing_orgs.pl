@@ -58,44 +58,17 @@ my $checkpoint = ProductOpener::Checkpoint->new;
 my $last_org_processed = $checkpoint->{value};
 my $can_process = $last_org_processed ? 0 : 1;
 
-my $num_accepted = 0;
-my $num_rejected = 0;
-my $num_skipped = 0;
-my $num_errors = 0;
-my @org_ids = sort(list_org_ids());
-my $total = scalar @org_ids;
-
-print "Starting migration of $total organizations...\n";
-
-foreach my $org_id (@org_ids) {
-	my $decoded_org_id = decode utf8 => $org_id;
-	
-	# Resume logic with string comparison
-	if (not $can_process) {
-		if ($decoded_org_id eq $last_org_processed) {
-			$can_process = 1;
-			# Don't skip - re-process the last item in case it failed
-		}
-		else {
-			next;    # Skip items before the checkpoint
-		}
+foreach my $org_id (sort(list_org_ids())) {
+	if (not $can_process and $org_id == $last_org_processed) {
+		$can_process = 1;
+		next;
 	}
+	next if not $can_process;
 
-	$org_id = $decoded_org_id;
+	$org_id = decode utf8 => $org_id;
 	my $org_ref = retrieve_org($org_id);
-	
-	if (!defined $org_ref) {
-		print "ERROR: Failed to retrieve org: $org_id\n";
-		$num_errors++;
-		$checkpoint->update($org_id);
-		next;
-	}
 
-	if ($org_ref->{created_t} > $dump_t) {
-		$num_skipped++;
-		$checkpoint->update($org_id);
-		next;
-	}
+	next if $org_ref->{created_t} > $dump_t;
 
 	my $org_name = $org_ref->{name};
 	if (not $org_name) {
@@ -104,66 +77,24 @@ foreach my $org_id (@org_ids) {
 
 	if (not exists $org_ref->{country} and exists $org_ref->{main_contact}) {
 		my $user_ref = retrieve_user($org_ref->{main_contact});
-		if (defined $user_ref) {
-			$org_ref->{country} = $user_ref->{country} || 'en:world';
-		}
-		else {
-			$org_ref->{country} = 'en:world';
-		}
+		$org_ref->{country} = $user_ref->{country} || 'en:world';
 	}
 
 	my $org_is_valid = exists $orgs_to_accept{$org_id};
 	if ($org_is_valid) {
 		$org_ref->{valid_org} = 'accepted';
-		eval {
-			sync_org_with_crm($org_ref, $User_id);
-			print "$org_id synced\n";
-			$num_accepted++;
-		};
-		if ($@) {
-			print "ERROR: Failed to sync org $org_id with CRM: $@\n";
-			$num_errors++;
-		}
+		sync_org_with_crm($org_ref, $User_id);
+		print "$org_id synced\n";
 	}
 	elsif ($org_ref->{valid_org} ne 'rejected' and $org_ref->{valid_org} ne 'accepted') {
 		$org_ref->{valid_org} = 'rejected';
-		eval {
-			send_rejection_email($org_ref);
-			print "$org_id rejected\n";
-			$num_rejected++;
-		};
-		if ($@) {
-			print "ERROR: Failed to send rejection email for org $org_id: $@\n";
-			$num_errors++;
-		}
-	}
-	else {
-		$num_skipped++;
+		send_rejection_email($org_ref);
+		print "$org_id rejected\n";
 	}
 
-	eval {
-		# Store to file first
-		store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
-		
-		# Then update MongoDB
-		my $orgs_collection = get_orgs_collection();
-		$orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
-	};
-	if ($@) {
-		print "ERROR: Failed to store org $org_id: $@\n";
-		$num_errors++;
-	}
+	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
+	my $orgs_collection = get_orgs_collection();
+	$orgs_collection->replace_one({"org_id" => $org_ref->{org_id}}, $org_ref, {upsert => 1});
 
 	$checkpoint->update($org_id);
-	
-	if (($num_accepted + $num_rejected + $num_skipped + $num_errors) % 100 == 0) {
-		print "Progress: $num_accepted accepted, $num_rejected rejected, $num_skipped skipped, $num_errors errors\n";
-	}
 }
-
-print "\nMigration complete:\n";
-print "  Total organizations: $total\n";
-print "  Accepted: $num_accepted\n";
-print "  Rejected: $num_rejected\n";
-print "  Skipped: $num_skipped\n";
-print "  Errors: $num_errors\n";

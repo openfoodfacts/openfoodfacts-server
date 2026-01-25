@@ -39,6 +39,11 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Mail qw/:all/;
+use ProductOpener::Products qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 
@@ -52,19 +57,11 @@ use File::Copy (qw/move/);
 
 use Data::Dumper;
 
-my $dirs_removed = 0;
-my $dirs_errors = 0;
-
 # Recursively remove empty directories
 
 sub remove_empty_dirs ($dir) {
 
-	my $dh;
-	if (!opendir($dh, $dir)) {
-		print STDERR "ERROR: Can't opendir $dir: $!\n";
-		$dirs_errors++;
-		return;
-	}
+	opendir(my $dh, $dir) || die "Can't opendir $dir: $!";
 	my @files = readdir($dh);
 	closedir $dh;
 
@@ -79,25 +76,13 @@ sub remove_empty_dirs ($dir) {
 		}
 	}
 
-	# Re-read directory to check if it's empty after recursive removal
-	if (!opendir($dh, $dir)) {
-		print STDERR "ERROR: Can't re-open $dir: $!\n";
-		$dirs_errors++;
-		return;
-	}
+	opendir($dh, $dir) || die "Can't opendir $dir: $!";
 	@files = readdir($dh);
 	closedir $dh;
 
-	# Only . and .. means empty directory
 	if (scalar @files == 2) {
 		print "Removing empty directory $dir\n";
-		if (rmdir $dir) {
-			$dirs_removed++;
-		}
-		else {
-			print STDERR "ERROR: Failed to remove directory $dir: $!\n";
-			$dirs_errors++;
-		}
+		rmdir $dir;
 	}
 	return;
 }
@@ -116,21 +101,7 @@ USAGE
 	exit(1);
 }
 
-if (! -e $dir) {
-	die "ERROR: Directory $dir does not exist\n";
-}
-
-if (! -d $dir) {
-	die "ERROR: $dir is not a directory\n";
-}
-
-print "Starting to remove empty directories from $dir...\n";
-
 remove_empty_dirs($dir);
-
-print "\nOperation complete:\n";
-print "  Directories removed: $dirs_removed\n";
-print "  Errors encountered: $dirs_errors\n";
 
 exit(0);
 

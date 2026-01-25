@@ -32,7 +32,6 @@ use ProductOpener::Store qw/store/;
 use ProductOpener::Orgs qw/list_org_ids retrieve_org/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Config qw/%admins/;
-use ProductOpener::Checkpoint;
 use Encode;
 
 binmode(STDOUT, ":encoding(UTF-8)");
@@ -41,112 +40,51 @@ binmode(STDERR, ":encoding(UTF-8)");
 my @not_users = qw(agena3000 equadis codeonline bayard database-usda countrybot );
 push @not_users, keys %admins;
 
-# Convert to hash for O(1) lookup performance
-my %not_users_hash = map { $_ => 1 } @not_users;
-
-my $checkpoint = ProductOpener::Checkpoint->new;
-my $last_processed_id = $checkpoint->{value};
-my $can_process = $last_processed_id ? 0 : 1;
-
-my $num_updated = 0;
-my $num_skipped = 0;
-my $num_errors = 0;
-my @org_ids = list_org_ids();
-my $total = scalar @org_ids;
-
-print "Starting migration of $total organizations...\n";
-
-foreach my $org_id (@org_ids) {
-	# Resume logic
-	if (not $can_process) {
-		my $decoded_org_id = decode utf8 => $org_id;
-		if ($decoded_org_id eq $last_processed_id) {
-			$can_process = 1;
-			# Don't skip - re-process the last item in case it failed
-		}
-		else {
-			next;    # Skip items before the checkpoint
-		}
-	}
+foreach my $org_id (list_org_ids()) {
 
 	$org_id = decode utf8 => $org_id;    # because of wide characters in org_id like greek letters
 	my $org_ref = retrieve_org($org_id);
-	
-	if (!defined $org_ref) {
-		print "ERROR: Failed to retrieve org: $org_id\n";
-		$num_errors++;
-		$checkpoint->update($org_id);
-		next;
-	}
-	
-	my $needs_update = 0;
 
 	if (
-		(defined $org_ref->{main_contact}
+		(defined $org_ref->{main_contact})
 		and (
 			($org_ref->{main_contact} =~ /^\s*$/)    # empty or only whitespace
 			or ($org_ref->{main_contact} =~ /[\p{Z}\p{C}]/)    # contains unicode whitespace or control characters
-			or (exists $not_users_hash{$org_ref->{main_contact}})    # shouldn't be a main contact
-		)
-		)
+			or (grep {$org_ref->{main_contact} eq $_} @not_users)
+		)    # shouldn't be a main contact
 		or (not defined $org_ref->{main_contact})
 		)
 	{
 		if (defined $org_ref->{main_contact}) {
-			print "Previous main contact: " . $org_ref->{main_contact} . " for org $org_id\n";
+			print "previous main contact: " . $org_ref->{main_contact} . "\n";
 		}
 
 		$org_ref->{main_contact} = undef;
-		$needs_update = 1;
 
 		# take the first admin as main contact if available
+		print $org_id . "\n";
 		if (defined $org_ref->{admins}) {
 			# find the first admin that is not in the list of users that are not users
 			# and set it as main contact
 
+			my $admin = undef;
 			foreach my $admin_id (sort keys %{$org_ref->{admins}}) {
-				if (not exists $not_users_hash{$admin_id}) {
-					$org_ref->{main_contact} = $admin_id;
+				if (not grep {$admin_id eq $_} @not_users) {
+					$admin = $admin_id;
+					$org_ref->{main_contact} = $admin;
 					last;
 				}
 			}
 			if (defined $org_ref->{main_contact}) {
 				print "main_contact of $org_id set to $org_ref->{main_contact}\n";
 			}
-			else {
-				print "main_contact of $org_id set to undef (no valid admin found)\n";
-			}
 		}
 		else {
-			print "main_contact of $org_id set to undef (no admins)\n";
+			print "main_contact of $org_id set to undef\n";
 		}
 	}
 
-	if ($needs_update) {
-		eval {
-			# not using store_org to avoid triggering the odoo sync
-			store("$BASE_DIRS{ORGS}/" . $org_id . ".sto", $org_ref);
-			$num_updated++;
-		};
-		if ($@) {
-			print "ERROR: Failed to store org: $org_id - $@\n";
-			$num_errors++;
-		}
-	}
-	else {
-		$num_skipped++;
-	}
-	
-	$checkpoint->update($org_id);
-	
-	if (($num_updated + $num_skipped + $num_errors) % 100 == 0) {
-		print "Progress: $num_updated updated, $num_skipped skipped, $num_errors errors\n";
-	}
+	# not using store_org to avoid triggering the odoo sync
+	store("$BASE_DIRS{ORGS}/" . $org_id . ".sto", $org_ref);
 }
-
-print "\nMigration complete:\n";
-print "  Total organizations: $total\n";
-print "  Updated: $num_updated\n";
-print "  Skipped: $num_skipped\n";
-print "  Errors: $num_errors\n";
 

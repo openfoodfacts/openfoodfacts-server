@@ -70,15 +70,8 @@ if (not defined $csv_file) {
 open(my $log, ">>", "$data_root/logs/remove_duplicate_products_on_wrong_flavors.log");
 print $log "remove_duplicate_products_on_wrong_flavors.pl started at " . localtime() . "\n";
 
-my $products_collection;
-my $obsolete_products_collection;
-eval {
-	$products_collection = get_products_collection();
-	$obsolete_products_collection = get_products_collection({obsolete => 1});
-};
-if ($@) {
-	die "ERROR: Failed to connect to MongoDB collections: $@\n";
-}
+my $products_collection = get_products_collection();
+my $obsolete_products_collection = get_products_collection({obsolete => 1});
 
 sub move_code_to_other_flavors_codes($code) {
 
@@ -98,14 +91,8 @@ sub move_code_to_other_flavors_codes($code) {
 	}
 	# Delete from mongodb
 	my $id = $code;
-	eval {
-		$products_collection->delete_one({_id => $id});
-		$obsolete_products_collection->delete_one({_id => $id});
-	};
-	if ($@) {
-		print STDERR "ERROR: Failed to delete code $code from MongoDB: $@\n";
-		print $log "ERROR: Failed to delete code $code from MongoDB: $@\n";
-	}
+	$products_collection->delete_one({_id => $id});
+	$obsolete_products_collection->delete_one({_id => $id});
 
 	# Also move the image dir if it exists
 	if (-e "$www_root/images/products/$dir") {
@@ -129,13 +116,8 @@ sub move_code_to_other_flavors_codes($code) {
 ensure_dir_created_or_die("$data_root/products/other-flavors-codes");
 ensure_dir_created_or_die("$www_root/images/products/other-flavors-codes");
 
-my $num_moved = 0;
-my $num_kept = 0;
-my $num_skipped = 0;
-my $num_errors = 0;
-
 # Open CSV file
-open(my $csv_fh, "<", $csv_file) or die "Could not open file $csv_file: $!\n";
+open(my $csv_fh, "<", $csv_file) or die "Could not open file $csv_file: $!";
 
 while (my $line = <$csv_fh>) {
 	chomp($line);
@@ -144,13 +126,11 @@ while (my $line = <$csv_fh>) {
 
 	# Code not numeric? may be header line, skip
 	if ($code !~ /^\d+$/) {
-		$num_skipped++;
 		next;
 	}
 
-	# Undefined flavor, do nothing
+	# Undefined flavor, do nothing
 	if ((not defined $kept_flavor) or ($kept_flavor eq "")) {
-		$num_skipped++;
 		next;
 	}
 
@@ -158,47 +138,26 @@ while (my $line = <$csv_fh>) {
 	my $product_ref = retrieve_product(product_id_for_owner(undef, $code), "include_deleted");
 	if (not defined $product_ref) {
 		print STDERR "code $code does not exist on the current flavor\n";
-		$num_skipped++;
 		next;
 	}
 
 	# Check if the kept flavor is equal to the flavor the script is running on
 	if ($kept_flavor eq $flavor) {
 		print STDERR "code $code is on the kept flavor $flavor\n";
-		$num_kept++;
 	}
 	else {
 		print STDERR "code $code should be on the kept flavor $kept_flavor instead of $flavor\n";
 		move_code_to_other_flavors_codes($code);
-		$num_moved++;
 
 		# Push a deleted event to Redis
-		eval {
-			push_product_update_to_redis(
-				$product_ref,
-				{
-					"userid" => 'remove-duplicates-bot',
-					"comment" => "duplicate product: keep product on $kept_flavor, remove from $flavor"
-				},
-				"deleted"
-			);
-		};
-		if ($@) {
-			print STDERR "ERROR: Failed to push deleted event to Redis for code $code: $@\n";
-			print $log "ERROR: Failed to push deleted event to Redis for code $code: $@\n";
-			$num_errors++;
-		}
+		push_product_update_to_redis(
+			$product_ref,
+			{
+				"userid" => 'remove-duplicates-bot',
+				"comment" => "duplicate product: keep product on $kept_flavor, remove from $flavor"
+			},
+			"deleted"
+		);
 	}
 }
-
-close($csv_fh) or warn "WARNING: Failed to close CSV file: $!\n";
-
-print "\nMigration complete:\n";
-print "  Moved to other-flavors-codes: $num_moved\n";
-print "  Kept on current flavor: $num_kept\n";
-print "  Skipped: $num_skipped\n";
-print "  Errors: $num_errors\n";
-
-print $log "\nMigration complete: moved=$num_moved, kept=$num_kept, skipped=$num_skipped, errors=$num_errors\n";
-close($log) or warn "WARNING: Failed to close log file: $!\n";
 
