@@ -18,6 +18,8 @@ remove_all_users();
 my $ua = new_client();
 
 my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+# This code intentionally uses the legacy auth method rather than going via Keycloak
+# Can be removed once legacy auth is deprecated
 create_user($ua, \%create_user_args);
 
 # TODO: add more tests !
