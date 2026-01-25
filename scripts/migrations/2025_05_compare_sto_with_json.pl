@@ -60,7 +60,6 @@ while (my $path = $next->()) {
 			next;    # Skip items before the checkpoint
 		}
 	}
-	$checkpoint->update($path);
 	next if ($path =~ /.*scans$/);    # We expect scans to not have an STO file
 
 	my $json_path = "$path.json";
@@ -99,5 +98,7 @@ while (my $path = $next->()) {
 			print STDERR "\n$path: JSON file is different from STO file:\n" . $delta->diag()->as_string();
 		}
 	}
+	# Update checkpoint only after all processing for this path has completed
+	$checkpoint->update($path);
 }
 print STDERR "\nChecked $json_count files out of $count.\n";
