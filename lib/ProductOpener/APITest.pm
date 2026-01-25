@@ -247,7 +247,7 @@ Call API to edit a user, see create_user
 sub edit_user ($ua, $args_ref) {
 	($args_ref->{type} eq "edit") or confess("Action type must be 'edit' in edit_user");
 	# technically the same as create_user but need to know it is an edit so we don't wait for Keycloak events !
-	return create_user($ua, $args_ref, 1);
+	return create_user_legacy($ua, $args_ref, 1);
 }
 
 =head2 login($ua, $user_id, $password)
