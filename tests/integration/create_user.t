@@ -55,7 +55,7 @@ foreach my $args_ref (["name", "click http://test.com"], ["faxnumber", "0"]) {
 	like($response->content, qr/class="error_page"/, "Error in the page - $testnum");
 	# user in spam log
 	like($logged, qr/\b$userid\b/, "Error in spam log - $testnum");
-	is(undef, retrieve_user($userid), "User not created - $testnum");
+	is(retrieve_user($userid), undef, "User not created - $testnum");
 	$testnum++;
 }
 

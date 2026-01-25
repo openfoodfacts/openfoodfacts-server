@@ -58,7 +58,7 @@ if (get_oidc_implementation_level() < 5) {
 	like($response_edit->content, qr/Delete the user/, "the delete button does exist");
 
 	#deleting the account
-	my $before_delete_ts = time();
+	my $before_delete_ts = get_last_minion_job_created();
 	my $response_delete = $ua->post($url_delete, \%delete_form);
 	#checking if we are redirected to the account deleted page
 	like(

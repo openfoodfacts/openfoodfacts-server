@@ -54,6 +54,7 @@ BEGIN {
 		&execute_api_tests
 		&fake_http_server
 		&get_minion_jobs
+		&get_last_minion_job_created
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -215,7 +216,7 @@ Call API to create a user
 =cut
 
 sub create_user ($ua, $args_ref, $is_edit = 0) {
-	my $before_create_ts = time();
+	my $before_create_ts = get_last_minion_job_created();
 
 	my %fields = %{clone($args_ref)};
 	if (not defined $fields{email}) {
@@ -283,7 +284,7 @@ is useful for testing the Keycloak API on it's own.
 =cut
 
 sub create_user_in_keycloak ($user_ref) {
-	my $before_create_ts = time();
+	my $before_create_ts = get_last_minion_job_created();
 
 	my $credential = {
 		type => 'password',
@@ -1123,6 +1124,7 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time = 60) {
 	my %run_jobs = ();
 	my $waiting_jobs = 0;
 	my $completed_jobs = 0;
+	my @debug_jobs = ();
 	while ($waited < $max_waiting_time and ($waiting_jobs or not $completed_jobs)) {
 		my $jobs = get_minion()->jobs({tasks => [$task_name]});
 		$waiting_jobs = 0;
@@ -1130,8 +1132,7 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time = 60) {
 		while (my $job = $jobs->next) {
 			next if (defined $run_jobs{$job->{id}});
 			# only those who were created after the timestamp
-			# Reduce test time by two seconds to account for small clock differences
-			if ($job->{created} >= ($created_after_ts - 2)) {
+			if ($job->{created} >= $created_after_ts) {
 				# retrieving the job id
 				my $job_id = $job->{id};
 				# retrieving the job state
@@ -1164,6 +1165,19 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time = 60) {
 	# sort by creation date to have jobs in predictable order
 	my @all_jobs = sort {$a->{created} <=> $b->{created}} (values %run_jobs);
 	return \@all_jobs;
+}
+
+sub get_last_minion_job_created () {
+	my $jobs = get_minion()->jobs();
+	# Allow a buffer as some differences have been observed even though docker containers should always be in sync
+	my $latest_created = time() - 2;
+	# iterate on jobs
+	while (my $job = $jobs->next) {
+		if ($job->{created} > $latest_created) {
+			$latest_created = $job->{created};
+		}
+	}
+	return $latest_created;
 }
 
 1;
