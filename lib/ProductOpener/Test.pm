@@ -70,7 +70,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Data qw/execute_query get_orgs_collection get_products_collection get_recent_changes_collection/;
 use ProductOpener::Store "store";
 use ProductOpener::Auth qw/get_token_using_client_credentials get_oidc_implementation_level/;
-use ProductOpener::APITest qw/get_minion_jobs/;
+use ProductOpener::APITest qw/get_minion_jobs get_last_minion_job_created/;
 
 use Carp qw/confess/;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
@@ -261,7 +261,7 @@ sub remove_all_users () {
 	# Important: check we are not on a prod database
 	check_not_production();
 
-	my $before_delete_ts = time();
+	my $before_delete_ts = get_last_minion_job_created();
 	my $keycloak_users_affected = 0;
 
 	# clean files
@@ -282,6 +282,7 @@ sub remove_all_users () {
 	# Wait for minion jobs triggered by Redis complete as otherwise can get race conditions with the main test
 	if ($keycloak_users_affected and get_oidc_implementation_level() > 1) {
 		my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts);
+		# print STDERR "[" . localtime() . "] Delete jobs: " . JSON::encode_json($jobs_ref) . "\n";
 	}
 
 	return;
