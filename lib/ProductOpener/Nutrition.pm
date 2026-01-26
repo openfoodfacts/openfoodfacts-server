@@ -2030,26 +2030,32 @@ sub compute_estimated_nutrients ($product_ref) {
 		$per = "100ml";
 	}
 
-	# compute estimated nutrients from ingredients
-	my $results_ref = estimate_nutrients_from_ingredients($product_ref->{ingredients});
-
 	# Remove any existing estimated nutrients input set
 	delete $input_sets_hash_ref->{$source}{$preparation}{$per};
 
-	# only take the result if we have at least 95% of ingredients with nutrients
-	if (($results_ref->{total} > 0) and (($results_ref->{total_with_nutrients} / $results_ref->{total}) >= 0.95)) {
-
-		while (my ($nid, $value) = each(%{$results_ref->{nutrients}})) {
-			my $unit = default_unit_for_nid($nid);
-			# We currently assign value_string (which will also set value)
-			# Not sure if it makes sense to only set value and have no value_string
-			assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
-				$per, $nid, $modifier, $value, $unit);
-		}
-	}
-
-	# Compute % of specific ingredients needed for Nutri-Score
 	if (defined $product_ref->{ingredients}) {
+		# compute estimated nutrients from ingredients
+		my $results_ref = estimate_nutrients_from_ingredients($product_ref->{ingredients});
+
+		# only take the result if we have at least 95% of ingredients with nutrients
+		if (($results_ref->{total} > 0) and (($results_ref->{total_with_nutrients} / $results_ref->{total}) >= 0.95)) {
+
+			while (my ($nid, $value) = each(%{$results_ref->{nutrients}})) {
+				my $unit = default_unit_for_nid($nid);
+				# We currently assign value_string (which will also set value)
+				# Not sure if it makes sense to only set value and have no value_string
+				assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
+					$per, $nid, $modifier, $value, $unit);
+			}
+
+			add_tag($product_ref, "misc", "en:nutrients-estimated-from-ingredients");
+		}
+		else {
+			add_tag($product_ref, "misc",
+				"en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data");
+		}
+
+		# Compute % of specific ingredients needed for Nutri-Score
 		my $fruits_vegetable_nuts
 			= estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
 		my $fruits_vegetables_legumes
@@ -2059,13 +2065,19 @@ sub compute_estimated_nutrients ($product_ref) {
 			$per, 'fruits-vegetables-nuts', $modifier, $fruits_vegetable_nuts, '%');
 		assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
 			$per, 'fruits-vegetables-legumes', $modifier, $fruits_vegetables_legumes, '%');
+
+		# Added sugars for added sugars panel
 		assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
 			$per, 'added-sugars', $modifier, $added_sugars, 'g');
-	}
 
-	# If some nutrients were estimated, include "Estimate from ingredients" as the source description
-	if (exists $input_sets_hash_ref->{$source}{$preparation}{$per}{nutrients}) {
-		deep_set($input_sets_hash_ref, $source, $preparation, $per, "source_description", "Estimate from ingredients");
+		# If some nutrients were estimated, include "Estimate from ingredients" as the source description
+		if (exists $input_sets_hash_ref->{$source}{$preparation}{$per}{nutrients}) {
+			deep_set($input_sets_hash_ref, $source, $preparation, $per, "source_description",
+				"Estimate from ingredients");
+		}
+	}
+	else {
+		add_tag($product_ref, "misc", "en:nutrients-not-estimated-from-ingredients-no-ingredients");
 	}
 
 	# Convert back the input sets hash to array

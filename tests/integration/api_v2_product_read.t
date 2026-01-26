@@ -24,6 +24,7 @@ create_user($ua, \%create_user_args);
 
 my @products = (
 	{
+		# this product has less than 95% ingredients with nutrition data, so nutrients won't be estimated
 		%{dclone(\%default_product_form)},
 		(
 			lc => "en",
@@ -37,6 +38,28 @@ my @products = (
 			origin => "france",
 			packaging_text_en =>
 				"1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
+			nutriment_salt => '50.2',
+			nutriment_salt_unit => 'mg',
+			nutriment_sugars => '12.5',
+			"nutriment_saturated-fat" => '5.6',
+			nutriment_fiber => 2,
+			"nutriment_energy-kj" => 400,
+			nutriment_proteins => 4.5,
+			nutriment_carbohydrates => 10.5,
+			nutriment_fat => 8.5,
+		)
+	},
+	# product with 100% of ingredients with nutrition data, so nutrients will be estimated
+	{
+		%{dclone(\%default_product_form)},
+		(
+			lc => "en",
+			lang => "en",
+			code => '200000000035',
+			product_name => "Some product 2 with all ingredients having nutrition data",
+			generic_name => "Tester 2",
+			ingredients_text => "milk, eggs, sugar",
+			categories => "cookies",
 			nutriment_salt => '50.2',
 			nutriment_salt_unit => 'mg',
 			nutriment_sugars => '12.5',
@@ -73,6 +96,12 @@ my $tests_ref = [
 		test_case => 'get-existing-product',
 		method => 'GET',
 		path => '/api/v2/product/200000000034',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-existing-product-with-estimated-nutrients',
+		method => 'GET',
+		path => '/api/v2/product/200000000035',
 		expected_status_code => 200,
 	},
 	{
