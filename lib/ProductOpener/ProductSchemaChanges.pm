@@ -592,11 +592,11 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 			my $source = deep_get($nutrient_set_ref, "nutrients", $nutrient, "source") // "unknown";
 			# If the source is not estimated, or if it is added-sugar or fruits-vegetables-nuts or fruits-vegetables-legumes
 			# we set the nutrient in the nutriments field
-			if (($source ne "estimate")
+			if (   ($source ne "estimate")
 				or ($nutrient eq "added-sugars")
 				or ($nutrient eq "fruits-vegetables-nuts")
-				or ($nutrient eq "fruits-vegetables-legumes")) {
-
+				or ($nutrient eq "fruits-vegetables-legumes"))
+			{
 
 				# for backward compatibility, we add 4 fields per nutrient:
 				# - nutrient (e.g. fat) : this is the input value by the user, apps are not supposed to use it, but we were sending it back before
@@ -605,7 +605,8 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 				# - nutrient_unit          (e.g. fat_unit) : this is the unit for the input nutrient value
 				# here we use the aggregate set which has the normalized unit, it is the normal unit
 				# - nutrient_prepared_modifier (e.g. fat__modifier)
-				$nutriments_ref->{$nutrient . $preparation_state . $per} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
+				$nutriments_ref->{$nutrient . $preparation_state . $per}
+					= $nutrient_set_ref->{nutrients}{$nutrient}{value};
 				$nutriments_ref->{$nutrient . $preparation_state} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
 				$nutriments_ref->{$nutrient . "_unit"} = $nutrient_set_ref->{nutrients}{$nutrient}{unit};
 				if (defined $nutrient_set_ref->{nutrients}{$nutrient}{modifier}) {
