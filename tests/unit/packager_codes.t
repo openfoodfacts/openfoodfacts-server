@@ -24,6 +24,25 @@ is(
 	"FR 69.238.010 EC",
 	"FR: normalizing code twice does not change it any more than normalizing once"
 );
+# normalize emb codes
+is(
+    normalize_packager_codes("EMB 12345"),
+    "emb12345",
+    "normalize EMB code with space"
+);
+
+is(
+    normalize_packager_codes("emb12345"),
+    "emb12345",
+    "normalize lowercase emb code"
+);
+
+is(
+    normalize_packager_codes("EmB 12 345"),
+    "emb12345",
+    "normalize mixed-case EMB code"
+);
+
 
 # normalize_uk_ce_code
 is(normalize_packager_codes("uk dz7131 eg"), "UK DZ7131 EC", "UK: normalized code correctly");
