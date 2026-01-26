@@ -99,12 +99,6 @@ my $tests_ref = [
 		expected_status_code => 200,
 	},
 	{
-		test_case => 'get-existing-product-with-estimated-nutrients',
-		method => 'GET',
-		path => '/api/v2/product/200000000035',
-		expected_status_code => 200,
-	},
-	{
 		test_case => 'get-specific-fields',
 		method => 'GET',
 		path => '/api/v2/product/200000000034',
@@ -255,6 +249,12 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v2/product/200000000034',
 		query_string => '?fields=salt_100g',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-existing-product-with-estimated-nutrients',
+		method => 'GET',
+		path => '/api/v2/product/200000000035',
 		expected_status_code => 200,
 	},
 
