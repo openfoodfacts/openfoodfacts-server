@@ -53,8 +53,6 @@ my $tests_ref = [
 execute_api_tests(__FILE__, $tests_ref);
 
 # Test auth.pl with authenticated user
-create_user($ua, \%default_user_form);
-
 my $auth_ua = new_client();
 login($auth_ua, "tests", 'testtest');
 

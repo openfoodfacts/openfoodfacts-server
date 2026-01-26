@@ -6,7 +6,7 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 use Log::Any qw($log);
 
-use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
+use ProductOpener::APITest qw/create_user_in_keycloak execute_api_tests new_client wait_application_ready/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_user_form/;
 use ProductOpener::Auth qw/get_token_using_password_credentials/;
