@@ -62,7 +62,7 @@ if (get_oidc_implementation_level() > 1) {
 	$log_path = "/var/log/apache2/minion_log4perl.log";
 }
 my $tail = tail_log_start($log_path);
-my $before_create_ts = time();
+my $before_create_ts = get_last_minion_job_created();
 $resp = create_user($user_ua, \%user_form);
 ok(!html_displays_error($resp), "no error creating pro user");
 

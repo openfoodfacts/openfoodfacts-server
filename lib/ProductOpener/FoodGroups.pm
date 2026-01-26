@@ -113,6 +113,9 @@ my %pnns = (
 
 	"Alcoholic beverages" => "Alcoholic beverages",
 
+	"Baby foods" => "Baby foods",
+	"Baby milks" => "Baby foods",
+
 	"unknown" => "unknown",
 
 );
@@ -160,7 +163,6 @@ sub compute_pnns_groups ($product_ref) {
 		if (    (defined $properties{categories}{$categoryid})
 			and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"}))
 		{
-
 			# skip the sweetened / unsweetened if it is alcoholic
 			next
 				if (
