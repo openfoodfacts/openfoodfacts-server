@@ -583,19 +583,49 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 		# if per is 100ml then 1002 product version nutrient per field is 100g
 		my $per = $nutrient_set_ref->{per} eq "100ml" ? "_100g" : "_" . $nutrient_set_ref->{per};
 
-		# first create the nutriments field
+		# first create the nutriments and nutriments_estimated fields
 		my $nutriments_ref = {};
+		my $nutriments_estimated_ref = {};
 
 		foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
-			$nutriments_ref->{$nutrient . $preparation_state . $per} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
-			$nutriments_ref->{$nutrient . "_unit"} = $nutrient_set_ref->{nutrients}{$nutrient}{unit};
-			if (defined $nutrient_set_ref->{nutrients}{$nutrient}{modifier}) {
-				$nutriments_ref->{$nutrient . $preparation_state . "_modifier"}
-					= $nutrient_set_ref->{nutrients}{$nutrient}{modifier};
+			# Get the source of the nutrient value
+			my $source = deep_get($nutrient_set_ref, "nutrients", $nutrient, "source") // "unknown";
+			# If the source is not estimated, or if it is added-sugar or fruits-vegetables-nuts or fruits-vegetables-legumes
+			# we set the nutrient in the nutriments field
+			if (($source ne "estimate")
+				or ($nutrient eq "added-sugars")
+				or ($nutrient eq "fruits-vegetables-nuts")
+				or ($nutrient eq "fruits-vegetables-legumes")) {
+
+
+				# for backward compatibility, we add 4 fields per nutrient:
+				# - nutrient (e.g. fat) : this is the input value by the user, apps are not supposed to use it, but we were sending it back before
+				# here we set it to the value in the normalized unit (even if the user had input it in a different unit)
+				# - nutrient_100g  (e.g. fat_100g) : this is the value in the normalized unit
+				# - nutrient_unit          (e.g. fat_unit) : this is the unit for the input nutrient value
+				# here we use the aggregate set which has the normalized unit, it is the normal unit
+				# - nutrient_prepared_modifier (e.g. fat__modifier)
+				$nutriments_ref->{$nutrient . $preparation_state . $per} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
+				$nutriments_ref->{$nutrient . $preparation_state} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
+				$nutriments_ref->{$nutrient . "_unit"} = $nutrient_set_ref->{nutrients}{$nutrient}{unit};
+				if (defined $nutrient_set_ref->{nutrients}{$nutrient}{modifier}) {
+					$nutriments_ref->{$nutrient . $preparation_state . "_modifier"}
+						= $nutrient_set_ref->{nutrients}{$nutrient}{modifier};
+				}
+			}
+			else {
+				# nutrient is estimated
+				$nutriments_estimated_ref->{$nutrient . $per}
+					= $nutrient_set_ref->{nutrients}{$nutrient}{value};
 			}
 		}
 
-		$product_ref->{nutriments} = $nutriments_ref;
+		if (scalar keys %$nutriments_estimated_ref) {
+			$product_ref->{nutriments_estimated} = $nutriments_estimated_ref;
+		}
+		if (scalar keys %$nutriments_ref) {
+			$product_ref->{nutriments} = $nutriments_ref;
+		}
 
 		# then add other useful data on the nutrients to the product
 		if ($preparation_state eq "") {
