@@ -2,6 +2,7 @@
 # also: don't add synonyms if they are already the name of an individual category, in that case add the synonym to the category
 
 synonyms:en: caramelised, caramelized
+
 synonyms:en: flavoured, flavored
 
 synonyms:en: pasteurised, pasteurized, pasterized
@@ -270,10 +271,12 @@ ru: Детское питание
 th: อาหารเด็กอ่อน
 tr: Mama, Bebek maması
 zh: 婴儿食品
+food_groups:en: en:baby-foods
 google_product_taxonomy_id:en: 5719
 gpc_category_code:en: 10000104
 gpc_category_description:en: Definition: Includes any products that can be described/observed as food specifically labelled and marketed for a baby or infant, which is typically intended to provide a healthy, balanced diet for Infants and babies of all ages. These products have been treated or packaged in such a way as to extend their consumable life.Definition Excludes: Excludes products such as Baby and Infant Beverages, Baby/Infant - Specialised Foods (Frozen), powdered and ready to drink formula specifically designed for use as a replacement for breast milk during nursing. Adult variants of the above.
 gpc_category_name:en: Baby/Infant - Specialised Foods (Shelf Stable)
+pnns_group_2:en: Baby foods
 wikidata:en: Q797971
 
 < en:Baby foods
@@ -661,6 +664,8 @@ pt: Leites para bebé
 ro: Lapte pentru bebeluși, Lapte bebeluși, Lapte bebelusi, Lapte pentru bebelusi
 agribalyse_proxy_food_code:en: 19013
 # The undiluted value is unusable. Thus ready to drink milks will be the proxy
+food_groups:en: en:baby-milks
+pnns_group_2:en: Baby milks
 
 # is infant formulas more generic than baby milks?
 < en:Baby milks
@@ -9117,9 +9122,12 @@ ru: Травяные чаи и настойки
 sv: Örtte
 agribalyse_proxy_food_code:en: 18020
 agribalyse_proxy_food_name:en: Tea, brewed, without sugar
+# 2026/01/22: (Stéphane) we had an old comment "should not be in pnns_group_2:en:Teas and herbal teas and coffees", and only the "herbal tea beverages" were under it, but it would make sense to have them here.
+food_groups:en: en:teas-and-herbal-teas-and-coffees
 gpc_category_code:en: 10000119
 gpc_category_description:en: Definition: Includes any products that can be described/observed as loose fruit or herbal tea, which is derived from the dried leaves of an infusion of dried fruits, herbs, spices and flowers, used specifically to make a long drink. Includes herbal teas of various flavours such as apple, ginseng, jasmine and cinnamon, and bags which contain blends of any of these such as apple and cinnamon. Specifically includes herbal infusions and fruit teas contained in tea bags. Definition Excludes: Excludes products such as Teas, Fruit Herbal Infusions/Tisanes Instant, Fruit Herbal Infusions/Tisanes Capsules and Pods and Liquid Ready to Drink and Not Ready to Drink  Fruit Herbal Infusions/Tisanes.
 gpc_category_name:en: Fruit Herbal Infusions/Tisanes - Bags/Loose
+pnns_group_2:en: Teas and herbal teas and coffees
 wikidata:en: Q379932
 
 < en:Herbal teas
@@ -9137,9 +9145,6 @@ nl: Kruidenthee in zakjes, Kruidenthee in buidels
 pl: Herbatki ziołowe w torebkach, Herbaty ziołowe w torebkach
 ru: Чай в пакетиках
 sv: Örtte i pås
-# should not be in pnns_group_2:en:Teas and herbal teas and coffees
-pnns_group_2:en: unknown
-# should not be in food_groups:en: en:Teas and herbal teas and coffees
 
 < en:Herbal teas
 en: Instant herbal teas
@@ -9918,11 +9923,13 @@ agribalyse_food_code:en: 18020
 ciqual_food_code:en: 18020
 ciqual_food_name:en: Tea, brewed, without sugar
 ciqual_food_name:fr: Thé infusé, non sucré
+# 2026/01/22: (Stéphane) we had an old comment "should not be in pnns_group_2:en:Teas and herbal teas and coffees", and only the "herbal tea beverages" were under it, but it would make sense to have them here.
+food_groups:en: en:teas-and-herbal-teas-and-coffees
 gpc_category_code:en: 10000116
 gpc_category_description:en: Definition: Includes any products that can be described/observed as loose tea that is derived from the dried leaves of the tea plant, Camellia Sinensis. Specifically includes tea contained in tea bags. Definition Excludes: Excludes products such as Liquid Ready to Drink and Not Ready to Drink Teas, Instant Teas, Teas in Capsules or Pods and Herbal Infusions/Tisanes.
 gpc_category_name:en: Tea - Bags/Loose
+pnns_group_2:en: Teas and herbal teas and coffees
 wikidata:en: Q6097
-
 
 < en:Tea leaves
 en: Tea bags, Teas in bags, teas in tea-bags
@@ -9939,13 +9946,10 @@ pt: Saquinhos de chá, chás em sacos, chás em saquinhos de chá
 ru: Чайные пакетики
 tr: Poşet çay, Sallama çay
 zh: 袋茶, 茶包, 袋泡茶
-# should not be in food_groups:en: en:Teas and herbal teas and coffees
 agribalyse_food_code:en: 18020
 ciqual_food_code:en: 18020
 ciqual_food_name:en: Tea, brewed, without sugar
 ciqual_food_name:fr: Thé infusé, non sucré
-# should not be in pnns_group_2:en:Teas and herbal teas and coffees
-pnns_group_2:en: unknown
 wikidata:en: Q863250
 
 < en:Teas
@@ -10579,7 +10583,10 @@ ru: Кофе
 th: กาแฟ
 tr: Kahve
 zh: 咖啡
+# 2026/01/22: (Stéphane) we had an old comment "should not be in pnns_group_2:en:Teas and herbal teas and coffees", and only the "herbal tea beverages" were under it, but it would make sense to have them here.
+food_groups:en: en:teas-and-herbal-teas-and-coffees
 google_product_taxonomy_id:en: 1868
+pnns_group_2:en: Teas and herbal teas and coffees
 wikidata:en: Q8486
 
 < en:Coffees
@@ -44057,21 +44064,10 @@ lt: Sūrio kroketai
 nl: Kaaskroketten
 
 < en:Salty snacks
+< en:Shrimp preparations
 fr: Croquettes aux crevettes
 bg: Крокети със скариди
 nl: Garnalenkroketten
-
-< en:Flavoured potato crisps
-en: Prawn cocktail crisps
-de: Garnelencocktail Chips
-fr: Chips cocktail de crevettes, Chips de crevette
-hr: Koktel čips od kozica
-lt: Krevečių kokteilių traškučiai, krevečių krekeriai
-nl: Garnalenchips
-agribalyse_food_code:en: 38104
-ciqual_food_code:en: 38104
-ciqual_food_name:en: Prawn crackers
-ciqual_food_name:fr: Chips de crevette
 
 < en:Crisps
 en: Cassava crisps
@@ -44087,11 +44083,12 @@ agribalyse_proxy_food_name:fr: Chips de crevette
 #wikidata:en:
 
 < en:Cassava crisps
-en: Prawn crackers
-de: Krabbenchips, Krupuk
-fr: Chips de manioc à la crevette, chips de manioc aux crevettes, chips à la crevette au manioc, chips aux crevettes au manioc, chips au manioc à la crevette, chips au manioc aux crevettes
-hr: Krekeri od kozica
-nl: Garnalenkroepoek
+en: Prawn crackers, Prawn cocktail crisps
+de: Krabbenchips, Krupuk, Garnelencocktail Chips
+fr: Chips de manioc à la crevette, chips de manioc aux crevettes, chips à la crevette au manioc, chips aux crevettes au manioc, chips au manioc à la crevette, chips au manioc aux crevettes, Chips cocktail de crevettes, Chips de crevette
+hr: Krekeri od kozica, Koktel čips od kozica
+lt: Krevečių kokteilių traškučiai, krevečių krekeriai
+nl: Garnalenkroepoek, Garnalenchips
 agribalyse_proxy_food_code:en: 38104
 agribalyse_proxy_food_name:en: Prawn crackers
 agribalyse_proxy_food_name:fr: Chips de crevette
@@ -53315,7 +53312,11 @@ agribalyse_proxy_food_code:en: 12315
 agribalyse_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, in a tub
 ciqual_proxy_food_code:en: 12315
 ciqual_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, in a tub
+# We want cheese spreads in the cheese food group, so we put an association directly here
+# as it is child of both en:salted-spreads (linked to the en:salty-and-fatty-products food group) and en:cheese
+food_groups:en: en:cheese
 intake24_category_code:en: SPRD
+pnns_group_2:en: Cheese
 
 < en:Cheese spreads
 en: Uncured soft cheese spreadable with around 25% fat
@@ -55502,6 +55503,11 @@ agribalyse_food_code:en: 23589
 ciqual_food_code:en: 23589
 ciqual_food_name:en: Fresh cream cheese cake
 ciqual_food_name:fr: Gâteau au fromage blanc
+
+< en:Non-dairy desserts
+< en:Pastries
+en: Vegan tiramisu
+Fr: Tiramisu vegan
 
 < en:Pastries
 en: Tiramisu
@@ -59592,9 +59598,11 @@ agribalyse_proxy_food_code:en: 16737
 ciqual_proxy_food_code:en: 16737
 ciqual_proxy_food_name:en: Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3
 ciqual_proxy_food_name:fr: Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3
-intake24_category_code:en: MRGN
-wikidata:en: Q4287
 # median fat for margarines in France is 58%
+food_groups:en: en:vegetable-margarines
+intake24_category_code:en: MRGN
+pnns_group_2:en: Fats
+wikidata:en: Q4287
 
 < en:Margarines
 en: Margarine (Perishable)
@@ -75631,7 +75639,7 @@ ciqual_food_name:fr: Quatre épices
 en: Sauces
 bg: Сосове
 ca: Salses
-da: Saucer
+da: Sovse, Sovser, Saucer, Sovs, Sauce
 de: Saucen, Soßen
 es: Salsas
 et: Kasten, kaste
@@ -75649,7 +75657,7 @@ pl: Sosy
 pt: Molhos
 ro: sosuri
 ru: Соусы, Соус
-sv: Såser, sås
+sv: Såser, Sås
 th: กลุ่มผลิตภัณฑ์ไส้กรอก
 tr: Sos
 zh: 酱汁
@@ -75682,6 +75690,7 @@ default_nutrition_prepared_per:en: 100ml
 < en:Sauces
 en: Vegetarian sauces
 bg: Вегетариански сосове
+da: Vegetariske sovse, Vegetariske sovser, Vegetariske saucer
 fr: Sauces végétariennes
 hr: Vegetarijanski umaci
 lt: Vegetariški padažai
@@ -75711,12 +75720,20 @@ gpc_category_name:en: Sauces - Cooking (Shelf Stable)
 
 < en:Pasta sauces
 < en:Vegetarian sauces
-en: Bolognese-style vegetarian sauces
+en: Bolognese-style vegetarian sauces, Vegetarian bolognese sauces
 bg: Вегетариански сос болонезе
+da: Vegetariske bolognesesaucer
 fr: Sauces végétariennes façon bolognese
 hr: Vegetarijanski umaci na bolonjski način
 lt: Bolonijos stiliaus vegetariški padažai
+sv: Vegetarianska bolognesesåser
 agribalyse_food_code:en: 11219
+
+< en:Bolognese-style vegetarian sauces
+< en:Vegan sauces
+en: Bolognese-style vegan sauces, Vegan bolognese sauces
+da: Veganske bolognesesaucer
+sv: Veganska bolognesesåser
 
 < en:Pasta sauces
 < en:Vegetarian sauces
@@ -75728,6 +75745,7 @@ lt: Carbonara stiliaus vegetariški padažai
 < en:Vegetarian sauces
 en: Vegan sauces
 bg: Веган сосове
+da: Veganske sovse, Veganske saucer
 fr: Sauces véganes
 hr: Veganski umaci
 lt: Veganiški padažai
@@ -80303,7 +80321,6 @@ ciqual_food_code:en: 25188
 ciqual_food_name:en: Risotto, w seafood
 ciqual_food_name:fr: Risotto, aux fruits de mer
 
-
 < en:Risotto with seafood
 en: Crab risottos
 fr: Risottos au crabe
@@ -80311,6 +80328,7 @@ agribalyse_proxy_food_code:en: 25188
 agribalyse_proxy_food_name:en: Risotto, w seafood
 agribalyse_proxy_food_name:fr: Risotto, aux fruits de mer
 
+< en:Meals with shrimps
 < en:Risotto with seafood
 en: Shrimp risottos
 fr: Risottos aux crevettes
@@ -80583,14 +80601,6 @@ hr: Jela sa škampima
 lt: Patiekalai su krevetėmis
 nl: Schaaldiermaaltijd, Schaaldiermaaltijden
 #wikidata:en:
-
-< en:Meals with shrimps
-en: Shrimp fritters
-fr: Beignet de crevette, Beignets de crevette
-agribalyse_food_code:en: 10023
-ciqual_food_code:en: 10023
-ciqual_food_name:en: Shrimp fritters
-ciqual_food_name:fr: Beignet de crevette
 
 < en:Meals
 en: Meals with fish, fish dishes
@@ -90902,6 +90912,8 @@ fr: Rillettes de viande
 hr: Meso u loncima
 it: Cibi in vasetto
 nl: Potjesvlezen, Potjesvlees
+food_groups:en: en:processed-meat
+pnns_group_2:en: Processed meat
 
 < en:Potted meats
 en: white meat rillettes
@@ -91084,6 +91096,8 @@ agribalyse_food_code:en: 8080
 ciqual_food_code:en: 8080
 ciqual_food_name:en: Rillette, fish
 ciqual_food_name:fr: Rillettes de poisson
+food_groups:en: en:fish-and-seafood
+pnns_group_2:en: Fish and seafood
 
 < en:Fish rillettes
 #en:Shad rillettes
@@ -100892,6 +100906,19 @@ fr: Écrevisse surgelée
 en: Frozen cooked crayfish
 fr: Écrevisse cuite surgelée
 
+< en:Seafood
+en: Shrimp preparations
+fr: Préparations aux crevettes
+
+< en:Appetizers
+< en:Shrimp preparations
+en: Shrimp fritters
+fr: Beignet de crevette, Beignets de crevette
+agribalyse_food_code:en: 10023
+ciqual_food_code:en: 10023
+ciqual_food_name:en: Shrimp fritters
+ciqual_food_name:fr: Beignet de crevette
+
 < en:Crustaceans
 en: Shrimps
 bg: Скариди
@@ -104342,6 +104369,8 @@ agribalyse_food_code:en: 8293
 ciqual_food_code:en: 8293
 ciqual_food_name:en: Taramasalata, prepacked
 ciqual_food_name:fr: Tarama, préemballé
+food_groups:en: en:fish-and-seafood
+pnns_group_2:en: Fish and seafood
 wikidata:en: Q1246721
 
 < en:Taramasalata
