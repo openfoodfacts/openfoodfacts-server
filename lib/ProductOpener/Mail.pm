@@ -163,7 +163,9 @@ sub send_email ($user_ref, $subject, $text) {
 
 	$text =~ s/<NAME>/$name/g;
 	my $mail
-		= Email::Stuffer->from($options{site_name} . " <$contact_email>")->to($name . " <$email>")->subject($subject)
+		= Email::Stuffer->from($options{site_name} . " <$contact_email>")
+		->to($name . " <$email>")
+		->subject($subject)
 		->text_body($text);
 	return _send_email($mail);
 }
@@ -197,7 +199,9 @@ sub send_html_email ($user_ref, $subject, $html_content) {
 	my $name = $user_ref->{name};
 
 	my $mail
-		= Email::Stuffer->from($options{site_name} . " <$contact_email>")->to($name . " <$email>")->subject($subject)
+		= Email::Stuffer->from($options{site_name} . " <$contact_email>")
+		->to($name . " <$email>")
+		->subject($subject)
 		->html_body($html_content);
 	return _send_email($mail);
 }
@@ -260,8 +264,10 @@ On the other hand, if there was no error, it returns 0 indicating that the email
 
 sub send_email_to_admin ($subject, $text) {
 	my $mail
-		= Email::Stuffer->from($options{site_name} . " <$contact_email>")->to($options{site_name} . " <$admin_email>")
-		->subject($subject)->text_body($text);
+		= Email::Stuffer->from($options{site_name} . " <$contact_email>")
+		->to($options{site_name} . " <$admin_email>")
+		->subject($subject)
+		->text_body($text);
 
 	return _send_email($mail);
 }
@@ -288,7 +294,10 @@ On the other hand, if there was no error, it returns 1 indicating that email has
 sub send_email_to_producers_admin ($subject, $text) {
 	my $mail
 		= Email::Stuffer->from($options{site_name} . " <$contact_email>")
-		->to($options{site_name} . " <$producers_email>")->subject($subject)->text_body($text)->html_body($text);
+		->to($options{site_name} . " <$producers_email>")
+		->subject($subject)
+		->text_body($text)
+		->html_body($text);
 
 	return _send_email($mail);
 }
