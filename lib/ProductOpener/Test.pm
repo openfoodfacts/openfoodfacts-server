@@ -968,6 +968,13 @@ sub normalize_html_for_test_comparison ($html_ref) {
 	# normalize URLs be removing scheme to avoid false positive alerts on security
 	$$html_ref =~ s/https?:\/\//\/\//g;
 
+	# Normalize DOCTYPE to avoid differences in case Apache version changes
+	$$html_ref =~ s/<!DOCTYPE [^>]+>/<!DOCTYPE --ignore-->/g;
+
+	# Normalize Apache version in error pages
+	# <address>Apache/2.4.66 (Debian) Server at world.openfoodfacts.localhost Port 80</address>
+	$$html_ref =~ s/<address>Apache\/[^\s]+ /<address>Apache\/--ignore-- /g;
+
 	return;
 }
 
