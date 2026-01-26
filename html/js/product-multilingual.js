@@ -1121,13 +1121,14 @@ function show_warning(should_show, nutrient_id, warning_message){
     }
 }
 
-function check_nutrient(nutrient_id) {
+function check_nutrient(nutrient_id, per) {
     // check the changed nutrient value
     const nutrient_value = $('#nutriment_' + nutrient_id).val().replace(',','.').replace(/^(<|>|~)/, '');
     const nutrient_unit = $('#nutriment_' + nutrient_id + '_unit').val();
 
     // define the max valid value
     let max;
+    let per_serving = (per === "serving");  // true if "serving", false if "100g"
     let percent;
 
     if (nutrient_id == 'energy-kj') {
@@ -1154,7 +1155,7 @@ function check_nutrient(nutrient_id) {
     if (max) {
         is_above_or_below_max = (isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
         // if the nutrition facts are indicated per serving, the value can be above 100
-        if ((nutrient_value > max) && ($('#nutrition_data_per_serving').is(':checked')) && !percent) {
+        if ((nutrient_value > max) && per_serving && !percent) {
             is_above_or_below_max = false;
         }
         show_warning(is_above_or_below_max, nutrient_id, lang().product_js_enter_value_between_0_and_max.replace('{max}', max));
@@ -1178,10 +1179,15 @@ function check_nutrient(nutrient_id) {
 }
 
 $(function () {
-    $('.nutriment_value_as_sold').each(function () {
-        const nutrient_id = this.id.replace('nutriment_', '');
+    $('.nutrient_value ').each(function () {
+        // looking at the template of nutrient inputs, their ids are
+        // nutrition_input_sets_[preparation]_[per]_nutrients_[nutrient nid]_value_string
+        const idParts = this.id.split('_');
+        const per = idParts[4];
+        const nutrient_id = idParts[6]; 
+
         this.oninput = function() {
-            check_nutrient(nutrient_id);
+            check_nutrient(nutrient_id, per);
         };
         check_nutrient(nutrient_id);
     });
