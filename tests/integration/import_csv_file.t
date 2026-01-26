@@ -59,7 +59,7 @@ my @tests = (
 	{
 		test_case => "new_nutrition",
 		csv_files => ["new_nutrition.csv"],
-	},	
+	},
 );
 
 # Testing import of a csv file

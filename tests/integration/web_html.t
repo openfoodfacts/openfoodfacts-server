@@ -597,7 +597,7 @@ my $tests_ref = [
 		test_case => 'world-search-histogram-nutrition-sugars',
 		path => '/cgi/search.pl?action=process&search_terms=apple&axis_x=sugars&graph_type=histogram&graph=1',
 		expected_type => 'html',
-	},	
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

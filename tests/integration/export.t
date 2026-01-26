@@ -156,6 +156,6 @@ close($exported_csv);
 
 ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file,
 	"${expected_result_dir}/export_more_fields",
-		$update_expected_results, "csv-export-more-fields");
+	$update_expected_results, "csv-export-more-fields");
 
 done_testing();
