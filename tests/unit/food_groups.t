@@ -112,13 +112,91 @@ my @tests = (
 		},
 		['en:alcoholic-beverages']
 	],
+	# Cheese spreads: should be in cheese food group instead of salty and fatty products
+	[
+		{
+			"categories" => "cheese spreads",
+			"lc" => "en",
+		},
+		['en:milk-and-dairy-products', 'en:cheese']
+	],
+	# Margarines: should be in fats and oils food group instead of salty and fatty products
+	[
+		{
+			"categories" => "margarines",
+			"lc" => "en",
+		},
+		['en:fats-and-sauces', 'en:fats', 'en:vegetable-margarines']
+	],
+	# Rillettes (no precision): salty spreads
+	[
+		{
+			"categories" => "rillettes",
+			"lc" => "fr",
+		},
+		['en:salty-snacks', 'en:salty-and-fatty-products']
+	],
+	# Meat rillettes: processed meat
+	[
+		{
+			"categories" => "rillettes de canard",
+			"lc" => "fr",
+		},
+		['en:fish-meat-eggs', 'en:processed-meat']
+	],
+	# Fish rillettes: fish
+	[
+		{
+			"categories" => "rillettes de thon",
+			"lc" => "fr",
+		},
+		['en:fish-meat-eggs', 'en:fish-and-seafood']
+	],
+	# Teas, herbal teas, coffees: should go in teas and coffees, not unsweetened beverages
+	[
+		{
+			"categories" => "herbal teas",
+			"lc" => "en",
+		},
+		['en:beverages', 'en:teas-and-herbal-teas-and-coffees']
+	],
+	[
+		{
+			"categories" => "black teas",
+			"lc" => "en",
+		},
+		['en:beverages', 'en:teas-and-herbal-teas-and-coffees']
+	],
+	[
+		{
+			"categories" => "coffees",
+			"lc" => "en",
+		},
+		['en:beverages', 'en:teas-and-herbal-teas-and-coffees']
+	],
+	# Baby milks
+	[
+		{
+			"categories" => "baby milks",
+			"lc" => "en",
+		},
+		['en:baby-foods-and-milks', 'en:baby-milks']
+	],
+	# Baby foods other than milks
+	[
+		{
+			"categories" => "Baby dishes",
+			"lc" => "en",
+		},
+		['en:baby-foods-and-milks', 'en:baby-foods']
+	],
 );
 
 foreach my $test_ref (@tests) {
 
 	my $product_ref = $test_ref->[0];
 
-	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
+	compute_field_tags($product_ref, $product_ref->{lc} // "en", "categories");
 
 	specific_processes_for_food_product($product_ref);
 
