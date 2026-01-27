@@ -6,7 +6,7 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 use Log::Any qw($log);
 
-use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
+use ProductOpener::APITest qw/create_user_in_keycloak execute_api_tests new_client wait_application_ready/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_user_form/;
 use ProductOpener::Auth qw/get_token_using_password_credentials/;
@@ -19,10 +19,8 @@ wait_application_ready(__FILE__);
 remove_all_products();
 remove_all_users();
 
-my $ua = new_client();
-
 my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
-create_user($ua, \%create_user_args);
+create_user_in_keycloak(\%create_user_args);
 
 my $token = get_token_using_password_credentials('tests', 'testtest')->{access_token};
 $log->debug('test token', {token => $token}) if $log->is_debug();
