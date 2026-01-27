@@ -194,7 +194,6 @@ my $tests_ref = [
 		path => '/cgi/search.pl?action=process&json=1&sugars_100g=>15',
 		expected_status_code => 200,
 	},
-
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

@@ -490,7 +490,6 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3.5/product/2234567890001',
 	},
-
 ];
 
 execute_api_tests(__FILE__, $tests_ref, undef, 0);
