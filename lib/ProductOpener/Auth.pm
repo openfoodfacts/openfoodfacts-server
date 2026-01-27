@@ -200,7 +200,7 @@ sub signin_callback ($request_ref) {
 	my $user_ref = retrieve_user_using_token($id_token, $request_ref);
 	unless (defined $user_ref) {
 		$log->info('User not found and not created') if $log->is_info();
-		display_error_and_exit($request_ref, 'Forbidden.', 403);
+		display_error_and_exit($request_ref, 'Authentication error', 401);
 	}
 	my $user_id = $user_ref->{userid};
 

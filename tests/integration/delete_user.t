@@ -92,7 +92,7 @@ else {
 
 #user can't access their preference page anymore
 my $response_preferences = $ua->get($url_userid);
-like($response_preferences->content, qr/Forbidden\./, "user can no longer access their preferences");
+like($response_preferences->content, qr/Authentication error/, "user can no longer access their preferences");
 
 #admin ua checking if the account is well deleted
 my $response_userid = $admin->get($url_userid);
