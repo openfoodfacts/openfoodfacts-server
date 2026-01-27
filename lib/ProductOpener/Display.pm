@@ -6240,7 +6240,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 		# create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
-		$series{$seriesid} .= JSON::MaybeXS->new->encode(\%data) . ',';
+		$series{$seriesid} .= JSON::MaybeXS->new->encode->canonical(\%data) . ',';
 		# count entries / series
 		defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 		$series_n{$seriesid}++;
