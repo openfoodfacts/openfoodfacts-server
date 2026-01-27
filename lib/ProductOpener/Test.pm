@@ -176,6 +176,10 @@ TXT
 
 	my $update_expected_results;
 
+	# Some tests may call init_expected_results() multiple times (as it's also called in execute_api_tests()),
+	# so we make a local copy of @ARGV as GetOptions consumes it
+	# otherwise $update_expected_results would not be set on subsequent calls
+	local (@ARGV) = @ARGV;
 	GetOptions("update-expected-results" => \$update_expected_results)
 		or confess("Error in command line arguments.\n\n" . $usage);
 
