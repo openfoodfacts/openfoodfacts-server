@@ -225,7 +225,6 @@ my $tests_ref = [
 		expected_status_code => 403,
 		expected_type => "html",
 	},
-
 	# Nutrition facts using old nutriments structure
 	# This is to ensure backward compatibility once we migrate to the new nutrition structure
 	{
@@ -257,7 +256,6 @@ my $tests_ref = [
 		path => '/api/v2/product/200000000035',
 		expected_status_code => 200,
 	},
-
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

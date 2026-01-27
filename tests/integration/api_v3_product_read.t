@@ -28,11 +28,6 @@ my @products = (
 		%{dclone(\%default_product_form)},
 		(
 			code => '4260392550101',
-			product_name => "Some product",
-			generic_name => "Tester",
-			ingredients_text => "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
-			categories => "cookies",
-			labels => "organic",
 			origin => "france",
 			packaging_text_en =>
 				"1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
