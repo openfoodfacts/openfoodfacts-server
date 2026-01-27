@@ -82,6 +82,7 @@ if (get_oidc_implementation_level() < 5) {
 }
 else {
 	#deleting the account
+	# TODO: This should us the Keycloak API
 	my $job_result;
 	my $mocked_job = mock 'Minion::Job' => (
 		override => [
@@ -95,15 +96,9 @@ else {
 	is($job_result, 'done', 'delete_user finished without errors');
 }
 
-#user sign out of its account
-my %signout_form = (
-	length => "logout",
-	".submit" => "Sign out"
-);
-my $url_signout = construct_test_url("/cgi/session.pl", "world");
-my $response_signout = $ua->post($url_signout, \%signout_form);
-
-like($response_signout->content, qr/See you soon\!/, "the user signed out");
+#user can't access their preference page anymore
+my $response_preferences = $ua->get($url_userid);
+like($response_preferences->content, qr/Authentication error/, "user can no longer access their preferences");
 
 #admin ua checking if the account is well deleted
 my $response_userid = $admin->get($url_userid);
@@ -127,6 +122,8 @@ my %login_form = (
 	password => "testtest",
 	submit => "Sign in"
 );
+# Create a new ua that doesn't contain the access_token
+$ua = new_client();
 my $response_login = $ua->post($url_login, \%login_form);
 like(
 	$response_login->content,
