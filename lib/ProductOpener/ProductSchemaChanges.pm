@@ -593,18 +593,17 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 			# If the source is not estimated, or if it is added-sugar or fruits-vegetables-nuts or fruits-vegetables-legumes
 			# we set the nutrient in the nutriments field
 			if (   ($source ne "estimate")
-				or ($nutrient eq "added-sugars")
-				or ($nutrient eq "fruits-vegetables-nuts")
-				or ($nutrient eq "fruits-vegetables-legumes"))
+				or ($nutrient eq "added-sugars"))
 			{
 
-				# for backward compatibility, we add 4 fields per nutrient:
-				# - nutrient (e.g. fat) : this is the input value by the user, apps are not supposed to use it, but we were sending it back before
-				# here we set it to the value in the normalized unit (even if the user had input it in a different unit)
-				# - nutrient_100g  (e.g. fat_100g) : this is the value in the normalized unit
-				# - nutrient_unit          (e.g. fat_unit) : this is the unit for the input nutrient value
-				# here we use the aggregate set which has the normalized unit, it is the normal unit
-				# - nutrient_prepared_modifier (e.g. fat__modifier)
+				# for backward compatibility, we add those fields for each nutrient:
+
+				# _value: What was entered  --> we set it to the value in the normalized unit from the aggregated set
+				# _unit: Unit of what was entered --> we set it to the normalized unit in the aggregated set
+				# _100g: Amount per 100g in original unit --> we set it to the value in the normalized unit from the aggregated set
+				# _serving: Amount per serving normalised unit --> we compute it if we have serving quantity
+				# no suffix: What was entered in normalised unit --> we set it to the value in the normalized unit from the aggregated set
+				# _modifier: modifier for what was entered
 				$nutriments_ref->{$nutrient . $preparation_state . $per}
 					= $nutrient_set_ref->{nutrients}{$nutrient}{value};
 				$nutriments_ref->{$nutrient . $preparation_state} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
@@ -613,6 +612,13 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 					$nutriments_ref->{$nutrient . $preparation_state . "_modifier"}
 						= $nutrient_set_ref->{nutrients}{$nutrient}{modifier};
 				}
+			}
+			elsif (
+				($nutrient eq "fruits-vegetables-nuts")
+				or ($nutrient eq "fruits-vegetables-legumes")) {
+				# we add -from-ingredients to the nutrient name
+				$nutriments_ref->{$nutrient . "-from-ingredients" . $preparation_state . $per}
+					= $nutrient_set_ref->{nutrients}{$nutrient}{value};
 			}
 			else {
 				# nutrient is estimated
@@ -642,6 +648,179 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 		if ($delete_nutrition_data) {
 			delete $product_ref->{nutrition};
 		}
+	}
+
+	return;
+}
+
+=head2 _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($product_ref)
+
+NOTE: this function used to be in Food.pm and it was used for the old nutrition data schema in the "nutriments" field.
+
+It has been moved to this module as it is now needed only for schema downgrades.
+
+--
+
+Input nutrition data is indicated per 100g or per serving.
+This function computes the nutrition data for the other quantity (per serving or per 100g) if we know the serving quantity.
+
+=cut
+
+sub _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($product_ref) {
+
+	# Make sure we have normalized the product quantity and the serving size
+	# in a normal setting, this function has already been called by analyze_and_enrich_product_data()
+	# but some test functions (e.g. in food.t) may call this function directly
+	normalize_product_quantity_and_serving_size($product_ref);
+
+	# Record if we have nutrient values for as sold or prepared types,
+	# so that we can check the nutrition_data and nutrition_data_prepared boxes if we have data
+	my %nutrition_data = ();
+	my $serving_quantity = $product_ref->{serving_quantity};
+
+	foreach my $product_type ("", "_prepared") {
+
+		# Energy
+		# Before November 2019, we only had one energy field with an input value in kJ or in kcal, and internally it was converted to kJ
+		# In Europe, the energy is indicated in both kJ and kcal, but there isn't a straightforward conversion between the 2: the energy is computed
+		# by summing some nutrients multiplied by an energy factor. That means we need to store both the kJ and kcal values.
+		# see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396
+
+		# If we have a value for energy-kj, use it for energy
+		if (defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_value"}) {
+			if (not defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"}) {
+				$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"} = "kJ";
+			}
+			assign_nid_modifier_value_and_unit(
+				$product_ref,
+				"energy" . $product_type,
+				$product_ref->{nutriments}{"energy-kj" . $product_type . "_modifier"},
+				$product_ref->{nutriments}{"energy-kj" . $product_type . "_value"},
+				$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"}
+			);
+		}
+		# Otherwise use the energy-kcal value for energy
+		elsif (defined $product_ref->{nutriments}{"energy-kcal" . $product_type}) {
+			if (not defined $product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}) {
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"} = "kcal";
+			}
+			assign_nid_modifier_value_and_unit(
+				$product_ref,
+				"energy" . $product_type,
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
+				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}
+			);
+		}
+		# Otherwise, if we have a value and a unit for the energy field, copy it to either energy-kj or energy-kcal
+		elsif ( (defined $product_ref->{nutriments}{"energy" . $product_type . "_value"})
+			and (defined $product_ref->{nutriments}{"energy" . $product_type . "_unit"}))
+		{
+
+			my $unit = lc($product_ref->{nutriments}{"energy" . $product_type . "_unit"});
+
+			assign_nid_modifier_value_and_unit(
+				$product_ref,
+				"energy-$unit" . $product_type,
+				$product_ref->{nutriments}{"energy" . $product_type . "_modifier"},
+				$product_ref->{nutriments}{"energy" . $product_type . "_value"},
+				$product_ref->{nutriments}{"energy" . $product_type . "_unit"}
+			);
+		}
+
+		if (not defined $product_ref->{"nutrition_data" . $product_type . "_per"}) {
+			$product_ref->{"nutrition_data" . $product_type . "_per"} = '100g';
+		}
+
+		if ($product_ref->{"nutrition_data" . $product_type . "_per"} eq 'serving') {
+
+			foreach my $nid (keys %{$product_ref->{nutriments}}) {
+				if (   ($product_type eq "") and ($nid =~ /_/)
+					or (($product_type eq "_prepared") and ($nid !~ /_prepared$/)))
+				{
+
+					next;
+				}
+				$nid =~ s/_prepared$//;
+
+				my $value = $product_ref->{nutriments}{$nid . $product_type};
+				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $value;
+				$product_ref->{nutriments}{$nid . $product_type . "_serving"}
+					=~ s/^(<|environ|max|maximum|min|minimum)( )?//;
+				$product_ref->{nutriments}{$nid . $product_type . "_serving"} += 0.0;
+				delete $product_ref->{nutriments}{$nid . $product_type . "_100g"};
+
+				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
+					;    # $unit will be undef if the nutrient is not in the taxonomy
+
+				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
+				# otherwise we adjust the value for 100g
+				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
+					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $value + 0.0;
+				}
+				# Don't adjust the value for 100g if the serving quantity is 5 or less
+				elsif ((defined $serving_quantity) and ($serving_quantity > 5)) {
+					$product_ref->{nutriments}{$nid . $product_type . "_100g"}
+						= sprintf("%.2e", $value * 100.0 / $product_ref->{serving_quantity}) + 0.0;
+				}
+				# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+				$nutrition_data{$product_type} = 1;
+			}
+		}
+		# nutrition_data_<_/prepared>_per eq '100g' or '1kg'
+		else {
+			foreach my $nid (keys %{$product_ref->{nutriments}}) {
+				if (   ($product_type eq "") and ($nid =~ /_/)
+					or (($product_type eq "_prepared") and ($nid !~ /_prepared$/)))
+				{
+
+					next;
+				}
+				$nid =~ s/_prepared$//;
+
+				# Value for 100g is the same as value shown in the nutrition table
+				$product_ref->{nutriments}{$nid . $product_type . "_100g"}
+					= $product_ref->{nutriments}{$nid . $product_type};
+				# get rid of non-digit prefixes if any
+				$product_ref->{nutriments}{$nid . $product_type . "_100g"}
+					=~ s/^(<|environ|max|maximum|min|minimum)( )?//;
+				# set value as numeric
+				$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
+				delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
+
+				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
+					;    # $unit will be undef if the nutrient is not in the taxonomy
+
+				# petfood, Value for 100g is 10x smaller than in the nutrition table (kg)
+				if (    (defined $product_ref->{product_type})
+					and ($product_ref->{product_type} eq "petfood")
+					and (defined $unit)
+					and ($unit ne "%"))
+				{
+					$product_ref->{nutriments}{$nid . $product_type . "_100g"} /= 10;
+				}
+
+				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
+				# otherwise we adjust the value for the serving quantity
+				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
+					$product_ref->{nutriments}{$nid . $product_type . "_serving"}
+						= $product_ref->{nutriments}{$nid . $product_type} + 0.0;
+				}
+				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
+
+					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = sprintf("%.2e",
+						$product_ref->{nutriments}{$nid . $product_type} / 100.0 * $product_ref->{serving_quantity})
+						+ 0.0;
+				}
+				# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+				$nutrition_data{$product_type} = 1;
+			}
+		}
+	}
+
+	# If we have nutrient data for as sold or prepared, make sure the checkbox are ticked
+	foreach my $product_type (sort keys %nutrition_data) {
+		$product_ref->{"nutrition_data" . $product_type} = 'on';
 	}
 
 	return;
