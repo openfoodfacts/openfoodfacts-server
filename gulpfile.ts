@@ -20,6 +20,7 @@ const jsSrc = [
   "./html/js/stikelem.js",
   "./html/js/scrollNav.js",
   "./html/js/barcode-scanner*.js",
+  "./html/js/rewind-browser.js",
   "./html/js/external-knowledge-panels.js",
 ];
 
@@ -31,9 +32,8 @@ const jsLibSrc = [
   "./node_modules/foundation-sites/js/vendor/*.js",
   "./node_modules/foundation-sites/js/foundation.js",
   "./node_modules/papaparse/papaparse.js",
-  "./node_modules/osmtogeojson/osmtogeojson.js",
-  "./node_modules/leaflet/dist/leaflet.js",
-  "./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js",
+  "./node_modules/leaflet/dist/leaflet-src.js",
+  "./node_modules/@kristjan.esperanto/leaflet.markercluster/dist/leaflet.markercluster.js",
   "./node_modules/blueimp-tmpl/js/tmpl.js",
   "./node_modules/blueimp-load-image/js/load-image.all.min.js",
   "./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js",
@@ -194,8 +194,8 @@ function jQueryUiThemes() {
 function copyCss() {
   const processed = src([
     "./node_modules/leaflet/dist/leaflet.css",
-    "./node_modules/leaflet.markercluster/dist/MarkerCluster.css",
-    "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
+    "./node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.css",
+    "./node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.Default.css",
     "./node_modules/@yaireo/tagify/dist/tagify.css",
     "./node_modules/cropperjs/dist/cropper.css",
     "./node_modules/select2/dist/css/select2.min.css",

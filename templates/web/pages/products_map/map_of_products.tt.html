@@ -1,11 +1,8 @@
 <!-- start templates/[% template.name %] -->
 
 <link rel="stylesheet" href="[% static_subdomain %]/css/dist/leaflet.css">
-<script src="[% static_subdomain %]/js/dist/leaflet.js"></script>
 <link rel="stylesheet" href="[% static_subdomain %]/css/dist/MarkerCluster.css">
 <link rel="stylesheet" href="[% static_subdomain %]/css/dist/MarkerCluster.Default.css">
-<script src="[% static_subdomain %]/js/dist/leaflet.markercluster.js"></script>
-<script src="[% static_subdomain %]/js/dist/display-map.js"></script>
 
 <p class="content">[% title %]</p>
 <div id="container" style="height: 600px"></div>
@@ -15,7 +12,8 @@
 <p>&rarr; <a href="[% current_link_query %]">[% edq(lang('search_map_link')) %]</a></p>
 [% END %]
 
-<script>
+<script type="module">
+  import { displayMap } from '[% static_subdomain %]/js/dist/display-map.js';
   displayMap('container', [% encode_json(pointers) %]);
 </script>
 
