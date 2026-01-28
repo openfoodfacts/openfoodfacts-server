@@ -450,152 +450,304 @@
 									&rarr; <a href="/cgi/search.pl?action=display&search_terms=apple&sort_by=unique_scans_n&page_size=50&axis_x=sugars&axis_y=fat&graph=1&action=display">Change search criteria</a><br><p>5 products match the search criteria, of which 5 products have defined values for the graph's axis.</p>
 <div id="container" style="height: 400px"></div>
 
-<!-- start templates/web/pages/product/includes/nutrition_facts_table.tt.html -->
-
-<!-- Nutrition facts table -->
 
 
-<!--  Stats for categories -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: nutrition_facts_table -->
 
+	<ul data-accordion class="panel_accordion accordion" id="panel_nutrition_facts_table"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+<li class="accordion-navigation">
 
-<table id="nutrition_data_table" class="data_table">
-<caption style="display:none">Nutrition facts</caption>
+    
+        <a href="#panel_nutrition_facts_table_content" class="panel_title"
+            
+        >
+            
+            <img src="//static.openfoodfacts.localhost/images/icons/dist/scale-balance.svg"
+                style="height:72px;float:left;margin-right:1rem;"
+                alt="icon"
+                
+                        class="filter-grey"
+                
+            >
+            
+            <h4 
+                class="evaluation_unknown_title"
+                
+            >
+                
+                
+                    Nutrition facts
+                
+            </h4>
+            
+            <hr class="floatclear">
+        </a>
+    
 
-	<!--  Generating table header -->
-	<thead class="nutriment_header">
-		<tr>
-			<th scope="col">Nutrition facts</th>
-			
-				<th class="nutriment_value " scope="col">As sold<br>for 100 g / 100 ml</th>
-			
-				<th class="nutriment_value stats" scope="col">Standard deviation</th>
-			
-				<th class="nutriment_value stats" scope="col">Minimum</th>
-			
-				<th class="nutriment_value stats" scope="col">10th centile</th>
-			
-				<th class="nutriment_value stats" scope="col">Median</th>
-			
-				<th class="nutriment_value stats" scope="col">90th centile</th>
-			
-				<th class="nutriment_value stats" scope="col">Maximum</th>
-			
-		</tr>
-	</thead>
+	   	 <div
+	   	    id="panel_nutrition_facts_table_content"
+	   	    class="content panel_content active expand-for-large"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+    <table aria-label="Nutrition facts">
+        <thead>
+            <tr>
+                
+                <th scope="col" style="max-width:15rem">
+                    Nutrition facts
+                </th>
+                
+                <th scope="col">
+                    Mean
+                </th>
+                
+                <th scope="col">
+                    Standard deviation
+                </th>
+                
+                <th scope="col">
+                    Minimum
+                </th>
+                
+                <th scope="col">
+                    10th centile
+                </th>
+                
+                <th scope="col">
+                    Median
+                </th>
+                
+                <th scope="col">
+                    90th centile
+                </th>
+                
+                <th scope="col">
+                    Maximum
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
 
-	<tbody>
-		<!--  Generating table body -->
-		
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Fat
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
 
-			<tr id="nutriment_fat_tr" class="nutriment_main">
-				<td class="nutriment_label">
-					Fat
-				</td>
+     
+         <span
+         
+         >
+            5.5 g
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
 
-				
-					
-						<td class="nutriment_value " property="food:fatPer100g" content="5.5">
-							5.5 g
-						</td>
-					
-				
-					
-						<td class="nutriment_value stats">
-							5.55 g
-						</td>
-					
-				
-					
-						<td class="nutriment_value stats">
-							0 g
-						</td>
-					
-				
-					
-						<td class="nutriment_value stats">
-							0 g
-						</td>
-					
-				
-					
-						<td class="nutriment_value stats">
-							10 g
-						</td>
-					
-				
-					
-						<td class="nutriment_value stats">
-							12 g
-						</td>
-					
-				
-					
-						<td class="nutriment_value stats">
-							12 g
-						</td>
-					
-				
-			</tr>
+     
+         <span
+         
+         >
+            5.55 g
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
 
-		
+     
+         <span
+         
+         >
+            10 g
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
 
-			<tr id="nutriment_sugars_tr" class="nutriment_sub">
-				<td class="nutriment_label">
-					Sugars
-				</td>
+     
+         <span
+         
+         >
+            10 g
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
 
-				
-					
-						<td class="nutriment_value " property="food:sugarsPer100g" content="16.8">
-							16.8 g
-						</td>
-					
-				
-					
-						<td class="nutriment_value stats">
-							6.06 g
-						</td>
-					
-				
-					
-						<td class="nutriment_value stats">
-							10 g
-						</td>
-					
-				
-					
-						<td class="nutriment_value stats">
-							10 g
-						</td>
-					
-				
-					
-						<td class="nutriment_value stats">
-							20 g
-						</td>
-					
-				
-					
-						<td class="nutriment_value stats">
-							25 g
-						</td>
-					
-				
-					
-						<td class="nutriment_value stats">
-							25 g
-						</td>
-					
-				
-			</tr>
+     
+         <span
+         
+         >
+            0 g
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
 
-		
-	</tbody>
+     
+         <span
+         
+         >
+            12 g
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
 
-</table>
+     
+         <span
+         
+         >
+            12 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
 
-<!-- end templates/web/pages/product/includes/nutrition_facts_table.tt.html -->
-<p>&nbsp;</p>&rarr; <a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50&axis_x=sugars&axis_y=fat&graph=1">Permanent link to this graph, shareable by e-mail and on social networks</a><br><p>Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph.</p><p>→ learn more about Open Food Facts graphs: <a href="/graphs-in-3-clicks">Graphs in 3 clicks</a> (blog).</p><div class="share_button right" style="float:right;margin-top:-10px;display:none;">
+     
+         <span
+         
+             style="padding-left: 1rem;"
+         
+         >
+            Sugars
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            16.75 g
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            6.06 g
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            20 g
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            20 g
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            10 g
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            25 g
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            25 g
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+        </tbody>
+    </table>
+    </div>
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: nutrition_facts_table --> &rarr; <a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50&axis_x=sugars&axis_y=fat&graph=1">Permanent link to this graph, shareable by e-mail and on social networks</a><br><p>Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph.</p><p>→ learn more about Open Food Facts graphs: <a href="/graphs-in-3-clicks">Graphs in 3 clicks</a> (blog).</p><div class="share_button right" style="float:right;margin-top:-10px;display:none;">
 <a href="/cgi/search.pl?action=display&search_terms=apple&sort_by=unique_scans_n&page_size=50&axis_x=sugars&axis_y=fat&graph=1&amp;action=display" class="button small" title="Results graph">
 	<?xml version="1.0" standalone="no"?><svg xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink" viewBox="0 0 1000 1000" class="icon" aria-hidden="true" focusable="false"><metadata>IcoFont Icons</metadata><title>share</title><glyph glyph-name="share" unicode="î¿¥" horiz-adv-x="1000"/><path d="M752 598.7c-58.200000000000045 0-109.60000000000002 29.59999999999991-140.20000000000005 74.39999999999998l-214.29999999999995-118.80000000000007c12.399999999999977-23.5 19.5-50.19999999999993 19.5-78.69999999999993 0-27.700000000000045-6.800000000000011-53.60000000000002-18.600000000000023-76.70000000000005l162.70000000000005-70.79999999999995c30.600000000000023 44.099999999999966 81.60000000000002 73.09999999999997 139.19999999999993 73.09999999999997 93.5 0 169.4000000000001-76 169.4000000000001-169.39999999999998s-76-169.3-169.4000000000001-169.3-169.39999999999998 76-169.39999999999998 169.4c0 19.19999999999999 3.300000000000068 37.49999999999997 9.300000000000068 54.79999999999998l-169.00000000000006 73.5c-31-33.099999999999966-74.80000000000001-53.89999999999998-123.6-53.89999999999998-93.5 0-169.39999999999998 76-169.39999999999998 169.39999999999998-1.4210854715202004e-14 93.50000000000006 75.99999999999997 169.40000000000003 169.39999999999998 169.40000000000003 48.20000000000002 0 91.70000000000002-20.399999999999977 122.6-52.80000000000007l221.09999999999997 122.40000000000009c-5.599999999999909 16.799999999999955-8.799999999999955 34.69999999999993-8.799999999999955 53.299999999999955 0 93.5 76 169.39999999999998 169.39999999999998 169.39999999999998s169.39999999999998-76 169.39999999999998-169.39999999999998-75.79999999999995-169.29999999999995-169.29999999999995-169.29999999999995z"/></svg>
 	<span class="show-for-large-up"> Share</span>
@@ -828,8 +980,8 @@ $(function() {
                     return '<a href="' + this.point.url + '">' + this.point.product_name + '<br>'
 						+ this.point.img + '</a><br>'
 						+ 'for 100 g / 100 ml :'
-						+ '<br>Sugars: '+ this.x + ' Sugars'
-						+ '<br>Fat: ' + this.y + ' Fat';
+						+ '<br>Sugars: '+ this.x + ' g'
+						+ '<br>Fat: ' + this.y + ' g';
                 }
 			},
 

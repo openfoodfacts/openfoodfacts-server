@@ -103,7 +103,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:categories-completed\"> en:categories-completed <br><span class=\"description\">The product categories are fully completed.</span> </li> <li id=\"data-error-en:ingredients-completed-at-least-for-one-language\"> en:ingredients-completed-at-least-for-one-language <br><span class=\"description\">Ingredients is provided for at least one language.</span> </li> <li id=\"data-error-en:ingredients-en-completed\"> en:ingredients-en-completed <br><span class=\"description\">The ingredients list is fully completed.</span> </li> <li id=\"data-error-en:nutriments-completed\"> en:nutriments-completed <br><span class=\"description\">The nutrition facts are fully completed.</span> </li> <li id=\"data-error-en:packagings-completed\"> en:packagings-completed <br><span class=\"description\">The packaging information is fully completed.</span> </li> <li id=\"data-error-en:product-name-completed\"> en:product-name-completed <br><span class=\"description\">The product name is fully completed.</span> </li> <li id=\"data-error-en:quantity-completed\"> en:quantity-completed <br><span class=\"description\">The product quantity is fully completed.</span> </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:categories-completed\"> en:categories-completed <br><span class=\"description\">The product categories are fully completed.</span> </li> <li id=\"data-error-en:ingredients-completed-at-least-for-one-language\"> en:ingredients-completed-at-least-for-one-language <br><span class=\"description\">Ingredients is provided for at least one language.</span> </li> <li id=\"data-error-en:ingredients-en-completed\"> en:ingredients-en-completed <br><span class=\"description\">The ingredients list is fully completed.</span> </li> <li id=\"data-error-en:nutrition-completed\"> en:nutrition-completed <br><span class=\"description\">The nutrition facts are fully completed.</span> </li> <li id=\"data-error-en:packagings-completed\"> en:packagings-completed <br><span class=\"description\">The packaging information is fully completed.</span> </li> <li id=\"data-error-en:product-name-completed\"> en:product-name-completed <br><span class=\"description\">The product name is fully completed.</span> </li> <li id=\"data-error-en:quantity-completed\"> en:quantity-completed <br><span class=\"description\">The product quantity is fully completed.</span> </li> </ul>"
                   }
                }
             ],
@@ -125,17 +125,8 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:energy-value-in-kcal-does-not-match-value-in-kj\"> Energy value in kcal does not match value in kJ <br><span class=\"description\">The energy value in kJ must be about 4.2 times greater than the value in kcal</span> </li> <li id=\"data-error-en:nutrition-value-over-105-salt\"> Nutrition value over 105 - Salt <br><span class=\"description\">Salt value is over 105g per 100g,which is impossible.</span> </li> <li id=\"data-error-en:nutrition-value-total-over-105\"> Nutrition value total over 105 <br><span class=\"description\">The sum of nutrient values for 100 g or 100 ml is greater than 100 g. It is very likely that there is at least one value or unit error.</span> </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:nutrition-packaging-as-sold-100g-energy-value-in-kcal-does-not-match-value-in-kj\"> Nutrition-packaging-as-sold-100g-energy-value-in-kcal-does-not-match-value-in-kj </li> <li id=\"data-error-en:nutrition-packaging-as-sold-100g-value-over-105-salt\"> Nutrition-packaging-as-sold-100g-value-over-105-salt </li> <li id=\"data-error-en:nutrition-packaging-as-sold-100g-value-total-over-105\"> Nutrition-packaging-as-sold-100g-value-total-over-105 </li> </ul>"
                   }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "add_nutrition_facts"
-                     ],
-                     "html" : ""
-                  },
-                  "element_type" : "action"
                }
             ],
             "evaluation" : "bad",
@@ -200,6 +191,21 @@
                   "action_element" : {
                      "actions" : [
                         "add_ingredients_text"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj\"> Nutrition - Energy value in kcal does not match value in kJ <br><span class=\"description\">The energy value in kJ must be about 4.2 times greater than the value in kcal</span> </li> <li id=\"data-error-en:nutrition-value-over-105-salt\"> Nutrition value over 105 - Salt <br><span class=\"description\">Salt value is over 105g per 100g,which is impossible.</span> </li> <li id=\"data-error-en:nutrition-value-total-over-105\"> Nutrition value total over 105 <br><span class=\"description\">The sum of nutrient values for 100 g or 100 ml is greater than 100 g. It is very likely that there is at least one value or unit error.</span> </li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_nutrition_facts"
                      ],
                      "html" : ""
                   },
@@ -903,13 +909,6 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "As sold<br>per serving (10 g)",
-                           "text_for_small_screens" : "per serving",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -923,9 +922,6 @@
                               },
                               {
                                  "text" : "1,302 kj<br>(1302 kcal)"
-                              },
-                              {
-                                 "text" : "130 kj<br>(130 kcal)"
                               }
                            ]
                         },
@@ -937,10 +933,7 @@
                                  "text" : "Fat"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -952,10 +945,7 @@
                                  "text" : "Saturated fat"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -967,10 +957,7 @@
                                  "text" : "Carbohydrates"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -982,10 +969,19 @@
                                  "text" : "Sugars"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 2,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Added sugars"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "~ 0 g"
                               }
                            ]
                         },
@@ -997,10 +993,7 @@
                                  "text" : "Fiber"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -1012,10 +1005,7 @@
                                  "text" : "Proteins"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -1028,9 +1018,6 @@
                               },
                               {
                                  "text" : "120 g"
-                              },
-                              {
-                                 "text" : "12 g"
                               }
                            ]
                         },
@@ -1039,13 +1026,34 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+                                 "text" : "Sodium"
                               },
                               {
-                                 "text" : "0 %"
+                                 "text" : "48 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Alcohol"
                               },
                               {
-                                 "text" : "0 %"
+                                 "text" : "-"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils"
+                              },
+                              {
+                                 "text" : "~ 0 %"
                               }
                            ]
                         }

@@ -75,7 +75,7 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created ensure_dir_created_or_
 use ProductOpener::Store qw/get_string_id_for_lang retrieve store store_config retrieve_config/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/%cc_nutriment_table %nutriments_tables/;
+use ProductOpener::Food qw/%cc_nutriment_table %nutrients_tables/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Display qw/$nutriment_table/;
@@ -1705,12 +1705,12 @@ JSON
 		if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
 
 			# Go through the nutriment table
-			foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}) {
+			foreach my $nutriment (@{$nutrients_tables{$nutriment_table}}) {
 
 				next if $nutriment =~ /^\#/;
 				my $nid = $nutriment;
 
-				# %Food::nutriments_tables ids have an ending - for nutrients that are not displayed by default
+				# %Food::nutrients_tables ids have an ending - for nutrients that are not displayed by default
 				# Keep the % of fruits/vegetables/nuts in the main nutrition group
 
 				if (    ($nid =~ /-$/)

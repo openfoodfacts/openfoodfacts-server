@@ -52,7 +52,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:nutriments-to-be-completed\"> en:nutriments-to-be-completed <br><span class=\"description\">The nutrition facts need to be completed.</span> </li> <li id=\"data-error-en:nutrition-photo-to-be-selected\"> en:nutrition-photo-to-be-selected <br><span class=\"description\">A photo for the nutrition facts needs to be selected.</span> </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:nutrition-photo-to-be-selected\"> en:nutrition-photo-to-be-selected <br><span class=\"description\">A photo for the nutrition facts needs to be selected.</span> </li> <li id=\"data-error-en:nutrition-to-be-completed\"> en:nutrition-to-be-completed <br><span class=\"description\">The nutrition facts need to be completed.</span> </li> </ul>"
                   }
                },
                {
@@ -116,6 +116,21 @@
          },
          "data_quality_info" : {
             "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:no-nutrition-data\"> No nutrition data </li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_nutrition_facts"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
                {
                   "element_type" : "text",
                   "text_element" : {
@@ -819,13 +834,6 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "As sold<br>per serving (10 g)",
-                           "text_for_small_screens" : "per serving",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -838,10 +846,7 @@
                                  "text" : "Fat"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -853,10 +858,7 @@
                                  "text" : "Saturated fat"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -868,10 +870,7 @@
                                  "text" : "Carbohydrates"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -883,10 +882,19 @@
                                  "text" : "Sugars"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "-"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 2,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Added sugars"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "~ 0 g"
                               }
                            ]
                         },
@@ -898,10 +906,7 @@
                                  "text" : "Fiber"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -913,10 +918,7 @@
                                  "text" : "Proteins"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -928,10 +930,7 @@
                                  "text" : "Salt"
                               },
                               {
-                                 "text" : "?"
-                              },
-                              {
-                                 "text" : "?"
+                                 "text" : "-"
                               }
                            ]
                         },
@@ -940,13 +939,34 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+                                 "text" : "Sodium"
                               },
                               {
-                                 "text" : "0 %"
+                                 "text" : "-"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Alcohol"
                               },
                               {
-                                 "text" : "0 %"
+                                 "text" : "-"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils"
+                              },
+                              {
+                                 "text" : "~ 0 %"
                               }
                            ]
                         }

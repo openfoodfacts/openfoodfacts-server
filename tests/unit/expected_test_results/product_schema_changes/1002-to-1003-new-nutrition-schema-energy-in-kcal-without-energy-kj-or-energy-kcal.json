@@ -1,0 +1,59 @@
+{
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "energy" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 184
+            },
+            "energy-kcal" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kcal",
+               "value" : 44
+            }
+         },
+         "per" : "100g",
+         "preparation" : "prepared"
+      },
+      "input_sets" : [
+         {
+            "last_updated_t" : "--ignore--",
+            "nutrients" : {
+               "energy-kcal" : {
+                  "unit" : "kcal",
+                  "value" : 44,
+                  "value_string" : "44"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "prepared",
+            "source" : "packaging"
+         },
+         {
+            "last_updated_t" : "--ignore--",
+            "nutrients" : {
+               "energy-kcal" : {
+                  "unit" : "kcal",
+                  "value" : 340,
+                  "value_string" : "340"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
+   },
+   "schema_version" : 1003,
+   "serving_quantity" : 250,
+   "serving_quantity_unit" : "g"
+}

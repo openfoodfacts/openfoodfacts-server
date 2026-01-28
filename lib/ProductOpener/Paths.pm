@@ -138,6 +138,14 @@ Directory for private data
 
 $BASE_DIRS{PRIVATE_DATA} = "$data_root/data";
 
+=head2 $BASE_DIRS{PRIVATE_DATA_TESTS}
+
+Directory for private data used in tests, such as category stats
+
+=cut
+
+$BASE_DIRS{PRIVATE_DATA_TESTS} = _source_dir() . "/tests/data";
+
 =head2 $BASE_DIRS{LANG}
 
 Directory with language files (.po). Normally linked to openfoodfacts-web

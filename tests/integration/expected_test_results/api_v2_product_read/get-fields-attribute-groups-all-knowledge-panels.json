@@ -759,7 +759,7 @@
          "en:ingredients-completed-at-least-for-one-language",
          "en:nutrition-photo-to-be-selected",
          "en:categories-completed",
-         "en:nutriments-completed",
+         "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -781,8 +781,8 @@
          }
       },
       "data_quality_errors_tags" : [
-         "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
-         "en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
+         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
@@ -798,7 +798,7 @@
          "en:ingredients-completed-at-least-for-one-language",
          "en:nutrition-photo-to-be-selected",
          "en:categories-completed",
-         "en:nutriments-completed",
+         "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -811,14 +811,20 @@
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
-         "en:energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-production-system-no-label",
-         "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
-         "en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
+         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_warnings_tags" : [
-         "en:energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-production-system-no-label"
       ],
@@ -829,7 +835,7 @@
                   {
                      "epi_score" : 0,
                      "origin" : "en:unknown",
-                     "percent" : 100,
+                     "percent" : 100.0,
                      "transportation_score" : 0
                   }
                ],
@@ -1473,7 +1479,7 @@
       "ingredients_with_specified_percent_n" : 0,
       "ingredients_with_specified_percent_sum" : 0,
       "ingredients_with_unspecified_percent_n" : 6,
-      "ingredients_with_unspecified_percent_sum" : 100,
+      "ingredients_with_unspecified_percent_sum" : 100.0,
       "ingredients_without_ciqual_codes" : [
          "en:colour",
          "en:e100",
@@ -3220,13 +3226,6 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "As sold<br>per serving (10 g)",
-                           "text_for_small_screens" : "per serving",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -3240,9 +3239,6 @@
                               },
                               {
                                  "text" : "400 kj<br>(96 kcal)"
-                              },
-                              {
-                                 "text" : "40 kj<br>(10 kcal)"
                               }
                            ]
                         },
@@ -3255,9 +3251,6 @@
                               },
                               {
                                  "text" : "8.5 g"
-                              },
-                              {
-                                 "text" : "0.85 g"
                               }
                            ]
                         },
@@ -3270,9 +3263,6 @@
                               },
                               {
                                  "text" : "5.6 g"
-                              },
-                              {
-                                 "text" : "0.56 g"
                               }
                            ]
                         },
@@ -3285,9 +3275,6 @@
                               },
                               {
                                  "text" : "10.5 g"
-                              },
-                              {
-                                 "text" : "1.05 g"
                               }
                            ]
                         },
@@ -3300,9 +3287,18 @@
                               },
                               {
                                  "text" : "12.5 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 2,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Added sugars"
                               },
                               {
-                                 "text" : "1.25 g"
+                                 "text" : "~ 0 g"
                               }
                            ]
                         },
@@ -3315,9 +3311,6 @@
                               },
                               {
                                  "text" : "2 g"
-                              },
-                              {
-                                 "text" : "0.2 g"
                               }
                            ]
                         },
@@ -3330,9 +3323,6 @@
                               },
                               {
                                  "text" : "4.5 g"
-                              },
-                              {
-                                 "text" : "0.45 g"
                               }
                            ]
                         },
@@ -3345,9 +3335,6 @@
                               },
                               {
                                  "text" : "0.05 g"
-                              },
-                              {
-                                 "text" : "0.005 g"
                               }
                            ]
                         },
@@ -3356,13 +3343,34 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+                                 "text" : "Sodium"
                               },
                               {
-                                 "text" : "58.333 %"
+                                 "text" : "0.02 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Alcohol"
                               },
                               {
-                                 "text" : "58.333 %"
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils"
+                              },
+                              {
+                                 "text" : "~ 58.333 %"
                               }
                            ]
                         }
@@ -3843,6 +3851,12 @@
          "en:salt-in-low-quantity"
       ],
       "nutriments" : {
+         "added-sugars" : 0,
+         "added-sugars_100g" : 0,
+         "added-sugars_modifier" : "~",
+         "added-sugars_serving" : 0,
+         "added-sugars_unit" : "g",
+         "added-sugars_value" : 0,
          "carbohydrates" : 10.5,
          "carbohydrates_100g" : 10.5,
          "carbohydrates_serving" : 1.05,
@@ -3854,7 +3868,6 @@
          "energy-kj_serving" : 40,
          "energy-kj_unit" : "kJ",
          "energy-kj_value" : 400,
-         "energy-kj_value_computed" : 585.5,
          "energy_100g" : 400,
          "energy_serving" : 40,
          "energy_unit" : "kJ",
@@ -3870,14 +3883,7 @@
          "fiber_unit" : "g",
          "fiber_value" : 2,
          "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 58.3333333333333,
-         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 58.3333333333333,
          "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 58.3333333333333,
-         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 58.3333333333333,
-         "nova-group" : 4,
-         "nova-group_100g" : 4,
-         "nova-group_serving" : 4,
-         "nutrition-score-fr" : 7,
-         "nutrition-score-fr_100g" : 7,
          "proteins" : 4.5,
          "proteins_100g" : 4.5,
          "proteins_serving" : 0.45,
@@ -3886,8 +3892,8 @@
          "salt" : 0.0502,
          "salt_100g" : 0.0502,
          "salt_serving" : 0.00502,
-         "salt_unit" : "mg",
-         "salt_value" : 50.2,
+         "salt_unit" : "g",
+         "salt_value" : 0.0502,
          "saturated-fat" : 5.6,
          "saturated-fat_100g" : 5.6,
          "saturated-fat_serving" : 0.56,
@@ -3896,8 +3902,8 @@
          "sodium" : 0.02008,
          "sodium_100g" : 0.02008,
          "sodium_serving" : 0.00201,
-         "sodium_unit" : "mg",
-         "sodium_value" : 20.08,
+         "sodium_unit" : "g",
+         "sodium_value" : 0.02008,
          "sugars" : 12.5,
          "sugars_100g" : 12.5,
          "sugars_serving" : 1.25,
@@ -3936,10 +3942,12 @@
                "sugars_points" : 2,
                "sugars_value" : 12.5
             },
+            "estimated" : 0,
             "grade" : "c",
             "nutrients_available" : 1,
             "nutriscore_applicable" : 1,
             "nutriscore_computed" : 1,
+            "preparation" : "as_sold",
             "score" : 3
          },
          "2023" : {
@@ -4017,10 +4025,12 @@
                "positive_points" : 2,
                "positive_points_max" : 17
             },
+            "estimated" : 0,
             "grade" : "c",
             "nutrients_available" : 1,
             "nutriscore_applicable" : 1,
             "nutriscore_computed" : 1,
+            "preparation" : "as_sold",
             "score" : 7
          }
       },
@@ -4250,7 +4260,6 @@
       "traces_hierarchy" : [],
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
-      "unknown_nutrients_tags" : [],
       "vitamins_tags" : [],
       "weighers_tags" : []
    },

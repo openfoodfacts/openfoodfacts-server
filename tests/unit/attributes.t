@@ -80,16 +80,58 @@ my @tests = (
 			ingredients_text =>
 				"wheat flour (origin: UK), sugar (Paraguay), eggs, strawberries, high fructose corn syrup, rapeseed oil, macadamia nuts, milk proteins, salt, E102, E120",
 			labels_tags => ["en:organic", "en:fair-trade"],
-			nutrition_data_per => "100g",
-			nutriments => {
-				"energy_100g" => 800,
-				"fat_100g" => 12,
-				"saturated-fat_100g" => 4,
-				"sugars_100g" => 25,
-				"salt_100g" => 0.25,
-				"sodium_100g" => 0.1,
-				"proteins_100g" => 2,
-				"fiber_100g" => 3,
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							"energy-kj" => {
+								value_string => "800",
+								value => 800,
+								unit => "kJ",
+							},
+							fat => {
+								value_string => "12",
+								value => 12,
+								unit => "g",
+							},
+							"saturated-fat" => {
+								value_string => "4",
+								value => 4,
+								unit => "g",
+							},
+							sugars => {
+								value_string => "25",
+								value => 25,
+								unit => "g",
+							},
+							salt => {
+								value_string => "0.25",
+								value => 0.25,
+								unit => "g",
+							},
+							sodium => {
+								value_string => "0.1",
+								value => 0.1,
+								unit => "g",
+							},
+							proteins => {
+								value_string => "2",
+								value => 2,
+								unit => "g",
+							},
+							fiber => {
+								value_string => "3",
+								value => 3,
+								unit => "g",
+							},
+						}
+					}
+				]
 			},
 			countries_tags => ["en:united-kingdom", "en:france"],
 			packaging_text => "Cardboard box, film wrap",
@@ -104,17 +146,59 @@ my @tests = (
 			lc => "en",
 			categories => "biscuits",
 			categories_tags => ["en:biscuits"],
-			nutrition_data_per => "100g",
 			ingredients_text => "100% fruits",
-			nutriments => {
-				"energy_100g" => 2591,
-				"fat_100g" => 50,
-				"saturated-fat_100g" => 9.7,
-				"sugars_100g" => 5.1,
-				"salt_100g" => 0,
-				"sodium_100g" => 0,
-				"proteins_100g" => 29,
-				"fiber_100g" => 5.5,
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							energy => {
+								value_string => "2591",
+								value => 2591,
+								unit => "kj",
+							},
+							fat => {
+								value_string => "50",
+								value => 50,
+								unit => "g",
+							},
+							"saturated-fat" => {
+								value_string => "9.7",
+								value => 9.7,
+								unit => "g",
+							},
+							sugars => {
+								value_string => "5.1",
+								value => 5.1,
+								unit => "g",
+							},
+							salt => {
+								value_string => "0",
+								value => 0,
+								unit => "g",
+							},
+							sodium => {
+								value_string => "0",
+								value => 0,
+								unit => "g",
+							},
+							proteins => {
+								value_string => "29",
+								value => 29,
+								unit => "g",
+							},
+							fiber => {
+								value_string => "5.5",
+								value => 5.5,
+								unit => "g",
+							},
+						}
+					}
+				]
 			},
 		}
 	],
@@ -125,18 +209,60 @@ my @tests = (
 			lc => "en",
 			categories => "biscuits",
 			categories_tags => ["en:biscuits"],
-			nutrition_data_per => "serving",
 			serving_size => "20",
 			ingredients_text => "100% fruits",
-			nutriments => {
-				"energy_serving" => 2591,
-				"fat_serving" => 50,
-				"saturated-fat_serving" => 9.7,
-				"sugars_serving" => 5.1,
-				"salt_serving" => 0,
-				"sodium_serving" => 0,
-				"proteins_serving" => 29,
-				"fiber_serving" => 5.5,
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "20",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							energy => {
+								value_string => "2591",
+								value => 2591,
+								unit => "kj",
+							},
+							fat => {
+								value_string => "50",
+								value => 50,
+								unit => "g",
+							},
+							"saturated-fat" => {
+								value_string => "9.7",
+								value => 9.7,
+								unit => "g",
+							},
+							sugars => {
+								value_string => "5.1",
+								value => 5.1,
+								unit => "g",
+							},
+							salt => {
+								value_string => "0",
+								value => 0,
+								unit => "g",
+							},
+							sodium => {
+								value_string => "0",
+								value => 0,
+								unit => "g",
+							},
+							proteins => {
+								value_string => "29",
+								value => 29,
+								unit => "g",
+							},
+							fiber => {
+								value_string => "5.5",
+								value => 5.5,
+								unit => "g",
+							},
+						}
+					}
+				]
 			},
 		}
 	],

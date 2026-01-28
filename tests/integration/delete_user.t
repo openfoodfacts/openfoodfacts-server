@@ -12,6 +12,10 @@ use ProductOpener::Auth qw/get_oidc_implementation_level/;
 
 use Clone qw/clone/;
 use Minion::Job;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
+$Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
 
 wait_application_ready(__FILE__);
 remove_all_users();
@@ -70,7 +74,9 @@ if (get_oidc_implementation_level() < 5) {
 	#waiting the deletion task to be done (weirdly enough it is not useful anymore..)
 	my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts);
 
-	is(scalar @{$jobs_ref}, 1, "One delete_user was triggered");
+	diag Dumper $jobs_ref;
+
+	is(scalar @{$jobs_ref}, 1, "One delete_user was triggered") or diag Dumper $jobs_ref;
 	my $delete_job_state = $jobs_ref->[0]{state};
 	is($delete_job_state, "finished", "delete_user finished without errors");
 }
