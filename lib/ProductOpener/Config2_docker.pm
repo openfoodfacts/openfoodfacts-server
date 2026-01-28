@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -156,19 +156,26 @@ $recipe_estimator_scipy_url = $ENV{RECIPE_ESTIMATOR_SCIPY_URL};
 #$recipe_estimator_scipy_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
 
 %server_options = (
-	private_products => $producers_platform,    # 1 to make products visible only to the owner (producer platform)
 	producers_platform => $producers_platform,
 	minion_backend => {Pg => $postgres_url},
 	minion_local_queue => $server_domain,
-	minion_export_queue => $ENV{PRODUCT_OPENER_DOMAIN},
 	cookie_domain => $ENV{PRODUCT_OPENER_DOMAIN},
-	export_servers => {public => "off", experiment => "off-exp"},
 	ip_whitelist_session_cookie => ["", ""],
-	export_data_root => "/mnt/podata/export",
-	minion_daemon_server_and_port => "http://0.0.0.0:3001",
-	# this one does not seems to be used
-	minion_admin_server_and_port => "http://0.0.0.0:3003",
 );
+
+if ($producers_platform) {
+	# this is for producer platform only
+	%server_options = (
+		%server_options,
+		private_products => $producers_platform,    # 1 to make products visible only to the owner (producer platform)
+		minion_export_queue => $ENV{PRODUCT_OPENER_DOMAIN},
+		export_servers => {public => "off", experiment => "off-exp"},
+		export_data_root => "/mnt/podata/export",
+		minion_daemon_server_and_port => "http://0.0.0.0:3001",
+		# this one does not seems to be used
+		minion_admin_server_and_port => "http://0.0.0.0:3003",
+	);
+}
 
 $build_cache_repo = $ENV{BUILD_CACHE_REPO};
 

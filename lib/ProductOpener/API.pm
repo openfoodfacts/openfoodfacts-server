@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -1097,11 +1097,10 @@ sub process_auth_header ($request_ref, $r) {
 	}
 
 	$request_ref->{access_token} = $token;
-	#12279 TODO: We probably shouldn't do this as it will call out to Keycloak for every request
 	my $user_ref = retrieve_user_using_token($access_token, $request_ref);
 	unless (defined $user_ref) {
 		$log->info('User not found and not created') if $log->is_info();
-		display_error_and_exit($request_ref, 'Internal error', 500);
+		display_error_and_exit($request_ref, 'Authentication error', 401);
 	}
 	my $user_id = $user_ref->{userid};
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();

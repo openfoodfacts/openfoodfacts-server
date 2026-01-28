@@ -199,7 +199,7 @@
 					<ul class="right">
 						
 							<li class="h-space-tiny has-form">
-								<a href="/cgi/session.pl" class="round button secondary">
+								<a href="/cgi/oidc_signin.pl?return_url=http%3A%2F%2Ffr.openfoodfacts.localhost%2Fcgi%2Fsearch.pl%3Faction%3Dprocess%26search_terms%3Dtarte%26sort_by%3Dunique_scans_n%26page_size%3D50" class="round button secondary">
 									<span class="material-icons material-symbols-button">account_circle</span>
 									Se connecter
 								</a>
@@ -792,51 +792,54 @@ var products = [
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":27.3333333333333,
+                  "match":33.6666666666667,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score D"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short":"1 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg",
                   "id":"low_salt",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":45,
                   "name":"Sel",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sel en quantité inconnue"
+                  "panel_id":"nutrient_level_salt",
+                  "status":"known",
+                  "title":"Sel en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short":"12 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                   "id":"low_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":48.2352941176471,
                   "name":"Matières grasses",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Matières grasses en quantité inconnue"
+                  "panel_id":"nutrient_level_fat",
+                  "status":"known",
+                  "title":"Matières grasses en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":0,
                   "name":"Sucres",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sucres en quantité inconnue"
+                  "panel_id":"nutrient_level_sugars",
+                  "status":"known",
+                  "title":"Sucres en quantité élevée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short":"0.5 g / 100 g",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-low.svg",
                   "id":"low_saturated_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":93.3333333333333,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Acides gras saturés en quantité inconnue"
+                  "panel_id":"nutrient_level_saturated_fat",
+                  "status":"known",
+                  "title":"Acides gras saturés en faible quantité"
                }
             ],
             "id":"nutritional_quality",
@@ -1056,15 +1059,15 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Faible impact environnemental",
+                  "description_short":"Impact modéré sur l'environnement",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
-                  "match":60,
+                  "match":52,
                   "name":"Green-Score",
                   "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Green-Score B"
+                  "title":"Green-Score C"
                },
                {
                   "description":"",
@@ -1074,6 +1077,7 @@ var products = [
                   "id":"forest_footprint",
                   "match":99.9766666666667,
                   "name":"Empreinte forêt",
+                  "panel_id":"forest_footprint",
                   "status":"known",
                   "title":"Très petite empreinte forêt"
                }
@@ -1125,51 +1129,54 @@ var products = [
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":29.4444444444444,
+                  "match":31.5555555555556,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score D"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short":"1 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg",
                   "id":"low_salt",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":45,
                   "name":"Sel",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sel en quantité inconnue"
+                  "panel_id":"nutrient_level_salt",
+                  "status":"known",
+                  "title":"Sel en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short":"12 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                   "id":"low_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":48.2352941176471,
                   "name":"Matières grasses",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Matières grasses en quantité inconnue"
+                  "panel_id":"nutrient_level_fat",
+                  "status":"known",
+                  "title":"Matières grasses en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":0,
                   "name":"Sucres",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sucres en quantité inconnue"
+                  "panel_id":"nutrient_level_sugars",
+                  "status":"known",
+                  "title":"Sucres en quantité élevée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short":"0.5 g / 100 g",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-low.svg",
                   "id":"low_saturated_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":93.3333333333333,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Acides gras saturés en quantité inconnue"
+                  "panel_id":"nutrient_level_saturated_fat",
+                  "status":"known",
+                  "title":"Acides gras saturés en faible quantité"
                }
             ],
             "id":"nutritional_quality",
@@ -1392,7 +1399,7 @@ var products = [
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
-                  "match":70,
+                  "match":62,
                   "name":"Green-Score",
                   "panel_id":"environmental_score",
                   "status":"known",
@@ -1406,6 +1413,7 @@ var products = [
                   "id":"forest_footprint",
                   "match":99.9766666666667,
                   "name":"Empreinte forêt",
+                  "panel_id":"forest_footprint",
                   "status":"known",
                   "title":"Très petite empreinte forêt"
                }
