@@ -617,9 +617,9 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 						= $nutrient_set_ref->{nutrients}{$nutrient}{modifier};
 				}
 			}
-			elsif (
-				($nutrient eq "fruits-vegetables-nuts")
-				or ($nutrient eq "fruits-vegetables-legumes")) {
+			elsif (($nutrient eq "fruits-vegetables-nuts")
+				or ($nutrient eq "fruits-vegetables-legumes"))
+			{
 				# we add -from-ingredients to the nutrient name
 				$nutriments_ref->{$nutrient . "-estimate-from-ingredients" . $preparation_state . $per}
 					= $nutrient_set_ref->{nutrients}{$nutrient}{value};
@@ -654,7 +654,7 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 		}
 
 		# Compute per serving values if we have a serving quantity
-		_compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($product_ref);
+		_compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema($product_ref);
 	}
 
 	return;
@@ -688,53 +688,53 @@ sub _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($
 	foreach my $product_type ("", "_prepared") {
 
 		if (0) {
-		# Energy
-		# Before November 2019, we only had one energy field with an input value in kJ or in kcal, and internally it was converted to kJ
-		# In Europe, the energy is indicated in both kJ and kcal, but there isn't a straightforward conversion between the 2: the energy is computed
-		# by summing some nutrients multiplied by an energy factor. That means we need to store both the kJ and kcal values.
-		# see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396
+			# Energy
+			# Before November 2019, we only had one energy field with an input value in kJ or in kcal, and internally it was converted to kJ
+			# In Europe, the energy is indicated in both kJ and kcal, but there isn't a straightforward conversion between the 2: the energy is computed
+			# by summing some nutrients multiplied by an energy factor. That means we need to store both the kJ and kcal values.
+			# see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396
 
-		# If we have a value for energy-kj, use it for energy
-		if (defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_value"}) {
-			if (not defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"}) {
-				$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"} = "kJ";
+			# If we have a value for energy-kj, use it for energy
+			if (defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_value"}) {
+				if (not defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"}) {
+					$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"} = "kJ";
+				}
+				assign_nid_modifier_value_and_unit(
+					$product_ref,
+					"energy" . $product_type,
+					$product_ref->{nutriments}{"energy-kj" . $product_type . "_modifier"},
+					$product_ref->{nutriments}{"energy-kj" . $product_type . "_value"},
+					$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"}
+				);
 			}
-			assign_nid_modifier_value_and_unit(
-				$product_ref,
-				"energy" . $product_type,
-				$product_ref->{nutriments}{"energy-kj" . $product_type . "_modifier"},
-				$product_ref->{nutriments}{"energy-kj" . $product_type . "_value"},
-				$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"}
-			);
-		}
-		# Otherwise use the energy-kcal value for energy
-		elsif (defined $product_ref->{nutriments}{"energy-kcal" . $product_type}) {
-			if (not defined $product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}) {
-				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"} = "kcal";
+			# Otherwise use the energy-kcal value for energy
+			elsif (defined $product_ref->{nutriments}{"energy-kcal" . $product_type}) {
+				if (not defined $product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}) {
+					$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"} = "kcal";
+				}
+				assign_nid_modifier_value_and_unit(
+					$product_ref,
+					"energy" . $product_type,
+					$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
+					$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
+					$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}
+				);
 			}
-			assign_nid_modifier_value_and_unit(
-				$product_ref,
-				"energy" . $product_type,
-				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
-				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
-				$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}
-			);
-		}
-		# Otherwise, if we have a value and a unit for the energy field, copy it to either energy-kj or energy-kcal
-		elsif ( (defined $product_ref->{nutriments}{"energy" . $product_type . "_value"})
-			and (defined $product_ref->{nutriments}{"energy" . $product_type . "_unit"}))
-		{
+			# Otherwise, if we have a value and a unit for the energy field, copy it to either energy-kj or energy-kcal
+			elsif ( (defined $product_ref->{nutriments}{"energy" . $product_type . "_value"})
+				and (defined $product_ref->{nutriments}{"energy" . $product_type . "_unit"}))
+			{
 
-			my $unit = lc($product_ref->{nutriments}{"energy" . $product_type . "_unit"});
+				my $unit = lc($product_ref->{nutriments}{"energy" . $product_type . "_unit"});
 
-			assign_nid_modifier_value_and_unit(
-				$product_ref,
-				"energy-$unit" . $product_type,
-				$product_ref->{nutriments}{"energy" . $product_type . "_modifier"},
-				$product_ref->{nutriments}{"energy" . $product_type . "_value"},
-				$product_ref->{nutriments}{"energy" . $product_type . "_unit"}
-			);
-		}
+				assign_nid_modifier_value_and_unit(
+					$product_ref,
+					"energy-$unit" . $product_type,
+					$product_ref->{nutriments}{"energy" . $product_type . "_modifier"},
+					$product_ref->{nutriments}{"energy" . $product_type . "_value"},
+					$product_ref->{nutriments}{"energy" . $product_type . "_unit"}
+				);
+			}
 		}
 
 		if (not defined $product_ref->{"nutrition_data" . $product_type . "_per"}) {

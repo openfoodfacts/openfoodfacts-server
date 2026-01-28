@@ -9093,16 +9093,12 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 	# We can have data for the product as sold, and/or prepared
 	my %displayed_product_types = ();
 
-	my $product_preparation = undef;
-	if (defined $product_ref->{nutrition}{aggregated_set}{preparation}
-		&& $product_ref->{nutrition}{aggregated_set}{preparation} eq "as_sold")
-	{
+	my $product_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
+	if ((defined $product_preparation) and ($product_preparation eq "as_sold")) {
 		$product_preparation = "";
 		$displayed_product_types{as_sold} = 1;
 	}
-	elsif ($product_ref->{nutrition}{aggregated_set}{preparation}
-		&& $product_ref->{nutrition}{aggregated_set}{preparation} eq "prepared")
-	{
+	elsif ((defined $product_preparation) and ($product_preparation eq "prepared")) {
 		$product_preparation = "prepared_";
 		$displayed_product_types{prepared} = 1;
 	}
@@ -9390,92 +9386,77 @@ CSS
 						$prepared = "_prepared";
 					}
 
-					if (!defined $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}) {
+					my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+					# FIXME: if the packaging / manufacturer input set has the nutrient in the unspecified_nutrients array,
+					# we used to display a "-" sign."
+					if (0) {
 						# The nutrient is not indicated on the package, display a minus sign
 						$value_unit = '-';
 					}
-					elsif (!defined $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value}) {
+					elsif (not defined $value) {
 						$value_unit = '?';
 					}
 					else {
 
-						my $value;
-
 						# energy-kcal is already in kcal
-						if ($nid eq 'energy-kcal') {
-							$value = $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value};
-						}
-						else {
+						if ($nid ne 'energy-kcal') {
 							# if petfood then display for 1kg if not percentage
 							if (   (defined $product_ref->{product_type})
 								&& ($product_ref->{product_type} eq "petfood")
 								&& ($unit ne "%"))
 							{
-								$value
-									= $decf->format(
-									g_to_unit($product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value}, $unit)
-										* 10);
+								$value = $decf->format(g_to_unit($value, $unit) * 10);
 							}
 							# else display for 100g/100ml
 							else {
-								$value
-									= $decf->format(
-									g_to_unit($product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value}, $unit)
-									);
+								$value = $decf->format(g_to_unit($value, $unit));
 							}
 						}
 
 						# too small values are converted to e notation: 7.18e-05
 						if (($value . ' ') =~ /e/) {
 							# use %f (outputs extras 0 in the general case)
-							$value = sprintf("%f",
-								g_to_unit($product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value}, $unit));
+							$value = sprintf("%f", g_to_unit($value, $unit));
 						}
 
 						$value_unit = "$value $unit";
 
-						if (defined $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{modifier}) {
-							$value_unit
-								= $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{modifier} . " "
-								. $value_unit;
+						my $modifier = deep_get($product_ref, "nutrition", "aggregated_set",
+							"nutrients", $nid . $prepared, "modifier");
+
+						if (defined $modifier) {
+							$value_unit = $modifier . " " . $value_unit;
 						}
 
 						if (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 							# Use the actual value in kcal if we have it
-							my $value_in_kcal;
-							if (defined $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid . "-kcal"}{value}) {
-								$value_in_kcal
-									= $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid . "-kcal"}{value};
-							}
+							my $value_in_kcal = deep_get($product_ref, "nutrition", "aggregated_set",
+								"nutrients", $nid . "-kcal", "value");
 							# Otherwise convert the value in kj
-							else {
-								$value_in_kcal
-									= g_to_unit($product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value},
-									'kcal');
+							if (not defined $value_in_kcal) {
+								$value_in_kcal = g_to_unit($value, 'kcal');
 							}
 							$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
 						}
 					}
 
 					# Add % DV if applicable
+					my $unit = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "unit");
 					if ($col_id eq $product_ref->{nutrition}{aggregated_set}{per}) {
-						if (    (defined $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value})
-							and (defined $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{unit})
-							and ($product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{unit} eq '% DV'))
+						if (    (defined $value)
+							and (defined $unit)
+							and ($unit eq '% DV'))
 						{
-							$value_unit
-								.= ' ('
-								. $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value} . ' '
-								. $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{unit} . ')';
+							$value_unit .= ' (' . $value . ' ' . $unit . ')';
 						}
 					}
 
-					if (defined $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value}) {
+					if (defined $value) {
 						my $property = $nid;
 						$property =~ s/-([a-z])/ucfirst($1)/eg;
 						$property .= "Per100g";
-						$rdfa = " property=\"food:$property\" content=\""
-							. $product_ref->{nutrition}{aggregated_set}{nutrients}{$nid}{value} . "\"";
+						$rdfa = " property=\"food:$property\" content=\"" . $value . "\"";
 					}
 
 					$values = $value_unit;
