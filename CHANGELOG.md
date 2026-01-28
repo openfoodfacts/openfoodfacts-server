@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.86.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.86.0...v2.86.1) (2026-01-28)
+
+
+### Bug Fixes
+
+* backport new nutrition tests from new-nutrition-update ([#12955](https://github.com/openfoodfacts/openfoodfacts-server/issues/12955)) ([be2d580](https://github.com/openfoodfacts/openfoodfacts-server/commit/be2d58011927943df5ebdbc9a9080d45df5477c4))
+* Don't send old password to Keycloak if not changed ([#12938](https://github.com/openfoodfacts/openfoodfacts-server/issues/12938)) ([ba2a85e](https://github.com/openfoodfacts/openfoodfacts-server/commit/ba2a85efe1da5e6557f70d17f78443a70e6414b5))
+* fix delete_user integration test (multiple delete_user minion jobs) ([#12930](https://github.com/openfoodfacts/openfoodfacts-server/issues/12930)) ([21fe90c](https://github.com/openfoodfacts/openfoodfacts-server/commit/21fe90ca116c585ad55ffaeabded373fe7033bed))
+* Locale fixups and output sorting for Google Product taxonomy import ([#12653](https://github.com/openfoodfacts/openfoodfacts-server/issues/12653)) ([23a42d5](https://github.com/openfoodfacts/openfoodfacts-server/commit/23a42d5d956b04c49276240875d8dd329eb44642))
+* minor fix in convert_string_to_number ([#12745](https://github.com/openfoodfacts/openfoodfacts-server/issues/12745)) ([81dbc62](https://github.com/openfoodfacts/openfoodfacts-server/commit/81dbc62f5974c24799ba6124a919ac6b26beba21))
+* prevent taxonomy cache growth ([#12899](https://github.com/openfoodfacts/openfoodfacts-server/issues/12899)) ([9e90530](https://github.com/openfoodfacts/openfoodfacts-server/commit/9e905304d6a1614975985ba2a012c06f8cd8be2c))
+* resave dangerous svg icon ([#12935](https://github.com/openfoodfacts/openfoodfacts-server/issues/12935)) ([e963ca1](https://github.com/openfoodfacts/openfoodfacts-server/commit/e963ca195469f2547403f3f6e77a6587c8ab0abb))
+* Update Green-Score range from A to F ([#12912](https://github.com/openfoodfacts/openfoodfacts-server/issues/12912)) ([a3be375](https://github.com/openfoodfacts/openfoodfacts-server/commit/a3be3754ad3bcaa2c261a1cb7d562496224e2725))
+
 ## [2.86.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.85.1...v2.86.0) (2026-01-07)
 
 
