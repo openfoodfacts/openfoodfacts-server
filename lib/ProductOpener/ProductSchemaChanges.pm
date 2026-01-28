@@ -608,6 +608,8 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 				# _modifier: modifier for what was entered
 				$nutriments_ref->{$nutrient . $preparation_state . $per}
 					= $nutrient_set_ref->{nutrients}{$nutrient}{value};
+				$nutriments_ref->{$nutrient . $preparation_state . "_value"}
+					= $nutrient_set_ref->{nutrients}{$nutrient}{value};
 				$nutriments_ref->{$nutrient . $preparation_state} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
 				$nutriments_ref->{$nutrient . "_unit"} = $nutrient_set_ref->{nutrients}{$nutrient}{unit};
 				if (defined $nutrient_set_ref->{nutrients}{$nutrient}{modifier}) {
@@ -619,7 +621,7 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 				($nutrient eq "fruits-vegetables-nuts")
 				or ($nutrient eq "fruits-vegetables-legumes")) {
 				# we add -from-ingredients to the nutrient name
-				$nutriments_ref->{$nutrient . "-from-ingredients" . $preparation_state . $per}
+				$nutriments_ref->{$nutrient . "-estimate-from-ingredients" . $preparation_state . $per}
 					= $nutrient_set_ref->{nutrients}{$nutrient}{value};
 			}
 			else {
@@ -685,6 +687,7 @@ sub _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($
 
 	foreach my $product_type ("", "_prepared") {
 
+		if (0) {
 		# Energy
 		# Before November 2019, we only had one energy field with an input value in kJ or in kcal, and internally it was converted to kJ
 		# In Europe, the energy is indicated in both kJ and kcal, but there isn't a straightforward conversion between the 2: the energy is computed
@@ -731,6 +734,7 @@ sub _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($
 				$product_ref->{nutriments}{"energy" . $product_type . "_value"},
 				$product_ref->{nutriments}{"energy" . $product_type . "_unit"}
 			);
+		}
 		}
 
 		if (not defined $product_ref->{"nutrition_data" . $product_type . "_per"}) {
