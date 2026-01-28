@@ -70,6 +70,8 @@ use ProductOpener::Booleans qw/normalize_boolean/;
 use ProductOpener::Images qw/normalize_generation_ref/;
 use ProductOpener::Nutrition
 	qw/generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy remove_empty_nutrition_data/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Tags qw/get_property/;
 
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
@@ -648,6 +650,9 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 		if ($delete_nutrition_data) {
 			delete $product_ref->{nutrition};
 		}
+
+		# Compute per serving values if we have a serving quantity
+		_compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($product_ref);
 	}
 
 	return;

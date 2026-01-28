@@ -1727,7 +1727,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		$complete = 0;
 	}
 
-	if ((has_no_nutrition_data_on_packaging($current_ref)) or (has_non_estimated_nutrition_data($current_ref))) {
+	if ((has_no_nutrition_data_on_packaging($product_ref)) or (has_non_estimated_nutrition_data($product_ref))) {
 		push @states_tags, "en:nutrition-facts-completed";
 		$notempty++;
 		$completeness += $step;
