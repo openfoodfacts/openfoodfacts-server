@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -109,7 +109,7 @@ Loads the AgriBalyse database.
 sub load_agribalyse_data() {
 
 	my $agribalyse_details_by_step_csv_file
-		= $data_root . "/external-data/environmental_score/agribalyse/AGRIBALYSE_vf.csv.2";
+		= $data_root . "/external-data/environmental_score/agribalyse/AGRIBALYSE_vf.csv.3";
 
 	my $rows_ref = [];
 
@@ -134,12 +134,14 @@ sub load_agribalyse_data() {
 
 		my $row_ref;
 
-		# Skip 3 first lines
+		# Skip 4 first lines
+		$csv->getline($io);
 		$csv->getline($io);
 		$csv->getline($io);
 		$csv->getline($io);
 
 		while ($row_ref = $csv->getline($io)) {
+			next if (not defined $row_ref->[0]) or ($row_ref->[0] eq "");
 			$agribalyse{$row_ref->[0]} = {
 				code => $row_ref->[0],    # Agribalyse code = Ciqual code
 				name_fr => $row_ref->[4],    # Nom du Produit en Français
@@ -163,6 +165,8 @@ sub load_agribalyse_data() {
 				version => $agribalyse_version
 			};
 		}
+		$log->info("loaded agribalyse data", {number_of_items => scalar keys %agribalyse})
+			if $log->is_info();
 	}
 	else {
 		die("Could not open agribalyse CSV $agribalyse_details_by_step_csv_file: $!");

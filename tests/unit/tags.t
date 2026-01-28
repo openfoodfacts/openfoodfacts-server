@@ -918,8 +918,8 @@ is(country_to_cc('en:world'), 'world');
 is(country_to_cc('unknown'), undef);
 is(country_to_cc(undef), undef);
 is(cc_to_country('fr'), 'en:france');
-is(cc_to_country('unknown'), undef);
-is(cc_to_country(undef), undef);
+is(cc_to_country('unknown'), '');
+is(cc_to_country(undef), '');
 
 is(get_taxonomy_tag_path("test", "en:lemon-yogurts"), ["en:yogurts", "en:lemon-yogurts"]);
 

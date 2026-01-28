@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -106,8 +106,20 @@ $folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
 
 	cookie_domain => "openfoodfacts.dev",    # if not set, default to $server _domain
 	private_products => 1,    # Make products visible only to the owner
-	export_servers => {public => "off", experiment => "off-exp"},
+							  # Tells that session_cookie (which is normally limitted by ip)
+							  # can be trusted also for those ip addresses
 	ip_whitelist_session_cookie => ["172.19.0.1"],
+	minion_backend => {'Pg' => 'postgresql://off:******@10.1.0.120/minion'},
+	minion_local_queue => "openfoodfacts.org",
+
+	# Only for producers platform
+	# private_products => 0, # 1 to make products visible only to the owner (producer platform)
+	# minion_export_queue => $ENV{PRODUCT_OPENER_DOMAIN},
+	# export_servers => {public => "off", experiment => "off-exp"},
+	# export_data_root => "/mnt/podata/export",
+	# minion_daemon_server_and_port => "http://0.0.0.0:3001",
+	# this one does not seems to be used
+	# minion_admin_server_and_port => "http://0.0.0.0:3003",
 );
 
 #11901: Remove once production is migrated

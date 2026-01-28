@@ -125,10 +125,22 @@
 					[% display_icon(show_evaluation.${panel.evaluation}.icon) %]
                     </span>
                 [% END %]
-                [% panel.title_element.title %]
+                [% IF panel.title_element.title.defined %]
+                    [% panel.title_element.title %]
+                [% ELSIF panel.title_element.name.defined %]
+                    [% panel.title_element.name %]
+                [% END %]
             </h4>
             [% IF panel.title_element.subtitle.defined %]
                 <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.subtitle %]</span>
+            [% ELSIF panel.title_element.value_string.defined %]
+                <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value_string %]</span>  
+            [% ELSIF panel.title_element.value.defined %]
+                [% IF panel.title_element.type.defined AND panel.title_element.type == "percent" %]
+                    <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value %]%</span>
+                [% ELSE %]
+                    <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value %]</span>
+                [% END %]
             [% END %]
             <hr class="floatclear">
         </[% IF has_elements %]a[% ELSE %]div[% END %]>
@@ -340,7 +352,7 @@
     #---------------------------------------------------------------------- ~%]
 
     [% table_element = element_ref.table_element %]
-    <table[% IF element.table_id %] id="[% table_element.table_id %]"[% END %] aria-label="[% table_element.title %]">
+    <table[% IF element.id %] id="[% table_element.id %]"[% END %] aria-label="[% table_element.title %]">
         <thead>
             <tr>
                 [% FOREACH column IN table_element.columns %]

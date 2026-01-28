@@ -241,8 +241,8 @@
 									
 									<li class="divider"></li>
 									<li class="has-form">
-										<form method="post" action="/cgi/session.pl">
-											<input type="hidden" name="length" value="logout">
+										<form method="post" action="/cgi/oidc_signout.pl">
+											
 											<input type="submit" name=".submit" value="Sign out" class="button small">
 										</form>
 									</li>
@@ -2143,7 +2143,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                     </td>
 
                                             <td class="nutriment_col" >
-                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_energy-kj" name="nutriment_energy-kj" value=""  autocomplete="off"/>
+                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_energy-kj" name="nutriment_energy-kj" value="1000"  autocomplete="off"/>
                                                 <span id="nutriment_question_mark_energy-kj" class="question_mark">?</span>
                                                 <span id="nutriment_sugars_warning_energy-kj" class="sugars_warning">Please enter a valid value.</span>
                                             </td>
@@ -2181,7 +2181,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                     </td>
 
                                             <td class="nutriment_col" >
-                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_energy-kcal" name="nutriment_energy-kcal" value=""  autocomplete="off"/>
+                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_energy-kcal" name="nutriment_energy-kcal" value="240"  autocomplete="off"/>
                                                 <span id="nutriment_question_mark_energy-kcal" class="question_mark">?</span>
                                                 <span id="nutriment_sugars_warning_energy-kcal" class="sugars_warning">Please enter a valid value.</span>
                                             </td>
@@ -2225,7 +2225,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                     </td>
 
                                             <td class="nutriment_col" >
-                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_fat" name="nutriment_fat" value=""  autocomplete="off"/>
+                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_fat" name="nutriment_fat" value="10"  autocomplete="off"/>
                                                 <span id="nutriment_question_mark_fat" class="question_mark">?</span>
                                                 <span id="nutriment_sugars_warning_fat" class="sugars_warning">Please enter a valid value.</span>
                                             </td>
@@ -2273,7 +2273,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                     </td>
 
                                             <td class="nutriment_col" >
-                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_saturated-fat" name="nutriment_saturated-fat" value=""  autocomplete="off"/>
+                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_saturated-fat" name="nutriment_saturated-fat" value="5"  autocomplete="off"/>
                                                 <span id="nutriment_question_mark_saturated-fat" class="question_mark">?</span>
                                                 <span id="nutriment_sugars_warning_saturated-fat" class="sugars_warning">Please enter a valid value.</span>
                                             </td>
@@ -2459,7 +2459,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                     </td>
 
                                             <td class="nutriment_col" >
-                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_carbohydrates" name="nutriment_carbohydrates" value=""  autocomplete="off"/>
+                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_carbohydrates" name="nutriment_carbohydrates" value="30"  autocomplete="off"/>
                                                 <span id="nutriment_question_mark_carbohydrates" class="question_mark">?</span>
                                                 <span id="nutriment_sugars_warning_carbohydrates" class="sugars_warning">Please enter a valid value.</span>
                                             </td>
@@ -2507,7 +2507,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                     </td>
 
                                             <td class="nutriment_col" >
-                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_sugars" name="nutriment_sugars" value=""  autocomplete="off"/>
+                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_sugars" name="nutriment_sugars" value="20"  autocomplete="off"/>
                                                 <span id="nutriment_question_mark_sugars" class="question_mark">?</span>
                                                 <span id="nutriment_sugars_warning_sugars" class="sugars_warning">Please enter a valid value.</span>
                                             </td>
@@ -2615,7 +2615,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                     </td>
 
                                             <td class="nutriment_col" >
-                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_fiber" name="nutriment_fiber" value=""  autocomplete="off"/>
+                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_fiber" name="nutriment_fiber" value="2"  autocomplete="off"/>
                                                 <span id="nutriment_question_mark_fiber" class="question_mark">?</span>
                                                 <span id="nutriment_sugars_warning_fiber" class="sugars_warning">Please enter a valid value.</span>
                                             </td>
@@ -2675,7 +2675,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                     </td>
 
                                             <td class="nutriment_col" >
-                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_proteins" name="nutriment_proteins" value=""  autocomplete="off"/>
+                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_proteins" name="nutriment_proteins" value="3"  autocomplete="off"/>
                                                 <span id="nutriment_question_mark_proteins" class="question_mark">?</span>
                                                 <span id="nutriment_sugars_warning_proteins" class="sugars_warning">Please enter a valid value.</span>
                                             </td>
@@ -2735,7 +2735,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                     </td>
 
                                             <td class="nutriment_col" >
-                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_salt" name="nutriment_salt" value=""  autocomplete="off"/>
+                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_salt" name="nutriment_salt" value="0.5"  autocomplete="off"/>
                                                 <span id="nutriment_question_mark_salt" class="question_mark">?</span>
                                                 <span id="nutriment_sugars_warning_salt" class="sugars_warning">Please enter a valid value.</span>
                                             </td>
@@ -2785,7 +2785,7 @@ You accept to be credited by re-users by a link to the product your are contribu
                                     </td>
 
                                             <td class="nutriment_col" >
-                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_sodium" name="nutriment_sodium" value=""  autocomplete="off"/>
+                                                <input  class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_sodium" name="nutriment_sodium" value="0.2"  autocomplete="off"/>
                                                 <span id="nutriment_question_mark_sodium" class="question_mark">?</span>
                                                 <span id="nutriment_sugars_warning_sodium" class="sugars_warning">Please enter a valid value.</span>
                                             </td>
@@ -3681,7 +3681,7 @@ by typing the first letters of their name in the last row of the table.</p>
 <ul id="history_list">
   
   <li>
-    <time datetime="--ignore--">--ignore--</time> - <a href="/facets/editors/tests" lang="no_language">tests</a> Data (Added: product_type, code, lang, product_name, generic_name, quantity, brands, categories, labels, link, countries, origin, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr) -- Nutriments (Added: nutrition-score-fr)   - (app)  &nbsp;
+    <time datetime="--ignore--">--ignore--</time> - <a href="/facets/editors/tests" lang="no_language">tests</a> Data (Added: product_type, code, lang, product_name, generic_name, quantity, brands, categories, labels, link, countries, origin, nutrition_data_per, nutrition_data_prepared_per, serving_size, ingredients_text, generic_name_en, ingredients_text_en, origin_en, product_name_en, ingredients_text_fr) -- Nutriments (Added: energy-kj, energy-kcal, energy, fat, saturated-fat, carbohydrates, sugars, fiber, proteins, salt, sodium, nutrition-score-fr)   - (app)  &nbsp;
     <a href="/product/3300000000001/apple-pie-bob-s-pies?rev=1" class="button tiny">View this revision</a>
     
   </li>
@@ -4229,7 +4229,6 @@ var nutriments = {
 };
 
 var otherNutriments = [
-{ "value" : "Energy", "unit" : "kj", "iu": false  },
 { "value" : "Energy from fat", "unit" : "kj", "iu": false  },
 { "value" : "Butyric acid", "unit" : "g", "iu": false  },
 { "value" : "Caproic acid", "unit" : "g", "iu": false  },

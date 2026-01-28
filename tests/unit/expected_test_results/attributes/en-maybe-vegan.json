@@ -298,6 +298,7 @@
                "id" : "forest_footprint",
                "match" : 0,
                "name" : "Forest footprint",
+               "panel_id" : "forest_footprint",
                "status" : "known",
                "title" : "Forest footprint not computed"
             }
@@ -765,6 +766,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:environmental-score-not-computed",
+      "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",
