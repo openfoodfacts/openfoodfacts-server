@@ -781,8 +781,7 @@
          }
       },
       "data_quality_errors_tags" : [
-         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
+         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates"
       ],
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
@@ -811,20 +810,15 @@
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-production-system-no-label",
-         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
+         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates"
       ],
       "data_quality_warnings_tags" : [
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-production-system-no-label"
       ],
@@ -3238,7 +3232,7 @@
                                  "text" : "Energy"
                               },
                               {
-                                 "text" : "400 kj<br>(96 kcal)"
+                                 "text" : "400 kj<br>(140 kcal)"
                               }
                            ]
                         },
@@ -3346,7 +3340,7 @@
                                  "text" : "Sodium"
                               },
                               {
-                                 "text" : "0.02 g"
+                                 "text" : "0.05 g"
                               }
                            ]
                         },
@@ -3863,6 +3857,12 @@
          "carbohydrates_unit" : "g",
          "carbohydrates_value" : 10.5,
          "energy" : 400,
+         "energy-kcal" : 140.5,
+         "energy-kcal_100g" : 140.5,
+         "energy-kcal_modifier" : "~",
+         "energy-kcal_serving" : 14.1,
+         "energy-kcal_unit" : "kcal",
+         "energy-kcal_value" : 140.5,
          "energy-kj" : 400,
          "energy-kj_100g" : 400,
          "energy-kj_serving" : 40,
@@ -3899,11 +3899,11 @@
          "saturated-fat_serving" : 0.56,
          "saturated-fat_unit" : "g",
          "saturated-fat_value" : 5.6,
-         "sodium" : 0.02008,
-         "sodium_100g" : 0.02008,
-         "sodium_serving" : 0.00201,
+         "sodium" : 0.0502,
+         "sodium_100g" : 0.0502,
+         "sodium_serving" : 0.00502,
          "sodium_unit" : "g",
-         "sodium_value" : 0.02008,
+         "sodium_value" : 0.0502,
          "sugars" : 12.5,
          "sugars_100g" : 12.5,
          "sugars_serving" : 1.25,
@@ -3935,9 +3935,9 @@
                "saturated_fat" : 5.6,
                "saturated_fat_points" : 5,
                "saturated_fat_value" : 5.6,
-               "sodium" : 20.08,
+               "sodium" : 50.2,
                "sodium_points" : 0,
-               "sodium_value" : 20.1,
+               "sodium_value" : 50.2,
                "sugars" : 12.5,
                "sugars_points" : 2,
                "sugars_value" : 12.5

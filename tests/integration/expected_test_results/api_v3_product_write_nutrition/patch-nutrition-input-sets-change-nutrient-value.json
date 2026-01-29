@@ -18,7 +18,15 @@
                   "source_per" : "100g",
                   "unit" : "kJ",
                   "value" : 2000,
-                  "value_computed" : 1005
+                  "value_computed" : 1042
+               },
+               "energy-kcal" : {
+                  "modifier" : "~",
+                  "source" : "packaging",
+                  "source_index" : 1,
+                  "source_per" : "100g",
+                  "unit" : "kcal",
+                  "value" : 249
                },
                "energy-kj" : {
                   "source" : "packaging",
@@ -68,7 +76,8 @@
                   "source_index" : 1,
                   "source_per" : "100g",
                   "unit" : "g",
-                  "value" : 0.59
+                  "value" : 1.5,
+                  "value_computed" : 0.6
                },
                "sugars" : {
                   "source" : "packaging",
@@ -89,8 +98,12 @@
                      "value" : 15,
                      "value_string" : "15"
                   },
+                  "energy-kcal" : {
+                     "unit" : "kcal",
+                     "value_computed" : 120
+                  },
                   "energy-kj" : {
-                     "unit" : "kJ",
+                     "unit" : "kj",
                      "value" : 1000,
                      "value_computed" : 502.5,
                      "value_string" : "1000"
@@ -122,8 +135,9 @@
                   },
                   "sodium" : {
                      "unit" : "g",
-                     "value" : 0.295,
-                     "value_string" : "0.295"
+                     "value" : 0.75,
+                     "value_computed" : 0.3,
+                     "value_string" : "0.75"
                   },
                   "sugars" : {
                      "unit" : "g",
@@ -145,8 +159,12 @@
                      "value" : 30,
                      "value_string" : "30"
                   },
+                  "energy-kcal" : {
+                     "unit" : "kcal",
+                     "value_computed" : 249
+                  },
                   "energy-kj" : {
-                     "unit" : "kJ",
+                     "unit" : "kj",
                      "value" : 2000,
                      "value_computed" : 1042,
                      "value_string" : "2000"
@@ -178,8 +196,9 @@
                   },
                   "sodium" : {
                      "unit" : "g",
-                     "value" : 0.59,
-                     "value_string" : "0.59"
+                     "value" : 1.5,
+                     "value_computed" : 0.6,
+                     "value_string" : "1.5"
                   },
                   "sugars" : {
                      "unit" : "g",

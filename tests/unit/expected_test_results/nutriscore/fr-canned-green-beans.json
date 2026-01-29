@@ -153,8 +153,9 @@
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
-      "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-a-2023-a"
+      "en:nutriscore-2021-different-from-2023",
+      "en:nutriscore-2021-worse-than-2023",
+      "en:nutriscore-2021-b-2023-a"
    ],
    "nova_group" : 3,
    "nova_group_debug" : "",
@@ -200,7 +201,7 @@
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "negative_points" : 5,
+            "negative_points" : 10,
             "positive_points" : 9,
             "proteins" : 5,
             "proteins_points" : 3,
@@ -208,20 +209,20 @@
             "saturated_fat" : 0.1,
             "saturated_fat_points" : 0,
             "saturated_fat_value" : 0.1,
-            "sodium" : 480,
-            "sodium_points" : 5,
-            "sodium_value" : 480,
+            "sodium" : 1200,
+            "sodium_points" : 10,
+            "sodium_value" : 1200,
             "sugars" : 3.6,
             "sugars_points" : 0,
             "sugars_value" : 3.6
          },
          "estimated" : 0,
-         "grade" : "a",
+         "grade" : "b",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : -4
+         "score" : 1
       },
       "2023" : {
          "category_available" : 1,
@@ -323,7 +324,7 @@
       }
    },
    "nutriscore_2021_tags" : [
-      "a"
+      "b"
    ],
    "nutriscore_2023_tags" : [
       "a"
@@ -482,7 +483,8 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 43.12
+               "value" : 43.12,
+               "value_computed" : 43.075
             },
             "energy-kj" : {
                "source" : "packaging",
@@ -667,7 +669,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.48
+               "value" : 1.2,
+               "value_computed" : 0.48
             },
             "starch" : {
                "modifier" : "~",
@@ -819,6 +822,11 @@
                   "unit" : "g",
                   "value" : 0.1
                },
+               "sodium" : {
+                  "unit" : "g",
+                  "value" : 1.2,
+                  "value_computed" : 0.48
+               },
                "sugars" : {
                   "unit" : "g",
                   "value" : 3.6
@@ -884,12 +892,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 43.12,
+                  "value_computed" : 43.075,
                   "value_string" : "43.12"
                },
                "energy-kj" : {
                   "modifier" : "~",
-                  "unit" : "kJ",
+                  "unit" : "kj",
                   "value" : 183.5,
+                  "value_computed" : 182.9,
                   "value_string" : "183.5"
                },
                "fat" : {
@@ -1027,8 +1037,9 @@
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.002522,
-                  "value_string" : "0.002522"
+                  "value" : 0.00758,
+                  "value_computed" : 0.003032,
+                  "value_string" : "0.00758"
                },
                "starch" : {
                   "modifier" : "~",
