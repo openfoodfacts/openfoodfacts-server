@@ -989,11 +989,22 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	# Otherwise, if the schema version is not present, convert_product_schema() will assume that the product is in an old version (< 1000)
 	# and will not convert it to the requested schema version (specified by the API version)
 
-	my $added_schema_version = 0;
+	# We might also need the serving_size field to convert nutrition data to the old schema versions
+	# for which we computed per serving values from per 100g values if serving_size was available
 
-	if ((not defined $customized_product_ref->{schema_version}) and (defined $product_ref->{schema_version})) {
-		$customized_product_ref->{schema_version} = $product_ref->{schema_version};
-		$added_schema_version = 1;
+	# Some fields like serving_quantity and serving_quantity_unit may be created by the schema conversion
+	# so we record that they were temporarily added so that they can be removed afterwards
+
+	my @temporarily_added_fields = ();
+
+	foreach my $needed_field ("schema_version", "serving_size", "serving_quantity", "serving_quantity_unit", "nutrition_data_per", "nutrition_data_prepared_per") {
+		if ((not defined $customized_product_ref->{$needed_field}) and (defined $product_ref->{$needed_field})) {
+			$customized_product_ref->{$needed_field} = $product_ref->{$needed_field};
+			push @temporarily_added_fields, $needed_field;
+			$log->debug("temporarily added field for API compatibility",
+				{field => $needed_field, value => $customized_product_ref->{$needed_field}})
+				if $log->is_debug();
+		}
 	}
 
 	api_compatibility_for_product_response($customized_product_ref, $request_ref->{api_version});
@@ -1020,9 +1031,9 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		}
 	}
 
-	# Remove the schema field if it was not requested
-	if ($added_schema_version) {
-		delete $customized_product_ref->{schema_version};
+	# Remove temporarily added fields
+	foreach my $temporarily_added_field (@temporarily_added_fields) {
+		delete $customized_product_ref->{$temporarily_added_field};
 	}
 
 	return $customized_product_ref;

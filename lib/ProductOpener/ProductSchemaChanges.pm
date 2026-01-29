@@ -653,7 +653,10 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 			delete $product_ref->{nutrition};
 		}
 
-		# Compute per serving values if we have a serving quantity
+		# Compute per serving values if we have a serving size
+		# Note: this works only if the serving_size field is included in the product data to downgrade
+		# for API requests that may restrict fields returned, we have temporarily added serving_size
+		# and it is then removed after the schema conversion
 		_compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema($product_ref);
 	}
 
@@ -687,6 +690,7 @@ sub _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($
 
 	foreach my $product_type ("", "_prepared") {
 
+		# FIXME: commenting this code out, as it may not be needed and relied on assign_nid_modifier_value_and_unit which has been removed
 		if (0) {
 			# Energy
 			# Before November 2019, we only had one energy field with an input value in kJ or in kcal, and internally it was converted to kJ
