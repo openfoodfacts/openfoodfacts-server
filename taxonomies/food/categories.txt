@@ -83780,10 +83780,6 @@ ciqual_food_code:en: 26048
 ciqual_food_name:en: Hake, fillet, frozen, raw
 ciqual_food_name:fr: Merlu, filet, surgelé, cru
 
-< en:Frozen hake fillet
-en: Frozen breaded hake fillet
-fr: Filet de merlu pâné surgelé
-
 < en:Fishes
 < en:Lean fishes
 en: Hake, European hake
@@ -101398,9 +101394,9 @@ ciqual_food_code:en: 26030
 ciqual_food_name:en: Fish, breaded, fried
 
 < en:Breaded fish
-< en:Frozen fishes
-en: Fish breaded frozen
-fr: Poisson pané surgelé
+< en:Frozen seafood
+en: Frozen breaded fish, Fish breaded frozen
+fr: Poissons panés surgelés, Poisson pané surgelé
 agribalyse_food_code:en: 26029
 ciqual_food_code:en: 26029
 ciqual_food_name:en: Fish, breaded, frozen, raw
@@ -101429,6 +101425,11 @@ fr: Poissons panés de merlu blanc, Poissons panés de merlu, Poisson pané de m
 hr: Pohana riba oslić
 it: Nasello impanato
 nl: Gepaneerde heek
+
+< en:Breaded fish
+< en:Frozen seafood
+en: Frozen breaded hake fillet
+fr: Filet de merlu pâné surgelé
 
 #Merlangius merlangus
 < en:Breaded fish
