@@ -304,6 +304,32 @@ The command will run 2 subcommands:
 
 * For a full description of available make targets, see [Docker / Makefile commands](ref-docker-commands.md)
 
+## Frontend build scripts (npm / gulp)
+
+Open Food Facts uses Gulp and npm internally to build frontend assets
+(CSS, JavaScript, icons).
+
+In normal development, contributors do **not** need to run these scripts
+manually.
+
+When using the Docker workflow (`make up`):
+
+* Frontend assets are built inside the `dynamicfront` container
+* The default command used is `npm run build:dynamic`
+* A watcher process rebuilds assets when files change
+* Built assets are shared with the backend container via Docker volumes
+
+### About the npm scripts
+
+The following npm scripts exist in `package.json`:
+
+* `npm run build` – runs a one-time Gulp build
+* `npm run build:watch` – runs Gulp in watch mode
+* `npm run build:dynamic` – used by the Docker `dynamicfront` container
+
+These scripts are primarily intended for Docker builds, CI, and advanced
+debugging. For most contributors, using `make up` is sufficient.
+
 **Hosts file:**
 
 Since the default `PRODUCT_OPENER_DOMAIN` in the `.env` file is set to `openfoodfacts.localhost`, add the following to your hosts file (Windows: `C:\Windows\System32\drivers\etc\hosts`; Linux/MacOSX: `/etc/hosts`):
