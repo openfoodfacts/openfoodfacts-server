@@ -584,9 +584,9 @@
                "saturated_fat" : 5.6,
                "saturated_fat_points" : 5,
                "saturated_fat_value" : 5.6,
-               "sodium" : 50.2,
+               "sodium" : 20.08,
                "sodium_points" : 0,
-               "sodium_value" : 50.2,
+               "sodium_value" : 20.1,
                "sugars" : 12.5,
                "sugars_points" : 2,
                "sugars_value" : 12.5
@@ -865,12 +865,12 @@
                   "value" : 5.6
                },
                "sodium" : {
+                  "modifier" : "~",
                   "source" : "packaging",
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "g",
-                  "value" : 0.0502,
-                  "value_computed" : 20.08
+                  "value" : 0.02008
                },
                "sugars" : {
                   "source" : "packaging",
@@ -928,9 +928,7 @@
                   },
                   "sodium" : {
                      "unit" : "mg",
-                     "value" : 50.2,
-                     "value_computed" : 20.08,
-                     "value_string" : "50.2"
+                     "value_computed" : 20.08
                   },
                   "sugars" : {
                      "unit" : "g",
