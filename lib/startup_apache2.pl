@@ -27,6 +27,8 @@
 
 use ProductOpener::PerlStandards;
 
+use EV;    # Load EV early for AnyEvent and Future event loop backend
+
 use Carp ();
 
 eval {Carp::confess('init')};    ## no critic (RequireCheckingReturnValueOfEval)
@@ -43,6 +45,7 @@ CGI->compile(':all');
 use Fcntl qw/:mode/;
 use Storable ();
 use LWP::UserAgent ();
+use OpenTelemetry::Integration 'LWP::UserAgent';
 use Image::Magick ();
 use File::Copy ();
 use XML::Encoding ();
