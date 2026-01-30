@@ -1,7 +1,7 @@
 # Join the development
 
 * Before you join the development, please set up the project on your local machine, run it and go through the application completely. Press on any button you can find and see where it leads to. Explore! You'll be more familiar with what is where and might even get some cool ideas on how to improve various aspects of the app.
-* If you would like to work on an issue, drop in a comment at the issue. If it is already assigned to someone, but there is no sign of any work being done, please free to drop in a comment so that the issue can be assigned to you if the previous assignee has dropped it entirely.
+* If you would like to work on an issue, drop in a comment at the issue. If it is already assigned to someone, but there is no sign of any work being done, feel free to drop in a comment so that the issue can be assigned to you if the previous assignee has dropped it entirely.
 
 ## Contributing
 
@@ -74,7 +74,7 @@ You can contribute to any of these sections by following these steps:
 * Identify a problem and [create a new issue](https://github.com/openfoodfacts/openfoodfacts-server/issues/new) to describe the fix you will like to make. (if it hasnt been created).
 * Optionally, you can join the [#api-documentation Slack Channel]( https://slack.openfoodfacts.org/) to discuss more about the task with the team and get more information to work with.
 * Clone the project and work on a dedicated branch. Follow the [commits](#commits) guidelines to make your commit messages.
-* Make a pull request. Be decriptive and make sure the pull request describes in detail the proposed changes.
+* Make a pull request. Be descriptive and make sure the pull request describes in detail the proposed changes.
 * Wait for the maintainers to review your pull request and do the changes if requested.
 
 ## Code of Conduct
