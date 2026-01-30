@@ -300,7 +300,7 @@
    "nucleotides_tags" : [],
    "nutrient_levels" : {
       "fat" : "moderate",
-      "salt" : "moderate",
+      "salt" : "low",
       "saturated-fat" : "low",
       "sugars" : "low"
    },
@@ -308,7 +308,7 @@
       "en:fat-in-moderate-quantity",
       "en:saturated-fat-in-low-quantity",
       "en:sugars-in-low-quantity",
-      "en:salt-in-moderate-quantity"
+      "en:salt-in-low-quantity"
    ],
    "nutriscore" : {
       "2021" : {
@@ -378,20 +378,17 @@
                   },
                   {
                      "id" : "salt",
-                     "new_grade" : "a",
-                     "new_score" : -4,
-                     "new_value" : 0.4,
-                     "points" : 2,
+                     "points" : 0,
                      "points_max" : 20,
                      "unit" : "g",
-                     "value" : 0.5
+                     "value" : 0.2
                   }
                ],
                "positive" : [
                   {
                      "id" : "proteins",
                      "new_grade" : "a",
-                     "new_score" : -4,
+                     "new_score" : -6,
                      "new_value" : 2.5,
                      "points" : 0,
                      "points_max" : 7,
@@ -401,7 +398,7 @@
                   {
                      "id" : "fiber",
                      "new_grade" : "a",
-                     "new_score" : -4,
+                     "new_score" : -6,
                      "new_value" : 3.1,
                      "points" : 0,
                      "points_max" : 5,
@@ -424,7 +421,7 @@
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "negative_points" : 2,
+            "negative_points" : 0,
             "negative_points_max" : 55,
             "positive_nutrients" : [
                "proteins",
@@ -440,7 +437,7 @@
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : -3
+         "score" : -5
       }
    },
    "nutriscore_2021_tags" : [
@@ -475,10 +472,10 @@
             },
             {
                "id" : "salt",
-               "points" : 2,
+               "points" : 0,
                "points_max" : 20,
                "unit" : "g",
-               "value" : 0.5
+               "value" : 0.2
             }
          ],
          "positive" : [
@@ -513,7 +510,7 @@
       "is_fat_oil_nuts_seeds" : 0,
       "is_red_meat_product" : 0,
       "is_water" : 0,
-      "negative_points" : 2,
+      "negative_points" : 0,
       "negative_points_max" : 55,
       "positive_nutrients" : [
          "proteins",
@@ -522,11 +519,11 @@
       ],
       "positive_points" : 5,
       "positive_points_max" : 17,
-      "score" : -3
+      "score" : -5
    },
    "nutriscore_grade" : "a",
-   "nutriscore_score" : -3,
-   "nutriscore_score_opposite" : 3,
+   "nutriscore_score" : -5,
+   "nutriscore_score_opposite" : 5,
    "nutriscore_tags" : [
       "a"
    ],
@@ -603,7 +600,8 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 29.5720301136364
+               "value" : 29.5720301136364,
+               "value_computed" : 28.6616223306818
             },
             "energy-kj" : {
                "source" : "packaging",
@@ -766,7 +764,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.5
+               "value" : 0.2,
+               "value_computed" : 0.5
             },
             "saturated-fat" : {
                "source" : "packaging",
@@ -932,6 +931,11 @@
                   "unit" : "g",
                   "value" : 0.9
                },
+               "salt" : {
+                  "unit" : "g",
+                  "value" : 0.2,
+                  "value_computed" : 0.5
+               },
                "saturated-fat" : {
                   "unit" : "g",
                   "value" : 0.2
@@ -1005,12 +1009,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 29.5720301136364,
+                  "value_computed" : 28.6616223306818,
                   "value_string" : "29.5720301136364"
                },
                "energy-kj" : {
                   "modifier" : "~",
-                  "unit" : "kJ",
+                  "unit" : "kj",
                   "value" : 123.432853977273,
+                  "value_computed" : 119.600086045455,
                   "value_string" : "123.432853977273"
                },
                "fat" : {
@@ -1148,8 +1154,9 @@
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.0508078244318168,
-                  "value_string" : "0.0508078244318168"
+                  "value" : 0.1271851625,
+                  "value_computed" : 0.050874065,
+                  "value_string" : "0.1271851625"
                },
                "starch" : {
                   "modifier" : "~",

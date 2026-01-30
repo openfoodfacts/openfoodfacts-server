@@ -110,8 +110,7 @@
          }
       },
       "data_quality_errors_tags" : [
-         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
+         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates"
       ],
       "data_quality_info_tags" : [
          "en:no-packaging-data",
@@ -140,23 +139,16 @@
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kcal-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-packaging-packaging-data-missing",
          "en:environmental-score-production-system-no-label",
-         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
+         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates"
       ],
       "data_quality_warnings_tags" : [
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kcal-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-packaging-packaging-data-missing",
          "en:environmental-score-production-system-no-label"
@@ -794,9 +786,9 @@
                "saturated_fat" : 5.6,
                "saturated_fat_points" : 5,
                "saturated_fat_value" : 5.6,
-               "sodium" : 20.08,
+               "sodium" : 50.2,
                "sodium_points" : 0,
-               "sodium_value" : 20.1,
+               "sodium_value" : 50.2,
                "sugars" : 12.5,
                "sugars_points" : 2,
                "sugars_value" : 12.5
@@ -1044,16 +1036,16 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "kJ",
-                  "value" : 400
+                  "value" : 400,
+                  "value_computed" : 585.5
                },
                "energy-kcal" : {
                   "modifier" : "~",
-                  "source" : "estimate",
-                  "source_index" : 1,
+                  "source" : "packaging",
+                  "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "kcal",
-                  "value" : 108.14375,
-                  "value_computed" : 140.5
+                  "value" : 140.5
                },
                "energy-kj" : {
                   "source" : "packaging",
@@ -1239,7 +1231,8 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "g",
-                  "value" : 0.02008
+                  "value" : 0.0502,
+                  "value_computed" : 20.08
                },
                "starch" : {
                   "modifier" : "~",
@@ -1372,8 +1365,12 @@
                      "value" : 10.5,
                      "value_string" : "10.5"
                   },
+                  "energy-kcal" : {
+                     "unit" : "kcal",
+                     "value_computed" : 140.5
+                  },
                   "energy-kj" : {
-                     "unit" : "kJ",
+                     "unit" : "kj",
                      "value" : 400,
                      "value_computed" : 585.5,
                      "value_string" : "400"
@@ -1402,6 +1399,12 @@
                      "unit" : "g",
                      "value" : 5.6,
                      "value_string" : "5.6"
+                  },
+                  "sodium" : {
+                     "unit" : "mg",
+                     "value" : 50.2,
+                     "value_computed" : 20.08,
+                     "value_string" : "50.2"
                   },
                   "sugars" : {
                      "unit" : "g",
@@ -1469,12 +1472,14 @@
                      "modifier" : "~",
                      "unit" : "kcal",
                      "value" : 108.14375,
+                     "value_computed" : 108.2228125,
                      "value_string" : "108.14375"
                   },
                   "energy-kj" : {
                      "modifier" : "~",
-                     "unit" : "kJ",
+                     "unit" : "kj",
                      "value" : 458.625,
+                     "value_computed" : 457.86375,
                      "value_string" : "458.625"
                   },
                   "fat" : {
@@ -1612,8 +1617,9 @@
                   "sodium" : {
                      "modifier" : "~",
                      "unit" : "g",
-                     "value" : 0.0494140625,
-                     "value_string" : "0.0494140625"
+                     "value" : 0.12490625,
+                     "value_computed" : 0.0499625,
+                     "value_string" : "0.12490625"
                   },
                   "starch" : {
                      "modifier" : "~",

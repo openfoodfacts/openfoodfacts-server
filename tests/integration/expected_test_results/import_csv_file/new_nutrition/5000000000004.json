@@ -434,7 +434,7 @@
             "is_water" : 0,
             "proteins" : null,
             "saturated_fat" : 50,
-            "sodium" : 40000,
+            "sodium" : 100000,
             "sugars" : null
          },
          "estimated" : 0,
@@ -501,7 +501,8 @@
                "source_index" : 0,
                "source_per" : "serving",
                "unit" : "g",
-               "value" : 40
+               "value" : 100,
+               "value_computed" : 4000
             }
          },
          "per" : "100g",
@@ -519,6 +520,12 @@
                   "unit" : "mg",
                   "value" : 5000,
                   "value_string" : "5000"
+               },
+               "sodium" : {
+                  "unit" : "mg",
+                  "value" : 10000,
+                  "value_computed" : 4000,
+                  "value_string" : "10000"
                }
             },
             "per" : "serving",

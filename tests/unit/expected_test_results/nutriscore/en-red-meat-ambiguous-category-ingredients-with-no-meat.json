@@ -464,7 +464,8 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 189.4
+               "value" : 189.4,
+               "value_computed" : 189.288575
             },
             "energy-kj" : {
                "source" : "packaging",
@@ -628,7 +629,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0
+               "value" : 0,
+               "value_computed" : 0
             },
             "saturated-fat" : {
                "source" : "packaging",
@@ -790,6 +792,11 @@
                   "unit" : "g",
                   "value" : 50
                },
+               "salt" : {
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_computed" : 0
+               },
                "saturated-fat" : {
                   "unit" : "g",
                   "value" : 10
@@ -863,12 +870,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 189.4,
+                  "value_computed" : 189.288575,
                   "value_string" : "189.4"
                },
                "energy-kj" : {
                   "modifier" : "~",
-                  "unit" : "kJ",
+                  "unit" : "kj",
                   "value" : 791.3625,
+                  "value_computed" : 792.2785375,
                   "value_string" : "791.3625"
                },
                "fat" : {
@@ -1006,8 +1015,9 @@
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 4.970198125,
-                  "value_string" : "4.970198125"
+                  "value" : 12.47383375,
+                  "value_computed" : 4.9895335,
+                  "value_string" : "12.47383375"
                },
                "starch" : {
                   "modifier" : "~",

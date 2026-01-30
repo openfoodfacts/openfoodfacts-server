@@ -155,9 +155,9 @@
             "saturated_fat" : 0,
             "saturated_fat_points" : 0,
             "saturated_fat_value" : 0,
-            "sodium" : 2.17,
+            "sodium" : 5.4,
             "sodium_points" : 0,
-            "sodium_value" : 2.2,
+            "sodium_value" : 5.4,
             "sugars" : 99.8,
             "sugars_points" : 10,
             "sugars_value" : 99.8
@@ -391,7 +391,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 1700
+               "value" : 1700,
+               "value_computed" : 1696.6
             },
             "energy-kcal" : {
                "modifier" : "~",
@@ -399,7 +400,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 399
+               "value" : 399,
+               "value_computed" : 399.2
             },
             "energy-kj" : {
                "modifier" : "~",
@@ -407,7 +409,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 1700
+               "value" : 1700,
+               "value_computed" : 1696.6
             },
             "fat" : {
                "modifier" : "~",
@@ -591,7 +594,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00217
+               "value" : 0.0054,
+               "value_computed" : 0.00216
             },
             "starch" : {
                "modifier" : "~",
@@ -772,12 +776,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 399,
+                  "value_computed" : 399.2,
                   "value_string" : "399"
                },
                "energy-kj" : {
                   "modifier" : "~",
-                  "unit" : "kJ",
+                  "unit" : "kj",
                   "value" : 1700,
+                  "value_computed" : 1696.6,
                   "value_string" : "1700"
                },
                "fat" : {
@@ -915,8 +921,9 @@
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.00217,
-                  "value_string" : "0.00217"
+                  "value" : 0.0054,
+                  "value_computed" : 0.00216,
+                  "value_string" : "0.0054"
                },
                "starch" : {
                   "modifier" : "~",

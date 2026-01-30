@@ -437,15 +437,11 @@
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
       "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
-      "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-      "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
       "en:environmental-score-packaging-unspecified-material",
       "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
       "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
-      "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-      "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
       "en:environmental-score-packaging-unspecified-material",
       "en:environmental-score-production-system-no-label"
    ],
@@ -1226,7 +1222,7 @@
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "negative_points" : 11,
+            "negative_points" : 12,
             "positive_points" : 3,
             "proteins" : 2,
             "proteins_points" : 1,
@@ -1234,9 +1230,9 @@
             "saturated_fat" : 4,
             "saturated_fat_points" : 3,
             "saturated_fat_value" : 4,
-            "sodium" : 100,
-            "sodium_points" : 1,
-            "sodium_value" : 100,
+            "sodium" : 250,
+            "sodium_points" : 2,
+            "sodium_value" : 250,
             "sugars" : 25,
             "sugars_points" : 5,
             "sugars_value" : 25
@@ -1247,7 +1243,7 @@
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : 8
+         "score" : 9
       },
       "2023" : {
          "category_available" : 1,
@@ -1478,15 +1474,14 @@
                "source_per" : "100g",
                "unit" : "kcal",
                "value" : 305.6125,
-               "value_computed" : 340.600568181818
+               "value_computed" : 305.380568181818
             },
             "energy-kj" : {
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 800,
-               "value_computed" : 1430.52059659091
+               "value" : 800
             },
             "fat" : {
                "source" : "packaging",
@@ -1664,7 +1659,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.1
+               "value" : 0.25,
+               "value_computed" : 0.1
             },
             "starch" : {
                "modifier" : "~",
@@ -1824,8 +1820,9 @@
                },
                "sodium" : {
                   "unit" : "g",
-                  "value" : 0.1,
-                  "value_string" : "0.1"
+                  "value" : 0.25,
+                  "value_computed" : 0.1,
+                  "value_string" : "0.25"
                },
                "sugars" : {
                   "unit" : "g",
@@ -1893,12 +1890,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 305.6125,
+                  "value_computed" : 305.380568181818,
                   "value_string" : "305.6125"
                },
                "energy-kj" : {
                   "modifier" : "~",
-                  "unit" : "kJ",
+                  "unit" : "kj",
                   "value" : 1290.27840909091,
+                  "value_computed" : 1288.23382102273,
                   "value_string" : "1290.27840909091"
                },
                "fat" : {
@@ -2036,8 +2035,9 @@
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.0663489204545455,
-                  "value_string" : "0.0663489204545455"
+                  "value" : 0.196861931818182,
+                  "value_computed" : 0.0787447727272728,
+                  "value_string" : "0.196861931818182"
                },
                "starch" : {
                   "modifier" : "~",
