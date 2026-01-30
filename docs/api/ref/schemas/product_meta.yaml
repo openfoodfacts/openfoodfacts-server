@@ -2,6 +2,9 @@ type: object
 description: |
   Metadata of a product (author, editors, creation date, etc.)
 
+required:
+  - created_t
+
 properties:
   created_t:
     type: integer
