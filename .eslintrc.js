@@ -54,12 +54,12 @@ module.exports = {
     "global-require": "error",
     "guard-for-in": "error",
     "handle-callback-err": "error",
-    "id-blacklist": "error",
+    "id-denylist": "error",
     "id-length": "off",
     "id-match": "error",
     "implicit-arrow-linebreak": "error",
     indent: "off",
-    "indent-legacy": "off",
+
     "init-declarations": "off",
     "jsx-quotes": "error",
     "key-spacing": "off",
@@ -76,7 +76,7 @@ module.exports = {
     "max-nested-callbacks": "error",
     "max-params": [
       "error",
-      {max: 5}
+      { max: 5 }
     ],
     "max-statements": "off",
     "max-statements-per-line": "error",
@@ -131,9 +131,9 @@ module.exports = {
     "no-multi-spaces": "off",
     "no-multi-str": "error",
     "no-multiple-empty-lines": "off",
-    "no-native-reassign": "error",
+    "no-global-assign": "error",
     "no-negated-condition": "error",
-    "no-negated-in-lhs": "error",
+    "no-unsafe-negation": "error",
     "no-nested-ternary": "error",
     "no-new": "error",
     "no-new-func": "error",
