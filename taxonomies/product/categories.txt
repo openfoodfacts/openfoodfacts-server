@@ -17847,6 +17847,17 @@ tr: Yüzükler
 google_product_taxonomy_id:en: 200
 wikidata:en: Q46847
 
+< en:Rings
+< en:Smart devices
+en: Smart rings
+xx: Smart rings
+ar: خاتم ذكي
+ja: スマートリング
+ko: 스마트링
+sv: Smartringar
+zh: 智能戒指
+wikidata:en: Q28136195
+
 < en:Jewelry
 en: Watch Accessories
 xx: Watch Accessories
@@ -17948,11 +17959,19 @@ google_product_taxonomy_id:en: 201
 qfdmo_name:fr: montre
 wikidata:en: Q178794
 
+< en:Smart devices
 < en:Watches
-en: Smart Watches
+en: Smart watches, Smartwatches
 xx: Smart Watches
 fr: Montres connectées, Montre connectée
 qfdmo_name:fr: montre-connectee
+wikidata:en: Q5362345
+
+< en:Smart watches
+en: WearOS smartwatches
+
+< en:Smart watches
+en: Apple smartwatches
 
 < en:Apparel & Accessories
 en: Shoe Accessories
@@ -19027,6 +19046,15 @@ google_product_taxonomy_id:en: 222
 qfdmo_name:fr: appareil-electronique
 secondhand_used:en: backmarket
 wikidata:en: Q581105
+
+< en:Electronics
+en: Smart devices
+xx: Smart devices
+ar: جهاز ذكي
+ja: スマートデバイス
+ko: 스마트 장치
+zh: 智能设备
+wikidata:en: Q11253473
 
 < en:Electronics
 en: Arcade Equipment
@@ -21688,15 +21716,6 @@ unit_name:en: Basic phone
 unit_name:fr: Téléphone basique
 
 < en:Electronics
-en: Smart watches, Smartwatches
-
-< en:Smart watches
-en: WearOS smartwatches
-
-< en:Smart watches
-en: Apple smartwatches
-
-< en:Electronics
 en: Activity tracker
 
 < en:Electronics
@@ -21722,6 +21741,7 @@ tr: Cep Telefonları
 qfdmo_id:fr: 334
 qfdmo_name:fr: telephone-mobile
 
+< en:Smart devices
 < en:Telephony
 en: Smartphones
 xx: Smartphones, Smartphone
@@ -21735,11 +21755,11 @@ unit_name:xx: smartphone
 unit_name:en: smartphone
 wikidata:en: Q17517
 
-< en: Smartphones
+< en:Smartphones
 en: Android smartphones
 fr: Smartphones Android
 
-< en: Smartphones
+< en:Smartphones
 en: iPhone smartphones
 xx: iPhone, iPhones
 fr: Smartphones iPhone
@@ -22255,6 +22275,7 @@ unit_name:fr: Ordinateur portable
 wikidata:en: Q3962
 
 < en:Computers
+< en:Smart devices
 en: Smart Glasses
 xx: Smart Glasses
 cs: Chytré brýle
@@ -22275,6 +22296,7 @@ google_product_taxonomy_id:en: 500002
 wikidata:en: Q15978715
 
 < en:Computers
+< en:Smart devices
 en: Smart speaker
 fr: Enceinte connectée
 carbon_impact_fr_impactco2:en: 26.5
