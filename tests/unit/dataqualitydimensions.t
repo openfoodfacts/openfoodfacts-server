@@ -7,6 +7,8 @@ $Data::Dumper::Terse = 1;
 
 use ProductOpener::DataQualityDimensions qw/compute_accuracy_score compute_completeness_score/;
 use ProductOpener::Tags qw/has_tag/;
+use ProductOpener::FoodProducts qw/:all/;
+use boolean qw/:all/;
 
 #################################
 ####     H E L P E R S      ####
@@ -81,8 +83,8 @@ check_tags(
 		"en:nutrition-photo-to-be-selected" => 1,
 		"en:categories-completed" => 0,
 		"en:categories-to-be-completed" => 1,
-		"en:nutriments-completed" => 0,
-		"en:nutriments-to-be-completed" => 1,
+		"en:nutrition-completed" => 0,
+		"en:nutrition-to-be-completed" => 1,
 		"en:packaging-photo-selected" => 0,
 		"en:packaging-photo-to-be-selected" => 1,
 		"en:packagings-completed" => 0,
@@ -147,7 +149,7 @@ compute_and_test_completeness(
 		expiration_date => 'grault',
 		ingredients_text_it => 'garply',
 		languages_codes => {'it' => 1},
-		packagings => 'baz',
+		packagings => [],
 		product_name => 'foo',
 		quantity => 'bar'
 	},
@@ -155,30 +157,55 @@ compute_and_test_completeness(
 	'product with all string fields, no food of animal origin category'
 );
 
-compute_and_test_completeness({no_nutrition_data => 'on', nutriments => {}},
-	"0.20", 'product with no_nutrition_data and no nutriments and not from animal origin category');
+compute_and_test_completeness({nutrition => {no_nutrition_data_on_packaging => true}},
+	"0.20", 'product with no_nutrition_data on and no nutrition data and not from animal origin category');
 
-compute_and_test_completeness({nutriments => {}}, "0.00", 'product without nutriments but no nutrition data is not on');
-
-compute_and_test_completeness({nutriments => {carbohydrates => 2}},
-	"0.10", 'product with nutriments and not from animal origin category');
+compute_and_test_completeness({}, "0.00", 'product without nutrition data');
 
 $product_ref = {
-	nutriments => {
-		"fruits-vegetables-nuts-estimate-from-ingredients_100g" => 0,
-		"fruits-vegetables-nuts-estimate-from-ingredients_serving" => 0,
-		"nova-group" => 4,
-		"nova-group_100g" => 4,
-		"nova-group_serving" => 4
+	nutrition => {
+		input_sets => [
+			{
+				nutrients => {
+					fat => {unit => 'g', value => 10}
+				},
+				source => 'packaging',
+				per => '100g',
+				preparation => 'as_sold'
+			}
+		]
 	}
 };
-compute_and_test_completeness($product_ref, "0.00", 'NOVA and fruit/veg estimates ignored in completeness');
+specific_processes_for_food_product($product_ref);
+
+compute_and_test_completeness($product_ref, "0.10", 'product with nutrition data and not from animal origin category');
+
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				nutrients => {
+					"fruits-vegetables-nuts" => {
+						unit => "g",
+						value => 80
+					}
+				},
+				source => "estimate",
+				per => "100g",
+				preparation => "as_sold"
+			}
+		]
+	}
+};
+specific_processes_for_food_product($product_ref);
+
+compute_and_test_completeness($product_ref, "0.00", 'Nutrient estimates ignored in completeness');
 check_tags(
 	$product_ref,
 	"completeness",
 	(
-		"en:nutriments-to-be-completed" => 1,
-		"en:nutriments-completed" => 0,
+		"en:nutrition-to-be-completed" => 1,
+		"en:nutrition-completed" => 0,
 	)
 );
 
@@ -195,11 +222,27 @@ $product_ref = {
 	},
 	ingredients_text_hu => 'garply',
 	languages_codes => {'hu' => 1},
-	nutriments => {carbohydrates => 2},
-	packagings => 'baz',
+	nutrition => {
+		input_sets => [
+			{
+				nutrients => {
+					fat => {unit => 'g', value => 10},
+					carbohydrates => {unit => 'g', value => 20},
+					proteins => {unit => 'g', value => 30},
+					salt => {unit => 'g', value => 1.5},
+					energy => {unit => 'kcal', value => 200}
+				},
+				source => 'packaging',
+				per => '100g',
+				preparation => 'as_sold'
+			}
+		]
+	},
+	packagings => [],
 	product_name => 'foo',
 	quantity => 'bar'
 };
+specific_processes_for_food_product($product_ref);
 compute_and_test_completeness($product_ref, "1.00", 'completeness - product all fields');
 check_tags(
 	$product_ref,
@@ -213,8 +256,8 @@ check_tags(
 		"en:nutrition-photo-to-be-selected" => 0,
 		"en:categories-completed" => 1,
 		"en:categories-to-be-completed" => 0,
-		"en:nutriments-completed" => 1,
-		"en:nutriments-to-be-completed" => 0,
+		"en:nutrition-completed" => 1,
+		"en:nutrition-to-be-completed" => 0,
 		"en:packaging-photo-selected" => 1,
 		"en:packaging-photo-to-be-selected" => 0,
 		"en:packagings-completed" => 1,

@@ -48,9 +48,9 @@ BEGIN {
 use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
-use ProductOpener::Food
-	qw(%categories_nutriments_per_country check_availability_of_nutrients_needed_for_nutriscore compute_nutriscore_data);
+use ProductOpener::Food qw(check_availability_of_nutrients_needed_for_nutriscore compute_nutriscore_data);
 use ProductOpener::Nutriscore qw(:all);
+use ProductOpener::Stats qw(%categories_stats_per_country);
 
 use Log::Any qw($log);
 use Storable qw(dclone);
@@ -142,14 +142,13 @@ sub detect_possible_improvements_nutriscore_2023 ($product_ref) {
 				my $new_product_ref = dclone($product_ref);
 
 				# Populate the data structure that will be passed to Food::Nutriscore
-				my ($nutrients_available, $prepared, $nutriments_field)
+				my ($nutrients_available, $preparation, $estimated)
 					= check_availability_of_nutrients_needed_for_nutriscore($new_product_ref);
 
 				# Skip products with estimated nutrients
-				next if $nutriments_field eq "nutriments_estimated";
+				next if $estimated;
 
-				my $new_nutriscore_ref
-					= compute_nutriscore_data($new_product_ref, $prepared, $nutriments_field, $version);
+				my $new_nutriscore_ref = compute_nutriscore_data($new_product_ref, $preparation, $version);
 
 				# Overwrite the value of the nutrient in the Nutri-Score data
 				$new_nutriscore_ref->{$nutrient} = $new_value;
@@ -216,7 +215,7 @@ to identify possible improvement opportunities.
 
 sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 
-	my $categories_nutriments_ref = $categories_nutriments_per_country{"world"};
+	my $categories_stats_ref = $categories_stats_per_country{"world"};
 
 	$log->debug("detect_possible_improvements_compare_nutrition_facts - start") if $log->debug();
 
@@ -227,8 +226,8 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 
 	while (
 		($i >= 0)
-		and not((defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]})
-			and (defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]}{nutriments}))
+		and not((defined $categories_stats_ref->{$product_ref->{categories_tags}[$i]})
+			and (defined $categories_stats_ref->{$product_ref->{categories_tags}[$i]}{values}))
 		)
 	{
 		$i--;
@@ -258,7 +257,7 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 
 			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
 				and ($product_ref->{nutriments}{$nid . "_100g"} ne "")
-				and (defined $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}))
+				and (defined $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}))
 			{
 
 				$log->debug(
@@ -266,8 +265,8 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 					{
 						nid => $nid,
 						product_100g => $product_ref->{nutriments}{$nid . "_100g"},
-						category_100g => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"},
-						category_std => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
+						category_100g => $categories_stats_ref->{$specific_category}{values}{$nid}{"mean"},
+						category_std => $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					}
 				) if $log->is_debug();
 
@@ -277,8 +276,8 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 
 				if (
 					$product_ref->{nutriments}{$nid . "_100g"} > (
-						$categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"}
-							+ 2 * $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
+						$categories_stats_ref->{$specific_category}{values}{$nid}{"mean"}
+							+ 2 * $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					)
 					)
 				{
@@ -288,8 +287,8 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 				}
 				elsif (
 					$product_ref->{nutriments}{$nid . "_100g"} > (
-						$categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"}
-							+ 1 * $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
+						$categories_stats_ref->{$specific_category}{values}{$nid}{"mean"}
+							+ 1 * $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					)
 					)
 				{
@@ -303,7 +302,7 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 						nid => $nid,
 						category => $specific_category,
 						product_100g => $product_ref->{nutriments}{$nid . "_100g"},
-						category_100g => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"},
+						category_100g => $categories_stats_ref->{$specific_category}{values}{$nid}{"mean"},
 					};
 				}
 			}

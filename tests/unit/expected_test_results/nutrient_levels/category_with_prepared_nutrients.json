@@ -1,0 +1,56 @@
+{
+   "categories" : "flavoured syrups",
+   "categories_hierarchy" : [
+      "en:beverages-and-beverages-preparations",
+      "en:beverage-preparations",
+      "en:syrups",
+      "en:flavoured-syrups"
+   ],
+   "categories_lc" : "en",
+   "categories_tags" : [
+      "en:beverages-and-beverages-preparations",
+      "en:beverage-preparations",
+      "en:syrups",
+      "en:flavoured-syrups"
+   ],
+   "nutrient_levels" : {
+      "salt" : "high",
+      "sugars" : "moderate"
+   },
+   "nutrient_levels_tags" : [
+      "en:sugars-in-moderate-quantity",
+      "en:salt-in-high-quantity"
+   ],
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "energy_kcal" : {
+               "unit" : "kcal",
+               "value" : 125,
+               "value_string" : "125"
+            },
+            "protein" : {
+               "unit" : "g",
+               "value" : 6.2,
+               "value_string" : "6.2"
+            },
+            "salt" : {
+               "modifier" : "<=",
+               "unit" : "g",
+               "value" : 2,
+               "value_string" : "2.0"
+            },
+            "sugars" : {
+               "unit" : "g",
+               "value" : 5.2,
+               "value_string" : "5.2"
+            }
+         },
+         "per" : "100g",
+         "per_quantity" : "100",
+         "per_unit" : "g",
+         "preparation" : "prepared",
+         "source" : "packaging"
+      }
+   }
+}

@@ -336,6 +336,9 @@ sub extract_standard_unit ($quantity_field) {
 
 Converts the given unit to its corresponding standard unit.
 
+e.g. "kg" -> "g"
+	 "l"  -> "ml"
+
 =head3 Parameters
 
 =head4 $unit

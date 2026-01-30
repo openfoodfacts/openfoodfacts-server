@@ -691,13 +691,6 @@
                            "style" : "max-width:15rem",
                            "text" : "Nutrition facts",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : true,
-                           "text" : "As sold<br>for 100 g / 100 ml",
-                           "text_for_small_screens" : "100g",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -708,9 +701,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fat"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -720,9 +710,6 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Saturated fat"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -732,9 +719,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Carbohydrates"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -744,9 +728,6 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Sugars"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -756,9 +737,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fiber"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -768,9 +746,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Proteins"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -780,9 +755,24 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Salt"
-                              },
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
                               {
-                                 "text" : "?"
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sodium"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Alcohol"
                               }
                            ]
                         }
