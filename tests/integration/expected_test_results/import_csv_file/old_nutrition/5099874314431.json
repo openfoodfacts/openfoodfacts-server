@@ -423,7 +423,7 @@
       "2021" : {
          "category_available" : 0,
          "data" : {
-            "energy" : 205,
+            "energy" : 222.5,
             "fiber" : 0,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 0,
@@ -445,7 +445,7 @@
       "2023" : {
          "category_available" : 0,
          "data" : {
-            "energy" : 205,
+            "energy" : 222.5,
             "fiber" : 0,
             "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
@@ -488,11 +488,12 @@
                "value" : 12
             },
             "energy" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 205
+               "value" : 222.5
             },
             "energy-kcal" : {
                "source" : "packaging",
@@ -501,6 +502,14 @@
                "unit" : "kcal",
                "value" : 49,
                "value_computed" : 52.5
+            },
+            "energy-kj" : {
+               "modifier" : "~",
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 222.5
             },
             "fat" : {
                "source" : "packaging",
@@ -554,6 +563,10 @@
                   "value" : 49,
                   "value_computed" : 52.5,
                   "value_string" : "49"
+               },
+               "energy-kj" : {
+                  "unit" : "kj",
+                  "value_computed" : 222.5
                },
                "fat" : {
                   "unit" : "g",

@@ -97,10 +97,10 @@
    "misc_tags" : [
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-missing-prepared-nutrition-data",
+      "en:nutriscore-estimated-energy",
+      "en:nutriscore-estimated-fat",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
-      "en:nutriscore-missing-nutrition-data-energy",
-      "en:nutriscore-estimated-fat",
       "en:nutriscore-missing-nutrition-data-saturated-fat",
       "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-estimated-sodium",
@@ -230,6 +230,30 @@
                "unit" : "g",
                "value" : 0.00155
             },
+            "energy" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 1656.4
+            },
+            "energy-kcal" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kcal",
+               "value" : 396.6
+            },
+            "energy-kj" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 1656.4
+            },
             "fat" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -332,7 +356,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.074
+               "value" : 0.19,
+               "value_computed" : 0.076
             },
             "vitamin-b6" : {
                "modifier" : "~",
@@ -423,6 +448,14 @@
                   "value" : 397,
                   "value_string" : "397"
                },
+               "energy-kcal" : {
+                  "unit" : "kcal",
+                  "value_computed" : 396.6
+               },
+               "energy-kj" : {
+                  "unit" : "kj",
+                  "value_computed" : 1656.4
+               },
                "fat" : {
                   "modifier" : "~",
                   "unit" : "g",
@@ -498,8 +531,9 @@
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.074,
-                  "value_string" : "0.074"
+                  "value" : 0.19,
+                  "value_computed" : 0.076,
+                  "value_string" : "0.19"
                },
                "vitamin-b6" : {
                   "modifier" : "~",
@@ -547,7 +581,7 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 1,
-   "nutrition_score_debug" : "no score for category en:beverage-preparations without data for prepared product - missing prepared energy - prepared fat estimated - missing prepared saturated-fat - missing prepared sugars - prepared sodium estimated - prepared proteins estimated - prepared fiber estimated",
+   "nutrition_score_debug" : "no score for category en:beverage-preparations without data for prepared product - prepared energy estimated - prepared fat estimated - missing prepared saturated-fat - missing prepared sugars - prepared sodium estimated - prepared proteins estimated - prepared fiber estimated",
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Beverages",

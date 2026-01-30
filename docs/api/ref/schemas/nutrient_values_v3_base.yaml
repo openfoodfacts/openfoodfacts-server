@@ -11,6 +11,15 @@ properties:
     examples:
       - 2
       - 4.1
+  value_computed:
+    type: number
+    description: |
+      A normalized float value for the quantity, computed by the system (not entered by a user or manufacturer).
+      This is used only for values that are computed from other nutrient values, like energy computed from fat, carbohydrates and proteins.
+      And salt or sodium computed from each other.
+    examples:
+      - 150
+      - 250.5
   unit:
     type: string
     description: |

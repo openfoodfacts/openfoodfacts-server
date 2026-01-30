@@ -117,11 +117,17 @@
             "userid" : "tests",
             "value" : 10.5
          },
+         "packaging.as_sold.100g.nutrients.energy-kcal.unit" : {
+            "rev" : 1,
+            "t" : "--ignore--",
+            "userid" : "tests",
+            "value" : "kcal"
+         },
          "packaging.as_sold.100g.nutrients.energy-kj.unit" : {
             "rev" : 1,
             "t" : "--ignore--",
             "userid" : "tests",
-            "value" : "kJ"
+            "value" : "kj"
          },
          "packaging.as_sold.100g.nutrients.energy-kj.value" : {
             "rev" : 1,
@@ -188,6 +194,12 @@
             "t" : "--ignore--",
             "userid" : "tests",
             "value" : 5.6
+         },
+         "packaging.as_sold.100g.nutrients.sodium.unit" : {
+            "rev" : 1,
+            "t" : "--ignore--",
+            "userid" : "tests",
+            "value" : "mg"
          },
          "packaging.as_sold.100g.nutrients.sugars.unit" : {
             "rev" : 1,
@@ -329,8 +341,7 @@
          }
       },
       "data_quality_errors_tags" : [
-         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
+         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates"
       ],
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
@@ -359,20 +370,15 @@
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-production-system-no-label",
-         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
+         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates"
       ],
       "data_quality_warnings_tags" : [
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-production-system-no-label"
       ],
@@ -1155,6 +1161,12 @@
          "carbohydrates_unit" : "g",
          "carbohydrates_value" : 10.5,
          "energy" : 400,
+         "energy-kcal" : 140.5,
+         "energy-kcal_100g" : 140.5,
+         "energy-kcal_modifier" : "~",
+         "energy-kcal_serving" : 14.1,
+         "energy-kcal_unit" : "kcal",
+         "energy-kcal_value" : 140.5,
          "energy-kj" : 400,
          "energy-kj_100g" : 400,
          "energy-kj_serving" : 40,
@@ -1193,6 +1205,7 @@
          "saturated-fat_value" : 5.6,
          "sodium" : 0.02008,
          "sodium_100g" : 0.02008,
+         "sodium_modifier" : "~",
          "sodium_serving" : 0.00201,
          "sodium_unit" : "g",
          "sodium_value" : 0.02008,

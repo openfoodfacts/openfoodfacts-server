@@ -407,7 +407,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 207
+               "value" : 207,
+               "value_computed" : 197.57
             },
             "energy-kcal" : {
                "modifier" : "~",
@@ -415,7 +416,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 48.9
+               "value" : 48.9,
+               "value_computed" : 46.706
             },
             "energy-kj" : {
                "modifier" : "~",
@@ -423,7 +425,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 207
+               "value" : 207,
+               "value_computed" : 197.57
             },
             "fat" : {
                "modifier" : "~",
@@ -607,7 +610,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0
+               "value" : 0,
+               "value_computed" : 0
             },
             "starch" : {
                "modifier" : "~",
@@ -788,12 +792,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 48.9,
+                  "value_computed" : 46.706,
                   "value_string" : "48.9"
                },
                "energy-kj" : {
                   "modifier" : "~",
-                  "unit" : "kJ",
+                  "unit" : "kj",
                   "value" : 207,
+                  "value_computed" : 197.57,
                   "value_string" : "207"
                },
                "fat" : {
@@ -932,6 +938,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0,
+                  "value_computed" : 0,
                   "value_string" : "0"
                },
                "starch" : {

@@ -140,20 +140,12 @@
          "en:nutrition-energy-value-in-kcal-greater-than-in-kj",
          "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kcal-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kcal-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"
       ],
       "data_quality_warnings_tags" : [
          "en:nutrition-energy-value-in-kcal-greater-than-in-kj",
          "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kcal-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kcal-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"
       ],
       "debug_param_sorted_langs" : [
@@ -756,7 +748,7 @@
          "salt_100g" : 0.0496875,
          "saturated-fat_100g" : 4.903125,
          "selenium_100g" : 1.2290625e-06,
-         "sodium_100g" : 0.019725,
+         "sodium_100g" : 0.0496875,
          "starch_100g" : 0,
          "sucrose_100g" : 0.51953125,
          "sugars_100g" : 7.2621875,
@@ -786,7 +778,7 @@
                "is_water" : 0,
                "proteins" : 2,
                "saturated_fat" : 4.903125,
-               "sodium" : 19.725,
+               "sodium" : 49.6875,
                "sugars" : 7.2621875
             },
             "estimated" : 1,

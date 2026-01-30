@@ -72,9 +72,7 @@
             "packaging" : "0.50"
          }
       },
-      "data_quality_errors_tags" : [
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
-      ],
+      "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
          "en:no-packaging-data",
          "en:food-groups-1-unknown",
@@ -99,19 +97,14 @@
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-packaging-packaging-data-missing",
          "en:environmental-score-production-system-no-label",
-         "en:environmental-score-threatened-species-ingredients-missing",
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
+         "en:environmental-score-threatened-species-ingredients-missing"
       ],
       "data_quality_warnings_tags" : [
-         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-packaging-packaging-data-missing",
          "en:environmental-score-production-system-no-label",
@@ -444,7 +437,7 @@
                "is_water" : 0,
                "proteins" : 8.2,
                "saturated_fat" : 3.1,
-               "sodium" : 472.0,
+               "sodium" : 1200.0,
                "sugars" : null
             },
             "estimated" : 0,
@@ -511,7 +504,16 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "kJ",
-                  "value" : 450
+                  "value" : 450,
+                  "value_computed" : 1783.7
+               },
+               "energy-kcal" : {
+                  "modifier" : "~",
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "kcal",
+                  "value" : 423.9
                },
                "energy-kj" : {
                   "source" : "packaging",
@@ -561,7 +563,8 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "g",
-                  "value" : 0.472
+                  "value" : 1.2,
+                  "value_computed" : 0.48
                }
             },
             "per" : "100g",
@@ -580,8 +583,12 @@
                      "value" : 67.4,
                      "value_string" : "67.4"
                   },
+                  "energy-kcal" : {
+                     "unit" : "kcal",
+                     "value_computed" : 423.9
+                  },
                   "energy-kj" : {
-                     "unit" : "kJ",
+                     "unit" : "kj",
                      "value" : 450,
                      "value_computed" : 1783.7,
                      "value_string" : "450"
@@ -613,8 +620,9 @@
                   },
                   "sodium" : {
                      "unit" : "g",
-                     "value" : 0.472,
-                     "value_string" : "0.472"
+                     "value" : 1.2,
+                     "value_computed" : 0.48,
+                     "value_string" : "1.2"
                   }
                },
                "per" : "100g",

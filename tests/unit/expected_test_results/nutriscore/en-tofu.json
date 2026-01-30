@@ -246,7 +246,7 @@
                      "points" : 0,
                      "points_max" : 20,
                      "unit" : "g",
-                     "value" : 0.03
+                     "value" : 0.01
                   }
                ],
                "positive" : [
@@ -334,7 +334,7 @@
                "points" : 0,
                "points_max" : 20,
                "unit" : "g",
-               "value" : 0.03
+               "value" : 0.01
             }
          ],
          "positive" : [
@@ -459,7 +459,8 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 0
+               "value" : 0,
+               "value_computed" : 377.28
             },
             "energy-kj" : {
                "source" : "packaging",
@@ -623,7 +624,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.025
+               "value" : 0.01,
+               "value_computed" : 0.025
             },
             "saturated-fat" : {
                "source" : "packaging",
@@ -785,6 +787,11 @@
                   "unit" : "g",
                   "value" : 20
                },
+               "salt" : {
+                  "unit" : "g",
+                  "value" : 0.01,
+                  "value_computed" : 0.025
+               },
                "saturated-fat" : {
                   "unit" : "g",
                   "value" : 0
@@ -858,12 +865,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 0,
+                  "value_computed" : 377.28,
                   "value_string" : "0"
                },
                "energy-kj" : {
                   "modifier" : "~",
-                  "unit" : "kJ",
+                  "unit" : "kj",
                   "value" : 0,
+                  "value_computed" : 1575.9,
                   "value_string" : "0"
                },
                "fat" : {
@@ -1001,8 +1010,9 @@
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.393916,
-                  "value_string" : "0.393916"
+                  "value" : 0.985434,
+                  "value_computed" : 0.3941736,
+                  "value_string" : "0.985434"
                },
                "starch" : {
                   "modifier" : "~",
