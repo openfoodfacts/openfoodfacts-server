@@ -856,7 +856,7 @@ sub normalize_product_for_test_comparison ($product_ref) {
 	my %specification = (
 		fields_ignore_content => [
 			qw(
-				last_modified_t last_updated_t created_t owner_fields
+				last_modified_t last_updated_t nutrition.input_sets.*.last_updated_t created_t owner_fields
 				entry_dates_tags last_edit_dates_tags
 				last_image_t last_image_datetime last_image_dates_tags images.*.uploaded_t images.uploaded.*.uploaded_t sources.*.import_t
 				created_datetime last_modified_datetime last_updated_datetime
