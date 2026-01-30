@@ -139,19 +139,43 @@ sub add_computed_values_to_nutrient_sets ($input_sets_ref) {
 
 			# Add salt and sodium values computed from each other and store them in value_computed
 			my $salt_value = deep_get($nutrient_set_ref, qw/nutrients salt value/);
-			my $sodium_value = deep_get($nutrient_set_ref, qw/nutrients sodium value/);
 			my $salt_unit = deep_get($nutrient_set_ref, qw/nutrients salt unit/);
+			my $salt_modifier = deep_get($nutrient_set_ref, qw/nutrients salt modifier/);
+			my $sodium_value = deep_get($nutrient_set_ref, qw/nutrients sodium value/);
 			my $sodium_unit = deep_get($nutrient_set_ref, qw/nutrients sodium unit/);
+			my $sodium_modifier = deep_get($nutrient_set_ref, qw/nutrients sodium modifier/);
 
 			if (defined $salt_value) {
-				$nutrient_set_ref->{nutrients}{"sodium"}
-					= clone($nutrient_set_ref->{nutrients}{"salt"});
+				# If we have an existing sodium nutrient, we keep its values (including unit and modifier)
+				# and we will just add value_computed
+				# Otherwise, we create the sodium nutrient with unit and modifier from salt nutrient
+				if (not defined $nutrient_set_ref->{nutrients}{"sodium"}) {
+					$nutrient_set_ref->{nutrients}{"sodium"} = {unit => $salt_unit // 'g',};
+					if (defined $salt_modifier) {
+						$nutrient_set_ref->{nutrients}{"sodium"}{modifier} = $salt_modifier;
+					}
+				}
+				# If the sodium unit is different from salt unit, we convert salt value to sodium unit first
+				if (defined $sodium_unit and defined $salt_unit and $sodium_unit ne $salt_unit) {
+					$salt_value = g_to_unit(unit_to_g($salt_value, $salt_unit), $sodium_unit);
+				}
 				$nutrient_set_ref->{nutrients}{"sodium"}{value_computed}
 					= remove_insignificant_digits(convert_salt_to_sodium($salt_value)) + 0;
 			}
 			elsif (defined $sodium_value) {
-				$nutrient_set_ref->{nutrients}{"salt"}
-					= clone($nutrient_set_ref->{nutrients}{"sodium"});
+				# If we have an existing salt nutrient, we keep its values (including unit and modifier)
+				# and we will just add value_computed
+				# Otherwise, we create the salt nutrient with unit and modifier from sodium nutrient
+				if (not defined $nutrient_set_ref->{nutrients}{"salt"}) {
+					$nutrient_set_ref->{nutrients}{"salt"} = {unit => $sodium_unit // 'g',};
+					if (defined $sodium_modifier) {
+						$nutrient_set_ref->{nutrients}{"salt"}{modifier} = $sodium_modifier;
+					}
+				}
+				# If the salt unit is different from sodium unit, we convert sodium value to salt unit first
+				if (defined $salt_unit and defined $sodium_unit and $salt_unit ne $sodium_unit) {
+					$sodium_value = g_to_unit(unit_to_g($sodium_value, $sodium_unit), $salt_unit);
+				}
 				$nutrient_set_ref->{nutrients}{"salt"}{value_computed}
 					= remove_insignificant_digits(convert_sodium_to_salt($sodium_value)) + 0;
 			}
@@ -420,14 +444,14 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}
 						= clone($nutrient_set_ref->{nutrients}{$nutrient});
 					delete $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value_string};
-					# If we don't have a value but a value_computed, use it as value and set the modifier to ~
+					# If we don't have a value but a value_computed, use it as value and set the modifier to ~ (unless there is another modifier already)
 					if (    (!defined $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value})
 						and (defined $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value_computed}))
 					{
 						$aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value}
 							= $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value_computed};
 						delete $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value_computed};
-						$aggregated_nutrient_set_ref->{nutrients}{$nutrient}{modifier} = '~';
+						$aggregated_nutrient_set_ref->{nutrients}{$nutrient}{modifier} //= '~';
 					}
 					# Normalize units to standard units (g, kJ or kcal)
 					convert_nutrient_to_standard_unit($aggregated_nutrient_set_ref->{nutrients}{$nutrient}, $nutrient);

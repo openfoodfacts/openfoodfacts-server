@@ -964,13 +964,97 @@ my @tests = (
 			}
 		}
 	],
+	# Salt and sodium in g
+	[
+		"salt-and-sodium-in-g",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sodium => {
+								value_string => "2.0",
+								value => 2,
+								unit => "g",
+							},
+							salt => {
+								value_string => "5.0",
+								value => 5,
+								unit => "g",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+	# Salt in g and sodium in mg
+	[
+		"salt-in-g-and-sodium-in-mg",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sodium => {
+								value_string => "2000.0",
+								value => 2000,
+								unit => "mg",
+							},
+							salt => {
+								value_string => "5.0",
+								value => 5,
+								unit => "g",
+							}
+						}
+					}
+				]
+			}
+		}
 
+	],
+	# Sodium in mg and salt in mg
+	[
+		"sodium-and-salt-in-mg",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sodium => {
+								value_string => "2000.0",
+								value => 2000,
+								unit => "mg",
+							},
+						}
+					}
+				]
+			}
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
 
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
+
+	ProductOpener::Nutrition::add_computed_values_to_nutrient_sets($product_ref->{nutrition}{input_sets});
 
 	my $nutrient_set_preferred_ref
 		= generate_nutrient_aggregated_set_from_sets($product_ref->{nutrition}{input_sets});
