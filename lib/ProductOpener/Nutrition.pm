@@ -162,7 +162,8 @@ sub add_computed_values_to_nutrient_sets ($input_sets_ref) {
 				$nutrient_set_ref->{nutrients}{"sodium"}{value_computed}
 					= remove_insignificant_digits(convert_salt_to_sodium($salt_value)) + 0;
 			}
-			elsif (defined $sodium_value) {
+
+			if (defined $sodium_value) {
 				# If we have an existing salt nutrient, we keep its values (including unit and modifier)
 				# and we will just add value_computed
 				# Otherwise, we create the salt nutrient with unit and modifier from sodium nutrient

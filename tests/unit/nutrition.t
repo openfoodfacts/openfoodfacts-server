@@ -1036,11 +1036,40 @@ my @tests = (
 						per_unit => "g",
 						source => "packaging",
 						nutrients => {
+							salt => {
+								value_string => "5000.0",
+								value => 5000,
+								unit => "mg",
+							},
 							sodium => {
 								value_string => "2000.0",
 								value => 2000,
 								unit => "mg",
 							},
+						}
+					}
+				]
+			}
+		}
+	],
+	# Sodium in mg only
+	[
+		"sodium-in-mg-only",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sodium => {
+								value_string => "2000.0",
+								value => 2000,
+								unit => "mg",
+							}
 						}
 					}
 				]

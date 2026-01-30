@@ -3,20 +3,19 @@
       "aggregated_set" : {
          "nutrients" : {
             "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 5.0,
-               "value_computed" : 5000
+               "value" : 5.0
             },
             "sodium" : {
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 2.0,
-               "value_computed" : 2000
+               "value" : 2.0
             }
          },
          "per" : "100g",
@@ -27,14 +26,11 @@
             "nutrients" : {
                "salt" : {
                   "unit" : "mg",
-                  "value" : 5000,
-                  "value_computed" : 5000,
-                  "value_string" : "5000.0"
+                  "value_computed" : 5000
                },
                "sodium" : {
                   "unit" : "mg",
                   "value" : 2000,
-                  "value_computed" : 2000,
                   "value_string" : "2000.0"
                }
             },

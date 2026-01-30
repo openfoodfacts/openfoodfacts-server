@@ -7,7 +7,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 5
+               "value" : 5,
+               "value_computed" : 5
             },
             "sodium" : {
                "source" : "packaging",
@@ -27,6 +28,7 @@
                "salt" : {
                   "unit" : "g",
                   "value" : 5,
+                  "value_computed" : 5,
                   "value_string" : "5.0"
                },
                "sodium" : {
