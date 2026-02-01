@@ -6,27 +6,33 @@ ARG USER_GID=1000
 FROM node:22.22.0 AS builder
 ARG USER_UID
 ARG USER_GID
-RUN usermod --uid "$USER_UID" node && \
-    groupmod --gid "$USER_GID" node && \
-    mkdir -p /opt/product-opener/node_modules && \
-    mkdir -p /opt/product-opener/html/data && \
-    mkdir -p /opt/product-opener/html/css/dist && \
-    mkdir -p /opt/product-opener/html/images/icons/dist && \
-    mkdir -p /opt/product-opener/html/js/dist && \
-    mkdir -p /opt/product-opener/html/images/products && \
-    chown node:node -R /opt/product-opener/
-COPY --chown=node:node package*.json .npmrc /opt/product-opener/
-COPY --chown=node:node .snyk /opt/product-opener/
+
+# Modify node user to have the same uid / gid as the host user to avoid permission issues
+RUN [ "$USER_UID" -eq 0 ] || \
+  (usermod --uid "$USER_UID" node && groupmod --gid "$USER_GID" node)
+
+
+RUN mkdir -p /opt/product-opener/node_modules \
+  /opt/product-opener/html/data \
+  /opt/product-opener/html/css/dist \
+  /opt/product-opener/html/images/icons/dist \
+  /opt/product-opener/html/js/dist \
+  /opt/product-opener/html/images/products && \
+  chown -R "$USER_UID:$USER_GID" /opt/product-opener/
+
 WORKDIR /opt/product-opener
-USER node
+USER ${USER_UID}
+
+COPY --chown=$USER_UID:$USER_GID package*.json .npmrc .snyk /opt/product-opener/
 RUN --mount=type=cache,id=npm-cacache,target=/root/.npm/_cacache npm ci
 ENV PATH="/opt/product-opener/node_modules/.bin:${PATH}"
 
-COPY --chown=node:node html /opt/product-opener/html
-COPY --chown=node:node icons /opt/product-opener/icons
-COPY --chown=node:node scss /opt/product-opener/scss
-COPY --chown=node:node gulpfile.ts /opt/product-opener/
-COPY --chown=node:node .snyk /opt/product-opener/
+COPY --chown=$USER_UID:$USER_GID html /opt/product-opener/html
+COPY --chown=$USER_UID:$USER_GID icons /opt/product-opener/icons
+COPY --chown=$USER_UID:$USER_GID scss /opt/product-opener/scss
+COPY --chown=$USER_UID:$USER_GID gulpfile.ts /opt/product-opener/
+COPY --chown=$USER_UID:$USER_GID .snyk /opt/product-opener/
+
 # https://github.com/openfoodfacts/openfoodfacts-server/pull/5544#issuecomment-914221199
 RUN find . -xtype l | xargs -I {} sh -c "origin=\$(readlink {} | tr '\\\\\\\\' '/') && ln -sf \$origin {}"
 RUN npm run build
@@ -35,6 +41,9 @@ FROM nginx:stable
 WORKDIR /opt/product-opener
 ARG USER_UID
 ARG USER_GID
-RUN usermod -u "$USER_UID" www-data && \
-    groupmod --gid "$USER_GID" www-data
-COPY --from=builder /opt/product-opener/html/ /opt/product-opener/html/
+
+# Modify www-data user to have the same uid / gid as the host user to avoid permission issues
+RUN [ "$USER_UID" -eq 0 ] || \
+  (usermod -u "$USER_UID" www-data && groupmod -g "$USER_GID" www-data)
+
+COPY --from=builder --chown=$USER_UID:$USER_GID /opt/product-opener/html/ /opt/product-opener/html/
