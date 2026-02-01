@@ -1139,9 +1139,26 @@ function get_nutrient_unit(nutrient_id) {
     return $(`#nutrient_${nutrient_id}_tr .nutrient_unit`).first().text().trim();
 }
 
-function get_nutrient_value(nutrient_id, per, preparation) {
+function get_nutrient_value(nutrient_id, per, preparation, wanted_unit) {
     const input_id = `#nutrition_input_sets_${preparation}_${per}_nutrients_${nutrient_id}_value_string`;
-    return ($(input_id).val() || '').replace(',', '.');
+
+    let value = parseFloat(($(input_id).val() || '').replace(',', '.'));
+    
+    if (!isNaN(value)) {
+        const current_unit = get_nutrient_unit(nutrient_id);
+
+        const factor = {
+            'g': 1,
+            'mg': 0.001,
+            'µg': 0.000001
+        };
+
+        if (factor[current_unit] != null && factor[wanted_unit] != null) {
+            value = value * (factor[current_unit] / factor[wanted_unit]);
+        }
+
+        return value;
+    }
 }
 
 function check_nutrient(nutrient_id, per, preparation, id) {
@@ -1188,10 +1205,10 @@ function check_nutrient(nutrient_id, per, preparation, id) {
     // but only if the changed nutrient does not have a warning
     // otherwise we may clear the sugars or saturated-fat warning
     if (! is_above_or_below_max) {
-        const fat_value = get_nutrient_value("fat", per, preparation);
-        const carbohydrates_value = get_nutrient_value("carbohydrates", per, preparation);
-        const sugars_value = get_nutrient_value("sugars", per, preparation);
-        const saturated_fats_value = get_nutrient_value("saturated-fat", per, preparation);
+        const fat_value = get_nutrient_value("fat", per, preparation, nutrient_unit);
+        const carbohydrates_value = get_nutrient_value("carbohydrates", per, preparation, nutrient_unit);
+        const sugars_value = get_nutrient_value("sugars", per, preparation, nutrient_unit);
+        const saturated_fats_value = get_nutrient_value("saturated-fat", per, preparation, nutrient_unit);
 
         const is_sugars_above_carbohydrates = parseFloat(carbohydrates_value) < parseFloat(sugars_value);
         const sugars_input_id = `nutrition_input_sets_${preparation}_${per}_nutrients_sugars_value_string`;
