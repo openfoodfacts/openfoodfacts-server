@@ -87,10 +87,8 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
     - [Server documentation](https://openfoodfacts.github.io/documentation/docs/Product-Opener/)
     - [Developer guide (docker)](./docs/dev/how-to-develop-using-docker.md)
     - [Developer guide (gitpod)](./docs/dev/how-to-use-gitpod.md)
-    - Configuration [TBA]
-    - Dependencies [TBA]
-    - Database configuration [TBA]
-    - How to run tests [TBA]
+    - [Configuration](./docs/dev/how-to-quick-start-guide.md#3-optional-review-product-openers-environment)
+    - [How to run tests](./docs/dev/how-to-write-and-run-tests.md)
     - [Perl modules documentation (POD)](https://openfoodfacts.github.io/dev/ref-perl/)
 
 
