@@ -149,7 +149,7 @@
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "negative_points" : 1,
+            "negative_points" : 0,
             "positive_points" : 10,
             "proteins" : 3.93,
             "proteins_points" : 2,
@@ -157,9 +157,9 @@
             "saturated_fat" : 0.27,
             "saturated_fat_points" : 0,
             "saturated_fat_value" : 0.3,
-            "sodium" : 150,
-            "sodium_points" : 1,
-            "sodium_value" : 150,
+            "sodium" : 27,
+            "sodium_points" : 0,
+            "sodium_value" : 27,
             "sugars" : 1.2,
             "sugars_points" : 0,
             "sugars_value" : 1.2
@@ -170,7 +170,7 @@
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : -9
+         "score" : -10
       },
       "2023" : {
          "category_available" : 1,
@@ -588,7 +588,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.15
+               "value" : 0.15,
+               "value_computed" : 0.0675
             },
             "saturated-fat" : {
                "modifier" : "~",
@@ -612,7 +613,7 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.15,
+               "value" : 0.027,
                "value_computed" : 0.06
             },
             "starch" : {
@@ -922,6 +923,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.15,
+                  "value_computed" : 0.0675,
                   "value_string" : "0.15"
                },
                "saturated-fat" : {
@@ -939,9 +941,9 @@
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.15,
+                  "value" : 0.027,
                   "value_computed" : 0.06,
-                  "value_string" : "0.15"
+                  "value_string" : "0.027"
                },
                "starch" : {
                   "modifier" : "~",

@@ -1222,7 +1222,7 @@
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "negative_points" : 12,
+            "negative_points" : 11,
             "positive_points" : 3,
             "proteins" : 2,
             "proteins_points" : 1,
@@ -1230,9 +1230,9 @@
             "saturated_fat" : 4,
             "saturated_fat_points" : 3,
             "saturated_fat_value" : 4,
-            "sodium" : 250,
-            "sodium_points" : 2,
-            "sodium_value" : 250,
+            "sodium" : 100,
+            "sodium_points" : 1,
+            "sodium_value" : 100,
             "sugars" : 25,
             "sugars_points" : 5,
             "sugars_value" : 25
@@ -1243,7 +1243,7 @@
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : 9
+         "score" : 8
       },
       "2023" : {
          "category_available" : 1,
@@ -1637,7 +1637,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.25
+               "value" : 0.25,
+               "value_computed" : 0.25
             },
             "saturated-fat" : {
                "source" : "packaging",
@@ -1659,7 +1660,7 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.25,
+               "value" : 0.1,
                "value_computed" : 0.1
             },
             "starch" : {
@@ -1811,6 +1812,7 @@
                "salt" : {
                   "unit" : "g",
                   "value" : 0.25,
+                  "value_computed" : 0.25,
                   "value_string" : "0.25"
                },
                "saturated-fat" : {
@@ -1820,9 +1822,9 @@
                },
                "sodium" : {
                   "unit" : "g",
-                  "value" : 0.25,
+                  "value" : 0.1,
                   "value_computed" : 0.1,
-                  "value_string" : "0.25"
+                  "value_string" : "0.1"
                },
                "sugars" : {
                   "unit" : "g",
@@ -2018,6 +2020,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.196861931818182,
+                  "value_computed" : 0.165872301136364,
                   "value_string" : "0.196861931818182"
                },
                "saturated-fat" : {
@@ -2035,9 +2038,9 @@
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.196861931818182,
+                  "value" : 0.0663489204545455,
                   "value_computed" : 0.0787447727272728,
-                  "value_string" : "0.196861931818182"
+                  "value_string" : "0.0663489204545455"
                },
                "starch" : {
                   "modifier" : "~",

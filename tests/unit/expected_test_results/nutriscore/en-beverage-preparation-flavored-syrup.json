@@ -259,7 +259,7 @@
                      "points" : 0,
                      "points_max" : 20,
                      "unit" : "g",
-                     "value" : 0.01
+                     "value" : 0.03
                   },
                   {
                      "id" : "non_nutritive_sweeteners",
@@ -354,7 +354,7 @@
                "points" : 0,
                "points_max" : 20,
                "unit" : "g",
-               "value" : 0.01
+               "value" : 0.03
             },
             {
                "id" : "non_nutritive_sweeteners",
@@ -446,12 +446,12 @@
                "value" : 0
             },
             "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.01,
-               "value_computed" : 0.025
+               "value" : 0.025
             },
             "saturated-fat" : {
                "source" : "packaging",
@@ -495,7 +495,6 @@
                },
                "salt" : {
                   "unit" : "g",
-                  "value" : 0.01,
                   "value_computed" : 0.025
                },
                "saturated-fat" : {

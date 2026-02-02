@@ -41,8 +41,9 @@
       "en:nutriscore-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
-      "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-b-2023-b"
+      "en:nutriscore-2021-different-from-2023",
+      "en:nutriscore-2021-better-than-2023",
+      "en:nutriscore-2021-a-2023-b"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
    "nova_group_error" : "missing_ingredients",
@@ -78,7 +79,7 @@
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "negative_points" : 2,
+            "negative_points" : 1,
             "positive_points" : 2,
             "proteins" : 3.3,
             "proteins_points" : 2,
@@ -86,20 +87,20 @@
             "saturated_fat" : 1,
             "saturated_fat_points" : 0,
             "saturated_fat_value" : 1,
-            "sodium" : 100,
-            "sodium_points" : 1,
-            "sodium_value" : 100,
+            "sodium" : 40,
+            "sodium_points" : 0,
+            "sodium_value" : 40,
             "sugars" : 4.8,
             "sugars_points" : 1,
             "sugars_value" : 4.8
          },
          "estimated" : 0,
-         "grade" : "b",
+         "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : 0
+         "score" : -1
       },
       "2023" : {
          "category_available" : 1,
@@ -199,7 +200,7 @@
       }
    },
    "nutriscore_2021_tags" : [
-      "b"
+      "a"
    ],
    "nutriscore_2023_tags" : [
       "b"
@@ -339,12 +340,12 @@
                "value" : 1
             },
             "sodium" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.1,
-               "value_computed" : 0.04
+               "value" : 0.04
             },
             "sugars" : {
                "source" : "packaging",
@@ -382,7 +383,6 @@
                },
                "sodium" : {
                   "unit" : "g",
-                  "value" : 0.1,
                   "value_computed" : 0.04
                },
                "sugars" : {

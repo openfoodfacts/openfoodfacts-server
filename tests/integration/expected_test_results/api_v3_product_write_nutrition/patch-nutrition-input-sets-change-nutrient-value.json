@@ -62,7 +62,8 @@
                   "source_index" : 1,
                   "source_per" : "100g",
                   "unit" : "g",
-                  "value" : 1.5
+                  "value" : 1.5,
+                  "value_computed" : 1.475
                },
                "saturated-fat" : {
                   "source" : "packaging",
@@ -76,7 +77,7 @@
                   "source_index" : 1,
                   "source_per" : "100g",
                   "unit" : "g",
-                  "value" : 1.5,
+                  "value" : 0.59,
                   "value_computed" : 0.6
                },
                "sugars" : {
@@ -126,6 +127,7 @@
                   "salt" : {
                      "unit" : "g",
                      "value" : 0.75,
+                     "value_computed" : 0.7375,
                      "value_string" : "0.75"
                   },
                   "saturated-fat" : {
@@ -135,9 +137,9 @@
                   },
                   "sodium" : {
                      "unit" : "g",
-                     "value" : 0.75,
+                     "value" : 0.295,
                      "value_computed" : 0.3,
-                     "value_string" : "0.75"
+                     "value_string" : "0.295"
                   },
                   "sugars" : {
                      "unit" : "g",
@@ -187,6 +189,7 @@
                   "salt" : {
                      "unit" : "g",
                      "value" : 1.5,
+                     "value_computed" : 1.475,
                      "value_string" : "1.5"
                   },
                   "saturated-fat" : {
@@ -196,9 +199,9 @@
                   },
                   "sodium" : {
                      "unit" : "g",
-                     "value" : 1.5,
+                     "value" : 0.59,
                      "value_computed" : 0.6,
-                     "value_string" : "1.5"
+                     "value_string" : "0.59"
                   },
                   "sugars" : {
                      "unit" : "g",

@@ -59,7 +59,7 @@
    ],
    "nutrient_levels" : {
       "fat" : "high",
-      "salt" : "low",
+      "salt" : "moderate",
       "saturated-fat" : "low",
       "sugars" : "high"
    },
@@ -67,7 +67,7 @@
       "en:fat-in-high-quantity",
       "en:saturated-fat-in-low-quantity",
       "en:sugars-in-high-quantity",
-      "en:salt-in-low-quantity"
+      "en:salt-in-moderate-quantity"
    ],
    "nutriscore" : {
       "2021" : {
@@ -117,7 +117,7 @@
                   {
                      "id" : "energy",
                      "new_grade" : "d",
-                     "new_score" : 12,
+                     "new_score" : 13,
                      "new_value" : 2345,
                      "points" : 7,
                      "points_max" : 10,
@@ -127,7 +127,7 @@
                   {
                      "id" : "sugars",
                      "new_grade" : "d",
-                     "new_score" : 12,
+                     "new_score" : 13,
                      "new_value" : 27,
                      "points" : 8,
                      "points_max" : 15,
@@ -137,7 +137,7 @@
                   {
                      "id" : "saturated_fat",
                      "new_grade" : "d",
-                     "new_score" : 12,
+                     "new_score" : 13,
                      "new_value" : 1,
                      "points" : 1,
                      "points_max" : 10,
@@ -147,19 +147,19 @@
                   {
                      "id" : "salt",
                      "new_grade" : "d",
-                     "new_score" : 12,
-                     "new_value" : 0.2,
-                     "points" : 1,
+                     "new_score" : 13,
+                     "new_value" : 0.4,
+                     "points" : 2,
                      "points_max" : 20,
                      "unit" : "g",
-                     "value" : 0.22
+                     "value" : 0.55
                   }
                ],
                "positive" : [
                   {
                      "id" : "fiber",
                      "new_grade" : "d",
-                     "new_score" : 12,
+                     "new_score" : 13,
                      "new_value" : 7.5,
                      "points" : 4,
                      "points_max" : 5,
@@ -182,7 +182,7 @@
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "negative_points" : 17,
+            "negative_points" : 18,
             "negative_points_max" : 55,
             "positive_nutrients" : [
                "fiber",
@@ -197,7 +197,7 @@
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : 13
+         "score" : 14
       }
    },
    "nutriscore_2021_tags" : [
@@ -232,10 +232,10 @@
             },
             {
                "id" : "salt",
-               "points" : 1,
+               "points" : 2,
                "points_max" : 20,
                "unit" : "g",
-               "value" : 0.22
+               "value" : 0.55
             }
          ],
          "positive" : [
@@ -263,7 +263,7 @@
       "is_fat_oil_nuts_seeds" : 0,
       "is_red_meat_product" : 0,
       "is_water" : 0,
-      "negative_points" : 17,
+      "negative_points" : 18,
       "negative_points_max" : 55,
       "positive_nutrients" : [
          "fiber",
@@ -271,11 +271,11 @@
       ],
       "positive_points" : 4,
       "positive_points_max" : 10,
-      "score" : 13
+      "score" : 14
    },
    "nutriscore_grade" : "d",
-   "nutriscore_score" : 13,
-   "nutriscore_score_opposite" : -13,
+   "nutriscore_score" : 14,
+   "nutriscore_score_opposite" : -14,
    "nutriscore_tags" : [
       "d"
    ],
@@ -319,12 +319,12 @@
                "value" : 10.3
             },
             "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.221,
-               "value_computed" : 0.5525
+               "value" : 0.5525
             },
             "saturated-fat" : {
                "source" : "packaging",
@@ -372,7 +372,6 @@
                },
                "salt" : {
                   "unit" : "g",
-                  "value" : 0.221,
                   "value_computed" : 0.5525
                },
                "saturated-fat" : {

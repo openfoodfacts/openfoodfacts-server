@@ -348,7 +348,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.19
+               "value" : 0.19,
+               "value_computed" : 0.185
             },
             "sodium" : {
                "modifier" : "~",
@@ -356,7 +357,7 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.19,
+               "value" : 0.074,
                "value_computed" : 0.076
             },
             "vitamin-b6" : {
@@ -526,14 +527,15 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.19,
+                  "value_computed" : 0.185,
                   "value_string" : "0.19"
                },
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.19,
+                  "value" : 0.074,
                   "value_computed" : 0.076,
-                  "value_string" : "0.19"
+                  "value_string" : "0.074"
                },
                "vitamin-b6" : {
                   "modifier" : "~",

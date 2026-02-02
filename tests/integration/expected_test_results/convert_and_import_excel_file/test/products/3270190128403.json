@@ -854,7 +854,7 @@
             "is_water" : 0,
             "proteins" : 9.02,
             "saturated_fat" : 0.053,
-            "sodium" : 5,
+            "sodium" : 2,
             "sugars" : 1.8
          },
          "estimated" : 1,
@@ -1140,7 +1140,8 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.005
+               "value" : 0.005,
+               "value_computed" : 0.005
             },
             "saturated-fat" : {
                "modifier" : "~",
@@ -1164,7 +1165,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.005,
+               "value" : 0.002,
                "value_computed" : 0.002
             },
             "starch" : {
@@ -1493,6 +1494,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.005,
+                  "value_computed" : 0.005,
                   "value_string" : "0.005"
                },
                "saturated-fat" : {
@@ -1510,9 +1512,9 @@
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.005,
+                  "value" : 0.002,
                   "value_computed" : 0.002,
-                  "value_string" : "0.005"
+                  "value_string" : "0.002"
                },
                "starch" : {
                   "modifier" : "~",

@@ -85,7 +85,8 @@
          }
       },
       "data_quality_errors_tags" : [
-         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates"
+         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
@@ -115,16 +116,23 @@
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
          "en:ingredients-50-percent-unknown",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-production-system-no-label",
-         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates"
+         "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_warnings_tags" : [
          "en:ingredients-50-percent-unknown",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
+         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-production-system-no-label"
       ],

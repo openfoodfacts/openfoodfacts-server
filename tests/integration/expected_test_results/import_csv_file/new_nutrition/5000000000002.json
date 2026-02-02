@@ -439,7 +439,7 @@
             "is_water" : 0,
             "proteins" : null,
             "saturated_fat" : 0.5,
-            "sodium" : 500,
+            "sodium" : 200,
             "sugars" : null
          },
          "estimated" : 0,
@@ -502,12 +502,12 @@
                "value" : 0.5
             },
             "sodium" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "serving",
                "unit" : "g",
-               "value" : 0.5,
-               "value_computed" : 0.4
+               "value" : 0.2
             }
          },
          "per" : "100g",
@@ -528,9 +528,7 @@
                },
                "sodium" : {
                   "unit" : "g",
-                  "value" : 1,
-                  "value_computed" : 0.4,
-                  "value_string" : "1"
+                  "value_computed" : 0.4
                }
             },
             "per" : "serving",
