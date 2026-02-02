@@ -842,7 +842,7 @@ sub check_nutrition_data_energy_computation ($product_ref, $nutrition_set_ref, $
 	foreach my $unit ("kj", "kcal") {
 
 		my $specified_energy = deep_get($nutrients_ref, "energy-${unit}", "value");
-		my $computed_energy = deep_get($nutrients_ref, "energy-${unit}", "computed_value");
+		my $computed_energy = deep_get($nutrients_ref, "energy-${unit}", "value_computed");
 
 		if ((defined $specified_energy) and (defined $computed_energy)) {
 
