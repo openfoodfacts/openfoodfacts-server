@@ -1409,9 +1409,9 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 
 		foreach my $nid (@nutrients) {
 
-			# FIXME: $product_ref->{values}{$nid}{"100g"} looks incorrect, should be retrieved from nutrition aggregated_set
-			if (    (defined $product_ref->{values}{$nid}{"100g"})
-				and ($product_ref->{values}{$nid}{"100g"} ne "")
+			my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+			if (    (defined $value)
 				and (defined $categories_stats_ref->{$specific_category}{values}{$nid}{std}))
 			{
 
@@ -1425,14 +1425,14 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 					"compare_nutrition_facts_with_products_from_same_category",
 					{
 						nid => $nid,
-						product_100g => $product_ref->{values}{$nid}{"100g"},
+						product_100g => $value,
 						category_100g => $categories_stats_ref->{$specific_category}{values}{$nid}{"100g"},
 						category_std => $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					}
 				) if $log->is_debug();
 
 				if (
-					$product_ref->{values}{$nid}{"100g"} < (
+					$value < (
 						$categories_stats_ref->{$specific_category}{values}{$nid}{"100g"}
 							- 4 * $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					)
@@ -1443,7 +1443,7 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 						"en:nutrition-value-very-low-for-category-" . $nid;
 				}
 				elsif (
-					$product_ref->{values}{$nid}{"100g"} > (
+					$value > (
 						$categories_stats_ref->{$specific_category}{values}{$nid}{"100g"}
 							+ 4 * $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					)
