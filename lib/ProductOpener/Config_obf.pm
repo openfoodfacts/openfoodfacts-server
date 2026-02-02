@@ -184,7 +184,7 @@ $flavor = 'obf';
 %options = (
 	site_name => "Open Beauty Facts",
 	product_type => "beauty",
-	og_image_url => "https://static.openfoodfacts.org/images/logos/obf-logo-vertical-white-social-media-preview.png",
+	og_image_url => "https://static.openbeautyfacts.org/images/logos/obf-logo-vertical-white-social-media-preview.png",
 	android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk?utm_source=obf&utf_medium=web",
 	android_app_link =>
 		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=obf&utf_medium=web",
