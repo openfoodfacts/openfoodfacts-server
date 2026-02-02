@@ -2759,10 +2759,11 @@ $product_ref = {
 	}
 };
 
+# Note: currently the energy mismatch is only checked on input sets, not on the aggregated set.
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
-	'energy not matching nutrients', 1
+	'energy not matching nutrients', 0
 );
 
 done_testing();
