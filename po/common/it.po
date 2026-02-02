@@ -930,7 +930,7 @@ msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr "Stampa"
+msgstr "Stampa se"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
@@ -2410,7 +2410,7 @@ msgstr "Modifica nuovamente il prodotto"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Paese"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5982,6 +5982,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etichette con benefici ambientali molto elevati"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Nessuna etichetta valutata"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Alcuni benefici ambientali"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Elevati benefici ambientali"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Benefici ambientali molto elevati"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Altro"
@@ -7690,4 +7706,36 @@ msgstr "Prezzo di vendita consigliato dal produttore (MSRP), esclusi sconti e pr
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Proprietà personalizzata"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Non contiene olio di palma"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Può contenere olio di palma"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Etichette ambientali"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Dati mancanti"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Alto impatto"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Impatto medio"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Basso impatto"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Impatto non valutato"
 
