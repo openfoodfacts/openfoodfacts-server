@@ -162,7 +162,7 @@ stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém,
 stopwords:ro: Produsul poate conține
 stopwords:sk: obsahuje
 stopwords:sl: vsebuje, sestavine
-stopwords:sv: och, eller, samt, av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, innehållande, innehålle, ingredienser, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav, bäst före, i varierande proportion
+stopwords:sv: och, eller, samt, av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, innehållande, innehålle, ingredienser, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav, bäst före, i varierande proportion, motsvarande 0\,016 mg fluor/tablett
 stopwords:zh: :配料
 
 
@@ -8905,7 +8905,7 @@ sv: salt, koksalt, bordssalt, bordssalt utan jod
 ta: உப்பு
 te: ఉప్పు
 tg: Намак
-th: เกลือ
+th: เกลือ, เกลือแกง
 tl: Asin
 tr: tuz, Yemek tuzu
 ug: تۇز
@@ -8958,7 +8958,10 @@ wikidata:en: Q11254
 wikipedia:en: https://en.wikipedia.org/wiki/Salt
 
 < en:salt
+en: evaporated salt
+da: sydesalt
 de: Siedesalz
+wikidata:en: Q123028095
 
 < en:salt
 en: finegrained salt
@@ -8973,6 +8976,20 @@ nl: Fijn zout
 pt: Sal fino
 ru: мелкая соль
 zh: 细盐
+
+< en:salt
+en: medium-coarse salt
+de: mittelgrobes Salz
+
+< en:salt
+en: salt from the Alps
+de: Alpensalz
+origins:en: en:the-alps
+
+< en:medium-coarse salt
+< en:salt from the Alps
+en: medium-coarse salt from the Alps
+de: Mittelgrobes Alpensalz
 
 < en:salt
 en: rock salt
@@ -21604,13 +21621,13 @@ it: aroma naturale di vaniglia di Madagascar
 nl: natuurlijk vanillearoma uit Madagaskar
 pt: aroma natural de baunilha de Madagascar
 
-en: Vanillin
+en: vanillin
 ar: فانيلين
 be: Ванілін
 bg: Ванилин
 ca: vanillina
 cs: Vanilin
-da: Vanillin
+da: vanillin
 de: Vanillin
 el: βανιλλίνη, βανιλίνη
 eo: Vanilino
@@ -21638,15 +21655,17 @@ pl: Wanilina
 pt: vanilina, vanillina
 ru: Ванилин, ароматизатор ванилин
 sr: vanilin
-sv: Vanillin
+sv: vanillin
 th: วานิลลิน
 tr: Vanilin
 uk: Ванілін
 uz: Vanilin
 zh: 香草醛
-comment:en: Note that the aroma's are found under the aroma section.
-# azb:وانیلین
+#azb: وانیلین
+comment:en: Note that the aromas are found under the aroma section.
 description:en: Vanillin is a phenolic aldehyde, which is an organic compound with the molecular formula C8H8O3.
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q33495
 wikipedia:en: https://en.wikipedia.org/wiki/Vanillin
 # ingredient/fr:vanilline has 831 products in 10 languages @2018-12-12
@@ -22053,6 +22072,7 @@ hr: aroma marakuje
 hu: maracuja aroma
 it: aroma di frutto della passione
 pl: aromat marakui
+sv: passionsfruktarom, maracuja arom
 
 < en:flavouring
 en: celery flavouring
@@ -28622,7 +28642,7 @@ sq: orizi
 sr: пиринач
 st: raese
 su: Béas
-sv: ris
+sv: ris, risgryn
 sw: Mpunga
 ta: நெல்
 te: వరి
@@ -33901,6 +33921,10 @@ ru: какао порошок с пониженным содержанием ж�
 sk: kakaový prášok so zníženým množstvom tuku
 sv: fettreducerat kakaopulver, fettreducerad kakaopulver, skummet kakaopulver, fettreduserat kakaopulver, avfettat kakaopulver, fettfattigt kakaopulver, fettfattig kakaopulver, lågfett kakaopulver
 # ingredient/fr:poudre-de-cacao-maigre has 843 products in 8 languages @2019-05-25
+
+< en:fat reduced cocoa powder
+en: 3% fat reduced cocoa powder
+sv: 3% fettreducerat kakaopulver
 
 #<en:cocoa powder
 #<en:fat reduced cocoa
@@ -44634,6 +44658,7 @@ bg: пъпеш, пъпеши
 ca: meló
 cs: meloun, melouny
 cy: melon
+da: melon
 de: Melone
 el: Πεπονιά
 eo: melono
@@ -44657,6 +44682,7 @@ pt: Melão
 ro: pepene galben
 ru: бахчевые культуры
 sk: melón
+sv: melon
 th: เมล่อน
 tl: Milon
 tr: kavun
@@ -45302,7 +45328,7 @@ ro: fructul pasiunii, fructelor pasiunii
 ru: маракуйя, маракуйи
 sk: marakujo, marakujová, mučenku
 sl: marakuja, pasjonke
-sv: passionsfrukt
+sv: passionsfrukt, maracuja
 ta: தாட்பூட்
 tr: çarkıfelek meyvesi
 ur: پیشن فروٹ
@@ -56424,6 +56450,7 @@ pl: olej z nasion czerwonej papryki
 < en:chili pepper
 en: green chili pepper, green chili, green chilli pepper, green chilli, green chillies, green chile, green chile pepper
 bg: зелени люти чушки
+da: grøn chili
 de: grüne Chili
 es: guindilla verde
 fi: vihreä chili
@@ -56432,6 +56459,7 @@ hr: zelena čili papričica
 it: peperoncino verde
 nl: Groene chilipepers
 pl: zielona papryka chili, zielona papryczka chili
+sv: grön chili
 
 < en:chili pepper
 en: hot chili peppers, hot pepper
@@ -56661,6 +56689,16 @@ de: scharfer roter Pfeffer
 es: ñora, ñoras
 hr: ljuta crvena paprika
 it: peperoncino rosso piccante
+
+< en:capsicum annuum
+< en:chili pepper
+en: friggitello, friggitelli, Golden Greek pepper, Sweet Italian pepper, Tuscan pepper, pepperoncini
+sv: feferoni, peperoni
+wikidata:en: Q16861000
+
+< en:friggitello
+en: hot friggitello
+sv: stark feferoni
 
 < en:chili pepper
 en: peri-peri, peri peri, piri-piri, pili-pili, pili pili
@@ -57149,6 +57187,10 @@ nl: geplette tomaten
 sv: krossade tomater
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:tomaattimurska
 # 1 entry @ 2019-10-31
+
+< en:crushed tomato
+en: finely crushed tomato
+sv: finkrossat tomat, finkrossade tomater
 
 < en:crushed tomato
 en: crushed peeled tomato
@@ -68351,6 +68393,21 @@ nutriscore_fruits_vegetables_nuts:en: no
 # scn:Chiàppara
 wikidata:en: Q3229775
 wikipedia:en: https://en.wikipedia.org/wiki/Caper
+
+< en:plant
+en: cactus
+ar: صبار
+da: kaktus
+eo: kaktoj
+fi: kaktus
+la: cactaceae
+nb: kaktus
+nn: kaktus
+sv: kaktus
+vi: xương rồng
+yi: קאקטוס
+zh: 仙人掌
+wikidata:en: Q14560
 
 ###################################################################################################
 #
@@ -88591,6 +88648,20 @@ vegan:en: maybe
 vegetarian:en: yes
 wikidata:en: Q7802
 wikipedia:en: https://en.wikipedia.org/wiki/Bread
+
+< en:bread
+en: crispbread
+da: knækbrød
+de: Knäckebrot
+nb: knekkebrød
+nn: knekkebrød
+sv: knäckebröd
+wikidata:en: Q251981
+
+< en:crispbread
+en: wheat crispbread
+da: hvedeknækbrød
+sv: veteknäckebröd
 
 < en:bread
 en: special bread
