@@ -10446,7 +10446,7 @@ tr: Spor Oyuncakları
 google_product_taxonomy_id:en: 1266
 wikidata:en: Q116037416
 
-# fr: Articles de sport d'extérieur pour enfant 
+# fr: Articles de sport d'extérieur pour enfant
 # fr: raquette
 # fr: boule de pétanque en plastique
 # fr: boule de pétanque
@@ -22774,7 +22774,7 @@ tr: Boş Ortamlar
 google_product_taxonomy_id:en: 367
 wikidata:en: Q116961907
 
-# Médias, CD DVD et jeu vidéo, 
+# Médias, CD DVD et jeu vidéo,
 
 < en:Electronics Accessories
 en: Cable Management
@@ -66221,12 +66221,25 @@ tr: Sanat ve Eğlence
 google_product_taxonomy_id:en: 8
 wikidata:en: Q117207300
 
-< en:Arts & Entertainment
-en: Event Tickets
-xx: Event Tickets
+en: Tickets
+ar: تذكرة
 cs: Vstupenky
 da: Billetter
 de: Eintrittskarten
+eo: Biletoj
+ja: 切符
+ko: 입장권
+sv: Biljetter
+th: ตั๋ว
+zh: 門票
+comment:en: This is not a child of Arts & Entertainment, since this can conceivably also include things like public transport tickets, tickets for swimming and gyms etc., and possibly other things that are not clear-cut Arts & Entertainment.
+wikidata:en: Q551800
+
+< en:Arts & Entertainment
+< en:Tickets
+en: Event Tickets
+xx: Event Tickets
+da: Billetter til begivenheder
 es: Entradas para eventos
 fr: Billets d'événements
 it: Biglietti per eventi
@@ -66240,6 +66253,12 @@ sv: Biljetter till evenemang
 tr: Etkinlik Biletleri
 google_product_taxonomy_id:en: 499969
 wikidata:en: Q117207304
+
+< en:Arts & Entertainment
+< en:Tickets
+en: Museum tickets
+da: Museumsbilletter
+sv: Museibiljetter
 
 < en:Arts & Entertainment
 en: Hobbies & Creative Arts
