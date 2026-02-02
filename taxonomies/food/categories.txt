@@ -83790,10 +83790,6 @@ ciqual_food_code:en: 26048
 ciqual_food_name:en: Hake, fillet, frozen, raw
 ciqual_food_name:fr: Merlu, filet, surgelé, cru
 
-< en:Frozen hake fillet
-en: Frozen breaded hake fillet
-fr: Filet de merlu pâné surgelé
-
 < en:Fishes
 < en:Lean fishes
 en: Hake, European hake
@@ -101408,9 +101404,9 @@ ciqual_food_code:en: 26030
 ciqual_food_name:en: Fish, breaded, fried
 
 < en:Breaded fish
-< en:Frozen fishes
-en: Fish breaded frozen
-fr: Poisson pané surgelé
+< en:Frozen seafood
+en: Frozen breaded fish, Fish breaded frozen
+fr: Poissons panés surgelés, Poisson pané surgelé
 agribalyse_food_code:en: 26029
 ciqual_food_code:en: 26029
 ciqual_food_name:en: Fish, breaded, frozen, raw
@@ -101439,6 +101435,11 @@ fr: Poissons panés de merlu blanc, Poissons panés de merlu, Poisson pané de m
 hr: Pohana riba oslić
 it: Nasello impanato
 nl: Gepaneerde heek
+
+< en:Breaded fish
+< en:Frozen seafood
+en: Frozen breaded hake fillet
+fr: Filet de merlu pâné surgelé
 
 #Merlangius merlangus
 < en:Breaded fish
@@ -104847,7 +104848,7 @@ wikidata:en: Q8752059
 #   remark: jelly = gelled mixture of sugars and the juice and/or aqueous
 #     extracts of one or more kinds of fruit.
 < en:Fruit and vegetable preserves
-en: extra jams, extra fruit jams, extra jam, extra fruit jam
+en: Extra jams, extra fruit jams, extra jam, extra fruit jam
 bg: Конфитюр екстра качество
 cs: Džemem výběrovým, Extra Džemem
 da: Marmelade ekstra
@@ -104869,7 +104870,7 @@ pt: Doce extra
 ro: Gemul de calitate superioară
 sk: Extra džem
 sl: Ekstra džem
-sv: Extra sylt
+sv: Extra sylter, Extra sylt
 expected_minimal_amount_specific_ingredients:en: en:fruit, 50, en:eu
 
 < en:Jams
@@ -105392,6 +105393,14 @@ ciqual_proxy_food_name:en: Jam, apricot
 ciqual_proxy_food_name:fr: Confiture d'abricot (extra ou classique)
 expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 wikidata:en: Q6855605
+
+< en:Mixed fruit jams
+en: Raspberry and rhubarb jams
+da: Hindbær- og rabarbersyltetøj
+es: Confitura frambuesa y ruibarbo
+fi: Vadelma-raparperihillo
+it: Confettura lamponi e rabarbaro
+sv: Hallon- och rabarbersylter
 
 < en:Jams
 en: Rhubarb jams
@@ -116112,6 +116121,13 @@ es: Aceitunas de color cambiante
 fr: Olives semi mures
 hr: Poluzrele masline
 nl: Halfrijpe olijven
+
+< en:Olives
+en: Hojiblanca olives
+es: Aceitunas hojiblanca
+fr: Olives hojiblanca
+nb: Hojiblancaoliven
+
 
 < en:Olives
 en: Stuffed olives
