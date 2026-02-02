@@ -30,6 +30,11 @@
          },
          {
             "nutrients" : {
+               "salt" : {
+                  "modifier" : "<=",
+                  "unit" : "g",
+                  "value_computed" : 5
+               },
                "sodium" : {
                   "modifier" : "<=",
                   "unit" : "g",

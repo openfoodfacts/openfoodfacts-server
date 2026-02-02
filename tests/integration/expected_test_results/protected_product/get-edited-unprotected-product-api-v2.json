@@ -141,8 +141,6 @@
          "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
          "en:nutrition-value-under-0-001-g-salt",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"
       ],
       "data_quality_warnings_tags" : [
@@ -150,8 +148,6 @@
          "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
          "en:nutrition-value-under-0-001-g-salt",
-         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown"
       ],
       "ecoscore_data" : {
@@ -726,6 +722,7 @@
          "salt_value" : 0.0007,
          "sodium" : 0.00028,
          "sodium_100g" : 0.00028,
+         "sodium_modifier" : "~",
          "sodium_serving" : 5.6e-05,
          "sodium_unit" : "g",
          "sodium_value" : 0.00028,

@@ -513,6 +513,7 @@
                "value" : 0.5
             },
             "sodium" : {
+               "modifier" : "~",
                "source" : "manufacturer",
                "source_index" : 1,
                "source_per" : "1l",
@@ -545,6 +546,10 @@
                   "unit" : "mg",
                   "value" : 5000,
                   "value_string" : "5000"
+               },
+               "sodium" : {
+                  "unit" : "mg",
+                  "value_computed" : 2000
                }
             },
             "per" : "1l",

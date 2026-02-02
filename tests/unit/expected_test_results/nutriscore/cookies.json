@@ -305,6 +305,7 @@
                "value" : 0
             },
             "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
@@ -354,6 +355,10 @@
                "proteins" : {
                   "unit" : "g",
                   "value" : 0
+               },
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0
                },
                "saturated-fat" : {
                   "unit" : "g",

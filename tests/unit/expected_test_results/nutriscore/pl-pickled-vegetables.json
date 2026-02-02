@@ -487,7 +487,8 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 20.8513333333333
+               "value" : 20.8513333333333,
+               "value_computed" : 20.8025066666667
             },
             "energy-kj" : {
                "source" : "packaging",
@@ -647,6 +648,7 @@
                "value" : 0.7
             },
             "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
@@ -813,6 +815,10 @@
                   "unit" : "g",
                   "value" : 0.7
                },
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 5
+               },
                "saturated-fat" : {
                   "unit" : "g",
                   "value" : 0
@@ -886,12 +892,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 20.8513333333333,
+                  "value_computed" : 20.8025066666667,
                   "value_string" : "20.8513333333333"
                },
                "energy-kj" : {
                   "modifier" : "~",
-                  "unit" : "kJ",
+                  "unit" : "kj",
                   "value" : 87.469,
+                  "value_computed" : 87.18462,
                   "value_string" : "87.469"
                },
                "fat" : {
@@ -1012,6 +1020,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.331787933333333,
+                  "value_computed" : 0.323456,
                   "value_string" : "0.331787933333333"
                },
                "saturated-fat" : {
@@ -1030,6 +1039,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.1293824,
+                  "value_computed" : 0.132715173333333,
                   "value_string" : "0.1293824"
                },
                "starch" : {

@@ -194,18 +194,10 @@
       "en:food-groups-1-known",
       "en:food-groups-2-known",
       "en:food-groups-3-unknown",
-      "en:nutrition-value-under-0-01-g-salt",
-      "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-      "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-      "en:nutrition-energy-value-in-kcal-does-not-match-value-computed-from-other-nutrients",
-      "en:nutrition-energy-value-in-kcal-may-not-match-value-computed-from-other-nutrients"
+      "en:nutrition-value-under-0-01-g-salt"
    ],
    "data_quality_warnings_tags" : [
-      "en:nutrition-value-under-0-01-g-salt",
-      "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
-      "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
-      "en:nutrition-energy-value-in-kcal-does-not-match-value-computed-from-other-nutrients",
-      "en:nutrition-energy-value-in-kcal-may-not-match-value-computed-from-other-nutrients"
+      "en:nutrition-value-under-0-01-g-salt"
    ],
    "data_sources" : "Producers, Producer - carrefour",
    "data_sources_imported" : "Producers, Producer - carrefour",
@@ -981,16 +973,14 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 333,
-               "value_computed" : 103.748
+               "value" : 333
             },
             "energy-kj" : {
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 1409,
-               "value_computed" : 436.46
+               "value" : 1409
             },
             "fat" : {
                "modifier" : "~",
@@ -1150,7 +1140,8 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.005
+               "value" : 0.005,
+               "value_computed" : 0.005
             },
             "saturated-fat" : {
                "modifier" : "~",
@@ -1174,7 +1165,8 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.002
+               "value" : 0.002,
+               "value_computed" : 0.002
             },
             "starch" : {
                "modifier" : "~",
@@ -1374,12 +1366,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 104,
+                  "value_computed" : 103.748,
                   "value_string" : "104"
                },
                "energy-kj" : {
                   "modifier" : "~",
-                  "unit" : "kJ",
+                  "unit" : "kj",
                   "value" : 436,
+                  "value_computed" : 436.46,
                   "value_string" : "436"
                },
                "fat" : {
@@ -1500,6 +1494,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.005,
+                  "value_computed" : 0.005,
                   "value_string" : "0.005"
                },
                "saturated-fat" : {
@@ -1518,6 +1513,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.002,
+                  "value_computed" : 0.002,
                   "value_string" : "0.002"
                },
                "starch" : {

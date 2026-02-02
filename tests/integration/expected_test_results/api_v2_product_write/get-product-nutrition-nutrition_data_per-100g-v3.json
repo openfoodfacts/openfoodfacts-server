@@ -100,6 +100,7 @@
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
          "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
          "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
@@ -110,6 +111,7 @@
       ],
       "data_quality_warnings_tags" : [
          "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
          "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
@@ -511,7 +513,16 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "kJ",
-                  "value" : 450
+                  "value" : 450,
+                  "value_computed" : 1783.7
+               },
+               "energy-kcal" : {
+                  "modifier" : "~",
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "kcal",
+                  "value" : 423.9
                },
                "energy-kj" : {
                   "source" : "packaging",
@@ -547,7 +558,8 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "g",
-                  "value" : 1.2
+                  "value" : 1.2,
+                  "value_computed" : 1.18
                },
                "saturated-fat" : {
                   "source" : "packaging",
@@ -561,7 +573,8 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "g",
-                  "value" : 0.472
+                  "value" : 0.472,
+                  "value_computed" : 0.48
                }
             },
             "per" : "100g",
@@ -580,8 +593,12 @@
                      "value" : 67.4,
                      "value_string" : "67.4"
                   },
+                  "energy-kcal" : {
+                     "unit" : "kcal",
+                     "value_computed" : 423.9
+                  },
                   "energy-kj" : {
-                     "unit" : "kJ",
+                     "unit" : "kj",
                      "value" : 450,
                      "value_computed" : 1783.7,
                      "value_string" : "450"
@@ -604,6 +621,7 @@
                   "salt" : {
                      "unit" : "g",
                      "value" : 1.2,
+                     "value_computed" : 1.18,
                      "value_string" : "1.2"
                   },
                   "saturated-fat" : {
@@ -614,6 +632,7 @@
                   "sodium" : {
                      "unit" : "g",
                      "value" : 0.472,
+                     "value_computed" : 0.48,
                      "value_string" : "0.472"
                   }
                },

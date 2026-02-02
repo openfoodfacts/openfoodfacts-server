@@ -20,6 +20,14 @@
                   "value" : 2000,
                   "value_computed" : 1042
                },
+               "energy-kcal" : {
+                  "modifier" : "~",
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "kcal",
+                  "value" : 249
+               },
                "energy-kj" : {
                   "source" : "packaging",
                   "source_index" : 0,
@@ -54,7 +62,8 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "g",
-                  "value" : 1.5
+                  "value" : 1.5,
+                  "value_computed" : 1.475
                },
                "saturated-fat" : {
                   "source" : "packaging",
@@ -64,6 +73,7 @@
                   "value" : 2
                },
                "sodium" : {
+                  "modifier" : "~",
                   "source" : "packaging",
                   "source_index" : 0,
                   "source_per" : "100g",
@@ -89,8 +99,12 @@
                      "value" : 30,
                      "value_string" : "30"
                   },
+                  "energy-kcal" : {
+                     "unit" : "kcal",
+                     "value_computed" : 249
+                  },
                   "energy-kj" : {
-                     "unit" : "kJ",
+                     "unit" : "kj",
                      "value" : 2000,
                      "value_computed" : 1042,
                      "value_string" : "2000"
@@ -113,12 +127,17 @@
                   "salt" : {
                      "unit" : "g",
                      "value" : 1.5,
+                     "value_computed" : 1.475,
                      "value_string" : "1.5"
                   },
                   "saturated-fat" : {
                      "unit" : "g",
                      "value" : 2,
                      "value_string" : "2"
+                  },
+                  "sodium" : {
+                     "unit" : "g",
+                     "value_computed" : 0.6
                   },
                   "sugars" : {
                      "unit" : "g",

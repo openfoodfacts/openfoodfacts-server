@@ -70,6 +70,9 @@ BEGIN {
 		&has_no_nutrition_data_on_packaging
 		&remove_empty_nutrition_data
 
+		&compute_energy_from_nutrients_for_nutrients_set
+		%energy_from_nutrients
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -106,6 +109,83 @@ use boolean;
 
 =cut
 
+=head2 add_computed_values_to_nutrient_sets ($input_sets_ref)
+
+Adds computed values to each nutrient set in the given array of nutrient sets:
+
+- energy is computed from macronutrients if enough macronutrients are available
+- salt and sodium are computed from each other
+
+Values are stored in the value_computed field of each nutrient.
+
+=head3 Arguments
+
+=head4 $input_sets_ref
+
+Reference to array of nutrient sets
+
+=cut
+
+sub add_computed_values_to_nutrient_sets ($input_sets_ref) {
+
+	foreach my $nutrient_set_ref (@$input_sets_ref) {
+
+		# set nutrient values from set if preparation state is the same as in the aggregated set and if set has nutrients
+		if (exists $nutrient_set_ref->{nutrients}) {
+
+			# If we have enough macronutrients, we compute the energy values and store them in value_computed
+			compute_energy_from_nutrients_for_nutrients_set($nutrient_set_ref->{nutrients}, "kj");
+			compute_energy_from_nutrients_for_nutrients_set($nutrient_set_ref->{nutrients}, "kcal");
+
+			# Add salt and sodium values computed from each other and store them in value_computed
+			my $salt_value = deep_get($nutrient_set_ref, qw/nutrients salt value/);
+			my $salt_unit = deep_get($nutrient_set_ref, qw/nutrients salt unit/);
+			my $salt_modifier = deep_get($nutrient_set_ref, qw/nutrients salt modifier/);
+			my $sodium_value = deep_get($nutrient_set_ref, qw/nutrients sodium value/);
+			my $sodium_unit = deep_get($nutrient_set_ref, qw/nutrients sodium unit/);
+			my $sodium_modifier = deep_get($nutrient_set_ref, qw/nutrients sodium modifier/);
+
+			if (defined $salt_value) {
+				# If we have an existing sodium nutrient, we keep its values (including unit and modifier)
+				# and we will just add value_computed
+				# Otherwise, we create the sodium nutrient with unit and modifier from salt nutrient
+				if (not defined $nutrient_set_ref->{nutrients}{"sodium"}) {
+					$nutrient_set_ref->{nutrients}{"sodium"} = {unit => $salt_unit // 'g',};
+					if (defined $salt_modifier) {
+						$nutrient_set_ref->{nutrients}{"sodium"}{modifier} = $salt_modifier;
+					}
+				}
+				# If the sodium unit is different from salt unit, we convert salt value to sodium unit first
+				if (defined $sodium_unit and defined $salt_unit and $sodium_unit ne $salt_unit) {
+					$salt_value = g_to_unit(unit_to_g($salt_value, $salt_unit), $sodium_unit);
+				}
+				$nutrient_set_ref->{nutrients}{"sodium"}{value_computed}
+					= remove_insignificant_digits(convert_salt_to_sodium($salt_value)) + 0;
+			}
+
+			if (defined $sodium_value) {
+				# If we have an existing salt nutrient, we keep its values (including unit and modifier)
+				# and we will just add value_computed
+				# Otherwise, we create the salt nutrient with unit and modifier from sodium nutrient
+				if (not defined $nutrient_set_ref->{nutrients}{"salt"}) {
+					$nutrient_set_ref->{nutrients}{"salt"} = {unit => $sodium_unit // 'g',};
+					if (defined $sodium_modifier) {
+						$nutrient_set_ref->{nutrients}{"salt"}{modifier} = $sodium_modifier;
+					}
+				}
+				# If the salt unit is different from sodium unit, we convert sodium value to salt unit first
+				if (defined $salt_unit and defined $sodium_unit and $salt_unit ne $sodium_unit) {
+					$sodium_value = g_to_unit(unit_to_g($sodium_value, $sodium_unit), $salt_unit);
+				}
+				$nutrient_set_ref->{nutrients}{"salt"}{value_computed}
+					= remove_insignificant_digits(convert_sodium_to_salt($sodium_value)) + 0;
+			}
+		}
+	}
+
+	return;
+}
+
 =head2 generate_nutrient_aggregated_set
 
 Generates the aggregated nutrient set for a product from its input sets and stores it in the product hash.
@@ -128,6 +208,7 @@ sub generate_nutrient_aggregated_set ($product_ref) {
 	}
 
 	my $input_sets_ref = deep_get($product_ref, qw/nutrition input_sets/);
+	add_computed_values_to_nutrient_sets($input_sets_ref);
 	my $aggregated_set_ref = generate_nutrient_aggregated_set_from_sets($input_sets_ref);
 	if (defined $aggregated_set_ref) {
 		deep_set($product_ref, qw/nutrition aggregated_set/, $aggregated_set_ref);
@@ -352,7 +433,8 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 			and exists $nutrient_set_ref->{nutrients}
 			and ref $nutrient_set_ref->{nutrients} eq 'HASH')
 		{
-			foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
+			foreach my $nutrient (sort keys %{$nutrient_set_ref->{nutrients}}) {
+
 				# for each nutrient, set its values if values are not already present in aggregated set
 				# (ie if nutrient not present in other set with higher priority)
 
@@ -363,6 +445,16 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}
 						= clone($nutrient_set_ref->{nutrients}{$nutrient});
 					delete $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value_string};
+					# If we don't have a value but a value_computed, use it as value and set the modifier to ~ (unless there is another modifier already)
+					if (    (!defined $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value})
+						and (defined $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value_computed}))
+					{
+						$aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value}
+							= $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value_computed};
+						delete $aggregated_nutrient_set_ref->{nutrients}{$nutrient}{value_computed};
+						$aggregated_nutrient_set_ref->{nutrients}{$nutrient}{modifier} //= '~';
+					}
+					# Normalize units to standard units (g, kJ or kcal)
 					convert_nutrient_to_standard_unit($aggregated_nutrient_set_ref->{nutrients}{$nutrient}, $nutrient);
 					convert_nutrient_to_100g(
 						$aggregated_nutrient_set_ref->{nutrients}{$nutrient},
@@ -376,6 +468,8 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 					$aggregated_nutrient_set_ref->{nutrients}{$nutrient}{source_index} = $index;
 				}
 			}
+
+			# In the aggregated set:
 
 			# We also add a energy nutrient (in kJ) which is equal to the energy-kj nutrient if it exists,
 			# or the energy-kcal set (with the value converted to kJ) if energy-kj does not exist
@@ -391,26 +485,6 @@ sub set_nutrient_values ($aggregated_nutrient_set_ref, @input_sets) {
 				$aggregated_nutrient_set_ref->{nutrients}{"energy"}
 					= clone($aggregated_nutrient_set_ref->{nutrients}{"energy-kcal"});
 				convert_nutrient_to_standard_unit($aggregated_nutrient_set_ref->{nutrients}{"energy"}, "energy");
-			}
-
-			# If we have salt and not sodium, or vice versa, we add the missing nutrient
-			if ((exists $aggregated_nutrient_set_ref->{nutrients}{"salt"})
-				and not(exists $aggregated_nutrient_set_ref->{nutrients}{"sodium"}))
-			{
-				$aggregated_nutrient_set_ref->{nutrients}{"sodium"}
-					= clone($aggregated_nutrient_set_ref->{nutrients}{"salt"});
-				$aggregated_nutrient_set_ref->{nutrients}{"sodium"}{value}
-					= remove_insignificant_digits(
-					convert_salt_to_sodium($aggregated_nutrient_set_ref->{nutrients}{"salt"}{value})) + 0;
-			}
-			elsif ((exists $aggregated_nutrient_set_ref->{nutrients}{"sodium"})
-				and not(exists $aggregated_nutrient_set_ref->{nutrients}{"salt"}))
-			{
-				$aggregated_nutrient_set_ref->{nutrients}{"salt"}
-					= clone($aggregated_nutrient_set_ref->{nutrients}{"sodium"});
-				$aggregated_nutrient_set_ref->{nutrients}{"salt"}{value}
-					= remove_insignificant_digits(
-					convert_sodium_to_salt($aggregated_nutrient_set_ref->{nutrients}{"sodium"}{value})) + 0;
 			}
 		}
 	}
@@ -2431,6 +2505,88 @@ Converts a salt value to its equivalent sodium value using the EU standard conve
 sub convert_salt_to_sodium ($salt_value) {
 
 	return $salt_value / 2.5;
+}
+
+# Nutrients to energy conversion
+# Currently only supporting Europe's method (similar to US and Canada 4-4-9, 4-4-9-7 and 4-4-9-7-2)
+
+%energy_from_nutrients = (
+	europe => {
+		carbohydrates_minus_polyols => {kj => 17, kcal => 4},
+		polyols_minus_erythritol => {kj => 10, kcal => 2.4},
+		proteins => {kj => 17, kcal => 4},
+		fat => {kj => 37, kcal => 9},
+		salatrim => {kj => 25, kcal => 6},    # no corresponding nutrients in nutrient tables?
+		alcohol => {kj => 29, kcal => 7},
+		organic_acids => {kj => 13, kcal => 3},    # no corresponding nutrients in nutrient tables?
+		fiber => {kj => 8, kcal => 2},
+		erythritol => {kj => 0, kcal => 0},
+	},
+);
+
+=head2 compute_energy_from_nutrients_for_nutrients_set ( $nutrients_ref, $unit )
+
+Computes the energy from other nutrients for a given input set.
+
+=head3 Parameters
+
+=head4 $nutrients_ref: reference to the nutrients hash.
+
+=head4 $unit: unit to use for energy computation ("kj" or "kcal").
+
+=head3 Returns
+
+The computed energy value.
+
+The value is also stored in energy nutrients hashes as "value_computed".
+
+=cut
+
+sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
+
+	my $computed_energy;
+
+	my $carbohydrates_value = deep_get($nutrients_ref, "carbohydrates", "value");
+	my $fat_value = deep_get($nutrients_ref, "fat", "value");
+	my $proteins_value = deep_get($nutrients_ref, "proteins", "value");
+	# We need at a minimum carbohydrates, fat and proteins to be defined to compute
+	# energy.
+	if (    (defined $carbohydrates_value)
+		and (defined $fat_value)
+		and (defined $proteins_value))
+	{
+
+		foreach my $nid (keys %{$energy_from_nutrients{europe}}) {
+
+			my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$unit};
+			my $grams = 0;
+			# handles nutrient1__minus__nutrient2 case
+			if ($nid =~ /_minus_/) {
+				my $nid_minus = $';
+				$nid = $`;
+
+				# If we are computing carbohydrates minus polyols, and we do not have a value for polyols
+				# but we have a value for erythritol (which is a polyol), then we need to remove erythritol
+				if (($nid_minus eq "polyols") and (not deep_exists($nutrients_ref, $nid_minus, "value"))) {
+					$nid_minus = "erythritol";
+				}
+				# Similarly for polyols minus erythritol
+				if (($nid eq "polyols") and (not deep_exists($nutrients_ref, $nid, "value"))) {
+					$nid = "erythritol";
+				}
+
+				$grams -= deep_get($nutrients_ref, $nid_minus, "value") || 0;
+			}
+			$grams += deep_get($nutrients_ref, $nid, "value") || 0;
+			$computed_energy += $grams * $energy_per_gram;
+		}
+
+		# store computed energy value and the unit (in case it's not there yet if we don't have a not computed value)
+		deep_set($nutrients_ref, "energy-${unit}", "value_computed", $computed_energy);
+		deep_set($nutrients_ref, "energy-${unit}", "unit", $unit);
+	}
+
+	return $computed_energy;
 }
 
 =head2 has_non_estimated_nutrition_data ( $product_ref )

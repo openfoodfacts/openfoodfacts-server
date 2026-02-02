@@ -117,6 +117,7 @@
          "en:food-groups-3-unknown",
          "en:ingredients-50-percent-unknown",
          "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
          "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
          "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
@@ -128,6 +129,7 @@
       "data_quality_warnings_tags" : [
          "en:ingredients-50-percent-unknown",
          "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
          "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
          "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
@@ -806,7 +808,16 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "kJ",
-                  "value" : 400
+                  "value" : 400,
+                  "value_computed" : 585.5
+               },
+               "energy-kcal" : {
+                  "modifier" : "~",
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "kcal",
+                  "value" : 140.5
                },
                "energy-kj" : {
                   "source" : "packaging",
@@ -868,6 +879,7 @@
                   "value" : 5.6
                },
                "sodium" : {
+                  "modifier" : "~",
                   "source" : "packaging",
                   "source_index" : 0,
                   "source_per" : "100g",
@@ -893,8 +905,12 @@
                      "value" : 10.5,
                      "value_string" : "10.5"
                   },
+                  "energy-kcal" : {
+                     "unit" : "kcal",
+                     "value_computed" : 140.5
+                  },
                   "energy-kj" : {
-                     "unit" : "kJ",
+                     "unit" : "kj",
                      "value" : 400,
                      "value_computed" : 585.5,
                      "value_string" : "400"
@@ -923,6 +939,10 @@
                      "unit" : "g",
                      "value" : 5.6,
                      "value_string" : "5.6"
+                  },
+                  "sodium" : {
+                     "unit" : "mg",
+                     "value_computed" : 20.08
                   },
                   "sugars" : {
                      "unit" : "g",

@@ -502,6 +502,7 @@
                "value" : 0.5
             },
             "sodium" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "serving",
@@ -524,6 +525,10 @@
                   "unit" : "g",
                   "value" : 1,
                   "value_string" : "1"
+               },
+               "sodium" : {
+                  "unit" : "g",
+                  "value_computed" : 0.4
                }
             },
             "per" : "serving",

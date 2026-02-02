@@ -53,7 +53,7 @@ use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Stats qw(%categories_stats_per_country);
 use ProductOpener::Units qw(extract_standard_unit);
-use ProductOpener::Nutrition qw(get_non_estimated_nutrient_per_100g_or_100ml_for_preparation);
+use ProductOpener::Nutrition qw(get_non_estimated_nutrient_per_100g_or_100ml_for_preparation %energy_from_nutrients);
 
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
 
@@ -806,23 +806,6 @@ sub check_nutriscore_grades ($product_ref) {
 	return;
 }
 
-# Nutrients to energy conversion
-# Currently only supporting Europe's method (similar to US and Canada 4-4-9, 4-4-9-7 and 4-4-9-7-2)
-
-my %energy_from_nutrients = (
-	europe => {
-		carbohydrates_minus_polyols => {kj => 17, kcal => 4},
-		polyols_minus_erythritol => {kj => 10, kcal => 2.4},
-		proteins => {kj => 17, kcal => 4},
-		fat => {kj => 37, kcal => 9},
-		salatrim => {kj => 25, kcal => 6},    # no corresponding nutrients in nutrient tables?
-		alcohol => {kj => 29, kcal => 7},
-		organic_acids => {kj => 13, kcal => 3},    # no corresponding nutrients in nutrient tables?
-		fiber => {kj => 8, kcal => 2},
-		erythritol => {kj => 0, kcal => 0},
-	},
-);
-
 =head2 check_nutrition_data_energy_computation ($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags)
 
 Checks related to the energy value computed from other nutrients for a given input set.
@@ -849,17 +832,6 @@ sub check_nutrition_data_energy_computation ($product_ref, $nutrition_set_ref, $
 		return;
 	}
 
-	# If the set is an aggregated set, we only take into account nutrients that are not estimated
-	# so we clone the nutrients hash, and we remove nutrients that have the source "estimate"
-	if ($nutrition_set_ref->{is_aggregated}) {
-		$nutrients_ref = dclone($nutrients_ref);
-		foreach my $nid (keys %{$nutrients_ref}) {
-			if (deep_get($nutrients_ref, $nid, "source") eq "estimate") {
-				delete $nutrients_ref->{$nid};
-			}
-		}
-	}
-
 	# Different countries allow different ways to determine energy
 	# One way is to compute energy from other nutrients
 	# We can thus try to use energy as a key to verify other nutrients
@@ -870,43 +842,9 @@ sub check_nutrition_data_energy_computation ($product_ref, $nutrition_set_ref, $
 	foreach my $unit ("kj", "kcal") {
 
 		my $specified_energy = deep_get($nutrients_ref, "energy-${unit}", "value");
-		my $carbohydrates_value = deep_get($nutrients_ref, "carbohydrates", "value");
-		my $fat_value = deep_get($nutrients_ref, "fat", "value");
-		my $proteins_value = deep_get($nutrients_ref, "proteins", "value");
-		# We need at a minimum carbohydrates, fat and proteins to be defined to compute
-		# energy.
-		if (    (defined $specified_energy)
-			and (defined $carbohydrates_value)
-			and (defined $fat_value)
-			and (defined $proteins_value))
-		{
+		my $computed_energy = deep_get($nutrients_ref, "energy-${unit}", "value_computed");
 
-			# Compute the energy from other nutrients
-			my $computed_energy = 0;
-			foreach my $nid (keys %{$energy_from_nutrients{europe}}) {
-
-				my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$unit};
-				my $grams = 0;
-				# handles nutrient1__minus__nutrient2 case
-				if ($nid =~ /_minus_/) {
-					my $nid_minus = $';
-					$nid = $`;
-
-					# If we are computing carbohydrates minus polyols, and we do not have a value for polyols
-					# but we have a value for erythritol (which is a polyol), then we need to remove erythritol
-					if (($nid_minus eq "polyols") and (not deep_exists($nutrients_ref, $nid_minus, "value"))) {
-						$nid_minus = "erythritol";
-					}
-					# Similarly for polyols minus erythritol
-					if (($nid eq "polyols") and (not deep_exists($nutrients_ref, $nid, "value"))) {
-						$nid = "erythritol";
-					}
-
-					$grams -= deep_get($nutrients_ref, $nid_minus, "value") || 0;
-				}
-				$grams += deep_get($nutrients_ref, $nid, "value") || 0;
-				$computed_energy += $grams * $energy_per_gram;
-			}
+		if ((defined $specified_energy) and (defined $computed_energy)) {
 
 			# following error/warning should be ignored for some categories
 			# for example, lemon juices containing organic acid, it is forbidden to display organic acid in nutrition tables but
@@ -945,13 +883,8 @@ sub check_nutrition_data_energy_computation ($product_ref, $nutrition_set_ref, $
 						"en:${set_id}-energy-value-in-$unit-may-not-match-value-computed-from-other-nutrients";
 				}
 			}
+		}
 
-			deep_set($nutrients_ref, "energy-${unit}", "value_computed", $computed_energy);
-		}
-		elsif (defined $nutrients_ref->{"energy-${unit}"}) {
-			# remove any previously computed value
-			delete $nutrients_ref->{"energy-${unit}"}{"value_computed"};
-		}
 	}
 
 	return;
@@ -1476,9 +1409,9 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 
 		foreach my $nid (@nutrients) {
 
-			# FIXME: $product_ref->{values}{$nid}{"100g"} looks incorrect, should be retrieved from nutrition aggregated_set
-			if (    (defined $product_ref->{values}{$nid}{"100g"})
-				and ($product_ref->{values}{$nid}{"100g"} ne "")
+			my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+			if (    (defined $value)
 				and (defined $categories_stats_ref->{$specific_category}{values}{$nid}{std}))
 			{
 
@@ -1492,14 +1425,14 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 					"compare_nutrition_facts_with_products_from_same_category",
 					{
 						nid => $nid,
-						product_100g => $product_ref->{values}{$nid}{"100g"},
+						product_100g => $value,
 						category_100g => $categories_stats_ref->{$specific_category}{values}{$nid}{"100g"},
 						category_std => $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					}
 				) if $log->is_debug();
 
 				if (
-					$product_ref->{values}{$nid}{"100g"} < (
+					$value < (
 						$categories_stats_ref->{$specific_category}{values}{$nid}{"100g"}
 							- 4 * $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					)
@@ -1510,7 +1443,7 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 						"en:nutrition-value-very-low-for-category-" . $nid;
 				}
 				elsif (
-					$product_ref->{values}{$nid}{"100g"} > (
+					$value > (
 						$categories_stats_ref->{$specific_category}{values}{$nid}{"100g"}
 							+ 4 * $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					)

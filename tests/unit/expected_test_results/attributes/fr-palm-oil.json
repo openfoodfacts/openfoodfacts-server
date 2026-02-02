@@ -894,7 +894,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 1180.75
+               "value" : 1180.75,
+               "value_computed" : 1181.11
             },
             "energy-kcal" : {
                "modifier" : "~",
@@ -1072,7 +1073,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.039
+               "value" : 0.039,
+               "value_computed" : 0.038625
             },
             "saturated-fat" : {
                "modifier" : "~",
@@ -1096,7 +1098,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.01545
+               "value" : 0.01545,
+               "value_computed" : 0.0156
             },
             "starch" : {
                "modifier" : "~",
@@ -1277,12 +1280,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 285.375,
+                  "value_computed" : 285.495,
                   "value_string" : "285.375"
                },
                "energy-kj" : {
                   "modifier" : "~",
-                  "unit" : "kJ",
+                  "unit" : "kj",
                   "value" : 1180.75,
+                  "value_computed" : 1181.11,
                   "value_string" : "1180.75"
                },
                "fat" : {
@@ -1403,6 +1408,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.039,
+                  "value_computed" : 0.038625,
                   "value_string" : "0.039"
                },
                "saturated-fat" : {
@@ -1421,6 +1427,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.01545,
+                  "value_computed" : 0.0156,
                   "value_string" : "0.01545"
                },
                "starch" : {

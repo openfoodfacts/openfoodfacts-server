@@ -39,6 +39,11 @@
       "input_sets" : [
          {
             "nutrients" : {
+               "salt" : {
+                  "modifier" : "<=",
+                  "unit" : "g",
+                  "value_computed" : 5
+               },
                "sodium" : {
                   "modifier" : "<=",
                   "unit" : "g",
@@ -54,6 +59,10 @@
          },
          {
             "nutrients" : {
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0
+               },
                "sodium" : {
                   "unit" : "g",
                   "value" : 0,

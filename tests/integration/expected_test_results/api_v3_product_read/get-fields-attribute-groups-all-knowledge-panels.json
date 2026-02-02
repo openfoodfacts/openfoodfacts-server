@@ -797,6 +797,7 @@
          "en:food-groups-3-unknown",
          "en:ingredients-50-percent-unknown",
          "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
          "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
          "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
@@ -808,6 +809,7 @@
       "data_quality_warnings_tags" : [
          "en:ingredients-50-percent-unknown",
          "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
          "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
          "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
          "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
@@ -2150,7 +2152,7 @@
                                  "text" : "Energy"
                               },
                               {
-                                 "text" : "400 kj<br>(96 kcal)"
+                                 "text" : "400 kj<br>(140 kcal)"
                               }
                            ]
                         },
@@ -2258,7 +2260,7 @@
                                  "text" : "Sodium"
                               },
                               {
-                                 "text" : "0.02 g"
+                                 "text" : "~ 0.02 g"
                               }
                            ]
                         },
@@ -2661,6 +2663,12 @@
          "carbohydrates_unit" : "g",
          "carbohydrates_value" : 10.5,
          "energy" : 400,
+         "energy-kcal" : 140.5,
+         "energy-kcal_100g" : 140.5,
+         "energy-kcal_modifier" : "~",
+         "energy-kcal_serving" : 14.1,
+         "energy-kcal_unit" : "kcal",
+         "energy-kcal_value" : 140.5,
          "energy-kj" : 400,
          "energy-kj_100g" : 400,
          "energy-kj_serving" : 40,
@@ -2699,6 +2707,7 @@
          "saturated-fat_value" : 5.6,
          "sodium" : 0.02008,
          "sodium_100g" : 0.02008,
+         "sodium_modifier" : "~",
          "sodium_serving" : 0.00201,
          "sodium_unit" : "g",
          "sodium_value" : 0.02008,

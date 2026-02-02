@@ -153,14 +153,24 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 3378
+               "value" : 3378,
+               "value_computed" : 3700
+            },
+            "energy-kcal" : {
+               "modifier" : "~",
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kcal",
+               "value" : 900
             },
             "energy-kj" : {
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 3378
+               "value" : 3378,
+               "value_computed" : 3700
             },
             "fat" : {
                "source" : "packaging",
@@ -184,6 +194,7 @@
                "value" : 0
             },
             "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
@@ -208,9 +219,14 @@
                   "unit" : "g",
                   "value" : 0
                },
+               "energy-kcal" : {
+                  "unit" : "kcal",
+                  "value_computed" : 900
+               },
                "energy-kj" : {
-                  "unit" : "kJ",
-                  "value" : 3378
+                  "unit" : "kj",
+                  "value" : 3378,
+                  "value_computed" : 3700
                },
                "fat" : {
                   "unit" : "g",
@@ -223,6 +239,10 @@
                "proteins" : {
                   "unit" : "g",
                   "value" : 0
+               },
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0
                },
                "sodium" : {
                   "unit" : "g",
