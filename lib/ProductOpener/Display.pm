@@ -9254,8 +9254,12 @@ CSS
 		# Determine if the nutrient should be shown
 		my $shown = 0;
 
-		# Check if we have a value for the nutrient (product), or for the category (stats)
-		if (deep_exists($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value")
+		# Check if we have a value for the nutrient (product) that is not estimated,
+		# or for the category (stats)
+		my $nutrient_value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+		my $nutrient_source = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "source");
+
+		if (   ((defined $nutrient_value) and (defined $nutrient_source) and ($nutrient_source ne 'estimate'))
 			or (deep_exists($product_ref, "values", $nid, "mean")))
 		{
 			$shown = 1;
@@ -9397,7 +9401,7 @@ CSS
 						$prepared = "_prepared";
 					}
 
-					my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+					my $value = $nutrient_value;
 
 					# FIXME: if the packaging / manufacturer input set has the nutrient in the unspecified_nutrients array,
 					# we used to display a "-" sign."
