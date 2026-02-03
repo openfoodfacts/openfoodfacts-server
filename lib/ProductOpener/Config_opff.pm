@@ -187,8 +187,8 @@ $flavor = "opff";
 	product_type => "petfood",
 	og_image_url => "https://static.openpetfoodfacts.org/images/logos/opff-logo-vertical-white-social-media-preview.png",
 	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases",
-	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=opff&utf_medium=web",
-	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opff&utf_medium=web",
+android_app_link => "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opff&utf_medium=web",
+ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=opff&utf_medium=web",
 	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=opff&utf_medium=web",
 	#x_account => "OpenBeautyFacts",
 	default_preferences =>
