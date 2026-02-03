@@ -107,7 +107,7 @@ BEGIN {
 		@lcs
 		$tt
 
-		$nutriment_table
+		$nutrient_table
 
 		%file_timestamps
 
@@ -725,16 +725,16 @@ sub init_request ($request_ref = {}) {
 	}
 
 	if ($options{product_type} eq "petfood") {
-		$nutriment_table = $cc_nutriment_table{"opff_default"};
-		if (exists $cc_nutriment_table{"opff_" . $cc}) {
-			$nutriment_table = $cc_nutriment_table{"opff_" . $cc};
+		$nutrient_table = $cc_nutrient_table{"opff_default"};
+		if (exists $cc_nutrient_table{"opff_" . $cc}) {
+			$nutrient_table = $cc_nutrient_table{"opff_" . $cc};
 		}
 	}
 	# food
 	else {
-		$nutriment_table = $cc_nutriment_table{"off_default"};
-		if (exists $cc_nutriment_table{"off_" . $cc}) {
-			$nutriment_table = $cc_nutriment_table{"off_" . $cc};
+		$nutrient_table = $cc_nutrient_table{"off_default"};
+		if (exists $cc_nutrient_table{"off_" . $cc}) {
+			$nutrient_table = $cc_nutrient_table{"off_" . $cc};
 		}
 	}
 
@@ -9230,13 +9230,7 @@ CSS
 	# Data for the nutrition table body
 
 	# Display estimate of fruits, vegetables, nuts from the analysis of the ingredients list
-	my @nutrients = ();
-	foreach my $nutrient (@{$nutrients_tables{$nutriment_table}}) {
-		push @nutrients, $nutrient;
-		if (($nutrient eq "fruits-vegetables-nuts-estimate-")) {
-			push @nutrients, "fruits-vegetables-nuts-estimate-from-ingredients-";
-		}
-	}
+	my @nutrients = @{$nutrients_tables{$nutrient_table}};
 
 	my $decf = get_decimal_formatter($lc);
 	my $perf = get_percent_formatter($lc, 0);
@@ -9265,9 +9259,9 @@ CSS
 			$shown = 1;
 			$log->debug("showing nutrient in nutrition table", {nid => $nid}) if $log->is_debug();
 		}
-		# Show rows that are not optional (id with a trailing -) unless the id is search
+		# Show rows that are important (id with a starting !) or the id is search
 		# as we have only 1 or 2 nutrients for search graphs
-		elsif (($nutrient !~ /-$/) and ($product_ref->{id} ne 'search')) {
+		elsif (($nutrient =~ /^!/) or ($product_ref->{id} eq 'search')) {
 			$shown = 1;
 			$log->debug("showing nutrient in nutrition table even if no value", {nid => $nid})
 				if $log->is_debug();

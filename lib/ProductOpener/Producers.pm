@@ -75,10 +75,10 @@ use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created ensure_dir_created_or_
 use ProductOpener::Store qw/get_string_id_for_lang retrieve store store_config retrieve_config/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/%cc_nutriment_table %nutrients_tables/;
+use ProductOpener::Food qw/%cc_nutrient_table %nutrients_tables/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
-use ProductOpener::Display qw/$nutriment_table/;
+use ProductOpener::Display qw/$nutrient_table/;
 use ProductOpener::Export qw/export_csv/;
 use ProductOpener::Import
 	qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
@@ -955,7 +955,7 @@ sub init_packaging_columns_names_for_lang ($l) {
 
 sub init_nutrients_columns_names_for_lang ($l) {
 
-	$nutriment_table = $cc_nutriment_table{off_default};
+	$nutrient_table = $cc_nutrient_table{off_default};
 
 	# Go through all the nutrients in the nutrients taxonomy
 	foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
@@ -1705,7 +1705,7 @@ JSON
 		if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
 
 			# Go through the nutriment table
-			foreach my $nutriment (@{$nutrients_tables{$nutriment_table}}) {
+			foreach my $nutriment (@{$nutrients_tables{$nutrient_table}}) {
 
 				next if $nutriment =~ /^\#/;
 				my $nid = $nutriment;
