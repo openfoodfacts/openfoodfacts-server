@@ -432,7 +432,7 @@
             <div class="card">
                 <div class="reblock card-section">
                     <div class="large-12 column">
-                        <folksonomy-editor product-code="[% code %]" page-type="view">
+                        <folksonomy-editor product-code="[% code %]" page-type="[% IF is_user %]edit[% else %]view">
                         </folksonomy-editor>
                     </div>
                 </div>
