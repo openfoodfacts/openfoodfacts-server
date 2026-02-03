@@ -21,10 +21,17 @@ except IOError as e:
 # Track duplicates to warn the user
 label_to_qid = {}
 duplicate_labels = {}
+filtered_qid_labels = []
 for item in query_data:
     label = item.get('itemLabel')
     qid = item.get('item', '').split('/')[-1]
     if label and qid:
+        # Filter out entries where itemLabel is just a QID (e.g., "Q1960572")
+        # These indicate missing labels in Wikidata and won't match taxonomy entries
+        if re.match(r'^Q\d+$', label):
+            filtered_qid_labels.append((label, qid))
+            continue
+        
         label_lower = label.lower()
         if label_lower in label_to_qid:
             # Track duplicate labels with all their QIDs
@@ -32,6 +39,12 @@ for item in query_data:
                 duplicate_labels[label_lower] = [label_to_qid[label_lower]]
             duplicate_labels[label_lower].append(qid)
         label_to_qid[label_lower] = qid
+
+# Warn about filtered QID-only labels
+if filtered_qid_labels:
+    print(f"Info: Filtered out {len(filtered_qid_labels)} entries with QID-only labels (no human-readable text).")
+    print("These entries don't have labels in the query language and won't match taxonomy entries.")
+    print()
 
 # Warn about duplicate labels
 if duplicate_labels:
