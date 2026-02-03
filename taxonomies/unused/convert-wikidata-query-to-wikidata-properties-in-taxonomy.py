@@ -131,6 +131,10 @@ for label, qid in label_to_qid.items():
                     replacements.append((block_start, block_end, new_block, label, qid))
                     # We assume one match is enough per label
                     break
+                else:
+                    # No language lines found in block - this is unusual, log it
+                    print(f"Warning: No language lines found in block for label '{label}', skipping wikidata addition")
+
 
 # Apply replacements in reverse order (from end to start) to avoid position shift issues
 replacements.sort(key=lambda x: x[0], reverse=True)
