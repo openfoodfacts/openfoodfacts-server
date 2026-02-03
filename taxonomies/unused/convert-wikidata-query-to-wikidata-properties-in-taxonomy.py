@@ -83,13 +83,37 @@ for label, qid in label_to_qid.items():
             
         block = updated_content[block_start:block_end]
         
-        # Check if the block has a #wikidata:en: line
-        if '#wikidata:en:' in block:
-            # Store the replacement info instead of modifying immediately
-            new_block = block.replace('#wikidata:en:', f'wikidata:en: {qid}')
-            replacements.append((block_start, block_end, new_block, label, qid))
-            # We assume one match is enough per label
-            break
+        # Check if the block already has an active (non-commented) wikidata:en: line
+        has_active_wikidata = re.search(r'^\s*wikidata:en:', block, re.MULTILINE)
+        
+        if not has_active_wikidata:
+            # Check if the block has a commented #wikidata:en: line
+            if '#wikidata:en:' in block:
+                # Replace it with the new wikidata line
+                new_block = block.replace('#wikidata:en:', f'wikidata:en: {qid}')
+                replacements.append((block_start, block_end, new_block, label, qid))
+                # We assume one match is enough per label
+                break
+            else:
+                # No wikidata line at all, we need to add one
+                # Find the best place to insert it - after the last language line
+                lines = block.split('\n')
+                insert_index = -1
+                
+                # Find the last line that starts with a language code (e.g., "en:", "fr:", etc.)
+                for i, line in enumerate(lines):
+                    line_stripped = line.strip()
+                    if line_stripped and re.match(r'^[a-z]{2,3}:', line_stripped):
+                        insert_index = i
+                
+                # If we found a language line, insert after it
+                if insert_index >= 0:
+                    # Insert the wikidata line after the last language line
+                    lines.insert(insert_index + 1, f'wikidata:en: {qid}')
+                    new_block = '\n'.join(lines)
+                    replacements.append((block_start, block_end, new_block, label, qid))
+                    # We assume one match is enough per label
+                    break
 
 # Apply replacements in reverse order (from end to start) to avoid position shift issues
 replacements.sort(key=lambda x: x[0], reverse=True)
