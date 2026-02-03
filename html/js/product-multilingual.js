@@ -1245,5 +1245,10 @@ $(function () {
         };
         check_nutrient(nutrient_id, per, preparation, id);
     });
+
+     $('.nutrient_unit').on('change', function () {
+        $('.nutrient_value').trigger('input');
+    });
+    
     }
 );
