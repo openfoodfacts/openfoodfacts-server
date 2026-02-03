@@ -98,6 +98,7 @@ for label, qid in label_to_qid.items():
                 # No wikidata line at all, we need to add one
                 # Find the best place to insert it - after the last language line
                 lines = block.split('\n')
+                # None indicates no language line found yet
                 insert_index = None
                 
                 # Prefixes that are not language codes
@@ -119,8 +120,8 @@ for label, qid in label_to_qid.items():
                         prefix_match = re.match(r'^([a-z_]+):', line_stripped)
                         if prefix_match:
                             prefix = prefix_match.group(1)
-                            # Check if it's a language code (2-3 letters, not in non-language prefixes)
-                            if len(prefix) <= 3 and prefix not in non_language_prefixes and '_' not in prefix:
+                            # Check if it's a valid language code (2-3 letters per ISO 639)
+                            if 2 <= len(prefix) <= 3 and prefix not in non_language_prefixes and '_' not in prefix:
                                 insert_index = i
                 
                 # If we found a language line, insert after it
