@@ -98,16 +98,33 @@ for label, qid in label_to_qid.items():
                 # No wikidata line at all, we need to add one
                 # Find the best place to insert it - after the last language line
                 lines = block.split('\n')
-                insert_index = -1
+                insert_index = None
+                
+                # Prefixes that are not language codes
+                non_language_prefixes = {
+                    'wikidata', 'wikipedia', 'description', 'comment', 'allergens',
+                    'carbon_footprint_fr_foodges_ingredient', 'carbon_footprint_fr_foodges_value',
+                    'ciqual_food_code', 'ciqual_food_name', 'ciqual_proxy_food_code', 'ciqual_proxy_food_name',
+                    'agribalyse_food_code', 'agribalyse_proxy_food_code', 'agribalyse_proxy_food_name',
+                    'ecobalyse', 'ecobalyse_proxy', 'from_palm_oil', 'likely_allergens',
+                    'nova', 'nutriscore_fruits_vegetables_nuts', 'nutriscore_red_meat',
+                    'openfoodfacts', 'oqali_family', 'origin', 'processing', 'synonyms'
+                }
                 
                 # Find the last line that starts with a language code (e.g., "en:", "fr:", etc.)
                 for i, line in enumerate(lines):
                     line_stripped = line.strip()
-                    if line_stripped and re.match(r'^[a-z]{2,3}:', line_stripped):
-                        insert_index = i
+                    if line_stripped:
+                        # Extract the prefix before the first colon
+                        prefix_match = re.match(r'^([a-z_]+):', line_stripped)
+                        if prefix_match:
+                            prefix = prefix_match.group(1)
+                            # Check if it's a language code (2-3 letters, not in non-language prefixes)
+                            if len(prefix) <= 3 and prefix not in non_language_prefixes and '_' not in prefix:
+                                insert_index = i
                 
                 # If we found a language line, insert after it
-                if insert_index >= 0:
+                if insert_index is not None:
                     # Insert the wikidata line after the last language line
                     lines.insert(insert_index + 1, f'wikidata:en: {qid}')
                     new_block = '\n'.join(lines)
