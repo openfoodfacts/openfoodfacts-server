@@ -117,11 +117,12 @@ for label, qid in label_to_qid.items():
                     line_stripped = line.strip()
                     if line_stripped:
                         # Extract the prefix before the first colon
-                        prefix_match = re.match(r'^([a-z_]+):', line_stripped)
+                        prefix_match = re.match(r'^([a-z]+):', line_stripped)
                         if prefix_match:
                             prefix = prefix_match.group(1)
-                            # Check if it's a valid language code (2-3 letters per ISO 639)
-                            if 2 <= len(prefix) <= 3 and prefix not in non_language_prefixes and '_' not in prefix:
+                            # Check if it's a valid language code (2-3 letters per ISO 639-1/2/3)
+                            # Excludes prefixes with underscores and known non-language prefixes
+                            if 2 <= len(prefix) <= 3 and prefix not in non_language_prefixes:
                                 insert_index = i
                 
                 # If we found a language line, insert after it
