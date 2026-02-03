@@ -76079,7 +76079,7 @@ ciqual_food_code:en: 11192
 ciqual_food_name:en: Cream sauce with mushrooms, prepacked
 ciqual_food_name:fr: Sauce aux champignons et à la crème, préemballée
 
-< en:Sauces
+< en:Tomato sauces
 en: Basque-style sauces, Tomato sauces with sweet peppers
 fr: Sauces basquaises, Sauce basquaise, Sauces aux poivrons, Sauce aux poivrons
 agribalyse_food_code:en: 11170
@@ -79117,6 +79117,7 @@ ciqual_food_name:en: cream sauce for pizza base
 ciqual_food_name:fr: Base de pizza à la crème
 
 < en:Pizza sauces
+< en:Tomato sauces
 en: Tomato sauces for pizzas, Tomato sauce for pizza base
 fr: Sauces tomate pour pizzas, Base de pizza tomatée
 hr: Umak od rajčice za podlogu za pizzu
@@ -79148,15 +79149,16 @@ wikidata:en: Q60823349
 < en:Tomato sauces
 en: Tomato sauces with onions
 bg: Доматен сос с лук
+da: Tomatsovser med løg
 fr: Sauces tomate aux oignons
 hr: Umaci od rajčice s lukom
 lt: Pomidorų padažai su svogūnais
 nl: Tomatensauzen met ui
+sv: Tomatsåser med lök
 agribalyse_food_code:en: 11107
 ciqual_food_code:en: 11107
 ciqual_food_name:en: Tomato sauce, with onions, prepacked
 ciqual_food_name:fr: Sauce tomate aux oignons, préemballée
-
 
 < en:Condiments
 < en:Sauces
@@ -79234,10 +79236,11 @@ en: Meal sauces, Stir in sauces
 sv: Måltidssåser
 
 < en:Sauces
+< en:Tomatoes and their products
 en: Tomato sauces
 bg: Доматен сос
 ca: Salsa de tomàquet
-da: Tomatsauce
+da: Tomatsovser, Tomatsovse, Tomatsaucer, Tomatsauce
 de: Tomatensaucen
 es: Salsas de tomate
 fi: tomaattikastikkeet
@@ -79269,6 +79272,7 @@ wikidata:en: Q3596097
 < en:Tomato sauces
 en: Tomato sauces with basil, Tomato basil pasta sauces
 bg: Доматен сос с босилек
+da: Tomatsovser med basilikum
 de: Tomatensaucen mit Basilikum
 es: Salsas de tomate con albahaca
 fi: Basilika-tomaattikastikeet, Tomaatti-basilikapastakastikkeet
@@ -79278,20 +79282,21 @@ it: Sughi di Pomodoro al Basilico, Sughi di Pomodoro e Basilico
 lt: Pomidorų padažai su baziliku
 sv: Tomatsåser med basilika
 
-< en:Garlic and their products
 < en:Meal sauces
 < en:Tomato sauces
 en: Tomato sauces with garlic
+da: Tomatsovser med hvidløg
 sv: Tomatsåser med vitlök
 
 < en:Meal sauces
-< en:Mushrooms and their products
 < en:Tomato sauces
 en: Tomato sauces with mushrooms
 bg: Доматен сос с гъби
+da: Tomatsovser med svampe
 fr: Sauces tomates aux champignons
 hr: Umaci od rajčice s gljivama
 lt: Pomidorų padažai su grybais
+sv: Tomatsåser med svampar
 agribalyse_food_code:en: 11177
 ciqual_food_code:en: 11177
 ciqual_food_name:en: Tomato sauce, w mushrooms, prepacked
@@ -79306,6 +79311,7 @@ fr: Sauces tomates pimentées
 < en:Tomato sauces
 < en:Vegetable sauces
 en: Tomato sauces with vegetables
+da: Tomatsovser med grønsager
 de: Tomatensaucen mit Gemüse
 fr: Sauces tomate aux petits légumes, Sauces tomates aux légumes
 hr: Umaci od rajčice s povrćem
@@ -79322,6 +79328,7 @@ ciqual_food_name:fr: Sauce tomate aux petits légumes, préemballée
 < en:Tomato sauces
 en: Tomato sauces with olives
 bg: Доматен сос с маслини
+da: Tomatsovser med oliven
 de: Tomatensaucen mit Oliven
 fr: Sauces tomates aux olives
 hr: Umaci od rajčice s maslinama
@@ -79449,7 +79456,6 @@ en: Tumacas
 es: Tumacas
 
 < en:Tomato sauces
-< en:Tomatoes and their products
 en: Natural grated tomato
 es: Tomate natural rallado
 hr: Prirodna ribana rajčica
@@ -79471,7 +79477,6 @@ ciqual_food_name:fr: Tomate, coulis, appertisé (purée de tomates mi-réduite �
 
 < en:Mashed vegetables
 < en:Tomato sauces
-< en:Tomatoes and their products
 en: Tomato purées, Tomato purees, Pureed tomato
 bg: Доматено пюре
 da: Tomatpuréer
@@ -83779,10 +83784,6 @@ agribalyse_food_code:en: 26048
 ciqual_food_code:en: 26048
 ciqual_food_name:en: Hake, fillet, frozen, raw
 ciqual_food_name:fr: Merlu, filet, surgelé, cru
-
-< en:Frozen hake fillet
-en: Frozen breaded hake fillet
-fr: Filet de merlu pâné surgelé
 
 < en:Fishes
 < en:Lean fishes
@@ -101398,9 +101399,9 @@ ciqual_food_code:en: 26030
 ciqual_food_name:en: Fish, breaded, fried
 
 < en:Breaded fish
-< en:Frozen fishes
-en: Fish breaded frozen
-fr: Poisson pané surgelé
+< en:Frozen seafood
+en: Frozen breaded fish, Fish breaded frozen
+fr: Poissons panés surgelés, Poisson pané surgelé
 agribalyse_food_code:en: 26029
 ciqual_food_code:en: 26029
 ciqual_food_name:en: Fish, breaded, frozen, raw
@@ -101429,6 +101430,11 @@ fr: Poissons panés de merlu blanc, Poissons panés de merlu, Poisson pané de m
 hr: Pohana riba oslić
 it: Nasello impanato
 nl: Gepaneerde heek
+
+< en:Breaded fish
+< en:Frozen seafood
+en: Frozen breaded hake fillet
+fr: Filet de merlu pâné surgelé
 
 #Merlangius merlangus
 < en:Breaded fish
@@ -104837,7 +104843,7 @@ wikidata:en: Q8752059
 #   remark: jelly = gelled mixture of sugars and the juice and/or aqueous
 #     extracts of one or more kinds of fruit.
 < en:Fruit and vegetable preserves
-en: extra jams, extra fruit jams, extra jam, extra fruit jam
+en: Extra jams, extra fruit jams, extra jam, extra fruit jam
 bg: Конфитюр екстра качество
 cs: Džemem výběrovým, Extra Džemem
 da: Marmelade ekstra
@@ -104859,7 +104865,7 @@ pt: Doce extra
 ro: Gemul de calitate superioară
 sk: Extra džem
 sl: Ekstra džem
-sv: Extra sylt
+sv: Extra sylter, Extra sylt
 expected_minimal_amount_specific_ingredients:en: en:fruit, 50, en:eu
 
 < en:Jams
@@ -105382,6 +105388,14 @@ ciqual_proxy_food_name:en: Jam, apricot
 ciqual_proxy_food_name:fr: Confiture d'abricot (extra ou classique)
 expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 wikidata:en: Q6855605
+
+< en:Mixed fruit jams
+en: Raspberry and rhubarb jams
+da: Hindbær- og rabarbersyltetøj
+es: Confitura frambuesa y ruibarbo
+fi: Vadelma-raparperihillo
+it: Confettura lamponi e rabarbaro
+sv: Hallon- och rabarbersylter
 
 < en:Jams
 en: Rhubarb jams
@@ -116101,6 +116115,13 @@ es: Aceitunas de color cambiante
 fr: Olives semi mures
 hr: Poluzrele masline
 nl: Halfrijpe olijven
+
+< en:Olives
+en: Hojiblanca olives
+es: Aceitunas hojiblanca
+fr: Olives hojiblanca
+nb: Hojiblancaoliven
+
 
 < en:Olives
 en: Stuffed olives
