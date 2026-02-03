@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -50,6 +50,8 @@ BEGIN {
 		$google_cloud_vision_api_url
 		$crowdin_project_identifier
 		$crowdin_project_key
+		$brevo_api_key
+		$list_id
 		$robotoff_url
 		$query_url
 		$events_url
@@ -112,6 +114,9 @@ $google_cloud_vision_api_url = $ENV{GOOGLE_CLOUD_VISION_API_URL} || "https://vis
 
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
+
+$brevo_api_key = $ENV{BREVO_API_KEY};
+$list_id = $ENV{BREVO_LIST_ID};
 
 my $postgres_host = $ENV{POSTGRES_HOST} || "postgres";
 my $postgres_user = $ENV{POSTGRES_USER};
