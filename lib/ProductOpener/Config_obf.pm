@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -184,11 +184,11 @@ $flavor = 'obf';
 %options = (
 	site_name => "Open Beauty Facts",
 	product_type => "beauty",
-	og_image_url => "https://static.openfoodfacts.org/images/logos/obf-logo-vertical-white-social-media-preview.png",
-	android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk?utm_source=obf&utf_medium=web",
-	android_app_link =>
-		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=obf&utf_medium=web",
-	ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=obf&utf_medium=web",
+	og_image_url => "https://static.openbeautyfacts.org/images/logos/obf-logo-vertical-white-social-media-preview.png",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases?utm_source=obf&utf_medium=web",
+android_app_link =>
+"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=obf&utf_medium=web",
+ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=obf&utf_medium=web",
 	facebook_page_url => "https://www.facebook.com/openfoodfacts?utm_source=obf&utf_medium=web",
 	x_account => "OpenFoodFacts",
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon

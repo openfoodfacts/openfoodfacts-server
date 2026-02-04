@@ -312,7 +312,7 @@ msgstr ""
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Filipino.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -1117,11 +1117,11 @@ msgstr ""
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "1 sangkap"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} (na) sangkap"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1157,11 +1157,11 @@ msgstr "Bilang ng mga sangkap"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Bilang ng mga kinikilalang sangkap"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "Bilang ng mga hindi nakikilalang sangkap"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1206,11 +1206,11 @@ msgstr "Mga produkto na hindi naglalaman ng sangkap %s"
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr ""
+msgstr "/images/misc/appstore/black/appstore_PH.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
+msgstr "I-download sa App Store"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1462,7 +1462,7 @@ msgstr "Ilipat ang mga imahe sa ibang produkto"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s (na) produkto"
 
 msgctxt "name"
 msgid "Name"
@@ -3238,7 +3238,7 @@ msgstr ""
 # Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr ""
+msgstr "Kunin ang app"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"

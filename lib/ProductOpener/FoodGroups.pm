@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -113,6 +113,9 @@ my %pnns = (
 
 	"Alcoholic beverages" => "Alcoholic beverages",
 
+	"Baby foods" => "Baby foods",
+	"Baby milks" => "Baby foods",
+
 	"unknown" => "unknown",
 
 );
@@ -160,7 +163,6 @@ sub compute_pnns_groups ($product_ref) {
 		if (    (defined $properties{categories}{$categoryid})
 			and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"}))
 		{
-
 			# skip the sweetened / unsweetened if it is alcoholic
 			next
 				if (
