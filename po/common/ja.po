@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "原材料、アレルゲン、添加物、栄養成分表示、ラベル、原産地、CO2排出量、製品情報 %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "協同の、無料でオープンな、世界中の化粧品の成分と情報に関するデータベース"
@@ -44,40 +48,18 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "協同の、フリーでオープンな、世界中の化粧品に関するデータベース。"
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "世界中のさまざまな製品の原材料と情報を集めた、共同で利用できる無料のオープンデータベースです。"
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts は、世界中の幅広い製品に関する情報とデータを収集します。"
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "世界中のさまざまな製品の共同利用型、無料、オープン データベースです。"
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "世界中のペットフード製品の原材料、栄養成分、情報を共同で収集した無料のオープン データベースです。"
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts は、世界中のペットフード製品に関する情報とデータを収集しています。"
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "原材料INCI、アレルゲン、添加物、ラベル、原材料の原産地、製品情報 %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
-msgstr ""
+msgstr "/open-beauty-facts-mobile-app"
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "そして <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">貢献者のためのFacebookグループ</a>"
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
@@ -110,6 +92,114 @@ msgstr "制汗剤ストレスプロテクト"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "水、ラウレス硫酸Ｎａ、ココアンホジ酢酸２Ｎａ、ジステアリン酸グリコール、コカミドＭＥＡ"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "世界中のさまざまな製品に関する情報を共同で無料で公開するデータベースです。"
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts は、世界中の幅広い製品に関する情報とデータを収集します。"
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "世界中のさまざまな製品の共同利用型、無料、オープン データベースです。"
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "原材料、CO2排出量、耐久性、ラベル、原材料の原産地、製品情報 %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-モバイルアプリ"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "製品情報を開く 製品検索"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "この商品ページはまだ完成していません。お手持ちの写真からデータを追加したり、 <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> または <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>のアプリを使って写真を撮影したりして、ページを完成させていただけます。ご協力ありがとうございます。"
+
+msgctxt "brands_example_products"
+msgid "Tide, Persil"
+msgstr "タイド、パーシル"
+
+msgctxt "categories_example_products"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "液体洗濯洗剤、粉末洗濯洗剤"
+
+msgctxt "emb_codes_example_products"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_products"
+msgid "Laundry detergent"
+msgstr "洗濯洗剤"
+
+msgctxt "product_name_example_products"
+msgid "Ultra Clean Lavender Scent"
+msgstr "ウルトラクリーンラベンダーの香り"
+
+msgctxt "ingredients_text_example_products"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "警告：カテゴリーに該当しない場合は、成分を追加しないでください。洗剤にはパッケージまたはオンラインのリストがあり、他のカテゴリーにも記載されています。"
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "世界中のペットフード製品の原材料、栄養成分、情報を共同で収集した無料のオープン データベースです。"
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts は、世界中のペットフード製品に関する情報とデータを収集しています。"
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "世界中のペットフード製品の共同利用型、無料、オープン データベース。"
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "原材料、アレルゲン、添加物、栄養成分表、ラベル、原材料の原産地、製品 %s の情報"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "ペットフードファクト製品検索を開く"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "この商品ページはまだ完成していません。お手持ちの写真からデータを追加したり、 <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> または <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>のアプリを使って写真を撮影したりして、ページを完成させていただけます。ご協力ありがとうございます。"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "プリナ, ペディグリー"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "ドライドッグフード、ウェットキャットフード"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "鶏肉、コーングルテンミール、全粒トウモロコシ、動物性脂肪、大豆ミール"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "成犬用ウェットフード"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "シニア犬用デライトチキン＆ライス"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -307,7 +397,7 @@ msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
@@ -623,6 +713,10 @@ msgstr "製品を編集"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "ページを編集"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "プロパティを追加または編集するにはサインインしてください"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2178,6 +2272,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "特定のブランド、カテゴリ、ラベル、成分の起源、製造所等を有する製品を選択"
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr "製品検索"
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr "製品検索"
 
@@ -4091,11 +4189,11 @@ msgstr "プロジェクトを継続し成長させるためには、<a href=\"\"
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "ありがとう！"
 
 msgctxt "thank_you_very_much"
 msgid "Thank you very much!"
-msgstr ""
+msgstr "どうもありがとうございます！"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -4607,7 +4705,7 @@ msgstr "フェアトレード製品を購入すると、発展途上国の生産
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
-msgstr ""
+msgstr "栄養価"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
@@ -4712,7 +4810,7 @@ msgstr "加工食品"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra-processed foods"
-msgstr ""
+msgstr "超加工食品"
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
@@ -6751,7 +6849,7 @@ msgstr "画像は削除されませんでした"
 
 msgctxt "api_impact_none"
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 msgctxt "api_impact_warning"
 msgid "Warning"
@@ -6834,7 +6932,7 @@ msgstr "製品の輸出入"
 
 msgctxt "add_products"
 msgid "Add products"
-msgstr ""
+msgstr "商品を追加する"
 
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
@@ -7130,7 +7228,7 @@ msgstr "甘味料"
 # sweetener (additive), singular
 msgctxt "sweetener"
 msgid "sweetener"
-msgstr ""
+msgstr "甘味料"
 
 msgctxt "action_edit_product"
 msgid "Complete or correct product information"
@@ -7511,7 +7609,7 @@ msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
-msgstr ""
+msgstr "F-Droidで利用可能"
 
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
