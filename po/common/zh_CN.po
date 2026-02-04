@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "成分、过敏原、添加剂、营养成分表、标签、产地、二氧化碳排放量及产品信息 %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "这是一个合作、免费并且公开的食物数据库，也提供来自全世界的化妆产品信息。"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "一个相互协助、开放、免费的全球化妆品数据库。"
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "一个协作的、免费的、开放的数据库，其中包含来自世界各地的各种产品的成分和信息。"
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts 收集了来自世界各地的各种产品的信息和数据。"
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "一个包含来自世界各地的各种产品的协作、免费和开放的数据库。"
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "一个协作的、免费的、开放的数据库，包含来自世界各地的宠物食品产品的成分、营养成分和信息。"
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts 收集了来自世界各地的宠物食品产品的信息和数据。"
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "一个来自世界各地的宠物食品产品的协作、免费和开放的数据库。"
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "成分（INCI）、过敏原、添加剂、标签、成分来源及产品信息 %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -112,6 +94,114 @@ msgstr "爽身止汗"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "一个协作式、免费且开放的数据库，包含来自世界各地各种产品的信息。"
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts 收集了来自世界各地的各种产品的信息和数据。"
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "一个包含来自世界各地的各种产品的协作、免费和开放的数据库。"
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "成分、二氧化碳排放影响、耐久性、标签、成分来源和产品信息 %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Open Products Facts 产品搜索"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "此商品页面不完整。 您可以通过编辑它和从照片中添加更多数据来帮助完成它。 或者通过使用 <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> 或 <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>拍摄更多照片。 谢谢！"
+
+msgctxt "brands_example_products"
+msgid "Tide, Persil"
+msgstr "汰渍，Persil"
+
+msgctxt "categories_example_products"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "液体洗衣液，粉状洗衣液"
+
+msgctxt "emb_codes_example_products"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_products"
+msgid "Laundry detergent"
+msgstr "洗衣液"
+
+msgctxt "product_name_example_products"
+msgid "Ultra Clean Lavender Scent"
+msgstr "超洁净薰衣草香氛"
+
+msgctxt "ingredients_text_example_products"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "警告：如果成分与该类别无关，请勿添加。洗涤剂的包装上或网上都有成分列表，其他一些类别也有。"
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "一个协作的、免费的、开放的数据库，包含来自世界各地的宠物食品产品的成分、营养成分和信息。"
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts 收集了来自世界各地的宠物食品产品的信息和数据。"
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "一个来自世界各地的宠物食品产品的协作、免费和开放的数据库。"
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "成分，过敏原，添加剂，营养成分，标签，成分来源和产品信息%s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Pet Food Facts产品搜索"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "此商品页面不完整。 您可以通过编辑它和从照片中添加更多数据来帮助完成它。 或者通过使用 <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> 或 <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>拍摄更多照片。 谢谢！"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "普瑞纳，血统"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "干狗粮，湿猫粮"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "鸡肉、玉米蛋白粉、全谷物玉米、动物脂肪、豆粕"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "成犬湿粮"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "老年犬喜爱的鸡肉米饭"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -625,6 +715,10 @@ msgstr "编辑产品"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "编辑页面"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "登录以添加或编辑房源"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2174,6 +2268,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "选择特定品牌，类别，标签，原料来源，生产地点等的产品"
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr "产品搜索"
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr "产品搜索"
 
