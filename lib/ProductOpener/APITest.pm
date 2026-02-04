@@ -36,6 +36,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&construct_test_url
 		&create_user
+		&create_user_legacy
 		&edit_user
 		&create_user_in_keycloak
 		&create_test_users
@@ -69,7 +70,7 @@ use ProductOpener::Store qw/store retrieve/;
 use ProductOpener::Minion qw/get_minion write_minion_log/;
 use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::Config qw/%oidc_options/;
-use ProductOpener::Auth qw/get_oidc_implementation_level/;
+use ProductOpener::Auth qw/get_oidc_implementation_level get_token_using_password_credentials/;
 use ProductOpener::Tags qw/country_to_cc/;
 use ProductOpener::TestDefaults qw/:all/;
 
@@ -203,9 +204,9 @@ sub new_client () {
 	return $ua;
 }
 
-=head2 create_user($ua, $args_ref)
+=head2 create_user_legacy($ua, $args_ref)
 
-Call API to create a user
+Call API to create a user. This legacy method will be deprecated at some point
 
 =head3 Arguments
 
@@ -215,7 +216,7 @@ Call API to create a user
 
 =cut
 
-sub create_user ($ua, $args_ref, $is_edit = 0) {
+sub create_user_legacy ($ua, $args_ref, $is_edit = 0) {
 	my $before_create_ts = get_last_minion_job_created();
 
 	my %fields = %{clone($args_ref)};
@@ -246,7 +247,7 @@ Call API to edit a user, see create_user
 sub edit_user ($ua, $args_ref) {
 	($args_ref->{type} eq "edit") or confess("Action type must be 'edit' in edit_user");
 	# technically the same as create_user but need to know it is an edit so we don't wait for Keycloak events !
-	return create_user($ua, $args_ref, 1);
+	return create_user_legacy($ua, $args_ref, 1);
 }
 
 =head2 login($ua, $user_id, $password)
@@ -272,10 +273,7 @@ sub login ($ua, $user_id, $password) {
 
 =head2 create_user_in_keycloak($user_ref)
 
-Call API to create a user in Keycloak
-without creating them in ProductOpener, too.
-As create_user uses the ProductOpener API, this
-is useful for testing the Keycloak API on it's own.
+Call API to create a user in Keycloak which will in turn create the user in ProductOpener via Redis
 
 =head3 Arguments
 
@@ -301,9 +299,14 @@ sub create_user_in_keycloak ($user_ref) {
 		attributes => {
 			name => $user_ref->{name},
 			locale => $user_ref->{preferred_language},
-			country => country_to_cc($user_ref->{country}),
+			requested_org => $user_ref->{requested_org},
+			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
 		}
 	};
+	# Only supply country if it is set
+	if ($user_ref->{country}) {
+		$keycloak_user_ref->{attributes}->{country} = country_to_cc($user_ref->{country});
+	}
 
 	my $json = encode_json($keycloak_user_ref);
 
@@ -324,6 +327,29 @@ sub create_user_in_keycloak ($user_ref) {
 	get_minion_jobs("welcome_user", $before_create_ts);
 
 	return 1;
+}
+
+=head2 create_user($ua, $user_ref)
+
+Call API to create a user in Keycloak which will in turn create the user in ProductOpener via Redis
+Also logs the user in by setting the Authorization header in the user agent
+
+=head3 Arguments
+
+=head4 $ua - user agent
+
+=head4 $user_ref - fields
+
+=cut
+
+sub create_user ($ua, $user_ref) {
+	create_user_in_keycloak($user_ref);
+
+	# Get an access token for the user and add to a client for authenticated requests
+	my $access_token = get_token_using_password_credentials($user_ref->{userid}, $user_ref->{password})->{access_token};
+	$ua->default_header('Authorization' => 'Bearer ' . $access_token);
+
+	return $access_token;
 }
 
 =head2 create_test_users($admin=undef, $moderator=undef)
@@ -363,31 +389,28 @@ sub create_test_users($admin = undef, $moderator = undef) {
 	# Create a normal user
 	my $ua = new_client();
 	my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
-	my $resp = create_user($ua, \%create_user_args);
-	ok(!html_displays_error($resp));
+	create_user($ua, \%create_user_args);
 	$users{user} = $ua;
 
 	my $admin_ua;
 	if ($admin or $moderator) {
 		# Create an admin
 		$admin_ua = new_client();
-		$resp = create_user($admin_ua, \%admin_user_form);
-		ok(!html_displays_error($resp));
+		create_user($admin_ua, \%admin_user_form);
 		$users{admin} = $admin_ua;
 	}
 
 	if ($moderator) {
 		# Create a moderator
 		my $moderator_ua = new_client();
-		$resp = create_user($moderator_ua, \%moderator_user_form);
-		ok(!html_displays_error($resp));
+		create_user($moderator_ua, \%moderator_user_form);
 		# Admin gives moderator status
 		my %moderator_edit_form = (
 			%moderator_user_form,
 			user_group_moderator => "1",
 			type => "edit",
 		);
-		$resp = edit_user($admin_ua, \%moderator_edit_form);
+		my $resp = edit_user($admin_ua, \%moderator_edit_form);
 		ok(!html_displays_error($resp));
 		$users{moderator} = $moderator_ua;
 	}
