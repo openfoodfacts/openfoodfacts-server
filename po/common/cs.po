@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Složení, alergeny, přísady, nutriční hodnoty, etikety, původ, dopad na CO2 a informace o produktu %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "Společná, bezplatná a otevřená databáze přísad a informací o kosmetických produktech z celého světa"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Společná, bezplatná a otevřená databáze kosmetických výrobků z celého světa."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Spolupracující, bezplatná a otevřená databáze ingrediencí a informací o různých produktech z celého světa."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts shromažďuje informace a data o široké škále produktů z celého světa."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Spolupracující, bezplatná a otevřená databáze různých produktů z celého světa."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Spolupracující, bezplatná a otevřená databáze složek, nutričních hodnot a informací o krmivech pro domácí mazlíčky z celého světa."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts shromažďuje informace a data o krmivech pro domácí mazlíčky z celého světa."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Společná, bezplatná a otevřená databáze krmiv pro domácí zvířata z celého světa."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Složení INCI, alergeny, přísady, etikety, původ složek a informace o produktu %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -110,6 +92,114 @@ msgstr "Anti-Perspirant Stress Protect"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Spolupracující, bezplatná a otevřená databáze informací o různých produktech z celého světa."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts shromažďuje informace a data o široké škále produktů z celého světa."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Spolupracující, bezplatná a otevřená databáze různých produktů z celého světa."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Složení, dopad na CO2, trvanlivost, etikety, původ složek a informace o produktu %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Hledání produktů na Open Products Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Tato stránka produktu není kompletní. Můžete ji doplnit úpravou a přidáním dalších dat z fotografií, které máme k dispozici, nebo pořízením dalších fotografií pomocí aplikace pro <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> nebo <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Děkujeme!"
+
+msgctxt "brands_example_products"
+msgid "Tide, Persil"
+msgstr "Tide, Persil"
+
+msgctxt "categories_example_products"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Tekutý prací prostředek, Práškový prací prostředek"
+
+msgctxt "emb_codes_example_products"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_products"
+msgid "Laundry detergent"
+msgstr "Prací prostředek"
+
+msgctxt "product_name_example_products"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Ultra čistá levandulová vůně"
+
+msgctxt "ingredients_text_example_products"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "VAROVÁNÍ: Nepřidávejte ingredience, pokud to pro danou kategorii není relevantní. Prací prostředky mají seznamy na obalu nebo online, stejně jako některé další kategorie."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Spolupracující, bezplatná a otevřená databáze složek, nutričních hodnot a informací o krmivech pro domácí mazlíčky z celého světa."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts shromažďuje informace a data o krmivech pro domácí mazlíčky z celého světa."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Společná, bezplatná a otevřená databáze krmiv pro domácí zvířata z celého světa."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Přísady, alergeny, aditiva, nutriční údaje, etikety, původ přísad a informace o produktu %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Hledání produktů na Open Pet Food Facts"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Tato stránka produktu není kompletní. Můžete ji doplnit úpravou a přidáním dalších dat z fotografií, které máme k dispozici, nebo pořízením dalších fotografií pomocí aplikace pro <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> nebo <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Děkujeme!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Suché krmivo pro psy, mokré krmivo pro kočky"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "KUŘECÍ MASO, KUKUŘIČNÁ LEPKOVÁ MOUČKA, CELOZRNNÁ KUKUŘICE, ŽIVOČIŠNÝ TUK, SÓJOVÁ MOUČKA"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Mokré krmivo pro dospělé psy"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Senior Dog Delight kuře s rýží"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -622,6 +712,10 @@ msgstr "Upravit produkt"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Upravit stránku"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Přihlaste se pro přidání nebo úpravu vlastností"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2174,6 +2268,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Vyberte produkty s konkrétními značkami, kategorií, štítky, původ surovin, výrobních míst atd"
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr "Hledat produkt"
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr "Hledat produkt"
 
