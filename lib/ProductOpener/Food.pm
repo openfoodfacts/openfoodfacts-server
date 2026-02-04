@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -3369,18 +3369,29 @@ we store the result in the nutriments_estimated hash.
 sub compute_estimated_nutrients ($product_ref) {
 	my $results_ref = estimate_nutrients_from_ingredients($product_ref->{ingredients});
 
-	# only take the result if we have at least 95% of ingredients with nutrients
-	if (($results_ref->{total} > 0) and (($results_ref->{total_with_nutrients} / $results_ref->{total}) >= 0.95)) {
-		$product_ref->{nutriments_estimated} = {};
-		while (my ($nid, $value) = each(%{$results_ref->{nutrients}})) {
-			$product_ref->{nutriments_estimated}{$nid . '_100g'} = $value;
+	if (defined $product_ref->{ingredients}) {
+
+		# only take the result if we have at least 95% of ingredients with nutrients
+		if (($results_ref->{total} > 0) and (($results_ref->{total_with_nutrients} / $results_ref->{total}) >= 0.95)) {
+			$product_ref->{nutriments_estimated} = {};
+			while (my ($nid, $value) = each(%{$results_ref->{nutrients}})) {
+				$product_ref->{nutriments_estimated}{$nid . '_100g'} = $value;
+			}
+			add_tag($product_ref, "misc", "en:nutrients-estimated-from-ingredients");
 		}
+		else {
+			delete $product_ref->{nutriments_estimated};
+			add_tag($product_ref, "misc",
+				"en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data");
+		}
+
+		return $results_ref;
 	}
 	else {
-		delete $product_ref->{nutriments_estimated};
+		add_tag($product_ref, "misc", "en:nutrients-not-estimated-from-ingredients-no-ingredients");
 	}
 
-	return $results_ref;
+	return;
 }
 
 =head2 get_nutrient_unit ( $nid, $cc )
