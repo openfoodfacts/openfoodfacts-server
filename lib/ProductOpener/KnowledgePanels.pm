@@ -989,8 +989,15 @@ sub create_maintain_card_panel ($product_ref, $target_lc, $target_cc, $options_r
 	}
 
 	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
-	my $category_id = $product_ref->{categories_hierarchy}[-1];
-	$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
+	my $category_id;
+	if (ref($product_ref->{categories_hierarchy}) eq 'ARRAY'
+		&& @{$product_ref->{categories_hierarchy}}) {
+		$category_id = $product_ref->{categories_hierarchy}[-1];
+		if (defined $category_id && $category_id ne q{}) {
+			$panel_data_ref->{category_name}
+				= display_taxonomy_tag_name($target_lc, "categories", $category_id);
+		}
+	}
 
 	# Check if the product has a category with a maintenance URL
 	my ($maintenance_url, $category_with_url)
