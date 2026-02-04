@@ -50,12 +50,14 @@ foreach my $args_ref (["name", "click http://test.com"], ["faxnumber", "0"]) {
 	my %create_user_args
 		= (%default_user_form, ($arg_name => $arg_value, "userid" => $userid, email => "bob$testnum\@example.com"));
 	my $logid = tail_log_start("$BASE_DIRS{LOGS}/user_spam.log");
-	$response = create_user($ua, \%create_user_args);
+	# Note this intentionally uses the legacy API to test for Spam.
+	# Need to decide whether this test is needed when this is deprecated for Keycloak
+	$response = create_user_legacy($ua, \%create_user_args);
 	my $logged = tail_log_read($logid);
 	like($response->content, qr/class="error_page"/, "Error in the page - $testnum");
 	# user in spam log
 	like($logged, qr/\b$userid\b/, "Error in spam log - $testnum");
-	is(undef, retrieve_user($userid), "User not created - $testnum");
+	is(retrieve_user($userid), undef, "User not created - $testnum");
 	$testnum++;
 }
 
