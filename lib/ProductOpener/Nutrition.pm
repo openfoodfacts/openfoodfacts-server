@@ -69,9 +69,9 @@ BEGIN {
 		&get_nutrition_data_as_key_values_pairs
 		&has_no_nutrition_data_on_packaging
 		&remove_empty_nutrition_data
-
 		&compute_energy_from_nutrients_for_nutrients_set
 		%energy_from_nutrients
+		&get_nutrient_from_nutrient_set_in_default_unit
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -2739,6 +2739,38 @@ sub remove_empty_nutrition_data ($product_ref) {
 		delete $product_ref->{nutrition};
 	}
 
+	return;
+}
+
+
+=head2 get_nutrient_from_nutrient_set_in_default_unit ( $nutrients_ref, $nid )
+
+Get the value of a nutrient from a nutrients set, converted to the default unit for that nutrient.
+
+=head3 Parameters
+
+=head4 $nutrients_ref: reference to the nutrients hash.
+
+=head4 $nid: nutrient id.
+
+=head3 Returns
+
+The value of the nutrient in the default unit, or undef if not defined.
+
+=cut
+
+sub get_nutrient_from_nutrient_set_in_default_unit ($nutrients_ref, $nid) {
+
+	my $value = deep_get($nutrients_ref, $nid, "value");
+	my $unit = deep_get($nutrients_ref, $nid, "unit");
+
+	if (defined $value and defined $unit) {
+		my $default_unit = default_unit_for_nid($nid);
+		if ($unit ne $default_unit) {
+			$value = convert_nutrient_value_to_unit($nid, $value, $unit, $default_unit);
+		}
+		return $value;
+	}
 	return;
 }
 

@@ -14,9 +14,12 @@ use ProductOpener::DataQualityFood qw/:all/;
 use ProductOpener::Tags qw/has_tag/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 use Data::DeepAccess qw(deep_get);
 use boolean;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 sub check_quality_and_test_product_has_quality_tag($$$$;$) {
 	my $product_ref = shift;
@@ -2765,5 +2768,72 @@ check_quality_and_test_product_has_quality_tag(
 	'en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
 	'energy not matching nutrients', 0
 );
+
+
+my @tests = (
+	[
+		'vitamin-in-mcg-with-value-over-105',
+		{
+			nutrition => {
+				input_sets => [
+					{
+						source => "producer",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {
+							"vitamin-b12" => {value => 110, unit => "µg"},
+						}
+					}
+				]
+			}
+		}
+	],
+	[
+		'sugars-in-mcg-carbohydrates-in-g',
+		{
+			nutrition => {
+				input_sets => [
+					{
+						source => "producer",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {
+							"carbohydrates" => {value => 10, unit => "g"},
+							"sugars" => {value => 500, unit => "µg"},
+						}
+					}
+				]
+			}
+		}
+	],
+	[
+		'energy-in-kj-main-nutrients-in-mg',
+		{
+			nutrition => {
+				input_sets => [
+					{
+						source => "producer",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {
+							"energy-kj" => {value => 500, unit => "kJ"},
+							"fat" => {value => 2000, unit => "mg"},
+							"carbohydrates" => {value => 3000, unit => "mg"},
+							"proteins" => {value => 4000, unit => "mg"},
+						}
+					}
+				]
+			}
+		}
+	],
+
+);
+
+for my $test_ref (@tests) {
+	my ($testid, $product_ref) = @$test_ref;
+	ProductOpener::DataQuality::check_quality($product_ref);
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",
+		$update_expected_results, {id => $testid});
+}
 
 done_testing();
