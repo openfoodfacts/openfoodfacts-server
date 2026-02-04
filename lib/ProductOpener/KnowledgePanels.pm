@@ -994,7 +994,7 @@ sub create_maintain_card_panel ($product_ref, $target_lc, $target_cc, $options_r
 
 	# Check if the product has a category with a maintenance URL
 	my ($maintenance_url, $category_with_url)
-		= get_inherited_property_from_categories_tags($product_ref, "epargnonsnosressources_fr_url:en");
+		= get_inherited_property_from_categories_tags($product_ref, "epargnonsnosressources_fr_link:en");
 
 	if (defined $maintenance_url) {
 		$panel_data_ref->{maintenance_url} = $maintenance_url;
