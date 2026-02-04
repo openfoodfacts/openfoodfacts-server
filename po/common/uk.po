@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Інгредієнти, алергени, добавки, харчова цінність, етикетки, походження, вплив CO2 та інформація про продукт %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "Кооперативна, безкоштовна і відкрита база даних інгредієнтів, та інформація про косметичні продукти з усього світу"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Кооперативна, безкоштовна та відкрита база даних косметичних продуктів з усього світу."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Колективна, безкоштовна та відкрита база даних інгредієнтів, фактів про харчування та інформації про продукти харчування з усього світу."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts збирає інформацію та дані про широкий спектр продуктів з усього світу."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Спільна база даних про продукти з усього світу з відкритим доступом."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Колективна, безплатна та відкрита база даних інгредієнтів, фактів про харчування та інформації про харчові продукти з усього світу."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts збирає інформацію та дані про корми для домашніх тварин з усього світу."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Спільна, безкоштовна та відкрита база даних продуктів харчування для домашніх тварин з усього світу."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Інгредієнти INCI, алергени, добавки, етикетки, походження інгредієнтів та інформація про продукт %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -110,6 +92,114 @@ msgstr "Дезодорант захист від стресу"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "АКВА/ВОДА, ЛАУРЕТСУЛЬФАТ НАТРІЮ, ДИНАТРІЄВИЙ КОКОАМФОДІАЦЕТАТ, ГЛІКОЛЕВИЙ ДИСТЕАРАТ, КОКАМІД MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Спільна, безкоштовна та відкрита база даних інформації про різні продукти з усього світу."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts збирає інформацію та дані про широкий спектр продуктів з усього світу."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Спільна база даних про продукти з усього світу з відкритим доступом."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Інгредієнти, вплив CO2, довговічність, етикетки, походження інгредієнтів та інформація про продукт %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Пошук продукту в Open Products Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Ця сторінка товару не завершена. Ви можете допомогти її завершити, відредагувавши та додавши більше даних з наявних у нас фотографій, або зробивши більше фотографій за допомогою застосунку для <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> або <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Дякуємо!"
+
+msgctxt "brands_example_products"
+msgid "Tide, Persil"
+msgstr "Tide, Persil"
+
+msgctxt "categories_example_products"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Рідкий пральний порошок, пральний порошок"
+
+msgctxt "emb_codes_example_products"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_products"
+msgid "Laundry detergent"
+msgstr "Пральний порошок"
+
+msgctxt "product_name_example_products"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Ультрачистий аромат лаванди"
+
+msgctxt "ingredients_text_example_products"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "ПОПЕРЕДЖЕННЯ: Не додавайте інгредієнти, якщо вони не стосуються категорії. Мийні засоби, як і деякі інші категорії, мають списки на упаковці або онлайн."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Колективна, безплатна та відкрита база даних інгредієнтів, фактів про харчування та інформації про харчові продукти з усього світу."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts збирає інформацію та дані про корми для домашніх тварин з усього світу."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Спільна, безкоштовна та відкрита база даних продуктів харчування для домашніх тварин з усього світу."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Складники, речовини що викликають алергічну реакцію, добавки, харчова цінність, походження складників та дані продукту %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Пошук продуктів Open Pet Food Facts"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Ця сторінка товару не завершена. Ви можете допомогти її завершити, відредагувавши та додавши більше даних з наявних у нас фотографій, або зробивши більше фотографій за допомогою застосунку для <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> або <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Дякуємо!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Сухий корм для собак, вологий корм для котів"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "КУРКА, КУКУРУДЗЯНЕ ГЛЮТЕНОВЕ БОРОШНО, ЦІЛЬНОЗЕРНОВА КУКУРУДЗА, ТВАРИННИЙ ЖИР, СОЄВЕ БОРОШНО"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Вологий корм для дорослих собак"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Корм для собак старшого віку з куркою та рисом"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -623,6 +713,10 @@ msgstr "Редагувати продукт"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Перевірити сторінку"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Увійдіть, щоб додати або редагувати властивості"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2176,6 +2270,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Оберіть продукти з певними брендами, категоріями, етикетками, походженням інгредієнтів, місцем виробництва тощо."
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr "Пошук товару"
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr "Пошук товару"
 
