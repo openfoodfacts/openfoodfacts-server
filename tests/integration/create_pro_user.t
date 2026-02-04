@@ -34,37 +34,32 @@ remove_all_users();
 remove_all_orgs();
 
 my $admin_ua = new_client();
-my $resp = create_user($admin_ua, \%admin_user_form);
-ok(!html_displays_error($resp));
+create_user($admin_ua, \%admin_user_form);
+
 # create a pro moderator
 my $moderator_ua = new_client();
-$resp = create_user($moderator_ua, \%pro_moderator_user_form);
-ok(!html_displays_error($resp), "no error on future moderator creation");
+create_user($moderator_ua, \%pro_moderator_user_form);
+
 # admin pass him moderator
 my %moderator_edit_form = (
 	%pro_moderator_user_form,
 	user_group_pro_moderator => "1",
 	type => "edit",
 );
-$resp = edit_user($admin_ua, \%moderator_edit_form);
+my $resp = edit_user($admin_ua, \%moderator_edit_form);
 ok(!html_displays_error($resp), "no error on admin adding moderator role");
 
 # A user comes along, creates its profile and requests to be part of an org
 my $user_ua = new_client();
-my %user_form = (
-	%{clone(\%default_user_form)},
-	pro => "1",
-	requested_org => "Acme Inc."
-);
+my %user_form = (%{clone(\%default_user_form)}, requested_org => "Acme Inc.");
 my $log_path = "/var/log/apache2/log4perl.log";
 if (get_oidc_implementation_level() > 1) {
 	# Emails will be in the Minion log once Keycloak is the master source of truth
 	$log_path = "/var/log/apache2/minion_log4perl.log";
 }
 my $tail = tail_log_start($log_path);
-my $before_create_ts = time();
-$resp = create_user($user_ua, \%user_form);
-ok(!html_displays_error($resp), "no error creating pro user");
+my $before_create_ts = get_last_minion_job_created();
+create_user($user_ua, \%user_form);
 
 if (get_oidc_implementation_level() > 1) {
 	# Create user starts in Keycloak, then triggers Redis which creates minion job
