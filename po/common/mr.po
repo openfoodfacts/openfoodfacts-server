@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "घटक, अ‍ॅलर्जी निर्माण करणारे घटक, अ‍ॅडिटिव्ह्ज, पोषण तथ्ये, लेबल्स, उत्पत्ती, CO2 प्रभाव आणि उत्पादनावरील माहिती %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr ""
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr ""
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "घटक INCI, अ‍ॅलर्जन्स, अ‍ॅडिटिव्ह्ज, लेबल्स, घटकांचे मूळ आणि उत्पादनाची माहिती %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -110,6 +92,114 @@ msgstr ""
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr ""
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "जगभरातील विविध उत्पादनांवरील माहितीचा एक सहयोगी, मुक्त आणि खुला डेटाबेस."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "घटक, CO2 प्रभाव, टिकाऊपणा, लेबल्स, घटकांचे मूळ आणि उत्पादनाची माहिती %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr ""
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "हे उत्पादन पृष्ठ पूर्ण नाही. तुम्ही ते संपादित करून आणि आमच्याकडे असलेल्या फोटोंमधून अधिक डेटा जोडून किंवा <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> किंवा <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>साठी अॅप वापरून अधिक फोटो काढून ते पूर्ण करण्यास मदत करू शकता. धन्यवाद!"
+
+msgctxt "brands_example_products"
+msgid "Tide, Persil"
+msgstr "भरती-ओहोटी, पर्सिल"
+
+msgctxt "categories_example_products"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "द्रव कपडे धुण्याचा साबण, पावडर कपडे धुण्याचा साबण"
+
+msgctxt "emb_codes_example_products"
+msgid "EMB 67890"
+msgstr "ईएमबी ६७८९०"
+
+msgctxt "generic_name_example_products"
+msgid "Laundry detergent"
+msgstr "कपडे धुण्याचा साबण"
+
+msgctxt "product_name_example_products"
+msgid "Ultra Clean Lavender Scent"
+msgstr "अल्ट्रा क्लीन लैव्हेंडर सेन्ट"
+
+msgctxt "ingredients_text_example_products"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "इशारा: जर हे घटक श्रेणीशी संबंधित नसतील तर ते जोडू नका. डिटर्जंटची पॅकवर किंवा ऑनलाइन यादी असते आणि काही इतर श्रेणी देखील असतात."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr ""
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "हे उत्पादन पृष्ठ पूर्ण नाही. तुम्ही ते संपादित करून आणि आमच्याकडे असलेल्या फोटोंमधून अधिक डेटा जोडून किंवा <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> किंवा <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>साठी अॅप वापरून अधिक फोटो काढून ते पूर्ण करण्यास मदत करू शकता. धन्यवाद!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr ""
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "सुके कुत्र्याचे अन्न, ओल्या मांजरीचे अन्न"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "ईएमबी १२३४५"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "चिकन, कॉर्न ग्लूटेन जेवण, संपूर्ण धान्य कॉर्न, प्राण्यांची चरबी, सोयाबीन जेवण"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr ""
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "प्रौढ कुत्र्यांसाठी ओले अन्न"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "सिनियर डॉग डिलाईट चिकन आणि भात"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -622,6 +712,10 @@ msgstr ""
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr ""
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "गुणधर्म जोडण्यासाठी किंवा संपादित करण्यासाठी साइन-इन करा"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2161,6 +2255,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr ""
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr ""
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr ""
 
