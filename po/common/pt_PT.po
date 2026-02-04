@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Ingredientes, alergénios, aditivos, informação nutricional, rótulos, origens, impacto do CO2 e informação sobre o produto %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "Uma base de dados colaborativa, gratuita e aberta de ingredientes e informações sobre produtos cosméticos de todo o mundo"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Uma base de dados colaborativa, gratuita e aberta de produtos cosméticos de todo o mundo."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Uma base de dados colaborativa, gratuita e aberta de ingredientes e informações sobre vários produtos de todo o mundo."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "O Open Products Facts reúne informações e dados sobre uma ampla variedade de produtos de todo o mundo."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Uma base de dados colaborativa, livre e aberta sobre vários produtos de todo o mundo."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Uma base de dados colaborativa, gratuita e aberta de ingredientes, informações nutricionais e informações sobre produtos alimentares para animais de todo o mundo."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "O Open Pet Food Facts reúne dados e informação sobre produtos alimentares para animais de todo o mundo."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Uma base de dados colaborativa, livre e aberta sobre produtos alimentares para animais de todo o mundo."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Ingredientes INCI, alergénios, aditivos, rótulos, origem dos ingredientes e informação sobre o produto %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -110,6 +92,114 @@ msgstr "Antitranspirante Resistente ao Stress"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA / ÁGUA, SULFATO DE LÍTIO DE SÓDIO, COCOAMPHODIACETATE DE DISÓDIO, GLICOL DISTEARADO, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Uma base de dados colaborativa, gratuita e aberta com informação sobre diversos produtos de todo o mundo."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "O Open Products Facts reúne informações e dados sobre uma ampla variedade de produtos de todo o mundo."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Uma base de dados colaborativa, livre e aberta sobre vários produtos de todo o mundo."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Ingredientes, impacto do CO2, durabilidade, rótulos, origem dos ingredientes e informação sobre o produto %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Pesquisa de produtos do Open Product Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Esta página do produto não está completa. Pode ajudar a completá-la editando-a e adicionando mais dados das fotografias que temos, ou tirando mais fotografias utilizando a aplicação para <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ou <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Obrigado!"
+
+msgctxt "brands_example_products"
+msgid "Tide, Persil"
+msgstr "Maré, Pérsil"
+
+msgctxt "categories_example_products"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Detergente líquido para a roupa, detergente em pó para a roupa"
+
+msgctxt "emb_codes_example_products"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_products"
+msgid "Laundry detergent"
+msgstr "detergente para a roupa"
+
+msgctxt "product_name_example_products"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Aroma de Lavanda Ultra Limpo"
+
+msgctxt "ingredients_text_example_products"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "AVISO: Não adicione ingredientes se tal não for relevante para a categoria. Os detergentes têm listas na embalagem ou online, e algumas outras categorias também."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Uma base de dados colaborativa, gratuita e aberta de ingredientes, informações nutricionais e informações sobre produtos alimentares para animais de todo o mundo."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "O Open Pet Food Facts reúne dados e informação sobre produtos alimentares para animais de todo o mundo."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Uma base de dados colaborativa, livre e aberta sobre produtos alimentares para animais de todo o mundo."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Ingredientes, alergénios, aditivos, informações nutricionais, etiquetas, origem dos ingredientes e informação sobre o produto %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Pet Food Facts pesquisa de produto"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Esta página do produto não está completa. Pode ajudar a completá-la editando-a e adicionando mais dados das fotografias que temos, ou tirando mais fotografias utilizando a aplicação para <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ou <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Obrigado!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Ração seca para cães, ração húmida para gatos"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "FRANGO, FARINHA DE GLÚTEN DE MILHO, MILHO INTEGRAL, GORDURA ANIMAL, FARINHA DE SOJA"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Ração húmida para cães adultos"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Delícia para cães idosos: Frango com arroz"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -623,6 +713,10 @@ msgstr "Editar um produto"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Editar a página"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Inicie sessão para adicionar ou editar propriedades."
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2177,6 +2271,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Selecione produtos de marcas específicas, categorias, etiquetas, origens de ingredientes, locais de fabrico, etc."
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr "Pesquisa de produtos"
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr "Pesquisa de produtos"
 
@@ -7646,35 +7744,35 @@ msgstr "Estas preferências baseiam-se no entendimento da Open Food Facts sobre 
 
 msgctxt "external_sources_empreinte_souffrance_name"
 msgid "Suffering Fingerprint"
-msgstr ""
+msgstr "Impressão digital de sofrimento"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
-msgstr ""
+msgstr "Indicador de sofrimento animal calculado pelo produto"
 
 msgctxt "section_animal_welfare_title"
 msgid "Animal welfare"
-msgstr ""
+msgstr "bem-estar animal"
 
 msgctxt "external_panels"
 msgid "External Knowledge Panels"
-msgstr ""
+msgstr "Painéis de conhecimento externos"
 
 msgctxt "external_panel_unavailable"
 msgid "Panel unavailable"
-msgstr ""
+msgstr "Painel indisponível"
 
 msgctxt "external_panel_unavailable_for_product"
 msgid "Panel unavailable for this product"
-msgstr ""
+msgstr "Painel indisponível para este produto"
 
 msgctxt "external_sources"
 msgid "External sources"
-msgstr ""
+msgstr "Fontes externas"
 
 msgctxt "provided_by"
 msgid "Provided by"
-msgstr ""
+msgstr "Fornecido por"
 
 msgctxt "recommendation_eu_tobacco_health_warning_title"
 msgid "Smoking kills"
