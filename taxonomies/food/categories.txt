@@ -9098,7 +9098,7 @@ en: Herbal teas, Herbal infusions, infusions
 bg: Билков чай
 ca: Infusions, infusions herbals
 cs: Bylinné čaje
-da: Urtete
+da: Urteteer, Urtete, Urtethe
 de: Kräutertees
 es: Plantas para infusiones, Infusiones, Tisanas
 fi: yrttiteet
@@ -9113,7 +9113,7 @@ nl: Kruidentheeën, Kruidenthee
 pl: Herbaty ziołowe
 pt: Chás de ervas, infusões de ervas, infusões
 ru: Травяные чаи и настойки
-sv: Örtte
+sv: Örtteer, Örtte
 agribalyse_proxy_food_code:en: 18020
 agribalyse_proxy_food_name:en: Tea, brewed, without sugar
 # 2026/01/22: (Stéphane) we had an old comment "should not be in pnns_group_2:en:Teas and herbal teas and coffees", and only the "herbal tea beverages" were under it, but it would make sense to have them here.
@@ -9126,7 +9126,7 @@ wikidata:en: Q379932
 
 < en:Herbal teas
 en: Herbal teas in tea bags, Herbal teas in bags
-da: Urtete i poser
+da: Urteteer i pose, Urtete i poser
 de: Kräutertee aus Teebeuteln
 es: Plantas para infusiones en bolsitas, Infusiones en bolsitas, Tisanas en bolsitas
 fi: Yrttipussiteet
@@ -9138,7 +9138,7 @@ lt: Žolelių arbatos maišeliuose
 nl: Kruidenthee in zakjes, Kruidenthee in buidels
 pl: Herbatki ziołowe w torebkach, Herbaty ziołowe w torebkach
 ru: Чай в пакетиках
-sv: Örtte i pås
+sv: Örtteer i pås, Örtte i pås
 
 < en:Herbal teas
 en: Instant herbal teas
@@ -9199,8 +9199,9 @@ pl: Boldo
 wikidata:en: Q833994
 
 < en:Herbal teas
-en: Chamomile, Camomile
+en: Camomile teas, Camomile infusions, Camomile, Chamomile
 bg: Лайка
+da: Kamilleteer
 de: Kamille
 es: Manzanilla
 fi: kamomilla
@@ -9212,10 +9213,17 @@ ja: カモミール
 lt: Ramunėlės
 nl: Kamille
 pl: Rumianek
-wikidata:en: Q14169150
+sv: Kamomillteer, Kamomill
+wikidata:en: Q19704254
 
-< en:Chamomile
-en: German chamomile
+< en:Camomile teas
+< en:Herbal teas in tea bags
+en: Camomile teas in tea bags
+da: Kamilleteer i pose
+sv: Kamomillteer i pås
+
+< en:Camomile teas
+en: German camomile teas, German chamomile
 de: Deutsche Kamille
 es: Manzanilla dulce, Manzanilla de Castilla, Manzanilla alemana
 fr: Camomille sauvage
@@ -9227,8 +9235,8 @@ nl: Echte Kamille
 pl: Rumianek pospolity
 wikidata:en: Q28437
 
-< en:Chamomile
-en: Roman chamomile, English chamomile, Garden chamomile
+< en:Camomile teas
+en: Roman camomile teas, Roman chamomile, English chamomile, Garden chamomile
 de: Römische Kamille
 es: Manzanilla amarga, Manzanilla común, Manzanilla romana
 fr: Camomille romaine
@@ -9419,6 +9427,7 @@ wikidata:en: Q107592
 
 < en:Herbal teas
 en: Fruit teas
+da: Frugtteer
 de: Früchtetees
 es: Infusiones con frutas
 fi: hedelmäteet
@@ -9430,6 +9439,7 @@ lt: Vaisinės arbatos, vaisių arbatos
 nl: Vruchtentheeën, Vruchtenthee
 pl: Herbatki owocowe
 ro: Ceaiuri de fructe, Ceai de fructe
+sv: Fruktteer
 zh: 水果茶
 wikidata:en: Q744457
 
@@ -9454,12 +9464,14 @@ nl: Rode vruchtentheeën, Rode vruchtenthee
 < en:Fruit teas
 < en:Herbal teas in tea bags
 en: Herbal fruit teas in tea bags
+da: Frugtteer i pose
 es: infusiones con frutas en bolsitas
 fi: Hedelmäyrttiteepussit
 fr: Infusions aux fruits en sachets
 hr: Biljni voćni čajevi u vrećicama
 it: Tisane alla frutta in bustina, Infusi alla frutta in bustina
 lt: Raudonųjų vaisių arbatos
+sv: Fruktteer i pås
 
 < en:Herbal teas
 en: Ginkgo
@@ -9478,6 +9490,7 @@ wikidata:en: Q43284
 
 < en:Herbal teas
 en: Herbal tea blends
+da: Urteteblandinger
 de: Kräuterteemischungen
 es: Mezclas de plantas para infusiones
 fi: yrttiteesekoitukset
@@ -12710,7 +12723,7 @@ nl: Viooltjessiropen, Viooltjessiroop
 en: Pear syrups
 
 < en:Flavoured syrups
-en: Syrups with chamomile flavouring, Chamomile flavoured syrups
+en: Syrups with camomile flavouring, Syrups with chamomile flavoring, Camomile flavoured syrups, Chamomile flavored syrups
 da: Sirupper med kamillesmag
 sv: Siraper med kamomillsmak
 
