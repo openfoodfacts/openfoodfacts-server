@@ -984,7 +984,7 @@ sub create_maintain_card_panel ($product_ref, $target_lc, $target_cc, $options_r
 	my $panel_data_ref = {};
 
 	# Only available for the product_type "product"
-	if ($options{product_type} ne "product") {
+	if ($options_ref->{product_type} ne "product") {
 		return 0;
 	}
 
