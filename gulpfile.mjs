@@ -105,7 +105,7 @@ export function css() {
       sass({
         errLogToConsole: true,
         outputStyle: "expanded",
-        includePaths: ["./node_modules/foundation-sites/scss"],
+        includePaths: ["./node_modules"],
       }).on("error", sass.logError),
     )
     .pipe(minifyCSS())
@@ -198,7 +198,6 @@ function copyCss() {
       "./node_modules/leaflet/dist/leaflet.css",
       "./node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.css",
       "./node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.Default.css",
-      "./node_modules/@yaireo/tagify/dist/tagify.css",
       "./node_modules/cropperjs/dist/cropper.css",
       "./node_modules/select2/dist/css/select2.min.css",
     ])
