@@ -9098,7 +9098,7 @@ en: Herbal teas, Herbal infusions, infusions
 bg: Билков чай
 ca: Infusions, infusions herbals
 cs: Bylinné čaje
-da: Urtete
+da: Urteteer, Urtete, Urtethe
 de: Kräutertees
 es: Plantas para infusiones, Infusiones, Tisanas
 fi: yrttiteet
@@ -9113,7 +9113,7 @@ nl: Kruidentheeën, Kruidenthee
 pl: Herbaty ziołowe
 pt: Chás de ervas, infusões de ervas, infusões
 ru: Травяные чаи и настойки
-sv: Örtte
+sv: Örtteer, Örtte
 agribalyse_proxy_food_code:en: 18020
 agribalyse_proxy_food_name:en: Tea, brewed, without sugar
 # 2026/01/22: (Stéphane) we had an old comment "should not be in pnns_group_2:en:Teas and herbal teas and coffees", and only the "herbal tea beverages" were under it, but it would make sense to have them here.
@@ -9126,7 +9126,7 @@ wikidata:en: Q379932
 
 < en:Herbal teas
 en: Herbal teas in tea bags, Herbal teas in bags
-da: Urtete i poser
+da: Urteteer i pose, Urtete i poser
 de: Kräutertee aus Teebeuteln
 es: Plantas para infusiones en bolsitas, Infusiones en bolsitas, Tisanas en bolsitas
 fi: Yrttipussiteet
@@ -9138,7 +9138,7 @@ lt: Žolelių arbatos maišeliuose
 nl: Kruidenthee in zakjes, Kruidenthee in buidels
 pl: Herbatki ziołowe w torebkach, Herbaty ziołowe w torebkach
 ru: Чай в пакетиках
-sv: Örtte i pås
+sv: Örtteer i pås, Örtte i pås
 
 < en:Herbal teas
 en: Instant herbal teas
@@ -9199,8 +9199,9 @@ pl: Boldo
 wikidata:en: Q833994
 
 < en:Herbal teas
-en: Chamomile, Camomile
+en: Camomile teas, Camomile infusions, Camomile, Chamomile
 bg: Лайка
+da: Kamilleteer
 de: Kamille
 es: Manzanilla
 fi: kamomilla
@@ -9212,10 +9213,17 @@ ja: カモミール
 lt: Ramunėlės
 nl: Kamille
 pl: Rumianek
-wikidata:en: Q14169150
+sv: Kamomillteer, Kamomill
+wikidata:en: Q19704254
 
-< en:Chamomile
-en: German chamomile
+< en:Camomile teas
+< en:Herbal teas in tea bags
+en: Camomile teas in tea bags
+da: Kamilleteer i pose
+sv: Kamomillteer i pås
+
+< en:Camomile teas
+en: German camomile teas, German chamomile
 de: Deutsche Kamille
 es: Manzanilla dulce, Manzanilla de Castilla, Manzanilla alemana
 fr: Camomille sauvage
@@ -9227,8 +9235,8 @@ nl: Echte Kamille
 pl: Rumianek pospolity
 wikidata:en: Q28437
 
-< en:Chamomile
-en: Roman chamomile, English chamomile, Garden chamomile
+< en:Camomile teas
+en: Roman camomile teas, Roman chamomile, English chamomile, Garden chamomile
 de: Römische Kamille
 es: Manzanilla amarga, Manzanilla común, Manzanilla romana
 fr: Camomille romaine
@@ -9419,6 +9427,7 @@ wikidata:en: Q107592
 
 < en:Herbal teas
 en: Fruit teas
+da: Frugtteer
 de: Früchtetees
 es: Infusiones con frutas
 fi: hedelmäteet
@@ -9430,6 +9439,7 @@ lt: Vaisinės arbatos, vaisių arbatos
 nl: Vruchtentheeën, Vruchtenthee
 pl: Herbatki owocowe
 ro: Ceaiuri de fructe, Ceai de fructe
+sv: Fruktteer
 zh: 水果茶
 wikidata:en: Q744457
 
@@ -9454,12 +9464,14 @@ nl: Rode vruchtentheeën, Rode vruchtenthee
 < en:Fruit teas
 < en:Herbal teas in tea bags
 en: Herbal fruit teas in tea bags
+da: Frugtteer i pose
 es: infusiones con frutas en bolsitas
 fi: Hedelmäyrttiteepussit
 fr: Infusions aux fruits en sachets
 hr: Biljni voćni čajevi u vrećicama
 it: Tisane alla frutta in bustina, Infusi alla frutta in bustina
 lt: Raudonųjų vaisių arbatos
+sv: Fruktteer i pås
 
 < en:Herbal teas
 en: Ginkgo
@@ -9478,6 +9490,7 @@ wikidata:en: Q43284
 
 < en:Herbal teas
 en: Herbal tea blends
+da: Urteteblandinger
 de: Kräuterteemischungen
 es: Mezclas de plantas para infusiones
 fi: yrttiteesekoitukset
@@ -12710,7 +12723,7 @@ nl: Viooltjessiropen, Viooltjessiroop
 en: Pear syrups
 
 < en:Flavoured syrups
-en: Syrups with chamomile flavouring, Chamomile flavoured syrups
+en: Syrups with camomile flavouring, Syrups with chamomile flavoring, Camomile flavoured syrups, Chamomile flavored syrups
 da: Sirupper med kamillesmag
 sv: Siraper med kamomillsmak
 
@@ -35891,6 +35904,10 @@ nl: Broodjes
 sv: Bullars
 intake24_category_code:en: BRDR
 
+< en:Bread rolls
+en: Soft bread rolls
+nl: Zachte broodjes, puntjes
+
 < en:Breads
 en: Breadsticks, Grissini, Bread sticks
 bg: Гризини
@@ -43939,7 +43956,7 @@ hr: Čips i pomfrit
 hu: Chips és krumpli
 it: Patatine e fritti
 lt: Traškučiai ir bulvytės
-nl: Chips en patat
+nl: Chips en patat, Chips en friet
 pl: Chipsy i frytki, Czipsy i frytki
 ru: Чипсы и картофель фри
 zh: 薯片和薯条
@@ -44404,7 +44421,7 @@ en: Corn chips, corn crisps, Tortilla chips
 bg: Царевичен чипс
 ca: Xips de moresc, Xips de panís
 da: Majschips, Tortilla chips
-de: Mais-Chips, Tortillachips, Nachos
+de: Mais-Chips, Tortillachips, Nachos, Maischips
 es: Patatas fritas de maíz
 fi: maissilastut
 fr: Chips de maïs, Chips Tortillas, Tortillas Chips, Tortilla chips, Chips Tortilla
@@ -52600,7 +52617,7 @@ hr: Pića na bazi zobi
 it: Bevanda di avena
 ja: オートミルク
 lt: Avižų pienas
-nl: Haverdranken, Havermoutmelken
+nl: Haverdranken, Havermoutmelken, Havermelken, Havermelk
 pl: Mleka owsiane
 pt: Bebidas de aveia
 sv: Havredrycker, havredryck
@@ -62708,6 +62725,7 @@ de: Gerollte Flocken, gerollte Körner
 fr: Flocons laminés
 hr: Uvaljane pahuljice
 it: Fiocchi pressati
+nl: Geplette granen
 
 < en:Flakes
 en: Extruded flakes
@@ -63750,7 +63768,6 @@ it: Fiocchi d'avena
 ja: ロールドオーツ, オートミール
 lt: Avižiniai dribsniai
 nl: Havermoutvlokken, Havermouten
-nl_be: Havervlokken
 pl: Płatki owsiane
 pt: Flocos de aveia
 ru: Овсяные хлопья, Хлопья овсяные
@@ -63765,6 +63782,7 @@ wikidata:en: Q57656974
 < en:Rolled oats
 en: Rolled oats (small)
 fr: Flocons d'avoine (petit)
+nl: Havermoutvlokken (klein)
 sales_format:en: weight, package
 
 < en:Oat flakes
@@ -70113,6 +70131,10 @@ xx: Abate Fetel
 es: Limonea
 fr: Poires Abate, Poires Abbé Fétel, Abbé Fétel, Abate Fétel
 wikidata:en: Q306912
+
+< en:Pears
+en: Asian pears, Apple pears, Sand pears
+comment:en: https://www.webmd.com/diet/health-benefit-asian-pears
 
 < en:Pears
 en: Comice pears, Pears (Comice)
@@ -98830,13 +98852,6 @@ ciqual_food_code:en: 25429
 ciqual_food_name:en: Sandwich made with French bread, kebab and raw vegetables
 
 < en:Sandwiches
-en: Surprise breads
-fr: Pains surprise
-hr: Kruh iznenađenja
-nl: Pain surprise
-wikidata:en: Q3360605
-
-< en:Sandwiches
 en: Monte Cristo sandwich
 wikidata:en: Q6904753
 
@@ -98901,26 +98916,6 @@ wikidata:en: Q390823
 < en:Sandwiches
 en: Breakfast sandwich
 wikidata:en: Q4959490
-
-< en:Sandwiches
-fr: Canapés
-agribalyse_proxy_food_code:en: 25523
-agribalyse_proxy_food_name:en: Canapés (toasts w various toppings)
-agribalyse_proxy_food_name:fr: Toasts ou Canapés salés, garnitures diverses
-wikidata:en: Q1032806
-
-< fr:Canapés
-en: Salted canapés
-de: Salzige Canapés
-es: Canapés salados
-fr: Canapés salés
-hr: Slani kanapei
-it: Canapé salati
-nl: Zoute canapés
-agribalyse_food_code:en: 25523
-ciqual_food_code:en: 25523
-ciqual_food_name:en: Canapés (toasts w various toppings)
-ciqual_food_name:fr: Toasts ou Canapés salés, garnitures diverses
 
 < en:Sandwiches
 en: Cheeseburgers
@@ -107938,12 +107933,13 @@ pl: Marynowane produkty roślinne
 pt: Pickles à base de plantas
 ro: Legume murate
 ru: Маринованные растительные продукты
-sv: Inlagda grönsaker
+sv: Inlagda växter
 intake24_category_code:en: PION
 
 < en:Canned vegetables
 < en:Plant-based pickles
 en: Pickled vegetables, Vegetable pickles
+da: Syltede grønsager
 de: Eingelegtes Gemüse
 es: Verduras y hortalizas encurtidas, Encurtidos de verduras y hortalizas
 fi: kasvissäilykkeet
@@ -107954,6 +107950,7 @@ it: Verdure sottaceto
 nl: Ingemaakte groentes
 pt: Pickles vegetais
 ru: Маринованые овощи
+sv: Inlagda grönsaker
 tr: Sebze turşusu
 gpc_category_code:en: 10000244
 gpc_category_description:en: Definition: Includes any products that can be described/observed as chopped or whole vegetables, preserved in vinegar, oil or brine, with added ingredients such as herbs, spices and mustard, commonly used as a condiment for meats, cheese and bread. Products include pickled tomatoes, gherkins, onions and capers. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Canned Vegetables and Vegetable Spreads, Chutneys, Relishes and Olives and Pickled Eggs.
@@ -108182,10 +108179,12 @@ nl: Ingemaakte guindilla pepers
 < en:Pickled peppers
 en: Pickled jalapeños
 nl: Ingemaakte jalapeño peper
+sv: Inlagda jalapeños
 
 < en:Pickled jalapeños
 < en:Sliced jalapeños
 en: Pickled sliced jalapeños
+sv: Inlagda skivade jalapeños
 
 < en:Friggitelli
 < en:Pickled peppers
@@ -111533,6 +111532,14 @@ ciqual_food_name:en: Squash, butternut, pulp, raw
 ciqual_food_name:fr: Courge doubeurre (butternut), pulpe, crue
 sales_format:en: weight, package
 wikidata:en: Q4169287
+
+< en:Pumpkins
+en: Kabocha squashes, Japanese pumpkins
+xx: Kabocha
+ja: 栗かぼちゃ
+ko: 단호박
+th: ฟักทอง
+wikidata:en: Q3191670
 
 < en:Pumpkins
 en: Spaghetti squashes, Spaghetti squash
@@ -117759,6 +117766,21 @@ sv: Aptitretare
 th: อาหารเรียกน้ำย่อย
 food_groups:en: en:appetizers
 pnns_group_2:en: Appetizers
+
+< en:Appetizers
+en: Surprise breads
+fr: Pains surprise
+hr: Kruh iznenađenja
+nl: Pain surprise
+wikidata:en: Q3360605
+
+< en:Appetizers
+en: Canapés, Salted canapés
+fr: Canapés, Canapés salés
+agribalyse_proxy_food_code:en: 25523
+agribalyse_proxy_food_name:en: Canapés (toasts w various toppings)
+agribalyse_proxy_food_name:fr: Toasts ou Canapés salés, garnitures diverses
+wikidata:en: Q1032806
 
 < en:Appetizers
 fr: Blinis
