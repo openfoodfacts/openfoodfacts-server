@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Ingrediente, alergeni, aditivi, informații nutriționale, etichete, origini, impactul CO2 și informații despre produs %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "O bază de date liberă, colaborativă și deschisă de ingrediente, și informații despre produsele cosmetice din toată lumea"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "O bază de date colaborativă, liberă și deschisă a produselor cosmetice din întreaga lume."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "O bază de date colaborativă, gratuită și deschisă cu ingrediente și informații despre diverse produse din întreaga lume."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts colectează informații și date despre o gamă largă de produse din întreaga lume."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "O bază de date colaborativă, gratuită și deschisă cu diverse produse din întreaga lume."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "O bază de date colaborativă, gratuită și deschisă cu ingrediente, informații nutriționale și produse alimentare pentru animale de companie din întreaga lume."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts adună informații și date despre produsele alimentare pentru animale de companie din întreaga lume."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "O bază de date colaborativă, gratuită și deschisă cu produse alimentare pentru animale de companie din întreaga lume."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Ingrediente INCI, alergeni, aditivi, etichete, originea ingredientelor și informații despre produs %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -110,6 +92,114 @@ msgstr "Anti-Perspirant Stress Protect"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/APA, LAURIL SULFAT DE SODIU, COCOAMFODIACETATE DE DISODIUM, DISTEARAT DE GLICOL, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "O bază de date colaborativă, gratuită și deschisă, cu informații despre diverse produse din întreaga lume."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts colectează informații și date despre o gamă largă de produse din întreaga lume."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "O bază de date colaborativă, gratuită și deschisă cu diverse produse din întreaga lume."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Ingrediente, impactul CO2, durabilitate, etichete, originea ingredientelor și informații despre produs %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Deschideți căutarea de produse Products Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Această pagină de produs nu este completă. Ne puteți ajuta să o completați editând-o și adăugând mai multe date din fotografiile pe care le avem sau făcând mai multe fotografii folosind aplicația pentru <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> sau <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Vă mulțumim!"
+
+msgctxt "brands_example_products"
+msgid "Tide, Persil"
+msgstr "Tide, Persil"
+
+msgctxt "categories_example_products"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Detergent de rufe lichid, Detergent de rufe pudră"
+
+msgctxt "emb_codes_example_products"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_products"
+msgid "Laundry detergent"
+msgstr "Detergent de rufe"
+
+msgctxt "product_name_example_products"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Parfum ultra-pur de lavandă"
+
+msgctxt "ingredients_text_example_products"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "AVERTISMENT: Nu adăugați ingrediente dacă acestea nu sunt relevante pentru categoria respectivă. Detergenții au liste pe ambalaj sau online, precum și alte categorii."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "O bază de date colaborativă, gratuită și deschisă cu ingrediente, informații nutriționale și produse alimentare pentru animale de companie din întreaga lume."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts adună informații și date despre produsele alimentare pentru animale de companie din întreaga lume."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "O bază de date colaborativă, gratuită și deschisă cu produse alimentare pentru animale de companie din întreaga lume."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Ingrediente, alergeni, aditivi, valori nutriționale, etichete, originea ingredientelor și informații despre produs %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Deschideți căutarea produselor Pet Food Facts"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Această pagină de produs nu este completă. Ne puteți ajuta să o completați editând-o și adăugând mai multe date din fotografiile pe care le avem sau făcând mai multe fotografii folosind aplicația pentru <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> sau <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Vă mulțumim!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Hrană uscată pentru câini, hrană umedă pentru pisici"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "PUI, FĂINĂ DE GLUTEN DIN PORUMB, PORUMB INTEGRAL, GRĂSIME ANIMALE, FĂINĂ DE SOIA"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Hrană umedă pentru câini adulți"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Deliciul Senior Dog Chicken & Rice"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -623,6 +713,10 @@ msgstr "Modificare produs"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Modificare pagină"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Conectați-vă pentru a adăuga sau edita proprietăți"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2176,6 +2270,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Alege produse cu marci specifice, categorii, etichete, originea de ingrediente, locuri de producție etc."
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr "Căutare de produse"
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr "Căutare de produse"
 
