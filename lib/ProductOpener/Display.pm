@@ -9102,26 +9102,14 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 	my %columns = ();
 
 	# We can have data for the product as sold, and/or prepared
-	my %displayed_product_types = ();
+	# We display only one column for the product, the one that is in the aggregated set
 
-	my $product_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
-	if ((defined $product_preparation) and ($product_preparation eq "as_sold")) {
-		$product_preparation = "";
-		$displayed_product_types{as_sold} = 1;
-	}
-	elsif ((defined $product_preparation) and ($product_preparation eq "prepared")) {
-		$product_preparation = "prepared_";
-		$displayed_product_types{prepared} = 1;
-	}
+	my $preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
 
-	if (defined $product_preparation) {
+	if (defined $preparation) {
 
-		my $nutrition_data_per = "nutrition_data" . "_" . $product_preparation . "per";
-
-		my $col_name = lang("product_as_sold");
-		if ($product_preparation eq 'prepared_') {
-			$col_name = lang("prepared_product");
-		}
+		my $col_name = lang("preparation_" . $preparation);
+		my $per = deep_get($product_ref, "nutrition", "aggregated_set", "per");
 
 		# per is always either 100g or 100ml for food and per 1kg for petfood
 		my $name_per_xxg;
@@ -9132,15 +9120,15 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 			$name_per_xxg = $col_name . "<br>" . lang("nutrition_data_per_100g");
 		}
 
-		$columns{$product_preparation . "100g"} = {
+		$columns{$preparation . "_" . $per} = {
 			scope => "product",
-			product_type => $product_preparation,
-			per => "100g",
+			preparation => $preparation,
+			per => $per,
 			name => $name_per_xxg,
-			short_name => "100g",
+			short_name =>  $per,
 		};
 
-		push @cols, $product_preparation . '100g';
+		push @cols, $preparation . "_" . $per;
 	}
 
 	# Comparisons with other products, categories, recommended daily values etc.
@@ -9388,13 +9376,6 @@ CSS
 				else {
 					$col_type = "normal";
 					my $value_unit = "";
-
-					# We need to know if the column corresponds to a prepared value, in order to be able to retrieve the right modifier
-					my $prepared = '';
-					if ($col_id =~ /prepared/) {
-						$prepared = "_prepared";
-					}
-
 					my $value = $nutrient_value;
 
 					# FIXME: if the packaging / manufacturer input set has the nutrient in the unspecified_nutrients array,
@@ -9432,7 +9413,7 @@ CSS
 						$value_unit = "$value $unit";
 
 						my $modifier = deep_get($product_ref, "nutrition", "aggregated_set",
-							"nutrients", $nid . $prepared, "modifier");
+							"nutrients", $nid, "modifier");
 
 						if (defined $modifier) {
 							$value_unit = $modifier . " " . $value_unit;
