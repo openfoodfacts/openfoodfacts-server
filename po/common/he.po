@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "רכיבים, אלרגנים, תוספים, מידע תזונתי, תוויות, מקורות, השפעת CO2 ומידע על המוצר %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "מסד נתונים שיתופי, חופשי ופתוח של רכיבים ומידע על מוצרי טיפוח מכל רחבי העולם"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "מסד נתונים חופשי, פתוח ושיתופי של מוצרי טיפוח מכל רחבי העולם."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "מסד נתונים שיתופי, חינמי ופתוח של רכיבים ופרטים על מגוון מוצרים מכל רחבי העולם."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "מיזם Open Products Facts אוסף מידע ונתונים על מגוון רחב של מוצרים מכל רחבי העולם."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "מסד הנתונים השיתופי, החופשי והפתוח של מגוון מוצרים מכל רחבי העולם."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "מסד נתונים שיתופי, חינמי ופתוח של רכיבים, עובדות תזונתיות ופרטים על מוצרי מזון לחיות מחמד מכל רחבי העולם."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "מיזם Open Pet Food Facts אוסף מידע ונתונים על מוצרי מזון לחיות מחמד מכל רחבי העולם."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "מסד נתונים חופשי, פתוח ושיתופי של מוצרי מזון לחיות מחמד מכל רחבי העולם."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "רכיבים INCI, אלרגנים, תוספים, תוויות, מקור הרכיבים ומידע על המוצר %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -110,6 +92,114 @@ msgstr "מונע הזעה מגן במצבי לחץ"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "מאגר מידע שיתופי, חינמי ופתוח של מידע על מוצרים שונים מרחבי העולם."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "מיזם Open Products Facts אוסף מידע ונתונים על מגוון רחב של מוצרים מכל רחבי העולם."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "מסד הנתונים השיתופי, החופשי והפתוח של מגוון מוצרים מכל רחבי העולם."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "רכיבים, השפעת CO2, עמידות, תוויות, מקור הרכיבים ומידע על המוצר %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "חיפוש מוצרים ב־Open Products Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "דף מוצר זה אינו שלם. באפשרותך לסייע בהשלמתו על ידי עריכתו והוספת נתונים נוספים מהתמונות שיש לנו, או על ידי צילום תמונות נוספות באמצעות האפליקציה עבור <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">אנדרואיד</a> או <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">אייפון/אייפד</a>. תודה!"
+
+msgctxt "brands_example_products"
+msgid "Tide, Persil"
+msgstr "טייד, פרסיל"
+
+msgctxt "categories_example_products"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "אבקת כביסה נוזלית, אבקת כביסה באבקה"
+
+msgctxt "emb_codes_example_products"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_products"
+msgid "Laundry detergent"
+msgstr "אבקת כביסה"
+
+msgctxt "product_name_example_products"
+msgid "Ultra Clean Lavender Scent"
+msgstr "ניחוח לבנדר נקי במיוחד"
+
+msgctxt "ingredients_text_example_products"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "אזהרה: אין להוסיף רכיבים אם זה לא רלוונטי לקטגוריה. לחומרי ניקוי יש רשימות על האריזה או באינטרנט, וגם לקטגוריות אחרות."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "מסד נתונים שיתופי, חינמי ופתוח של רכיבים, עובדות תזונתיות ופרטים על מוצרי מזון לחיות מחמד מכל רחבי העולם."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "מיזם Open Pet Food Facts אוסף מידע ונתונים על מוצרי מזון לחיות מחמד מכל רחבי העולם."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "מסד נתונים חופשי, פתוח ושיתופי של מוצרי מזון לחיות מחמד מכל רחבי העולם."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "רכיבים, אלרגנים, תוספים, עובדות תזונה, תוויות, מקור החומרים והמידע על המוצר %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "חיפוש מוצרים ב־Open Pet Food Facts"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "דף מוצר זה אינו שלם. באפשרותך לסייע בהשלמתו על ידי עריכתו והוספת נתונים נוספים מהתמונות שיש לנו, או על ידי צילום תמונות נוספות באמצעות האפליקציה עבור <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">אנדרואיד</a> או <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">אייפון/אייפד</a>. תודה!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "בונזו, קט-לי"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "מזון יבש לכלבים, מזון רטוב לחתולים"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "עוף, קמח תירס ללא גלוטן, תירס מלא, שומן מן החי, קמח סויה"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "מזון רטוב לכלבים בוגרים"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "עוף ואורז לכלבים בוגרים"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -623,6 +713,10 @@ msgstr "עריכת מוצר"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "עריכת העמוד"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "היכנס כדי להוסיף או לערוך נכסים"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2178,6 +2272,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "ניתן לבחור במוצרים ממותגים מסוימים, קטגוריות, תוויות, מקורות של מרכיבים, מקומות ייצור וכו׳"
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr "חיפוש מוצרים"
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr "חיפוש מוצרים"
 
