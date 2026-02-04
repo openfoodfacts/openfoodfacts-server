@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "성분, 알레르겐, 첨가물, 영양 정보, 라벨, 원산지, CO2 배출량 및 제품 정보 %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "세계 각국의 화장품에 대한 성분 및 정보의 무료 공개 협업 데이터베이스"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "세계 각국에서의 화장품에 대해 협업하는 무료 오픈 데이터베이스."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "전 세계의 다양한 제품 정보와 재료에 대한 협업적이고 무료이며 개방적인 데이터베이스입니다."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts는 전 세계의 다양한 제품에 대한 정보와 데이터를 수집합니다."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "전 세계 다양한 제품에 대한 협업형, 무료, 개방형 데이터베이스입니다."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "전 세계 반려동물 사료 제품의 원료, 영양 정보 및 기타 정보를 담은 협업형 무료 공개 데이터베이스입니다."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts는 전 세계 반려동물 사료 제품에 대한 정보와 데이터를 수집합니다."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "세계 각국에서 사료의 협업 무료 오픈 데이터베이스."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "성분 INCI, 알레르겐, 첨가물, 라벨, 성분 원산지 및 제품 정보 %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -110,6 +92,114 @@ msgstr "발한 억제 스트레스 보호"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "아쿠아 / 워터, 소듐 라우 레스 설페이트, 디소듐 코코암포 아세테이트, 글라이콜 디스테아레이트, 코카마이드엠이에이 측정"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "전 세계 다양한 제품에 대한 정보를 담은 협업형 무료 오픈 데이터베이스입니다."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts는 전 세계의 다양한 제품에 대한 정보와 데이터를 수집합니다."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "전 세계 다양한 제품에 대한 협업형, 무료, 개방형 데이터베이스입니다."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "성분, 이산화탄소 배출량, 내구성, 라벨, 성분 원산지 및 제품 정보 %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "제품 검색"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "이 제품 페이지는 아직 완성되지 않았습니다. 사진을 편집하여 더 많은 정보를 추가하거나, <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">안드로이드</a> 또는 <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">아이폰/아이패드</a>앱을 사용하여 사진을 더 촬영해 주시면 페이지 완성에 도움이 됩니다. 감사합니다!"
+
+msgctxt "brands_example_products"
+msgid "Tide, Persil"
+msgstr "타이드, 퍼실"
+
+msgctxt "categories_example_products"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "액체 세탁 세제, 분말 세탁 세제"
+
+msgctxt "emb_codes_example_products"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_products"
+msgid "Laundry detergent"
+msgstr "세탁 세제"
+
+msgctxt "product_name_example_products"
+msgid "Ultra Clean Lavender Scent"
+msgstr "매우 깨끗한 라벤더 향"
+
+msgctxt "ingredients_text_example_products"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "경고: 해당 카테고리와 관련이 없는 재료는 추가하지 마십시오. 세제를 비롯한 일부 제품에는 포장이나 온라인에 재료 목록이 나와 있습니다."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "전 세계 반려동물 사료 제품의 원료, 영양 정보 및 기타 정보를 담은 협업형 무료 공개 데이터베이스입니다."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts는 전 세계 반려동물 사료 제품에 대한 정보와 데이터를 수집합니다."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "세계 각국에서 사료의 협업 무료 오픈 데이터베이스."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "%s에 대한 성분, 알레르기 항원, 첨가제, 영양성분, 라벨, 성분 원산지 및 정보"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Pet Food Facts 제품 검색"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "이 제품 페이지는 아직 완성되지 않았습니다. 사진을 편집하여 더 많은 정보를 추가하거나, <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">안드로이드</a> 또는 <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">아이폰/아이패드</a>앱을 사용하여 사진을 더 촬영해 주시면 페이지 완성에 도움이 됩니다. 감사합니다!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "퓨리나, 혈통"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "건식 개 사료, 습식 고양이 사료"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "닭고기, 옥수수 글루텐 가루, 통옥수수, 동물성 지방, 대두박"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "성견용 습식 사료"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "노령견을 위한 특별한 치킨 & 라이스"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -622,6 +712,10 @@ msgstr "제품을 편집"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "페이지를 편집"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "속성을 추가하거나 수정하려면 로그인하세요."
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2177,6 +2271,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "특정 브랜드, 카테고리, 라벨, 원산지, 제조 장소 등이있는 제품을 선택하세요."
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr "제품 검색"
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr "제품 검색"
 
