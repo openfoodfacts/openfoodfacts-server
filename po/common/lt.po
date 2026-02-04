@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Sudedamosios dalys, alergenai, priedai, maistingumo faktai, etiketės, kilmė, CO2 poveikis ir informacija apie produktą %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr ""
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr ""
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Bendrai naudojama nemokama ir atvira sudedamųjų dalių ir informacijos apie įvairius produktus iš viso pasaulio duomenų bazė."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "„Open Products Facts“ renka informaciją ir duomenis apie didelę produktų iš viso pasaulio įvairovę."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Bendradarbiaujanti, nemokama ir atvira įvairių produktų iš viso pasaulio duomenų bazė."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Bendrai naudojama nemokama ir atvira sudedamųjų dalių, mitybos faktų ir informacijos apie augintinių maisto produktus iš viso pasaulio duomenų bazė."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "„Open Pet Food Facts“ renka informaciją ir duomenis apie augintinių maisto produktus iš viso pasaulio."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Sudedamosios dalys (INCI), alergenai, priedai, etiketės, ingredientų kilmė ir informacija apie produktą %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -112,6 +94,114 @@ msgstr ""
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr ""
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Bendradarbiavimo pagrindu sukurta, nemokama ir atvira informacijos apie įvairius produktus iš viso pasaulio duomenų bazė."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "„Open Products Facts“ renka informaciją ir duomenis apie didelę produktų iš viso pasaulio įvairovę."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Bendradarbiaujanti, nemokama ir atvira įvairių produktų iš viso pasaulio duomenų bazė."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Sudedamosios dalys, CO2 poveikis, patvarumas, etiketės, ingredientų kilmė ir informacija apie produktą %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr ""
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Šis produkto puslapis nėra pilnas. Galite padėti jį užpildyti redaguodami ir pridėdami daugiau duomenų iš mūsų turimų nuotraukų arba padarydami daugiau nuotraukų naudodami programėlę, skirtą <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">„Android“</a> arba <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">„iPhone“ / „iPad“</a>. Ačiū!"
+
+msgctxt "brands_example_products"
+msgid "Tide, Persil"
+msgstr "Tide, Persil"
+
+msgctxt "categories_example_products"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Skystas skalbiklis, skalbimo milteliai"
+
+msgctxt "emb_codes_example_products"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_products"
+msgid "Laundry detergent"
+msgstr "Skalbimo priemonė"
+
+msgctxt "product_name_example_products"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Itin švarus levandų kvapas"
+
+msgctxt "ingredients_text_example_products"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "ĮSPĖJIMAS: Nepilkite ingredientų, jei tai nėra aktualu kategorijai. Ploviklių sąrašai pateikiami ant pakuotės arba internete, taip pat yra ir kai kurių kitų kategorijų."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Bendrai naudojama nemokama ir atvira sudedamųjų dalių, mitybos faktų ir informacijos apie augintinių maisto produktus iš viso pasaulio duomenų bazė."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "„Open Pet Food Facts“ renka informaciją ir duomenis apie augintinių maisto produktus iš viso pasaulio."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Ingredientai, alergenai, priedai, maistingumas, etiketės, ingredientų kilmė ir informacija apie produktą %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Šis produkto puslapis nėra pilnas. Galite padėti jį užpildyti redaguodami ir pridėdami daugiau duomenų iš mūsų turimų nuotraukų arba padarydami daugiau nuotraukų naudodami programėlę, skirtą <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">„Android“</a> arba <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">„iPhone“ / „iPad“</a>. Ačiū!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr ""
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Sausas šunų maistas, šlapias kačių maistas"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "VIŠTIENA, KUKURŪZŲ GLITIMO MILTAI, VISAGRŪDŽIAI KUKURŪZAI, GYVŪNINIAI RIEBALAI, SOJŲ PUPELIŲ MILTAI"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Šlapias maistas suaugusiems šunims"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Senjorinių šunų „Delight“ vištiena ir ryžiai"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -625,6 +715,10 @@ msgstr "Redaguoti produktą"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Redaguoti šį puslapį"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Prisijunkite, kad galėtumėte pridėti arba redaguoti ypatybes"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2178,6 +2272,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Pasirinkite produktus su konkrečiais prekės ženklais, kategorijomis, etiketėmis, ingredientų kilme, gamybos vietomis ir kt."
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr "Produktų paieška"
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr "Produktų paieška"
 
