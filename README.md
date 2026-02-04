@@ -6,7 +6,7 @@
 
 
 
-[Looking for the Open Food Facts API doc ?](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/))
+[Looking for the Open Food Facts API doc ?](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/)
 
 # Open Food Facts - Product Opener (Web Server)
 
