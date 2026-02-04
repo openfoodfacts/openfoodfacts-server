@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Akora, zavatra mahazaka, akora fanampiny, fampahalalana momba ny sakafo, marika, fiaviana, fiantraikan'ny CO2 ary fampahalalana momba ny vokatra %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "Serasera miara-miasa, malalaka ary misokatra amin'ny fampahalalana momba ny vokatra kosmetika avy amin'ny lafivalon'izao tontolo izao"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Serasera miara-miasa, malalaka ary misokatra amin'ny fampahalalana momba ny vokatra kosmetika avy amin'ny lafivalon'izao tontolo izao."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Akora INCI, zavatra mahazaka, akora fanampiny, marika, fiavian'ny akora ary fampahalalana momba ny vokatra %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -110,6 +92,114 @@ msgstr "Fiarovana amin'ny tsemboka ateraky ny stress"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA / RANO, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Tahiry angon-drakitra iaraha-miasa, maimaim-poana ary misokatra ho an'ny fampahalalana momba ny vokatra isan-karazany avy amin'ny lafivalon'izao tontolo izao."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Akora, fiantraikan'ny CO2, faharetana, marika, fiavian'ny akora ary fampahalalana momba ny vokatra %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr ""
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Tsy feno ity pejy vokatra ity. Azonao atao ny manampy amin'ny famitana azy amin'ny alàlan'ny fanovana azy sy ny fanampiana angon-drakitra bebe kokoa avy amin'ireo sary anananay, na amin'ny fakana sary bebe kokoa amin'ny alàlan'ny fampiharana ho an'ny <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> na <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Misaotra anao!"
+
+msgctxt "brands_example_products"
+msgid "Tide, Persil"
+msgstr "Tide, Persil"
+
+msgctxt "categories_example_products"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Savony fanasan-damba ranoka, Savony fanasan-damba vovoka"
+
+msgctxt "emb_codes_example_products"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_products"
+msgid "Laundry detergent"
+msgstr "Savony fanasan-damba"
+
+msgctxt "product_name_example_products"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Hanitra Lavender Madio Indrindra"
+
+msgctxt "ingredients_text_example_products"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "FAMPITANDREMANA: Aza asiana akora raha tsy mifandraika amin'ny sokajy izany. Manana lisitra ao anaty fonosana na an-tserasera ny savony fanadiovana, ary misy sokajy hafa ihany koa."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr ""
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Tsy feno ity pejy vokatra ity. Azonao atao ny manampy amin'ny famitana azy amin'ny alàlan'ny fanovana azy sy ny fanampiana angon-drakitra bebe kokoa avy amin'ireo sary anananay, na amin'ny fakana sary bebe kokoa amin'ny alàlan'ny fampiharana ho an'ny <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> na <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Misaotra anao!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr ""
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Sakafo maina ho an'ny alika, Sakafo lena ho an'ny saka"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "AKOHO, LAFARIN'NY KATSAKA MISY GLUTEN, KATSAKA MANONTOLO, TAVY BIBY, LAFARIN'NY SOJA"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr ""
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Sakafo lena ho an'ny alika lehibe"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Akoho sy vary ho an'ny alika zokiolona"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -623,6 +713,10 @@ msgstr "Hanova vokatra"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Hanova ny takila"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Midira mba hanampiana na hanovana ireo toetra"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2162,6 +2256,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr ""
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr ""
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr ""
 
