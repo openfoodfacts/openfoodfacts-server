@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Ingrediënten, allergenen, additieven, voedingswaarden, etiketten, herkomst, CO2-impact en productinformatie %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "Een collaboratieve, gratis en open database met ingrediënten en informatie over cosmetische producten van over de hele wereld"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Een gezamenlijke, vrije en open database van cosmetica uit de hele wereld."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Een gezamenlijke, gratis en open database met ingrediënten en informatie over verschillende producten van over de hele wereld."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts verzamelt informatie en gegevens over een breed scala aan producten van over de hele wereld."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Een gezamenlijke, gratis en open database van verschillende producten uit de hele wereld."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Een gezamenlijke, gratis en open database met ingrediënten, voedingswaarden, en informatie over dierenvoedsel uit de hele wereld."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts verzamelt informatie en gegevens over diervoedingsproducten van over de hele wereld."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Een gezamenlijke, vrije en open database van dierenvoedsel uit de hele wereld."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Ingrediënten INCI, allergenen, additieven, etiketten, herkomst van ingrediënten en productinformatie %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -110,6 +92,114 @@ msgstr "Anti-transpirant Stress Protect"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Een gezamenlijke, gratis en open database met informatie over diverse producten van over de hele wereld."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts verzamelt informatie en gegevens over een breed scala aan producten van over de hele wereld."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Een gezamenlijke, gratis en open database van verschillende producten uit de hele wereld."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Ingrediënten, CO2-impact, houdbaarheid, etiketten, herkomst van ingrediënten en productinformatie %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Product zoeken in Open Products Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Deze productpagina is nog niet compleet. Je kunt helpen door hem te bewerken en meer gegevens toe te voegen aan de hand van de foto's die we hebben, of door meer foto's te maken met de app voor <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> of <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Bedankt!"
+
+msgctxt "brands_example_products"
+msgid "Tide, Persil"
+msgstr "Tide, Persil"
+
+msgctxt "categories_example_products"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Vloeibaar wasmiddel, waspoeder"
+
+msgctxt "emb_codes_example_products"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_products"
+msgid "Laundry detergent"
+msgstr "Wasmiddel"
+
+msgctxt "product_name_example_products"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Ultrazuivere lavendelgeur"
+
+msgctxt "ingredients_text_example_products"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "WAARSCHUWING: Voeg geen ingrediënten toe als dit niet relevant is voor de categorie. Wasmiddelen hebben ingrediëntenlijsten op de verpakking of online, en sommige andere categorieën ook."
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Een gezamenlijke, gratis en open database met ingrediënten, voedingswaarden, en informatie over dierenvoedsel uit de hele wereld."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts verzamelt informatie en gegevens over diervoedingsproducten van over de hele wereld."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Een gezamenlijke, vrije en open database van dierenvoedsel uit de hele wereld."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Ingrediënten, allergenen, additieven, nutritionele waarden, keurmerken, herkomst van ingrediënten en informatie van product %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Product zoeken in Open Pet Food Facts"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgstr "Deze productpagina is nog niet compleet. Je kunt helpen door hem te bewerken en meer gegevens toe te voegen aan de hand van de foto's die we hebben, of door meer foto's te maken met de app voor <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> of <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Bedankt!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Droog hondenvoer, nat kattenvoer"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "KIP, MAÏSGLUTENMEEL, VOLKOREN MAÏS, DIERLIJK VET, SOJAMEEL"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/ open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Natvoer voor volwassen honden"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Kip en rijst, een heerlijke traktatie voor seniorhonden"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -623,6 +713,10 @@ msgstr "Product aanpassen"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Productpagina aanpassen"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Meld u aan om eigenschappen toe te voegen of te bewerken."
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2177,6 +2271,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Kies producten met specifieke merken, categorieën, labels, de herkomst van de ingrediënten, productie plaatsen etc."
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr "Product zoeken"
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr "Product zoeken"
 
@@ -5981,7 +6079,7 @@ msgstr "Labels met zeer hoge milieuvoordelen"
 
 msgctxt "no_assessed_labels"
 msgid "No assessed labels"
-msgstr "Geen beoordeelde etiketten"
+msgstr "Geen beoordeelde labels"
 
 msgctxt "some_environmental_benefits"
 msgid "Some environmental benefits"
@@ -5993,7 +6091,7 @@ msgstr "Grote milieuvoordelen"
 
 msgctxt "very_high_environmental_benefits"
 msgid "Very high environmental benefits"
-msgstr "Zeer hoge milieuvoordelen"
+msgstr "Zeer grote milieuvoordelen"
 
 msgctxt "other"
 msgid "Other"
