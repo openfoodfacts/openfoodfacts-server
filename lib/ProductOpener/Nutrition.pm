@@ -2767,7 +2767,7 @@ sub get_nutrient_from_nutrient_set_in_default_unit ($nutrients_ref, $nid) {
 	if (defined $value and defined $unit) {
 		my $default_unit = default_unit_for_nid($nid);
 		if ($unit ne $default_unit) {
-			$value = convert_nutrient_value_to_unit($nid, $value, $unit, $default_unit);
+			$value = unit_to_g($value, $unit);
 		}
 		return $value;
 	}

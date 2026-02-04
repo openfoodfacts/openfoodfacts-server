@@ -70,9 +70,21 @@
       "input_sets" : [
          {
             "nutrients" : {
-               "vitamin-b12" : {
-                  "unit" : "µg",
-                  "value" : 110
+               "carbohydrates" : {
+                  "unit" : "mg",
+                  "value" : 3000
+               },
+               "energy-kj" : {
+                  "unit" : "kJ",
+                  "value" : 500
+               },
+               "fat" : {
+                  "unit" : "mg",
+                  "value" : 2000
+               },
+               "proteins" : {
+                  "unit" : "mg",
+                  "value" : 4000
                }
             },
             "per" : "100g",

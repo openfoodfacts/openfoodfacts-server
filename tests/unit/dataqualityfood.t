@@ -2772,6 +2772,36 @@ check_quality_and_test_product_has_quality_tag(
 
 my @tests = (
 	[
+		'all-types-of-errors-in-nutrition',
+		{
+			nutrition => {
+				input_sets => [
+					{
+						source => "packaging",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {
+							"energy-kj" => {value => 5, unit => "kj"},
+							"energy-kcal" => {value => 20, unit => "kcal"},
+							"carbohydrates" => {value => 10, unit => "mg"},
+							"fat" => {value => 70, unit => "g"},
+							"saturated-fat" => {value => 125, unit => "g"},
+							"proteins" => {value => 40, unit => "g"},
+							"fiber" => {value => 2, unit => "g"},
+							"soluble-fiber" => {value => 1, unit => "g"},
+							"insoluble-fiber" => {value => 3, unit => "g"},
+							"sugars" => {value => 11, unit => "mg"},
+							"starch" => {value => 1, unit => "g"},
+							"sodium" => {value => 5000, unit => "mg"},
+							"salt" => {value => 0.00004, unit => "mg"},
+							"lactose" => {value => 25, unit => "g"},
+						}
+					}
+				]
+			}
+		}
+	],
+	[
 		'vitamin-in-mcg-with-value-over-105',
 		{
 			nutrition => {

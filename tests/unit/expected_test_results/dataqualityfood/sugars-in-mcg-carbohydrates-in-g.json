@@ -70,9 +70,13 @@
       "input_sets" : [
          {
             "nutrients" : {
-               "vitamin-b12" : {
+               "carbohydrates" : {
+                  "unit" : "g",
+                  "value" : 10
+               },
+               "sugars" : {
                   "unit" : "µg",
-                  "value" : 110
+                  "value" : 500
                }
             },
             "per" : "100g",
