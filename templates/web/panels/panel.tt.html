@@ -397,7 +397,7 @@
     import { displayMap } from '[% static_subdomain %]/js/dist/display-tag.js';
 
     document.addEventListener('DOMContentLoaded', function () {
-        displayMap([% encode_json(map_element.pointers) %], null);
+        displayMap([% encode_json(map_element.pointers) %], []);
     });
     </script>
 
