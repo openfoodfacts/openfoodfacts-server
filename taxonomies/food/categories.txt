@@ -9098,7 +9098,7 @@ en: Herbal teas, Herbal infusions, infusions
 bg: Билков чай
 ca: Infusions, infusions herbals
 cs: Bylinné čaje
-da: Urtete
+da: Urteteer, Urtete, Urtethe
 de: Kräutertees
 es: Plantas para infusiones, Infusiones, Tisanas
 fi: yrttiteet
@@ -9113,7 +9113,7 @@ nl: Kruidentheeën, Kruidenthee
 pl: Herbaty ziołowe
 pt: Chás de ervas, infusões de ervas, infusões
 ru: Травяные чаи и настойки
-sv: Örtte
+sv: Örtteer, Örtte
 agribalyse_proxy_food_code:en: 18020
 agribalyse_proxy_food_name:en: Tea, brewed, without sugar
 # 2026/01/22: (Stéphane) we had an old comment "should not be in pnns_group_2:en:Teas and herbal teas and coffees", and only the "herbal tea beverages" were under it, but it would make sense to have them here.
@@ -9126,7 +9126,7 @@ wikidata:en: Q379932
 
 < en:Herbal teas
 en: Herbal teas in tea bags, Herbal teas in bags
-da: Urtete i poser
+da: Urteteer i pose, Urtete i poser
 de: Kräutertee aus Teebeuteln
 es: Plantas para infusiones en bolsitas, Infusiones en bolsitas, Tisanas en bolsitas
 fi: Yrttipussiteet
@@ -9138,7 +9138,7 @@ lt: Žolelių arbatos maišeliuose
 nl: Kruidenthee in zakjes, Kruidenthee in buidels
 pl: Herbatki ziołowe w torebkach, Herbaty ziołowe w torebkach
 ru: Чай в пакетиках
-sv: Örtte i pås
+sv: Örtteer i pås, Örtte i pås
 
 < en:Herbal teas
 en: Instant herbal teas
@@ -9199,8 +9199,9 @@ pl: Boldo
 wikidata:en: Q833994
 
 < en:Herbal teas
-en: Chamomile, Camomile
+en: Camomile teas, Camomile infusions, Camomile, Chamomile
 bg: Лайка
+da: Kamilleteer
 de: Kamille
 es: Manzanilla
 fi: kamomilla
@@ -9212,10 +9213,17 @@ ja: カモミール
 lt: Ramunėlės
 nl: Kamille
 pl: Rumianek
-wikidata:en: Q14169150
+sv: Kamomillteer, Kamomill
+wikidata:en: Q19704254
 
-< en:Chamomile
-en: German chamomile
+< en:Camomile teas
+< en:Herbal teas in tea bags
+en: Camomile teas in tea bags
+da: Kamilleteer i pose
+sv: Kamomillteer i pås
+
+< en:Camomile teas
+en: German camomile teas, German chamomile
 de: Deutsche Kamille
 es: Manzanilla dulce, Manzanilla de Castilla, Manzanilla alemana
 fr: Camomille sauvage
@@ -9227,8 +9235,8 @@ nl: Echte Kamille
 pl: Rumianek pospolity
 wikidata:en: Q28437
 
-< en:Chamomile
-en: Roman chamomile, English chamomile, Garden chamomile
+< en:Camomile teas
+en: Roman camomile teas, Roman chamomile, English chamomile, Garden chamomile
 de: Römische Kamille
 es: Manzanilla amarga, Manzanilla común, Manzanilla romana
 fr: Camomille romaine
@@ -9419,6 +9427,7 @@ wikidata:en: Q107592
 
 < en:Herbal teas
 en: Fruit teas
+da: Frugtteer
 de: Früchtetees
 es: Infusiones con frutas
 fi: hedelmäteet
@@ -9430,6 +9439,7 @@ lt: Vaisinės arbatos, vaisių arbatos
 nl: Vruchtentheeën, Vruchtenthee
 pl: Herbatki owocowe
 ro: Ceaiuri de fructe, Ceai de fructe
+sv: Fruktteer
 zh: 水果茶
 wikidata:en: Q744457
 
@@ -9454,12 +9464,14 @@ nl: Rode vruchtentheeën, Rode vruchtenthee
 < en:Fruit teas
 < en:Herbal teas in tea bags
 en: Herbal fruit teas in tea bags
+da: Frugtteer i pose
 es: infusiones con frutas en bolsitas
 fi: Hedelmäyrttiteepussit
 fr: Infusions aux fruits en sachets
 hr: Biljni voćni čajevi u vrećicama
 it: Tisane alla frutta in bustina, Infusi alla frutta in bustina
 lt: Raudonųjų vaisių arbatos
+sv: Fruktteer i pås
 
 < en:Herbal teas
 en: Ginkgo
@@ -9478,6 +9490,7 @@ wikidata:en: Q43284
 
 < en:Herbal teas
 en: Herbal tea blends
+da: Urteteblandinger
 de: Kräuterteemischungen
 es: Mezclas de plantas para infusiones
 fi: yrttiteesekoitukset
@@ -12710,7 +12723,7 @@ nl: Viooltjessiropen, Viooltjessiroop
 en: Pear syrups
 
 < en:Flavoured syrups
-en: Syrups with chamomile flavouring, Chamomile flavoured syrups
+en: Syrups with camomile flavouring, Syrups with chamomile flavoring, Camomile flavoured syrups, Chamomile flavored syrups
 da: Sirupper med kamillesmag
 sv: Siraper med kamomillsmak
 
@@ -70115,6 +70128,10 @@ fr: Poires Abate, Poires Abbé Fétel, Abbé Fétel, Abate Fétel
 wikidata:en: Q306912
 
 < en:Pears
+en: Asian pears, Apple pears, Sand pears
+comment:en: https://www.webmd.com/diet/health-benefit-asian-pears
+
+< en:Pears
 en: Comice pears, Pears (Comice)
 fr: Poires comice
 sales_format:en: package, weight
@@ -76079,7 +76096,7 @@ ciqual_food_code:en: 11192
 ciqual_food_name:en: Cream sauce with mushrooms, prepacked
 ciqual_food_name:fr: Sauce aux champignons et à la crème, préemballée
 
-< en:Sauces
+< en:Tomato sauces
 en: Basque-style sauces, Tomato sauces with sweet peppers
 fr: Sauces basquaises, Sauce basquaise, Sauces aux poivrons, Sauce aux poivrons
 agribalyse_food_code:en: 11170
@@ -79117,6 +79134,7 @@ ciqual_food_name:en: cream sauce for pizza base
 ciqual_food_name:fr: Base de pizza à la crème
 
 < en:Pizza sauces
+< en:Tomato sauces
 en: Tomato sauces for pizzas, Tomato sauce for pizza base
 fr: Sauces tomate pour pizzas, Base de pizza tomatée
 hr: Umak od rajčice za podlogu za pizzu
@@ -79148,15 +79166,16 @@ wikidata:en: Q60823349
 < en:Tomato sauces
 en: Tomato sauces with onions
 bg: Доматен сос с лук
+da: Tomatsovser med løg
 fr: Sauces tomate aux oignons
 hr: Umaci od rajčice s lukom
 lt: Pomidorų padažai su svogūnais
 nl: Tomatensauzen met ui
+sv: Tomatsåser med lök
 agribalyse_food_code:en: 11107
 ciqual_food_code:en: 11107
 ciqual_food_name:en: Tomato sauce, with onions, prepacked
 ciqual_food_name:fr: Sauce tomate aux oignons, préemballée
-
 
 < en:Condiments
 < en:Sauces
@@ -79234,10 +79253,11 @@ en: Meal sauces, Stir in sauces
 sv: Måltidssåser
 
 < en:Sauces
+< en:Tomatoes and their products
 en: Tomato sauces
 bg: Доматен сос
 ca: Salsa de tomàquet
-da: Tomatsauce
+da: Tomatsovser, Tomatsovse, Tomatsaucer, Tomatsauce
 de: Tomatensaucen
 es: Salsas de tomate
 fi: tomaattikastikkeet
@@ -79269,6 +79289,7 @@ wikidata:en: Q3596097
 < en:Tomato sauces
 en: Tomato sauces with basil, Tomato basil pasta sauces
 bg: Доматен сос с босилек
+da: Tomatsovser med basilikum
 de: Tomatensaucen mit Basilikum
 es: Salsas de tomate con albahaca
 fi: Basilika-tomaattikastikeet, Tomaatti-basilikapastakastikkeet
@@ -79278,20 +79299,21 @@ it: Sughi di Pomodoro al Basilico, Sughi di Pomodoro e Basilico
 lt: Pomidorų padažai su baziliku
 sv: Tomatsåser med basilika
 
-< en:Garlic and their products
 < en:Meal sauces
 < en:Tomato sauces
 en: Tomato sauces with garlic
+da: Tomatsovser med hvidløg
 sv: Tomatsåser med vitlök
 
 < en:Meal sauces
-< en:Mushrooms and their products
 < en:Tomato sauces
 en: Tomato sauces with mushrooms
 bg: Доматен сос с гъби
+da: Tomatsovser med svampe
 fr: Sauces tomates aux champignons
 hr: Umaci od rajčice s gljivama
 lt: Pomidorų padažai su grybais
+sv: Tomatsåser med svampar
 agribalyse_food_code:en: 11177
 ciqual_food_code:en: 11177
 ciqual_food_name:en: Tomato sauce, w mushrooms, prepacked
@@ -79306,6 +79328,7 @@ fr: Sauces tomates pimentées
 < en:Tomato sauces
 < en:Vegetable sauces
 en: Tomato sauces with vegetables
+da: Tomatsovser med grønsager
 de: Tomatensaucen mit Gemüse
 fr: Sauces tomate aux petits légumes, Sauces tomates aux légumes
 hr: Umaci od rajčice s povrćem
@@ -79322,6 +79345,7 @@ ciqual_food_name:fr: Sauce tomate aux petits légumes, préemballée
 < en:Tomato sauces
 en: Tomato sauces with olives
 bg: Доматен сос с маслини
+da: Tomatsovser med oliven
 de: Tomatensaucen mit Oliven
 fr: Sauces tomates aux olives
 hr: Umaci od rajčice s maslinama
@@ -79449,7 +79473,6 @@ en: Tumacas
 es: Tumacas
 
 < en:Tomato sauces
-< en:Tomatoes and their products
 en: Natural grated tomato
 es: Tomate natural rallado
 hr: Prirodna ribana rajčica
@@ -79471,7 +79494,6 @@ ciqual_food_name:fr: Tomate, coulis, appertisé (purée de tomates mi-réduite �
 
 < en:Mashed vegetables
 < en:Tomato sauces
-< en:Tomatoes and their products
 en: Tomato purées, Tomato purees, Pureed tomato
 bg: Доматено пюре
 da: Tomatpuréer
@@ -107933,12 +107955,13 @@ pl: Marynowane produkty roślinne
 pt: Pickles à base de plantas
 ro: Legume murate
 ru: Маринованные растительные продукты
-sv: Inlagda grönsaker
+sv: Inlagda växter
 intake24_category_code:en: PION
 
 < en:Canned vegetables
 < en:Plant-based pickles
 en: Pickled vegetables, Vegetable pickles
+da: Syltede grønsager
 de: Eingelegtes Gemüse
 es: Verduras y hortalizas encurtidas, Encurtidos de verduras y hortalizas
 fi: kasvissäilykkeet
@@ -107949,6 +107972,7 @@ it: Verdure sottaceto
 nl: Ingemaakte groentes
 pt: Pickles vegetais
 ru: Маринованые овощи
+sv: Inlagda grönsaker
 tr: Sebze turşusu
 gpc_category_code:en: 10000244
 gpc_category_description:en: Definition: Includes any products that can be described/observed as chopped or whole vegetables, preserved in vinegar, oil or brine, with added ingredients such as herbs, spices and mustard, commonly used as a condiment for meats, cheese and bread. Products include pickled tomatoes, gherkins, onions and capers. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Canned Vegetables and Vegetable Spreads, Chutneys, Relishes and Olives and Pickled Eggs.
@@ -108177,10 +108201,12 @@ nl: Ingemaakte guindilla pepers
 < en:Pickled peppers
 en: Pickled jalapeños
 nl: Ingemaakte jalapeño peper
+sv: Inlagda jalapeños
 
 < en:Pickled jalapeños
 < en:Sliced jalapeños
 en: Pickled sliced jalapeños
+sv: Inlagda skivade jalapeños
 
 < en:Friggitelli
 < en:Pickled peppers
@@ -111528,6 +111554,14 @@ ciqual_food_name:en: Squash, butternut, pulp, raw
 ciqual_food_name:fr: Courge doubeurre (butternut), pulpe, crue
 sales_format:en: weight, package
 wikidata:en: Q4169287
+
+< en:Pumpkins
+en: Kabocha squashes, Japanese pumpkins
+xx: Kabocha
+ja: 栗かぼちゃ
+ko: 단호박
+th: ฟักทอง
+wikidata:en: Q3191670
 
 < en:Pumpkins
 en: Spaghetti squashes, Spaghetti squash
