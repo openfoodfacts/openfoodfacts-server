@@ -991,11 +991,11 @@ sub create_maintain_card_panel ($product_ref, $target_lc, $target_cc, $options_r
 	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
 	my $category_id;
 	if (ref($product_ref->{categories_hierarchy}) eq 'ARRAY'
-		&& @{$product_ref->{categories_hierarchy}}) {
+		&& @{$product_ref->{categories_hierarchy}})
+	{
 		$category_id = $product_ref->{categories_hierarchy}[-1];
 		if (defined $category_id && $category_id ne q{}) {
-			$panel_data_ref->{category_name}
-				= display_taxonomy_tag_name($target_lc, "categories", $category_id);
+			$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
 		}
 	}
 
@@ -1012,7 +1012,12 @@ sub create_maintain_card_panel ($product_ref, $target_lc, $target_cc, $options_r
 			create_panel_from_json_template(
 				"maintenance_advice_fr_epargnonsnosressources",
 				"api/knowledge-panels/maintain/maintenance_advice_fr_epargnonsnosressources.tt.json",
-				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+				$panel_data_ref,
+				$product_ref,
+				$target_lc,
+				$target_cc,
+				$options_ref,
+				$request_ref
 			);
 		}
 	}
