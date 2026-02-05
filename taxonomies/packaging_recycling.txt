@@ -116,8 +116,14 @@ sv: sorteras som plast, plast, plastförpackning
 packaging_materials:en: en:plastic
 
 < en:recycle with plastics
+en: recycle with soft plastics
+sv: sorteras som mjukplast, mjukplast
+packaging_materials:en: en:soft-plastic
+
+< en:recycle with plastics
 en: recycle with hard plastics
 sv: sorteras som hårdplast, hårdplast
+packaging_materials:en: en:hard-plastic
 
 < en:recycle
 en: recycle with metals
