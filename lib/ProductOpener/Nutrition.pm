@@ -134,7 +134,7 @@ sub add_computed_values_to_nutrient_sets ($input_sets_ref) {
 		if (exists $nutrient_set_ref->{nutrients}) {
 
 			# If we have enough macronutrients, we compute the energy values and store them in value_computed
-			compute_energy_from_nutrients_for_nutrients_set($nutrient_set_ref->{nutrients}, "kj");
+			compute_energy_from_nutrients_for_nutrients_set($nutrient_set_ref->{nutrients}, "kJ");
 			compute_energy_from_nutrients_for_nutrients_set($nutrient_set_ref->{nutrients}, "kcal");
 
 			# Add salt and sodium values computed from each other and store them in value_computed
