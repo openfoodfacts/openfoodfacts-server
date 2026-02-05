@@ -329,7 +329,7 @@ jobs:
       - name: Compute registry ref for Buildkit cache
         id: registry_ref
         run: |
-          echo registry_ref=ghcr.io/${{ github.repository }}/frontend-buildx-cache:${{ hashFiles('Dockerfile.frontend', 'package*.json', 'gulpfile.ts', 'html/**', 'icons/**', 'scss/**') }} >> $GITHUB_OUTPUT
+          echo registry_ref=ghcr.io/${{ github.repository }}/frontend-buildx-cache:${{ hashFiles('Dockerfile.frontend', 'package*.json', 'gulpfile.mjs', 'html/**', 'icons/**', 'scss/**') }} >> $GITHUB_OUTPUT
 
       - name: Build frontend image with cache
         uses: docker/build-push-action@v6

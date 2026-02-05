@@ -57,7 +57,8 @@ else {
 	$long_name .= " " . uc($request_ref->{cc}) . "/" . uc($lc);
 }
 
-my $description = lang("search_description_opensearch");
+# TODO: flavor specific string
+my $description = lang("search_description_opensearch_$flavor");
 my $image_tag = $options{opensearch_image};
 
 my $uri = $request_ref->{formatted_subdomain};

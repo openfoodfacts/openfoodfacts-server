@@ -14,7 +14,7 @@
     "build:dynamic": "npm install && gulp dynamic",
     "test": "npm run lint",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:scss",
-    "lint:js": "eslint gulpfile.ts html/js/*.js",
+    "lint:js": "eslint gulpfile.mjs html/js/*.js",
     "lint:css": "stylelint html/css/*.css",
     "lint:scss": "stylelint scss/*.scss",
     "snyk-protect": "snyk-protect",
@@ -36,6 +36,9 @@
     "win32"
   ],
   "dependencies": {
+    "@kristjan.esperanto/leaflet.markercluster": "^3.0.0",
+    "@openfoodfacts/openfoodfacts-nodejs": "2.0.0-alpha.19",
+    "@openfoodfacts/openfoodfacts-webcomponents": "1.16.0",
     "@snyk/protect": "^1.1302.1",
     "@webcomponents/webcomponentsjs": "2.8.0",
     "@yaireo/tagify": ">=4.12.0 <4.37.0",
@@ -46,27 +49,15 @@
     "jquery": "2.2.4",
     "jquery-cropper": "^1.0.2",
     "jquery-ui": "1.14.2",
-    "jsvectormap": "^1.7.0",
-    "leaflet": "^1.7.1",
-    "leaflet.markercluster": "1.5.3",
-    "osmtogeojson": "^3.0.0-beta.4",
-    "papaparse": "^5.5.3",
-    "select2": "~4.0",
     "jsbarcode": "^3.12.3",
-    "@openfoodfacts/openfoodfacts-nodejs": "2.0.0-alpha.19",
-    "@openfoodfacts/openfoodfacts-webcomponents": "1.16.0"
+    "jsvectormap": "^1.7.0",
+    "leaflet": "^2.0.0-alpha.1",
+    "papaparse": "^5.5.3",
+    "select2": "~4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.22.0",
-    "@types/gulp": "^4.0.17",
-    "@types/gulp-concat": "^0.0.37",
-    "@types/gulp-csso": "^4.0.5",
-    "@types/gulp-gzip": "^0.0.36",
-    "@types/gulp-sass": "^5.0.4",
-    "@types/gulp-sourcemaps": "^0.0.38",
-    "@types/gulp-svgmin": "^1.2.4",
-    "@types/gulp-terser": "^1.2.6",
     "@typescript-eslint/eslint-plugin": "^8.38.0",
     "@typescript-eslint/parser": "^8.32.0",
     "dotenv": "^17.2.3",
@@ -84,9 +75,7 @@
     "stylelint": "^16.2.1",
     "stylelint-config-recommended": "^14.0.0",
     "stylelint-config-recommended-scss": "^15.0.1",
-    "stylelint-scss": "^6.12.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "stylelint-scss": "^6.12.1"
   },
   "funding": {
     "type": "opencollective",
