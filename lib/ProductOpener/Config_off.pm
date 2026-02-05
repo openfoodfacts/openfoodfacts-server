@@ -581,11 +581,6 @@ my @related_applications = (
 		'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner'
 	},
 	{'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://apps.apple.com/app/id588797948'},
-	{
-		'platform' => 'windows',
-		'id' => '9nblggh0dkqr',
-		'url' => 'https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr'
-	},
 );
 
 my $manifest = {
