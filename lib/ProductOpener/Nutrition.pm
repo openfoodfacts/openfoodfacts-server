@@ -2532,7 +2532,7 @@ Computes the energy from other nutrients for a given input set.
 
 =head4 $nutrients_ref: reference to the nutrients hash.
 
-=head4 $unit: unit to use for energy computation ("kj" or "kcal").
+=head4 $unit: unit to use for energy computation ("kJ" or "kcal").
 
 =head3 Returns
 
@@ -2543,6 +2543,8 @@ The value is also stored in energy nutrients hashes as "value_computed".
 =cut
 
 sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
+
+	my $lc_unit = lc($unit);
 
 	my $computed_energy;
 
@@ -2558,7 +2560,7 @@ sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
 
 		foreach my $nid (keys %{$energy_from_nutrients{europe}}) {
 
-			my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$unit};
+			my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$lc_unit};
 			my $grams = 0;
 			# handles nutrient1__minus__nutrient2 case
 			if ($nid =~ /_minus_/) {
@@ -2582,8 +2584,8 @@ sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
 		}
 
 		# store computed energy value and the unit (in case it's not there yet if we don't have a not computed value)
-		deep_set($nutrients_ref, "energy-${unit}", "value_computed", $computed_energy);
-		deep_set($nutrients_ref, "energy-${unit}", "unit", $unit);
+		deep_set($nutrients_ref, "energy-${lc_unit}", "value_computed", $computed_energy);
+		deep_set($nutrients_ref, "energy-${lc_unit}", "unit", $unit);
 	}
 
 	return $computed_energy;
@@ -2741,7 +2743,6 @@ sub remove_empty_nutrition_data ($product_ref) {
 
 	return;
 }
-
 
 =head2 get_nutrient_from_nutrient_set_in_default_unit ( $nutrients_ref, $nid )
 

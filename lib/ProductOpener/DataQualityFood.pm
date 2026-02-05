@@ -1240,7 +1240,6 @@ sub check_nutrition_data_for_input_set ($product_ref, $nutrition_set_ref, $set_i
 		next if (not defined $value);
 
 		# Convert to 100g
-	
 
 		if (($per eq "100g") or ($per eq "100ml")) {
 			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($value > 105)) {

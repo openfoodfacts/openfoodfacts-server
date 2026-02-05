@@ -1741,12 +1741,16 @@ JSON
 				push @{$select2_group_ref->{children}},
 					{
 					id => $nid . "_prepared_100g_value_unit",
-					text => ucfirst($name) . " - " . lang("preparation_prepared") . " " . lang("nutrition_data_per_100g")
+					text => ucfirst($name) . " - "
+						. lang("preparation_prepared") . " "
+						. lang("nutrition_data_per_100g")
 					};
 				push @{$select2_group_ref->{children}},
 					{
 					id => $nid . "_prepared_serving_value_unit",
-					text => ucfirst($name) . " - " . lang("preparation_prepared") . " " . lang("nutrition_data_per_serving")
+					text => ucfirst($name) . " - "
+						. lang("preparation_prepared") . " "
+						. lang("nutrition_data_per_serving")
 					};
 			}
 		}

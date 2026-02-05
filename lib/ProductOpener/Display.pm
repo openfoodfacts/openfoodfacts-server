@@ -9125,7 +9125,7 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 			preparation => $preparation,
 			per => $per,
 			name => $name_per_xxg,
-			short_name =>  $per,
+			short_name => $per,
 		};
 
 		push @cols, $preparation . "_" . $per;
@@ -9412,8 +9412,8 @@ CSS
 
 						$value_unit = "$value $unit";
 
-						my $modifier = deep_get($product_ref, "nutrition", "aggregated_set",
-							"nutrients", $nid, "modifier");
+						my $modifier
+							= deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "modifier");
 
 						if (defined $modifier) {
 							$value_unit = $modifier . " " . $value_unit;
