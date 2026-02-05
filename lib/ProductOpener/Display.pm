@@ -1264,7 +1264,18 @@ sub display_text ($request_ref) {
 
 	my $textid = $request_ref->{text};
 
-	if ($textid =~ /open-food-facts-mobile-app|application-mobile-open-food-facts|open-beauty-facts-mobile-app/) {
+	if (
+		$textid =~ m{
+        	^
+        	(?:
+            	open-(?:food|beauty|pet-food|products)-facts-mobile-app
+            	|
+            	application-mobile-open-(?:food|beauty|pet-food|products)-facts
+        	)
+        	$
+    	}x
+		)
+	{
 		# we want the mobile app landing page to be included in a <div class="row">
 		# so we display it under the `banner` page format, which is the page format
 		# used on product pages, with a colored banner on top
@@ -8037,7 +8048,7 @@ JS
 		$title .= " version $rev";
 	}
 
-	$description = sprintf(lang("product_description"), $title);
+	$description = sprintf(lang("product_description_$flavor"), $title);
 
 	$request_ref->{canon_url} = product_url($product_ref);
 

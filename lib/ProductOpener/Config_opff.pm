@@ -185,10 +185,10 @@ $flavor = "opff";
 %options = (
 	site_name => "Open Pet Food Facts",
 	product_type => "petfood",
-	og_image_url => "https://static.openfoodfacts.org/images/logos/opff-logo-vertical-white-social-media-preview.png",
-	#android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk",
-	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=opff&utf_medium=web",
-	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opff&utf_medium=web",
+	og_image_url => "https://static.openpetfoodfacts.org/images/logos/opff-logo-vertical-white-social-media-preview.png",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases?utm_source=opff&utf_medium=web",
+android_app_link => "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opff&utf_medium=web",
+ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=opff&utf_medium=web",
 	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=opff&utf_medium=web",
 	#x_account => "OpenBeautyFacts",
 	default_preferences =>
@@ -322,30 +322,6 @@ $analytics = <<HTML
   })();
 </script>
 <noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=9&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-HTML
-	;
-
-$options{favicons} = <<HTML
-<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-touch-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon-180x180.png">
-<link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon/android-chrome-192x192.png" sizes="192x192">
-<link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/cgi/manifest.pl">
-<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="shortcut icon" href="/images/favicon/favicon.ico">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
-<meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
 HTML
 	;
 

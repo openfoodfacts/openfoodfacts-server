@@ -218,20 +218,6 @@ function initialize_unwanted_ingredients_tagify() {
 let unwanted_ingredients_preferences_initalized = false;
 let attribute_unwanted_ingredients_enabled = false;
 
-// We use jQuery to load the CSS file dynamically
-function loadCSS(href) {
-
-    return new Promise(function(resolve, reject) {
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.type = "text/css";
-        link.href = href;
-        link.onload = resolve;
-        link.onerror = reject;
-        document.head.appendChild(link);
-    });
-}
-
 // We also want to turn the canonical ingredient tags list into local ingredient names
 // using the /api/v3/taxonomy_display_tags API
 function localize_unwanted_ingredients_tags() {
@@ -275,7 +261,6 @@ function display_unwanted_ingredients_preferences() {
             $.when(
                 $.getScript(`${staticBaseUri}/js/dist/tagify.js`),
                 $.getScript(`${staticBaseUri}/js/dist/tagify-init.js`),
-                loadCSS(`${staticBaseUri}/css/dist/tagify.css`),
                 localize_unwanted_ingredients_tags()
             ).done(function() {
                 // Initialize tagify on the unwanted ingredients input field
