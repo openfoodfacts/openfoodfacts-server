@@ -112,6 +112,14 @@ foreach my $test_ref (@tests) {
 	my $target_lc = $test_ref->{"target_lc"};
 	my $target_cc = $test_ref->{"target_cc"};
 
+	# Save current options values to restore them later
+	my %saved_config_options;
+	if (defined $test_ref->{"options"}) {
+		foreach my $key (keys %{$test_ref->{"options"}}) {
+			$saved_config_options{$key} = $ProductOpener::Config::options{$key};
+		}
+	}
+
 	# Set options if provided in test
 	if (defined $test_ref->{"options"}) {
 		foreach my $key (keys %{$test_ref->{"options"}}) {
@@ -191,6 +199,13 @@ foreach my $test_ref (@tests) {
 	else {
 		diag Dumper($product_ref);
 		fail("could not load $expected_result_dir/$testid.json");
+	}
+
+	# Restore original options values
+	if (defined $test_ref->{"options"}) {
+		foreach my $key (keys %{$test_ref->{"options"}}) {
+			$ProductOpener::Config::options{$key} = $saved_config_options{$key};
+		}
 	}
 }
 
