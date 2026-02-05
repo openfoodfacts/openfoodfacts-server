@@ -9,6 +9,8 @@ synonyms:en: pasteurised, pasteurized, pasterized
 
 synonyms:en: unpasteurised, unpasteurized, unpasterized
 
+synonyms:hu: pasztőrözött, pasztörizált
+
 synonyms:da: grøntsagsbaserede, grønsagsbaserede, grøntsagsbaseret, grønsagsbaseret, grøntsags, grønsags
 
 synonyms:da: frosne, dybfrosne, frossen, dybfrossen, frossent, dybfrossent
@@ -45,6 +47,8 @@ synonyms:sv: blandade, mixade
 synonyms:sv: djupfrysta, frysta, djupfryst, fryst
 
 synonyms:sv: matvaror, matvara, mat
+
+synonyms:hu: koncentrátumból, sűrítményből, koncentrátum, sűrítmény
 
 stopwords:fr: aux, au, de, le, du, la, a, et, avec, base
 stopwords:ca: als, a les, de, el, del, de la, la, té, i, amb, base
@@ -108,6 +112,7 @@ es: Tipo de producto incorrecto
 fi: Väärä product type
 fr: Mauvais product type
 hr: Pogrešan product type
+hu: Hibás terméktípus
 it: Tipo di prodotto errato
 nl: Verkeerd product type
 pt: Tipo de produto incorreto
@@ -122,6 +127,7 @@ es: Productos no alimenticios
 fi: ei ruokatuote
 fr: Non alimentaire
 hr: Neprehrambeni proizvodi
+hu: Nem élelmiszer
 it: Prodotti non alimentari
 nl: Non-food
 pt: Produtos não alimentares
@@ -174,6 +180,7 @@ de: Zigaretten
 fi: savukkeet
 fr: cigarettes
 hr: cigarete, cigareta
+hu: cigaretta, cigi
 it: Biscotti a sigaretta
 ja: タバコ, 煙草
 nl_be: Sigaretten
@@ -212,7 +219,7 @@ es: Palitos de pan artesanales
 fi: käsintehdyt leipätikut
 fr: Gressins artisanaux
 hr: Ručno rađeni grisini
-hu: Kézzel készített termékek
+hu: Kézműves kenyérrudacskák, Kézzel készült kenyérrudacskák
 it: Grissini artigianali, Grissini fatti a mano
 nl: Handgemaakte broodstengels
 ro: Grisine artizanale
@@ -223,6 +230,7 @@ da: Pasteuriserede produkter
 de: Pasteurisierte Produkte
 es: Productos pasteurizados
 fr: Produits pasteurisés
+hu: Pasztőrözött termékek
 it: Prodotti pastorizzati
 nl: Gepasteuriseerde producten
 pl: Produkty pasteryzowane
@@ -236,6 +244,7 @@ da: Upasteuriserede produkter
 de: Nicht pasteurisierte Produkte
 es: Productos no pasteurizados
 fr: Produits non pasteurisés
+hu: Pasztörizálatlan termékek
 it: Prodotti non pastorizzati
 nl: Ongepasteuriseerde producten
 pl: Produkty niepasteryzowane
@@ -253,7 +262,7 @@ fi: Vauvanruoat
 fr: Aliments pour bébé, aliment pour bébé, alimentation pour bébé, aliment bébé, alimentation bébé, aliments bébé, alimentation infantile
 he: מזון תינוקות
 hr: Dječja hrana
-hu: Bébiételek
+hu: Bébiételek, Babaételek
 it: Alimenti per bambini, Alimenti per neonati
 ko: 이유식
 lt: Vaikų maistas, vaikų maistelis, kūdikių maistas
@@ -283,7 +292,7 @@ es: Cereales para bebes
 fi: aamiaismuroja vauvoille
 fr: Céréales pour bébé, céréales bébé, céréales infantiles
 hr: Žitarice za bebe
-hu: Gabonafélék csecsemőknek
+hu: Gabonafélék csecsemőknek, Gabonafélék babáknak
 it: Cereali per neonati, Cereali per bambini
 lt: Vaikiškos košės, Kūdikių košės
 nl: Baby ontbijtpappen, Baby ontbijtpap
@@ -382,7 +391,7 @@ de: Ab 18 Monaten, Ab 18. Monat, Ab dem 18. Monat
 es: De 18 meses, A partir de 18 meses
 fr: Dès 18 mois
 hr: Od 18 mjeseci
-hu: 18 hónapos kortól, Egy és fél éves kortól
+hu: 18 hónapos kortól, Egy és fél éves kortól, Másfél éves kortól
 it: Dal 18mo mese, Dal diciottesimo mese, A partire dal diciottesimo mese, A partire dal 18mo mese
 lt: Nuo 18 mėnesių
 nl: Vanaf 18 maanden, Vanaf 18 maand
@@ -435,7 +444,7 @@ de: Babykekse, Kekse für Babies
 es: Galletas para bebes
 fr: Biscuits pour bébé, Biscuit pour bébé
 hr: Keksi za bebe
-hu: Kekszek csecsemőknek
+hu: Babakekszek, Baba kekszek, Kekszek csecsemőknek, Csecsemő kekszek
 it: Biscotti per neonati
 lt: Sausainiai kūdikiams
 nl: Babykoekjes, Koekjes voor babies
@@ -459,7 +468,7 @@ de: Getränke für Babies
 es: Bebidas para bebes
 fr: Boissons pour bébé, boisson pour bébé
 hr: Dječja pića
-hu: Babaitalok
+hu: Bébiitalok, Babaitalok, Baba ital
 it: Bevande per neonati
 lt: Kūdikių gėrimai
 nl: Babydranken, Babydrank
@@ -475,6 +484,7 @@ gpc_category_name:en: Baby/Infant - Specialised Beverages (Shelf Stable)
 en: Plant-based beverage for baby
 fr: Boisson à base de plantes pour bébé
 hr: Biljni napitak za bebe
+hu: Növényi alapú bébiitalok
 lt: Augaliniai gėrimai kūdikiams
 nl: Dranken voor babies gebaseerd op planten
 ciqual_food_code:en: 13160
@@ -484,6 +494,7 @@ ciqual_food_name:fr: Boisson à base de plantes pour bébé
 < en:Baby drinks
 en: Milky cereal-based beverages, Milky cereal-based beverage
 fr: Boissons infantile lactée aux céréales, Boisson infantile lactée aux céréales
+hu: Tejes gabonaalapú bébiitalok
 agribalyse_proxy_food_code:en: 13173
 ciqual_food_code:en: 13182
 ciqual_food_name:en: Milky cereal-based beverage(average)
@@ -559,6 +570,7 @@ de: Baby- / Kleinkindernahrungmischpackungen
 es: Paquetes variados de alimentos para niños/bebés
 fr: Bébés/Nourrissons - assortiments de nourriture
 hr: Različita pakiranja hrane/hrane za dojenčad/pića
+hu: Bébi/csecsemő étel/ital válogatás
 it: Confezioni miste d'alimenti bambini
 nl: Baby/Peuter levensmiddelassortimenten
 pt: Packs variados de alimentos para infantil
@@ -574,6 +586,7 @@ es: Postres de frutas para bebe, Postres de frutas para bebes
 fi: Hedelmäjälkiruoat vauvoille
 fr: Desserts au fruit pour bébé
 hr: Dječji voćni deserti
+hu: Bébi gyümölcsdesszertek, Baba gyümölcsdesszertek, Gyümölcsdesszertek babáknak
 it: Dessert alla frutta per neonati
 lt: Vaisiniai desertai kūdikiams, Kūdikių vaisiniai desertai
 nl: Baby-vruchtentoetjes, Baby-vruchtentoetje
@@ -589,7 +602,7 @@ es: Postres lácteos para bebe, Postres lácteos para bebes
 fi: Maitopohjaiset vauvan jälkiruuat
 fr: Desserts lactés pour bébé, Dessert lacté pour bébé
 hr: Mliječni desert za bebe
-hu: Baba gyümölcs desszertek
+hu: Bébi tejdesszertek, Baba tejdesszertek, Tejdesszertek babáknak
 it: Dessert per neonati a base di latticini, Dessert per neonati a base di prodotti caseari
 lt: Kūdikių pieniški desertai, Pieniški desertai kūdikiams
 nl: Babymelktoetjes, Babymelktoetje, Melktoetje voor babies
@@ -631,6 +644,7 @@ ciqual_food_name:fr: Dessert lacté infantile nature sucré ou aux fruits
 < en:Dairy dessert for baby
 en: Dairy dessert for baby with sugar
 fr: Dessert lacté pour bébé sucré
+hu: Cukros tejdesszert babáknak
 agribalyse_food_code:en: 13166
 ciqual_food_code:en: 13166
 ciqual_food_name:en: Dairy dessert for baby, plain with sugar or with fruits
@@ -672,7 +686,7 @@ es: Fórmula infantil, Leche de primera infancia, Leche hasta 6 meses
 fi: äidinmaitokorvikkeet
 fr: Laits 1er âge, lait 1er age, lait premier age, laits premier age
 hr: Formule za dojenčad
-hu: Anyatej-helyettesítő tápszerek a 6. hónapig
+hu: Csecsemőtápszerek, tápszerek, Anyatej-helyettesítő tápszerek a 6. hónapos korig
 it: Latte artificiale per neonati fino al sesto mese, Latte artificiale per neonati fino al 6to mese
 lt: Mišiniai kūdikiams
 nl: Baby-startmelk tot 6 maanden
@@ -690,6 +704,7 @@ agribalyse_proxy_food_code:en: 19013
 < en:Infant formulas
 en: Baby milks in powder, Infant formulas in powder
 fr: Laits infantiles en poudre
+hu: Csecsemőtápszerek tejporból
 agribalyse_proxy_food_code:en: 3000
 agribalyse_proxy_food_name:en: Baby milk, first age, powder, non rehydrated
 agribalyse_proxy_food_name:fr: poudre soluble (préparation pour nourrissons)
@@ -825,6 +840,7 @@ de: Abendessen für Babys
 fi: ilta-aterioita vauvoille
 fr: Plats du soir pour bébé, Repas du soir pour bébé
 hr: Večernji obroci za bebe
+hu: Vacsora bébiételek
 it: Pasti serali per neonati
 nl: Baby-avondmaaltijden, Baby-avondmaaltijd
 ro: Cină pentru bebeluși, Cină bebeluși
@@ -836,6 +852,7 @@ es: Comidas para bebés
 fi: pääaterioita vauvoille
 fr: Plats principaux pour bébé, Plats principaux bébé
 hr: Glavni obroci za bebe
+hu: Bébi főételek
 it: Pasti principali per neonati
 nl: Babymaaltijden, Babymaaltijd
 
@@ -1112,7 +1129,7 @@ fi: Mehiläistuotteet
 fr: Produits de la ruche
 he: מוצרי דבש, מוצרי כוורת, מוצרי דבורים
 hr: Pčelinjih proizvoda
-hu: Méh termékek, Méhészeti termékek
+hu: Méhészeti termékek, Méh termékek
 it: Prodotti delle api
 lt: Bičių gaminiai, produktai iš bičių, avilio produktai, produktai iš avilio
 nl: Bijenproducten, Bijenproduct, Bijenprodukt
@@ -1197,6 +1214,7 @@ de: Pollen
 es: Polen
 fr: Pollens
 hr: Peludi
+hu: Virágpor, Pollen
 it: Pollini, polline
 lt: Žiedadulkės
 nl: Pollen
@@ -1215,6 +1233,7 @@ de: Teilweise getrockneter Pollen
 es: Polen parcialmente seco
 fr: Pollen partiellement séché
 hr: Djelomično osušeni pelud
+hu: Részlegesen szárított virágpor
 it: Pollen parzialmente essiccato
 nl: Gedeeltelijk gedroogd stuifmeel
 ciqual_food_code:en: 31109
@@ -1228,6 +1247,7 @@ de: Frischer Pollen
 es: Polen fresco
 fr: Pollen frais
 hr: Svježi pelud
+hu: Friss virágpor
 it: Pollen fresco
 nl: Verse pollen
 ciqual_food_code:en: 31111
@@ -1238,6 +1258,7 @@ ciqual_food_name:fr: Pollen,frais
 en: Propolis
 xx: Propolis
 bg: Прополис
+hu: Propolisz
 it: Propoli
 lt: Bičių Pikis
 zh: 蜂胶
@@ -1251,6 +1272,7 @@ de: Honigbasierte Zubereitung, Zubereitung auf Honigbasis
 fi: Hunajavalmisteet
 fr: Préparations à base de miel
 hr: Pripravci na bazi meda
+hu: Mézalapú készítmények
 it: Preparati a base di miele
 lt: Medaus pagrindo preparatai
 nl: Bereidingen op basis van honing
@@ -1260,6 +1282,7 @@ en: Blends of honey and propolis
 de: Honig und Propolis Mischungen
 fr: Préparations à base de miel et propolis, mélanges de miel et propolis
 hr: Mješavine meda i propolisa
+hu: Méz és propolisz keverékei
 it: Miscele di miele e propoli, Mix di miele e propoli
 nl: Mengsels van honing en propolis, Mengelingen van honing en propolis
 
@@ -1268,6 +1291,7 @@ en: Honey and royal jelly mixtures
 de: Honig und Gelée Royale Mischungen
 fr: Préparations à base de miel et gelée royale, mélanges de miel et gelée royale
 hr: Mješavine meda i matične mliječi
+hu: Méz és méhpempő keverékei
 it: Miscele a base di miele e pappa reale, Mix di miele e pappa reale
 nl: Mengsels van honing en koninginnegelei, Mengelingen van koninginnegelei
 
@@ -1276,6 +1300,7 @@ de: Getränke und Getränkezubereitungen
 es: Bebidas y preparaciones de bebidas
 fr: Boissons et préparations de boissons
 hr: Pića i pripravci za piće
+hu: Italok és italalapú készítmények, Italok és italkészítmények
 it: Bevande e preparati per bevande
 nl: Dranken en drankbereidingen
 pl: Napoje i składniki do napojów
@@ -1288,6 +1313,7 @@ de: Getränkezubereitungen
 es: Preparaciones de bebidas
 fr: Préparations pour boissons
 hr: Pripravci za piće
+hu: Italkészítmények
 it: Preparati per bevande
 nl: Drankbereidingen
 description:en: Any product which purpose it is to create a beverage which uses water (hor or cold) in some way (diluting, infusing, dissolving, etc).
@@ -1339,6 +1365,7 @@ de: Getränke Mischpackungen
 es: Paquetes variados de bebidas
 fr: Assortiments de boissons
 hr: Pakiranja raznih pića
+hu: Italválogatások
 it: Confezioni miste di bevande
 nb: Drikker flerpakk
 nl: Drankassortimenten
@@ -1373,7 +1400,7 @@ ga: Bia fíonta
 he: מזון מותסס
 hi: ज़रूरत से अधिक खाद्य
 hr: Fermentirana hrana
-hu: Erjesztett ételek
+hu: Fermentált ételek, Erjesztett ételek
 id: Makanan Fermentasi
 it: Cibi fermentati
 ja: 発酵食品
@@ -1497,7 +1524,7 @@ fi: Makeutetut juomat
 fr: Boissons avec sucre ajouté, Boissons sucrées
 he: משקאות מתוקים, משקאות ממותקים
 hr: Zaslađena pića
-hu: Cukros italok
+hu: Cukrozott italok, Édesített italok, Italok hozzáadott cukorral
 it: Bevande zuccherate
 lt: Saldinti gėrimai, Gėrimai su pridėtiniu cukrumi
 nl: Gesuikerde dranken
@@ -1542,7 +1569,7 @@ fi: makeuttamattomat juomat
 fr: Boissons sans sucre ajouté, Boissons non sucrées
 he: משקאות בלתי ממותקים
 hr: Nezaslađenih pića
-hu: Cukormentes italok
+hu: Édesítetlen italok, Hozzáadott cukrot nem tartalmazó italok
 it: Bevande senza zucchero
 lt: Nesaldinti gėrimai, gėrimai be pridėtinio cukraus
 nl: Suikervrije dranken, Ongesuikerde dranken
@@ -1566,7 +1593,7 @@ fi: alkoholijuomat
 fr: Boissons alcoolisées, boisson alcoolisée, alcool, alcools
 he: משקאות אלכוהוליים
 hr: Alkoholna pića
-hu: Alkoholos italok, Alkohol tartalmú italok
+hu: Alkoholos italok, Alkohol tartalmú italok, Alkoholok
 it: Bevande alcoliche
 ja: 酒
 lt: Alkoholiniai gėrimai, gėrimai su alkoholiu, alkoholis
@@ -1614,6 +1641,7 @@ de: Alkoholische Getränke Mischpackungen
 es: Paquetes variados de bebidas alcohólicas
 fr: Assortiments de boissons alcoolisées
 hr: Pakiranja raznih alkoholnih pića
+hu: Alkoholosital-válogatások, Alkoholos ital válogatások
 it: Confezioni miste di bevande alcoliche
 nb: Alkoholholdige drikker flerpakk
 nl: Alcoholische drankassortimenten
@@ -1629,6 +1657,7 @@ de: Aromatisierte Getränke
 es: Bebidas con sabor
 fr: Boissons aromatisées
 hr: Aromatizirana pića
+hu: Ízesített italok
 it: Bevande aromatizzate
 nl: Smaakdranken
 gpc_category_code:en: 10000201
@@ -1641,6 +1670,7 @@ de: Fertig gemischte alkoholische Getränke
 es: Bebidas alcohólicas premezcladas
 fr: Boissons alcoolisées pré-mélangées
 hr: Prethodno miješana alkoholna pića
+hu: Előkevert alkoholos italok
 it: Bevande alcoliche pre-miscelate
 nl: Voorgemengde alcoholische dranken
 gpc_category_code:en: 10000144
@@ -1654,6 +1684,7 @@ de: Bierbasierte alkoholische Getränke
 es: Bebidas alcohólicas a base de cerveza
 fr: Boissons alcoolisées à base de bière
 hr: Alkoholna pića na bazi piva
+hu: Söralapú alkoholos italok
 it: Bevande alcoliche a base di birra
 nl: Bier gebaseerde alcoholische dranken
 pt: Bebidas alcoólicas à base de cerveja
@@ -1702,6 +1733,7 @@ de: Rum-basierte alkoholische Getränke
 es: Bebidas alcohólicas a base de ron
 fr: Boissons alcoolisées à base de Rhum
 hr: Alkoholna pića na bazi ruma
+hu: Rumalapú alkoholos italok
 it: Bevande alcoliche a base di rum
 nl: Rum-gebaseerde alcoholische dranken
 pt: Bebidas alcoólicas à base de rum
@@ -1711,6 +1743,7 @@ en: Vodka-based alcoholic beverages
 es: Bebidas alcohólicas a base de vodka
 fr: Boissons alcoolisées à base de vodka
 hr: Alkoholna pića na bazi votke
+hu: Vodkaalapú alkoholos italok
 it: Bevande alcoliche a base di vodka
 nl: Vodka-gebaseerde alcoholische dranken
 ro: Băuturi alcoolice pe bază de vodcă
@@ -1721,6 +1754,7 @@ de: Weinbasierte alkoholische Getränke
 es: Bebidas alcohólicas a base de vino
 fr: Boissons alcoolisées à base de vin
 hr: Alkoholna pića na bazi vina
+hu: Boralapú alkoholos italok
 it: Bevande alcoliche a base di vino
 nl: Wijngebaseerde alcoholische dranken
 pt: Bebidas alcoólicas à base de vinho
@@ -1761,7 +1795,7 @@ fr: vin chaud
 ga: scailtín fíona
 he: יין מתובל
 hr: kuhano vino
-hu: forralt bor
+hu: Forralt bor, Forraltbor
 hy: գլինտվեյն
 id: Glühwein
 it: vin brulé
@@ -1794,6 +1828,7 @@ en: Pastis
 de: Pastis
 fr: Pastis
 hr: Pastis
+hu: Pastis
 nl: Pastis, Anijsdranken
 ro: Pastis
 agribalyse_food_code:en: 1000
@@ -1879,6 +1914,7 @@ el: Μιρίν
 eo: Mirino
 fa: میرین, چاشنی
 he: מירין
+hu: Mirin
 hy: Միրին
 ja: みりん
 ko: 미림
@@ -1937,7 +1973,7 @@ hi: बियर
 hif: Beer
 hr: piva, pivo
 ht: Byè
-hu: Sör
+hu: Sörök, Sör
 hy: Գարեջուր
 ia: bira
 id: Bir
@@ -2167,7 +2203,7 @@ de: Abteibier
 fi: luostariolut
 fr: Bières d'abbayes, Bières d'abbaye, Bières d'abbayes régionales
 hr: Opatsko pivo
-hu: Apátsági sör
+hu: Apátsági sörök
 it: Birre d'abbazia
 nl: Abdijbieren
 agribalyse_food_code:en: 5011
@@ -2186,7 +2222,7 @@ en: Belgian-style Dubbel ales, Double ales, Double beer
 xx: Dubbel
 de: Doppelte Biere
 fr: Bière double
-hu: Dubbel sör
+hu: Dubbel sörök
 it: Birra doppia, doppia birra
 nl: Dubbelgegist bier
 description:en: Belgian-style Dubbel is a quite strong brown ale that originated in Westmalle Abbey in 1856
@@ -2198,7 +2234,7 @@ xx: Tripel
 de: Dreifache Biere
 fi: Tripel-olut
 fr: Bière triple
-hu: Tripel sör
+hu: Tripel sörök
 it: Birra tripla, tripla birra
 nl: Tripel bieren
 wikidata:en: Q2719638
@@ -2348,7 +2384,7 @@ es: Cervezas artesanales
 fi: Artesaanioluet
 fr: Bières artisanales
 hr: Craft piva
-hu: Kraft sörök
+hu: Kézműves sörök, Kraft sör
 it: Birre artigianali
 ja: クラフトビール
 nl: Ambachtelijke bieren
@@ -2389,7 +2425,7 @@ es: Bebidas alcohólicas artesanas, Bebidas alcohólicas artesanales
 fi: Artesaaniviinat
 fr: Alcools artisanaux
 hr: Zanatska žestoka pića
-hu: Kézmüves szezek, Kézműves alkohol tartalmú italok
+hu: Kézműves szezek, Kézműves alkoholos italok
 it: Bevande alcoliche artigianali, Alcolici artigianali
 nl: Ambachtelijke alcoholica
 ro: Băuturi alcoolice artizanale, Bauturi alcoolice artizanale
@@ -2444,7 +2480,7 @@ es: Cervezas con castañas
 fi: Kastanjalla maustetut oluet
 fr: Bières à la chataigne
 hr: Piva s kestenom
-hu: gesztenyés sörök
+hu: Gesztenyés sörök
 it: Birre alla castagna
 lt: Alus su kaštainiais
 nl: Kastanjebieren
@@ -2466,6 +2502,7 @@ ro: Beri cu pară
 < en:Beers with fruits
 en: Radler beers, radler
 xx: Radler
+hu: Radler sörök
 lt: Radleris, Radler alus
 description:en: Radler is a type of beer mixed from lager and citrus soda. It is usually 50/50 or 60/40 mixed.
 wikidata:en: Q260417
@@ -2479,7 +2516,7 @@ dk: Hvedeöl
 es: Cerveza blanca
 fi: Vehnäoluet
 fr: Bières blanches, bière blanche
-hu: Búzasör
+hu: Búzasörök, Búzasör
 it: Birra bianca
 ja: 小麦ビール, 白ビール
 lt: Kvietinis alus
@@ -2505,6 +2542,7 @@ description:en: Grodziskie is also called Polish champagne beer. It is a light, 
 < en:Beers
 en: Regional beers
 fr: Bières régionales
+hu: Regionális sörök
 agribalyse_food_code:en: 5011
 ciqual_food_code:en: 5011
 ciqual_food_name:en: Beer, specialty, from abbey or regional (varying alcohol content)
@@ -2519,7 +2557,7 @@ bg: Светла бира
 de: Lager
 fi: Lagerit
 he: לאגרים
-hu: Lágerek, Világos sörök
+hu: Lágerek, Láger sörök, Világos sörök
 it: Birre chiare
 #ja:ラガービール
 lt: Lageras, Lageris
@@ -2544,6 +2582,7 @@ de: Schwarzbier
 es: Cervezas negras
 fr: Bières noires
 he: בירות שחורות, בירה שחורה
+hu: Fekete sörök
 it: Birre nere
 nl: Donkere bieren
 description:en: Schwarzbier is a dark lager black beer that originates from Germany. It is the darkest of all German lagers: a notch darker than Dunkel and Doppelbock. 5% ABV.
@@ -2639,6 +2678,7 @@ description:en: Festbier is a German lager that is lighter in color and is consi
 en: Pilsners, Pilsner, Pilsner beers, Pils
 xx: Pilsners, Pilsner, Pils
 da: pilsnere
+hu: Pilseni típusú sörök, Pilseni sörök, Pilsner sörök
 nl: Pilseners
 wikidata:en: Q152281
 wikipedia:en: https://en.wikipedia.org/wiki/Pilsner
@@ -2729,7 +2769,7 @@ de: Glutenfreies Bier
 es: Cervezas sin gluten
 fr: Bières sans gluten
 hr: Piva bez glutena
-hu: Gluténmentes sör
+hu: Gluténmentes sörök
 it: Birre senza glutine
 lt: Alus be glitimo
 nl: Glutenvrije bieren
@@ -2743,6 +2783,7 @@ de: Spezialbiere, Spezialbiere mit 5° Alkohol, Spezialbiere mit 6° Alkohol
 es: Cervezas especiales, Cervezas especiales con 5° de alcohol, Cervezas especiales con 6° de alcohol
 fr: Bières spéciales à 5° d'alcool, Bières spéciales à 6° d'alcool
 hr: Posebna piva
+hu: Speciális sörök
 it: Birre speciali, Birre speciali con 5° di alcol, Birre speciali con 6° di alcol
 lt: Specialios alus, Specialios alus su 5° alkoholiu, Specialios alus su 6° alkoholiu
 nl: Speciaalbieren, Speciaalbieren met 5° alcohol, Speciaalbieren met 6° alcohol
@@ -2756,6 +2797,7 @@ ciqual_food_name:fr: Bière spéciale (5-6° alcool)
 en: 5% beer, Beer with 5° alcohol, Beer with 4° alcohol
 fr: Bière à 4-5° d'alcool, Bière à 4%, Bière à 5%
 hr: 5% piva
+hu: 5%-os sörök
 it: Birre 5%, Birra 5%
 lt: 5% alaus, Alus su 5° alkoholiu, Alus su 4° alkoholiu
 nl: Bier met 5% alcohol, Bier met 4% alcohol
@@ -2778,6 +2820,7 @@ description:en: Beers with 3° alcohol
 
 < en:Beers
 en: Country specific beers, Beers from Country
+hu: Országspecifikus sörök
 lt: Šaliai būdingas alus
 
 < en:Country specific beers
@@ -2785,6 +2828,7 @@ en: American beers, Beers from the USA
 da: amerikanske øl
 fr: Bières américaines, Bières des Etats-Unis, Bières des USA
 hr: Američka piva
+hu: Amerikai sörök
 it: Birre americane, Birre dagli USA, Birre dagli Stati Uniti d'America
 lt: Amerikietiškas alus, Alus iš JAV, Alus iš Amerikos
 nl: Bier uit de Verenigde Staten van Amerika, Amerikaanse bieren
@@ -2799,6 +2843,7 @@ de: Niederländische Biere, Biere aus den Niederlanden
 es: Cervezas holandesas, Cervezas de los Países Bajos
 fr: Bières néerlandaises, Bières des Pays-Bas
 hr: Nizozemska piva
+hu: Holland sörök
 it: Birre olandesi, Birre dai Paesi Bassi
 lt: Olandiškas alus, Alus iš Olandijos
 nl: Nederlandse bieren, Bieren uit Nederland
@@ -2810,6 +2855,7 @@ da: finske øl
 es: Cervezas finlandesas, Cervezas de Finlandia
 fr: Bières finnoises, bières finlandaises, Bières de Finlande
 hr: Finska piva
+hu: Finn sörök
 lt: Suomiškas alus, alus iš Suomijos
 nl: Finse bieren, Bieren uit Finland
 ru: Финские пива, Пиво из Финляндии
@@ -2857,6 +2903,7 @@ en: Brittany Beers
 de: Bretonische Biere
 fr: Bières bretonnes, Bières de bretagne
 hr: Bretonska piva
+hu: Bretagne-i sörök
 it: Birre bretoni, Birre della Bretagna
 nl: Bretonse bieren
 origins:en: en:brittany
@@ -2990,7 +3037,6 @@ xx: Kriek beers
 de: Kirschbier
 es: Cervezas de cereza
 fr: Bières à la cerise
-hu: Cseresznye ízű sör
 it: Birre alla ciliegia
 lt: Vyšnių kriek alus, vyšnių alus
 nl: Kriek, Kriek-Lambic, Fruit-Lambic, Kriekenlambiek, Vruchtenlambiek, Krieken, Kersenbieren
@@ -3032,6 +3078,7 @@ en: Bulgarian beers, Beers from Bulgaria
 bg: Българска бира
 fr: Bières bulgares, bières bulgariennes
 hr: Bugarska piva
+hu: Bolgár sörök
 lt: Bulgariškas alus
 pl: Piwa bułgarskie
 # Disabled for safety: origins:en: en:Bulgaria
@@ -3050,7 +3097,7 @@ bg: Чешка бира
 de: Tschechische Biere
 fr: Bières de République tchèque
 hr: Piva iz Češke
-hu: Cseh sörök, Sörök csehországból
+hu: Cseh sörök, Sörök Csehországból
 it: Birre ceche, Birre della Repubblica Ceca
 lt: Čekiškas alus, alus iš Čekijos
 nl: Tsjechische bieren
@@ -3131,6 +3178,7 @@ en: Danish beers, Beers from Denmark
 bg: Датска бира
 da: danske øl, øl fra Danmark
 hr: Danska piva
+hu: Dán sörök
 lt: Daniškas alus, alus iš Danijos
 wikidata:en: Q3655862
 
@@ -3140,6 +3188,7 @@ bg: Естонска бира
 da: estiske øl
 fr: Bières estoniennes
 hr: Estonska piva
+hu: Észt sörök
 lt: Estiškas alus, alus iš Estijos
 wikidata:en: Q15392318
 
@@ -3152,7 +3201,7 @@ es: Cervezas de alemania
 fi: saksalaiset oluet
 fr: Bières allemandes, Bières d'Allemagne
 hr: Piva iz Njemačke
-hu: Német sörök, Sörök németországból
+hu: Német sörök, Sörök Németországból
 it: Birre tedesche, Birre della Germania
 lt: Vokiškas alus, alus iš Vokietijos
 nl: Duitse bieren
@@ -3171,6 +3220,7 @@ wikidata:en: Q1742438
 
 < en:Beers from Germany
 de: Münchener Biere, Münchener Bier
+hu: Müncheni sörök
 origins:en: en:germany
 protected_name_file_number:en: PGI-DE-0516
 protected_name_type:en: pgi
@@ -3196,7 +3246,7 @@ wikidata:en: Q47508607
 en: Beers from Bremen
 de: Bremer Biere, Bremer Bier
 hr: Piva iz Bremena
-hu: Sörök Bremenből, Bremen sörök
+hu: Brémai sörök
 nl: Bremense bieren, Bieren uit Bremen
 origins:en: en:germany
 protected_name_file_number:en: PGI-DE-0514
@@ -3249,6 +3299,7 @@ en: Norwegian beers
 bg: Норвежка бира
 da: norske øl
 hr: Norveška piva
+hu: Norvég sörök
 lt: Norvegiškas alus
 wikidata:en: Q3655589
 
@@ -3259,6 +3310,7 @@ da: polske øl
 de: Biere aus Polen
 fr: Bières polonaises
 hr: Piva iz Poljske
+hu: Lengyel sörök
 it: Birre polacche
 lt: Lenkiškas alus, alus iš Lenkijos
 nl: Bieren uit Polen
@@ -3273,6 +3325,7 @@ da: spanske øl
 de: Spanische Biere
 fr: Bières espagnoles
 hr: Španjolska piva
+hu: Spanyol sörök
 it: Birre spagnole
 lt: Ispaniškas alus
 nl: Spaanse bieren
@@ -3286,6 +3339,7 @@ de: Schwedische Biere
 es: Cervezas suecas
 fr: Bières suédoises
 hr: Švedska piva
+hu: Svéd sörök
 it: Birre svedesi
 lt: Švediškas alus
 nl: Zweedse bieren
@@ -3294,6 +3348,7 @@ wikidata:en: Q3655894
 < en:Country specific beers
 en: Ukrainian beers, Beers from Ukraine
 da: ukrainske øl
+hu: Ukrán sörök
 lt: Ukrainietiškas alus, alus iš Ukrainos
 wikidata:en: Q4880025
 
@@ -3302,6 +3357,7 @@ en: Beers from United Kingdom
 de: Biere aus dem Vereinigten Königreich
 fr: Bières du Royaume Uni, Bières anglaises
 hr: Piva iz Ujedinjenog Kraljevstva
+hu: Brit sörök, Angol sörök, Sörök az Egyesült Királyságból
 it: Birre del Regno Unito
 lt: Alus iš Jungtinės Karalystės, Angliškas alus
 nl: Britse bieren
@@ -3334,9 +3390,16 @@ de: Schottische Biere
 es: Cervezas escocesas
 fr: Bières écossaises
 hr: Škotska piva
+hu: Skót sörök
 it: Birre scozzesi
 lt: Škotiškas alus
 nl: Schotse bieren
+
+< en:Country specific beers
+en: Hungarian beers, Beers from Hungary
+de: Ungarische Biere
+hu: Magyar sörök
+wikidata:en: Q4880002
 
 ################################# Non-alcoholic beers #################################
 
@@ -3345,6 +3408,7 @@ nl: Schotse bieren
 en: Alcohol-free cocktails, Alcohol-free juice and syrup-based cocktails
 fr: Cocktails sans alcool, Cocktail sans alcool à base de jus de fruits et de sirop
 hr: Kokteli bez alkohola
+hu: Alkoholmentes koktélok
 lt: Nealkoholiniai kokteiliai
 agribalyse_food_code:en: 2008
 ciqual_food_code:en: 2008
@@ -3383,7 +3447,7 @@ de: Ingwerbier
 fi: Inkivääriolut
 fr: Bière de gingembre, ginger beer
 hr: Đumbirovo pivo
-hu: Ginger beer
+hu: Gyömbérsör
 it: Birre ginger
 ja: ジンジャービア
 lt: Imbierinis alus
@@ -3403,6 +3467,7 @@ de: Alkoholfreies IPA
 es: IPA sin alcohol
 fr: IPA sans alcool
 hr: Bezalkoholna ipa
+hu: Alkoholmentes IPA
 it: IPA analcolica
 lt: Nealkoholinis IPA
 nl: Alcoholvrije IPA
@@ -3434,7 +3499,7 @@ en: Non-alcoholic wheat beers, Non-alcoholic wheat beer
 de: Alkoholfreie Weizenbiere, Alkoholfreies Weizenbier, Alkoholfreie Weißbiere, Alkoholfreies Weißbier
 fr: Bières de blé sans alcool
 hr: Bezalkoholna pšenična piva
-hu: Alkoholmentes buza sör
+hu: Alkoholmentes búzasörök
 it: Birre bianche analcoliche, Birre di frumento analcoliche
 lt: Nealkoholinis kvietinis alus
 nl: Alcoholvrije witbieren, Alcoholvrij witbier
@@ -3456,6 +3521,7 @@ de: Reiner Alkohol
 es: Alcohol puro
 fr: Alcool pur
 hr: Čisti alkohol
+hu: Tiszta alkohol
 it: Alcool puro
 nl: Pure alcohol
 agribalyse_food_code:en: 1014
@@ -3470,7 +3536,7 @@ de: Spirituosen, Spirituose, Stark alkoholische Getränke
 fi: viinat
 fr: Alcools forts, alcool fort, Boissons spiritueuses
 hr: Žestoka pića
-hu: Égetett szeszek, likőrök, rövidek
+hu: Szeszesitalok, Szeszes italok, Tömény italok, Rövidek, Röviditalok
 it: Superalcolici
 lt: Stiprūs alkoholiniai gėrimai, spiritai, stiprieji spiritai
 nl: Sterke alcoholica
@@ -3509,6 +3575,7 @@ de: Kroatische Spirituosen
 es: Bebidas espirituosas croatas
 fr: Boissons spiritueuses croates
 hr: Hrvatska žestoka pića
+hu: Horvát szeszesitalok
 
 < en:Croatian spirit drinks
 hr: Hrvatske travarice, Hrvatska travarica
@@ -3549,7 +3616,7 @@ en: German spirit drinks
 es: Bebidas espirituosas alemanas
 fr: Boissons spiritueuses allemandes
 hr: Njemačka žestoka pića
-hu: Német szeszes italok
+hu: Német szeszesitalok
 it: Bevande alcoliche tedesche
 lt: Vokietijos spiritiniai gėrimai
 nl: Duitse sterke dranken
@@ -3621,6 +3688,7 @@ protected_name_type:en: gi
 
 < en:Spirit drinks
 en: Spanish spirit drinks
+hu: Spanyol szeszesitalok
 
 < en:Spanish spirit drinks
 es: Ronmiel de Canarias
@@ -3655,7 +3723,7 @@ en: Distilled beverages
 es: Bebidas destiladas
 fr: boissons distillés
 hr: Destilirana pića
-hu: Égetett szesz
+hu: Italpárlatok
 it: Distillati, Bevande spiritose
 nl: Gedestilleerde dranken
 wikidata:en: Q56139 #Q17562878
@@ -3677,6 +3745,7 @@ en: Ouzo
 bg: Узо
 el: Oύζο, Ouzo
 hr: Uzo
+hu: Úzó
 google_product_taxonomy_id:en: 2220
 origins:en: en:cyprus, en:greece
 protected_name_file_number:en: PGI-CY+GR-01828
@@ -3735,7 +3804,7 @@ es: Tequilas
 fi: Tequilat
 fr: Tequilas
 hr: Tekile
-hu: Tekilák
+hu: Tequilák, Tequila, Tekilák
 it: Tequila
 ja: テキーラ
 lt: Tekila
@@ -3811,7 +3880,7 @@ de: Brandys, Brandies
 es: Brandys, Brandies, Brandis
 fr: Brandys
 hr: Rakije
-hu: Brandy
+hu: Brandy, Borpárlat
 it: Brandy
 ja: ブランデー, ブランディ
 nl: Brandies, Brandy
@@ -3851,6 +3920,7 @@ en: Austrian fruit spirit
 de: Österreichischer Obstbrand
 fr: Eau-de-vie de fruits autrichienne
 hr: Austrijska voćna rakija
+hu: Osztrák gyümölcspárlatok
 it: Distillato di frutta austriaco
 nl: Oostenrijkse fruitbrandewijn
 
@@ -3870,6 +3940,7 @@ protected_name_type:en: gi
 
 < en:Fruit brandy
 en: Bulgarian fruit spirit
+hu: Bolgár gyümölcspárlatok
 
 < en:Bulgarian fruit spirit
 en: Slivova rakya
@@ -3892,6 +3963,7 @@ protected_name_type:en: gi
 
 < en:Fruit brandy
 en: Croatian fruit spirit
+hu: Horvát gyümölcspárlatok
 # disabled for safety: origins:en: en:Croatia
 #wikidata:en:
 
@@ -3918,9 +3990,11 @@ protected_name_type:en: gi
 
 < en:Fruit brandy
 en: Slovakian fruit spirit
+hu: Szlovák gyümölcspárlatok
 
 < en:Slovakian fruit spirit
 en: Borovicka
+hu: Borovicska
 sk: Borovička
 
 < en:Fruit brandy
@@ -3929,6 +4003,7 @@ ru: Медовача
 
 < en:Fruit brandy
 en: French fruit spirit
+hu: Francia gyümölcspárlatok
 # disabled for safety: origins:en: en:France
 #wikidata:en:
 
@@ -3983,6 +4058,7 @@ protected_name_type:en: gi
 
 < en:Fruit brandy
 en: German fruit spirit
+hu: Német gyümölcspárlatok
 # disabled for safety: origins:en: en:Germany
 #wikidata:en:
 
@@ -4037,105 +4113,11 @@ protected_name_type:en: gi
 
 < en:Fruit brandy
 en: Hungarian fruit spirit
-
-< en:Hungarian fruit spirit
-hu: Madarasi Birspálinka
-origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-02489
-protected_name_type:en: gi
-#wikidata:en:
-
-< en:Hungarian fruit spirit
-hu: Sárréti kökénypálinka
-origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-02490
-protected_name_type:en: gi
-#wikidata:en:
-
-< en:Hungarian fruit spirit
-hu: Nagykörűi cseresznyepálinka
-origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-02477
-protected_name_type:en: gi
-#wikidata:en:
-
-< en:Hungarian fruit spirit
-hu: Homokháti őszibarack pálinka
-origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-02471
-protected_name_type:en: gi
-#wikidata:en:
-
-< en:Hungarian fruit spirit
-hu: Vasi Vadkörte pálinka
-origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-02408
-protected_name_type:en: gi
-#wikidata:en:
-
-< en:Hungarian fruit spirit
-hu: Újfehértói meggypálinka
-fr: Pálinka de griotte d'Újfehértó
-origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-01829-AM01, PGI-HU-01829
-protected_name_type:en: gi
-wikidata:en: Q428621
-
-< en:Hungarian fruit spirit
-hu: Nagykunsági Birspálinka
-origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-02233
-protected_name_type:en: gi
-#wikidata:en:
-
-< en:Hungarian fruit spirit
-hu: Nagykunsági Szilvapálinka
-origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-02232
-protected_name_type:en: gi
-#wikidata:en:
-
-< en:Hungarian fruit spirit
-hu: Gönci Barackpálinka
-origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-02052
-protected_name_type:en: gi
-wikidata:en: Q1031545
-
-< en:Hungarian fruit spirit
-hu: Szatmári Szilvapálinka
-fr: Pálinka de prune de Szatmár
-origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-02047
-protected_name_type:en: gi
-wikidata:en: Q1295179
-
-< en:Hungarian fruit spirit
-hu: Békési Szilvapálinka
-fr: Pálinka de prune de Békés
-origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-02053
-protected_name_type:en: gi
-wikidata:en: Q731971
-
-< en:Hungarian fruit spirit
-hu: Kecskeméti Barackpálinka
-fr: Pálinka d'abricot de Kecskemét
-origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-02042
-protected_name_type:en: gi
-wikidata:en: Q280303
-
-< en:Hungarian fruit spirit
-hu: Szabolcsi Almapálinka
-fr: Pálinka de pomme de Szabolcs
-origins:en: en:hungary
-protected_name_file_number:en: PGI-HU-02039
-protected_name_type:en: gi
-wikidata:en: Q509042
+hu: Magyar gyümölcspárlatok
 
 < en:Fruit brandy
 en: Italian fruit spirit
+hu: Olasz gyümölcspárlatok
 # disabled for safety: origins:en: en:Italy
 #wikidata:en:
 
@@ -4246,6 +4228,7 @@ protected_name_type:en: gi
 
 < en:Fruit brandy
 en: Romanian fruit spirit
+hu: Romániai gyümölcspárlatok, Román gyümölcspárlatok
 # disabled for safety: origins:en: en:Romania
 #wikidata:en:
 
@@ -4279,6 +4262,7 @@ protected_name_type:en: gi
 
 < en:Fruit brandy
 en: Slovenian fruit spirit
+hu: Szlovén gyümölcspárlatok
 # disabled for safety: origins:en: en:Slovenia
 #wikidata:en:
 
@@ -4319,6 +4303,7 @@ uk: Палінка
 zh: 帕林卡
 wikidata:en: Q782901
 
+< en:Hungarian fruit spirit
 < en:Pálinka
 en: Hungarian Pálinka
 hu: Magyar pálinka
@@ -4330,6 +4315,102 @@ en: Austrian Pálinka
 hu: Osztrák pálinka, Ausztriai pálinka
 origins:en: en:austria
 #wikidata:en:
+
+< en: Hungarian Pálinka
+hu: Madarasi birspálinka
+origins:en: en:hungary
+protected_name_file_number:en: PGI-HU-02489
+protected_name_type:en: gi
+#wikidata:en:
+
+< en: Hungarian Pálinka
+hu: Sárréti kökénypálinka
+origins:en: en:hungary
+protected_name_file_number:en: PGI-HU-02490
+protected_name_type:en: gi
+#wikidata:en:
+
+< en: Hungarian Pálinka
+hu: Nagykörűi cseresznyepálinka
+origins:en: en:hungary
+protected_name_file_number:en: PGI-HU-02477
+protected_name_type:en: gi
+#wikidata:en:
+
+< en: Hungarian Pálinka
+hu: Homokháti őszibarack pálinka
+origins:en: en:hungary
+protected_name_file_number:en: PGI-HU-02471
+protected_name_type:en: gi
+#wikidata:en:
+
+< en: Hungarian Pálinka
+hu: Vasi vadkörte pálinka
+origins:en: en:hungary
+protected_name_file_number:en: PGI-HU-02408
+protected_name_type:en: gi
+#wikidata:en:
+
+< en: Hungarian Pálinka
+hu: Újfehértói meggypálinka
+fr: Pálinka de griotte d'Újfehértó
+origins:en: en:hungary
+protected_name_file_number:en: PGI-HU-01829-AM01, PGI-HU-01829
+protected_name_type:en: gi
+wikidata:en: Q428621
+
+< en: Hungarian Pálinka
+hu: Nagykunsági birspálinka
+origins:en: en:hungary
+protected_name_file_number:en: PGI-HU-02233
+protected_name_type:en: gi
+#wikidata:en:
+
+< en: Hungarian Pálinka
+hu: Nagykunsági szilvapálinka
+origins:en: en:hungary
+protected_name_file_number:en: PGI-HU-02232
+protected_name_type:en: gi
+#wikidata:en:
+
+< en: Hungarian Pálinka
+hu: Gönci barackpálinka
+origins:en: en:hungary
+protected_name_file_number:en: PGI-HU-02052
+protected_name_type:en: gi
+wikidata:en: Q1031545
+
+< en: Hungarian Pálinka
+hu: Szatmári szilvapálinka
+fr: Pálinka de prune de Szatmár
+origins:en: en:hungary
+protected_name_file_number:en: PGI-HU-02047
+protected_name_type:en: gi
+wikidata:en: Q1295179
+
+< en: Hungarian Pálinka
+hu: Békési szilvapálinka
+fr: Pálinka de prune de Békés
+origins:en: en:hungary
+protected_name_file_number:en: PGI-HU-02053
+protected_name_type:en: gi
+wikidata:en: Q731971
+
+< en: Hungarian Pálinka
+hu: Kecskeméti barackpálinka
+fr: Pálinka d'abricot de Kecskemét
+origins:en: en:hungary
+protected_name_file_number:en: PGI-HU-02042
+protected_name_type:en: gi
+wikidata:en: Q280303
+
+< en: Hungarian Pálinka
+hu: Szabolcsi almapálinka
+fr: Pálinka de pomme de Szabolcs
+origins:en: en:hungary
+protected_name_file_number:en: PGI-HU-02039
+protected_name_type:en: gi
+wikidata:en: Q509042
 
 < en:Fruit brandy
 fr: Brandy aux pommes
@@ -4346,6 +4427,7 @@ fr: Brandy au coing, brandies au coing
 
 < en:Fruit brandy
 en: Portuguese fruit spirit
+hu: Portugál gyümölcspárlatok
 
 < en:Portuguese fruit spirit
 en: Medronho
@@ -4379,7 +4461,7 @@ en: Blended whisky
 de: Blended Whisky
 fr: Blended whisky, blend
 hr: Blendirani viski
-hu: Kevert Whisky
+hu: Kevert whisky
 nl: Blended whiskies
 wikidata:en: Q883744
 
@@ -4424,6 +4506,7 @@ es: Whiskies americanos, Whiskys americanos
 fi: Amerikkalaiset viskit, Amerikkalainen viski
 fr: Whisky américain
 hr: Američki viskiji
+hu: Amerikai whiskey
 lt: Amerikietiškas viskis
 nl: Amerikaanse whiskies
 pl: Amerykańskie whisky
@@ -4438,6 +4521,7 @@ es: Bourbons
 fi: Bourbon-viskit, Bourbon-viski
 fr: Bourbons
 hr: Bourbon viskija
+hu: Bourbon whiskey
 nl: Bourbons, Bourbon
 ro: Bourbon
 wikidata:en: Q543127
@@ -4482,6 +4566,7 @@ es: Whiskies escoceses
 fi: skottilainen viski
 fr: Whisky écossais
 hr: Škotski viski
+hu: Skót whiskey
 lt: Škotiškas viskis
 nl: Schotse whiskies, Schotse whisky
 pl: Szkockie whisky
@@ -4512,6 +4597,7 @@ es: Whisky francés
 fi: Ranskalainen viski
 fr: Whisky français
 hr: Francuski viski
+hu: Francia whiskey
 it: Whisky francese
 nl: Franse whiskies
 pt: Whisky francês
@@ -4588,6 +4674,7 @@ es: Whiskies irlandeses
 fi: Irlantilainen viski
 fr: Whisky irlandais
 hr: Irski viski
+hu: Ír whiskey
 nl: Ierse whiskies
 ru: Ирландский виски
 origins:en: en:ireland
@@ -4615,6 +4702,7 @@ en: German Whiskeys, German Whisky, German Whiskey, German Whiskys
 de: Deutsche Whiskys
 fr: Whiskys allemands, Whisky allemand, Whiskey allemand, Whiskeys allemands, Whiskys d’Allemagne, Whisky d’Allemagne, Whiskey d’Allemagne, Whiskeys d’Allemagne
 hr: Njemački viskiji
+hu: Német whiskey
 nl: Duitse whiskies
 wikidata:en: Q5551879
 
@@ -4680,6 +4768,7 @@ en: Calvados
 de: Calvados
 fr: Calvados
 hr: Kalvados
+hu: Calvados
 nl: Calvados
 pl: Calvados
 origins:en: en:france, en:calvados
@@ -4708,6 +4797,7 @@ bg: Коняк
 de: Cognacs
 fr: Cognac
 hr: Konjak
+hu: Cognac, Konyak
 ja: コニャック
 nl: Cognacs, Cognac
 pl: Koniak, Cognac
@@ -5060,7 +5150,7 @@ gl: Ron
 he: רום
 hr: rumovi, rum
 ht: Wonm
-hu: Rum
+hu: Rumok, Rum
 id: Rum
 io: Rumo
 is: Romm
@@ -5109,6 +5199,7 @@ de: Portugiesischer Rum
 es: Rones portugueses
 fr: Rhums portugais
 hr: Portugalski rumovi
+hu: Portugál rumok
 nl: Portugese rum
 pt: Rum português
 #wikidata:en:
@@ -5134,6 +5225,7 @@ en: Cuban rums, Rums from Cuba
 de: Kubanische Rums
 fr: Rhums cubains, Rhum cubain
 hr: Kubanski rumovi
+hu: Kubai rumok
 nl: Cubaanse rums, Rum uit Cuba
 pl: Rum kubański
 ro: Rom cubanez, Rom Cuba
@@ -5146,6 +5238,7 @@ bg: Доминикански ром
 de: Dominikanische Rums
 fr: Rhums dominicains, Rhum dominicain
 hr: Dominikanski rumovi
+hu: Dominikai rumok
 nl: Dominicaanse rums, Dominicaanse rum
 origins:en: en:dominican-republic
 #wikidata:en:
@@ -5156,6 +5249,7 @@ bg: Френски ром
 de: Französische Rums
 fr: Rhums français, Rhum français
 hr: Francuski rumovi
+hu: Francia rumok
 nl: Franse rums, Franse rum
 #wikidata:en:
 
@@ -5226,6 +5320,7 @@ en: Jamaican rum, Rums from Jamaica
 de: Jamaikanische Rums
 fr: Rhums jamaïcains
 hr: Jamajčanski rum
+hu: Jamaicai rumok
 nl: Jamaicaanse rums, Rum uit Jamaica
 ro: Rom jamaican, Rom Jamaica
 # Disabled for safety: origins:en: en:Jamaica
@@ -5258,6 +5353,7 @@ de: Weiße Rums
 fi: vaaleat rommit
 fr: Rhums blancs, rhum blanc
 hr: Bijeli rumovi
+hu: Fehér rum
 nl: Blanke rums, Blanke rum
 pl: Rum biały, Biały rum
 ro: Rom alb
@@ -5268,6 +5364,7 @@ en: Brown rum
 de: Braune Rums
 fr: Rhums bruns, rhum brun
 hr: Smeđi rum
+hu: Barna rum
 nl: Bruine rums, Bruine rum
 pl: Rum brązowy
 #wikidata:en:
@@ -5355,6 +5452,7 @@ es: Vodkas, Vodka
 fi: votka
 fr: Vodkas, Vodka
 hr: Votka
+hu: Vodkák, Vodka
 it: Vodka
 ja: ウォッカ
 lt: Vodka, degtinė
@@ -5375,6 +5473,7 @@ de: Aromatisierter Wodka, Geschmackvoller Wodka
 es: Vodka con sabor, vodka aromatizada
 fr: Vodka aromatisée, vodka parfumée
 hr: Votka s okusom
+hu: Ízesített vodka
 it: Vodka aromatizzato, Vodka con aroma
 #wikidata:en:
 
@@ -5412,6 +5511,7 @@ de: Polnische Wodkas
 fi: Puolalaiset votkat
 fr: Vodkas polonaises
 hr: Poljske votke
+hu: Lengyel vodka
 it: Vodka polacche
 lt: Lenkiška degtinė
 nl: Poolse wodkas, Poolse wodka
@@ -5441,6 +5541,7 @@ de: Russische Wodkas
 fi: Venäläiset votkat
 fr: Vodkas russes
 hr: Ruske votke
+hu: Orosz vodka
 lt: Rusiška degtinė
 nl: Russische wodkas, Russiche wodka
 pl: Rosyjska wódka
@@ -5458,6 +5559,7 @@ de: Ukraninische Wodkas
 fi: Ukrainalaiset votkat
 fr: Vodkas ukrainiennes
 hr: Ukrajinske votke
+hu: Ukrán vodka
 lt: Ukrainietiška degtinė
 nl: Ukraïnse wodkas
 pl: Ukraińska wódka
@@ -5503,6 +5605,7 @@ es: Vodka noruego, Norwegian Vodka
 fi: Norjalainen Vodka, Norwegian Vodka
 fr: Vodka norvégienne, Norwegian Vodka
 hr: Vodka iz Norveške
+hu: Norvég vodka
 it: Vodka norvegese, Norwegian Vodka
 nl: Noorse Vodka, Norwegian Vodka
 no: Norsk Vodka, Norwegian Vodka
@@ -5522,6 +5625,7 @@ de: Tschechische Wodkas
 es: Vodkas checos
 fr: Vodkas tchèques
 hr: Češke votke
+hu: Cseh vodka
 it: Vodka ceca
 lt: Čekų degtinės
 nl: Tsjechische wodkas
@@ -5539,6 +5643,7 @@ protected_name_type:en: gi
 
 < en:Vodka
 fi: Suomalainen Vodka, Finsk Vodka, Vodka of Finland
+hu: Finn vodka
 origins:en: en:finland
 protected_name_file_number:en: PGI-FI-02040
 protected_name_type:en: gi
@@ -5558,6 +5663,7 @@ es: Ginebras
 fi: Ginit, Gini
 fr: Gins, Gin
 hr: Ginovi
+hu: Ginek, Gin
 it: Gin
 ja: ジン
 lt: Džinas, Džinai
@@ -5595,6 +5701,7 @@ es: Bebidas a base de vino
 fi: Viinipohjaiset juomat
 fr: Boissons à base de vin
 hr: Pića na bazi vina
+hu: Boralapú italok
 nl: Dranken op basis van wijn
 agribalyse_food_code:en: 1007
 ciqual_food_code:en: 1007
@@ -5608,6 +5715,7 @@ bg: Вермут
 es: Vermut, Vermú
 fr: Vermouth
 hr: Vermut
+hu: Vermut
 pl: Wermut, Vermouth
 agribalyse_food_code:en: 1007
 ciqual_food_code:en: 1007
@@ -5711,6 +5819,7 @@ es: Sidras
 fi: siiderit
 fr: Cidres, jus de pommes fermenté, Boisson fermentée à base de pommes
 hr: Jabukovače
+hu: Almaborok, Almabor, Cider
 it: Sidri
 ja: シードル, リンゴ酒
 lt: Sidrai, Sidras
@@ -5733,7 +5842,7 @@ de: Craft Cider, Craft Apfelschaumwein, Cidre artisanal
 fi: Artesaanisiiderit
 fr: Cidres artisanaux, Cidre artisanal
 hr: Obrtnički cideri
-hu: Almaborok
+hu: Kézműves almaborok, Kézműves cider
 it: Sidri artigianali, Sidro artigianale
 nl: Ambachtelijke ciders
 
@@ -5900,6 +6009,7 @@ de: Schnäppse, Schnäpse, Schnapps, Schnaps
 fi: Snapsit
 fr: schnaps
 hr: Šnaps
+hu: Snapsz, Schnapps, Schnaps
 it: Schnapps, Schnaps
 ja: シュナップス
 lt: Šnapsas, Šnapsai
@@ -5928,6 +6038,7 @@ eu: Rakia
 fr: Rakija
 he: ראקיה
 hr: Rakija
+hu: Rakija, Raki
 hy: Ռակիա
 id: Rakia
 it: Rakija
@@ -5976,6 +6087,7 @@ ciqual_food_name:fr: Cocktail type punch, 16% alcool
 < en:Alcoholic beverages
 en: Rum-based cocktail
 fr: Cocktail à base de rhum
+hu: Rumalapú koktélok
 nl: Cocktails op basis van rum
 agribalyse_food_code:en: 1012
 ciqual_food_code:en: 1012
@@ -5995,6 +6107,7 @@ eo: Dajkirio
 fa: دایکیری
 fr: daïquiri, daiquiri
 he: דאקירי
+hu: Daiquiri
 ja: ダイキリ
 ka: დაიკირი
 ko: 다이키리
@@ -6021,6 +6134,7 @@ es: Licores, Licor
 fi: liköörit
 fr: Liqueurs, liqueur
 hr: Likeri
+hu: Likőrök, Likőr
 it: Liquori
 ja: リキュール
 lt: Likeris, Likeriai
@@ -6042,6 +6156,7 @@ en: Limoncello
 xx: Limoncello
 bg: Лимончело
 hr: Limunčelo
+hu: Limoncello
 ja: リモンチェッロ
 ko: 리몬첼로
 lt: Limončelas
@@ -6054,6 +6169,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Limoncello
 
 < en:Liqueurs
 en: German liqueurs, German liqueur
+hu: Német likőrök
 
 < en:German liqueur
 de: Bayerischer Blutwurz
@@ -6120,6 +6236,7 @@ protected_name_type:en: gi
 
 < en:Liqueurs
 en: Italian liqueurs, Liqueurs from Italy
+hu: Olasz likőrök
 #wikidata:en:
 
 < en:Italian liqueurs
@@ -6131,6 +6248,7 @@ protected_name_type:en: gi
 
 < en:Liqueurs
 en: Portuguese liqueur, Liqueurs from Portugal
+hu: Portugál likőrök
 #wikidata:en:
 
 < en:Portuguese liqueur
@@ -6147,6 +6265,7 @@ de: Kräuterschnäppse, Kräuterliköre, Kräuterschnaps, Kräuterlikör
 es: Licor de hierbas
 fr: Liqueur herbale
 hr: Biljni liker
+hu: Fűszeres likőr, Gyógynövénylikőr, Kräuterlikör
 it: Liquori alle erbe
 nl: Kruidenlikeur
 wikidata:en: Q1883967
@@ -6162,9 +6281,11 @@ en: Coffee liqueur
 ca: Licor de cafè, Licor cafè
 es: Licor de café, Licor café
 hr: Liker od kave
+hu: Kávélikőr, Kávés likőr
 
 < en:Liqueurs
 en: Croatian liqueur
+hu: Horvát likőr
 #wikidata:en:
 
 < en:Croatian liqueur
@@ -6177,6 +6298,7 @@ protected_name_type:en: gi
 
 < en:Liqueurs
 en: French liqueur, Liqueurs from France
+hu: Francia likőr
 #wikidata:en:
 
 < en:French liqueur
@@ -6196,6 +6318,7 @@ protected_name_type:en: gi
 
 < en:Liqueurs
 en: Italian liqueur
+hu: Olasz likőr
 #wikidata:en:
 
 < en:Italian liqueur
@@ -6238,6 +6361,7 @@ en: Spanish liqueur, Liqueurs from Spain
 es: Licor español
 fr: Liqueurs espagnoles
 hr: Španjolski liker
+hu: Spanyol likőr
 it: Liquore spagnolo
 nl: Spaanse Likeur
 #wikidata:en:
@@ -6328,9 +6452,10 @@ fr: Crèmes de mure
 < en:Liqueurs
 en: Bitter liqueurs
 fr: Liqueurs bitter
+hu: Keserűlikőrök, Keserűlikőr
 
 < en:Liqueurs
-en: Curaçao
+en: Curaçao, Curacao
 xx: Curaçao
 wikidata:en: Q10223
 
@@ -6346,6 +6471,7 @@ fi: Munalikööri
 fr: Liqueur aux œufs, Liqueur aux oeufs
 he: אדבוקט
 hr: Zagovornik
+hu: Tojáslikőr, Advocaat
 ia: Advocaat
 id: Advocaat
 it: Advocaat
@@ -6400,6 +6526,7 @@ protected_name_type:en: gi
 < en:Fruit-based beverages
 en: Still fruit soft drinks, Still fruit soft drink
 fr: Boissons plates aux fruits, Boisson plate aux fruits, Boisson aux fruits plate
+hu: Szénsavmentes gyümölcsös üdítőitalok
 agribalyse_proxy_food_code:en: 18021
 agribalyse_proxy_food_name:en: Fruit soft drink, still (less than 10% of fruit juice), without sugar and with artificial sweetener(s)
 agribalyse_proxy_food_name:fr: Boisson plate aux fruits, (à moins de 10% de jus), non sucrée, avec édulcorants
@@ -6415,6 +6542,7 @@ ciqual_food_name:fr: Boisson plate aux fruits, (à moins de 10% de jus), non suc
 < en:Still fruit soft drinks
 en: Still fruit soft drink with sugar
 fr: Boissons plates aux fruits sucrées, Boisson plate aux fruits sucrée
+hu: Szénsavmentes gyümölcsös cukros üdítőitalok
 agribalyse_food_code:en: 18309
 ciqual_food_code:en: 18309
 ciqual_food_name:en: Fruit soft drink, still (fruit juice content unspecified), with sugar
@@ -6449,6 +6577,7 @@ en: Still soft drinks
 de: Stillgetränke
 es: Bebida gaseosa sin gas
 hr: Bezalkoholno piće
+hu: Szénsavmentes üdítőitalok, Szénsavmentes üdítők
 nl: Koolzuurvrije frisdranken
 
 < en:Beverages
@@ -6487,7 +6616,7 @@ fi: virvoitusjuomat
 fr: Sodas, soda, boissons sucrées gazeuses, boissons gazeuses sucrées
 he: משקאות מוגזים, משקאות קלים
 hr: Zaslađena gazirana pića
-hu: Szódák, Szódavízek, Szíkvízek
+hu: Üdítőitalok, Szénsavas üdítőitalok
 it: Bibite gassate, soft drink
 lt: Gazuoti gaivieji gėrimai
 nl: Frisdranken
@@ -6522,7 +6651,7 @@ es: Bebidas carbonatadas sin jugo de frutas
 fi: Hiilihapotetut virvoitusjuomat ilman hedelmämehua
 fr: Boissons gazeuses sans jus de fruit
 hr: Gazirana pića bez voćnog soka
-hu: Szénsavas üdítőitalok gyümölcslé nélkül
+hu: Gyümölcsmentes szénsavas üdítőitalok, Gyümölcs nélküli szénsavas üdítőitalok
 it: Bibite gassate senza succo di frutta
 ja: 果汁なしの炭酸飲料
 lt: Gazuoti gaivieji gėrimai be vaisių sulčių
@@ -6543,7 +6672,7 @@ es: Bebidas carbonatadas azucaradas sin jugo de frutas
 fi: Sokerilla makeutetut hiilihapotetut juomat ilman hedelmämehua
 fr: Boissons gazeuses sucrées sans jus de fruit
 hr: Gazirana pića s šećerom bez voćnog soka
-hu: Cukros szénsavas üdítőitalok gyümölcslé nélkül
+hu: Cukros gyümölcsmentes szénsavas üdítőitalok, Cukros szénsavas üdítőitalok gyümölcs nélkül
 it: Bibite gassate zuccherate senza succo di frutta
 ja: 果汁なしの炭酸飲料（砂糖入り）
 lt: Gazuoti gaivieji gėrimai su cukrumi be vaisių sulčių
@@ -6597,7 +6726,7 @@ es: Bebida gaseosa de frutas
 fi: Hiilihapotettu hedelmäjuoma
 fr: Boisson gazeuse aux fruits
 hr: Gazirano voćno bezalkoholno piće
-hu: Gyümölcsös szénsavas üdítőital
+hu: Gyümölcsös szénsavas üdítőital, Szénsavas gyümölcsös üdítőital
 it: Bibita gassata ai frutti
 ja: 果実入り炭酸飲料
 lt: Gazuotas vaisių gaivusis gėrimas
@@ -6614,6 +6743,7 @@ agribalyse_proxy_food_code:en: 18019
 < en:Carbonated fruit soft drink
 en: Carbonated fruit soft drink with sugar
 fr: Boisson gazeuse aux fruits sucrée
+hu: Cukros gyümölcsös szénsavas üdítőital
 ciqual_food_code:en: 18048
 ciqual_food_name:en: Fruit soft drink, carbonated (fruit juice content unknown), with sugar
 ciqual_food_name:fr: Boisson gazeuse aux fruits (teneur en jus non spécifiée), sucrée (aliment moyen)
@@ -6665,6 +6795,7 @@ ciqual_food_name:fr: Boisson gazeuse aux fruits (à moins de 10% de jus), non su
 < en:Carbonated drinks
 en: Carbonated soft drinks with tea extract
 fr: Boissons gazeuses au thé aromatisées, Boisson gazeuse au thé aromatisée
+hu: Szénsavas üdítőital teakivonattal
 agribalyse_proxy_food_code:en: 18015
 agribalyse_proxy_food_name:en: Still soft drink with tea extract, with sugar and artificial sweetener(s)
 
@@ -6724,6 +6855,7 @@ fi: dieetti-virvoitusjuomat
 fr: Sodas light, soda light, sodas édulcorés, sodas avec édulcorants, sodas sans sucres, soda sans sucre, soda allégé en sucre, sodas allégés en sucre
 he: משקאות מוגזים דיאטטיים
 hr: Dijetalna gazirana pića
+hu: Diétás üdítőiatlok, Light üdítőiatlok
 it: Bibite gassate dietetiche, Bibite gassate senza zucchero
 lt: Dietiniai gaivieji gėrimai
 nl: Light frisdranken
@@ -6736,6 +6868,7 @@ de: Kalorienarme Orangenlimonaden, Kalorienreduzierte Orangenlimonaden
 fi: Kevytappelsiinivirvoitusjuomat
 fr: Sodas à l'orange light, soda à l'orange light, soda à la pulpe d'orange light, sodas à la pulpe d'orange light
 hr: Svijetlonarančasta bezalkoholna pića
+hu: Diétás narancsos üdítőiatlok, Light narancsos üdítőiatlok
 it: Aranciate light, Aranciate dietetiche, Bibite gassate dietetiche all'arancia, Bibite gassate dietetiche al gusto di arancia
 nl: Light sinaasappelfrisdranken
 
@@ -6745,6 +6878,7 @@ en: Light lemon soft drinks
 de: Kalorienarme Zitronenlimonaden, Kalorienreduzierte Zitronenlimonaden
 fr: Sodas au citron light, soda au citron light
 hr: Lagana bezalkoholna pića s limunom
+hu: Diétás citromos üdítőiatlok, Light citromos üdítőiatlok
 it: Bibite gassate dietetiche al limone, Bibite gassate dietetiche al gusto di limone
 nl: Light citroenfrisdanken
 
@@ -6756,7 +6890,7 @@ es: Sodas a base de frutas
 fi: Hedelmävirvoitusjuomat
 fr: Sodas aux fruits
 hr: Voćno gazirano piće
-hu: Szénsavas gyümölcs ital, gyümölcs fröccs
+hu: Szénsavas gyümölcsitalok
 it: Bibite gassate alla frutta, Bibite gassate al gusto di frutta
 lt: Vaisiniai gaivieji gėrimai
 nl: Vruchtenfrisdranken
@@ -6772,6 +6906,7 @@ de: Kalorienarme Fruchtlimonaden, Kalorienreduzierte Fruchtlimonaden
 fi: Kevyet hedelmävirvoitusjuomat
 fr: Sodas aux fruits light, soda aux fruits light
 hr: Lagano voćno gazirano piće
+hu: Diétás szénsavas gyümölcsitalok
 it: Bibite gassate dietetiche alla frutta, Bibite gassate dietetiche al gusto di frutta
 lt: Lengvieji vaisiniai gaivieji gėrimai
 nl: Light vruchtenfrisdranken
@@ -6784,6 +6919,7 @@ es: Bebida de cola light
 fi: Dieettikola
 fr: Sodas au cola light, colas light, cola light, Cola non sucré avec édulcorants
 hr: Dijetalno bezalkoholno piće kola
+hu: Diétás kóla, Diétás cola, Cola light
 it: Cole dietetiche, Bibite gassate dietetiche al gusto di cola, Cola dietetica, Cola light, Cole light
 ja: ダイエットコーラ
 lt: Dietinė kola, Kola be cukraus
@@ -6820,6 +6956,7 @@ de: Apfellimonaden
 es: Sodas a base de manzana, Sodas de manzana
 fr: Sodas à la pomme, sodas aux pommes, soda à la pomme
 hr: Bezalkoholna pića od jabuke
+hu: Almás üdítőiatlok, Alma üdítők
 it: Bibite gassate alla mela, Bibite gassate al gusto di mela
 lt: Obuolių gaivieji gėrimai, Gazuotas obuolių gaivusis gėrimas
 nl: Appelfrisdranken
@@ -6837,6 +6974,7 @@ es: Sodas a base de limón, Sodas de limón
 fi: Sitruunavirvoitusjuomat
 fr: Sodas au citron, soda citron, soda au citron
 hr: Bezalkoholna pića s limunom
+hu: Citromos üdítőiatlok
 it: Bibite gassate al limone, Bibite gassate al gusto di limone
 lt: Citrinų gaivieji gėrimai, Gazuotas citrinų gaivusis gėrimas
 nl: Citroenfrisdranken
@@ -6859,6 +6997,7 @@ en: Sodas with exotic fruits
 de: Exotische Fruchtlimonaden
 fr: Sodas aux fruits exotiques, soda aux fruits exotiques
 hr: Gazirana pića s egzotičnim voćem
+hu: Déli gyümölcsös üdítőiatlok, Üdítőitalok déli gyümölcsökkel, Egzotikus gyümölcsös üdítőiatlok, Üdítőitalok egzotikus gyümölcsökkel
 it: Bibite gassate alla frutta esotica, Bibite gassate al gusto di frutta esotica, Bibite gassate alla frutta tropicale, Bibite gassate al gusto di frutta tropicale
 lt: Topinių vaisių gaivieji gėrimai, Gazuotas tropinių vaisių gaivusis gėrimas
 nl: Exotische vruchtenfrisdranken
@@ -6900,6 +7039,7 @@ bg: Енергийна напитка със захар
 de: Energydrink mit Zucker
 fr: Boisson énergisante sucrée
 hr: Energetsko piće sa šećerom
+hu: Cukros energiaitalok
 lt: energetinis gėrimas su cukrumi, energetiniai gėrimai su cukrumi
 nl: Energiedranken met suiker
 pl: Napoje energetyczne z cukrem, Napoje energetyzujące z cukrem, Napój energetyczny z cukrem
@@ -6913,6 +7053,7 @@ en: Energy drink without sugar and with artificial sweeteners
 bg: Енергийна напитка без захар и с изкуствени подсладители
 fr: Boisson énergisante non sucrée avec édulcorants
 hr: Energetski napitak bez šećera i s umjetnim sladilima
+hu: Mesterséges édesítőszer nélküli cukormentes energiaitalok
 lt: Energetinis gėrimas be cukraus ir su dirbtiniais saldikliais
 nl: Energiedranken zonder suiker met artificiële zoetstoffen
 pl: Napój energetyczny bez cukru i ze sztucznymi słodzikami
@@ -6949,7 +7090,7 @@ ga: Líomanáid Dhearg
 gl: Limoada
 he: לימונדה
 hr: limunade, limunada
-hu: limonádé
+hu: Limonádék, Limonádé
 hy: Լիմոնադ
 id: Limun
 io: Limonado
@@ -7007,6 +7148,7 @@ bg: Лимонада със захар
 fi: Sokerinen limonadi
 fr: Limonade sucrée
 hr: Limunada sa šećerom
+hu: Cukros limonádék
 lt: Limonadas su cukrumi
 nl: Limonade met suiker
 agribalyse_food_code:en: 18010
@@ -7019,6 +7161,7 @@ en: Lemonade with sugar and artificial sweeteners
 bg: Лимонада със захар и изкуствени подсладители
 fr: Limonade sucrée avec édulcorants
 hr: Limunada sa šećerom i umjetnim sladilima
+hu: Cukros limonádék mesterséges édesítőszerrel
 lt: Limonadas su cukrumi ir dirbtiniais saldikliais
 nl: Limonade met suiker en artificiële zoetstoffen
 agribalyse_food_code:en: 18016
@@ -7030,6 +7173,7 @@ ciqual_food_name:fr: Limonade, sucrée, avec édulcorants
 en: Lemonade without sugar with artificial sweeteners
 fr: Limonade non sucrée avec édulcorants
 hr: Limunada bez šećera s umjetnim sladilima
+hu: Cukormentes limonádék mesterséges édesítőszerrel
 lt: Limonadas be cukraus su dirbtiniais saldikliais
 nl: Limonade zonder suiker met artificiële zoetstoffen
 agribalyse_food_code:en: 18035
@@ -7069,7 +7213,7 @@ fi: Kolajuomat, Kolat
 fr: Sodas au cola, soda au cola, colas, sodas colas
 he: קולה
 hr: Kola kola
-hu: Kólák
+hu: Kólák, Colák
 it: Cola, Cole, Bibite gassate al gusto di cola
 ja: コーラ
 lt: Kola, Kolos
@@ -7096,6 +7240,7 @@ de: Cola mit Zucker
 es: Cola con azúcar
 fr: Cola sucré
 hr: Kola sa šećerom
+hu: Cukros kólák, Kóla cukorral
 it: Cola con zucchero
 lt: Kola su cukrumi
 nl: Cola met suiker
@@ -7112,6 +7257,7 @@ de: Cola mit Zucker und künstlichen Süßstoffen
 es: Cola con azúcar y edulcorantes artificiales
 fr: Cola sucré avec édulcorants
 hr: Cola sa šećerom i umjetnim sladilom
+hu: Cukros kólák mesterséges édesítőszerrel
 it: Cola con zucchero e dolcificante artificiale
 lt: Kola su cukrumi ir dirbtiniais saldikliais
 nl: Cola met suiker en artificiële zoetstoffen
@@ -7154,7 +7300,7 @@ fi: Sokerilla makeutettu kofeiiniton cola
 fr: Cola sucré sans caféine
 he: קולה עם סוכר ובלי קפאין
 hr: Cola sa šećerom i bez kofeina
-hu: Cukorral és koffein nélkül készült kóla
+hu: Koffeinmentes cukros kólák, Cukros koffeinmentes kólák
 it: Cola con zucchero e senza caffeina
 lt: Kola su cukrumi ir be kofeino
 nl: Cola met suiker en zonder cafeïne
@@ -7204,6 +7350,7 @@ es: Agua de coco
 fi: kookosvedet
 fr: Eaux de coco, Eau de coco, Eaux de noix de coco, Eau de noix de coco
 hr: Kokosove vode
+hu: Kókuszvizek, Kókuszvíz
 it: Acqua di cocco
 ja: ココナッツウォーター
 lt: Kokosų vanduo
@@ -7229,7 +7376,7 @@ fi: mehut ja nektarit
 fr: Jus et nectars
 he: מיצים ונקטרים
 hr: sokovi i nektari
-hu: Levek és nektárok
+hu: Levek és nektárok, Dzsúszok és nektárok
 it: Succo e nettare
 lt: Sultys ir nektarai
 nl: Sappen en Nectars
@@ -7246,6 +7393,7 @@ es: Zumos de fruta y verdura
 fi: Hedelmä- ja vihannesmehut
 fr: Jus de fruits et légumes
 hr: Sokovi od voća i povrća
+hu: Gyümölcslevek és zöldséglevek, Gyümölcslé és zöldésglé
 it: Succhi di frutta e di verdura
 lt: Vaisių ir daržovių sultys
 nl: Fruit- en groentesappen
@@ -7262,7 +7410,7 @@ fi: hedelmäpohjaiset juomat
 fr: Boissons aux fruits
 he: משקאות מבוססי פירות
 hr: Pića na bazi voća
-hu: Gyümölcsalapú italok, Gyümölcs italok
+hu: Gyümölcsalapú italok, Gyümölcsitalok
 it: Bevande a base di frutta
 lt: Vaisiniai gėrimai
 nl: Vruchtendranken
@@ -7285,6 +7433,7 @@ de: Aloe Vera Saften
 es: Bebidas de aloe vera, Bebidas de áloe vera, Bebidas de áloe
 fr: Boissons à l'aloe-vera
 hr: Napitci od aloe vere
+hu: Aloe Vera italok
 it: Bevande all'Aloe Vera
 lt: Aloe Vera gėrimai
 nl: Aloe Vera sappen
@@ -7293,6 +7442,7 @@ pl: Napoje z aloesem, Napoje aloesowe
 
 < en: Fruit and vegetable juices
 en: Ginger juices
+hu: Gyömbérlevek, Gyömbérlé
 nl: Gembersappen
 
 < en:Fruit-based beverages
@@ -7303,7 +7453,7 @@ es: Bebidas con naranja
 fi: appelsiinijuomat
 fr: Boissons à l'orange
 hr: Pića s narančom
-hu: Narancs alapú italok
+hu: Narancsos italok, Narancsalapú italok
 it: Aranciata, Bevande all'arancia
 lt: Apelsinų skonio gėrimai
 nl: Sinaasappeldranken, Dranken met sinaasappel
@@ -7317,6 +7467,7 @@ de: Cranberry Getränke
 es: Bebidas con arándanos
 fr: Boissons à la canneberge
 hr: Napitci s brusnicom
+hu: Vörösáfonyás italok
 it: Bevande all'ossicocco, Bevande al cranberry
 lt: Spanguolių skonio gėrimai
 nl: Dranken met veenbessensmaak, Veenbessendranken
@@ -7330,6 +7481,7 @@ es: Bebidas de fruta y leche
 fi: Mehu-maitojuomat
 fr: Boissons au fruit et au lait, Boissons au lait et au jus de fruits, jus de fruits au lait, jus de fruits lactés, Boissons au jus de fruit et au lait
 hr: Voćni i mliječni napici
+hu: Gyümölcs- és tejitalok, Tejes gyümölcslevek
 lt: Vaisiniai ir pieniniai gėrimai, Vaisių ir pieno sultys, Pieniniai ir vaisiniai gėrimai, Vaisių sultys su pienu
 nl: Fruit- en melksappen
 agribalyse_food_code:en: 18343
@@ -7342,12 +7494,14 @@ ciqual_food_name:fr: Boisson au jus de fruit et au lait
 en: Fruit and plant-milk beverages
 fr: Boissons aux fruits et au lait végetal
 hr: Voćni i biljno-mliječni napici
+hu: Gyümölcs- és növényi italok
 nl: Plantaardige fruitdranken
 
 < en:Fruit and plant-milk beverages
 < en:Oat milks
 en: Fruit and oat beverages
 fr: Boissons aux fruits et à l'avoine
+hu: Gyümölcs- és zabitalok
 
 < en:Fruit and plant-milk beverages
 < en:Soy milks
@@ -7357,6 +7511,7 @@ es: Bebidas a base de zumo de frutas y soja, Bebidas de zumo de frutas y soja
 fi: soijamehujuomat
 fr: Boissons aux fruits et au soja, Boissons à base de jus de fruits et de soja, Boissons au soja et jus de fruits concentrés
 hr: Voćni i sojini napici
+hu: Gyümölcs- és szójaitalok
 lt: Vaisių ir sojos gėrimai, sojų gėrimai su koncentruotomis vaisių sultimis
 nl: Vruchten- en sojadranken, Vruchten- en sojadrank
 ciqual_food_code:en: 29209
@@ -7372,7 +7527,7 @@ es: Smoothies
 fi: smoothiet
 fr: Smoothies
 hr: Smoothieji
-hu: Gyümölcsturmixok
+hu: Smoothie-k, Smoothie
 it: Frappè, Milkshake, Smoothie
 ja: スムージー
 lt: Glotnučiai
@@ -7394,6 +7549,7 @@ es: Smoothies de fruta, Batidos de fruta
 fi: hedelmäsmoothiet
 fr: Smoothies aux fruits
 hr: Voćni smoothie
+hu: Gyümölcsturmixok, Gyümölcsös smoothie
 it: Frappè alla frutta, Milkshake alla frutta, Smoothie alla frutta
 lt: Vaisių glotnutis, vaisinis glotnutis
 nl: Fruitsmoothies
@@ -7417,7 +7573,7 @@ fi: Hedelmämehut
 fr: Jus de fruits, jus de fruit
 he: מיצי פירות
 hr: voćni sokovi, sokovi, sok
-hu: Gyümölcslevek és nektárok
+hu: Gyümölcslevek, Gyümölcslé, Gyümölcs dzsúsz
 it: Succhi di frutta
 lt: Vaisių sultys, sultys iš 100% vaisių
 nl: Vruchtensappen, Fruitsappen
@@ -7465,7 +7621,7 @@ fi: omenamehut
 fr: Jus de pomme, jus de pommes
 he: מיצי תפוחים
 hr: Sokovi od jabuke
-hu: Alma levek
+hu: Almalevek, Almalé
 it: Succo di mela, Spremuta di mela
 ja: リンゴジュース, りんごジュース, アップルジュース, アップル・ジュース
 lt: Obuolių sultys
@@ -7489,7 +7645,7 @@ de: Clementinensäfte
 fi: Klementiinimehut
 fr: Jus de clémentine, jus de clémentines
 hr: Sokovi od klementine
-hu: Clementine gyümölcslevek
+hu: Klementinlevek, Klementinlé
 it: Succo di mandarancio, Succo di clementina
 lt: Klementinų sultys
 nl: Clementinesappen, Clementinesap
@@ -7509,6 +7665,7 @@ bg: Сок от лайм
 de: Limettensaften, Limettensäfte
 fr: Jus de citron vert
 hr: Sokovi od limete
+hu: Limelé
 ja: ライムジュース, ライム・ジュース
 lt: Žaliųjų citrinų sultys
 nl: Limoensappen
@@ -7529,6 +7686,7 @@ wikidata:en: Q5361217
 < en:Lime juices
 en: Squeezed lime juices, Pure lime juices
 fr: Jus de citron vert pur jus
+hu: Facsart limelé, Préselt limelé
 ciqual_food_code:en: 2031
 ciqual_food_name:en: Lime juice, pure juice
 ciqual_food_name:fr: Jus de citron vert, pur jus
@@ -7584,6 +7742,7 @@ ciqual_food_name:fr: Jus de citron, maison
 en: Squeezed lemon juices, Pure lemon juice
 fr: Jus de citron pur jus
 hr: Iscijeđeni limunovi sokovi
+hu: Facsart citromlé, Préselt citromlé
 pl: Wyciskane soki cytrynowe
 agribalyse_food_code:en: 2028
 ciqual_food_code:en: 2028
@@ -7599,6 +7758,7 @@ es: Zumos de manzana procedentes de concentrado
 fi: omenamehutiivisteet
 fr: Jus de pomme à base de concentré, jus de pomme à base de jus concentré
 hr: Jabučni sokovi iz koncentrata
+hu: Almalé koncentrátumból, Almalé sűrítményből
 it: Succo di mela da concentrato
 lt: Koncentruotos obuolių sultys, Obuolių sultys iš koncentrato
 nl: Appelsappen op basis van concentraat, Appelsappen uit concentraat
@@ -7646,6 +7806,7 @@ es: Zumos de manzana exprimidos no refrigerados, Zumos de manzana exprimidos, Zu
 fi: puristetut omenamehut
 fr: Jus de pommes pur jus, jus de pomme pur jus, jus de pommes 100% pur jus, jus de pomme 100% pur jus, pur jus de pomme, pur jus de pommes
 hr: Cijeđeni sokovi od jabuka
+hu: Préselt almalevek
 lt: Išspaustų obuolių sultys, presuotų obuolių sultys, Grynos obuolių sultys
 nl: Appelsappen (puur), Pure appelsappen
 pl: Wyciskane soki jabłkowe, Tłoczony sok jabłkowy
@@ -7692,6 +7853,7 @@ es: Zumos de arándanos, Zumos de arándano
 fi: Mustikkamehut
 fr: Jus de myrtilles
 hr: Sokovi od borovnice
+hu: Áfonyalevek
 it: Succo di mirtillo
 ja: ブルーベリージュース
 lt: Mėlynių sultys
@@ -7730,7 +7892,7 @@ fi: Mehutiivisteet
 fr: Jus de fruits à base de concentré, jus de fruit à base de concentré, jus de fruits à base de concentrés
 he: מיצי פירות מרוכזים, מיצי פירות מרוכזים, תרכיזי פירות, תרכיזי פרות, תרכיזים מפירות, מיצים מרוכזים מפירות
 hr: Voćni sokovi iz koncentrata
-hu: Gyümölcslé koncentrátumok
+hu: Gyümölcslevek sűrítményből, Gyümölcslé sűrítményből, Gyümölcslé koncentrátumból
 it: Succo di frutta da concentrato
 lt: Koncentruotos vaisių sultys, Vaisių sultys iš koncentrato
 nl: Vruchtensappen op basis van concentraat, Vruchtensap op basis van concentraat
@@ -7752,6 +7914,7 @@ es: Zumos de uva, Zumos de uvas
 fi: rypälemehut
 fr: Jus de raisin, jus de raisins
 hr: Sokovi od grožđa
+hu: Szőlőlé
 it: Succo di uva
 ja: ブドウジュース, ぶどうジュース, グレープジュース
 lt: Vynuogių sultys
@@ -7767,6 +7930,7 @@ de: Traubendirektsäfte
 es: Zumos de uva exprimidos no refrigerados, Zumos de uva exprimidos, Zumos de uva exprimidos ambiente
 fr: Jus de raisin pur jus
 hr: Cijeđeni sokovi od grožđa
+hu: Préselt szőlőlé
 lt: Grynos vynuogių sultys, Spaustų vynuogių sultys
 nl: Pure Druivensappen, Pure Druivensap
 agribalyse_food_code:en: 2016
@@ -7781,6 +7945,7 @@ de: Traubensäfte aus Konzentrat, Traubensaft aus Konzentrat
 es: Zumos de uva procedente de concentrado
 fr: Jus de raisin à base de concentré, Jus de raisins à base de concentré
 hr: Sokovi od grožđa iz koncentrata
+hu: Szőlőlé koncentrátumból, Szőlőlé sűrítményből
 it: Succo di uva da concentrato
 lt: Koncentruotos vynuogių sultys, Vynuogių sultys iš koncentrato
 nl: Druivensappen uit concentraat, Druivensap uit concentraat
@@ -7794,6 +7959,7 @@ de: Rotweinsäfte
 es: Zumos de uva roja
 fr: Jus de raisin rouge
 hr: Sokovi od crvenog grožđa
+hu: Kékszőlőlé
 nl: Rode druivensappen
 
 < en:Grape juices
@@ -7804,6 +7970,7 @@ es: Zumos de uva blanca
 fi: Valkoiset rypälemehut
 fr: Jus de raisin blanc
 hr: Sokovi od bijelog grožđa
+hu: Fehérszőlőlé
 it: Succo di uva bianca
 ja: 白ぶどうジュース
 lt: Baltų vynuogių sultys
@@ -7819,6 +7986,7 @@ es: Zumos de pomelo, zumos de toronja
 fi: greippimehut
 fr: Jus de pamplemousse, jus de pamplemousses
 hr: Sokovi od grejpa
+hu: Grépfrútlevek, Grépfrútlé, Grapefruitlé
 it: Succo di pompelmo
 ja: グレープフルーツジュース
 lt: Greipfrutų sultys
@@ -7834,6 +8002,7 @@ de: Grapefruitsäfte aus Konzentrat
 es: Zumos de pomelo procedente de concentrado
 fr: Jus de pamplemousse à base de concentré, jus de pamplemousses à base de concentré, jus de pamplemousse à base de jus concentré
 hr: Sokovi od grejpa iz koncentrata
+hu: Grépfrútlé koncentrátumból, Grépfrútlé sűrítményből
 it: Succhi d'uva concentrati
 lt: Koncentruotos greipfrutų sultys, Greipfrutų sultys iš koncentrato
 nl: Grapefruitsappen uit concentraat, Grapefruitsap uit concentraat
@@ -7849,6 +8018,7 @@ de: Gekühlte Grapefruitdirektsäfte, Frische Grapefruitdirektsäfte
 es: Zumos de pomelo exprimido refrigerados
 fr: Jus de pamplemousse frais, Jus de pamplemousses frais
 hr: Svježi sok od grejpa
+hu: Friss grépfrútlé
 lt: Šaltai laikomos spaustos sultys
 nl: Verse grapefruitsappen, Verse grapefruitsap
 agribalyse_food_code:en: 2027
@@ -7874,6 +8044,7 @@ es: Zumos de pomelo exprimidos no refrigerados, Zumos de pomelo exprimido, Zumos
 fi: puristetut greippimehut
 fr: Jus de pamplemousse pur jus, jus de pamplemousse 100% pur jus, Jus de pamplemousses 100% pur jus, 100% pur jus de pamplemousses
 hr: Cijeđeni sokovi od grejpa
+hu: Préselt grépfrútlé
 it: Spremuta di pompelmo
 lt: Spaustos greipfrutų sultys
 ciqual_food_code:en: 2027
@@ -7930,6 +8101,7 @@ es: Zumos multifruta, Zumos multifrutas
 fi: Monihedelmämehut
 fr: Jus multifruits, Jus multifruit
 hr: Multivoćni sokovi
+hu: Vegyes gyümölcslevek, Vegyes gyümölcslé, Multivitamin levek
 it: Succhi multifrutta
 lt: Įvairių vaisių sultys
 nl: Multi-vruchtensappen, Multi-vruchtensap
@@ -7967,6 +8139,7 @@ es: Zumos multifruta procedente de concentrado
 fi: tiivistetyt monihedelmämehut
 fr: Jus multifruits à base de concentrés, jus multifruits à base de jus concentré, Jus multifruit à base de concentré
 hr: Multivoćni sokovi iz koncentrata
+hu: Vegyes gyümölcslevek koncentrátumból, Vegyes gyümölcslé koncentrátumból, Vegyes gyümölcslé sűrítményből
 it: Succhi di frutta concentrati, Succhi multifrutti congelati
 lt: Koncentruotos įvairių vaisių sultys, Įvairių vaisių sultys iš koncentrato, Įvairių vaisių sultys iš koncentrato su multivitaminais
 nl: Multivruchtensappen uit concentraat, Multivruchtensap uit concentraat
@@ -7982,6 +8155,7 @@ es: Zumos multifruta exprimidos no refrigerados, Zumos multifruta exprimidos, Zu
 fi: puristetut monihedelmämehut
 fr: Jus multifruits pur jus
 hr: Cijeđeni sokovi od više voća
+hu: Préselt vegyes gyümöcslevek, Facsart vegyes gyümölcslevek
 nl: Verse Multivruchtensappen, Verse Multivruchtensap
 agribalyse_food_code:en: 2035
 ciqual_food_code:en: 2035
@@ -8015,7 +8189,7 @@ fi: appelsiinimehut
 fr: Jus d'orange, jus d'oranges
 he: מיצי תפוזים
 hr: Sokovi od naranče
-hu: Narancslék
+hu: Narancslevek, Narancslé, Narancsdzsúsz
 it: Succo di arancia, Succo d'arancia
 ja: オレンジジュース
 lt: Apelsinų sultys, sultys iš apelsinų
@@ -8055,6 +8229,7 @@ es: Zumos de naranja exprimidos no refrigerados, Zumos de naranja exprimidos, Zu
 fi: puristetut appelsiinimehut
 fr: Jus d'orange pur jus, jus d'orange 100% pur jus, Jus d'oranges 100% pur jus, 100% pur jus d'oranges, pur jus d'orange
 hr: Cijeđeni sokovi od naranče
+hu: Facsart narancslevek, Préselt narancslevek
 nl: Vers geperste sinaasappelsappen, Vers geperst sinaasappelsap
 pt: Sumos de laranja espremida
 ciqual_food_code:en: 2070
@@ -8080,6 +8255,7 @@ es: Zumos de naranja procedente de concentrado
 fi: appelsiinimehutiivisteet
 fr: Jus d'orange à base de concentré
 hr: Narančin sok iz koncentrata
+hu: Narancslé sűrítményből, Narancslé koncentrátumból
 it: Succo di arancia da concentrato
 lt: Koncentruotos apelsinų sultys, Apelsinų sultys iš koncentrato
 nl: Sinaasappelsappen uit concentraat, Sinaasappelsap uit concentraat
@@ -8110,6 +8286,7 @@ en: Blood orange juices
 de: Blutorangensäfte
 fr: Jus d'orange sanguine, jus d'oranges sanguines
 hr: Sokovi od crvene naranče
+hu: Vérnarancslé
 it: Succo di arancia rossa, succo di arance rosse, Spremuta di arance rosse
 lt: Raudonųjų aplesinų sultys
 nl: Bloedsinaasappelsappen, Bloedsinaasappelsap
@@ -8122,6 +8299,7 @@ es: Zumos de melocotón
 fi: Persikkamehut
 fr: Jus de pêche, jus de pêches
 hr: Sokovi od breskve
+hu: Őszibaracklevek, Őszibaracklé
 it: Succo di pesca
 ja: 桃ジュース
 lt: Persikų sultys
@@ -8143,7 +8321,7 @@ fi: Persikkamehutiivisteet
 fr: Jus de pêche à base de concentré, jus de pêches à base de concentré
 he: מיצי דלעת מרכזיים
 hr: Sokovi breskve iz koncentrata
-hu: Őszibaracklé
+hu: Őszibaracklé koncentrátumból, Őszibaracklé sűrítményből
 it: Succo di pesca da concentrato
 ja: 桃ジュース（濃縮還元）
 lt: Koncentruotos persikų sultys, Persikų sultys iš koncentrato
@@ -8163,6 +8341,7 @@ es: Zumos de pera, Zumos de peras
 fi: päärynämehut
 fr: Jus de poire, jus de poires
 hr: Sokovi od kruške
+hu: Körtelé, Körtelevek
 it: Succo di pera
 ja: 梨ジュース
 lt: Kriaušių sultys
@@ -8179,6 +8358,7 @@ de: Birnensäfte aus Konzentrat
 es: Zumos de pera procedente de concentrado
 fr: Jus de poire à base de concentré, jus de poires à base de concentré
 hr: Sokovi od krušaka iz koncentrata
+hu: Körtelé koncentrátumból, Körtelé sűrítményből
 it: Succo di pera da concentrato
 lt: Koncentruotos kriaušių sultys, Kriaušių sultys iš koncentrato
 nl: Perensappen uit concentraat, Perensap uit concentraat
@@ -8191,6 +8371,7 @@ de: Birnendirektsäfte
 es: Zumos de pera exprimidos no refrigerados, Zumos de pera exprimidos, Zumos de pera exprimidos ambiente
 fr: Jus de poire pur jus
 hr: Cijeđene sokove od krušaka
+hu: Préselt körtelé
 nl: Verse perensappen, Verse perensap
 
 < en:Fruit juices
@@ -8200,6 +8381,7 @@ de: Erdbeersäfte, Erdbeersaft
 es: Zumos de fresa
 fr: Jus de fraise
 hr: Sok od jagoda
+hu: Eperlevek, Eperlé
 ja: イチゴジュース, いちごジュース
 lt: Braškių sultys
 nl: Aardbeiensappen, Aardbeiensap
@@ -8214,6 +8396,7 @@ es: Jugo de arándano
 fi: karpalomehu
 fr: Jus de canneberge, Jus de cranberry
 hr: Sokovi od brusnice
+hu: Vörösáfonyalevek, Vörösáfonyalé
 it: Succo di mirtillo rosso
 ja: クランベリージュース
 lt: Spanguolių sultys
@@ -8247,6 +8430,7 @@ de: Ananassäfte aus Konzentrat
 es: Zumos de piña procedente de concentrado
 fr: Jus d'ananas à base de concentré
 hr: Ananas iz koncentrata
+hu: Ananászlé koncentrátumból
 it: Succo di ananas da concentrato
 lt: Koncentruotos ananasų sultys, Ananasų sultys iš koncentrato
 nl: Ananassappen uit concentraat, Ananassap uit concentraat
@@ -8263,6 +8447,7 @@ es: Zumos de piña exprimidos no refrigerados, Zumos de piña exprimidos, Zumos 
 fi: puristetut ananasmehut
 fr: Jus d'ananas pur jus, pur jus d'ananas
 hr: Cijeđeni sokovi od ananasa
+hu: Préselt ananászlevek
 lt: Išspaustų ananasų sultys
 nl: Vers geperste ananassappen, Vers geperst ananassap
 agribalyse_food_code:en: 2073
@@ -8295,6 +8480,7 @@ es: Zumos de ciruela
 fi: luumumehu
 fr: Jus de pruneaux, Jus de prune, jus de prunes
 hr: Sokovi od suhih šljiva
+hu: Szilvalevek, Szilvalé
 it: Succo di prugna
 ja: プルーンジュース
 lt: Slyvų sultys, Džiovintų slyvų sultys
@@ -8337,6 +8523,7 @@ es: Zumos de granada
 fi: Granaattiomenamehu
 fr: Jus de grenade, jus de grenades
 hr: Sokovi od nara
+hu: Gránátalmalé
 it: Succo di melograno
 ja: ザクロジュース
 lt: Granatų sultys, Granatų vaisių sultys
@@ -8386,6 +8573,7 @@ es: Zumos exprimidos refrigerados
 fi: jäähdytetyt puristetut mehut
 fr: Jus de fruits frais
 hr: Ohlađeni cijeđeni sokovi
+hu: Hidegen préselt gyümölcslevek
 lt: Šviežių vaisių sultys
 nl: Gekoelde verse vruchtensappen, Gekoelde verse vruchtensap
 gpc_category_code:en: 10000219
@@ -8403,7 +8591,7 @@ fi: puristetut mehut
 fr: Jus de fruits pur jus, jus de fruits 100% pur jus, jus de fruit 100% pur jus, jus de fruit pur jus, pur jus de fruits
 he: מיצים סחוטים
 hr: Cijeđeni sokovi
-hu: Préselt gyümöcslevek
+hu: Préselt gyümöcslevek, Facsart gyümölcslevek, Préselt gyümölcslé
 lt: Grynos vaisių sultys, spaustos sultys
 nl: Verse ongekoelde vruchtensappen, Verse ongekoelde vruchtensap
 pl: Świeżo wyciskane soki
@@ -8422,6 +8610,7 @@ de: Mandarinensäfte
 es: Zumos de mandarina
 fr: Jus de mandarine, jus de mandarines
 hr: Sokovi od mandarina
+hu: Mandarinlevek, Mandarinlé
 lt: Mandarinų sultys
 nl: Mandarijnensappen, Mandarijnensap
 ro: Suc de mandarine, Suc cu mandarine
@@ -8435,6 +8624,7 @@ de: Mandarinensäfte aus Konzentrat
 es: Zumos de mandarina procedente de concentrado, Zumos de clementina procedente de concentrado
 fr: Jus de mandarine à base de concentré
 hr: Sokovi mandarina iz koncentrata
+hu: Mandarinlé koncentrátumból
 lt: Koncentruotos mandarinų sultys, Mandarinų sultys iš koncentrato
 nl: Manderijnensappen uit concentraat, Manderijnensap uit concentraat
 
@@ -8465,6 +8655,7 @@ de: Getränke aus entzuckerten Fruchtsäften
 es: Bebidas a base de jugos de frutas sin azúcar
 fr: Boissons à base de jus de fruits désucrés
 hr: Napitci od voćnih sokova bez šećera
+hu: Cukormentesített gyümölcslevekből készült italok
 it: Bevande a base di succhi di frutta senza zucchero
 nl: Dranken op basis van ongezoete vruchtensappen
 
@@ -8479,7 +8670,7 @@ fi: Hedelmänektarit
 fr: Nectars de fruits, nectar de fruits, nectars, nectar
 he: נקטר פירות
 hr: Voćni nektari
-hu: Gyümölcslevek
+hu: Gyümölcsnektárok, Gyümölcsnektár, Nektár
 it: Nettare di frutta
 ja: 果肉飲料
 lt: Vaisių nektarai, Nektarai
@@ -8505,6 +8696,7 @@ de: Gekühlte Fruchtnektare
 es: Néctares de frutas refrigerados
 fr: Nectars de fruits réfrigérés
 hr: Rashlađeni voćni nektari
+hu: Hűtött gyümölcsnektárok
 lt: Šaldytos vaisių nektarai
 nl: Gekoelde vruchtennectars
 ro: Nectare de fructe refrigerate
@@ -8522,6 +8714,7 @@ fi: omenanektarit
 fr: Nectars de pomme, nectar de pommes, nectar de pomme, nectar pomme, nectars pomme
 he: מיץ תפוחים, נקטר תפוחים
 hr: Nektari od jabuka
+hu: Almanektárok
 it: Nettare di mela
 lt: Obuolių nektarai, Obuolių nektaras
 nl: Appelnectars, Appelnectar
@@ -8554,6 +8747,7 @@ es: Néctares de albaricoque, Zumos de albaricoque
 fi: aprikoosinektarit
 fr: Nectars d'abricot, nectar d'abricot, nectars d'abricots, nectar abricot, Jus d'abricot
 hr: Nektari marelica
+hu: Sárgabaracknektárok, Sárgabaracknektár
 it: Nettare di albicocca, Succo di albicocca
 lt: Abrikosų nektarai, Abrikosų nektaras, Abrikosų sultys
 nl: Abrikozennectars, Abrikozennectar, Abrikozensappen, Abrikozensap
@@ -8569,6 +8763,7 @@ en: Papaya nectars
 es: Néctares de papaya
 fr: Nectars de papaye
 hr: Nektari papaje
+hu: Papaja nektárok
 it: Nettare di papaya
 nl: Papayanectars, Papayanectar
 pt: Néctares de papaia
@@ -8585,6 +8780,7 @@ es: Néctares de plátano
 fr: Nectars de banane, nectar de banane, nectar banane, nectars banane
 he: נקטרי בננה, מיצי בננה
 hr: Nektari od banane
+hu: Banánnektárok
 it: Nettare di banana
 lt: Bananų nektarai, bananų nektaras
 nl: Bananennectars, Bananennectar
@@ -8604,6 +8800,7 @@ de: Heidelbeernektare, Blaubeerennektare
 es: Néctares de arándanos
 fr: Nectars de myrtilles
 hr: Nektari borovnice
+hu: Áfonyanektárok
 it: Nettare di mirtillo
 lt: Mėlynių nektarai, Mėlynių nektaras
 nl: Blauwe bessennectars, Blauwe bessennectar
@@ -8618,6 +8815,7 @@ de: Weintraubennektare, Traubennektare
 es: Néctares de uva
 fr: Nectars de raisin, nectar de raisin, nectar de raisins, nectars de raisins, nectar raisin
 hr: Nektari grožđa
+hu: Szőlőnektárok
 it: Nettare di uva
 lt: Vynuogių nektarai, Vynuogių nektaras
 nl: Druivennectars, Druivennectar
@@ -8631,6 +8829,7 @@ de: Grapefruit-Nektare
 es: Néctares de pomelo
 fr: Nectars de pamplemousse
 hr: Nektari od grejpa
+hu: Grépfrútnektárok
 it: Nettare di pompelmo
 lt: Greipfrutų nektarai, Greipfrutų nektaras
 nl: Grapefruitnectars, Grapefruitnectar
@@ -8644,6 +8843,7 @@ es: Néctares de guayaba
 fi: guavanektarit
 fr: Nectars de goyave, nectar de goyave, nectar goyave
 hr: Nektari guave
+hu: Guavanektárok
 it: Nettare di guaiava
 lt: Gvajavų nektarai, gvajavų nektaras
 nl: Guavanectars, Guavanectar
@@ -8657,6 +8857,7 @@ wikidata:en: Q24054623
 < en:Fruit nectars
 en: Lychee nectars
 fr: Nectars de litchi
+hu: Licsinektárok
 nl: Lycheenectars
 
 < en:Fruit nectars
@@ -8667,6 +8868,7 @@ es: Néctares de mango
 fi: mangonektarit
 fr: Nectars de mangue, nectar de mangue, nectar mangue, nectars mangue
 hr: Nektari manga
+hu: Mangónektárok
 it: Nettare di mango
 lt: Mangų nektarai, Mangų nektaras
 nl: Mangonectars, Mangonectar
@@ -8685,6 +8887,7 @@ de: Melonennektare
 es: Néctares de melón
 fr: Nectars de melon
 hr: Nektari dinje
+hu: Dinnyenektárok
 it: Nettare di melone
 lt: Melionų nektarai, melionų nektaras
 nl: Meloennectars, Meloennectar, Meloenennectar
@@ -8699,6 +8902,7 @@ es: Néctares multifruta, Néctares multifrutas
 fi: monihedelmänektarit
 fr: Nectars multifruits
 hr: Viševoćni nektari
+hu: Vegyesgyümölcs-nektárok, Vegyes gyümölcsnektár Vegyes gyümölcs nektár
 it: Nettari multifrutta
 lt: Įvairių vaisių nektarai, Įvairių vaisių nektaras
 nl: Multivruchtennectars, Multivruchtennectar
@@ -8728,6 +8932,7 @@ es: Néctares de naranja
 fi: appelsiininektarit
 fr: Nectars d'orange
 hr: Narančasti nektari
+hu: Narancsnektárok
 it: Nettare di arancia
 lt: Apelsinų nektarai, apelsinų nektaras
 nl: Sinaasappelnectars, Sinaasappelnectar
@@ -8749,6 +8954,7 @@ es: Néctares de maracuyá, Néctares de fruta de la pasión
 fi: Passiohedelmänektarit, Passionhedelmänektarit
 fr: Nectars de fruit de la passion, nectar de fruit de la passion, nectar fruit de la passion, nectar passion, nectars passion, nectars de fruits de la passion
 hr: Nektari marakuje
+hu: Marakujanektárok
 lt: Psiflorų nektarai, pasiflorų nektaras
 nl: Passievruchtnectars, Passievruchtnectar
 pl: Nektary z marakui, Nektary z passiflory
@@ -8773,6 +8979,7 @@ es: Néctares de melocotón, Néctares de durazno
 fi: persikkanektarit
 fr: Nectars de pêche, nectar de pêche, nectar pêche
 hr: Nektari breskve
+hu: Őszibaracknektárok
 it: Nettare di pesca
 lt: Persikų nektarai, persikų nektaras
 nl: Perzikennectars, Perzikennectar
@@ -8793,6 +9000,7 @@ es: Néctares de pera
 fi: päärynänektarit
 fr: Nectars de poire
 hr: Nektari od krušaka
+hu: Körtenektárok
 it: Nettare di pera
 lt: Kriaušių nektarai, kriaušių nektaras
 nl: Perennectars, Perennectar
@@ -8811,6 +9019,7 @@ bg: Нектар от ягоди
 fi: Mansikkanektarit
 fr: Nectars de fraise
 hr: Nektari od jagoda
+hu: Epernektárok
 it: Nettare di fragola
 lt: Braškių nektarai, braškių nektaras
 nl: Aardbeiennectar
@@ -8823,6 +9032,7 @@ en: Raspberry nectars
 bg: Нектар от малини
 fr: Nectars de framboise
 hr: Nektari maline
+hu: Málnanektárok
 it: Nettare di lamponi
 lt: Aviečių nektarai, aviečių nektaras
 pl: Nektary malinowe
@@ -8835,6 +9045,7 @@ bg: Нектар от череши
 de: Kirschnektare
 fr: Nectars de cerise
 hr: Nektari trešnje
+hu: Cseresznyenektárok
 it: Nettare di ciliegia
 lt: Vyšnių nektarai, vyšnių nektaras
 pl: Nektary wiśniowe
@@ -8849,6 +9060,7 @@ es: Néctares de piña, néctar de piña
 fr: Nectars d'ananas
 he: נקטרי אננס, נקטר אננס, מיצי אננס, מיץ אננס
 hr: Nektari od ananasa
+hu: Ananásznektárok
 it: Nettari di ananas, nettare di ananas
 lt: Ananasų nektarai, ananasų nektaras
 nl: Ananasnectars, Ananasnectar
@@ -8862,6 +9074,7 @@ bg: Нектар от киви
 de: Kiwinektar
 fr: Nectars de kiwi
 hr: Nektari kivija
+hu: Kivinektárok
 it: Nettari di kiwi, nettare di kiwi
 pl: Nektary z kiwi
 #wikidata:en:
@@ -8872,6 +9085,7 @@ de: Granatapfelnektare
 es: Néctares de granada
 fr: Nectars de grenade
 hr: Nektari nara
+hu: Gránátalmanektárok
 it: Nettari di melograno, nettare di melograno, nettari di melagrana, nettare di melagrana
 lt: Granatų vaisių nektarai, granatų vaisių nektaras
 nl: Granaatappelnectars, Granaatappelnectar
@@ -8885,6 +9099,7 @@ de: Mandarinennektare
 es: Néctares de mandarina, Néctares de clementina
 fr: Nectars de mandarine, nectars de clémentine
 hr: Nektari mandarina
+hu: Mandarinnektárok
 it: Nettari di mandarino, nettare di mandarino
 lt: Mandarinų nektarai, mandarinų nektaras
 nl: Mandarijnennectars, Mandarijnennectar
@@ -8900,6 +9115,7 @@ fi: kasvispohjaiset juomat
 fr: Boissons aux légumes, boissons à base de légumes
 he: משקאות צמחים, משקה צמחים
 hr: Pića na bazi povrća
+hu: Zöldségalapú italok
 it: Bevande a base di verdure
 lt: Daržovių gėrimai
 nl: Groentedranken, Groentedrank, Groentendrank
@@ -8918,6 +9134,7 @@ fi: kasvismehut
 fr: Jus de légumes, Jus de légumes pur jus
 he: מיצי ירקות
 hr: Sokovi od povrća
+hu: Növényi levek, Növényi dzsúszok
 it: Succhi di verdura, succo di verdura
 ja: 野菜ジュース
 lt: Daržovių sultys
@@ -8959,6 +9176,7 @@ fi: porkkanamehut
 fr: Jus de carotte, jus de carottes
 he: מיצי גזר, מיצי גזרים, מיץ גזר
 hr: Sokovi od mrkve
+hu: Répalevek, Répalé
 it: Succo di carota
 ja: にんじんジュース
 lt: Morkų sultys
@@ -8976,6 +9194,7 @@ de: Karottensäfte aus Kartottenkonzentrat
 es: Zumos de zanahoria procedente de concentrado
 fr: Jus de carotte à base de concentré, jus de carottes à base de concentré
 hr: Koncentrirani sokovi od mrkve
+hu: Répalésűrítmények
 it: Succo di carota da concentrato
 lt: Koncentruotos morkų sultys
 nl: Wortelsappen uit concentraat, Wortelsap uit concentraat
@@ -8996,6 +9215,7 @@ en: Beetroot juices
 bg: Сок от червено цвекло
 fr: Jus de betterave
 hr: Sokovi od cikle
+hu: Céklalevek, Céklalé
 it: Succo di barbabietola
 ja: ビートルートジュース, ビーツジュース
 lt: Burokėlių sultys
@@ -9014,6 +9234,7 @@ es: Zumos de tomate
 fi: tomaattimehut
 fr: Jus de tomates, jus de tomate
 hr: Sokovi od rajčice
+hu: Paradicsomlevek, Paradicsomlé
 it: Succo di pomodoro
 ja: トマトジュース
 lt: Pomidorų sultys
@@ -9031,6 +9252,7 @@ de: Tomatensaft aus Tomatensaftkonzentrat
 es: Zumos de tomate procedente de concentrado
 fr: Jus de tomates à base de concentré, jus de tomate à base de concentré
 hr: Koncentriranih sokova od rajčice
+hu: Paradicsomlé-sűrítmény, Sűrített paradicsomlé
 lt: Koncentruotos pomidorų sultys, pomidorų sultys iš koncentrato
 nl: Tomatensappen uit concentraat, Tomatensap uit concentraat
 
@@ -9098,7 +9320,7 @@ en: Herbal teas, Herbal infusions, infusions
 bg: Билков чай
 ca: Infusions, infusions herbals
 cs: Bylinné čaje
-da: Urtete
+da: Urteteer, Urtete, Urtethe
 de: Kräutertees
 es: Plantas para infusiones, Infusiones, Tisanas
 fi: yrttiteet
@@ -9113,7 +9335,7 @@ nl: Kruidentheeën, Kruidenthee
 pl: Herbaty ziołowe
 pt: Chás de ervas, infusões de ervas, infusões
 ru: Травяные чаи и настойки
-sv: Örtte
+sv: Örtteer, Örtte
 agribalyse_proxy_food_code:en: 18020
 agribalyse_proxy_food_name:en: Tea, brewed, without sugar
 # 2026/01/22: (Stéphane) we had an old comment "should not be in pnns_group_2:en:Teas and herbal teas and coffees", and only the "herbal tea beverages" were under it, but it would make sense to have them here.
@@ -9126,22 +9348,23 @@ wikidata:en: Q379932
 
 < en:Herbal teas
 en: Herbal teas in tea bags, Herbal teas in bags
-da: Urtete i poser
+da: Urteteer i pose, Urtete i poser
 de: Kräutertee aus Teebeuteln
 es: Plantas para infusiones en bolsitas, Infusiones en bolsitas, Tisanas en bolsitas
 fi: Yrttipussiteet
 fr: Infusions en sachets
 hr: Biljni čajevi u vrećicama
-hu: Gyógynövényes teák tasakban
+hu: Filteres gyógynövényes teák, Gyógynövényes teák tasakban, Gyógynövényes teák filterben
 it: Tisane in bustina, Infusi in bustina
 lt: Žolelių arbatos maišeliuose
 nl: Kruidenthee in zakjes, Kruidenthee in buidels
 pl: Herbatki ziołowe w torebkach, Herbaty ziołowe w torebkach
 ru: Чай в пакетиках
-sv: Örtte i pås
+sv: Örtteer i pås, Örtte i pås
 
 < en:Herbal teas
 en: Instant herbal teas
+hu: Instant gyógynövényes teák
 nl: Instanttheebereidingen
 gpc_category_code:en: 10000210
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a fruit or herbal tea, which is prepared for consumption by the addition of hot water and/or hot milk and is derived in part or in total from one or more species of fruit, herb, spice or flower and does not require straining. Includes herbal teas of various flavours such as apple, ginseng, jasmine and cinnamon, and blends of any of these such as apple and cinnamon. Definition Excludes: Excludes products such as Teas, Fruit Herbal Infusions/Tisanes Bags or Loose, Fruit Herbal Infusions/Tisanes Capsules and Pods and Liquid Ready to Drink and Not Ready to Drink Fruit Herbal Infusions/Tisanes.
@@ -9153,7 +9376,7 @@ de: Wermuttee
 es: Ajenjo, Artemisia absinthium
 fr: Absinthium, Armoise Absinthe
 hr: Absinthium
-hu: Fehér üröm
+hu: Fehér üröm tea, üröm tea, ürmös tea
 it: Artemisia absinthium
 la: Artemisia absinthium
 nl: Absint-alsem
@@ -9166,6 +9389,7 @@ de: Sennes, Senna
 es: Senna, Sen
 fr: Senna angustifolia
 hr: Aleksandrijska sena
+hu: Szenna tea
 it: Senna
 la: Senna alexandrina, Cassia angustifolia, Senna angustifolia
 nl: Sennapeul
@@ -9192,6 +9416,7 @@ de: Boldo
 es: Boldo
 fr: Boldo
 hr: Boldo
+hu: Boldó
 it: Boldo
 la: Peumus boldus
 nl: Boldo
@@ -9199,8 +9424,9 @@ pl: Boldo
 wikidata:en: Q833994
 
 < en:Herbal teas
-en: Chamomile, Camomile
+en: Camomile teas, Camomile infusions, Camomile, Chamomile
 bg: Лайка
+da: Kamilleteer
 de: Kamille
 es: Manzanilla
 fi: kamomilla
@@ -9212,10 +9438,17 @@ ja: カモミール
 lt: Ramunėlės
 nl: Kamille
 pl: Rumianek
-wikidata:en: Q14169150
+sv: Kamomillteer, Kamomill
+wikidata:en: Q19704254
 
-< en:Chamomile
-en: German chamomile
+< en:Camomile teas
+< en:Herbal teas in tea bags
+en: Camomile teas in tea bags
+da: Kamilleteer i pose
+sv: Kamomillteer i pås
+
+< en:Camomile teas
+en: German camomile teas, German chamomile
 de: Deutsche Kamille
 es: Manzanilla dulce, Manzanilla de Castilla, Manzanilla alemana
 fr: Camomille sauvage
@@ -9227,8 +9460,8 @@ nl: Echte Kamille
 pl: Rumianek pospolity
 wikidata:en: Q28437
 
-< en:Chamomile
-en: Roman chamomile, English chamomile, Garden chamomile
+< en:Camomile teas
+en: Roman camomile teas, Roman chamomile, English chamomile, Garden chamomile
 de: Römische Kamille
 es: Manzanilla amarga, Manzanilla común, Manzanilla romana
 fr: Camomille romaine
@@ -9297,7 +9530,7 @@ ga: caisearbhán, caisearbhán coiteann
 gl: mexacán común
 he: שינן רפואי
 hr: ljekoviti maslačak
-hu: gyermekláncfű
+hu: Gyermekláncfű, Kutyatej
 hy: Խատուտիկ սովորական
 id: jombang, tanaman jombang
 is: Túnfífill
@@ -9355,6 +9588,7 @@ de: Teufelskralle
 es: Harpagofito
 fr: Harpagophyton, Griffe du diable, Sengaparile
 hr: Đavolja kandža
+hu: Ördögcsáklya
 la: Harpagophytum procumbens
 nl: Duivelsklauw
 wikidata:en: Q386675
@@ -9366,7 +9600,7 @@ de: Holunderprodukte
 es: Productos del saúco
 fr: Produits de sureau noir
 hr: Proizvodi od bazge
-hu: Bodza alapú termékek
+hu: Bodzaalapú termékek
 it: Prodotti a base di sambuco
 la: Sambucus nigra
 lt: Šeivamedžio uogų produktai
@@ -9380,7 +9614,7 @@ de: Holunderblüte
 es: Flores de saúco, Flores de saúco común
 fr: Fleurs de sureau noir
 hr: Cvjetovi bazge
-hu: Bodza virág
+hu: Bodzavirág
 it: Fiori di sambuco
 lt: Šeivamedžio žiedai
 nl: Gewone vlierbloemen
@@ -9409,6 +9643,7 @@ de: Schachtelhalm
 es: Cola de caballo
 fr: Prêle des champs
 hr: Poljska preslica
+hu: Zsurló
 it: Equiseto dei campi
 ja: スギナ
 la: Equisetum arvense
@@ -9419,17 +9654,19 @@ wikidata:en: Q107592
 
 < en:Herbal teas
 en: Fruit teas
+da: Frugtteer
 de: Früchtetees
 es: Infusiones con frutas
 fi: hedelmäteet
 fr: Infusions aux fruits
 hr: Voćni čajevi
-hu: Gyümölcs teák
+hu: Gyümölcsteák, Gyümölcs tea
 it: Tisane alla frutta, Infusi alla frutta
 lt: Vaisinės arbatos, vaisių arbatos
 nl: Vruchtentheeën, Vruchtenthee
 pl: Herbatki owocowe
 ro: Ceaiuri de fructe, Ceai de fructe
+sv: Fruktteer
 zh: 水果茶
 wikidata:en: Q744457
 
@@ -9438,7 +9675,7 @@ en: Citrus fruit teas
 de: Zitrus-Tees
 fr: Infusions aux agrumes, Infusions agrumes, Infusion agrumes, Infusion aux agrumes
 hr: Čajevi od agruma
-hu: Citrus teák
+hu: Citrusteák
 it: Tisane agli agrumi, Infusi agli agrumi
 lt: Citrusinių vaisių arbatos
 nl: Citrusvruchtentheeën, Citrusvruchtenthee
@@ -9454,12 +9691,14 @@ nl: Rode vruchtentheeën, Rode vruchtenthee
 < en:Fruit teas
 < en:Herbal teas in tea bags
 en: Herbal fruit teas in tea bags
+da: Frugtteer i pose
 es: infusiones con frutas en bolsitas
 fi: Hedelmäyrttiteepussit
 fr: Infusions aux fruits en sachets
 hr: Biljni voćni čajevi u vrećicama
 it: Tisane alla frutta in bustina, Infusi alla frutta in bustina
 lt: Raudonųjų vaisių arbatos
+sv: Fruktteer i pås
 
 < en:Herbal teas
 en: Ginkgo
@@ -9478,12 +9717,13 @@ wikidata:en: Q43284
 
 < en:Herbal teas
 en: Herbal tea blends
+da: Urteteblandinger
 de: Kräuterteemischungen
 es: Mezclas de plantas para infusiones
 fi: yrttiteesekoitukset
 fr: Tisanes de plantes mélangées
 hr: Mješavine biljnih čajeva
-hu: Gyógynövény tea keverékek
+hu: Gyógynövénytea keverékek
 it: Miscele per tisane
 ja: ブレンドハーブティ, ブレンドハーブティー
 lt: Žolelių arbatos mišiniai
@@ -9507,6 +9747,7 @@ en: Weight-loss tea blends
 de: Abnehm-Tee
 fr: Infusions minceur, Tisanes minceur, Infusion minceur, Tisane minceur
 hr: Čajne mješavine za mršavljenje
+hu: Fogyókúrás teakeverékek
 it: Miscele per tisane snellenti, Miscele per tisane dimagranti
 lt: Svorį mažinantys arbatos mišiniai
 nl: Afslank thee melanges, Afslank thee melange
@@ -9515,6 +9756,7 @@ nl: Afslank thee melanges, Afslank thee melange
 en: Weight-loss Teas
 fr: Thés minceur, Thé minceur
 hr: Čajevi za mršavljenje
+hu: Fogyókúrás teák
 it: Tè dimagranti, Tè snellenti, The dimagranti, The snellenti
 nl: Afslank theeën, Afslank thee
 
@@ -9532,6 +9774,7 @@ de: Hibiskus
 es: Hibisco
 fr: Hibiscus
 hr: Hibiskus
+hu: Hibiszkusz
 it: Ibisco
 ja: フヨウ属, ハイビスカス
 la: Hibiscus
@@ -9566,6 +9809,7 @@ de: Wacholderbeere
 es: Bayas de enebro
 fr: Baies de genévrier
 hr: Bobice kleke
+hu: Borókabogyó
 la: Juniperus communis
 lt: Kadagio uogos
 nl: Jeneverbes, Jeneverbessen
@@ -9578,6 +9822,7 @@ de: Lavendel
 es: Espliego
 fr: Lavande officinale
 hr: Lavanda
+hu: Levendula
 ja: ラベンダー
 la: Lavandula spica, Lavandula angustifolia
 lt: Levanda
@@ -9651,6 +9896,7 @@ de: Malve
 es: Malva, Malva común
 fr: Grande mauve, Mauve sylvestre, Mauve des bois
 hr: Sljez
+hu: Mályva
 ja: ウスベニアオイ, ブルーマロウ
 la: Malva sylvestris
 nl: Groot kaasjeskruid, Kaasjeskruid
@@ -9703,7 +9949,7 @@ fi: Oliivipuun tuotteet
 fr: Produits de l'olivier
 he: מוצרי שמן זית
 hr: Proizvodi od maslina
-hu: Olívás termékek
+hu: Olajfa termékek, Olívás termékek
 it: Prodotti dell'ulivo
 la: Olea europaea
 lt: Alyvuogių produktai
@@ -9720,6 +9966,7 @@ de: Olivenblätter
 es: Hojas de olivo
 fr: Feuilles d'olivier
 hr: Listovi masline
+hu: Olajfalevél
 ja: オリーブの葉
 lt: Alyvuogių lapai
 nl: Olijfboomblad
@@ -9732,6 +9979,7 @@ de: Orangenblüte
 es: Azahar, Flor de azahar
 fr: Fleur d'oranger
 hr: Narančin cvijet
+hu: Narncsvirág
 ja: オレンジの花
 lt: Apelsinų žiedai
 nl: Oranjebloesem
@@ -9769,6 +10017,7 @@ es: Rooibos
 fi: Rooibos
 fr: Rooibos, Infusions au rooibos, Infusion au rooibos, Thé rooibos
 hr: Rooibos
+hu: Rooibos, Rooibos tea
 it: Rooibos
 ja: ルイボス
 la: Aspalathus linearis
@@ -9832,6 +10081,7 @@ es: Estevia y sus derivados, Estevia, Stevia
 fi: stevia ja steviasta valmistetut tuotteet
 fr: Stévia et dérivés, Stévia
 hr: Stevia i njihovi proizvodi
+hu: Stevia alapú termékek, Stevia, Jázminpakóca
 it: Stevia e derivati
 ja: サイリウム
 la: Stevia rebaudiana
@@ -9848,6 +10098,7 @@ de: Steviablätter
 es: Hojas de estevia
 fr: Feuilles de stévia
 hr: Listovi stevije
+hu: Stevialevél
 ja: ステビアの葉
 nl: Steviabladeren, Steviablad
 pl: Liście stewii
@@ -9884,6 +10135,7 @@ de: Teeblätter
 es: Hojas de té
 fr: Feuilles de thé
 hr: Listići čaja
+hu: Tealevél
 it: Foglie di tè
 nl: Theeblaadjes
 
@@ -9932,6 +10184,7 @@ es: Bolsitas de té, Tés en bolsas, Tés en bolsas de té
 fi: teepussit
 fr: Thés en sachets
 hr: Vrećice čaja
+hu: Teafilterek, Teafilter, Filteres teák
 it: Bustine di tè
 ja: ティーバッグ
 lt: Arbatos maišeliai, Arbata maišeliuose, arbata arbatos maišeliuose
@@ -9955,6 +10208,7 @@ es: Tés negros
 fi: mustat teet
 fr: Thés noirs, Thé noir
 hr: Crni čajevi
+hu: Fekete teák, Fekete tea
 it: Tè nero
 ja: 黒茶
 lt: Juodoji arbata
@@ -9982,6 +10236,7 @@ de: Aromatisierte schwarze Tees, Aromatisierte Schwarztees
 fi: maustetut mustat teet
 fr: Thés noirs aromatisés
 hr: Aromatizirani crni čajevi
+hu: Ízesített fekete teák, Ízesített fekete tea
 it: Tè nero aromatizzato
 lt: Aromatizuotos juodosios arbatos
 nl: Gearomatiseerde zwarte theeën, Gearomatiseerde zwarte thee
@@ -9992,6 +10247,7 @@ en: Lemon flavored black teas
 de: Schwarze Tees mit Zitronenaroma, Schwarztees mit Zitronenaroma
 fr: Thés noirs aromatisés au citron
 hr: Crni čajevi s okusom limuna
+hu: Citromos fekete teák, Citromos fekete tea
 lt: Citrinų aromato juodosios arbatos
 nl: Zwarte theeën met citroenaroma, Zwarte thee met citroenaroma, Zwarte thee met citroensmaak
 
@@ -10000,6 +10256,7 @@ en: Teas with bergamot, Bergamot teas
 de: Tees mit Bergamotte, Earl-Grey Tees
 fr: Thés à la bergamote
 hr: Čajevi s bergamotom
+hu: Bergamottos teák, Bergamott teák, Bergamottnarancsos teák, Earl Grey teák
 lt: Arbatos su bergamote, bergamočių arbatos
 nl: Bergamottheeën, Bergamotthee
 ru: Чаи с бергамотом
@@ -10029,6 +10286,7 @@ es: Tés descafeinados
 fi: kofeiinittomat teet
 fr: Thés décaféinés
 hr: Čajevi bez kofeina
+hu: Koffeinmentes teák
 it: Tè decaffeinato
 nl: Caffeïnevrije theeën, Caffeïnevrije thee
 pl: Herbaty bezkofeinowe
@@ -10043,6 +10301,7 @@ de: Fermentierte Tees
 es: Tés fermentados
 fr: Thés sombres, Thé sombre
 hr: Fermentirani čajevi
+hu: Fermentált teák
 lt: Fermentuotos arbatos, Raugintos arbatos
 nl: Gefermenteerde theeën, Gefermenteerde thee
 wikidata:en: Q16241634
@@ -10054,6 +10313,7 @@ es: Tés aromatizados
 fi: maustetut teet
 fr: Thés aromatisés, Thé aromatisé, thés parfumés
 hr: Aromatizirani čajevi
+hu: Ízesített teák, Ízesített tea
 it: Tè aromatizzati
 lt: Aromatizuotos arbatos
 nl: Gearomatiseerde theeën, Gearomatiseerde thee
@@ -10064,6 +10324,7 @@ pt: Chás com sabor
 en: Ceylan teas
 fr: Thés de ceylan
 hr: Ceylan čajevi
+hu: Ceyloni teák
 lt: Ceilono arbatos
 nl: Ceylontheeën, Ceylon thee, Ceylonthee, Theeën uit Ceylon, Theeën uit Sri Lanka
 wikidata:en: Q105616623
@@ -10080,7 +10341,7 @@ fi: vihreät teet
 fr: Thés verts, Thé vert, Thés vert
 he: תה ירוק
 hr: Zeleni čajevi
-hu: Zöld teák
+hu: Zöld teák, Zöld tea
 it: Tè verde
 ja: 緑茶
 lt: Žalioji arbata, žaliosios arbatos
@@ -10193,6 +10454,7 @@ de: Senchatees
 es: Tés Sencha, Sencha
 fr: Thés Sencha, Sencha
 hr: Sencha čajevi
+hu: Sencha teák
 it: Tè Sencha
 ja: 煎茶
 nl: Sencha, Sencha theeën, Sencha thee
@@ -10261,7 +10523,7 @@ es: Tés verdes con menta
 fi: Vihreät teet mintulla
 fr: Thés verts à la menthe
 hr: Zeleni čajevi s mentom
-hu: Zöld teák mentával
+hu: Zöld teák mentával, Mentás zöld teák
 it: Tè verde alla menta
 lt: Žalioji arbata su mėta
 nl: Groene theeën met munt, Groene thee met munt
@@ -10272,6 +10534,7 @@ de: Oolongtees
 es: Tés oolong, Tés azules
 fr: Thés bleus, Thé bleu, Thés Oolong
 hr: Oolong čajevi
+hu: Oolong teák
 ja: 烏龍茶, ウーロン茶
 nl: Oolong theeën, Oolong, Oolong thee
 agribalyse_proxy_food_code:en: 18156
@@ -10294,6 +10557,7 @@ es: Tés blancos
 fi: valkoiset teet
 fr: Thés blancs, báichá, thé blanc
 hr: Bijeli čajevi
+hu: Fehér teák
 it: Tè bianco
 ja: 白茶
 nl: Witte theeën, Witte thee
@@ -10445,6 +10709,7 @@ de: Schafgarbe
 es: Milenrama
 fr: Achillée millefeuille
 hr: Stolisnik
+hu: Árvacsalán
 ja: セイヨウノコギリソウ
 la: Achillea millefolium
 nl: Duizendblad
@@ -10461,7 +10726,7 @@ es: Bebidas instantáneas, Bebidas para tomar calientes instantáneas
 fi: instant-juomat
 fr: Boissons instantanées, Boissons chaudes instantanées, boisson chaude instantanée
 hr: Instant napitci
-hu: Meleg instant italok, Forró instant italok
+hu: Instant italok, Meleg instant italok, Forró instant italok
 it: Bevande istantanee
 ja: インスタント飲料
 lt: Tirpūs gėrimai, tirpūs karšti gėrimai
@@ -10476,6 +10741,7 @@ gpc_category_name:en: Drinks Flavoured - Not Ready to Drink
 < en:Instant beverages
 en: Fruit juice concentrates, concentrated fruit juices
 fr: Concentrés de jus de fruits, jus de fruits concentrés
+hu: Gyümölcslé koncentrátumok
 
 < en:Fruit juice concentrates
 en: Apple juice concentrates, concentrated apple juices
@@ -10483,6 +10749,7 @@ de: Apfelsaftkonzentrate, konzentrierter Apfelsaft
 es: Concentrados de jugo de manzana, jugos de manzana concentrados
 fr: Concentrés de jus de pommes, Jus de pommes concentrés
 hr: Koncentrati soka od jabuke
+hu: Almalé koncentrátum
 nl: Appelsapconcentraten, geconcentreerde appelsappen
 
 < en:Fruit juice concentrates
@@ -10491,6 +10758,7 @@ de: Zitronensaftkonzentrate, konzentrierter Zitronensaft
 es: Concentrados de jugo de limón, jugos de limón concentrados
 fr: Concentrés de jus de citrons, Jus de citrons concentrés
 hr: Koncentrati limunovog soka
+hu: Citromlé koncentrátum
 nl: Citroensapconcentraten, geconcentreerde citroensappen
 
 < en:Fruit juice concentrates
@@ -10499,6 +10767,7 @@ de: Limonensaftkonzentrate, konzentrierter Limonensaft
 es: Concentrados de jugo de lima, jugos de lima concentrados
 fr: Concentrés de jus de citrons verts, Jus de citrons verts concentrés
 hr: Koncentrati soka limete
+hu: Limelé koncentrátum
 nl: Limoensapconcentraten, geconcentreerde limoensappen
 
 < en:Plant-based foods and beverages
@@ -10506,6 +10775,7 @@ en: Dairy substitutes, Dairies substitutes
 bg: Заместители на млечни продукти
 fr: Substituts de produits laitiers
 hr: Mliječne zamjene
+hu: Tejtermékek helyettesítői, Tejtermékhelyettesítők
 nl: Zuivelvervangers
 pl: Zastępniki nabiału, Substytuty nabiału
 incompatible_with:en: categories:en:dairies
@@ -10516,6 +10786,7 @@ de: Mascarpone-Ersatz
 es: Sustitutos del mascarpone
 fr: Substituts du mascarpone
 hr: Zamjene za mascarpone
+hu: Mascarpone helyettesítő
 it: Sostituti del mascarpone
 nl: Mascarpone-vervangers
 
@@ -10525,6 +10796,7 @@ de: Ricotta-Ersatz
 es: Sustitutos de la ricotta
 fr: Substituts de la ricotta
 hr: Zamjene za ricottu
+hu: Ricotta helyettesítő
 it: Sostituti della ricotta
 nl: Ricotta-vervangers
 
@@ -10544,6 +10816,7 @@ de: Kaffee und Tee Mischpackungen
 es: Paquetes variados de té e café
 fr: Assortiments de cafés et thés
 hr: Različita pakiranja kave i čaja
+hu: Kávé és tea válogatások
 it: Confezioni miste di caffè e tè
 nb: Kaffe te flerpakk
 nl: Koffie- en thee-assortimenten
@@ -10566,7 +10839,7 @@ fi: kahvit
 fr: Cafés, Café
 he: סוגי קפה
 hr: kave, kava
-hu: Kávék
+hu: Kávék, Kávé
 it: Caffè, Caffe
 ja: コーヒー, 珈琲
 lt: Kava, Kavos
@@ -10604,6 +10877,7 @@ de: Brasilianische Kaffees
 es: Café brasileño
 fr: Café brésilien
 hr: Brazilske kave
+hu: Brazil kávék
 it: Caffè brasiliano
 nl: Braziliaanse koffies
 pt: Cafés do Brasil
@@ -10614,6 +10888,7 @@ en: Vietnamese coffee
 es: Café vietnamita
 fr: Café du Viêt Nam
 hr: Vijetnamska kava
+hu: Vietnámi kávék
 it: Caffè vietnamita
 nl: Vietnamese koffie
 origins:en: en:vietnam
@@ -10624,6 +10899,7 @@ de: Indonesischer Kaffee
 es: Café de Indonesia
 fr: Café d'Indonésie
 hr: Indonezijska kava
+hu: Indonéz kávék
 it: Caffè indonesiano
 nl: Indonesische koffie
 pt: Café indonésio
@@ -10635,6 +10911,7 @@ de: Kolumbianische Kaffees
 es: Café de Colombia
 fr: Café de Colombie
 hr: Kolumbijske kave
+hu: Kolumbiai kávék
 origins:en: en:colombia
 protected_name_file_number:en: PGI-CO-0467
 protected_name_type:en: pgi
@@ -10642,6 +10919,7 @@ protected_name_type:en: pgi
 < en:Coffees
 en: Indian coffee
 fr: Café d'Inde
+hu: Indiai kávék
 origins:en: en:india
 
 < en:Coffees
@@ -10649,6 +10927,7 @@ en: Honduras coffee
 es: Café de Honduras
 fr: Café du Honduras
 hr: Honduraška kava
+hu: Hondurasi kávék
 it: Caffè dell'Honduras
 nl: Hondurese koffie
 pt: Café de Honduras
@@ -10659,6 +10938,7 @@ en: Ethiopian coffee
 es: Café etíope
 fr: Café d'Éthiopie
 hr: Etiopska kava
+hu: Etióp kávék
 it: Caffè etiope
 nl: Ethiopische koffie
 pt: Café da Etiópia
@@ -10669,6 +10949,7 @@ en: Peruvian coffee
 es: Café peruano
 fr: Café du Pérou
 hr: Peruanska kava
+hu: Perui kávék
 it: Caffè peruviano
 nl: Peruaanse koffie
 pt: Café peruano
@@ -10679,6 +10960,7 @@ en: Coffees from Guatemala
 es: Café de Guatemala
 fr: Café du Guatemala
 hr: Kave iz gvatemale
+hu: Guatemalai kávék
 pt: Café da Guatemala
 origins:en: en:guatemala
 
@@ -10687,6 +10969,7 @@ en: Mexiacan coffee
 es: Café mexicano
 fr: Café du Mexique
 hr: Meksička kava
+hu: Mexikói kávék
 it: Caffè messicano
 nl: Mexicaanse koffie
 pt: Café mexicano
@@ -10697,6 +10980,7 @@ en: Coffee from Ouganda
 es: Café de Uganda
 fr: Café d'Ouganda
 hr: Kava iz Ougande
+hu: Ugandai kávék
 it: Caffè dall'Uganda
 nl: Koffie uit Oeganda
 pt: Café de Uganda
@@ -10707,6 +10991,7 @@ en: Coffee from Ivory Coast
 es: Café de Costa de Marfil
 fr: Café de Côte d'Ivoire
 hr: Kava s obale bjelokosti
+hu: Elefántcsontparti kávék
 it: Caffè dalla Costa d'Avorio
 nl: Koffie uit Ivoorkust
 pt: Café da Costa do Marfim
@@ -10717,6 +11002,7 @@ en: Coffees from Laos
 es: Café de Laos
 fr: Café du Laos
 hr: Kave iz laosa
+hu: Laoszi kávék
 it: Caffè del Laos
 nl: Koffie uit Laos
 pt: Café do Laos
@@ -10727,6 +11013,7 @@ en: Coffees from Nicaragua
 es: Café de Nicaragua
 fr: Café du Nicaragua
 hr: Kave iz nikaragve
+hu: Nicaraguai kávék
 it: Caffè del Nicaragua
 nl: Koffie uit Nicaragua
 origins:en: en:nicaragua
@@ -10736,6 +11023,7 @@ en: Philippine coffee
 es: Café de Filipinas
 fr: Café des Philippines
 hr: Filipinska kava
+hu: Fülöp-szigeteki kávék
 it: Caffè delle Filippine
 nl: Koffie uit de Filipijnen
 pt: Café das Filipinas
@@ -10746,6 +11034,7 @@ en: Venezuelian coffees
 es: Café venezolano
 fr: Café du Venezuela
 hr: Venezuelanska kava
+hu: Venezuelai kávék
 it: Caffè venezuelano
 nl: Venezolaanse koffie
 pt: Café venezuelano
@@ -10756,6 +11045,7 @@ en: Coffees from Costa Rica
 es: Café de Costa Rica
 fr: Café du Costa Rica
 hr: Kave iz Kostarike
+hu: Costa Rica-i kávék
 it: Caffè della Costa Rica
 nl: Koffie uit Costa Rica
 pt: Café da Costa Rica
@@ -10766,6 +11056,7 @@ en: Coffees from Tanzania
 es: Café de Tanzania
 fr: Café de Tanzanie
 hr: Kave iz Tanzanije
+hu: Tanzániai kávék
 it: Caffè di Tanzania
 nl: Koffie uit Tanzania
 pt: Café de Tanzânia
@@ -10777,6 +11068,7 @@ de: Kaffee aus Madagaskar
 es: Café de Madagascar
 fr: Café de Madagascar
 hr: Kave s madagaskara
+hu: Madagaszkári kávék
 it: Caffè di Madagascar
 ja: マダガスカル産のコーヒー
 nl: Koffie uit Madagascar
@@ -10788,6 +11080,7 @@ en: Capsules
 de: Kapseln
 fr: Dosettes
 hr: Kapsule
+hu: Kapszulák
 it: Capsule
 ja: カプセル
 nl: Kapsules, Capsules
@@ -10800,6 +11093,7 @@ de: Tee Kapseln
 es: Cápsulas de té
 fr: Thés en dosettes
 hr: Čajne kapsule
+hu: Teakapszulák
 it: Capsule di tè
 nl: Theecapsules
 pt: Cápsulas de chá
@@ -10811,6 +11105,7 @@ en: Cocoa capsules
 es: Cápsulas de cacao
 fr: Capsules de cacao
 hr: Kakao kapsule
+hu: Kakaókapszulák
 it: Capsule di cacao
 lt: Kakavos kapsulės
 nl: Cacaocapsules
@@ -10828,6 +11123,7 @@ fi: Kahvikapselit
 fr: Cafés en dosettes, café en dosette, café en capsule, dosettes de café, dosette de café, capsules de café, café en pad, pad de café, café en dose, dose de café
 he: קפסולות קפה
 hr: Kapsule za kavu
+hu: Kávékapszulák, Kávépárnák, Kávé kapszula
 it: Capsule di caffè
 ja: コーヒーカプセル
 lt: Kavos kapsulės
@@ -10850,6 +11146,7 @@ es: Cápsulas de café compatibles con Senseo
 fi: Senseo-yhteensopivat kahvikapselit
 fr: Cafés en dosettes compatible Senseo, Dosettes Senseo, Capsules Senseo
 hr: Senseo-kompatibilne kapsule za kavu
+hu: Senseo kompatibilis kávékapszulák
 it: Capsule di caffè compatibili Senseo
 lt: Senseo kapsulės
 nl: Senseo-compatibele koffiecapsules, Senseo-compatibele koffiecapsule, Senseo
@@ -10863,6 +11160,7 @@ fi: Nespresso-yhteensopivat kahvikapselit
 fr: Cafés en dosettes compatible Nespresso, Dosettes Nespresso, Capsules Nespresso
 he: קפסולות קפה תואמות נספרסו
 hr: Nespresso kompatibilne kapsule kave
+hu: Nespresso kompatibilis kávékapszulák
 it: Capsule di caffè compatibili Nespresso
 lt: Nespresso kapsulės
 nl: Nespresso-compatibele Koffiecapsules, Nespresso
@@ -10875,6 +11173,7 @@ de: Dolce Gusto kompatible Kaffeekapseln
 es: Cápsulas de café compatibles con Dolce Gusto
 fr: Cafés en dosettes compatible Dolce Gusto
 hr: Dolce gusto kompatibilne kapsule za kavu
+hu: Dolce Gusto kompatibilis kávékapszulák
 it: Capsule di caffè compatibili Dolce Gusto
 lt: Dolce Gusto formato kavos kapsulės
 nl: Dolce Gusto-compatibele Koffiecapsules
@@ -10886,6 +11185,7 @@ de: Dolce Gusto-kompatible Kapseln
 es: Cápsulas compatibles con Dolce Gusto
 fr: Dosettes Dolce Gusto, Capsules Dolce Gusto
 hr: Dolce gusto kompatibilne kapsule
+hu: Dolce Gusto kompatibilis kapszulák
 it: Capsule compatibili con Dolce Gusto
 lt: Dolce Gusto formato kapsulės
 nl: Dolce Gusto-compatibele Capsules, Dolce Gusto
@@ -10896,6 +11196,7 @@ en: Tassimo-compatible coffee capsules, T-Disc coffee capsules
 de: Tassimo-kompatible Kapseln
 fr: Cafés en dosettes compatible Tassimo, Dosettes Tassimo, Capsules Tassimo, Dosettes T-Disc, Capsules T-Disc
 hr: Tassimo-kompatibilne kapsule kave
+hu: Tassimo kompatibilis kávékapszulák
 nl: Tassimo-compatibele Koffiecapsules, Tassimo
 pt: Cápsulas de café compatíveis com Tassimo
 
@@ -10907,6 +11208,7 @@ es: Cafés descafeinados
 fi: kofeiinittomat kahvit
 fr: Cafés décaféinés, café décaféiné
 hr: Kave bez kofeina
+hu: Koffeinmentesített kávék, Koffeinmentes kávék
 it: Caffè decaffeinato
 ja: デカフェコーヒー
 lt: Kava be kofeino
@@ -10922,6 +11224,7 @@ de: entkoffeinierte Kaffees in Pads, koffeinfreie Kaffees in Pads
 es: Cápsulas de café descafeinado
 fr: Cafés décaféinés en capsules
 hr: Kapsule kave bez kofeina
+hu: Koffeinmentesített kávékapszulák, Koffeinmentes kávékapszulák
 it: Capsule di caffè decaffeinato
 lt: Kavos kapsulės be kofeino
 nl: Cafeïnevrije koffiepads, Caffeïnevrije koffiepad
@@ -10937,6 +11240,7 @@ es: Cafés molidos
 fi: jauhetut kahvit
 fr: Cafés moulus, café moulu
 hr: Mljevene kave
+hu: Őrölt kávék, Őrölt kávé
 it: Caffè macinato, Polvere di caffè
 lt: Malta kava
 nl: Gemalen koffies, Filterkoffies, Gemalen koffie, Filterkoffie
@@ -10965,6 +11269,7 @@ fi: kahvinpavut
 fr: Grains de café, Café en grains
 he: פולי קפה
 hr: Zrna kave
+hu: Szemes kávék, Kávébabok
 it: Chicchi di caffè
 ja: コーヒー豆
 lt: Kavos pupelės
@@ -10986,6 +11291,7 @@ de: Geröstete Kaffeebohnen
 es: Granos de café tostados
 fr: Grains de café torréfiés
 hr: Pržena zrna kave
+hu: Pörkölt szemes kávék, Pörkölt kávébabok
 lt: Skrudintos kavos pupelės
 nl: Geroosterde koffiebonen
 tr: Kavrulmuş kahve çekirdeği
@@ -10999,6 +11305,7 @@ es: Cafés Arábica
 fi: Arabica-kahvit
 fr: Café Arabica
 hr: Arapske kave
+hu: Arabica kévák
 it: Caffè Arabica
 ja: アラビカコーヒー
 lt: Arabika kavos
@@ -11013,6 +11320,7 @@ en: Arabica ground coffees
 de: Arabica gemahlener Kaffee
 fr: Café Arabica moulu
 hr: Arabica mljevene kave
+hu: Őrölt Arabica kévák
 nl: Gemalen Arabica koffies
 pt: Cafés arabica moídos
 
@@ -11022,6 +11330,7 @@ en: Arabica coffee beans
 de: Arabica Kaffeebohnen
 fr: Grains de café arabica
 hr: Arabica zrna kave
+hu: Szemes Arabica kévák, Arabica szemes kávék
 nl: Arabica koffiebonen
 
 < en:Coffees
@@ -11030,6 +11339,7 @@ bg: Кафе Робуста
 de: Robusta Kaffees
 fr: Café Robusta
 hr: Robusta kave
+hu: Robusta kávék
 nl: Robusta koffies
 pt: Cafés robusta
 
@@ -11038,6 +11348,7 @@ pt: Cafés robusta
 en: Robusta ground coffees
 fr: Café Robusta moulu
 hr: Robusta mljevene kave
+hu: Őrölt Robusta kávék
 nl: Gemalen Robusta koffies
 
 < en:Coffee beans
@@ -11045,6 +11356,7 @@ nl: Gemalen Robusta koffies
 en: Robusta coffee beans
 fr: Grains de café robusta
 hr: Robusta kava u zrnu
+hu: Szemes Robusta kávék, Robusta szemes kávék
 nl: Gemalen Robustica koffiebonen
 pt: Grãos de café robusta
 
@@ -11082,6 +11394,7 @@ en: Coffee without sugar
 bg: Кафе без захар
 fr: Café non sucré
 hr: Kava bez šećera
+hu: Cukormentes kávé
 pl: Kawa bez cukru
 pt: Café sem açúcar
 agribalyse_food_code:en: 18004
@@ -11095,6 +11408,7 @@ de: Espresso ohne Zucker
 es: Café expreso sin azúcar
 fr: Café expresso non sucré
 hr: Espresso kava bez šećera
+hu: Cukormentes espresso kávé, espresso kávé cukor nélkül
 it: Caffè espresso senza zucchero
 nl: Espresso koffie zonder suiker
 pt: Café expresso sem açúcar
@@ -11109,6 +11423,7 @@ ciqual_food_name:fr: Café expresso, non instantané, non sucré, prêt à boire
 en: Cappuccino, Coffee drinks with milk
 fr: Boissons lactées au café
 hr: Cappuccino
+hu: Cappuccino
 it: Caffè-latte, Latte al caffè
 lt: Kavos gėrimas su pienu
 nl: Cappuccino, Koffiedranken met melk
@@ -11121,6 +11436,7 @@ de: Kaffee mit Milch und Zucker
 es: Café con leche con azúcar
 fr: Café au lait sucré
 hr: Kava s mlijekom sa šećerom
+hu: Kávé tejjel és cukorral
 it: Caffè con latte con zucchero
 nl: Koffie met melk met suiker
 pt: Café com leite com açúcar
@@ -11141,6 +11457,7 @@ en: Instant coffee with milk without sugar
 es: Café con leche instantáneo sin azúcar
 fr: Café au lait instantané non sucré
 hr: Instant kava s mlijekom bez šećera
+hu: Instant kávé tejjel és cukor nékül
 it: Caffè al latte istantaneo senza zucchero
 nl: Instant koffie met melk zonder suiker
 pt: Café com leite instantâneo sem açúcar
@@ -11154,6 +11471,7 @@ en: Latte, White coffee without sugar
 es: Café blanco sin azúcar
 fr: Café crème non sucré
 hr: Kavu s mlijekom
+hu: Latte, Café latte
 it: Caffè bianco senza zucchero
 nl: Latte, Koffie verkeerd, Witte koffie zonder suiker
 pt: Café branco sem açúcar
@@ -11170,6 +11488,7 @@ ar: لاتيه ماكياتو
 bg: Лате макиато
 de: Milchmischgetränk, Latte macchiato
 fa: لاته ماکیاتو
+hu: Latte macchiato
 ja: ラッテ・マキアート
 kk: Латте макиато
 ko: 라테 마키아토
@@ -11189,6 +11508,7 @@ en: Instant white coffee without sugar
 es: Café blanco instantáneo sin azúcar
 fr: Café crème instantané non sucré
 hr: Instant bijela kava bez šećera
+hu: Instant kávé cukor nékül
 it: Caffè bianco istantaneo senza zucchero
 agribalyse_food_code:en: 18151
 ciqual_food_code:en: 18151
@@ -11201,6 +11521,7 @@ de: Zuckerfreier Cappuccino
 es: Cappuccino sin azúcar
 fr: Cappuccino non sucré
 hr: Cappuccino bez šećera
+hu: Cappuccino cukor nélkül
 it: Cappuccino senza zucchero
 nl: Cappuccino zonder suiker
 pt: Cappuccino sem açúcar
@@ -11214,6 +11535,7 @@ en: Instant cappuccino without sugar
 es: Cappuccino instantáneo sin azúcar
 fr: Cappuccino instantané non sucré
 hr: Instant cappuccino bez šećera
+hu: Instant cappuccino cukor nélkül
 it: Cappuccino istantaneo senza zucchero
 agribalyse_food_code:en: 18151
 ciqual_food_code:en: 18151
@@ -11228,6 +11550,7 @@ es: Cafés solubles descafeinados
 fi: kofeiinittomat pikakahvit
 fr: Cafés en poudre décaféinés, Cafés instantanés décaféinés, Cafés solubles décaféinés, Café décaféiné en poudre soluble
 hr: Instant kave bez kofeina
+hu: Koffeinmentes instant kávék
 lt: Tirpi kava be kofeino, tirpios kavos be kofeino, kavos milteliai be kofeino
 nl: Cafeïnevrije oploskoffies, Cafeïnevrije oploskoffie
 ru: растворимый кофе без кофеина, декофеинизированный растворимый кофе
@@ -11243,6 +11566,7 @@ de: Entkoffeinierter Instantkaffee ohne Zucker
 es: Café descafeinado instantáneo sin azúcar
 fr: Café décaféiné non sucré instantané
 hr: Instant kava bez kofeina bez šećera
+hu: Koffeinmentes instant kávé cukor nélkül
 it: Caffè decaffeinato istantaneo senza zucchero
 nl: Oploskoffie zonder suiker, cafeïnevrij
 pt: Café instantâneo descafeinado sem açúcar
@@ -11258,6 +11582,7 @@ de: Entkoffeinierter Kaffee ohne Zucker
 es: Café descafeinado sin azúcar
 fr: Café décaféiné non sucré
 hr: Kava bez kofeina bez šećera
+hu: Koffeinmentes kávé cukor nélkül
 it: Caffè decaffeinato senza zucchero
 agribalyse_food_code:en: 18070
 ciqual_food_code:en: 18070
@@ -11270,6 +11595,7 @@ de: Instantkaffee ohne Zucker
 es: Café instantáneo sin azúcar
 fr: Café instantané non sucré
 hr: Instant kava bez šećera
+hu: Instant kávé cukor nélkül
 it: Caffè istantaneo senza zucchero
 agribalyse_food_code:en: 18073
 ciqual_food_code:en: 18073
@@ -11325,6 +11651,7 @@ de: Aromatisierte Instant-Kaffees
 es: Cafés instantáneos aromatizados
 fr: Cafés instantanés aromatisés
 hr: Aromatizirane instant kave
+hu: Ízesített instant kávék
 it: Caffè istantaneo aromatizzato
 nl: Gearomatiseerde oploskoffies, Gearomatiseerde instantkoffies
 ru: Ароматизированный растворимый кофе
@@ -11341,6 +11668,7 @@ ru: Кофе растворимый сублимированный, Раство
 
 < en:Instant beverages
 en: Instant coffee substitutes
+hu: Instant kávéhelyettesítők
 gpc_category_code:en: 10006311
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a substance made from the root of the Chicory plant or other coffee substitute which makes the coffee substitute instantly on the addition of hot water and/or hot milk. Includes products with added dry milk or whiten. Definition Excludes: Excludes products such as Coffee, Ground Coffee Substitutes, Liquid Coffee and Iced Coffee Substitutes. Excludes all teas.
 gpc_category_name:en: Coffee Substitutes - Soluble Instant
@@ -11356,12 +11684,14 @@ gpc_category_name:en: Coffee Substitutes - Capsules/Pods
 < en:Plant-based beverages
 en: Liquid chicory
 fr: Chicorée liquide
+hu: Folyékony cikória
 
 < en:Instant coffee substitutes
 < en:Plant-based beverages
 en: Instant chicory, Instant chicory powder
 fr: Chicorée soluble, chicorée en poudre, Chicorée en poudre soluble
 hr: Instant cikorija
+hu: Instant cikória
 it: Cicoria solubile
 nl: Oploscichorei
 ru: Цикорий растворимый, растворимый цикорий
@@ -11393,6 +11723,7 @@ de: Instant-Chicorée mit Wasser
 es: Chicoria instantánea con agua
 fr: Chicorée instantanée avec de l'eau
 hr: Instant cikorija s vodom
+hu: Instant cikória vízzel
 it: Cicoria istantanea con acqua
 nl: Oploscichorei met water
 agribalyse_food_code:en: 18162
@@ -11412,6 +11743,7 @@ ciqual_food_name:en: Mix of chicory and coffee, instant, without sugar, ready-to
 en: Cereals-based beverages
 fr: Cafés de céréales
 hr: Kafići sa žitaricama
+hu: Gabonaitalok, Gabonaalapú italok
 nl: Granenkoffies, Meergranenkoffies
 pl: Kawa zbożowa, Kawy zbożowe
 
@@ -11449,7 +11781,7 @@ fi: vedet
 fr: Eaux, eau, eaux en bouteilles, eau en bouteille, Eau de source en bouteille, Eau de source embouteillée
 he: סוגי מים
 hr: vode, voda
-hu: Vízek
+hu: Vizek, Víz, Palackozott víz, Palackos víz, Üveges víz
 it: Acque, acqua, acque in bottiglia, acqua in bottiglia
 ja: 水
 lt: Vanduo
@@ -11481,6 +11813,7 @@ de: Leitungswasser
 es: Agua municipal, Agua del grifo
 fr: Eau du robinet
 hr: Komunalne vode
+hu: Vezetékes víz, Csapvíz
 it: Acqua di rubinetto
 ja: 水道水
 nl: Kraanwaters
@@ -11501,7 +11834,7 @@ da: Drikkevand
 de: Trinkwasser
 fr: Eau potable
 hr: Piti vodu
-hu: Ívóvízek
+hu: Ívóvizek, Ivóvíz
 it: Acqua potabile
 ja: 飲料水
 lt: Geriamasis vanduo
@@ -11526,7 +11859,7 @@ es: Aguas carbonatadas, Agua carbonatada
 fi: hiilihapotetut vedet
 fr: Eaux gazeuses, eau gazeuse, eaux pétillantes, eau pétillante
 hr: Gazirane vode
-hu: Szénsavas vízek
+hu: Szénsavas vizek, Szénsavas víz, Szódavíz
 it: Acque frizzanti, acqua frizzante
 ja: 炭酸水
 lt: Gazuotas vanduo, Sodos vanduo, Seltzer vanduo
@@ -11557,7 +11890,7 @@ fi: kivennäisvedet
 fr: Eaux minérales, eau minérale, Eau minérale en bouteille
 he: מים מינרליים
 hr: mineralne vode, mineralna voda
-hu: Ásványvízek
+hu: Ásványvizek, Ásványvíz, Palackos ásványvíz
 it: Acque minerali, acqua minerale
 ja: ミネラルウォーター, 鉱泉水
 lt: Mineralinis vanduo
@@ -11596,6 +11929,7 @@ es: Aguas minerales carbonatadas
 fi: hiilihapotetut kivennäisvedet
 fr: Eaux minérales gazeuses, eau minérale gazeuse, eaux minérales pétillantes, eau minérale pétillante
 hr: Gazirane mineralne vode
+hu: Szénsavas ásványvizek, Szénsavas ásványvíz
 it: Acqua minerale frizzante, Acqua minerale gassata, Acqua minerale gasata
 lt: Gazuotas mineralinis vanduo
 nl: Koolzuurhoudende mineraalwaters, Met koolzuur versterkt mineraalwater
@@ -11618,6 +11952,7 @@ fi: luonnolliset kivennäisvedet
 fr: Eaux minérales naturelles, eau minérale naturelle
 he: מים מינרלים טבעיים
 hr: Prirodne mineralne vode
+hu: Természetes ásványvizek, Természetes ásványvíz
 it: Acque minerali naturali
 lt: Natūralus mineralinis vanduo
 nl: Natuurlijke mineraalwaters, Natuurlijk mineraalwater
@@ -11635,6 +11970,7 @@ es: Aguas minerales naturales carbonatadas
 fi: hiilihapotetut luontaiset kivennäisvedet
 fr: Eau minérale naturelle gazéifiée
 hr: Gazirane prirodne mineralne vode
+hu: Szénsavas természetes ásványvizek, Szénsavas természetes ásványvíz
 it: Acque minerali naturali carbonate
 lt: Gazuotas natūralus mineralinis vanduo
 nl: Koolzuurhoudend natuurlijk mineraalwater
@@ -11664,6 +12000,7 @@ es: Agua mineral no carbonatada
 fi: hiilihapottamattomat luontaiset kivennäisvedet
 fr: Eau minérale naturelle non gazeuse, Eau minérale plate
 hr: Negazirane prirodne mineralne vode
+hu: Szénsavmentes természetes ásványvizek, Szénsavmentes természetes ásványvíz
 it: Acque minerali naturali non carbonate
 lt: Negazuotas natūralus mineralinis vanduo, Negazuotas mineralinis vanduo buteliuose
 nl: Koolzuurvrije natuurlijke mineraalwaters, Koolzuurvrij natuurlijk mineraalwater, Natuurlijke mineraalwaters zonder koolzuur
@@ -11686,7 +12023,7 @@ fi: lähdevedet
 fr: Eaux de sources, Eau de source
 he: מי מעיין
 hr: Izvorske vode
-hu: Forrás vízek
+hu: Forrásvizek, Forrásvíz
 it: Acque di sorgente, acqua di sorgente
 ja: 湧き水
 lt: Šaltinio vanduo
@@ -11719,6 +12056,7 @@ en: Medicinal waters
 de: Heilwasser, Heilwässer
 fr: Eaux médicinales
 hr: Ljekovite vode
+hu: Gyógyvizek, Gyógyvíz
 nl: Geneeskrachtige waters, Geneeskrachtig water
 zh: 药用水, 愈合水
 wikidata:de: Q592892
@@ -11731,6 +12069,7 @@ es: Agua aromatizada
 fi: maustetut vedet
 fr: Eaux aromatisées, eau aromatisée
 hr: Aromatizirane vode
+hu: Ízesített vizek, Ízesített víz
 it: Acque aromatizzate, acqua aromatizzata
 lt: Aromatizuoti vandenys, aromatizuotas vanduo
 nl: Gearomatiseerde waters, Gearomatiseerd water, Waters met smaak, Water met smaak
@@ -11745,6 +12084,7 @@ agribalyse_proxy_food_name:fr: Boisson à l'eau minérale ou de source, aromatis
 < en:Flavored waters
 en: Flavored spring waters, flavored spring water
 fr: Eaux de sources aromatisées, eau de source aromatisée
+hu: Ízesített forrásvizek, Ízesített forrásvíz
 sv: Källvatten med smak
 
 < en:Flavored waters
@@ -11771,6 +12111,7 @@ es: Agua con gas aromatizada, Agua carbonatada aromatizada
 fi: Maustetut porevedet
 fr: Eaux gazeuses aromatisées, eux aromatisées gazeuses
 hr: Aromatizirane gazirane vode
+hu: Ízesített szénsavas vizek, Ízesített szénsavas víz
 it: Acque gassate aromatizzate, acqua aromatizzata gassata
 lt: Aromatizuotas gazuotas vanduo, Gazuotas aromatizuotas vanduo
 nl: Mineraalwater met smaak
@@ -11779,10 +12120,12 @@ sv: Kolsyrade vatten med smak
 < en:Carbonated mineral waters
 < en:Flavored sparkling waters
 en: Flavored carbonated mineral waters
+hu: Ízesített szénsavas ásványvizek, Ízesített szénsavas ásványvíz
 sv: Kolsyrade mineralvatten med smak
 
 < en:Flavored waters
 en: Flavored bottled water
+hu: Ízesített palackozott víz
 sv: Flaskvatten med smak
 
 < en:Flavored bottled water
@@ -11815,6 +12158,7 @@ sv: Bergvatten
 en: Vitamin waters
 bg: Витаминни води
 hr: Vitaminske vode
+hu: Vitaminos vizek, Vitaminos víz
 nl: Vitaminewaters
 sv: Vitaminvatten
 
@@ -11992,7 +12336,7 @@ fi: viinit
 fr: Vins, vin
 he: יינות
 hr: vina, vino
-hu: Borok
+hu: Borok, Bor
 it: Vini
 ja: ワイン, ぶどう酒, 葡萄酒
 lt: Vynas, Vynai
@@ -12024,6 +12368,7 @@ de: Kochweine
 es: Vinos de cocina
 fr: Vins de cuisine
 hr: Kuhanje vina
+hu: Főzőborok, Főzőbor
 it: Vini da cucina
 nl: Kookwijnen
 gpc_category_code:en: 10000052
@@ -12036,6 +12381,7 @@ de: Wein ohne geografische Angabe
 es: Vino sin indicación geográfica
 fr: Vin sans indication géographique, VSIG (Vin sans indication géographique), VSIG
 hr: Vino bez oznake zemljopisnog podrijetla
+hu: Földrajzi eredetmegjelölés nélküli borok
 it: Vino senza indicazione geografica
 nl: Wijnen zonder geografische oorsprong indicatie
 
@@ -12054,6 +12400,7 @@ eo: Nova vino
 es: Federweisser
 fr: Vin bourru
 hr: Federweisser
+hu: Murci
 nl: Nieuwe wijnen, Nieuwe wijn
 pl: Burčák
 sw: Federweisser
@@ -12066,6 +12413,7 @@ es: Vinos espumosos
 fi: kuohuviinit
 fr: Vins effervescents
 hr: Pjenušava vina
+hu: Pezsgők, Pezsgő
 it: Spumanti, Vini spumanti, Vini frizzanti
 ja: スパークリングワイン
 lt: Putojantis vynas
@@ -12110,6 +12458,7 @@ fi: punaviinit
 fr: vins rouges, vin rouge
 he: יינות אדומים
 hr: Crvena vina
+hu: Vörösborok, Vörösbor
 it: Vini rossi
 ja: 赤ワイン
 lt: Raudonas vynas
@@ -12129,6 +12478,7 @@ es: Vinos tintos orgánicos
 fi: Luomupunaviinit
 fr: Vin rouge bio
 hr: Organska crna vina
+hu: Bio vörösborok, Bio vörösbor
 it: Vini rossi biologici
 nl: Biologische rode wijn
 pt: Vinhos tintos orgânicos
@@ -12142,6 +12492,7 @@ de: 10% Rotwein
 es: Vino tinto al 10%
 fr: Vin rouge à 10°, Vin rouge à 10 degrés
 hr: 10% crnog vina
+hu: 10%-os vörösbor
 it: Vino rosso al 10%
 nl: 10% rode wijn
 pt: 10% vinho tinto
@@ -12161,6 +12512,7 @@ es: Vino tinto 11%, Vino tinto al 11%
 fi: 11% punaviini
 fr: Vin rouge à 11°, Vin rouge à 11 degrés
 hr: 11% crnog vina
+hu: 11%-os vörösbor
 it: Vino rosso 11%, Vino rosso al 11%
 ja: 11% 赤ワイン
 lt: 11% raudonas vynas
@@ -12183,6 +12535,7 @@ es: Vino tinto 12%
 fi: 12% punaviini
 fr: Vin rouge à 12°, Vin rouge à 12 degrés
 hr: 12% crnog vina
+hu: 12%-os vörösbor
 it: Vino rosso 12%
 ja: 12% 赤ワイン
 lt: 12% raudonas vynas
@@ -12205,6 +12558,7 @@ es: Vino tinto 13%
 fi: 13% punaviini
 fr: Vin rouge à 13°, Vin rouge à 13 degrés
 hr: 13% crnog vina
+hu: 13%-os vörösbor
 it: Vino rosso 13%
 ja: 13% 赤ワイン
 lt: 13% raudonas vynas
@@ -12235,6 +12589,7 @@ fo: Hvítvín
 fr: Vins blancs, Vin blanc
 gl: Viño branco
 hr: Bijela vina
+hu: Fehérborok, Fehérbor
 it: Vino bianco
 ja: 白ワイン
 kk: Ақ шарап
@@ -12261,6 +12616,7 @@ wikidata:en: Q10210
 en: Dessert wines
 fr: vins liquoreux
 hr: Desertna vina
+hu: Desszertborok
 ja: デザートワイン
 nl: Dessertwijnen, Dessertwijn
 wikidata:en: Q1200945
@@ -12276,6 +12632,7 @@ de: Aromatisierte Weine
 es: Vinos aromatizados
 fr: Vins aromatisés
 hr: Aromatizirana vina
+hu: Ízesített borok
 it: Vini aromatizzati
 nl: Gearomatiseerde wijnen, Gearomatiseerde wijn
 pt: Vinhos aromatizados
@@ -12317,6 +12674,7 @@ de: Alkoholfreie Getränke Mischpackungen - nicht trinkfertig
 es: Packs variados de bebidas instantáneas sin alcohol
 fr: Assortiments de Boissons non alcoolisées instantanés
 hr: Razna pakiranja bezalkoholnih instant pića
+hu: Alkaholmentes instant italválogatások
 it: Confezioni miste di bevande non alcoliche istantanee
 nl: Assortimenten van niet-alcoholische instantdranken
 pt: Packs variados de bebidas não alcóolicas instantes
@@ -12332,6 +12690,7 @@ de: Alkoholfreie Getränke Mischpackungen
 es: Paquetes variados de bebidas sin alcohol
 fr: Assortiments de boissons non alcoolisées
 hr: Raznovrsna pakiranja bezalkoholnih pića
+hu: Alkaholmentes italválogatások
 it: Confezioni miste di bevande non alcoliche
 nl: Aassortimenten van alcoholvrije dranken
 pt: Packs variados de bebidas não alcóolicas
@@ -12344,6 +12703,7 @@ en: Non-alcoholic ciders, Alcohol-free ciders
 es: Sidras sin alcohol, Sidras no alcohólicas
 fr: Cidres sans alcool, Cidres non alcoolisés
 hr: Bezalkoholna jabukovača
+hu: Alkoholmentes cider
 lt: Nealkoholiniai sidrai, sidrai be alkoholio
 nl: Alcoholvrije cider, Niet-alcoholische cider
 
@@ -12354,6 +12714,7 @@ de: Stillgetränk mit Teeextrakt
 es: Bebida gaseosa sin gas con extracto de té
 fr: Boisson au thé aromatisée
 hr: Bezalkoholno piće s ekstraktom čaja
+hu: Szénsavmentes üdítőital teakivonattal, Teakivonattal szénsavmentes üdítőital
 nl: Koolzuurvrije frisdrank met thee-extract
 agribalyse_proxy_food_code:en: 18015
 agribalyse_proxy_food_name:en: Still soft drink with tea extract, with sugar and artificial sweetener(s)
@@ -12422,6 +12783,7 @@ de: zuckerfreie aromatisierte Sirups, aromatisierte Sirups ohne Zucker
 fi: sokerittomat maustesiirapit
 fr: Sirops aromatisés sans sucre, sirops sans sucre
 hr: Aromatizirani sirupi bez šećera
+hu: Cukormentes ízesített szirupok
 nl: Suikervrije gearomatiseerde siropen
 pl: Syropy smakowe bez cukru
 
@@ -12433,6 +12795,7 @@ fi: hedelmäsiirapit
 fr: Sirops aux fruits, sirop aux fruits, Sirops de fruits, sirop de fruits
 he: סירופים מפירות
 hr: Sirupi s voćem, Voćni sirupi
+hu: Gyümölcsös szirupok
 it: Sciroppi con frutta, Sciroppo con frutta, Sciroppi alla frutta
 lt: Vaisiniai sirupai
 nl: Vruchtensiropen, Vruchtensiroop, Vruchtesiroop, Fruitsiropen
@@ -12463,6 +12826,7 @@ en: Apple syrups
 de: Apfelsirups
 fr: Sirops de pomme
 hr: Sirupi od jabuka
+hu: Almaszirup
 lt: Obuolių sirupai
 nl: Appelsiropen, Appelsiroop
 pl: Syropy jabłkowe
@@ -12472,6 +12836,7 @@ en: Orange syrups
 de: Orangensirups
 fr: Sirops d'orange
 hr: Narančasti sirupi
+hu: Narancsszirup
 lt: Apelsinų sirupai
 nl: Sinaasappelsiropen, Sinaasappelsiroop
 pl: Syropy pomarańczowe
@@ -12482,6 +12847,7 @@ en: Watermelon syrups
 de: Wassermelonensirups
 fr: Sirops de pastèque
 hr: Sirupi od lubenice
+hu: Dinnyeszirup
 it: Sciroppi di angurie
 lt: Arbūzų sirupai
 nl: Watermeloensiropen, Watermeloensiroop
@@ -12500,6 +12866,7 @@ de: Rosensirups
 es: Jarabes de rosa
 fr: Sirops de rose
 hr: Sirupi od ruže
+hu: Rózsaszirup
 it: Sciroppi di rosa
 nl: Rozensiropen, Rozensiroop, Rozesiropen, Rozen siroop
 pt: Xaropes de rosa
@@ -12510,6 +12877,7 @@ de: Kastaniensirups
 es: Jarabes de castaña
 fr: Sirops de châtaignes
 hr: Sirupi od kestena
+hu: Gesztenyeszirup
 it: Sciroppi di castagne
 nl: Kastanje siropen, Kastanje siroop, Kastanjesiroop
 pt: Xaropes de castanha
@@ -12520,6 +12888,7 @@ de: Kirschsirups
 es: Jarabes de cereza
 fr: Sirops de cerise
 hr: Sirupi od višanja
+hu: Cseresznyeszirup
 it: Sciroppi di ciliegia
 lt: Vyšnių sirupai
 nl: Kersensiropen, Kersensiroop
@@ -12531,6 +12900,7 @@ en: Lime syrups
 de: Limonensirups
 fr: Sirops de citron vert
 hr: Sirupi od limete
+hu: Limeszirup
 lt: Žaliųjų citrinų sirupai
 nl: limoensiropen, Limoensiroop
 
@@ -12549,6 +12919,7 @@ de: Anissirups
 fi: Anissiirapit
 fr: Sirops à l'anis, Sirops d'anis
 hr: Sirupi od anisa
+hu: Ánizsszirup, Ánizsos szirup
 nl: Anijssiropen, Anijssiroop
 
 < en:Flavoured syrups
@@ -12557,6 +12928,7 @@ de: Kiwisirups
 es: Siropes de kiwi
 fr: Sirops de kiwi
 hr: Sirupi od kivija
+hu: Kiviszirup
 it: Sciroppi di kiwi
 nk: Kiwi siropen, Kiwi siroop, Kiwisiroop
 nl: Kiwi siroop
@@ -12568,6 +12940,7 @@ de: Mangosirups
 es: Siropes de mango
 fr: Sirops de mangue
 hr: Sirupi od manga
+hu: Mangószirup
 it: Sciroppi di mango
 nl: Mango siropen, Mango siroop, Mangosiroop
 
@@ -12577,6 +12950,7 @@ de: Mojito-Sirups
 es: Siropes de mojito
 fr: Sirops mojito
 hr: Mojito sirupi
+hu: Mojito szirup
 it: Sciroppi di mojito
 nl: Mojito siropen, Mojito siroop, Mojitosiroop
 pl: Syropy mojito
@@ -12589,6 +12963,7 @@ es: Siropes de melocotón
 fi: persikkasiirapit
 fr: Sirops de pêche, Sirops à la pêche
 hr: Sirupi od breskve
+hu: Őszibarackszirup
 it: Sciroppi di pesca
 lt: Persikų sirupai
 nl: Perzikensiropen, Perzikensiroop, Perzikkensiroop
@@ -12600,6 +12975,7 @@ bg: Сироп от ананас
 de: Annanassirups
 fr: Sirops d'ananas
 hr: Sirupi od ananasa
+hu: Ananászszirup
 lt: Ananasų sirupai
 nl: Ananassiropen, Ananassiroop
 pl: Syropy ananasowe
@@ -12610,6 +12986,7 @@ de: Cola-Sirups
 es: Jarabes de cola
 fr: Sirops cola
 hr: Cola sirupi
+hu: Kólaszirup
 it: Sciroppi di cola
 lt: Kolos sirupai
 nl: Cola-siropen, Cola-siroop, Cola siroop, Colasiropen, Colasiroop
@@ -12627,6 +13004,7 @@ en: Blueberry syrups
 de: Heidelbeersirups, Blaubeersirups
 fr: Sirops de myrtille
 hr: Sirupi od borovnice
+hu: Áfonyaszirup
 lt: Mėlynių sirupai
 nl: Blauwe bessensiropen, Blauwe bessensiroop
 
@@ -12646,6 +13024,7 @@ es: Siropes de limón
 fi: sitruunasiirapit
 fr: Sirops de citron, sirop de citron
 hr: Sirupi od limuna
+hu: Citromszirup
 it: Sciroppo di limone
 lt: Citrinų sirupai
 nl: Citroensiropen, Citroensiroop
@@ -12656,6 +13035,7 @@ de: Himbeersirups
 fi: vadelmasiirapit
 fr: Sirops de framboise
 hr: Sirupi od malina
+hu: Málnaszirup
 it: Sciroppo di lampone
 lt: Aviečių sirupai
 nl: Frambozensiropen, Frambozensiroop, Frambozesiroop
@@ -12667,6 +13047,7 @@ es: Siropes de fresa
 fi: mansikkasiirapit
 fr: Sirops de fraise, sirop de fraise
 hr: Sirupi od jagoda
+hu: Eperszirup
 it: Sciroppo alla fragola
 lt: Braškių sirupai
 nl: Aardbeiensiropen, Aardbeiensiroop
@@ -12693,7 +13074,7 @@ es: Siropes de menta
 fi: minttusiirapit
 fr: Sirops de menthe, sirop de menthe
 hr: Sirupi od mente
-hu: Menta szirupok, menta szirup
+hu: Mentaszirupok, Mentaszirup
 it: Sciroppo alla menta
 lt: Mėtų sirupai
 nl: Pepermuntsiropen, Pepermuntsiroop, Muntsiroop
@@ -12710,7 +13091,7 @@ nl: Viooltjessiropen, Viooltjessiroop
 en: Pear syrups
 
 < en:Flavoured syrups
-en: Syrups with chamomile flavouring, Chamomile flavoured syrups
+en: Syrups with camomile flavouring, Syrups with chamomile flavoring, Camomile flavoured syrups, Chamomile flavored syrups
 da: Sirupper med kamillesmag
 sv: Siraper med kamomillsmak
 
@@ -12747,7 +13128,7 @@ es: Tés helados, Tés fríos
 fi: jääteet
 fr: Thés glacés, Ice-tea, thé glacé
 hr: Ledeni čajevi
-hu: Jeges teák
+hu: Jeges teák, Jeges tea
 it: Thè freddi
 ja: アイスティー
 lt: Šalta arbata, Šaltos arbatos
@@ -12770,6 +13151,7 @@ es: Bebidas de té
 fi: Teepohjaiset juomat
 fr: Boissons au thé, Thés infusés, boissons à base de thé, Boissons aromatisées au thé
 hr: Pića na bazi čaja
+hu: Teaalapú italok
 it: Bevande a base di tè
 lt: Arbatos gėrimai, Nealkoholiniai gaivieji gėrimai su arbatos ekstraktu ir cukrumi bei saldikliais
 nl: Dranken op basis van thee
@@ -12821,6 +13203,7 @@ de: Kalorienarme Eistees, Eistee light, Diät Eistees
 es: Tés helados ligeros, Tés helados light
 fr: Ice-tea light, thés glacés lights, thé glacé light
 hr: Lagani ledeni čajevi
+hu: Diétás jeges teák, Light jeges teák
 nl: Light ice teas, Light ice tea
 
 < en:Iced teas
@@ -12829,6 +13212,7 @@ de: Pfirsicheistees
 fi: persikan makuiset jääteet
 fr: Thés glacés saveur pêche
 hr: Ledeni čajevi s okusom breskve
+hu: Barack ízű jeges teák, Barack ízesítésű jeges teák
 it: Tè freddo alla pesca
 lt: Persikų skonio šaltosios arbatos
 nl: Perziken Ice Teas, Perziken Ice Tea, Perzik Ice Tea, Perzik Ice Teas
@@ -12867,6 +13251,7 @@ de: Zitroneneistees
 fi: Sitruunan makuiset jääteet
 fr: Thés glacés saveur citron
 hr: Ledeni čajevi s okusom limuna
+hu: Citromos ízesítésű jeges teák, Citrom ízű jeges teák
 it: Tè freddo al limone
 lt: Citrinų skonio šaltosios arbatos
 nl: Citroen Ice Teas, Citroen Ice Tea
@@ -12888,7 +13273,7 @@ es: Bebidas de café
 fi: kahvijuomat
 fr: Boissons au café, boissons à base de café
 hr: Napitci od kave
-hu: Kávé italok
+hu: Kávéitalok, Kávés italok
 it: Bevande al caffè
 lt: Kavos gėrimai, Kavos gėrimas
 nl: Koffiedranken, Koffiedrank
@@ -12907,7 +13292,7 @@ de: Eiskaffees, Eiskaffee
 fi: jääkahvit
 fr: Cafés glacés
 hr: Ledene kave
-hu: Jegeskávé
+hu: Jegeskávék, Jegeskávé
 it: Caffè freddo
 ja: アイスコーヒー
 lt: Šalta kava, Šaltos kavos
@@ -12920,6 +13305,7 @@ en: Non-alcoholic wines, Alcohol-free wines
 de: alkoholfreie Weine
 fr: Vins sans alcool, vins déalcoolisés
 hr: Bezalkoholna vina
+hu: Alkoholmentes borok
 ja: ノンアルコールワイン
 lt: Nealkoholiniai vynai, Nealkoholinis vynas, Vynas be alkoholio
 nl: Alcoholvrije wijnen, Alcoholvrije wijn
@@ -12933,6 +13319,7 @@ es: Burdeos, vinos de Burdeos
 fi: Bordeaux
 fr: Bordeaux, Vins de Bordeaux
 hr: Bordeaux, Bordoška vina
+hu: Bordeaux-i bor
 it: Vini Bordeaux
 nl: Bordeaux
 wikidata:en: Q168461
@@ -18379,6 +18766,7 @@ de: Weine aus dem Medoc
 fi: Medoc-viinit
 fr: Vins du Médoc
 hr: Medočka vina
+hu: Medoc borok
 nl: Médocwijn
 wikidata:fr: Q17354961
 
@@ -23105,6 +23493,7 @@ de: Weine aus Albanien
 es: Vinos de Albania
 fr: Vins d'Albanie
 hr: Vina iz albanije
+hu: Albán borok
 nl: Wijnen uit Albanië
 wikidata:en: Q1161792
 
@@ -23114,6 +23503,7 @@ de: Weine aus Argentinien
 es: Vinos de Argentina
 fr: Vins d'Argentine
 hr: Vina iz argentine
+hu: Argentin borok
 nl: Wijnen uit Argentinië
 wikidata:en: QQ238914
 
@@ -23122,6 +23512,7 @@ en: Wines from Armenia
 de: Weine aus Armenien
 fr: Vins d'Arménie
 hr: Vina iz Armenije
+hu: Örmény borok
 nl: Wijnen uit Armenië
 wikidata:en: Q3561258
 
@@ -23130,6 +23521,7 @@ en: Wines from America, American wines
 de: amerikanische Weine
 fr: Vins américains
 hr: Vina iz amerike
+hu: Amerikai borok
 nl: Amerikaanse wijnen
 origins:en: en:united-states
 wikidata:en: Q1968496
@@ -23159,6 +23551,7 @@ en: Slovenian wines
 de: Slowenische Weine
 fr: Vins slovènes
 hr: Slovenska vina
+hu: Szlovén borok
 nl: Sloveense wijnen
 sl: Slovenska vina
 
@@ -23286,6 +23679,7 @@ en: Wines from Algeria
 de: Weine aus Algerien
 fr: Vins d'Algérie
 hr: Vina iz alžira
+hu: Algériai borok
 nl: Wijnen uit Algerije
 wikidata:en: Q931087
 
@@ -23294,6 +23688,7 @@ en: Wines from Australia, Australian Wines
 de: Weine aus Australien
 fr: Vins d'Australie
 hr: Vina iz Australije
+hu: Ausztrál borok
 nl: Australische wijnen
 origins:en: en:australia
 wikidata:en: Q2129654
@@ -23315,6 +23710,7 @@ wikidata:en: Q2143129
 
 < en:Wines
 en: Serbian wines
+hu: Szerb borok
 wikidata:en: Q2072095
 
 < en:Serbian wines
@@ -23325,6 +23721,7 @@ protected_name_type:en: pdo
 
 < en:Wines
 en: Slovakian wines
+hu: Szlovák borok
 wikidata:en: Q1478793
 
 < en:Slovakian wines
@@ -23383,6 +23780,7 @@ protected_name_type:en: pdo
 
 < en:Wines
 en: British wines
+hu: Brit borok
 wikidata:en: Q1467810
 
 < en:British wines
@@ -23432,6 +23830,7 @@ en: Swiss wines
 de: Schweizer Weine
 fr: Vins suisses
 hr: Švicarska vina
+hu: Svájci borok
 nl: Zwitserse wijnen
 # disabled for safety: origins:en: en:Switzerland
 wikidata:en: Q674376
@@ -23448,6 +23847,7 @@ de: Weine aus Österreich, österreichische Weine
 es: Vinos de Austria
 fr: Vins d'Autriche
 hr: Vina iz austrije
+hu: Osztrák borok
 it: Vini austriaci
 nl: Oostenrijkse wijnen
 origins:en: en:austria
@@ -23677,6 +24077,7 @@ de: Weine aus Brasilien
 es: Vinos de Brasil, Vinos brasileños
 fr: Vins du Brésil, vins brésiliens
 hr: Vina iz brazila
+hu: Brazil borok
 it: Vini del Brasile, Vini brasiliani
 nl: Braziliaanse wijnen, Braziliaanse wijn, Wijn uit Brazilië
 pt: Vinhos do Brasil, Vinhos brasileiros
@@ -23695,6 +24096,7 @@ da: Danske vine
 de: Dänische Weine
 fr: Vins danois
 hr: Danska vina
+hu: Dán borok
 # disabled for safety: origins:en: en:Denmark
 wikidata:en: Q2367063
 
@@ -23738,6 +24140,7 @@ en: Dutch wines
 de: Niederländische Weine
 fr: Vins néerlandais
 hr: Nizozemska vina
+hu: Holland borok
 nl: Nederlandse wijnen, Wijnen uit Nederland
 # disabled for safety: origins:en: en:Netherlands
 wikidata:en: Q767701
@@ -23867,6 +24270,7 @@ de: Belgische Weine
 es: Vinos belgas
 fr: Vins belges
 hr: Vina iz belgije
+hu: Belga borok
 nl: Belgische wijnen
 wikidata:en: Q1738893
 
@@ -23946,6 +24350,7 @@ de: Bulgarische Weine
 es: Vinos búlgaros
 fr: Vins bulgares
 hr: Vina iz bugarske
+hu: Bolgár borok
 nl: Bulgaarse wijnen, Bulgaarse wijn, Wijn uit Bulgarije
 wikidata:en: Q1806971
 
@@ -24340,6 +24745,7 @@ origins:en: en:bulgaria
 
 < en:Wines
 en: Wines from Canada, Canadian Wines
+hu: Kanadai borok
 nl: Canadese wijnen, Canadese wij, Wijn uit Canada
 wikidata:en: Q1938910
 
@@ -24376,11 +24782,13 @@ en: Wines from Chile, Chilean Wines
 de: Weine aus Chile
 fr: Vin du Chili, Vin Chilien
 hr: Vina iz čilea
+hu: Chilei borok
 nl: Chileense wijnen, Chileense wijn, Wijn uit Chili
 wikidata:en: Q1896262
 
 < en:Wines
 en: Wines from Croatia, Croatian Wines
+hu: Horvát borok
 nl: Kroatische wijnen, Kroatische wijn, Wijn uit Kroatië
 
 < en:Wines from Croatia
@@ -24511,6 +24919,7 @@ protected_name_type:en: pdo
 
 < en:Wines
 en: Wines from Cyprus, Cypriot wines
+hu: Ciprusi borok
 nl: Cypriotische wijnen
 wikidata:en: Q4111867
 
@@ -24634,6 +25043,7 @@ protected_name_type:en: pgi
 en: Wines from Czech Republic
 fr: Vins de République tchèque
 hr: Vina iz Češke
+hu: Cseh borok
 nl: Tsjechische wijnen, Tsjechische wijn
 wikidata:en: Q695626
 
@@ -24773,6 +25183,7 @@ en: Wines from Georgia, Georgian wines
 de: Weine aus Georgien
 fr: Vins georgiens, vin géorgien, vins de Géorgie, vin de Géorgie
 hr: Vina iz Gruzije
+hu: Grúz borok
 nl: Georgische wijnen, Georgische wijn
 wikidata:en: Q1859167
 
@@ -24853,6 +25264,7 @@ en: Wines from Germany, German wines
 de: Weine aus Deutschland
 fr: Vins allemands, vin allemand, vins d'Allemagne, vin d'Allemagne
 hr: Vina iz njemačke
+hu: Német borok
 nl: Duitse wijnen, Duitse wijn
 wikidata:en: Q833872
 
@@ -25291,6 +25703,7 @@ en: Wines from Greece, Greek wines
 de: Weine aus Griechenland
 fr: Vins grecs, vin grec, vins de Grèce, vin de Grèce
 hr: Vina iz grčke
+hu: Görög borok
 nl: Griekse wijnen, Griekse wijn, Wijn uit Griekenland
 wikidata:en: Q1779616
 
@@ -25988,153 +26401,154 @@ en: Wines from Hungary, Hungarian Wines
 de: Weine aus Ungarn
 fr: Vins de Hongrie, vins hongrois
 hr: Vina iz Mađarske
-hu: Magyar borok, Borok magyarországból, Magyarországi borok
+hu: Magyar borok, Borok magyarországról, Magyarországi borok
 nl: Hongaarse wijnen, Hongaarse wijn, Wijn uit Hongarije
 origins:en: en:hungary
 wikidata:en: Q1054023
 
 < en:Wines from Hungary
-hu: Csopak, Csopaki
+hu: Csopaki borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-02378
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Eger, Egri
+hu: Egri borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1328, PDO-HU-A1328-AM05
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Mór, Móri
+hu: Móri borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1333, PDO-HU-A1333-AM03
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Hajós-Baja
+hu: Hajós-Bajai borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1388, PDO-HU-A1388-AM03
 protected_name_type:en: pdo
 wikidata:en: Q1032804
 
 < en:Wines from Hungary
-hu: Mátra, Mátrai
+hu: Mátrai borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1368, PDO-HU-A1368-AM03
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Kunság, Kunsági
+hu: Kunsági borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1332, PDO-HU-A1332-AM03
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Tokaj, Tokaji
+hu: Tokaji borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1254, PDO-HU-A1254-AM02
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Monor, Monori
+hu: Monori borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-N1638
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Szekszárd, Szekszárdi
+hu: Szekszárdi borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1349, PDO-HU-A1349-AM02
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Villány, Villányi
+hu: Villányi borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1381, PDO-HU-A1381-AM03
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Pécs
+hu: Pécsi borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1385, PDO-HU-A1385-AM02
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Tolna, Tolnai
+hu: Tolnai borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1353, PDO-HU-A1353-AM01
 protected_name_type:en: pdo
 #wikidata:en:
 
+# Includes Villányi, Szekszárdi, Pécsi and Tolnai wine regions
 < en:Wines from Hungary
-hu: Pannon
+hu: Pannon borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1380, PDO-HU-A1380-AM03
 protected_name_type:en: pdo
-#wikidata:en:
+wikidata:en: Q4052414
 
 < en:Wines from Hungary
-hu: Balaton, Balatoni
+hu: Balatoni borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1507, PGI-HU-A1507-AM04
 protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Balaton-felvidék, Balaton-felvidéki
+hu: Balaton-felvidéki borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1509, PDO-HU-A1509-AM02
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Felső-Magyarország, Felső-Magyarországi
+hu: Felső-magyarországi borok
 origins:en: en:hungary
 protected_name_file_number:en: PGI-HU-A1329, PGI-HU-A1329-AM02
 protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Soltvadkerti
+hu: Soltvadkerti borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-02171
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Duna, Dunai
+hu: Dunai borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1345
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Káli
+hu: Káli borok, Káli-medencei borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1505
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Tihany, Tihanyi
+hu: Tihanyi borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1503
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Bükk, Bükki
+hu: Bükki borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1500
 protected_name_type:en: pdo
@@ -26148,14 +26562,14 @@ protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Nagy-Somló, Nagy-Somlói
+hu: Nagy-Somlói borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1501
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Zala, Zalai
+hu: Zalai borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1502
 protected_name_type:en: pdo
@@ -26169,91 +26583,91 @@ protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Balatonmelléki
+hu: Balatonmelléki borok
 origins:en: en:hungary
 protected_name_file_number:en: PGI-HU-A1508
 protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Dunántúli, Dunántúl
+hu: Dunántúli borok
 origins:en: en:hungary
 protected_name_file_number:en: PGI-HU-A1351
 protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Badacsony, Badacsonyi
+hu: Badacsonyi borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1506
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Balatonboglár, Balatonboglári
+hu: Balatonboglári borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1378
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Balatonfüred-Csopak, Balatonfüred-Csopaki
+hu: Balatonfüred-Csopaki borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1516
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Somlói, Somló
+hu: Somlói borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1376
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Neszmély, Neszmélyi
+hu: Neszmélyi borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1335
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Pannonhalma, Pannonhalmi
+hu: Pannonhalmi borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1338
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Etyek-Buda, Etyek-Budai
+hu: Etyek-Budai borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1350
 protected_name_type:en: pdo
 wikidata:en: Q267187
 
 < en:Wines from Hungary
-hu: Csongrád, Csongrádi
+hu: Csongrádi borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1383
 protected_name_type:en: pdo
 wikidata:en: Q874203
 
 < en:Wines from Hungary
-hu: Sopron, Soproni
+hu: Soproni borok
 origins:en: en:hungary
 protected_name_file_number:en: PDO-HU-A1504
 protected_name_type:en: pdo
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Zemplén, Zempléni
+hu: Zempléni borok
 origins:en: en:hungary
 protected_name_file_number:en: PGI-HU-A1375
 protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Wines from Hungary
-hu: Duna-Tisza-közi
+hu: Duna-Tisza-közi borok
 origins:en: en:hungary
 protected_name_file_number:en: PGI-HU-A1342
 protected_name_type:en: pgi
@@ -31314,6 +31728,7 @@ protected_name_type:en: pdo
 en: Wines from Luxembourg
 fr: Vins du Luxembourg, vins luxembourgeois
 hr: Vina iz Luksemburga
+hu: Luxembourgi borok
 nl: Luxemburgse wijnen, Luxemburgse wijn, Wijn uit Luxemburg
 wikidata:en: Q1759014
 
@@ -31404,6 +31819,7 @@ origins:en: en:luxembourg
 en: Wines from Malta
 fr: Vins de Malte, Vins maltais
 hr: Vina s malte
+hu: Máltai borok
 nl: Maltese wijnen, Maltese wijn, Wijn uit Malta
 origins:en: en:malta
 wikidata:en: Q582745
@@ -31433,6 +31849,7 @@ es: Vinos de Portugal
 fi: Portugalilaiset viinit, Viinit Portugalista
 fr: Vins portugais, Vins du Portugal, Vin portugais, Vin du Portugal
 hr: Vina iz portugala
+hu: Portugál borok
 nl: Portugese wijnen, Portugese wijn, Wijn uit Portugal
 pt: Vinhos de Portugal
 wikidata:en: Q1754670
@@ -31660,6 +32077,7 @@ en: Madeira Wine
 de: Madeira Wein
 fr: Madère, Vin de Madère
 hr: Vino madeira
+hu: Madeirai borok
 it: Vino di Madera
 nl: Madeira Wijn
 pt: Madeira, Vinho da Madeira
@@ -31910,6 +32328,7 @@ origins:en: en:portugal
 
 < en:Wines
 en: Romanian wines
+hu: Romániai borok, Román borok
 wikidata:en: Q1319565
 
 < en:Romanian wines
@@ -32272,6 +32691,7 @@ es: Vinos de España, vinos españoles.
 fi: espanjalaiset viinit
 fr: Vins espagnols, Vin espagnol, Vin d'Espagne, Vins d'Espagne
 hr: Vina iz Španjolske
+hu: Spanyol borok
 nl: Spaanse wijnen, Spaanse wijn, Wijn uit Spanje
 wikidata:en: Q1432594
 
@@ -33382,6 +33802,7 @@ fr: Champagnes premiers crus
 en: Russian champagne, Soviet champagne
 fr: Champagne russe, Champagne soviétique
 hr: Ruski šampanjac
+hu: Orosz pezsgők
 nl: Russische champagnes
 
 < en:Sparkling wines
@@ -33413,6 +33834,7 @@ de: Likörweine
 fi: maustetut viinit
 fr: Vins mutés, vin muté
 hr: Pojačana vina
+hu: Likőrborok, Likőrbor
 it: Vini liquorosi
 nl: Versterkte wijn, Versterkte wijnen
 pt: Vinhos fortificados
@@ -33469,6 +33891,7 @@ es: Vinos dulces
 fi: makeat viinit
 fr: Vins doux, Vin doux, Vins doux naturels, Vin doux naturel
 hr: Slatka vina
+hu: Édes borok
 it: Vini dolci
 lt: Saldūs vynai, Natūralus saldus vynas
 nl: Zoete wijnen, Zoete wijn
@@ -33489,6 +33912,7 @@ en: Dry white wines
 de: Trockene Weißweine
 fr: Vins blancs secs
 hr: Suha bijela vina
+hu: Száraz fehérborok
 agribalyse_food_code:en: 5215
 
 < en:Dry white wines
@@ -33652,6 +34076,7 @@ es: Vinos rosados
 fi: rosé-viinit
 fr: Vins rosés, vin rosé
 hr: Ružičasta vina
+hu: Rozéborok, Rozé borok
 it: Vini rosé
 nl: Rosé wijnen, Rosé wijn, Rosé
 agribalyse_food_code:en: 5216
@@ -33673,7 +34098,7 @@ fi: kuivatut tuotteet
 fr: Produits déshydratés, produits lyophilisés, produits séchés, aliments séchés, Aliments secs
 he: מוצרים מיובשים, מוצרים יבשים
 hr: Sušeni proizvodi
-hu: Szárított termékek, szárított élelmiszerek
+hu: Szárított termékek, Szárított élelmiszerek
 it: Prodotti disidratati
 ja: 乾物
 lt: Džiovinti produktai, dehidratuoti produktai, džiovinti maisto produktai, dehidratuoti maisto produktai
@@ -35891,6 +36316,10 @@ nl: Broodjes
 sv: Bullars
 intake24_category_code:en: BRDR
 
+< en:Bread rolls
+en: Soft bread rolls
+nl: Zachte broodjes, puntjes
+
 < en:Breads
 en: Breadsticks, Grissini, Bread sticks
 bg: Гризини
@@ -37472,12 +37901,6 @@ intake24_category_code:en: SSPD
 < en:Desserts
 fi: Mämmi, mammi
 wikidata:en: Q1630666
-
-< en:Desserts
-es: Roscón, roscon, Roscón de Reyes
-fr: Gâteaux des rois, gâteau des rois
-pt: Bolo Rei, Bolo-rei, bolo de reis, bolo de Natal
-wikidata:en: Q7367597
 
 < en:Cakes
 < en:Desserts
@@ -43939,7 +44362,7 @@ hr: Čips i pomfrit
 hu: Chips és krumpli
 it: Patatine e fritti
 lt: Traškučiai ir bulvytės
-nl: Chips en patat
+nl: Chips en patat, Chips en friet
 pl: Chipsy i frytki, Czipsy i frytki
 ru: Чипсы и картофель фри
 zh: 薯片和薯条
@@ -44404,7 +44827,7 @@ en: Corn chips, corn crisps, Tortilla chips
 bg: Царевичен чипс
 ca: Xips de moresc, Xips de panís
 da: Majschips, Tortilla chips
-de: Mais-Chips, Tortillachips, Nachos
+de: Mais-Chips, Tortillachips, Nachos, Maischips
 es: Patatas fritas de maíz
 fi: maissilastut
 fr: Chips de maïs, Chips Tortillas, Tortillas Chips, Tortilla chips, Chips Tortilla
@@ -52600,7 +53023,7 @@ hr: Pića na bazi zobi
 it: Bevanda di avena
 ja: オートミルク
 lt: Avižų pienas
-nl: Haverdranken, Havermoutmelken
+nl: Haverdranken, Havermoutmelken, Havermelken, Havermelk
 pl: Mleka owsiane
 pt: Bebidas de aveia
 sv: Havredrycker, havredryck
@@ -62708,6 +63131,7 @@ de: Gerollte Flocken, gerollte Körner
 fr: Flocons laminés
 hr: Uvaljane pahuljice
 it: Fiocchi pressati
+nl: Geplette granen
 
 < en:Flakes
 en: Extruded flakes
@@ -63750,7 +64174,6 @@ it: Fiocchi d'avena
 ja: ロールドオーツ, オートミール
 lt: Avižiniai dribsniai
 nl: Havermoutvlokken, Havermouten
-nl_be: Havervlokken
 pl: Płatki owsiane
 pt: Flocos de aveia
 ru: Овсяные хлопья, Хлопья овсяные
@@ -63765,6 +64188,7 @@ wikidata:en: Q57656974
 < en:Rolled oats
 en: Rolled oats (small)
 fr: Flocons d'avoine (petit)
+nl: Havermoutvlokken (klein)
 sales_format:en: weight, package
 
 < en:Oat flakes
@@ -70115,6 +70539,10 @@ fr: Poires Abate, Poires Abbé Fétel, Abbé Fétel, Abate Fétel
 wikidata:en: Q306912
 
 < en:Pears
+en: Asian pears, Apple pears, Sand pears
+comment:en: https://www.webmd.com/diet/health-benefit-asian-pears
+
+< en:Pears
 en: Comice pears, Pears (Comice)
 fr: Poires comice
 sales_format:en: package, weight
@@ -76079,7 +76507,7 @@ ciqual_food_code:en: 11192
 ciqual_food_name:en: Cream sauce with mushrooms, prepacked
 ciqual_food_name:fr: Sauce aux champignons et à la crème, préemballée
 
-< en:Sauces
+< en:Tomato sauces
 en: Basque-style sauces, Tomato sauces with sweet peppers
 fr: Sauces basquaises, Sauce basquaise, Sauces aux poivrons, Sauce aux poivrons
 agribalyse_food_code:en: 11170
@@ -79117,6 +79545,7 @@ ciqual_food_name:en: cream sauce for pizza base
 ciqual_food_name:fr: Base de pizza à la crème
 
 < en:Pizza sauces
+< en:Tomato sauces
 en: Tomato sauces for pizzas, Tomato sauce for pizza base
 fr: Sauces tomate pour pizzas, Base de pizza tomatée
 hr: Umak od rajčice za podlogu za pizzu
@@ -79148,15 +79577,16 @@ wikidata:en: Q60823349
 < en:Tomato sauces
 en: Tomato sauces with onions
 bg: Доматен сос с лук
+da: Tomatsovser med løg
 fr: Sauces tomate aux oignons
 hr: Umaci od rajčice s lukom
 lt: Pomidorų padažai su svogūnais
 nl: Tomatensauzen met ui
+sv: Tomatsåser med lök
 agribalyse_food_code:en: 11107
 ciqual_food_code:en: 11107
 ciqual_food_name:en: Tomato sauce, with onions, prepacked
 ciqual_food_name:fr: Sauce tomate aux oignons, préemballée
-
 
 < en:Condiments
 < en:Sauces
@@ -79234,10 +79664,11 @@ en: Meal sauces, Stir in sauces
 sv: Måltidssåser
 
 < en:Sauces
+< en:Tomatoes and their products
 en: Tomato sauces
 bg: Доматен сос
 ca: Salsa de tomàquet
-da: Tomatsauce
+da: Tomatsovser, Tomatsovse, Tomatsaucer, Tomatsauce
 de: Tomatensaucen
 es: Salsas de tomate
 fi: tomaattikastikkeet
@@ -79269,6 +79700,7 @@ wikidata:en: Q3596097
 < en:Tomato sauces
 en: Tomato sauces with basil, Tomato basil pasta sauces
 bg: Доматен сос с босилек
+da: Tomatsovser med basilikum
 de: Tomatensaucen mit Basilikum
 es: Salsas de tomate con albahaca
 fi: Basilika-tomaattikastikeet, Tomaatti-basilikapastakastikkeet
@@ -79278,20 +79710,21 @@ it: Sughi di Pomodoro al Basilico, Sughi di Pomodoro e Basilico
 lt: Pomidorų padažai su baziliku
 sv: Tomatsåser med basilika
 
-< en:Garlic and their products
 < en:Meal sauces
 < en:Tomato sauces
 en: Tomato sauces with garlic
+da: Tomatsovser med hvidløg
 sv: Tomatsåser med vitlök
 
 < en:Meal sauces
-< en:Mushrooms and their products
 < en:Tomato sauces
 en: Tomato sauces with mushrooms
 bg: Доматен сос с гъби
+da: Tomatsovser med svampe
 fr: Sauces tomates aux champignons
 hr: Umaci od rajčice s gljivama
 lt: Pomidorų padažai su grybais
+sv: Tomatsåser med svampar
 agribalyse_food_code:en: 11177
 ciqual_food_code:en: 11177
 ciqual_food_name:en: Tomato sauce, w mushrooms, prepacked
@@ -79306,6 +79739,7 @@ fr: Sauces tomates pimentées
 < en:Tomato sauces
 < en:Vegetable sauces
 en: Tomato sauces with vegetables
+da: Tomatsovser med grønsager
 de: Tomatensaucen mit Gemüse
 fr: Sauces tomate aux petits légumes, Sauces tomates aux légumes
 hr: Umaci od rajčice s povrćem
@@ -79322,6 +79756,7 @@ ciqual_food_name:fr: Sauce tomate aux petits légumes, préemballée
 < en:Tomato sauces
 en: Tomato sauces with olives
 bg: Доматен сос с маслини
+da: Tomatsovser med oliven
 de: Tomatensaucen mit Oliven
 fr: Sauces tomates aux olives
 hr: Umaci od rajčice s maslinama
@@ -79449,7 +79884,6 @@ en: Tumacas
 es: Tumacas
 
 < en:Tomato sauces
-< en:Tomatoes and their products
 en: Natural grated tomato
 es: Tomate natural rallado
 hr: Prirodna ribana rajčica
@@ -79471,7 +79905,6 @@ ciqual_food_name:fr: Tomate, coulis, appertisé (purée de tomates mi-réduite �
 
 < en:Mashed vegetables
 < en:Tomato sauces
-< en:Tomatoes and their products
 en: Tomato purées, Tomato purees, Pureed tomato
 bg: Доматено пюре
 da: Tomatpuréer
@@ -97916,7 +98349,7 @@ nl: Babas met Mojito
 
 # Epiphany is celebrated with different types of dessert according to the country. This category contains almond frangipane type of cake. Roscón de Reyes is in another category.
 < en:Pastries
-en: King cakes, King cake, Twelfth Night cake
+en: Puff pastry king cakes, King cakes, King cake, Twelfth Night cake
 de: Dreikönigskuchen
 es: Tarta de reyes, tarta de reyes francesa, torta rellena de frangipane
 fr: Galettes des rois, Galette des rois, Galette des rois feuilletée, Galettes à la frangipane, Galette à la frangipane, Galettes des rois à la frangipane
@@ -97930,16 +98363,16 @@ ciqual_food_name:en: Twelfth Night cake
 ciqual_food_name:fr: Galette des rois feuilletée
 wikidata:en: Q177166
 
-< en: Pastries
-nl: Vlaaien, Vlaai
-
 < en:Pastries
-en: Twelfth Night cake with almond paste, Twelfth Night cake puff pastry filled with almond paste
-fr: Galette des rois feuilletée fourrée à la frangipane, Pithiviers
+en: Classic almond puff pastry king cakes, Twelfth Night cake with almond paste, Twelfth Night cake puff pastry filled with almond paste
+fr: Galettes des rois classiques à l'amande, Galette des rois feuilletée fourrée à la frangipane, Pithiviers
 agribalyse_food_code:en: 23684
 ciqual_food_code:en: 23684
 ciqual_food_name:en: Twelfth Night cake (puff pastry filled with almond paste)
 ciqual_food_name:fr: Galette des rois feuilletée, fourrée frangipane, et Pithiviers
+
+< en: Pastries
+nl: Vlaaien, Vlaai
 
 < en:Pastries
 en: Basque cake with custard, Basque shortbread with custard
@@ -98825,13 +99258,6 @@ ciqual_food_code:en: 25429
 ciqual_food_name:en: Sandwich made with French bread, kebab and raw vegetables
 
 < en:Sandwiches
-en: Surprise breads
-fr: Pains surprise
-hr: Kruh iznenađenja
-nl: Pain surprise
-wikidata:en: Q3360605
-
-< en:Sandwiches
 en: Monte Cristo sandwich
 wikidata:en: Q6904753
 
@@ -98896,26 +99322,6 @@ wikidata:en: Q390823
 < en:Sandwiches
 en: Breakfast sandwich
 wikidata:en: Q4959490
-
-< en:Sandwiches
-fr: Canapés
-agribalyse_proxy_food_code:en: 25523
-agribalyse_proxy_food_name:en: Canapés (toasts w various toppings)
-agribalyse_proxy_food_name:fr: Toasts ou Canapés salés, garnitures diverses
-wikidata:en: Q1032806
-
-< fr:Canapés
-en: Salted canapés
-de: Salzige Canapés
-es: Canapés salados
-fr: Canapés salés
-hr: Slani kanapei
-it: Canapé salati
-nl: Zoute canapés
-agribalyse_food_code:en: 25523
-ciqual_food_code:en: 25523
-ciqual_food_name:en: Canapés (toasts w various toppings)
-ciqual_food_name:fr: Toasts ou Canapés salés, garnitures diverses
 
 < en:Sandwiches
 en: Cheeseburgers
@@ -107933,12 +108339,13 @@ pl: Marynowane produkty roślinne
 pt: Pickles à base de plantas
 ro: Legume murate
 ru: Маринованные растительные продукты
-sv: Inlagda grönsaker
+sv: Inlagda växter
 intake24_category_code:en: PION
 
 < en:Canned vegetables
 < en:Plant-based pickles
 en: Pickled vegetables, Vegetable pickles
+da: Syltede grønsager
 de: Eingelegtes Gemüse
 es: Verduras y hortalizas encurtidas, Encurtidos de verduras y hortalizas
 fi: kasvissäilykkeet
@@ -107949,6 +108356,7 @@ it: Verdure sottaceto
 nl: Ingemaakte groentes
 pt: Pickles vegetais
 ru: Маринованые овощи
+sv: Inlagda grönsaker
 tr: Sebze turşusu
 gpc_category_code:en: 10000244
 gpc_category_description:en: Definition: Includes any products that can be described/observed as chopped or whole vegetables, preserved in vinegar, oil or brine, with added ingredients such as herbs, spices and mustard, commonly used as a condiment for meats, cheese and bread. Products include pickled tomatoes, gherkins, onions and capers. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Canned Vegetables and Vegetable Spreads, Chutneys, Relishes and Olives and Pickled Eggs.
@@ -108177,10 +108585,12 @@ nl: Ingemaakte guindilla pepers
 < en:Pickled peppers
 en: Pickled jalapeños
 nl: Ingemaakte jalapeño peper
+sv: Inlagda jalapeños
 
 < en:Pickled jalapeños
 < en:Sliced jalapeños
 en: Pickled sliced jalapeños
+sv: Inlagda skivade jalapeños
 
 < en:Friggitelli
 < en:Pickled peppers
@@ -111528,6 +111938,14 @@ ciqual_food_name:en: Squash, butternut, pulp, raw
 ciqual_food_name:fr: Courge doubeurre (butternut), pulpe, crue
 sales_format:en: weight, package
 wikidata:en: Q4169287
+
+< en:Pumpkins
+en: Kabocha squashes, Japanese pumpkins
+xx: Kabocha
+ja: 栗かぼちゃ
+ko: 단호박
+th: ฟักทอง
+wikidata:en: Q3191670
 
 < en:Pumpkins
 en: Spaghetti squashes, Spaghetti squash
@@ -117756,6 +118174,21 @@ food_groups:en: en:appetizers
 pnns_group_2:en: Appetizers
 
 < en:Appetizers
+en: Surprise breads
+fr: Pains surprise
+hr: Kruh iznenađenja
+nl: Pain surprise
+wikidata:en: Q3360605
+
+< en:Appetizers
+en: Canapés, Salted canapés
+fr: Canapés, Canapés salés
+agribalyse_proxy_food_code:en: 25523
+agribalyse_proxy_food_name:en: Canapés (toasts w various toppings)
+agribalyse_proxy_food_name:fr: Toasts ou Canapés salés, garnitures diverses
+wikidata:en: Q1032806
+
+< en:Appetizers
 fr: Blinis
 nl: Blinis
 agribalyse_food_code:en: 23805
@@ -118399,12 +118832,15 @@ ciqual_food_name:en: Brioche, prepacked
 ciqual_food_name:fr: Brioche, préemballée
 
 < en:Brioches
-fr: Couronnes des rois, Couronne des rois, Brioches des rois, Brioche des rois, Galettes des rois briochées, Galette des rois briochée
-wikidata:en: Q168263
+en: Brioche king cakes
+es: Roscón, roscon, Roscón de Reyes
+fr: Couronnes des rois, Couronne des rois, Brioches des rois, Brioche des rois, Galettes des rois briochées, Galette des rois briochée, Gâteaux des rois, gâteau des rois
+pt: Bolo Rei, Bolo-rei, bolo de reis, bolo de Natal
+wikidata:en: Q17015916
 
 < en:Brioches
-en: Christmas brioche with candied fruits
-fr: Couronne de Noël aux fruits confits, Brioche de Noël aux fruits confits
+en: Classic brioche king cakes with candied fruits, Christmas brioche with candied fruits
+fr: Couronnes des rois classiques aux fruits confits, Couronne de Noël aux fruits confits, Brioche de Noël aux fruits confits
 agribalyse_food_code:en: 7744
 ciqual_food_code:en: 7744
 ciqual_food_name:en: Christmas brioche with candied fruits, prepacked

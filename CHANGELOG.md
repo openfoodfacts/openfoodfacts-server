@@ -1,5 +1,35 @@
 # Changelog
 
+## [2.87.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.86.0...v2.87.0) (2026-02-05)
+
+
+### Features
+
+* Migrate tagify from CSS to SCSS ([#12944](https://github.com/openfoodfacts/openfoodfacts-server/issues/12944)) ([514cbe4](https://github.com/openfoodfacts/openfoodfacts-server/commit/514cbe461143dfc330894841edc404800cca93b9)), closes [#10030](https://github.com/openfoodfacts/openfoodfacts-server/issues/10030)
+
+
+### Bug Fixes
+
+* backport new nutrition tests from new-nutrition-update ([#12955](https://github.com/openfoodfacts/openfoodfacts-server/issues/12955)) ([be2d580](https://github.com/openfoodfacts/openfoodfacts-server/commit/be2d58011927943df5ebdbc9a9080d45df5477c4))
+* checkpoint resume logic and migration script safety ([#12939](https://github.com/openfoodfacts/openfoodfacts-server/issues/12939)) ([023f952](https://github.com/openfoodfacts/openfoodfacts-server/commit/023f95280333d7c6e3469f2f5f52066a037f80de))
+* Don't send old password to Keycloak if not changed ([#12938](https://github.com/openfoodfacts/openfoodfacts-server/issues/12938)) ([ba2a85e](https://github.com/openfoodfacts/openfoodfacts-server/commit/ba2a85efe1da5e6557f70d17f78443a70e6414b5))
+* Ensure better SEO with fixes for unique Open X Facts strings ([#12569](https://github.com/openfoodfacts/openfoodfacts-server/issues/12569)) ([4792190](https://github.com/openfoodfacts/openfoodfacts-server/commit/47921908e77c8cb8f1f0691d6d6331498453ee82))
+* fix API call to brevo for newsletter subscription ([#12960](https://github.com/openfoodfacts/openfoodfacts-server/issues/12960)) ([2447820](https://github.com/openfoodfacts/openfoodfacts-server/commit/2447820eaa0bbf88fa2d25a2e1ee9ad8b4985ce0))
+* fix delete_user integration test (multiple delete_user minion jobs) ([#12930](https://github.com/openfoodfacts/openfoodfacts-server/issues/12930)) ([21fe90c](https://github.com/openfoodfacts/openfoodfacts-server/commit/21fe90ca116c585ad55ffaeabded373fe7033bed))
+* incorrect UTM language codes in donation pages ([#12959](https://github.com/openfoodfacts/openfoodfacts-server/issues/12959)) ([a7f1963](https://github.com/openfoodfacts/openfoodfacts-server/commit/a7f1963740bbb3d3adcfa719f4f8bebc3ba662ec))
+* Locale fixups and output sorting for Google Product taxonomy import ([#12653](https://github.com/openfoodfacts/openfoodfacts-server/issues/12653)) ([23a42d5](https://github.com/openfoodfacts/openfoodfacts-server/commit/23a42d5d956b04c49276240875d8dd329eb44642))
+* minor fix in convert_string_to_number ([#12745](https://github.com/openfoodfacts/openfoodfacts-server/issues/12745)) ([81dbc62](https://github.com/openfoodfacts/openfoodfacts-server/commit/81dbc62f5974c24799ba6124a919ac6b26beba21))
+* **openapi:** Require fields in product_meta schema ([#12970](https://github.com/openfoodfacts/openfoodfacts-server/issues/12970)) ([a837dd8](https://github.com/openfoodfacts/openfoodfacts-server/commit/a837dd8476e66e26929da5800fe1549850aea4f0)), closes [#12969](https://github.com/openfoodfacts/openfoodfacts-server/issues/12969)
+* opff favicon and various links for OxF ([#12996](https://github.com/openfoodfacts/openfoodfacts-server/issues/12996)) ([ed07675](https://github.com/openfoodfacts/openfoodfacts-server/commit/ed076753374a855767fb0bfbde559326902df3d2))
+* prevent taxonomy cache growth ([#12899](https://github.com/openfoodfacts/openfoodfacts-server/issues/12899)) ([9e90530](https://github.com/openfoodfacts/openfoodfacts-server/commit/9e905304d6a1614975985ba2a012c06f8cd8be2c))
+* resave dangerous svg icon ([#12935](https://github.com/openfoodfacts/openfoodfacts-server/issues/12935)) ([e963ca1](https://github.com/openfoodfacts/openfoodfacts-server/commit/e963ca195469f2547403f3f6e77a6587c8ab0abb))
+* typo in Green-Score description ([#12828](https://github.com/openfoodfacts/openfoodfacts-server/issues/12828)) ([f1dd4c4](https://github.com/openfoodfacts/openfoodfacts-server/commit/f1dd4c47ca86aa03f4f83b46d9a94c862b08a720))
+* update deprecated ESLint rules to modern equivalents ([#12942](https://github.com/openfoodfacts/openfoodfacts-server/issues/12942)) ([fa7271a](https://github.com/openfoodfacts/openfoodfacts-server/commit/fa7271adf97c4fae55100d9a5b22e7e931414262))
+* Update Green-Score range from A to F ([#12912](https://github.com/openfoodfacts/openfoodfacts-server/issues/12912)) ([a3be375](https://github.com/openfoodfacts/openfoodfacts-server/commit/a3be3754ad3bcaa2c261a1cb7d562496224e2725))
+* Update links for product completion warnings ([#13014](https://github.com/openfoodfacts/openfoodfacts-server/issues/13014)) ([ad2ebe1](https://github.com/openfoodfacts/openfoodfacts-server/commit/ad2ebe1b0414b36136ec1e651ab28b5cd308a796))
+* upgrading XML::RPC and Type::Tiny::XS ([#13001](https://github.com/openfoodfacts/openfoodfacts-server/issues/13001)) ([95444f4](https://github.com/openfoodfacts/openfoodfacts-server/commit/95444f4c606ac9eeb147ee77ba5db20df9a9fc20))
+* use page-type 'edit' for logged in user ([#13004](https://github.com/openfoodfacts/openfoodfacts-server/issues/13004)) ([21ad919](https://github.com/openfoodfacts/openfoodfacts-server/commit/21ad9194e4f34f4c83257f8bebf6d09e41c9e34e))
+
 ## [2.86.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.85.1...v2.86.0) (2026-01-07)
 
 
