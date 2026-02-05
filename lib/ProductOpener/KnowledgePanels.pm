@@ -934,7 +934,7 @@ sub create_reuse_card_panel ($product_ref, $target_lc, $target_cc, $options_ref,
 
 	# Check if any category in the hierarchy has a qfdmo_name_fr property
 	my ($qfdmo_name_fr, $category_id) = get_inherited_property_from_categories_tags($product_ref, "qfdmo_name_fr:en");
-	
+
 	# Don't create the panel if no category has QFDMO info
 	if (not defined $qfdmo_name_fr) {
 		return 0;
