@@ -488,6 +488,7 @@ it: lecitina di soia, lecitine di soia
 ja: 大豆レシチン
 ko: 대두 레시틴
 lt: sojos lecitinas, sojų lecitinai, sojų pupelių lecitinai, emulsikliai sojos lecitinas
+lv: sojas lecitīns
 nb: soyalecitin, soyalecitiner
 nl: sojalecithine, soja lecithine, sojalecithinen
 nn: sojalecitin
@@ -3791,6 +3792,7 @@ fr: disaccharide, diholoside
 hr: disaharid
 hu: diszacharid
 it: disaccaridi
+lv: disaharīds
 nl: disaccharide
 pl: disacharydy
 
@@ -9173,6 +9175,7 @@ is: Sjávarsalt
 it: sale marino
 ja: 海塩
 ko: 천일염
+lv: jūras sāls
 ms: Garam laut
 nb: havsalt
 nl: zeezout
@@ -15013,6 +15016,7 @@ he: שמן ושומן דקלים
 hr: palmino ulje i mast
 hu: pálmaolaj és -zsír, pálmaolaj és pálmazsír, pálmaolaj és zsír
 it: olio e grasso di palma
+lv: palmu eļļa un tauki
 nb: palmeolje og fett
 nl: palm olie en vet
 pl: Olej i tłuszcz palmowy
@@ -15579,6 +15583,7 @@ ja: ヤシ油, ココナッツオイル
 kn: ಕೊಬ್ಬರಿ ಎಣ್ಣೆ
 ko: 야자유
 lt: kokosų aliejus
+lv: kokosriekstu eļļa
 ml: വെളിച്ചെണ്ണ
 mr: खोबरेल तेल
 ms: Minyak kelapa
@@ -17099,6 +17104,7 @@ kk: Күнбағыс майы
 kn: ಸೂರ್ಯಕಾಂತಿ ಎಣ್ಣೆ
 ko: 해바라기 기름
 lt: Saulėgrąžų aliejus
+lv: Saulespuķu eļļa
 mk: Сончогледово масло
 mr: Minyak bunga matahari
 nb: solsikkeolje
@@ -33635,6 +33641,7 @@ it: cacao
 ja: ココア, カカオ
 ko: 코코아
 lt: kakava
+lv: kakao
 mt: kawkaw
 nb: Kakao
 nl: cacao
@@ -33868,6 +33875,7 @@ it: cacao in polvere
 ja: ココアパウダー
 ko: 코코아 가루
 lt: kakavos milteliai
+lv: kakao pulveris
 mk: какао во прав
 ms: Pepejal koko
 nb: kakaopulver
@@ -36614,6 +36622,7 @@ kk: Салқын тәтті тағамдар
 ko: 과일
 ky: Жемиштер
 lb: Uebst
+lv: Augļi
 mk: овошје
 nb: frukt
 nl: vruchten
@@ -36762,6 +36771,7 @@ hr: bobičasto voće
 hu: bogyó, bogyótermés, bogyós gyümölcs
 it: Bacche
 ja: ベリーズ
+lv: ogas
 nb: bær
 nl: bessen
 pl: Owoce jagodowe
@@ -36911,6 +36921,7 @@ fi: mehu
 fr: jus
 hr: sok
 it: succo
+lv: sula
 nl: sap
 pl: sok, soki, soku, soków
 pt: suco, sumo
@@ -36951,6 +36962,7 @@ hr: voćni soka, soka miješanog voća
 hu: gyümölcslé
 it: succhi di frutta
 ja: 果汁
+lv: augļu sula
 nb: fruktjuice
 nl: vruchtensap
 pl: Sok owocowy, soki owocowe
@@ -43324,6 +43336,7 @@ hr: kokos, kokosova, kokosove, kokosovo, kokosov orah, kokosa, kokosov
 hu: kókuszdió, kókusz
 it: cocco, noce di cocco
 ja: ココナッツ
+lv: kokosrieksts
 ml: തേങ്ങ
 nb: kokos, kokosnøtt
 nl: kokosnoot, kokos
@@ -48491,6 +48504,7 @@ hr: listnato povrće
 hu: levelzöldség
 id: sayuran daun
 it: verdura a foglia
+lv: lapu dārzeņi
 nl: bladgroente
 pl: warzywo liściaste
 pt: vegetal folhoso
@@ -49808,8 +49822,7 @@ it: prezzemolo a foglia piatta
 
 < en:vegetable
 en: brassica
-it: brassica
-la: brassica
+xx: brassica
 eurocode_2_group_2:en: 8.15
 
 # description:en:BROCCOLI is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable
@@ -51829,6 +51842,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Heart_of_palm
 < en:vegetable
 en: onion-family vegetable
 fr: légume de la famille de l'oignon
+lv: Sīpolu dzimtas dārzenis
+nl: uienfamilie groenten
 eurocode_2_group_2:en: 8.30
 
 # description:en:The ONION (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
@@ -53014,6 +53029,8 @@ es: tubérculo, tubérculos
 fr: tubercule
 hr: gomolj
 it: tubero
+lv: bumbuļu dārzenis
+nl: knolgroente
 eurocode_2_group_2:en: 8.34
 
 
@@ -53045,6 +53062,8 @@ he: ירק שורש עם שורש ראשי
 hi: मुख्य जड़वाले सब्जी
 hr: korjenasto povrće s glavnim korijenom
 it: radice fittonante vegetale
+lv: nakņu dārzenis
+nl: penwortelgroente
 eurocode_2_group_2:en: 8.38
 
 # description:en:ROOT VEGETABLES are underground plant parts eaten by humans as food.
@@ -56839,6 +56858,8 @@ pl: ostra papryka, ostra papryka w proszku, papryka ostra, papryka ostra mielona
 < en:vegetable
 en: fruit vegetable
 it: frutta verdura
+lv: Augļu dārzeņi
+nl: fruitgroente
 eurocode_2_group_2:en: 8.40
 
 < en:fruit vegetable
@@ -56868,7 +56889,8 @@ ia: Tomato
 it: pomodoro, pomodori
 iu: ᒥᓗᑦᓱᑳᒐᖅ
 ja: トマト
-ln: Tomáti
+ln: tomáti
+lv: tomāts
 mg: Voatabia
 ml: തക്കാളി
 nb: tomat, tomater
@@ -58599,6 +58621,8 @@ en: pulse, pulses
 fr: légumineuse sèche, légumineuses sèches, légumes secs, légume sec
 hr: puls
 it: legumi secchi
+lv: pākšaugi
+nl: peulvruchten
 pt: pulso
 eurocode_2_group_2:en: 7.10
 wikidata:en: Q2727662
@@ -59828,6 +59852,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Gram_flour
 < en:vegetable
 en: pod and seed vegetable
 it: baccello e seme vegetale
+lv: pākšu un sēklu dārzenis
+nl: peul- en zaadgroente
 eurocode_2_group_2:en: 8.45
 
 
@@ -61958,6 +61984,7 @@ es: nueces de árboles
 hr: orašasti plodovi
 it: noci da alberi, noci d'albero, noce d'albero
 ja: ナッツ
+lv: koku rieksts
 nb: trenøtt, trenøtter
 nl: boomnoten
 pt: Árvore de frutos secos
@@ -63629,6 +63656,7 @@ it: condimento
 ja: 調味料
 kk: Дәмқосар
 ko: 조미료
+lv: garšviela
 ms: Bumbu
 nn: smakstilsetjing
 oc: condiment
@@ -63817,6 +63845,7 @@ hu: fűszerm fűszerek
 is: krydd
 it: spezie
 ja: 香辛料
+lv: pikantums
 lt: prieskoniai
 nb: krydder, krydderi, krydderier
 nl: specerijen, specerij
@@ -63868,6 +63897,7 @@ hr: aromatskog bilja
 hu: gyógynövény, gyógynövények
 it: erba, piante aromatiche, erbe aromatiche
 ja: ハーブ
+lv: zāle
 nb: urt, urte
 nl: Kruiden
 pl: Zioło, zioła, ziół, mieszanka ziół, mieszanka ziołowa
@@ -68262,6 +68292,7 @@ hr: biljka
 hu: Növény
 it: Pianta
 ja: 植物
+lv: augs
 nb: plante
 nl: plant, planten
 pl: Roślina, rośliny, roślinny, roślinna, roślinne
@@ -86798,7 +86829,8 @@ ja: 繊維
 kk: Волокнит
 kn: ನಾರು
 ko: 섬유
-lt: Skaidula
+lt: skaidula
+lv: Šķiedra
 mk: влакно
 ml: നാര്
 ms: Serat
@@ -86970,6 +87002,7 @@ hu: növényi rostok, növényi rost
 it: fibre vegetali, fibra vegetale
 ja: 植物繊維
 ko: 식물섬유
+lv: dārzeņu šķiedra
 nb: vegetabilsk fiber, plantefiber
 nl: plantaardige vezel, plantaardige vezels
 nn: plantefiber
