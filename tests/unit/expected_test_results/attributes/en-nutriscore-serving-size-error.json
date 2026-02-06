@@ -999,21 +999,21 @@
             "added-sugars" : {
                "modifier" : "~",
                "source" : "estimate",
-               "source_index" : 1,
+               "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0
             },
             "fat" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "serving",
                "unit" : "g",
                "value" : 250.0
             },
             "fiber" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "serving",
                "unit" : "g",
                "value" : 27.5
@@ -1021,7 +1021,7 @@
             "fruits-vegetables-legumes" : {
                "modifier" : "~",
                "source" : "estimate",
-               "source_index" : 1,
+               "source_index" : 0,
                "source_per" : "100g",
                "unit" : "%",
                "value" : 100
@@ -1029,21 +1029,21 @@
             "fruits-vegetables-nuts" : {
                "modifier" : "~",
                "source" : "estimate",
-               "source_index" : 1,
+               "source_index" : 0,
                "source_per" : "100g",
                "unit" : "%",
                "value" : 100
             },
             "proteins" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "serving",
                "unit" : "g",
                "value" : 145.0
             },
             "salt" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "serving",
                "unit" : "g",
                "value" : 0.0,
@@ -1051,14 +1051,14 @@
             },
             "saturated-fat" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "serving",
                "unit" : "g",
                "value" : 48.5
             },
             "sodium" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "serving",
                "unit" : "g",
                "value" : 0.0,
@@ -1066,7 +1066,7 @@
             },
             "sugars" : {
                "source" : "packaging",
-               "source_index" : 0,
+               "source_index" : 1,
                "source_per" : "serving",
                "unit" : "g",
                "value" : 25.5
@@ -1076,6 +1076,34 @@
          "preparation" : "as_sold"
       },
       "input_sets" : [
+         {
+            "nutrients" : {
+               "added-sugars" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "fruits-vegetables-legumes" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 100,
+                  "value_string" : "100"
+               },
+               "fruits-vegetables-nuts" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 100,
+                  "value_string" : "100"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : 100,
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "estimate",
+            "source_description" : "Estimate from ingredients"
+         },
          {
             "nutrients" : {
                "energy" : {
@@ -1126,34 +1154,6 @@
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "packaging"
-         },
-         {
-            "nutrients" : {
-               "added-sugars" : {
-                  "modifier" : "~",
-                  "unit" : "g",
-                  "value" : 0,
-                  "value_string" : "0"
-               },
-               "fruits-vegetables-legumes" : {
-                  "modifier" : "~",
-                  "unit" : "%",
-                  "value" : 100,
-                  "value_string" : "100"
-               },
-               "fruits-vegetables-nuts" : {
-                  "modifier" : "~",
-                  "unit" : "%",
-                  "value" : 100,
-                  "value_string" : "100"
-               }
-            },
-            "per" : "100g",
-            "per_quantity" : 100,
-            "per_unit" : "g",
-            "preparation" : "as_sold",
-            "source" : "estimate",
-            "source_description" : "Estimate from ingredients"
          }
       ]
    },
