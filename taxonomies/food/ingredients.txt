@@ -153,7 +153,7 @@ stopwords:it: di, del, della, delle, dal, contiene, nella, in proporzione variab
 # Japanese stopwords are matched without word boundaries, do not put as stopwords characters or words that could be part of an actual ingredient entry
 stopwords:ja: 等, その他
 stopwords:lt: iš, su, su pridėtiniu, mažiausiai, įskaitant
-stopwords:lv: no, skatīt uz iepakojuma
+stopwords:lv: no, skatīt uz iepakojuma, tostarp
 stopwords:nb: og, av, fra, bl a, blant annet, tilsatt
 stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, met, o.a, van, vervaardigd met, waaraan toegevoegd, waarvan
 stopwords:nn: og, av
@@ -1090,7 +1090,8 @@ fr: enzyme coagulante, enzymes coagulantes, coagulant enzymatique
 hr: koagulacijski enzim
 hu: koaguláló enzim
 it: enzima coagulante
-nl: stremmingsenzymen, stollingsmiddel
+lv: koagulācijas enzīms
+nl: stollingsmiddel, stremmingsenzymen
 pl: Enzym koagulujący
 pt: coagulante
 ru: молокосвертывающий фермент
@@ -1772,6 +1773,7 @@ ja: レンネット
 ko: 레닛
 la: Coagulum
 lt: Šliužo fermentas
+lv: rennēts
 ms: Renet
 nb: løype, osteløype, løpe, osteløpe, animalsk og mikrobiell løpe
 nl: stremsel
@@ -1860,6 +1862,7 @@ fr: présure microbienne, enzyme microbien
 hr: mikrobno sirilo
 hu: mikrobiológiai oltóenzim
 it: caglio microbico, caglio microbiologico
+lv: mikrobiālais rennīts
 nb: mikrobiell løpe
 nl: microbieel stremsel, microbieel stremmiddel
 pl: podpuszczka mikrobiologiczna
@@ -3978,6 +3981,7 @@ hr: jogurt
 hu: joghurt
 it: yogurt
 ja: ヨーグルト
+lv: jogurts
 nb: yoghurt
 nl: Joghurt, yoghurt, jogurt
 pl: Jogurt, jogurtu, jogurtowy
@@ -4457,6 +4461,8 @@ fi: makea hera, makeutettu hera
 fr: lactosérum doux
 hr: slatka sirutka
 it: Siero di latte dolce
+lv: saldas sūkalas
+nl: zoete wei
 pl: słodka serwatka
 
 < en:sweet whey
@@ -9625,6 +9631,7 @@ hr: meso
 hu: hús
 it: carne
 ja: 肉
+lv: gaļa
 nb: kjøtt
 nl: vlees
 pl: Mięso, mięsa, mięs
@@ -11726,6 +11733,7 @@ hu: sertéshús, disznóhús
 it: carne di suino, carne di maiale, carne suina
 ja: 豚肉, ぶたにく, 豚にく, ぶた肉
 lt: kiaulienos mėsa
+lv: cūkgaļa
 nb: svinekjøtt, kjøtt av svin
 nl: Varkensvlees
 pl: mięso wieprzowe
@@ -12387,10 +12395,11 @@ hr: šunka
 hu: sonka
 it: prosciutto
 ja: ハム
+lv: šķiņķis
 nb: skinke
-nl: Ham
-pl: Szynka, szynka wieprzowa, szynki, szynki wieprzowej, mięso z szynki wieprzowej, mięso wieprzowe z szynki
-pt: Presunto
+nl: ham
+pl: szynka, szynka wieprzowa, szynki, szynki wieprzowej, mięso z szynki wieprzowej, mięso wieprzowe z szynki
+pt: presunto
 ru: Ветчина
 sv: skinka, skinka av gris, svinskinka
 zh: 火腿
@@ -15063,6 +15072,7 @@ fr: Huile et matière grasse de palmiste
 hr: ulje i mast palminih koštica
 hu: pálmamagolaj és -zsír
 it: Oli e grassi di palmisti
+lv: palmu kodolu eļļa un tauki
 nl: palmpitolie en vet
 pl: oleje i tluszcze z ziaren palmy
 from_palm_oil:en: yes
@@ -15456,6 +15466,7 @@ it: olio di palmisto, palmisto
 kn: ಪಾಮ್ ಕೆರ್ನಲ್ ಎಣ್ಣೆ
 ln: Mafúta ma ndiká
 lt: Alyvpalmių sėklų aliejus, palmių branduolių
+lv: palmu kauliņu eļļa
 ms: Minyak isirong sawit
 nb: palmekjerneolje, palmekjerne
 nl: Palmkernolie, palmpit
@@ -20415,6 +20426,7 @@ fr: préparation aromatisante, préparation aromatique
 hr: pripravak za aromu
 hu: fűszerkészítmény
 it: preparazione di spezie
+lv: aromatizējošais preparāts
 nl: aromatiserende bereiding
 pl: preparat aromatyzujący, preparaty aromatyzujące, preparaty aromatyczne, preparat aromatyczny, środek aromatyzujący
 pt: preparacao aromatizante
@@ -21558,6 +21570,7 @@ hr: aroma vanilije, aroma vanilin
 hu: vanília aroma, vaníliaaroma
 it: aroma di vaniglia
 lt: vanilės kvapioji medžiaga
+lv: vaniļas aromatizētājs
 nl: vanillearoma, vanille aroma
 pl: aromat waniliowy
 pt: aroma baunilha
@@ -21581,6 +21594,7 @@ he: חומרי טעם וניל טבעי, חומר טעם וניל טבעי
 hr: prirodna aroma vanilije
 hu: természetes vanília aroma
 it: aroma naturale di vaniglia, aroma naturale vaniglia
+lv: dabīgs vaniļas aromatizētājs
 nb: naturlig vanilijarom
 nl: natuurlijk vanillearoma, natuurlijk vanille aroma, natuurlijke vanille aroma
 pl: naturalny aromat wanilii, naturalny aromat waniliowy
@@ -21669,6 +21683,7 @@ kk: Ванилин
 ko: 바닐린
 ky: Ванилин
 lt: vanilinas
+lv: vanillīns
 mk: Ванилин
 ms: Vanilin
 nb: vanillin
@@ -25731,6 +25746,7 @@ hr: zobeno brašno
 hu: zabliszt
 it: farina d'avena, farina di avena
 ja: オート麦粉
+lv: auzu milti
 mt: dqiq tal-ħafur
 nb: havremel
 nl: havermeel
@@ -26326,6 +26342,7 @@ fr: malt de seigle
 hr: raženi slad
 hu: rozsmaláta
 it: malto di segale
+lv: rudzu iesals
 nl: roggemout
 pl: słód żytni
 ru: солод ржаной
@@ -27080,6 +27097,7 @@ hr: pšenično sladno brašno, pšenično sladno brašno od cjelovitog zrna
 hu: búzamaláta liszt
 it: farina di grano maltato, farina di malto di frumento
 lt: salykliniai kviečių miltai, salykliniai kvietiniai miltai, salykliniai kvietinės miltai, salykliniai kvietinis miltai
+lv: iesala kviešu milti
 nl: gemout tarwemeel, tarwemoutmeel, tarwemoutbloem
 pl: mąka słodowa pszenna, mąka pszenna słodowana, mąka pszenna słodowa, mąka ze słodu pszennego
 pt: farinha de malte de trigo
@@ -28307,7 +28325,7 @@ tr: sari misir
 
 < en:corn
 < en:pod and seed vegetable
-en: sweetcorn, sweet corn
+en: sweetcorn, sweet corn, sweet corn in kernels
 bg: сладка царевица
 de: Süßmais, Süssmais, Zuckermais
 es: maíz dulce, maiz dulce
@@ -28317,6 +28335,7 @@ hr: kukuruz šećerac
 hu: csemegekukorica
 it: mais dolce
 ja: スイートコーン, スィートコーン
+lv: saldā kukurūza
 nl: suikermaïs, zoete maïs
 pl: kukurydza słodka, słodka kukurydza
 pt: milgo doce
@@ -28418,6 +28437,7 @@ hr: kukuruzni griz, kukuruzna krupica, kukuruzna prekrupa
 hu: kukoricadara
 it: spezzato di mais, semolino di granoturco
 ja: コーングリッツ
+lv: kukurūzas milti
 nl: Maïsgrits, maisgrut, maïsgrut
 pl: grys kukurydziany, kasza kukurydziana, kaszka kukurydziana
 pt: grãos de milho
@@ -30428,6 +30448,7 @@ fr: sucre inverti
 hr: invertni šećer
 hu: invertcukor
 it: zucchero invertito
+lv: invertcukurs
 nl: Invertsuiker
 pl: Cukier inwertowany
 pt: açúcar invertido
@@ -32897,6 +32918,7 @@ fr: protéines de pois, protéine de pois
 hr: bjelančevine graška, bjelančevina graška, protein graška
 hu: borsófehérje
 it: proteine di piselli
+lv: zirņu proteīns
 nl: boneneiwit, erwteiwit, erwteneiwit, erwteneiwitten
 pl: białko grochu, białka grochu, białka grochowego, białko grochowe
 pt: Proteína de ervilha
@@ -33049,6 +33071,7 @@ hr: bjelančevine soje, hidrolizat sojinih bjelančevina, sojine bjelančevine, 
 hu: szójafehérje
 it: proteine di soia
 ja: 大豆たんぱく, 大豆タンパク, 大豆たん白
+lv: sojas proteīns
 nl: soja-eiwit, sojaeiwitten
 pl: Białko sojowe, białko soi, białko z soi, białka sojowego
 pt: Proteína de soja
@@ -34603,6 +34626,7 @@ hu: tejcsokoládé
 it: cioccolato al latte
 ja: ミルクチョコレート
 ko: 밀크 초콜릿
+lv: piena šokolāde
 nb: melkesjokolade
 nl: Melkchocola, melkchocolade
 nn: Mjølkesjokolade
@@ -35948,7 +35972,7 @@ is: maltódextrín
 it: Maltodestrine, maltodestrina
 ja: マルトデキストリン
 lt: maltodekstrinas
-lv: maltodekstrīns
+lv: maltodekstrīns, maltodekstrins
 nb: maltodekstrin
 nl: Maltodextrine
 pl: Maltodekstryny, Maltodekstryna
@@ -37895,6 +37919,7 @@ ja: クランベリー
 kk: мүкжидек
 kv: турипув
 lt: spanguolė
+lv: dzērvene
 mk: брусница
 mn: цангис
 mr: क्रॅनबेरी
@@ -38290,6 +38315,7 @@ it: pesca, pesche
 ja: もも, モモ, 桃, ピーチ
 kk: Шабдалы
 lb: Piisch
+lv: persiks
 nl: perziken, perzik
 oc: Persec
 pl: Brzoskwinia, brzoskwinie, brzoskwiń, brzoskwiniowy, brzoskwiniowego, brzoskwini
@@ -42474,6 +42500,7 @@ ja: ビルベリー
 ka: მოცვი
 la: Vaccinium
 lt: Šilauogė
+lv: melleņu
 nb: blåbær
 nl: bosbes, bosbessen
 nn: blåbær
@@ -45494,6 +45521,7 @@ ja: パイナップル
 kg: Nanasi
 la: Ananas comosus
 lo: ໝາກນັດ
+en: ananāss
 mk: ананас
 nb: ananas
 nl: ananas
@@ -50036,6 +50064,7 @@ fr: chou-fleur, choux-fleur, choux-fleurs
 hr: karfiol
 it: cavolfiore, cavolfiori
 ja: カリフラワー
+lv: ziedkāposti
 nl: bloemkool
 pl: kalafior
 pt: Couve flor
@@ -50918,8 +50947,8 @@ kk: Балдыркөк
 kn: ಸೆಲರಿ
 ko: 셀러리
 la: Apium graveolens
-lt: Valgomasis salieras, salierai
-lv: Selerija, selerijas
+lt: valgomasis salieras, salierai
+lv: selerija, selerijas, seleriju
 mr: अजमोदा
 ms: Daun Saderi
 mt: karfus
@@ -52627,7 +52656,7 @@ lg: Emisuwa egikaluba
 li: witlouk
 lo: ຜັກທຽມ
 lt: Valgomasis česnakas, česnakai
-lv: ķiploks
+lv: ķiploks, ķiploki
 mk: Лук
 ml: വെളുത്തുള്ളി
 mn: Саримс
@@ -54251,7 +54280,7 @@ ks: اولُو
 la: Patata
 li: Aerpel
 lt: bulvė, bulvės
-lv: kartupeli
+lv: kartupeļi
 mg: Ovy
 mk: компир
 mr: बटाटा
@@ -54459,6 +54488,7 @@ fi: perunahiutale, perunahiutaleita
 fr: flocon de pomme de terre, flocons de pommes de terre, flocons de pomme de terre
 hr: krumpirove pahuljice, pahuljice krumpira
 it: fiocco di patata, fiocchi di patate
+lv: kartupeļu pārslas
 nl: aardappelvlokken
 pl: płatki ziemniaczane
 ru: картофельние хлопья, картофельные-хлопья
@@ -58211,8 +58241,9 @@ hr: repica, repice, repičina, repičino
 it: Colza
 ja: 菜種
 la: Brassica napus
+lv: rapšu
 nb: raps
-nl: Koolzaad
+nl: koolzaad
 pl: rzepak, rzepaku, rzepakowy, rzepakowa, rzepakowe
 ro: rapiță
 sv: Raps, rapsfrön
@@ -58870,6 +58901,7 @@ hr: crveni grah
 hu: vesebab
 it: fagioli rossi
 ja: 金時豆, 赤インゲン豆
+lv: sarkanās pupiņas
 nl: Rode bonen
 pl: fasola czerwona, fasoli czerwonej, czerwona fasola
 pt: Feijões vermelhos
@@ -63001,6 +63033,8 @@ fi: pellava
 fr: lin
 hr: lan, lana
 it: lino
+lv: lini
+nl: lijn
 pl: len, lnu
 pt: Linho
 # ingredient/fr:lin has 239 products in 6 languages @2018-12-06
@@ -63020,6 +63054,7 @@ fr: graine de lin, graines de lin
 hr: lanene sjemenke, lan sjemenke
 hu: Lenmag
 it: semi di lino
+lv: linu sēklas, linsēklas
 nb: linfrø
 nl: lijnzaad
 nn: linfrø
@@ -68604,6 +68639,7 @@ ky: Кориандр
 la: Coriandrum sativum
 lb: Koriander
 lt: Kalendra
+lv: koriandrs
 mk: Коријандер
 ml: മല്ലി
 mr: कोथिंबीर
@@ -69749,6 +69785,7 @@ fr: olive verte, olives vertes
 hr: zelene masline
 it: olive verdi
 ja: グリーンオリーブ
+lv: zaļā olīva
 nl: groene olijven
 no: grønn oliven, grønne oliven
 pl: zielone oliwki, zielona oliwka, zielonych oliwek, oliwki zielone
@@ -74502,7 +74539,9 @@ fr: Poisson gras
 hr: nauljena riba
 hu: Olajos hal
 it: Pesce oleoso
+lv: trekna zivs
 nb: feit fisk, fet fisk. oljete fisk
+nl: vette vis
 
 < en:fish
 en: white fish
@@ -86387,6 +86426,7 @@ ko: 노른자
 la: Vitellus
 li: Eigael
 lt: kiaušinio trynys
+lv: olas dzeltenums
 ms: Kuning telur
 nb: eggeplomme
 nl: eigeel
@@ -87298,6 +87338,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Food_browning
 en: preparation
 da: præparat
 it: preparazione
+lv: sagatavošana
+nl: bereiding
 sv: beredning
 
 # description:en:Stuffing or filling is an edible substance or mixture, normally consisting primarily of small cut-up pieces of bread or a similar starch and served as a side dish or used to fill a cavity in another food item while cooking. Many foods may be stuffed, including eggs, poultry, seafood, mammals, and vegetables, but chickens and turkey are the most common.
@@ -89493,6 +89535,7 @@ hu: bevonat, fűszerezés
 it: rivestimento
 ja: シーズニング
 lt: apvalkalas
+lv: pārklājums
 nb: belegg
 nl: coating
 pl: panierka
