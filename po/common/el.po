@@ -123,29 +123,29 @@ msgctxt "warning_not_complete_opf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
 msgstr "Αυτή η σελίδα προϊόντος δεν είναι ολοκληρωμένη. Μπορείτε να βοηθήσετε στην ολοκλήρωσή της επεξεργάζοντάς την και προσθέτοντας περισσότερα δεδομένα από τις φωτογραφίες που έχουμε ή τραβώντας περισσότερες φωτογραφίες χρησιμοποιώντας την καθολική εφαρμογή Open Food Facts για <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ή <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Ευχαριστούμε!"
 
-msgctxt "brands_example_products"
+msgctxt "brands_example_product"
 msgid "Tide, Persil"
-msgstr "Παλίρροια, Περσίλ"
+msgstr ""
 
-msgctxt "categories_example_products"
+msgctxt "categories_example_product"
 msgid "Liquid laundry detergent, Powder laundry detergent"
-msgstr "Υγρό απορρυπαντικό πλυντηρίου, Απορρυπαντικό πλυντηρίου σε σκόνη"
+msgstr ""
 
-msgctxt "emb_codes_example_products"
+msgctxt "emb_codes_example_product"
 msgid "EMB 67890"
-msgstr "ΕΜΒ 67890"
+msgstr ""
 
-msgctxt "generic_name_example_products"
+msgctxt "generic_name_example_product"
 msgid "Laundry detergent"
-msgstr "Απορρυπαντικό πλυντηρίου"
+msgstr ""
 
-msgctxt "product_name_example_products"
+msgctxt "product_name_example_product"
 msgid "Ultra Clean Lavender Scent"
-msgstr "Εξαιρετικά καθαρό άρωμα λεβάντας"
+msgstr ""
 
-msgctxt "ingredients_text_example_products"
+msgctxt "ingredients_text_example_product"
 msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
-msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Μην προσθέτετε συστατικά εάν αυτό δεν είναι σχετικό με την κατηγορία. Τα απορρυπαντικά έχουν λίστες στη συσκευασία ή στο διαδίκτυο, όπως και ορισμένες άλλες κατηγορίες."
+msgstr ""
 
 # OPFF
 msgctxt "site_description_opff"
@@ -1235,15 +1235,15 @@ msgstr "συστατικά προερχόμενα από/πιθανώς από �
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr "συστατικό προερχόμενο από/πιθανώς από φοινικέλαιο"
+msgstr "συστατικό προερχόμενο ή πιθανώς προερχόμενο από φοινικέλαιο"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr "συστατικά προερχόμενα από φοινικέλαιο"
+msgstr "συστατικά από φοινικέλαιο"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr "συστατικό προερχόμενο από φοινικέλαιο"
+msgstr "συστατικό από φοινικέλαιο"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
@@ -1291,7 +1291,7 @@ msgstr "Παρακαλούμε τηρήστε τη σωστή σειρά, υπο
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr "συστατικά πιθανώς προερχόμενα από φοινικέλαιο"
+msgstr "συστατικά πιθανώς από φοινικέλαιο"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
@@ -7239,14 +7239,9 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Αναφορά πρόβληματος"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Αναφορά πρόβληματος"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Αναφέρετε ένα πρόβλημα."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
