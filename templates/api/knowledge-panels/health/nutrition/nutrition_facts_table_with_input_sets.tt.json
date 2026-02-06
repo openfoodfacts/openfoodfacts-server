@@ -4,23 +4,17 @@
         "health"
     ],
     "expanded": false,
-    "expand_for": "large",
     "evaluation": "unknown",
     "title_element": {
-        "title": "[% IF panel.title.defined %][% edq(panel.title) %][% ELSE %][% edq(lang('nutrition_data_table')) %][% END %]",
+        "title": "[% IF panel.title.defined %][% edq(panel.title) %][% ELSE %][% edq(lang('nutrition_data_table')) %] ([% edq(lang('detailed_data')) %])[% END %]",
         [% IF panel.subtitle.defined %]"subtitle": "[% edq(panel.subtitle) %]",[% END %]
-        "icon_url": "[% static_subdomain %]/images/icons/dist/scale-balance.svg",
-        "icon_color_from_evaluation": true,
     },
     "elements": [
         {
             "element_type": "table",
             "table_element": {
-                "id": "nutrition_facts_table",
-                "title": "[% edq(lang('nutrition_data_table')) %]",
-                // Create a structure to check if we already have seen a column for a given scope
-                // so that we can mark the first one as the default column for the group
-                [% SET scopes = {} %]              
+                "id": "nutrition_facts_table_with_input_sets",
+                "title": "[% edq(lang('nutrition_data_table')) %]",           
                 "columns": [
                     {
                         "text": "[% panel.nutrition_table.header.name %]",
@@ -34,14 +28,6 @@
                                 "text_for_small_screens": "[% column.short_name %]",
                             [% END %]
                             "type": "text",
-                            "column_group_id": "[% column.scope %]",
-                            [% SET scope = column.scope %]   
-                            [% IF scopes.$scope.defined %]
-                                "shown_by_default": false,
-                            [% ELSE %]
-                                [% SET scopes.$scope = 1 %]
-                                "shown_by_default": true,
-                            [% END %]
                         },
                     [% END %]
                 ],
@@ -69,11 +55,5 @@
                 ]
             }
         },
-        {
-            "element_type": "panel",
-             "panel_element": {
-                "panel_id": "nutrition_facts_table_with_input_sets",
-            },  
-        }
     ]
 }

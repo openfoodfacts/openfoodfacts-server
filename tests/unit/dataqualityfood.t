@@ -2769,7 +2769,6 @@ check_quality_and_test_product_has_quality_tag(
 	'energy not matching nutrients', 0
 );
 
-
 my @tests = (
 	[
 		'all-types-of-errors-in-nutrition',
