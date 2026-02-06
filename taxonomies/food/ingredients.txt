@@ -153,7 +153,7 @@ stopwords:it: di, del, della, delle, dal, contiene, nella, in proporzione variab
 # Japanese stopwords are matched without word boundaries, do not put as stopwords characters or words that could be part of an actual ingredient entry
 stopwords:ja: 等, その他
 stopwords:lt: iš, su, su pridėtiniu, mažiausiai, įskaitant
-stopwords:lv: no
+stopwords:lv: no, skatīt uz iepakojuma
 stopwords:nb: og, av, fra, bl a, blant annet, tilsatt
 stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, met, o.a, van, vervaardigd met, waaraan toegevoegd, waarvan
 stopwords:nn: og, av
@@ -1057,7 +1057,7 @@ it: fermenti
 kk: Ферменттер
 ky: Фермент
 lt: fermentas
-lv: ferments
+lv: ferments, fermenti
 nb: fermentere, gjære
 nl: Ferment
 pl: Fermentacja
@@ -1670,7 +1670,8 @@ ko: 효소
 ku: enzîm
 la: enzymum
 li: enzym
-mk: Ензим
+lv: enzīms
+mk: eнзим
 ml: രാസാഗ്നി
 mn: Фермент
 mr: उत्प्रेरक
@@ -3021,6 +3022,7 @@ is: nýmjólk
 it: latte intero
 ja: 全乳
 lt: nenugriebtas pienas
+lv: pilnpiens
 nb: helmelk
 nl: volle melk
 pl: mleko pełne, pełne mleko
@@ -5037,6 +5039,7 @@ id: Krim asam
 is: Sýrður rjómi
 it: Panna acida
 ko: 사워크림
+lv: skābais krējums
 ms: Krim masam
 nl: Zure room
 nn: romme
@@ -9459,6 +9462,7 @@ hu: jódozott só
 id: Garam beryodium
 it: Sale iodato, sale fino iodato protetto
 lt: Joduota druska
+lv: jodētais sāls
 nb: jodisert salt, salt med jod
 nl: gejodeerd zout
 pl: sól jodowana
@@ -9599,6 +9603,7 @@ hr: životinja
 hu: állati, állati eredetű
 it: Animale
 ja: 動物
+lv: dzīvnieks
 nb: dyr
 nl: dier
 pl: Zwierzę, zwierzęta, zwierzęcy, zwierzęca, zwierzęce
@@ -11691,6 +11696,7 @@ hu: sertés, disznó, malac
 it: suino
 ja: 豚, ポーク
 lt: kiauliena
+lv: cūkgaļa
 nb: svin, flesk
 nl: varken
 pl: Wieprzowina, wieprzowy, wieprzowe, wieprzowa
@@ -13742,6 +13748,7 @@ hu: módosított kukoricakeményítő
 is: umbreytt maíssterkja
 it: amido modificato di mais, amido di mais modificato
 lt: modifikuotas kukurūzų krakmolas
+lv: modificēta kukurūzas ciete
 nb: modifisert maisstivelse
 nl: gemodificeerd maïszetmeel, gemodificeerd maiszetmeel
 pl: modyfikowana skrobia kukurydziana, modyfikowana skrobia z kukurydzy, skrobia kukurydziana modyfikowana
@@ -13865,6 +13872,7 @@ he: עמילן חיטה
 hr: pšenični škrob, pšenica škrob
 hu: búzakeményítő
 it: amido di frumento
+lv: kviešu ciete
 nb: hvetestivelse
 nl: tarwezetmeel, tarwe zetmeel
 pl: Skrobia pszenna
@@ -16828,6 +16836,7 @@ hu: sheavaj, shea, sheazsír
 it: Burro di karité, karité
 ja: シアバター
 ko: 시어 버터
+lv: šī sviests
 ms: Mentega syea
 nb: sheasmør, shea, sheafett
 nl: sheaboter, shea
@@ -18222,7 +18231,8 @@ fr: vinaigre d'eau-de-vie
 # hr:alkoholni ocat
 hu: szeszecet
 it: aceto di acqua-vite
-nl: Brandewijnazijn
+lv: spirta etiķis
+nl: brandewijnazijn
 pl: Ocet spirytusowy, octu spirytusowego
 
 < en:vinegar
@@ -21981,6 +21991,7 @@ fi: kofeiiniaromi
 fr: arôme caféine
 hu: koffein aroma
 it: aroma di caffeina, aroma caffeina, aroma (caffeina)
+lv: kofeīna garša
 nl: cafeïnearoma
 pl: aromat kofeiny
 pt: aroma de cafeína
@@ -23512,6 +23523,7 @@ it: crusca di frumento
 ja: 小麦ふすま
 kk: бидай кебек
 lt: kviečių sėlenos, kvietiniai sėlenos, kvietinės sėlenos, kvietinis sėlenos
+lv: kviešu klijas
 nb: hvetekli
 nl: tarwezemelen, tarwezemel
 pl: otręby pszenne
@@ -24024,6 +24036,7 @@ hu: dara, gríz
 it: Semolina
 ja: セモリナ
 lt: manų kruopos
+lv: manna
 nb: semulegryn, semule
 nl: gries
 oc: Semola
@@ -26243,6 +26256,7 @@ en: malted rye flakes
 fr: flocons de seigle malté
 hr: sladne ražene pahuljice
 it: fiocchi di segale maltati
+lv: rudzu iesals
 nl: roggemoutvlokken
 # 92 in 2 @ 2021-10-28
 
@@ -27253,6 +27267,7 @@ fr: farine complète
 hr: brašno iz cijelog zrna
 hu: teljes kiőrlélsű liszt
 it: farina integrale
+lv: pilngraudu milti
 nl: volkorenmeel
 pl: Mąka pełnoziarnista, pełnoziarnista mąka
 ro: făină integrală
@@ -31402,11 +31417,12 @@ io: Siropo
 is: siróp
 it: sciroppo
 ja: シロップ
-jv: Sirup
+jv: sirup
 ko: 시럽
-la: Sirupus
-li: Sjroap
-lt: Sirupas
+la: sirupus
+li: sjroap
+lt: sirupas
+lv:sīrups
 nb: sirup
 nl: stroop, siroop
 nn: sirup
@@ -33713,6 +33729,7 @@ fr: cacao maigre, cacao dégraissé, cacao réduit en matières grasses
 hr: kakao smanjene masti, nemasni kakao, reducirani kakao
 hu: Csökkentett zsírtartalmú kakaó
 it: cacao magro
+lv: kakao ar samazinātu tauku saturu
 nb: fettfattig kakao
 nl: vetarme cacao, magere cacao
 pl: Odtłuszczone kakao, kakao o obniżonej zawartości tłuszczu, kakao niskotłuszczowe, kakao o zmniejszonej zawartości tłuszczu
@@ -34867,7 +34884,7 @@ lg: Amazzi
 li: Water
 ln: Mái
 lt: Vanduo, geriamasis vanduo
-lv: Ūdens
+lv: ūdens, dzeramais ūdens
 mg: Rano
 mi: Wai
 mk: Вода
@@ -37144,6 +37161,8 @@ sv: päronberedning
 < en:fruit
 en: prunus species fruit
 it: frutto della specie Prunus
+lv: prunus sugu augļi
+nl: prunussoort fruit
 eurocode_2_group_2:en: 9.20
 
 ###################################################################################################
@@ -40964,6 +40983,7 @@ hr: koncentrirani limunov sok, koncentrat soka od limuna, koncentrirani sok limu
 hu: Citromlé koncentrátum, citromlé sűrítmény, sűrített citromlé
 it: succo di limone concentrato
 lt: citrinų sulčių koncentratas
+lv: koncentrēta citronu sula
 nb: sitronjuicekonsentrat
 nl: citroenextract, geconcentreerd citroensap, citroensapconcentraat, citroenconcentraat
 pl: Zagęszczony sok cytrynowy, koncentrat soku z cytryny, koncentrat soku cytrynowego, zagęszczonego soku cytrynowego
@@ -45865,7 +45885,8 @@ kn: ರಾಸ್‍ಬೆರಿ
 ko: 라즈베리
 kv: Ӧмидз
 lo: ໝາກຟະລຳບວດ
-lt: Avietė
+lt: avietė
+lv: aveņu
 mk: Малина
 mr: रास्पबेरी
 ms: Raspberi
@@ -52211,6 +52232,7 @@ hr: dehidrirani luk
 hu: szárított hagyma, dehidratált hagyma
 it: cipolle disidratate
 ja: ドライ玉ねぎ
+lv: dehidrēts sīpols
 nl: gedroogde uien, gedroogde ui, oignons séchés, oignon déshydraté
 nn: tørket løk
 pl: suszona cebula, cebula suszona, cebula w proszku, sproszkowana cebula
@@ -53535,6 +53557,7 @@ fi: Musta porkkana, mustaporkkana, mustaporkkanaa
 fr: carotte noire
 hr: crna mrkva, crne mrkve
 it: carote nere
+lv: melnais burkāns
 nb: sort gulrot
 nl: zwarte wortel
 pl: czarna marchew, czarnej marchwi
@@ -59922,6 +59945,7 @@ fr: petits pois, petit pois
 hr: vrtni grašak
 it: pisellini
 la: Pisum sativum L. subsp. sativum var. sativum
+lv: dārza zirņi
 nl: doperwten, doperwt
 carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
 carbon_footprint_fr_foodges_value:fr: 1.5
@@ -62916,6 +62940,7 @@ jv: Wiji kembang srengéngé
 ka: Күнбағыс дәні
 ko: 해바라기 씨
 lt: saulėgražų branduoliai
+lv: saulespuķu sēklas
 ml: സൂര്യകാന്തി വിത്ത്
 ms: Biji bunga matahari
 nb: solsikkefrø, solsikkekjerner
@@ -65842,6 +65867,7 @@ hr: sjemenke gorušice, sjeme gorušice, ljuske gorušice
 hu: káposztafélék, Mustármag
 it: Semi di senape
 ja: カラシナ, シロガラシ, マスタードシード
+lv: sinepju sēklas
 nb: sennepsfrø
 nl: mosterdzaad, mosterdzaden
 nn: sennepsfrø
@@ -69657,6 +69683,7 @@ ia: Oliva
 it: olive, oliva
 ja: オリーブ
 ln: Olive
+lv: olīva
 mk: маслинка
 mt: żebbuġa
 nl: olijven, olijf
@@ -86782,6 +86809,7 @@ ja: ピュレ
 jv: Puré
 ka: პიურე
 ko: 퓌레
+lv: biezens
 nb: puré
 nl: puree
 nn: puré
@@ -87514,6 +87542,7 @@ ko: 도
 ky: камыр
 lb: deegwueren
 lt: tešla
+lv: mīkla
 mk: тесто
 mo: blat
 ms: doh
