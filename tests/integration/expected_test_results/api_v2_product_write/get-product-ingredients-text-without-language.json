@@ -77,7 +77,6 @@
          "en:nutriments-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
-         "en:traceability-codes-to-be-completed",
          "en:front-photo-to-be-selected",
          "en:product-name-to-be-completed",
          "en:quantity-completed",
@@ -92,8 +91,8 @@
             "general_information" : "0.20",
             "ingredients" : "0.50",
             "nutrition" : "0.67",
-            "overall" : "0.38",
-            "packaging" : "0.33"
+            "overall" : "0.42",
+            "packaging" : "0.50"
          }
       },
       "data_quality_errors_tags" : [],
@@ -114,7 +113,6 @@
          "en:nutriments-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
-         "en:traceability-codes-to-be-completed",
          "en:front-photo-to-be-selected",
          "en:product-name-to-be-completed",
          "en:quantity-completed",
@@ -393,6 +391,7 @@
          "en:processed-meat"
       ],
       "id" : "1234567890004",
+      "images" : {},
       "informers_tags" : [
          "tests"
       ],
@@ -502,6 +501,7 @@
       "minerals_tags" : [],
       "misc_tags" : [
          "en:environmental-score-not-computed",
+         "en:nutrients-estimated-from-ingredients",
          "en:nutriscore-2021-better-than-2023",
          "en:nutriscore-2021-d-2023-e",
          "en:nutriscore-2021-different-from-2023",

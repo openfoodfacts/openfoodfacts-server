@@ -30,7 +30,7 @@ msgstr "Dünyanın dört bir yanından katılımcı, özgür ve açık gıda ür
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
-msgstr ""
+msgstr "/open-food-facts-mobile-app"
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -925,7 +925,7 @@ msgstr "Mahremiyet"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr "/mahremiyet"
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -1541,7 +1541,7 @@ msgstr "100 g için besin seviyesi"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/besin-seviyeleri"
+msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -2406,7 +2406,7 @@ msgstr "Ürünü tekrar düzenleyin"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Ülke"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5978,6 +5978,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Çevresel faydaları çok yüksek olan etiketler"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Değerlendirilmemiş etiket"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Bazı çevresel faydalar"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Yüksek çevresel faydalar"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Çevreye çok yüksek faydalar"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Diğer"
@@ -7686,4 +7702,36 @@ msgstr "Üreticinin önerdiği perakende satış fiyatı (MSRP), ürün ambalaj�
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Kişiselleştirilmiş mülk"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Palmiye yağı içermez"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Palmiye yağı içerebilir"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Çevre etiketleri"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Eksik veriler"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Yüksek etki"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Orta düzeyde etki"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Düşük etki"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Etki değerlendirilmedi."
 

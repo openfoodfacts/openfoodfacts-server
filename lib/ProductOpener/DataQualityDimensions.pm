@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -46,7 +46,7 @@ BEGIN {
 }
 
 use ProductOpener::DataQualityFood qw(is_european_product);
-use ProductOpener::Tags qw(add_tag);
+use ProductOpener::Tags qw(add_tag get_all_tags_having_property);
 
 =head1 FUNCTIONS
 
@@ -120,7 +120,7 @@ sub compute_completeness_score($product_ref) {
 	my $completeness_ingredients_total = 0;
 	foreach my $lang_code (@lang_codes) {
 		# 1-1- Photos
-		if (defined $product_ref->{images} && exists $product_ref->{images}{"ingredients_$lang_code"}) {
+		if (defined $product_ref->{images}{selected}{ingredients}{$lang_code}) {
 			add_tag($product_ref, "data_quality_completeness", "en:ingredients-$lang_code-photo-selected");
 			$completeness_ingredients_count++;
 		}
@@ -146,9 +146,10 @@ sub compute_completeness_score($product_ref) {
 	# 2-nutrition
 	my $completeness_nutrition_count = 0;
 	my $completeness_nutrition_total = 0;
-	# 2-1- photo - remark: selected_images is an empty hash
-	#   (populated when looking at the product on the website or read API only)
-	if (defined $product_ref->{images} && grep {/^nutrition_/} keys %{$product_ref->{images}}) {
+	# 2-1- photo
+	if (defined $product_ref->{images}{selected}{nutrition}
+		&& scalar keys %{$product_ref->{images}{selected}{nutrition}} > 0)
+	{
 		add_tag($product_ref, "data_quality_completeness", "en:nutrition-photo-selected");
 		$completeness_nutrition_count++;
 	}
@@ -194,7 +195,9 @@ sub compute_completeness_score($product_ref) {
 	my $completeness_packaging_count = 0;
 	my $completeness_packaging_total = 0;
 	# 3-1- photo
-	if (defined $product_ref->{images} && grep {/^packaging_/} keys %{$product_ref->{images}}) {
+	if (defined $product_ref->{images}{selected}{packaging}
+		&& scalar keys %{$product_ref->{images}{selected}{packaging}} > 0)
+	{
 		add_tag($product_ref, "data_quality_completeness", "en:packaging-photo-selected");
 		$completeness_packaging_count++;
 	}
@@ -211,22 +214,27 @@ sub compute_completeness_score($product_ref) {
 		add_tag($product_ref, "data_quality_completeness", "en:packagings-to-be-completed");
 	}
 	$completeness_packaging_total++;
-	# 3-3- emb_codes
+	# 3-3- emb_codes (only for products with animal origin)
 	my $european_product = is_european_product($product_ref);
-	if ($european_product && defined $product_ref->{emb_codes} && $product_ref->{emb_codes} ne '') {
-		add_tag($product_ref, "data_quality_completeness", "en:traceability-codes-completed");
-		$completeness_packaging_count++;
+	my $animal_origin_categories = get_all_tags_having_property($product_ref, "categories", "food_of_animal_origin:en");
+	my $is_animal_origin = (scalar keys %{$animal_origin_categories}) > 0;
+
+	if ($european_product && $is_animal_origin) {
+		if (defined $product_ref->{emb_codes} && $product_ref->{emb_codes} ne '') {
+			add_tag($product_ref, "data_quality_completeness", "en:traceability-codes-completed");
+			$completeness_packaging_count++;
+		}
+		else {
+			add_tag($product_ref, "data_quality_completeness", "en:traceability-codes-to-be-completed");
+		}
+		$completeness_packaging_total++;
 	}
-	else {
-		add_tag($product_ref, "data_quality_completeness", "en:traceability-codes-to-be-completed");
-	}
-	$completeness_packaging_total++;
 
 	# 4-general information
 	my $completeness_general_information_count = 0;
 	my $completeness_general_information_total = 0;
 	# 4-1- photo
-	if (defined $product_ref->{images} && grep {/^front_/} keys %{$product_ref->{images}}) {
+	if (defined $product_ref->{images}{selected}{front} && scalar keys %{$product_ref->{images}{selected}{front}} > 0) {
 		add_tag($product_ref, "data_quality_completeness", "en:front-photo-selected");
 		$completeness_general_information_count++;
 	}

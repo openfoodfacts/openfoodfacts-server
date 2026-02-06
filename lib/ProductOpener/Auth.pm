@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -200,7 +200,7 @@ sub signin_callback ($request_ref) {
 	my $user_ref = retrieve_user_using_token($id_token, $request_ref);
 	unless (defined $user_ref) {
 		$log->info('User not found and not created') if $log->is_info();
-		display_error_and_exit($request_ref, 'Internal error', 500);
+		display_error_and_exit($request_ref, 'Authentication error', 401);
 	}
 	my $user_id = $user_ref->{userid};
 
@@ -306,7 +306,7 @@ sub retrieve_user_using_token ($id_token, $request_ref, $require_verified_email 
 	my $user_ref = retrieve_user($user_id);
 	unless ($user_ref) {
 		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
-		$user_ref = {userid => $user_id};
+		return;
 	}
 
 	# Make sure initial information is set (user may have been created by Redis)

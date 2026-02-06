@@ -554,6 +554,38 @@ xx: Carbon Trust Lower Carbon
 en: Carbon Trust Reducing CO2
 xx: Carbon Trust Reducing CO2
 
+< en:No GMOs
+sv: Svenskt Sigill, Sigillmärkt
+xx: Svenskt Sigill
+country:en: en:Sweden
+image:sv: svenskt-sigill.122x90.svg
+label_categories:en: en:Animal welfare, en:Certification, en:Environment, en:Food safety, en:Geographic label, en:Origins
+origins:en: en:sweden
+web:sv: https://www.sigill.se/
+wikidata:en: Q10685699
+
+< sv:Svenskt Sigill
+sv: Svenskt Sigill Arbetsvillkor
+xx: Svenskt Sigill Arbetsvillkor
+image:sv: svenskt-sigill-arbetsvillkor.89x90.svg
+label_categories:en: en:Certification, en:Social responsibility
+web:sv: https://www.sigill.se/om-sigill/vara-markningar/svenskt-sigill-arbetsvillkor
+
+< sv:Svenskt Sigill
+sv: Svenskt Sigill Naturbeteskött
+xx: Svenskt Sigill Naturbeteskött
+image:sv: svenskt-sigill-naturbeteskott.85x90.svg
+label_categories:en: en:Certification, en:Environment
+web:sv: https://www.sigill.se/om-sigill/vara-markningar/svenskt-sigill-naturbeteskott
+
+< en:Carbon footprint
+< sv:Svenskt Sigill
+sv: Svenskt Sigill Klimatcertifierad
+xx: Svenskt Sigill Klimatcertifierad
+image:sv: svenskt-sigill-klimatcertifierad.85x90.svg
+label_categories:en: en:Certification, en:Environment
+web:sv: https://www.sigill.se/om-sigill/vara-markningar/svenskt-sigill-klimatcertifierad
+
 en: Blue Angel
 de: Blauer Engel
 image:en: blue-angel.90x90.svg
@@ -1859,7 +1891,7 @@ nl: Eiwitrijk, Rijk aan protéines, Rijk aan Eiwit
 pl: Wysoka zawartość białka, Bogaty w białko
 pt: Proteínas altas
 ru: Обогащено протеинами
-sv: Proteinrik
+sv: Proteinrik, Högt proteininnehåll
 th: โปรตีนสูง
 description:en: In EU, a claim that a food is high in protein may only be made where at least 20 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
@@ -3353,6 +3385,7 @@ nl: Suikervrij, Zonder suiker
 pl: Bez cukru, Nie zawiera cukru
 pt: Sem açúcar, sem açúcares
 ru: Без сахара
+sv: Sockerfri, Sockerfria, Utan socker
 th: ไม่มีน้ำตาล
 tr: Şekersiz
 description:en: In EU, a claim that a food is sugar-free may only be made where the product contains no more than 0,5 g of sugars per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
@@ -4581,6 +4614,9 @@ label_categories:en: en:Health, en:Additives
 
 en: No yeast, Contains no yeast
 
+en: No anticaking agent
+de: Ohne Trennmittel
+
 sv: Ä-märket
 xx: Ä-märket
 country:en: en:Sweden
@@ -5118,6 +5154,7 @@ pt: Produto natural sem óleos vegetais, produto natural sem óleo vegetal
 ru: натуральный продукт без растительных жиров
 
 en: Natural ingredients, Ingredients from natural origins
+sv: 100% naturliga råvaror
 
 < en:No flavour enhancer
 #instruction:en:Do NOT change the english key.
@@ -5496,7 +5533,7 @@ incompatible_with:en: labels:en:no-soy
 label_categories:en: en:Environment, en:Soy, en:Allergens
 opposite:en: en:no-soy
 
-en: Made with soy, Made from soya
+en: Made with soy, Made from soya, Made with Soy Protein
 incompatible_with:en: labels:en:no-soy
 
 #instruction:en:Do NOT change the english key.
@@ -5778,7 +5815,7 @@ pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta o
 ro: din agricultură ecologică controlată, din cultură organică controlată
 sk: z kontrolovaného ekologického poľnohospodárstva, produkt ekologického poľnohospodárstva
 sl: iz kontrolirane ekološke pridelave
-sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk
+sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk, kontrollerat ekologiskt jordbruk
 th: ออร์แกนิค
 tr: Organik
 zh: 有机
@@ -18972,14 +19009,17 @@ pl: Wieprzowina bez domieszek
 pt: Carne de porco pura, Puro bife, 100% bife, bife puro, pura carne de porco, 100% carne de porco
 
 en: Rainforest Alliance
-xx: Rainforest Alliance, Rainforest Alliance People & Nature, Rainforest Alliance People and Nature, Rainforest
+xx: Rainforest Alliance, Rainforest Alliance People & Nature, Rainforest Alliance People and Nature, Rainforest, Rainforest Alliance Certified
 ca: Aliança Tropical
 cs: certifikováno rainforest alliance, certifikovano rainforest alliance
+da: Rainforest Alliance, Rainforest Alliance-certificeret
+de: Rainforest Alliance, Rainforest Alliance-zertifiziert
 es: Alianza para Bosques
 fr: Vérifié Rainforest Alliance, Certifié Rainforest Alliance
 hr: Certificirano Rainforest Alliance
 it: Alleanza della Foresta Pluviale
-sv: Rainforest Alliance, Rainforest Alliance-certifierad, Rainforest Alliance Certified
+nb: Rainforest Alliance, Rainforest Alliance-sertifisert
+sv: Rainforest Alliance, Rainforest Alliance-certifierad
 auth_url:en: https://www.rainforest-alliance.org
 wikidata:en: Q2034373
 
@@ -19834,7 +19874,7 @@ hr: Održiv
 it: Sostenibile
 nl: Duurzaam
 pt: Sustentável
-sv: Hållbar, Hållbart
+sv: Hållbar, Hållbart, Hållbart producerat och certifierad
 
 < en:Sustainable
 en: Sustainable fishery, Sustainable fishing, Sustainable Seafood
@@ -20479,6 +20519,12 @@ pt: Sem adoçantes, sem edulcorantes, sem adoçantes, sem edulcorantes, 0% adoç
 sv: Utan sötningsmedel
 incompatible_with:en: labels:en:with-sweeteners
 opposite:en: en:With sweeteners
+
+en: With fluorite
+sv: Innehåller fluor
+
+en: With xylitol
+sv: Innehåller xylitol
 
 en: 100% muscle
 ca: Múscul 100%

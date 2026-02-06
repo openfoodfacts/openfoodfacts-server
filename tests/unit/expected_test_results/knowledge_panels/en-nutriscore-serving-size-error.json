@@ -37,7 +37,6 @@
       "en:nutriments-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
-      "en:traceability-codes-to-be-completed",
       "en:front-photo-to-be-selected",
       "en:product-name-to-be-completed",
       "en:quantity-to-be-completed",
@@ -52,8 +51,8 @@
          "general_information" : "0.00",
          "ingredients" : "0.00",
          "nutrition" : "0.67",
-         "overall" : "0.27",
-         "packaging" : "0.33"
+         "overall" : "0.30",
+         "packaging" : "0.50"
       }
    },
    "data_quality_errors_tags" : [],
@@ -76,7 +75,6 @@
       "en:nutriments-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
-      "en:traceability-codes-to-be-completed",
       "en:front-photo-to-be-selected",
       "en:product-name-to-be-completed",
       "en:quantity-to-be-completed",
@@ -330,27 +328,27 @@
       },
       "agribalyse" : {
          "agribalyse_proxy_food_code" : "24000",
-         "co2_agriculture" : 2.3635185,
+         "co2_agriculture" : 2.28,
          "co2_consumption" : 0,
-         "co2_distribution" : 0.019437894,
-         "co2_packaging" : 0.10986902,
-         "co2_processing" : 0.22831584,
-         "co2_total" : 2.856230424,
-         "co2_transportation" : 0.13508917,
+         "co2_distribution" : 0.0269,
+         "co2_packaging" : 0.88,
+         "co2_processing" : 0.187,
+         "co2_total" : 3.59,
+         "co2_transportation" : 0.212,
          "code" : "24000",
-         "dqr" : "2.14",
-         "ef_agriculture" : 0.27654213,
+         "dqr" : "1.25641995155473",
+         "ef_agriculture" : 0.252,
          "ef_consumption" : 0,
-         "ef_distribution" : 0.0047895045,
-         "ef_packaging" : 0.01090994,
-         "ef_processing" : 0.04151582,
-         "ef_total" : 0.3448030585,
-         "ef_transportation" : 0.011045664,
+         "ef_distribution" : 0.00537,
+         "ef_packaging" : 0.0571,
+         "ef_processing" : 0.0373,
+         "ef_total" : 0.368,
+         "ef_transportation" : 0.0164,
          "is_beverage" : 0,
          "name_en" : "Biscuit (cookie)",
          "name_fr" : "Biscuit sec, sans précision",
-         "score" : 70,
-         "version" : "3.1.1"
+         "score" : 67,
+         "version" : "3.2"
       },
       "grade" : "c",
       "grades" : {
@@ -425,80 +423,83 @@
       },
       "missing_data_warning" : 1,
       "missing_key_data" : 1,
-      "score" : 50,
+      "score" : 47,
       "scores" : {
-         "ad" : 50,
-         "al" : 50,
-         "at" : 50,
-         "ax" : 50,
-         "ba" : 50,
-         "be" : 50,
-         "bg" : 50,
-         "ch" : 50,
-         "cy" : 50,
-         "cz" : 50,
-         "de" : 50,
-         "dk" : 50,
-         "dz" : 50,
-         "ee" : 50,
-         "eg" : 50,
-         "es" : 50,
-         "fi" : 50,
-         "fo" : 50,
-         "fr" : 50,
-         "gg" : 50,
-         "gi" : 50,
-         "gr" : 50,
-         "hr" : 50,
-         "hu" : 50,
-         "ie" : 50,
-         "il" : 50,
-         "im" : 50,
-         "is" : 50,
-         "it" : 50,
-         "je" : 50,
-         "lb" : 50,
-         "li" : 50,
-         "lt" : 50,
-         "lu" : 50,
-         "lv" : 50,
-         "ly" : 50,
-         "ma" : 50,
-         "mc" : 50,
-         "md" : 50,
-         "me" : 50,
-         "mk" : 50,
-         "mt" : 50,
-         "nl" : 50,
-         "no" : 50,
-         "pl" : 50,
-         "ps" : 50,
-         "pt" : 50,
-         "ro" : 50,
-         "rs" : 50,
-         "se" : 50,
-         "si" : 50,
-         "sj" : 50,
-         "sk" : 50,
-         "sm" : 50,
-         "sy" : 50,
-         "tn" : 50,
-         "tr" : 50,
-         "ua" : 50,
-         "uk" : 50,
-         "us" : 50,
-         "va" : 50,
-         "world" : 50,
-         "xk" : 50
+         "ad" : 47,
+         "al" : 47,
+         "at" : 47,
+         "ax" : 47,
+         "ba" : 47,
+         "be" : 47,
+         "bg" : 47,
+         "ch" : 47,
+         "cy" : 47,
+         "cz" : 47,
+         "de" : 47,
+         "dk" : 47,
+         "dz" : 47,
+         "ee" : 47,
+         "eg" : 47,
+         "es" : 47,
+         "fi" : 47,
+         "fo" : 47,
+         "fr" : 47,
+         "gg" : 47,
+         "gi" : 47,
+         "gr" : 47,
+         "hr" : 47,
+         "hu" : 47,
+         "ie" : 47,
+         "il" : 47,
+         "im" : 47,
+         "is" : 47,
+         "it" : 47,
+         "je" : 47,
+         "lb" : 47,
+         "li" : 47,
+         "lt" : 47,
+         "lu" : 47,
+         "lv" : 47,
+         "ly" : 47,
+         "ma" : 47,
+         "mc" : 47,
+         "md" : 47,
+         "me" : 47,
+         "mk" : 47,
+         "mt" : 47,
+         "nl" : 47,
+         "no" : 47,
+         "pl" : 47,
+         "ps" : 47,
+         "pt" : 47,
+         "ro" : 47,
+         "rs" : 47,
+         "se" : 47,
+         "si" : 47,
+         "sj" : 47,
+         "sk" : 47,
+         "sm" : 47,
+         "sy" : 47,
+         "tn" : 47,
+         "tr" : 47,
+         "ua" : 47,
+         "uk" : 47,
+         "us" : 47,
+         "va" : 47,
+         "world" : 47,
+         "xk" : 47
       },
       "status" : "known"
    },
    "environmental_score_grade" : "c",
-   "environmental_score_score" : 50,
+   "environmental_score_score" : 47,
    "environmental_score_tags" : [
       "c"
    ],
    "food_groups_tags" : [],
+   "images" : {
+      "selected" : {}
+   },
    "ingredients" : [
       {
          "id" : "en:fruit",
@@ -579,8 +580,8 @@
                               "text" : "Agriculture"
                            },
                            {
-                              "percent" : 82.7495737087632,
-                              "text" : "82.7 %"
+                              "percent" : 63.5097493036212,
+                              "text" : "63.5 %"
                            }
                         ]
                      },
@@ -592,8 +593,8 @@
                               "text" : "Processing"
                            },
                            {
-                              "percent" : 7.99360717123991,
-                              "text" : "8.0 %"
+                              "percent" : 5.20891364902507,
+                              "text" : "5.2 %"
                            }
                         ]
                      },
@@ -605,8 +606,8 @@
                               "text" : "Packaging"
                            },
                            {
-                              "percent" : 3.84664413195817,
-                              "text" : "3.8 %"
+                              "percent" : 24.5125348189415,
+                              "text" : "24.5 %"
                            }
                         ]
                      },
@@ -618,8 +619,8 @@
                               "text" : "Transportation"
                            },
                            {
-                              "percent" : 4.72963136534393,
-                              "text" : "4.7 %"
+                              "percent" : 5.90529247910863,
+                              "text" : "5.9 %"
                            }
                         ]
                      },
@@ -631,7 +632,7 @@
                               "text" : "Distribution"
                            },
                            {
-                              "percent" : 0.680543622694777,
+                              "percent" : 0.749303621169916,
                               "text" : "0.7 %"
                            }
                         ]
@@ -655,14 +656,14 @@
                }
             }
          ],
-         "evaluation" : "good",
+         "evaluation" : "average",
          "expanded" : false,
          "level" : "info",
          "title_element" : {
             "icon_color_from_evaluation" : true,
             "icon_url" : "https://server_domain/images/icons/dist/car.svg",
-            "subtitle" : "286 g CO₂e per 100g of product",
-            "title" : "Equal to driving 1.5 km in a petrol car"
+            "subtitle" : "359 g CO₂e per 100g of product",
+            "title" : "Equal to driving 1.9 km in a petrol car"
          },
          "topics" : [
             "environment"
@@ -688,9 +689,9 @@
             {
                "element_type" : "panel_group",
                "panel_group_element" : {
-                  "panel_group_id" : "packaging_recycling",
+                  "panel_group_id" : "packaging",
                   "panel_ids" : [
-                     "packaging_recycling"
+                     "packaging"
                   ],
                   "title" : "Packaging"
                }
@@ -810,7 +811,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "\n                    <p>Category: \n                    <a href=\"https://server_domain/app/aliments/24000\">Biscuit sec, sans précision</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.34\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 2.86\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
+                  "html" : "\n                    <p>Category: \n                    <a href=\"https://server_domain/app/aliments/24000\">Biscuit sec, sans précision</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.37\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 3.59\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
                   "type" : "summary"
                }
             },
@@ -837,8 +838,8 @@
                               "text" : "Agriculture"
                            },
                            {
-                              "percent" : 80.2029225619529,
-                              "text" : "80.2 %"
+                              "percent" : 68.4782608695652,
+                              "text" : "68.5 %"
                            }
                         ]
                      },
@@ -850,8 +851,8 @@
                               "text" : "Processing"
                            },
                            {
-                              "percent" : 12.040444241013,
-                              "text" : "12.0 %"
+                              "percent" : 10.1358695652174,
+                              "text" : "10.1 %"
                            }
                         ]
                      },
@@ -863,8 +864,8 @@
                               "text" : "Packaging"
                            },
                            {
-                              "percent" : 3.16410766408558,
-                              "text" : "3.2 %"
+                              "percent" : 15.5163043478261,
+                              "text" : "15.5 %"
                            }
                         ]
                      },
@@ -876,8 +877,8 @@
                               "text" : "Transportation"
                            },
                            {
-                              "percent" : 3.20347042397247,
-                              "text" : "3.2 %"
+                              "percent" : 4.45652173913044,
+                              "text" : "4.5 %"
                            }
                         ]
                      },
@@ -889,8 +890,8 @@
                               "text" : "Distribution"
                            },
                            {
-                              "percent" : 1.38905510897607,
-                              "text" : "1.4 %"
+                              "percent" : 1.45923913043478,
+                              "text" : "1.5 %"
                            }
                         ]
                      },
@@ -920,7 +921,7 @@
             "icon_size" : "small",
             "icon_url" : "https://server_domain/images/icons/dist/lca.svg",
             "subtitle" : "Category: Biscuit sec, sans précision",
-            "title" : "Average impact of products of the same category: B (Score: 70/100)",
+            "title" : "Average impact of products of the same category: B (Score: 67/100)",
             "type" : "grade"
          },
          "topics" : [
@@ -1011,7 +1012,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "\n                Life cycle analysis score: 70<br>\n                Sum of bonuses and maluses:\n                    \n                        -15\n                    <br><br>\n                Final score: 50/100\n                ",
+                  "html" : "\n                Life cycle analysis score: 67<br>\n                Sum of bonuses and maluses:\n                    \n                        -15\n                    <br><br>\n                Final score: 47/100\n                ",
                   "type" : "summary"
                }
             }
@@ -1021,7 +1022,7 @@
             "grade" : "c",
             "icon_url" : "https://server_domain/images/attributes/dist/green-score-c.svg",
             "subtitle" : "Product: ",
-            "title" : "Impact for this product: C (Score: 50/100)",
+            "title" : "Impact for this product: C (Score: 47/100)",
             "type" : "grade"
          },
          "topics" : [
@@ -1567,12 +1568,44 @@
          ],
          "evaluation" : "unknown",
          "expanded" : false,
+         "half_width_on_mobile" : true,
          "level" : "info",
          "title_element" : {
             "icon_color_from_evaluation" : true,
             "icon_url" : "https://server_domain/images/icons/dist/public.svg",
             "subtitle" : "Missing origins of ingredients information",
             "title" : "Origins of ingredients"
+         },
+         "topics" : [
+            "environment"
+         ]
+      },
+      "packaging" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                    The information about the packaging of this product is not filled in.\n                    ",
+                  "type" : "warning"
+               }
+            },
+            {
+               "action_element" : {
+                  "actions" : [
+                     "add_packaging_image"
+                  ],
+                  "html" : "Take a photo of the recycling information"
+               },
+               "element_type" : "action"
+            }
+         ],
+         "evaluation" : "unknown",
+         "level" : "info",
+         "title_element" : {
+            "evaluation" : "neutral",
+            "icon_color_from_evaluation" : true,
+            "icon_url" : "https://server_domain/images/icons/dist/packaging.svg",
+            "title" : "Missing packaging information for this product"
          },
          "topics" : [
             "environment"
@@ -1618,37 +1651,6 @@
          "level" : "info",
          "title_element" : {
             "title" : "Packaging materials"
-         },
-         "topics" : [
-            "environment"
-         ]
-      },
-      "packaging_recycling" : {
-         "elements" : [
-            {
-               "element_type" : "text",
-               "text_element" : {
-                  "html" : "\n                    The information about the packaging of this product is not filled in.\n                    ",
-                  "type" : "warning"
-               }
-            },
-            {
-               "action_element" : {
-                  "actions" : [
-                     "add_packaging_image"
-                  ],
-                  "html" : "Take a photo of the recycling information"
-               },
-               "element_type" : "action"
-            }
-         ],
-         "evaluation" : "unknown",
-         "level" : "info",
-         "title_element" : {
-            "evaluation" : "neutral",
-            "icon_color_from_evaluation" : true,
-            "icon_url" : "https://server_domain/images/icons/dist/packaging.svg",
-            "title" : "Missing packaging information for this product"
          },
          "topics" : [
             "environment"
@@ -1755,6 +1757,7 @@
       "en:environmental-score-missing-data-origins",
       "en:environmental-score-missing-data-packagings",
       "en:environmental-score-missing-data-warning",
+      "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",

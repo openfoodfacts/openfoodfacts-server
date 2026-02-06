@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -1162,14 +1162,19 @@ sub retrieve_user_preferences ($user_id) {
 # This fetches the data from Keycloak and merges it into the local data
 # This might take some time so should only be used if you really need all the user information
 sub retrieve_user ($user_id) {
+	my $user_ref = retrieve_user_preferences($user_id);
 	my $keycloak_user_ref;
 	if (get_oidc_implementation_level() > 1) {
 		# Fetch the user from Keycloak once it has become the source of truth
 		# Do this before fetching the local preferences as it can take a while
 		my $keycloak = ProductOpener::Keycloak->new();
 		$keycloak_user_ref = $keycloak->find_user_by_username($user_id);
+
+		# encrypted_password is write only for OIDC Level 2 and above
+		if ($user_ref) {
+			delete $user_ref->{encrypted_password};
+		}
 	}
-	my $user_ref = retrieve_user_preferences($user_id);
 	if ($keycloak_user_ref) {
 		$user_ref //= {};
 		$user_ref->{email} = $keycloak_user_ref->{email};
@@ -1206,7 +1211,7 @@ sub retrieve_user_preferences_by_email($email) {
 # store user information that is not reflected in Keycloak
 sub store_user_preferences ($user_ref) {
 	my $user_preferences = {%$user_ref};
-	if (get_oidc_implementation_level() > 1) {
+	if (get_oidc_implementation_level() > 2) {
 		# Make a shallow clone and delete the PII from the user data once Keycloak has become the master source
 		delete $user_preferences->{email};
 		delete $user_preferences->{name};
@@ -1593,7 +1598,6 @@ sub init_user ($request_ref) {
 		}
 
 		if (defined $user_id) {
-			#12279 TODO: This will call out to Keycloak on every page refresh which may not be a good thing
 			$user_ref = retrieve_user($user_id);
 
 			if (defined $user_ref) {
@@ -1642,7 +1646,7 @@ sub init_user ($request_ref) {
 
 					if (get_oidc_implementation_level() >= 2) {
 						# Add Keycloak information to the session if we are using Keycloak for back-channel authentication
-						#12279 TODO: We should probably remove the access_token, et.c from the user.sto file as it contains PII
+						#12279 TODO: We should probably remove the access_token, etc. from the user.sto file as it contains PII
 						my $session_ref = $user_ref->{'user_sessions'}{$user_session};
 						$request_ref->{access_token} = $session_ref->{access_token} if $session_ref->{access_token};
 						$request_ref->{access_expires_at} = $session_ref->{access_expires_at}

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -307,15 +307,35 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		);
 		# Create the simplified cards
 		if ($has_health_card) {
-			create_panel_from_json_template("simplified_health_card",
-				"api/knowledge-panels/health/simplified_health_card.tt.json",
+			create_panel_from_json_template("health_card_simplified",
+				"api/knowledge-panels/health/health_card_simplified.tt.json",
 				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		}
 		if ($has_environment_card) {
-			create_panel_from_json_template("simplified_environment_card",
-				"api/knowledge-panels/environment/simplified_environment_card.tt.json",
+			create_panel_from_json_template("environment_card_simplified",
+				"api/knowledge-panels/environment/environment_card_simplified.tt.json",
 				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+			# Simplified environmental panels
+			create_panel_from_json_template(
+				"origins_of_ingredients_simplified",
+				"api/knowledge-panels/environment/origins_of_ingredients_simplified.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+			);
+			create_panel_from_json_template(
+				"threatened_species_simplified",
+				"api/knowledge-panels/environment/threatened_species_simplified.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+			);
+			create_panel_from_json_template("packaging_simplified",
+				"api/knowledge-panels/environment/packaging_simplified.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+			create_panel_from_json_template(
+				"environmental_labels_simplified",
+				"api/knowledge-panels/environment/environmental_labels_simplified.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+			);
 		}
+
 	}
 
 	return;
@@ -819,7 +839,8 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 			)
 		{
 
-			create_panel_from_json_template("palm_oil", "api/knowledge-panels/environment/palm_oil.tt.json",
+			create_panel_from_json_template("threatened_species",
+				"api/knowledge-panels/environment/threatened_species.tt.json",
 				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		}
 	}
@@ -830,8 +851,7 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	}
 
 	# Create panel for packaging components, and packaging materials
-	create_panel_from_json_template("packaging_recycling",
-		"api/knowledge-panels/environment/packaging_recycling.tt.json",
+	create_panel_from_json_template("packaging", "api/knowledge-panels/environment/packaging.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	create_panel_from_json_template("packaging_materials",
 		"api/knowledge-panels/environment/packaging_materials.tt.json",
@@ -847,6 +867,12 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	if (feature_enabled("ingredients")) {
 		create_panel_from_json_template("origins_of_ingredients",
 			"api/knowledge-panels/environment/origins_of_ingredients.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
+	# Forest footprint
+	if (defined $product_ref->{forest_footprint_data}) {
+		create_panel_from_json_template("forest_footprint", "api/knowledge-panels/environment/forest_footprint.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 

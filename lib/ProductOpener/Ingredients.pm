@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -232,6 +232,7 @@ my %contains_regexps = (
 	en => "contains",
 	bg => "съдържа",
 	ca => "conté",
+	cs => "obsahují",
 	da => "indeholder",
 	es => "contiene",
 	et => "sisaldab",
@@ -1373,7 +1374,7 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		ro => "(?:tara de origine)",
 		rs => "(?:zemlja porekla)",
 		sl => "(?:(?:država|krajina) porekla|gojeno(?: v))",
-		sv => "(?:ursprung)",
+		sv => "(?:ursprung|odlade inom)",
 		uk => "(?:kраїна походження)",
 	);
 
@@ -2859,6 +2860,9 @@ Text to analyze
 						my %ignore_regexps = (
 							'bs' => [
 								'u promjenljivom odnosu',    # in a variable ratio
+							],
+							'cs' => [
+								'v různém poměru',    # in variable proportions
 							],
 
 							'da' => [
@@ -5236,6 +5240,8 @@ my %phrases_before_ingredients_list = (
 	es => ['composición', 'ingredientes',],
 
 	et => ['koostisosad', 'Koostis',],
+
+	eu => ['[Oo]sagaiak',],
 
 	fi => ['aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?', 'ainesosia', 'valmistusaineet', 'Kokoonpano', 'koostumus',],
 

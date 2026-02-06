@@ -90,6 +90,25 @@ function countries() {
 window.addEventListener('load', onLoad);
 
 $(function () {
+    const hostname = window.location.hostname;
+    const domainParts = hostname.split('.');
+    let currentCC = '';
+    
+    if (domainParts.length >= 2) {
+        currentCC = domainParts[0];
+    }
+    if (currentCC === document.querySelector('html').dataset.serverdomain.split('.')[0]) {
+        currentCC = 'world';
+    }
+    if (currentCC) {
+        const allCountries = countries();
+        const currentCountryName = allCountries[currentCC];
+
+        if (currentCountryName) {
+            const newOption = new Option(currentCountryName, currentCC, true, true);
+            $('#select_country').append(newOption);
+        }
+    }
     $("#select_country").select2({
         allowClear: true,
         ajax: {

@@ -141,7 +141,7 @@ msgstr "Registrér"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Velkomst!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -682,7 +682,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "Sporbarhetskoder"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -702,7 +702,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "sporbarhetskode"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -727,7 +727,7 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "Feil"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -937,7 +937,7 @@ msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr ""
+msgstr "Bruksvilkår"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -1851,7 +1851,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "Tilsett et næringsstoff"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -2071,7 +2071,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "Tilbakestill passord"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2569,7 +2569,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "Ukjent"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -3445,7 +3445,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Opprinnelse"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -4320,7 +4320,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Ferdig"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4423,7 +4423,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Ugyldig strekkode"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4666,7 +4666,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Matforedlingsnivå ukjent"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -5125,11 +5125,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Diverse"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Diverse"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5147,7 +5147,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "Form"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5155,7 +5155,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Materiale"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5963,6 +5963,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Ingen vurderte etiketter"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Noen miljøfordeler"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Høye miljøfordeler"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Svært høye miljøfordeler"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6341,22 +6357,22 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Veldig god kamp"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "God match"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Dårlig kamp"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "Ukjent treff"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6366,7 +6382,7 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "Stemmer ikke overens"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6546,7 +6562,7 @@ msgstr "Logg inn"
 
 msgctxt "sign_out"
 msgid "Sign out"
-msgstr ""
+msgstr "Logg ut"
 
 msgctxt "your_contributions"
 msgid "Your contributions"
@@ -6739,7 +6755,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Antall enheter"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6771,19 +6787,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Angi antall emballasjeenheter av samme form og materiale som produktet inneholder."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Skriv inn formnavnet som er oppført i resirkuleringsinstruksjonene hvis de er tilgjengelige, eller velg en form."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Oppgi det spesifikke materialet hvis det kan bestemmes (en materialkode inni en trekant finnes ofte på emballasjedelene), eller et generisk materiale (for eksempel plast eller metall) hvis du er usikker."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Skriv bare inn resirkuleringsinstruksjoner hvis de er oppført på produktet."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6793,7 +6809,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Skriv inn nettovekten eller nettovolumet og angi enheten (for eksempel g eller ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7413,17 +7429,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Produkttype"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Mat"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Kjæledyrfôr"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7498,7 +7514,7 @@ msgstr ""
 
 msgctxt "scan"
 msgid "Scan"
-msgstr ""
+msgstr "Skann"
 
 msgctxt "reset_preferences_details_beauty"
 msgid "Organic farming and fair trade"
@@ -7671,4 +7687,36 @@ msgstr "Produsentens veiledende utsalgspris (MSRP), eksklusive rabatter og kampa
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Personlig eiendom"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Inneholder ikke palmeolje"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Kan inneholde palmeolje"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Miljømerker"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Manglende data"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Høy effekt"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Middels innvirkning"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Lav påvirkning"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Konsekvens ikke vurdert"
 

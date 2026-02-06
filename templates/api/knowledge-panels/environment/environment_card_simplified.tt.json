@@ -1,0 +1,41 @@
+{
+    "type": "card",
+    "expanded": true,
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "title": "[% edq(lang('environment_card_title')) %]",
+    },    
+    "elements": [
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "panel_ids": [
+                    "environmental_score",
+                ]
+            }
+        },
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "panel_ids": [
+                    "environmental_labels_simplified",
+                    "origins_of_ingredients_simplified",
+                    "threatened_species_simplified",
+                    "packaging_simplified",   
+                ],
+            },
+        },        
+        [% IF panels.carbon_footprint.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "panel_ids": [
+                    "carbon_footprint"
+                ]
+            }
+        },
+        [% END %]
+    ],
+}

@@ -54,7 +54,7 @@ print(tabulate(pd.read_csv("mapping.csv", nrows=11),
 
 ### Test
 
-Print 10 first rows as CSV format, from data.gouv.fr dataset:
+Print 10 first rows as CSV format, from data.gouv.fr dataset (Product Opener target):
 
 ```{python}
 #| vscode: {languageId: shellscript}
@@ -62,9 +62,18 @@ Print 10 first rows as CSV format, from data.gouv.fr dataset:
 wget -q -O - https://www.data.gouv.fr/api/1/datasets/r/60be0572-1ba9-4cad-95e0-bfb32fd20d70 | ./ir_data2opf_csv.py --limit 10
 ```
 
+Print 10 first rows as CSV format, from data.gouv.fr dataset (Folksonomy Engine target):
+
+```{python}
+#| vscode: {languageId: shellscript}
+%%bash
+wget -q -O - https://www.data.gouv.fr/api/1/datasets/r/60be0572-1ba9-4cad-95e0-bfb32fd20d70 | ./ir_data2opf_csv.py --target "Folksonomy Engine" --limit 10
+```
+
+
 ### Transform
 
-If you want to convert all the dataset:
+If you want to convert all the dataset (product opener target):
 ```{python}
 #| echo: true      # Afficher le code
 #| eval: true      # Exécuter le code
@@ -75,7 +84,7 @@ wget -q -O - https://www.data.gouv.fr/api/1/datasets/r/60be0572-1ba9-4cad-95e0-b
 ls -lh --time-style='+%Y-%m-%d %H:%M' ir_data_opf.csv | awk '{print $6, $7, $9, $5, $8}'
 ```
 
-or, if you have downloaded the dataset as `source.csv`:
+or, if you have downloaded the dataset as `source.csv` (Product Opener target):
 
 ```{python}
 #| echo: true      # Afficher le code
@@ -96,3 +105,23 @@ wc -l ir_data_opf.csv
 ```
 
 The script has ecluded products that don't have a normalized barcode.
+
+
+If you want to convert all the dataset (Folksonomy Engine target):
+```{python}
+#| echo: true      # Afficher le code
+#| eval: true      # Exécuter le code
+#| output: true    # Afficher la sortie
+%%bash
+./ir_data2opf_csv.py source.csv --target "Folksonomy Engine" > ir_data_folksonomy_engine.csv
+
+ls -lh --time-style='+%Y-%m-%d %H:%M' ir_data_folksonomy_engine.csv | awk '{print $6, $7, $9, $5, $8}'
+```
+
+Number of lines:
+
+```{python}
+#| vscode: {languageId: shellscript}
+%%bash
+wc -l ir_data_folksonomy_engine.csv
+```

@@ -4861,7 +4861,7 @@ msgstr "Ambiente"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "Eco-Pontuação"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4874,7 +4874,7 @@ msgstr "O Green-Score é uma pontuação ambiental de A a E que facilita a compa
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "Eco-Pontuação"
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -5125,19 +5125,19 @@ msgstr "Informações nutricionais ausentes para o produto preparado"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "Eco-Pontuação"
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "Eco-Pontuação"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "Eco-Pontuação"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "Eco-Pontuação"
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5978,6 +5978,22 @@ msgstr "Etiquetas com altos benefícios ambientais"
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr "Etiquetas com benefícios ambientais muito altos"
+
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Sem rótulos avaliados"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Alguns benefícios ambientais"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Altos benefícios ambientais"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Altíssimos benefícios ambientais"
 
 msgctxt "other"
 msgid "Other"
@@ -7687,4 +7703,36 @@ msgstr "Preço de venda sugerido pelo fabricante (PVP), excluindo descontos e pr
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Propriedade personalizada"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Não contém óleo de palma."
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Pode conter óleo de palma."
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Rótulos ambientais"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Dados ausentes"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Alto impacto"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Impacto médio"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Baixo impacto"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Impacto não avaliado"
 

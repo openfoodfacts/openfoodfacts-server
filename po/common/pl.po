@@ -598,7 +598,7 @@ msgstr "Przekaż darowiznę na Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://world-pl.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -2407,7 +2407,7 @@ msgstr "Edytuj produkt ponownie"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Kraj"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5980,6 +5980,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etykiet z ogromnymi korzyściami dla środowiska"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Brak ocenionych etykiet"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Niektóre korzyści dla środowiska"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Wysokie korzyści dla środowiska"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Bardzo duże korzyści dla środowiska"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Inne"
@@ -7319,15 +7335,15 @@ msgstr "Data ostatniej zmiany"
 
 msgctxt "number_of_products_on_public_platform"
 msgid "Number of products on public platform"
-msgstr ""
+msgstr "Liczba produktów na platformie publicznej"
 
 msgctxt "number_of_products_on_producer_platform"
 msgid "Number of products on producer platform"
-msgstr ""
+msgstr "Liczba produktów na platformie producenta"
 
 msgctxt "automated_daily_export_to_public_platform"
 msgid "Automatic daily export to public platform"
-msgstr ""
+msgstr "Automatyczny codzienny eksport na platformę publiczną"
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
@@ -7335,11 +7351,11 @@ msgstr "Udoskonalenia"
 
 msgctxt "products_with_changes_since_last_export"
 msgid "Products with changes since last export"
-msgstr ""
+msgstr "Produkty ze zmianami od ostatniego eksportu"
 
 msgctxt "organization_list"
 msgid "Organization list"
-msgstr ""
+msgstr "Lista organizacji"
 
 msgctxt "open_org"
 msgid "Open org"
@@ -7355,7 +7371,7 @@ msgstr "Darowizny"
 
 msgctxt "donated_products_subtitle"
 msgid "Give this product, or search for a similar donated product"
-msgstr ""
+msgstr "Podaruj ten produkt lub wyszukaj podobny produkt w ramach darowizny"
 
 msgctxt "used_products_title"
 msgid "Used products"
@@ -7688,4 +7704,36 @@ msgstr "Sugerowana przez producenta cena detaliczna (MSRP), z wyłączeniem raba
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Nieruchomość spersonalizowana"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Nie zawiera oleju palmowego"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Może zawierać olej palmowy"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Etykiety środowiskowe"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Brak danych"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Duży wpływ"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Średni wpływ"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Niski wpływ"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Wpływ nie został oceniony"
 

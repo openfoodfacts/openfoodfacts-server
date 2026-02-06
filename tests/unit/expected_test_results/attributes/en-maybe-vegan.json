@@ -298,6 +298,7 @@
                "id" : "forest_footprint",
                "match" : 0,
                "name" : "Forest footprint",
+               "panel_id" : "forest_footprint",
                "status" : "known",
                "title" : "Forest footprint not computed"
             }
@@ -357,7 +358,6 @@
       "en:nutriments-to-be-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
-      "en:traceability-codes-to-be-completed",
       "en:front-photo-to-be-selected",
       "en:product-name-to-be-completed",
       "en:quantity-to-be-completed",
@@ -372,8 +372,8 @@
          "general_information" : "0.00",
          "ingredients" : "0.00",
          "nutrition" : "0.33",
-         "overall" : "0.18",
-         "packaging" : "0.33"
+         "overall" : "0.20",
+         "packaging" : "0.50"
       }
    },
    "data_quality_errors_tags" : [],
@@ -394,7 +394,6 @@
       "en:nutriments-to-be-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
-      "en:traceability-codes-to-be-completed",
       "en:front-photo-to-be-selected",
       "en:product-name-to-be-completed",
       "en:quantity-to-be-completed",
@@ -664,6 +663,9 @@
       "unknown"
    ],
    "food_groups_tags" : [],
+   "images" : {
+      "selected" : {}
+   },
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9510",
@@ -764,6 +766,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:environmental-score-not-computed",
+      "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",

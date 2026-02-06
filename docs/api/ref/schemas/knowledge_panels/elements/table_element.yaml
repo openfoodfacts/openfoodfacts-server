@@ -5,27 +5,68 @@ properties:
   id:
     type: string
     description: An id for the table.
+  table_type:
+    type: string
+    description: Type of table (e.g. "percents" for tables with percentage columns)
   title:
     type: string
     description: |
-      Title of the column.
-  rows:
-    type: string
+      Title of the table.
   columns:
     type: array
     items:
       type: object
       title: table_column
       properties:
-        type:
-          type: string
         text:
           type: string
+          description: Column header text
+        type:
+          type: string
+          description: Column type (e.g. "text", "percent")
         text_for_small_screens:
           type: string
+          description: Alternative text for small screens
         style:
           type: string
+          description: CSS style for the column
         column_group_id:
           type: string
         shown_by_default:
           type: boolean
+  rows:
+    type: array
+    description: Array of table rows
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Row ID
+        style:
+          type: string
+          description: CSS style for the row
+        values:
+          type: array
+          description: Array of cell values
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+                description: Cell text content
+              icon_url:
+                type: string
+                description: URL of an icon to display in the cell
+              percent:
+                type: number
+                description: Percentage value for progress bars (used with percent columns)
+              evaluation:
+                type: string
+                description: Evaluation level (good, bad, neutral, etc.) for styling
+              level:
+                type: integer
+                description: Indentation level
+              style:
+                type: string
+                description: CSS style for the cell
