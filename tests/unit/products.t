@@ -277,6 +277,7 @@ is(preprocess_product_field('labels', 'email@example.com, Green Dot'), ', Green 
 is(preprocess_product_field('stores', 'Carrefour, abc@gmail.com'), 'Carrefour, ');
 
 is(split_code("26153689"), "000/002/615/3689");
+is(split_code("ingredient-en-test-ingredient"), "ingredient/en/test/ingredient");
 
 # test review_product_type, to migrate product in other flavor if category tag is provided
 # food to pet food
@@ -338,5 +339,8 @@ is(is_valid_code('123'), '', '3 digit code');
 is(is_valid_code('00000123'), '', '3 digit code with leading 0s');
 is(is_valid_code('1234567890123456789012345678901234567890123456789012345678901234567890'), '', 'too long code');
 is(is_valid_code(undef), '', 'undefined code');
+is(is_valid_code('ingredient:en:test'), '', 'invalid ingredient code as contains colons');
+is(is_valid_code('ingredient-en-test'), 1, 'valid ingredient code');
+is(is_valid_code('ingredient-en-test-1234567890123456789012345678901234567890123456789012345678901234567890'), 1, 'valid long ingredient code');
 
 done_testing();

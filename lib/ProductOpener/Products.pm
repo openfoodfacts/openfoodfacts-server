@@ -500,7 +500,7 @@ sub is_valid_code ($code) {
 	my $code_without_leading_zeroes = $code;
 	# Remove leading zeroes
 	$code_without_leading_zeroes =~ s/^0+//;
-	return $code_without_leading_zeroes =~ /^\d{4,40}$|^ingredient/;
+	return $code_without_leading_zeroes =~ /^\d{4,40}$|^ingredient-[^:]*$/;
 }
 
 =head2 split_code()
