@@ -95,7 +95,7 @@ sub read_product_api ($request_ref) {
 	my $product_id;
 
 	# Check if the code is valid
-	if ($code !~ /^\d{4,24}$/) {
+	if (not is_valid_code($code)) {
 
 		$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
 		add_error(

@@ -289,6 +289,9 @@ Normalized version of the code
 sub normalize_code ($code) {
 
 	if (defined $code) {
+		if ($code =~ /^ingredient/) {
+			return $code;
+		}
 		($code, my $gs1_ai_data_str) = &normalize_code_with_gs1_ai($code);
 		$code = normalize_code_zeroes($code);
 	}
@@ -497,7 +500,7 @@ sub is_valid_code ($code) {
 	my $code_without_leading_zeroes = $code;
 	# Remove leading zeroes
 	$code_without_leading_zeroes =~ s/^0+//;
-	return $code_without_leading_zeroes =~ /^\d{4,40}$/;
+	return $code_without_leading_zeroes =~ /^\d{4,40}$|^ingredient/;
 }
 
 =head2 split_code()
@@ -523,6 +526,10 @@ sub split_code ($code) {
 
 		$log->info("invalid code", {code => $code}) if $log->is_info();
 		return "invalid";
+	}
+
+	if ($code =~ /^ingredient/) {
+		return $code =~ s/:|-/\//gr;
 	}
 
 	# Remove leading zeroes

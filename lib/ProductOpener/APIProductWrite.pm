@@ -647,7 +647,7 @@ sub write_product_api ($request_ref) {
 			($code, my $ai_data_string) = &normalize_requested_code($request_ref->{code}, $response_ref);
 
 			# Check if the code is valid
-			if ($code !~ /^\d{4,24}$/) {
+			if (not is_valid_code($code)) {
 
 				$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
 				add_error(
