@@ -192,7 +192,8 @@ my @display_tests = (
 							value => 1.5
 						}
 					},
-					preparation => "as_sold"
+					preparation => "as_sold",
+					per => "100g"
 				}
 			}
 		}
@@ -249,7 +250,8 @@ my @display_tests = (
 							value => 1.5
 						}
 					},
-					preparation => "as_sold"
+					preparation => "as_sold",
+					per => "100ml"
 				}
 			}
 		}
@@ -310,7 +312,8 @@ my @display_tests = (
 							value => 0.25
 						}
 					},
-					preparation => "as_sold"
+					preparation => "as_sold",
+					per => "100g"
 				}
 			}
 		}
@@ -347,7 +350,8 @@ my @display_tests = (
 							value => 3.75
 						}
 					},
-					preparation => "as_sold"
+					preparation => "as_sold",
+					per => "100g"
 				}
 			}
 		},
