@@ -24,6 +24,7 @@ import os
 from dotenv import load_dotenv
 import hashlib
 import base64
+import json
 
 load_dotenv(".envrc")
 load_dotenv()
@@ -60,6 +61,10 @@ countries = ",".join(
     requests.get(f"{base_url}/data/taxonomies/countries.json").json().keys()
 )
 
+# Load ciqual ingredients. File comes from https://github.com/openfoodfacts/recipe-estimator/blob/main/recipe_estimator/assets/ciqual_ingredients.json
+with open(os.path.join(os.path.dirname(__file__), "ciqual_ingredients.json"), "r", encoding="utf-8") as ciqual_file:
+    ciqual_ingredients = json.load(ciqual_file)
+
 # Get the existing ingredient products so we know which ones already have images
 # and which ones to delete (if they weren't found in the current ingredients taxonomy)
 page = 1
@@ -86,6 +91,14 @@ print("*** Creating products ***")
 for id, ingredient in ingredients.items():
     if count >= max_count:
         break
+
+    # Only import ingredients that have a Ciqual food code (could maybe include proxy)
+    ciqual_code = ingredient.get("ciqual_food_code", {}).get("en")
+    if not ciqual_code:
+        continue
+    ciqual_data = ciqual_ingredients.get(ciqual_code, {}).get("nutrients")
+    if not ciqual_data:
+        continue
 
     code = f"ingredient-{id.replace(':', '-')}"
     got_image = code in products_with_images
@@ -128,12 +141,21 @@ for id, ingredient in ingredients.items():
             continue
 
     # We set all countries so ingredients always show up. Might be nice to get all "world" products to show up on all country domains
-    product = {"code": code, "countries": countries}
+    product = {"code": code, "countries": countries}#, "nutrition_data_per": "100g"}
     
     # Create a product name for each language
     for lang, name in ingredient["name"].items():
         product[f"product_name_{lang}"] = name
 
+    # Add nutrients from ciqual
+    for nutrient_id, nutrient in ciqual_data.items():
+        if nutrient.get("confidence", "-") != "-":
+            nutrient_unit = "g"
+            if nutrient_id == "energy":
+                nutrient_id = "energy-kj"
+                nutrient_unit = "kj"
+            product[f"nutriment_{nutrient_id}"] = nutrient.get("percent_nom")
+        
     # Create the product
     requests.post(f"{base_url}/cgi/product_jqm2.pl", data=product, headers=off_headers)
     if not got_image:
