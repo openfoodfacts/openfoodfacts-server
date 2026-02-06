@@ -5,29 +5,15 @@
             "sugars" : {
                "source" : "packaging",
                "source_index" : 0,
-               "source_per" : "100g",
+               "source_per" : "100ml",
                "unit" : "g",
-               "value" : 25
+               "value" : 5.2
             }
          },
-         "per" : "100g",
-         "preparation" : "as_sold"
+         "per" : "100ml",
+         "preparation" : "prepared"
       },
       "input_sets" : [
-         {
-            "nutrients" : {
-               "sugars" : {
-                  "unit" : "g",
-                  "value" : 25,
-                  "value_string" : "25.0"
-               }
-            },
-            "per" : "100g",
-            "per_quantity" : "100",
-            "per_unit" : "g",
-            "preparation" : "as_sold",
-            "source" : "packaging"
-         },
          {
             "nutrients" : {
                "sugars" : {
@@ -40,6 +26,20 @@
             "per_quantity" : "100",
             "per_unit" : "ml",
             "preparation" : "prepared",
+            "source" : "packaging"
+         },
+         {
+            "nutrients" : {
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : 25,
+                  "value_string" : "25.0"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
             "source" : "packaging"
          }
       ]

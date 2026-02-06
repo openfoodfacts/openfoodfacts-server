@@ -287,7 +287,6 @@ The priority is based on the preparation states, the sources, and the per refere
 We want the preparation state first, as if we have prepared data, then we should use prepared data to compute Nutri-Score etc.
 Then we want the source, as some sources are more reliable than others (e.g. estimates from ingredients should be last)
 Then we want the per reference, as we will convert to 100g or 100ml if possible, so we want to prefer sets that already have 100g or 100ml as per reference.
-
 =head3 Arguments
 
 =head4 $input_sets_ref
@@ -339,7 +338,7 @@ sub sort_sets_by_priority ($input_sets_ref) {
 		my $preparation_b = $preparation_priority{$preparation_key_b};
 
 		# sort priority : source then per then preparation
-		return {$preparation_a <=> $preparation_b || $source_a <=> $source_b || $per_a <=> $per_b;
+		return $preparation_a <=> $preparation_b || $per_a <=> $per_b || $source_a <=> $source_b;
 		} @$input_sets_ref;
 
 	return @$input_sets_ref;
