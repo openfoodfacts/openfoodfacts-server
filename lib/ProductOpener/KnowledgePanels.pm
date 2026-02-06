@@ -1350,11 +1350,25 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 
 		# Compare the product nutrition facts to the most specific category
 		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_lc, $target_cc, 1);
-		#my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
+
+		# Create a first panel with the aggregated set and comparison to category (if any)
 		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 		create_panel_from_json_template("nutrition_facts_table",
 			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+		# Create a second detailed panel with the aggregated set + all input sets
+		my $panel_data_detailed_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref, 1);
+		create_panel_from_json_template(
+			"nutrition_facts_table_with_input_sets",
+			"api/knowledge-panels/health/nutrition/nutrition_facts_table_with_input_sets.tt.json",
+			$panel_data_detailed_ref,
+			$product_ref,
+			$target_lc,
+			$target_cc,
+			$options_ref,
+			$request_ref
+		);
 	}
 	return;
 }
