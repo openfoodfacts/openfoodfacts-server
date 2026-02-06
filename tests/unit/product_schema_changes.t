@@ -25,6 +25,51 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 
 my @tests = (
 
+	# Very old schema, some missing fields like nutrition_data_per
+	[
+		'998-to-1003-new-nutrition-schema-bug',
+		1003,
+		{
+		          'nutriments' => {
+                            'carbohydrates_unit' => 'g',
+                            'proteins' => 0,
+                            'saturated-fat_value' => 0,
+                            'sugars' => '8.8',
+                            'sugars_value' => '8.8',
+                            'energy' => 255,
+                            'proteins_value' => 0,
+                            'fat' => 0,
+                            'energy_value' => '60.866796666667',
+                            'saturated-fat' => 0,
+                            'carbohydrates_100g' => '8.8',
+                            'energy-kcal_value_computed' => '35.2',
+                            'energy-kcal_unit' => 'kcal',
+                            'energy-kcal' => '60.866796666667',
+                            'proteins_100g' => 0,
+                            'saturated-fat_unit' => 'g',
+                            'energy_unit' => 'kcal',
+                            'carbohydrates_value' => '8.8',
+                            'energy_100g' => 255,
+                            'energy-kcal_100g' => '60.866796666667',
+                            'saturated-fat_100g' => 0,
+                            'sugars_unit' => 'g',
+                            'proteins_unit' => 'g',
+                            'fat_100g' => 0,
+                            'sugars_100g' => '8.8',
+                            'fat_unit' => 'g',
+                            'fat_value' => 0,
+                            'energy-kcal_value' => '60.866796666667',
+                            'carbohydrates' => '8.8'
+                          },
+						'product_type' => 'food',
+						'product_name' => 'Ice guava',
+						'_id' => '9310495085590',
+						'id' => '9310495085590',
+						'code' => '9310495085590',
+						'lc' => 'en',
+		},
+	],
+
 	[
 		'1002-to-1003-new-nutrition-schema-with-nutriments-estimated-from-ingredients',
 		1003,
@@ -1392,8 +1437,10 @@ foreach my $test_ref (reverse @tests) {
 	my $testid = $test_ref->[0];
 	my $target_schema_version = $test_ref->[1];
 	my $product_ref = $test_ref->[2];
-
+	
+	print STDERR "Running test $testid\n";
 	convert_product_schema($product_ref, $target_schema_version);
+	print STDERR "Finished conversion for test $testid\n";
 	if (substr($testid, 0, 12) eq "1002-to-1003") {
 		normalize_product_for_test_comparison($product_ref);
 	}
