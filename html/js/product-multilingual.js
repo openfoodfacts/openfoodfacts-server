@@ -1107,27 +1107,68 @@ $(function () {
 
 });
 
-function show_warning(should_show, nutrient_id, warning_message){
+function show_warning(should_show, input_id, nutrient_id, per, preparation, warning_message){
+    const question_mark_id = `#nutrient_question_mark_${nutrient_id}_${preparation}_${per}`;
+    const warning_id = `#nutrient_sugars_warning_${nutrient_id}_${preparation}_${per}`;
+    
     if(should_show) {
-        $('#nutriment_'+nutrient_id).css("background-color", "rgb(255 237 235)");
-        $('#nutriment_question_mark_'+nutrient_id).css("display", "inline-table");
-        $('#nutriment_sugars_warning_'+nutrient_id).text(warning_message);
+        $(input_id).css("background-color", "rgb(255 237 235)");
+        $(question_mark_id).css("display", "inline-table");
+        $(warning_id).text(warning_message);
     }
     // clear the warning only if the warning message we don't show is the same as the existing warning
     // so that we don't remove a warning on sugars > 100g if we change carbohydrates
-    else if (warning_message == $('#nutriment_sugars_warning_'+nutrient_id).text()) {
-        $('#nutriment_'+nutrient_id).css("background-color", "white");
-        $('#nutriment_question_mark_'+nutrient_id).css("display", "none");
+    else if (warning_message == $(warning_id).text()) {
+        $(input_id).css("background-color", "white");
+        $(question_mark_id).css("display", "none");
     }
 }
 
-function check_nutrient(nutrient_id) {
+function get_nutrient_unit(nutrient_id) {
+    // line selector case (user chooses a unit from a list for the whole row of the nutrient)
+    const select = $(`#global_nutrient_${nutrient_id}_unit`);
+    if (select.length) {
+        return select.val();
+    }
+    // per-cell selector case (user chooses a unit from a list for one particular cell)
+    const selectPerCell = $(`#nutrient_${nutrient_id}_tr select.nutrient_unit`).first();
+    if (selectPerCell.length) {
+        return selectPerCell.val();
+    }
+    // fixed unit case (for nutrients with only one unit, e.g. kJ for energy-kj)
+    return $(`#nutrient_${nutrient_id}_tr .nutrient_unit`).first().text().trim();
+}
+
+function get_nutrient_value(nutrient_id, per, preparation, wanted_unit) {
+    const input_id = `#nutrition_input_sets_${preparation}_${per}_nutrients_${nutrient_id}_value_string`;
+
+    let value = parseFloat(($(input_id).val() || '').replace(',', '.'));
+    
+    if (!isNaN(value)) {
+        const current_unit = get_nutrient_unit(nutrient_id);
+
+        const factor = {
+            'g': 1,
+            'mg': 0.001,
+            'µg': 0.000001
+        };
+
+        if (factor[current_unit] != null && factor[wanted_unit] != null) {
+            value = value * (factor[current_unit] / factor[wanted_unit]);
+        }
+
+        return value;
+    }
+}
+
+function check_nutrient(nutrient_id, per, preparation, id) {
     // check the changed nutrient value
-    const nutrient_value = $('#nutriment_' + nutrient_id).val().replace(',','.').replace(/^(<|>|~)/, '');
-    const nutrient_unit = $('#nutriment_' + nutrient_id + '_unit').val();
+    const nutrient_value = $('#' + id).val().replace(',', '.').replace(/^(<|>|~)/, '');
+    const nutrient_unit = get_nutrient_unit(nutrient_id);
 
     // define the max valid value
     let max;
+    let per_serving = (per === "serving");  // true if "serving", false if "100g"
     let percent;
 
     if (nutrient_id == 'energy-kj') {
@@ -1154,36 +1195,60 @@ function check_nutrient(nutrient_id) {
     if (max) {
         is_above_or_below_max = (isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
         // if the nutrition facts are indicated per serving, the value can be above 100
-        if ((nutrient_value > max) && ($('#nutrition_data_per_serving').is(':checked')) && !percent) {
+        if ((nutrient_value > max) && per_serving && !percent) {
             is_above_or_below_max = false;
         }
-        show_warning(is_above_or_below_max, nutrient_id, lang().product_js_enter_value_between_0_and_max.replace('{max}', max));
+        show_warning(is_above_or_below_max, "#"+id, nutrient_id, per, preparation, lang().product_js_enter_value_between_0_and_max.replace('{max}', max));
     }
 
     // check that nutrients are sound (e.g. sugars is not above carbohydrates)
     // but only if the changed nutrient does not have a warning
     // otherwise we may clear the sugars or saturated-fat warning
     if (! is_above_or_below_max) {
-        const fat_value = $('#nutriment_fat').val().replace(',','.');
-        const carbohydrates_value = $('#nutriment_carbohydrates').val().replace(',','.');
-        const sugars_value = $('#nutriment_sugars').val().replace(',','.');
-        const saturated_fats_value = $('#nutriment_saturated-fat').val().replace(',','.');
+        const fat_value = get_nutrient_value("fat", per, preparation, nutrient_unit);
+        const carbohydrates_value = get_nutrient_value("carbohydrates", per, preparation, nutrient_unit);
+        const sugars_value = get_nutrient_value("sugars", per, preparation, nutrient_unit);
+        const saturated_fats_value = get_nutrient_value("saturated-fat", per, preparation, nutrient_unit);
 
         const is_sugars_above_carbohydrates = parseFloat(carbohydrates_value) < parseFloat(sugars_value);
-        show_warning(is_sugars_above_carbohydrates, 'sugars', lang().product_js_sugars_warning);
+        const sugars_input_id = `nutrition_input_sets_${preparation}_${per}_nutrients_sugars_value_string`;
+        show_warning(is_sugars_above_carbohydrates, sugars_input_id, "sugars", per, preparation, lang().product_js_sugars_warning);
 
         const is_fat_above_saturated_fats = parseFloat(fat_value) < parseFloat(saturated_fats_value);
-        show_warning(is_fat_above_saturated_fats, 'saturated-fat', lang().product_js_saturated_fat_warning);
+        const saturated_fat_input_id = `nutrition_input_sets_${preparation}_${per}_nutrients_saturated-fat_value_string`;
+        show_warning(is_fat_above_saturated_fats, saturated_fat_input_id, "saturated-fat", per, preparation, lang().product_js_saturated_fat_warning);
     }
 }
 
 $(function () {
-    $('.nutriment_value_as_sold').each(function () {
-        const nutrient_id = this.id.replace('nutriment_', '');
+    $('.nutrient_value').each(function () {
+        // looking at the template of nutrient inputs, their ids are
+        // nutrition_input_sets_[preparation]_[per]_nutrients_[nutrient id]_value_string
+        const id = this.id;
+        const idParts = this.id.split('_');
+        // preparation can be "as_sold" of "prepared"
+        // so the index of the nutrient id and of the preparation can vary because of preparation
+        // the index of "nutrients" is used to retrieve the id and the per values
+        const nutrientIndex = idParts.indexOf('nutrients');
+
+        if (nutrientIndex === -1) {
+            // we can't analyze it because we can't get nutrient_id, per and preparation
+            return;
+        }
+
+        const nutrient_id = idParts[nutrientIndex + 1]; // nutrient id is after "nutrients" (index can vary depending on preparation)
+        const per = idParts[nutrientIndex - 1];        // per value is before "nutrients" (index can vary depending on preparation)
+        const preparation = idParts.slice(3, nutrientIndex - 1).join('_'); 
+
         this.oninput = function() {
-            check_nutrient(nutrient_id);
+            check_nutrient(nutrient_id, per, preparation, id);
         };
-        check_nutrient(nutrient_id);
+        check_nutrient(nutrient_id, per, preparation, id);
     });
+
+     $('.nutrient_unit').on('change', function () {
+        $('.nutrient_value').trigger('input');
+    });
+    
     }
 );
