@@ -1076,6 +1076,45 @@ my @tests = (
 			}
 		}
 	],
+
+	# As sold data per 100g and prepared data for 100ml
+	[
+		"as_sold_per_100g_and_prepared_per_100ml",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sugars => {
+								value_string => "25.0",
+								value => 25,
+								unit => "g",
+							}
+						}
+					},
+					{
+						preparation => "prepared",
+						per => "100ml",
+						per_quantity => "100",
+						per_unit => "ml",
+						source => "packaging",
+						nutrients => {
+							sugars => {
+								value_string => "5.2",
+								value => 5.2,
+								unit => "g",
+							}
+						}
+					}
+				]
+			}
+		}
+	]
 );
 
 foreach my $test_ref (@tests) {
