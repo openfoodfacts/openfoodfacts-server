@@ -1,4 +1,4 @@
-# Frontend Build Scripts
+# Explain Frontend Build Scripts
 
 If you're new to the project, you might notice some build-related scripts in `package.json` and wonder when to use them. Here's what you need to know:
 
