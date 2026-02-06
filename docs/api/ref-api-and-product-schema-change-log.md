@@ -19,7 +19,7 @@ The API may return undocumented fields. You should not rely on fields that are n
 The product schema version is an integer that is incremented each time there is a change.
 It was introduced in March 2025, with a value of 1001.
 For products updated after March 2025, the product schema version is saved in the schema_version field of the product object.
-For earlier products (or earlier product revisions), the product schema version is 1000 or below. It is not stored in the database, but it can be returned for API requests with an API version lesser than 3.2.
+For earlier products (or earlier product revisions), the product schema version is 1000 or below. For such products/revisions, the schema version is not stored in the database, but can be returned for API requests with an API version lesser than 3.2.
 
 ## API version
 

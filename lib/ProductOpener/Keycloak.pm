@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -158,13 +158,13 @@ We create the user properties file locally before, and we create the user in key
 =cut
 
 sub create_or_update_user ($self, $user_ref, $password = undef) {
-	my $credential
-		= defined $password
+	my $credential = defined $password
 		? {
 		type => 'password',
 		temporary => $JSON::PP::false,
 		value => $password
 		}
+		# Note that encrypted_password can still be passed in if the user edits their password
 		: convert_scrypt_password_to_keycloak_credentials($user_ref->{'encrypted_password'});
 
 	# Need to sanitise user's name for Keycloak
@@ -194,7 +194,6 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 		emailVerified => $JSON::PP::true,    # TODO: Keep this for compat with current register endpoint?
 		enabled => $JSON::PP::true,
 		username => $userid,
-		credentials => [$credential],
 		createdTimestamp => ($user_ref->{registered_t} // time()) * 1000,
 		attributes => {
 			name => $keycloak_user_ref->{name},
@@ -203,6 +202,10 @@ sub create_or_update_user ($self, $user_ref, $password = undef) {
 			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
 		}
 	};
+	# Only supply credentials if set
+	if ($credential) {
+		$api_request_ref->{credentials} = [$credential];
+	}
 	# Only supply country if it is set
 	if ($user_ref->{country}) {
 		$api_request_ref->{attributes}->{country} = country_to_cc($keycloak_user_ref->{country});

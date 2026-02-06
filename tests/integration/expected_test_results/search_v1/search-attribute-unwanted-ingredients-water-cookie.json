@@ -1736,15 +1736,15 @@
                "attributes" : [
                   {
                      "description" : "",
-                     "description_short" : "Very good nutritional quality",
-                     "grade" : "b",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-a-new-en.svg",
+                     "description_short" : "Average nutritional quality",
+                     "grade" : "c",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-en.svg",
                      "id" : "nutriscore",
-                     "match" : 73.6666666666667,
+                     "match" : 49.4444444444444,
                      "name" : "Nutri-Score",
                      "panel_id" : "nutriscore_2023",
                      "status" : "known",
-                     "title" : "Nutri-Score A"
+                     "title" : "Nutri-Score C"
                   },
                   {
                      "grade" : "unknown",
@@ -1793,7 +1793,7 @@
             {
                "attributes" : [
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-gluten.svg",
                      "id" : "allergens_no_gluten",
@@ -1803,7 +1803,7 @@
                      "title" : "Does not contain: Gluten"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-milk.svg",
                      "id" : "allergens_no_milk",
@@ -1813,7 +1813,7 @@
                      "title" : "Does not contain: Milk"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-eggs.svg",
                      "id" : "allergens_no_eggs",
@@ -1823,7 +1823,7 @@
                      "title" : "Does not contain: Eggs"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg",
                      "id" : "allergens_no_nuts",
@@ -1833,7 +1833,7 @@
                      "title" : "Does not contain: Nuts"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg",
                      "id" : "allergens_no_peanuts",
@@ -1843,7 +1843,7 @@
                      "title" : "Does not contain: Peanuts"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg",
                      "id" : "allergens_no_sesame_seeds",
@@ -1853,7 +1853,7 @@
                      "title" : "Does not contain: Sesame seeds"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg",
                      "id" : "allergens_no_soybeans",
@@ -1863,7 +1863,7 @@
                      "title" : "Does not contain: Soybeans"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg",
                      "id" : "allergens_no_celery",
@@ -1873,7 +1873,7 @@
                      "title" : "Does not contain: Celery"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg",
                      "id" : "allergens_no_mustard",
@@ -1883,7 +1883,7 @@
                      "title" : "Does not contain: Mustard"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg",
                      "id" : "allergens_no_lupin",
@@ -1893,7 +1893,7 @@
                      "title" : "Does not contain: Lupin"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg",
                      "id" : "allergens_no_fish",
@@ -1903,7 +1903,7 @@
                      "title" : "Does not contain: Fish"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg",
                      "id" : "allergens_no_crustaceans",
@@ -1913,7 +1913,7 @@
                      "title" : "Does not contain: Crustaceans"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg",
                      "id" : "allergens_no_molluscs",
@@ -1923,7 +1923,7 @@
                      "title" : "Does not contain: Molluscs"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg",
                      "id" : "allergens_no_sulphur_dioxide_and_sulphites",
@@ -1995,14 +1995,14 @@
             {
                "attributes" : [
                   {
-                     "grade" : "a",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
+                     "grade" : "b",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                      "id" : "nova",
-                     "match" : 100,
+                     "match" : 75,
                      "name" : "NOVA group",
                      "panel_id" : "nova",
                      "status" : "known",
-                     "title" : "Unprocessed or minimally processed foods"
+                     "title" : "Processed foods"
                   },
                   {
                      "grade" : "a",

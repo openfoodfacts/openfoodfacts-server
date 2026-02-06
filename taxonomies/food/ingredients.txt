@@ -471,7 +471,7 @@ bg: соев лецитин, соеви лецитини
 bs: emulgator sojin lecitin
 ca: Lecitina de soja, lecitines de soja
 cs: sójový lecitin, sójové lecitiny
-da: sojalecitin, sojalecitiner, sojalecithin, sojalecithiner
+da: sojalecitin, sojalecitiner, sojalecithin, sojalecithiner, e322 af soja
 de: Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine, Soja-Lecithin, Emulgator Sojalecithin
 el: λεκιθίνη σόγιας
 es: lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya
@@ -506,9 +506,9 @@ allergens:en: en:soybeans
 ciqual_food_code:en: 42200
 ciqual_food_name:en: Soy lecithin
 ciqual_food_name:fr: Lécithine de soja
-# en:soya-lecithin has 27949 products in 29 languages @2018-11-10
 vegan:en: yes
 vegetarian:en: yes
+# en:soya-lecithin has 27949 products in 29 languages @2018-11-10
 
 < en:soya lecithin
 en: GMO-free soy lecithin, non-gmo soy lecithin
@@ -17070,8 +17070,6 @@ it: olio di lino biologico
 nl: olie van biologisch geteelde zaden van de vlasplant
 # ingredient/nl:olie-van-biologisch-geteelde-zaden-van-de-vlasplant has 2 products @2019-05-24
 
-# description:en:SUNFLOWER OIL is the non-volatile oil pressed from the seeds of sunflower (Helianthus annuus).
-
 < en:vegetable oil
 en: sunflower oil, sunflower seed oil, sunflower vegetable oil
 ar: زيت زهرة الشمس
@@ -17126,6 +17124,7 @@ vi: Dầu hướng dương
 zh: 葵花籽植物油
 ciqual_food_code:en: 17440
 ciqual_food_name:en: Sunflower oil
+description:en: SUNFLOWER OIL is the non-volatile oil pressed from the seeds of sunflower (Helianthus annuus).
 ecobalyse:en: 3cfab110-363e-442a-9170-1af337fe9ea3
 ecobalyse_labels_en_organic:en: 64fb23f2-0cac-403c-bbfa-1973c9a0ea40
 from_palm_oil:en: no
@@ -17158,6 +17157,7 @@ hr: djelomično hidrogenirano suncokretovo ulje
 hu: részben hidrogénezett napraforgóolaj
 it: olio di girasole parzialmente idrogenato
 nl: zonnebloemolie gedeeltelijk gehard
+wikidata:en: Q57657139
 
 < en:sunflower oil
 en: fully hydrogenated sunflower oil
@@ -17197,6 +17197,7 @@ it: oleo di girasole raffinato
 pl: rafinowany olej słonecznikowy
 pt: Óleo de girassol refinado
 ru: масло подсолнечное рафинированное дезодорированное, масло подсолнечное рафинированное
+sv: raffinerad solrosolja
 ecobalyse:en: 583d00ab-0340-444b-9581-71175f0a937b
 
 # has a higher oleic oil fraction
@@ -18203,7 +18204,7 @@ sv: rödvinsvinäger
 < en:vinegar
 en: spirit vinegar
 cs: Ovocný ocet
-de: Branntweinessig
+de: Branntweinessig, Weingeistessig
 el: ξύδι από οίνο
 fi: väkiviinaetikka
 fr: vinaigre d'eau-de-vie
@@ -28642,7 +28643,7 @@ sq: orizi
 sr: пиринач
 st: raese
 su: Béas
-sv: ris
+sv: ris, risgryn
 sw: Mpunga
 ta: நெல்
 te: వరి
@@ -56450,6 +56451,7 @@ pl: olej z nasion czerwonej papryki
 < en:chili pepper
 en: green chili pepper, green chili, green chilli pepper, green chilli, green chillies, green chile, green chile pepper
 bg: зелени люти чушки
+da: grøn chili
 de: grüne Chili
 es: guindilla verde
 fi: vihreä chili
@@ -56458,6 +56460,7 @@ hr: zelena čili papričica
 it: peperoncino verde
 nl: Groene chilipepers
 pl: zielona papryka chili, zielona papryczka chili
+sv: grön chili
 
 < en:chili pepper
 en: hot chili peppers, hot pepper
@@ -56571,6 +56574,11 @@ uk: чипотле
 # nah:chīlpoctli
 wikidata:en: Q860808
 wikipedia:en: https://en.wikipedia.org/wiki/Chipotle
+
+< en:jalapeno pepper
+en: hot jalapeno pepper, hot jalapeno
+da: stærk jalapeño
+sv: stark jalapeño, stark jalapeno
 
 # description:en:BIRD'S EYE CHILI, bird eye chili, bird's chili or Thai chili  is a chili pepper, a variety from the species Capsicum annuum, commonly found in Ethiopia and across Southeast Asia. It is used extensively in many Asian cuisines.
 
@@ -57185,6 +57193,10 @@ nl: geplette tomaten
 sv: krossade tomater
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:tomaattimurska
 # 1 entry @ 2019-10-31
+
+< en:crushed tomato
+en: finely crushed tomato
+sv: finkrossat tomat, finkrossade tomater
 
 < en:crushed tomato
 en: crushed peeled tomato
@@ -68271,13 +68283,14 @@ cy: Camri
 da: kamille
 de: Kamille
 el: Χαμομήλι
+eo: kamomilo
 es: Manzanilla
 fa: بابونه
 fi: kamomilla
 fr: camomille
 ga: Fíogadán
 gv: Camomile
-hr: kamilica, Matricaria chamomilla L
+hr: kamilica
 it: camomilla
 ja: カモミール
 jv: Camomile
@@ -68286,22 +68299,25 @@ ko: 캐모마일
 mr: chamomile
 nb: kamille
 nl: kamille
+nn: kamille
 pl: rumianek, rumianku, rumiankowy
 pt: Camomila
 ro: Mușețel
 ru: ромашка
 sd: بابونو
 sv: kamomill
-# ingredient/fr:camomille has 92 products in 4 languages @2018-12-28
+zh: 洋甘菊
+#azb: بابانئح
+#en-ca: chamomile
+#en-gb: camomile
+#inh: Моажолг
+#sco: camomile
+#yue: 洋甘菊
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.24
-# azb:بابانئح
-# en-ca:chamomile
-# en-gb:chamomile
-# inh:Моажолг
-# sco:camomile
-# yue:洋甘菊
+wikidata:en: Q14169150
 wikipedia:en: https://en.wikipedia.org/wiki/Chamomile
+# ingredient/fr:camomille has 92 products in 4 languages @2018-12-28
 
 < en:camomile
 en: camomile flower
@@ -68313,6 +68329,35 @@ hr: cvijet kamilice
 it: fiore di camomilla
 nb: kamilleblomst
 sv: kamomillblomma
+
+< en:camomile
+en: German camomile, Hungarian camomile
+ar: بابونج ألماني
+da: vellugtende kamille
+de: Echte Kamille
+eo: ordinara kamomilo, kuraca kamomilo
+fr: camomille sauvage, matricaire camomille
+hr: Matricaria chamomilla L
+la: Matricaria chamomilla, Matricaria recutita
+pt: camomila-vulgar, camomila-da-alemanha, camomila-dos-alemães
+zh: 德國洋甘菊, 母菊
+wikidata:en: Q28437
+
+< en:camomile
+en: Roman camomile, English camomile, garden camomile
+ar: أقحوان شريف, بابونج روماني
+ca: camamilla romana
+da: romerkamille
+de: Römische Kamille
+eo: roma kamomilo
+fr: camomille romaine
+la: Chamaemelum nobile, Camaemelum nobile, C. nobile, Anthemis nobilis
+lt: kilnioji blezdingūnė
+nn: romersk kamille
+pt: camomila-romana, camomila-de-paris
+sv: romersk kamomill
+zh: 羅馬洋甘菊, 果香菊
+wikidata:en: Q5723577
 
 # description:en:Arctium is a genus of biennial plants commonly known as BURDOCK, family Asteraceae.
 

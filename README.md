@@ -6,7 +6,7 @@
 
 
 
-[Looking for the Open Food Facts API doc ?](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/))
+[Looking for the Open Food Facts API docs?](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/)
 
 # Open Food Facts - Product Opener (Web Server)
 
@@ -36,7 +36,7 @@ It works together with [Robotoff](https://github.com/openfoodfacts/robotoff), Op
 
 ### A food product database
 
-Open Food Facts is a database of food products with ingredients, allergens, nutritional facts and all the tidbits of information that is available on various product labels.
+Open Food Facts is a database of food products with ingredients, allergens, nutritional facts and all the tidbits of information that are available on various product labels.
 
 ### Made by everyone
 
@@ -52,11 +52,11 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
 ## 🎨 Design & User interface
 - We strive to thoughtfully design every feature before we move on to implementation, so that we respect Open Food Facts' graphic charter and nascent design system, while having efficient user flows.
 - [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white) Mockups on the current app and future plans to discuss](https://www.figma.com/design/Qg9URUyrjHgYmnDHXRsTTB/Current-Website-design?m=auto&t=jNwvjRR8nIgOzzJZ-6)
-- Are you a designer ? [Join the design team](https://github.com/openfoodfacts/openfoodfacts-design)
+- Are you a designer? [Join the design team](https://github.com/openfoodfacts/openfoodfacts-design)
 <br><br>
 ## Weekly Meetings
 
-- We e-meet on Mondays at 17:00 Paris Time (Europe/Paris), which is CET (UTC+1) or CEST (UTC+2 during Daylight Saving Time). For easy conversion in local time, check [17:00 in Paris](https://time.is/1700_in_Paris).
+- We meet online on Mondays at 17:00 Paris Time (Europe/Paris), which is CET (UTC+1) or CEST (UTC+2 during Daylight Saving Time). For easy conversion in local time, check [17:00 in Paris](https://time.is/1700_in_Paris).
 - ![Google Meet](https://img.shields.io/badge/Google%20Meet-00897B?logo=google-meet&logoColor=white) Video call link: https://meet.google.com/nnw-qswu-hza
 - Join by phone: https://tel.meet/nnw-qswu-hza?pin=2111028061202
 - Add the event to your calendar by [adding the Open Food Facts community calendar to your calendar](https://wiki.openfoodfacts.org/Events).
@@ -78,7 +78,7 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
 - [P1 candidates](https://github.com/openfoodfacts/openfoodfacts-server/issues?q=is%3Aopen%20label%3A%22%F0%9F%8E%AF%20P1%20candidate%22%20)
 <br><br>
 ## How do I get started?
-- Join us on slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
+- Join us on Slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
 - Open Food Facts API documentation:
   - [Introduction to the API](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/) and links to the full reference ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/api))
 - Developer documentation:
@@ -87,10 +87,8 @@ Visit the [website](https://world.openfoodfacts.org) for more info.
     - [Server documentation](https://openfoodfacts.github.io/documentation/docs/Product-Opener/)
     - [Developer guide (docker)](./docs/dev/how-to-develop-using-docker.md)
     - [Developer guide (gitpod)](./docs/dev/how-to-use-gitpod.md)
-    - Configuration [TBA]
-    - Dependencies [TBA]
-    - Database configuration [TBA]
-    - How to run tests [TBA]
+    - [Configuration](./docs/dev/how-to-quick-start-guide.md#3-optional-review-product-openers-environment)
+    - [How to run tests](./docs/dev/how-to-write-and-run-tests.md)
     - [Perl modules documentation (POD)](https://openfoodfacts.github.io/dev/ref-perl/)
 
 
@@ -112,12 +110,20 @@ Have a bug or a feature request? Please search for existing and closed issues. I
 ## Translate Open Food Facts in your language
 
 You can help translate the Open Food Facts web version and the app at:
-<https://translate.openfoodfacts.org/> (no technical knowledge required, takes a minute to signup).
+<https://translate.openfoodfacts.org/> (no technical knowledge required, takes a minute to sign up).
 <br><br>
 ## Helping with HTML and CSS
 
-We have [templatized](https://github.com/openfoodfacts/openfoodfacts-server/tree/master/templates) Product Opener, we use Gulp and NPM, but you'll need to run the Product Opener docker to be able to see the result (see the How do I get set started? section).
+We have [templatized](https://github.com/openfoodfacts/openfoodfacts-server/tree/master/templates) Product Opener, we use Gulp and NPM, but you'll need to run the Product Opener docker to be able to see the result (see the How do I get started? section).
 In particular, you can [help with issues on the new design](https://github.com/openfoodfacts/openfoodfacts-server/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22%F0%9F%8E%A8%20New%20design%22).
+
+### Frontend Build Scripts
+
+**For most contributors using Docker (recommended):**  
+You don't need to run any npm commands manually! When you run `make up`, a container called `dynamicfront` automatically handles building and watching your frontend assets (CSS, JS, and icons).
+
+For more details on how the frontend build system works, see the [Frontend Build Scripts documentation](./docs/explain-frontend-build-scripts.md).
+
 <br><br>
 ## Who do I talk to?
 
