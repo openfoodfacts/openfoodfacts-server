@@ -9056,13 +9056,18 @@ The resulting data structure can be passed to a template to generate HTML or the
 
 Reference to an array with nutrition facts for 1 or more categories.
 
+=head4 Include input sets in the table $include_input_sets (default: 0)
+
+If set to 1, we will include in the table the nutrition facts for each of the nutrition input sets of the product (if any), without comparisons.
+If set to 0, we will only include the nutrition facts for the aggregated set + the comparisons.
+
 =head3 Return values
 
 Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_ref) {
+sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_ref, $include_input_sets = 0) {
 
 	my $template_data_ref = {};
 	# This function populates a data structure that is used by the template to display the nutrition facts table
@@ -9132,7 +9137,7 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 	}
 
 	# Comparisons with other products, categories, recommended daily values etc.
-	if ((defined $comparisons_ref) and (scalar @{$comparisons_ref} > 0)) {
+	if ((not $include_input_sets) and (defined $comparisons_ref) and (scalar @{$comparisons_ref} > 0)) {
 
 		# Add a comparisons array to the template data structure
 
@@ -9185,9 +9190,9 @@ CSS
 		}
 	}
 
-	# Display a column for each of the nutrition input setts
+	# Display a column for each of the nutrition input sets
 	my $input_sets = deep_get($product_ref, "nutrition", "input_sets");
-	if (defined $input_sets) {
+	if (($include_input_sets) and (defined $input_sets)) {
 
 		my $i = 0;
 
@@ -9205,12 +9210,12 @@ CSS
 			if ((defined $per_quantity) and (defined $per_unit)) {
 				$per = lang("for") . " " . $per_quantity . " " . $per_unit;
 			}
-			
+
 			my $source = deep_get($input_set_ref, "source");
 
 			my $col_name = lang("preparation_" . $preparation) . " - " . $per . " (" . $source . ")";
 
-			$columns{$col_id } = {
+			$columns{$col_id} = {
 				scope => "product",
 				preparation => $preparation,
 				per => $per,
@@ -9428,7 +9433,7 @@ CSS
 					# If the nid and we don't have a value, check if we have a value for energy-kj (energy is not present on input sets)
 					if (($nid eq "energy") and (not defined $value)) {
 						$value = deep_get($product_ref, @nutrients_path, "energy-kj", "value");
-						$nutrient_set_unit = deep_get($product_ref, @nutrients_path, "energy-kj", "unit");	
+						$nutrient_set_unit = deep_get($product_ref, @nutrients_path, "energy-kj", "unit");
 					}
 					# If we don't have a value for energy-kj, check if we have a value for energy-kcal
 					if (($nid eq "energy") and (not defined $value)) {
@@ -9477,8 +9482,7 @@ CSS
 
 						$value_unit = "$formatted_value $nutrient_set_unit";
 
-						my $modifier
-							= deep_get($product_ref, @nutrients_path, $nid, "modifier");
+						my $modifier = deep_get($product_ref, @nutrients_path, $nid, "modifier");
 
 						if (defined $modifier) {
 							$value_unit = $modifier . " " . $value_unit;

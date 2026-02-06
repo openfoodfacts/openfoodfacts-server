@@ -48,7 +48,7 @@ my @tests = (
 				"carbohydrates_100g" => 56.5243,
 				"cholesterol_100g" => 0,
 			}
-		}	
+		}
 	],
 
 	[
