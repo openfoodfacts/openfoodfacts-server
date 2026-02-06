@@ -44,7 +44,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		%nutriments_labels
 
-		%cc_nutriment_table
+		%cc_nutrient_table
 		%nutrients_tables
 		%valid_nutrients
 
@@ -215,7 +215,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 # vitamin-a- : do not show by default in the form
 # !proteins : important, always show even if value has not been entered
 
-%cc_nutriment_table = (
+%cc_nutrient_table = (
 	off_default => "off_europe",
 	off_ca => "off_ca",
 	off_ru => "off_ru",
@@ -313,15 +313,15 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'chromium-', 'molybdenum-',
 			'iodine-', 'caffeine-',
 			'taurine-', 'methylsulfonylmethane-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-',
-			'acidity-', 'carbohydrates-total-',
+			'ph-', '!fruits-vegetables-legumes-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+			'carbohydrates-total-',
 		)
 	],
 	off_ca => [
@@ -378,15 +378,14 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'chromium-', 'molybdenum-',
 			'iodine-', 'caffeine-',
 			'taurine-', 'ph-',
-			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'glycemic-index-', 'water-hardness-',
-			'choline-', 'phylloquinone-',
-			'beta-glucan-', 'inositol-',
-			'carnitine-', 'sulphate-',
-			'nitrate-', 'acidity-',
-			'carbohydrates-',
+			'!fruits-vegetables-legumes-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
+			'water-hardness-', 'choline-',
+			'phylloquinone-', 'beta-glucan-',
+			'inositol-', 'carnitine-',
+			'sulphate-', 'nitrate-',
+			'acidity-', 'carbohydrates-',
 		)
 	],
 	off_ru => [
@@ -442,15 +441,15 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'selenium-', 'chromium-',
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-',
-			'acidity-', 'total-carboydrates-',
+			'ph-', '!fruits-vegetables-legumes-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+			'total-carboydrates-',
 		)
 	],
 	off_us => [
@@ -507,13 +506,13 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'selenium-', 'chromium-',
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'glycemic-index-',
-			'water-hardness-', 'sulfate-',
-			'nitrate-', 'acidity-',
-			'carbohydrates-', 'melatonin-',
+			'ph-', '!fruits-vegetables-legumes-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'glycemic-index-', 'water-hardness-',
+			'sulfate-', 'nitrate-',
+			'acidity-', 'carbohydrates-',
+			'melatonin-',
 		)
 	],
 	off_us_before_2017 => [
@@ -639,15 +638,15 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'selenium-', 'chromium-',
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-',
-			'acidity-', 'carbohydrates-',
+			'ph-', '!fruits-vegetables-legumes-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+			'carbohydrates-',
 		)
 	],
 	off_in => [
@@ -704,15 +703,15 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'selenium-', 'chromium-',
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-',
-			'acidity-', 'carbohydrates-total-',
+			'ph-', '!fruits-vegetables-legumes-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+			'carbohydrates-total-',
 		)
 	],
 	# https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26

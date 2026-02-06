@@ -26,7 +26,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Lang qw/$lc/;
-use ProductOpener::Display qw/$nutriment_table init_request/;
+use ProductOpener::Display qw/$nutrient_table init_request/;
 use ProductOpener::HTTP qw/write_cors_headers/;
 use ProductOpener::Food qw/%nutrients_tables get_nutrient_unit/;
 use ProductOpener::Tags qw/display_taxonomy_tag get_property/;
@@ -47,7 +47,7 @@ my @table = ();
 my $parent_level0;
 my $parent_level1;
 
-foreach (@{$nutrients_tables{$nutriment_table}}) {
+foreach (@{$nutrients_tables{$nutrient_table}}) {
 	my $nid = $_;    # Copy instead of alias
 
 	$nid =~ /^#/ and next;
@@ -100,7 +100,7 @@ foreach (@{$nutrients_tables{$nutriment_table}}) {
 		$log->error(
 			"invalid nesting of nutrients",
 			{
-				nutriment_table => $nutriment_table,
+				nutrient_table => $nutrient_table,
 				nid => $nid,
 				prefix_length => $prefix_length,
 				current_ref => $current_ref,

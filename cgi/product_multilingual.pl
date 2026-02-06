@@ -672,7 +672,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 
 	# Update the nutrients
-	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutriment_table, $source);
+	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
 
 	# Process packaging components
 	create_packaging_components_from_request_parameters($product_ref);
@@ -1143,7 +1143,7 @@ CSS
 	$template_data_ref_display->{nutrients} = \@nutrients;
 	$template_data_ref_display->{input_sets} = \%input_sets;
 
-	foreach my $nutrient (@{$nutrients_tables{$nutriment_table}}) {
+	foreach my $nutrient (@{$nutrients_tables{$nutrient_table}}) {
 
 		my $nutrient_ref = {};
 
@@ -1301,7 +1301,7 @@ CSS
 	my $other_nutrients = '';
 	# Add an empty value for the select2 placeholder
 	$other_nutrients .= '{ "id" : "", "text" : ""},' . "\n";
-	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
+	foreach my $nid (@{$other_nutriments_lists{$nutrient_table}}) {
 
 		# Some nutrients cannot be entered directly by users, so don't suggest them
 		my $automatically_computed = get_property("nutrients", "zz:$nid", "automatically_computed:en");

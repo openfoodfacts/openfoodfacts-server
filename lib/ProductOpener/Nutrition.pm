@@ -1284,7 +1284,7 @@ sub assign_no_nutrition_data_from_request_parameters ($request_ref, $product_ref
 	return;
 }
 
-=head2 assign_nutrition_values_from_old_request_parameters ( $request_ref, $product_ref, $nutriment_table, $source )
+=head2 assign_nutrition_values_from_old_request_parameters ( $request_ref, $product_ref, $nutrient_table, $source )
 
 This function provides backward compatibility for apps that use product edit API v2 (/cgi/product_jqm_multingual.pl)
 before the introduction of the new nutrition data schema.
@@ -1301,7 +1301,7 @@ Reference to the request parameters hash
 
 Reference to the product hash where the nutrition data will be stored.
 
-=head4 $nutriment_table
+=head4 $nutrient_table
 
 The nutriment table to use. It should be one of the keys of %nutrients_tables in Config.pm
 
@@ -1311,7 +1311,7 @@ The source of the nutrition data. e.g. "packaging" or "manufacturer"
 
 =cut
 
-sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_ref, $nutriment_table, $source) {
+sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_ref, $nutrient_table, $source) {
 
 	# Nutrition data
 
@@ -1380,7 +1380,7 @@ sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_
 				}
 			}
 
-			foreach my $nutriment (@{$nutrients_tables{$nutriment_table}}) {
+			foreach my $nutriment (@{$nutrients_tables{$nutrient_table}}) {
 				next if $nutriment =~ /^\#/;
 
 				my $nid = $nutriment;
@@ -1433,7 +1433,7 @@ sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_
 	return;
 }
 
-=head2 assign_nutrition_values_from_request_parameters ( $request_ref, $product_ref, $nutriment_table, $source )
+=head2 assign_nutrition_values_from_request_parameters ( $request_ref, $product_ref, $nutrient_table, $source )
 
 This function is used by the web product edit form and apps that use product edit API v2
 (/cgi/product_jqm_multingual.pl) after the introduction of the new nutrition data schema.
@@ -1450,7 +1450,7 @@ Reference to the request object
 
 Reference to the product hash where the nutrition data will be stored.
 
-=head4 $nutriment_table
+=head4 $nutrient_table
 
 The nutriment table to use. It should be one of the keys of %nutrients_tables in Config.pm
 
@@ -1460,7 +1460,7 @@ The source of the nutrition data. e.g. "packaging" or "manufacturer"
 
 =cut
 
-sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref, $nutriment_table, $source) {
+sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref, $nutrient_table, $source) {
 
 	my @preparations = get_preparations_for_product_type($product_ref->{product_type});
 	my @pers = get_pers_for_product_type($product_ref->{product_type});
@@ -1477,7 +1477,7 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 
 	# Assign all the nutrient values
 
-	foreach my $nutrient (@{$nutrients_tables{$nutriment_table}}) {
+	foreach my $nutrient (@{$nutrients_tables{$nutrient_table}}) {
 		next if $nutrient =~ /^\#/;
 
 		my $nid = $nutrient;
@@ -1520,7 +1520,7 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 	return;
 }
 
-=head2 assign_nutrition_values_from_imported_csv_product ( $imported_csv_product_ref, $product_ref, $nutriment_table )
+=head2 assign_nutrition_values_from_imported_csv_product ( $imported_csv_product_ref, $product_ref, $nutrient_table )
 
 This function is used by Import.pm to import new nutrition data from an imported product (though a CSV file) to an existing product.
 
@@ -1542,7 +1542,7 @@ All the fields in the imported product are at the root level, e.g. nutrition.inp
 
 Reference to the product hash where the nutrition data will be stored.
 
-=head4 $nutriment_table
+=head4 $nutrient_table
 
 The nutriment table to use. It should be one of the keys of %nutrients_tables in Config.pm
 

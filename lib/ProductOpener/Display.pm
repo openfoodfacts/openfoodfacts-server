@@ -107,7 +107,7 @@ BEGIN {
 		@lcs
 		$tt
 
-		$nutriment_table
+		$nutrient_table
 
 		%file_timestamps
 
@@ -725,16 +725,16 @@ sub init_request ($request_ref = {}) {
 	}
 
 	if ($options{product_type} eq "petfood") {
-		$nutriment_table = $cc_nutriment_table{"opff_default"};
-		if (exists $cc_nutriment_table{"opff_" . $cc}) {
-			$nutriment_table = $cc_nutriment_table{"opff_" . $cc};
+		$nutrient_table = $cc_nutrient_table{"opff_default"};
+		if (exists $cc_nutrient_table{"opff_" . $cc}) {
+			$nutrient_table = $cc_nutrient_table{"opff_" . $cc};
 		}
 	}
 	# food
 	else {
-		$nutriment_table = $cc_nutriment_table{"off_default"};
-		if (exists $cc_nutriment_table{"off_" . $cc}) {
-			$nutriment_table = $cc_nutriment_table{"off_" . $cc};
+		$nutrient_table = $cc_nutrient_table{"off_default"};
+		if (exists $cc_nutrient_table{"off_" . $cc}) {
+			$nutrient_table = $cc_nutrient_table{"off_" . $cc};
 		}
 	}
 
@@ -9230,13 +9230,7 @@ CSS
 	# Data for the nutrition table body
 
 	# Display estimate of fruits, vegetables, nuts from the analysis of the ingredients list
-	my @nutrients = ();
-	foreach my $nutrient (@{$nutrients_tables{$nutriment_table}}) {
-		push @nutrients, $nutrient;
-		if (($nutrient eq "fruits-vegetables-nuts-estimate-")) {
-			push @nutrients, "fruits-vegetables-nuts-estimate-from-ingredients-";
-		}
-	}
+	my @nutrients = @{$nutrients_tables{$nutrient_table}};
 
 	my $decf = get_decimal_formatter($lc);
 	my $perf = get_percent_formatter($lc, 0);
@@ -9254,16 +9248,20 @@ CSS
 		# Determine if the nutrient should be shown
 		my $shown = 0;
 
-		# Check if we have a value for the nutrient (product), or for the category (stats)
-		if (deep_exists($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value")
+		# Check if we have a value for the nutrient (product) that is not estimated,
+		# or for the category (stats)
+		my $nutrient_value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+		my $nutrient_source = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "source");
+
+		if (   ((defined $nutrient_value) and (defined $nutrient_source) and ($nutrient_source ne 'estimate'))
 			or (deep_exists($product_ref, "values", $nid, "mean")))
 		{
 			$shown = 1;
 			$log->debug("showing nutrient in nutrition table", {nid => $nid}) if $log->is_debug();
 		}
-		# Show rows that are not optional (id with a trailing -) unless the id is search
+		# Show rows that are important (id with a starting !) or the id is search
 		# as we have only 1 or 2 nutrients for search graphs
-		elsif (($nutrient !~ /-$/) and ($product_ref->{id} ne 'search')) {
+		elsif (($nutrient =~ /^!/) or ($product_ref->{id} eq 'search')) {
 			$shown = 1;
 			$log->debug("showing nutrient in nutrition table even if no value", {nid => $nid})
 				if $log->is_debug();
@@ -9397,7 +9395,7 @@ CSS
 						$prepared = "_prepared";
 					}
 
-					my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+					my $value = $nutrient_value;
 
 					# FIXME: if the packaging / manufacturer input set has the nutrient in the unspecified_nutrients array,
 					# we used to display a "-" sign."

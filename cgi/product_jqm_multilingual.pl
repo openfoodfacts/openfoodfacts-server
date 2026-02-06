@@ -471,8 +471,8 @@ else {
 
 	# Nutrition data
 
-	assign_nutrition_values_from_old_request_parameters($request_ref, $product_ref, $nutriment_table, $source);
-	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutriment_table, $source);
+	assign_nutrition_values_from_old_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
+	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
 
 	analyze_and_enrich_product_data($product_ref, $response_ref);
 
