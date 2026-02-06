@@ -3,6 +3,105 @@
    "code" : "9310495085590",
    "id" : "9310495085590",
    "lc" : "en",
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "carbohydrates" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : "8.8"
+            },
+            "energy" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 254
+            },
+            "energy-kcal" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kcal",
+               "value" : "60.866796666667"
+            },
+            "fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "proteins" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "saturated-fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "sugars" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : "8.8"
+            }
+         },
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "last_updated_t" : 1770385168,
+            "nutrients" : {
+               "carbohydrates" : {
+                  "unit" : "g",
+                  "value" : "8.8",
+                  "value_string" : "8.8"
+               },
+               "energy-kcal" : {
+                  "unit" : "kcal",
+                  "value" : "60.866796666667",
+                  "value_string" : "60.866796666667"
+               },
+               "fat" : {
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "proteins" : {
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "saturated-fat" : {
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : "8.8",
+                  "value_string" : "8.8"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
+   },
    "product_name" : "Ice guava",
    "product_type" : "food",
    "schema_version" : 1003
