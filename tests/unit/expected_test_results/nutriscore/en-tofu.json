@@ -18,7 +18,7 @@
       "en:plant-based-foods",
       "en:legumes-and-their-products",
       "en:meat-alternatives",
-      "en:tofu"
+      "xx:tofu"
    ],
    "categories_lc" : "en",
    "categories_properties" : {
@@ -41,7 +41,7 @@
       "en:plant-based-foods",
       "en:legumes-and-their-products",
       "en:meat-alternatives",
-      "en:tofu"
+      "xx:tofu"
    ],
    "food_groups" : "en:legumes",
    "food_groups_tags" : [
@@ -134,12 +134,13 @@
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:all-ingredients-with-specified-percent",
+      "en:nutrients-estimated-from-ingredients",
       "en:nutrition-no-fiber",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-from-category",
-      "en:nutrition-fruits-vegetables-nuts-from-category-en-tofu",
+      "en:nutrition-fruits-vegetables-nuts-from-category-xx-tofu",
       "en:nutrition-fruits-vegetables-legumes-from-category",
-      "en:nutrition-fruits-vegetables-legumes-from-category-en-tofu",
+      "en:nutrition-fruits-vegetables-legumes-from-category-xx-tofu",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a"
    ],
@@ -149,12 +150,12 @@
    "nova_groups_markers" : {
       "3" : [
          [
-            "categories",
-            "en:tofu"
-         ],
-         [
             "ingredients",
             "en:salt"
+         ],
+         [
+            "categories",
+            "xx:tofu"
          ]
       ]
    },

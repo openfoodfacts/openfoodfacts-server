@@ -88,7 +88,7 @@ check_tags(
 		"en:packagings-completed" => 0,
 		"en:packagings-to-be-completed" => 1,
 		"en:traceability-codes-completed" => 0,
-		"en:traceability-codes-to-be-completed" => 1,
+		"en:traceability-codes-to-be-completed" => 0,    # applies only for EU + animal origin categories
 		"en:front-photo-selected" => 0,
 		"en:front-photo-to-be-selected" => 1,
 		"en:product-name-completed" => 0,
@@ -103,34 +103,45 @@ check_tags(
 );
 
 # incremental completeness tests
-compute_and_test_completeness({images => {ingredients_sl => {}}, languages_codes => {'sl' => 1}},
+compute_and_test_completeness({images => {selected => {front => {sl => {}}}}, languages_codes => {'sl' => 1}},
 	"0.08", 'product with 1 selected ingredients image and 1 lang');
 
-compute_and_test_completeness({images => {ingredients_sl => {}}, languages_codes => {'hr' => 1, 'sl' => 1}},
+compute_and_test_completeness(
+	{images => {selected => {ingredients => {sl => {}}}}, languages_codes => {'hr' => 1, 'sl' => 1}},
 	"0.07", 'product with 1 selected ingredients image and 2 langs');
 
 compute_and_test_completeness(
 	{
-		images => {front_cs => {}, ingredients_cs => {}, nutrition_cs => {}, packaging_cs => {}},
+		images => {
+			selected =>
+				{front => {cs => {}}, ingredients => {cs => {}}, nutrition => {cs => {}}, packaging => {cs => {}}}
+		},
 		languages_codes => {'cs' => 1}
 	},
-	"0.31",
-	'product with all 4 selected images and 1 lang'
+	"0.33",
+	'product with all 4 selected images and 1 lang, no food of animal origin category'
 );
 
 compute_and_test_completeness(
 	{
-		images => {front_cs => {}, ingredients_cs => {}, ingredients_sk => {}, nutrition_cs => {}, packaging_cs => {}},
+		images => {
+			selected => {
+				front => {cs => {}},
+				ingredients => {cs => {}, sk => {}},
+				nutrition => {cs => {}},
+				packaging => {cs => {}}
+			}
+		},
 		languages_codes => {'cs' => 1, 'sk' => 1}
 	},
-	"0.33",
-	'product with all 4 selected images in 1 lang and 1 ingredients image in another lang'
+	"0.36",
+	'product with all 4 selected images in 1 lang and 1 ingredients image in another lang, no food of animal origin category'
 );
 
 compute_and_test_completeness(
 	{
 		brands => 'qux',
-		categories => 'quux',
+		categories => 'meats',
 		countries => ['en:italy'],
 		emb_codes => 'corge',
 		expiration_date => 'grault',
@@ -140,16 +151,17 @@ compute_and_test_completeness(
 		product_name => 'foo',
 		quantity => 'bar'
 	},
-	"0.54",
-	'product with all string fields'
+	"0.58",
+	'product with all string fields, no food of animal origin category'
 );
 
 compute_and_test_completeness({no_nutrition_data => 'on', nutriments => {}},
-	"0.18", 'product with no_nutrition_data and no nutriments');
+	"0.20", 'product with no_nutrition_data and no nutriments and not from animal origin category');
 
 compute_and_test_completeness({nutriments => {}}, "0.00", 'product without nutriments but no nutrition data is not on');
 
-compute_and_test_completeness({nutriments => {carbohydrates => 2}}, "0.09", 'product with nutriments');
+compute_and_test_completeness({nutriments => {carbohydrates => 2}},
+	"0.10", 'product with nutriments and not from animal origin category');
 
 $product_ref = {
 	nutriments => {
@@ -173,11 +185,14 @@ check_tags(
 # fully complete product
 $product_ref = {
 	brands => 'qux',
-	categories => 'quux',
+	categories_tags => ['en:meats-and-their-products'],
+	categories => 'Meats and their products',
 	countries_tags => ['en:hungary'],
 	emb_codes => 'corge',
 	expiration_date => 'grault',
-	images => {front_hu => {}, ingredients_hu => {}, nutrition_hu => {}, packaging_hu => {}},
+	images => {
+		selected => {front => {hu => {}}, ingredients => {hu => {}}, nutrition => {hu => {}}, packaging => {hu => {}}}
+	},
 	ingredients_text_hu => 'garply',
 	languages_codes => {'hu' => 1},
 	nutriments => {carbohydrates => 2},

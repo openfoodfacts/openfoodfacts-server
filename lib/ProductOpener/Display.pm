@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -3927,7 +3927,7 @@ HTML
 				if ($packager_codes{$canon_tagid}{cc} eq 'dk') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Denmark)
+$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{postalcode} $packager_codes{$canon_tagid}{city} (Denmark)
 </p>
 HTML
 						;
@@ -3938,6 +3938,15 @@ HTML
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{razon_social}<br>
 $packager_codes{$canon_tagid}{provincia_localidad}
+</p>
+HTML
+						;
+				}
+
+				if ($packager_codes{$canon_tagid}{cc} eq 'fi') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{postalcode} $packager_codes{$canon_tagid}{city} (Finland)
 </p>
 HTML
 						;
@@ -3955,8 +3964,8 @@ HTML
 
 				if ($packager_codes{$canon_tagid}{cc} eq 'hr') {
 					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{approved_establishment}<br>
-$packager_codes{$canon_tagid}{street_address} $packager_codes{$canon_tagid}{town_and_postal_code} ($packager_codes{$canon_tagid}{county})
+<p>$packager_codes{$canon_tagid}{name}<br>
+$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{city} $packager_codes{$canon_tagid}{postalcode} (Croatia/Hrvatska)
 </p>
 HTML
 						;
@@ -5234,7 +5243,6 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	if (   single_param("json")
 		or single_param("jsonp")
 		or single_param("xml")
-		or single_param("jqm")
 		or single_param("fields")
 		or $request_ref->{rss})
 	{
@@ -5472,24 +5480,21 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	my $decf = get_decimal_formatter($lc);
 
-	if (not defined $request_ref->{jqm_loadmore}) {
-		if ($count < 0) {
-			$error = lang("error_database");
-		}
-		elsif ($count == 0) {
-			$error = lang("no_products");
-		}
-		elsif ($count == 1) {
-			$html_count .= lang("1_product");
-		}
-		elsif ($count > 1) {
-			$html_count .= sprintf(lang("n_products"), $decf->format($count));
-		}
-		$template_data_ref->{error} = $error;
-		$template_data_ref->{html_count} = $html_count;
+	if ($count < 0) {
+		$error = lang("error_database");
 	}
+	elsif ($count == 0) {
+		$error = lang("no_products");
+	}
+	elsif ($count == 1) {
+		$html_count .= lang("1_product");
+	}
+	elsif ($count > 1) {
+		$html_count .= sprintf(lang("n_products"), $decf->format($count));
+	}
+	$template_data_ref->{error} = $error;
+	$template_data_ref->{html_count} = $html_count;
 
-	$template_data_ref->{jqm} = single_param("jqm");
 	$template_data_ref->{country} = $request_ref->{country};
 	$template_data_ref->{world_subdomain} = get_world_subdomain();
 	$template_data_ref->{current_link} = $request_ref->{current_link};
@@ -5518,8 +5523,6 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		my $customized_products_ref = [];
 
-		my $jqm = single_param("jqm");    # Assigning to a scalar to make sure we get a scalar
-
 		for my $product_ref (@{$request_ref->{structured_response}{products}}) {
 
 			# remove some debug info
@@ -5538,7 +5541,6 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 					code => $product_ref->{code},
 					product_name => $product_display_name,
 					img => $product_ref->{image_front_small_html},
-					jqm => $jqm,
 					url => $product_ref->{product_url_path},
 					};
 			}
@@ -5631,7 +5633,6 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			}
 
 			$template_data_ref->{separator_before_colon} = separator_before_colon($lc);
-			$template_data_ref->{jqm_loadmore} = $request_ref->{jqm_loadmore};
 			$template_data_ref->{request} = $request_ref;
 			$template_data_ref->{page_count} = $page_count;
 			$template_data_ref->{page_limit} = $limit;
@@ -5697,9 +5698,13 @@ JS
 	my $search_terms = '';
 	if (defined single_param('search_terms')) {
 		$search_terms = remove_tags_and_quote(decode utf8 => single_param('search_terms'));
-		if (is_valid_code($search_terms)) {
-			$template_data_ref->{code} = $search_terms;
-			my $add_product_message = f_lang("f_add_product_to_our_database", {barcode => $search_terms});
+		# Normalize possible barcodes using GS1-aware normalizer so inputs like
+		# GS1 element strings, GS1 Digital Link URIs, or UPC12 get converted
+		# to canonical GTIN/EAN forms before validation.
+		my ($normalized_code, undef) = normalize_code($search_terms);
+		if (defined $normalized_code && is_valid_code($normalized_code)) {
+			$template_data_ref->{code} = $search_terms;    # use original input to support additional AIs
+			my $add_product_message = f_lang("f_add_product_to_our_database", {barcode => $normalized_code});
 			$template_data_ref->{add_product_message} = $add_product_message;
 		}
 	}
@@ -5814,10 +5819,6 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 	$log->debug("PAGINATION: current_link: $current_link - canon_rel_url: $canon_rel_url\n") if $log->is_debug();
 
 	$log->debug("current link", {current_link => $current_link}) if $log->is_debug();
-
-	if (single_param("jqm")) {
-		$current_link .= "&jqm=1";
-	}
 
 	my $next_page_url;
 
@@ -6239,7 +6240,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 		# create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
-		$series{$seriesid} .= JSON::MaybeXS->new->encode(\%data) . ',';
+		$series{$seriesid} .= JSON::MaybeXS->new->canonical->encode(\%data) . ',';
 		# count entries / series
 		defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 		$series_n{$seriesid}++;
@@ -7452,7 +7453,7 @@ sub display_page ($request_ref) {
 
 	my $template_data_ref = {};
 
-	# If the client is requesting json, jsonp, xml or jqm,
+	# If the client is requesting json, jsonp, xml
 	# and if we have a response in structure format,
 	# do not generate an HTML response and serve the structured data
 
@@ -7461,7 +7462,6 @@ sub display_page ($request_ref) {
 			   single_param("json")
 			or single_param("jsonp")
 			or single_param("xml")
-			or single_param("jqm")
 			or $request_ref->{rss}
 		)
 		and (exists $request_ref->{structured_response})
@@ -8092,17 +8092,6 @@ JS
 	if ((feature_enabled("environmental_score")) and (defined $product_ref->{environmental_score_data})) {
 
 		localize_environmental_score($request_ref->{cc}, $product_ref);
-
-		if (defined $product_ref->{environmental_score_data}{"grade"}) {
-			$template_data_ref->{environmental_score_grade} = uc($product_ref->{environmental_score_data}{"grade"});
-			$template_data_ref->{environmental_score_lc} = $product_ref->{environmental_score_data}{"grade"};
-		}
-
-		$template_data_ref->{environmental_score_score} = $product_ref->{environmental_score_data}{"score"};
-		$template_data_ref->{environmental_score_data} = $product_ref->{environmental_score_data};
-		$template_data_ref->{environmental_score_calculation_details}
-			= display_environmental_score_calculation_details($request_ref->{cc},
-			$product_ref->{environmental_score_data});
 	}
 
 	# 2025/02 - Determine which packaging components are in contact with food, so that we can display them
@@ -8117,9 +8106,9 @@ JS
 	# Option to show on the website product page the simplified panels used in the mobile app (for debugging)
 	# If activated, we replace the environment_card and health_card panels shown on the website with their simplified versions
 	# &simplified_panels=1
-	my $simplified_prefix = '';
+	my $simplified_suffix = '';
 	if (request_param($request_ref, "simplified_panels")) {
-		$simplified_prefix = 'simplified_';
+		$simplified_suffix = '_simplified';
 		# We enable the option to activate the simplified panels
 		$knowledge_panels_options_ref->{activate_knowledge_panels_simplified} = true;
 	}
@@ -8129,12 +8118,12 @@ JS
 	$template_data_ref->{environment_card_panel} = display_knowledge_panel(
 		$product_ref,
 		$product_ref->{"knowledge_panels_" . $lc},
-		$simplified_prefix . "environment_card"
+		"environment_card" . $simplified_suffix
 	);
 	$template_data_ref->{health_card_panel} = display_knowledge_panel(
 		$product_ref,
 		$product_ref->{"knowledge_panels_" . $lc},
-		$simplified_prefix . "health_card"
+		"health_card" . $simplified_suffix
 	);
 	if ($product_ref->{"knowledge_panels_" . $lc}{"secondhand_card"}) {
 		$template_data_ref->{secondhand_card_panel}
@@ -8336,235 +8325,34 @@ JS
 	$template_data_ref->{front_image_html} = $front_image;
 	$template_data_ref->{product_fields} = $product_fields;
 
-	# try to display ingredients in the local language if available
+	# special ingredients tags - were used for Open Beauty Facts
+	# currently not working - should be migrated to knowledge panels
 
-	my $ingredients_text = $product_ref->{ingredients_text};
-	my $ingredients_text_lang = $product_ref->{ingredients_lc};
+	# if ((defined $ingredients_text) and ($ingredients_text !~ /^\s*$/s) and (defined $special_tags{ingredients})) {
+	# 	$template_data_ref->{special_ingredients_tags} = 'defined';
 
-	if (defined $product_ref->{ingredients_text_with_allergens}) {
-		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
-	}
+	# 	my $special_html = "";
 
-	if (    (defined $product_ref->{"ingredients_text" . "_" . $lc})
-		and ($product_ref->{"ingredients_text" . "_" . $lc} ne ''))
-	{
-		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc};
-		$ingredients_text_lang = $lc;
-	}
+	# 	foreach my $special_tag_ref (@{$special_tags{ingredients}}) {
 
-	if (    (defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc})
-		and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne ''))
-	{
-		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc};
-		$ingredients_text_lang = $lc;
-	}
+	# 		my $tagid = $special_tag_ref->{tagid};
+	# 		my $type = $special_tag_ref->{type};
 
-	if (not defined $ingredients_text) {
-		$ingredients_text = "";
-	}
+	# 		if (   (($type eq 'without') and (not has_tag($product_ref, "ingredients", $tagid)))
+	# 			or (($type eq 'with') and (has_tag($product_ref, "ingredients", $tagid))))
+	# 		{
 
-	$ingredients_text =~ s/\n/<br>/g;
+	# 			$special_html
+	# 				.= "<li class=\"${type}_${tagid}_$lc\">"
+	# 				. lang("search_" . $type) . " "
+	# 				. display_taxonomy_tag_link($lc, "ingredients", $tagid)
+	# 				. "</li>\n";
+	# 		}
 
-	# Indicate if we are displaying ingredients in another language than the language of the interface
+	# 	}
 
-	my $ingredients_text_lang_html = "";
-
-	if (($ingredients_text ne "") and ($ingredients_text_lang ne $lc)) {
-		$ingredients_text_lang_html
-			= " (" . display_taxonomy_tag($lc, 'languages', $language_codes{$ingredients_text_lang}) . ")";
-	}
-
-	$template_data_ref->{ingredients_image} = display_image_box($product_ref, 'ingredients', \$minheight, $request_ref);
-	$template_data_ref->{ingredients_text_lang} = $ingredients_text_lang;
-	$template_data_ref->{ingredients_text} = $ingredients_text;
-
-	if ($User{moderator} and ($ingredients_text !~ /^\s*$/)) {
-		$template_data_ref->{User_moderator} = 'defined';
-
-		my $ilc = $ingredients_text_lang;
-		$template_data_ref->{ilc} = $ingredients_text_lang;
-
-		$request_ref->{initjs} .= <<JS
-
-	var editableText;
-
-	\$("#editingredients").click({},function(event) {
-		event.stopPropagation();
-		event.preventDefault();
-
-		var divHtml = \$("#ingredients_list").html();
-		var allergens = /(<span class="allergen">|<\\/span>)/g;
-		divHtml = divHtml.replace(allergens, '_');
-
-		var editableText = \$('<textarea id="ingredients_list" style="height:8rem" lang="$ilc" />');
-		editableText.val(divHtml);
-		\$("#ingredients_list").replaceWith(editableText);
-		editableText.focus();
-
-		\$("#editingredientsbuttondiv").hide();
-		\$("#saveingredientsbuttondiv").show();
-
-		\$(document).foundation('equalizer', 'reflow');
-
-	});
-
-
-	\$("#saveingredients").click({},function(event) {
-		event.stopPropagation();
-		event.preventDefault();
-
-		\$('div[id="saveingredientsbuttondiv"]').hide();
-		\$('div[id="saveingredientsbuttondiv_status"]').html('<img src="/images/misc/loading2.gif"> Saving ingredients_texts_$ilc');
-		\$('div[id="saveingredientsbuttondiv_status"]').show();
-
-		\$.post('/cgi/product_jqm_multilingual.pl',
-			{code: "$code", ingredients_text_$ilc :  \$("#ingredients_list").val(), comment: "Updated ingredients_texts_$ilc" },
-			function(data) {
-
-				\$('div[id="saveingredientsbuttondiv_status"]').html('Saved ingredients_texts_$ilc');
-				\$('div[id="saveingredientsbuttondiv"]').show();
-
-				\$(document).foundation('equalizer', 'reflow');
-			},
-			'json'
-		);
-
-		\$(document).foundation('equalizer', 'reflow');
-
-	});
-
-
-
-	\$("#wipeingredients").click({},function(event) {
-		event.stopPropagation();
-		event.preventDefault();
-		// alert(event.data.imagefield);
-		\$('div[id="wipeingredientsbuttondiv"]').html('<img src="/images/misc/loading2.gif"> Erasing ingredients_texts_$ilc');
-		\$.post('/cgi/product_jqm_multilingual.pl',
-			{code: "$code", ingredients_text_$ilc : "", comment: "Erased ingredients_texts_$ilc: too much bad data" },
-			function(data) {
-
-				\$('div[id="wipeingredientsbuttondiv"]').html("Erased ingredients_texts_$ilc");
-				\$('div[id="ingredients_list"]').html("");
-
-				\$(document).foundation('equalizer', 'reflow');
-			},
-			'json'
-		);
-
-		\$(document).foundation('equalizer', 'reflow');
-
-	});
-JS
-			;
-
-	}
-
-	$template_data_ref->{display_ingredients_in_lang} = sprintf(
-		lang("add_ingredients_in_language"),
-		display_taxonomy_tag($lc, 'languages', $language_codes{$request_lc})
-	);
-
-	$template_data_ref->{display_field_allergens} = display_field($product_ref, 'allergens');
-
-	$template_data_ref->{display_field_traces} = display_field($product_ref, 'traces');
-
-	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
-
-	$template_data_ref->{display_ingredients_analysis_details} = display_ingredients_analysis_details($product_ref);
-
-	# special ingredients tags
-
-	if ((defined $ingredients_text) and ($ingredients_text !~ /^\s*$/s) and (defined $special_tags{ingredients})) {
-		$template_data_ref->{special_ingredients_tags} = 'defined';
-
-		my $special_html = "";
-
-		foreach my $special_tag_ref (@{$special_tags{ingredients}}) {
-
-			my $tagid = $special_tag_ref->{tagid};
-			my $type = $special_tag_ref->{type};
-
-			if (   (($type eq 'without') and (not has_tag($product_ref, "ingredients", $tagid)))
-				or (($type eq 'with') and (has_tag($product_ref, "ingredients", $tagid))))
-			{
-
-				$special_html
-					.= "<li class=\"${type}_${tagid}_$lc\">"
-					. lang("search_" . $type) . " "
-					. display_taxonomy_tag_link($lc, "ingredients", $tagid)
-					. "</li>\n";
-			}
-
-		}
-
-		$template_data_ref->{special_html} = $special_html;
-	}
-
-	# NOVA groups
-
-	if (feature_enabled("nova")
-		and (exists $product_ref->{nova_group}))
-	{
-		$template_data_ref->{product_nova_group} = 'exists';
-		my $group = $product_ref->{nova_group};
-
-		my $display = display_taxonomy_tag($lc, "nova_groups", $product_ref->{nova_groups_tags}[0]);
-		my $a_title = lang('nova_groups_info');
-
-		$template_data_ref->{a_title} = $a_title;
-		$template_data_ref->{group} = $group;
-		$template_data_ref->{display} = $display;
-	}
-
-	# Do not display nutrition table for Open Beauty Facts
-
-	if (not((defined $options{no_nutrition_table}) and ($options{no_nutrition_table}))) {
-
-		$template_data_ref->{nutrition_table} = 'defined';
-
-		# Display Nutri-Score and nutrient levels
-
-		my $template_data_nutriscore_ref = data_to_display_nutriscore($product_ref);
-		my $template_data_nutrient_levels_ref = data_to_display_nutrient_levels($product_ref);
-
-		my $nutriscore_html = '';
-		my $nutrient_levels_html = '';
-
-		if (not $template_data_nutrient_levels_ref->{do_not_display}) {
-
-			process_template('web/pages/product/includes/nutriscore.tt.html',
-				$template_data_nutriscore_ref, \$nutriscore_html)
-				|| return "template error: " . $tt->error();
-			process_template(
-				'web/pages/product/includes/nutrient_levels.tt.html',
-				$template_data_nutrient_levels_ref,
-				\$nutrient_levels_html
-			) || return "template error: " . $tt->error();
-		}
-
-		$template_data_ref->{display_nutriscore} = $nutriscore_html;
-		$template_data_ref->{display_nutrient_levels} = $nutrient_levels_html;
-
-		$template_data_ref->{display_serving_size}
-			= display_field($product_ref, "serving_size") . display_field($product_ref, "br");
-
-		# Compare nutrition data with stats of the categories and display the nutrition table
-
-		if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
-			$template_data_ref->{no_nutrition_data} = 'on';
-		}
-
-		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $request_ref->{cc}, undef);
-
-		$template_data_ref->{display_nutrition_table}
-			= display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
-		$template_data_ref->{nutrition_image} = display_image_box($product_ref, 'nutrition', \$minheight, $request_ref);
-
-		if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
-			$template_data_ref->{has_tag} = 'categories-en:alcoholic-beverages';
-		}
-	}
+	# 	$template_data_ref->{special_html} = $special_html;
+	# }
 
 	# Packaging
 
@@ -8593,14 +8381,6 @@ JS
 
 	# packagings data structure
 	$template_data_ref->{packagings} = $product_ref->{packagings};
-
-	# Forest footprint
-	# 2020-12-07 - We currently display the forest footprint in France
-	# and for moderators so that we can extend it to other countries
-	if (($request_ref->{cc} eq "fr") or ($User{moderator})) {
-		# Forest footprint data structure
-		$template_data_ref->{forest_footprint_data} = $product_ref->{forest_footprint_data};
-	}
 
 	# other fields
 
@@ -8804,432 +8584,6 @@ JS
 	$log->trace("displayed product") if $log->is_trace();
 
 	display_page($request_ref);
-
-	return;
-}
-
-# Note: this function is needed for the API called by the old PhoneGap / Cordova app
-# This app has been replaced for the last 5 years by the new iOS + Android apps and
-# now by the Flutter app. But the current OBF app still uses it (as of 2024/04/24).
-
-sub display_product_jqm ($request_ref) {    # jquerymobile
-
-	my $request_lc = $request_ref->{lc};
-	my $code = normalize_code($request_ref->{code});
-	my $product_id = product_id_for_owner($Owner_id, $code);
-	local $log->context->{code} = $code;
-	local $log->context->{product_id} = $product_id;
-
-	my $html = '';
-	my $title = undef;
-	my $description = undef;
-
-	# Check that the product exist, is published, is not deleted, and has not moved to a new url
-
-	$log->debug("displaying product jquery mobile") if $log->is_debug();
-
-	$title = $code;
-
-	my $product_ref;
-
-	my $rev = single_param("rev");
-	local $log->context->{rev} = $rev;
-	if (defined $rev) {
-		$log->debug("displaying product revision on jquery mobile") if $log->is_debug();
-		$product_ref = retrieve_product($product_id, 0, $rev);
-	}
-	else {
-		$product_ref = retrieve_product($product_id);
-	}
-
-	if (not defined $product_ref) {
-		return;
-	}
-
-	$title = $product_ref->{product_name};
-
-	if (not $title) {
-		$title = $code;
-	}
-
-	if (defined $rev) {
-		$title .= " version $rev";
-	}
-
-	$description = $title . ' – ' . $product_ref->{brands} . ' – ' . $product_ref->{generic_name};
-	$description =~ s/ - $//;
-	$request_ref->{canon_url} = product_url($product_ref);
-
-	my @fields
-		= qw(generic_name quantity packaging br brands br categories br labels br origins br manufacturing_places br emb_codes purchase_places stores);
-
-	if ($code =~ /^2000/) {    # internal code
-	}
-	else {
-		$html .= "<p>" . lang("barcode") . separator_before_colon($lc) . ": $code</p>\n";
-	}
-
-	# Generate HTML for Nutri-Score and nutrient levels
-	my $template_data_nutriscore_and_nutrient_levels_ref = data_to_display_nutriscore_and_nutrient_levels($product_ref);
-
-	my $nutriscore_html = '';
-	my $nutrient_levels_html = '';
-
-	if (not $template_data_nutriscore_and_nutrient_levels_ref->{do_not_display}) {
-
-		process_template(
-			'web/pages/product/includes/nutriscore.tt.html',
-			$template_data_nutriscore_and_nutrient_levels_ref,
-			\$nutriscore_html, $request_ref
-		) || return "template error: " . $tt->error();
-		process_template(
-			'web/pages/product/includes/nutrient_levels.tt.html',
-			$template_data_nutriscore_and_nutrient_levels_ref,
-			\$nutrient_levels_html, $request_ref
-		) || return "template error: " . $tt->error();
-	}
-
-	if (
-			($lc eq 'fr')
-		and
-		(has_tag($product_ref, "labels", "fr:produits-retires-du-marche-lors-du-scandale-lactalis-de-decembre-2017"))
-		)
-	{
-
-		$html .= <<HTML
-<div id="warning_lactalis_201712" style="display: block; background:#ffaa33;color:black;padding:1em;text-decoration:none;">
-Ce produit fait partie d'une liste de produits retirés du marché, et a été étiqueté comme tel par un bénévole d'Open Food Facts.
-<br><br>
-&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
-</div>
-HTML
-			;
-
-	}
-	elsif (
-			($lc eq 'fr')
-		and (has_tag($product_ref, "categories", "en:baby-milks"))
-		and (
-			has_one_of_the_tags_from_the_list(
-				$product_ref,
-				"brands",
-				[
-					"amilk", "babycare", "celia-ad", "celia-develop",
-					"celia-expert", "celia-nutrition", "enfastar", "fbb",
-					"fl", "frezylac", "gromore", "malyatko",
-					"mamy", "milumel", "milumel", "neoangelac",
-					"nophenyl", "novil", "ostricare", "pc",
-					"picot", "sanutri"
-				]
-			)
-		)
-		)
-	{
-
-		$html .= <<HTML
-<div id="warning_lactalis_201712" style="display: block; background:#ffcc33;color:black;padding:1em;text-decoration:none;">
-Certains produits de cette marque font partie d'une liste de produits retirés du marché.
-<br><br>
-&rarr; <a href="http://www.lactalis.fr/wp-content/uploads/2017/12/ici-1.pdf">Liste des produits et lots concernés</a> sur le site de <a href="http://www.lactalis.fr/information-consommateur/">Lactalis</a>.
-</div>
-HTML
-			;
-
-	}
-
-	# Nutri-Score and nutrient levels
-
-	$html .= $nutriscore_html;
-
-	$html .= $nutrient_levels_html;
-
-	# NOVA groups
-
-	if ((exists $product_ref->{nova_group})) {
-		my $group = $product_ref->{nova_group};
-
-		my $display = display_taxonomy_tag($lc, "nova_groups", $product_ref->{nova_groups_tags}[0]);
-		my $a_title = lang('nova_groups_info');
-
-		$html .= <<HTML
-<h4>$Lang{nova_groups_s}{$lc}
-<a href="https://world.openfoodfacts.org/nova" title="${$a_title}">
-@{[ display_icon('info') ]}</a>
-</h4>
-
-
-<a href="https://world.openfoodfacts.org/nova" title="${$a_title}"><img src="/images/misc/nova-group-$group.svg" alt="$display" style="margin-bottom:1rem;max-width:100%"></a><br>
-$display
-HTML
-			;
-	}
-
-	my $minheight = 0;
-	$product_ref->{jqm} = 1;
-	my $html_image = display_image_box($product_ref, 'front', \$minheight, $request_ref);
-	$html .= <<HTML
-        <div data-role="deactivated-collapsible-set" data-theme="" data-content-theme="">
-            <div data-role="deactivated-collapsible">
-HTML
-		;
-	$html .= "<h2>" . lang("product_characteristics") . "</h2>
-	<div style=\"min-height:${minheight}px;\">"
-		. $html_image;
-
-	foreach my $field (@fields) {
-		# print STDERR "display_product() - field: $field - value: $product_ref->{$field}\n";
-		$html .= display_field($product_ref, $field);
-	}
-
-	$html_image = display_image_box($product_ref, 'ingredients', \$minheight, $request_ref);
-
-	# try to display ingredients in the local language
-
-	my $ingredients_text = $product_ref->{ingredients_text};
-
-	if (defined $product_ref->{ingredients_text_with_allergens}) {
-		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
-	}
-
-	if (    (defined $product_ref->{"ingredients_text" . "_" . $lc})
-		and ($product_ref->{"ingredients_text" . "_" . $lc} ne ''))
-	{
-		$ingredients_text = $product_ref->{"ingredients_text" . "_" . $lc};
-	}
-
-	if (    (defined $product_ref->{"ingredients_text_with_allergens" . "_" . $lc})
-		and ($product_ref->{"ingredients_text_with_allergens" . "_" . $lc} ne ''))
-	{
-		$ingredients_text = $product_ref->{"ingredients_text_with_allergens" . "_" . $lc};
-	}
-
-	$ingredients_text =~ s/<span class="allergen">(.*?)<\/span>/<b>$1<\/b>/isg;
-
-	$html .= "</div>";
-
-	$html .= <<HTML
-			</div>
-		</div>
-        <div data-role="deactivated-collapsible-set" data-theme="" data-content-theme="">
-            <div data-role="deactivated-collapsible" data-collapsed="true">
-HTML
-		;
-
-	$html .= "<h2>" . lang("ingredients") . "</h2>
-	<div style=\"min-height:${minheight}px\">"
-		. $html_image;
-
-	$html .= "<p class=\"note\">&rarr; " . lang("ingredients_text_display_note") . "</p>";
-	$html
-		.= "<div id=\"ingredients_list\" ><span class=\"field\">"
-		. lang("ingredients_text")
-		. separator_before_colon($lc)
-		. ":</span> $ingredients_text</div>";
-
-	$html .= display_field($product_ref, 'allergens');
-
-	$html .= display_field($product_ref, 'traces');
-
-	my $class = 'additives';
-
-	if ((defined $product_ref->{$class . '_tags'}) and (scalar @{$product_ref->{$class . '_tags'}} > 0)) {
-
-		$html
-			.= "<br><hr class=\"floatleft\"><div><b>" . lang("additives_p") . separator_before_colon($lc) . ":</b><br>";
-
-		$html .= "<ul>";
-		foreach my $tagid (@{$product_ref->{$class . '_tags'}}) {
-
-			my $tag;
-			my $link;
-
-			# taxonomy field?
-			if (defined $taxonomy_fields{$class}) {
-				$tag = display_taxonomy_tag($lc, $class, $tagid);
-				$link = canonicalize_taxonomy_tag_link($lc, $class, $tagid);
-			}
-			else {
-				$tag = canonicalize_tag2($class, $tagid);
-				$link = canonicalize_tag_link($class, $tagid);
-			}
-
-			my $info = '';
-
-			$html .= "<li><a href=\"/facets" . $link . "\"$info>" . $tag . "</a></li>\n";
-		}
-		$html .= "</ul></div>";
-
-	}
-
-	# special ingredients tags
-
-	if ((defined $ingredients_text) and ($ingredients_text !~ /^\s*$/s) and (defined $special_tags{ingredients})) {
-
-		my $special_html = "";
-
-		foreach my $special_tag_ref (@{$special_tags{ingredients}}) {
-
-			my $tagid = $special_tag_ref->{tagid};
-			my $type = $special_tag_ref->{type};
-
-			if (   (($type eq 'without') and (not has_tag($product_ref, "ingredients", $tagid)))
-				or (($type eq 'with') and (has_tag($product_ref, "ingredients", $tagid))))
-			{
-
-				$special_html
-					.= "<li class=\"${type}_${tagid}_$lc\">"
-					. lang("search_" . $type) . " "
-					. display_taxonomy_tag_link($lc, "ingredients", $tagid)
-					. "</li>\n";
-			}
-
-		}
-
-		if ($special_html ne "") {
-
-			$html
-				.= "<br><hr class=\"floatleft\"><div><b>"
-				. ucfirst(lang("ingredients_analysis") . separator_before_colon($lc))
-				. ":</b><br>"
-				. "<ul id=\"special_ingredients\">\n"
-				. $special_html
-				. "</ul>\n" . "<p>"
-				. lang("ingredients_analysis_note")
-				. "</p></div>\n";
-		}
-
-	}
-
-	$html_image = display_image_box($product_ref, 'nutrition', \$minheight, $request_ref);
-
-	$html .= "</div>";
-
-	$html .= <<HTML
-			</div>
-		</div>
-HTML
-		;
-
-	if (not((defined $options{no_nutrition_table}) and ($options{no_nutrition_table}))) {
-
-		$html .= <<HTML
-        <div data-role="deactivated-collapsible-set" data-theme="" data-content-theme="">
-            <div data-role="deactivated-collapsible" data-collapsed="true">
-HTML
-			;
-
-		$html .= "<h2>" . lang("nutrition_data") . "</h2>";
-
-		# Nutri-Score and nutrient levels
-
-		$html .= $nutriscore_html;
-
-		$html .= $nutrient_levels_html;
-
-		$html .= "<div style=\"min-height:${minheight}px\">" . $html_image;
-
-		$html .= display_field($product_ref, "serving_size") . display_field($product_ref, "br");
-
-		# Compare nutrition data with categories
-
-		my @comparisons = ();
-
-		if ($product_ref->{no_nutrition_data} eq 'on') {
-			$html .= "<div class='panel callout'>" . lang_in_other_lc($request_lc, "no_nutrition_data") . "</div>";
-		}
-
-		$html .= display_nutrition_table($product_ref, \@comparisons);
-
-		$html .= <<HTML
-			</div>
-		</div>
-HTML
-			;
-	}
-
-	my $created_date = display_date_tag($product_ref->{created_t});
-
-	# Ask for photos if we do not have any, or if they are too old
-
-	my $last_image = "";
-	my $image_warning = "";
-
-	if ((not defined($product_ref->{images})) or ((scalar keys %{$product_ref->{images}}) < 1)) {
-
-		$image_warning = lang_in_other_lc($request_lc, "product_has_no_photos");
-
-	}
-	elsif ((defined $product_ref->{last_image_t}) and ($product_ref->{last_image_t} > 0)) {
-
-		my $last_image_date = display_date($product_ref->{last_image_t});
-		my $last_image_date_without_time = display_date_without_time($product_ref->{last_image_t});
-
-		$last_image = "<br>" . lang_in_other_lc($request_lc, "last_image_added") . " $last_image_date";
-
-		# Was the last photo uploaded more than 6 months ago?
-
-		if (($product_ref->{last_image_t} + 86400 * 30 * 6) < time()) {
-
-			$image_warning
-				= sprintf(lang_in_other_lc($request_lc, "product_has_old_photos"), $last_image_date_without_time);
-		}
-	}
-
-	if ($image_warning ne "") {
-
-		$image_warning = <<HTML
-<div id="image_warning" style="display: block; background:#ffcc33;color:black;padding:1em;text-decoration:none;">
-$image_warning
-</div>
-HTML
-			;
-
-	}
-
-	my $creator = $product_ref->{creator};
-
-	# Remove links for iOS (issues with x / facebook badges loading in separate windows..)
-	$html =~ s/<a ([^>]*)href="([^"]+)"([^>]*)>/<span $1$3>/g
-		;    # replace with a span to keep class for color of additives etc.
-	$html =~ s/<\/a>/<\/span>/g;
-	$html =~ s/<span >/<span>/g;
-	$html =~ s/<span  /<span /g;
-
-	$html .= <<HTML
-
-<p>
-$Lang{product_added}{$lc} $created_date $Lang{by}{$lc} $creator
-$last_image
-</p>
-
-
-<div style="margin-bottom:20px;">
-
-<p>$Lang{fixme_product}{$request_lc}</p>
-
-$image_warning
-
-<p>$Lang{app_you_can_add_pictures}{$request_lc}</p>
-
-<button onclick="captureImage();" data-icon="off-camera">$Lang{image_front}{$request_lc}</button>
-<div id="upload_image_result_front"></div>
-<button onclick="captureImage();" data-icon="off-camera">$Lang{image_ingredients}{$request_lc}</button>
-<div id="upload_image_result_ingredients"></div>
-<button onclick="captureImage();" data-icon="off-camera">$Lang{image_nutrition}{$request_lc}</button>
-<div id="upload_image_result_nutrition"></div>
-<button onclick="captureImage();" data-icon="off-camera">$Lang{app_take_a_picture}{$request_lc}</button>
-<div id="upload_image_result"></div>
-<p>$Lang{app_take_a_picture_note}{$request_lc}</p>
-
-</div>
-HTML
-		;
-
-	$request_ref->{jqm_content} = $html;
-	$request_ref->{title} = $title;
-	$request_ref->{description} = $description;
-
-	$log->trace("displayed product on jquery mobile") if $log->is_trace();
 
 	return;
 }
@@ -10574,7 +9928,10 @@ CSS
 
 Generates HTML to display a nutrition table.
 
-Use  data produced by data_to_display_nutrition_table
+Use data produced by data_to_display_nutrition_table
+
+This function is no longer used to display the nutrition table on product pages (replaced by a knowledge panel),
+but it is used to show average nutrition tables for categories.
 
 =head3 Arguments
 
@@ -10703,20 +10060,6 @@ sub display_product_api ($request_ref) {
 		}
 		$response{status} = 0;
 		$response{status_verbose} = 'product not found';
-
-		if (single_param("jqm")) {
-			my $template_data_ref = {
-				api_version => $request_ref->{api_version},
-				app_fields => \@app_fields,
-				request_lc => $request_lc,
-				Lang => \%Lang,
-			};
-			my $html;
-			process_template('web/common/includes/display_product_api.tt.html',
-				$template_data_ref, \$html, $request_ref)
-				|| return "template error: " . $tt->error();
-			$response{jqm} .= $html;
-		}
 	}
 	elsif ( (not $server_options{private_products})
 		and (defined $product_ref->{product_type})
@@ -10759,27 +10102,6 @@ sub display_product_api ($request_ref) {
 		my $customized_product_ref
 			= customize_response_for_product($request_ref, $product_ref, single_param('fields') || 'all');
 
-		# 2019-05-10: the OFF Android app expects the _serving fields to always be present, even with a "" value
-		# the "" values have been removed
-		# -> temporarily add back the _serving "" values
-		if ((user_agent =~ /Official Android App/) or (user_agent =~ /okhttp/)) {
-			if (defined $customized_product_ref->{nutriments}) {
-				foreach my $nid (keys %{$customized_product_ref->{nutriments}}) {
-					next if ($nid =~ /_/);
-					if (    (defined $customized_product_ref->{nutriments}{$nid . "_100g"})
-						and (not defined $customized_product_ref->{nutriments}{$nid . "_serving"}))
-					{
-						$customized_product_ref->{nutriments}{$nid . "_serving"} = "";
-					}
-					if (    (defined $customized_product_ref->{nutriments}{$nid . "_serving"})
-						and (not defined $customized_product_ref->{nutriments}{$nid . "_100g"}))
-					{
-						$customized_product_ref->{nutriments}{$nid . "_100g"} = "";
-					}
-				}
-			}
-		}
-
 		$response{product} = $customized_product_ref;
 
 		# Disable nested ingredients in ingredients field (bug #2883)
@@ -10808,15 +10130,6 @@ sub display_product_api ($request_ref) {
 			}
 			$response{blame} = {};
 			compute_product_history_and_completeness($product_ref, $changes_ref, $response{blame});
-		}
-
-		if (single_param("jqm")) {
-			# return a jquerymobile page for the product
-
-			display_product_jqm($request_ref);
-			$response{jqm} = $request_ref->{jqm_content};
-			$response{jqm} =~ s/(href|src)=("\/)/$1="https:\/\/$request_ref->{cc}.${server_domain}\//g;
-			$response{title} = $request_ref->{title};
 		}
 	}
 
@@ -10945,7 +10258,6 @@ sub display_structured_response ($request_ref) {
 			json => single_param("json"),
 			jsonp => single_param("jsonp"),
 			xml => single_param("xml"),
-			jqm => single_param("jqm"),
 			rss => scalar $request_ref->{rss}
 		}
 	) if $log->is_debug();
@@ -11354,10 +10666,14 @@ sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref,
 			.= "<li>" . "<span$class>" . $ingredient_ref->{text} . "</span>" . " -> " . $ingredient_ref->{id};
 
 		foreach my $property (
-			qw(origin labels vegan vegetarian from_palm_oil ciqual_food_code ciqual_proxy_food_code percent_min percent percent_max)
+			qw(origin labels vegan vegetarian from_palm_oil ciqual_food_code ciqual_proxy_food_code percent_min percent percent_estimate percent_max)
 			)
 		{
 			if (defined $ingredient_ref->{$property}) {
+				# Skip percent_estimate if percent is defined
+				if (($property eq 'percent_estimate') and (defined $ingredient_ref->{percent})) {
+					next;
+				}
 				${$ingredients_list_ref} .= ' – ' . $property . ":&nbsp;" . $ingredient_ref->{$property};
 			}
 		}
@@ -11503,6 +10819,8 @@ Generates a data structure to display the results of ingredients analysis.
 
 The resulting data structure can be passed to a template to generate HTML or the JSON data for a knowledge panel.
 
+Not used for product page any more, but used in knowledge panels and cgi/test_ingredients_analysis.pl
+
 =head3 Arguments
 
 =head4 Product reference $product_ref
@@ -11616,6 +10934,8 @@ sub data_to_display_ingredients_analysis ($product_ref) {
 
 Generates HTML code with icons that show if the product is vegetarian, vegan and without palm oil.
 
+Not used for product page any more, but used in knowledge panels and cgi/test_ingredients_analysis.pl
+
 =cut
 
 sub display_ingredients_analysis ($product_ref) {
@@ -11646,56 +10966,6 @@ sub _format_comment ($comment) {
 	$comment =~ s/new image \d+( -)?//;
 
 	return $comment;
-}
-
-=head2 display_environmental_score_calculation_details( $environmental_score_cc, $environmental_score_data_ref )
-
-Generates HTML code with information on how the Eco-score was computed for a particular product.
-
-=head3 Parameters
-
-=head4 country code $environmental_score_cc
-
-=head4 environmental_score data $environmental_score_data_ref
-
-=cut
-
-sub display_environmental_score_calculation_details ($environmental_score_cc, $environmental_score_data_ref) {
-
-	# Generate a data structure that we will pass to the template engine
-
-	my $template_data_ref = dclone($environmental_score_data_ref);
-
-	# Eco-score Calculation Template
-
-	my $html;
-	process_template('web/pages/product/includes/environmental_score_details.tt.html', $template_data_ref, \$html)
-		|| return "template error: " . $tt->error();
-
-	return $html;
-}
-
-=head2 display_environmental_score_calculation_details_simple_html( $environmental_score_cc, $environmental_score_data_ref )
-
-Generates simple HTML code (to display in a mobile app) with information on how the Eco-score was computed for a particular product.
-
-=cut
-
-sub display_environmental_score_calculation_details_simple_html ($environmental_score_cc, $environmental_score_data_ref)
-{
-
-	# Generate a data structure that we will pass to the template engine
-
-	my $template_data_ref = dclone($environmental_score_data_ref);
-
-	# Eco-score Calculation Template
-
-	my $html;
-	process_template('web/pages/product/includes/environmental_score_details_simple_html.tt.html',
-		$template_data_ref, \$html)
-		|| return "template error: " . $tt->error();
-
-	return $html;
 }
 
 =head2 search_and_analyze_recipes ($request_ref, $query_ref)

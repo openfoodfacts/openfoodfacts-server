@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -442,7 +442,7 @@ sub _try_normalize_code_gs1 ($code) {
 				$ai_data_str = $encoder->ai_data_str();
 			}
 		}
-		elsif ($code =~ /^http?s:\/\/.+/) {
+		elsif ($code =~ /^http?s:\/\/.+/i) {
 			# Code could be a GS1 unbracketed AI element string
 			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
 			if ($encoder->data_str($code)) {

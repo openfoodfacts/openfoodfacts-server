@@ -72,7 +72,6 @@
       "en:nutriments-to-be-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
-      "en:traceability-codes-to-be-completed",
       "en:front-photo-to-be-selected",
       "en:product-name-completed",
       "en:quantity-to-be-completed",
@@ -87,8 +86,8 @@
          "general_information" : "0.40",
          "ingredients" : "0.00",
          "nutrition" : "0.00",
-         "overall" : "0.23",
-         "packaging" : "0.33"
+         "overall" : "0.25",
+         "packaging" : "0.50"
       }
    },
    "data_quality_errors_tags" : [],
@@ -107,7 +106,6 @@
       "en:nutriments-to-be-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
-      "en:traceability-codes-to-be-completed",
       "en:front-photo-to-be-selected",
       "en:product-name-completed",
       "en:quantity-to-be-completed",
@@ -397,6 +395,11 @@
    ],
    "food_groups_tags" : [],
    "id" : "3250390020806",
+   "images" : {
+      "selected" : {
+         "ingredients" : {}
+      }
+   },
    "informers_tags" : [
       "test-user"
    ],
@@ -426,6 +429,7 @@
    "main_countries_tags" : [],
    "misc_tags" : [
       "en:environmental-score-not-computed",
+      "en:nutrients-not-estimated-from-ingredients-no-ingredients",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",

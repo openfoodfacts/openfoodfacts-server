@@ -90,7 +90,6 @@
          "en:nutriments-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
-         "en:traceability-codes-to-be-completed",
          "en:front-photo-to-be-selected",
          "en:product-name-completed",
          "en:quantity-completed",
@@ -105,8 +104,8 @@
             "general_information" : "0.60",
             "ingredients" : "0.50",
             "nutrition" : "0.67",
-            "overall" : "0.53",
-            "packaging" : "0.33"
+            "overall" : "0.57",
+            "packaging" : "0.50"
          }
       },
       "data_quality_errors_tags" : [],
@@ -129,7 +128,6 @@
          "en:nutriments-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
-         "en:traceability-codes-to-be-completed",
          "en:front-photo-to-be-selected",
          "en:product-name-completed",
          "en:quantity-completed",
@@ -476,6 +474,7 @@
       "generic_name" : "A generic name",
       "generic_name_en" : "A generic name",
       "id" : "0200000000035",
+      "images" : {},
       "informers_tags" : [
          "tests"
       ],
@@ -646,6 +645,7 @@
          "en:environmental-score-not-computed",
          "en:forest-footprint-a",
          "en:forest-footprint-computed",
+         "en:nutrients-estimated-from-ingredients",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-saturated-fat",
          "en:nutriscore-not-computed",

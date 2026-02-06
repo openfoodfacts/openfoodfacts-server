@@ -159,13 +159,12 @@ $fields_ref->{nutrition_grade_fr} = 1;
 # Sort by created_t so that we can see which product was the nth in each country -> necessary to compute points for Open Food Hunt
 # do not include empty products and products that have been marked as obsolete
 
-# 300 000 ms timeout so that we can export the whole database
-# 5mins is not enough, 50k docs were exported
-my $cursor
-	= get_products_collection({timeout => 3 * 60 * 60 * 1000})
-	->query({'empty' => {"\$ne" => 1}, 'obsolete' => {"\$ne" => 1}})
-	->sort({created_t => 1})
-	->fields($fields_ref);
+# NB: if this query reports a "Sort exceeded memory limit" error , then that
+# could mean that it is not using the created_t index as expected - when
+# it does, it can immediately instantiate and return the cursor iterator
+my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})
+	# ->query({'empty' => {"\$ne" => 1}})  # prevents created_t index usage; use next-if-empty in Perl instead
+	->find()->sort({created_t => 1})->fields($fields_ref);
 
 $cursor->immortal(1);
 
@@ -191,8 +190,10 @@ my %nutrition_grades_to_n = (
 	e => 5,
 );
 
-# Go through all products
+# Go through all (non-empty) products
 while (my $product_ref = $cursor->next) {
+	next if $product_ref->{empty};
+
 	$total++;
 
 	my $code = $product_ref->{code};
