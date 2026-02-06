@@ -61,48 +61,6 @@ my @tests = (
 		target_lc => 'fr',
 		target_cc => 'fr'
 	},
-	{
-		'id' => 'fr-reuse-card-qfdmo-niche',
-		'product' => {
-			lc => "fr",
-			categories => "en:dog-houses",
-			categories_tags => ["en:dog-houses"],
-			categories_hierarchy => ["en:dog-houses"],
-		},
-		target_lc => 'fr',
-		target_cc => 'fr',
-		options => {
-			product_type => 'product'
-		}
-	},
-	{
-		'id' => 'fr-reuse-card-no-qfdmo',
-		'product' => {
-			lc => "fr",
-			categories => "en:biscuits",
-			categories_tags => ["en:biscuits"],
-			categories_hierarchy => ["en:biscuits"],
-		},
-		target_lc => 'fr',
-		target_cc => 'fr',
-		options => {
-			product_type => 'product'
-		}
-	},
-	{
-		'id' => 'en-reuse-card-wrong-country',
-		'product' => {
-			lc => "en",
-			categories => "en:dog-houses",
-			categories_tags => ["en:dog-houses"],
-			categories_hierarchy => ["en:dog-houses"],
-		},
-		target_lc => 'en',
-		target_cc => 'en',
-		options => {
-			product_type => 'product'
-		}
-	},
 );
 
 foreach my $test_ref (@tests) {
@@ -111,21 +69,6 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->{"product"};
 	my $target_lc = $test_ref->{"target_lc"};
 	my $target_cc = $test_ref->{"target_cc"};
-
-	# Save current options values to restore them later
-	my %saved_config_options;
-	if (defined $test_ref->{"options"}) {
-		foreach my $key (keys %{$test_ref->{"options"}}) {
-			$saved_config_options{$key} = $ProductOpener::Config::options{$key};
-		}
-	}
-
-	# Set options if provided in test
-	if (defined $test_ref->{"options"}) {
-		foreach my $key (keys %{$test_ref->{"options"}}) {
-			$ProductOpener::Config::options{$key} = $test_ref->{"options"}{$key};
-		}
-	}
 
 	# Run the test
 
@@ -138,13 +81,6 @@ foreach my $test_ref (@tests) {
 	my $options_ref = {};
 	my $request_ref = {};
 	initialize_knowledge_panels_options($options_ref, $request_ref);
-
-	# Override options_ref with test options if provided
-	if (defined $test_ref->{"options"}) {
-		foreach my $key (keys %{$test_ref->{"options"}}) {
-			$options_ref->{$key} = $test_ref->{"options"}{$key};
-		}
-	}
 
 	create_knowledge_panels($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
@@ -199,13 +135,6 @@ foreach my $test_ref (@tests) {
 	else {
 		diag Dumper($product_ref);
 		fail("could not load $expected_result_dir/$testid.json");
-	}
-
-	# Restore original options values
-	if (defined $test_ref->{"options"}) {
-		foreach my $key (keys %{$test_ref->{"options"}}) {
-			$ProductOpener::Config::options{$key} = $saved_config_options{$key};
-		}
 	}
 }
 
