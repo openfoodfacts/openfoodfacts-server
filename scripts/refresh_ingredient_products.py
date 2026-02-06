@@ -78,6 +78,9 @@ while True:
 
 count = 0
 # Set the following to zero to delete all ingredient products
+# To then hard-delete the product files and images run the following from a backend shell:
+# rm -rf /mnt/podata/products/ingredient
+# rm /mnt/podata/new_images/*.ingredient-*
 max_count = 10
 print("*** Creating products ***")
 for id, ingredient in ingredients.items():
@@ -119,6 +122,7 @@ for id, ingredient in ingredients.items():
                 image_url = f"https://upload.wikimedia.org/wikipedia/commons/{image_hash[0]}/{image_hash[0:2]}/{image_name}"
                 print(image_url)
                 image_content = requests.get(image_url, headers=wikidata_headers).content
+                break
 
         if not image_content:
             continue
