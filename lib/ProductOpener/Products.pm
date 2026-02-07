@@ -171,6 +171,7 @@ my $ean_check = CheckDigits('ean');
 use Scalar::Util qw(looks_like_number);
 
 use GS1::SyntaxEngine::FFI::GS1Encoder;
+use Unicode::Normalize qw(NFKD);
 
 =head1 FUNCTIONS
 
@@ -290,6 +291,15 @@ sub normalize_code ($code) {
 
 	if (defined $code) {
 		if ($code =~ /^ingredient/) {
+			# Remove accents
+			# Got this from here: https://stackoverflow.com/questions/17561839/remove-accents-from-accented-characters
+			$code = NFKD( $code );
+			$code =~ s/\p{NonspacingMark}//g;
+
+			$code = lc($code);
+			# Remove any remaining invalid file characters
+			$code =~ s/[^a-z0-9\-]//g;
+
 			return $code;
 		}
 		($code, my $gs1_ai_data_str) = &normalize_code_with_gs1_ai($code);
@@ -529,6 +539,7 @@ sub split_code ($code) {
 	}
 
 	if ($code =~ /^ingredient/) {
+		# Replace dashes with slashes
 		return $code =~ s/:|-/\//gr;
 	}
 

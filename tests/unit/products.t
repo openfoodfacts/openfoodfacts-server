@@ -44,6 +44,8 @@ is(normalize_code('https://world.openfoodfacts.org/'), '', 'non-GS1 URIs should 
 is(normalize_code('http://spam.zip/'), '', 'non-GS1 URIs should return an empty string');
 is(normalize_code('0100360505082919'),
 	'0360505082919', 'should reduce GS1 AI unbracketed string to GTIN (13 digits, padded with 0)');
+is(normalize_code('ingredient-en-test'), 'ingredient-en-test', 'ingredient products are accepted');
+is(normalize_code('ingredient-de-quellkohlensÃ¤ure'), 'ingredient-de-quellkohlensaure', 'Special characters are replaced');
 
 # code normalization with GS1 AI
 my $returned_code;
