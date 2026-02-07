@@ -306,9 +306,9 @@ sub retrieve_user_using_token ($id_token, $request_ref, $require_verified_email 
 	my $user_id = $id_token->{'preferred_username'};
 	my $user_ref = retrieve_user($user_id);
 	unless ($user_ref) {
-		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
-		$user_ref = {userid => $user_id};
-	}
+    $log->info('User not found', {user_id => $user_id}) if $log->is_info();
+    $user_ref = {userid => $user_id};
+    }
 
 	# Make sure initial information is set (user may have been created by Redis)
 	defined $user_ref->{registered_t} or $user_ref->{registered_t} = time();
@@ -770,7 +770,7 @@ None.
 =cut
 
 sub get_oidc_configuration () {
-    # 1. Pehle cache se metadata uthao taaki Keycloak par load kam ho
+    # 1. Try to get metadata from cache to reduce load on Keycloak
     $oidc_configuration = get_cache('oidc_configuration');
 
     if (!$oidc_configuration) {
@@ -784,9 +784,8 @@ sub get_oidc_configuration () {
         }
 
         $oidc_configuration = decode_json($discovery_response->content);
-        
-        # 2. Result ko 2 ghante (7200 seconds) ke liye cache mein save karo
-        set_cache('oidc_configuration', $oidc_configuration, 7200);
+        # 2. Save result in cache for 24 hours
+        set_cache('oidc_configuration', $oidc_configuration, 86400);
     }
 
     _load_jwks_configuration_to_oidc_options($oidc_configuration->{jwks_uri});
@@ -811,7 +810,7 @@ None.
 =cut
 
 sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
-    # 1. JWKS keys ko cache se uthao
+  # 1. Retrieve JWKS keys from cache
     $jwks = get_cache('oidc_jwks');
 
     if (!$jwks) {
@@ -825,8 +824,8 @@ sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 
         $jwks = decode_json($jwks_response->content);
         
-        # 2. Ise 2 ghante ke liye cache karo taaki Keycloak down hone par bhi auth chalta rahe
-        set_cache('oidc_jwks', $jwks, 7200);
+        # 2. Cache JWKS for 2 hours to maintain auth even if Keycloak is down
+       set_cache('oidc_jwks', $jwks, 86400);
     }
     return;
 }
