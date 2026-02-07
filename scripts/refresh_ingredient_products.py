@@ -9,6 +9,11 @@ To run the script use:
 
 uv run scripts/refresh_ingredient_products.py
 
+TODO:
+* Add error handling on requests
+* Figure out what's going on with the Kumquat image
+* Find a way to show there is no packaging
+
 """
 
 # /// script
@@ -49,7 +54,7 @@ with open(
 print("*** Logging in ***")
 # Uses the outward facing url for local development
 oidc_discovery_url = os.getenv("OIDC_DISCOVERY_URL").replace(
-    "http://keycloak:8080", "http://auth.openfoodfacts.localhost:5600"
+    "//keycloak:8080/", "//auth.openfoodfacts.localhost:5600/"
 )
 openid_configuration = requests.get(oidc_discovery_url).json()
 token_endpoint = openid_configuration["token_endpoint"]
@@ -96,7 +101,7 @@ count = 0
 # To then hard-delete the product files and images run the following from a backend shell:
 # rm -rf /mnt/podata/products/ingredient
 # rm /mnt/podata/new_images/*.ingredient-*
-max_count = 100
+max_count = 10
 print("*** Creating products ***")
 for id, ingredient in ingredients.items():
     if count >= max_count:

@@ -45,7 +45,11 @@ is(normalize_code('http://spam.zip/'), '', 'non-GS1 URIs should return an empty 
 is(normalize_code('0100360505082919'),
 	'0360505082919', 'should reduce GS1 AI unbracketed string to GTIN (13 digits, padded with 0)');
 is(normalize_code('ingredient-en-test'), 'ingredient-en-test', 'ingredient products are accepted');
-is(normalize_code('ingredient-de-quellkohlensÃ¤ure'), 'ingredient-de-quellkohlensaure', 'Special characters are replaced');
+is(
+	normalize_code('ingredient-de-quellkohlensÃ¤ure'),
+	'ingredient-de-quellkohlensaure',
+	'Special characters are replaced'
+);
 
 # code normalization with GS1 AI
 my $returned_code;
@@ -343,6 +347,7 @@ is(is_valid_code('12345678901234567890123456789012345678901234567890123456789012
 is(is_valid_code(undef), '', 'undefined code');
 is(is_valid_code('ingredient:en:test'), '', 'invalid ingredient code as contains colons');
 is(is_valid_code('ingredient-en-test'), 1, 'valid ingredient code');
-is(is_valid_code('ingredient-en-test-1234567890123456789012345678901234567890123456789012345678901234567890'), 1, 'valid long ingredient code');
+is(is_valid_code('ingredient-en-test-1234567890123456789012345678901234567890123456789012345678901234567890'),
+	1, 'valid long ingredient code');
 
 done_testing();

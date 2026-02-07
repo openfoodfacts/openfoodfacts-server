@@ -293,7 +293,7 @@ sub normalize_code ($code) {
 		if ($code =~ /^ingredient/) {
 			# Remove accents
 			# Got this from here: https://stackoverflow.com/questions/17561839/remove-accents-from-accented-characters
-			$code = NFKD( $code );
+			$code = NFKD($code);
 			$code =~ s/\p{NonspacingMark}//g;
 
 			$code = lc($code);
