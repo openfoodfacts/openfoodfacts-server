@@ -1710,14 +1710,18 @@ sub compute_environmental_score_packaging_adjustment ($product_ref) {
 
 					my $weight = "thin";
 
-					if (defined $packaging_ref->{shape}) {
-						$weight = get_inherited_property("packaging_shapes", $packaging_ref->{shape}, "weight:en");
-						$log->debug("aluminium", {weight => $weight, shape => $packaging_ref->{shape}})
-							if $log->is_debug();
-						if (not defined $weight) {
-							$weight = "heavy";
-						}
-					}
+					# 1. Unknown shape handle karo
+               if (not $packaging_shape or $packaging_shape eq 'en:unknown') {
+                  $weight = get_inherited_property("packaging_shapes", $packaging_ref->{shape}, "weight:en");
+                  $log->debug("aluminium", {weight => $weight, shape => $packaging_ref->{shape}})
+               if $log->is_debug();
+                }
+
+               # 2. Aluminium fallback ko alag rakho (taaki ye hamesha apply ho sake)
+               # # 2. Aluminium fallback ko alag rakho
+               if ($packaging_ref->{material} eq 'en:aluminium') {
+                  $weight_fallback = 'light';
+               }
 
 					if ($weight eq "heavy") {
 						$packaging_ref->{material} = "en:heavy-aluminium";
