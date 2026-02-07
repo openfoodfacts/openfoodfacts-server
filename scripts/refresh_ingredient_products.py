@@ -39,7 +39,11 @@ countries = ",".join(
 categories = requests.get(f"{base_url}/data/taxonomies/categories.json").json()
 
 # Load ciqual ingredients. File comes from https://github.com/openfoodfacts/recipe-estimator/blob/main/recipe_estimator/assets/ciqual_ingredients.json
-with open(os.path.join(os.path.dirname(__file__), "ciqual_ingredients.json"), "r", encoding="utf-8") as ciqual_file:
+with open(
+    os.path.join(os.path.dirname(__file__), "ciqual_ingredients.json"),
+    "r",
+    encoding="utf-8",
+) as ciqual_file:
     ciqual_ingredients = json.load(ciqual_file)
 
 print("*** Logging in ***")
@@ -61,12 +65,12 @@ response = requests.post(
     auth=HTTPBasicAuth(os.getenv("OIDC_CLIENT_ID"), os.getenv("OIDC_CLIENT_SECRET")),
 )
 access_token = response.json()["access_token"]
-off_headers = {
-    "Authorization": f"Bearer {access_token}"
-    }
+off_headers = {"Authorization": f"Bearer {access_token}"}
 
 # Wikidata requires a user agent to be specified. See https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy
-wikidata_headers = {'User-Agent': 'OpenFoodFacts/1.0 (https://world.openfoodfacts.org) ingredient-uploader'}
+wikidata_headers = {
+    "User-Agent": "OpenFoodFacts/1.0 (https://world.openfoodfacts.org) ingredient-uploader"
+}
 
 # Get the existing ingredient products so we know which ones already have images
 # and which ones to delete (if they weren't found in the current ingredients taxonomy)
@@ -82,7 +86,9 @@ while True:
     if len(products) < 1:
         break
     existing_codes += [product["code"] for product in products]
-    products_with_images += [product["code"] for product in products if "selected_images" in product]
+    products_with_images += [
+        product["code"] for product in products if "selected_images" in product
+    ]
     page += 1
 
 count = 0
@@ -90,7 +96,7 @@ count = 0
 # To then hard-delete the product files and images run the following from a backend shell:
 # rm -rf /mnt/podata/products/ingredient
 # rm /mnt/podata/new_images/*.ingredient-*
-max_count = 10
+max_count = 100
 print("*** Creating products ***")
 for id, ingredient in ingredients.items():
     if count >= max_count:
@@ -103,9 +109,15 @@ for id, ingredient in ingredients.items():
     ciqual_data = ciqual_ingredients.get(ciqual_code, {}).get("nutrients")
     if not ciqual_data:
         continue
-    
+
     # Find a category with a matching ciqual code
-    category = next(category_id for category_id, category_data in categories.items() if category_data.get("ciqual_food_code", {}).get("en") == ciqual_code)
+    category = next(
+        (category_id
+            for category_id, category_data in categories.items()
+            if category_data.get("ciqual_food_code", {}).get("en") == ciqual_code
+        ),
+        None,
+    )
     if not category:
         continue
 
@@ -119,7 +131,7 @@ for id, ingredient in ingredients.items():
 
         # Fetch the images property
         wikidata_url = f"https://www.wikidata.org/w/api.php?action=wbgetclaims&entity={wikidata_id}&property=P18&format=json"
-        wikidata_claim = requests.get(wikidata_url,headers=wikidata_headers).json()
+        wikidata_claim = requests.get(wikidata_url, headers=wikidata_headers).json()
         images = wikidata_claim.get("claims", {}).get("P18", [])
         if len(images) < 1:
             continue
@@ -132,18 +144,20 @@ for id, ingredient in ingredients.items():
             # Get the image metadata. Minimum size is 640 by 160
             image_metadata = requests.get(
                 f"https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&format=json&iiprop=size&titles=File:{image_name}",
-                headers=wikidata_headers
+                headers=wikidata_headers,
             ).json()
-            pages = image_metadata.get("query",{}).get("pages",{})
+            pages = image_metadata.get("query", {}).get("pages", {})
             page = next(iter(pages.values()))
-            imageinfo = page.get("imageinfo",[])[0]
+            imageinfo = page.get("imageinfo", [])[0]
             if imageinfo and (imageinfo["width"] >= 640 or imageinfo["height"] >= 160):
                 # Get the actual image
                 image_name = image_name.replace(" ", "_")
-                image_hash = hashlib.md5(image_name.encode('utf-8')).hexdigest()
+                image_hash = hashlib.md5(image_name.encode("utf-8")).hexdigest()
                 image_url = f"https://upload.wikimedia.org/wikipedia/commons/{image_hash[0]}/{image_hash[0:2]}/{image_name}"
                 print(image_url)
-                image_content = requests.get(image_url, headers=wikidata_headers).content
+                image_content = requests.get(
+                    image_url, headers=wikidata_headers
+                ).content
                 break
 
         if not image_content:
@@ -154,9 +168,9 @@ for id, ingredient in ingredients.items():
         "code": code,
         "countries": countries,
         "categories": category,
-        "packaging_text_en": "1 paper bag to recycle"
+        "packaging_text_en": "1 paper bag to recycle",
     }
-    
+
     # Create a product name for each language
     for lang, name in ingredient["name"].items():
         product[f"product_name_{lang}"] = name
@@ -166,7 +180,7 @@ for id, ingredient in ingredients.items():
     for nutrient_id, nutrient in ciqual_data.items():
         if nutrient.get("confidence", "-") != "-":
             product[f"nutriment_{nutrient_id}"] = nutrient.get("percent_nom")
-        
+
     # Create the product
     requests.post(f"{base_url}/cgi/product_jqm2.pl", data=product, headers=off_headers)
     if not got_image:
@@ -175,11 +189,11 @@ for id, ingredient in ingredients.items():
             f"{base_url}/api/v3/product/{code}/images",
             json={
                 "image_data_base64": base64.b64encode(image_content).decode(),
-                "selected": {"front":{"en":{}}}
+                "selected": {"front": {"en": {}}},
             },
             headers=off_headers,
         )
-    print(id, ingredient["name"].get("en",name))
+    print(id, ingredient["name"].get("en", name))
     count += 1
     if code in existing_codes:
         existing_codes.remove(code)
