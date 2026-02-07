@@ -33,6 +33,7 @@ This module is not tied to a specific OIDC service. All Keycloak-specific functi
 package ProductOpener::Auth;
 
 use ProductOpener::PerlStandards;
+use ProductOpener::Memcached;
 use Exporter qw< import >;
 use ProductOpener::Cache qw(get_cache set_cache);
 use Log::Any qw($log);
