@@ -157,7 +157,8 @@ for id, ingredient in ingredients.items():
             if imageinfo and (imageinfo["width"] >= 640 or imageinfo["height"] >= 160):
                 # Get the actual image
                 image_name = image_name.replace(" ", "_")
-                image_hash = hashlib.md5(image_name.encode("utf-8")).hexdigest() # noqa: S4790 Hash is just used to generate a path, not for anything secure
+                # Hash is just used to generate a path, not for anything secure
+                image_hash = hashlib.md5(image_name.encode("utf-8")).hexdigest() # NOSONAR
                 image_url = f"https://upload.wikimedia.org/wikipedia/commons/{image_hash[0]}/{image_hash[0:2]}/{image_name}"
                 print(image_url)
                 image_content = requests.get(
