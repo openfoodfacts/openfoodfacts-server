@@ -141,7 +141,7 @@ for id, ingredient in ingredients.items():
             continue
 
     # We set all countries so ingredients always show up. Might be nice to get all "world" products to show up on all country domains
-    product = {"code": code, "countries": countries}#, "nutrition_data_per": "100g"}
+    product = {"code": code, "countries": countries}
     
     # Create a product name for each language
     for lang, name in ingredient["name"].items():
@@ -150,10 +150,6 @@ for id, ingredient in ingredients.items():
     # Add nutrients from ciqual
     for nutrient_id, nutrient in ciqual_data.items():
         if nutrient.get("confidence", "-") != "-":
-            nutrient_unit = "g"
-            if nutrient_id == "energy":
-                nutrient_id = "energy-kj"
-                nutrient_unit = "kj"
             product[f"nutriment_{nutrient_id}"] = nutrient.get("percent_nom")
         
     # Create the product
