@@ -154,12 +154,13 @@ for id, ingredient in ingredients.items():
         "code": code,
         "countries": countries,
         "categories": category,
+        "packaging_text_en": "1 paper bag to recycle"
     }
     
     # Create a product name for each language
     for lang, name in ingredient["name"].items():
         product[f"product_name_{lang}"] = name
-        product[f"ingredients_text_{lang}"] = name
+        product[f"ingredients_text_{lang}"] = f"{name} 100%"
 
     # Add nutrients from ciqual
     for nutrient_id, nutrient in ciqual_data.items():
