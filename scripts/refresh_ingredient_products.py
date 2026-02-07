@@ -29,7 +29,21 @@ import json
 load_dotenv(".envrc")
 load_dotenv()
 
-# Uses the outpward facing url for local development
+print("*** Loading taxonomies ***")
+# For local testing use http:/world.openfoodfacts.localhost
+base_url = os.getenv("STATIC_DOMAIN")
+ingredients = requests.get(f"{base_url}/data/taxonomies/ingredients.json").json()
+countries = ",".join(
+    requests.get(f"{base_url}/data/taxonomies/countries.json").json().keys()
+)
+categories = requests.get(f"{base_url}/data/taxonomies/categories.json").json()
+
+# Load ciqual ingredients. File comes from https://github.com/openfoodfacts/recipe-estimator/blob/main/recipe_estimator/assets/ciqual_ingredients.json
+with open(os.path.join(os.path.dirname(__file__), "ciqual_ingredients.json"), "r", encoding="utf-8") as ciqual_file:
+    ciqual_ingredients = json.load(ciqual_file)
+
+print("*** Logging in ***")
+# Uses the outward facing url for local development
 oidc_discovery_url = os.getenv("OIDC_DISCOVERY_URL").replace(
     "http://keycloak:8080", "http://auth.openfoodfacts.localhost:5600"
 )
@@ -54,19 +68,9 @@ off_headers = {
 # Wikidata requires a user agent to be specified. See https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy
 wikidata_headers = {'User-Agent': 'OpenFoodFacts/1.0 (https://world.openfoodfacts.org) ingredient-uploader'}
 
-# For local testing use http:/world.openfoodfacts.localhost
-base_url = os.getenv("STATIC_DOMAIN")
-ingredients = requests.get(f"{base_url}/data/taxonomies/ingredients.json").json()
-countries = ",".join(
-    requests.get(f"{base_url}/data/taxonomies/countries.json").json().keys()
-)
-
-# Load ciqual ingredients. File comes from https://github.com/openfoodfacts/recipe-estimator/blob/main/recipe_estimator/assets/ciqual_ingredients.json
-with open(os.path.join(os.path.dirname(__file__), "ciqual_ingredients.json"), "r", encoding="utf-8") as ciqual_file:
-    ciqual_ingredients = json.load(ciqual_file)
-
 # Get the existing ingredient products so we know which ones already have images
 # and which ones to delete (if they weren't found in the current ingredients taxonomy)
+print("*** Fetching existing products ***")
 page = 1
 existing_codes = []
 products_with_images = []
@@ -98,6 +102,11 @@ for id, ingredient in ingredients.items():
         continue
     ciqual_data = ciqual_ingredients.get(ciqual_code, {}).get("nutrients")
     if not ciqual_data:
+        continue
+    
+    # Find a category with a matching ciqual code
+    category = next(category_id for category_id, category_data in categories.items() if category_data.get("ciqual_food_code", {}).get("en") == ciqual_code)
+    if not category:
         continue
 
     code = f"ingredient-{id.replace(':', '-')}"
@@ -141,11 +150,16 @@ for id, ingredient in ingredients.items():
             continue
 
     # We set all countries so ingredients always show up. Might be nice to get all "world" products to show up on all country domains
-    product = {"code": code, "countries": countries}
+    product = {
+        "code": code,
+        "countries": countries,
+        "categories": category,
+    }
     
     # Create a product name for each language
     for lang, name in ingredient["name"].items():
         product[f"product_name_{lang}"] = name
+        product[f"ingredients_text_{lang}"] = name
 
     # Add nutrients from ciqual
     for nutrient_id, nutrient in ciqual_data.items():
