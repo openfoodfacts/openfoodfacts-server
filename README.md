@@ -116,6 +116,14 @@ You can help translate the Open Food Facts web version and the app at:
 
 We have [templatized](https://github.com/openfoodfacts/openfoodfacts-server/tree/master/templates) Product Opener, we use Gulp and NPM, but you'll need to run the Product Opener docker to be able to see the result (see the How do I get started? section).
 In particular, you can [help with issues on the new design](https://github.com/openfoodfacts/openfoodfacts-server/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22%F0%9F%8E%A8%20New%20design%22).
+
+### Frontend Build Scripts
+
+**For most contributors using Docker (recommended):**  
+You don't need to run any npm commands manually! When you run `make up`, a container called `dynamicfront` automatically handles building and watching your frontend assets (CSS, JS, and icons).
+
+For more details on how the frontend build system works, see the [Frontend Build Scripts documentation](./docs/explain-frontend-build-scripts.md).
+
 <br><br>
 ## Who do I talk to?
 

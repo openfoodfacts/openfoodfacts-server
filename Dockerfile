@@ -111,8 +111,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
         #
-        # Action::Retry
-        libmath-fibonacci-perl \
         # EV - event loop
         libev-perl \
         # Algorithm::CheckDigits

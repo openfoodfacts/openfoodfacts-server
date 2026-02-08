@@ -88,7 +88,6 @@ use OpenTelemetry;
 
 # OTEL Span context for MongoDB queries
 my %spans = ();
-
 my $client;
 
 =head1 FUNCTIONS
