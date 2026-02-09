@@ -2980,9 +2980,6 @@ Text to analyze
 								'その他',    # etc.
 							],
 
-							'lv' => [
-							],
-
 							'nb' => ['^Pakket i beskyttende atmosfære$', '^Minst \d+ ?% kakao',],
 
 							'nl' => [
