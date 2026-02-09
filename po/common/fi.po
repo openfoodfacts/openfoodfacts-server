@@ -5171,7 +5171,7 @@ msgstr "Ympäristövaikutus"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr "Green-Score-pisteet"
+msgstr "Green-Score-luokitus"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
@@ -5181,12 +5181,12 @@ msgstr "Green-Score-luokitus"
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr "Yksityiskohdat Green-score-laskelmasta"
+msgstr "Green-Score-laskelman tiedot"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "Tietoja Green-scoresta"
+msgstr "Tietoja Green-Scoresta"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5406,7 +5406,7 @@ msgstr "Alusta tarjoaa myös perusteellisen analyysin tuotteista."
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "Se laskee indikaattorit, kuten Nutri-Score, NOVA ja Green-score, ja tunnistaa automaattisesti ehdotuksia niiden parantamiseksi (esimerkiksi kaikki tuotteet, jotka saisivat paremman Nutri-Score-arvosanan pienellä koostumuksen muutoksella)."
+msgstr "Se laskee indikaattoreita, kuten Nutri-Score, NOVA ja Green-Score, ja tunnistaa automaattisesti parannusehdotuksia (esimerkiksi kaikki tuotteet, joiden Nutri-Score-luokitus paranisi pienellä koostumuksen muutoksella)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5554,7 +5554,7 @@ msgstr "Ei ole vielä sovellettavissa luokalle: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "Green-Score ei ole vielä sovellettavissa tähän luokkaan, mutta pyrimme lisäämään sille tuen."
+msgstr "Green-Scorea ei voida vielä laskea tämän tuoteluokan tuotteille, mutta pyrimme lisäämään niille tuen."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
@@ -5570,7 +5570,7 @@ msgstr "Tarkka kategoria puuttuu"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Tämän tuotteen Green-Scorea ei voitu laskea, koska siitä puuttuu joitakin tietoja. Voisitko auttaa sen täyttämisessä?"
+msgstr "Tämän tuotteen Green-Scorea ei voitu laskea, koska siitä puuttuu joitakin tietoja. Voisitko auttaa tietojen täydentämisessä?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5712,7 +5712,7 @@ msgstr "Jos olet tämän tuotteen valmistaja, voit lähettää meille tiedot <a 
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Varoitus: joitakin Green-Scoren tarkkaan laskemiseen tarvittavia tietoja ei ole toimitettu (katso laskelman yksityiskohdat alla)."
+msgstr "Varoitus: joitain Green-Scoren tarkkaan laskemiseen tarvittavia tietoja ei ole annettu (katso laskelman tiedot alta)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5867,12 +5867,12 @@ msgstr "Tämän tuotteen pakkaustiedot eivät ole riittävän tarkkoja (kaikkien
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr "Green-Scoren tarkempaa laskelmaa varten voit muokata tuotesivua ja lisätä ne."
+msgstr "Voit muokata tuotesivua ja lisätä ne, jotta Green-Score voidaan laskea tarkemmin."
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Saadaksesi tarkemman laskelman Green-Scoresta, voit muokata tuotesivua ja lisätä ne."
+msgstr "Voit muokata tuotesivua ja lisätä ne, jotta Green-Score voidaan laskea tarkemmin."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5894,7 +5894,7 @@ msgstr "Jos olet tämän tuotteen valmistaja, voit lähettää meille tiedot <a 
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/green-score\">Green-Score</a> on kokeellinen pistemäärä tiivistämään elintarvikkeiden ympäristövaikutukset."
+msgstr "<a href=\"/green-score\">Green-Score</a> on kokeellinen luokitusjärjestelmä, joka esittää elintarvikkeiden ympäristövaikutukset tiivistetysti."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
@@ -5904,7 +5904,7 @@ msgstr "Green-Score-kaava voi muuttua, koska sitä parannetaan säännöllisesti
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score kehitettiin alun perin Ranskaa varten, ja sitä laajennetaan parhaillaan muihin Euroopan maihin. Green-Score-kaavaa voidaan muuttaa, koska sitä parannetaan säännöllisesti, jotta se olisi tarkempi ja sopisi paremmin kuhunkin maahan."
+msgstr "Green-Score kehitettiin alun perin Ranskan käyttöön, ja sitä laajennetaan parhaillaan muihin Euroopan maihin. Green-Scoren laskukaava voi muuttua, koska sitä parannetaan säännöllisesti, jotta se olisi tarkempi ja sopisi paremmin kuhunkin maahan."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5916,7 +5916,7 @@ msgstr "Kuljetuksen täyttä vaikutusta maahanne ei ole tällä hetkellä tiedos
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr "Lue viivakoodeja saadaksesi Nutri-Scoren, Green-Scoren ja enemmän!"
+msgstr "Lue tuotteen viivakoodi, niin saat tietää sen Nutri-Scoren, Green-Scoren ja muita tietoja!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -6187,7 +6187,7 @@ msgstr "Bonukset ja miinukset"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Green-Score tälle tuotteelle"
+msgstr "Tämän tuotteen Green-Score"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
