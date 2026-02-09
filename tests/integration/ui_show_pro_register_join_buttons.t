@@ -16,7 +16,7 @@ remove_all_orgs();
 
 # Create a normal (non-pro) user and remain logged in
 my $ua = new_client();
-my %user_form = ( %{ clone( \%default_user_form ) } );
+my %user_form = (%{clone(\%default_user_form)});
 my $resp = create_user($ua, \%user_form);
 ok(!html_displays_error($resp), "created normal user without error");
 
