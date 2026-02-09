@@ -21,7 +21,7 @@ my $resp = create_user($ua, \%user_form);
 ok(!html_displays_error($resp), "created normal user without error");
 
 # Request the producers index page
-$resp = $ua->get("$TEST_WEBSITE_URL/index-pro");
+$resp = $ua->get(construct_test_url("/index-pro"));
 if (!$resp->is_success) {
 	plan skip_all => "index-pro unavailable: " . $resp->status_line;
 }
