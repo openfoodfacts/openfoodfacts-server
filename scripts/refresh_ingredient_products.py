@@ -214,8 +214,7 @@ for id, ingredient in ingredients.items():
         "code": code,
         "countries": countries,
         "categories": category,
-        "packagings_complete": 1,
-        "packaging_text_en": "",
+        "packaging_text_en": "1 paper bag to recycle",
     }
 
     # Create a product name for each language
