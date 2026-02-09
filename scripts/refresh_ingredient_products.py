@@ -23,6 +23,8 @@ TODO:
 # ]
 # ///
 
+import datetime
+import sys
 import requests
 from requests.auth import HTTPBasicAuth
 import os
@@ -34,7 +36,7 @@ import json
 load_dotenv(".envrc")
 load_dotenv()
 
-print("*** Loading taxonomies ***")
+print("--- Loading taxonomies ---")
 # For local testing use http:/world.openfoodfacts.localhost
 base_url = os.getenv("STATIC_DOMAIN")
 ingredients = requests.get(f"{base_url}/data/taxonomies/ingredients.json").json()
@@ -51,7 +53,7 @@ with open(
 ) as ciqual_file:
     ciqual_ingredients = json.load(ciqual_file)
 
-print("*** Logging in ***")
+print("--- Logging in ---")
 # Uses the outward facing url for local development
 oidc_discovery_url = os.getenv("OIDC_DISCOVERY_URL").replace(
     "//keycloak:8080/", "//auth.openfoodfacts.localhost:5600/"
@@ -68,8 +70,12 @@ response = requests.post(
         "password": os.getenv("OIDC_PASSWORD"),
     },
     auth=HTTPBasicAuth(os.getenv("OIDC_CLIENT_ID"), os.getenv("OIDC_CLIENT_SECRET")),
-)
-access_token = response.json()["access_token"]
+).json()
+
+access_token = response["access_token"]
+refresh_token = response["refresh_token"]
+refresh_at = datetime.datetime.now() + datetime.timedelta(0, response["expires_in"] - 30)
+
 off_headers = {"Authorization": f"Bearer {access_token}"}
 
 # Wikidata requires a user agent to be specified. See https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy
@@ -77,17 +83,47 @@ wikidata_headers = {
     "User-Agent": "OpenFoodFacts/1.0 (https://world.openfoodfacts.org) ingredient-uploader"
 }
 
+def po_response_is_ok(response: requests.Response):
+    if response.status_code == 200:
+        return True
+    try:
+        print(f"*** Error: {', '.join(error.get('message', {}).get('name', '?') for error in response.json().get('errors', []))} ***")
+    except:
+        print(response.content)
+    return False
+
+def refresh_access_token():
+    global access_token, refresh_token, refresh_at
+
+    if datetime.datetime.now() > refresh_at:
+        print("--- Refreshing access token ---")
+        response = requests.post(
+            token_endpoint,
+            data={
+                "grant_type": "refresh_token",
+                "refresh_token": refresh_token,
+            },
+            auth=HTTPBasicAuth(os.getenv("OIDC_CLIENT_ID"), os.getenv("OIDC_CLIENT_SECRET")),
+        ).json()
+
+        access_token = response["access_token"]
+        refresh_token = response["refresh_token"]
+        refresh_at = datetime.datetime.now() + datetime.timedelta(0, response["expires_in"] - 30)
+        
+    
 # Get the existing ingredient products so we know which ones already have images
 # and which ones to delete (if they weren't found in the current ingredients taxonomy)
-print("*** Fetching existing products ***")
+print("--- Fetching existing products ---")
 page = 1
 existing_codes = []
 products_with_images = []
 while True:
-    existing_products = requests.get(
+    response = requests.get(
         f"{base_url}/api/v2/search?fields=code,selected_images&states_tags=en:is-ingredient&page_size=1000&page={page}"
-    ).json()
-    products = existing_products["products"]
+    )
+    if not po_response_is_ok(response):
+        sys.exit(1)
+    products = response.json()["products"]
     if len(products) < 1:
         break
     existing_codes += [product["code"] for product in products]
@@ -95,14 +131,15 @@ while True:
         product["code"] for product in products if "selected_images" in product
     ]
     page += 1
+    refresh_access_token()
 
 count = 0
 # Set the following to zero to delete all ingredient products
 # To then hard-delete the product files and images run the following from a backend shell:
 # rm -rf /mnt/podata/products/ingredient
 # rm /mnt/podata/new_images/*.ingredient-*
-max_count = 10
-print("*** Creating products ***")
+max_count = 100
+print("--- Creating products ---")
 for id, ingredient in ingredients.items():
     if count >= max_count:
         break
@@ -128,12 +165,12 @@ for id, ingredient in ingredients.items():
 
     code = f"ingredient-{id.replace(':', '-')}"
     got_image = code in products_with_images
-    if not got_image:
-        # We only include ingredients that have a Wikidata link with an image bigger than the minimum of 640 x 160
-        wikidata_id = ingredient.get("wikidata", {}).get("en")
-        if not wikidata_id:
-            continue
+    # We only include ingredients that have a Wikidata link with an image bigger than the minimum of 640 x 160
+    wikidata_id = ingredient.get("wikidata", {}).get("en")
+    if not wikidata_id:
+        continue
 
+    if not got_image:
         # Fetch the images property
         wikidata_url = f"https://www.wikidata.org/w/api.php?action=wbgetclaims&entity={wikidata_id}&property=P18&format=json"
         wikidata_claim = requests.get(wikidata_url, headers=wikidata_headers).json()
@@ -159,8 +196,11 @@ for id, ingredient in ingredients.items():
                 image_name = image_name.replace(" ", "_")
                 # Hash is just used to generate a path, not for anything secure
                 image_hash = hashlib.md5(image_name.encode("utf-8")).hexdigest() # NOSONAR
-                image_url = f"https://upload.wikimedia.org/wikipedia/commons/{image_hash[0]}/{image_hash[0:2]}/{image_name}"
-                print(image_url)
+                # If the image is bigger than 960px then use a thumbnail
+                if imageinfo["width"] >= 960:
+                    image_url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{image_hash[0]}/{image_hash[0:2]}/{image_name}/960px-{image_name}"
+                else:
+                    image_url = f"https://upload.wikimedia.org/wikipedia/commons/{image_hash[0]}/{image_hash[0:2]}/{image_name}"
                 image_content = requests.get(
                     image_url, headers=wikidata_headers
                 ).content
@@ -174,7 +214,8 @@ for id, ingredient in ingredients.items():
         "code": code,
         "countries": countries,
         "categories": category,
-        "packaging_text_en": "1 paper bag to recycle",
+        "packagings_complete": 1,
+        "packaging_text_en": "",
     }
 
     # Create a product name for each language
@@ -188,27 +229,33 @@ for id, ingredient in ingredients.items():
             product[f"nutriment_{nutrient_id}"] = nutrient.get("percent_nom")
 
     # Create the product
-    requests.post(f"{base_url}/cgi/product_jqm2.pl", data=product, headers=off_headers)
+    refresh_access_token()
+    print(id, ciqual_code, wikidata_id, ingredient["name"].get("en", name))
+    if not po_response_is_ok(requests.post(f"{base_url}/cgi/product_jqm2.pl", data=product, headers=off_headers)):
+        continue
+
     if not got_image:
         # Add the image
-        requests.post(
+        print(image_url)
+        if not po_response_is_ok(requests.post(
             f"{base_url}/api/v3/product/{code}/images",
             json={
                 "image_data_base64": base64.b64encode(image_content).decode(),
                 "selected": {"front": {"en": {}}},
             },
             headers=off_headers,
-        )
-    print(id, ingredient["name"].get("en", name))
+        )):
+            continue
+
     count += 1
     if code in existing_codes:
         existing_codes.remove(code)
 
-print("*** Deleting orphaned codes ***")
+print("--- Deleting orphaned codes ---")
 for code in existing_codes:
-    requests.post(
+    print(code)
+    po_response_is_ok(requests.post(
         f"{base_url}/cgi/product.pl",
         data={"type": "delete", "action": "process", "code": code},
         headers=off_headers,
-    )
-    print(code)
+    ))
