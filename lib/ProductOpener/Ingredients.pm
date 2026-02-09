@@ -2979,7 +2979,7 @@ Text to analyze
 							'ja' => [
 								'その他',    # etc.
 							],
-							
+
 							'lv' => [
 							],
 
