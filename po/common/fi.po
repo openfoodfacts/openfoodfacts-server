@@ -856,7 +856,7 @@ msgstr "Virheellinen käyttäjä."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr "Käyttäjätunnuksessa on oltava vain tarkemerkittömiä kirjaimia, numeroita ja väliviivoja."
+msgstr "Käyttäjänimessä saa olla vain tarkemerkittömiä kirjaimia, numeroita ja väliviivoja."
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
@@ -900,7 +900,7 @@ msgstr "Tätä käyttäjätunnusta ei ole olemassa."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr "Tämä käyttäjätunnus on jo käytössä. Valitse jokin toinen."
+msgstr "Tämä käyttäjänimi on jo käytössä. Valitse jokin toinen."
 
 msgctxt "example"
 msgid "Example:"
@@ -1437,7 +1437,7 @@ msgstr "<p>Kirjaudu sisään lisätäksesi tai muokataksesi tuotteita.</p>\n\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr "Käyttäjätunnus tai sähköpostiosoite:"
+msgstr "Käyttäjänimi tai sähköpostiosoite:"
 
 msgctxt "low"
 msgid "low"
@@ -2184,13 +2184,14 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr "Hei <NAME>,\n\n"
-"Pyysit salasanan palautusta sivustolla https://openfoodfacts.org\n\n"
-"käyttäjänimelle: <USERID>\n\n"
-"Jatkaaksesi salasanan palautusta, napsauta alla olevaa linkkiä.\n\n"
-"Jos et pyytänyt salasanan palautusta, voit jättää tämän viestin huomiotta.\n\n"
+msgstr "Hei <NAME>!\n\n"
+"Pyysit salasanan vaihtamista sivustolla https://openfoodfacts.org\n\n"
+"käyttäjänimellä: <USERID>\n\n"
+"Siirry vaihtamaan salasana napauttamalla alla olevaa linkkiä. Jos et pyytänyt salasanan vaihtamista, voit jättää tämän viestin huomiotta.\n\n"
 "<RESET_URL>\n\n"
-"Nähdään pian, terveisin, Stephane\n\n"
+"Terveisin\n"
+" \n"
+"Stephane\n"
 "https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
@@ -2211,7 +2212,7 @@ msgstr "Salasanan palautuslinkin sisältävä sähköposti on lähetetty tiliisi
 
 msgctxt "reset_password_send_email_msg"
 msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
-msgstr "Jos olet unohtanut salasanasi, kirjoita käyttäjätunnuksesi tai sähköpostiosoitteesi saadaksesi ohjeet salasanasi palauttamista varten."
+msgstr "Jos olet unohtanut salasanasi, kirjoita käyttäjänimesi tai sähköpostiosoitteesi saadaksesi ohjeet salasanan vaihtamista varten."
 
 msgctxt "risk_level"
 msgid "Risk"
@@ -2677,7 +2678,7 @@ msgstr "jäämä"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
-msgstr "Twitter-käyttäjätunnus (valinnainen)"
+msgstr "Twitter-käyttäjänimi (valinnainen)"
 
 msgctxt "unknown"
 msgid "Unknown"
@@ -2701,19 +2702,19 @@ msgstr "Voit peruuttaa tilauksen milloin tahansa."
 
 msgctxt "userid_or_email"
 msgid "Username or e-mail address: "
-msgstr "Käyttäjätunnus tai sähköpostiosoite: "
+msgstr "Käyttäjänimi tai sähköpostiosoite: "
 
 msgctxt "username"
 msgid "User name"
-msgstr "Käyttäjätunnus"
+msgstr "Käyttäjänimi"
 
 msgctxt "username_info"
 msgid "(non-accented letters, digits and/or dashes)"
-msgstr "(tarkemerkittömiä kirjaimia, numeroita ja / tai viivoja)"
+msgstr "(tarkemerkittömät kirjaimet, numerot ja väliviivat)"
 
 msgctxt "username_or_email"
 msgid "Username or email address"
-msgstr "Käyttäjätunnus tai sähköpostiosoite"
+msgstr "Käyttäjänimi tai sähköpostiosoite"
 
 msgctxt "users_add_products"
 msgid "Products that were added by the user %s"
@@ -7267,7 +7268,7 @@ msgstr "Kuvaus"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
-msgstr "Anna pääkontaktin käyttäjätunnus:"
+msgstr "Anna pääyhteyshenkilön käyttäjätunnus:"
 
 msgctxt "change_main_contact"
 msgid "Change main contact"
