@@ -26,6 +26,14 @@
             },
         },
         [% END %]
+        [% IF panel.has_reuse_card %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "reuse_card",
+            },
+        },
+        [% END %]
         [% IF panel.has_secondhand_card %]
         {
             "element_type": "panel",
