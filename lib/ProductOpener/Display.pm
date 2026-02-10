@@ -6161,6 +6161,8 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 			}
 
 			if (defined $value) {
+				# If the value seems to use a , as decimal separator, convert it to a .
+				$value =~ s/(\d),(\d)/$1.$2/;
 				$value = $value + 0;    # Make sure the value is a number
 			}
 
