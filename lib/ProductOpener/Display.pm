@@ -367,7 +367,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{pro_moderator} = $User{pro_moderator};
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = sub ($stringid) {
-		return lang_in_other_lc($target_lc, $stringid)
+		return lang_in_other_lc($target_lc, $stringid);
 	};
 	# also provide lang_flavor() and lang_product_type() to provide translations specific
 	# to a flavor (e.g. off, obf) or product type (e.g. food, beauty)
