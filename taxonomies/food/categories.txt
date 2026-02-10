@@ -43296,14 +43296,14 @@ ciqual_food_name:en: Quinoa FR, boiled/cooked in water, unsalted
 ciqual_food_name:fr: Quinoa FR, cuit
 
 < en:Cereal grains
-en: Rices
+en: Rices, Rice
 bg: Ориз
 ca: Arrossos
 cs: Rýže
 da: Ris
 de: Reise, Reis
 es: Arroces, Arroz
-fi: riisit
+fi: Riisit
 fr: Riz
 he: אורז
 hr: riže, riža
@@ -43312,7 +43312,9 @@ it: Riso
 ja: 米
 la: Oryza sativa
 lt: Ryžiai
+nb: Ris
 nl: Rijst
+nn: Ris
 pl: Ryże
 pt: Arrozes
 ru: Рис
@@ -43336,6 +43338,7 @@ ciqual_food_name:fr: Riz complet, cru
 < en:Rices
 en: Brown rices
 bg: Кафяв ориз
+da: Brune ris
 de: Brauner Reis
 es: Arroces integrales, Arroces cargo
 fi: ruskeat riisit
@@ -43345,6 +43348,7 @@ it: Riso integrale
 ja: 玄米
 lt: Rudieji ryžiai
 nl: Zilverlvliesrijsten, Volkoren rijsten, Volkorenrijsten
+sv: Bruna ris
 agribalyse_food_code:en: 9102
 ciqual_food_code:en: 9102
 ciqual_food_name:en: Rice, brown, raw
@@ -43353,6 +43357,7 @@ wikidata:en: Q1066624
 
 < en:Brown rices
 en: Cooked brown rices
+da: Kokte brune ris
 fr: Riz complet cuit
 agribalyse_proxy_food_code:en: 9103
 agribalyse_proxy_food_name:en: Rice, brown, cooked, unsalted
@@ -43360,6 +43365,7 @@ agribalyse_proxy_food_name:fr: Riz complet, cuit, non salé
 
 < en:Cooked brown rices
 en: Unsalted cooked brown rices
+da: Usaltede kokte brune ris
 fr: Riz complet cuit non salé
 agribalyse_food_code:en: 9103
 ciqual_food_code:en: 9103
@@ -43372,10 +43378,12 @@ de: Ungedroschener Reis
 es: Arroces en cáscara, Arroces con cáscara, Arroces cáscara, Arroces paddy
 fr: Riz paddy
 hr: Neoljuštene riže
+wikidata:en: Q110461730
 
 < en:Rices
 en: Parboiled rices
 bg: Бланширан ориз
+da: Parboiled ris
 de: Gekochter Reis
 es: Arroces vaporizados, Arroces sancochados, Arroces parboiled
 fi: Parboiled-riisit
@@ -43393,6 +43401,7 @@ wikidata:en: Q732925
 < en:White rices
 en: Parboiled white rices
 bg: Бланширан бял ориз
+da: Parboiled hvide ris
 fr: Riz blanc étuvé
 hr: Prokuhana bijela riža
 agribalyse_food_code:en: 9101
@@ -43403,6 +43412,7 @@ ciqual_food_name:fr: Riz blanc étuvé, cru
 < en:Rices
 en: White rices
 bg: Бял ориз
+da: Hvide ris
 de: Weißer Reis
 es: Arroces blancos
 fi: valkoiset riisit
@@ -43413,6 +43423,7 @@ ja: 白米
 lt: Baltieji ryžiai
 nl: Witte rijst
 pl: Ryż biały
+sv: Vita ris
 agribalyse_food_code:en: 9100
 ciqual_food_code:en: 9100
 ciqual_food_name:en: Rice, raw
@@ -43462,7 +43473,7 @@ ru: Рис Индика
 wikidata:en: Q5360953
 
 < en:Rices
-en: Japonica rices
+en: Japonica rices, Sinica rices
 de: Japonica Reis
 es: Arroces de la variedad japónica
 fi: Japonica-riisit
@@ -43470,13 +43481,15 @@ fr: Riz de variété japonica
 hr: Japonica riža
 it: Risi Japonica
 ja: ジャポニカ米
+la: Oryza sativa japonica
 nl: Japonica rijst
-#wikidata:en:
+wikidata:en: Q1147035
 
 < en:Rices
 en: Long grain rices
 bg: Дългозърнест ориз
 ca: Arròs de gra llarg
+da: Langkornede ris
 de: Langkornreis
 es: Arroces de grano largo
 fi: pitkäjyväiset riisit
@@ -43486,6 +43499,7 @@ it: Riso a grano lungo
 lt: Ilgagrūdžiai ryžiai
 nl: Langgraanrijst
 pt: Arrozes agulha
+sv: Långkorniga ris
 incompatible_with:en: categories:en:short-grain-rices, categories:en:medium-grain-rices
 wikidata:en: Q67594028
 
@@ -43499,12 +43513,14 @@ fr: Riz pilavlik, riz pour pilaf
 
 < en:Rices
 en: Medium grain rices
+da: Mediumkornede ris
 de: Mittelkornreis
 es: Arroces de grano medio, Arroces de grano semilargo
 fr: Riz à grain médium, Riz à grain moyen
 hr: Riže srednjeg zrna
 it: Risi di grano medio
 nl: Mediumgraanrijst
+sv: Mellankorniga ris
 incompatible_with:en: categories:en:short-grain-rices, categories:en:long-grain-rices
 
 < en:Medium grain rices
@@ -43516,7 +43532,8 @@ en: Sona Masoori rices
 fr: Riz Sona Masoori, riz Sona Mahsuri
 
 < en:Rices
-en: Short grain rices
+en: Short grain rices, Round grain rices
+da: Kortkornede ris
 de: Rundkornreise
 es: Arroces de grano corto, Arroces de grano redondo
 fi: lyhytjyväiset riisit
@@ -43525,7 +43542,9 @@ hr: Riže kratkog zrna
 it: Riso a grano corto, Riso a grana corta
 lt: Trumpagrūdžiai ryžiai
 nl: Korrelrijst
+sv: Rundkorniga ris
 incompatible_with:en: categories:en:long-grain-rices, categories:en:medium-grain-rices
+wikidata:en: Q67593960
 
 < en:Short grain rices
 en: Camolino rices
@@ -43541,6 +43560,14 @@ hr: Riže za paellu
 nl: Paellarijst
 #wikidata:en:
 
+< en:Short grain rices
+en: Rices for porridge, porridge rices
+da: Grødris
+fi: Puuroriisi
+nb: Grødris
+sv: Grötris
+wikidata:en: Q78439308
+
 < en:Rices
 en: Rices for risotto
 bg: Ориз за ризото
@@ -43553,7 +43580,7 @@ it: Riso per risotto
 nl: Risottorijsten
 pl: Ryż do risotto, Ryż na risotto
 pt: Arrozes para risotto
-#wikidata:en:
+wikidata:en: Q67438406
 
 < en:Rices for risotto
 en: Sant'Andrea Rices
@@ -43562,6 +43589,7 @@ fr: Riz Sant'Andrea
 < en:Rices
 en: Sushi rice, Rices for sushi
 bg: Ориз за суши
+da: Sushiris
 de: Sushi Reis
 es: Arroces para sushi
 fr: Riz pour sushi
@@ -43569,16 +43597,9 @@ hr: Sushi riža
 it: Riso per sushi, riso da sushi
 lt: Sushi ryžiai
 nl: Sushirijsten
+sv: Sushiris
 zh: 寿司米
 wikidata:en: Q10861403
-
-< en:Rices
-en: Unsalted cooked red rice
-fr: Riz rouge cuit non salé
-agribalyse_food_code:en: 9110
-ciqual_food_code:en: 9110
-ciqual_food_name:en: Rice, red, cooked, unsalted
-ciqual_food_name:fr: Riz rouge, cuit, non salé
 
 < en:Rices
 en: Red rices, red rice
@@ -43595,6 +43616,14 @@ ciqual_food_name:en: Rice, red, raw
 ciqual_food_name:fr: Riz rouge, cru
 sales_format:en: weight, package
 wikidata:en: Q7305375
+
+< en:Red rices
+en: Unsalted cooked red rice
+fr: Riz rouge cuit non salé
+agribalyse_food_code:en: 9110
+ciqual_food_code:en: 9110
+ciqual_food_name:en: Rice, red, cooked, unsalted
+ciqual_food_name:fr: Riz rouge, cuit, non salé
 
 < en:Red rices
 fr: Riz rouge du Bhoutan
@@ -68474,13 +68503,15 @@ protected_name_file_number:en: PGI-ES-0139
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Vegetables from Spain
-en: Rice
+< en:Rices
+< en:Spanish cereals
+en: Rice from Valencia, Valencia rice
+da: Valencia-ris
 es: Arroz de Valencia, Arròs de València
 origins:en: en:spain
 protected_name_file_number:en: PDO-ES-0151
 protected_name_type:en: pdo
-#wikidata:en:
+wikidata:en: Q8205083
 
 < en:Spanish fruits
 es: Melocotón de Calanda
