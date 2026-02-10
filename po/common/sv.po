@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Ingredienser, allergener, tillsatser, näringsfakta, etiketter, ursprung, CO2-påverkan och information om produkten %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "En gemensam, gratis och öppen databas med ingredienser och information om kosmetiska produkter från hela världen"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "En gemensam, gratis och öppen databas med kosmetiska produkter från hela världen."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "En samverkande, fri och öppen databas med olika produkter från hela världen."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts samlar information och data om ett brett utbud av produkter från hela världen."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "En samverkande, fri och öppen databas med olika produkter från hela världen."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "En samverkande, gratis och öppen databas med ingredienser, näringsfakta och information om djurfoderprodukter från hela världen."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts samlar information och data om djurfoderprodukter från hela världen."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Ingredienser INCI, allergener, tillsatser, etiketter, ingrediensernas ursprung och information om produkten %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr "Öppna skönhetsfakta produktsökning"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Denna produktsida är inte komplett. Du kan hjälpa till att slutföra den genom att redigera den och lägga till mer data från de foton vi har, eller genom att ta fler bilder med appen för <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> eller <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Tack!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Den här produktsidan är inte komplett. Du kan hjälpa till att komplettera den genom att redigera den och lägga till mer data från de foton vi har, eller genom att ta fler foton med hjälp av den universella mobilappen för <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> eller <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Tack!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr "Anti-perspirant Stressskydd"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "VATTEN/VATTEN, NATRIUMLAURETSULFAT, NATRIUMKOKOAMPFODIACETAT, GLYKOL DISTEARAT, KOKAMIDMEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "En samarbetsinriktad, gratis och öppen databas med information om olika produkter från hela världen."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts samlar information och data om ett brett utbud av produkter från hela världen."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "En samverkande, fri och öppen databas med olika produkter från hela världen."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Ingredienser, koldioxidpåverkan, hållbarhet, etiketter, ingrediensernas ursprung och information om produkten %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Öppna produktfaktas produktsökning"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Den här produktsidan är inte komplett. Du kan hjälpa till att komplettera den genom att redigera den och lägga till mer data från de foton vi har, eller genom att ta fler foton med den universella appen Open Food Facts för <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> eller <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Tack!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "VARNING: Tillsätt inte ingredienser om detta inte är relevant för kategorin. Tvättmedel har listor på förpackningen eller online, och även några andra kategorier"
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "En samverkande, gratis och öppen databas med ingredienser, näringsfakta och information om djurfoderprodukter från hela världen."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts samlar information och data om djurfoderprodukter från hela världen."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Ingredienser, allergener, tillsatser, näringsfakta, etiketter, ingrediensers ursprung och information om produkten %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Pet Food Facts produktsök"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Den här produktsidan är inte komplett. Du kan hjälpa till att komplettera den genom att redigera den och lägga till mer data från de foton vi har, eller genom att ta fler foton med den universella appen Open Food Facts för <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> eller <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Tack!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Torrfoder för hundar, Våtfoder för katter"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "KYCKLING, MAJS GLUTENMJÖL, FULLKORNSMJÖL, ANIMALISKT FETT, SOJAMJÖL"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Våtfoder för vuxna hundar"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Senior Dog Delight Kyckling & Ris"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -623,6 +713,10 @@ msgstr "Redigera en produkt"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Redigera sidan"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Logga in för att lägga till eller redigera egenskaper"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2182,6 +2276,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "Produktsökning"
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "Produktsökning"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "innehåller inte"
@@ -2785,8 +2883,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "En del data och/eller bilder för den här produkten kommer från dessa källor:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "Denna produktsida är inte komplett. Du kan hjälpa till att slutföra den genom att redigera den och lägga till mer data från de bilder vi har, eller genom att ta fler bilder med appen för <a href=\"https://android.openfoodfacts.org\">Android</a> eller <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Tack så mycket!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Den här produktsidan är inte komplett. Du kan hjälpa till att komplettera den genom att redigera den och lägga till mer data från de foton vi har, eller genom att ta fler foton med hjälp av mobilappen för <a href=\"https://android.openfoodfacts.org\">Android</a> eller <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Tack!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -4447,7 +4545,7 @@ msgstr "Ogiltig streckkod"
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
 msgid "ltr"
-msgstr ""
+msgstr "ltr"
 
 msgctxt "separate_values_with_commas"
 msgid "Separate multiple values with commas."
@@ -4487,35 +4585,35 @@ msgstr "Intern kod som används av producenten för att identifiera en specifik 
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
-msgstr ""
+msgstr "Det är mycket viktigt att ange en kategori för att göra det lätt att söka efter produkten och för att beräkna Nutri-Score."
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
-msgstr ""
+msgstr "Vissa etiketter, som den organiska etiketten, används för att filtrera och/eller rangordna sökresultat, så det rekommenderas starkt att ange dem."
 
 msgctxt "origins_import_note"
 msgid "This field must contain only a comma separated list of countries of origin of the ingredients"
-msgstr ""
+msgstr "Det här fältet får endast innehålla en kommaseparerad lista över ingrediensernas ursprungsländer."
 
 msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
-msgstr ""
+msgstr "Text eller meningar som anger produktens och/eller dess ingrediensers ursprung."
 
 msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
-msgstr ""
+msgstr "Nutri-Score-betyg från A till E visas på produktetiketten"
 
 msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr ""
+msgstr "Open Food Facts beräknar Nutri-Score-betyget baserat på den information som lämnats (näringsfakta och kategori). Om betyget vi beräknar skiljer sig från det betyg du anger får du ett privat meddelande på producentplattformen så att skillnaden kan lösas."
 
 msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
-msgstr ""
+msgstr "Nutri-Score-poäng (numeriskt värde från vilket betyget A till E härleds)"
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr ""
+msgstr "Open Food Facts beräknar Nutri-Score-poängen baserat på den information som lämnats (näringsfakta och kategori). Om poängen vi beräknar skiljer sig från den poäng du anger får du ett privat meddelande på producentplattformen så att skillnaden kan åtgärdas."
 
 msgctxt "mandatory_field"
 msgid "Mandatory field"
@@ -4531,7 +4629,7 @@ msgstr "Rekommenderat fält"
 
 msgctxt "recommended_field_note"
 msgid "If this information exists and is relevant for the product, it is recommended to provide it to make the product easier to search for and the product data more useful."
-msgstr ""
+msgstr "Om denna information finns och är relevant för produkten rekommenderas att tillhandahålla den för att göra produkten enklare att söka efter och produktinformationen mer användbar."
 
 msgctxt "optional_field"
 msgid "Optional field"
@@ -4539,12 +4637,12 @@ msgstr "Valfritt fält"
 
 msgctxt "optional_field_note"
 msgid "If available, this information will be displayed on the product page."
-msgstr ""
+msgstr "Om tillgänglig kommer denna information att visas på produktsidan."
 
 # product photos here means photos of multiple products
 msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
-msgstr ""
+msgstr "Produktbilder kan också tillhandahållas separat via funktionen Importera produktbilder på plattformen för producenter."
 
 # This is linked to a unit test
 msgctxt "attribute_group_labels_name"
@@ -4553,7 +4651,7 @@ msgstr "Etiketter"
 
 msgctxt "attribute_labels_organic_name"
 msgid "Organic farming"
-msgstr ""
+msgstr "Ekologiskt jordbruk"
 
 msgctxt "attribute_labels_organic_yes_title"
 msgid "Organic product"
@@ -4565,19 +4663,19 @@ msgstr "Inte en ekologisk produkt"
 
 msgctxt "attribute_labels_organic_unknown_title"
 msgid "Missing information: organic product?"
-msgstr ""
+msgstr "Saknad information: ekologisk produkt?"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Främjar ekologisk hållbarhet och biologisk mångfald."
 
 msgctxt "attribute_labels_organic_description_short"
 msgid "Organic products promote ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Ekologiska produkter främjar ekologisk hållbarhet och biologisk mångfald."
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
-msgstr ""
+msgstr "Ekologiskt jordbruk syftar till att skydda miljön och bevara den biologiska mångfalden genom att förbjuda eller begränsa användningen av syntetiska gödningsmedel, bekämpningsmedel och livsmedelstillsatser."
 
 msgctxt "attribute_labels_fair_trade_name"
 msgid "Fair trade"
@@ -4617,11 +4715,11 @@ msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
-msgstr ""
+msgstr "God näringskvalitet (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr ""
+msgstr "Nutri-Score beräknas och kan beaktas för alla produkter, även om det inte visas på förpackningen."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
@@ -4630,11 +4728,11 @@ msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
-msgstr ""
+msgstr "Nutri-Score okänt"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
-msgstr ""
+msgstr "Saknar data för att beräkna Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
@@ -4642,7 +4740,7 @@ msgstr "Nutri-Score inte tillämpligt"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
-msgstr ""
+msgstr "Inte tillämpligt för kategorin"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
@@ -4655,25 +4753,25 @@ msgstr "Mycket bra näringskvalitet"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
-msgstr ""
+msgstr "Bra näringskvalitet"
 
 msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
-msgstr ""
+msgstr "Genomsnittlig näringskvalitet"
 
 # lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
 msgid "Lower nutritional quality"
-msgstr ""
+msgstr "Lägre näringskvalitet"
 
 # lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
 msgid "Lower nutritional quality"
-msgstr ""
+msgstr "Lägre näringskvalitet"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
-msgstr ""
+msgstr "Livsmedelsbearbetning"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
@@ -4681,7 +4779,7 @@ msgstr "Nova grupp"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
-msgstr ""
+msgstr "NOVA inte beräknad"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
@@ -4689,11 +4787,11 @@ msgstr "Livsmedelsbearbetningsnivå okänd"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr ""
+msgstr "Ingen eller liten livsmedelsbearbetning (NOVA-gruppen)"
 
 msgctxt "attribute_nova_setting_note"
 msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
-msgstr ""
+msgstr "För att avgöra en produkts bearbetningsnivå förlitar vi oss på listan över ingredienser (markörer, bearbetningsmetoder) och kategorier."
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4718,12 +4816,12 @@ msgstr ""
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
-msgstr ""
+msgstr "1 ultrabearbetningsmarkör"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nova_4_markers"
 msgid "{number} ultra-processing markers"
-msgstr ""
+msgstr "{number} ultrabearbetningsmarkörer"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4735,7 +4833,7 @@ msgstr "Inga produkter att exportera."
 
 msgctxt "query_filter"
 msgid "Query filter"
-msgstr ""
+msgstr "Frågefilter"
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
@@ -4751,19 +4849,19 @@ msgstr "Okänd användare."
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
-msgstr ""
+msgstr "Saltnivån tas med i beräkningen av Nutri-Score. Använd endast den här inställningen om du specifikt följer en saltfattig kost."
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr ""
+msgstr "Sockernivån tas med i beräkningen av Nutri-Score. Använd endast den här inställningen om du specifikt följer en sockerfattig kost."
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr ""
+msgstr "Fettnivån tas med i beräkningen av Nutri-Score. Använd endast den här inställningen om du specifikt följer en fettsnål kost."
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr ""
+msgstr "Nivån på mättat fett tas med i beräkningen av Nutri-Score. Använd endast den här inställningen om du specifikt följer en kost med lågt innehåll av mättat fett."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
@@ -4771,7 +4869,7 @@ msgstr "Allergener"
 
 msgctxt "attribute_group_allergens_warning"
 msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
-msgstr ""
+msgstr "Det finns alltid en möjlighet att information om allergener kan saknas, vara ofullständig, felaktig eller att produktens sammansättning har ändrats. Om du är allergisk, kontrollera alltid informationen på själva produktförpackningen."
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
@@ -4783,11 +4881,11 @@ msgstr "Inga eller få tillsatser"
 
 msgctxt "attribute_additives_setting_note"
 msgid "Additives are markers of food processing, and excess consumption of some of them have undesirable health impacts."
-msgstr ""
+msgstr "Tillsatser är markörer för livsmedelsbearbetning, och överdriven konsumtion av vissa av dem har oönskade hälsoeffekter."
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
-msgstr ""
+msgstr "Tillsatser ej beräknade"
 
 msgctxt "preference_not_important"
 msgid "Not important"
@@ -4807,15 +4905,15 @@ msgstr "Obligatorisk"
 
 msgctxt "packaging_alt"
 msgid "Recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Återvinningsinstruktioner och/eller förpackningsinformation"
 
 msgctxt "image_packaging"
 msgid "Recycling instructions and/or packaging information picture"
-msgstr ""
+msgstr "Återvinningsinstruktioner och/eller bild på förpackningsinformation"
 
 msgctxt "image_packaging_url"
 msgid "Link to recycling instructions and/or packaging information photo"
-msgstr ""
+msgstr "Länk till återvinningsinstruktioner och/eller foto av förpackningsinformation"
 
 # Do not translate the file name
 msgctxt "import_photos_format_packaging"
@@ -4824,39 +4922,39 @@ msgstr "3001234567890.packaging_es.jpg: återvinningsinstruktioner på spanska."
 
 msgctxt "packaging_text"
 msgid "Recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Återvinningsinstruktioner och/eller förpackningsinformation"
 
 msgctxt "packaging_text_example"
 msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
-msgstr ""
+msgstr "1 plastfilm att kassera, 1 FSC-kartong att återvinna, 6 genomskinliga PET-plastflaskor à 1,5 liter att återvinna, 6 färgade ogenomskinliga plastkorkar, 12 33 cl aluminiumburkar"
 
 msgctxt "packaging_text_note"
 msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
-msgstr ""
+msgstr "Lista alla förpackningsdelar separerade med kommatecken eller radmatning, med deras mängd (t.ex. 1 eller 6), typ (t.ex. flaska, låda, burk), material (t.ex. plast, metall, aluminium) och om tillgängligt deras storlek (t.ex. 33 cl) samt återvinningsinstruktioner."
 
 msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
-msgstr ""
+msgstr "Försök att vara så specifik som möjligt. För plast, vänligen ange om den är ogenomskinlig eller transparent, färgad, PET eller PEHD."
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr ""
+msgstr "Data från detta fält kommer att kombineras med data som anges för varje förpackningsdel. Det är möjligt att ange den ena eller den andra, eller båda."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
-msgstr ""
+msgstr "Hämta återvinningsinstruktionerna och/eller förpackningsinformationen från bilden"
 
 msgctxt "product_js_extracted_packaging_nok"
 msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr ""
+msgstr "Återvinningsinstruktioner och/eller förpackningsinformation kunde inte extraheras. Försök med en skarpare bild, med högre upplösning eller en bättre inramning av texten."
 
 msgctxt "product_js_extracted_packaging_ok"
 msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr ""
+msgstr "Återvinningsinstruktioner och/eller förpackningsinformation har extraherats. Textigenkänningen är inte perfekt, så kontrollera texten nedan och korrigera fel vid behov."
 
 msgctxt "product_js_extracting_packaging"
 msgid "Extracting recycling instructions and/or packaging information"
-msgstr ""
+msgstr "Utdrag av återvinningsinstruktioner och/eller förpackningsinformation"
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
@@ -4864,33 +4962,33 @@ msgstr "Miljö"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "Grön poäng"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "Låg miljöpåverkan (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score är ett miljöbetyg från A+ till F som gör det enkelt att jämföra livsmedelsprodukters miljöpåverkan."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "Grön poäng"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "Låg miljöpåverkan (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score är ett miljöbetyg från A+ till F som gör det enkelt att jämföra livsmedelsprodukters miljöpåverkan."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr ""
+msgstr "Grön-poäng %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -4950,11 +5048,11 @@ msgstr "ägare"
 
 msgctxt "org_profile_description"
 msgid "You can provide information about your company that will be displayed in your organization profile."
-msgstr ""
+msgstr "Du kan ange information om ditt företag som visas i din organisationsprofil."
 
 msgctxt "org_profile_description_2"
 msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
-msgstr ""
+msgstr "En del av informationen, som kontaktuppgifter till kundtjänst, kan också visas direkt på sidor för dina produkter."
 
 msgctxt "org_name"
 msgid "Name"
@@ -4970,7 +5068,7 @@ msgstr "Kundservice"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
-msgstr ""
+msgstr "Kundtjänstinformation är offentlig och kan visas på Open Food Facts webbplats och appar."
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
@@ -4982,7 +5080,7 @@ msgstr "Kommersiell tjänst"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
-msgstr ""
+msgstr "Information om kommersiella tjänster visas endast i organisationsprofilen."
 
 msgctxt "contact_name"
 msgid "Name"
@@ -5076,30 +5174,30 @@ msgstr "Miljöpåverkan"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr ""
+msgstr "Green-Score-poäng"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr ""
+msgstr "Green-Score-betyg"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr ""
+msgstr "Detaljer om beräkningen av Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr ""
+msgstr "Information om Green Score"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
-msgstr ""
+msgstr "Nuvarande valda inställningar"
 
 msgctxt "preferences_locally_saved"
 msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "Dina preferenser sparas i din webbläsare och skickas aldrig till Open Food Facts eller någon annan."
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
@@ -5116,11 +5214,11 @@ msgstr "okänd mängd"
 
 msgctxt "missing_ingredients_list"
 msgid "Missing ingredients list"
-msgstr ""
+msgstr "Saknar ingredienslista"
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "Saknade näringsfakta"
 
 msgctxt "missing_nutrition_facts_prepared"
 msgid "Missing nutrition facts for prepared product"
@@ -5128,19 +5226,19 @@ msgstr "Saknar näringsinformation för färdig produkt"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "Grön poäng"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "Grön poäng"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "Grön poäng"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "Grön poäng"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5170,7 +5268,7 @@ msgstr "Form"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
-msgstr ""
+msgstr "Innehållande kvantitet"
 
 msgctxt "packaging_material"
 msgid "Material"
@@ -5182,11 +5280,11 @@ msgstr "Återvinning"
 
 msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
 msgid "Products on this page are sorted according to your preferences:"
-msgstr ""
+msgstr "Produkterna på den här sidan är sorterade efter dina preferenser:"
 
 msgctxt "choose_which_information_you_prefer_to_see_first"
 msgid "Choose which information you prefer to see first."
-msgstr ""
+msgstr "Välj vilken information du föredrar att se först."
 
 msgctxt "see_your_preferences"
 msgid "See your preferences"
@@ -5214,15 +5312,15 @@ msgstr "Produkter som inte matchar dina preferenser"
 
 msgctxt "products_match_unknown"
 msgid "Products for which we currently miss data to determine if they match your preferences"
-msgstr ""
+msgstr "Produkter som vi för närvarande saknar data för att avgöra om de matchar dina preferenser"
 
 msgctxt "forest_footprint"
 msgid "Forest footprint"
-msgstr ""
+msgstr "Skogens fotavtryck"
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
-msgstr ""
+msgstr "Ingredienser som kräver soja"
 
 msgctxt "type"
 msgid "Type"
@@ -5230,15 +5328,15 @@ msgstr "Typ"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
-msgstr ""
+msgstr "Bearbetningsfaktor"
 
 msgctxt "soy_feed_factor"
 msgid "Soy feed factor"
-msgstr ""
+msgstr "Sojafoderfaktor"
 
 msgctxt "soy_yield"
 msgid "Soy yield"
-msgstr ""
+msgstr "Sojaavkastning"
 
 msgctxt "deforestation_risk"
 msgid "Deforestation risk"
@@ -5250,19 +5348,19 @@ msgstr "Totalt skogsavtryck"
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
-msgstr ""
+msgstr "m² per kg mat"
 
 msgctxt "percent_of_food_after_processing"
 msgid "% of food after processing"
-msgstr ""
+msgstr "% av maten efter bearbetning"
 
 msgctxt "kg_of_soy_per_kg_of_food"
 msgid "kg of soy per kg of food"
-msgstr ""
+msgstr "kg soja per kg mat"
 
 msgctxt "kg_of_soy_per_square_meter"
 msgid "kg of soy per m²"
-msgstr ""
+msgstr "kg soja per m²"
 
 msgctxt "percent_in_product"
 msgid "% in product"
@@ -5270,7 +5368,7 @@ msgstr "% i produkt"
 
 msgctxt "forest_footprint_calculation_details"
 msgid "Details of the calculation of the forest footprint"
-msgstr ""
+msgstr "Detaljer om beräkningen av skogens fotavtryck"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
@@ -5278,15 +5376,15 @@ msgstr "Du är på den offentliga databasen."
 
 msgctxt "manage_your_products_on_the_producers_platform"
 msgid "Manage your products on the platform for producers"
-msgstr ""
+msgstr "Hantera dina produkter på plattformen för producenter"
 
 msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
-msgstr ""
+msgstr "Antal produkter med ändringar sedan senaste export"
 
 msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
 msgid "Number of products withdrawn from the market since last export"
-msgstr ""
+msgstr "Antal produkter som dragits tillbaka från marknaden sedan senaste export"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
@@ -5294,36 +5392,36 @@ msgstr "Exportera endast produkter med ändringar"
 
 msgctxt "product_edits_by_producers"
 msgid "Is this your product? If it is, please use our free platform for producers to update it."
-msgstr ""
+msgstr "Är detta er produkt? Om så är fallet, använd vår kostnadsfria plattform för producenter för att uppdatera den."
 
 msgctxt "product_edits_by_producers_platform"
 msgid "We encourage manufacturers to add or change data and photos for their products through our free platform for producers so that they can be marked as official and protected from changes by others."
-msgstr ""
+msgstr "Vi uppmuntrar tillverkare att lägga till eller ändra data och foton för sina produkter via vår kostnadsfria plattform för producenter så att de kan markeras som officiella och skyddas från ändringar av andra."
 
 msgctxt "product_edits_by_producers_import"
 msgid "The platform makes it easy to import product data and photos with an Excel or CSV file in any format."
-msgstr ""
+msgstr "Plattformen gör det enkelt att importera produktdata och foton med en Excel- eller CSV-fil i valfritt format."
 
 msgctxt "product_edits_by_producers_analysis"
 msgid "The platform also provides in-depth analysis of the products."
-msgstr ""
+msgstr "Plattformen erbjuder även djupgående analyser av produkterna."
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgstr "Den beräknar indikatorer som Nutri-Score, NOVA och Green-Score, och identifierar automatiskt förslag för att förbättra dem (till exempel alla produkter som skulle få ett bättre Nutri-Score-betyg med en liten förändring av sammansättningen)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
-msgstr ""
+msgstr "Skogens fotavtryck"
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest footprint)"
-msgstr ""
+msgstr "Låg risk för avskogning (skogens fotavtryck)"
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr ""
+msgstr "Skogens fotavtryck motsvarar risken för avskogning i samband med dess ingredienser."
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Very small forest footprint"
@@ -5347,7 +5445,7 @@ msgstr "Mycket stort skogsavtryck"
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest footprint not computed"
-msgstr ""
+msgstr "Skogsavtryck inte beräknat"
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "Almost no risk of deforestation"
@@ -5375,12 +5473,12 @@ msgstr "För närvarande endast för produkter med kyckling eller ägg"
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
-msgstr ""
+msgstr "Klassificera produkter efter dina preferenser"
 
 # %d will be replaced by the number of products
 msgctxt "classify_the_d_products_below_according_to_your_preferences"
 msgid "Classify the %d products below according to your preferences"
-msgstr ""
+msgstr "Klassificera %d produkterna nedan enligt dina preferenser"
 
 msgctxt "sort_by_popularity"
 msgid "Most scanned products"
@@ -5409,7 +5507,7 @@ msgstr "%d produkter per sida"
 
 msgctxt "not_applicable"
 msgid "Not applicable"
-msgstr ""
+msgstr "Ej tillämpligt"
 
 msgctxt "abbreviated_product_name"
 msgid "Abbreviated product name"
@@ -5417,7 +5515,7 @@ msgstr "Förkortat produktnamn"
 
 msgctxt "abbreviated_product_name_note"
 msgid "Product name with abbreviations shown on receipts"
-msgstr ""
+msgstr "Produktnamn med förkortningar som visas på kvitton"
 
 msgctxt "footer_vision"
 msgid "Vision, Mission, Values and Programs"
@@ -5434,32 +5532,32 @@ msgstr "Glömt lösenordet?"
 
 msgctxt "reset_password_error"
 msgid "We could not reinitialize your password, please contact us for assistance."
-msgstr ""
+msgstr "Vi kunde inte ominitialisera ditt lösenord, vänligen kontakta oss för hjälp."
 
 msgctxt "remove_all_nutrient_values"
 msgid "Remove all nutrient values"
-msgstr ""
+msgstr "Ta bort alla näringsvärden"
 
 msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
-msgstr ""
+msgstr "Användaren raderas. Det kan ta några minuter."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr ""
+msgstr "Green-Score inte tillämpligt"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
-msgstr ""
+msgstr "Inte tillämpligt för kategorin"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr ""
+msgstr "Inte tillämpligt ännu för kategorin: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr ""
+msgstr "Green-Score är ännu inte tillämpligt för den här kategorin, men vi arbetar med att lägga till stöd för det."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
@@ -5479,39 +5577,39 @@ msgstr "Vi kunde inte beräkna Green-Score av denna produkt eftersom det saknas 
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
-msgstr ""
+msgstr "GS1-data associeras automatiskt med en OFF-organisationsidentifierare som motsvarar fältet GS1 partyName. För att ändra OFF-organisationsidentifieraren kan du direkt tilldela en eller flera GS1 GLN-identifierare."
 
 msgctxt "org_list_of_gs1_gln"
 msgid "List of GS1 GLN identifiers to be associated with the organization"
-msgstr ""
+msgstr "Lista över GS1 GLN-identifierare som ska associeras med organisationen"
 
 msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
-msgstr ""
+msgstr "En kommaseparerad lista med GS1 GLN-identifierare för att tvinga fram associationen med denna organisation."
 
 msgctxt "org_valid_org"
 msgid "Validate organization as a real producer."
-msgstr ""
+msgstr "Validera organisationen som en riktig producent."
 
 msgctxt "org_valid_org_note"
 msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
-msgstr ""
+msgstr "Organisationen verifieras som en riktig producent av en människa och skapar även en post i CRM."
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
-msgstr ""
+msgstr "Gör det möjligt för organisationsmedlemmar att manuellt exportera produktdata och foton till den offentliga databasen."
 
 msgctxt "org_enable_manual_export_to_public_platform_note"
 msgid "Manual exports can be enabled once the imported data has been reviewed by an administrator."
-msgstr ""
+msgstr "Manuella exporter kan aktiveras när den importerade informationen har granskats av en administratör."
 
 msgctxt "org_activate_automated_daily_export_to_public_platform"
 msgid "Activate automated daily exports of product data and photos to the public database."
-msgstr ""
+msgstr "Aktivera automatiserade dagliga exporter av produktdata och foton till den offentliga databasen."
 
 msgctxt "org_activate_automated_daily_export_to_public_platform_note"
 msgid "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
-msgstr ""
+msgstr "Automatiserad export bör endast aktiveras för organisationer som har automatiserad import (t.ex. via Equadis)."
 
 msgctxt "org_admin"
 msgid "Administrator fields"
@@ -5536,7 +5634,7 @@ msgstr "Misslyckad"
 # Export: use a noun and not a verb
 msgctxt "export_job_export"
 msgid "Export from the producers platform"
-msgstr ""
+msgstr "Export från producentplattformen"
 
 # Import: use a noun and not a verb
 msgctxt "export_job_import"
@@ -5546,28 +5644,28 @@ msgstr "Importera till den offentliga databasen"
 # Update: use a noun and not a verb
 msgctxt "export_job_status_update"
 msgid "Update of the import status on the producers platform"
-msgstr ""
+msgstr "Uppdatering av importstatus på producentplattformen"
 
 msgctxt "export_in_progress"
 msgid "The export has been scheduled. This page can be closed."
-msgstr ""
+msgstr "Exporten har schemalagts. Den här sidan kan stängas."
 
 msgctxt "export_products_to_public_database_request_email"
 msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
-msgstr ""
+msgstr "Din export har schemalagts. Du får ett e-postmeddelande när den är klar."
 
 msgctxt "product_page_on_the_public_database"
 msgid "Product page on the public database"
-msgstr ""
+msgstr "Produktsida i den offentliga databasen"
 
 msgctxt "product_does_not_exist_on_the_public_database"
 msgid "The product does not exist yet on the public database"
-msgstr ""
+msgstr "Produkten finns ännu inte i den offentliga databasen"
 
 # product updates = updates to multiple products
 msgctxt "some_product_updates_have_not_been_published_on_the_public_database"
 msgid "Some product updates have not been published on the public database."
-msgstr ""
+msgstr "Vissa produktuppdateringar har inte publicerats i den offentliga databasen."
 
 msgctxt "org_do_not_import_codeonline"
 msgid "Do not import CodeOnline data."
@@ -5575,20 +5673,20 @@ msgstr "Importera inte CodeOnline-data."
 
 msgctxt "overwrite_owner"
 msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
-msgstr ""
+msgstr "Skriv över produkter som har en annan ägare på den offentliga plattformen. Annars hoppas produkter med en annan ägare över."
 
 msgctxt "data_source_database"
 msgid "Some of the data for the products of %s come from %s."
-msgstr ""
+msgstr "En del av informationen för produkterna från %s kommer från %s."
 
 msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
-msgstr ""
+msgstr "Tillverkare kan använda Open Food Facts <a href=\"<producers_platform_url>\">kostnadsfri plattform för producenter</a> för att få tillgång till och komplettera dessa data, och för att få rapporter, analyser och möjligheter till produktförbättringar (t.ex. bättre Nutri-Score)."
 
 # variable names between { } must not be translated
 msgctxt "f_data_source_database_provider"
 msgid "The manufacturer {manufacturer} uses {provider} to automatically transmit data and photos for its products."
-msgstr ""
+msgstr "Tillverkaren {manufacturer} använder {provider} för att automatiskt överföra data och foton för sina produkter."
 
 msgctxt "image_other_type"
 msgid "Type of the product photo"
@@ -5597,35 +5695,35 @@ msgstr "Typ av produktfoto"
 # do not translate "front, ingredients, nutrition, packaging"
 msgctxt "image_other_type_description"
 msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
-msgstr ""
+msgstr "Om du använder samma kolumn på flera rader för att ange bild-URL:er för en enda produkt kan du använda det här fältet för att ange bildtyp: framsida, ingredienser, näringsvärde eller förpackning."
 
 msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr ""
+msgstr "Skogsavtrycket beräknas genom att ta hänsyn till de ingredienser vars produktion kräver sojabönor, vars odling är kopplad till avskogning."
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr ""
+msgstr "Green-Score kan endast beräknas om produkten har en tillräckligt specificerad kategori."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
-msgstr ""
+msgstr "Du kan ändra produktsidan för att lägga till en mer specifik kategori."
 
 msgctxt "environmental_score_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "Om du är tillverkaren av den här produkten kan du skicka informationen till oss via vår <a href=\"https://world.pro.openfoodfacts.org\">kostnadsfria plattform för producenter</a>."
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr ""
+msgstr "Varning: viss information som är nödvändig för att beräkna Green-Score med precision saknas (se detaljerna i beräkningen nedan)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
-msgstr ""
+msgstr "Du kan redigera produkten för att lägga till den information som saknas."
 
 msgctxt "environmental_score_product_category_reference_score"
 msgid "Baseline score of the product category"
-msgstr ""
+msgstr "Baslinjepoäng för produktkategorin"
 
 msgctxt "environmental_score_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
@@ -5634,36 +5732,36 @@ msgstr "Livscykel Analys (LCA)"
 # do not translate Agribalyse
 msgctxt "environmental_score_agribalyse_category"
 msgid "Agribalyse category"
-msgstr ""
+msgstr "Agribalyse-kategorin"
 
 msgctxt "environmental_score_category_proxy_match"
 msgid "Approximate match with the product category"
-msgstr ""
+msgstr "Ungefärlig matchning med produktkategorin"
 
 msgctxt "environmental_score_category_exact_match"
 msgid "Exact match with the product category"
-msgstr ""
+msgstr "Exakt matchning med produktkategorin"
 
 msgctxt "environmental_score_pef_environmental_score"
 msgid "PEF environmental score"
-msgstr ""
+msgstr "PEF-miljöpoäng"
 
 msgctxt "environmental_score_incl_climate_change_impact"
 msgid "including impact on climate change"
-msgstr ""
+msgstr "inklusive påverkan på klimatförändringar"
 
 msgctxt "environmental_score_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
-msgstr ""
+msgstr "Detaljer om effekterna per livscykelstadium"
 
 # stage meaning step
 msgctxt "environmental_score_stage"
 msgid "Stage"
-msgstr ""
+msgstr "Etapp"
 
 msgctxt "environmental_score_impact"
 msgid "Impact"
-msgstr ""
+msgstr "Inverkan"
 
 msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
@@ -5683,7 +5781,7 @@ msgstr "Transport"
 
 msgctxt "environmental_score_distribution"
 msgid "Distribution"
-msgstr ""
+msgstr "Distribution"
 
 msgctxt "environmental_score_consumption"
 msgid "Consumption"
@@ -5691,19 +5789,19 @@ msgstr "Konsumtion"
 
 msgctxt "environmental_score_lca_score_out_of_100"
 msgid "LCA score out of 100"
-msgstr ""
+msgstr "LCA-poäng av 100"
 
 msgctxt "environmental_score_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
-msgstr ""
+msgstr "Ingen matchning mellan produktkategorier och Agribalyse-kategorier."
 
 msgctxt "environmental_score_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
-msgstr ""
+msgstr "Du kan ändra produktsidan för att lägga till en mer detaljerad kategori."
 
 msgctxt "environmental_score_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
-msgstr ""
+msgstr "Ytterligare bonusar och missbruk"
 
 msgctxt "environmental_score_production_system"
 msgid "Production mode"
@@ -5711,23 +5809,23 @@ msgstr "Produktionsläge"
 
 msgctxt "environmental_score_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
-msgstr ""
+msgstr "Inga etiketter har beaktats för produktionssystemet."
 
 msgctxt "environmental_score_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
-msgstr ""
+msgstr "Om den här produkten har en märkning som beskriver produktionssystemet (ekologisk, rättvis handel, Label Rouge, Bleu Blanc Coeur etc.) kan du ändra produktbladet för att lägga till den."
 
 msgctxt "environmental_score_origins_of_ingredients"
 msgid "Origins of ingredients"
-msgstr ""
+msgstr "Ingrediensernas ursprung"
 
 msgctxt "environmental_score_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
-msgstr ""
+msgstr "Ursprunget för ingredienserna i denna produkt anges inte."
 
 msgctxt "environmental_score_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
-msgstr ""
+msgstr "Om de anges på förpackningen kan du ändra produktbladet och lägga till dem."
 
 msgctxt "environmental_score_environmental_policy"
 msgid "Environmental policy"
@@ -5739,19 +5837,19 @@ msgstr "Hotade arter"
 
 msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
-msgstr ""
+msgstr "Ingredienser som hotar arter"
 
 msgctxt "environmental_score_no_species_threatening_ingredients"
 msgid "No ingredients that threaten species"
-msgstr ""
+msgstr "Inga ingredienser som hotar arter"
 
 msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
-msgstr ""
+msgstr "Information om ingredienserna i denna produkt har inte lämnats."
 
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
-msgstr ""
+msgstr "förhållande"
 
 msgctxt "environmental_score_packaging_score"
 msgid "score"
@@ -5759,85 +5857,85 @@ msgstr "poäng"
 
 msgctxt "environmental_score_score_of_all_components"
 msgid "Score of all components"
-msgstr ""
+msgstr "Poäng för alla komponenter"
 
 msgctxt "environmental_score_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
-msgstr ""
+msgstr "Informationen om förpackningen för denna produkt är inte ifylld."
 
 msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
-msgstr ""
+msgstr "Informationen om förpackningen av denna produkt är inte tillräckligt exakt (exakta former och material för alla komponenter i förpackningen)."
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr ""
+msgstr "För en mer exakt beräkning av Green-Score kan du ändra produktsidan och lägga till dem."
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr ""
+msgstr "För en mer exakt beräkning av Green-Score kan du redigera produktsidan och lägga till dem."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
-msgstr ""
+msgstr "Slutresultat"
 
 msgctxt "environmental_score_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
-msgstr ""
+msgstr "(ju lägre poäng, desto lägre påverkan)"
 
 msgctxt "environmental_score_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
-msgstr ""
+msgstr "kg CO2-ekvivalenter/kg produkt"
 
 # do not translate the link
 msgctxt "environmental_score_platform_prompt_environmental_score_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "Om du är tillverkaren av den här produkten kan du skicka informationen till oss via vår <a href=\"https://world.pro.openfoodfacts.org\">kostnadsfria plattform för producenter</a>."
 
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr ""
+msgstr "<a href=\"/green-score\">Green-Score</a> är en experimentell poäng som sammanfattar livsmedelsprodukters miljöpåverkan."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr ""
+msgstr "Green-Score-formeln kan komma att ändras eftersom den regelbundet förbättras för att bli mer exakt."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Green-Score utvecklades ursprungligen för Frankrike och utvidgas nu till andra europeiska länder. Green-Score-formeln kan komma att ändras då den regelbundet förbättras för att göra den mer exakt och bättre lämpad för varje land."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr ""
+msgstr "Välj ett land för att inkludera transporternas fulla påverkan."
 
 msgctxt "environmental_score_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
-msgstr ""
+msgstr "Den fulla effekten av transporterna till ditt land är för närvarande okänd."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr ""
+msgstr "Skanna streckkoder för att få Nutri-Score, Green-Score och mer!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
-msgstr ""
+msgstr "GS1-produktnamnen för denna tillverkare är förkortade."
 
 msgctxt "org_gs1_nutrients_are_unprepared"
 msgid "GS1 prepared nutrients for this manufacturer are in fact for the product as sold."
-msgstr ""
+msgstr "GS1-beredda näringsämnen för denna tillverkare gäller i själva verket för produkten som den såldes."
 
 msgctxt "org_gs1_nutrients_are_unprepared_note"
 msgid "Check that the manufacturer does not make products that really have nutrients for the prepared product."
-msgstr ""
+msgstr "Kontrollera att tillverkaren inte tillverkar produkter som verkligen har näringsämnen jämfört med den färdiga produkten."
 
 msgctxt "org_gs1_product_name_is_abbreviated_description"
 msgid "Some manufacturers have incorrect values for some fields in GS1. The features below can be used to fix some of them."
-msgstr ""
+msgstr "Vissa tillverkare har felaktiga värden för vissa fält i GS1. Funktionerna nedan kan användas för att åtgärda några av dem."
 
 # do not remove %s, it will be replaced with the source name
 msgctxt "import_source_string"
@@ -5846,56 +5944,56 @@ msgstr "Importera data från %s"
 
 msgctxt "org_protect_data"
 msgid "Protect the data that is provided by the organization."
-msgstr ""
+msgstr "Skydda de uppgifter som tillhandahålls av organisationen."
 
 msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
-msgstr ""
+msgstr "Det är endast möjligt att ta bort eller ändra angivna uppgifter av erfarna bidragsgivare på webbplatsen."
 
 msgctxt "environmental_score_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr ""
+msgstr "Förpackningar med hög påverkan"
 
 msgctxt "environmental_score_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "Förpackningar med medelhög påverkan"
 
 msgctxt "environmental_score_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "Förpackningar med låg miljöpåverkan"
 
 msgctxt "environmental_score_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr ""
+msgstr "Förpackningsinformation saknas för denna produkt"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr ""
+msgstr "Ursprunget för ingredienser med hög påverkan"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "Ursprunget för ingredienser med medelhög påverkan"
 
 msgctxt "environmental_score_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "Ursprunget för ingredienser med låg miljöpåverkan"
 
 msgctxt "environmental_score_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
-msgstr ""
+msgstr "Saknar information om ingrediensernas ursprung"
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
-msgstr ""
+msgstr "% av ingredienserna"
 
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
-msgstr ""
+msgstr "medium"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
-msgstr ""
+msgstr "Obs: Näringsvärdet för teer och örtteer motsvarar produkten tillagad med endast vatten, utan socker eller mjölk."
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
@@ -5903,60 +6001,60 @@ msgstr "%s g / 100 g"
 
 msgctxt "donation_title"
 msgid "Important: we need your support!"
-msgstr ""
+msgstr "Viktigt: vi behöver ditt stöd!"
 
 msgctxt "donation_text_2023_main"
 msgid "Help us make food transparency the norm!"
-msgstr ""
+msgstr "Hjälp oss att göra livsmedelstransparens till normen!"
 
 msgctxt "donation_text_2023_secondary"
 msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
-msgstr ""
+msgstr "Som en ideell organisation är vi beroende av era donationer för att fortsätta informera konsumenter runt om i världen om vad de äter."
 
 msgctxt "donation_text_2023_tertiary"
 msgid "The food revolution starts with you!"
-msgstr ""
+msgstr "Matrevolutionen börjar med dig!"
 
 msgctxt "donation_hook_2024"
 msgid "Help us inform millions of consumers around the world about what they eat"
-msgstr ""
+msgstr "Hjälp oss att informera miljontals konsumenter runt om i världen om vad de äter"
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
-msgstr ""
+msgstr "Vänligen ge till vår insamling 2024"
 
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr ""
+msgstr "Vänligen ge till vår {year} insamling"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
-msgstr ""
+msgstr "Dina donationer finansierar den dagliga verksamheten i vår ideella förening:"
 
 msgctxt "donation_list_2024_first"
 msgid "keeping our database open & available to all,"
-msgstr ""
+msgstr "hålla vår databas öppen och tillgänglig för alla,"
 
 msgctxt "donation_list_2024_first_sub"
 msgid "technical infrastructure (website/mobile app) & a small permanent team"
-msgstr ""
+msgstr "teknisk infrastruktur (webbplats/mobilapp) och ett litet permanent team"
 
 msgctxt "donation_list_2024_second"
 msgid "remain independent of the food industry,"
-msgstr ""
+msgstr "förbli oberoende av livsmedelsindustrin,"
 
 msgctxt "donation_list_2024_third"
 msgid "engage a community of committed citizens,"
-msgstr ""
+msgstr "engagera en gemenskap av engagerade medborgare,"
 
 msgctxt "donation_list_2024_fourth"
 msgid "support the advancement of public health research."
-msgstr ""
+msgstr "stödja utvecklingen av folkhälsoforskning."
 
 msgctxt "donation_financial_2024_text"
 msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
-msgstr ""
+msgstr "Varje donation räknas! Vi uppskattar ditt stöd för att skapa ytterligare transparens kring livsmedelsförsörjning i världen."
 
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
@@ -5968,19 +6066,19 @@ msgstr "Donera"
 
 msgctxt "environmental_score_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
-msgstr ""
+msgstr "Inga märkning med miljöfördelar"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
-msgstr ""
+msgstr "Etiketter med miljöfördelar"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
-msgstr ""
+msgstr "Etiketter med höga miljöfördelar"
 
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
-msgstr ""
+msgstr "Etiketter med mycket höga miljöfördelar"
 
 msgctxt "no_assessed_labels"
 msgid "No assessed labels"
@@ -6009,11 +6107,11 @@ msgstr "Medelvärde"
 
 msgctxt "recipes_ingredients_statistics"
 msgid "Ingredients statistics for all products"
-msgstr ""
+msgstr "Ingrediensstatistik för alla produkter"
 
 msgctxt "recipes_ingredients_for_each_product"
 msgid "Ingredients for each product"
-msgstr ""
+msgstr "Ingredienser för varje produkt"
 
 msgctxt "product_deleted"
 msgid "Product deleted."
@@ -6026,33 +6124,33 @@ msgstr "Koldioxidavtryck"
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
 msgid "{grams} g CO₂e per 100g of product"
-msgstr ""
+msgstr "{grams} g CO₂e per 100 g produkt"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_unit"
 msgid "{kilograms} kg CO₂e per unit"
-msgstr ""
+msgstr "{kilograms} kg CO₂e per enhet"
 
 msgctxt "average_for_the_category"
 msgid "average for the category"
-msgstr ""
+msgstr "genomsnittet för kategorin"
 
 msgctxt "data_source_and_detailed_carbon_impact"
 msgid "Data source and detailed carbon impact"
-msgstr ""
+msgstr "Datakälla och detaljerad koldioxidpåverkan"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
 msgid "Equal to driving {kilometers} km in a petrol car"
-msgstr ""
+msgstr "Lika med att köra {kilometers} km i en bensinbil"
 
 msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
-msgstr ""
+msgstr "Källa: ADEME Agribalyse-databasen"
 
 msgctxt "source_ademe_agribalyse_for_category"
 msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
-msgstr ""
+msgstr "Koldioxidutsläppssiffran kommer från ADEME:s Agribalyse-databas för kategorin:"
 
 msgctxt "environment_card_title"
 msgid "Environment"
@@ -6068,11 +6166,11 @@ msgstr "Innehåller palmolja"
 
 msgctxt "contains_palm_oil_subtitle"
 msgid "Drives deforestation and threatens species such as the orangutan"
-msgstr ""
+msgstr "Drivs avskogning och hotar arter som orangutangen"
 
 msgctxt "contains_palm_oil_description"
 msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
-msgstr ""
+msgstr "Tropiska skogar i Asien, Afrika och Latinamerika skövlas för att skapa och utöka oljepalmplantager. Avskogningen bidrar till klimatförändringarna och hotar arter som orangutangen, dvärgelefanten och sumatranoshörningen."
 
 msgctxt "bonus"
 msgid "Bonus"
@@ -6080,59 +6178,59 @@ msgstr "Bonus"
 
 msgctxt "malus"
 msgid "Malus"
-msgstr ""
+msgstr "Malus"
 
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
-msgstr ""
+msgstr "Livscykelanalys"
 
 msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr ""
+msgstr "Bonusar och missbruk"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr ""
+msgstr "Green-Score för denna produkt"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
-msgstr ""
+msgstr "Genomsnittlig effekt av produkter i samma kategori"
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr ""
+msgstr "Summa av bonusar och misslyckanden"
 
 msgctxt "environmental_score_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr ""
+msgstr "Summan av bonusar och misslyckanden är begränsad till +25."
 
 msgctxt "environmental_score_lca_score"
 msgid "Life cycle analysis score"
-msgstr ""
+msgstr "Livscykelanalyspoäng"
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
-msgstr ""
+msgstr "Påverkan för denna produkt"
 
 msgctxt "environmental_score_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
-msgstr ""
+msgstr "Poängen för produkter med icke-återvinningsbara och icke-biologiskt nedbrytbara förpackningsmaterial är begränsad till 79 (betyg B)."
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
-msgstr ""
+msgstr "Nutri-Score är inte tillämpligt för denna produktkategori."
 
 msgctxt "nutriscore_missing_category"
 msgid "The category of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "Produktens kategori måste anges för att beräkna Nutri-Score."
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "Produktens näringsinnehåll måste anges för att beräkna Nutri-Score."
 
 msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
-msgstr ""
+msgstr "Saknade näringsfakta:"
 
 msgctxt "nutriscore_missing_prepared_nutrition_data_details"
 msgid "Missing nutrition facts for prepared product:"
@@ -6140,7 +6238,7 @@ msgstr "Saknar näringsinformation för färdig produkt:"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "Produktens kategori och näringsinformation måste anges för att beräkna Nutri-Score."
 
 msgctxt "health"
 msgid "Health"
@@ -6168,7 +6266,7 @@ msgstr "Upptäckta fel"
 
 msgctxt "data_quality_errors_panel_subtitle"
 msgid "Help us improve quality of our data by contributing fixes"
-msgstr ""
+msgstr "Hjälp oss att förbättra kvaliteten på våra data genom att bidra med korrigeringar"
 
 msgctxt "data_quality_warnings_panel_title"
 msgid "Potential issues"
@@ -6176,15 +6274,15 @@ msgstr "Potentiella problem"
 
 msgctxt "data_quality_warnings_panel_subtitle"
 msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
-msgstr ""
+msgstr "Vi har upptäckt några potentiella problem eller potentiella förbättringar, kan du kontrollera om några gäller?"
 
 msgctxt "data_quality_info_panel_title"
 msgid "Data Quality infos"
-msgstr ""
+msgstr "Information om datakvalitet"
 
 msgctxt "data_quality_info_panel_subtitle"
 msgid "Some infos about data quality on this product"
-msgstr ""
+msgstr "Lite information om datakvaliteten på den här produkten"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
@@ -6194,12 +6292,12 @@ msgstr "Jämfört med"
 # name of an activity / a sport
 msgctxt "activity_walking"
 msgid "Walking"
-msgstr ""
+msgstr "Gående"
 
 # name of an activity / a sport
 msgctxt "activity_swimming"
 msgid "Swimming"
-msgstr ""
+msgstr "Simning"
 
 # name of an activity / a sport
 msgctxt "activity_bicycling"
@@ -6209,7 +6307,7 @@ msgstr "Cykling"
 # name of an activity / a sport
 msgctxt "activity_running"
 msgid "Running"
-msgstr ""
+msgstr "Spring"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_energy_per_100g"
@@ -6219,12 +6317,12 @@ msgstr "{kj} kJ per 100g"
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_equal_to_walking_minutes_or_steps"
 msgid "Equal to walking {minutes} minutes or {steps} steps"
-msgstr ""
+msgstr "Lika med att gå {minutes} minuter eller {steps} steg"
 
 # Don't translate {kg} and {lb}, it will be replaced by a number
 msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
-msgstr ""
+msgstr "Energiförbrukning för en person som väger {kg} kg / {lb} lb"
 
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
@@ -6232,7 +6330,7 @@ msgstr "Kategori saknas"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "Saknade näringsfakta"
 
 msgctxt "nutriscore_missing_prepared_nutrition_data_short"
 msgid "Missing prepared nutrition facts"
@@ -6240,11 +6338,11 @@ msgstr "Saknar näringsfakta för färdigberedda produkter"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
-msgstr ""
+msgstr "Saknad kategori och näringsfakta"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
-msgstr ""
+msgstr "Minska eller sluta dricka alkohol"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
 msgid "Less is better"
@@ -6252,7 +6350,7 @@ msgstr "Mindre är bättre"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
 msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
-msgstr ""
+msgstr "Det här kanske inte är svaret folk vill höra, men det finns ingen säker nivå för att dricka alkohol. Naturligtvis finns det lägre risk för alkoholkonsumtion, men WHO sätter inga särskilda gränser, eftersom bevisen visar att den ideala situationen för hälsan är att inte dricka alls. Alkohol är nära relaterat till cirka 60 olika diagnoser och för nästan alla finns det ett nära dos-respons-samband, så ju mer du dricker, desto högre är risken för sjukdom. Mindre är bättre."
 
 # "source" as in "source of the information"
 msgctxt "source"
@@ -6262,47 +6360,47 @@ msgstr "Källa"
 # variable names between { } must not be translated
 msgctxt "f_app_user"
 msgid "A user of the {app_name} app"
-msgstr ""
+msgstr "En användare av appen {app_name}"
 
 msgctxt "food_groups_p"
 msgid "food groups"
-msgstr ""
+msgstr "livsmedelsgrupper"
 
 msgctxt "food_groups_s"
 msgid "food group"
-msgstr ""
+msgstr "livsmedelsgrupp"
 
 msgctxt "non_vegan_ingredients"
 msgid "Non-vegan ingredients"
-msgstr ""
+msgstr "Icke-veganska ingredienser"
 
 msgctxt "vegan_ingredients"
 msgid "No non-vegan ingredients detected"
-msgstr ""
+msgstr "Inga icke-veganska ingredienser upptäcktes"
 
 msgctxt "maybe_vegan_ingredients"
 msgid "Ingredients that may not be vegan"
-msgstr ""
+msgstr "Ingredienser som kanske inte är veganska"
 
 msgctxt "attribute_vegan_setting_note"
 msgid "To determine whether a product is vegan, we only rely on the list of ingredients."
-msgstr ""
+msgstr "För att avgöra om en produkt är vegansk förlitar vi oss endast på ingrediensförteckningen."
 
 msgctxt "non_vegetarian_ingredients"
 msgid "Non-vegetarian ingredients"
-msgstr ""
+msgstr "Icke-vegetariska ingredienser"
 
 msgctxt "vegetarian_ingredients"
 msgid "No non-vegetarian ingredients detected"
-msgstr ""
+msgstr "Inga icke-vegetariska ingredienser upptäcktes"
 
 msgctxt "maybe_vegetarian_ingredients"
 msgid "Ingredients that may not be vegetarian"
-msgstr ""
+msgstr "Ingredienser som kanske inte är vegetariska"
 
 msgctxt "attribute_vegetarian_setting_note"
 msgid "To determine whether a product is vegetarian, we only rely on the list of ingredients."
-msgstr ""
+msgstr "För att avgöra om en produkt är vegetarisk förlitar vi oss endast på ingrediensförteckningen."
 
 msgctxt "palm_oil_ingredients"
 msgid "Ingredients that contain palm oil"
@@ -6314,15 +6412,15 @@ msgstr "Ingredienser som kan innehålla palmolja"
 
 msgctxt "palm_oil_free_ingredients"
 msgid "No ingredients containing palm oil detected"
-msgstr ""
+msgstr "Inga ingredienser som innehåller palmolja upptäckta"
 
 msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
-msgstr ""
+msgstr "För att avgöra om en produkt innehåller palmolja förlitar vi oss endast på ingrediensförteckningen."
 
 msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
-msgstr ""
+msgstr "För att avgöra om en produkt innehåller palmolja förlitar vi oss endast på ingrediensförteckningen."
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
@@ -6330,36 +6428,36 @@ msgstr "Okända ingredienser"
 
 msgctxt "nova_1_unprocessed_ingredients"
 msgid "The product contains only unprocessed or minimally processed ingredients."
-msgstr ""
+msgstr "Produkten innehåller endast obearbetade eller minimalt bearbetade ingredienser."
 
 # variable names between { } must not be translated
 msgctxt "f_nova_markers_for_nova_group"
 msgid "Elements that indicate the product is in the {nova_group} group"
-msgstr ""
+msgstr "Element som indikerar att produkten finns i gruppen {nova_group}"
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr ""
+msgstr "Livsmedelsprodukter klassificeras i fyra grupper beroende på deras bearbetningsgrad:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
-msgstr ""
+msgstr "Fastställandet av gruppen baseras på produktens kategori och de ingredienser den innehåller."
 
 msgctxt "nova_classification_learn_more"
 msgid "Learn more about the NOVA classification"
-msgstr ""
+msgstr "Läs mer om NOVA-klassificeringen"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "Produktens kategori måste anges för att kunna bestämma NOVA-gruppen."
 
 msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "Produktens ingredienser måste specificeras för att NOVA-gruppen ska kunna bestämmas."
 
 msgctxt "nova_group_too_many_unknown_ingredient"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
-msgstr ""
+msgstr "Vi kunde inte känna igen vissa av ingredienserna och bestämma NOVA-gruppen."
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
@@ -6371,7 +6469,7 @@ msgstr "Läs mer om Nutri-Score"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr ""
+msgstr "Läs mer om Green Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6409,19 +6507,19 @@ msgstr "Använd standardinställningar"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
-msgstr ""
+msgstr "Nutri-Score, Green-Score och livsmedelsförädlingsnivå (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
-msgstr ""
+msgstr "Kan du lägga till ingredienslistan?"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr ""
+msgstr "Kan du lägga till den information som behövs för att beräkna Nutri-Score?"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr ""
+msgstr "Kan du lägga till en exakt produktkategori så att vi kan beräkna Green-Score?"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
@@ -6437,23 +6535,23 @@ msgstr "Lägg till en kategori"
 
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
-msgstr ""
+msgstr "Lägg till näringsfakta"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
-msgstr ""
+msgstr "Lägg till ursprunget för ingredienserna för denna produkt"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr ""
+msgstr "Ta ett foto av återvinningsinformationen"
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
-msgstr ""
+msgstr "Lägg till förpackningskomponenter"
 
 msgctxt "action_add_quantity"
 msgid "Add quantity of the product"
-msgstr ""
+msgstr "Lägg till mängden av produkten"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6478,41 +6576,41 @@ msgstr "Ta en bild av näringstabellen"
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "Uppdatera bilden av ingredienserna"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "Uppdatera bilden av näringsfakta"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "Ta fram och kontrollera återvinningsinformationen"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "Lägg till butiken där du hittade den här produkten"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "Lägg till eventuell etikett som finns på den här produkten"
 
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "Lägg till landet där du hittade den här produkten"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "Ta ett foto av spårbarhetskoder"
 
 msgctxt "action_report_product_to_nutripatrol"
 msgid "Report this product to our moderators"
-msgstr ""
+msgstr "Rapportera den här produkten till våra moderatorer"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6525,55 +6623,55 @@ msgstr "Rekommendation"
 
 msgctxt "nutrient_info_salt_risk"
 msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
-msgstr ""
+msgstr "Ett högt konsumtion av salt (eller natrium) kan orsaka förhöjt blodtryck, vilket kan öka risken för hjärtsjukdomar och stroke."
 
 msgctxt "nutrient_info_salt_high_blood_pressure"
 msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
-msgstr ""
+msgstr "Många som har högt blodtryck vet inte om det, eftersom det ofta inte finns några symtom."
 
 msgctxt "nutrient_info_salt_high_consumption"
 msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
-msgstr ""
+msgstr "De flesta människor konsumerar för mycket salt (i genomsnitt 9 till 12 gram per dag), ungefär dubbelt så mycket som den rekommenderade maximala mängden salt."
 
 msgctxt "nutrient_recommendation_salt_title"
 msgid "Limit the consumption of salt and salted food"
-msgstr ""
+msgstr "Begränsa konsumtionen av salt och saltad mat"
 
 msgctxt "nutrient_recommendation_salt_cooking_and_table"
 msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
-msgstr ""
+msgstr "Minska mängden salt som används vid matlagning och salta inte igen vid bordet."
 
 msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
 msgid "Limit the consumption of salty snacks and choose products with lower salt content."
-msgstr ""
+msgstr "Begränsa konsumtionen av salta snacks och välj produkter med lägre salthalt."
 
 msgctxt "nutrient_info_sugars_risk"
 msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
-msgstr ""
+msgstr "Högt sockerintag kan orsaka viktökning och karies. Det ökar också risken för typ 2-diabetes och hjärt-kärlsjukdomar."
 
 msgctxt "nutrient_recommendation_sugars_title"
 msgid "Limit the consumption of sugar and sugary drinks"
-msgstr ""
+msgstr "Begränsa konsumtionen av socker och söta drycker"
 
 msgctxt "nutrient_recommendation_sugars_drinks"
 msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
-msgstr ""
+msgstr "Sockrade drycker (som läsk, fruktdrycker och fruktjuicer och nektar) bör begränsas så mycket som möjligt (högst 1 glas om dagen)."
 
 msgctxt "nutrient_recommendation_sugars_food"
 msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
-msgstr ""
+msgstr "Välj produkter med lägre sockerhalt och minska konsumtionen av produkter med tillsatt socker."
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "Ett högt intag av fett, särskilt mättat fett, kan höja kolesterolet, vilket ökar risken för hjärtsjukdomar."
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr ""
+msgstr "Minska konsumtionen av fett och mättat fett"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr ""
+msgstr "Välj produkter med lägre fetthalt och mättat fett."
 
 msgctxt "sign_in"
 msgid "Sign in"
@@ -6602,17 +6700,17 @@ msgstr "Produkter fotograferade"
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
 msgid "Matching with your preferences"
-msgstr ""
+msgstr "Matchar dina preferenser"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr ""
+msgstr "Följ med oss på <a href=\"{url}\">Slack</a>"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
 msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
-msgstr ""
+msgstr "Upptäck vår <a href=\"{url}\">uppförandekod</a>"
 
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
@@ -6628,7 +6726,7 @@ msgstr "Installera appen!"
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "Skanna dina <span id=\"everyday\">dagliga</span> <span id=\"foods\">livsmedel</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6661,7 +6759,7 @@ msgstr "Finner ej produkt"
 
 msgctxt "api_result_product_found_with_a_different_product_type"
 msgid "Product found with a different product type"
-msgstr ""
+msgstr "Produkt hittades med en annan produkttyp"
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
@@ -6677,11 +6775,11 @@ msgstr "Ogiltig API-metod"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "Tom förfrågningstext"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
-msgstr ""
+msgstr "Ogiltig JSON i begäran"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
@@ -6693,19 +6791,19 @@ msgstr "Ogiltig produkttyp"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
-msgstr ""
+msgstr "Ogiltig typ: måste vara ett objekt"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr ""
+msgstr "Ogiltig typ: måste vara en array"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr ""
+msgstr "Ogiltig typ: måste vara ett heltal"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr ""
+msgstr "Ogiltig typ: måste vara ett tal"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
@@ -6779,25 +6877,25 @@ msgstr "Antal enheter"
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Vikten av en tom enhet"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "Mängd produkt per enhet"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
 msgid "Help categorize more {title} on Hunger Games"
-msgstr ""
+msgstr "Hjälp till att kategorisera mer {title} på Hungerspelen"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "Alla delar av produktens förpackning listas."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "Ogiltigt användar-ID och lösenord"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -6823,7 +6921,7 @@ msgstr "Ange endast återvinningsinstruktioner om de finns listade på produkten
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr ""
+msgstr "Ta bort eventuell matrester och tvätta och torka förpackningsdelen innan vägning. Använd om möjligt en våg med 0,1 g eller 0,01 g noggrannhet."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
@@ -6845,7 +6943,7 @@ msgstr "Installera appen för att lägga till produkter"
 
 msgctxt "search_and_analyze_products"
 msgid "Search and analyze products"
-msgstr ""
+msgstr "Sök och analysera produkter"
 
 msgctxt "resources"
 msgid "Resources"
@@ -6853,7 +6951,7 @@ msgstr "Resurser"
 
 msgctxt "pro_platform_user_guide"
 msgid "Pro platform user guide"
-msgstr ""
+msgstr "Användarhandbok för Pro-plattformen"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
@@ -6866,19 +6964,19 @@ msgstr "Ange ett värde mellan 0 och {max}."
 
 msgctxt "please_ask_users_create_account_first"
 msgid "Please ask the following users to create an Open Food Facts account first:"
-msgstr ""
+msgstr "Vänligen be följande användare att först skapa ett Open Food Facts-konto:"
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
-msgstr ""
+msgstr "Användare har lagts till i organisationen:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
-msgstr ""
+msgstr "Sockerarter bör inte vara högre än kolhydrater."
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr ""
+msgstr "Mättat fett bör inte vara högre än fett."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
@@ -6886,39 +6984,39 @@ msgstr "Förpackningsmaterial"
 
 msgctxt "packaging_weight_total"
 msgid "Packaging weight"
-msgstr ""
+msgstr "Förpackningens vikt"
 
 msgctxt "packaging_weight_100g"
 msgid "Packaging weight per 100 g of product"
-msgstr ""
+msgstr "Förpackningsvikt per 100 g produkt"
 
 msgctxt "packaging_weight_100g_mean"
 msgid "Mean packaging weight per 100 g of product"
-msgstr ""
+msgstr "Genomsnittlig förpackningsvikt per 100 g produkt"
 
 msgctxt "total"
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgctxt "packaging_material_products_percent"
 msgid "% of products containing the material"
-msgstr ""
+msgstr "% av produkter som innehåller materialet"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "% av produkter som mestadels innehåller materialet"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
-msgstr ""
+msgstr "för produkter som innehåller materialet"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
-msgstr ""
+msgstr "för produkter som huvudsakligen innehåller materialet"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
-msgstr ""
+msgstr "i förhållande till alla produkter"
 
 msgctxt "preferred_language"
 msgid "Preferred Language"
@@ -6926,11 +7024,11 @@ msgstr "Önskat språk"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
-msgstr ""
+msgstr "Antal förpackningskomponenter"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr ""
+msgstr "Antal förpackningskomponenter"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
@@ -6942,7 +7040,7 @@ msgstr "Vikt"
 
 msgctxt "weight_100g"
 msgid "Weight per 100g of product"
-msgstr ""
+msgstr "Vikt per 100 g produkt"
 
 msgctxt "weight_percent"
 msgid "Weight percent"
@@ -6954,7 +7052,7 @@ msgstr "Energi"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr ""
+msgstr "Energi från mättat fett"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6966,7 +7064,7 @@ msgstr "Mättat fett"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr ""
+msgstr "Mättat fett / fett"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6974,11 +7072,11 @@ msgstr "Salt"
 
 msgctxt "nutriscore_component_non_nutritive_sweeteners"
 msgid "Non-nutritive sweeteners"
-msgstr ""
+msgstr "Icke-näringsrika sötningsmedel"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr ""
+msgstr "Frukt, grönsaker och baljväxter"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6998,107 +7096,107 @@ msgstr "Frånvaro"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Denna produkt anses vara vatten vid beräkning av Nutri-Score."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Denna produkt anses vara fett, olja, nötter eller frön vid beräkning av Nutri-Score."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Denna produkt anses vara ost vid beräkning av Nutri-Score."
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Denna produkt anses vara en röd köttprodukt vid beräkning av Nutri-Score."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr ""
+msgstr "Poäng för proteiner räknas eftersom produkten anses vara en dryck."
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr ""
+msgstr "Poäng för proteiner räknas eftersom produkten anses vara ost."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr ""
+msgstr "Poäng för proteiner räknas eftersom de negativa poängen är färre än 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Poäng för proteiner räknas eftersom de negativa poängen är färre än 11."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "Poäng för proteiner räknas inte eftersom de negativa poängen är större än eller lika med 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "Poäng för proteiner räknas inte eftersom de negativa poängen är större än eller lika med 11."
 
 msgctxt "nutriscore_new_computation_title"
 msgid "Discover the new Nutri-Score!"
-msgstr ""
+msgstr "Upptäck den nya Nutri-Score!"
 
 msgctxt "nutriscore_new_computation_description"
 msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
-msgstr ""
+msgstr "<p>Beräkningen av Nutri-Score utvecklas för att ge bättre rekommendationer baserade på de senaste vetenskapliga bevisen.</p><p>Huvudsakliga förbättringar:</p><ul><li>Bättre poäng för viss fet fisk och oljor rika på bra fetter</li><li>Bättre poäng för hela produkter rika på fiber</li><li>Sämre poäng för produkter som innehåller mycket salt eller socker</li><li>Sämre poäng för rött kött (jämfört med fågel)</li></ul>"
 
 msgctxt "nutriscore_new_computation_link_text"
 msgid "Discover all the improvements of the new Nutri-Score"
-msgstr ""
+msgstr "Upptäck alla förbättringar i nya Nutri-Score"
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "Nutri-Score är en logotyp som visar produkternas övergripande näringskvalitet."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "Poängen från A till E beräknas utifrån näringsämnen och livsmedel att gynna (proteiner, fibrer, frukt, grönsaker och baljväxter ...) och näringsämnen att begränsa (kalorier, mättat fett, sockerarter, salt)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "Poängen beräknas utifrån data i näringsfaktatabellen och sammansättningsdata (frukt, grönsaker och baljväxter)."
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
-msgstr ""
+msgstr "Visning av denna logotyp rekommenderas av folkhälsomyndigheterna utan förpliktelser för företag."
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr ""
+msgstr "Vad är Nutri-Score?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
-msgstr ""
+msgstr "Energiintag över energibehovet är förknippade med ökade risker för viktökning, övervikt, fetma och följaktligen risk för kostrelaterade kroniska sjukdomar."
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "Ett högt intag av fett, särskilt mättat fett, kan höja kolesterolet, vilket ökar risken för hjärtsjukdomar."
 
 msgctxt "nutrient_info_saturated_fat_ratio_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "Ett högt intag av fett, särskilt mättat fett, kan höja kolesterolet, vilket ökar risken för hjärtsjukdomar."
 
 msgctxt "nutrient_info_energy_from_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "Ett högt intag av fett, särskilt mättat fett, kan höja kolesterolet, vilket ökar risken för hjärtsjukdomar."
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
-msgstr ""
+msgstr "Icke-näringsrika sötningsmedel kanske inte ger någon långsiktig fördel när det gäller att minska kroppsfett hos vuxna eller barn. Det kan finnas potentiella biverkningar vid långvarig användning av icke-näringsrika sötningsmedel, såsom en ökad risk för typ 2-diabetes och hjärt-kärlsjukdomar hos vuxna."
 
 msgctxt "nutrient_info_fiber_benefit"
 msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "Att konsumera mat rika på fibrer (särskilt fullkornsprodukter) minskar riskerna för matsmältningscancer, hjärt-kärlsjukdomar, fetma och diabetes."
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "Att konsumera mat rik på frukt, grönsaker och baljväxter minskar riskerna för matsmältningscancer, hjärt-kärlsjukdomar, fetma och diabetes."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
-msgstr ""
+msgstr "Livsmedel som är rika på protein är vanligtvis rika på kalcium eller järn, vilka är viktiga mineraler med många hälsofördelar."
 
 msgctxt "revert"
 msgid "Revert to this revision"
@@ -7106,11 +7204,11 @@ msgstr "Återgå till den här versionen"
 
 msgctxt "product_js_product_revert_confirm"
 msgid "Revert to this product revision?"
-msgstr ""
+msgstr "Återgå till denna produktrevision?"
 
 msgctxt "api_status_success"
 msgid "Success"
-msgstr ""
+msgstr "Framgång"
 
 msgctxt "api_status_failure"
 msgid "Failure"
@@ -7118,11 +7216,11 @@ msgstr "Misslyckande"
 
 msgctxt "api_result_product_reverted"
 msgid "Product reverted to the specified revision"
-msgstr ""
+msgstr "Produkten återställdes till den angivna versionen"
 
 msgctxt "api_result_product_not_reverted"
 msgid "Product not reverted to the specified revision"
-msgstr ""
+msgstr "Produkten återställdes inte till den angivna versionen"
 
 # sweeteners (additives), plural
 msgctxt "sweeteners"
@@ -7136,40 +7234,35 @@ msgstr "sötningsmedel"
 
 msgctxt "action_edit_product"
 msgid "Complete or correct product information"
-msgstr ""
+msgstr "Fullständig eller korrekt produktinformation"
 
 msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Rapportera ett problem"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Rapportera ett problem"
 
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Rapportera ett problem."
-
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
-msgstr ""
+msgstr "Ofullständig eller felaktig information?"
 
 msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
-msgstr ""
+msgstr "Kategori, etiketter, ingredienser, allergener, näringsinformation, foton etc."
 
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
-msgstr ""
+msgstr "Om informationen inte stämmer överens med informationen på förpackningen kan du komplettera eller korrigera den. Tack!"
 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
-msgstr ""
+msgstr "Open Food Facts är en samarbetsdatabas, och varje bidrag är användbart för alla."
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
-msgstr ""
+msgstr "Om du vill rapportera skadegörelse, olämpligt innehåll eller felaktiga uppgifter som du inte kan åtgärda själv, rapportera det till vårt moderatorteam."
 
 msgctxt "description"
 msgid "Description"
@@ -7177,7 +7270,7 @@ msgstr "Beskrivning"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
-msgstr ""
+msgstr "Ange huvudkontaktens användarnamn:"
 
 msgctxt "change_main_contact"
 msgid "Change main contact"
@@ -7189,7 +7282,7 @@ msgstr "Huvudkontakt uppdaterad"
 
 msgctxt "error_unknown_member"
 msgid "This user is not a member of the organization."
-msgstr ""
+msgstr "Den här användaren är inte medlem i organisationen."
 
 msgctxt "skip_to_content"
 msgid "Skip to Content"
@@ -7201,7 +7294,7 @@ msgstr "Du måste aktivera cookies för att logga in."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
-msgstr ""
+msgstr "Du kan inte ta bort huvudkontakten. Ändra den först."
 
 msgctxt "open_in_crm"
 msgid "Open in CRM"
@@ -7209,11 +7302,11 @@ msgstr "Öppna i CRM"
 
 msgctxt "information_provided_by_the_manufacturer"
 msgid "Information provided by the manufacturer"
-msgstr ""
+msgstr "Information från tillverkaren"
 
 msgctxt "information_provided_by_the_manufacturer_edit_form"
 msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
-msgstr ""
+msgstr "Information som identifieras av en fabriksikon har tillhandahållits av tillverkaren. Den kan endast ändras av tillverkaren och moderatorer. Om den är föråldrad eller felaktig, vänligen meddela oss."
 
 msgctxt "knowledge_panels_did_you_know"
 msgid "Did you know?"
@@ -7229,39 +7322,39 @@ msgstr "Vad du kan göra"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_title"
 msgid "Good for agricultural biodiversity"
-msgstr ""
+msgstr "Bra för jordbrukets biologiska mångfald"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
 msgid "Contains neglected or underutilized crops:"
-msgstr ""
+msgstr "Innehåller försummade eller underutnyttjade grödor:"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
 msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
-msgstr ""
+msgstr "Sedan 1900 har 75 % av växternas mångfald gått förlorad, då jordbrukare runt om i världen har övergett lokala sorter till förmån för högavkastande sorter anpassade för massindustriell bearbetning. Som ett resultat kommer 60 % av människors energiintag i världen från endast tre arter: vete, ris och majs."
 
 msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
 msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
-msgstr ""
+msgstr "Bristen på variation av grödor gör vår livsmedelsförsörjning mer sårbar för skadedjur, sjukdomar och klimatförändringar."
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
 msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
-msgstr ""
+msgstr "Att konsumera olika spannmål, baljväxter, grönsaker och frukt bidrar till:"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
 msgid "preserving neglected and underutilized species"
-msgstr ""
+msgstr "bevara försummade och underutnyttjade arter"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
 msgid "rural development and support of local farmers and companies"
-msgstr ""
+msgstr "landsbygdsutveckling och stöd till lokala jordbrukare och företag"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
 msgid "preserving of diversified landscapes"
-msgstr ""
+msgstr "bevarande av mångsidiga landskap"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
 msgid "food security"
-msgstr ""
+msgstr "livsmedelssäkerhet"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
 msgid "and your health!"
@@ -7273,7 +7366,7 @@ msgstr "Skapad av"
 
 msgctxt "org_id"
 msgid "Org id"
-msgstr ""
+msgstr "Organisations-ID"
 
 msgctxt "verified_status"
 msgid "Verified status"
@@ -7281,19 +7374,19 @@ msgstr "Verifierad status"
 
 msgctxt "creation_date"
 msgid "Creation date"
-msgstr ""
+msgstr "Skapandedatum"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
 msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
-msgstr ""
+msgstr "Open Food Facts deltar i det europeiska projektet <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (finansierat från Europeiska unionens forsknings- och innovationsprogram Horizon 2020). DIVINFOOD syftar till att utveckla livsmedelskedjor som värdesätter underutnyttjad agrobiologisk mångfald för att agera mot minskningen av biologisk mångfald och möta konsumenternas växande förväntningar på hälsosamma, lokala produkter som bidrar till hållbara livsmedelssystem."
 
 msgctxt "deny"
 msgid "Deny"
-msgstr ""
+msgstr "Förneka"
 
 msgctxt "users_requested_to_join_org"
 msgid "These users have requested to join the organization:"
-msgstr ""
+msgstr "Dessa användare har begärt att få gå med i organisationen:"
 
 msgctxt "last_login"
 msgid "Last login date"
@@ -7301,23 +7394,23 @@ msgstr "Senaste inloggningsdatum"
 
 msgctxt "last_import"
 msgid "Last import date"
-msgstr ""
+msgstr "Senaste importdatum"
 
 msgctxt "drop_a_file"
 msgid "Drop"
-msgstr ""
+msgstr "Släppa"
 
 msgctxt "select_product_data_file"
 msgid "Select a file with product data"
-msgstr ""
+msgstr "Välj en fil med produktdata"
 
 msgctxt "number_of_products_without_nutriscore"
 msgid "Number of products without Nutri-Score"
-msgstr ""
+msgstr "Antal produkter utan Nutri-Score"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
-msgstr ""
+msgstr "% av produkter där Nutri-Score beräknas"
 
 msgctxt "products_to_be_exported"
 msgid "Products to be exported"
@@ -7329,7 +7422,7 @@ msgstr "Produkter exporterade"
 
 msgctxt "opportunities_to_improve_nutriscore"
 msgid "Opp. for Nutri-Score improvements"
-msgstr ""
+msgstr "Motstånd för förbättringar av Nutri-Score"
 
 msgctxt "date_of_last_update"
 msgid "Date of last update"
@@ -7337,15 +7430,15 @@ msgstr "Datum för senaste uppdatering"
 
 msgctxt "number_of_products_on_public_platform"
 msgid "Number of products on public platform"
-msgstr ""
+msgstr "Antal produkter på offentlig plattform"
 
 msgctxt "number_of_products_on_producer_platform"
 msgid "Number of products on producer platform"
-msgstr ""
+msgstr "Antal produkter på producentplattformen"
 
 msgctxt "automated_daily_export_to_public_platform"
 msgid "Automatic daily export to public platform"
-msgstr ""
+msgstr "Automatisk daglig export till offentlig plattform"
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
@@ -7353,7 +7446,7 @@ msgstr "Förbättringar"
 
 msgctxt "products_with_changes_since_last_export"
 msgid "Products with changes since last export"
-msgstr ""
+msgstr "Produkter med ändringar sedan senaste exporten"
 
 msgctxt "organization_list"
 msgid "Organization list"
@@ -7361,7 +7454,7 @@ msgstr "Organisationslista"
 
 msgctxt "open_org"
 msgid "Open org"
-msgstr ""
+msgstr "Öppen organisation"
 
 msgctxt "secondhand"
 msgid "Secondhand"
@@ -7373,7 +7466,7 @@ msgstr "Donationer"
 
 msgctxt "donated_products_subtitle"
 msgid "Give this product, or search for a similar donated product"
-msgstr ""
+msgstr "Ge bort den här produkten, eller sök efter en liknande donerad produkt"
 
 msgctxt "used_products_title"
 msgid "Used products"
@@ -7381,28 +7474,28 @@ msgstr "Använda produkter"
 
 msgctxt "used_products_subtitle"
 msgid "Buy this product used, or search for a similar used product"
-msgstr ""
+msgstr "Köp den här produkten begagnad, eller sök efter en liknande begagnad produkt"
 
 msgctxt "attribute_repairability_index_france_name"
 msgid "Repairability index"
-msgstr ""
+msgstr "Reparerbarhetsindex"
 
 msgctxt "attribute_repairability_index_france_setting_name"
 msgid "Good repairability"
-msgstr ""
+msgstr "God reparationsförmåga"
 
 msgctxt "attribute_repairability_index_france_setting_note"
 msgid "Mandatory rating in France for certain products since 2021"
-msgstr ""
+msgstr "Obligatorisk betygsättning i Frankrike för vissa produkter sedan 2021"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_repairability_index_france_grade_title"
 msgid "Repairability index %s"
-msgstr ""
+msgstr "Reparerbarhetsindex %s"
 
 msgctxt "attribute_repairability_index_france_unknown_title"
 msgid "Repairability index unknown"
-msgstr ""
+msgstr "Reparerbarhetsindex okänt"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
 msgid "Repairability index not applicable"
@@ -7410,36 +7503,36 @@ msgstr "Reparerbarhetsindex inte tillämpligt"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
 msgid "Not applicable for the category"
-msgstr ""
+msgstr "Inte tillämpligt för kategorin"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
 msgid "Applicable only for categories: {categories}"
-msgstr ""
+msgstr "Gäller endast för kategorierna: {categories}"
 
 msgctxt "attribute_repairability_index_france_very_good_description_short"
 msgid "Very good repairability"
-msgstr ""
+msgstr "Mycket god reparationsförmåga"
 
 msgctxt "attribute_repairability_index_france_good_description_short"
 msgid "Good repairability"
-msgstr ""
+msgstr "God reparationsförmåga"
 
 msgctxt "attribute_repairability_index_france_average_description_short"
 msgid "Average repairability"
-msgstr ""
+msgstr "Genomsnittlig reparationsbarhet"
 
 msgctxt "attribute_repairability_index_france_poor_description_short"
 msgid "Poor repairability"
-msgstr ""
+msgstr "Dålig reparationsbarhet"
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
-msgstr ""
+msgstr "Dålig reparationsbarhet"
 
 msgctxt "estimate"
 msgid "estimate"
-msgstr ""
+msgstr "uppskatta"
 
 # information on several ingredients, in plural in languages like French
 msgctxt "ingredient_information"
@@ -7472,27 +7565,27 @@ msgstr "Produkt"
 
 msgctxt "recommendation_limit_ultra_processed_foods_title"
 msgid "Limit ultra-processed foods"
-msgstr ""
+msgstr "Begränsa ultraprocessad mat"
 
 msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
 msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
-msgstr ""
+msgstr "Att begränsa ultraprocessad mat minskar risken för icke-smittsamma kroniska sjukdomar"
 
 msgctxt "recommendation_limit_ultra_processed_foods_text"
 msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
-msgstr ""
+msgstr "Flera studier har funnit att en lägre konsumtion av ultraprocessade livsmedel är förknippad med en minskad risk för icke-smittsamma kroniska sjukdomar, såsom fetma, högt blodtryck och diabetes."
 
 msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
 msgid "Discover the evolution of the Nutri-Score grades of your products"
-msgstr ""
+msgstr "Upptäck utvecklingen av Nutri-Score-kvaliteterna för dina produkter"
 
 msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
 msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
-msgstr ""
+msgstr "Lägg till produkter med en kategori, ingredienslista och näringsfakta för att se hur deras Nutri-Score-betyg har utvecklats."
 
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
-msgstr ""
+msgstr "I kontakt med livsmedel"
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
@@ -7504,7 +7597,7 @@ msgstr "Radera"
 
 msgctxt "f_add_product_to_our_database"
 msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
-msgstr ""
+msgstr "Är {barcode} streckkoden för en produkt du har? Om så är fallet, vänligen lägg till den i databasen. Det tar bara några minuter."
 
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
@@ -7517,11 +7610,11 @@ msgstr "Tillgänglig på F-Droid"
 
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
-msgstr ""
+msgstr "Uppdatera näringsdata"
 
 msgctxt "update_nutrition_facts"
 msgid "Extract nutrition facts"
-msgstr ""
+msgstr "Extrahera näringsfakta"
 
 msgctxt "scan_a_product"
 msgid "Scan a product"
@@ -7529,7 +7622,7 @@ msgstr "Skanna en produkt"
 
 msgctxt "or_enter_barcode_manually"
 msgid "Or enter barcode manually"
-msgstr ""
+msgstr "Eller ange streckkoden manuellt"
 
 msgctxt "scan"
 msgid "Scan"
@@ -7541,11 +7634,11 @@ msgstr "Ekologiskt jordbruk och rättvis handel"
 
 msgctxt "reset_preferences_details_food"
 msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
-msgstr ""
+msgstr "Nutri-Score, Green-Score och livsmedelsförädlingsnivå (NOVA)"
 
 msgctxt "reset_preferences_details_product"
 msgid "Good repairability"
-msgstr ""
+msgstr "God reparationsförmåga"
 
 msgctxt "reset_preferences_details_pet_food"
 msgid "Organic farming and fair trade"
@@ -7649,35 +7742,35 @@ msgstr "Dessa preferenser baseras på Open Food Facts förståelse av ingrediens
 
 msgctxt "external_sources_empreinte_souffrance_name"
 msgid "Suffering Fingerprint"
-msgstr ""
+msgstr "Lidande fingeravtryck"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
-msgstr ""
+msgstr "Indikator för djurs lidande beräknad per produkt"
 
 msgctxt "section_animal_welfare_title"
 msgid "Animal welfare"
-msgstr ""
+msgstr "Djurens välfärd"
 
 msgctxt "external_panels"
 msgid "External Knowledge Panels"
-msgstr ""
+msgstr "Externa kunskapspaneler"
 
 msgctxt "external_panel_unavailable"
 msgid "Panel unavailable"
-msgstr ""
+msgstr "Panelen är inte tillgänglig"
 
 msgctxt "external_panel_unavailable_for_product"
 msgid "Panel unavailable for this product"
-msgstr ""
+msgstr "Panelen är inte tillgänglig för den här produkten"
 
 msgctxt "external_sources"
 msgid "External sources"
-msgstr ""
+msgstr "Externa källor"
 
 msgctxt "provided_by"
 msgid "Provided by"
-msgstr ""
+msgstr "Tillhandahålls av"
 
 msgctxt "recommendation_eu_tobacco_health_warning_title"
 msgid "Smoking kills"
@@ -7690,6 +7783,70 @@ msgstr "Tobak skadar hälsan allvarligt. Börja inte. Sluta nu."
 msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "Rökning är mycket beroendeframkallande. Börja inte. Rökning dödar – sluta nu. Rökning täpper till artärerna och orsakar hjärtattacker och stroke. Rökning orsakar dödlig lungcancer. Rökning under graviditet skadar ditt barn. Skydda barn: tvinga dem inte att andas in din rök. Din läkare eller apotekspersonal kan hjälpa dig att sluta röka. Rökning kan minska blodflödet och orsaka impotens. Rökning orsakar åldrande av huden. Rökning kan skada spermierna och minska fertiliteten. Rök innehåller bensen, nitrosaminer, formaldehyd och vätecyanid."
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Donera"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Återvinna"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
 
 msgctxt "public_price"
 msgid "Public price"

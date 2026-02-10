@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "పదార్థాలు, అలెర్జీ కారకాలు, సంకలనాలు, పోషకాహార వాస్తవాలు, లేబుల్‌లు, మూలాలు, CO2 ప్రభావం మరియు ఉత్పత్తిపై సమాచారం %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr ""
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr ""
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "పదార్థాలు INCI, అలెర్జీ కారకాలు, సంకలనాలు, లేబుల్‌లు, పదార్థాల మూలం మరియు ఉత్పత్తిపై సమాచారం %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr ""
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "ఈ ఉత్పత్తి పేజీ పూర్తి కాలేదు. మీరు దీన్ని సవరించడం ద్వారా మరియు మా వద్ద ఉన్న ఫోటోల నుండి మరిన్ని డేటాను జోడించడం ద్వారా లేదా <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> లేదా <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>కోసం యూనివర్సల్ మొబైల్ యాప్‌ని ఉపయోగించి మరిన్ని ఫోటోలను తీయడం ద్వారా దీన్ని పూర్తి చేయడంలో సహాయపడవచ్చు. ధన్యవాదాలు!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr ""
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr ""
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "ప్రపంచవ్యాప్తంగా ఉన్న వివిధ ఉత్పత్తులపై సమాచార సహకార, ఉచిత మరియు బహిరంగ డేటాబేస్."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "పదార్థాలు, CO2 ప్రభావం, మన్నిక, లేబుల్‌లు, పదార్థాల మూలం మరియు ఉత్పత్తిపై సమాచారం %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr ""
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "ఈ ఉత్పత్తి పేజీ పూర్తి కాలేదు. మీరు దీన్ని సవరించడం ద్వారా మరియు మా వద్ద ఉన్న ఫోటోల నుండి మరిన్ని డేటాను జోడించడం ద్వారా లేదా <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> లేదా <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>కోసం యూనివర్సల్ ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ యాప్‌ని ఉపయోగించి మరిన్ని ఫోటోలను తీయడం ద్వారా దీన్ని పూర్తి చేయడంలో సహాయపడవచ్చు. ధన్యవాదాలు!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr ""
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "ఈ ఉత్పత్తి పేజీ పూర్తి కాలేదు. మీరు దీన్ని సవరించడం ద్వారా మరియు మా వద్ద ఉన్న ఫోటోల నుండి మరిన్ని డేటాను జోడించడం ద్వారా లేదా <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> లేదా <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>కోసం యూనివర్సల్ ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ యాప్‌ని ఉపయోగించి మరిన్ని ఫోటోలను తీయడం ద్వారా దీన్ని పూర్తి చేయడంలో సహాయపడవచ్చు. ధన్యవాదాలు!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr ""
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "పొడి కుక్క ఆహారం, తడి పిల్లి ఆహారం"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "చికెన్, మొక్కజొన్న బంక భోజనం, ధాన్యపు మొక్కజొన్న, జంతువుల కొవ్వు, సోయాబీన్ భోజనం"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr ""
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "వయోజన కుక్కలకు తడి ఆహారం"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "సీనియర్ డాగ్ డిలైట్ చికెన్ & రైస్"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -141,7 +231,7 @@ msgstr ""
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "స్వాగతం!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -623,6 +713,10 @@ msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr ""
 
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "లక్షణాలను జోడించడానికి లేదా సవరించడానికి సైన్-ఇన్ చేయండి"
+
 msgctxt "edit_profile"
 msgid "Edit your public profile"
 msgstr ""
@@ -681,7 +775,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "ట్రేసబిలిటీ కోడ్‌లు"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -701,7 +795,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "ట్రేసబిలిటీ కోడ్"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -726,7 +820,7 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "లోపం"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -936,7 +1030,7 @@ msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr ""
+msgstr "ఉపయోగ నిబంధనలు"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -1464,7 +1558,7 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "పేరు"
 
 msgctxt "names"
 msgid "Names"
@@ -1565,11 +1659,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "పోషకాహార వాస్తవాలు"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "పోషకాహార వాస్తవాలు"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1633,7 +1727,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "ప్రతి సర్వింగ్‌కు"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
@@ -1641,7 +1735,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "పోషకాహార వాస్తవాలు"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1762,7 +1856,7 @@ msgstr ""
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "పాస్‌వర్డ్"
 
 msgctxt "password_new"
 msgid "New password"
@@ -1850,7 +1944,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "పోషకాన్ని జోడించండి"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -2014,7 +2108,7 @@ msgstr ""
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "ఉత్పత్తులు"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -2070,7 +2164,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "పాస్‌వర్డ్‌ను రీసెట్ చేయండి"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2161,6 +2255,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr ""
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr ""
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr ""
 
@@ -2411,7 +2509,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "వడ్డించే పరిమాణం"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
@@ -2435,7 +2533,7 @@ msgstr ""
 
 msgctxt "share"
 msgid "Share"
-msgstr ""
+msgstr "షేర్ చేయి"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2491,7 +2589,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "దుకాణాలు"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2507,7 +2605,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "స్టోర్"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2568,7 +2666,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "తెలియదు"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -2765,8 +2863,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr ""
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "ఈ ఉత్పత్తి పేజీ పూర్తి కాలేదు. మీరు దీన్ని సవరించడం ద్వారా మరియు మా వద్ద ఉన్న ఫోటోల నుండి మరిన్ని డేటాను జోడించడం ద్వారా లేదా <a href=\"https://android.openfoodfacts.org\">Android</a> లేదా <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>కోసం మొబైల్ యాప్‌ని ఉపయోగించి మరిన్ని ఫోటోలను తీయడం ద్వారా దీన్ని పూర్తి చేయడంలో సహాయపడవచ్చు. ధన్యవాదాలు!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2790,7 +2888,7 @@ msgstr ""
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr ""
+msgstr "పేరు"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -3444,7 +3542,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "మూలాలు"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3452,7 +3550,7 @@ msgstr ""
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "పోషకాహార వాస్తవాలు"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -4319,7 +4417,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "పూర్తయింది"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4422,7 +4520,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "చెల్లని బార్‌కోడ్"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4665,7 +4763,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "ఆహార ప్రాసెసింగ్ స్థాయి తెలియదు"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -4851,8 +4949,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "గ్రీన్-స్కోర్ అనేది A+ నుండి F వరకు ఉన్న పర్యావరణ స్కోరు, ఇది ఆహార ఉత్పత్తుల పర్యావరణ ప్రభావాన్ని పోల్చడం సులభం చేస్తుంది."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4864,8 +4962,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "గ్రీన్-స్కోర్ అనేది A+ నుండి F వరకు ఉన్న పర్యావరణ స్కోరు, ఇది ఆహార ఉత్పత్తుల పర్యావరణ ప్రభావాన్ని పోల్చడం సులభం చేస్తుంది."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -4938,7 +5036,7 @@ msgstr ""
 
 msgctxt "org_name"
 msgid "Name"
-msgstr ""
+msgstr "పేరు"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
@@ -4966,7 +5064,7 @@ msgstr ""
 
 msgctxt "contact_name"
 msgid "Name"
-msgstr ""
+msgstr "పేరు"
 
 msgctxt "contact_address"
 msgid "Address"
@@ -5124,11 +5222,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "ఇతరాలు"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "ఇతరాలు"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5146,7 +5244,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "ఆకారం"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5154,7 +5252,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "మెటీరియల్"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5788,8 +5886,8 @@ msgstr ""
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "గ్రీన్-స్కోర్‌ను మొదట ఫ్రాన్స్ కోసం అభివృద్ధి చేశారు మరియు దీనిని ఇతర యూరోపియన్ దేశాలకు కూడా విస్తరిస్తున్నారు. గ్రీన్-స్కోర్ ఫార్ములా మార్పుకు లోబడి ఉంటుంది, ఎందుకంటే ఇది ప్రతి దేశానికి మరింత ఖచ్చితమైనదిగా మరియు బాగా సరిపోయేలా క్రమం తప్పకుండా మెరుగుపరచబడుతుంది."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6356,22 +6454,22 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "చాలా బాగుంది"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "మంచి జత"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "సరిపోలిక సరిగ్గా లేదు"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "తెలియని సరిపోలిక"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6381,7 +6479,7 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "సరిపోలడం లేదు"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6561,7 +6659,7 @@ msgstr "సైన్ ఇన్ చేయండి"
 
 msgctxt "sign_out"
 msgid "Sign out"
-msgstr ""
+msgstr "సైన్ అవుట్ చేయండి"
 
 msgctxt "your_contributions"
 msgid "Your contributions"
@@ -6612,7 +6710,7 @@ msgstr ""
 
 msgctxt "nutrition"
 msgid "Nutrition"
-msgstr ""
+msgstr "పోషణ"
 
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
@@ -6754,7 +6852,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "యూనిట్ల సంఖ్య"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6786,19 +6884,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "ఉత్పత్తిలో ఉన్న ఒకే ఆకారం మరియు పదార్థం యొక్క ప్యాకేజింగ్ యూనిట్ల సంఖ్యను నమోదు చేయండి."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "రీసైక్లింగ్ సూచనలలో జాబితా చేయబడిన ఆకారం పేరు అందుబాటులో ఉంటే నమోదు చేయండి లేదా ఆకారాన్ని ఎంచుకోండి."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "నిర్దిష్ట పదార్థాన్ని నిర్ణయించగలిగితే (త్రిభుజం లోపల ఉన్న పదార్థ కోడ్ తరచుగా ప్యాకేజింగ్ భాగాలపై కనిపిస్తుంది) లేదా మీకు ఖచ్చితంగా తెలియకపోతే సాధారణ పదార్థాన్ని (ఉదాహరణకు ప్లాస్టిక్ లేదా లోహం) నమోదు చేయండి."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "ఉత్పత్తిపై జాబితా చేయబడి ఉంటేనే రీసైక్లింగ్ సూచనలను నమోదు చేయండి."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6808,7 +6906,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "నికర బరువు లేదా నికర వాల్యూమ్‌ను నమోదు చేసి, యూనిట్‌ను సూచించండి (ఉదాహరణకు g లేదా ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7122,13 +7220,8 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr ""
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
 msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_title"
@@ -7428,17 +7521,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "ఉత్పత్తి రకం"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "ఆహారం"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "పెంపుడు జంతువుల ఆహారం"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7513,7 +7606,7 @@ msgstr ""
 
 msgctxt "scan"
 msgid "Scan"
-msgstr ""
+msgstr "స్కాన్ చేయండి"
 
 msgctxt "reset_preferences_details_beauty"
 msgid "Organic farming and fair trade"

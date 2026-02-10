@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/application-mobile-open-food-facts"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Ingrédients, allergènes, additifs, valeurs nutritionnelles, étiquettes, origines, impact CO2 et informations sur le produit %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "Une base de données collaborative, gratuite et ouverte sur les ingrédients, et des informations sur les produits cosmétiques du monde entier"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Une base de données collaborative, libre et ouverte des produits cosmétiques du monde entier."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Une base de données collaborative, gratuite, libre et ouverte d'ingrédients, et d'informations sur des produits variés du monde entier."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts rassemble des informations et des données sur une large gamme de produits du monde entier."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Une base de données collaborative, gratuite, libre et ouverte de produits variés du monde entier."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Une base de données collaborative, gratuite, libre et ouverte d'ingrédients, de faits nutritionnels et d'informations sur des produits alimentaires pour animaux de compagnie du monde entier."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts rassemble des informations et des données sur des produits alimentaires pour animaux de compagnie du monde entier."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Une base de données collaborative, libre et ouverte de produits alimentaires pour animaux de compagnie du monde entier."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Ingrédients INCI, allergènes, additifs, étiquettes, origine des ingrédients et informations sur le produit %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr "Recherche de produit Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "La page de ce produit n'est pas complète. Vous pouvez aider à la compléter en l'éditant et en ajoutant plus de données à partir des photos que nous avons, ou en prenant plus de photos à l'aide de l'application pour <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> ou <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone / iPad</a>. Merci!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Cette page produit est incomplète. Vous pouvez nous aider à la compléter en la modifiant et en ajoutant des données à partir des photos dont nous disposons, ou en prenant d'autres photos à l'aide de l'application mobile universelle pour <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ou <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Merci !"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr "Protection anti transpirante et anti stress"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA / EAU, LAURETH SULFATE DE SODIUM, COCOAMPHODIACETATE DISODIQUE, DISTEARATE DE GLYCOL, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Une base de données collaborative, gratuite et ouverte d'informations sur divers produits du monde entier."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts rassemble des informations et des données sur une large gamme de produits du monde entier."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Une base de données collaborative, gratuite, libre et ouverte de produits variés du monde entier."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Ingrédients, impact CO2, durabilité, étiquettes, origine des ingrédients et informations sur le produit %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/application-mobile-open-products-facts"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Recherche de produits Open Products Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Cette page produit est incomplète. Vous pouvez nous aider à la compléter en la modifiant et en ajoutant des données à partir des photos dont nous disposons, ou en prenant d'autres photos avec l'application universelle Open Food Facts pour <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ou <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Merci !"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr "Ariel, Skip"
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Lessive liquide, Lessive en poudre"
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr "EMB 29004G"
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr "Lessive"
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Parfum lavande ultra propre"
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "ATTENTION : n'ajoutez pas d’ingrédients si cela n’est pas pertinent pour cette catégorie. Les produits nettoyants, et d'autres catégories, disposent de listes d’ingrédients sur leur emballage ou en ligne"
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Une base de données collaborative, gratuite, libre et ouverte d'ingrédients, de faits nutritionnels et d'informations sur des produits alimentaires pour animaux de compagnie du monde entier."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts rassemble des informations et des données sur des produits alimentaires pour animaux de compagnie du monde entier."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Une base de données collaborative, libre et ouverte de produits alimentaires pour animaux de compagnie du monde entier."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Ingrédients, allergènes, additifs, composition nutritionnelle, labels, origine des ingrédients et informations du produit %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Recherche de produit Open Pet Food Facts"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Cette page produit est incomplète. Vous pouvez nous aider à la compléter en la modifiant et en ajoutant des données à partir des photos dont nous disposons, ou en prenant d'autres photos avec l'application universelle Open Food Facts pour <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ou <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Merci !"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Croquettes pour chien, pâtée pour chat"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "POULET, FARINE DE GLUTEN DE MAÏS, MAÏS ENTIER, GRAISSE ANIMALE, FARINE DE SOJA"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/application-mobile-open-pet-food-facts"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Aliment humide pour chiens adultes"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Délice pour chiens âgés : poulet et riz"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -624,6 +714,10 @@ msgstr "Modifier un produit"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Modifier la fiche"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Connectez-vous pour ajouter ou modifier des propriétés"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2184,6 +2278,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "Recherche de produits"
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "Recherche de produits"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "ne contient pas"
@@ -2787,8 +2885,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Certaines informations et/ou photos de ce produit proviennent de ces sources :"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "La page de ce produit n'est pas complète. Vous pouvez aider à la compléter en l'éditant et en ajoutant plus de données à partir des photos que nous avons, ou en prenant plus de photos à l'aide de l'application pour <a href=\"https://android.openfoodfacts.org\">Android</a> ou <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>. Merci !"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Cette page produit est incomplète. Vous pouvez nous aider à la compléter en la modifiant et en ajoutant des données à partir des photos dont nous disposons, ou en prenant d'autres photos avec l'application mobile pour <a href=\"https://android.openfoodfacts.org\">Android</a> ou <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Merci !"
 
 msgctxt "title_separator"
 msgid " - "
@@ -4873,8 +4971,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Faible impact environnemental (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Le Green-Score est un score environnemental de A à E qui permet de comparer facilement l'impact des produits alimentaires sur l'environnement."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Le Green-Score est un score environnemental allant de A+ à F qui facilite la comparaison de l'impact des produits alimentaires sur l'environnement."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4886,8 +4984,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Faible impact environnemental (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Le Green-Score est un score environnemental de A à E qui permet de comparer facilement l'impact des produits alimentaires sur l'environnement."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Le Green-Score est un score environnemental allant de A+ à F qui facilite la comparaison de l'impact des produits alimentaires sur l'environnement."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5810,8 +5908,8 @@ msgstr "La formule du Green-Score est susceptible d'évoluer car elle est régul
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Le Green-Score a été initialement conçu pour la France et est en cours d'extension à d'autres pays européens. La formule du Green-Score est susceptible d'évoluer car elle est régulièrement améliorée pour la rendre plus précise et mieux adaptée à chaque pays."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Le Green-Score a été initialement développé pour la France et est en cours d'extension à d'autres pays européens. Sa formule est susceptible d'évoluer, car elle est régulièrement améliorée afin d'être plus précise et mieux adaptée à chaque pays."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -7144,14 +7242,9 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Signaler un problème"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Signaler un problème"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Signaler un problème."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7663,7 +7756,7 @@ msgstr "Bien être animal"
 
 msgctxt "external_panels"
 msgid "External Knowledge Panels"
-msgstr "Panneaux d’information externes"
+msgstr "Panneaux d'information externes"
 
 msgctxt "external_panel_unavailable"
 msgid "Panel unavailable"
@@ -7692,6 +7785,70 @@ msgstr "Le tabac nuit gravement à la santé. Ne commencez pas. Arrêtez dès ma
 msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "Fumer crée une forte dépendance. Ne commencez pas. Fumer tue – arrêtez tout de suite. Fumer obstrue les artères et provoque des crises cardiaques et des accidents vasculaires cérébraux. Fumer peut entraîner un cancer du poumon mortel. Fumer pendant la grossesse est nocif pour votre bébé. Protégez vos enfants : ne les forcez pas à respirer votre fumée. Votre médecin ou votre pharmacien peut vous aider à arrêter de fumer. Fumer peut réduire la circulation sanguine et provoquer l'impuissance. Fumer provoque le vieillissement de la peau. Fumer peut endommager les spermatozoïdes et diminuer la fertilité. La fumée contient du benzène, des nitrosamines, du formaldéhyde et du cyanure d'hydrogène."
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Faire un don"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Recycler"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
 
 msgctxt "public_price"
 msgid "Public price"

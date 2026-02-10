@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Ingredientes, alergénios, aditivos, informações nutricionais, rótulos, origens, impacto do CO2 e informações sobre o produto %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "Um banco de dados colaborativo, aberto e gratuito de ingredientes e informações sobre produtos cosméticos de todo o mundo"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Um banco de dados colaborativo, aberto e gratuito de produtos cosméticos de todo o mundo."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Uma base de dados colaborativa, aberta e gratuita de ingredientes e informações sobre produtos de todo o mundo."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "O Open Products Facts reúne informações e dados sobre uma grande gama de produtos do mundo todo."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Uma base de dados colaborativa, gratuita e aberta sobre produtos alimentares de todo o mundo."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Um banco de dados colaborativo, livre e aberto, com ingredientes, informações nutricionais e informações sobre produtos alimentícios para animais de todo o mundo."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "O Open Pet Food Facts reúne dados e informação sobre produtos alimentares para animais de todo o mundo."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Uma base de dados colaborativa, livre e aberta sobre produtos alimentares para animais de todo o mundo."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Ingredientes INCI, alergénios, aditivos, rótulos, origem dos ingredientes e informações sobre o produto %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr "Pesquisa de produtos do Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Esta página de produto não está completa. Você pode ajudar a completá-la editando e adicionando mais dados nas fotos existentes ou tirando mais fotos usando a App para <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a><a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Obrigado!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Esta página do produto não está completa. Você pode ajudar a completá-la editando-a e adicionando mais dados das fotos que temos, ou tirando mais fotos usando o aplicativo universal para dispositivos móveis <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ou <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Obrigado!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr "Antitranspirante Stress Protect"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA / ÁGUA, SULFATO DE LÍTIO DE SÓDIO, COCOAMPHODIACETATE DE DISÓDIO, GLICOL DISTEARADO, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Uma base de dados colaborativa, gratuita e aberta com informações sobre diversos produtos do mundo todo."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "O Open Products Facts reúne informações e dados sobre uma grande gama de produtos do mundo todo."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Uma base de dados colaborativa, gratuita e aberta sobre produtos alimentares de todo o mundo."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Ingredientes, impacto de CO2, durabilidade, rótulos, origem dos ingredientes e informações sobre o produto %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Pesquisa de produtos do Open Product Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Esta página do produto não está completa. Você pode ajudar a completá-la editando-a e adicionando mais dados das fotos que temos, ou tirando mais fotos usando o aplicativo universal Open Food Facts para <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ou <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Obrigado!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Um banco de dados colaborativo, livre e aberto, com ingredientes, informações nutricionais e informações sobre produtos alimentícios para animais de todo o mundo."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "O Open Pet Food Facts reúne dados e informação sobre produtos alimentares para animais de todo o mundo."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Uma base de dados colaborativa, livre e aberta sobre produtos alimentares para animais de todo o mundo."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Ingredientes, alergénios, aditivos, informações nutricionais, etiquetas, origem dos ingredientes e informação sobre o produto %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Pet Food Facts pesquisa de produto"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Esta página do produto não está completa. Você pode ajudar a completá-la editando-a e adicionando mais dados das fotos que temos, ou tirando mais fotos usando o aplicativo universal Open Food Facts para <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ou <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Obrigado!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Ração seca para cães, ração úmida para gatos"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "FRANGO, FARINHA DE GLÚTEN DE MILHO, MILHO INTEGRAL, GORDURA ANIMAL, FARINHA DE SOJA"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Ração úmida para cães adultos"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Delícia para cães idosos: Frango com arroz"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -623,6 +713,10 @@ msgstr "Editar um produto"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Editar a página"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Inicie sessão para adicionar ou editar propriedades."
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2180,6 +2274,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "Pesquisa de produtos"
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "Pesquisa de produtos"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "não contém"
@@ -2782,8 +2880,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Alguns dos dados e/ou fotos deste produto são provenientes destas fontes:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "Esta página de produto não está completa. Pode ajudar a completá-la ao editar e adicionar mais dados a partir das fotos existentes, ou tirando mais fotos usando a aplicação para <a href=\"https://android.openfoodfacts.org\">Android</a> ou <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Obrigado!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Esta página do produto não está completa. Você pode ajudar a completá-la editando-a e adicionando mais dados das fotos que temos, ou tirando mais fotos usando o aplicativo móvel para <a href=\"https://android.openfoodfacts.org\">Android</a> ou <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Obrigado!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -4868,8 +4966,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Impacto ambiental baixo (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "O Green-Score é uma pontuação ambiental de A a E que facilita a comparação do impacto dos produtos alimentícios no meio ambiente."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "O Green-Score é uma classificação ambiental de A+ a F que facilita a comparação do impacto dos produtos alimentares no meio ambiente."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4881,8 +4979,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Impacto ambiental baixo (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "O Green-Score é uma pontuação ambiental de A a E que facilita a comparação do impacto dos produtos alimentícios no meio ambiente."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "O Green-Score é uma classificação ambiental de A+ a F que facilita a comparação do impacto dos produtos alimentares no meio ambiente."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5805,8 +5903,8 @@ msgstr "A fórmula Green-Score está sujeita a alterações, pois é regularment
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "O Green-Score foi inicialmente desenvolvido para França e está a ser alargado a outros países europeus. A fórmula Green-Score está sujeita a mudanças, uma vez que é regularmente melhorada para torná-la mais precisa e mais adequada a cada país."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "O Green-Score foi inicialmente desenvolvido para a França e está sendo estendido a outros países europeus. A fórmula do Green-Score está sujeita a alterações, pois é aprimorada regularmente para torná-la mais precisa e adequada a cada país."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -7139,14 +7237,9 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Relatar um problema"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Relatar um problema"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Relatar um problema."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"

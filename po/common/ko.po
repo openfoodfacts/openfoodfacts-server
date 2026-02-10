@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "성분, 알레르겐, 첨가물, 영양 정보, 라벨, 원산지, CO2 배출량 및 제품 정보 %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "세계 각국의 화장품에 대한 성분 및 정보의 무료 공개 협업 데이터베이스"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "세계 각국에서의 화장품에 대해 협업하는 무료 오픈 데이터베이스."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "전 세계의 다양한 제품 정보와 재료에 대한 협업적이고 무료이며 개방적인 데이터베이스입니다."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts는 전 세계의 다양한 제품에 대한 정보와 데이터를 수집합니다."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "전 세계 다양한 제품에 대한 협업형, 무료, 개방형 데이터베이스입니다."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "전 세계 반려동물 사료 제품의 원료, 영양 정보 및 기타 정보를 담은 협업형 무료 공개 데이터베이스입니다."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts는 전 세계 반려동물 사료 제품에 대한 정보와 데이터를 수집합니다."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "세계 각국에서 사료의 협업 무료 오픈 데이터베이스."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "성분 INCI, 알레르겐, 첨가물, 라벨, 성분 원산지 및 제품 정보 %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr "Open Beauty Facts 제품 검색"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "이 제품 페이지는 완전하지 않습니다. 편집해서 우리가 가지고 있는 사진의 데이터를 더 추가하거나, <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=ko\">안드로이드</a>나 <a href=\"https://apps.apple.com/kr/app/open-beauty-facts/id1122926380\">아이폰/아이패드용</a> 앱을 사용하여 더 많은 사진을 찍으면 완성할 수 있습니다. 감사합니다!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr ""
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr "발한 억제 스트레스 보호"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "아쿠아 / 워터, 소듐 라우 레스 설페이트, 디소듐 코코암포 아세테이트, 글라이콜 디스테아레이트, 코카마이드엠이에이 측정"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "전 세계 다양한 제품에 대한 정보를 담은 협업형 무료 오픈 데이터베이스입니다."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts는 전 세계의 다양한 제품에 대한 정보와 데이터를 수집합니다."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "전 세계 다양한 제품에 대한 협업형, 무료, 개방형 데이터베이스입니다."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "성분, 이산화탄소 배출량, 내구성, 라벨, 성분 원산지 및 제품 정보 %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "제품 검색"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr ""
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "전 세계 반려동물 사료 제품의 원료, 영양 정보 및 기타 정보를 담은 협업형 무료 공개 데이터베이스입니다."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts는 전 세계 반려동물 사료 제품에 대한 정보와 데이터를 수집합니다."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "세계 각국에서 사료의 협업 무료 오픈 데이터베이스."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "%s에 대한 성분, 알레르기 항원, 첨가제, 영양성분, 라벨, 성분 원산지 및 정보"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Pet Food Facts 제품 검색"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr ""
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "퓨리나, 혈통"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "건식 개 사료, 습식 고양이 사료"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "닭고기, 옥수수 글루텐 가루, 통옥수수, 동물성 지방, 대두박"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "성견용 습식 사료"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "노령견을 위한 특별한 치킨 & 라이스"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -622,6 +712,10 @@ msgstr "제품을 편집"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "페이지를 편집"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "속성을 추가하거나 수정하려면 로그인하세요."
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2180,6 +2274,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "제품 검색"
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "제품 검색"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "포함되어 있지 않다"
@@ -2782,8 +2880,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "이 제품의 일부 데이터 및/또는 사진은 다음 소스에서 가져왔습니다."
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "이 제품 페이지는 완전하지 않습니다. 편집해서 우리가 가지고 있는 사진의 데이터를 더 추가하거나, <a href=\"https://android.openfoodfacts.org\">안드로이드</a>나 <a href=\"https://ios.openfoodfacts.org\">아이폰/아이패드용</a> 앱을 사용하여 더 많은 사진을 찍으면 완성할 수 있습니다. 고맙습니다!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr ""
 
 msgctxt "title_separator"
 msgid " - "
@@ -4869,8 +4967,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "낮은 환경 영향(Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "그린스코어는 A부터 E까지 등급으로 나뉜 환경 점수로, 식품이 환경에 미치는 영향을 쉽게 비교할 수 있도록 해줍니다."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "그린스코어는 A+부터 F까지 등급으로 나뉜 환경 점수로, 식품이 환경에 미치는 영향을 쉽게 비교할 수 있도록 해줍니다."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4882,8 +4980,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "낮은 환경 영향(Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "그린스코어는 A부터 E까지 등급으로 나뉜 환경 점수로, 식품이 환경에 미치는 영향을 쉽게 비교할 수 있도록 해줍니다."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "그린스코어는 A+부터 F까지 등급으로 나뉜 환경 점수로, 식품이 환경에 미치는 영향을 쉽게 비교할 수 있도록 해줍니다."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5806,8 +5904,8 @@ msgstr "Green-Score 공식은 더 정확하게 만들기 위해 정기적으로 
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score는 처음에 프랑스를 위해 개발되었으며 다른 유럽 국가로 확장되고 있습니다. Green-Score 공식은 더 정확하고 각 국가에 더 적합하도록 정기적으로 개선되므로 변경될 수 있습니다."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "그린스코어는 원래 프랑스를 위해 개발되었으며 현재 다른 유럽 국가로 확대 적용되고 있습니다. 그린스코어 공식은 각 국가에 더욱 적합하고 정확도를 높이기 위해 정기적으로 개선되므로 변경될 수 있습니다."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -7140,14 +7238,9 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "문제 신고하기"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "문제 신고하기"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "문제를 신고하세요."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7688,6 +7781,70 @@ msgstr "담배는 건강에 심각한 해를 끼칩니다. 시작하지 마세�
 msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "흡연은 중독성이 매우 강합니다. 시작하지 마세요. 흡연은 생명을 위협합니다. 지금 당장 끊으세요. 흡연은 동맥을 막고 심장마비와 뇌졸중을 유발합니다. 흡연은 치명적인 폐암을 유발합니다. 임신 중 흡연은 태아에게 해롭습니다. 아이들을 보호하세요. 흡연을 하지 않도록 하세요. 의사나 약사가 금연을 도울 수 있습니다. 흡연은 혈류를 감소시키고 발기부전을 유발할 수 있습니다. 흡연은 피부 노화를 유발합니다. 흡연은 정자를 손상시키고 생식 능력을 저하시킬 수 있습니다. 흡연에는 벤젠, 니트로사민, 포름알데히드, 시안화수소가 포함되어 있습니다."
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "기부"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "재활용"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
 
 msgctxt "public_price"
 msgid "Public price"

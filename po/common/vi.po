@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Thành phần, chất gây dị ứng, phụ gia, thông tin dinh dưỡng, nhãn mác, nguồn gốc, tác động CO2 và thông tin về sản phẩm %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "Cơ sở dữ liệu hợp tác, tự do và cởi mở về các thành phần, và thông tin về các sản phẩm mỹ phẩm từ khắp nơi trên thế giới"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Cơ sở dữ liệu hợp tác, miễn phí và mở về các sản phẩm mỹ phẩm từ khắp nơi trên thế giới."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Một cơ sở dữ liệu hợp tác, miễn phí và mở về các thành phần và thông tin về nhiều sản phẩm khác nhau từ khắp nơi trên thế giới."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts thu thập thông tin và dữ liệu về nhiều loại sản phẩm từ khắp nơi trên thế giới."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Một cơ sở dữ liệu hợp tác, miễn phí và mở về các sản phẩm khác nhau từ khắp nơi trên thế giới."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Một cơ sở dữ liệu hợp tác, miễn phí và mở về thành phần, thông tin dinh dưỡng và các sản phẩm thức ăn cho thú cưng từ khắp nơi trên thế giới."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts thu thập thông tin và dữ liệu về các sản phẩm thức ăn cho thú cưng từ khắp nơi trên thế giới."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Cơ sở dữ liệu hợp tác, miễn phí và mở về các sản phẩm thức ăn cho thú nuôi từ khắp nơi trên thế giới."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Thành phần INCI, chất gây dị ứng, phụ gia, nhãn mác, nguồn gốc thành phần và thông tin về sản phẩm %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr "Tìm kiếm sản phẩm trên Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Trang sản phẩm này chưa hoàn chỉnh. Bạn có thể giúp hoàn thành nó bằng cách chỉnh sửa nó và thêm nhiều dữ liệu hơn từ ảnh chúng tôi có, hoặc bằng cách chụp nhiều ảnh hơn bằng ứng dụng dành cho <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> hoặc <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone / iPad</a>. Cảm ơn bạn!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Trang sản phẩm này chưa hoàn chỉnh. Bạn có thể giúp hoàn thiện nó bằng cách chỉnh sửa và bổ sung thêm dữ liệu từ những bức ảnh chúng tôi có, hoặc bằng cách chụp thêm ảnh bằng ứng dụng di động đa năng dành cho <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> hoặc <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Cảm ơn bạn!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr "Mỹ phẩm ngăn đổ mồ hôi"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "NƯỚC, NATRI LAURETH SUNFAT, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMITE DEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Một cơ sở dữ liệu cộng tác, miễn phí và mở về thông tin của nhiều sản phẩm khác nhau từ khắp nơi trên thế giới."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts thu thập thông tin và dữ liệu về nhiều loại sản phẩm từ khắp nơi trên thế giới."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Một cơ sở dữ liệu hợp tác, miễn phí và mở về các sản phẩm khác nhau từ khắp nơi trên thế giới."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Thành phần, tác động CO2, độ bền, nhãn mác, nguồn gốc nguyên liệu và thông tin về sản phẩm %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Tìm kiếm sản phẩm trên Open Products Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Trang sản phẩm này chưa hoàn chỉnh. Bạn có thể giúp hoàn thiện nó bằng cách chỉnh sửa và bổ sung thêm dữ liệu từ những bức ảnh chúng tôi có, hoặc bằng cách chụp thêm ảnh bằng ứng dụng Open Food Facts dành cho <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> hoặc <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Cảm ơn bạn!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Một cơ sở dữ liệu hợp tác, miễn phí và mở về thành phần, thông tin dinh dưỡng và các sản phẩm thức ăn cho thú cưng từ khắp nơi trên thế giới."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts thu thập thông tin và dữ liệu về các sản phẩm thức ăn cho thú cưng từ khắp nơi trên thế giới."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Cơ sở dữ liệu hợp tác, miễn phí và mở về các sản phẩm thức ăn cho thú nuôi từ khắp nơi trên thế giới."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Thành phần, chất gây dị ứng, phụ gia, thành phần dinh dưỡng, nhãn, nguồn gốc nguyên liệu và thông tin về sản phẩm %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Tìm kiếm sản phẩm trên Open Pet Food Facts"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Trang sản phẩm này chưa hoàn chỉnh. Bạn có thể giúp hoàn thiện nó bằng cách chỉnh sửa và bổ sung thêm dữ liệu từ những bức ảnh chúng tôi có, hoặc bằng cách chụp thêm ảnh bằng ứng dụng Open Food Facts dành cho <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> hoặc <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Cảm ơn bạn!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Thức ăn khô cho chó, thức ăn ướt cho mèo"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "THỊT GÀ, BỘT GLUTEN NGÔ, NGÔ NGUYÊN HẠT, MỠ ĐỘNG VẬT, BỘT ĐẬU NÀNH"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Thức ăn ướt dành cho chó trưởng thành"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Gà và cơm - Món ăn khoái khẩu của chó già"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -623,6 +713,10 @@ msgstr "Chỉnh sửa sản phẩm"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Chỉnh sửa trang"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Đăng nhập để thêm hoặc chỉnh sửa thuộc tính"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2181,6 +2275,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "Tìm kiếm sản phẩm"
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "Tìm kiếm sản phẩm"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "không chứa"
@@ -2784,8 +2882,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Một số dữ liệu và/hoặc hình ảnh của sản phẩm này đến từ nguồn cung cấp:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "Trang sản phẩm này chưa hoàn thành. Bạn có thể giúp hoàn thành nó bằng cách chỉnh sửa và thêm nhiều dữ liệu hơn từ các ảnh chúng tôi có hoặc bằng cách chụp thêm ảnh bằng ứng dụng cho <a href=\"https://android.openfoodfacts.org\">Android</a> hoặc <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>. Cảm ơn bạn!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Trang sản phẩm này chưa hoàn chỉnh. Bạn có thể giúp hoàn thiện nó bằng cách chỉnh sửa và bổ sung thêm dữ liệu từ những bức ảnh chúng tôi có, hoặc bằng cách chụp thêm ảnh bằng ứng dụng di động dành cho <a href=\"https://android.openfoodfacts.org\">Android</a> hoặc <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Cảm ơn bạn!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -4870,8 +4968,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Tác động môi trường thấp (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Điểm Xanh (Green-Score) là thang điểm đánh giá môi trường từ A đến E, giúp dễ dàng so sánh tác động của các sản phẩm thực phẩm đến môi trường."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Điểm Xanh (Green-Score) là thang điểm đánh giá môi trường từ A+ đến F, giúp dễ dàng so sánh tác động của các sản phẩm thực phẩm đến môi trường."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4883,8 +4981,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Tác động môi trường thấp (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Điểm Xanh (Green-Score) là thang điểm đánh giá môi trường từ A đến E, giúp dễ dàng so sánh tác động của các sản phẩm thực phẩm đến môi trường."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Điểm Xanh (Green-Score) là thang điểm đánh giá môi trường từ A+ đến F, giúp dễ dàng so sánh tác động của các sản phẩm thực phẩm đến môi trường."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5807,8 +5905,8 @@ msgstr "Công thức Điểm Sinh Thái có thể thay đổi vì nó thường 
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Điểm Sinh Thái ban đầu được phát triển cho riêng nước Pháp và đang dần được mở rộng sang các nước châu Âu khác. Công thức Điểm sinh thái có thể thay đổi do thường xuyên được cải tiến để chính xác hơn và phù hợp hơn với từng quốc gia."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Chỉ số Green-Score ban đầu được phát triển cho Pháp và hiện đang được mở rộng sang các quốc gia châu Âu khác. Công thức tính Green-Score có thể thay đổi khi nó được cải tiến thường xuyên để trở nên chính xác hơn và phù hợp hơn với từng quốc gia."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -7141,14 +7239,9 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Báo cáo sự cố"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Báo cáo sự cố"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Báo cáo sự cố."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"

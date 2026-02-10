@@ -17,7 +17,7 @@ msgstr ""
 
 msgctxt "site_description_off"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "O bază de date colaborativă, gratuită și deschisă cu ingrediente, informații nutriționale și informații despre produse alimentare din întreaga lume"
 
 msgctxt "tagline_off"
 msgid "Open Food Facts gathers information and data on food products from around the world."
@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Ingrediente, alergeni, aditivi, informații nutriționale, etichete, origini, impactul CO2 și informații despre produs %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "O bază de date liberă, colaborativă și deschisă de ingrediente, și informații despre produsele cosmetice din toată lumea"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "O bază de date colaborativă, liberă și deschisă a produselor cosmetice din întreaga lume."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "O bază de date colaborativă, gratuită și deschisă cu produse alimentare pentru animale de companie din întreaga lume."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Ingrediente INCI, alergeni, aditivi, etichete, originea ingredientelor și informații despre produs %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr "Căutare de produse Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Această pagină de produse este incompletă. Puteți ajuta să o completați prin editarea acesteia și adăugarea mai multor date din fotografiile pe care le avem sau prin realizarea mai multor fotografii folosind aplicația pentru <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> sau <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Mulțumesc!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Această pagină de produs nu este completă. Ne puteți ajuta să o completați editând-o și adăugând mai multe date din fotografiile pe care le avem sau făcând mai multe fotografii folosind aplicația mobilă universală pentru <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> sau <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Vă mulțumim!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr "Anti-Perspirant Stress Protect"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/APA, LAURIL SULFAT DE SODIU, COCOAMFODIACETATE DE DISODIUM, DISTEARAT DE GLICOL, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "O bază de date colaborativă, gratuită și deschisă, cu informații despre diverse produse din întreaga lume."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts colectează informații și date despre o gamă largă de produse din întreaga lume."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "O bază de date colaborativă, gratuită și deschisă cu diverse produse din întreaga lume."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Ingrediente, impactul CO2, durabilitate, etichete, originea ingredientelor și informații despre produs %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Deschideți căutarea de produse Products Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Această pagină de produs nu este completă. Ne puteți ajuta să o completați editând-o și adăugând mai multe date din fotografiile pe care le avem sau făcând mai multe fotografii folosind aplicația universală Open Food Facts pentru <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> sau <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Vă mulțumim!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "O bază de date colaborativă, gratuită și deschisă cu ingrediente, informații nutriționale și produse alimentare pentru animale de companie din întreaga lume."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts adună informații și date despre produsele alimentare pentru animale de companie din întreaga lume."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "O bază de date colaborativă, gratuită și deschisă cu produse alimentare pentru animale de companie din întreaga lume."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Ingrediente, alergeni, aditivi, valori nutriționale, etichete, originea ingredientelor și informații despre produs %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Deschideți căutarea produselor Pet Food Facts"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Această pagină de produs nu este completă. Ne puteți ajuta să o completați editând-o și adăugând mai multe date din fotografiile pe care le avem sau făcând mai multe fotografii folosind aplicația universală Open Food Facts pentru <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> sau <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Vă mulțumim!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Hrană uscată pentru câini, hrană umedă pentru pisici"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "PUI, FĂINĂ DE GLUTEN DIN PORUMB, PORUMB INTEGRAL, GRĂSIME ANIMALE, FĂINĂ DE SOIA"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Hrană umedă pentru câini adulți"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Deliciul Senior Dog Chicken & Rice"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -250,7 +340,7 @@ msgstr "Aditiv alimentar interzis în Europa. De evitat cu orice preț."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "aditivi"
 
 msgctxt "additives_s"
 msgid "additive"
@@ -271,7 +361,7 @@ msgstr "Consumul excesiv de alcool este dăunător sănătății, a se consuma c
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr ""
+msgstr "Rețineți că contul dvs. Pro va fi valid doar dacă utilizați adresa dvs. de e-mail profesională. Echipa noastră de moderare verifică dacă numele de domeniu este compatibil cu organizația la care doriți să vă alăturați."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -295,11 +385,11 @@ msgstr "Pagina produsului a fost, de asemenea, editată de"
 
 msgctxt "analytical_constituents"
 msgid "Analytical constituents"
-msgstr ""
+msgstr "Constituenți analitici"
 
 msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
-msgstr ""
+msgstr "pentru 1 kg"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
@@ -312,7 +402,7 @@ msgstr "Android APK"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -624,6 +714,10 @@ msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Modificare pagină"
 
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Conectați-vă pentru a adăuga sau edita proprietăți"
+
 msgctxt "edit_profile"
 msgid "Edit your public profile"
 msgstr "Modificați profilul public"
@@ -767,7 +861,7 @@ msgstr "Numele de utilizator trebuie să conțină doar litere neaccentuate, cif
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
-msgstr ""
+msgstr "Numele de utilizator este prea lung (maxim 40 de caractere)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -921,12 +1015,12 @@ msgstr "/legal"
 
 msgctxt "footer_privacy"
 msgid "Privacy"
-msgstr ""
+msgstr "Confidențialitate"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/confidențialitate"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -975,7 +1069,7 @@ msgstr "https://ro.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr ""
+msgstr "Informații despre alimente deschise pentru producători"
 
 msgctxt "for"
 msgid "for"
@@ -2177,7 +2271,11 @@ msgstr "Alege produse cu marci specifice, categorii, etichete, originea de ingre
 
 msgctxt "search_description_opensearch"
 msgid "Product search"
-msgstr ""
+msgstr "Căutare de produse"
+
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "Căutare de produse"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2660,7 +2758,7 @@ msgstr "vedere"
 
 msgctxt "view_this_revision"
 msgid "View this revision"
-msgstr ""
+msgstr "Vizualizați această revizuire"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2782,8 +2880,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Unele dintre datele și/sau fotografiile pentru acest produs provin din acele surse:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "Această pagină de produs nu este completă. Puteți ajuta să o finalizați editând-o și adăugând mai multe date din fotografiile pe care le avem, sau făcând mai multe fotografii folosind aplicația pentru <a href=\"https://android.openfoodfacts.org\">Android</a> sau <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Mulțumesc!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Această pagină de produs nu este completă. Ne puteți ajuta să o completați editând-o și adăugând mai multe date din fotografiile pe care le avem sau făcând mai multe fotografii folosind aplicația mobilă pentru <a href=\"https://android.openfoodfacts.org\">Android</a> sau <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Vă mulțumim!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -4066,7 +4164,7 @@ msgstr "Scorul nutrițional"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -4076,7 +4174,7 @@ msgstr "Scor Nutri-Score"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4610,7 +4708,7 @@ msgstr "Calitatea nutrițională"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4639,7 +4737,7 @@ msgstr "Scorul Nutri nu este aplicabil"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
-msgstr ""
+msgstr "Nu se aplică pentru categorie"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
@@ -4661,12 +4759,12 @@ msgstr "Calitate nutrițională medie"
 # lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
 msgid "Lower nutritional quality"
-msgstr ""
+msgstr "Calitate nutrițională mai scăzută"
 
 # lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
 msgid "Lower nutritional quality"
-msgstr ""
+msgstr "Calitate nutrițională mai scăzută"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4690,7 +4788,7 @@ msgstr "Fără sau puțină prelucrare a alimentelor (grupul NOVA)"
 
 msgctxt "attribute_nova_setting_note"
 msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
-msgstr ""
+msgstr "Pentru a determina nivelul de procesare al unui produs, ne bazăm pe lista de ingrediente (markeri, metode de procesare) și categorii."
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4715,12 +4813,12 @@ msgstr "Alimente ultraprocesate"
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
-msgstr ""
+msgstr "1 marker de ultra-procesare"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nova_4_markers"
 msgid "{number} ultra-processing markers"
-msgstr ""
+msgstr "{number} markeri de ultra-procesare"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4861,33 +4959,33 @@ msgstr "Mediu"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "Scor Ecologic"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Impact scăzut asupra mediului (Scor ecologic)"
+msgstr "Impact scăzut asupra mediului (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score este un scor de mediu de la A+ la F, care facilitează compararea impactului produselor alimentare asupra mediului."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "Scor Ecologic"
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Impact scăzut asupra mediului (Scor ecologic)"
+msgstr "Impact scăzut asupra mediului (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score este un scor de mediu de la A+ la F, care facilitează compararea impactului produselor alimentare asupra mediului."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr ""
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5073,22 +5171,22 @@ msgstr "Impact asupra mediului"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr ""
+msgstr "Scor Green-Score"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr ""
+msgstr "Grad Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr ""
+msgstr "Detalii despre calculul Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr ""
+msgstr "Informații despre Green-Score"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5096,15 +5194,15 @@ msgstr "Preferințe selectate în prezent"
 
 msgctxt "preferences_locally_saved"
 msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "Preferințele dvs. sunt păstrate în browserul dvs. și nu sunt niciodată trimise către Open Food Facts sau către altcineva."
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
-msgstr ""
+msgstr "Editați-vă preferințele"
 
 msgctxt "preferences_your_preferences"
 msgid "Your preferences"
-msgstr ""
+msgstr "Preferințele dumneavoastră"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5125,19 +5223,19 @@ msgstr "Informații nutriționale lipsă pentru produsul preparat"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "Scor Ecologic"
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "Scor Ecologic"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "Scor Ecologic"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "Scor Ecologic"
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5308,7 +5406,7 @@ msgstr "Platforma oferă, de asemenea, o analiză aprofundată a produselor."
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgstr "Calculează indicatori precum Nutri-Score, NOVA și Green-Score și identifică automat sugestii pentru îmbunătățirea acestora (de exemplu, toate produsele care ar obține un rating Nutri-Score mai bun cu o ușoară modificare a compoziției)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5389,7 +5487,7 @@ msgstr "Produse cu cel mai bun Nutri-Score"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "Produse cu cel mai bun scor Eco"
+msgstr "Produse cu cel mai bun Green-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5443,11 +5541,11 @@ msgstr "Utilizatorul este șters. Poate dura câteva minute."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr ""
+msgstr "Green-Score nu se aplică"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
-msgstr ""
+msgstr "Nu se aplică pentru categorie"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
@@ -5456,7 +5554,7 @@ msgstr "Nu se aplică încă pentru categoria: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "Scorul Eco nu este încă aplicabil pentru această categorie, dar lucrăm la adăugarea suportului pentru aceasta."
+msgstr "Green-Score nu este încă aplicabil pentru această categorie, dar lucrăm la adăugarea suportului pentru aceasta."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
@@ -5660,7 +5758,7 @@ msgstr "Etapă"
 
 msgctxt "environmental_score_impact"
 msgid "Impact"
-msgstr ""
+msgstr "Impact"
 
 msgctxt "environmental_score_agriculture"
 msgid "Agriculture"
@@ -5805,8 +5903,8 @@ msgstr "Formula Green-Score este supusă modificării, deoarece este îmbunătă
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score a fost dezvoltat inițial pentru Franța și este extins și în alte țări europene. Formula Green-Score poate fi modificată, deoarece este îmbunătățită în mod regulat pentru a o face mai precisă și mai potrivită pentru fiecare țară."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Scorul Verde a fost inițial dezvoltat pentru Franța și este extins în alte țări europene. Formula Scorului Verde este supusă modificărilor, deoarece este îmbunătățită periodic pentru a fi mai precisă și mai potrivită fiecărei țări."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5904,60 +6002,60 @@ msgstr "Important: avem nevoie de sprijinul tău!"
 
 msgctxt "donation_text_2023_main"
 msgid "Help us make food transparency the norm!"
-msgstr ""
+msgstr "Ajutați-ne să facem din transparența alimentară o normă!"
 
 msgctxt "donation_text_2023_secondary"
 msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
-msgstr ""
+msgstr "Ca organizație non-profit, depindem de donațiile dumneavoastră pentru a continua să informăm consumatorii din întreaga lume despre ceea ce mănâncă."
 
 msgctxt "donation_text_2023_tertiary"
 msgid "The food revolution starts with you!"
-msgstr ""
+msgstr "Revoluția alimentară începe cu tine!"
 
 msgctxt "donation_hook_2024"
 msgid "Help us inform millions of consumers around the world about what they eat"
-msgstr ""
+msgstr "Ajutați-ne să informăm milioane de consumatori din întreaga lume despre ceea ce mănâncă"
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
-msgstr ""
+msgstr "Vă rugăm să donați pentru strângerea noastră de fonduri din 2024"
 
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr ""
+msgstr "Vă rugăm să donați pentru strângerea noastră de fonduri {year}"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
-msgstr ""
+msgstr "Donațiile dumneavoastră finanțează operațiunile zilnice ale asociației noastre non-profit:"
 
 msgctxt "donation_list_2024_first"
 msgid "keeping our database open & available to all,"
-msgstr ""
+msgstr "menținerea bazei noastre de date deschise și disponibile tuturor,"
 
 msgctxt "donation_list_2024_first_sub"
 msgid "technical infrastructure (website/mobile app) & a small permanent team"
-msgstr ""
+msgstr "infrastructură tehnică (site web/aplicație mobilă) și o mică echipă permanentă"
 
 msgctxt "donation_list_2024_second"
 msgid "remain independent of the food industry,"
-msgstr ""
+msgstr "să rămână independenți de industria alimentară,"
 
 msgctxt "donation_list_2024_third"
 msgid "engage a community of committed citizens,"
-msgstr ""
+msgstr "a implica o comunitate de cetățeni dedicați,"
 
 msgctxt "donation_list_2024_fourth"
 msgid "support the advancement of public health research."
-msgstr ""
+msgstr "susține avansarea cercetării în sănătate publică."
 
 msgctxt "donation_financial_2024_text"
 msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
-msgstr ""
+msgstr "Fiecare donație contează! Apreciem sprijinul acordat în promovarea unei transparențe alimentare sporite în lume."
 
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
-msgstr ""
+msgstr "EU SUSȚIN"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6023,20 +6121,20 @@ msgstr "Amprenta de carbon"
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
 msgid "{grams} g CO₂e per 100g of product"
-msgstr ""
+msgstr "{grams} g CO₂e la 100 g de produs"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_unit"
 msgid "{kilograms} kg CO₂e per unit"
-msgstr ""
+msgstr "{kilograms} kg CO₂e pe unitate"
 
 msgctxt "average_for_the_category"
 msgid "average for the category"
-msgstr ""
+msgstr "media pentru categorie"
 
 msgctxt "data_source_and_detailed_carbon_impact"
 msgid "Data source and detailed carbon impact"
-msgstr ""
+msgstr "Sursa datelor și impactul detaliat al carbonului"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -6089,7 +6187,7 @@ msgstr "Bonusuri și malusuri"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Scor Eco pentru acest produs"
+msgstr "Green-Score pentru acest produs"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6129,7 +6227,7 @@ msgstr "Valorile nutriționale ale produsului trebuie specificate pentru a calcu
 
 msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
-msgstr ""
+msgstr "Informații nutriționale lipsă:"
 
 msgctxt "nutriscore_missing_prepared_nutrition_data_details"
 msgid "Missing nutrition facts for prepared product:"
@@ -6450,7 +6548,7 @@ msgstr "Adăugați componente de ambalare"
 
 msgctxt "action_add_quantity"
 msgid "Add quantity of the product"
-msgstr ""
+msgstr "Adăugați cantitatea produsului"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6509,7 +6607,7 @@ msgstr "Faceți o fotografie a codurilor de trasabilitate"
 
 msgctxt "action_report_product_to_nutripatrol"
 msgid "Report this product to our moderators"
-msgstr ""
+msgstr "Raportați acest produs moderatorilor noștri"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6658,7 +6756,7 @@ msgstr "Produsul nu a fost găsit"
 
 msgctxt "api_result_product_found_with_a_different_product_type"
 msgid "Product found with a different product type"
-msgstr ""
+msgstr "Produs găsit cu un alt tip de produs"
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
@@ -6686,7 +6784,7 @@ msgstr "Cod invalid"
 
 msgctxt "api_message_invalid_product_type"
 msgid "Invalid product type"
-msgstr ""
+msgstr "Tip de produs nevalid"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6919,7 +7017,7 @@ msgstr "raportat la toate produsele"
 
 msgctxt "preferred_language"
 msgid "Preferred Language"
-msgstr ""
+msgstr "Limbă preferată"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
@@ -6951,7 +7049,7 @@ msgstr "Valoare energetică"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr ""
+msgstr "Energie din grăsimi saturate"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6963,7 +7061,7 @@ msgstr "Acizi grași saturați"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr ""
+msgstr "Grăsimi saturate / grăsimi"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6971,11 +7069,11 @@ msgstr "Sare"
 
 msgctxt "nutriscore_component_non_nutritive_sweeteners"
 msgid "Non-nutritive sweeteners"
-msgstr ""
+msgstr "Îndulcitori non-nutritivi"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr ""
+msgstr "Fructe, legume și leguminoase"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6987,87 +7085,87 @@ msgstr "Proteine"
 
 msgctxt "presence"
 msgid "Presence"
-msgstr ""
+msgstr "Prezenţă"
 
 msgctxt "absence"
 msgid "Absence"
-msgstr ""
+msgstr "Absență"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Acest produs este considerat apă pentru calcularea Nutri-Score-ului."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Acest produs este considerat a fi grăsime, ulei, nuci sau semințe pentru calcularea Nutri-Score-ului."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Acest produs este considerat brânză pentru calcularea Nutri-Score-ului."
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Acest produs este considerat a fi un produs din carne roșie pentru calcularea Nutri-Score-ului."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr ""
+msgstr "Punctele pentru proteine sunt luate în considerare deoarece produsul este considerat o băutură."
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr ""
+msgstr "Punctele pentru proteine sunt luate în considerare deoarece produsul este considerat a fi brânză."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr ""
+msgstr "Punctele pentru proteine sunt luate în considerare deoarece punctele negative sunt mai mici de 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Punctele pentru proteine sunt luate în considerare deoarece punctele negative sunt mai mici de 11."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "Punctele pentru proteine nu sunt luate în considerare deoarece punctele negative sunt mai mari sau egale cu 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "Punctele pentru proteine nu sunt luate în considerare deoarece punctele negative sunt mai mari sau egale cu 11."
 
 msgctxt "nutriscore_new_computation_title"
 msgid "Discover the new Nutri-Score!"
-msgstr ""
+msgstr "Descoperă noul Nutri-Score!"
 
 msgctxt "nutriscore_new_computation_description"
 msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
-msgstr ""
+msgstr "<p>Calculul Nutri-Score-ului este în continuă evoluție pentru a oferi recomandări mai bune bazate pe cele mai recente dovezi științifice.</p><p>Principalele îmbunătățiri:</p><ul><li>Scor mai bun pentru unii pești grași și uleiuri bogate în grăsimi bune</li><li>Scor mai bun pentru produsele integrale bogate în fibre</li><li>Scor mai slab pentru produsele care conțin multă sare sau zahăr</li><li>Scor mai slab pentru carnea roșie (comparativ cu carnea de pasăre)</li></ul>"
 
 msgctxt "nutriscore_new_computation_link_text"
 msgid "Discover all the improvements of the new Nutri-Score"
-msgstr ""
+msgstr "Descoperă toate îmbunătățirile noului Nutri-Score"
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "Nutri-Score-ul este un logo al calității nutriționale generale a produselor."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "Scorul de la A la E se calculează pe baza nutrienților și alimentelor de preferat (proteine, fibre, fructe, legume și leguminoase...) și a nutrienților de limitat (calorii, grăsimi saturate, zaharuri, sare)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "Scorul se calculează pe baza datelor din tabelul cu informații nutriționale și a datelor privind compoziția (fructe, legume și leguminoase)."
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
-msgstr ""
+msgstr "Afișarea acestui logo este recomandată de autoritățile de sănătate publică fără obligații pentru companii."
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr ""
+msgstr "Ce este Nutri-Score-ul?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
-msgstr ""
+msgstr "Aporturile energetice peste necesarul energetic sunt asociate cu riscuri crescute de creștere în greutate, supraponderalitate, obezitate și, în consecință, cu riscul de boli cronice legate de dietă."
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
@@ -7083,31 +7181,31 @@ msgstr "Un consum crescut de grăsimi, în special de grăsimi saturate, poate c
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
-msgstr ""
+msgstr "Îndulcitorii non-nutritivi pot să nu ofere niciun beneficiu pe termen lung în reducerea grăsimii corporale la adulți sau copii. Pot exista potențiale efecte nedorite în urma utilizării pe termen lung a îndulcitorilor non-nutritivi, cum ar fi un risc crescut de diabet zaharat de tip 2 și boli cardiovasculare la adulți."
 
 msgctxt "nutrient_info_fiber_benefit"
 msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "Consumul de alimente bogate în fibre (în special alimente din cereale integrale) reduce riscurile de cancere aerodigestive, boli cardiovasculare, obezitate și diabet."
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "Consumul de alimente bogate în fructe, legume și leguminoase reduce riscurile de cancere aerodigestive, boli cardiovasculare, obezitate și diabet."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
-msgstr ""
+msgstr "Alimentele bogate în proteine sunt de obicei bogate în calciu sau fier, minerale esențiale cu numeroase beneficii pentru sănătate."
 
 msgctxt "revert"
 msgid "Revert to this revision"
-msgstr ""
+msgstr "Reveniți la această revizuire"
 
 msgctxt "product_js_product_revert_confirm"
 msgid "Revert to this product revision?"
-msgstr ""
+msgstr "Reveniți la această versiune de produs?"
 
 msgctxt "api_status_success"
 msgid "Success"
-msgstr ""
+msgstr "Succes"
 
 msgctxt "api_status_failure"
 msgid "Failure"
@@ -7115,16 +7213,16 @@ msgstr "Eșec"
 
 msgctxt "api_result_product_reverted"
 msgid "Product reverted to the specified revision"
-msgstr ""
+msgstr "Produsul a revenit la revizia specificată"
 
 msgctxt "api_result_product_not_reverted"
 msgid "Product not reverted to the specified revision"
-msgstr ""
+msgstr "Produsul nu a fost readus la revizia specificată"
 
 # sweeteners (additives), plural
 msgctxt "sweeteners"
 msgid "sweeteners"
-msgstr ""
+msgstr "îndulcitori"
 
 # sweetener (additive), singular
 msgctxt "sweetener"
@@ -7133,64 +7231,59 @@ msgstr "îndulcitor"
 
 msgctxt "action_edit_product"
 msgid "Complete or correct product information"
-msgstr ""
+msgstr "Informații complete sau corecte despre produs"
 
 msgctxt "report_problem_panel_title"
 msgid "Report a problem"
-msgstr ""
+msgstr "Raportați o problemă"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr ""
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr ""
+msgstr "Raportați o problemă"
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
-msgstr ""
+msgstr "Informații incomplete sau incorecte?"
 
 msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
-msgstr ""
+msgstr "Categorie, etichete, ingrediente, alergeni, informații nutriționale, fotografii etc."
 
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
-msgstr ""
+msgstr "Dacă informațiile nu corespund cu cele de pe ambalaj, le puteți completa sau corecta. Vă mulțumim!"
 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
-msgstr ""
+msgstr "Open Food Facts este o bază de date colaborativă, iar fiecare contribuție este utilă pentru toți."
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
-msgstr ""
+msgstr "Dacă doriți să raportați acte de vandalism, conținut neadecvat sau date eronate pe care nu le puteți corecta singuri, raportați acest lucru echipei noastre de moderatori."
 
 msgctxt "description"
 msgid "Description"
-msgstr ""
+msgstr "Descriere"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
-msgstr ""
+msgstr "Introduceți numele de utilizator al contactului principal:"
 
 msgctxt "change_main_contact"
 msgid "Change main contact"
-msgstr ""
+msgstr "Schimbați contactul principal"
 
 msgctxt "main_contact_updated"
 msgid "Main contact updated"
-msgstr ""
+msgstr "Contactul principal a fost actualizat"
 
 msgctxt "error_unknown_member"
 msgid "This user is not a member of the organization."
-msgstr ""
+msgstr "Acest utilizator nu este membru al organizației."
 
 msgctxt "skip_to_content"
 msgid "Skip to Content"
-msgstr ""
+msgstr "Sari la conținut"
 
 msgctxt "oidc_signin_no_cookie"
 msgid "You need to enable cookies to sign in."
@@ -7198,151 +7291,151 @@ msgstr "Trebuie să activați cookie-urile pentru a vă conecta."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
-msgstr ""
+msgstr "Nu poți elimina contactul principal. Schimbă-l mai întâi."
 
 msgctxt "open_in_crm"
 msgid "Open in CRM"
-msgstr ""
+msgstr "Deschide în CRM"
 
 msgctxt "information_provided_by_the_manufacturer"
 msgid "Information provided by the manufacturer"
-msgstr ""
+msgstr "Informații furnizate de producător"
 
 msgctxt "information_provided_by_the_manufacturer_edit_form"
 msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
-msgstr ""
+msgstr "Informațiile identificate printr-o pictogramă a fabricii au fost furnizate de producător. Acestea pot fi modificate doar de producător și moderatori. Dacă sunt învechite sau incorecte, vă rugăm să ne anunțați."
 
 msgctxt "knowledge_panels_did_you_know"
 msgid "Did you know?"
-msgstr ""
+msgstr "Știați?"
 
 msgctxt "knowledge_panels_why_it_matters"
 msgid "Why it matters"
-msgstr ""
+msgstr "De ce contează"
 
 msgctxt "knowledge_panels_what_you_can_do"
 msgid "What you can do"
-msgstr ""
+msgstr "Ce poți face"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_title"
 msgid "Good for agricultural biodiversity"
-msgstr ""
+msgstr "Bun pentru biodiversitatea agricolă"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
 msgid "Contains neglected or underutilized crops:"
-msgstr ""
+msgstr "Conține culturi neglijate sau subutilizate:"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
 msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
-msgstr ""
+msgstr "Din anul 1900, 75% din diversitatea plantelor s-a pierdut, deoarece fermierii din întreaga lume au abandonat soiurile locale în favoarea soiurilor cu randament ridicat, adaptate prelucrării industriale în masă. Drept urmare, 60% din aportul energetic uman la nivel mondial provine din doar 3 specii: grâu, orez și porumb."
 
 msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
 msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
-msgstr ""
+msgstr "Lipsa varietății culturilor face ca aprovizionarea noastră cu alimente să fie mai vulnerabilă la dăunători, boli și schimbări climatice."
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
 msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
-msgstr ""
+msgstr "Consumul unei varietăți de cereale, leguminoase, legume și fructe contribuie la:"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
 msgid "preserving neglected and underutilized species"
-msgstr ""
+msgstr "conservarea speciilor neglijate și subutilizate"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
 msgid "rural development and support of local farmers and companies"
-msgstr ""
+msgstr "dezvoltarea rurală și sprijinirea fermierilor și companiilor locale"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
 msgid "preserving of diversified landscapes"
-msgstr ""
+msgstr "conservarea peisajelor diversificate"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
 msgid "food security"
-msgstr ""
+msgstr "securitatea alimentară"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
 msgid "and your health!"
-msgstr ""
+msgstr "și sănătatea ta!"
 
 msgctxt "created_by"
 msgid "Created by"
-msgstr ""
+msgstr "Creat de"
 
 msgctxt "org_id"
 msgid "Org id"
-msgstr ""
+msgstr "ID-ul organizației"
 
 msgctxt "verified_status"
 msgid "Verified status"
-msgstr ""
+msgstr "Stare verificată"
 
 msgctxt "creation_date"
 msgid "Creation date"
-msgstr ""
+msgstr "Data creării"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
 msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
-msgstr ""
+msgstr "Open Food Facts participă la proiectul european <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (finanțat din programul de cercetare și inovare Orizont 2020 al Uniunii Europene). DIVINFOOD își propune să dezvolte lanțuri alimentare care valorifică agrobiodiversitatea subutilizată, pentru a acționa împotriva declinului biodiversității și pentru a satisface așteptările tot mai mari ale consumatorilor pentru produse sănătoase și locale, care contribuie la sisteme alimentare sustenabile."
 
 msgctxt "deny"
 msgid "Deny"
-msgstr ""
+msgstr "Refuza"
 
 msgctxt "users_requested_to_join_org"
 msgid "These users have requested to join the organization:"
-msgstr ""
+msgstr "Acești utilizatori au solicitat să se alăture organizației:"
 
 msgctxt "last_login"
 msgid "Last login date"
-msgstr ""
+msgstr "Data ultimei conectări"
 
 msgctxt "last_import"
 msgid "Last import date"
-msgstr ""
+msgstr "Data ultimei importuri"
 
 msgctxt "drop_a_file"
 msgid "Drop"
-msgstr ""
+msgstr "Picătură"
 
 msgctxt "select_product_data_file"
 msgid "Select a file with product data"
-msgstr ""
+msgstr "Selectați un fișier cu date despre produs"
 
 msgctxt "number_of_products_without_nutriscore"
 msgid "Number of products without Nutri-Score"
-msgstr ""
+msgstr "Numărul de produse fără Nutri-Score"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
-msgstr ""
+msgstr "% din produsele pentru care se calculează Nutri-Score"
 
 msgctxt "products_to_be_exported"
 msgid "Products to be exported"
-msgstr ""
+msgstr "Produse care urmează să fie exportate"
 
 msgctxt "products_exported"
 msgid "Products exported"
-msgstr ""
+msgstr "Produse exportate"
 
 msgctxt "opportunities_to_improve_nutriscore"
 msgid "Opp. for Nutri-Score improvements"
-msgstr ""
+msgstr "Opțional pentru îmbunătățirile Nutri-Score"
 
 msgctxt "date_of_last_update"
 msgid "Date of last update"
-msgstr ""
+msgstr "Data ultimei actualizări"
 
 msgctxt "number_of_products_on_public_platform"
 msgid "Number of products on public platform"
-msgstr ""
+msgstr "Numărul de produse pe platforma publică"
 
 msgctxt "number_of_products_on_producer_platform"
 msgid "Number of products on producer platform"
-msgstr ""
+msgstr "Numărul de produse pe platforma producătorului"
 
 msgctxt "automated_daily_export_to_public_platform"
 msgid "Automatic daily export to public platform"
-msgstr ""
+msgstr "Export zilnic automat către platformă publică"
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
@@ -7350,56 +7443,56 @@ msgstr ""
 
 msgctxt "products_with_changes_since_last_export"
 msgid "Products with changes since last export"
-msgstr ""
+msgstr "Produse cu modificări de la ultimul export"
 
 msgctxt "organization_list"
 msgid "Organization list"
-msgstr ""
+msgstr "Lista organizațiilor"
 
 msgctxt "open_org"
 msgid "Open org"
-msgstr ""
+msgstr "Organizație deschisă"
 
 msgctxt "secondhand"
 msgid "Secondhand"
-msgstr ""
+msgstr "La mâna a doua"
 
 msgctxt "donated_products_title"
 msgid "Donations"
-msgstr ""
+msgstr "Donații"
 
 msgctxt "donated_products_subtitle"
 msgid "Give this product, or search for a similar donated product"
-msgstr ""
+msgstr "Donează acest produs sau caută un produs similar donat"
 
 msgctxt "used_products_title"
 msgid "Used products"
-msgstr ""
+msgstr "Produse folosite"
 
 msgctxt "used_products_subtitle"
 msgid "Buy this product used, or search for a similar used product"
-msgstr ""
+msgstr "Cumpără acest produs folosit sau caută un produs similar folosit"
 
 msgctxt "attribute_repairability_index_france_name"
 msgid "Repairability index"
-msgstr ""
+msgstr "Indicele de reparabilitate"
 
 msgctxt "attribute_repairability_index_france_setting_name"
 msgid "Good repairability"
-msgstr ""
+msgstr "Reparabilitate bună"
 
 msgctxt "attribute_repairability_index_france_setting_note"
 msgid "Mandatory rating in France for certain products since 2021"
-msgstr ""
+msgstr "Clasificare obligatorie în Franța pentru anumite produse din 2021"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_repairability_index_france_grade_title"
 msgid "Repairability index %s"
-msgstr ""
+msgstr "Indicele de reparabilitate %s"
 
 msgctxt "attribute_repairability_index_france_unknown_title"
 msgid "Repairability index unknown"
-msgstr ""
+msgstr "Indicele de reparabilitate este necunoscut"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
 msgid "Repairability index not applicable"
@@ -7407,41 +7500,41 @@ msgstr "Indicele de reparabilitate nu este aplicabil"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
 msgid "Not applicable for the category"
-msgstr ""
+msgstr "Nu se aplică pentru categorie"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
 msgid "Applicable only for categories: {categories}"
-msgstr ""
+msgstr "Se aplică numai pentru categoriile: {categories}"
 
 msgctxt "attribute_repairability_index_france_very_good_description_short"
 msgid "Very good repairability"
-msgstr ""
+msgstr "Reparabilitate foarte bună"
 
 msgctxt "attribute_repairability_index_france_good_description_short"
 msgid "Good repairability"
-msgstr ""
+msgstr "Reparabilitate bună"
 
 msgctxt "attribute_repairability_index_france_average_description_short"
 msgid "Average repairability"
-msgstr ""
+msgstr "Reparabilitate medie"
 
 msgctxt "attribute_repairability_index_france_poor_description_short"
 msgid "Poor repairability"
-msgstr ""
+msgstr "Reparabilitate slabă"
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
-msgstr ""
+msgstr "Reparabilitate slabă"
 
 msgctxt "estimate"
 msgid "estimate"
-msgstr ""
+msgstr "estima"
 
 # information on several ingredients, in plural in languages like French
 msgctxt "ingredient_information"
 msgid "Ingredient information"
-msgstr ""
+msgstr "Informații despre ingrediente"
 
 msgctxt "product_type"
 msgid "Product type"
@@ -7460,7 +7553,7 @@ msgstr "Hrană pentru animale de companie"
 # Beauty product type
 msgctxt "product_type_beauty"
 msgid "Beauty"
-msgstr ""
+msgstr "Frumuseţe"
 
 # General product product type
 msgctxt "product_type_product"
@@ -7469,31 +7562,31 @@ msgstr "Produs"
 
 msgctxt "recommendation_limit_ultra_processed_foods_title"
 msgid "Limit ultra-processed foods"
-msgstr ""
+msgstr "Limitați alimentele ultra-procesate"
 
 msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
 msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
-msgstr ""
+msgstr "Limitarea alimentelor ultraprocesate reduce riscul de boli cronice netransmisibile"
 
 msgctxt "recommendation_limit_ultra_processed_foods_text"
 msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
-msgstr ""
+msgstr "Mai multe studii au descoperit că un consum mai scăzut de alimente ultra-procesate este asociat cu un risc redus de boli cronice netransmisibile, cum ar fi obezitatea, hipertensiunea arterială și diabetul."
 
 msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
 msgid "Discover the evolution of the Nutri-Score grades of your products"
-msgstr ""
+msgstr "Descoperiți evoluția notelor Nutri-Score ale produselor dumneavoastră"
 
 msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
 msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
-msgstr ""
+msgstr "Adăugați produse cu o categorie, o listă de ingrediente și informații nutriționale pentru a descoperi evoluția notelor Nutri-Score."
 
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
-msgstr ""
+msgstr "În contact cu alimentele"
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
-msgstr ""
+msgstr "Contactaţi-ne"
 
 msgctxt "delete"
 msgid "Delete"
@@ -7501,12 +7594,12 @@ msgstr "Ştergeţi"
 
 msgctxt "f_add_product_to_our_database"
 msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
-msgstr ""
+msgstr "Este {barcode} codul de bare al unui produs pe care îl aveți? Dacă da, vă rugăm să îl adăugați în baza de date. Durează doar câteva minute."
 
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr ""
+msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7514,19 +7607,19 @@ msgstr "Disponibil pe F-Droid"
 
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
-msgstr ""
+msgstr "Actualizați datele nutrienților"
 
 msgctxt "update_nutrition_facts"
 msgid "Extract nutrition facts"
-msgstr ""
+msgstr "Extrageți informațiile nutriționale"
 
 msgctxt "scan_a_product"
 msgid "Scan a product"
-msgstr ""
+msgstr "Scanați un produs"
 
 msgctxt "or_enter_barcode_manually"
 msgid "Or enter barcode manually"
-msgstr ""
+msgstr "Sau introduceți manual codul de bare"
 
 msgctxt "scan"
 msgid "Scan"
@@ -7542,7 +7635,7 @@ msgstr "Nutri-Score, Green-Score și nivel de procesare a alimentelor (NOVA)"
 
 msgctxt "reset_preferences_details_product"
 msgid "Good repairability"
-msgstr ""
+msgstr "Reparabilitate bună"
 
 msgctxt "reset_preferences_details_pet_food"
 msgid "Organic farming and fair trade"
@@ -7646,35 +7739,35 @@ msgstr "Aceste preferințe se bazează pe înțelegerea de către Open Food Fact
 
 msgctxt "external_sources_empreinte_souffrance_name"
 msgid "Suffering Fingerprint"
-msgstr ""
+msgstr "Amprentă de suferință"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
-msgstr ""
+msgstr "Indicator al suferinței animalelor calculat în funcție de produs"
 
 msgctxt "section_animal_welfare_title"
 msgid "Animal welfare"
-msgstr ""
+msgstr "Bunăstarea animalelor"
 
 msgctxt "external_panels"
 msgid "External Knowledge Panels"
-msgstr ""
+msgstr "Panouri de cunoștințe externe"
 
 msgctxt "external_panel_unavailable"
 msgid "Panel unavailable"
-msgstr ""
+msgstr "Panoul nu este disponibil"
 
 msgctxt "external_panel_unavailable_for_product"
 msgid "Panel unavailable for this product"
-msgstr ""
+msgstr "Panou indisponibil pentru acest produs"
 
 msgctxt "external_sources"
 msgid "External sources"
-msgstr ""
+msgstr "Surse externe"
 
 msgctxt "provided_by"
 msgid "Provided by"
-msgstr ""
+msgstr "Furnizat de"
 
 msgctxt "recommendation_eu_tobacco_health_warning_title"
 msgid "Smoking kills"
@@ -7687,6 +7780,70 @@ msgstr "Tutunul dăunează grav sănătății. Nu începe. Renunță acum."
 msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "Fumatul creează o dependență ridicată. Nu începe. Fumatul ucide – renunță acum. Fumatul înfundă arterele și provoacă atacuri de cord și accidente vasculare cerebrale. Fumatul provoacă cancer pulmonar fatal. Fumatul în timpul sarcinii este dăunător pentru bebeluș. Protejați copiii: nu-i obligați să inhaleze fumul dumneavoastră. Medicul sau farmacistul vă pot ajuta să renunțați la fumat. Fumatul poate reduce fluxul sanguin și poate provoca impotență. Fumatul provoacă îmbătrânirea pielii. Fumatul poate deteriora spermatozoizii și scade fertilitatea. Fumatul conține benzen, nitrozamine, formaldehidă și cianură de hidrogen."
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Donează"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Reciclează"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
 
 msgctxt "public_price"
 msgid "Public price"

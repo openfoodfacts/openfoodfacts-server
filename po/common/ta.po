@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "பொருட்கள், ஒவ்வாமை, சேர்க்கைகள், ஊட்டச்சத்து உண்மைகள், லேபிள்கள், தோற்றம், CO2 தாக்கம் மற்றும் தயாரிப்பு பற்றிய தகவல்கள் %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr ""
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr ""
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "உலகெங்கிலும் உள்ள பல்வேறு தயாரிப்புகள்பற்றிய தகவல்கள் மற்றும் மூலப்பொருட்களின் கூட்டு, இலவச மற்றும் திறந்த தரவுத்தளம்."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "திறந்த தயாரிப்பு உண்மைகள் உலகெங்கிலும் உள்ள பல்வேறு வகையானதயாரிப்புகள்பற்றியய தகவல்களையும் தரவையும் சேகரிக்கிறது."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "உலகெங்கிலும் உள்ள பல்வேறு தயாரிப்புகள்பற்றிய தகவல்கள் மற்றும் மூலப்பொருட்களின் கூட்டு, இலவச மற்றும் திறந்த தரவுத்தளம்."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "உலகெங்கிலும் உள்ள பொருட்கள், ஊட்டச்சத்து உண்மைகள் மற்றும் செல்லப்பிராணி உணவுப் பொருட்கள்பற்றிய தகவல்களின் கூட்டு, இலவச மற்றும் திறந்த தரவுத்தளம்."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "திறந்த தயாரிப்பு உண்மைகள் உலகெங்கிலும் உள்ள பல்வேறு வகையான தயாரிப்புகள்பற்றிய தகவல்களையும் தரவையும் சேகரிக்கிறது."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "பொருட்கள் INCI, ஒவ்வாமை, சேர்க்கைகள், லேபிள்கள், பொருட்களின் தோற்றம் மற்றும் தயாரிப்பு பற்றிய தகவல்கள் %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr ""
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "இந்தத் தயாரிப்புப் பக்கம் முழுமையடையவில்லை. அதைத் திருத்தி, எங்களிடம் உள்ள புகைப்படங்களிலிருந்து கூடுதல் தரவைச் சேர்ப்பதன் மூலமோ அல்லது <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> அல்லது <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>க்கான உலகளாவிய மொபைல் பயன்பாட்டைப் பயன்படுத்தி கூடுதல் புகைப்படங்களை எடுப்பதன் மூலமோ நீங்கள் இதை முடிக்க உதவலாம். நன்றி!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr ""
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr ""
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "உலகெங்கிலும் உள்ள பல்வேறு தயாரிப்புகள் பற்றிய தகவல்களின் கூட்டு, இலவச மற்றும் திறந்த தரவுத்தளம்."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "திறந்த தயாரிப்பு உண்மைகள் உலகெங்கிலும் உள்ள பல்வேறு வகையானதயாரிப்புகள்பற்றியய தகவல்களையும் தரவையும் சேகரிக்கிறது."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "உலகெங்கிலும் உள்ள பல்வேறு தயாரிப்புகள்பற்றிய தகவல்கள் மற்றும் மூலப்பொருட்களின் கூட்டு, இலவச மற்றும் திறந்த தரவுத்தளம்."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "பொருட்கள், CO2 தாக்கம், ஆயுள், லேபிள்கள், பொருட்களின் தோற்றம் மற்றும் தயாரிப்பு பற்றிய தகவல்கள் %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr ""
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "இந்தத் தயாரிப்புப் பக்கம் முழுமையடையவில்லை. அதைத் திருத்தி, எங்களிடம் உள்ள புகைப்படங்களிலிருந்து கூடுதல் தரவைச் சேர்ப்பதன் மூலமோ அல்லது <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> அல்லது <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>க்கான உலகளாவிய Open Food Facts பயன்பாட்டைப் பயன்படுத்தி கூடுதல் புகைப்படங்களை எடுப்பதன் மூலமோ நீங்கள் இதை முடிக்க உதவலாம். நன்றி!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "உலகெங்கிலும் உள்ள பொருட்கள், ஊட்டச்சத்து உண்மைகள் மற்றும் செல்லப்பிராணி உணவுப் பொருட்கள்பற்றிய தகவல்களின் கூட்டு, இலவச மற்றும் திறந்த தரவுத்தளம்."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "திறந்த தயாரிப்பு உண்மைகள் உலகெங்கிலும் உள்ள பல்வேறு வகையான தயாரிப்புகள்பற்றிய தகவல்களையும் தரவையும் சேகரிக்கிறது."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr ""
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "இந்தத் தயாரிப்புப் பக்கம் முழுமையடையவில்லை. அதைத் திருத்தி, எங்களிடம் உள்ள புகைப்படங்களிலிருந்து கூடுதல் தரவைச் சேர்ப்பதன் மூலமோ அல்லது <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> அல்லது <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>க்கான உலகளாவிய Open Food Facts பயன்பாட்டைப் பயன்படுத்தி கூடுதல் புகைப்படங்களை எடுப்பதன் மூலமோ நீங்கள் இதை முடிக்க உதவலாம். நன்றி!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr ""
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "உலர் நாய் உணவு, ஈரமான பூனை உணவு"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "கோழி, சோளம் பசையம் உணவு, முழு தானிய சோளம், விலங்கு கொழுப்பு, சோயாபீன் உணவு"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr ""
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "வயது வந்த நாய்களுக்கு ஈரமான உணவு"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "சீனியர் டாக் டிலைட் சிக்கன் & ரைஸ்"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -622,6 +712,10 @@ msgstr ""
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr ""
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "பண்புகளைச் சேர்க்க அல்லது திருத்த உள்நுழையவும்."
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2164,6 +2258,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr ""
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr ""
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr ""
@@ -2765,8 +2863,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr ""
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "இந்தத் தயாரிப்புப் பக்கம் முழுமையடையவில்லை. அதைத் திருத்தி, எங்களிடம் உள்ள புகைப்படங்களிலிருந்து கூடுதல் தரவைச் சேர்ப்பதன் மூலமோ அல்லது <a href=\"https://android.openfoodfacts.org\">Android</a> அல்லது <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>க்கான மொபைல் பயன்பாட்டைப் பயன்படுத்தி கூடுதல் புகைப்படங்களை எடுப்பதன் மூலமோ நீங்கள் அதை முடிக்க உதவலாம். நன்றி!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -4851,8 +4949,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "குறைந்த சுற்றுச்சூழல் பாதிப்பு (பச்சை ஸ்கோர்)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "பசுமை ஸ்கோர் என்பது A முதல் E வரையிலான சுற்றுச்சூழல் ஸ்கோர் ஆகும், இது சுற்றுச்சூழலில் உணவுப் பொருட்களின் தாக்கத்தை ஒப்பிட்டுப் பார்ப்பதை எளிதாக்குகிறது."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "பசுமை மதிப்பெண் என்பது A+ முதல் F வரையிலான சுற்றுச்சூழல் மதிப்பெண் ஆகும், இது உணவுப் பொருட்களின் சுற்றுச்சூழலின் தாக்கத்தை ஒப்பிடுவதை எளிதாக்குகிறது."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4864,8 +4962,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "குறைந்த சுற்றுச்சூழல் பாதிப்பு (பச்சை ஸ்கோர்)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "பசுமை ஸ்கோர் என்பது A முதல் E வரையிலான சுற்றுச்சூழல் ஸ்கோர் ஆகும், இது சுற்றுச்சூழலில் உணவுப் பொருட்களின் தாக்கத்தை ஒப்பிட்டுப் பார்ப்பதை எளிதாக்குகிறது."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "பசுமை மதிப்பெண் என்பது A+ முதல் F வரையிலான சுற்றுச்சூழல் மதிப்பெண் ஆகும், இது உணவுப் பொருட்களின் சுற்றுச்சூழலின் தாக்கத்தை ஒப்பிடுவதை எளிதாக்குகிறது."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5788,8 +5886,8 @@ msgstr ""
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "ஆரம்பத்தில் பிரான்சிற்காக உருவாக்கப்பட்ட கிரீன்-ஸ்கோர், பின்னர் மற்ற ஐரோப்பிய நாடுகளுக்கும் விரிவுபடுத்தப்படுகிறது. கிரீன்-ஸ்கோர் சூத்திரம் மாற்றத்திற்கு உட்பட்டது, ஏனெனில் இது ஒவ்வொரு நாட்டிற்கும் மிகவும் துல்லியமாகவும் பொருத்தமாகவும் இருக்க தொடர்ந்து மேம்படுத்தப்படுகிறது."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -7122,13 +7220,8 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr ""
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
 msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_title"

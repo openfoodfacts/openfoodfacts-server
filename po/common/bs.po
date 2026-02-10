@@ -17,7 +17,7 @@ msgstr ""
 
 msgctxt "site_description_off"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "Kolaborativna, besplatna i otvorena baza podataka o sastojcima, nutritivnim vrijednostima i informacijama o prehrambenim proizvodima iz cijelog svijeta"
 
 msgctxt "tagline_off"
 msgid "Open Food Facts gathers information and data on food products from around the world."
@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Sastojci, alergeni, aditivi, nutritivne vrijednosti, deklaracije, porijeklo, utjecaj CO2 i informacije o proizvodu %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr ""
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr ""
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Sastojci INCI, alergeni, aditivi, etikete, porijeklo sastojaka i informacije o proizvodu %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr ""
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ova stranica proizvoda nije potpuna. Možete pomoći u njenom kompletiranju tako što ćete je urediti i dodati više podataka sa fotografija koje imamo ili tako što ćete snimiti više fotografija koristeći univerzalnu mobilnu aplikaciju za <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ili <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Hvala vam!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -111,13 +93,121 @@ msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr ""
 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Kolaborativna, besplatna i otvorena baza podataka s informacijama o raznim proizvodima iz cijelog svijeta."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts prikuplja informacije i podatke o širokom spektru proizvoda iz cijelog svijeta."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Kolaborativna, besplatna i otvorena baza podataka prehrambenih proizvoda iz cijelog svijeta."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Sastojci, utjecaj CO2, trajnost, etikete, porijeklo sastojaka i informacije o proizvodu %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr ""
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ova stranica proizvoda nije potpuna. Možete pomoći u njenom popunjavanju tako što ćete je urediti i dodati više podataka sa fotografija koje imamo ili tako što ćete snimiti više fotografija koristeći univerzalnu aplikaciju Open Food Facts za <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ili <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Hvala vam!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Kolaborativna, besplatna i otvorena baza podataka o sastojcima, nutritivnim vrijednostima i informacijama o prehrambenim proizvodima za pse iz cijelog svijeta."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Products Facts prikuplja informacije i podatke o širokom spektru proizvoda za kućne ljubimce iz cijelog svijeta."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr ""
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ova stranica proizvoda nije potpuna. Možete pomoći u njenom popunjavanju tako što ćete je urediti i dodati više podataka sa fotografija koje imamo ili tako što ćete snimiti više fotografija koristeći univerzalnu aplikaciju Open Food Facts za <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ili <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Hvala vam!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr ""
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Suha hrana za pse, Mokra hrana za mačke"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "PILETINA, KUKURUZNO GLUTENSKO BRAŠNO, KUKURUZ OD CIJELOG ZRNA, ŽIVOTINJSKA MAST, SOJINO BRAŠNO"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr ""
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Mokra hrana za odrasle pse"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Senior Dog Delicious piletina i riža"
+
 msgctxt "1_product"
 msgid "1 product"
-msgstr ""
+msgstr "1 proizvod"
 
 msgctxt "about"
 msgid "About me"
-msgstr ""
+msgstr "O meni"
 
 msgctxt "add"
 msgid "Add"
@@ -125,19 +215,19 @@ msgstr ""
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Dodaj jezik"
 
 msgctxt "add_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Dodaj proizvod"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr ""
+msgstr "Registrujte se"
 
 msgctxt "add_user_display"
 msgid "Register"
-msgstr ""
+msgstr "Registrujte se"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
@@ -145,124 +235,124 @@ msgstr ""
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr ""
+msgstr "Hvala vam što ste nam se pridružili!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr ""
+msgstr "Sada možete dodavati i uređivati proizvode na webu ili putem naše besplatne <a href=\"%s\">mobilne aplikacije</a>."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Pridružite nam se na Slacku"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "%s je zajednički projekat u koji možete unijeti mnogo više od novih proizvoda: svoju energiju, entuzijazam i ideje!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "Koristimo sistem za diskusiju pod nazivom Slack gdje svi učesnici projekta mogu razmjenjivati mišljenja i sarađivati. Pridružite nam se! Bilo bi nam drago da vas upoznamo!"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr ""
+msgstr "Sada možete jednostavno uvesti podatke o proizvodu i fotografije."
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr ""
+msgstr "Sada možete dodavati i uređivati svoje proizvode te uvoziti njihove podatke i fotografije na našoj besplatnoj <a href=\"%s\">platformi za proizvođače</a>."
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
-msgstr ""
+msgstr "Već postoji organizacija s nazivom %s."
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr ""
+msgstr "Vaš zahtjev za pridruživanje organizaciji čeka odobrenje administratora organizacije."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
-msgstr ""
+msgstr "Status administratora ažuriran"
 
 msgctxt "admin_status"
 msgid "Admin Status"
-msgstr ""
+msgstr "Status administratora"
 
 msgctxt "grant_remove_admin_status"
 msgid "Grant/Remove Admin status"
-msgstr ""
+msgstr "Dodijeli/Ukloni administratorski status"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr ""
+msgstr "Molimo vas da pošaljete e-mail na <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> ako imate bilo kakvih pitanja."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr ""
+msgstr "Ako radite za proizvođača ili brend i dodajete ili dopunjujete podatke samo za vlastite proizvode, možete dobiti pristup našoj potpuno besplatnoj Platformi za proizvođače."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr ""
+msgstr "Platforma za proizvođače omogućava proizvođačima da lako uvezu podatke i fotografije za sve svoje proizvode, da ih označe kao službene i da dobiju besplatnu analizu mogućnosti za poboljšanje svojih proizvoda."
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "Profesionalni račun"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
-msgstr ""
+msgstr "Ovo je račun producenta ili brenda."
 
 msgctxt "producer_or_brand"
 msgid "Name of producer or name of brand"
-msgstr ""
+msgstr "Naziv proizvođača ili naziv robne marke"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "Profesionalni računi moraju imati povezanu organizaciju (naziv kompanije ili brend)."
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr ""
+msgstr "Molimo unesite naziv vaše organizacije (naziv kompanije ili brenda)."
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
-msgstr ""
+msgstr "Unesite adrese e-pošte korisnika koje želite pozvati (odvojene zarezima):"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Ovaj račun je profesionalni račun povezan s producentom ili brendom {org}. Imate pristup Platformi za producente."
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Hvala što ste se pridružili <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Potencijalno opasan aditiv za hranu. Ograničite upotrebu."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Opasan aditiv za hranu. Izbjegavati."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Dodatak hrani zabranjen u Evropi. Izbjegavajte pod svaku cijenu."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "aditivi"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "aditiv"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
-msgstr ""
+msgstr "Napredna pretraga"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr ""
+msgstr "Napredna pretraga i grafikoni"
 
 # duplicate
 msgctxt "alcohol_warning"
@@ -623,6 +713,10 @@ msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr ""
 
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Prijavite se da biste dodali ili uredili svojstva"
+
 msgctxt "edit_profile"
 msgid "Edit your public profile"
 msgstr ""
@@ -901,7 +995,7 @@ msgstr ""
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
-msgstr ""
+msgstr "Pridruži se zajednici"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
@@ -1397,7 +1491,7 @@ msgstr ""
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
-msgstr ""
+msgstr "Dodaj proizvod"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
@@ -1488,7 +1582,7 @@ msgstr ""
 
 msgctxt "next"
 msgid "Next"
-msgstr ""
+msgstr "Sljedeće"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
@@ -2130,7 +2224,7 @@ msgstr ""
 
 msgctxt "save"
 msgid "Save"
-msgstr ""
+msgstr "Sačuvaj"
 
 msgctxt "saved"
 msgid "Saved."
@@ -2161,6 +2255,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr ""
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr ""
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr ""
 
@@ -2391,7 +2489,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Država"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2765,8 +2863,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr ""
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Ova stranica proizvoda nije potpuna. Možete pomoći u njenom kompletiranju tako što ćete je urediti i dodati više podataka sa fotografija koje imamo ili tako što ćete snimiti više fotografija koristeći mobilnu aplikaciju za <a href=\"https://android.openfoodfacts.org\">Android</a> ili <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Hvala vam!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -3116,7 +3214,7 @@ msgstr ""
 
 msgctxt "warning"
 msgid "Warning"
-msgstr ""
+msgstr "Upozorenje"
 
 msgctxt "preparation"
 msgid "Preparation"
@@ -3948,7 +4046,7 @@ msgstr ""
 
 msgctxt "close"
 msgid "Close"
-msgstr ""
+msgstr "Zatvori"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
@@ -4851,8 +4949,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Zeleni rezultat je ekološka ocjena od A+ do F koja olakšava poređenje utjecaja prehrambenih proizvoda na okoliš."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4864,8 +4962,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Zeleni rezultat je ekološka ocjena od A+ do F koja olakšava poređenje utjecaja prehrambenih proizvoda na okoliš."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5788,8 +5886,8 @@ msgstr ""
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Zeleni rezultat je prvobitno razvijen za Francusku, a proširuje se i na druge evropske zemlje. Formula Zelenog rezultata podložna je promjenama jer se redovno poboljšava kako bi bila preciznija i bolje prilagođena svakoj zemlji."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6737,7 +6835,7 @@ msgstr "Nijedan"
 
 msgctxt "api_impact_warning"
 msgid "Warning"
-msgstr ""
+msgstr "Upozorenje"
 
 msgctxt "api_impact_failure"
 msgid "Failure"
@@ -7122,13 +7220,8 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr ""
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
 msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_title"

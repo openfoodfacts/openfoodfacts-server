@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "ቀመማት፣ ኣለርጂ ዘስዕቡ ነገራት፣ ተወሰኽቲ ነገራት፣ ሓቅታት ኣመጋግባ፣ ምልክታት፣ መበቆል፣ ፅልዋ CO2ን ሓበሬታ ኣብ ፍርያት %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr ""
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr ""
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "ቀመማት INCI፣ ኣለርጂን፣ ተወሰኽቲ፣ ምልክት፣ መበቆል ቀመማትን ሓበሬታ ብዛዕባ ፍርያት %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr ""
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "እዚ ናይ ፍርያት ገጽ ምሉእ ኣይኮነን። ንምዝዛሙ ክትሕግዙ ትኽእሉ ኢኹም ብምእራምን ካብቲ ዘለና ስእልታት ተወሳኺ ዳታ ብምውሳኽን፡ ወይ ድማ ን <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">ኣንድሮይድ</a> ወይ <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>ዝኸውን ኣድማሳዊ ሞባይል ኣፕ ተጠቒምኩም ዝያዳ ስእልታት ብምውሳድ ክትሕግዙ ትኽእሉ ኢኹም። የቕንየለይ!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr ""
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr ""
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "ካብ መላእ ዓለም ዝመጹ ዝተፈላለዩ ፍርያት ዝምልከት ሓበሬታ ዝሓዘ ናይ ምትሕብባር፣ ነጻን ክፉትን ዳታቤዝ።"
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "ቀመማት፣ ጽልዋ CO2፣ ጽንዓት፣ ምልክታት፣ መበቆል ቀመማትን ሓበሬታ ኣብ ፍርያት %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr ""
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "እዚ ናይ ፍርያት ገጽ ምሉእ ኣይኮነን። ንዕኡ ብምእራምን ካብቲ ዘለና ስእልታት ዝያዳ ዳታ ብምውሳኽን፡ ወይ ድማ ን <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">ኣንድሮይድ</a> ወይ <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>ዝኸውን ኣድማሳዊ Open Food Facts app ተጠቒምካ ዝያዳ ስእልታት ብምውሳድ ክትሕግዙ ትኽእሉ ኢኹም። የቕንየለይ!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr ""
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "እዚ ናይ ፍርያት ገጽ ምሉእ ኣይኮነን። ንዕኡ ብምእራምን ካብቲ ዘለና ስእልታት ዝያዳ ዳታ ብምውሳኽን፡ ወይ ድማ ን <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">ኣንድሮይድ</a> ወይ <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>ዝኸውን ኣድማሳዊ Open Food Facts app ተጠቒምካ ዝያዳ ስእልታት ብምውሳድ ክትሕግዙ ትኽእሉ ኢኹም። የቕንየለይ!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr ""
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "ደረቕ መግቢ ከልቢ፣ ርጥብ ዝበለ መግቢ ድሙ"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "ኢኤምቢ 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "ደርሆ፣ ቆሎ ግሉተን መግቢ፣ ምሉእ እኽሊ ቆሎ፣ ስብሒ እንስሳ፣ መግቢ ሶያ"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr ""
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "ንዓበይቲ ኣኽላባት ዝኸውን ርጥብ ዝበለ መግቢ"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "ሲንየር ዶግ ዲላይት ደርሆ & ሩዝ"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -622,6 +712,10 @@ msgstr ""
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr ""
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "ንብረታት ንምውሳኽ ወይ ንምእራም እቶ"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2164,6 +2258,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr ""
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr ""
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr ""
@@ -2765,8 +2863,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr ""
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "እዚ ናይ ፍርያት ገጽ ምሉእ ኣይኮነን። ንምዝዛሙ ክትሕግዙ ትኽእሉ ኢኹም ብምእራምን ካብቲ ዘለና ስእልታት ተወሳኺ ዳታ ብምውሳኽን፡ ወይ ድማ ን <a href=\"https://android.openfoodfacts.org\">ኣንድሮይድ</a> ወይ <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>ዝኸውን ናይ ሞባይል ኣፕ ተጠቒምኩም ዝያዳ ስእልታት ብምውሳድ ክትሕግዙ ትኽእሉ ኢኹም። የቕንየለይ!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -4851,8 +4949,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "ሓምላይ-ነጥቢ ካብ A+ ክሳብ F ዝበጽሕ ከባብያዊ ነጥቢ ኮይኑ ፍርያት መግቢ ኣብ ከባቢ ዘለዎም ጽልዋ ንምንጽጻር ቀሊል ይገብሮ።"
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4864,8 +4962,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "ሓምላይ-ነጥቢ ካብ A+ ክሳብ F ዝበጽሕ ከባብያዊ ነጥቢ ኮይኑ ፍርያት መግቢ ኣብ ከባቢ ዘለዎም ጽልዋ ንምንጽጻር ቀሊል ይገብሮ።"
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5788,8 +5886,8 @@ msgstr ""
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "ግሪን-ስኮር ፈለማ ንፈረንሳ ዝተዳለወ ኮይኑ፡ ናብ ካልኦት ሃገራት ኤውሮጳ ይዝርጋሕ ኣሎ። ቀመር ሓምላይ ነጥቢ ንነፍሲ ወከፍ ሃገር ዝያዳ ልክዕን ብዝበለጸ ዝሰማማዕን ንኽኸውን ብቐጻሊ ስለዝመሓየሽ ክቕየር ይኽእል እዩ።"
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -7122,13 +7220,8 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr ""
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
 msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_title"
