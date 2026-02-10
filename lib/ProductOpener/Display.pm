@@ -6265,7 +6265,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 			$min{$axis} = -15;
 		}
 		elsif ($field =~ /^folksonomy\./) {
-			$min{$axis} = $nutriments{"$field:min"} // 0;
+			$min{$axis} = $nutriments{"${field}_min"} // 0;
 		}
 	}
 
