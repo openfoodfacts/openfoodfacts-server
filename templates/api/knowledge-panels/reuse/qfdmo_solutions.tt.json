@@ -31,7 +31,7 @@
                     {
                         "action_type": "link",
                         "title": "[% edq(lang('qfdmo_solutions_find_nearby')) %]",
-                        "url": "https://www.ecosystem.eco/fr/qfdmo[% IF panel.qfdmo_name_fr %]?q=[% panel.qfdmo_name_fr | uri %][% END %]"
+                        "url": "https://quefairedemesdechets.ademe.fr/dechet/[% panel.qfdmo_name_fr  %]"
                     }
                 ]
             }
