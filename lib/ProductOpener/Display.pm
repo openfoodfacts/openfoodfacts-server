@@ -6236,6 +6236,10 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		$data{product_name} = $product_ref->{product_name};
 		$data{url} = $request_ref->{formatted_subdomain} . product_url($product_ref->{code});
 		$data{img} = display_image($product_ref, "front", $request_ref->{lc}, $thumb_size);
+		# Remove the product silhouette
+		if ($data{img} =~ /product-silhouette/) {
+			$data{img} = '';
+		}
 
 		# create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
