@@ -935,7 +935,7 @@ sub create_reuse_card_panel ($product_ref, $target_lc, $target_cc, $options_ref,
 =head2 create_qfdmo_fr_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains information about circular economy solutions
-through QFDMO (Où et comment donner, réparer et recycler).
+through QFDMO (Ou et comment donner, reparer et recycler).
 
 Only created for:
 - Products on Open Products Facts (product_type "product")
@@ -956,7 +956,9 @@ Created knowledge panels will be added to product_ref
 
 =head4 request reference $request_ref
 
-=head
+=head3 Return value
+
+1 in case a panel was created, 0 otherwise
 
 =cut
 
@@ -1016,6 +1018,10 @@ This parameter sets the desired language for the user facing strings.
 =head4 country code $target_cc
 
 Used to select secondhand options (e.g. classified ads sites) that are relevant for the user.
+
+=head3 Return value
+
+1 in case a panel was created, 0 otherwise
 
 =cut
 
