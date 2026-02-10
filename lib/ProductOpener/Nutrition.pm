@@ -251,7 +251,7 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 	my $aggregated_nutrient_set_ref = {};
 
 	if (@input_sets) {
-		# remove sets with quantities that are impossible to transform to 100g
+		# remove sets with quantities that are impossible to transform to 100g (or 1kg for pet food)
 		# ie sets with unknow per quantity
 		@input_sets = grep {defined $_->{set}{per_quantity} && $_->{set}{per_quantity} ne ""} @input_sets;
 
@@ -263,12 +263,18 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 			$aggregated_nutrient_set_ref->{preparation} = $input_sets[0]{set}{preparation};
 
 			# set per only if given per unit can be converted to g or to ml
-			my $standard_unit = get_standard_unit($input_sets[0]{set}{per_unit});
-			if ($standard_unit eq "g") {
-				$aggregated_nutrient_set_ref->{per} = "100g";
+			# for petfood, the aggregated_set is per 1kg
+			if ($options{product_type} eq "petfood") {
+				$aggregated_nutrient_set_ref->{per} = "1kg";
 			}
-			elsif ($standard_unit eq "ml") {
-				$aggregated_nutrient_set_ref->{per} = "100ml";
+			else {
+				my $standard_unit = get_standard_unit($input_sets[0]{set}{per_unit});
+				if ($standard_unit eq "g") {
+					$aggregated_nutrient_set_ref->{per} = "100g";
+				}
+				elsif ($standard_unit eq "ml") {
+					$aggregated_nutrient_set_ref->{per} = "100ml";
+				}
 			}
 		}
 
@@ -1177,9 +1183,18 @@ Nutrient id
 sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $source, $preparation, $per, $nid, $modifier,
 	$value_string, $unit)
 {
-	#$log->debug("assign_nutrient_modifier_value_string_and_unit: start",
-	#	{source => $source, preparation => $preparation, per => $per, nid => $nid, modifier => $modifier, value_string => $value_string, unit => $unit})
-	#	if $log->is_debug();
+	$log->debug(
+		"assign_nutrient_modifier_value_string_and_unit: start",
+		{
+			source => $source,
+			preparation => $preparation,
+			per => $per,
+			nid => $nid,
+			modifier => $modifier,
+			value_string => $value_string,
+			unit => $unit
+		}
+	) if $log->is_debug();
 
 	# Get the nutrient id in the nutrients taxonomy from the nid (without a prefix)
 	my $nutrient_id = "zz:" . $nid;
