@@ -3,12 +3,12 @@
       "header" : {
          "columns" : [
             {
-               "col_id" : "100g",
+               "col_id" : "as_sold_100ml",
                "name" : "As sold<br>for 100 g / 100 ml",
-               "per" : "100g",
-               "product_type" : "",
+               "per" : "100ml",
+               "preparation" : "as_sold",
                "scope" : "product",
-               "short_name" : "100g"
+               "short_name" : "100ml"
             }
          ],
          "name" : "Nutrition facts"
@@ -22,7 +22,7 @@
                   "percent" : null,
                   "rdfa" : " property=\"food:energyPer100g\" content=\"0\"",
                   "type" : "normal",
-                  "value" : "0 kj<br>(0 kcal)"
+                  "value" : "0 kJ<br>(0 kcal)"
                }
             ],
             "level" : 0,
@@ -132,56 +132,14 @@
                {
                   "class" : null,
                   "percent" : null,
-                  "rdfa" : " property=\"food:sodiumPer100g\" content=\"1.5\"",
-                  "type" : "normal",
-                  "value" : "1.5 g"
-               }
-            ],
-            "level" : 0,
-            "name" : "Sodium",
-            "nid" : "sodium"
-         },
-         {
-            "columns" : [
-               {
-                  "class" : null,
-                  "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
                   "value" : "?"
                }
             ],
             "level" : 0,
-            "name" : "Alcohol",
-            "nid" : "alcohol"
-         },
-         {
-            "columns" : [
-               {
-                  "class" : null,
-                  "percent" : null,
-                  "rdfa" : " property=\"food:calciumPer100g\" content=\"300\"",
-                  "type" : "normal",
-                  "value" : "300 mg"
-               }
-            ],
-            "level" : 0,
-            "name" : "Calcium",
-            "nid" : "calcium"
-         },
-         {
-            "columns" : [
-               {
-                  "class" : null,
-                  "percent" : null,
-                  "rdfa" : " property=\"food:caffeinePer100g\" content=\"2,000\"",
-                  "type" : "normal",
-                  "value" : "2,000 mg"
-               }
-            ],
-            "level" : 0,
-            "name" : "Caffeine",
-            "nid" : "caffeine"
+            "name" : "Fruits‚ vegetables‚ legumes",
+            "nid" : "fruits-vegetables-legumes"
          }
       ]
    }

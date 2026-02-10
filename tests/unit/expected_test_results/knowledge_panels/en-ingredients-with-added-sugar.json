@@ -1045,8 +1045,123 @@
                      }
                   ],
                   "id" : "nutrition_facts_table",
-                  "rows" : [],
+                  "rows" : [
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Energy"
+                           },
+                           {
+                              "text" : "~ 1,890 kJ<br>(448 kcal)"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Fat"
+                           },
+                           {
+                              "text" : "~ 14.067 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 1,
+                              "style" : "max-width:15rem",
+                              "text" : "Saturated fat"
+                           },
+                           {
+                              "text" : "~ 9.278 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Carbohydrates"
+                           },
+                           {
+                              "text" : "~ 78.117 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 1,
+                              "style" : "max-width:15rem",
+                              "text" : "Sugars"
+                           },
+                           {
+                              "text" : "~ 66.938 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Fiber"
+                           },
+                           {
+                              "text" : "~ 1.133 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Proteins"
+                           },
+                           {
+                              "text" : "~ 1.718 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Salt"
+                           },
+                           {
+                              "text" : "~ 0.025 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Fruits‚ vegetables‚ legumes"
+                           },
+                           {
+                              "text" : "~ 0 %"
+                           }
+                        ]
+                     }
+                  ],
                   "title" : "Nutrition facts"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "nutrition_facts_table_with_input_sets"
                }
             }
          ],
@@ -1058,6 +1173,180 @@
             "icon_color_from_evaluation" : true,
             "icon_url" : "https://server_domain/images/icons/dist/scale-balance.svg",
             "title" : "Nutrition facts"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "nutrition_facts_table_with_input_sets" : {
+         "elements" : [
+            {
+               "element_type" : "table",
+               "table_element" : {
+                  "columns" : [
+                     {
+                        "style" : "max-width:15rem",
+                        "text" : "Nutrition facts",
+                        "type" : "text"
+                     },
+                     {
+                        "text" : "As sold<br>for 100 g / 100 ml",
+                        "text_for_small_screens" : "100g",
+                        "type" : "text"
+                     },
+                     {
+                        "text" : "As sold - for 100 g (estimate)",
+                        "text_for_small_screens" : "for 100 g",
+                        "type" : "text"
+                     }
+                  ],
+                  "id" : "nutrition_facts_table_with_input_sets",
+                  "rows" : [
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Energy"
+                           },
+                           {
+                              "text" : "~ 1,890 kJ<br>(448 kcal)"
+                           },
+                           {
+                              "text" : "~ 1,890 kJ<br>(448 kcal)"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Fat"
+                           },
+                           {
+                              "text" : "~ 14.067 g"
+                           },
+                           {
+                              "text" : "~ 14.067 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 1,
+                              "style" : "max-width:15rem",
+                              "text" : "Saturated fat"
+                           },
+                           {
+                              "text" : "~ 9.278 g"
+                           },
+                           {
+                              "text" : "~ 9.278 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Carbohydrates"
+                           },
+                           {
+                              "text" : "~ 78.117 g"
+                           },
+                           {
+                              "text" : "~ 78.117 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 1,
+                              "style" : "max-width:15rem",
+                              "text" : "Sugars"
+                           },
+                           {
+                              "text" : "~ 66.938 g"
+                           },
+                           {
+                              "text" : "~ 66.938 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Fiber"
+                           },
+                           {
+                              "text" : "~ 1.133 g"
+                           },
+                           {
+                              "text" : "~ 1.133 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Proteins"
+                           },
+                           {
+                              "text" : "~ 1.718 g"
+                           },
+                           {
+                              "text" : "~ 1.718 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Salt"
+                           },
+                           {
+                              "text" : "~ 0.025 g"
+                           },
+                           {
+                              "text" : "~ 0.025 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Fruits‚ vegetables‚ legumes"
+                           },
+                           {
+                              "text" : "~ 0 %"
+                           },
+                           {
+                              "text" : "~ 0 %"
+                           }
+                        ]
+                     }
+                  ],
+                  "title" : "Nutrition facts"
+               }
+            }
+         ],
+         "evaluation" : "unknown",
+         "expanded" : false,
+         "level" : "info",
+         "title_element" : {
+            "title" : "Nutrition facts (Detailed data)"
          },
          "topics" : [
             "health"
@@ -1782,7 +2071,7 @@
                },
                "energy-kj" : {
                   "modifier" : "~",
-                  "unit" : "kj",
+                  "unit" : "kJ",
                   "value" : 1890,
                   "value_computed" : 1886.72833333334,
                   "value_string" : "1890"

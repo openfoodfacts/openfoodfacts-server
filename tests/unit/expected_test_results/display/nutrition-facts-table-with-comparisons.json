@@ -12,10 +12,10 @@
       "header" : {
          "columns" : [
             {
-               "col_id" : "100g",
+               "col_id" : "as_sold_100g",
                "name" : "As sold<br>for 100 g / 100 ml",
                "per" : "100g",
-               "product_type" : "",
+               "preparation" : "as_sold",
                "scope" : "product",
                "short_name" : "100g"
             },
@@ -37,7 +37,7 @@
                   "percent" : null,
                   "rdfa" : " property=\"food:energyPer100g\" content=\"0\"",
                   "type" : "normal",
-                  "value" : "0 kj<br>(0 kcal)"
+                  "value" : "0 kJ<br>(0 kcal)"
                },
                {
                   "class" : "compare_0",
@@ -216,29 +216,8 @@
                }
             ],
             "level" : 0,
-            "name" : "Sodium",
-            "nid" : "sodium"
-         },
-         {
-            "columns" : [
-               {
-                  "class" : null,
-                  "percent" : null,
-                  "rdfa" : "",
-                  "type" : "normal",
-                  "value" : "?"
-               },
-               {
-                  "class" : "compare_0",
-                  "percent" : null,
-                  "rdfa" : "",
-                  "type" : "comparison",
-                  "value" : "?"
-               }
-            ],
-            "level" : 0,
-            "name" : "Alcohol",
-            "nid" : "alcohol"
+            "name" : "Fruits‚ vegetables‚ legumes",
+            "nid" : "fruits-vegetables-legumes"
          }
       ]
    }

@@ -9260,7 +9260,9 @@ CSS
 	# Data for the nutrition table body
 
 	# Display estimate of fruits, vegetables, nuts from the analysis of the ingredients list
-	my @nutrients = @{$nutrients_tables{$nutrient_table}};
+	$log->debug("displaying nutrition table, nutrient table", {nutrient_table => $nutrient_table}) if $log->is_debug();
+	my @nutrients = @{$nutrients_tables{$nutrient_table || "off_europe"}}
+		;    # Note: some tests may not have $nutrient_table initialized
 
 	my $decf = get_decimal_formatter($lc);
 	my $perf = get_percent_formatter($lc, 0);

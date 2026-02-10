@@ -25,6 +25,77 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 
 my @tests = (
 
+	# Very old schema, some missing fields like nutrition_data_per
+	[
+		'998-to-1003-new-nutrition-schema-bug',
+		1003,
+		{
+			'nutriments' => {
+				'carbohydrates_unit' => 'g',
+				'proteins' => 0,
+				'saturated-fat_value' => 0,
+				'sugars' => '8.8',
+				'sugars_value' => '8.8',
+				'energy' => 255,
+				'proteins_value' => 0,
+				'fat' => 0,
+				'energy_value' => '60.866796666667',
+				'saturated-fat' => 0,
+				'carbohydrates_100g' => '8.8',
+				'energy-kcal_value_computed' => '35.2',
+				'energy-kcal_unit' => 'kcal',
+				'energy-kcal' => '60.866796666667',
+				'proteins_100g' => 0,
+				'saturated-fat_unit' => 'g',
+				'energy_unit' => 'kcal',
+				'carbohydrates_value' => '8.8',
+				'energy_100g' => 255,
+				'energy-kcal_100g' => '60.866796666667',
+				'saturated-fat_100g' => 0,
+				'sugars_unit' => 'g',
+				'proteins_unit' => 'g',
+				'fat_100g' => 0,
+				'sugars_100g' => '8.8',
+				'fat_unit' => 'g',
+				'fat_value' => 0,
+				'energy-kcal_value' => '60.866796666667',
+				'carbohydrates' => '8.8'
+			},
+			'product_type' => 'food',
+			'product_name' => 'Ice guava',
+			'_id' => '9310495085590',
+			'id' => '9310495085590',
+			'code' => '9310495085590',
+			'lc' => 'en',
+		},
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-with-nutriments-estimated-from-ingredients',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+				"energy-kj_100g" => 1634,
+				"carbohydrates_100g" => 78.9,
+			},
+			"nutriments_estimated" => {
+				"alcohol_100g" => 0,
+				"beta-carotene_100g" => 0.0000048596,
+				"calcium_100g" => 0.12227384,
+				"carbohydrates_100g" => 56.5243,
+				"cholesterol_100g" => 0,
+			}
+		}
+	],
+
 	[
 		'1002-to-1003-new-nutrition-schema-with-nutriments-estimated-from-ingredients',
 		1003,

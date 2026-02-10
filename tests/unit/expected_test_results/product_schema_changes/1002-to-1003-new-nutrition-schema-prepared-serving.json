@@ -59,6 +59,29 @@
             "per_unit" : "g",
             "preparation" : "prepared",
             "source" : "packaging"
+         },
+         {
+            "last_updated_t" : "--ignore--",
+            "nutrients" : {
+               "energy-kcal" : {
+                  "unit" : "kcal",
+                  "value" : 386,
+                  "value_string" : "386"
+               },
+               "energy-kj" : {
+                  "unit" : "kJ",
+                  "value" : 1634,
+                  "value_string" : "1634"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging",
+            "unspecified_nutrients" : [
+               "added-sugars"
+            ]
          }
       ]
    },

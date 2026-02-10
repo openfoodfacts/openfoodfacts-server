@@ -355,33 +355,33 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 	}
 	else {
 		my $nutrition_given_as_prepared
-			= defined $product_ref->{nutrition_data_prepared} && $product_ref->{nutrition_data_prepared} eq "on";
-		my $nutrition_given_as_sold = defined $product_ref->{nutrition_data} && $product_ref->{nutrition_data} eq "on";
+			= (defined $product_ref->{nutrition_data_prepared} && $product_ref->{nutrition_data_prepared} eq "on")
+			|| _has_nutrition_data_for_product_type($product_ref, "_prepared");
+		my $nutrition_given_as_sold = (defined $product_ref->{nutrition_data} && $product_ref->{nutrition_data} eq "on")
+			|| _has_nutrition_data_for_product_type($product_ref, "");
 
 		if ($nutrition_given_as_sold) {
-			my $nutrition_given_for_100g
-				= defined $product_ref->{nutrition_data_per} && $product_ref->{nutrition_data_per} eq "100g";
 			my $nutrition_given_for_serving
 				= defined $product_ref->{nutrition_data_per} && $product_ref->{nutrition_data_per} eq "serving";
 
-			if ($nutrition_given_for_100g) {
-				$new_nutrition_sets_ref->{"100g"} = {};
-			}
-			elsif ($nutrition_given_for_serving) {
+			if ($nutrition_given_for_serving) {
 				$new_nutrition_sets_ref->{serving} = {};
 			}
+			else {
+				# If we don't have nutrition_data_per, we assume it is per 100g
+				$new_nutrition_sets_ref->{"100g"} = {};
+			}
 		}
-		if (!$no_nutrition_data && $nutrition_given_as_prepared) {
-			my $nutrition_given_for_100g = defined $product_ref->{nutrition_data_prepared_per}
-				&& $product_ref->{nutrition_data_prepared_per} eq "100g";
+		if ($nutrition_given_as_prepared) {
 			my $nutrition_given_for_serving = defined $product_ref->{nutrition_data_prepared_per}
 				&& $product_ref->{nutrition_data_prepared_per} eq "serving";
 
-			if ($nutrition_given_for_100g) {
-				$new_nutrition_sets_ref->{"prepared_100g"} = {};
-			}
-			elsif ($nutrition_given_for_serving) {
+			if ($nutrition_given_for_serving) {
 				$new_nutrition_sets_ref->{prepared_serving} = {};
+			}
+			else {
+				# If we don't have nutrition_data_prepared_per, we assume it is per 100g
+				$new_nutrition_sets_ref->{"prepared_100g"} = {};
 			}
 		}
 	}
@@ -665,6 +665,54 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 	}
 
 	return;
+}
+
+=head2 _has_nutrition_data_for_product_type ($product_ref, $nutrition_product_type)
+
+
+NOTE: this function used to be in Food.pm and it was used for the old nutrition data schema in the "nutriments" field.
+
+It has been moved to this module as it is now needed only for schema upggrades.
+
+--
+
+Check if the product has nutrition data for the given type ("" or "_prepared").
+
+=head3 Arguments
+
+=head4 $product_ref - ref to the product
+
+=head4 $nutrition_product_type - string, either "" or "_prepared"
+
+=head3 Return values
+
+=head4 0 or 1
+
+=head4 0 if the product does not have nutrition data for the given type
+
+=head4 1 if the product has nutrition data for the given type
+
+=cut
+
+sub _has_nutrition_data_for_product_type ($product_ref, $nutrition_product_type) {
+
+	if (not defined $product_ref->{nutriments}) {
+		return 0;
+	}
+
+	foreach my $nid (keys %{$product_ref->{nutriments}}) {
+		if (
+			(
+				   (($nutrition_product_type eq "") and ($nid !~ /_prepared/))
+				or (($nutrition_product_type eq "_prepared") and ($nid =~ /_prepared/))
+			)
+			and ($nid =~ /_(serving|100g)$/)
+			)
+		{
+			return 1;
+		}
+	}
+	return 0;
 }
 
 =head2 _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($product_ref)

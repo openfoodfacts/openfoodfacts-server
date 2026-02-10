@@ -3,18 +3,32 @@
       "header" : {
          "columns" : [
             {
-               "col_id" : "100g",
+               "col_id" : "as_sold_",
                "name" : "As sold<br>for 100 g / 100 ml",
-               "per" : "100g",
-               "product_type" : "",
+               "per" : null,
+               "preparation" : "as_sold",
                "scope" : "product",
-               "short_name" : "100g"
+               "short_name" : null
             }
          ],
          "name" : "Nutrition facts"
       },
       "id" : "nutrition",
       "rows" : [
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Energy",
+            "nid" : "energy"
+         },
          {
             "columns" : [
                {
@@ -124,22 +138,8 @@
                }
             ],
             "level" : 0,
-            "name" : "Sodium",
-            "nid" : "sodium"
-         },
-         {
-            "columns" : [
-               {
-                  "class" : null,
-                  "percent" : null,
-                  "rdfa" : "",
-                  "type" : "normal",
-                  "value" : "?"
-               }
-            ],
-            "level" : 0,
-            "name" : "Alcohol",
-            "nid" : "alcohol"
+            "name" : "Fruits‚ vegetables‚ legumes",
+            "nid" : "fruits-vegetables-legumes"
          }
       ]
    }
