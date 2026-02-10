@@ -18,6 +18,14 @@
             },
         },
         [% END %]
+        [% IF panel.has_maintain_card %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "maintain_card",
+            },
+        },
+        [% END %]
         [% IF panel.has_reuse_card %]
         {
             "element_type": "panel",
