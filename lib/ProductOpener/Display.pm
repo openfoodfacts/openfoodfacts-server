@@ -6142,6 +6142,12 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 	my %series = ();
 	my %series_n = ();
 
+	foreach my $axis ('x', 'y') {
+		# Store the field path components so that we can use them with deep_get() when going through the products
+		my $field = $graph_ref->{"axis_" . $axis};
+		$fields{$field} = [get_search_field_path_components($field)];
+	}
+
 	# Go through all products first so that we can get the min for each axis
 
 	foreach my $product_ref (@products) {
@@ -6261,9 +6267,6 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		elsif ($field =~ /^folksonomy\./) {
 			$min{$axis} = $nutriments{"$field:min"} // 0;
 		}
-
-		# Store the field path components
-		$fields{$field} = [get_search_field_path_components($field)];
 	}
 
 	my $series_data = '';
