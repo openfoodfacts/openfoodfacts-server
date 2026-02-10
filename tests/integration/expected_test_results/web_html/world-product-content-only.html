@@ -33,6 +33,9 @@
     <script type="importmap">
     {
         "imports": {
+            "@openfoodfacts/openfoodfacts-webcomponents": "//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js",
+            "leaflet": "//static.openfoodfacts.localhost/js/dist/leaflet-src.js",
+            "leaflet.markercluster": "//static.openfoodfacts.localhost/js/dist/leaflet.markercluster.js",
             "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
         }
     }
@@ -54,7 +57,7 @@
         .show-when-no-access-to-producers-platform {display:none}
 .show-when-logged-in {display:none}
 
-		
+
 		.badge-container{
 			margin: 0 auto;
 		}
@@ -115,7 +118,7 @@
   openfoodfacts-api-url="//world.openfoodfacts.localhost"
   assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
   ></off-webcomponents-configuration>
-	
+
 	
 
 	<div id="barcode-scanner-modal" class="modal is_hidden">
@@ -147,12 +150,12 @@
 		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-		
+
 		
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
-			
+
 				<a class="exit-off-canvas"></a>
 
 				
@@ -161,7 +164,7 @@
 					<div id="main_column">
 
 						
-            			
+
 						
 							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
 							<!-- start templates/web/pages/product/product_page.tt.html -->
@@ -242,7 +245,7 @@
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>Environment</span></a></li>
                         
                         
-                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem.</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem</span></a></li>
                         
                         
                         
@@ -4472,7 +4475,7 @@ Apple pies
            <div class="panel_text panel_text_note">→
              
                     
-                        The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.
+                        The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.
                                     
                 
            </div>
@@ -6247,7 +6250,7 @@ Apple pies
 </div>
 </section>
 
-<section class="row">
+<section class="row" id="folksonomy_editor">
         <div class="large-12 column">
             <div class="card">
                 <div class="reblock card-section">
@@ -6255,6 +6258,15 @@ Apple pies
                         <folksonomy-editor product-code="3300000000001" page-type="view">
                         </folksonomy-editor>
                     </div>
+                    
+                    <div class="edit_button center text-center" >
+                        <a href="/cgi/oidc_signin.pl?return_url=http%3A%2F%2Fworld.openfoodfacts.localhost%2Fproduct%2F3300000000001%2Fapple-pie-bob-s-pies%23folksonomy_editor" class="button small">
+                            <svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                            Sign-in to add or edit properties
+                        </a>
+                    </div>
+                    
+
                 </div>
             </div>
         </div>
@@ -6280,7 +6292,7 @@ Apple pies
 <script src="//static.openfoodfacts.localhost/js/dist/display.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/stikelem.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/scrollNav.js"></script>
-  
+
 
 <script>
 $(function() {
