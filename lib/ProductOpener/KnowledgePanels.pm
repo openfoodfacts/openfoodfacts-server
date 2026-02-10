@@ -932,7 +932,6 @@ sub create_reuse_card_panel ($product_ref, $target_lc, $target_cc, $options_ref,
 	return 1;
 }
 
-
 =head2 create_qfdmo_fr_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains information about circular economy solutions
@@ -990,8 +989,7 @@ sub create_qfdmo_fr_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 	$panel_data_ref->{category_name_fr} = $category_name_fr;
 
 	# Create QFDMO solutions panel
-	create_panel_from_json_template("qfdmo_solutions",
-		"api/knowledge-panels/reuse/qfdmo_solutions.tt.json",
+	create_panel_from_json_template("qfdmo_solutions", "api/knowledge-panels/reuse/qfdmo_solutions.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	return 1;
