@@ -53,7 +53,7 @@ use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Stats qw(%categories_stats_per_country);
 use ProductOpener::Units qw(extract_standard_unit);
-use ProductOpener::Nutrition qw(get_non_estimated_nutrient_per_100g_or_100ml_for_preparation %energy_from_nutrients);
+use ProductOpener::Nutrition qw(:all);
 
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
 
@@ -1064,15 +1064,13 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 		return;
 	}
 
-	my $carbohydrates = deep_get($nutrients_ref, "carbohydrates", "value");
-	my $sugars = deep_get($nutrients_ref, "sugars", "value") || 0;
-	my $starch = deep_get($nutrients_ref, "starch", "value") || 0;
-	my $fiber = deep_get($nutrients_ref, "fiber", "value") || 0;
+	my $carbohydrates = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "carbohydrates");
+	my $sugars = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "sugars") || 0;
+	my $starch = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "starch") || 0;
+	my $fiber = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "fiber") || 0;
 	my $sugars_modifier = deep_get($nutrients_ref, "sugars", "modifier");
 	my $starch_modifier = deep_get($nutrients_ref, "starch", "modifier");
 	my $fiber_modifier = deep_get($nutrients_ref, "fiber", "modifier");
-
-	# We
 
 	# sugar + starch cannot be greater than carbohydrates
 	# do not raise error if sugar or starch contains "<" symbol (see issue #9267)
@@ -1101,7 +1099,7 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 
 	# sugar + starch + fiber cannot be greater than total carbohydrates
 	# do not raise error if sugar, starch or fiber contains "<" symbol (see issue #9267)
-	my $carbohydrates_total = deep_get($nutrients_ref, "carbohydrates-total", "value");
+	my $carbohydrates_total = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "carbohydrates-total");
 	if (
 		(defined $carbohydrates_total)
 		and (
@@ -1135,12 +1133,12 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 	# sum of nutrients that compose sugar can not be greater than sugar value
 
 	if (deep_exists($nutrients_ref, "sugars", "value")) {
-		my $fructose = deep_get($nutrients_ref, "fructose", "value") || 0;
-		my $glucose = deep_get($nutrients_ref, "glucose", "value") || 0;
-		my $galactose = deep_get($nutrients_ref, "galactose", "value") || 0;
-		my $maltose = deep_get($nutrients_ref, "maltose", "value") || 0;
-		my $lactose = deep_get($nutrients_ref, "lactose", "value") || 0;
-		my $sucrose = deep_get($nutrients_ref, "sucrose", "value") || 0;
+		my $fructose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "fructose") || 0;
+		my $glucose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "glucose") || 0;
+		my $galactose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "galactose") || 0;
+		my $maltose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "maltose") || 0;
+		my $lactose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "lactose") || 0;
+		my $sucrose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "sucrose") || 0;
 		my $lactose_modifier = deep_get($nutrients_ref, "lactose", "modifier");
 
 		# sometimes lactose < 0.01 is written below the nutrition table together whereas
@@ -1159,8 +1157,8 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 		}
 	}
 
-	my $fat = deep_get($nutrients_ref, "fat", "value");
-	my $saturated_fat = deep_get($nutrients_ref, "saturated-fat", "value");
+	my $fat = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "fat");
+	my $saturated_fat = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "saturated-fat");
 
 	if (    (defined $saturated_fat)
 		and (defined $fat)
@@ -1174,8 +1172,8 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 	# sum of nutrients that compose fiber can not be greater than the value of fiber
 	# ignore if there is "<" symbol (example: <1 + 5 = 5, issue #11075)
 	if (deep_exists($nutrients_ref, "fiber", "value")) {
-		my $soluble_fiber = deep_get($nutrients_ref, "soluble-fiber", "value") || 0;
-		my $insoluble_fiber = deep_get($nutrients_ref, "insoluble-fiber", "value") || 0;
+		my $soluble_fiber = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "soluble-fiber") || 0;
+		my $insoluble_fiber = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "insoluble-fiber") || 0;
 		my $soluble_fiber_modifier = deep_get($nutrients_ref, "soluble-fiber", "modifier");
 		my $insoluble_fiber_modifier = deep_get($nutrients_ref, "insoluble-fiber", "modifier");
 		# Do not count soluble or insoluble fiber if they have "<" modifier
@@ -1201,7 +1199,7 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 	my $per = deep_get($nutrition_set_ref, "per");
 	if (($per eq "100g") or ($per eq "100ml")) {
 
-		my $salt = deep_get($nutrients_ref, "salt", "value");
+		my $salt = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "salt");
 		if ((defined $salt) and ($salt > 0)) {
 
 			if ($salt < 0.001) {
@@ -1238,8 +1236,10 @@ sub check_nutrition_data_for_input_set ($product_ref, $nutrition_set_ref, $set_i
 
 	foreach my $nid (sort keys %{$nutrients_ref}) {
 
-		my $value = deep_get($nutrients_ref, $nid, "value");
+		my $value = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, $nid);
 		next if (not defined $value);
+
+		# Convert to 100g
 
 		if (($per eq "100g") or ($per eq "100ml")) {
 			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($value > 105)) {

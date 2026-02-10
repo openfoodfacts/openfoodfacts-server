@@ -342,6 +342,10 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 
 	$product_ref->{nutrition} = {};
 
+	# For simplicity, we completely remove estimated nutrition data
+	# It will be recomputed from ingredients the next time the product is saved.
+	delete $product_ref->{nutriments_estimated};
+
 	# only create sets for which the nutrient values are given and not computed
 	my $new_nutrition_sets_ref = {};
 	my $no_nutrition_data = defined $product_ref->{no_nutrition_data} && $product_ref->{no_nutrition_data} eq "on";

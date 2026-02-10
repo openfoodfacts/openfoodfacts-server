@@ -9056,13 +9056,18 @@ The resulting data structure can be passed to a template to generate HTML or the
 
 Reference to an array with nutrition facts for 1 or more categories.
 
+=head4 Include input sets in the table $include_input_sets (default: 0)
+
+If set to 1, we will include in the table the nutrition facts for each of the nutrition input sets of the product (if any), without comparisons.
+If set to 0, we will only include the nutrition facts for the aggregated set + the comparisons.
+
 =head3 Return values
 
 Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_ref) {
+sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_ref, $include_input_sets = 0) {
 
 	my $template_data_ref = {};
 	# This function populates a data structure that is used by the template to display the nutrition facts table
@@ -9102,26 +9107,14 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 	my %columns = ();
 
 	# We can have data for the product as sold, and/or prepared
-	my %displayed_product_types = ();
+	# We display only one column for the product, the one that is in the aggregated set
 
-	my $product_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
-	if ((defined $product_preparation) and ($product_preparation eq "as_sold")) {
-		$product_preparation = "";
-		$displayed_product_types{as_sold} = 1;
-	}
-	elsif ((defined $product_preparation) and ($product_preparation eq "prepared")) {
-		$product_preparation = "prepared_";
-		$displayed_product_types{prepared} = 1;
-	}
+	my $preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
 
-	if (defined $product_preparation) {
+	if (defined $preparation) {
 
-		my $nutrition_data_per = "nutrition_data" . "_" . $product_preparation . "per";
-
-		my $col_name = lang("product_as_sold");
-		if ($product_preparation eq 'prepared_') {
-			$col_name = lang("prepared_product");
-		}
+		my $col_name = lang("preparation_" . $preparation);
+		my $per = deep_get($product_ref, "nutrition", "aggregated_set", "per");
 
 		# per is always either 100g or 100ml for food and per 1kg for petfood
 		my $name_per_xxg;
@@ -9132,19 +9125,19 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 			$name_per_xxg = $col_name . "<br>" . lang("nutrition_data_per_100g");
 		}
 
-		$columns{$product_preparation . "100g"} = {
+		$columns{$preparation . "_" . $per} = {
 			scope => "product",
-			product_type => $product_preparation,
-			per => "100g",
+			preparation => $preparation,
+			per => $per,
 			name => $name_per_xxg,
-			short_name => "100g",
+			short_name => $per,
 		};
 
-		push @cols, $product_preparation . '100g';
+		push @cols, $preparation . "_" . $per;
 	}
 
 	# Comparisons with other products, categories, recommended daily values etc.
-	if ((defined $comparisons_ref) and (scalar @{$comparisons_ref} > 0)) {
+	if ((not $include_input_sets) and (defined $comparisons_ref) and (scalar @{$comparisons_ref} > 0)) {
 
 		# Add a comparisons array to the template data structure
 
@@ -9192,6 +9185,43 @@ CSS
 				link => $comparison_ref->{link},
 				count => $comparison_ref->{count},
 				};
+
+			$i++;
+		}
+	}
+
+	# Display a column for each of the nutrition input sets
+	my $input_sets = deep_get($product_ref, "nutrition", "input_sets");
+	if (($include_input_sets) and (defined $input_sets)) {
+
+		my $i = 0;
+
+		foreach my $input_set_ref (@$input_sets) {
+
+			my $col_id = "input_set_" . $i;
+
+			push @cols, $col_id;
+
+			my $preparation = deep_get($input_set_ref, "preparation");
+			my $per = deep_get($input_set_ref, "per");
+			# If we have per_quantity and per_unit, we display "per X unit" instead of "per 100g"
+			my $per_quantity = deep_get($input_set_ref, "per_quantity");
+			my $per_unit = deep_get($input_set_ref, "per_unit");
+			if ((defined $per_quantity) and (defined $per_unit)) {
+				$per = lang("for") . " " . $per_quantity . " " . $per_unit;
+			}
+
+			my $source = deep_get($input_set_ref, "source");
+
+			my $col_name = lang("preparation_" . $preparation) . " - " . $per . " (" . $source . ")";
+
+			$columns{$col_id} = {
+				scope => "product",
+				preparation => $preparation,
+				per => $per,
+				name => $col_name,
+				short_name => $per,
+			};
 
 			$i++;
 		}
@@ -9386,16 +9416,33 @@ CSS
 				}
 
 				else {
-					$col_type = "normal";
-					my $value_unit = "";
+					# We will determine the path prefix to get nutrient data for the column based on its id:
+					# id = input_set_[index] : nutrition, input_sets, [index], nutrients
+					# otherwise: nutrition, aggregated_set, nutrients
 
-					# We need to know if the column corresponds to a prepared value, in order to be able to retrieve the right modifier
-					my $prepared = '';
-					if ($col_id =~ /prepared/) {
-						$prepared = "_prepared";
+					my @nutrients_path = ("nutrition", "aggregated_set", "nutrients");
+					if ($col_id =~ /^input_set_(\d+)$/) {
+						my $input_set_index = $1;
+						@nutrients_path = ("nutrition", "input_sets", $input_set_index, "nutrients");
 					}
 
-					my $value = $nutrient_value;
+					$col_type = "normal";
+					my $value_unit = "";
+					my $value = deep_get($product_ref, @nutrients_path, $nid, "value");
+					my $nutrient_set_unit = deep_get($product_ref, @nutrients_path, $nid, "unit");
+					# If the nid and we don't have a value, check if we have a value for energy-kj (energy is not present on input sets)
+					if (($nid eq "energy") and (not defined $value)) {
+						$value = deep_get($product_ref, @nutrients_path, "energy-kj", "value");
+						$nutrient_set_unit = deep_get($product_ref, @nutrients_path, "energy-kj", "unit");
+					}
+					# If we don't have a value for energy-kj, check if we have a value for energy-kcal
+					if (($nid eq "energy") and (not defined $value)) {
+						$value = deep_get($product_ref, @nutrients_path, "energy-kcal", "value");
+						if (defined $value) {
+							# We will display ? for the energy in kj, but we will display the kcal value
+							$value = '?';
+						}
+					}
 
 					# FIXME: if the packaging / manufacturer input set has the nutrient in the unspecified_nutrients array,
 					# we used to display a "-" sign."
@@ -9408,31 +9455,34 @@ CSS
 					}
 					else {
 
-						# energy-kcal is already in kcal
-						if ($nid ne 'energy-kcal') {
-							# if petfood then display for 1kg if not percentage
-							if (   (defined $product_ref->{product_type})
-								&& ($product_ref->{product_type} eq "petfood")
-								&& ($unit ne "%"))
-							{
-								$value = $decf->format(g_to_unit($value, $unit) * 10);
+						my $formatted_value = $value;
+
+						if ($value ne '?') {
+							# energy-kcal is already in kcal
+							if ($nid ne 'energy-kcal') {
+								# if petfood then display for 1kg if not percentage
+								if (   (defined $product_ref->{product_type})
+									&& ($product_ref->{product_type} eq "petfood")
+									&& ($unit ne "%"))
+								{
+									$formatted_value = $decf->format(g_to_unit($value, $nutrient_set_unit) * 10);
+								}
+								# else display for 100g/100ml
+								else {
+									$formatted_value = $decf->format(g_to_unit($value, $nutrient_set_unit));
+								}
 							}
-							# else display for 100g/100ml
-							else {
-								$value = $decf->format(g_to_unit($value, $unit));
+
+							# too small values are converted to e notation: 7.18e-05
+							if (($formatted_value . ' ') =~ /e/) {
+								# use %f (outputs extras 0 in the general case)
+								$formatted_value = sprintf("%f", g_to_unit($value, $nutrient_set_unit));
 							}
 						}
 
-						# too small values are converted to e notation: 7.18e-05
-						if (($value . ' ') =~ /e/) {
-							# use %f (outputs extras 0 in the general case)
-							$value = sprintf("%f", g_to_unit($value, $unit));
-						}
+						$value_unit = "$formatted_value $nutrient_set_unit";
 
-						$value_unit = "$value $unit";
-
-						my $modifier = deep_get($product_ref, "nutrition", "aggregated_set",
-							"nutrients", $nid . $prepared, "modifier");
+						my $modifier = deep_get($product_ref, @nutrients_path, $nid, "modifier");
 
 						if (defined $modifier) {
 							$value_unit = $modifier . " " . $value_unit;
@@ -9440,24 +9490,27 @@ CSS
 
 						if (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 							# Use the actual value in kcal if we have it
-							my $value_in_kcal = deep_get($product_ref, "nutrition", "aggregated_set",
-								"nutrients", $nid . "-kcal", "value");
+							my $value_in_kcal = deep_get($product_ref, @nutrients_path, $nid . "-kcal", "value");
 							# Otherwise convert the value in kj
 							if (not defined $value_in_kcal) {
-								$value_in_kcal = g_to_unit($value, 'kcal');
+								if ($value ne '?') {
+									$value_in_kcal = g_to_unit($value, 'kcal');
+								}
+								else {
+									$value_in_kcal = '?';
+								}
 							}
 							$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
 						}
 					}
 
 					# Add % DV if applicable
-					my $unit = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "unit");
 					if ($col_id eq $product_ref->{nutrition}{aggregated_set}{per}) {
 						if (    (defined $value)
 							and (defined $unit)
-							and ($unit eq '% DV'))
+							and ($nutrient_set_unit eq '% DV'))
 						{
-							$value_unit .= ' (' . $value . ' ' . $unit . ')';
+							$value_unit .= ' (' . $value . ' ' . $nutrient_set_unit . ')';
 						}
 					}
 

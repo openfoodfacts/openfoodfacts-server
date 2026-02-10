@@ -69,9 +69,9 @@ BEGIN {
 		&get_nutrition_data_as_key_values_pairs
 		&has_no_nutrition_data_on_packaging
 		&remove_empty_nutrition_data
-
 		&compute_energy_from_nutrients_for_nutrients_set
 		%energy_from_nutrients
+		&get_nutrient_from_nutrient_set_in_default_unit
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -134,7 +134,7 @@ sub add_computed_values_to_nutrient_sets ($input_sets_ref) {
 		if (exists $nutrient_set_ref->{nutrients}) {
 
 			# If we have enough macronutrients, we compute the energy values and store them in value_computed
-			compute_energy_from_nutrients_for_nutrients_set($nutrient_set_ref->{nutrients}, "kj");
+			compute_energy_from_nutrients_for_nutrients_set($nutrient_set_ref->{nutrients}, "kJ");
 			compute_energy_from_nutrients_for_nutrients_set($nutrient_set_ref->{nutrients}, "kcal");
 
 			# Add salt and sodium values computed from each other and store them in value_computed
@@ -282,8 +282,11 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 Sorts hashes of nutrient sets in a given array based on a custom priority.
 The array is sorted in place and also returned.
 
-The priority is based on the sources, the per references and the preparation states present in the nutrient sets.
+The priority is based on the preparation states, the sources, and the per references present in the nutrient sets.
 
+We want the preparation state first, as if we have prepared data, then we should use prepared data to compute Nutri-Score etc.
+Then we want the source, as some sources are more reliable than others (e.g. estimates from ingredients should be last)
+Then we want the per reference, as we will convert to 100g or 100ml if possible, so we want to prefer sets that already have 100g or 100ml as per reference.
 =head3 Arguments
 
 =head4 $input_sets_ref
@@ -335,7 +338,7 @@ sub sort_sets_by_priority ($input_sets_ref) {
 		my $preparation_b = $preparation_priority{$preparation_key_b};
 
 		# sort priority : source then per then preparation
-		return $source_a <=> $source_b || $per_a <=> $per_b || $preparation_a <=> $preparation_b;
+		return $preparation_a <=> $preparation_b || $per_a <=> $per_b || $source_a <=> $source_b;
 		} @$input_sets_ref;
 
 	return @$input_sets_ref;
@@ -2532,7 +2535,7 @@ Computes the energy from other nutrients for a given input set.
 
 =head4 $nutrients_ref: reference to the nutrients hash.
 
-=head4 $unit: unit to use for energy computation ("kj" or "kcal").
+=head4 $unit: unit to use for energy computation ("kJ" or "kcal").
 
 =head3 Returns
 
@@ -2543,6 +2546,8 @@ The value is also stored in energy nutrients hashes as "value_computed".
 =cut
 
 sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
+
+	my $lc_unit = lc($unit);
 
 	my $computed_energy;
 
@@ -2558,7 +2563,7 @@ sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
 
 		foreach my $nid (keys %{$energy_from_nutrients{europe}}) {
 
-			my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$unit};
+			my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$lc_unit};
 			my $grams = 0;
 			# handles nutrient1__minus__nutrient2 case
 			if ($nid =~ /_minus_/) {
@@ -2582,8 +2587,8 @@ sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
 		}
 
 		# store computed energy value and the unit (in case it's not there yet if we don't have a not computed value)
-		deep_set($nutrients_ref, "energy-${unit}", "value_computed", $computed_energy);
-		deep_set($nutrients_ref, "energy-${unit}", "unit", $unit);
+		deep_set($nutrients_ref, "energy-${lc_unit}", "value_computed", $computed_energy);
+		deep_set($nutrients_ref, "energy-${lc_unit}", "unit", $unit);
 	}
 
 	return $computed_energy;
@@ -2739,6 +2744,37 @@ sub remove_empty_nutrition_data ($product_ref) {
 		delete $product_ref->{nutrition};
 	}
 
+	return;
+}
+
+=head2 get_nutrient_from_nutrient_set_in_default_unit ( $nutrients_ref, $nid )
+
+Get the value of a nutrient from a nutrients set, converted to the default unit for that nutrient.
+
+=head3 Parameters
+
+=head4 $nutrients_ref: reference to the nutrients hash.
+
+=head4 $nid: nutrient id.
+
+=head3 Returns
+
+The value of the nutrient in the default unit, or undef if not defined.
+
+=cut
+
+sub get_nutrient_from_nutrient_set_in_default_unit ($nutrients_ref, $nid) {
+
+	my $value = deep_get($nutrients_ref, $nid, "value");
+	my $unit = deep_get($nutrients_ref, $nid, "unit");
+
+	if (defined $value and defined $unit) {
+		my $default_unit = default_unit_for_nid($nid);
+		if ($unit ne $default_unit) {
+			$value = unit_to_g($value, $unit);
+		}
+		return $value;
+	}
 	return;
 }
 

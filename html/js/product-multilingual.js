@@ -877,7 +877,7 @@ $(function () {
         const nutrientRow = $('#nutrient_' + id + '_tr');
         const inputRow = $('#add_nutrient_tr');
         nutrientRow.insertBefore(inputRow);
-        inputRow.show();
+        nutrientRow.show();
 
         // remove the selected nutrient from the other_nutrients array
         other_nutrients = other_nutrients.filter(function (item) {

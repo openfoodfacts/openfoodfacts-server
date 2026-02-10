@@ -26,6 +26,32 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 my @tests = (
 
 	[
+		'1002-to-1003-new-nutrition-schema-with-nutriments-estimated-from-ingredients',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+				"energy-kj_100g" => 1634,
+				"carbohydrates_100g" => 78.9,
+			},
+			"nutriments_estimated" => {
+				"alcohol_100g" => 0,
+				"beta-carotene_100g" => 0.0000048596,
+				"calcium_100g" => 0.12227384,
+				"carbohydrates_100g" => 56.5243,
+				"cholesterol_100g" => 0,
+			}
+		}
+	],
+
+	[
 		'1002-to-1003-new-nutrition-schema-energy-in-kj-without-energy-kj-or-energy-kcal',
 		1003,
 		{
