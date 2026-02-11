@@ -564,9 +564,10 @@ sub detect_missing_ingredients {
 	my ($ingredients1, $ingredients2, $lang1, $lang2, $missing_ingredients, $ingredients_typo, $mismatch_in_taxonomy)
 		= @_;
 
-	$log->debug(
-		"check_ingredients_between_languages > detect_missing_ingredients - start,  lang1 is $lang1, lang2 is $lang2")
-		if $log->is_debug();
+	# This causes a lot of logging
+	# $log->debug(
+	# 	"check_ingredients_between_languages > detect_missing_ingredients - start,  lang1 is $lang1, lang2 is $lang2")
+	# 	if $log->is_debug();
 
 	foreach my $i (0 .. $#$ingredients1) {
 		if ($ingredients1->[$i]{is_in_taxonomy} && !$ingredients2->[$i]{is_in_taxonomy}) {
@@ -724,9 +725,10 @@ sub check_ingredients_between_languages {
 
 	foreach my $lang1 (keys %ingredients_hash) {
 		foreach my $lang2 (keys %ingredients_hash) {
-			$log->debug(
-				"check_ingredients_between_languages -   next iteration lang1 (ref): $lang1 and lang2 (analyzed): $lang2"
-			) if $log->is_debug();
+			# This causes a lot of logging
+			# $log->debug(
+			# 	"check_ingredients_between_languages -   next iteration lang1 (ref): $lang1 and lang2 (analyzed): $lang2"
+			# ) if $log->is_debug();
 
 			# Reminder: ingredients1 is the reference and missing stop words or missing ingredients are searched into ingredients2 only
 			next

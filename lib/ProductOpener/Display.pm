@@ -157,7 +157,7 @@ use ProductOpener::Recipes qw(add_product_recipe_to_set analyze_recipes compute_
 use ProductOpener::PackagerCodes
 	qw($ec_code_regexp %geocode_addresses %packager_codes init_geocode_addresses init_packager_codes);
 use ProductOpener::Export qw(export_csv);
-use ProductOpener::API qw(add_error customize_response_for_product process_api_request process_auth_header);
+use ProductOpener::API qw(add_error customize_response_for_product process_api_request process_auth_header sanitize);
 use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key get_cache_results set_cache_results/;
 use ProductOpener::Permissions qw/has_permission/;
@@ -480,7 +480,7 @@ Reference to request object.
 
 sub init_request ($request_ref = {}) {
 
-	$log->debug("init_request - start", {request_ref => $request_ref}) if $log->is_debug();
+	$log->debug("init_request - start", {request_ref => sanitize($request_ref)}) if $log->is_debug();
 
 	$request_ref->{stats} = init_request_stats();
 

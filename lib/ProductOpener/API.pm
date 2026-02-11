@@ -54,6 +54,7 @@ BEGIN {
 		&customize_response_for_product
 		&check_user_permission
 		&process_auth_header
+		&sanitize
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -168,6 +169,44 @@ sub add_invalid_method_error ($response_ref, $request_ref) {
 	return;
 }
 
+=head2 sanitize ($hashref)
+
+Removes potentially sensitive or large fields from the supplied hash ref for logging
+
+=head3 Parameters
+
+=head4 $hashref (input)
+
+The hash ref to be sanitized
+
+=head3 Return value
+
+Clone of the input hash with offending values replaced with '...'
+
+=cut
+
+sub sanitize($hashref) {
+	my @disallowed_keys = qw/access_token refresh_token image_data_base64 body body_json/;
+	my $contains_disallowed = 0;
+	for my $key (@disallowed_keys) {
+		if (exists $hashref->{$key}) {
+			$contains_disallowed = 1;
+			last;
+		}
+	}
+	if (!$contains_disallowed) {
+		return $hashref;
+	}
+	my $output = {%$hashref};
+	for my $key (@disallowed_keys) {
+		if (exists $output->{$key}) {
+			$output->{$key} = '...';
+		}
+	}
+
+	return $output;
+}
+
 =head2 read_request_body ($request_ref)
 
 API V3 POST / PUT / PATCH requests do not use CGI Multipart Form data, and instead pass a JSON structure in the body.
@@ -203,7 +242,8 @@ sub read_request_body ($request_ref) {
 	}
 	$request_ref->{body} = $content;
 
-	$log->debug("read_request_body - end", {request => $request_ref}) if $log->is_debug();
+	# Don't log payload as could be huge
+	# $log->debug("read_request_body - end", {request_ref => $request_ref}) if $log->is_debug();
 	return;
 }
 
@@ -474,7 +514,7 @@ my $dispatch_table = {
 
 sub process_api_request ($request_ref) {
 
-	$log->debug("process_api_request - start", {request => $request_ref}) if $log->is_debug();
+	$log->debug("process_api_request - start", {request => sanitize($request_ref)}) if $log->is_debug();
 
 	my $response_ref = $request_ref->{api_response};
 
@@ -511,7 +551,7 @@ sub process_api_request ($request_ref) {
 	add_localized_messages_to_api_response($request_ref->{lc}, $response_ref);
 	send_api_response($request_ref);
 
-	$log->debug("process_api_request - stop", {request => $request_ref}) if $log->is_debug();
+	$log->debug("process_api_request - stop", {request => sanitize($request_ref)}) if $log->is_debug();
 	return;
 }
 

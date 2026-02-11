@@ -236,7 +236,8 @@ sub analyze_request($request_ref) {
 
 	check_and_update_rate_limits($request_ref);
 
-	$log->debug("request analyzed", {lc => $request_ref->{lc}, request_ref => $request_ref}) if $log->is_debug();
+	$log->debug("request analyzed", {lc => $request_ref->{lc}, request_ref => sanitize($request_ref)})
+		if $log->is_debug();
 
 	return 1;
 }
@@ -412,7 +413,7 @@ sub api_route($request_ref) {
 		$request_ref->{rate_limiter_bucket} = "product";
 	}
 
-	$log->debug("api_route", {request_ref => $request_ref}) if $log->is_debug();
+	$log->debug("api_route", {request_ref => sanitize($request_ref)}) if $log->is_debug();
 	return 1;
 }
 
