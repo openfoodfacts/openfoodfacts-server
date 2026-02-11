@@ -819,7 +819,8 @@ sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 	}
 
 	$jwks = decode_json($jwks_response->content);
-	$log->info('got JWKS', {jwks => $jwks}) if $log->is_info();
+	# Don't log by default as this is large
+	# $log->info('got JWKS', {jwks => $jwks}) if $log->is_info();
 	return;
 }
 

@@ -1615,7 +1615,8 @@ sub init_user ($request_ref) {
 					{
 						user_id => $user_id,
 						user_session => $user_session,
-						stock_session => $user_ref->{'user_sessions'},
+						# Don't log session by default as it includes the tokens
+						# stock_session => $user_ref->{'user_sessions'},
 						stock_ip => $user_ref->{'user_last_ip'},
 						current_ip => remote_addr()
 					}
