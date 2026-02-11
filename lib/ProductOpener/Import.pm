@@ -2029,8 +2029,8 @@ sub import_csv_file ($args_ref) {
 			next;
 		}
 
-		if ($code !~ /^\d\d\d\d\d\d\d\d(\d*)$/) {
-			$log->error("Error - code not a number with 8 or more digits",
+		if (not is_valid_code($code)) {
+			$log->error("Error - code is not valid",
 				{i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref})
 				if $log->is_error();
 			next;
@@ -2954,8 +2954,8 @@ sub update_export_status_for_csv_file ($args_ref) {
 			next;
 		}
 
-		if ($code !~ /^\d\d\d\d\d\d\d\d(\d*)$/) {
-			$log->error("Error - code not a number with 8 or more digits",
+		if (not is_valid_code($code)) {
+			$log->error("Error - code is not valid",
 				{i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref})
 				if $log->is_error();
 			next;
