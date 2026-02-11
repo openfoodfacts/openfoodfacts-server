@@ -33,6 +33,9 @@
     <script type="importmap">
     {
         "imports": {
+            "@openfoodfacts/openfoodfacts-webcomponents": "//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js",
+            "leaflet": "//static.openfoodfacts.localhost/js/dist/leaflet-src.js",
+            "leaflet.markercluster": "//static.openfoodfacts.localhost/js/dist/leaflet.markercluster.js",
             "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
         }
     }
@@ -54,7 +57,7 @@
         .show-when-no-access-to-producers-platform {display:none}
 .show-when-logged-in {display:none}
 
-		
+
 		.badge-container{
 			margin: 0 auto;
 		}
@@ -115,7 +118,7 @@
   openfoodfacts-api-url="//world.openfoodfacts.localhost"
   assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
   ></off-webcomponents-configuration>
-	
+
 	
 
 	<div id="barcode-scanner-modal" class="modal is_hidden">
@@ -147,12 +150,12 @@
 		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-		
+
 		
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
-			
+
 				<a class="exit-off-canvas"></a>
 
 				
@@ -161,7 +164,7 @@
 					<div id="main_column">
 
 						
-            			
+
 						
 							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
 							<!-- start templates/web/pages/product/product_page.tt.html -->
@@ -242,7 +245,7 @@
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>Environment</span></a></li>
                         
                         
-                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem.</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem</span></a></li>
                         
                         
                         
@@ -3940,7 +3943,7 @@ Apple pies
            <div class="panel_text panel_text_note">→
              
                     
-                        The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.
+                        The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.
                                     
                 
            </div>
@@ -5757,7 +5760,7 @@ Apple pies
 <script src="//static.openfoodfacts.localhost/js/dist/display.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/stikelem.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/scrollNav.js"></script>
-  
+
 
 <script>
 $(function() {
