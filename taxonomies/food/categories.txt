@@ -80492,7 +80492,6 @@ ciqual_food_name:en: Egg roll or Nem, with chicken, cooked
 ciqual_food_name:fr: Nem ou Pâté impérial, au poulet, cuit
 
 < en:Nems
-< en:Shrimps
 en: Egg roll with cooked shrimp, Nem with cooked shrimp
 fr: Nem aux crevettes, Pâté impérial aux crevettes
 agribalyse_food_code:en: 25584
@@ -80500,7 +80499,6 @@ ciqual_food_code:en: 25584
 ciqual_food_name:en: Egg roll or Nem, with shrimp and/or crab, cooked
 ciqual_food_name:fr: Nem ou Pâté impérial aux crevettes et/ou au crabe cuit
 
-< en:Crab
 < en:Nems
 en: Egg roll with cooked crab, Nem with cooked crab
 fr: Nem au crabe, Pâté impérial au crabe
@@ -81931,6 +81929,15 @@ lt: Sūdyti pyragai, pikantiški pyragaičiai
 nl: Hartige taarten
 food_groups:en: en:pizza-pies-and-quiches
 pnns_group_2:en: Pizza pies and quiches
+
+< en:Salted pies
+en: Pissaladières, Pizza with onion and anchovy and black olives
+fr: Pissaladières, Pissaladière
+agribalyse_food_code:en: 25528
+ciqual_food_code:en: 25528
+ciqual_food_name:en: Pizza, onion anchovy and black olives
+ciqual_food_name:fr: Pissaladière
+wikidata:en: Q1815839
 
 < en:Salted pies
 es: Empanada boloñesa
@@ -84581,14 +84588,6 @@ fr: Calzones au fromage
 
 < it:Calzone
 fr: Calzones peperoni
-
-< en:Pizzas
-en: Pizza with onion and anchovy and black olives
-fr: Pissaladière
-agribalyse_food_code:en: 25528
-ciqual_food_code:en: 25528
-ciqual_food_name:en: Pizza, onion anchovy and black olives
-ciqual_food_name:fr: Pissaladière
 
 < en:Pizzas
 en: Regina pizza, Pizza with ham and cheese and mushrooms
@@ -101310,6 +101309,11 @@ agribalyse_food_code:en: 10023
 ciqual_food_code:en: 10023
 ciqual_food_name:en: Shrimp fritters
 ciqual_food_name:fr: Beignet de crevette
+
+< en:Appetizers
+< en:Shrimp preparations
+en: Breaded shrimps
+fr: Crevettes panées
 
 < en:Crustaceans
 en: Shrimps
