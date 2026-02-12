@@ -36,6 +36,9 @@
     "win32"
   ],
   "dependencies": {
+    "@kristjan.esperanto/leaflet.markercluster": "^3.0.0",
+    "@openfoodfacts/openfoodfacts-nodejs": "2.0.0-alpha.19",
+    "@openfoodfacts/openfoodfacts-webcomponents": "1.16.0",
     "@snyk/protect": "^1.1302.1",
     "@webcomponents/webcomponentsjs": "2.8.0",
     "@yaireo/tagify": ">=4.12.0 <4.37.0",
@@ -46,15 +49,11 @@
     "jquery": "2.2.4",
     "jquery-cropper": "^1.0.2",
     "jquery-ui": "1.14.2",
-    "jsvectormap": "^1.7.0",
-    "leaflet": "^1.7.1",
-    "leaflet.markercluster": "1.5.3",
-    "osmtogeojson": "^3.0.0-beta.4",
-    "papaparse": "^5.5.3",
-    "select2": "~4.0",
     "jsbarcode": "^3.12.3",
-    "@openfoodfacts/openfoodfacts-nodejs": "2.0.0-alpha.19",
-    "@openfoodfacts/openfoodfacts-webcomponents": "1.16.0"
+    "jsvectormap": "^1.7.0",
+    "leaflet": "^2.0.0-alpha.1",
+    "papaparse": "^5.5.3",
+    "select2": "~4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
