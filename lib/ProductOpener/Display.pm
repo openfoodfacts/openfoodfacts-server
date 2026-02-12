@@ -325,6 +325,8 @@ Add some functions and variables needed by many templates and process the templa
 
 sub process_template ($template_filename, $template_data_ref, $result_content_ref, $request_ref = {}) {
 
+	# give priority to request_ref lc but eventually fallback to global $lc
+	my $target_lc = $request_ref->{lc} // $lc;
 	# Add functions and values that are passed to all templates
 
 	# Features for each product type
@@ -364,21 +366,24 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{moderator} = $User{moderator};
 	$template_data_ref->{pro_moderator} = $User{pro_moderator};
 	$template_data_ref->{sep} = separator_before_colon($lc);
-	$template_data_ref->{lang} = \&lang;
+	$template_data_ref->{lang} = sub ($stringid) {
+		return lang_in_other_lc($target_lc, $stringid);
+	};
 	# also provide lang_flavor() and lang_product_type() to provide translations specific
 	# to a flavor (e.g. off, obf) or product type (e.g. food, beauty)
 	$template_data_ref->{lang_flavor} = sub ($stringid) {
-		return lang($stringid . "_" . $flavor);
+		return lang_in_other_lc($target_lc, $stringid . "_" . $flavor);
 	};
 	$template_data_ref->{lang_product_type} = sub ($stringid) {
-		return lang($stringid . "_" . $options{product_type});
+		return lang_in_other_lc($target_lc, $stringid . "_" . $options{product_type});
 	};
-	$template_data_ref->{f_lang} = \&f_lang;
+	$template_data_ref->{f_lang} = sub ($stringid, $variables_ref) {
+		return f_lang_in_lc($target_lc, $stringid, $variables_ref);
+	};
 	# escaping quotes for use in javascript or json
 	# using short names to favour readability
 	$template_data_ref->{esq} = sub {escape_char(@_, "\'")};    # esq as escape_single_quote_and_newlines
 	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
-	$template_data_ref->{lang_sprintf} = \&lang_sprintf;
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} //= $request_ref->{cc};
 	$template_data_ref->{display_icon} = \&display_icon;
