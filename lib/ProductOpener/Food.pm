@@ -73,8 +73,6 @@ BEGIN {
 
 		&extract_nutrition_from_image
 
-		&default_unit_for_nid
-
 		&create_nutrients_level_taxonomy
 
 		&assign_categories_properties_to_product
@@ -153,55 +151,6 @@ sub check_nutriscore_categories_exist_in_taxonomy() {
 			}
 		}
 	}
-
-	return;
-}
-
-=head2 default_unit_for_nid ( $nid)
-
-Return the default unit that we convert everything to internally
-
-=head3 Parameters
-
-$nid: String
-
-=head3 Return values
-
-Default value for that certain unit
-
-=cut
-
-sub default_unit_for_nid ($nid) {
-
-	$nid =~ s/_prepared//;
-
-	my %default_unit_for_nid_map = (
-		"energy-kj" => "kJ",
-		"energy-kcal" => "kcal",
-		"energy" => "kJ",
-		"alcohol" => "% vol",
-		"water-hardness" => "mmol/l"
-	);
-
-	if (exists($default_unit_for_nid_map{$nid})) {
-		return $default_unit_for_nid_map{$nid};
-	}
-	elsif (($nid =~ /^fruits/) or ($nid =~ /^collagen/)) {
-		return "%";
-	}
-	else {
-		return "g";
-	}
-}
-
-sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit) {
-
-	## FIXME
-	## This is an old function called by code that was written for the old nutrition schema
-	## It does nothing for now as we are migrating the code to use the new schema
-	## It needs to be removed once the migration is complete
-
-	die;
 
 	return;
 }

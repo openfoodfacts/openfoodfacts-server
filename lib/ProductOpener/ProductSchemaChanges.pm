@@ -62,14 +62,13 @@ use vars @EXPORT_OK;
 
 use Log::Any qw($log);
 
-use ProductOpener::Food qw/default_unit_for_nid/;
 use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
 use ProductOpener::Images qw/normalize_generation_ref/;
 use ProductOpener::Nutrition
-	qw/generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy remove_empty_nutrition_data/;
+	qw/default_unit_for_nid generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy remove_empty_nutrition_data/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::Tags qw/get_property/;
 
