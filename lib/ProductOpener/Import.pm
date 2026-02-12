@@ -62,6 +62,7 @@ use Log::Any qw($log);
 use Storable qw(dclone);
 use Text::Fuzzy;
 use Data::DeepAccess qw(deep_get deep_exists);
+use Encode qw(encode_utf8);
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -2626,7 +2627,8 @@ sub import_csv_file ($args_ref) {
 					}
 
 					# Add a hash of the URL
-					my $md5 = md5_hex($image_url);
+					# Note md5_hex croaks if supplied with unicode characters above 255
+					my $md5 = md5_hex(encode_utf8($image_url));
 					$filename = $md5 . "_" . $filename;
 
 					my $images_download_dir = $args_ref->{images_download_dir};
