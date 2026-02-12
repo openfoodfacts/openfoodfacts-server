@@ -265,7 +265,6 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 			}
 		}
 	}
-	}
 	else {
 		$results_ref->{error} = "Could not open CSV $file.csv: $!";
 	}

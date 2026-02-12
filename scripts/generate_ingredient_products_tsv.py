@@ -1,5 +1,6 @@
 """
-Creates "ingredient" products from the ingredients taxonomy
+Creates an "ingredient" products TSV file that can be loaded into the producers platform
+and then exported to the main database
 
 This script uses uv to load dependencies. To install uv run:
 
@@ -7,7 +8,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 To run the script use:
 
-uv run scripts/refresh_ingredient_products.py
+uv run scripts/generate_ingredient_products_tsv.py
 
 TODO:
 * Find a way to show there is no packaging
@@ -21,6 +22,7 @@ TODO:
 # ]
 # ///
 
+import csv
 import datetime
 import sys
 import requests
@@ -28,7 +30,6 @@ from requests.auth import HTTPBasicAuth
 import os
 from dotenv import load_dotenv
 import hashlib
-import base64
 import json
 
 load_dotenv(".envrc")
@@ -51,31 +52,6 @@ with open(
 ) as ciqual_file:
     ciqual_ingredients = json.load(ciqual_file)
 
-print("--- Logging in ---")
-# Uses the outward facing url for local development
-oidc_discovery_url = os.getenv("OIDC_DISCOVERY_URL").replace(
-    "//keycloak:8080/", "//auth.openfoodfacts.localhost:5600/"
-)
-openid_configuration = requests.get(oidc_discovery_url).json()
-token_endpoint = openid_configuration["token_endpoint"]
-
-response = requests.post(
-    token_endpoint,
-    data={
-        "grant_type": "password",
-        # Set the following in .envrc to you OFF credentials. Must be a moderator for deletes
-        "username": os.getenv("OIDC_USERNAME"),
-        "password": os.getenv("OIDC_PASSWORD"),
-    },
-    auth=HTTPBasicAuth(os.getenv("OIDC_CLIENT_ID"), os.getenv("OIDC_CLIENT_SECRET")),
-).json()
-
-access_token = response["access_token"]
-refresh_token = response["refresh_token"]
-refresh_at = datetime.datetime.now() + datetime.timedelta(0, response["expires_in"] - 30)
-
-off_headers = {"Authorization": f"Bearer {access_token}"}
-
 # Wikidata requires a user agent to be specified. See https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy
 wikidata_headers = {
     "User-Agent": "OpenFoodFacts/1.0 (https://world.openfoodfacts.org) ingredient-uploader"
@@ -90,25 +66,6 @@ def po_response_is_ok(response: requests.Response):
         print(response.content)
     return False
 
-def refresh_access_token():
-    global access_token, refresh_token, refresh_at
-
-    if datetime.datetime.now() > refresh_at:
-        print("--- Refreshing access token ---")
-        response = requests.post(
-            token_endpoint,
-            data={
-                "grant_type": "refresh_token",
-                "refresh_token": refresh_token,
-            },
-            auth=HTTPBasicAuth(os.getenv("OIDC_CLIENT_ID"), os.getenv("OIDC_CLIENT_SECRET")),
-        ).json()
-
-        access_token = response["access_token"]
-        refresh_token = response["refresh_token"]
-        refresh_at = datetime.datetime.now() + datetime.timedelta(0, response["expires_in"] - 30)
-        
-    
 # Get the existing ingredient products so we know which ones already have images
 # and which ones to delete (if they weren't found in the current ingredients taxonomy)
 print("--- Fetching existing products ---")
@@ -117,7 +74,7 @@ existing_codes = []
 products_with_images = []
 while True:
     response = requests.get(
-        f"{base_url}/api/v2/search?fields=code,selected_images&states_tags=en:is-ingredient&page_size=1000&page={page}"
+        f"{base_url}/api/v2/search?fields=code,selected_images&owners_tags=org-openfoodfacts&page_size=1000&page={page}"
     )
     if not po_response_is_ok(response):
         sys.exit(1)
@@ -128,8 +85,8 @@ while True:
     products_with_images += [
         product["code"] for product in products if "selected_images" in product
     ]
+    print(f"Fetched: {len(existing_codes)}")
     page += 1
-    refresh_access_token()
 
 count = 0
 # Set the following to zero to delete all ingredient products
@@ -138,6 +95,7 @@ count = 0
 # rm /mnt/podata/new_images/*.ingredient-*
 max_count = 100
 print("--- Creating products ---")
+products = []
 for id, ingredient in ingredients.items():
     if count >= max_count:
         break
@@ -168,6 +126,7 @@ for id, ingredient in ingredients.items():
     if not wikidata_id:
         continue
 
+    image_url = ""
     if not got_image:
         # Fetch the images property
         wikidata_url = f"https://www.wikidata.org/w/api.php?action=wbgetclaims&entity={wikidata_id}&property=P18&format=json"
@@ -199,12 +158,9 @@ for id, ingredient in ingredients.items():
                     image_url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{image_hash[0]}/{image_hash[0:2]}/{image_name}/960px-{image_name}"
                 else:
                     image_url = f"https://upload.wikimedia.org/wikipedia/commons/{image_hash[0]}/{image_hash[0:2]}/{image_name}"
-                image_content = requests.get(
-                    image_url, headers=wikidata_headers
-                ).content
                 break
 
-        if not image_content:
+        if not image_url:
             continue
 
     # We set all countries so ingredients always show up. Might be nice to get all "world" products to show up on all country domains
@@ -213,6 +169,7 @@ for id, ingredient in ingredients.items():
         "countries": countries,
         "categories": category,
         "packaging_text_en": "1 paper bag to recycle",
+        "image_front_url": image_url
     }
 
     # Create a product name for each language
@@ -223,36 +180,22 @@ for id, ingredient in ingredients.items():
     # Add nutrients from ciqual
     for nutrient_id, nutrient in ciqual_data.items():
         if nutrient.get("confidence", "-") != "-":
-            product[f"nutriment_{nutrient_id}"] = nutrient.get("percent_nom")
+            product[f"{nutrient_id}"] = nutrient.get("percent_nom")
 
-    # Create the product
-    refresh_access_token()
-    print(id, ciqual_code, wikidata_id, ingredient["name"].get("en", name))
-    if not po_response_is_ok(requests.post(f"{base_url}/cgi/product_jqm2.pl", data=product, headers=off_headers)):
-        continue
-
-    if not got_image:
-        # Add the image
-        print(image_url)
-        if not po_response_is_ok(requests.post(
-            f"{base_url}/api/v3/product/{code}/images",
-            json={
-                "image_data_base64": base64.b64encode(image_content).decode(),
-                "selected": {"front": {"en": {}}},
-            },
-            headers=off_headers,
-        )):
-            continue
+    products.append(product)
+    print(id, ciqual_code, wikidata_id, ingredient["name"].get("en", name), image_url)
 
     count += 1
     if code in existing_codes:
         existing_codes.remove(code)
 
-print("--- Deleting orphaned codes ---")
+print("--- Generating tsv file ---")
+keys = sorted(set().union(*(d.keys() for d in products)))
+with open('generate_ingredient_products.tsv', 'w', newline='', encoding='utf-8') as output_file:
+    dict_writer = csv.DictWriter(output_file, keys, delimiter='\t')
+    dict_writer.writeheader()
+    dict_writer.writerows(products)
+
+print("--- Listing orphaned codes ---")
 for code in existing_codes:
     print(code)
-    po_response_is_ok(requests.post(
-        f"{base_url}/cgi/product.pl",
-        data={"type": "delete", "action": "process", "code": code},
-        headers=off_headers,
-    ))
