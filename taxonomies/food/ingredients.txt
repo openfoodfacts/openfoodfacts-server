@@ -28535,9 +28535,8 @@ it: mais estruso
 #                                                 R I C E
 #
 #################################################################################################################
-# description:en:Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice).
 
-#<en:cereal
+#< en:cereal
 en: rice
 af: Rys
 am: ሩዝ
@@ -28665,83 +28664,84 @@ yi: רייז
 za: Haeuxbieg
 zh: 稻
 zu: ilayisi
+#aeb-arab: روز
+#arc: ܪܘܙܐ
+#arz: رز
+#ast: arroz
+#atj: Miromin
+#azb: دویو
+#bar: Reis
+#bcl: Paroy
+#be-tarask: Рыс
+#bho: चाउर
+#bjn: Banih
+#bqi: برنج
+#bxr: Тутарга
+#cdo: Dêu
+#ckb: برنج
+#crh-latn: pirinç
+#de-ch: Reis
+#din: Lop
+#dty: धान
+#en-ca: Rice
+#en-gb: Rice
+#gag: pirinç
+#gan: 禾
+#gsw: Riis
+#hak: Vò-é
+#hif: Bhaat
+#hsb: Rajs
+#ilo: bagas
+#inh: Дуга
+#jam: Rais
+#jbo: rismi
+#kbd: Прунж
+#kbp: Mɔʋ
+#krc: принч
+#lad: Arroz
+#lbe: Ппиринж
+#lez: Дуьгуь
+#lfn: Ris
+#lij: Riso
+#lmo: Ris
+#lzh: 稻
+#mai: धान
+#mzn: برنج
+#nah: Ācintli
+#nan: Tiū
+#nds: Ries
+#nds-nl: Ries
+#new: जाकि
+#ota: برنج
+#pam: Pale
+#pap: aros
+#pnb: چاول
+#pt-br: arroz
+#roa-tara: rise
+#rup: Urizu
+#sah: Рис
+#sat: ᱫᱟᱠᱟ
+#sco: Rice
+#sgs: Rīžā
+#sr-ec: пиринач
+#sr-el: pirinač
+#srn: aleysi
+#tet: hare
+#tt-cyrl: дөге
+#vec: Rixo
+#vro: Riis
+#war: Humay
+#wuu: 稻
+#xmf: ორზა
+#yue: 稻米
+#zh-hant: 米
 carbon_footprint_fr_foodges_ingredient:fr: Riz jasmin (Thaïlande)
 carbon_footprint_fr_foodges_value:fr: 1.4
 ciqual_proxy_food_code:en: 9100
 ciqual_proxy_food_name:fr: Riz blanc, cru
+description:en: Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice).
 vegan:en: yes
 vegetarian:en: yes
-# aeb-arab:روز
-# arc:ܪܘܙܐ
-# arz:رز
-# ast:arroz
-# atj:Miromin
-# azb:دویو
-# bar:Reis
-# bcl:Paroy
-# be-tarask:Рыс
-# bho:चाउर
-# bjn:Banih
-# bqi:برنج
-# bxr:Тутарга
-# cdo:Dêu
-# ckb:برنج
-# crh-latn:pirinç
-# de-ch:Reis
-# din:Lop
-# dty:धान
-# en-ca:Rice
-# en-gb:Rice
-# gag:pirinç
-# gan:禾
-# gsw:Riis
-# hak:Vò-é
-# hif:Bhaat
-# hsb:Rajs
-# ilo:bagas
-# inh:Дуга
-# jam:Rais
-# jbo:rismi
-# kbd:Прунж
-# kbp:Mɔʋ
-# krc:принч
-# lad:Arroz
-# lbe:Ппиринж
-# lez:Дуьгуь
-# lfn:Ris
-# lij:Riso
-# lmo:Ris
-# lzh:稻
-# mai:धान
-# mzn:برنج
-# nah:Ācintli
-# nan:Tiū
-# nds:Ries
-# nds-nl:Ries
-# new:जाकि
-# ota:برنج
-# pam:Pale
-# pap:aros
-# pnb:چاول
-# pt-br:arroz
-# roa-tara:rise
-# rup:Urizu
-# sah:Рис
-# sat:ᱫᱟᱠᱟ
-# sco:Rice
-# sgs:Rīžā
-# sr-ec:пиринач
-# sr-el:pirinač
-# srn:aleysi
-# tet:hare
-# tt-cyrl:дөге
-# vec:Rixo
-# vro:Riis
-# war:Humay
-# wuu:稻
-# xmf:ორზა
-# yue:稻米
-# zh-hant:米
 wikidata:en: Q5090
 wikipedia:en: https://en.wikipedia.org/wiki/Rice
 
@@ -28877,29 +28877,39 @@ wikidata:en: Q115443
 en: semi-whole rice, semi-wholemeal rice
 fr: riz semi-complet
 
-#category/brown-rices
 < en:rice
-en: brown rice, full grain rice, wholegrain rice, whole rice, whole grain brown rice
+en: whole grain rice, full grain rice, wholegrain rice, whole rice
+da: fuldkornsris
+de: Vollkornreis
+fi: täysjyväriisi
+fr: riz complet
+nl: volkorenrijst
+nn: fullkornris
+sv: fullkornris
+
+#category/brown-rices
+< en:whole grain rice
+en: brown rice
 ar: أرز أسمر
-bg: кафяв пълнозърнест ориз, кафяв ориз
+bg: кафяв ориз
 ca: arròs integral
 cs: celozrnná rýže, hnědá rýže
-da: brune ris
-de: Vollkornreis, brauner Vollkornreis
+da: brunt ris, brune ris
+de: brauner Reis
 es: arroz integral
-fi: tumma riisi, täysjyväriisi, ruskea kokojyväriisi
-fr: riz complet, riz brun, riz brun complet
+fi: tumma riisi
+fr: riz brun
 hr: smeđa riža
 hu: barna rizs, barnarizs, teljes kiőrlésű rizs, teljes értékű rizs
 it: riso integrale
 ja: 玄米
-nl: zilvervliesrijst, volkorenrijst, bruine rijst
-nn: brune fullkornris
+nl: zilvervliesrijst, bruine rijst
+nn: brune ris
 pl: ryż brązowy
 pt: arroz integral
 ru: kоричневый рис
 sl: rjavi riž
-sv: brunt fullkornris, råris
+sv: brunt ris, råris
 th: ข้าวกล้อง
 ciqual_food_code:en: 9102
 ciqual_food_name:en: Rice, brown, raw
@@ -28909,11 +28919,14 @@ wikidata:en: Q1066624
 
 < en:brown rice
 en: whole grain brown rice, wholegrain brown rice
+bg: кафяв пълнозърнест ориз
 de: brauner Vollkornreis
-es: Arroz integral
-fr: Riz brun complet
+fi: ruskea kokojyväriisi
+fr: riz brun complet
 hr: integralna smeđa riža
 nl: volkoren rijst
+nn: brune fullkornris
+sv: brunt fullkornris
 
 < en:brown rice
 #<en:organic rice
@@ -28945,6 +28958,7 @@ en: white rice
 ar: أرز أبيض
 bg: бял ориз
 ca: arròs blanc
+da: hvidt ris, hvide ris
 de: weißer Reis
 el: λευκό ρύζι
 eo: blanka rizo
@@ -28962,6 +28976,7 @@ ko: 백미
 nl: witte rijst
 pl: ryż biały
 pt: arroz branco
+sv: vitt ris, vita ris
 vi: gạo trắng
 zh: 白米
 ciqual_food_code:en: 9100
@@ -28980,8 +28995,8 @@ wikidata:en: Q2674257
 
 < en:Italian rice
 < en:parboiled rice
-< en:rice
-en: Italian Black Parboiled Brown Rice
+< en:whole grain rice
+en: parboiled Italian black whole grain rice, Italian Black Parboiled Brown Rice
 de: Italienischer Schwarzer Parboiled Vollkornreis
 es: Arroz Integral Venere Vaporizado
 fr: Riz moyen à grains noirs complet étuvé
@@ -28994,6 +29009,7 @@ pt: Arroz Integral Venere Parboiled
 < en:rice
 en: long grain rice
 bg: дългозърнест ориз
+da: langkornet ris, langkornede ris
 de: Langkornreis
 es: Arros de grano largo, arroz largo
 fi: pitkäjyväinen riisi
@@ -29003,6 +29019,8 @@ hu: hosszú szemű rizs
 it: riso a chicco lungo
 nl: Langkorrelige rijst
 pl: ryż długoziarnisty
+sv: långkornigt ris, långkorniga ris
+wikidata:en: Q67594028
 # ingredient/fr:riz-long-grain has 46 products in 4 languages @2018-12-19
 # ingredient/fr:riz-long-blanc has 9 products in french @2018-12-19
 # ingredient/fr:riz-long has 26 products in french @2018-12-19
@@ -29015,6 +29033,7 @@ fr: riz long biologique
 hr: organska riža dugog zrna
 hu: bio hosszú szemű rizs
 it: riso biologico a grani lunghi
+sv: ekologisk långkornigt ris
 
 < en:long grain rice
 en: superior quality long grain rice
@@ -29025,8 +29044,8 @@ it: riso a grani lunghi di qualità superiore
 nl: langkorrelige rijst van hoogwaardige kwaliteit
 # ingredient/fr:riz-long-grain-de-qualite-superieure has 10 products in french @2019-05-25
 
+< en:organic long grain rice
 < en:superior quality long grain rice
-#<en:organic rice
 en: superior quality organic long grain rice
 fr: riz long grain biologique de qualite superieure
 it: riso a grani lunghi biologico di qualità superiore
@@ -29042,20 +29061,18 @@ hr: bijela riža dugog zrna
 hu: hosszú szemű fehérrizs
 it: riso bianco a grani lunghi
 pl: ryż biały długoziarnisty
+sv: långkornigt vitt ris
 # ingredient/fr:riz-long-grain-blanc has 4 products @2019-05-30
 
 < en:long grain white rice
+< en:superior quality long grain rice
 en: superior quality long grain white rice
 de: Premiumqualität weißer Langkornreis
 fr: riz blanc long grain de qualite superieure
 hr: vrhunska bijela riža dugog zrna
 it: riso bianco a grani lunghi di qualità superiore
 
-< en:white rice
-en: medium grain white rice
-hr: bijela srednjezrnata riža
-it: riso bianco a grana media
-
+< en:long grain white rice
 < en:organic long grain rice
 en: organic long grain white rice
 fi: luomu pitkäjyväinen valkoinen riisi
@@ -29066,13 +29083,13 @@ it: riso bianco a grani lunghi biologico
 < en:long grain rice
 fr: riz long semi complet
 
+< en:organic long grain rice
 < fr:riz long semi complet
-#<en:organic rice
 fr: riz long semi complet issu de l'agriculture-biologique
 
 < en:brown rice
 < en:long grain rice
-en: brown long grain rice, long grain brown rice
+en: long grain brown rice, brown long grain rice
 bg: кафяв дългозърнест ориз
 de: brauner Langkornreis
 fi: pitkäjyväinen tumma riisi, pitkäjyväinen täysjyväriisi
@@ -29081,11 +29098,13 @@ hr: smeđa riža dugog zrna
 hu: hosszú szemű barnarizs
 it: riso integrale a grani lunghi
 nl: langkorrelige zilvervliesrijst
+sv: långkornigt brunt ris
+wikidata:en: Q95733958
 # ingredient/fr:riz-long-complet has 13 products @2019-05-29
 
-< en:brown long grain rice
-< en:parboiled rice
-en: parboiled brown long grain rice
+< en:long grain brown rice
+< en:long grain parboiled rice
+en: parboiled long grain brown rice, parboiled brown long grain rice
 de: brauner Parboiled Langkornreis
 fi: parboil-käsitelty pitkäjyväinen tumma riisi, parboil-käsitelty pitkäjyväinen täysjyväriisi
 fr: riz complet long grain étuvé, riz long complet etuve
@@ -29120,8 +29139,8 @@ sv: långkornigt parboil ris
 < en:parboiled long grain rice
 fr: riz long italien étuvé
 
+< en:organic long grain rice
 < en:parboiled long grain rice
-#<en:organic rice
 en: parboiled organic long grain rice
 da: økologisk parboiled langkornede ris
 de: Parboiled Bio-Langkornreis
@@ -29132,6 +29151,7 @@ it: riso parboiled biologico a grani lunghi
 nl: Witte langgraanrijst van biologische oorsprong parboiled
 
 < en:long grain parboiled rice
+< en:superior quality long grain rice
 en: superior quality long grain parboiled rice
 de: Hochwertiger langkörniger Parboiled-Reis
 es: arroz grano largo vaporizado de calidad superior
@@ -29140,8 +29160,7 @@ hr: prokuhana riža dugog zrna vrhunske kvalitete
 it: riso parboiled a grani lunghi di qualità superiore
 # ingredient/fr:riz-long-grain-étuvé-de-qualité-supérieure has 39 products in 2 languages @2018-12-19
 
-< en:brown rice
-< en:parboiled rice
+< en:parboiled long grain brown rice
 < en:superior quality long grain parboiled rice
 en: superior quality long grain parboiled brown rice
 de: brauner Spitzen-Langkornreis parboiled
@@ -29151,16 +29170,34 @@ hr: vrhunska kvaliteta parboiled smeđe riže dugog zrna
 it: riso integrale parboiled a grani lunghi di qualità superiore
 # ingredient/fr:riz-long-grain-complet-étuvé-de-qualite-superieure has 4 products @2019-05-29
 
+########################### MEDIUM GRAIN RICES #######################
+
+< en:rice
+en: medium grain rice
+da: mediumkornet ris, mediumkornede ris
+sv: mellankornigt ris, mellankorniga ris
+
+< en:medium grain rice
+< en:white rice
+en: medium grain white rice
+da: mediumkornet hvidt ris, mediumkornede hvide ris
+hr: bijela srednjezrnata riža
+it: riso bianco a grana media
+sv: mellankornigt vitt ris, mellankorniga vita ris
+
 ########################### ROUND RICES #######################
 
 < en:rice
 en: round rice
+da: kortkornet ris, kortkornede ris
 de: Rundkornreis, Milchreis
 fi: pyöreäjyväinen riisi
 fr: riz rond
 hr: okrugla riža
 hu: kerek rizs
 it: riso tondo
+sv: rundkornigt ris
+wikidata:en: Q67593960
 # ingredient/fr:riz-rond has 27 products in french @2019-05-28
 
 < en:round rice
@@ -29174,22 +29211,27 @@ it: riso tondo biologico
 # 2019-05-30
 
 < en:round rice
+< en:white rice
+en: white round rice
 fr: riz rond blanc, Riz rond blanchi
 nl: witte ronde rijst, ronde rijst wit
 # ingredient/fr:riz-rond-blanchi has 4 products @2019-05-29
 # ingredient/fr:riz-rond-blanc has 15 products @2019-05-29
 
-
-< fr:riz rond blanc
+< en:organic round rice
+< en:white round rice
+en: organic white round rice
 fr: riz rond blanc bio
 
 < en:round rice
+< en:semi-whole rice
 en: semi-whole round rice
 fr: riz rond semi-complet, riz rond complet légèrement poli
 hr: polucijela okrugla riža
 nl: halfvolkoren ronde rijst, volkoren ronde rijst lichtjes gepolijst
 
 < en:round rice
+< en:whole grain rice
 en: whole round rice
 fr: riz rond complet
 hr: cijela okrugla riža
@@ -29198,11 +29240,13 @@ nl: volkoren ronde rijst
 # ingredient/fr:riz-rond-complet has 19 products @2019-05-29
 
 < en:round rice
+en: superior quality round rice
 fr: riz rond de qualité supérieure
 # ingredient/fr:riz-rond-de-qualite-superieure has 11 products @2019-05-29
 
-< fr:riz rond de qualité supérieure
-#<en:organic rice
+< en:organic round rice
+< en:superior quality round rice
+en: organic superior quality round rice
 fr: riz rond biologique de qualité supérieure
 
 < en:rice
@@ -29216,6 +29260,7 @@ hr: riža za rižoto
 hu: rizottó rizs
 it: riso per risotto
 pt: arroz risotto
+wikidata:en: Q67438406
 # ingredient/fr:riz-pour-risotto has 8 products @2019-05-30
 
 < en:long grain rice
@@ -29223,7 +29268,7 @@ pt: arroz risotto
 fr: riz long pour risotto
 
 < en:parboiled rice
-< en:rice
+< en:risotto rice
 fr: riz pour risotto étuvé
 
 ########################### RICE SPECIES #######################
@@ -29242,6 +29287,7 @@ la: Zizania
 nl: wilde rijst
 pl: ryż dziki
 pt: arroz selvagem
+sv: vildris
 ciqual_food_code:en: 9108
 ciqual_food_name:en: Wild rice, raw
 ciqual_food_name:fr: Riz sauvage, cru
@@ -29327,10 +29373,8 @@ zh: 紫米
 wikidata:en: Q3434002
 wikipedia:en: https://en.wikipedia.org/wiki/Black_rice
 
-# description:en:BASMATI RICE is a variety of long, slender-grained aromatic rice which is traditionally from the Indian subcontinent.
-
 # <category:en:basmati-rices
-< en:rice
+< en:long grain rice
 en: basmati rice, basmati
 ar: بسمتي
 bg: ориз басмати, басмати
@@ -29365,20 +29409,23 @@ ta: பாசுமதி
 te: బాస్మతి బియ్యం
 th: บาสมาตี
 uk: басматі
-ciqual_food_code:en: 9119
-ciqual_food_name:en: Basmati rice, raw
-ciqual_food_name:fr: Riz thaï ou basmati, cru
-ecobalyse:en: cce078cf-3d3e-4153-a0a1-35555b2da639
-ecobalyse_labels_en_organic:en: dcdcb4d1-1793-4f1b-bd1f-7578d02e4fb1
 # bho:बासमती
 # pnb:باسمتی
 # yue:印度香米
+ciqual_food_code:en: 9119
+ciqual_food_name:en: Basmati rice, raw
+ciqual_food_name:fr: Riz thaï ou basmati, cru
+description:en: BASMATI RICE is a variety of long, slender-grained aromatic rice which is traditionally from the Indian subcontinent.
+ecobalyse:en: cce078cf-3d3e-4153-a0a1-35555b2da639
+ecobalyse_labels_en_organic:en: dcdcb4d1-1793-4f1b-bd1f-7578d02e4fb1
 wikidata:en: Q1649635
 wikipedia:en: https://en.wikipedia.org/wiki/Basmati
 # 1035 in 8 @2021-09-14
 
 < en:basmati rice
+< en:white rice
 en: white basmati rice
+da: hvidt basmatiris
 de: weißer Basmatireis
 fi: valkoinen basmatiriisi
 fr: riz basmati blanc
@@ -29386,11 +29433,14 @@ hr: bijela basmati riža
 hu: fehér basmati rizs, fehér baszmati rizs
 it: riso basmati bianco
 nl: witte basmatirijst
+sv: vitt basmatiris
 # ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
 # ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
 
 < en:basmati rice
+< en:brown rice
 en: brown basmati rice
+da: brunt basmatiris
 de: brauner Basmatireis
 fi: tumma basmatiriisi
 fr: riz basmati complet
@@ -29398,6 +29448,7 @@ hr: smeđa basmati riža
 hu: barna basmati rizs, barna baszmati rizs
 it: riso basmati integrale
 nl: volkoren basmati rijst
+sv: brunt basmatiris
 # ingredient/fr:riz-basmati-complet has 11 products @2019-05-29
 
 #<en:brown basmati rice
@@ -29418,11 +29469,13 @@ nl: langkorrelige basmatirijst
 # fr:riz-long-basmati has 14 products in french @2019-05-25
 
 < en:long grain basmati rice
+< fr:riz long grain naturellement parfumé
 fr: Riz basmati long grain naturellement parfumé
 # ingredient/fr:riz-basmati-long-grain-naturellement-parfume has 6 products 22019-05-29
 
 < en:long grain basmati rice
-en: high quality long grain Basmati rice
+< en:superior quality long grain rice
+en: superior quality long grain Basmati rice, high quality long grain Basmati rice
 de: Langkorn Basmatireis spitzenqualität
 fr: riz basmati long grain de qualité supérieure, riz long grain Basmati de qualité supérieure, riz long basmati de qualite superieure
 hr: visokokvalitetna basmati riža dugog zrna
@@ -29430,8 +29483,8 @@ it: riso basmati a grani lunghi di alta qualità
 nl: langkorrelige basmatirijst van hoogwaardige kwaliteit
 # ingredient/fr:riz-basmati-long-grain-de-qualite-superieure has 16 products in 3 languages @2019-05-23
 
-#<en:high quality long grain Basmati rice
-#<en:organic rice
+#< en:high quality long grain Basmati rice
+#< en:organic long grain rice
 #en:organic high quality long grain Basmati rice
 #fr:riz basmati long grain de qualite superieure issu de l'agriculture biologique
 
@@ -29443,17 +29496,17 @@ fi: parboil-käsitelty basmatiriisi
 # ingredient/fr:riz-basmati-précuit has 33 products in french @2018-12-19
 
 < en:basmati rice
-fr: riz basmati cuit
+< en:cooked rice
+en: cooked basmati rice
 de: Basmati-Reis gekocht
 fi: keitetty basmatiriisi, kypsennetty basmatiriisi
+fr: riz basmati cuit
 it: riso Basmati cotto
 nl: gekookte basmatirijst
 # ingredient/fr:riz-basmati-cuit has 93 products @2018-12-19
 
-# description:en:JASMINE RICE is a long-grain variety of fragrant rice (also known as aromatic rice). Its fragrance, reminiscent of jasmine and popcorn, results from the rice plant's natural production of aromatic compounds
-
 # <category:en:Jasmine rice
-< en:rice
+< en:long grain rice
 en: Thai rice, jasmine rice
 bg: ориз жасмин, тайландски ориз
 de: Thai-Reis, Jasmin-Reis
@@ -29465,6 +29518,7 @@ hu: jázminrizs, jázmin rizs
 it: riso tailandese, di riso tailandese, riso algelsomino
 nl: thaise rijst, jasmijnrijst
 sv: Jasminris
+description:en: JASMINE RICE is a long-grain variety of fragrant rice (also known as aromatic rice). Its fragrance, reminiscent of jasmine and popcorn, results from the rice plant's natural production of aromatic compounds
 wikidata:en: Q2733021
 wikipedia:en: https://en.wikipedia.org/wiki/Jasmine_rice
 # ingredient/fr:riz-thai has 23 products @2019-05-29
@@ -30158,7 +30212,7 @@ ce: Шекар
 cs: Cukr
 cv: Сахăр
 cy: Siwgr
-da: Sukker, diverse sukkerarter
+da: sukker, diverse sukkerarter
 de: Zucker, verschiedene Zuckerarten
 el: Ζάχαρη, Διάφορα είδη ζάχαρης
 eo: Sukero
@@ -30200,11 +30254,10 @@ ml: പഞ്ചസാര
 mn: Элсэн чихэр
 ms: Gula
 my: သကြား
-nb: Sukker
+nb: sukker, diverse sukkertyper
 ne: चिनी
 nl: suiker, Tafelsuiker, diverse suikersoorten
-nn: Sukker
-no: sukker, diverse sukkertyper
+nn: sukker
 nv: Áshįįh łikan
 oc: Sucre
 or: ଚିନି
@@ -30227,7 +30280,7 @@ so: Sonkor
 sq: Sheqeri, sheqer
 sr: Шећер, šećer
 su: Gula
-sv: Socker, diverse sockerarter
+sv: socker, diverse sockerarter
 sw: Sukari
 ta: சீனி
 te: చక్కెర
@@ -30243,14 +30296,6 @@ uz: Qand
 vi: Đường
 wa: Souke
 zh: 糖, 食糖
-carbon_footprint_fr_foodges_ingredient:fr: Sucre de canne
-carbon_footprint_fr_foodges_value:fr: 1.3
-ciqual_proxy_food_code:en: 31016
-ciqual_proxy_food_name:en: Sugar, white
-ciqual_proxy_food_name:fr: Sucre blanc
-ecobalyse:en: 8f075c25-9ebf-430c-b41d-51d165c6e0d8
-vegan:en: yes
-vegetarian:en: yes
 # als:Zucker
 # arc:ܫܟܪ
 # arz:سكر
@@ -30281,12 +30326,21 @@ vegetarian:en: yes
 # war:Asukar
 # zhmin-nan:Thn̂g
 # yue:糖
+carbon_footprint_fr_foodges_ingredient:fr: Sucre de canne
+carbon_footprint_fr_foodges_value:fr: 1.3
+ciqual_proxy_food_code:en: 31016
+ciqual_proxy_food_name:en: Sugar, white
+ciqual_proxy_food_name:fr: Sucre blanc
+ecobalyse:en: 8f075c25-9ebf-430c-b41d-51d165c6e0d8
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q11002
 wikipedia:en: https://en.wikipedia.org/wiki/Sugar
 
 < en:sugar
 en: sugared, sugary
 ca: ensucrade, ensucrades
+da: sukret
 es: azucarada, azucaradas
 hr: pošećeren
 it: zuccherato
@@ -30294,12 +30348,15 @@ it: zuccherato
 < en:sugar
 en: organic sugar
 bg: биологична захар, био захар
+da: økologisk sukker
 de: Zucker aus ökologischem Anbau
 fi: luomusokeri, luomu sokeri
 fr: sucre bio, sucre issu de l'agriculture biologique
 hr: eko šećer
 hu: bio cukor
 it: zucchero biologico
+nb: økologisk sukker
+sv: ekologiskt socker
 
 < en:sugar
 fr: sucres extraits de fruits
@@ -30514,6 +30571,7 @@ ciqual_food_name:en: Sugar, white
 ciqual_food_name:fr: Sucre blanc
 
 < en:brown sugar
+< en:organic sugar
 en: organic brown sugar
 bg: био кафява захар
 de: Bio brauner Zucker
@@ -30599,15 +30657,13 @@ wikidata:en: Q914538
 wikipedia:en: https://en.wikipedia.org/wiki/Nib_sugar
 
 < en:sugar
-fr: sucre blond
 en: blonde sugar
 es: azúcar rubio
+fr: sucre blond
 hr: plavi šećer
 it: zucchero biondo
 nl: blonde suiker
 
-# description:en:Granulated, familiar as table sugar, with a grain size about 0.5-0.6 mm across.
-# comment:en:"granulated sugar" is generally white sugar, but other sugars can be in granulated form too.
 < en:sugar
 en: granulated sugar
 bg: гранулирана захар, кристална захар
@@ -30619,22 +30675,26 @@ hr: šećer bijeli kristal, šećer kristal, bijeli kristal šećer
 hu: kristálycukor
 nl: Kristalsuiker
 pt: Açúcar granulado
+comment:en: "granulated sugar" is generally white sugar, but other sugars can be in granulated form too.
+description:en: Granulated, familiar as table sugar, with a grain size about 0.5-0.6 mm across.
 # ingredient/fr:sucre-cristal has 77 products @2019-06-08
 
 # see ingredients_processing.txt
-# description:en:Caster sugar is finer than granulated sugar, but coarser than powdered/icing sugar, with a grain size of about 0.35 mm.
 < en:sugar
 en: caster sugar
 de: Streuzucker
 fr: sucre semoule
 hr: šećer u prahu
 it: zucchero semolato
+description:en: Caster sugar is finer than granulated sugar, but coarser than powdered/icing sugar, with a grain size of about 0.35 mm.
 wikidata:en: Q3502834
 wikipedia:fr: https://fr.wikipedia.org/wiki/Sucre_semoule
 
 < en:sugar
 en: sugar cube
+da: sukkerknald
 de: Würfelzucker
+fi: palasokeri
 fr: Sucre en morceaux
 hr: bijeli šećer u kocki
 it: zolletta di zucchero
@@ -30651,15 +30711,19 @@ nl: gefermenteerde suiker
 
 < en:sugar
 en: maple sugar
+da: lønsukker
 de: Ahornzucker
 es: azúcar de arce
 fr: sucre d'érable
 hr: javorov šećer
 it: zucchero d'acero
 ja: メープルシュガー
+sv: lönnsocker
+wikidata:en: Q402587
 
 en: sugarcane, sugar cane
 bg: захарна тръстика
+da: sukkerrør
 de: Zuckerrohr
 fr: canne à sucre, cannes à sucre
 hr: šećerne repice
@@ -30670,6 +30734,7 @@ vegetarian:en: yes
 < en:sugarcane
 en: sugarcane juice, cane juice
 bg: сок от захарна тръстика
+da: sukkerrørssaft
 de: Zuckerrohrsaft
 es: jugo de caña de azúcar
 fr: jus de canne à sucre, jus de canne
@@ -30680,8 +30745,6 @@ nl: suikerrietsap
 < en:sugar
 nl: Arenga bossuiker
 # ingredient/nl:arenga-bossuiker has 1 product @2019-05-24
-
-# description:en:Since the 6th century BC, cane sugar producers have crushed the harvested vegetable material from sugarcane in order to collect and filter the juice. They then treat the liquid (often with lime (calcium oxide)) to remove impurities and then neutralize it. Boiling the juice then allows the sediment to settle to the bottom for dredging out, while the scum rises to the surface for skimming off.
 
 < en:sugar
 en: cane sugar, pure cane sugar, natural cane sugar
@@ -30702,7 +30765,7 @@ it: zucchero di canna
 ja: きび糖
 lv: cukurniedru cukurs
 mt: zokkor tal-kannamiela
-nb: rörsocker
+nb: rørsukker
 nl: rietsuiker, riet
 nn: røyrsukker
 pl: cukier trzcinowy
@@ -30712,11 +30775,12 @@ sl: trsni sladkor
 sr: šećer od šećerne trske, Šećerna trska
 sv: rörsocker
 uk: тростинний цукор
-carbon_footprint_fr_foodges_ingredient:fr: Sucre de canne
-carbon_footprint_fr_foodges_value:fr: 1.3
 # hsb:Cokorina
 # pam:Atbu
 # sr-el:šećer od šećerne trske
+carbon_footprint_fr_foodges_ingredient:fr: Sucre de canne
+carbon_footprint_fr_foodges_value:fr: 1.3
+description:en: Since the 6th century BC, cane sugar producers have crushed the harvested vegetable material from sugarcane in order to collect and filter the juice. They then treat the liquid (often with lime (calcium oxide)) to remove impurities and then neutralize it. Boiling the juice then allows the sediment to settle to the bottom for dredging out, while the scum rises to the surface for skimming off.
 wikidata:en: Q165267
 wikipedia:en: https://en.wikipedia.org/wiki/Sucrose#Cane
 # ingredient/cane-sugar has 17093 products in 23 languages @2019-05-31
@@ -30730,7 +30794,8 @@ hr: ispareni sok trske
 it: succo di canna evaporato
 
 < en:cane sugar
-en: cane sugar cubes
+< en:sugar cube
+en: cane sugar cube, cane sugar cubes
 bg: кубчета тръстикова захар, тръстикова захар на кубчета
 de: braune Zuckerwürfel
 fi: ruokopalasokeri
@@ -30739,8 +30804,9 @@ hr: kocke šećera od trske
 hu: nád kockacukor
 it: cubetti di zucchero di canna
 
-< en:cane sugar cubes
-en: brown cane sugar cubes
+< en:brown cane sugar
+< en:cane sugar cube
+en: brown cane sugar cube, brown cane sugar cubes
 de: brauner Rohrzucker in Würfeln
 es: azúcar moreno de caña en terrones
 fr: Sucre roux de canne en morceaux
@@ -30750,22 +30816,27 @@ it: Zollette di zucchero grezzo di canna
 nl: Bruin rietsuiker in klontjes
 
 < en:cane sugar
+< en:organic sugar
 en: organic cane sugar
 da: økologisk rørsukker
 de: Bio-Rohrzucker
 es: caña de azúcar orgánica
-fi: luomu ruokosokeri
+fi: luomuruokosokeri, luomu ruokosokeri
 fr: sucre de canne bio, sucre de canne biologique, cannes à sucre biologiques
 hr: organski šećer od trske
 hu: bio nádcuor
 it: zucchero di cana bio
+nb: økologisk rørsukker
 nl: biologische rietsuiker, biologisch rietsuiker
+sv: ekologisk rörsocker
 # ingredient/fr:sucre-de-canne-bio has 104 products in 6 languages @2019-03-23
 # ingredient/fr:sucre-de-canne-biologique has 22 products @2019-05-30
 
+< en:brown sugar
 < en:cane sugar
 en: brown cane sugar
 bg: кафява тръстикова захар
+da: brunt rørsukker
 de: Brauner Rohrzucker
 es: Azúcar moreno de caña
 fr: sucre de canne brun
@@ -30773,14 +30844,17 @@ hr: smeđi šećer od trske
 hu: barna nádcukor
 nl: Bruine rietsuiker
 pl: brązowy cukier trzcinowy
+sv: brunt rörsocker
 wikipedia:fr: https://fr.wikipedia.org/wiki/Sucre_roux_de_canne
 
 < en:cane sugar
 fr: sucre mi-blanc de canne
 
 < en:cane sugar
+< en:white sugar
 en: white cane sugar
 bg: бяла тръстикова захар
+da: hvidt rørsukker
 de: weisser Rohrzucker
 es: azúcar de caña blanca
 fi: vaalea ruokosokeri
@@ -30788,13 +30862,16 @@ fr: sucre de canne blanc
 hr: bijeli šećer od trske
 hu: fehér nádcukor
 it: zucchero di canna bianco
+sv: vitt rörsocker
 
+< en:blonde sugar
 < en:cane sugar
 en: blonde cane sugar
 es: Azúcar de caña rubia
 fr: sucre blond de canne, sucre de canne blond
 hr: plavi šećer od trske
 it: zucchero di canna biondo
+wikidata:en: Q64624851
 
 < en:white cane sugar
 en: white cane sugar from Brazil
@@ -30803,10 +30880,12 @@ de: weißer Rohrzucker aus Brasilien, brasilianischer Rohrzucker
 fr: sucre de canne blond du Brésil
 hr: bijeli šećer od trske iz brazila
 it: zucchero di canna bianco dal Brasile
+origin:en: en:brazil
 
 < en:sugar
 en: unrefined sugar, raw sugar
 bg: нерафинирана захар
+da: råsukker
 de: unraffinierter Zucker
 es: Azúcar sin refinar, azucar integral
 fi: raakasokeri
@@ -30854,6 +30933,7 @@ hr: cijeli šećer od trske
 it: zucchero di canna integrale
 nl: ruwe rietsuiker
 
+< en:brown cane sugar
 < en:whole cane sugar
 en: whole brown cane sugar
 de: brauner Vollrohrzucker
@@ -30898,6 +30978,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Panela
 
 < en:sugar
 en: beet sugar, beetroot sugar
+da: roesukker
 de: Rübenzucker
 es: azucar de remolacha
 fi: juurikassokeri
@@ -30905,15 +30986,20 @@ fr: sucre de betterave
 hr: šećer šećerne repe
 hu: répacukor
 it: Zucchero di barbabietola
+nb: betesukker
 nl: suikerbietsuiker, bietensuiker
+nn: betesukker
 pl: cukier buraczany
 pt: açúcar de beterraba
+sv: betsocker
 carbon_footprint_fr_foodges_ingredient:fr: Sucre de betterave
 carbon_footprint_fr_foodges_value:fr: 0.7
+wikidata:en: Q9197055
 
 < en:sugar
 en: palm sugar
 bg: палмова захар
+da: palmesukker
 de: Palmenzucker
 es: Azúcar de palma
 fi: Palmusokeri
@@ -30921,7 +31007,9 @@ fr: sucre de palme
 hr: palmin šećer
 it: Zucchero di palma
 nl: Palmsuiker
+nn: palmesukker
 pl: cukier palmowy
+sv: palmsocker
 wikidata:en: Q1549017
 
 < en:palm sugar
@@ -30932,11 +31020,11 @@ fr: sucre non raffiné de palme, sucre de palme non raffiné, sucre de palme bru
 hr: nerafinirani palmin šećer
 it: zucchero di palma non raffinato
 
-
 < en:palm sugar
 en: coconut sugar, coconut palm sugar
 bg: кокосова захар
 ca: Sucre de coco
+da: kokossukker
 de: Kokosblütenzucker
 es: azúcar de coco, azucar de coco
 fi: kookossokeri, kookospalmusokeri
@@ -30951,8 +31039,8 @@ pl: cukier kokosowy, cukier z kwiatu palmy kokosowej
 su: Gula kalapa
 sv: kokossocker, kokospalmsocker
 ta: தென்னை சர்க்கரை
-description:en: COCONUT SUGAR is a palm sugar produced from the sap of the flower bud stem of the coconut palm. It is used in savory dishes, but mainly in local desserts and cakes of the Southeast Asian region. Coconut sugar is subtly sweet almost like brown sugar but with a slight hint of caramel. The flavor and sweetness is usually similar to table sugar or brown sugar. There is no scientific evidence that coconut sugar is more nutritious or healthier than any other sweetener.
 # yue:椰糖
+description:en: COCONUT SUGAR is a palm sugar produced from the sap of the flower bud stem of the coconut palm. It is used in savory dishes, but mainly in local desserts and cakes of the Southeast Asian region. Coconut sugar is subtly sweet almost like brown sugar but with a slight hint of caramel. The flavor and sweetness is usually similar to table sugar or brown sugar. There is no scientific evidence that coconut sugar is more nutritious or healthier than any other sweetener.
 wikidata:en: Q5139861
 wikipedia:en: https://en.wikipedia.org/wiki/Coconut_sugar
 # 50in3@2019-06-09
@@ -30981,6 +31069,7 @@ nb: druesukker
 pl: cukier gronowy, cukier winogronowy
 pt: Açúcar de uva
 sv: druvsocker
+wikidata:en: Q37525
 
 # description:en:Re vanilla sugar: "Cheaper vanilla sugar is also available, made only from sugar and vanillin."
 < en:sugar
@@ -31049,8 +31138,6 @@ tr: Maltoz
 uk: Мальтоза
 vi: Kẹo mạch nha
 zh: 麥芽糖
-description:en: MALTOSE, also known as maltobiose or malt sugar, is a disaccharide formed from two units of glucose joined. Maltose is a component of malt, a substance which is obtained in the process of allowing grain to soften in water and germinate. It is also present in highly variable quantities in partially hydrolysed starch products like maltodextrin, corn syrup and acid-thinned starch. In humans, maltose is broken down by various maltase enzymes, providing two glucose molecules which can be further processed: either broken down to provide energy, or stored as glycogen. The lack of the sucrase-isomaltase enzyme in humans causes sucrose intolerance.
-
 # azb:مالتوز
 # cdo:Măk-ngà-tòng
 # kk-arab:مالتوزا
@@ -31070,6 +31157,8 @@ description:en: MALTOSE, also known as maltobiose or malt sugar, is a disacchari
 # zh-hk:麥芽糖
 # zh-sg:麦芽糖
 # zh-tw:麥芽糖
+description:en: MALTOSE, also known as maltobiose or malt sugar, is a disaccharide formed from two units of glucose joined. Maltose is a component of malt, a substance which is obtained in the process of allowing grain to soften in water and germinate. It is also present in highly variable quantities in partially hydrolysed starch products like maltodextrin, corn syrup and acid-thinned starch. In humans, maltose is broken down by various maltase enzymes, providing two glucose molecules which can be further processed: either broken down to provide energy, or stored as glycogen. The lack of the sucrase-isomaltase enzyme in humans causes sucrose intolerance.
+wikidata:en: Q170002
 # ingredient/fr:maltose has 144 products in 4 languages @2019-04-13
 
 < en:maltose
@@ -31108,7 +31197,7 @@ bs: Saharoza
 ca: sacarosa
 cs: sacharóza
 cy: Swcros
-da: Sukrose
+da: sukrose
 de: Saccharose
 el: σακχαρόζη
 eo: sakarozo
@@ -31143,7 +31232,7 @@ lv: Saharoze
 mk: сахароза
 ml: സുക്രോസ്
 ms: Sukrosa
-nb: rørsukker, sukrose
+nb: sukrose
 nl: Sacharose, sucrose
 nn: sukrose
 oc: Sacaròsa
@@ -31158,7 +31247,7 @@ sl: Saharoza
 sq: Sakaroza
 sr: сахароза
 su: Sukrosa
-sv: Sackaros, sukros
+sv: sackaros, sukros
 ta: சுக்கிரோசு
 te: సుక్రోజ్
 th: ซูโครส
@@ -31183,9 +31272,6 @@ zh: 蔗糖
 wikidata:en: Q4027534
 wikipedia:en: https://en.wikipedia.org/wiki/Sucrose
 # ingredient/fr:sucrose has 73 products @2019-02-22
-
-
-# description:en:Molasses (American English) or black treacle (British English) is a viscous product resulting from refining sugarcane or sugar beets into sugar.
 
 < en:sugar
 en: molasses, black treacle
@@ -31262,6 +31348,7 @@ zh: 糖蜜
 # zh-hk:糖蜜
 # zh-sg:糖蜜
 # zh-tw:糖蜜
+description:en: Molasses (American English) or black treacle (British English) is a viscous product resulting from refining sugarcane or sugar beets into sugar.
 wikidata:en: Q154389
 wikipedia:en: https://en.wikipedia.org/wiki/Molasses
 # ingredient/molasses has 4917 products in 10 languages @2019-02-08
