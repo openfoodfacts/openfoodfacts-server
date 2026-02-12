@@ -80492,7 +80492,6 @@ ciqual_food_name:en: Egg roll or Nem, with chicken, cooked
 ciqual_food_name:fr: Nem ou Pâté impérial, au poulet, cuit
 
 < en:Nems
-< en:Shrimps
 en: Egg roll with cooked shrimp, Nem with cooked shrimp
 fr: Nem aux crevettes, Pâté impérial aux crevettes
 agribalyse_food_code:en: 25584
@@ -80500,7 +80499,6 @@ ciqual_food_code:en: 25584
 ciqual_food_name:en: Egg roll or Nem, with shrimp and/or crab, cooked
 ciqual_food_name:fr: Nem ou Pâté impérial aux crevettes et/ou au crabe cuit
 
-< en:Crab
 < en:Nems
 en: Egg roll with cooked crab, Nem with cooked crab
 fr: Nem au crabe, Pâté impérial au crabe
@@ -81689,6 +81687,7 @@ agribalyse_proxy_food_code:en: 25587
 agribalyse_proxy_food_name:en: Shepherd's pie with duck, cooked
 
 < en:Meals with chicken
+< en:Tajine
 en: Chicken tajine
 fr: Tajines de poulet, Tajine de poulet
 hr: Pileći tagine
@@ -81931,6 +81930,15 @@ lt: Sūdyti pyragai, pikantiški pyragaičiai
 nl: Hartige taarten
 food_groups:en: en:pizza-pies-and-quiches
 pnns_group_2:en: Pizza pies and quiches
+
+< en:Salted pies
+en: Pissaladières, Pizza with onion and anchovy and black olives
+fr: Pissaladières, Pissaladière
+agribalyse_food_code:en: 25528
+ciqual_food_code:en: 25528
+ciqual_food_name:en: Pizza, onion anchovy and black olives
+ciqual_food_name:fr: Pissaladière
+wikidata:en: Q1815839
 
 < en:Salted pies
 es: Empanada boloñesa
@@ -84583,14 +84591,6 @@ fr: Calzones au fromage
 fr: Calzones peperoni
 
 < en:Pizzas
-en: Pizza with onion and anchovy and black olives
-fr: Pissaladière
-agribalyse_food_code:en: 25528
-ciqual_food_code:en: 25528
-ciqual_food_name:en: Pizza, onion anchovy and black olives
-ciqual_food_name:fr: Pissaladière
-
-< en:Pizzas
 en: Regina pizza, Pizza with ham and cheese and mushrooms
 de: Pizza Regina
 fr: Pizzas royales, Pizza royale, Pizza reine, Pizza Regina, Pizza jambon fromage champignons
@@ -85243,7 +85243,7 @@ wikidata:en: Q43669693
 < en:Quiches with vegetables
 fr: Quiches aux épinards, Quiche à l'épinard, Tartes aux épinards
 
-< en:Quiches
+< en:Meals
 en: Salted crumbles
 
 < en:Meals
@@ -87505,7 +87505,7 @@ ciqual_food_name:en: Mixed meat on skewer
 en: Frozen mixed meat on skewer
 fr: Brochette mixte de viande surgelée
 
-< en:Beef
+< en:Beef preparations
 < en:Meat skewers
 en: Beef skewers
 de: Rindfleischspieße, Rinderspieße
@@ -87523,7 +87523,6 @@ en: Frozen beef skewers
 fr: Brochettes de bœuf surgelées, brochette de bœuf surgelée
 
 < en:Meat skewers
-< en:Poultries
 en: Poultry skewers
 de: Geflügelspieße
 fi: siipikarjavartaat
@@ -88203,7 +88202,7 @@ nl: Slavinken
 #wiktionary:nl:slavink
 
 < en:Meat skewers
-< en:Pork
+< en:Pork preparations
 en: Pork skewers, Pork on skewer
 de: Schweinespieße
 fr: Brochettes de porc, brochette de porc
@@ -101311,6 +101310,11 @@ ciqual_food_code:en: 10023
 ciqual_food_name:en: Shrimp fritters
 ciqual_food_name:fr: Beignet de crevette
 
+< en:Appetizers
+< en:Shrimp preparations
+en: Breaded shrimps
+fr: Crevettes panées
+
 < en:Crustaceans
 en: Shrimps
 bg: Скариди
@@ -107054,17 +107058,19 @@ en: Sugars
 bg: Захар
 ca: Sucre
 cs: Cukr
-da: Sukker
+da: Sukre, Sukkere, Sukker
 de: Zucker
 es: Azúcar
-fi: sokerit
+fi: Sokerit
 fr: Sucres, sucre
 hr: šečeri, šečer
 hu: Cukrok
 it: Zucchero
 ja: 砂糖
+nb: Sukker, Sukkere
 nl: Suiker
 nl_be: Suiker
+nn: Sukker
 pl: Cukier
 pt: Açucar
 ru: Сахар, сахара
@@ -107084,6 +107090,7 @@ wikidata:en: Q11002
 < en:Sugars
 en: Brown sugars, Brown sugar
 bg: Кафява захар
+da: Brune sukre, Brunt sukker
 de: braune Zucker
 es: Azúcar moreno
 fi: fariinisokerit
@@ -107091,7 +107098,10 @@ fr: Sucres roux, sucre roux
 hr: Smeđi šećeri
 it: Zucchero grezzo
 ja: ブラウンシュガー
+nb: Brunsukker, Brunsukkere
 nl: Bruine suikers
+nn: Brunsukker
+sv: Brunt socker
 agribalyse_food_code:en: 31017
 ciqual_food_code:en: 31017
 ciqual_food_name:en: Sugar, brown
@@ -107108,21 +107118,29 @@ nl: Suikers voor suikerspin
 
 < en:Sugars
 en: Beet sugars, beetroot sugars
+da: Roesukre, Roesukker
 fr: Sucres de betterave, sucre de betterave
 hr: Šećeri od repe
 ja: てんさい糖
+nb: Betesukker, Betesukkere
 nl: Bietsuikers, Bietsuiker
+nn: Betesukker
+sv: Betsocker
 agribalyse_proxy_food_code:en: 31016
 ciqual_proxy_food_code:en: 31016
 ciqual_proxy_food_name:en: Sugar, white
 ciqual_proxy_food_name:fr: Sucre blanc
+wikidata:en: Q9197055
 
 < en:Sugars
 en: Maple sugars
+da: Lønsukre, Lønsukker
 fr: Sucres d'érable
 hr: Javorovi šećeri
 ja: メープルシュガー
 nl: Ahornsiroop
+sv: Lönnsocker
+wikidata:en: Q402587
 
 < en:Brown sugars
 fr: cassonades, cassonade
@@ -107133,7 +107151,7 @@ nl: Basterdsuikers
 wikidata:en: Q3555843
 
 < en:Brown sugars
-< en:Cane sugar
+< en:Cane sugars
 en: Muscovado
 es: Azúcar mascabado
 fr: Sucre muscovado
@@ -107146,14 +107164,14 @@ protected_name_type:en: tsg
 wikidata:en: Q9280616
 
 < en:Brown sugars
-< en:Cane sugar
+< en:Cane sugars
 en: Panela
 es: Panela
 fr: Panela
 hr: Panela
 wikidata:en: Q10357458
 
-< en:Cane sugar
+< en:Cane sugars
 en: Jaggery, Gud, Gur
 
 < en:Panela
@@ -107168,7 +107186,13 @@ hr: Panela u prahu
 
 < en:Sugars
 en: Palm sugars
+da: Palmesukre, Palmesukker
+de: Palmzucker
 fr: Sucres de palme, sucre de palme
+nb: Palmesukker, Palmesukkere
+nn: Palmesukker
+sv: Palmsocker
+wikidata:en: Q1549017
 
 < en:Palm sugars
 hr: Kampong speu palmin šećer
@@ -107180,28 +107204,32 @@ protected_name_file_number:en: PGI-KH-02156
 protected_name_type:en: pgi
 
 < en:Sugars
-en: Cane sugar
+en: Cane sugars, Cane sugar
 bg: Тръстикова захар
+da: Rørsukre, Rørsukker
 de: Rohrzucker
 es: Azúcar de caña
-fi: ruokosokeri
+fi: Ruokosokeri
 fr: Sucres de canne
 hr: Šećerna trska
 it: Zucchero di canna
 ja: きび砂糖
+nb: Rørsukker, Rørsukkere
 nl: Rietsuikers
+nn: Røyrsukker
 pt: Açúcar de cana
 ru: Тростниковый сахар
+sv: Rörsocker
 agribalyse_proxy_food_code:en: 31017
 ciqual_proxy_food_code:en: 31017
 ciqual_proxy_food_name:en: Sugar, brown
 ciqual_proxy_food_name:fr: Sucre roux
 wikidata:en: Q9362753
 
-
 < en:Sugars
 en: Coconut sugar
 bg: Кокосова захар
+da: Kokossukre, Kokossukker
 de: Kokoszucker
 es: Azúcar de coco
 fi: kookossokeri
@@ -107210,6 +107238,7 @@ hr: Kokosov šećer
 it: Zucchero di cocco, Zucchero di coco
 nl: Kokossuiker
 pt: Açúcar de coco
+sv: Kokossocker
 wikidata:en: Q5139861
 
 < en:Sugars
@@ -107264,12 +107293,14 @@ pt: Açucares granulados, Açúcar granulado
 
 < en:Sugars
 en: White sugars, Refined sugars, White sugar, Refined sugar
+da: Hvide sukre, Hvidt sukker
 de: Weißzucker, weiße Zucker
 es: Azúcares blancos, Azúcar blanco
 fr: Sucres blancs, sucre blanc
 hr: Granulirani šećeri
 it: Zucchero bianco
 nl: witte suiker
+sv: Vitt socker
 agribalyse_food_code:en: 31016
 ciqual_food_code:en: 31016
 ciqual_food_name:en: Sugar, white
@@ -122437,6 +122468,11 @@ nl: Tajine met schapenvlees
 ciqual_food_code:en: 25159
 ciqual_food_name:en: Mutton tagine
 ciqual_food_name:fr: Tajine de mouton
+
+< en:Plant-based meals
+< en:Tajine
+en: Vegetarian tajine with side dishes
+fr: Tajines végétariens avec accompagnements
 
 < en:Meals
 en: Endives with ham, Endive with ham, Chicory with ham

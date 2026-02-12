@@ -155,7 +155,7 @@ The return URL after successful authentication.
 
 sub signin_callback ($request_ref) {
 	if (not(defined cookie($cookie_name))) {
-		display_error_and_exit(lang('oidc_signin_no_cookie'), 400);
+		display_error_and_exit($request_ref, lang('oidc_signin_no_cookie'), 400);
 		return;
 	}
 

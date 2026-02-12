@@ -325,6 +325,8 @@ Add some functions and variables needed by many templates and process the templa
 
 sub process_template ($template_filename, $template_data_ref, $result_content_ref, $request_ref = {}) {
 
+	# give priority to request_ref lc but eventually fallback to global $lc
+	my $target_lc = $request_ref->{lc} // $lc;
 	# Add functions and values that are passed to all templates
 
 	# Features for each product type
@@ -364,21 +366,24 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{moderator} = $User{moderator};
 	$template_data_ref->{pro_moderator} = $User{pro_moderator};
 	$template_data_ref->{sep} = separator_before_colon($lc);
-	$template_data_ref->{lang} = \&lang;
+	$template_data_ref->{lang} = sub ($stringid) {
+		return lang_in_other_lc($target_lc, $stringid);
+	};
 	# also provide lang_flavor() and lang_product_type() to provide translations specific
 	# to a flavor (e.g. off, obf) or product type (e.g. food, beauty)
 	$template_data_ref->{lang_flavor} = sub ($stringid) {
-		return lang($stringid . "_" . $flavor);
+		return lang_in_other_lc($target_lc, $stringid . "_" . $flavor);
 	};
 	$template_data_ref->{lang_product_type} = sub ($stringid) {
-		return lang($stringid . "_" . $options{product_type});
+		return lang_in_other_lc($target_lc, $stringid . "_" . $options{product_type});
 	};
-	$template_data_ref->{f_lang} = \&f_lang;
+	$template_data_ref->{f_lang} = sub ($stringid, $variables_ref) {
+		return f_lang_in_lc($target_lc, $stringid, $variables_ref);
+	};
 	# escaping quotes for use in javascript or json
 	# using short names to favour readability
 	$template_data_ref->{esq} = sub {escape_char(@_, "\'")};    # esq as escape_single_quote_and_newlines
 	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
-	$template_data_ref->{lang_sprintf} = \&lang_sprintf;
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} //= $request_ref->{cc};
 	$template_data_ref->{display_icon} = \&display_icon;
@@ -6135,34 +6140,20 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 	my %min = ();    # Minimum for the axis, 0 except -15 for Nutri-Score score
 	my %fields = ();    # fields path components for each axis, to use with deep_get()
 
-	foreach my $axis ("x", "y") {
-		# Set the titles and details of each axis
-		my $field = $graph_ref->{"axis_" . $axis};
-		my ($title, $unit, $unit2, $allow_decimals) = get_search_field_title_and_details($field);
-		$axis_details{$axis} = {
-			title => $title,
-			unit => $unit,
-			unit2 => $unit2,
-			allow_decimals => $allow_decimals,
-		};
-
-		# Set the minimum value for the axis (0 in most cases, except for Nutri-Score)
-		$min{$axis} = 0;
-
-		if ($field =~ /^nutrition-score/) {
-			$min{$axis} = -15;
-		}
-
-		# Store the field path components
-		$fields{$field} = [get_search_field_path_components($field)];
-	}
-
 	my %nutriments = ();
 
 	my $i = 0;
 
 	my %series = ();
 	my %series_n = ();
+
+	foreach my $axis ('x', 'y') {
+		# Store the field path components so that we can use them with deep_get() when going through the products
+		my $field = $graph_ref->{"axis_" . $axis};
+		$fields{$field} = [get_search_field_path_components($field)];
+	}
+
+	# Go through all products first so that we can get the min for each axis
 
 	foreach my $product_ref (@products) {
 
@@ -6181,6 +6172,8 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 			}
 
 			if (defined $value) {
+				# If the value seems to use a , as decimal separator, convert it to a .
+				$value =~ s/(\d),(\d)/$1.$2/;
 				$value = $value + 0;    # Make sure the value is a number
 			}
 
@@ -6257,6 +6250,28 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		$series_n{$seriesid}++;
 		$i++;
 
+	}
+
+	foreach my $axis ("x", "y") {
+		# Set the titles and details of each axis
+		my $field = $graph_ref->{"axis_" . $axis};
+		my ($title, $unit, $unit2, $allow_decimals) = get_search_field_title_and_details($field);
+		$axis_details{$axis} = {
+			title => $title,
+			unit => $unit,
+			unit2 => $unit2,
+			allow_decimals => $allow_decimals,
+		};
+
+		# Set the minimum value for the axis (0 in most cases, except for Nutri-Score)
+		$min{$axis} = 0;
+
+		if ($field =~ /^nutrition-score/) {
+			$min{$axis} = -15;
+		}
+		elsif ($field =~ /^folksonomy\./) {
+			$min{$axis} = $nutriments{"${field}_min"} // 0;
+		}
 	}
 
 	my $series_data = '';
@@ -6452,16 +6467,21 @@ HTML
 
 	# Display stats
 
-	my $stats_ref = {};
+	# Currently displayed only as a nutrition table, so enabling only for OFF and OPFF
+	# FIXME: should be converted to a simple table and not use display_nutrition_table
 
-	compute_stats_for_products($stats_ref, \%nutriments, $count, $i, 5, 'search');
+	if (($options{product_type} eq "food") or ($options{product_type} eq "pet_food")) {
 
-	$html .= display_nutrition_table($stats_ref, undef, $request_ref);
+		my $stats_ref = {};
 
-	$html .= "<p>&nbsp;</p>";
+		compute_stats_for_products($stats_ref, \%nutriments, $count, $i, 5, 'search');
+
+		$html .= display_nutrition_table($stats_ref, undef, $request_ref);
+
+		$html .= "<p>&nbsp;</p>";
+	}
 
 	return $html;
-
 }
 
 =head2 display_histogram ($graph_ref, $products_ref, $request_ref)
@@ -9005,6 +9025,11 @@ sub add_product_nutriment_to_stats ($nutriments_ref, $nid, $value) {
 			$nutriments_ref->{"${nid}_n"} = 0;
 			$nutriments_ref->{"${nid}_s"} = 0;
 			$nutriments_ref->{"${nid}_array"} = [];
+			$nutriments_ref->{"${nid}_min"} = $value;
+		}
+
+		if ($value < $nutriments_ref->{"${nid}_min"}) {
+			$nutriments_ref->{"${nid}_min"} = $value;
 		}
 
 		$nutriments_ref->{"${nid}_n"}++;
