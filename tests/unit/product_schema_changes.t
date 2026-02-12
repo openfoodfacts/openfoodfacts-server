@@ -1465,9 +1465,7 @@ foreach my $test_ref (reverse @tests) {
 	my $product_ref = $test_ref->[2];
 
 	convert_product_schema($product_ref, $target_schema_version);
-	if (substr($testid, 0, 12) eq "1002-to-1003") {
-		normalize_product_for_test_comparison($product_ref);
-	}
+	normalize_product_for_test_comparison($product_ref);
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
