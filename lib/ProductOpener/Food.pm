@@ -48,8 +48,8 @@ BEGIN {
 		%nutrients_tables
 		%valid_nutrients
 
-		%other_nutriments_lists
-		%nutriments_lists
+		%other_nutrients_lists
+		%nutrients_lists
 
 		@nutrient_levels
 
@@ -751,8 +751,8 @@ foreach my $region (keys %nutrients_tables) {
 
 foreach my $region (keys %nutrients_tables) {
 
-	$nutriments_lists{$region} = [];
-	$other_nutriments_lists{$region} = [];
+	$nutrients_lists{$region} = [];
+	$other_nutrients_lists{$region} = [];
 
 	foreach (@{$nutrients_tables{$region}}) {
 
@@ -761,14 +761,14 @@ foreach my $region (keys %nutrients_tables) {
 		if ($nutriment =~ /-$/) {
 			$nutriment = $`;
 			$nutriment =~ s/^(-|!)+//g;
-			push @{$other_nutriments_lists{$region}}, $nutriment;
+			push @{$other_nutrients_lists{$region}}, $nutriment;
 		}
 
 		next if $nutriment =~ /\#/;
 
 		$nutriment =~ s/^(-|!)+//g;
 		$nutriment =~ s/-$//g;
-		push @{$nutriments_lists{$region}}, $nutriment;
+		push @{$nutrients_lists{$region}}, $nutriment;
 	}
 }
 

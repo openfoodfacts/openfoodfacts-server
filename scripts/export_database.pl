@@ -507,14 +507,14 @@ XML
 				my $nid = $nutrient_tagid;
 				$nid =~ s/^zz://g;
 
-				if (    (defined $product_ref->{nutriments}{$nid . '_100g'})
-					and ($product_ref->{nutriments}{$nid . '_100g'} ne ''))
-				{
+				my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+				if (defined $value) {
 					my $property = $nid;
 					$property =~ s/-([a-z])/ucfirst($1)/eg;
 					$property .= "Per100g";
 
-					$rdf .= "\t<food:$property>" . $product_ref->{nutriments}{$nid . '_100g'} . "</food:$property>\n";
+					$rdf .= "\t<food:$property>" . $value . "</food:$property>\n";
 				}
 			}
 

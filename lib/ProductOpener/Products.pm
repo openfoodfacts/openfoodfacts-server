@@ -139,7 +139,7 @@ use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
 use ProductOpener::HTTP qw/single_param create_user_agent/;
 use ProductOpener::Redis qw/push_product_update_to_redis/;
-use ProductOpener::Food qw/%nutriments_lists %cc_nutrient_table/;
+use ProductOpener::Food qw/%nutrients_lists %cc_nutrient_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::Slack qw/send_slack_message/;
 use ProductOpener::Nutrition

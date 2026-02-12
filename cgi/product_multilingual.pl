@@ -39,7 +39,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food
-	qw/%nutrients_tables %other_nutriments_lists get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
+	qw/%nutrients_tables %other_nutrients_lists get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -1300,7 +1300,7 @@ CSS
 	my $other_nutrients = '';
 	# Add an empty value for the select2 placeholder
 	$other_nutrients .= '{ "id" : "", "text" : ""},' . "\n";
-	foreach my $nid (@{$other_nutriments_lists{$nutrient_table}}) {
+	foreach my $nid (@{$other_nutrients_lists{$nutrient_table}}) {
 
 		# Some nutrients cannot be entered directly by users, so don't suggest them
 		my $automatically_computed = get_property("nutrients", "zz:$nid", "automatically_computed:en");
