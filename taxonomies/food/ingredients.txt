@@ -65509,7 +65509,6 @@ nl: gemalen galangawortel, laos
 #                                Ginger
 #
 ###################################################################################################
-# description:en:GINGER (Zingiber officinale) is a flowering plant whose rhizome, ginger root or simply ginger, is widely used as a spice or a folk medicine
 
 # <en:root vegetable
 < en:spice
@@ -65529,7 +65528,7 @@ bs: Đumbir
 ca: gingebre
 cs: zázvor, zázvorová, zázvoru
 cy: Sinsir
-da: Ingefær, Ingefær rod
+da: ingefær, ingefær rod
 de: Ingwer
 el: Πιπερόριζα, ζιγγίβερι
 eo: zingibro
@@ -65593,7 +65592,7 @@ sk: Ďumbier, zázvor
 sl: Ingver
 sr: ћумбир
 su: Jahé
-sv: ingefära
+sv: ingefära, ingefärs
 sw: Mtangawizi
 ta: இஞ்சி
 te: అల్లం
@@ -65612,10 +65611,6 @@ wo: jinjeer
 yi: אינגבער
 za: hing
 zh: 薑
-# en:gingembre has 1506 products in 8 languages @2018-10-25
-ciqual_food_code:en: 11074
-ciqual_food_name:en: Ginger, raw
-ciqual_food_name:fr: Gingembre, racine crue
 # ace:Halia
 # ang:Gingifer
 # arc:ܚܡܣܐ
@@ -65648,7 +65643,13 @@ ciqual_food_name:fr: Gingembre, racine crue
 # xmf:ginger
 # yue:薑
 # zh-tw:薑
+ciqual_food_code:en: 11074
+ciqual_food_name:en: Ginger, raw
+ciqual_food_name:fr: Gingembre, racine crue
+description:en: GINGER (Zingiber officinale) is a flowering plant whose rhizome, ginger root or simply ginger, is widely used as a spice or a folk medicine
+wikidata:en: Q35625
 wikipedia:en: https://en.wikipedia.org/wiki/Ginger
+# en:gingembre has 1506 products in 8 languages @2018-10-25
 
 #<en:ginger
 #en:organic ginger
@@ -86753,18 +86754,17 @@ de: färbende Frucht- und Pflanzenkonzentrate
 # <en:compound
 de: färbende Gemüsekonzentrate
 
-# description:en:CONCENTRATE is the form of substance which has had the majority of its base component (in the case of a liquid: the solvent) removed
-
 # TODO: improve parsing so this can live in processing only.
 # See comments on https://github.com/openfoodfacts/openfoodfacts-server/pull/12031
 en: concentrate
 hr: koncentrat
 nb: konsentrat
 sv: koncentrat
-# ingredients/en:concentrate has 288 products @2025-06-15
+description:en: CONCENTRATE is the form of substance which has had the majority of its base component (in the case of a liquid: the solvent) removed
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q1355665
+# ingredients/en:concentrate has 288 products @2025-06-15
 
 # <en:part
 < en:extract
