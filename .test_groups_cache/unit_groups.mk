@@ -6,12 +6,3 @@ UNIT_GROUP_3_TESTS := all_pod_correct.t booleans.t dataquality.t environmental_s
 UNIT_GROUP_4_TESTS := allergens.t brevo.t dataqualitydimensions.t food.t import.t ingredients_contents.t ingredients_preparsing.t maintain_knowledge_panels.t nutrition.t packaging_stats.t products.t spam_user.t taxonomy_suggestions.t vitamins.t
 UNIT_GROUP_5_TESTS := allergens_tags.t contribution_knowledge_panels.t dataqualityfood.t food_groups.t import_convert_carrefour_france.t ingredients_extract.t ingredients_processing.t match_ingredient_origin.t nutrition_ciqual.t parse_origins_from_text.t recipes.t store.t templates.t
 UNIT_GROUP_6_TESTS := analyze_and_enrich_product_data.t convert_gs1_xml_to_json.t dataqualityfood_labels.t forest_footprint.t import_gs1.t ingredients_nesting.t ingredients_tags.t nova.t nutrition_estimation.t paths.t redis.t tags.t test.t
-
-# Group Statistics:
-# Group 1: 14 tests, 7m 0s
-# Group 2: 14 tests, 7m 0s
-# Group 3: 14 tests, 7m 0s
-# Group 4: 14 tests, 7m 0s
-# Group 5: 13 tests, 6m 30s
-# Group 6: 13 tests, 6m 30s
-# Max group time: 7m, Min: 6m, Avg: 7m
