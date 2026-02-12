@@ -119,7 +119,7 @@ HTML
 		$k++;
 
 		my $sugar_value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "sugars", "value");
-		if ((not defined $sugar_value) or ($sugar_value < 0.01)) {next; }
+		if ((not defined $sugar_value) or ($sugar_value < 0.01)) {next;}
 
 		$kk++;
 

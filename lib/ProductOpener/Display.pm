@@ -6487,9 +6487,10 @@ HTML
 
 		my $panel_data_ref = data_to_display_nutrition_table($stats_ref, undef, $request_ref);
 
-		$log->debug("Computed stats for scatter plot",
-			{stats_ref => $stats_ref, nutrients_ref => \%nutrients, data_to_display_nutrition_table => $panel_data_ref})
-			if $log->is_debug();
+		$log->debug(
+			"Computed stats for scatter plot",
+			{stats_ref => $stats_ref, nutrients_ref => \%nutrients, data_to_display_nutrition_table => $panel_data_ref}
+		) if $log->is_debug();
 
 		create_panel_from_json_template("nutrition_facts_table",
 			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",

@@ -509,8 +509,7 @@ XML
 
 				my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
 
-				if (defined $value)
-				{
+				if (defined $value) {
 					my $property = $nid;
 					$property =~ s/-([a-z])/ucfirst($1)/eg;
 					$property .= "Per100g";
