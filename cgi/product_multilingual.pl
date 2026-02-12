@@ -1288,7 +1288,7 @@ CSS
 
 		# if the product is in a category that should have prepared nutrition data, we will check the checkbox for prepared nutrition data
 		if (has_category_that_should_have_prepared_nutrition_data($product_ref)) {
-			my $default_prepared_per = get_default_nutrition_per_for_product($product_ref, "prepared");
+			my $default_prepared_per = get_default_per_for_product($product_ref, "prepared");
 			$input_sets{'prepared'}{$default_prepared_per}{'shown'} = 1;
 		}
 	}
