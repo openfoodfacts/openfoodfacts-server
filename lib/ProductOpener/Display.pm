@@ -9204,16 +9204,17 @@ CSS
 
 			my $preparation = deep_get($input_set_ref, "preparation");
 			my $per = deep_get($input_set_ref, "per");
-			# If we have per_quantity and per_unit, we display "per X unit" instead of "per 100g"
 			my $per_quantity = deep_get($input_set_ref, "per_quantity");
 			my $per_unit = deep_get($input_set_ref, "per_unit");
-			if ((defined $per_quantity) and (defined $per_unit)) {
-				$per = lang("for") . " " . $per_quantity . " " . $per_unit;
+
+			my $per_lang = lang("per_" . $per);
+			if (($per eq 'serving') and (defined $per_quantity) and (defined $per_unit)) {
+				$per_lang .= " (" . $per_quantity . " " . $per_unit . ")";
 			}
 
 			my $source = deep_get($input_set_ref, "source");
 
-			my $col_name = lang("preparation_" . $preparation) . " - " . $per . " (" . $source . ")";
+			my $col_name = lang("preparation_" . $preparation) . $per_lang . " (" . $source . ")";
 
 			$columns{$col_id} = {
 				scope => "product",
@@ -9416,7 +9417,6 @@ CSS
 						}
 					}
 				}
-
 				else {
 					# We will determine the path prefix to get nutrient data for the column based on its id:
 					# id = input_set_[index] : nutrition, input_sets, [index], nutrients
@@ -9460,25 +9460,10 @@ CSS
 						my $formatted_value = $value;
 
 						if ($value ne '?') {
-							# energy-kcal is already in kcal
-							if ($nid ne 'energy-kcal') {
-								# if petfood then display for 1kg if not percentage
-								if (   (defined $product_ref->{product_type})
-									&& ($product_ref->{product_type} eq "petfood")
-									&& ($unit ne "%"))
-								{
-									$formatted_value = $decf->format(g_to_unit($value, $nutrient_set_unit) * 10);
-								}
-								# else display for 100g/100ml
-								else {
-									$formatted_value = $decf->format(g_to_unit($value, $nutrient_set_unit));
-								}
-							}
-
 							# too small values are converted to e notation: 7.18e-05
 							if (($formatted_value . ' ') =~ /e/) {
 								# use %f (outputs extras 0 in the general case)
-								$formatted_value = sprintf("%f", g_to_unit($value, $nutrient_set_unit));
+								$formatted_value = sprintf("%f", $value);
 							}
 						}
 

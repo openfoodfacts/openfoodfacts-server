@@ -290,6 +290,7 @@
                                             [% IF nutrient.unit.defined %]
                                                 [% IF nutrient.units_options.size < 2 %]
                                                     <span class="nutrient_unit">[% nutrient.input_sets.$preparation.$per.unit %]</span>
+                                                    <input type="hidden" class="global_nutrient_unit" id="global_nutrient_[% nutrient.nid %]_unit" name="[% nutrient_id %]_unit" value="[% nutrient.input_sets.$preparation.$per.unit %]" />
                                                 [% ELSE %]
                                                     <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_[% nutrient.nid %]_unit" name="[% nutrient_id %]_unit">
                                                         [% FOREACH unit IN nutrient.units_options %]
