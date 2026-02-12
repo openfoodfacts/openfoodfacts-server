@@ -51,6 +51,8 @@ BEGIN {
 		&create_knowledge_panels
 		&create_panel_from_json_template
 		&add_taxonomy_properties_in_target_languages_to_object
+		&create_reuse_card_panel
+		&create_maintain_card_panel
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -248,6 +250,11 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			= create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	my $has_reuse_card;
+	if ($panel_is_requested->('reuse_card')) {
+		$has_reuse_card = create_reuse_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	my $has_report_problem_card;
 	if (not $options_ref->{producers_platform} and $panel_is_requested->('report_problem_card')) {
 		$has_report_problem_card
@@ -266,6 +273,12 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			= create_secondhand_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	my $has_maintain_card;
+	if ($panel_is_requested->('maintain_card')) {
+		$has_maintain_card
+			= create_maintain_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
 		"root",
@@ -275,7 +288,9 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			has_report_problem_card => $has_report_problem_card,
 			has_contribution_card => $has_contribution_card,
 			has_environment_card => $has_environment_card,
+			has_reuse_card => $has_reuse_card,
 			has_secondhand_card => $has_secondhand_card,
+			has_maintain_card => $has_maintain_card,
 			has_product_card => $has_product_card,
 		},
 		$product_ref,
@@ -882,6 +897,113 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	return 1;
 }
 
+=head2 create_reuse_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates a knowledge panel card that contains information about circular economy solutions for reuse
+
+It's a container for specific knowledge panels.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Created knowledge panels will be added to product_ref
+
+=head4 language code $target_lc
+
+=head4 country code $target_cc
+
+=head4 options configuration reference $options_ref
+
+=head4 request reference $request_ref
+
+=cut
+
+sub create_reuse_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	$log->debug("create reuse card panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+	my $sub_panels = 0;
+
+	$sub_panels += create_qfdmo_fr_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	if ($sub_panels == 0) {
+		return 0;
+	}
+
+	my $panel_data_ref = {};
+	# Create the reuse_card panel
+	create_panel_from_json_template("reuse_card", "api/knowledge-panels/reuse/reuse_card.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	return 1;
+}
+
+=head2 create_qfdmo_fr_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates a knowledge panel card that contains information about circular economy solutions
+through QFDMO (Ou et comment donner, reparer et recycler).
+
+Only created for:
+- Products on Open Products Facts (product_type "product")
+- Products with a category that has a qfdmo_name_fr property
+- Users in France (target_cc = "fr")
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Created knowledge panels will be added to product_ref
+
+=head4 language code $target_lc
+
+=head4 country code $target_cc
+
+=head4 options configuration reference $options_ref
+
+=head4 request reference $request_ref
+
+=head3 Return value
+
+1 in case a panel was created, 0 otherwise
+
+=cut
+
+sub create_qfdmo_fr_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+	my $panel_data_ref = {};
+
+	# Only available for the product_type "product" (Open Products Facts)
+	if ($options_ref->{product_type} ne "product") {
+		return 0;
+	}
+
+	# Only show for France
+	if ($target_cc ne 'fr') {
+		return 0;
+	}
+
+	# Check if any category in the hierarchy has a qfdmo_name_fr property
+	my ($qfdmo_name_fr, $category_id) = get_inherited_property_from_categories_tags($product_ref, "qfdmo_id:fr");
+
+	# Don't create the panel if no category has QFDMO info
+	if (not defined $qfdmo_name_fr) {
+		return 0;
+	}
+
+	# Get the French name of the category with QFDMO info
+	my $category_name_fr = display_taxonomy_tag_name("fr", "categories", $category_id);
+
+	# Add QFDMO info to panel data
+	$panel_data_ref->{qfdmo_name_fr} = $qfdmo_name_fr;
+	$panel_data_ref->{category_name_fr} = $category_name_fr;
+
+	# Create QFDMO solutions panel
+	create_panel_from_json_template("qfdmo_solutions", "api/knowledge-panels/reuse/qfdmo_solutions.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	return 1;
+}
+
 =head2 create_secondhand_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains all knowledge panels related to the circular economy:
@@ -903,6 +1025,10 @@ This parameter sets the desired language for the user facing strings.
 =head4 country code $target_cc
 
 Used to select secondhand options (e.g. classified ads sites) that are relevant for the user.
+
+=head3 Return value
+
+1 in case a panel was created, 0 otherwise
 
 =cut
 
@@ -944,6 +1070,125 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	return 1;
+}
+
+=head2 create_maintain_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates a knowledge panel card that contains maintenance and repair advice for products.
+
+Created for products in specific categories that have maintenance URLs, for users in specific countries.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+The panel is added in the product
+
+=head4 language code $target_lc
+
+=head4 country code $target_cc
+
+=head4 options reference $options_ref
+
+=head4 request reference $request_ref
+
+=head3 Return value
+
+1 if panel created, 0 otherwise
+
+=cut
+
+sub create_maintain_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	$log->debug("create maintain card panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+	my $sub_panel_count = 0;
+
+	$sub_panel_count
+		+= create_epargnonsnosressources_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	my $panel_data_ref = {};
+
+	# Create the maintain_card panel only if we have created at least one sub-panel
+	if ($sub_panel_count > 0) {
+		create_panel_from_json_template("maintain_card", "api/knowledge-panels/maintain/maintain_card.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		return 1;
+	}
+
+	return 0;
+}
+
+=head2 create_epargnonsnosressources_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Link to epargnonsnosressource website
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+The panel is added in the product
+
+=head4 language code $target_lc
+
+=head4 country code $target_cc
+
+=head4 options reference $options_ref
+
+=head4 request reference $request_ref
+
+=head3 Return value
+
+1 if panel created, 0 otherwise
+
+=cut
+
+sub create_epargnonsnosressources_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	my $panel_data_ref = {};
+
+	# Only available for the product_type "product"
+	if ($options_ref->{product_type} ne "product") {
+		return 0;
+	}
+
+	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
+	my $category_id;
+	if (
+		not(ref($product_ref->{categories_hierarchy}) eq 'ARRAY'
+			and @{$product_ref->{categories_hierarchy}})
+		)
+	{
+		return 0;
+	}
+
+	# Check if the product has a category with a maintenance URL
+	my ($maintenance_url, $category_with_url)
+		= get_inherited_property_from_categories_tags($product_ref, "epargnonsnosressources_fr_link:en");
+
+	if (defined $maintenance_url) {
+		$category_id = $product_ref->{categories_hierarchy}[-1];
+		$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
+		$panel_data_ref->{maintenance_url} = $maintenance_url;
+		$panel_data_ref->{category_with_maintenance_url} = $category_with_url;
+
+		# Create panel for maintenance advice for France
+		if ($target_cc eq 'fr') {
+			create_panel_from_json_template(
+				"maintenance_advice_fr_epargnonsnosressources",
+				"api/knowledge-panels/maintain/maintenance_advice_fr_epargnonsnosressources.tt.json",
+				$panel_data_ref,
+				$product_ref,
+				$target_lc,
+				$target_cc,
+				$options_ref,
+				$request_ref
+			);
+			return 1;
+		}
+	}
+
+	return 0;
 }
 
 sub create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {

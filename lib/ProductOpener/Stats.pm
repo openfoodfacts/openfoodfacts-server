@@ -69,7 +69,14 @@ sub add_product_value_to_stats ($values_ref, $key, $value) {
 	if ((defined $value) and ($value ne '')) {
 
 		if (not defined $values_ref->{$key}) {
-			$values_ref->{$key} = {n => 0, s => 0, array => []};
+			$values_ref->{$key} = {n => 0, s => 0, array => [], min => $value};
+		}
+
+		# We compute the min here as we need it for the min of graph scales
+		# Complete stats including min are computed in compute_stats_for_products,
+		# but we want to have a min even if there are not enough products to compute stats
+		if ($value < $values_ref->{$key}{min}) {
+			$values_ref->{$key}{min} = $value;
 		}
 
 		$values_ref->{$key}{n}++;

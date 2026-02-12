@@ -6155,6 +6155,14 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 	my %series = ();
 	my %series_n = ();
 
+	foreach my $axis ('x', 'y') {
+		# Store the field path components so that we can use them with deep_get() when going through the products
+		my $field = $graph_ref->{"axis_" . $axis};
+		$fields{$field} = [get_search_field_path_components($field)];
+	}
+
+	# Go through all products first so that we can get the min for each axis
+
 	foreach my $product_ref (@products) {
 
 		# Gather the data for the 2 axis
@@ -6167,11 +6175,13 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 			my $value = deep_get($product_ref, @{$fields{$field}});
 
 			# For nutrients except energy-kcal, convert to the default nutrient unit
-			if ((defined $value) and ($fields{$field}[0] eq "nutriments") and ($field !~ /energy-kcal/)) {
+			if ((defined $value) and ($fields{$field}[0] eq "nutrition") and ($field !~ /energy-kcal/)) {
 				$value = g_to_unit($value, (get_property("nutrients", "zz:$field", "unit:en") // 'g'));
 			}
 
 			if (defined $value) {
+				# If the value seems to use a , as decimal separator, convert it to a .
+				$value =~ s/(\d),(\d)/$1.$2/;
 				$value = $value + 0;    # Make sure the value is a number
 			}
 
@@ -6248,6 +6258,28 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		$series_n{$seriesid}++;
 		$i++;
 
+	}
+
+	foreach my $axis ("x", "y") {
+		# Set the titles and details of each axis
+		my $field = $graph_ref->{"axis_" . $axis};
+		my ($title, $unit, $unit2, $allow_decimals) = get_search_field_title_and_details($field);
+		$axis_details{$axis} = {
+			title => $title,
+			unit => $unit,
+			unit2 => $unit2,
+			allow_decimals => $allow_decimals,
+		};
+
+		# Set the minimum value for the axis (0 in most cases, except for Nutri-Score)
+		$min{$axis} = 0;
+
+		if ($field =~ /^nutrition-score/) {
+			$min{$axis} = -15;
+		}
+		elsif ($field =~ /^folksonomy\./) {
+			$min{$axis} = $nutrients{$field}{min} // 0;
+		}
 	}
 
 	my $series_data = '';
@@ -6443,28 +6475,32 @@ HTML
 
 	# Display stats
 
-	my $stats_ref = {};
+	# Currently displayed only as a nutrition table, so enabling only for OFF and OPFF
+	# FIXME: should be converted to a simple table and not use display_nutrition_table
 
-	compute_stats_for_products($stats_ref, \%nutrients, $count, $i, 2, 'search');
+	if (($options{product_type} eq "food") or ($options{product_type} eq "pet_food")) {
 
-	# We use knowledge panels to display nutrition facts for the result set
+		my $stats_ref = {};
+		compute_stats_for_products($stats_ref, \%nutrients, $count, $i, 2, 'search');
 
-	my $panel_data_ref = data_to_display_nutrition_table($stats_ref, undef, $request_ref);
+		# We use knowledge panels to display nutrition facts for the result set
 
-	$log->debug("Computed stats for scatter plot",
-		{stats_ref => $stats_ref, nutrients_ref => \%nutrients, data_to_display_nutrition_table => $panel_data_ref})
-		if $log->is_debug();
+		my $panel_data_ref = data_to_display_nutrition_table($stats_ref, undef, $request_ref);
 
-	create_panel_from_json_template("nutrition_facts_table",
-		"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
-		$panel_data_ref, $stats_ref, $request_ref->{lc}, $request_ref->{cc}, $knowledge_panels_options_ref,
-		$request_ref);
+		$log->debug("Computed stats for scatter plot",
+			{stats_ref => $stats_ref, nutrients_ref => \%nutrients, data_to_display_nutrition_table => $panel_data_ref})
+			if $log->is_debug();
 
-	$html .= display_knowledge_panel($stats_ref, $stats_ref->{"knowledge_panels_" . $request_ref->{lc}},
-		"nutrition_facts_table");
+		create_panel_from_json_template("nutrition_facts_table",
+			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
+			$panel_data_ref, $stats_ref, $request_ref->{lc}, $request_ref->{cc}, $knowledge_panels_options_ref,
+			$request_ref);
+
+		$html .= display_knowledge_panel($stats_ref, $stats_ref->{"knowledge_panels_" . $request_ref->{lc}},
+			"nutrition_facts_table");
+	}
 
 	return $html;
-
 }
 
 =head2 display_histogram ($graph_ref, $products_ref, $request_ref)
@@ -6536,7 +6572,7 @@ sub display_histogram ($graph_ref, $products_ref, $request_ref) {
 		my $value = deep_get($product_ref, @fields);
 
 		# For nutrients except energy-kcal, convert to the default nutrient unit
-		if ((defined $value) and ($fields[0] eq "nutriments") and ($field !~ /energy-kcal/)) {
+		if ((defined $value) and ($fields[0] eq "nutrition") and ($field !~ /energy-kcal/)) {
 			$value = g_to_unit($value, (get_property("nutrients", "zz:$field", "unit:en") // 'g'));
 		}
 

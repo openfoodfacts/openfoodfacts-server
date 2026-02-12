@@ -49,9 +49,6 @@
   depends_on:
     memcached:
         condition: service_started
-    # commented out as it prevents "make dev" to work for off-pro
-    #postgres:
-    #    condition: service_healthy
   volumes:
     # pointer to openfoodfacts-web/lang
     - ${WEB_RESOURCES_PATH}/lang:/mnt/podata/lang
@@ -122,10 +119,6 @@ services:
       - "$MINION_MODE"
       - "-q"
       - "$MINION_QUEUE"
-    #depends_on:
-      # commented out as it prevents "make dev" to work for off-pro
-      #postgres:
-      #  condition: service_healthy
   incron:
     <<: *backend-conf
     # This service watches for new images to trigger ocr and robotoff processing
