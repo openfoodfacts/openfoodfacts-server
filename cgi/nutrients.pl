@@ -37,7 +37,7 @@ use JSON::MaybeXS;
 
 my $request_ref = ProductOpener::Display::init_request();
 
-# Turn the flat nutriments table array into a nested array of nutrients
+# Turn the flat nutrients table array into a nested array of nutrients
 # The level of each nutrient is indicated by leading dashes before its id:
 # nutrient
 # -sub-nutrient

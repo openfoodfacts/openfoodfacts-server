@@ -33,7 +33,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
-use ProductOpener::Food qw/%nutriments_lists/;
+use ProductOpener::Food qw/%nutrients_lists/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
@@ -393,9 +393,9 @@ if ($action eq 'display') {
 	}
 
 	# Compute possible fields values
-	my @axis_values = @{$nutriments_lists{$nutrient_table}};
+	my @axis_values = @{$nutrients_lists{$nutrient_table}};
 	my %axis_labels = ();
-	foreach my $nid (@{$nutriments_lists{$nutrient_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
+	foreach my $nid (@{$nutrients_lists{$nutrient_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
 		$axis_labels{$nid} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 		$log->debug("nutriments", {nid => $nid, value => $axis_labels{$nid}}) if $log->is_debug();
 	}
