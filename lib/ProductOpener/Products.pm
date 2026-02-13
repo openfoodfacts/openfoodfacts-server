@@ -1800,10 +1800,6 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		}
 	}
 
-	if ($product_ref->{code} =~ /^ingredient-/) {
-		push @states_tags, "en:is-ingredient";
-	}
-
 	$product_ref->{complete} = $complete;
 	$current_ref->{complete} = $complete;
 	$product_ref->{completeness} = $completeness;
