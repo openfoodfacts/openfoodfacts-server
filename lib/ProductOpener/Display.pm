@@ -944,7 +944,7 @@ Set two attributes to `request_ref`:
 =cut
 
 sub set_user_agent_request_ref_attributes ($request_ref) {
-	my $user_agent_str = user_agent();
+	my $user_agent_str = user_agent() // '';
 	$request_ref->{user_agent} = $user_agent_str;
 
 	my $is_crawl_bot = 0;
@@ -7704,7 +7704,7 @@ sub display_page ($request_ref) {
 
 	# Display a banner from users on Android or iOS
 
-	my $user_agent = $ENV{HTTP_USER_AGENT};
+	my $user_agent = $ENV{HTTP_USER_AGENT} // '';
 
 	# add a user_agent parameter so that we can test from desktop easily
 	if (defined single_param('user_agent')) {
