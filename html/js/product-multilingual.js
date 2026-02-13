@@ -1107,6 +1107,7 @@ $(function () {
 
 });
 
+// eslint-disable-next-line max-params
 function show_warning(should_show, input_id, nutrient_id, per, preparation, warning_message){
     const question_mark_id = `#nutrient_question_mark_${nutrient_id}_${preparation}_${per}`;
     const warning_id = `#nutrient_sugars_warning_${nutrient_id}_${preparation}_${per}`;
@@ -1128,6 +1129,7 @@ function get_nutrient_unit(nutrient_id) {
     // line selector case (user chooses a unit from a list for the whole row of the nutrient)
     const select = $(`#global_nutrient_${nutrient_id}_unit`);
     if (select.length) {
+        
         return select.val();
     }
     // per-cell selector case (user chooses a unit from a list for one particular cell)
@@ -1153,8 +1155,8 @@ function get_nutrient_value(nutrient_id, per, preparation, wanted_unit) {
             'µg': 0.000001
         };
 
-        if (factor[current_unit] != null && factor[wanted_unit] != null) {
-            value = value * (factor[current_unit] / factor[wanted_unit]);
+        if (factor[current_unit] !== null && factor[wanted_unit] !== null) {
+            value *= (factor[current_unit] / factor[wanted_unit]);
         }
 
         return value;
@@ -1168,7 +1170,7 @@ function check_nutrient(nutrient_id, per, preparation, id) {
 
     // define the max valid value
     let max;
-    let per_serving = (per === "serving");  // true if "serving", false if "100g"
+    const per_serving = (per === "serving");  // true if "serving", false if "100g"
     let percent;
 
     if (nutrient_id == 'energy-kj') {
