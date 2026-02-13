@@ -125,19 +125,19 @@ msgstr "Ta strona produktu nie jest kompletna. Możesz pomóc w jej uzupełnieni
 
 msgctxt "brands_example_product"
 msgid "Tide, Persil"
-msgstr ""
+msgstr "Tide, Persil"
 
 msgctxt "categories_example_product"
 msgid "Liquid laundry detergent, Powder laundry detergent"
-msgstr ""
+msgstr "Płyn do prania, Proszek do prania"
 
 msgctxt "emb_codes_example_product"
 msgid "EMB 67890"
-msgstr ""
+msgstr "EMB 67890"
 
 msgctxt "generic_name_example_product"
 msgid "Laundry detergent"
-msgstr ""
+msgstr "Detergent do prania"
 
 msgctxt "product_name_example_product"
 msgid "Ultra Clean Lavender Scent"
@@ -1061,7 +1061,7 @@ msgstr "https://wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr "Open Beauty Facts - Kosmetyki"
+msgstr "Open Beauty Facts – Kosmetyki"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
@@ -1141,13 +1141,13 @@ msgstr "To zdjęcie zostało już wysłane."
 
 msgctxt "image_upload_error_image_too_small"
 msgid "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself."
-msgstr "Obraz jest zbyt mały. Proszę o nie przesyłanie obrazów znalezionych w Internecie i wysyłać własnoręcznie zrobione zdjęcia."
+msgstr "Obraz jest zbyt mały. Prosimy nie przesyłać obrazów znalezionych w Internecie i wysyłać wyłącznie własnych zdjęć."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr "Kod kreskowy na zdjęciu jest nieczytelny, lub grafika nie zawiera kodu kreskowego. \n"
-"Wypróbuj inne zdjęcie, lub bezpośrednio wprowadź kod kreskowy."
+msgstr "Kod kreskowy na zdjęciu jest nieczytelny lub grafika nie zawiera kodu kreskowego. \n"
+"Wypróbuj inne zdjęcie lub wprowadź kod kreskowy bezpośrednio."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
@@ -1163,7 +1163,8 @@ msgstr "Nie można odczytać obrazu."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
-msgstr "Należ wprowadzić elementy kodu kreskowego lub wysłać zdjęcie produktu gdy kod kreskowy jest widoczny."
+msgstr "Należy wprowadzić elementy kodu kreskowego lub wysłać zdjęcie produktu, na \n"
+" którym kod kreskowy będzie widoczny."
 
 msgctxt "image_full_size"
 msgid "Full size"
@@ -1227,7 +1228,7 @@ msgstr "Składniki"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
-msgstr "Uwaga: Składniki mogą być wymienione pod wieloma różnymi nazwami, proszę dać nam znać jeśli powyższa analiza jest nieprawidłowa."
+msgstr "Uwaga: Składniki mogą być wymienione pod wieloma różnymi nazwami. Jeśli powyższa analiza jest nieprawidłowa, daj nam znać."
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
@@ -1299,7 +1300,7 @@ msgstr "składnik pochodzący z oleju palmowego"
 
 msgctxt "ingredients_without_products"
 msgid "Products that do not contain the ingredient %s"
-msgstr "Produkty które nie zawierają składnika %s"
+msgstr "Produkty, które nie zawierają składnika %s"
 
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
@@ -1403,7 +1404,7 @@ msgstr "Lista %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
-msgstr "Załaduj więcej wynikow"
+msgstr "Załaduj więcej wyników"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
@@ -1432,7 +1433,7 @@ msgstr "Zaloguj się, aby dodać lub edytować produkty."
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr "<p>Proszę się zalogować by dodać lub edytować produkt.</p>\n\n"
+msgstr "<p>Proszę się zalogować, by dodać lub edytować produkt.</p>\n\n"
 "<p>Jeśli nie masz konta na <<site_name>>, możesz <a href=\"/cgi/user.pl\"> zarejestrować się w 30 sekund </a>.</p>\n"
 
 msgctxt "login_username_email"
@@ -7844,7 +7845,7 @@ msgstr ""
 
 msgctxt "qfdmo_category"
 msgid "Product category"
-msgstr ""
+msgstr "Kategoria produktu"
 
 msgctxt "public_price"
 msgid "Public price"
