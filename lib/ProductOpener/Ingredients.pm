@@ -5704,9 +5704,9 @@ my %phrases_after_ingredients_list = (
 	lv => [
 		'uzglabāt (sausā|vēsā)',    # keep in dry place
 		'analītiskā sastāva',    # pet food
-		'ieteicams līdz', # recommended until
-		'pēc iepakojuma atvēršanas izlietot', # use after opening the package
-		'Chocolate contains', # chocolate contains
+		'ieteicams līdz',    # recommended until
+		'pēc iepakojuma atvēršanas izlietot',    # use after opening the package
+		'Chocolate contains',    # chocolate contains
 	],
 
 	mk => [
