@@ -72,6 +72,7 @@ BEGIN {
 		&compute_energy_from_nutrients_for_nutrients_set
 		%energy_from_nutrients
 		&get_nutrient_from_nutrient_set_in_default_unit
+		&default_unit_for_nid
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -81,7 +82,6 @@ use vars @EXPORT_OK;
 
 use Clone qw/clone/;
 
-use ProductOpener::Food qw/default_unit_for_nid/;
 use ProductOpener::Tags qw/:all get_inherited_property_from_categories_tags/;
 use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_standard_unit/;
 use ProductOpener::Config qw/:all/;
@@ -987,6 +987,9 @@ sub get_unit_options_for_nutrient ($nid) {
 	{
 		@units = ('%');
 	}
+	elsif ($nid eq 'ph') {
+		@units = ('');
+	}
 	else {
 
 		@units = ('g', 'mg', 'µg');
@@ -1230,8 +1233,12 @@ sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $sourc
 		$value_string = remove_insignificant_digits($value_string);
 
 		# empty unit?
-		if ((not defined $unit) or ($unit eq "")) {
+		if (not defined $unit) {
 			$unit = default_unit_for_nid($nid);
+			$log->debug(
+				"assign_nutrient_modifier_value_string_and_unit: no unit provided, using default unit for nutrient",
+				{unit => $unit, nid => $nid})
+				if $log->is_debug();
 		}
 		else {
 			# Check the unit is one of the unit options for the nutrient
@@ -2792,6 +2799,56 @@ sub get_nutrient_from_nutrient_set_in_default_unit ($nutrients_ref, $nid) {
 		return $value;
 	}
 	return;
+}
+
+=head2 default_unit_for_nid ( $nid)
+
+Return the default unit that we convert everything to internally
+(e.g. in the aggregated set)
+
+=head3 Parameters
+
+$nid: String
+
+=head3 Return values
+
+Default value for that certain unit
+
+=cut
+
+my %default_unit_for_nid_map = (
+	"energy-kj" => "kJ",
+	"energy-kcal" => "kcal",
+	"energy" => "kJ",
+	"alcohol" => "% vol",
+	"water-hardness" => "mmol/l",
+	"ph" => "",
+);
+
+sub default_unit_for_nid ($nid) {
+
+	$nid =~ s/_prepared//;
+
+	if (exists($default_unit_for_nid_map{$nid})) {
+		return $default_unit_for_nid_map{$nid};
+	}
+
+	if (($nid =~ /^fruits/) or ($nid =~ /^collagen/)) {
+		return "%";
+	}
+
+	# Check if we have have a unit:en: property in the nutrients taxonomy
+	# If it is in % or '', we use it
+	if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
+		my $unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
+		if ((defined $unit) and (($unit eq '%') or ($unit eq ''))) {
+			# Set the default unit for this nutrient for future use
+			$default_unit_for_nid_map{$nid} = $unit;
+			return $unit;
+		}
+	}
+
+	return "g";
 }
 
 1;
