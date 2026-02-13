@@ -1138,10 +1138,12 @@ function get_nutrient_unit(nutrient_id) {
         return selectPerCell.val();
     }
     // fixed unit case (for nutrients with only one unit, e.g. kJ for energy-kj)
+    
     return $(`#nutrient_${nutrient_id}_tr .nutrient_unit`).first().text().trim();
 }
 
 function get_nutrient_value(nutrient_id, per, preparation, wanted_unit) {
+
     const input_id = `#nutrition_input_sets_${preparation}_${per}_nutrients_${nutrient_id}_value_string`;
 
     let value = parseFloat(($(input_id).val() || '').replace(',', '.'));
