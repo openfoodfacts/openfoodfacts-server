@@ -125,7 +125,6 @@ services:
             - be-fr.${PRODUCT_OPENER_DOMAIN}
 
 volumes:
-  product_images:
   html_data:
   other_servers:
   products:
@@ -138,6 +137,8 @@ volumes:
     name: ${PO_COMMON_PREFIX:-}po_orgs
   export_files:
     name: ${PO_COMMON_PREFIX:-}po_export_files
+  product_images:
+    name: ${PO_COMMON_PREFIX:-}po_off_product_images
   podata:
 
 networks:
