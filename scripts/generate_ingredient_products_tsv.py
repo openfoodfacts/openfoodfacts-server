@@ -10,9 +10,16 @@ To run the script use:
 
 uv run scripts/generate_ingredient_products_tsv.py
 
+
+scripts/export_and_import_to_public_database.pl --owner org-openfoodfacts
+
 TODO:
 * Find a way to show there is no packaging
 * Make sure sugars adds up to at least all other parts
+* en:nutrition-sugars-plus-starch-greater-than-carbohydrates
+* en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients e.g. pumpkin <> squash. QA category should have same CIQUAL code as its expected_ingredient
+* en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients. e.g. radish
+* en:ingredients-count-lower-than-expected-for-the-category e.g. mozzarella. Probably need an explicit exclusion
 
 """
 
@@ -24,10 +31,8 @@ TODO:
 # ///
 
 import csv
-import datetime
 import sys
 import requests
-from requests.auth import HTTPBasicAuth
 import os
 from dotenv import load_dotenv
 import hashlib
@@ -178,7 +183,7 @@ for id, ingredient in ingredients.items():
     # Add nutrients from ciqual
     for nutrient_id, nutrient in ciqual_data.items():
         if nutrient.get("confidence", "-") != "-":
-            product[f"{nutrient_id}"] = nutrient.get("percent_nom")
+            product[f"{nutrient_id}"] = f"{nutrient.get('modifier', '')}{nutrient.get('percent_nom')}"
 
     products.append(product)
     print(id, ciqual_code, wikidata_id, ingredient["name"].get("en", name), image_url)
@@ -188,7 +193,27 @@ for id, ingredient in ingredients.items():
         existing_codes.remove(code)
 
 print("--- Generating tsv file ---")
-keys = sorted(set().union(*(d.keys() for d in products)))
+def column_sort(column):
+    if column == "code":
+        return f"1{column}"
+    elif column.startswith("categories"):
+        return f"2{column}"
+    elif column.startswith("image_front_url"):
+        return f"3{column}"
+    elif column.startswith("packaging"):
+        return f"4{column}"
+    elif column.startswith("countries"):
+        return f"5{column}"
+    elif column.startswith("product_name"):
+        return f"7{column}"
+    elif column.startswith("ingredients_text"):
+        return f"8{column}"
+
+    # Must be a nutrient
+    return f"6{column}"
+    
+        
+keys = sorted(set().union(*(d.keys() for d in products)), key=column_sort)
 with open('generate_ingredient_products.tsv', 'w', newline='', encoding='utf-8') as output_file:
     dict_writer = csv.DictWriter(output_file, keys, delimiter='\t')
     dict_writer.writeheader()
