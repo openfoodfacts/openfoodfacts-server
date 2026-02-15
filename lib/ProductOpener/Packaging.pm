@@ -142,11 +142,6 @@ sub init_packaging_taxonomies_regexps() {
 
 		$packaging_taxonomies_regexps{$taxonomy}
 			= generate_regexps_matching_taxonomy_entries($taxonomy, "list_of_regexps", {});
-
-		# Don't log by default as these are huge
-		# $log->debug("init_packaging_taxonomies_regexps - result",
-		# 	{taxonomy => $taxonomy, packaging_taxonomies_regexps => $packaging_taxonomies_regexps{$taxonomy}})
-		# 	if $log->is_debug();
 	}
 
 	return;

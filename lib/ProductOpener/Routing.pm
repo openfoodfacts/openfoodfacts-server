@@ -157,10 +157,6 @@ sub load_routes() {
 	foreach my $text_id (sort keys %texts_text_id_to_translated_route) {
 		foreach my $target_lc (sort keys %{$texts_text_id_to_translated_route{$text_id}}) {
 			my $translated_route = $texts_text_id_to_translated_route{$text_id}{$target_lc};
-			# Don't log by default
-			# $log->debug("adding translated text route",
-			# 	{text_id => $text_id, target_lc => $target_lc, translated_route => $translated_route})
-			# 	if $log->is_debug();
 			push @translated_text_route, [
 				$translated_route,
 				\&text_route,
@@ -748,13 +744,7 @@ sub register_route($routes_to_register) {
 		else {
 			# use a hash key for fast match
 			# do not overwrite existing routes (e.g. a text route that matches a well known route)
-			if (exists $routes{$pattern}) {
-				# Don't log by default
-				# $log->debug("route already exists", {pattern => $pattern}) if $log->is_debug();
-			}
-			else {
-				# Don't log by default
-				# $log->debug("added route", {pattern => $pattern}) if $log->is_debug();
+			if (not exists $routes{$pattern}) {
 				$routes{$pattern} = {handler => $handler, opt => $opt};
 			}
 		}

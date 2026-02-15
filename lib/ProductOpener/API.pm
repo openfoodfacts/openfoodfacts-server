@@ -242,8 +242,6 @@ sub read_request_body ($request_ref) {
 	}
 	$request_ref->{body} = $content;
 
-	# Don't log payload as could be huge
-	# $log->debug("read_request_body - end", {request_ref => $request_ref}) if $log->is_debug();
 	return;
 }
 

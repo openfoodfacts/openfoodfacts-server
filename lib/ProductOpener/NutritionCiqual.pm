@@ -165,9 +165,6 @@ sub load_ciqual_table() {
 				else {
 					# TODO: some nutrients are not automatically recognized yet
 					# (e.g. most fatty acids identified with column names like ag_18_3_a_lino_g)
-					# Don't log by default
-					# $log->debug("unrecognized column name (nutrient) in CIQUAL table", {column_name => $nutrient})
-					# 	if $log->is_debug();
 				}
 			}
 			$col++;
@@ -272,9 +269,6 @@ sub load_ciqual_calnut_table() {
 				else {
 					# TODO: some nutrients are not automatically recognized yet
 					# (e.g. most fatty acids identified with column names like ag_18_3_a_lino_g)
-					# Don't log by default
-					# $log->debug("unrecognized column name (nutrient) in CIQUAL table", {column_name => $nutrient})
-					# 	if $log->is_debug();
 				}
 			}
 			$col++;
