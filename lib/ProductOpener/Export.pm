@@ -586,7 +586,9 @@ sub export_csv ($args_ref) {
 							my $nid = $`;
 							if (defined $product_ref->{nutriments}) {
 								my $modifier = "";
-								if (($suffix eq "_value" or $suffix eq "_prepared_value") and defined $product_ref->{nutriments}{$nid . '_modifier'}) {
+								if (($suffix eq "_value" or $suffix eq "_prepared_value")
+									and defined $product_ref->{nutriments}{$nid . '_modifier'})
+								{
 									$modifier = $product_ref->{nutriments}{$nid . '_modifier'};
 								}
 								$value = $modifier . $product_ref->{nutriments}{$nid . $suffix};

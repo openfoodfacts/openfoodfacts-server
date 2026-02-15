@@ -1466,12 +1466,26 @@ ok(
 	!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
 	'sum of sugars and starch greater carbohydrates, presence of "<" symbol,  and sugars or starch is smaller than carbohydrates'
 ) or diag Dumper $product_ref;
+
+## with "<" symbol on sugars
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 1,
+		"sugars_100g" => 2,
+		"sugars_modifier" => "<",
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	'sugars greater carbohydrates but presence of "<" symbol on sugars')
+	or diag Dumper $product_ref;
+
 ## sugar or starch is greater than carbohydrates, with "<" symbol
 $product_ref = {
 	nutriments => {
 		"carbohydrates_100g" => 3,
-		"sugars_100g" => 1,
-		"starch_100g" => 5,
+		"sugars_100g" => 5,
+		"starch_100g" => 1,
 		"starch_modifier" => "<",
 	}
 };
@@ -1531,8 +1545,8 @@ ok(
 $product_ref = {
 	nutriments => {
 		"carbohydrates-total_100g" => 3,
-		"sugars_100g" => 1,
-		"starch_100g" => 5,
+		"sugars_100g" => 5,
+		"starch_100g" => 1,
 		"starch_modifier" => "<",
 	}
 };

@@ -982,6 +982,29 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 	return;
 }
 
+sub min_nutrient_value ($product_ref, $nid) {
+	if (($product_ref->{nutriments}{$nid . "_modifier"} // "") eq "<") {
+		return 0;
+	}
+	return $product_ref->{nutriments}{$nid . "_100g"} // 0;
+}
+
+sub nutrient_total_less_than_parts($product_ref, $total_nid, @parts_nids) {
+	my $total = $product_ref->{nutriments}{$total_nid . "_100g"};
+	if (not defined $total) {
+		return 0;
+	}
+	my $parts = 0;
+	foreach my $part (@parts_nids) {
+		$parts += min_nutrient_value($product_ref, $part);
+	}
+	# increased threshold from 0.001 to 0.01 (see issue #10491)
+	if (sprintf("%.2f", $parts) > sprintf("%.2f", $total + 0.01)) {
+		return 1;
+	}
+	return 0;
+}
+
 =head2 check_nutrition_data( PRODUCT_REF )
 
 Checks related to the nutrition facts values.
@@ -1221,214 +1244,39 @@ sub check_nutrition_data ($product_ref) {
 
 		# sugar + starch cannot be greater than carbohydrates
 		# do not raise error if sugar or starch contains "<" symbol (see issue #9267)
-		if (
-			(defined $product_ref->{nutriments}{"carbohydrates_100g"})
-			and (
-				# without "<" symbol, check sum of sugar and starch is not greater than carbohydrates
-				(
-					(
-						(
-							(
-								(defined $product_ref->{nutriments}{"sugars_100g"})
-								? $product_ref->{nutriments}{"sugars_100g"}
-								: 0
-							) + (
-								(defined $product_ref->{nutriments}{"starch_100g"})
-								? $product_ref->{nutriments}{"starch_100g"}
-								: 0
-							)
-						) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
-					)
-					and not(defined $product_ref->{nutriments}{"sugar_modifier"})
-					and not(defined $product_ref->{nutriments}{"starch_modifier"})
-				)
-				or
-				# with "<" symbol, check only that sugar or starch are not greater than carbohydrates
-				(
-					(
-						(
-								(defined $product_ref->{nutriments}{"sugar_modifier"})
-							and ($product_ref->{nutriments}{"sugar_modifier"} eq "<")
-						)
-						and (
-							(
-								(defined $product_ref->{nutriments}{"sugars_100g"})
-								? $product_ref->{nutriments}{"sugars_100g"}
-								: 0
-							) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
-						)
-					)
-					or (
-						(
-								(defined $product_ref->{nutriments}{"starch_modifier"})
-							and ($product_ref->{nutriments}{"starch_modifier"} eq "<")
-						)
-						and (
-							(
-								(defined $product_ref->{nutriments}{"starch_100g"})
-								? $product_ref->{nutriments}{"starch_100g"}
-								: 0
-							) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
-						)
-					)
-				)
-			)
-			)
-		{
-
+		if (nutrient_total_less_than_parts($product_ref, "carbohydrates", qw/sugars starch/)) {
 			push @{$product_ref->{data_quality_errors_tags}},
 				"en:nutrition-sugars-plus-starch-greater-than-carbohydrates";
 		}
 
 		# sugar + starch + fiber cannot be greater than total carbohydrates
 		# do not raise error if sugar, starch or fiber contains "<" symbol (see issue #9267)
-		if (
-			(defined $product_ref->{nutriments}{"carbohydrates-total_100g"})
-			and (
-				# without "<" symbol, check sum of sugar, starch and fiber is not greater than carbohydrates
-				(
-					(
-						(
-							(
-								(defined $product_ref->{nutriments}{"sugars_100g"})
-								? $product_ref->{nutriments}{"sugars_100g"}
-								: 0
-							) + (
-								(defined $product_ref->{nutriments}{"starch_100g"})
-								? $product_ref->{nutriments}{"starch_100g"}
-								: 0
-							) + (
-								(defined $product_ref->{nutriments}{"fiber_100g"})
-								? $product_ref->{nutriments}{"fiber_100g"}
-								: 0
-							)
-						) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
-					)
-					and not(defined $product_ref->{nutriments}{"sugar_modifier"})
-					and not(defined $product_ref->{nutriments}{"starch_modifier"})
-					and not(defined $product_ref->{nutriments}{"fiber_modifier"})
-				)
-				or
-				# with "<" symbol, check only that sugar, starch or fiber are not greater than carbohydrates
-				(
-					(
-						(
-								(defined $product_ref->{nutriments}{"sugar_modifier"})
-							and ($product_ref->{nutriments}{"sugar_modifier"} eq "<")
-						)
-						and (
-							(
-								(defined $product_ref->{nutriments}{"sugars_100g"})
-								? $product_ref->{nutriments}{"sugars_100g"}
-								: 0
-							) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
-						)
-					)
-					or (
-						(
-								(defined $product_ref->{nutriments}{"starch_modifier"})
-							and ($product_ref->{nutriments}{"starch_modifier"} eq "<")
-						)
-						and (
-							(
-								(defined $product_ref->{nutriments}{"starch_100g"})
-								? $product_ref->{nutriments}{"starch_100g"}
-								: 0
-							) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
-						)
-					)
-					or (
-						(
-								(defined $product_ref->{nutriments}{"fiber_modifier"})
-							and ($product_ref->{nutriments}{"fiber_modifier"} eq "<")
-						)
-						and (
-							(
-								(defined $product_ref->{nutriments}{"fiber_100g"})
-								? $product_ref->{nutriments}{"fiber_100g"}
-								: 0
-							) > ($product_ref->{nutriments}{"carbohydrates-total_100g"}) + 0.001
-						)
-					)
-				)
-			)
-			)
-		{
+		if (nutrient_total_less_than_parts($product_ref, "carbohydrates-total", qw/sugars starch fiber/)) {
 
 			push @{$product_ref->{data_quality_errors_tags}},
 				"en:nutrition-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total";
 		}
 
 		# sum of nutriments that compose sugar can not be greater than sugar value
-		if (defined $product_ref->{nutriments}{sugars_100g}) {
-			my $fructose
-				= defined $product_ref->{nutriments}{fructose_100g} ? $product_ref->{nutriments}{fructose_100g} : 0;
-			my $glucose
-				= defined $product_ref->{nutriments}{glucose_100g} ? $product_ref->{nutriments}{glucose_100g} : 0;
-			my $galactose
-				= defined $product_ref->{nutriments}{galactose_100g} ? $product_ref->{nutriments}{galactose_100g} : 0;
-			my $maltose
-				= defined $product_ref->{nutriments}{maltose_100g} ? $product_ref->{nutriments}{maltose_100g} : 0;
-			# sometimes lactose < 0.01 is written below the nutrition table together whereas
-			# sugar is 0 in the nutrition table (#10715)
-			my $sucrose
-				= defined $product_ref->{nutriments}{sucrose_100g} ? $product_ref->{nutriments}{sucrose_100g} : 0;
-
-			# ignore lactose when having "<" symbol
-			my $lactose = 0;
-			if (defined $product_ref->{nutriments}{lactose_100g}) {
-				my $lactose_modifier = $product_ref->{nutriments}{'lactose_modifier'};
-				if (!defined $lactose_modifier || $lactose_modifier ne '<') {
-					$lactose = $product_ref->{nutriments}{lactose_100g};
-				}
-			}
-
-			my $total_sugar = $fructose + $glucose + $galactose + $maltose + $lactose + $sucrose;
-
-			if ($total_sugar > $product_ref->{nutriments}{sugars_100g} + 0.001) {
-				# strictly speaking: also includes galactose, despite the label name
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
-			}
+		if (
+			nutrient_total_less_than_parts(
+				$product_ref, "sugars", qw/fructose glucose galactose maltose sucrose lactose/
+			)
+			)
+		{
+			# strictly speaking: also includes galactose, despite the label name
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
 		}
 
-		if (    (defined $product_ref->{nutriments}{"saturated-fat_100g"})
-			and (defined $product_ref->{nutriments}{"fat_100g"})
-			and ($product_ref->{nutriments}{"saturated-fat_100g"} > ($product_ref->{nutriments}{"fat_100g"} + 0.001)))
-		{
-
+		if (nutrient_total_less_than_parts($product_ref, "fat", qw/saturated-fat/)) {
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-saturated-fat-greater-than-fat";
-
 		}
 
 		# sum of nutriments that compose fiber can not be greater than the value of fiber
-		# ignore if there is "<" symbol (example: <1 + 5 = 5, issue #11075)
-		if (defined $product_ref->{nutriments}{fiber_100g}) {
-			my $soluble_fiber = 0;
-			my $insoluble_fiber = 0;
-
-			if (defined $product_ref->{nutriments}{'soluble-fiber_100g'}) {
-				my $soluble_modifier = $product_ref->{nutriments}{'soluble-fiber_modifier'};
-				if (!defined $soluble_modifier || $soluble_modifier ne '<') {
-					$soluble_fiber = $product_ref->{nutriments}{'soluble-fiber_100g'};
-				}
-			}
-
-			if (defined $product_ref->{nutriments}{'insoluble-fiber_100g'}) {
-				my $insoluble_modifier = $product_ref->{nutriments}{'insoluble-fiber_modifier'};
-				if (!defined $insoluble_modifier || $insoluble_modifier ne '<') {
-					$insoluble_fiber = $product_ref->{nutriments}{'insoluble-fiber_100g'};
-				}
-			}
-
-			my $total_fiber = $soluble_fiber + $insoluble_fiber;
-
-			# increased threshold from 0.001 to 0.01 (see issue #10491)
-			# make sure that floats stop after 2 decimals
-			if (sprintf("%.2f", $total_fiber) > sprintf("%.2f", $product_ref->{nutriments}{fiber_100g} + 0.01)) {
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
-			}
+		if (nutrient_total_less_than_parts($product_ref, "fiber", qw/soluble-fiber insoluble-fiber/)) {
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
 		}
 
 		# Too small salt value? (e.g. g entered in mg)
