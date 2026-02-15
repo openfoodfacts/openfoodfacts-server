@@ -4,73 +4,53 @@ use warnings;
 use Test::More;
 use File::Find;
 use File::Basename;
+use File::Spec;
+use FindBin;
+use IPC::Open3;
+use IO::Select;
+use Symbol qw(gensym);
 
 # ------------------------------------------------------------
-# Lightweight taxonomy validation
+# Taxonomy validation
 #
-# This test performs minimal structural checks to prevent
-# obvious syntax regressions in taxonomy files.
-#
-# It intentionally does NOT reimplement the full taxonomy
-# parser and is independent from developer tooling.
+# This test runs the canonical taxonomy linter in --check mode
+# to prevent syntax regressions in taxonomy files.
 # ------------------------------------------------------------
 
-sub lint_file {
-	my ($file) = @_;
-
-	open my $fh, '<:encoding(UTF-8)', $file
-		or return ["Could not open file: $!"];
-
-	my @errors;
-	my %seen_props;
-	my $line_num = 0;
-
-	# language prefix (lightweight check only)
-	my $lang_re = qr/(?:[a-zA-Z]{2,3}(?:[-_][a-zA-Z0-9]{2,8})*|xx)/;
-
-	while (my $line = <$fh>) {
-		$line_num++;
-		chomp $line;
-		$line =~ s/\s+#.*$//;    # strip inline comments only when preceded by whitespace
-		$line =~ s/^\s+|\s+$//g;
-
-		next if $line eq '' || $line =~ /^#/;
-
-		# id line
-		if ($line =~ /^$lang_re:/) {
-			%seen_props = ();
-			next;
-		}
-
-		# property line
-		if ($line =~ /^([^:]+):\s*($lang_re):(.*)$/) {
-			my ($prop, $lang, $value) = ($1, lc($2), $3);
-			$value =~ s/^\s+|\s+$//g;
-
-			my $key = "$prop:$lang:$value";
-			if ($seen_props{$key}++) {
-				push @errors, "Duplicate property '$prop:$lang' with value '$value' at line $line_num";
+sub run_taxonomy_lint {
+	my ($lint_script, $files_ref) = @_;
+	my $err = gensym;
+	my @cmd = ($^X, $lint_script, '--check', @$files_ref);
+	my $pid = open3(my $in, my $out, $err, @cmd);
+	close $in;
+	my $output = '';
+	my $selector = IO::Select->new($out, $err);
+	while (my @ready = $selector->can_read) {
+		for my $fh (@ready) {
+			my $line = <$fh>;
+			if (defined $line) {
+				$output .= $line;
 			}
-			next;
+			else {
+				$selector->remove($fh);
+				close $fh;
+			}
 		}
-
-		# allow known structural lines
-		next if $line =~ /^</;
-		next if $line =~ /^(synonyms|stopwords):/i;
-
-		# ignore legacy semicolon formats used in some taxonomies
-		next if $line =~ /;/;
-
-		push @errors, "Unknown line format at line $line_num: $line";
 	}
-
-	close $fh;
-	return \@errors;
+	waitpid($pid, 0);
+	my $exit_code = $? >> 8;
+	return ($exit_code, $output);
 }
 
 # ------------------------------------------------------------
 # Discover taxonomy files
 # ------------------------------------------------------------
+
+my $repo_root = File::Spec->catdir($FindBin::Bin, File::Spec->updir, File::Spec->updir);
+chdir $repo_root or BAIL_OUT("Could not chdir to $repo_root: $!");
+
+my $lint_script = File::Spec->catfile($repo_root, 'scripts', 'taxonomies', 'lint_taxonomy.pl');
+BAIL_OUT("Missing lint script at $lint_script") unless -f $lint_script;
 
 my @files;
 find(
@@ -86,10 +66,8 @@ find(
 
 ok(@files > 0, "Found taxonomy files");
 
-foreach my $file (@files) {
-	my $errors = lint_file($file);
-	is_deeply($errors, [], "Linting $file")
-		or diag(join("\n", @$errors));
-}
+my ($exit_code, $output) = run_taxonomy_lint($lint_script, \@files);
+is($exit_code, 0, 'Linting taxonomies (lint_taxonomy.pl --check)')
+	or diag($output || "Lint failed with exit code $exit_code");
 
 done_testing();
