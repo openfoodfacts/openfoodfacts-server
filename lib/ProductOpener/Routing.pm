@@ -765,7 +765,7 @@ sub match_route ($request_ref) {
 
 	# Simple routing with fast hash key match with first component #
 	# api -> api_route
-	if (exists $routes{$request_ref->{components}[0]}) {
+	if (defined $request_ref->{components}[0] and exists $routes{$request_ref->{components}[0]}) {
 		my $route = $routes{$request_ref->{components}[0]};
 		$log->debug("route matched", {route => $request_ref->{components}[0]}) if $log->is_debug();
 		if ((not defined $route->{opt}{onlyif}) or ($route->{opt}{onlyif}($request_ref))) {
