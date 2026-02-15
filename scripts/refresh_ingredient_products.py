@@ -38,9 +38,6 @@ print("--- Loading taxonomies ---")
 # For local testing use http:/world.openfoodfacts.localhost
 base_url = os.getenv("STATIC_DOMAIN")
 ingredients = requests.get(f"{base_url}/data/taxonomies/ingredients.json").json()
-countries = ",".join(
-    requests.get(f"{base_url}/data/taxonomies/countries.json").json().keys()
-)
 categories = requests.get(f"{base_url}/data/taxonomies/categories.json").json()
 
 # Load ciqual ingredients. File comes from https://github.com/openfoodfacts/recipe-estimator/blob/main/recipe_estimator/assets/ciqual_ingredients.json
@@ -50,6 +47,41 @@ with open(
     encoding="utf-8",
 ) as ciqual_file:
     ciqual_ingredients = json.load(ciqual_file)
+
+# Wikidata requires a user agent to be specified. See https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy
+wikidata_headers = {
+    "User-Agent": "OpenFoodFacts/1.0 (https://world.openfoodfacts.org) ingredient-uploader"
+}
+
+def po_response_is_ok(response: requests.Response):
+    if response.status_code == 200:
+        return True
+    try:
+        print(f"*** Error: {', '.join(error.get('message', {}).get('name', '?') for error in response.json().get('errors', []))} ***")
+    except:
+        print(response.content)
+    return False
+
+# Get the existing ingredient products so we know which ones already have images
+# and which ones to delete (if they weren't found in the current ingredients taxonomy)
+print("--- Fetching existing products ---")
+page = 1
+existing_codes = []
+products_with_images = []
+while True:
+    response = requests.get(
+        f"{base_url}/api/v2/search?fields=code,selected_images&owners_tags=org-openfoodfacts&page_size=1000&page={page}"
+    )
+    if not po_response_is_ok(response):
+        sys.exit(1)
+    products = response.json()["products"]
+    if len(products) < 1:
+        break
+    existing_codes += [product["code"] for product in products]
+    products_with_images += [
+        product["code"] for product in products if "selected_images" in product
+    ]
+    page += 1
 
 print("--- Logging in ---")
 # Uses the outward facing url for local development
@@ -73,25 +105,10 @@ response = requests.post(
 access_token = response["access_token"]
 refresh_token = response["refresh_token"]
 refresh_at = datetime.datetime.now() + datetime.timedelta(0, response["expires_in"] - 30)
-
 off_headers = {"Authorization": f"Bearer {access_token}"}
 
-# Wikidata requires a user agent to be specified. See https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy
-wikidata_headers = {
-    "User-Agent": "OpenFoodFacts/1.0 (https://world.openfoodfacts.org) ingredient-uploader"
-}
-
-def po_response_is_ok(response: requests.Response):
-    if response.status_code == 200:
-        return True
-    try:
-        print(f"*** Error: {', '.join(error.get('message', {}).get('name', '?') for error in response.json().get('errors', []))} ***")
-    except:
-        print(response.content)
-    return False
-
 def refresh_access_token():
-    global access_token, refresh_token, refresh_at
+    global access_token, refresh_token, refresh_at, off_headers
 
     if datetime.datetime.now() > refresh_at:
         print("--- Refreshing access token ---")
@@ -107,29 +124,7 @@ def refresh_access_token():
         access_token = response["access_token"]
         refresh_token = response["refresh_token"]
         refresh_at = datetime.datetime.now() + datetime.timedelta(0, response["expires_in"] - 30)
-        
-    
-# Get the existing ingredient products so we know which ones already have images
-# and which ones to delete (if they weren't found in the current ingredients taxonomy)
-print("--- Fetching existing products ---")
-page = 1
-existing_codes = []
-products_with_images = []
-while True:
-    response = requests.get(
-        f"{base_url}/api/v2/search?fields=code,selected_images&states_tags=en:is-ingredient&page_size=1000&page={page}"
-    )
-    if not po_response_is_ok(response):
-        sys.exit(1)
-    products = response.json()["products"]
-    if len(products) < 1:
-        break
-    existing_codes += [product["code"] for product in products]
-    products_with_images += [
-        product["code"] for product in products if "selected_images" in product
-    ]
-    page += 1
-    refresh_access_token()
+        off_headers = {"Authorization": f"Bearer {access_token}"}
 
 count = 0
 # Set the following to zero to delete all ingredient products
@@ -210,7 +205,7 @@ for id, ingredient in ingredients.items():
     # We set all countries so ingredients always show up. Might be nice to get all "world" products to show up on all country domains
     product = {
         "code": code,
-        "countries": countries,
+        "countries": "en:world",
         "categories": category,
         "packaging_text_en": "1 paper bag to recycle",
     }
@@ -223,7 +218,7 @@ for id, ingredient in ingredients.items():
     # Add nutrients from ciqual
     for nutrient_id, nutrient in ciqual_data.items():
         if nutrient.get("confidence", "-") != "-":
-            product[f"nutriment_{nutrient_id}"] = nutrient.get("percent_nom")
+            product[f"nutriment_{nutrient_id}"] = f"{nutrient.get('modifier', '')}{nutrient.get('percent_nom')}"
 
     # Create the product
     refresh_access_token()
@@ -251,6 +246,7 @@ for id, ingredient in ingredients.items():
 print("--- Deleting orphaned codes ---")
 for code in existing_codes:
     print(code)
+    refresh_access_token()
     po_response_is_ok(requests.post(
         f"{base_url}/cgi/product.pl",
         data={"type": "delete", "action": "process", "code": code},
