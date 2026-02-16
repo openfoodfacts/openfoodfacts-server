@@ -585,13 +585,13 @@ sub export_csv ($args_ref) {
 						if ($field =~ /$suffix$/) {
 							my $nid = $`;
 							if (defined $product_ref->{nutriments}) {
-								my $modifier = "";
+								$value = $product_ref->{nutriments}{$nid . $suffix};
+								my $modifier = $product_ref->{nutriments}{$nid . "_modifier"};
 								if (($suffix eq "_value" or $suffix eq "_prepared_value")
-									and defined $product_ref->{nutriments}{$nid . '_modifier'})
+									and defined $modifier)
 								{
-									$modifier = $product_ref->{nutriments}{$nid . '_modifier'};
+									$value = $modifier . $value;
 								}
-								$value = $modifier . $product_ref->{nutriments}{$nid . $suffix};
 							}
 							$nutriment_field = 1;
 							last;
