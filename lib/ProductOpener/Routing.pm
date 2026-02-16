@@ -156,9 +156,6 @@ sub load_routes() {
 	foreach my $text_id (sort keys %texts_text_id_to_translated_route) {
 		foreach my $target_lc (sort keys %{$texts_text_id_to_translated_route{$text_id}}) {
 			my $translated_route = $texts_text_id_to_translated_route{$text_id}{$target_lc};
-			$log->debug("adding translated text route",
-				{text_id => $text_id, target_lc => $target_lc, translated_route => $translated_route})
-				if $log->is_debug();
 			push @translated_text_route, [
 				$translated_route,
 				\&text_route,
@@ -235,7 +232,8 @@ sub analyze_request($request_ref) {
 
 	check_and_update_rate_limits($request_ref);
 
-	$log->debug("request analyzed", {lc => $request_ref->{lc}, request_ref => $request_ref}) if $log->is_debug();
+	$log->debug("request analyzed", {lc => $request_ref->{lc}, request_ref => sanitize($request_ref)})
+		if $log->is_debug();
 
 	return 1;
 }
@@ -411,7 +409,7 @@ sub api_route($request_ref) {
 		$request_ref->{rate_limiter_bucket} = "product";
 	}
 
-	$log->debug("api_route", {request_ref => $request_ref}) if $log->is_debug();
+	$log->debug("api_route", {request_ref => sanitize($request_ref)}) if $log->is_debug();
 	return 1;
 }
 
@@ -529,7 +527,7 @@ sub text_route($request_ref) {
 
 # en/nova-groups-for-food-processing -> nova, ...
 sub redirect_text_route($request_ref) {
-	$log->debug("redirect_text_route", {request_ref => $request_ref}) if $log->is_debug();
+	$log->debug("redirect_text_route", {request_ref => sanitize($request_ref)}) if $log->is_debug();
 
 	my $text = $request_ref->{components}[1];
 	$request_ref->{redirect}
@@ -733,11 +731,7 @@ sub register_route($routes_to_register) {
 		else {
 			# use a hash key for fast match
 			# do not overwrite existing routes (e.g. a text route that matches a well known route)
-			if (exists $routes{$pattern}) {
-				$log->debug("route already exists", {pattern => $pattern}) if $log->is_debug();
-			}
-			else {
-				$log->debug("added route", {pattern => $pattern}) if $log->is_debug();
+			if (not exists $routes{$pattern}) {
 				$routes{$pattern} = {handler => $handler, opt => $opt};
 			}
 		}
