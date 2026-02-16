@@ -3291,7 +3291,7 @@ sub process_product_edit_rules ($product_ref) {
 						}
 						else {
 							$action_log
-								= "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
+								= "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: (none) \n";
 						}
 
 						if ($condition_ok) {

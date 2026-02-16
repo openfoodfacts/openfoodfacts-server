@@ -28535,9 +28535,8 @@ it: mais estruso
 #                                                 R I C E
 #
 #################################################################################################################
-# description:en:Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice).
 
-#<en:cereal
+#< en:cereal
 en: rice
 af: Rys
 am: ሩዝ
@@ -28665,83 +28664,84 @@ yi: רייז
 za: Haeuxbieg
 zh: 稻
 zu: ilayisi
+#aeb-arab: روز
+#arc: ܪܘܙܐ
+#arz: رز
+#ast: arroz
+#atj: Miromin
+#azb: دویو
+#bar: Reis
+#bcl: Paroy
+#be-tarask: Рыс
+#bho: चाउर
+#bjn: Banih
+#bqi: برنج
+#bxr: Тутарга
+#cdo: Dêu
+#ckb: برنج
+#crh-latn: pirinç
+#de-ch: Reis
+#din: Lop
+#dty: धान
+#en-ca: Rice
+#en-gb: Rice
+#gag: pirinç
+#gan: 禾
+#gsw: Riis
+#hak: Vò-é
+#hif: Bhaat
+#hsb: Rajs
+#ilo: bagas
+#inh: Дуга
+#jam: Rais
+#jbo: rismi
+#kbd: Прунж
+#kbp: Mɔʋ
+#krc: принч
+#lad: Arroz
+#lbe: Ппиринж
+#lez: Дуьгуь
+#lfn: Ris
+#lij: Riso
+#lmo: Ris
+#lzh: 稻
+#mai: धान
+#mzn: برنج
+#nah: Ācintli
+#nan: Tiū
+#nds: Ries
+#nds-nl: Ries
+#new: जाकि
+#ota: برنج
+#pam: Pale
+#pap: aros
+#pnb: چاول
+#pt-br: arroz
+#roa-tara: rise
+#rup: Urizu
+#sah: Рис
+#sat: ᱫᱟᱠᱟ
+#sco: Rice
+#sgs: Rīžā
+#sr-ec: пиринач
+#sr-el: pirinač
+#srn: aleysi
+#tet: hare
+#tt-cyrl: дөге
+#vec: Rixo
+#vro: Riis
+#war: Humay
+#wuu: 稻
+#xmf: ორზა
+#yue: 稻米
+#zh-hant: 米
 carbon_footprint_fr_foodges_ingredient:fr: Riz jasmin (Thaïlande)
 carbon_footprint_fr_foodges_value:fr: 1.4
 ciqual_proxy_food_code:en: 9100
 ciqual_proxy_food_name:fr: Riz blanc, cru
+description:en: Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice).
 vegan:en: yes
 vegetarian:en: yes
-# aeb-arab:روز
-# arc:ܪܘܙܐ
-# arz:رز
-# ast:arroz
-# atj:Miromin
-# azb:دویو
-# bar:Reis
-# bcl:Paroy
-# be-tarask:Рыс
-# bho:चाउर
-# bjn:Banih
-# bqi:برنج
-# bxr:Тутарга
-# cdo:Dêu
-# ckb:برنج
-# crh-latn:pirinç
-# de-ch:Reis
-# din:Lop
-# dty:धान
-# en-ca:Rice
-# en-gb:Rice
-# gag:pirinç
-# gan:禾
-# gsw:Riis
-# hak:Vò-é
-# hif:Bhaat
-# hsb:Rajs
-# ilo:bagas
-# inh:Дуга
-# jam:Rais
-# jbo:rismi
-# kbd:Прунж
-# kbp:Mɔʋ
-# krc:принч
-# lad:Arroz
-# lbe:Ппиринж
-# lez:Дуьгуь
-# lfn:Ris
-# lij:Riso
-# lmo:Ris
-# lzh:稻
-# mai:धान
-# mzn:برنج
-# nah:Ācintli
-# nan:Tiū
-# nds:Ries
-# nds-nl:Ries
-# new:जाकि
-# ota:برنج
-# pam:Pale
-# pap:aros
-# pnb:چاول
-# pt-br:arroz
-# roa-tara:rise
-# rup:Urizu
-# sah:Рис
-# sat:ᱫᱟᱠᱟ
-# sco:Rice
-# sgs:Rīžā
-# sr-ec:пиринач
-# sr-el:pirinač
-# srn:aleysi
-# tet:hare
-# tt-cyrl:дөге
-# vec:Rixo
-# vro:Riis
-# war:Humay
-# wuu:稻
-# xmf:ორზა
-# yue:稻米
-# zh-hant:米
 wikidata:en: Q5090
 wikipedia:en: https://en.wikipedia.org/wiki/Rice
 
@@ -28877,29 +28877,39 @@ wikidata:en: Q115443
 en: semi-whole rice, semi-wholemeal rice
 fr: riz semi-complet
 
-#category/brown-rices
 < en:rice
-en: brown rice, full grain rice, wholegrain rice, whole rice, whole grain brown rice
+en: whole grain rice, full grain rice, wholegrain rice, whole rice
+da: fuldkornsris
+de: Vollkornreis
+fi: täysjyväriisi
+fr: riz complet
+nl: volkorenrijst
+nn: fullkornris
+sv: fullkornris
+
+#category/brown-rices
+< en:whole grain rice
+en: brown rice
 ar: أرز أسمر
-bg: кафяв пълнозърнест ориз, кафяв ориз
+bg: кафяв ориз
 ca: arròs integral
 cs: celozrnná rýže, hnědá rýže
-da: brune ris
-de: Vollkornreis, brauner Vollkornreis
+da: brunt ris, brune ris
+de: brauner Reis
 es: arroz integral
-fi: tumma riisi, täysjyväriisi, ruskea kokojyväriisi
-fr: riz complet, riz brun, riz brun complet
+fi: tumma riisi
+fr: riz brun
 hr: smeđa riža
 hu: barna rizs, barnarizs, teljes kiőrlésű rizs, teljes értékű rizs
 it: riso integrale
 ja: 玄米
-nl: zilvervliesrijst, volkorenrijst, bruine rijst
-nn: brune fullkornris
+nl: zilvervliesrijst, bruine rijst
+nn: brune ris
 pl: ryż brązowy
 pt: arroz integral
 ru: kоричневый рис
 sl: rjavi riž
-sv: brunt fullkornris, råris
+sv: brunt ris, råris
 th: ข้าวกล้อง
 ciqual_food_code:en: 9102
 ciqual_food_name:en: Rice, brown, raw
@@ -28909,11 +28919,14 @@ wikidata:en: Q1066624
 
 < en:brown rice
 en: whole grain brown rice, wholegrain brown rice
+bg: кафяв пълнозърнест ориз
 de: brauner Vollkornreis
-es: Arroz integral
-fr: Riz brun complet
+fi: ruskea kokojyväriisi
+fr: riz brun complet
 hr: integralna smeđa riža
 nl: volkoren rijst
+nn: brune fullkornris
+sv: brunt fullkornris
 
 < en:brown rice
 #<en:organic rice
@@ -28945,6 +28958,7 @@ en: white rice
 ar: أرز أبيض
 bg: бял ориз
 ca: arròs blanc
+da: hvidt ris, hvide ris
 de: weißer Reis
 el: λευκό ρύζι
 eo: blanka rizo
@@ -28962,6 +28976,7 @@ ko: 백미
 nl: witte rijst
 pl: ryż biały
 pt: arroz branco
+sv: vitt ris, vita ris
 vi: gạo trắng
 zh: 白米
 ciqual_food_code:en: 9100
@@ -28980,8 +28995,8 @@ wikidata:en: Q2674257
 
 < en:Italian rice
 < en:parboiled rice
-< en:rice
-en: Italian Black Parboiled Brown Rice
+< en:whole grain rice
+en: parboiled Italian black whole grain rice, Italian Black Parboiled Brown Rice
 de: Italienischer Schwarzer Parboiled Vollkornreis
 es: Arroz Integral Venere Vaporizado
 fr: Riz moyen à grains noirs complet étuvé
@@ -28994,6 +29009,7 @@ pt: Arroz Integral Venere Parboiled
 < en:rice
 en: long grain rice
 bg: дългозърнест ориз
+da: langkornet ris, langkornede ris
 de: Langkornreis
 es: Arros de grano largo, arroz largo
 fi: pitkäjyväinen riisi
@@ -29003,6 +29019,8 @@ hu: hosszú szemű rizs
 it: riso a chicco lungo
 nl: Langkorrelige rijst
 pl: ryż długoziarnisty
+sv: långkornigt ris, långkorniga ris
+wikidata:en: Q67594028
 # ingredient/fr:riz-long-grain has 46 products in 4 languages @2018-12-19
 # ingredient/fr:riz-long-blanc has 9 products in french @2018-12-19
 # ingredient/fr:riz-long has 26 products in french @2018-12-19
@@ -29015,6 +29033,7 @@ fr: riz long biologique
 hr: organska riža dugog zrna
 hu: bio hosszú szemű rizs
 it: riso biologico a grani lunghi
+sv: ekologisk långkornigt ris
 
 < en:long grain rice
 en: superior quality long grain rice
@@ -29025,8 +29044,8 @@ it: riso a grani lunghi di qualità superiore
 nl: langkorrelige rijst van hoogwaardige kwaliteit
 # ingredient/fr:riz-long-grain-de-qualite-superieure has 10 products in french @2019-05-25
 
+< en:organic long grain rice
 < en:superior quality long grain rice
-#<en:organic rice
 en: superior quality organic long grain rice
 fr: riz long grain biologique de qualite superieure
 it: riso a grani lunghi biologico di qualità superiore
@@ -29042,20 +29061,18 @@ hr: bijela riža dugog zrna
 hu: hosszú szemű fehérrizs
 it: riso bianco a grani lunghi
 pl: ryż biały długoziarnisty
+sv: långkornigt vitt ris
 # ingredient/fr:riz-long-grain-blanc has 4 products @2019-05-30
 
 < en:long grain white rice
+< en:superior quality long grain rice
 en: superior quality long grain white rice
 de: Premiumqualität weißer Langkornreis
 fr: riz blanc long grain de qualite superieure
 hr: vrhunska bijela riža dugog zrna
 it: riso bianco a grani lunghi di qualità superiore
 
-< en:white rice
-en: medium grain white rice
-hr: bijela srednjezrnata riža
-it: riso bianco a grana media
-
+< en:long grain white rice
 < en:organic long grain rice
 en: organic long grain white rice
 fi: luomu pitkäjyväinen valkoinen riisi
@@ -29066,13 +29083,13 @@ it: riso bianco a grani lunghi biologico
 < en:long grain rice
 fr: riz long semi complet
 
+< en:organic long grain rice
 < fr:riz long semi complet
-#<en:organic rice
 fr: riz long semi complet issu de l'agriculture-biologique
 
 < en:brown rice
 < en:long grain rice
-en: brown long grain rice, long grain brown rice
+en: long grain brown rice, brown long grain rice
 bg: кафяв дългозърнест ориз
 de: brauner Langkornreis
 fi: pitkäjyväinen tumma riisi, pitkäjyväinen täysjyväriisi
@@ -29081,11 +29098,13 @@ hr: smeđa riža dugog zrna
 hu: hosszú szemű barnarizs
 it: riso integrale a grani lunghi
 nl: langkorrelige zilvervliesrijst
+sv: långkornigt brunt ris
+wikidata:en: Q95733958
 # ingredient/fr:riz-long-complet has 13 products @2019-05-29
 
-< en:brown long grain rice
-< en:parboiled rice
-en: parboiled brown long grain rice
+< en:long grain brown rice
+< en:long grain parboiled rice
+en: parboiled long grain brown rice, parboiled brown long grain rice
 de: brauner Parboiled Langkornreis
 fi: parboil-käsitelty pitkäjyväinen tumma riisi, parboil-käsitelty pitkäjyväinen täysjyväriisi
 fr: riz complet long grain étuvé, riz long complet etuve
@@ -29120,8 +29139,8 @@ sv: långkornigt parboil ris
 < en:parboiled long grain rice
 fr: riz long italien étuvé
 
+< en:organic long grain rice
 < en:parboiled long grain rice
-#<en:organic rice
 en: parboiled organic long grain rice
 da: økologisk parboiled langkornede ris
 de: Parboiled Bio-Langkornreis
@@ -29132,6 +29151,7 @@ it: riso parboiled biologico a grani lunghi
 nl: Witte langgraanrijst van biologische oorsprong parboiled
 
 < en:long grain parboiled rice
+< en:superior quality long grain rice
 en: superior quality long grain parboiled rice
 de: Hochwertiger langkörniger Parboiled-Reis
 es: arroz grano largo vaporizado de calidad superior
@@ -29140,8 +29160,7 @@ hr: prokuhana riža dugog zrna vrhunske kvalitete
 it: riso parboiled a grani lunghi di qualità superiore
 # ingredient/fr:riz-long-grain-étuvé-de-qualité-supérieure has 39 products in 2 languages @2018-12-19
 
-< en:brown rice
-< en:parboiled rice
+< en:parboiled long grain brown rice
 < en:superior quality long grain parboiled rice
 en: superior quality long grain parboiled brown rice
 de: brauner Spitzen-Langkornreis parboiled
@@ -29151,16 +29170,34 @@ hr: vrhunska kvaliteta parboiled smeđe riže dugog zrna
 it: riso integrale parboiled a grani lunghi di qualità superiore
 # ingredient/fr:riz-long-grain-complet-étuvé-de-qualite-superieure has 4 products @2019-05-29
 
+########################### MEDIUM GRAIN RICES #######################
+
+< en:rice
+en: medium grain rice
+da: mediumkornet ris, mediumkornede ris
+sv: mellankornigt ris, mellankorniga ris
+
+< en:medium grain rice
+< en:white rice
+en: medium grain white rice
+da: mediumkornet hvidt ris, mediumkornede hvide ris
+hr: bijela srednjezrnata riža
+it: riso bianco a grana media
+sv: mellankornigt vitt ris, mellankorniga vita ris
+
 ########################### ROUND RICES #######################
 
 < en:rice
 en: round rice
+da: kortkornet ris, kortkornede ris
 de: Rundkornreis, Milchreis
 fi: pyöreäjyväinen riisi
 fr: riz rond
 hr: okrugla riža
 hu: kerek rizs
 it: riso tondo
+sv: rundkornigt ris
+wikidata:en: Q67593960
 # ingredient/fr:riz-rond has 27 products in french @2019-05-28
 
 < en:round rice
@@ -29174,22 +29211,27 @@ it: riso tondo biologico
 # 2019-05-30
 
 < en:round rice
+< en:white rice
+en: white round rice
 fr: riz rond blanc, Riz rond blanchi
 nl: witte ronde rijst, ronde rijst wit
 # ingredient/fr:riz-rond-blanchi has 4 products @2019-05-29
 # ingredient/fr:riz-rond-blanc has 15 products @2019-05-29
 
-
-< fr:riz rond blanc
+< en:organic round rice
+< en:white round rice
+en: organic white round rice
 fr: riz rond blanc bio
 
 < en:round rice
+< en:semi-whole rice
 en: semi-whole round rice
 fr: riz rond semi-complet, riz rond complet légèrement poli
 hr: polucijela okrugla riža
 nl: halfvolkoren ronde rijst, volkoren ronde rijst lichtjes gepolijst
 
 < en:round rice
+< en:whole grain rice
 en: whole round rice
 fr: riz rond complet
 hr: cijela okrugla riža
@@ -29198,11 +29240,13 @@ nl: volkoren ronde rijst
 # ingredient/fr:riz-rond-complet has 19 products @2019-05-29
 
 < en:round rice
+en: superior quality round rice
 fr: riz rond de qualité supérieure
 # ingredient/fr:riz-rond-de-qualite-superieure has 11 products @2019-05-29
 
-< fr:riz rond de qualité supérieure
-#<en:organic rice
+< en:organic round rice
+< en:superior quality round rice
+en: organic superior quality round rice
 fr: riz rond biologique de qualité supérieure
 
 < en:rice
@@ -29216,6 +29260,7 @@ hr: riža za rižoto
 hu: rizottó rizs
 it: riso per risotto
 pt: arroz risotto
+wikidata:en: Q67438406
 # ingredient/fr:riz-pour-risotto has 8 products @2019-05-30
 
 < en:long grain rice
@@ -29223,7 +29268,7 @@ pt: arroz risotto
 fr: riz long pour risotto
 
 < en:parboiled rice
-< en:rice
+< en:risotto rice
 fr: riz pour risotto étuvé
 
 ########################### RICE SPECIES #######################
@@ -29242,6 +29287,7 @@ la: Zizania
 nl: wilde rijst
 pl: ryż dziki
 pt: arroz selvagem
+sv: vildris
 ciqual_food_code:en: 9108
 ciqual_food_name:en: Wild rice, raw
 ciqual_food_name:fr: Riz sauvage, cru
@@ -29327,10 +29373,8 @@ zh: 紫米
 wikidata:en: Q3434002
 wikipedia:en: https://en.wikipedia.org/wiki/Black_rice
 
-# description:en:BASMATI RICE is a variety of long, slender-grained aromatic rice which is traditionally from the Indian subcontinent.
-
 # <category:en:basmati-rices
-< en:rice
+< en:long grain rice
 en: basmati rice, basmati
 ar: بسمتي
 bg: ориз басмати, басмати
@@ -29365,20 +29409,23 @@ ta: பாசுமதி
 te: బాస్మతి బియ్యం
 th: บาสมาตี
 uk: басматі
-ciqual_food_code:en: 9119
-ciqual_food_name:en: Basmati rice, raw
-ciqual_food_name:fr: Riz thaï ou basmati, cru
-ecobalyse:en: cce078cf-3d3e-4153-a0a1-35555b2da639
-ecobalyse_labels_en_organic:en: dcdcb4d1-1793-4f1b-bd1f-7578d02e4fb1
 # bho:बासमती
 # pnb:باسمتی
 # yue:印度香米
+ciqual_food_code:en: 9119
+ciqual_food_name:en: Basmati rice, raw
+ciqual_food_name:fr: Riz thaï ou basmati, cru
+description:en: BASMATI RICE is a variety of long, slender-grained aromatic rice which is traditionally from the Indian subcontinent.
+ecobalyse:en: cce078cf-3d3e-4153-a0a1-35555b2da639
+ecobalyse_labels_en_organic:en: dcdcb4d1-1793-4f1b-bd1f-7578d02e4fb1
 wikidata:en: Q1649635
 wikipedia:en: https://en.wikipedia.org/wiki/Basmati
 # 1035 in 8 @2021-09-14
 
 < en:basmati rice
+< en:white rice
 en: white basmati rice
+da: hvidt basmatiris
 de: weißer Basmatireis
 fi: valkoinen basmatiriisi
 fr: riz basmati blanc
@@ -29386,11 +29433,14 @@ hr: bijela basmati riža
 hu: fehér basmati rizs, fehér baszmati rizs
 it: riso basmati bianco
 nl: witte basmatirijst
+sv: vitt basmatiris
 # ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
 # ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
 
 < en:basmati rice
+< en:brown rice
 en: brown basmati rice
+da: brunt basmatiris
 de: brauner Basmatireis
 fi: tumma basmatiriisi
 fr: riz basmati complet
@@ -29398,6 +29448,7 @@ hr: smeđa basmati riža
 hu: barna basmati rizs, barna baszmati rizs
 it: riso basmati integrale
 nl: volkoren basmati rijst
+sv: brunt basmatiris
 # ingredient/fr:riz-basmati-complet has 11 products @2019-05-29
 
 #<en:brown basmati rice
@@ -29418,11 +29469,13 @@ nl: langkorrelige basmatirijst
 # fr:riz-long-basmati has 14 products in french @2019-05-25
 
 < en:long grain basmati rice
+< fr:riz long grain naturellement parfumé
 fr: Riz basmati long grain naturellement parfumé
 # ingredient/fr:riz-basmati-long-grain-naturellement-parfume has 6 products 22019-05-29
 
 < en:long grain basmati rice
-en: high quality long grain Basmati rice
+< en:superior quality long grain rice
+en: superior quality long grain Basmati rice, high quality long grain Basmati rice
 de: Langkorn Basmatireis spitzenqualität
 fr: riz basmati long grain de qualité supérieure, riz long grain Basmati de qualité supérieure, riz long basmati de qualite superieure
 hr: visokokvalitetna basmati riža dugog zrna
@@ -29430,8 +29483,8 @@ it: riso basmati a grani lunghi di alta qualità
 nl: langkorrelige basmatirijst van hoogwaardige kwaliteit
 # ingredient/fr:riz-basmati-long-grain-de-qualite-superieure has 16 products in 3 languages @2019-05-23
 
-#<en:high quality long grain Basmati rice
-#<en:organic rice
+#< en:high quality long grain Basmati rice
+#< en:organic long grain rice
 #en:organic high quality long grain Basmati rice
 #fr:riz basmati long grain de qualite superieure issu de l'agriculture biologique
 
@@ -29443,17 +29496,17 @@ fi: parboil-käsitelty basmatiriisi
 # ingredient/fr:riz-basmati-précuit has 33 products in french @2018-12-19
 
 < en:basmati rice
-fr: riz basmati cuit
+< en:cooked rice
+en: cooked basmati rice
 de: Basmati-Reis gekocht
 fi: keitetty basmatiriisi, kypsennetty basmatiriisi
+fr: riz basmati cuit
 it: riso Basmati cotto
 nl: gekookte basmatirijst
 # ingredient/fr:riz-basmati-cuit has 93 products @2018-12-19
 
-# description:en:JASMINE RICE is a long-grain variety of fragrant rice (also known as aromatic rice). Its fragrance, reminiscent of jasmine and popcorn, results from the rice plant's natural production of aromatic compounds
-
 # <category:en:Jasmine rice
-< en:rice
+< en:long grain rice
 en: Thai rice, jasmine rice
 bg: ориз жасмин, тайландски ориз
 de: Thai-Reis, Jasmin-Reis
@@ -29465,6 +29518,7 @@ hu: jázminrizs, jázmin rizs
 it: riso tailandese, di riso tailandese, riso algelsomino
 nl: thaise rijst, jasmijnrijst
 sv: Jasminris
+description:en: JASMINE RICE is a long-grain variety of fragrant rice (also known as aromatic rice). Its fragrance, reminiscent of jasmine and popcorn, results from the rice plant's natural production of aromatic compounds
 wikidata:en: Q2733021
 wikipedia:en: https://en.wikipedia.org/wiki/Jasmine_rice
 # ingredient/fr:riz-thai has 23 products @2019-05-29
@@ -56761,10 +56815,26 @@ fr: Poudre de piment coréen, gochugaru
 pl: papryka gochugaru
 
 < en:vegetable
-en: sichuan pepper
+en: Japanese pepper
+xx: Zanthoxylum piperitum
+ja: 山椒
+ko: 초피
+la: Zanthoxylum piperitum
+comment:en: Despite being called a pepper, it is more closely related to rues and citrus fruits and shouldn’t be a child of other peppers.
+wikidata:en: Q167881
+
+< en:spice
+en: Sichuan pepper
+ar: فلفل سشوان
+da: sichuanpeber
 hr: sečuanski papar
 it: pepe di Sichuan
+nb: sichuanpepper
 pl: pieprz syczuański
+sv: sichuanpeppar
+zh: 花椒
+description:en: Sichuan pepper is a spice made from the dried pericarp (outer shell of the fruit) of a plant of the genus Zanthoxylum in the family Rutaceae. (Wikipedia)
+wikidata:en: Q756800
 
 < en:spice
 en: paprika
@@ -65455,7 +65525,6 @@ nl: gemalen galangawortel, laos
 #                                Ginger
 #
 ###################################################################################################
-# description:en:GINGER (Zingiber officinale) is a flowering plant whose rhizome, ginger root or simply ginger, is widely used as a spice or a folk medicine
 
 # <en:root vegetable
 < en:spice
@@ -65475,7 +65544,7 @@ bs: Đumbir
 ca: gingebre
 cs: zázvor, zázvorová, zázvoru
 cy: Sinsir
-da: Ingefær, Ingefær rod
+da: ingefær, ingefær rod
 de: Ingwer
 el: Πιπερόριζα, ζιγγίβερι
 eo: zingibro
@@ -65539,7 +65608,7 @@ sk: Ďumbier, zázvor
 sl: Ingver
 sr: ћумбир
 su: Jahé
-sv: ingefära
+sv: ingefära, ingefärs
 sw: Mtangawizi
 ta: இஞ்சி
 te: అల్లం
@@ -65558,10 +65627,6 @@ wo: jinjeer
 yi: אינגבער
 za: hing
 zh: 薑
-# en:gingembre has 1506 products in 8 languages @2018-10-25
-ciqual_food_code:en: 11074
-ciqual_food_name:en: Ginger, raw
-ciqual_food_name:fr: Gingembre, racine crue
 # ace:Halia
 # ang:Gingifer
 # arc:ܚܡܣܐ
@@ -65594,7 +65659,13 @@ ciqual_food_name:fr: Gingembre, racine crue
 # xmf:ginger
 # yue:薑
 # zh-tw:薑
+ciqual_food_code:en: 11074
+ciqual_food_name:en: Ginger, raw
+ciqual_food_name:fr: Gingembre, racine crue
+description:en: GINGER (Zingiber officinale) is a flowering plant whose rhizome, ginger root or simply ginger, is widely used as a spice or a folk medicine
+wikidata:en: Q35625
 wikipedia:en: https://en.wikipedia.org/wiki/Ginger
+# en:gingembre has 1506 products in 8 languages @2018-10-25
 
 #<en:ginger
 #en:organic ginger
@@ -86699,18 +86770,17 @@ de: färbende Frucht- und Pflanzenkonzentrate
 # <en:compound
 de: färbende Gemüsekonzentrate
 
-# description:en:CONCENTRATE is the form of substance which has had the majority of its base component (in the case of a liquid: the solvent) removed
-
 # TODO: improve parsing so this can live in processing only.
 # See comments on https://github.com/openfoodfacts/openfoodfacts-server/pull/12031
 en: concentrate
 hr: koncentrat
 nb: konsentrat
 sv: koncentrat
-# ingredients/en:concentrate has 288 products @2025-06-15
+description:en: CONCENTRATE is the form of substance which has had the majority of its base component (in the case of a liquid: the solvent) removed
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q1355665
+# ingredients/en:concentrate has 288 products @2025-06-15
 
 # <en:part
 < en:extract
