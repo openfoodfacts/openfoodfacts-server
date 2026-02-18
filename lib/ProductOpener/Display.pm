@@ -9260,7 +9260,7 @@ CSS
 
 			my $source = deep_get($input_set_ref, "source");
 
-			my $col_name = lang("preparation_" . $preparation) . " " .  $per_lang . " (" . $source . ")";
+			my $col_name = lang("preparation_" . $preparation) . " " . $per_lang . " (" . $source . ")";
 
 			$columns{$col_id} = {
 				scope => "product",
