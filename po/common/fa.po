@@ -2965,25 +2965,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "سایر مواد مغذی اضافه شده"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "همانطور که فروخته شد"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "آماده شده"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "واحد"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "اطلاعات تغذیه‌ای برای محصول به همان صورتی که فروخته شده است، ذکر شده است."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "اطلاعات تغذیه‌ای برای محصول آماده‌شده مشخص شده است."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -7703,6 +7687,48 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "جستجوی محصولات در همان دسته بندی بدون قند افزوده:"
 
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr ""
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr ""
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr ""
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "برای ۱ کیلوگرم"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "در هر وعده"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr ""
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr ""
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr ""
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr ""
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "مواد ناخواسته"
@@ -7894,4 +7920,8 @@ msgstr "تأثیر کم"
 msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
 msgstr "تأثیر ارزیابی نشده است"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr ""
 
