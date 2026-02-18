@@ -2354,7 +2354,7 @@ HTML
 				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
 				foreach my $nutrition_grade ('a', 'b', 'c', 'd', 'e', 'not-applicable', 'unknown') {
-					$series_data .= ($products{$nutrition_grade} + 0) . ',';
+					$series_data .= (($products{$nutrition_grade} || 0) + 0) . ',';
 				}
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'environmental_score') {
@@ -2364,7 +2364,7 @@ HTML
 				foreach
 					my $environmental_score_grade ('a-plus', 'a', 'b', 'c', 'd', 'e', 'f', 'not-applicable', 'unknown')
 				{
-					$series_data .= ($products{$environmental_score_grade} + 0) . ',';
+					$series_data .= (($products{$environmental_score_grade} || 0) + 0) . ',';
 				}
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'nova_groups') {
@@ -2376,7 +2376,7 @@ HTML
 					"en:3-processed-foods", "en:4-ultra-processed-food-and-drink-products",
 					)
 				{
-					$series_data .= ($products{$nova_group} + 0) . ',';
+					$series_data .= (($products{$nova_group} || 0) + 0) . ',';
 				}
 			}
 
@@ -4174,7 +4174,7 @@ HTML
 
 					# Display the user profile
 
-					if (($tagid eq $User_id) or $request_ref->{admin}) {
+					if (((defined $User_id) and ($tagid eq $User_id)) or $request_ref->{admin}) {
 						$user_template_data_ref->{edit_profile} = 1;
 						$user_template_data_ref->{userid} = $tagid;
 					}
@@ -9176,6 +9176,7 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 			per => $per,
 			name => $name_per_xxg,
 			short_name => $per,
+			class => "product",
 		};
 
 		push @cols, $preparation . "_" . $per;
@@ -9259,7 +9260,7 @@ CSS
 
 			my $source = deep_get($input_set_ref, "source");
 
-			my $col_name = lang("preparation_" . $preparation) . $per_lang . " (" . $source . ")";
+			my $col_name = lang("preparation_" . $preparation) . " " .  $per_lang . " (" . $source . ")";
 
 			$columns{$col_id} = {
 				scope => "product",
@@ -9267,6 +9268,7 @@ CSS
 				per => $per,
 				name => $col_name,
 				short_name => $per,
+				class => "product",
 			};
 
 			$i++;
@@ -9339,7 +9341,7 @@ CSS
 		}
 		# Show rows that are important (id with a starting !) or the id is search
 		# as we have only 1 or 2 nutrients for search graphs
-		elsif (($nutrient =~ /^!/) or ($product_ref->{id} eq 'search')) {
+		elsif (($nutrient =~ /^!/) or ((defined $product_ref->{id}) and ($product_ref->{id} eq 'search'))) {
 			$shown = 1;
 			$log->debug("showing nutrient in nutrition table even if no value", {nid => $nid})
 				if $log->is_debug();
@@ -9380,7 +9382,7 @@ CSS
 				my $col_type;
 
 				# Stats for categories
-				if ($col_class eq 'stats') {
+				if ((defined $col_class) and ($col_class eq 'stats')) {
 					$col_type = "category_stats";
 					my $stat_value = deep_get($product_ref, "values", $nid, $col_id);
 					if (defined $stat_value) {
@@ -9485,6 +9487,7 @@ CSS
 					# If we don't have a value for energy-kj, check if we have a value for energy-kcal
 					if (($nid eq "energy") and (not defined $value)) {
 						$value = deep_get($product_ref, @nutrients_path, "energy-kcal", "value");
+						$nutrient_set_unit = deep_get($product_ref, @nutrients_path, "enrgy-kcal", "unit");
 						if (defined $value) {
 							# We will display ? for the energy in kj, but we will display the kcal value
 							$value = '?';
@@ -9512,7 +9515,12 @@ CSS
 							}
 						}
 
-						$value_unit = "$formatted_value $nutrient_set_unit";
+						if (defined $nutrient_set_unit) {
+							$value_unit = "$formatted_value $nutrient_set_unit";
+						}
+						else {
+							$value_unit = $formatted_value;
+						}
 
 						my $modifier = deep_get($product_ref, @nutrients_path, $nid, "modifier");
 
