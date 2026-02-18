@@ -1,23 +1,40 @@
 {
-   "code" : "123",
-   "errors" : [
-      {
-         "field" : {
-            "id" : "code",
-            "value" : "123"
-         },
-         "impact" : {
-            "id" : "failure",
-            "lc_name" : "Failure",
-            "name" : "Failure"
-         },
-         "message" : {
-            "id" : "invalid_code",
-            "lc_name" : "Invalid code",
-            "name" : "Invalid code"
-         }
+  "warnings": [
+    {
+      "field": {
+        "id": "code",
+        "value": "00000123"
+      },
+      "message": {
+        "name": "",
+        "lc_name": "",
+        "id": "different_normalized_product_code"
+      },
+      "impact": {
+        "name": "None",
+        "lc_name": "None",
+        "id": "none"
       }
-   ],
-   "status" : "failure",
-   "warnings" : []
+    }
+  ],
+  "status": "failure",
+  "errors": [
+    {
+      "impact": {
+        "name": "Failure",
+        "lc_name": "Failure",
+        "id": "failure"
+      },
+      "message": {
+        "lc_name": "Invalid code",
+        "id": "invalid_code",
+        "name": "Invalid code"
+      },
+      "field": {
+        "value": "123",
+        "id": "code"
+      }
+    }
+  ],
+  "code": "00000123"
 }

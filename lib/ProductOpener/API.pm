@@ -67,7 +67,7 @@ use ProductOpener::HTTP qw/write_cors_headers request_param/;
 use ProductOpener::Auth qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc lang_in_other_lc/;
-use ProductOpener::Products qw/normalize_code_with_gs1_ai product_name_brand_quantity/;
+use ProductOpener::Products qw/normalize_code product_name_brand_quantity/;
 use ProductOpener::Export qw/:all/;
 use ProductOpener::Tags qw/%language_fields display_taxonomy_tag/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
@@ -576,7 +576,7 @@ Normalized code and, if available, GS1 AI data string.
 
 sub normalize_requested_code ($requested_code, $response_ref) {
 
-	my ($code, $ai_data_str) = &normalize_code_with_gs1_ai($requested_code);
+	my ($code, $ai_data_str) = &normalize_code($requested_code);
 	$response_ref->{code} = $code;
 
 	# Add a warning if the normalized code is different from the requested code

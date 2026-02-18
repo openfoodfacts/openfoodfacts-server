@@ -120,7 +120,7 @@ patternProperties:
     description: Packaging information text in language designated by `language_code`
 
   # Nutrient value fields
-  'nutriments_(?<nutrient_id>[\w-]+)':
+  'nutriment_(?<nutrient_id>[\w-]+)':
     type: string
     description: Value for the nutrient designated by `nutrient_id` (from nutrients.txt taxonomy, e.g. energy-kj, energy-kcal, fat, saturated-fat, etc.)
 

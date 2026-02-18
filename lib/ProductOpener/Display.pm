@@ -4575,7 +4575,7 @@ sub add_country_and_owner_filters_to_query ($request_ref, $query_ref) {
 		if (($request_ref->{cc} ne 'world') and (not defined $query_ref->{code})) {
 			# we may already have a condition on countries (e.g. from the URL /country/germany )
 			if (not defined $query_ref->{countries_tags}) {
-				$query_ref->{countries_tags} = $request_ref->{country};
+				$query_ref->{countries_tags} = {'$in' => [$request_ref->{country}, "en:world"]};
 			}
 			else {
 				my $field = "countries_tags";
