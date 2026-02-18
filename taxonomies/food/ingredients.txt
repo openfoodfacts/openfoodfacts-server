@@ -56074,6 +56074,27 @@ it: insalata composta
 # wikipedia says "In many languages, but not English, the word paprika also refers to the plant and the fruit from which the spice is made, as well as to peppers in the Grossum group (e.g. bell peppers)."
 # do not make pepper a synonym of bell pepper
 
+
+< en: bell pepper
+< en: paprika
+en: paprika or bell pepper
+bg: червен пипер, паприка
+cs: paprika
+da: paprika
+de: Paprika
+fi: paprika
+hu: paprika
+lv: paprika
+nb: paprika
+nl: paprika, paprika's, zoete peper, snack paprika
+nn: paprika
+no: paprika
+pl: papryka, papryki, paprykowy, paprykowe, paprykowa
+sl: paprika
+sv: paprika
+description:en: paprika can be either the dried powder or the fruit of a plant in some language. Put it only here if that is the case, otherwise put the ingredient under en:bell pepper or en:paprika
+
+
 < en:fruit vegetable
 en: capsicum annuum
 xx: capsicum annuum, capsicum
@@ -56116,7 +56137,8 @@ ms: lada benggala
 mt: bżar ħelu
 my: ငရုပ်ပွ
 ne: भेडे खुर्सानी
-# nl: paprika # also "en: paprika", see "en: paprika or bell pepper"
+nl: paprika (vrucht), puntpaprika 
+# also "en: paprika", see "en: paprika or bell pepper"
 oc: pebron
 pl: papryka słodka
 ps: خواږه مرچ
@@ -56940,6 +56962,7 @@ pl: ostra papryka, ostra papryka w proszku, papryka ostra, papryka ostra mielona
 < en:vegetable
 en: fruit vegetable
 it: frutta verdura
+nl: groentevrucht
 eurocode_2_group_2:en: 8.40
 
 < en:fruit vegetable
@@ -93635,8 +93658,6 @@ hr: biljni pigment
 it: pigmento vegetale
 ja: 野菜色素
 
-
-
 # following ingredients have two meanings in some languages
 
 < en:crayfish
@@ -93648,24 +93669,6 @@ it: gambero, gamberi
 < en:gherkin
 en: cucumber or gherkin, cumcumber or gherkin
 de: Gurke, Gurken
-
-< en: bell pepper
-< en: paprika
-en: paprika or bell pepper
-bg: червен пипер, паприка
-cs: paprika
-da: paprika
-de: Paprika
-fi: paprika
-hu: paprika
-lv: paprika
-nb: paprika
-nl: paprika, paprika's, zoete peper, snack paprika
-nn: paprika
-no: paprika
-pl: papryka, papryki, paprykowy, paprykowe, paprykowa
-sl: paprika
-sv: paprika
 
 < en:Minerals
 < en:Vitamins
