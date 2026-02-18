@@ -3800,7 +3800,9 @@ sub display_tag ($request_ref) {
 			}
 
 			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid}{'wikidata:en'})) {
-				push @wikidata_objects, $properties{$tagtype}{$canon_tagid}{'wikidata:en'};
+				if (($options{product_type} eq 'food') and ($tagtype eq 'categories')) {
+					push @wikidata_objects, $properties{$tagtype}{$canon_tagid}{'wikidata:en'};
+				}
 			}
 		}
 
