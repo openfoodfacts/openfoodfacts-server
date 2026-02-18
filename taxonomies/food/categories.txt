@@ -36368,7 +36368,7 @@ intake24_category_code:en: BRDR
 
 < en:Bread rolls
 en: Soft bread rolls
-nl: Zachte broodjes, puntjes
+nl: Zachte broodjes, puntjes, bollen
 
 < en:Breads
 en: Breadsticks, Grissini, Bread sticks
@@ -40027,8 +40027,8 @@ ciqual_food_name:en: Dark chocolate bar, filled with praline
 ciqual_food_name:fr: Chocolat noir fourré praliné, tablette
 
 < en:Dark chocolates
-en: Dark chocolate bar for cooking with more than 40% cocoa
-fr: Chocolat noir pâtissier en tablette à 40% de cacao minimum, Tablettes de chocolat noir pâtissier à 40% de cacao minimum
+en: Dark chocolate bars for cooking, Dark chocolate bar for cooking with more than 40% cocoa
+fr: Chocolats noirs pâtissiers en tablette, Chocolat noir pâtissier en tablette à 40% de cacao minimum, Tablettes de chocolat noir pâtissier à 40% de cacao minimum
 hr: Tamna čokolada za kuhanje s više od 40% kakaa
 lt: Juodos šokolado plytelės kepimui su daugiau nei 40% kakavos, Kepinių šokoladai, Šokoladai kepimui
 agribalyse_food_code:en: 31085
@@ -40036,12 +40036,9 @@ ciqual_food_code:en: 31085
 ciqual_food_name:en: Dark chocolate bar, more than 40% cocoa, for cooking
 ciqual_food_name:fr: Chocolat noir à 40% de cacao minimum, à pâtisser, tablette
 
-< en:Dark chocolates
-en: Dark chocolate paste for cooking, Dark chocolate paste
-fr: Pâte de chocolat noir pâtissier, Pâte de chocolat noir
-agribalyse_proxy_food_code:en: 31085
-agribalyse_proxy_food_name:en: Dark chocolate bar, more than 40% cocoa, for cooking
-agribalyse_proxy_food_name:fr: Chocolat noir à 40% de cacao minimum, à pâtisser, tablette
+< en:Milk chocolates
+en: Milk chocolate bars for cooking
+fr: Chocolats au lait pâtissiers en tablette
 
 < en:Chocolates
 en: Salted chocolates
@@ -65686,13 +65683,20 @@ ciqual_food_name:fr: Semoule de blé dur, crue
 wikidata:en: Q381350
 
 < en:Durum wheat semolinas
-en: Durum wheat semolinas for couscous
+en: Durum wheat semolinas for couscous, Couscous
+bg: Кускус
 de: Hartweizengrieße für Couscous, Hartweizengrieß für Couscous
-es: Sémolas de trigo duro para couscous
-fr: Semoules de blé dur pour couscous
-hr: Griz od durum pšenice za kus-kus
+es: Sémolas de trigo duro para couscous, Cuscús
+fr: Semoules de blé dur pour couscous, Couscous
+hr: Griz od durum pšenice za kus-kus, Kuskus
 it: Semolino di grano duro per couscous
+ja: クスクス
+lt: Kuskusas
 nl: Couscous griesmelen van harde tarwe, Harde tarwe griesmelen voor couscous
+agribalyse_food_code:en: 9681
+ciqual_food_code:en: 9681
+ciqual_food_name:en: Couscous (durum wheat semolina pre-cooked with steam), raw
+ciqual_food_name:fr: Couscous (semoule de blé dur roulée précuite à la vapeur), crue
 intake24_category_code:en: UCCGR
 
 < en:Durum wheat semolinas
@@ -81042,20 +81046,6 @@ fr: Chop suey de porc, Chop suey au porc
 ciqual_food_code:en: 25205
 ciqual_food_name:en: Chop suey (pork or chicken)
 ciqual_food_name:fr: Chop suey (porc ou poulet)
-
-< en:Meals
-en: Couscous, Durum wheat semolina pre-cooked with steam
-xx: Couscous
-bg: Кускус
-es: Cuscús
-fr: Couscous, Semoule de blé dur roulée précuite à la vapeur
-hr: Kuskus
-ja: クスクス
-lt: Kuskusas
-agribalyse_food_code:en: 9681
-ciqual_food_code:en: 9681
-ciqual_food_name:en: Couscous (durum wheat semolina pre-cooked with steam), raw
-ciqual_food_name:fr: Couscous (semoule de blé dur roulée précuite à la vapeur), crue
 
 < en:Meals
 en: Cooked unsalted couscous, Unsalted durum wheat semolina pre-cooked with steam
@@ -111885,7 +111875,7 @@ en: Potatoes from Val de Picones
 de: Kartoffeln aus Val de Picones
 fr: Pommes de terre de Val de Picones
 hr: Krumpir iz val de picones
-nl: Aardappelen ui Val de Picones
+nl: Aardappelen uit Val de Picones
 
 #<en:Potatoes
 #en:Potatoes from the United Kingdom
@@ -121920,6 +121910,26 @@ hr: Slastičarski pomoćnici
 nl: Banketbakkerhulpmiddelen
 ru: Добавки для мучных изделий
 
+< en:Cocoa and its products
+< en:Pastry helpers
+en: Cocoa glazes
+fr: Glaçages au cacao
+
+< en:Pastry helpers
+en: Chocolate drops
+fr: Pépites de chocolat
+agribalyse_proxy_food_code:en: 31005
+agribalyse_proxy_food_name:en: Dark chocolate bar, less than 70% cocoa
+agribalyse_proxy_food_name:fr: Chocolat noir à moins de 70% de cacao, à croquer, tablette
+
+< en:Chocolate drops
+en: Milk chocolate drops
+fr: Pépites de chocolat au lait
+
+< en:Chocolate drops
+en: Dark chocolate drops
+fr: Pépites de chocolat noir
+
 < en:Cooking helpers
 en: Sugary cooking helpers
 de: Süße Kochhelfer, Backhilfen, Kochhilfen für Süßspeisen
@@ -121929,7 +121939,7 @@ nl: Zoete kookhulpmiddelen
 
 < en:Pastry helpers
 en: Fondants
-fr: Pâtes à sucre, Fondants
+fr: Pâtes à sucre, Fondants, glaçages au sucre
 hr: Fondanti
 ja: フォンダン
 nl: Fondants
@@ -122607,14 +122617,6 @@ fr: Pâte phyllo surgelée, Pâte filo surgelée
 ciqual_proxy_food_code:en: 23445
 ciqual_proxy_food_name:en: Phyllo or filo dough, raw
 ciqual_proxy_food_name:fr: Pâte phyllo ou Pâte filo, crue
-
-< en:Food decorations
-< en:Pastry helpers
-en: Chocolate drops
-fr: Pépites de chocolat
-agribalyse_proxy_food_code:en: 31005
-agribalyse_proxy_food_name:en: Dark chocolate bar, less than 70% cocoa
-agribalyse_proxy_food_name:fr: Chocolat noir à moins de 70% de cacao, à croquer, tablette
 
 < en:Meals
 en: Tajine
