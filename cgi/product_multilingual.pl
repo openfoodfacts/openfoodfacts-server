@@ -432,9 +432,30 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Check if the request is for changing the product code or the product type, if so process it
 
-	process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref,
-		single_param("new_code"));
-	$code = $product_ref->{code};
+	my $old_code = $product_ref->{code};
+    my $requested_new_code = normalize_code(single_param("new_code"));
+
+    process_change_product_code_request_if_we_have_one(
+      $request_ref,
+      $response_ref,
+      $product_ref,
+      $requested_new_code
+    );
+
+  # If a new barcode was requested but the code did not change, show an error
+    if (defined $requested_new_code
+      && $requested_new_code ne ''
+      && $requested_new_code ne $old_code
+      && $product_ref->{code} eq $old_code) {
+
+    push @errors, "The barcode already exists or cannot be changed.";
+
+    # Stop showing "Changes saved"
+    $action = 'display';
+    }
+    else {
+       $code = $product_ref->{code};
+    }
 
 	process_change_product_type_request_if_we_have_one($request_ref, $response_ref, $product_ref,
 		single_param("product_type"));
@@ -867,7 +888,7 @@ HTML
 	font-weight:normal;
 	font-size:0.8rem;
 }
-.select_manage .ui-selectable li { 
+.select_manage .ui-selectable li {
 	height: 180px
 }
 CSS
