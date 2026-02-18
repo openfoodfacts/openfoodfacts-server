@@ -1,5 +1,31 @@
 # Changelog
 
+## [2.88.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.87.0...v2.88.0) (2026-02-18)
+
+
+### Features
+
+* Add maintenance knowledge panel for Open Products Facts ([#12578](https://github.com/openfoodfacts/openfoodfacts-server/issues/12578)) ([b64d0c0](https://github.com/openfoodfacts/openfoodfacts-server/commit/b64d0c0258851bcd6567e52207e020b5ac83aed8))
+* Add QFDMO reuse knowledge panel for circular economy solutions in France ([#12583](https://github.com/openfoodfacts/openfoodfacts-server/issues/12583)) ([b7d87c2](https://github.com/openfoodfacts/openfoodfacts-server/commit/b7d87c28349cbe153a7bc6e61180a254bf6de1c8))
+* New nutrition schema (WIP) - Development branch that we merge new nutrition PRs to ([#12500](https://github.com/openfoodfacts/openfoodfacts-server/issues/12500)) ([f4c6326](https://github.com/openfoodfacts/openfoodfacts-server/commit/f4c6326fbece849761e5deb3fa69da8b4f860a30))
+
+
+### Bug Fixes
+
+* add back missing old nutriscore details template ([#13045](https://github.com/openfoodfacts/openfoodfacts-server/issues/13045)) ([81f9316](https://github.com/openfoodfacts/openfoodfacts-server/commit/81f93165661a9bbd14567c892ea37304cf3df839))
+* Add null guards for high-impact warnings in production logs ([#13054](https://github.com/openfoodfacts/openfoodfacts-server/issues/13054)) ([a498b55](https://github.com/openfoodfacts/openfoodfacts-server/commit/a498b555ea3a214685770045216a465b86aef86b))
+* cache attribute_groups API depends on language and version ([#13074](https://github.com/openfoodfacts/openfoodfacts-server/issues/13074)) ([ccb881b](https://github.com/openfoodfacts/openfoodfacts-server/commit/ccb881b3379fbc40306d6a309a8d04fdcda6223c))
+* check for all $symbols_regexp not just '*' ([#13025](https://github.com/openfoodfacts/openfoodfacts-server/issues/13025)) ([ddfef3c](https://github.com/openfoodfacts/openfoodfacts-server/commit/ddfef3c180c7f8a07ca057379c6b9e6cff1670f7))
+* display error message for oidc_signin_no_cookie ([#13046](https://github.com/openfoodfacts/openfoodfacts-server/issues/13046)) ([17b5101](https://github.com/openfoodfacts/openfoodfacts-server/commit/17b5101c82467390aa22d49c84e20e7c9a8e0913))
+* fixes for overrides ([#13022](https://github.com/openfoodfacts/openfoodfacts-server/issues/13022)) ([fd4ccc7](https://github.com/openfoodfacts/openfoodfacts-server/commit/fd4ccc7900085931682811bafd69a241b11bf434))
+* graphs improvements for OPF ([#13044](https://github.com/openfoodfacts/openfoodfacts-server/issues/13044)) ([03da03c](https://github.com/openfoodfacts/openfoodfacts-server/commit/03da03c038157fab8ab3514e3590b0ea2103baea))
+* Issues running pro platform locally in docker ([#13055](https://github.com/openfoodfacts/openfoodfacts-server/issues/13055)) ([bd3a17c](https://github.com/openfoodfacts/openfoodfacts-server/commit/bd3a17c4505f8c239eb33814aafd69d4358618aa))
+* remove broken Microsoft Phone link from config [#13003](https://github.com/openfoodfacts/openfoodfacts-server/issues/13003) ([#13013](https://github.com/openfoodfacts/openfoodfacts-server/issues/13013)) ([881cfbb](https://github.com/openfoodfacts/openfoodfacts-server/commit/881cfbb29ba58ea19c274c714810af55d177a676))
+* Remove unused Action::CircuitBreaker and Action::Retry dependencies ([#13038](https://github.com/openfoodfacts/openfoodfacts-server/issues/13038)) ([3baad8d](https://github.com/openfoodfacts/openfoodfacts-server/commit/3baad8d78a0d8eeffff2c6db97d0043d5626ecb8))
+* rename 'Suffering Fingerprint' to 'Suffering Footprint' ([#13075](https://github.com/openfoodfacts/openfoodfacts-server/issues/13075)) ([6e1297c](https://github.com/openfoodfacts/openfoodfacts-server/commit/6e1297c56563a36522f08a6875c993f48742861c))
+* restrict map display to food product categories ([#13073](https://github.com/openfoodfacts/openfoodfacts-server/issues/13073)) ([c7c6df4](https://github.com/openfoodfacts/openfoodfacts-server/commit/c7c6df4edf3614584a4e638e5c5b5454d4783129))
+* use request lc in templates ([#13047](https://github.com/openfoodfacts/openfoodfacts-server/issues/13047)) ([379dec7](https://github.com/openfoodfacts/openfoodfacts-server/commit/379dec704af1a459ae90ed8db113c2ed30ed327f))
+
 ## [2.87.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.86.0...v2.87.0) (2026-02-05)
 
 
