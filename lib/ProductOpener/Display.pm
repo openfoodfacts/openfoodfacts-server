@@ -9560,6 +9560,9 @@ CSS
 					$unit = $product_ref->{nutriments}{$nid . "_unit"};
 				}
 			}
+			if (defined $product_ref->{nutriments}{$nid . "_value"} && !$unit) {
+                $unit = 'g';
+            git }
 			my @columns;
 			my @extra_row_columns;
 
