@@ -157,7 +157,7 @@ use ProductOpener::Recipes qw(add_product_recipe_to_set analyze_recipes compute_
 use ProductOpener::PackagerCodes
 	qw($ec_code_regexp %geocode_addresses %packager_codes init_geocode_addresses init_packager_codes);
 use ProductOpener::Export qw(export_csv);
-use ProductOpener::API qw(add_error customize_response_for_product process_api_request process_auth_header);
+use ProductOpener::API qw(add_error customize_response_for_product process_api_request process_auth_header sanitize);
 use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key get_cache_results set_cache_results/;
 use ProductOpener::Permissions qw/has_permission/;
@@ -485,7 +485,7 @@ Reference to request object.
 
 sub init_request ($request_ref = {}) {
 
-	$log->debug("init_request - start", {request_ref => $request_ref}) if $log->is_debug();
+	$log->debug("init_request - start", {request_ref => sanitize($request_ref)}) if $log->is_debug();
 
 	$request_ref->{stats} = init_request_stats();
 
@@ -944,7 +944,7 @@ Set two attributes to `request_ref`:
 =cut
 
 sub set_user_agent_request_ref_attributes ($request_ref) {
-	my $user_agent_str = user_agent();
+	my $user_agent_str = user_agent() // '';
 	$request_ref->{user_agent} = $user_agent_str;
 
 	my $is_crawl_bot = 0;
@@ -1072,7 +1072,7 @@ The request is not terminated by this function, it will continue to run.
 sub display_error ($request_ref, $error_message, $status_code) {
 
 	$log->debug("display_error",
-		{error_message => $error_message, status_code => $status_code, request_ref => $request_ref})
+		{error_message => $error_message, status_code => $status_code, request_ref => sanitize($request_ref)})
 		if $log->is_debug();
 
 	# We need to remove the canonical URL from the request so that it does not get displayed in the error page
@@ -4606,7 +4606,8 @@ sub add_country_and_owner_filters_to_query ($request_ref, $query_ref) {
 		}
 	}
 
-	$log->debug("result of add_country_and_owner_filters_to_query", {request => $request_ref, query => $query_ref})
+	$log->debug("result of add_country_and_owner_filters_to_query",
+		{request => sanitize($request_ref), query => $query_ref})
 		if $log->is_debug();
 
 	return;
@@ -5085,7 +5086,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	my $template_data_ref = {};
 
 	$log->debug("search_and_display_products",
-		{request_ref => $request_ref, query_ref => $query_ref, sort_by => $sort_by})
+		{request_ref => sanitize($request_ref), query_ref => $query_ref, sort_by => $sort_by})
 		if $log->is_debug();
 
 	add_params_and_filters_to_query($request_ref, $query_ref);
@@ -7704,7 +7705,7 @@ sub display_page ($request_ref) {
 
 	# Display a banner from users on Android or iOS
 
-	my $user_agent = $ENV{HTTP_USER_AGENT};
+	my $user_agent = $ENV{HTTP_USER_AGENT} // '';
 
 	# add a user_agent parameter so that we can test from desktop easily
 	if (defined single_param('user_agent')) {

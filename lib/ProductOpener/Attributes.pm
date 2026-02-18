@@ -1347,10 +1347,6 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 
 	my $allergen_id = "en:" . $allergen;
 
-	$log->debug("compute attribute allergen for product",
-		{code => $product_ref->{code}, attribute_id => $attribute_id, allergen_id => $allergen_id})
-		if $log->is_debug();
-
 	# Initialize general values that do not depend on the product (or that will be overriden later)
 
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
@@ -1627,10 +1623,6 @@ e.g. nutritional_quality, allergens, labels
 
 sub add_attribute_to_group ($product_ref, $target_lc, $group_id, $attribute_ref) {
 
-	$log->debug("add_attribute_to_group",
-		{target_lc => $target_lc, group_id => $group_id, attribute_ref => $attribute_ref})
-		if $log->is_debug();
-
 	if (defined $attribute_ref) {
 
 		# Delete fields that are returned only by /api/v2/attribute_groups to list all the available attributes
@@ -1665,8 +1657,6 @@ sub add_attribute_to_group ($product_ref, $target_lc, $group_id, $attribute_ref)
 		my $group_ref;
 		# Select the requested group
 		foreach my $each_group_ref (@{$product_ref->{"attribute_groups_" . $target_lc}}) {
-			$log->debug("add_attribute_to_group - existing group", {group_ref => $group_ref, group_id => $group_id})
-				if $log->is_debug();
 			if ($each_group_ref->{id} eq $group_id) {
 				$group_ref = $each_group_ref;
 				last;
