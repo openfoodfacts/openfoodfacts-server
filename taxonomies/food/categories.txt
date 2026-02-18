@@ -99,7 +99,11 @@ stopwords:de: und, mit, von
 # Careful: it should be the same main tag, not a synonym
 # Remark: add the property to the highest parent
 
-# In European Union food of animal origin must be tagged by a packaging code (a number in a circle).
+# default per quantity for nutrition: used to display per 100g or per 100ml
+# default_nutrition_as_sold_per:en: 100g (possible values: 100g, 100ml, 1kg)
+# default_nutrition_prepared_per:en: 100ml (e.g. for dehydrated beverages)
+
+# In European Union food of animal origin must be tagged by a packaging code (a number in a circle). 
 # The followig tag is added to food of animal origin:
 # food_of_animal_origin:en: yes
 
@@ -1316,6 +1320,7 @@ hr: Pripravci za piće
 hu: Italkészítmények
 it: Preparati per bevande
 nl: Drankbereidingen
+default_nutrition_prepared_per:en: 100ml
 description:en: Any product which purpose it is to create a beverage which uses water (hor or cold) in some way (diluting, infusing, dissolving, etc).
 
 < en:Beverages and beverages preparations
@@ -1354,6 +1359,7 @@ th: เครื่องดื่ม
 tr: İçecekler
 uk: Напої
 zh: 饮料, 飲品
+default_nutrition_as_sold_per:en: 100ml
 google_product_taxonomy_id:en: 413
 intake24_category_code:en: DRNK
 wikidata:en: Q40050
@@ -60356,6 +60362,7 @@ zh: 植物油
 ciqual_food_code:en: 17001
 ciqual_food_name:en: Vegetable oil (average)
 ciqual_food_name:fr: Huile végétale (aliment moyen)
+default_nutrition_as_sold_per:en: 100ml
 gpc_category_code:en: 10000040
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any edible liquid oil derived from the following: grains, nuts, olives, palms, palm kernels, seeds, corn, maize, fruit pulp, beans or combination of these, that can be poured or dispensed as a spray, intended for cooking or for use as a dressing for salads. Products can include added flavouring, such as chilli and herbs. Definition Excludes: Specifically excludes products defined in the brick Oils Edible - Vegetable or Plant (Perishable). Excludes products such as health supplement based oils, such as Cod Liver, and non edible oils, such as non-food grade Linseed Oil.
 gpc_category_name:en: Oils Edible - Vegetable or Plant (Shelf Stable)
@@ -76239,6 +76246,7 @@ sv: Såser, Sås
 th: กลุ่มผลิตภัณฑ์ไส้กรอก
 tr: Sos
 zh: 酱汁
+default_nutrition_as_sold_per:en: 100ml
 food_groups:en: en:dressings-and-sauces
 pnns_group_2:en: Dressings and sauces
 who_id:en: 17
@@ -76262,6 +76270,8 @@ hr: Dehidrirani umaci
 it: Salse disidratate
 lt: Padažai miltelių pagrindu
 nl: Gedroogde sauzen, Gedroogde saus
+default_nutrition_prepared_per:en: 100ml
+
 
 < en:Sauces
 en: Vegetarian sauces
@@ -115659,6 +115669,7 @@ agribalyse_food_code:en: 11018
 ciqual_food_code:en: 11018
 ciqual_food_name:en: Vinegar
 ciqual_food_name:fr: Vinaigre
+default_nutrition_as_sold_per:en: 100ml
 food_groups:en: en:dressings-and-sauces
 google_product_taxonomy_id:en: 2140
 gpc_category_code:en: 10000051
