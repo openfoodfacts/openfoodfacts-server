@@ -2967,25 +2967,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "other nutritional substance added"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "As sold"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Prepared"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Unit"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "Nutrition facts are specified for the product as sold."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "Nutrition facts are specified for the prepared product."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -7705,6 +7689,48 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Search for products in the same category without added sugars:"
 
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr "for 100 g"
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr "for 100 ml"
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr "for 1 L"
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "for 1 kg"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "per serving"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "As sold"
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "Prepared"
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "Nutrition facts are specified for the product as sold:"
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "Nutrition facts are specified for the prepared product:"
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "Add a nutrient"
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "Unwanted ingredients"
@@ -7896,3 +7922,7 @@ msgstr "Low impact"
 msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
 msgstr "Impact not assessed"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr "Detailed data"
