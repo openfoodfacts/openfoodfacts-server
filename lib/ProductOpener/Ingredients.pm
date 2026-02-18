@@ -622,7 +622,10 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 			. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
 			. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
 			. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum
-			. $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';    # strings that can be ignored
+			. $ignore_strings_after_percent
+			. '|\s|\)|\]|\}|(?:'
+			. $symbols_regexp
+			. '))*';    # strings that can be ignored
 	}
 
 	return;
@@ -2637,8 +2640,8 @@ Text to analyze
 				}
 
 				# remove * and other chars before and after the name of ingredients
-				$ingredient =~ s/(\s|\*|\)|\]|\}|$stops|$dashes|')+$//;
-				$ingredient =~ s/^(\s|\*|\)|\]|\}|$stops|$dashes|')+//;
+				$ingredient =~ s/(\s|$symbols_regexp|\)|\]|\}|$stops|$dashes|')+$//;
+				$ingredient =~ s/^(\s|$symbols_regexp|\)|\]|\}|$stops|$dashes|')+//;
 
 				$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
@@ -6050,7 +6053,7 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 	if (defined $phrases_after_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
-			if ($text =~ /\*?\s*\b$regexp\b(.*)$/is) {
+			if ($text =~ /(?:$symbols_regexp)?\s*\b$regexp\b(.*)$/is) {
 				$text = $`;
 				$log->debug("removed phrases_after_ingredients_list", {removed => $1, kept => $text, regexp => $regexp})
 					if $log->is_debug();

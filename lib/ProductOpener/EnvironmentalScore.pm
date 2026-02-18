@@ -266,15 +266,6 @@ sub load_environmental_score_data_origins_of_ingredients_distances() {
 			}
 			# Score 0 for unspecified request country (world)
 			$environmental_score_data{origins}{$origin_id}{"transportation_score_world"} = 0;
-
-			$log->debug(
-				"environmental_score origins CSV file - row",
-				{
-					origin => $origin,
-					origin_id => $origin_id,
-					environmental_score_data => $environmental_score_data{origins}{$origin_id}
-				}
-			) if $log->is_debug();
 		}
 
 		if ($errors) {
@@ -372,15 +363,6 @@ sub load_environmental_score_data_origins_of_ingredients() {
 
 			# Override data for France from distances.csv with the original French Environmental-Score data for France
 			$environmental_score_data{origins}{$origin_id}{"transportation_score_fr"} = $row_ref->[2];
-
-			$log->debug(
-				"environmental_score origins CSV file - row",
-				{
-					origin => $origin,
-					origin_id => $origin_id,
-					environmental_score_data => $environmental_score_data{origins}{$origin_id}
-				}
-			) if $log->is_debug();
 		}
 
 		if ($errors) {
@@ -486,15 +468,6 @@ sub load_environmental_score_data_packaging() {
 				or $properties{"packaging_materials"}{$material_id} = {};
 			$properties{"packaging_materials"}{$material_id}{"environmental_score_score:en"}
 				= $environmental_score_data{packaging_materials}{$material_id}{score};
-
-			$log->debug(
-				"environmental_score materials CSV file - row",
-				{
-					material => $material,
-					material_id => $material_id,
-					environmental_score_data => $environmental_score_data{packaging_materials}{$material_id}
-				}
-			) if $log->is_debug();
 		}
 
 		if ($errors) {
@@ -641,15 +614,6 @@ sub load_environmental_score_data_packaging() {
 			(defined $properties{"packaging_shapes"}{$shape_id}) or $properties{"packaging_shapes"}{$shape_id} = {};
 			$properties{"packaging_shapes"}{$shape_id}{"environmental_score_ratio:en"}
 				= $environmental_score_data{packaging_shapes}{$shape_id}{ratio};
-
-			$log->debug(
-				"environmental_score shapes CSV file - row",
-				{
-					shape => $shape,
-					shape_id => $shape_id,
-					environmental_score_data => $environmental_score_data{packaging_shapes}{$shape_id}
-				}
-			) if $log->is_debug();
 		}
 
 		if ($errors) {
