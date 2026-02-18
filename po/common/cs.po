@@ -2961,25 +2961,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "přidaná další výživná látka"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Prodaných"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Připravené"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Jednotka"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "Výživové údaje jsou uvedeny u produktu tak, jak je prodáván."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "U připravovaného produktu jsou uvedeny nutriční údaje."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -7699,6 +7683,48 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Hledat produkty ve stejné kategorii bez přidaného cukru:"
 
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr ""
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr ""
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr ""
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "na 1 kg"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "v jedné porci"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr ""
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr ""
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr ""
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "Přidejte živinu"
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "Nežádoucí přísady"
@@ -7890,4 +7916,8 @@ msgstr "Nízký dopad"
 msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
 msgstr "Dopad nebyl posouzen"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr ""
 
