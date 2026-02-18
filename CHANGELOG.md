@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.88.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.88.0...v2.88.1) (2026-02-18)
+
+
+### Bug Fixes
+
+* upgrade buildx action to v0.31.1 ([#13086](https://github.com/openfoodfacts/openfoodfacts-server/issues/13086)) ([7938681](https://github.com/openfoodfacts/openfoodfacts-server/commit/793868180376f4f931d956425e616cde7624016f))
+
 ## [2.88.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.87.0...v2.88.0) (2026-02-18)
 
 
