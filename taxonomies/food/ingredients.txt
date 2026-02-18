@@ -200,6 +200,7 @@ it: fritto, frittura
 en: caramel syrup
 bg: карамелен сироп
 ca: xarop de carmel, caramel liquid
+cs: karamelový sirup
 da: karamelsukkersirup
 de: Karamellsirup, Caramelsirup, Karamell-Sirup
 es: jarabe de caramelo, sirope de caramelo, caramelo líquido
@@ -1004,6 +1005,7 @@ nl: maïsdextrine
 en: modified potato starch
 bg: модифицирано картофено нишесте
 ca: midó modificat de patata
+cs: modifikovaný bramborový škrob
 da: modificeret kartoffelstivelse
 de: modifizierte Kartoffelstärke
 es: almidón modificado de patata, almidon de patata modificado
@@ -1150,7 +1152,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Microbiological_culture
 en: lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, live yoghurt cultures, culture of acid-lactic bacteria, lactic acid bacteria, lactic acid culture, yogurt lactic ferment, cheese culture, cheese cultures, yogurt ferments
 bg: Млечни ферментации, млечна закваска, млечни закваски, млечни култури, закваски за кисело мляко, закваска за кисело мляко, млечни ферменти
 ca: Ferments làctics
-cs: Mléčné ferminty
+cs: bakterie mléčného kvašení, mléčné ferminty
 da: yoghurtkultur, starterkultur, mælkesyrekultur, ostekulturer
 de: Milchfermenten, Milchsäurekulturen, Milchsäurebakterienkultur, Milchsäurebakterien, Käsekultur, Milchsäurebakterienkulturen, Joghurtkulturen, Säuerungskulturen, milchsauer vergoren, Milchsäuerungskulturen, Milchsäurekultur, Käsereikulturen, Starterkulturen, Biogarde-Markenkulturen, Milchfermente
 el: γαλακτικά ένζυμα
@@ -1848,6 +1850,7 @@ vegetarian:en: yes
 
 < en:vegetarian rennet
 en: microbial rennet
+cs: mikrobiální syřidlo
 da: mikrobiel osteløbe, mikrobiel løbe
 de: mikrobielles Lab, mikrobiologisches Lab
 es: cuajo microbial, Cuajo microbiano
@@ -4764,7 +4767,6 @@ ciqual_food_code:en: 19415
 ciqual_food_name:en: Liquid cream 30% fat, UHT
 ciqual_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
 
-
 #processing:en: en:pasteurised # see ingredients_processing.txt
 #<en:cream
 #en:pasteurized cream
@@ -4941,6 +4943,11 @@ it: panna intera
 nl: volle room
 # ingredient/whole-cream has 66 products in 4 languages @2019-07-12
 
+# cream with a high percentage of fat. similar/synonym to whipping cream
+< en:cream
+en: heavy cream
+nb: kremfløte
+
 #this is cream that can be used for whipping
 < en:cream
 en: whipping cream
@@ -4989,7 +4996,7 @@ it: latte scremato e panna pastorizzata
 # ingredient/fr:lait-écrémé-et-crème-pasteurisés has 64 products in 4 languages @2019-02-03
 
 < en:cream
-en: fresh cream, heavy cream
+en: fresh cream
 ca: nata fresca, crema de llet fresca
 da: frisk fløde
 de: Frische Sahne
@@ -14277,6 +14284,7 @@ fr: Huile hydrogénée
 hr: hidrogenirano ulje
 hu: hidrogénezett olaj
 it: olio idrogenato
+nb: hydrogenert olje
 nl: Gehydrogeneerde olie
 wikidata:en: Q57656844
 wikipedia:en: https://en.wikipedia.org/wiki/Hydrogenation#Food_industry
@@ -14411,6 +14419,7 @@ fr: graisse hydrogénée
 hr: hidrogenirana mast
 hu: hidrogénezett zsír
 it: grassi idrogenati
+nb: hydrogenert fett
 nl: gehydrogeneerd vet
 pl: tłuszcz uwodorniony, tłuszcze uwodornione
 # ingredient/hydrogenated-fat has 277 products in 8 languages @2019-07-10
@@ -15338,6 +15347,7 @@ fi: kovetettu palmurasva
 fr: graisse de palme hydrogénée
 hr: hidrogenirana palmina mast
 it: grasso di palma idrogenato
+nb: hydrogenert palmefett
 nl: Gehydrogeneerd palmvet
 pl: utwardzony tłuszcz palmowy, tłuszcz palmowy utwardzony, tłuszcze roślinne palmowy utwardzony
 sv: hydrerad palmfett
@@ -15354,6 +15364,7 @@ fr: graisse de palme totalement hydrogénée
 hr: potpuno hidrogenizirana palmina mast
 hu: teljes mértékben hidrogénezett pálmazsír, teljesen hidrogénezett pálmazsír, teljes mértékben hidrogénezett pálmamag-zsír
 it: grasso di palma totalmente idrogenato
+nb: fullhydrogenert palmefett
 nl: volledig geharde palm, geheel gehard palmvet
 pl: całkowicie uwodorniony tłuszcz palmowy, całkowicie utwardzony tłuszcz palmowy
 sv: fullhärdat palmfett
@@ -15382,6 +15393,7 @@ fr: huile de palme hydrogénée
 # hr:očvrsnuto palmino ulje # see ingredients_processing.txt
 hu: hidrogénezett pálmaolaj
 it: olio di palma idrogenato
+nb: hydrogenert palmeolje
 nl: gehydrogeneerde palmolie
 pl: uwodorniony olej palmowy, utwardzony olej palmowy
 
@@ -15395,6 +15407,7 @@ fr: huile de palme totalement hydrogénée, palme totalement hydrogénée
 hr: potpuno hidrogenirano palmino ulje
 hu: teljes mértékben hidrogénezett pálmaolaj, teljesen hidrogénezett pálmaolaj, teljes mértékben hidrogénezett pálmamag-olaj
 it: olio di palma totalmente idrogenato
+nb: fullhydrogenert palmeolje
 nl: geheel geharde palm, geheel geharde palmolie
 pl: całkowicie utwardzony olej palmowy, olej roślinny palmowy całkowicie utwardzony
 ro: unt de palmier complet hidrogenat
@@ -15657,6 +15670,7 @@ fi: kokonaan kovetettu kookosöljy, kokonaan kovetettua kookosöljyä
 fr: huile de noix de coco totalement hydrogénée, huile de coprah totalement hydrogénée
 hr: hidrogenirano kokosovo ulje
 it: Olio di cocco idrogenato
+nb: hydrogenert kokosolje
 pl: utwardzony olej kokosowy
 sv: fullhärdad kokosolja
 
@@ -15736,7 +15750,7 @@ fi: kokonaan kovetettu kookosrasva, kokonaan kovetettua kookosrasvaa
 fr: graisse de coco totalement hydrogénée
 hr: potpuno hidrogenizirana kokosova mast
 it: grassi totalmente idrogenati da cocco
-nb: fullherdet kokosfett
+nb: fullhydrogenert kokosfett, fullherdet kokosfett
 nl: geheel gehard kokosvet
 pl: całkowicie utwardzony tłuszcz kokosowy, tłuszcz kokosowy całkowicie utwardzony
 sv: fullhärdat kokosfett
@@ -22860,7 +22874,7 @@ it: farina di crusca
 en: cereal, cereal grains
 bg: зърнени продукти
 ca: Cereal, cereals
-cs: Cereálie
+cs: obilovina, obiloviny
 da: Korn
 de: Getreide
 el: δημητριακό, δημητριακά
@@ -22887,27 +22901,8 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en:cereal
-en: cereal extrudate
-de: Getreideextrudat
-fr: extrudat de céréales
-it: estruso di cereali
-
-#probably more for mixed cereals
-< en:cereal
-en: crunchy cereals
-de: knusprige Cerealien
-el: Τραγανοί κόκκοι δημητριακών
-es: cereales crujientes
-hr: hrskave žitarice
-it: Cereali croccante
-
-# <en:compound
-< en:cereal
-fr: billes de céréales
-# usage:fr:billes de céréales 2.7% (farine de riz 2.3%, sucre, sel, beurre de cacao)
-
-< en:cereal
 en: wholemeal cereal, wholegrain cereal
+cs: celozrnné obiloviny
 de: Vollkorngetreide
 el: Δημητριακά ολικής άλεσης
 es: Cereal integral, cereales integrales
@@ -22931,20 +22926,6 @@ pl: zboża zawierające gluten
 allergens:en: en:gluten
 
 < en:cereal
-fr: céréales biscuitées
-
-# note this is a subproduct, which contains other ingredients
-
-< en:cereal
-en: cereal crispies
-de: Getreide Crispies
-fi: viljamuro
-fr: crispies de céréales, céréales croustillantes
-hr: hrskavice od žitarica
-hu: gabonapehely, gabonapelyhek
-it: crispies di cereali
-
-< en:cereal
 en: puffed cereal
 de: gepufftes Getreide, Getreide gepufft
 fi: puffattu vilja
@@ -22952,9 +22933,6 @@ fr: céréales soufflées
 hr: napuhane žitarice
 hu: puffasztott gabona, puffasztott gabonák
 it: cereali soffiati
-
-< en:cereal
-fr: billettes de céréales
 
 < en:puffed cereal
 en: extruded cereals
@@ -22969,6 +22947,22 @@ pl: ziarna ekstrudowane, ekstrudat zbożowy
 pt: cereais extrudados
 ru: экструдированные злаки
 sv: extruderade spannmål
+
+< en:cereal
+en: cereal extrudate
+de: Getreideextrudat
+fr: extrudat de céréales
+it: estruso di cereal
+
+< en:cereal
+en: hydrolysed cereal, hydrolysed cereals
+fr: céréales hydrolysées
+hr: hidrolizirane žitarice
+it: idrolizzato
+nova:en: 4
+
+< en:cereal
+fr: billettes de céréales
 
 # see ingredients_processing.txt
 < en:cereal
@@ -23013,18 +23007,35 @@ es: mezcla de cereales y semillas, mix de cereales y semillas
 hr: mješavina žitarica i sjemenki
 it: miscela di cereali e semi
 
-
-< en:cereal
-en: hydrolysed cereal, hydrolysed cereals
-fr: céréales hydrolysées
-hr: hidrolizirane žitarice
-it: idrolizzato
-nova:en: 4
-
 #<en:compound
 en: cereal with cocoa
 hr: žitarica s kakaom
 it: cereali con cacao
+
+# <en:compound
+fr: céréales biscuitées
+
+# <en:compound
+en: cereal crispies
+de: Getreide Crispies
+fi: viljamuro
+fr: crispies de céréales, céréales croustillantes
+hr: hrskavice od žitarica
+hu: gabonapehely, gabonapelyhek
+it: crispies di cereal
+
+#probably more for mixed cereals
+# <en:compound
+en: crunchy cereals
+de: knusprige Cerealien
+el: Τραγανοί κόκκοι δημητριακών
+es: cereales crujientes
+hr: hrskave žitarice
+it: Cereali croccante
+
+# <en:compound
+fr: billes de céréales
+# usage:fr:billes de céréales 2.7% (farine de riz 2.3%, sucre, sel, beurre de cacao)
 
 ##################################################################################
 #
@@ -23487,6 +23498,7 @@ en: wheat bran
 af: koringsemels
 bg: пшенични трици, пшеничени трици
 ca: segó de blat
+cs: pšeničné otruby
 da: vetekli
 de: Weizenkleie, Weizenspeisekleie
 el: πίτουρο σταριού, σταροπίτουρο
@@ -26574,7 +26586,7 @@ fr: farine d'épeautre type 110, Farine de blé d'épeautre T110
 en: wholemeal spelt flour, whole grain spelt flour, wholegrain spelt flour
 bg: пълнозърнесто брашно от спелта
 ca: farina de blat d'espelta integral, farina integral de blat d'espelta
-cs: celozrnná špaldová mouka
+cs: celozrnná špaldová mouka, celozrnná mouka z pšenice špaldy
 de: Dinkelvollkornmehl, dinkel vollkornmehl, Dinkelweizenvollkornmehl
 es: harina de espelta integral, harina integral de espelta, harina integral de trigo de espelta
 fi: täysjyväspelttijauho, täysjyväspelttivehnäjauho
@@ -30453,6 +30465,7 @@ fr: sucre inverti
 hr: invertni šećer
 hu: invertcukor
 it: zucchero invertito
+nb: invertsukker
 nl: Invertsuiker
 pl: Cukier inwertowany
 pt: açúcar invertido
@@ -33337,6 +33350,7 @@ vegetarian:en: no
 < en:animal protein
 en: pork protein
 bg: свински протеин, свински белтък
+cs: vepřová bílkovina
 de: Schweineprotein
 es: proteina de cerdo
 fi: sianlihaproteiini
@@ -33419,6 +33433,7 @@ hu: tejfehérjék, tejfehérje
 it: proteine del latte
 ja: 乳たんぱく質, 乳たん白
 mk: млечни протеини
+nb: melkeproteiner
 nl: melkeiwit, melkeiwitten, melk eiwit
 pl: Białka mleczne, białka mleka, białko mleka, proteiny mleczne, proteina z mleka
 pt: proteína do leite, proteínas lácteas
@@ -33998,7 +34013,7 @@ hu: zsírszegény kakaópor
 it: cacao magro in polvere, cacao scremato in polvere
 lt: liesi kakavos milteliai
 lv: kakao pulveris ar zemu tauku saturu
-nb: fett redusert kakaopulver
+nb: fettredusert kakaopulver, fett redusert kakaopulver
 nl: magere cacaopoeder, magere cacao poeder, cacaopoeder met verminderd vetgehalte
 pl: niskotłuszczowe kakao w proszku, kakao w proszku o obniżonej zawartości tłuszczu, proszek kakaowy niskotłuszczowy, proszek kakaowy o zmniejszonej zawartości tłuszczu
 pt: cacau magro em pó
@@ -34421,6 +34436,7 @@ ciqual_food_name:en: Cocoa or chocolate powder, for beverages, with sugar
 en: chocolate chunk, chocolate chunks, chocolate pieces, chocolate chips, semisweet Chocolate Chips
 bg: парченца шоколад, шоколадов чипс, шоколадови парчета
 ca: xips de xocolata
+cs: kousky čokolády
 da: Chokoladestykker, stykker af chokolade
 de: Schokoladenstücke, Schokoladenstückchen
 es: copos de chocolate, pepitas de chocolate, gotas de chocolate, chips de chocolate
@@ -52340,6 +52356,7 @@ sv: lökextrakt
 
 # <en:compound
 en: fried onion
+cs: smažená cibule
 de: röstzwiebeln
 it: cipolla fritta
 
@@ -60682,7 +60699,7 @@ la: Prunis dulcis
 lt: migdolai, migdolų
 lv: mandeles
 mt: lewż
-nb: mandel
+nb: mandel, mandler
 nl: amandel, amandelen
 oc: Almendra
 pl: migdały, orzechy migdałowe, migdał
@@ -62382,6 +62399,7 @@ ciqual_food_name:fr: Luzerne, graine germée
 
 < en:seed
 en: aniseed, anise
+cs: anýz
 da: anis, anisfrø
 de: Anissamen, anis
 es: semilla de anís, anis, matalahúga
@@ -65873,7 +65891,7 @@ nl: Engelse mosterd
 en: mustard seed
 bg: синапено семе, синапени семена, синапени зърна
 ca: llavors de mostassa, grans de mostassa
-cs: hořčičné semínko, hořčičné semeno
+cs: hořčičné semínko, hořčičné semeno, hořčičná semena
 da: sennepsfrø
 de: Senfsaaten, Senfkörner, Senfsaat, Senfsamen, Senfschrot, Senfkorn
 el: σιναπόσπορος
