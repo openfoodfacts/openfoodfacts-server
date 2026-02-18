@@ -688,7 +688,7 @@ const maximumRecentEntriesPerTag = 10;
                             }
                         },
                         progress: function (e, data) {
-                            $("#progressmeter_" + imagefield).css('width', parseInt(data.loaded / data.total * 100, 10) + "%");
+                            $("#progressmeter_" + imagefield).css('width', Number.parseInt(data.loaded / data.total * 100, 10) + "%");
                         }
 
                     });
@@ -1146,9 +1146,9 @@ function get_nutrient_value(nutrient_id, per, preparation, wanted_unit) {
 
     const input_id = `#nutrition_input_sets_${preparation}_${per}_nutrients_${nutrient_id}_value_string`;
 
-    let value = parseFloat(($(input_id).val() || '').replace(',', '.'));
+    let value = Number.parseFloat(($(input_id).val() || '').replace(',', '.'));
     
-    if (!isNaN(value)) {
+    if (!Number.isNaN(value)) {
         const current_unit = get_nutrient_unit(nutrient_id);
 
         const factor = {
@@ -1197,7 +1197,7 @@ function check_nutrient(nutrient_id, per, preparation, id) {
 
     let is_above_or_below_max;
     if (max) {
-        is_above_or_below_max = (isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
+        is_above_or_below_max = (Number.isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
         // if the nutrition facts are indicated per serving, the value can be above 100
         if ((nutrient_value > max) && per_serving && !percent) {
             is_above_or_below_max = false;
@@ -1214,11 +1214,11 @@ function check_nutrient(nutrient_id, per, preparation, id) {
         const sugars_value = get_nutrient_value("sugars", per, preparation, nutrient_unit);
         const saturated_fats_value = get_nutrient_value("saturated-fat", per, preparation, nutrient_unit);
 
-        const is_sugars_above_carbohydrates = parseFloat(carbohydrates_value) < parseFloat(sugars_value);
+        const is_sugars_above_carbohydrates = Number.parseFloat(carbohydrates_value) < Number.parseFloat(sugars_value);
         const sugars_input_id = `nutrition_input_sets_${preparation}_${per}_nutrients_sugars_value_string`;
         show_warning(is_sugars_above_carbohydrates, sugars_input_id, "sugars", per, preparation, lang().product_js_sugars_warning);
 
-        const is_fat_above_saturated_fats = parseFloat(fat_value) < parseFloat(saturated_fats_value);
+        const is_fat_above_saturated_fats = Number.parseFloat(fat_value) < Number.parseFloat(saturated_fats_value);
         const saturated_fat_input_id = `nutrition_input_sets_${preparation}_${per}_nutrients_saturated-fat_value_string`;
         show_warning(is_fat_above_saturated_fats, saturated_fat_input_id, "saturated-fat", per, preparation, lang().product_js_saturated_fat_warning);
     }
