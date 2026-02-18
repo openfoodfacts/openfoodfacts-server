@@ -338,7 +338,7 @@ The nutrition schema is updated to allow storing several nutrition sets
 sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref) {
 
 	# Convert only on OFF and OPFF
-	if (not (($options{product_type} eq 'food') or ($options{product_type} eq 'petfood'))) {
+	if (not(($options{product_type} eq 'food') or ($options{product_type} eq 'petfood'))) {
 		return;
 	}
 
@@ -567,11 +567,10 @@ as we will return only as sold data or prepared data, but not both as was possib
 =cut
 
 sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref, $delete_nutrition_data = true) {
-	        # Convert only on OFF and OPFF
-		         if (not (($options{product_type} eq 'food') or ($options{product_type} eq 'petfood'))) {
-		                         return;
-		                                 }
-		
+	# Convert only on OFF and OPFF
+	if (not(($options{product_type} eq 'food') or ($options{product_type} eq 'petfood'))) {
+		return;
+	}
 
 	# No nutrition data
 	my $no_nutrition_data_on_packaging = deep_get($product_ref, "nutrition", "no_nutrition_data_on_packaging") // false;
