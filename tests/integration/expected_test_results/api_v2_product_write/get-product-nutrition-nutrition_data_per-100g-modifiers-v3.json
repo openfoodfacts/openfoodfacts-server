@@ -52,7 +52,7 @@
          "en:ingredients-en-to-be-completed",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
-         "en:nutriments-completed",
+         "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -86,7 +86,7 @@
          "en:ingredients-en-to-be-completed",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
-         "en:nutriments-completed",
+         "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -405,6 +405,7 @@
          "en:environmental-score-not-computed",
          "en:nutrients-not-estimated-from-ingredients-no-ingredients",
          "en:nutriscore-missing-category",
+         "en:nutriscore-missing-fiber",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-proteins",
          "en:nutriscore-missing-nutrition-data-sugars",
@@ -424,48 +425,6 @@
       ],
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
-      "nutriments" : {
-         "alcohol" : 0,
-         "alcohol_100g" : 0,
-         "alcohol_serving" : 0,
-         "alcohol_unit" : "% vol",
-         "alcohol_value" : 0,
-         "carbohydrates" : 67.4,
-         "carbohydrates_100g" : 67.4,
-         "carbohydrates_unit" : "g",
-         "carbohydrates_value" : 67.4,
-         "energy" : 450,
-         "energy-kj" : 450,
-         "energy-kj_100g" : 450,
-         "energy-kj_modifier" : "<",
-         "energy-kj_unit" : "kJ",
-         "energy-kj_value" : 450,
-         "energy_100g" : 450,
-         "energy_modifier" : "<",
-         "energy_unit" : "kJ",
-         "energy_value" : 450,
-         "fat" : 12.5,
-         "fat_100g" : 12.5,
-         "fat_modifier" : "~",
-         "fat_unit" : "g",
-         "fat_value" : 12.5,
-         "fiber_modifier" : "-",
-         "salt" : 1.2,
-         "salt_100g" : 1.2,
-         "salt_modifier" : "≤",
-         "salt_unit" : "g",
-         "salt_value" : 1.2,
-         "saturated-fat" : 3.1,
-         "saturated-fat_100g" : 3.1,
-         "saturated-fat_modifier" : ">",
-         "saturated-fat_unit" : "g",
-         "saturated-fat_value" : 3.1,
-         "sodium" : 0.48,
-         "sodium_100g" : 0.48,
-         "sodium_modifier" : "≤",
-         "sodium_unit" : "g",
-         "sodium_value" : 0.48
-      },
       "nutriscore" : {
          "2021" : {
             "category_available" : 0,
@@ -479,13 +438,15 @@
                "is_water" : 0,
                "proteins" : null,
                "saturated_fat" : 3.1,
-               "sodium" : 480,
+               "sodium" : 472.0,
                "sugars" : null
             },
+            "estimated" : 0,
             "grade" : "unknown",
             "nutrients_available" : 0,
             "nutriscore_applicable" : 0,
-            "nutriscore_computed" : 0
+            "nutriscore_computed" : 0,
+            "preparation" : "as_sold"
          },
          "2023" : {
             "category_available" : 0,
@@ -503,10 +464,12 @@
                "saturated_fat" : 3.1,
                "sugars" : null
             },
+            "estimated" : 0,
             "grade" : "unknown",
             "nutrients_available" : 0,
             "nutriscore_applicable" : 0,
-            "nutriscore_computed" : 0
+            "nutriscore_computed" : 0,
+            "preparation" : "as_sold"
          }
       },
       "nutriscore_2021_tags" : [
@@ -520,16 +483,143 @@
          "unknown"
       ],
       "nutriscore_version" : "2023",
-      "nutrition_data" : "on",
+      "nutrition" : {
+         "aggregated_set" : {
+            "nutrients" : {
+               "alcohol" : {
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "% vol",
+                  "value" : 0
+               },
+               "carbohydrates" : {
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "g",
+                  "value" : 67.4
+               },
+               "energy" : {
+                  "modifier" : "<",
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "kJ",
+                  "value" : 450
+               },
+               "energy-kj" : {
+                  "modifier" : "<",
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "kJ",
+                  "value" : 450
+               },
+               "fat" : {
+                  "modifier" : "~",
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "g",
+                  "value" : 12.5
+               },
+               "salt" : {
+                  "modifier" : "≤",
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "g",
+                  "value" : 1.2,
+                  "value_computed" : 1.18
+               },
+               "saturated-fat" : {
+                  "modifier" : ">",
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "g",
+                  "value" : 3.1
+               },
+               "sodium" : {
+                  "modifier" : "≤",
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "g",
+                  "value" : 0.472,
+                  "value_computed" : 0.48
+               }
+            },
+            "per" : "100g",
+            "preparation" : "as_sold"
+         },
+         "input_sets" : [
+            {
+               "nutrients" : {
+                  "alcohol" : {
+                     "unit" : "% vol",
+                     "value" : 0,
+                     "value_string" : "0"
+                  },
+                  "carbohydrates" : {
+                     "unit" : "g",
+                     "value" : 67.4,
+                     "value_string" : "67.4"
+                  },
+                  "energy-kj" : {
+                     "modifier" : "<",
+                     "unit" : "kJ",
+                     "value" : 450,
+                     "value_string" : "450"
+                  },
+                  "fat" : {
+                     "modifier" : "~",
+                     "unit" : "g",
+                     "value" : 12.5,
+                     "value_string" : "12.5"
+                  },
+                  "salt" : {
+                     "modifier" : "≤",
+                     "unit" : "g",
+                     "value" : 1.2,
+                     "value_computed" : 1.18,
+                     "value_string" : "1.2"
+                  },
+                  "saturated-fat" : {
+                     "modifier" : ">",
+                     "unit" : "g",
+                     "value" : 3.1,
+                     "value_string" : "3.1"
+                  },
+                  "sodium" : {
+                     "modifier" : "≤",
+                     "unit" : "g",
+                     "value" : 0.472,
+                     "value_computed" : 0.48,
+                     "value_string" : "0.472"
+                  }
+               },
+               "per" : "100g",
+               "per_quantity" : 100,
+               "per_unit" : "g",
+               "preparation" : "as_sold",
+               "source" : "packaging",
+               "unspecified_nutrients" : [
+                  "fiber"
+               ]
+            }
+         ]
+      },
       "nutrition_data_per" : "100g",
-      "nutrition_data_prepared_per" : "100g",
       "nutrition_grade_fr" : "unknown",
       "nutrition_grades" : "unknown",
       "nutrition_grades_tags" : [
          "unknown"
       ],
       "nutrition_score_beverage" : 0,
-      "nutrition_score_debug" : "no score when the product does not have a category - missing sugars_100g - missing proteins_100g",
+      "nutrition_score_debug" : "no score when the product does not have a category - missing as_sold sugars - missing as_sold proteins",
+      "nutrition_score_warning_no_fiber" : 1,
       "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
       "packaging_materials_tags" : [],
       "packaging_recycling_tags" : [],
@@ -553,7 +643,7 @@
       "product_type" : "food",
       "removed_countries_tags" : [],
       "rev" : 1,
-      "schema_version" : 1002,
+      "schema_version" : 1003,
       "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
@@ -590,7 +680,6 @@
       "traces_from_user" : "(en) ",
       "traces_hierarchy" : [],
       "traces_tags" : [],
-      "unknown_nutrients_tags" : [],
       "weighers_tags" : []
    },
    "result" : {

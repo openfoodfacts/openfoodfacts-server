@@ -528,30 +528,7 @@
 
                 
                 <div class="description">
-                    <div class="row">
-
-	<div id="tag_description" class="large-12 columns">
-		<p>Organic food is food produced by methods complying with the standards of organic farming and features practices that cycle resources, promote ecological balance, and conserve biodiversity.</p>
-	</div>
-	<div id="tag_map" class="large-9 columns" style="display: none;">
-		<div id="container" style="height: 300px"></div>
-	</div>
-
-</div>
-<!-- start templates/web/pages/tags_map/map_of_tags.tt.html -->
-
-<link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/leaflet.css" />
-
-<script type="module">
-  import { displayMap } from '//static.openfoodfacts.localhost/js/dist/display-tag.js';
-  
-  document.addEventListener('DOMContentLoaded', function () {
-    displayMap([], ["Q380778"]);
-  });
-</script>
-
-<!-- end templates/web/pages/tags_map/map_of_tags.tt.html -->
-
+                    <p>Organic food is food produced by methods complying with the standards of organic farming and features practices that cycle resources, promote ecological balance, and conserve biodiversity.</p>
                 </div>
                 
 
@@ -1057,7 +1034,7 @@ var products = [
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
-                  "match":31.5555555555556,
+                  "match":33.6666666666667,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
                   "status":"known",
@@ -1086,6 +1063,7 @@ var products = [
                   "title":"Fat in moderate quantity"
                },
                {
+                  "description_short":"25 g / 100 g",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
@@ -1339,7 +1317,7 @@ var products = [
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
                   "id":"forest_footprint",
-                  "match":99.9766666666667,
+                  "match":99.9782222222222,
                   "name":"Forest footprint",
                   "panel_id":"forest_footprint",
                   "status":"known",
@@ -1422,6 +1400,7 @@ var products = [
                   "title":"Fat in moderate quantity"
                },
                {
+                  "description_short":"25 g / 100 g",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
@@ -1676,7 +1655,7 @@ var products = [
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
                   "id":"forest_footprint",
-                  "match":99.9766666666667,
+                  "match":99.9782222222222,
                   "name":"Forest footprint",
                   "panel_id":"forest_footprint",
                   "status":"known",
@@ -1758,10 +1737,11 @@ var products = [
                   "title":"Fat in low quantity"
                },
                {
+                  "description_short":"10 g / 100 g",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "match":0,
+                  "match":8,
                   "name":"Sugars",
                   "panel_id":"nutrient_level_sugars",
                   "status":"known",
@@ -2094,10 +2074,11 @@ var products = [
                   "title":"Fat in low quantity"
                },
                {
+                  "description_short":"12 g / 100 g",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "match":0,
+                  "match":1.6,
                   "name":"Sugars",
                   "panel_id":"nutrient_level_sugars",
                   "status":"known",
@@ -2430,10 +2411,11 @@ var products = [
                   "title":"Fat in high quantity"
                },
                {
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
+                  "description_short":"0 g / 100 g",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-low.svg",
                   "id":"low_sugars",
-                  "match":0,
+                  "match":100,
                   "name":"Sugars",
                   "panel_id":"nutrient_level_sugars",
                   "status":"known",

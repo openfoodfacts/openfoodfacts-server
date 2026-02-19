@@ -490,6 +490,34 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3.5/product/2234567890001',
 	},
+	# New fields for new nutrition schema for Open Pet Food Facts
+	{
+		test_case => 'post-product-nutrition-new-fields-open-pet-food-facts',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			code => "2234567890002",
+			product_type => 'petfood',    # This works only partly, it will allow using the 1kg fields,
+			 # but we will only get nutrients that exists for food (so we will get biotin and beta-carotene but not the others)
+			product_name_en => "Test new nutrition fields - Open Pet Food Facts",
+			"nutrition_input_sets_as_sold_1kg_nutrients_crude-fat_value_string" => '1',
+			"nutrition_input_sets_as_sold_1kg_nutrients_crude-protein_value_string" => '1',
+			"nutrition_input_sets_as_sold_1kg_nutrients_crude-ash_value_string" => '1',
+			"nutrition_input_sets_as_sold_1kg_nutrients_crude-fibre_value_string" => '1',
+			"nutrition_input_sets_as_sold_1kg_nutrients_beta-carotene_value_string" => '3',
+			"nutrition_input_sets_as_sold_1kg_nutrients_beta-carotene_unit" => 'mg',
+			"nutrition_input_sets_as_sold_1kg_nutrients_biotin_value_string" => '50',
+			"nutrition_input_sets_as_sold_1kg_nutrients_biotin_unit" => 'µg',
+		}
+	},
+	{
+		test_case => 'get-product-nutrition-new-fields-open-pet-food-facts-v3',
+		method => 'GET',
+		path => '/api/v3.5/product/2234567890002?fields=raw'
+		,    # we need to specify fields=raw so that we are not redirected to the petfood site
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref, undef, 0);

@@ -32,7 +32,7 @@
       "5xxxxxxxxxxxx"
    ],
    "complete" : 0,
-   "completeness" : 0,
+   "completeness" : 0.1,
    "correctors_tags" : [],
    "created_t" : "--ignore--",
    "creator" : "test-user",
@@ -43,7 +43,7 @@
       "en:ingredients-en-to-be-completed",
       "en:nutrition-photo-to-be-selected",
       "en:categories-to-be-completed",
-      "en:nutriments-to-be-completed",
+      "en:nutrition-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -59,8 +59,8 @@
       "completeness" : {
          "general_information" : "0.00",
          "ingredients" : "0.00",
-         "nutrition" : "0.00",
-         "overall" : "0.08",
+         "nutrition" : "0.33",
+         "overall" : "0.17",
          "packaging" : "0.50"
       }
    },
@@ -77,7 +77,7 @@
       "en:ingredients-en-to-be-completed",
       "en:nutrition-photo-to-be-selected",
       "en:categories-to-be-completed",
-      "en:nutriments-to-be-completed",
+      "en:nutrition-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -114,7 +114,6 @@
    "editors_tags" : [
       "test-user"
    ],
-   "empty" : 1,
    "entry_dates_tags" : "--ignore--",
    "environmental_score_data" : {
       "adjustments" : {
@@ -400,15 +399,13 @@
       "en:environmental-score-not-computed",
       "en:nutrients-not-estimated-from-ingredients-no-ingredients",
       "en:nutriscore-missing-category",
+      "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",
       "en:nutriscore-missing-nutrition-data-proteins",
-      "en:nutriscore-missing-nutrition-data-saturated-fat",
-      "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-not-computed",
-      "en:nutrition-no-fiber",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -424,7 +421,6 @@
    ],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
-   "nutriments" : {},
    "nutriscore" : {
       "2021" : {
          "category_available" : 0,
@@ -437,14 +433,16 @@
             "is_fat" : 0,
             "is_water" : 0,
             "proteins" : null,
-            "saturated_fat" : null,
-            "sodium" : null,
+            "saturated_fat" : 50,
+            "sodium" : 40000,
             "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       },
       "2023" : {
          "category_available" : 0,
@@ -458,14 +456,16 @@
             "is_red_meat_product" : 0,
             "is_water" : 0,
             "proteins" : null,
-            "salt" : null,
-            "saturated_fat" : null,
+            "salt" : 100,
+            "saturated_fat" : 50,
             "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       }
    },
    "nutriscore_2021_tags" : [
@@ -479,15 +479,68 @@
       "unknown"
    ],
    "nutriscore_version" : "2023",
-   "nutrition_data_per" : "100g",
-   "nutrition_data_prepared_per" : "100g",
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "salt" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "serving",
+               "unit" : "g",
+               "value" : 100
+            },
+            "saturated-fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "serving",
+               "unit" : "g",
+               "value" : 50
+            },
+            "sodium" : {
+               "modifier" : "~",
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "serving",
+               "unit" : "g",
+               "value" : 40
+            }
+         },
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "salt" : {
+                  "unit" : "mg",
+                  "value" : 10000,
+                  "value_string" : "10000"
+               },
+               "saturated-fat" : {
+                  "unit" : "mg",
+                  "value" : 5000,
+                  "value_string" : "5000"
+               },
+               "sodium" : {
+                  "unit" : "mg",
+                  "value_computed" : 4000
+               }
+            },
+            "per" : "serving",
+            "per_quantity" : 10,
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
+   },
    "nutrition_grade_fr" : "unknown",
    "nutrition_grades" : "unknown",
    "nutrition_grades_tags" : [
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "no score when the product does not have a category - missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+   "nutrition_score_debug" : "no score when the product does not have a category - missing as_sold energy - missing as_sold fat - missing as_sold sugars - missing as_sold proteins",
    "nutrition_score_warning_no_fiber" : 1,
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "owner" : "org-test-org",
@@ -515,7 +568,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
-   "schema_version" : 1002,
+   "schema_version" : 1003,
    "serving_quantity" : 10,
    "serving_quantity_unit" : "g",
    "serving_size" : "10 g",
@@ -525,7 +578,9 @@
          "fields" : [
             "product_name_en",
             "data_sources",
-            "serving_size"
+            "serving_size",
+            "nutrition",
+            "nutrition"
          ],
          "id" : null,
          "images" : [],
@@ -535,11 +590,10 @@
          "url" : null
       }
    ],
-   "states" : "en:empty, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
+   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
    "states_hierarchy" : [
-      "en:empty",
       "en:to-be-completed",
-      "en:nutrition-facts-to-be-completed",
+      "en:nutrition-facts-completed",
       "en:ingredients-to-be-completed",
       "en:expiration-date-to-be-completed",
       "en:packaging-code-to-be-completed",
@@ -553,9 +607,8 @@
       "en:photos-to-be-uploaded"
    ],
    "states_tags" : [
-      "en:empty",
       "en:to-be-completed",
-      "en:nutrition-facts-to-be-completed",
+      "en:nutrition-facts-completed",
       "en:ingredients-to-be-completed",
       "en:expiration-date-to-be-completed",
       "en:packaging-code-to-be-completed",
@@ -573,6 +626,5 @@
    "traces_from_user" : "(fr) ",
    "traces_hierarchy" : [],
    "traces_tags" : [],
-   "unknown_nutrients_tags" : [],
    "weighers_tags" : []
 }

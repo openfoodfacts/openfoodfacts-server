@@ -1,0 +1,146 @@
+{
+   "nutrition_table" : {
+      "header" : {
+         "columns" : [
+            {
+               "col_id" : "as_sold_100g",
+               "name" : "As sold<br>for 1 kg",
+               "per" : "100g",
+               "preparation" : "as_sold",
+               "scope" : "product",
+               "short_name" : "100g"
+            }
+         ],
+         "name" : "Analytical constituents"
+      },
+      "id" : "analytical_constituents",
+      "rows" : [
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:energyPer100g\" content=\"0\"",
+                  "type" : "normal",
+                  "value" : "0 kJ<br>(0 kcal)"
+               }
+            ],
+            "level" : 0,
+            "name" : "Energy",
+            "nid" : "energy"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:fatPer100g\" content=\"2\"",
+                  "type" : "normal",
+                  "value" : "2 g"
+               }
+            ],
+            "level" : 0,
+            "name" : "Fat",
+            "nid" : "fat"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 1,
+            "name" : "Saturated fat",
+            "nid" : "saturated-fat"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:carbohydratesPer100g\" content=\"0\"",
+                  "type" : "normal",
+                  "value" : "0 g"
+               }
+            ],
+            "level" : 0,
+            "name" : "Carbohydrates",
+            "nid" : "carbohydrates"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 1,
+            "name" : "Sugars",
+            "nid" : "sugars"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:fiberPer100g\" content=\"0.25\"",
+                  "type" : "normal",
+                  "value" : "0.25 g"
+               }
+            ],
+            "level" : 0,
+            "name" : "Fiber",
+            "nid" : "fiber"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Proteins",
+            "nid" : "proteins"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Salt",
+            "nid" : "salt"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Fruits‚ vegetables‚ legumes",
+            "nid" : "fruits-vegetables-legumes"
+         }
+      ]
+   }
+}
