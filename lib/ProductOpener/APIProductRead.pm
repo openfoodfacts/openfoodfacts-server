@@ -55,8 +55,6 @@ use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::Images qw(add_images_urls_to_product);
 use ProductOpener::Store qw/retrieve_object/;
 
-my $cc;
-
 =head2 read_product_api ( $request_ref )
 
 Process API V3 READ product requests.
