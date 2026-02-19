@@ -8459,14 +8459,16 @@ JS
 	}
 	$other_editors =~ s/, $//;
 
+	my $creator_value = $product_ref->{creator} // "";
 	my $creator
 		= "<a href=\"/facets"
-		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{creator})) . "\">"
-		. $product_ref->{creator} . "</a>";
+		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $creator_value)) . "\">"
+		. $creator_value . "</a>";
+	my $last_editor_value = $product_ref->{last_editor} // "";
 	my $last_editor
 		= "<a href=\"/facets"
-		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{last_editor})) . "\">"
-		. $product_ref->{last_editor} . "</a>";
+		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $last_editor_value)) . "\">"
+		. $last_editor_value . "</a>";
 
 	if ($other_editors ne "") {
 		$other_editors = "<br>\n" . lang_in_other_lc($request_lc, "also_edited_by") . " ${other_editors}.";
@@ -8901,10 +8903,11 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 			}
 
 			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate}) {
+				my $estimate_value = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"} // 0;
 				push @nutriscore_warnings,
 					sprintf(
 					lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
-					$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}
+					$estimate_value
 					);
 			}
 			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}) {
@@ -10812,7 +10815,7 @@ sub data_to_display_ingredients_analysis_details ($product_ref) {
 
 	my $result_data_ref = {};
 
-	my $ingredients_text_lc = $product_ref->{ingredients_lc};
+	my $ingredients_text_lc = $product_ref->{ingredients_lc} // "";
 	my $ingredients_text = "$ingredients_text_lc: ";
 	my $ingredients_list = "";
 
