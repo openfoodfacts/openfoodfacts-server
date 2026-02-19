@@ -1,0 +1,34 @@
+{
+    "level": "info",
+    "topics": [
+        "maintain"
+    ],
+    "expand_for": "large",
+    "title_element": {
+        "title": "Entretenir et réparer - [% panel.category_name %]",
+        "subtitle": "Prolongez la durée de vie de vos produits",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+                <p>Pour limiter notre impact sur la planète, il est important d'entretenir et de réparer nos produits pour les garder le plus longtemps possible.</p>
+                <p>Le site <strong>Épargnons nos ressources</strong> du gouvernement français vous propose des conseils pratiques pour entretenir et réparer vos produits.</p>
+                `
+            },
+        },
+        {
+            "element_type": "action",
+            "action_element": {
+                "title": "Voir les conseils d'entretien et de réparation",
+                "actions": [
+                    {
+                        "action_type": "uri",
+                        "uri": "[% panel.maintenance_url %]"
+                    }
+                ]
+            }
+        },        
+    ]
+}

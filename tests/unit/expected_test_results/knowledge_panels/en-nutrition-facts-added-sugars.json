@@ -1,0 +1,2426 @@
+{
+   "additives_n" : 0,
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "en:milk, en:gluten",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [
+      "en:gluten",
+      "en:milk"
+   ],
+   "allergens_tags" : [
+      "en:gluten",
+      "en:milk"
+   ],
+   "amino_acids_tags" : [],
+   "categories_properties" : {},
+   "categories_properties_tags" : [
+      "all-products",
+      "categories-unknown",
+      "agribalyse-food-code-unknown",
+      "agribalyse-proxy-food-code-unknown",
+      "ciqual-food-code-unknown",
+      "agribalyse-unknown"
+   ],
+   "data_quality_bugs_tags" : [
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing"
+   ],
+   "data_quality_completeness_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-to-be-completed",
+      "en:nutrition-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed"
+   ],
+   "data_quality_dimensions" : {
+      "accuracy" : {
+         "overall" : "0.00"
+      },
+      "completeness" : {
+         "general_information" : "0.00",
+         "ingredients" : "0.00",
+         "nutrition" : "0.33",
+         "overall" : "0.20",
+         "packaging" : "0.50"
+      }
+   },
+   "data_quality_errors_tags" : [],
+   "data_quality_info_tags" : [
+      "en:no-packaging-data",
+      "en:ingredients-percent-analysis-ok",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown"
+   ],
+   "data_quality_tags" : [
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing",
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-to-be-completed",
+      "en:nutrition-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed",
+      "en:no-packaging-data",
+      "en:ingredients-percent-analysis-ok",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown",
+      "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
+   ],
+   "data_quality_warnings_tags" : [
+      "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
+   ],
+   "ecoscore_tags" : [
+      "unknown"
+   ],
+   "environmental_score_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               {
+                  "origin" : "en:unknown",
+                  "percent" : 100.0
+               }
+            ],
+            "epi_score" : 0,
+            "epi_value" : -5,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_scores" : {
+               "ad" : 0,
+               "al" : 0,
+               "at" : 0,
+               "ax" : 0,
+               "ba" : 0,
+               "be" : 0,
+               "bg" : 0,
+               "ch" : 0,
+               "cy" : 0,
+               "cz" : 0,
+               "de" : 0,
+               "dk" : 0,
+               "dz" : 0,
+               "ee" : 0,
+               "eg" : 0,
+               "es" : 0,
+               "fi" : 0,
+               "fo" : 0,
+               "fr" : 0,
+               "gg" : 0,
+               "gi" : 0,
+               "gr" : 0,
+               "hr" : 0,
+               "hu" : 0,
+               "ie" : 0,
+               "il" : 0,
+               "im" : 0,
+               "is" : 0,
+               "it" : 0,
+               "je" : 0,
+               "lb" : 0,
+               "li" : 0,
+               "lt" : 0,
+               "lu" : 0,
+               "lv" : 0,
+               "ly" : 0,
+               "ma" : 0,
+               "mc" : 0,
+               "md" : 0,
+               "me" : 0,
+               "mk" : 0,
+               "mt" : 0,
+               "nl" : 0,
+               "no" : 0,
+               "pl" : 0,
+               "ps" : 0,
+               "pt" : 0,
+               "ro" : 0,
+               "rs" : 0,
+               "se" : 0,
+               "si" : 0,
+               "sj" : 0,
+               "sk" : 0,
+               "sm" : 0,
+               "sy" : 0,
+               "tn" : 0,
+               "tr" : 0,
+               "ua" : 0,
+               "uk" : 0,
+               "us" : 0,
+               "va" : 0,
+               "world" : 0,
+               "xk" : 0
+            },
+            "transportation_values" : {
+               "ad" : 0,
+               "al" : 0,
+               "at" : 0,
+               "ax" : 0,
+               "ba" : 0,
+               "be" : 0,
+               "bg" : 0,
+               "ch" : 0,
+               "cy" : 0,
+               "cz" : 0,
+               "de" : 0,
+               "dk" : 0,
+               "dz" : 0,
+               "ee" : 0,
+               "eg" : 0,
+               "es" : 0,
+               "fi" : 0,
+               "fo" : 0,
+               "fr" : 0,
+               "gg" : 0,
+               "gi" : 0,
+               "gr" : 0,
+               "hr" : 0,
+               "hu" : 0,
+               "ie" : 0,
+               "il" : 0,
+               "im" : 0,
+               "is" : 0,
+               "it" : 0,
+               "je" : 0,
+               "lb" : 0,
+               "li" : 0,
+               "lt" : 0,
+               "lu" : 0,
+               "lv" : 0,
+               "ly" : 0,
+               "ma" : 0,
+               "mc" : 0,
+               "md" : 0,
+               "me" : 0,
+               "mk" : 0,
+               "mt" : 0,
+               "nl" : 0,
+               "no" : 0,
+               "pl" : 0,
+               "ps" : 0,
+               "pt" : 0,
+               "ro" : 0,
+               "rs" : 0,
+               "se" : 0,
+               "si" : 0,
+               "sj" : 0,
+               "sk" : 0,
+               "sm" : 0,
+               "sy" : 0,
+               "tn" : 0,
+               "tr" : 0,
+               "ua" : 0,
+               "uk" : 0,
+               "us" : 0,
+               "va" : 0,
+               "world" : 0,
+               "xk" : 0
+            },
+            "values" : {
+               "ad" : -5,
+               "al" : -5,
+               "at" : -5,
+               "ax" : -5,
+               "ba" : -5,
+               "be" : -5,
+               "bg" : -5,
+               "ch" : -5,
+               "cy" : -5,
+               "cz" : -5,
+               "de" : -5,
+               "dk" : -5,
+               "dz" : -5,
+               "ee" : -5,
+               "eg" : -5,
+               "es" : -5,
+               "fi" : -5,
+               "fo" : -5,
+               "fr" : -5,
+               "gg" : -5,
+               "gi" : -5,
+               "gr" : -5,
+               "hr" : -5,
+               "hu" : -5,
+               "ie" : -5,
+               "il" : -5,
+               "im" : -5,
+               "is" : -5,
+               "it" : -5,
+               "je" : -5,
+               "lb" : -5,
+               "li" : -5,
+               "lt" : -5,
+               "lu" : -5,
+               "lv" : -5,
+               "ly" : -5,
+               "ma" : -5,
+               "mc" : -5,
+               "md" : -5,
+               "me" : -5,
+               "mk" : -5,
+               "mt" : -5,
+               "nl" : -5,
+               "no" : -5,
+               "pl" : -5,
+               "ps" : -5,
+               "pt" : -5,
+               "ro" : -5,
+               "rs" : -5,
+               "se" : -5,
+               "si" : -5,
+               "sj" : -5,
+               "sk" : -5,
+               "sm" : -5,
+               "sy" : -5,
+               "tn" : -5,
+               "tr" : -5,
+               "ua" : -5,
+               "uk" : -5,
+               "us" : -5,
+               "va" : -5,
+               "world" : -5,
+               "xk" : -5
+            },
+            "warning" : "origins_are_100_percent_unknown"
+         },
+         "packaging" : {
+            "value" : -15,
+            "warning" : "packaging_data_missing"
+         },
+         "production_system" : {
+            "labels" : [],
+            "value" : 0,
+            "warning" : "no_label"
+         },
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "warning" : "missing_agribalyse_match"
+      },
+      "grade" : "unknown",
+      "missing" : {
+         "categories" : 1,
+         "labels" : 1,
+         "origins" : 1,
+         "packagings" : 1
+      },
+      "missing_agribalyse_match_warning" : 1,
+      "missing_key_data" : 1,
+      "status" : "unknown"
+   },
+   "environmental_score_grade" : "unknown",
+   "environmental_score_tags" : [
+      "unknown"
+   ],
+   "food_groups_tags" : [],
+   "images" : {
+      "selected" : {}
+   },
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 66.6666666666667,
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
+         "text" : "Sugar",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:wheat-flour",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "wheat flour",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "16400",
+         "ecobalyse_code" : "bbda834e-1548-4682-a461-c367dc1ce517",
+         "id" : "en:butter",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "butter",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:butter"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
+   "ingredients_original_tags" : [
+      "en:sugar",
+      "en:wheat-flour",
+      "en:butter"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
+   "ingredients_tags" : [
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:butter",
+      "en:dairy"
+   ],
+   "ingredients_text" : "Sugar, wheat flour, butter",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100.0,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "knowledge_panels_en" : {
+      "environment_card" : {
+         "elements" : [
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "environmental_score"
+               }
+            },
+            {
+               "element_type" : "panel_group",
+               "panel_group_element" : {
+                  "panel_group_id" : "packaging",
+                  "panel_ids" : [
+                     "packaging"
+                  ],
+                  "title" : "Packaging"
+               }
+            },
+            {
+               "element_type" : "panel_group",
+               "panel_group_element" : {
+                  "panel_ids" : [
+                     "origins_of_ingredients"
+                  ],
+                  "title" : "Transportation"
+               }
+            }
+         ],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Environment"
+         },
+         "topics" : [
+            "environment"
+         ],
+         "type" : "card"
+      },
+      "environmental_score" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?",
+                  "type" : "summary"
+               }
+            },
+            {
+               "action_element" : {
+                  "actions" : [
+                     "add_categories"
+                  ],
+                  "html" : "Could you add a precise product category so that we can compute the Green-Score?"
+               },
+               "element_type" : "action"
+            }
+         ],
+         "level" : "info",
+         "title_element" : {
+            "grade" : "unknown",
+            "icon_url" : "https://server_domain/images/attributes/dist/green-score-unknown.svg",
+            "subtitle" : "Missing a precise category",
+            "title" : "Green-Score not computed",
+            "type" : "grade"
+         },
+         "topics" : [
+            "environment"
+         ]
+      },
+      "health_card" : {
+         "elements" : [
+            {
+               "element_type" : "panel_group",
+               "panel_group_element" : {
+                  "panel_group_id" : "nutrition",
+                  "panel_ids" : [
+                     "nutriscore_2023"
+                  ],
+                  "title" : "Nutrition",
+                  "type" : "subcard"
+               }
+            },
+            {
+               "element_type" : "panel_group",
+               "panel_group_element" : {
+                  "panel_ids" : [
+                     "nutrition_facts_table"
+                  ],
+                  "title" : ""
+               }
+            },
+            {
+               "element_type" : "panel_group",
+               "panel_group_element" : {
+                  "panel_group_id" : "ingredients",
+                  "panel_ids" : [
+                     "ingredients",
+                     "ingredients_added_sugars"
+                  ],
+                  "title" : "Ingredients",
+                  "type" : "subcard"
+               }
+            },
+            {
+               "element_type" : "panel_group",
+               "panel_group_element" : {
+                  "panel_ids" : [
+                     "nova"
+                  ],
+                  "title" : "Food processing"
+               }
+            },
+            {
+               "element_type" : "panel_group",
+               "panel_group_element" : {
+                  "panel_ids" : [
+                     "ingredients_analysis",
+                     "ingredients_analysis_details"
+                  ],
+                  "title" : "Ingredients analysis"
+               }
+            }
+         ],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Health"
+         },
+         "topics" : [
+            "health"
+         ],
+         "type" : "card"
+      },
+      "incomplete_or_incorrect_data" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                If the information does not match the information on the packaging, you can complete or correct it. Thank you!\n                Open Food Facts is a collaborative database, and every contribution is useful for all.\n                "
+               }
+            },
+            {
+               "action_element" : {
+                  "actions" : [
+                     "edit_product"
+                  ],
+                  "html" : ""
+               },
+               "element_type" : "action"
+            },
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team.\n                "
+               }
+            },
+            {
+               "action_element" : {
+                  "actions" : [
+                     "report_product_to_nutripatrol"
+                  ],
+                  "html" : ""
+               },
+               "element_type" : "action"
+            }
+         ],
+         "evaluation" : "neutral",
+         "expand_for" : "large",
+         "level" : "info",
+         "title_element" : {
+            "icon_url" : "https://server_domain/images/logos/off-logo-icon-light.svg",
+            "subtitle" : "Category, labels, ingredients, allergens, nutritional information, photos etc.",
+            "title" : "Incomplete or incorrect information?"
+         },
+         "topics" : [
+            "problem"
+         ]
+      },
+      "ingredient_1" : {
+         "elements" : [],
+         "level" : "info",
+         "size" : "small",
+         "title_element" : {
+            "title" : "Sugar: 66.7% (estimate)"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "ingredient_2" : {
+         "elements" : [],
+         "level" : "info",
+         "size" : "small",
+         "title_element" : {
+            "title" : "Wheat flour: 16.7% (estimate)"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "ingredient_3" : {
+         "elements" : [],
+         "level" : "info",
+         "size" : "small",
+         "title_element" : {
+            "title" : "Butter: 16.7% (estimate)"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "ingredients" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "edit_field_id" : "ingredients_text_en",
+                  "edit_field_type" : "ingredients_text",
+                  "edit_field_value" : "Sugar, wheat flour, butter",
+                  "html" : "",
+                  "language" : "English",
+                  "lc" : "en"
+               }
+            },
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "<strong>Allergens:</strong> \n                    Gluten, Milk\n                "
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "ingredients_list"
+               }
+            }
+         ],
+         "evaluation" : "unknown",
+         "expand_for" : "large",
+         "expanded" : false,
+         "level" : "info",
+         "title_element" : {
+            "icon_color_from_evaluation" : true,
+            "icon_url" : "https://server_domain/images/icons/dist/ingredients.svg",
+            "title" : "3 ingredients"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "ingredients_added_sugars" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n\n<b>Quantity of added sugars:</b> 20%               \n\n                "
+               }
+            },
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n<b>What you need to know</b>\n<ul>\n<li>A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases.</li>\n</ul>\n<br>\n<b>Recommendation</b>:\n<b>Limit the consumption of sugar and sugary drinks</b>\n<ul>\n<li>Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day).</li>\n<li>Choose products with lower sugar content and reduce the consumption of products with added sugars.</li>\n</ul>\n",
+                  "type" : "summary"
+               }
+            },
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n",
+                  "source_language" : "en",
+                  "source_text" : "National Health Service UK (NHS) - Sugar: the facts",
+                  "source_url" : "https://server_domain/live-well/eat-well/food-types/how-does-sugar-in-our-diet-affect-our-health/",
+                  "type" : "summary"
+               }
+            }
+         ],
+         "evaluation" : "bad",
+         "expanded" : false,
+         "level" : "info",
+         "title_element" : {
+            "icon_url" : "https://server_domain/images/attributes/dist/nutrient-level-sugars-high.svg",
+            "subtitle" : "Added sugars: Sugar",
+            "title" : "Contains added sugars (20%)"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "ingredients_analysis" : {
+         "elements" : [
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "ingredients_analysis_en:palm-oil-free"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "ingredients_analysis_en:non-vegan"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "ingredients_analysis_en:vegetarian"
+               }
+            },
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+               }
+            }
+         ],
+         "expanded" : true,
+         "level" : "info",
+         "topics" : [
+            "health"
+         ],
+         "type" : "inline"
+      },
+      "ingredients_analysis_details" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "en: <span>Sugar</span>, <span>wheat flour</span>, <span>butter</span>"
+               }
+            },
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>Sugar</span> -> en:sugar – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;31016 – percent_min:&nbsp;33.3333333333333 – percent_estimate:&nbsp;66.6666666666667 – percent_max:&nbsp;100</li>\n<li><span>wheat flour</span> -> en:wheat-flour – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;9410 – percent_min:&nbsp;0 – percent_estimate:&nbsp;16.6666666666667 – percent_max:&nbsp;50</li>\n<li><span>butter</span> -> en:butter – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;16400 – percent_min:&nbsp;0 – percent_estimate:&nbsp;16.6666666666667 – percent_max:&nbsp;33.3333333333333</li>\n</ol>\n"
+               }
+            },
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : ""
+               }
+            }
+         ],
+         "evaluation" : "unknown",
+         "level" : "info",
+         "size" : "small",
+         "title_element" : {
+            "icon_color_from_evaluation" : true,
+            "icon_size" : "small",
+            "icon_url" : "https://server_domain/images/icons/dist/off-magnifying-glass.svg",
+            "title" : "Details of the analysis of the ingredients"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "ingredients_analysis_en:non-vegan" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                \n                    <strong>Non-vegan ingredients:</strong>\n                    Butter\n                \n                    ",
+                  "type" : "summary"
+               }
+            }
+         ],
+         "evaluation" : "bad",
+         "level" : "info",
+         "size" : "small",
+         "title_element" : {
+            "icon_color_from_evaluation" : true,
+            "icon_size" : "small",
+            "icon_url" : "https://server_domain/images/icons/dist/leaf.svg",
+            "title" : "Non-vegan"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "ingredients_analysis_en:palm-oil-free" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                \n                    No ingredients containing palm oil detected\n                    \n                \n                    ",
+                  "type" : "summary"
+               }
+            }
+         ],
+         "evaluation" : "good",
+         "level" : "info",
+         "size" : "small",
+         "title_element" : {
+            "icon_color_from_evaluation" : true,
+            "icon_size" : "small",
+            "icon_url" : "https://server_domain/images/icons/dist/palm-oil.svg",
+            "title" : "Palm oil free"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "ingredients_analysis_en:vegetarian" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                \n                    No non-vegetarian ingredients detected\n                    \n                \n                    ",
+                  "type" : "summary"
+               }
+            }
+         ],
+         "evaluation" : "good",
+         "level" : "info",
+         "size" : "small",
+         "title_element" : {
+            "icon_color_from_evaluation" : true,
+            "icon_size" : "small",
+            "icon_url" : "https://server_domain/images/icons/dist/vegetarian.svg",
+            "title" : "Vegetarian"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "ingredients_list" : {
+         "elements" : [
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "ingredient_1"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "ingredient_2"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "ingredient_3"
+               }
+            }
+         ],
+         "expanded" : false,
+         "level" : "info",
+         "title_element" : {
+            "title" : "Ingredient information"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "nova" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n\n    \n       The category of the product must be specified in order to determine the NOVA group.\n    \n\n"
+               }
+            },
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra-processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"/nova\">Learn more about the NOVA classification</a></p>\n"
+               }
+            }
+         ],
+         "level" : "info",
+         "title_element" : {
+            "icon_url" : "https://server_domain/images/attributes/dist/nova-group-unknown.svg",
+            "title" : "Food processing level unknown"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "nutrient_levels" : {
+         "elements" : [
+            {
+               "element_type" : "panel_group",
+               "panel_group_element" : {
+                  "panel_group_id" : "nutrient_levels_group",
+                  "panel_ids" : []
+               }
+            }
+         ],
+         "evaluation" : "unknown",
+         "expand_for" : "large",
+         "expanded" : false,
+         "level" : "info",
+         "title_element" : {
+            "icon_color_from_evaluation" : true,
+            "icon_url" : "https://server_domain/images/icons/dist/nutrition.svg",
+            "title" : "Nutrient levels"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "nutriscore_2023" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "The category of the product must be specified in order to compute the Nutri-Score.\n                    ",
+                  "type" : "warning"
+               }
+            },
+            {
+               "action_element" : {
+                  "actions" : [
+                     "add_categories"
+                  ],
+                  "html" : "Could you add the information needed to compute the Nutri-Score?"
+               },
+               "element_type" : "action"
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "nutriscore_new_computation"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "nutriscore_description"
+               }
+            }
+         ],
+         "level" : "info",
+         "title_element" : {
+            "grade" : "unknown",
+            "icon_url" : "https://server_domain/images/attributes/dist/nutriscore-unknown-new-en.svg",
+            "subtitle" : "Missing category",
+            "title" : "Nutri-Score unknown",
+            "type" : "grade"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "nutriscore_description" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "<p>The Nutri-Score is a logo on the overall nutritional quality of products.</p>\n<p>\nThe score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt).\nThe score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes).\n</p>\n\n                ",
+                  "type" : "info"
+               }
+            },
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n<p>&rarr; <a href=\"/nutriscore\">Learn more about the Nutri-Score</a></p>\n"
+               }
+            }
+         ],
+         "level" : "info",
+         "title_element" : {
+            "icon_size" : "small",
+            "icon_url" : "https://server_domain/images/icons/dist/info.svg",
+            "title" : "What is the Nutri-Score?",
+            "type" : "info"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "nutriscore_new_computation" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>\n                ",
+                  "type" : "info"
+               }
+            },
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n<p>&rarr; <a href=\"new-nutriscore\">Discover all the improvements of the new Nutri-Score</a></p>\n"
+               }
+            }
+         ],
+         "level" : "info",
+         "title_element" : {
+            "icon_size" : "small",
+            "icon_url" : "https://server_domain/images/icons/dist/info.svg",
+            "title" : "Discover the new Nutri-Score!",
+            "type" : "info"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "nutrition_facts_table" : {
+         "elements" : [
+            {
+               "element_type" : "table",
+               "table_element" : {
+                  "columns" : [
+                     {
+                        "style" : "max-width:15rem",
+                        "text" : "Nutrition facts",
+                        "type" : "text"
+                     },
+                     {
+                        "column_group_id" : "product",
+                        "shown_by_default" : true,
+                        "text" : "As sold<br>for 100 g / 100 ml",
+                        "text_for_small_screens" : "100g",
+                        "type" : "text"
+                     }
+                  ],
+                  "id" : "nutrition_facts_table",
+                  "rows" : [
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Energy"
+                           },
+                           {
+                              "text" : "~ 1890 kJ<br>(448 kcal)"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Fat"
+                           },
+                           {
+                              "text" : "~ 14.0666666666667 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 1,
+                              "style" : "max-width:15rem",
+                              "text" : "Saturated fat"
+                           },
+                           {
+                              "text" : "~ 9.27833333333333 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Carbohydrates"
+                           },
+                           {
+                              "text" : "~ 78.1166666666667 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 1,
+                              "style" : "max-width:15rem",
+                              "text" : "Sugars"
+                           },
+                           {
+                              "text" : "~ 66.9383333333333 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 2,
+                              "style" : "max-width:15rem",
+                              "text" : "Added sugars"
+                           },
+                           {
+                              "text" : "20 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Fiber"
+                           },
+                           {
+                              "text" : "~ 1.13333333333333 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Proteins"
+                           },
+                           {
+                              "text" : "~ 1.71833333333333 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Salt"
+                           },
+                           {
+                              "text" : "~ 0.0246 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Fruits‚ vegetables‚ legumes"
+                           },
+                           {
+                              "text" : "~ 0 %"
+                           }
+                        ]
+                     }
+                  ],
+                  "title" : "Nutrition facts"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "nutrition_facts_table_with_input_sets"
+               }
+            }
+         ],
+         "evaluation" : "unknown",
+         "expand_for" : "large",
+         "expanded" : false,
+         "level" : "info",
+         "title_element" : {
+            "icon_color_from_evaluation" : true,
+            "icon_url" : "https://server_domain/images/icons/dist/scale-balance.svg",
+            "title" : "Nutrition facts"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "nutrition_facts_table_with_input_sets" : {
+         "elements" : [
+            {
+               "element_type" : "table",
+               "table_element" : {
+                  "columns" : [
+                     {
+                        "style" : "max-width:15rem",
+                        "text" : "Nutrition facts",
+                        "type" : "text"
+                     },
+                     {
+                        "text" : "As sold<br>for 100 g / 100 ml",
+                        "text_for_small_screens" : "100g",
+                        "type" : "text"
+                     },
+                     {
+                        "text" : "As soldfor 100 g (packaging)",
+                        "text_for_small_screens" : "100g",
+                        "type" : "text"
+                     },
+                     {
+                        "text" : "As soldfor 100 g (estimate)",
+                        "text_for_small_screens" : "100g",
+                        "type" : "text"
+                     }
+                  ],
+                  "id" : "nutrition_facts_table_with_input_sets",
+                  "rows" : [
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Energy"
+                           },
+                           {
+                              "text" : "~ 1890 kJ<br>(448 kcal)"
+                           },
+                           {
+                              "text" : "?"
+                           },
+                           {
+                              "text" : "~ 1890 kJ<br>(448 kcal)"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Fat"
+                           },
+                           {
+                              "text" : "~ 14.0666666666667 g"
+                           },
+                           {
+                              "text" : "?"
+                           },
+                           {
+                              "text" : "~ 14.0666666666667 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 1,
+                              "style" : "max-width:15rem",
+                              "text" : "Saturated fat"
+                           },
+                           {
+                              "text" : "~ 9.27833333333333 g"
+                           },
+                           {
+                              "text" : "?"
+                           },
+                           {
+                              "text" : "~ 9.27833333333333 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Carbohydrates"
+                           },
+                           {
+                              "text" : "~ 78.1166666666667 g"
+                           },
+                           {
+                              "text" : "?"
+                           },
+                           {
+                              "text" : "~ 78.1166666666667 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 1,
+                              "style" : "max-width:15rem",
+                              "text" : "Sugars"
+                           },
+                           {
+                              "text" : "~ 66.9383333333333 g"
+                           },
+                           {
+                              "text" : "?"
+                           },
+                           {
+                              "text" : "~ 66.9383333333333 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 2,
+                              "style" : "max-width:15rem",
+                              "text" : "Added sugars"
+                           },
+                           {
+                              "text" : "20 g"
+                           },
+                           {
+                              "text" : "20 g"
+                           },
+                           {
+                              "text" : "~ 66.6666666666667 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Fiber"
+                           },
+                           {
+                              "text" : "~ 1.13333333333333 g"
+                           },
+                           {
+                              "text" : "?"
+                           },
+                           {
+                              "text" : "~ 1.13333333333333 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Proteins"
+                           },
+                           {
+                              "text" : "~ 1.71833333333333 g"
+                           },
+                           {
+                              "text" : "?"
+                           },
+                           {
+                              "text" : "~ 1.71833333333333 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Salt"
+                           },
+                           {
+                              "text" : "~ 0.0246 g"
+                           },
+                           {
+                              "text" : "?"
+                           },
+                           {
+                              "text" : "~ 0.0246 g"
+                           }
+                        ]
+                     },
+                     {
+                        "values" : [
+                           {
+                              "level" : 0,
+                              "style" : "max-width:15rem",
+                              "text" : "Fruits‚ vegetables‚ legumes"
+                           },
+                           {
+                              "text" : "~ 0 %"
+                           },
+                           {
+                              "text" : "?"
+                           },
+                           {
+                              "text" : "~ 0 %"
+                           }
+                        ]
+                     }
+                  ],
+                  "title" : "Nutrition facts"
+               }
+            }
+         ],
+         "evaluation" : "unknown",
+         "expanded" : false,
+         "level" : "info",
+         "title_element" : {
+            "title" : "Nutrition facts (Detailed data)"
+         },
+         "topics" : [
+            "health"
+         ]
+      },
+      "origins_of_ingredients" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                The origins of the ingredients of this product are not indicated.<br><br>\n                If they are indicated on the packaging, you can modify the product sheet and add them.<br><br>\n                If you are the manufacturer of this product, you can send us the information with our <a href=\"https://server_domain/a>.\n                    ",
+                  "type" : "warning"
+               }
+            },
+            {
+               "action_element" : {
+                  "actions" : [
+                     "add_origins"
+                  ],
+                  "html" : "Add the origins of ingredients for this product"
+               },
+               "element_type" : "action"
+            }
+         ],
+         "evaluation" : "unknown",
+         "expanded" : false,
+         "half_width_on_mobile" : true,
+         "level" : "info",
+         "title_element" : {
+            "icon_color_from_evaluation" : true,
+            "icon_url" : "https://server_domain/images/icons/dist/public.svg",
+            "subtitle" : "Missing origins of ingredients information",
+            "title" : "Origins of ingredients"
+         },
+         "topics" : [
+            "environment"
+         ]
+      },
+      "packaging" : {
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "\n                    The information about the packaging of this product is not filled in.\n                    ",
+                  "type" : "warning"
+               }
+            },
+            {
+               "action_element" : {
+                  "actions" : [
+                     "add_packaging_image"
+                  ],
+                  "html" : "Take a photo of the recycling information"
+               },
+               "element_type" : "action"
+            }
+         ],
+         "evaluation" : "unknown",
+         "level" : "info",
+         "title_element" : {
+            "evaluation" : "neutral",
+            "icon_color_from_evaluation" : true,
+            "icon_url" : "https://server_domain/images/icons/dist/packaging.svg",
+            "title" : "Missing packaging information for this product"
+         },
+         "topics" : [
+            "environment"
+         ]
+      },
+      "packaging_components" : {
+         "elements" : [],
+         "expanded" : true,
+         "level" : "info",
+         "title_element" : {
+            "title" : "Packaging parts"
+         },
+         "topics" : [
+            "environment"
+         ]
+      },
+      "packaging_materials" : {
+         "elements" : [
+            {
+               "element_type" : "table",
+               "table_element" : {
+                  "columns" : [
+                     {
+                        "text" : "Material",
+                        "type" : "text"
+                     },
+                     {
+                        "text" : "%",
+                        "type" : "text"
+                     },
+                     {
+                        "text" : "Packaging weight",
+                        "type" : "text"
+                     }
+                  ],
+                  "id" : "packaging_materials",
+                  "rows" : [],
+                  "title" : "Packaging materials"
+               }
+            }
+         ],
+         "expanded" : true,
+         "level" : "info",
+         "title_element" : {
+            "title" : "Packaging materials"
+         },
+         "topics" : [
+            "environment"
+         ]
+      },
+      "product_card" : {
+         "elements" : [],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Product information"
+         },
+         "topics" : [
+            "product"
+         ],
+         "type" : "card"
+      },
+      "report_problem_card" : {
+         "elements" : [
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "incomplete_or_incorrect_data"
+               }
+            }
+         ],
+         "expanded" : true,
+         "title_element" : {
+            "title" : "Report a problem"
+         },
+         "topics" : [
+            "problems"
+         ],
+         "type" : "card"
+      },
+      "root" : {
+         "elements" : [
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "health_card"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "environment_card"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "report_problem_card"
+               }
+            },
+            {
+               "element_type" : "panel",
+               "panel_element" : {
+                  "panel_id" : "product_card"
+               }
+            }
+         ],
+         "expanded" : true,
+         "type" : "root"
+      }
+   },
+   "known_ingredients_n" : 3,
+   "languages" : {},
+   "languages_codes" : {},
+   "languages_hierarchy" : [],
+   "languages_tags" : [
+      "en:0"
+   ],
+   "lc" : "en",
+   "minerals_tags" : [],
+   "misc_tags" : [
+      "en:environmental-score-not-computed",
+      "en:nutrients-estimated-from-ingredients",
+      "en:nutriscore-estimated-energy",
+      "en:nutriscore-estimated-fat",
+      "en:nutriscore-estimated-fiber",
+      "en:nutriscore-estimated-proteins",
+      "en:nutriscore-estimated-saturated-fat",
+      "en:nutriscore-estimated-sodium",
+      "en:nutriscore-estimated-sugars",
+      "en:nutriscore-missing-category",
+      "en:nutriscore-not-computed",
+      "en:nutrition-all-nutriscore-values-known",
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:packagings-empty",
+      "en:packagings-not-complete",
+      "en:packagings-number-of-components-0"
+   ],
+   "nova_group_debug" : "no nova group when the product does not have a category",
+   "nova_group_error" : "missing_category",
+   "nova_groups_tags" : [
+      "unknown"
+   ],
+   "nucleotides_tags" : [],
+   "nutrient_levels" : {},
+   "nutrient_levels_tags" : [],
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 0,
+         "data" : {
+            "energy" : 1890,
+            "fiber" : 1.13333333333333,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "proteins" : 1.71833333333333,
+            "saturated_fat" : 9.27833333333333,
+            "sodium" : 6.03,
+            "sugars" : 66.9383333333333
+         },
+         "estimated" : 1,
+         "grade" : "unknown",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 0,
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
+      },
+      "2023" : {
+         "category_available" : 0,
+         "data" : {
+            "energy" : 1890,
+            "fiber" : 1.13333333333333,
+            "fruits_vegetables_legumes" : 0,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
+            "is_water" : 0,
+            "proteins" : 1.71833333333333,
+            "salt" : 0.0246,
+            "saturated_fat" : 9.27833333333333,
+            "sugars" : 66.9383333333333
+         },
+         "estimated" : 1,
+         "grade" : "unknown",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 0,
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "unknown"
+   ],
+   "nutriscore_2023_tags" : [
+      "unknown"
+   ],
+   "nutriscore_grade" : "unknown",
+   "nutriscore_tags" : [
+      "unknown"
+   ],
+   "nutriscore_version" : "2023",
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "added-sugars" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 20
+            },
+            "alcohol" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "% vol",
+               "value" : 0
+            },
+            "beta-carotene" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 2.71666666666667e-05
+            },
+            "calcium" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.00992666666666667
+            },
+            "carbohydrates" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 78.1166666666667
+            },
+            "cholesterol" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.0363333333333333
+            },
+            "copper" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 5.46666666666667e-05
+            },
+            "energy" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 1890,
+               "value_computed" : 1886.72833333334
+            },
+            "energy-kcal" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "kcal",
+               "value" : 448.166666666667,
+               "value_computed" : 448.206666666667
+            },
+            "energy-kj" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 1890,
+               "value_computed" : 1886.72833333334
+            },
+            "fat" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 14.0666666666667
+            },
+            "fiber" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.13333333333333
+            },
+            "fructose" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.025
+            },
+            "fruits-vegetables-legumes" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 0
+            },
+            "fruits-vegetables-nuts" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 0
+            },
+            "galactose" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.00833333333333333
+            },
+            "glucose" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.025
+            },
+            "iodine" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 2.11666666666667e-06
+            },
+            "iron" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.000422333333333333
+            },
+            "lactose" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.155
+            },
+            "magnesium" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.0136083333333333
+            },
+            "maltose" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.181666666666667
+            },
+            "manganese" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.000371166666666667
+            },
+            "pantothenic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 9.83333333333333e-05
+            },
+            "phosphorus" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.0406666666666667
+            },
+            "phylloquinone" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.23333333333333e-06
+            },
+            "polyols" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "potassium" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.0603333333333333
+            },
+            "proteins" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.71833333333333
+            },
+            "salt" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.0246,
+               "value_computed" : 0.015075
+            },
+            "saturated-fat" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 9.27833333333333
+            },
+            "selenium" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 5.83333333333333e-06
+            },
+            "sodium" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.00603,
+               "value_computed" : 0.00984
+            },
+            "starch" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 9.88333333333333
+            },
+            "sucrose" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 66.635
+            },
+            "sugars" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 66.9383333333333
+            },
+            "vitamin-a" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.0001125
+            },
+            "vitamin-b1" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 4.43333333333333e-05
+            },
+            "vitamin-b12" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 2.83333333333333e-08
+            },
+            "vitamin-b2" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.93333333333333e-05
+            },
+            "vitamin-b6" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.89166666666667e-05
+            },
+            "vitamin-b9" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 4.78333333333333e-06
+            },
+            "vitamin-c" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 4.16666666666667e-05
+            },
+            "vitamin-d" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 2.08333333333333e-07
+            },
+            "vitamin-e" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.000483333333333333
+            },
+            "vitamin-pp" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 2.01666666666667e-05
+            },
+            "water" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 4.74666666666666
+            },
+            "zinc" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.000343833333333333
+            }
+         },
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "added-sugars" : {
+                  "unit" : "g",
+                  "value" : 20,
+                  "value_string" : "20"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : 100,
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         },
+         {
+            "nutrients" : {
+               "added-sugars" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 66.6666666666667,
+                  "value_string" : "66.6666666666667"
+               },
+               "alcohol" : {
+                  "modifier" : "~",
+                  "unit" : "% vol",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "beta-carotene" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 2.71666666666667e-05,
+                  "value_string" : "2.71666666666667e-05"
+               },
+               "calcium" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.00992666666666667,
+                  "value_string" : "0.00992666666666667"
+               },
+               "carbohydrates" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 78.1166666666667,
+                  "value_string" : "78.1166666666667"
+               },
+               "cholesterol" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.0363333333333333,
+                  "value_string" : "0.0363333333333333"
+               },
+               "copper" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 5.46666666666667e-05,
+                  "value_string" : "5.46666666666667e-05"
+               },
+               "energy" : {
+                  "modifier" : "~",
+                  "unit" : "kJ",
+                  "value" : 1890,
+                  "value_string" : "1890"
+               },
+               "energy-kcal" : {
+                  "modifier" : "~",
+                  "unit" : "kcal",
+                  "value" : 448.166666666667,
+                  "value_computed" : 448.206666666667,
+                  "value_string" : "448.166666666667"
+               },
+               "energy-kj" : {
+                  "modifier" : "~",
+                  "unit" : "kJ",
+                  "value" : 1890,
+                  "value_computed" : 1886.72833333334,
+                  "value_string" : "1890"
+               },
+               "fat" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 14.0666666666667,
+                  "value_string" : "14.0666666666667"
+               },
+               "fiber" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 1.13333333333333,
+                  "value_string" : "1.13333333333333"
+               },
+               "fructose" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.025,
+                  "value_string" : "0.025"
+               },
+               "fruits-vegetables-legumes" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "fruits-vegetables-nuts" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "galactose" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.00833333333333333,
+                  "value_string" : "0.00833333333333333"
+               },
+               "glucose" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.025,
+                  "value_string" : "0.025"
+               },
+               "iodine" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 2.11666666666667e-06,
+                  "value_string" : "2.11666666666667e-06"
+               },
+               "iron" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.000422333333333333,
+                  "value_string" : "0.000422333333333333"
+               },
+               "lactose" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.155,
+                  "value_string" : "0.155"
+               },
+               "magnesium" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.0136083333333333,
+                  "value_string" : "0.0136083333333333"
+               },
+               "maltose" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.181666666666667,
+                  "value_string" : "0.181666666666667"
+               },
+               "manganese" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.000371166666666667,
+                  "value_string" : "0.000371166666666667"
+               },
+               "pantothenic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 9.83333333333333e-05,
+                  "value_string" : "9.83333333333333e-05"
+               },
+               "phosphorus" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.0406666666666667,
+                  "value_string" : "0.0406666666666667"
+               },
+               "phylloquinone" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 1.23333333333333e-06,
+                  "value_string" : "1.23333333333333e-06"
+               },
+               "polyols" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "potassium" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.0603333333333333,
+                  "value_string" : "0.0603333333333333"
+               },
+               "proteins" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 1.71833333333333,
+                  "value_string" : "1.71833333333333"
+               },
+               "salt" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.0246,
+                  "value_computed" : 0.015075,
+                  "value_string" : "0.0246"
+               },
+               "saturated-fat" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 9.27833333333333,
+                  "value_string" : "9.27833333333333"
+               },
+               "selenium" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 5.83333333333333e-06,
+                  "value_string" : "5.83333333333333e-06"
+               },
+               "sodium" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.00603,
+                  "value_computed" : 0.00984,
+                  "value_string" : "0.00603"
+               },
+               "starch" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 9.88333333333333,
+                  "value_string" : "9.88333333333333"
+               },
+               "sucrose" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 66.635,
+                  "value_string" : "66.635"
+               },
+               "sugars" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 66.9383333333333,
+                  "value_string" : "66.9383333333333"
+               },
+               "vitamin-a" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.0001125,
+                  "value_string" : "0.0001125"
+               },
+               "vitamin-b1" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 4.43333333333333e-05,
+                  "value_string" : "4.43333333333333e-05"
+               },
+               "vitamin-b12" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 2.83333333333333e-08,
+                  "value_string" : "2.83333333333333e-08"
+               },
+               "vitamin-b2" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 1.93333333333333e-05,
+                  "value_string" : "1.93333333333333e-05"
+               },
+               "vitamin-b6" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 1.89166666666667e-05,
+                  "value_string" : "1.89166666666667e-05"
+               },
+               "vitamin-b9" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 4.78333333333333e-06,
+                  "value_string" : "4.78333333333333e-06"
+               },
+               "vitamin-c" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 4.16666666666667e-05,
+                  "value_string" : "4.16666666666667e-05"
+               },
+               "vitamin-d" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 2.08333333333333e-07,
+                  "value_string" : "2.08333333333333e-07"
+               },
+               "vitamin-e" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.000483333333333333,
+                  "value_string" : "0.000483333333333333"
+               },
+               "vitamin-pp" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 2.01666666666667e-05,
+                  "value_string" : "2.01666666666667e-05"
+               },
+               "water" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 4.74666666666666,
+                  "value_string" : "4.74666666666666"
+               },
+               "zinc" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.000343833333333333,
+                  "value_string" : "0.000343833333333333"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : 100,
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "estimate",
+            "source_description" : "Estimate from ingredients"
+         }
+      ]
+   },
+   "nutrition_grade_fr" : "unknown",
+   "nutrition_grades" : "unknown",
+   "nutrition_grades_tags" : [
+      "unknown"
+   ],
+   "nutrition_score_beverage" : 0,
+   "nutrition_score_debug" : "no score when the product does not have a category - as_sold energy estimated - as_sold fat estimated - as_sold saturated-fat estimated - as_sold sugars estimated - as_sold sodium estimated - as_sold proteins estimated - as_sold fiber estimated",
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 0,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
+   "other_nutritional_substances_tags" : [],
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
+   "packagings" : [],
+   "packagings_materials" : {},
+   "pnns_groups_1" : "unknown",
+   "pnns_groups_1_tags" : [
+      "unknown",
+      "missing-category"
+   ],
+   "pnns_groups_2" : "unknown",
+   "pnns_groups_2_tags" : [
+      "unknown",
+      "missing-category"
+   ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
+   "unknown_ingredients_n" : 0,
+   "vitamins_tags" : []
+}

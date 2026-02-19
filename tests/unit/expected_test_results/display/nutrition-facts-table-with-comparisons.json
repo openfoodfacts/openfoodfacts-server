@@ -1,0 +1,224 @@
+{
+   "comparisons" : [
+      {
+         "checked" : 1,
+         "col_id" : "compare_0",
+         "count" : 100,
+         "link" : "/facets/categories/en:spreads",
+         "name" : "Spreads"
+      }
+   ],
+   "nutrition_table" : {
+      "header" : {
+         "columns" : [
+            {
+               "col_id" : "as_sold_100g",
+               "name" : "As sold<br>for 100 g / 100 ml",
+               "per" : "100g",
+               "preparation" : "as_sold",
+               "scope" : "product",
+               "short_name" : "100g"
+            },
+            {
+               "class" : "compare_0",
+               "col_id" : "compare_0",
+               "name" : "Compared to: Spreads",
+               "scope" : "comparisons"
+            }
+         ],
+         "name" : "Nutrition facts"
+      },
+      "id" : "nutrition",
+      "rows" : [
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:energyPer100g\" content=\"0\"",
+                  "type" : "normal",
+                  "value" : "0 kJ<br>(0 kcal)"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Energy",
+            "nid" : "energy"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:fatPer100g\" content=\"0\"",
+                  "type" : "normal",
+                  "value" : "0 g"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Fat",
+            "nid" : "fat"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               }
+            ],
+            "level" : 1,
+            "name" : "Saturated fat",
+            "nid" : "saturated-fat"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:carbohydratesPer100g\" content=\"0\"",
+                  "type" : "normal",
+                  "value" : "0 g"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Carbohydrates",
+            "nid" : "carbohydrates"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               }
+            ],
+            "level" : 1,
+            "name" : "Sugars",
+            "nid" : "sugars"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Fiber",
+            "nid" : "fiber"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Proteins",
+            "nid" : "proteins"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : " property=\"food:saltPer100g\" content=\"3.75\"",
+                  "type" : "normal",
+                  "value" : "3.75 g"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Salt",
+            "nid" : "salt"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : null,
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
+               {
+                  "class" : "compare_0",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "comparison",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Fruits‚ vegetables‚ legumes",
+            "nid" : "fruits-vegetables-legumes"
+         }
+      ]
+   }
+}

@@ -1,0 +1,20 @@
+{
+    "type": "card",
+    "expanded": true,
+    "topics": [
+        "reuse"
+    ],
+    "title_element": {
+        "title": "[% edq(lang('reuse_card_title')) %]"
+    },
+    "elements": [
+        [% IF panels.qfdmo_solutions.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "qfdmo_solutions",
+            },
+        },
+        [% END %]
+    ],
+}

@@ -50,7 +50,6 @@ my @tests = (
 	{
 		test_case => "replace_existing_values",
 		csv_files => ["replace_existing_values_1.csv", "replace_existing_values_2.csv"],
-
 	},
 	{
 		test_case => "old_nutrition",

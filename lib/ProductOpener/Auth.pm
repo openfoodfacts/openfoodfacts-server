@@ -155,7 +155,7 @@ The return URL after successful authentication.
 
 sub signin_callback ($request_ref) {
 	if (not(defined cookie($cookie_name))) {
-		display_error_and_exit(lang('oidc_signin_no_cookie'), 400);
+		display_error_and_exit($request_ref, lang('oidc_signin_no_cookie'), 400);
 		return;
 	}
 
@@ -819,7 +819,7 @@ sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 	}
 
 	$jwks = decode_json($jwks_response->content);
-	$log->info('got JWKS', {jwks => $jwks}) if $log->is_info();
+
 	return;
 }
 

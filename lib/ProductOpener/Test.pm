@@ -251,6 +251,9 @@ sub remove_all_products () {
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
+	# Note: we do not remove categories stats from PRIVATE_DATA and TEST_PRIVATE_DATA
+	# In integration tests, PRIVATE_DATA/categories_stats should not exist,
+	# and categories stats should be loaded from TEST_PRIVATE_DATA/categories_stats
 }
 
 =head2 remove_all_users ()
@@ -401,7 +404,8 @@ If the test fail, the test reference will be output in the C<diag>
 
 sub compare_to_expected_results ($object_ref, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
-	my $json = JSON->new->allow_nonref->canonical;
+	# Make sure we include convert_blessed to cater for blessed objects, like booleans
+	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical;
 
 	my $desc = undef;
 	if (defined $test_ref) {
@@ -856,11 +860,11 @@ sub normalize_product_for_test_comparison ($product_ref) {
 	my %specification = (
 		fields_ignore_content => [
 			qw(
-				last_modified_t last_updated_t created_t owner_fields
+				last_modified_t last_updated_t nutrition.input_sets.*.last_updated_t created_t owner_fields
 				entry_dates_tags last_edit_dates_tags
 				last_image_t last_image_datetime last_image_dates_tags images.*.uploaded_t images.uploaded.*.uploaded_t sources.*.import_t
 				created_datetime last_modified_datetime last_updated_datetime
-				blame.*.*.previous_t blame.*.*.t
+				blame.*.*.previous_t blame.*.*.t nutrition.input_sets.*.last_updated_t
 			)
 		],
 		fields_sort => ["_keywords"],
