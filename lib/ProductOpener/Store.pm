@@ -624,6 +624,8 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 					# avoid conflicting-codes and invalid-codes
 					next if $exclude_path_pattern and $file =~ $exclude_path_pattern;
 					my $path = "$current_dir/$file";
+					print STDERR "skip_until_path: $skip_until_path - current: $path\n";
+					next if ((defined $skip_until_path) and ($path lt $skip_until_path) and not ();
 					if (-d $path) {
 						# explore sub dirs
 						push @dirs, $path;
@@ -637,7 +639,6 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 					$last_name = $object_name;
 
 					next if ($name_pattern and $object_name !~ $name_pattern);
-					next if (defined $skip_until_path and "$current_dir/$object_name" lt $skip_until_path);
 					push(@object_paths, "$current_dir/$object_name");
 				}
 			}
