@@ -687,6 +687,18 @@ vegan:en: no
 vegetarian:en: no
 # ingredient/fr:gélatine-de-poisson has 71 products in 4 languages @2019-02-10
 
+< en:fish
+en: pike
+fr: brochet
+agribalyse_proxy_food_code:en: 27005
+agribalyse_proxy_food_name:fr: Perche, rôtie/cuite au four
+
+< en:fish
+en: skate, ray
+fr: raie
+agribalyse_proxy_food_code:en: 26052
+agribalyse_proxy_food_name:fr: Raie, crue
+
 < en:gelatin
 fr: gélatine non porcine
 de: schweinefreie Gelatine
@@ -978,6 +990,12 @@ hr: krumpirov dekstrin
 it: destrina di patate
 nl: aardappeldextrine
 
+< en:potato
+en: frozen french fries, frozen chips
+fr: frites de pomme de terre surgelées, frites surgelées
+agribalyse_proxy_food_code:en: 4044
+agribalyse_proxy_food_name:fr: Frites de pommes de terre, surgelées, pour cuisson rôtie/ au four
+
 < en:E1400
 bg: пшеничен декстрин
 es: dextrina de trigo
@@ -999,6 +1017,12 @@ hu: kukoricadextrin, dextrin kukoricából
 it: Destrina di mais
 nl: maïsdextrine
 # ingredient/fr:dextrine-de-maïs has 39 products in 3 languages @2019-01-26
+
+< en:corn
+en: polenta, cornmeal polenta
+fr: polenta, semoule de maïs
+agribalyse_proxy_food_code:en: 9614
+agribalyse_proxy_food_name:fr: Polenta ou semoule de maïs, précuite, sèche
 
 
 # <en:potato
@@ -4835,6 +4859,12 @@ agribalyse_food_code:en: 19415
 ciqual_food_name:en: Liquid cream 30% fat, UHT
 ciqual_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
 
+< en:cream
+en: whipped cream, chantilly cream
+fr: crème chantilly, chantilly
+agribalyse_proxy_food_code:en: 19420
+agribalyse_proxy_food_name:fr: Crème chantilly, sous pression, UHT
+
 
 #processing:en: en:pasteurised # see ingredients_processing.txt
 #<en:cream
@@ -5733,6 +5763,12 @@ es: queso de leche de vaca cruda
 < en:cow cheese
 en: cow's cheese with chives
 hr: kravlji sir s vlascom
+
+< en:cheese
+en: processed cheese, melted cheese
+fr: fromage fondu
+agribalyse_proxy_food_code:en: 12300
+agribalyse_proxy_food_name:fr: Fromage fondu en tranchettes
 
 # description:en:GOAT CHEESE, goats' cheese, or chèvre, is cheese made from goat's milk.
 
@@ -14245,6 +14281,18 @@ pt: amido de arroz modificado
 ru: Рисовый крахмал
 sv: modifierad risstärkelse, modifierad stärkelse av ris
 
+< en:rice
+en: cooked brown rice, cooked whole grain rice
+fr: riz complet cuit
+agribalyse_proxy_food_code:en: 9103
+agribalyse_proxy_food_name:fr: Riz complet, cuit, non salé
+
+< en:rice
+en: cooked white rice
+fr: riz blanc cuit
+agribalyse_proxy_food_code:en: 9104
+agribalyse_proxy_food_name:fr: Riz blanc, cuit, non salé
+
 < en:corn starch
 < en:modified starch
 < en:potato starch
@@ -17992,6 +18040,14 @@ description:nl: vet van een kip, vet dat vrijkomt als men een kip braadt of gril
 wikidata:en: Q5096296
 wikipedia:en: https://en.wikipedia.org/wiki/Chicken_fat
 # kippenvet (kippenvet, antioxidant:rozemarijnextract)
+
+< en:poultry
+en: guinea fowl, guinea-fowl
+fr: pintade
+agribalyse_proxy_food_code:en: 36700
+agribalyse_proxy_food_name:fr: Pintade, crue
+vegan:en: no
+vegetarian:en: no
 
 # from:en:goose
 < en:poultry fat
@@ -28725,6 +28781,12 @@ eurocode_2_group_3:en: 8.45.50
 agribalyse_proxy_food_code:en: 20233
 agribalyse_proxy_food_name:fr: Maïs doux, surgelé, cru
 
+< en:sweetcorn
+en: corn on the cob
+fr: maïs doux en épis, maïs en épi, épis de maïs
+agribalyse_proxy_food_code:en: 20049
+agribalyse_proxy_food_name:fr: Maïs doux, en épis, cuit
+
 < en:sweet corn
 en: baby corn
 da: babymajs
@@ -30807,6 +30869,18 @@ sv: ekologiskt socker
 
 < en:sugar
 fr: sucres extraits de fruits
+
+< en:sugar
+en: fruit paste, pâte de fruits
+fr: pâte de fruits
+agribalyse_proxy_food_code:en: 31014
+agribalyse_proxy_food_name:fr: Pâte de fruits
+
+< en:sugar
+en: toffee, toffees
+fr: caramel mou, caramels mous
+agribalyse_proxy_food_code:en: 31081
+agribalyse_proxy_food_name:fr: Bonbon au caramel, mou
 
 # description:en:BROWN SUGAR is a sucrose sugar product with a distinctive brown color due to the presence of molasses.
 
@@ -33483,6 +33557,12 @@ fi: kikherneproteiini
 fr: protéine de pois chiche
 hr: proteina slanutka
 it: proteina di ceci
+
+< en:chickpea
+en: dried chickpeas, dry chickpeas
+fr: pois chiches secs, pois chiche sec
+agribalyse_proxy_food_code:en: 20516
+agribalyse_proxy_food_name:fr: Pois chiche, sec
 
 < en:plant protein
 en: sunflower protein
@@ -49957,6 +50037,18 @@ en: spinach or amaranth
 it: spinaci o amaranto
 ms: bayam
 
+< en:spinach
+en: cooked spinach
+fr: épinard cuit, épinards cuits
+agribalyse_proxy_food_code:en: 20027
+agribalyse_proxy_food_name:fr: Épinard, cuit
+
+< en:spinach
+en: frozen spinach
+fr: épinard surgelé, épinards surgelés
+agribalyse_proxy_food_code:en: 20083
+agribalyse_proxy_food_name:fr: Épinard, surgelé, cru
+
 # Atriplex hortensis
 < en:leaf vegetable
 en: garden orache, orach
@@ -50735,6 +50827,18 @@ ciqual_food_name:en: Romanesco cauliflower or romanesco broccoli, raw
 ciqual_food_name:fr: Chou romanesco ou brocoli à pomme, cru
 wikidata:en: Q1775431
 
+< en:broccoli
+en: cooked broccoli
+fr: brocoli cuit, brocolis cuits
+agribalyse_proxy_food_code:en: 20006
+agribalyse_proxy_food_name:fr: Brocoli, cuit
+
+< en:broccoli
+en: frozen broccoli
+fr: brocoli surgelé, brocolis surgelés
+agribalyse_proxy_food_code:en: 20204
+agribalyse_proxy_food_name:fr: Brocoli, surgelé, cru
+
 # description:en:CAULIFLOWER is one of several vegetables in the species Brassica oleracea in the genus Brassica
 
 < en:brassica
@@ -50779,6 +50883,12 @@ it: cimette di cavolfiore
 nl: Bloemkoolroosjes
 sv: blomkålsbuketter, blomkålsbukett
 # ingredient/fr:choux-fleurs-en-fleurettes has 15 products in 6 languages @2019-05-24
+
+< en:cauliflower
+en: frozen cauliflower
+fr: chou-fleur surgelé
+agribalyse_proxy_food_code:en: 20082
+agribalyse_proxy_food_name:fr: Chou-fleur, surgelé, cru
 
 # description:en:POINTED CABBAGE (Brassica oleracea var. capitata f. acuta), also known as cone, sweetheart, hispi or sugarloaf cabbage is a form of cabbage (Brassica oleracea) with a tapering shape and large delicate leaves varying in colour from yellowish to blue-green. It tastes less pronounced and more delicate than common white cabbage (Brassica oleracea var. capitata f. alba).
 
@@ -53307,6 +53417,12 @@ en: leek sprouts
 it: germogli di porro
 pl: kiełki pora
 
+< en:leek
+en: cooked leek, cooked leeks
+fr: poireau cuit, poireaux cuits
+agribalyse_proxy_food_code:en: 20040
+agribalyse_proxy_food_name:fr: Poireau, cuit
+
 # description:en:GARLIC (Allium sativum) is a species in the onion genus.
 
 < en:onion-family vegetable
@@ -54185,6 +54301,12 @@ ciqual_food_code:en: 20261
 agribalyse_food_code:en: 20261
 ciqual_food_name:en: Carrots, puree
 ciqual_food_name:fr: Carotte, purée
+
+< en:carrot
+en: frozen carrots, frozen carrot
+fr: carottes surgelées, carotte surgelée
+agribalyse_proxy_food_code:en: 20208
+agribalyse_proxy_food_name:fr: Carotte, surgelée, crue
 
 # fr:concentré de carotte usage as a colour is not always mentioned
 
@@ -55237,6 +55359,8 @@ nl: aardappelvlokken
 pl: płatki ziemniaczane
 ru: картофельние хлопья, картофельные-хлопья
 sv: potatisflingor, potatisflinga
+agribalyse_proxy_food_code:en: 4022
+agribalyse_proxy_food_name:fr: Pomme de terre, flocons déshydratés, nature
 # fr:flocon-de-pomme-de-terre has 937 products in 12 languages @2018-10-15
 
 < en:potato flakes
@@ -56003,6 +56127,12 @@ wikipedia:en: https://en.wikipedia.org/wiki/Beetroot
 en: cooked red beetroot
 fr: betteraves rouges entieres cuites
 it: barbabietola rossa cotta
+
+< en:beetroot
+en: cooked beetroot, cooked beet
+fr: betterave rouge cuite, betteraves rouges cuites
+agribalyse_proxy_food_code:en: 20003
+agribalyse_proxy_food_name:fr: Betterave rouge, cuite
 
 # Sometimes it is indicated as a colour.
 
@@ -57879,6 +58009,24 @@ it: pomodoro grigliato
 nl: gegrilde tomaat
 # ingredient/grilled-tomato has 5 products in french @2018-12-26
 
+< en:tomato
+en: cooked tomato, cooked tomatoes
+fr: tomate cuite, tomates cuites
+agribalyse_proxy_food_code:en: 20242
+agribalyse_proxy_food_name:fr: Tomate, pulpe et peau, bouillie/cuite à l'eau
+
+< en:tomato
+en: peeled canned tomato, peeled canned tomatoes, canned peeled tomato
+fr: tomate pelée appertisée, tomates pelées en conserve
+agribalyse_proxy_food_code:en: 20048
+agribalyse_proxy_food_name:fr: Tomate, pelée, appertisée, égouttée
+
+< en:tomato
+en: tomato coulis, tomato passata
+fr: coulis de tomate, passata de tomate
+agribalyse_proxy_food_code:en: 20260
+agribalyse_proxy_food_name:fr: Tomate, coulis, appertisé (purée de tomates mi-réduite à 11%)
+
 en: Dehydrated and reconstituted tomato soup
 fr: Soupe à la tomate déshydratée reconstituée
 it: zuppa di pomodoro disidratata e ricostituita
@@ -59278,6 +59426,24 @@ eurocode_2_group_3:en: 8.45.30
 #war:hantak
 #yue:荳角
 wikidata:en: Q2987371
+agribalyse_proxy_food_code:en: 20070
+agribalyse_proxy_food_name:fr: Haricot vert, surgelé, cru
+
+< en:green bean
+en: canned green beans
+fr: haricots verts appertisés, haricots verts en conserve
+agribalyse_proxy_food_code:en: 20062
+agribalyse_proxy_food_name:fr: Haricot vert, appertisé, égoutté
+
+< en:green bean
+en: cooked green beans, cooked green bean
+fr: haricots verts cuits, haricot vert cuit
+agribalyse_proxy_food_code:en: 20030
+agribalyse_proxy_food_name:fr: Haricot vert, cuit
+
+< en:green bean
+en: frozen green beans, frozen green bean
+fr: haricots verts surgelés, haricot vert surgelé
 agribalyse_proxy_food_code:en: 20070
 agribalyse_proxy_food_name:fr: Haricot vert, surgelé, cru
 
@@ -60994,6 +61160,24 @@ fr: pois carrés d'Alvaiázere
 it: cicerchia di Alvaiázere
 rare_crop:en: yes
 
+< en:pea
+en: frozen peas, frozen green peas
+fr: petits pois surgelés
+agribalyse_proxy_food_code:en: 20084
+agribalyse_proxy_food_name:fr: Petits pois, surgelés, crus
+
+< en:pea
+en: cooked peas, cooked green peas
+fr: petits pois cuits
+agribalyse_proxy_food_code:en: 20037
+agribalyse_proxy_food_name:fr: Petits pois, cuits
+
+< en:pea
+en: canned peas
+fr: petits pois appertisés, petits pois en conserve
+agribalyse_proxy_food_code:en: 20036
+agribalyse_proxy_food_name:fr: Petits pois, appertisés, égouttés
+
 # description:en:The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
 # comment:en:The wikidata entry is more about the plant, so translations can be wrong.
 
@@ -61232,6 +61416,24 @@ ciqual_food_name:en: Lentil, pink or red, dried
 ciqual_food_name:fr: Lentille corail, sèche
 # ingredient/fr:lentilles-rouges has 40 products in 3 languages @2019-06-02
 # ingredient/fr:lentilles-corail has 131 products in 6 languages @2019-06-02
+
+< en:lentils
+en: cooked coral lentils
+fr: lentilles corail cuites
+agribalyse_proxy_food_code:en: 20589
+agribalyse_proxy_food_name:fr: Lentille corail, cuite
+
+< en:lentils
+en: blonde lentils, blonde lentil
+fr: lentilles blondes, lentille blonde
+agribalyse_proxy_food_code:en: 20586
+agribalyse_proxy_food_name:fr: Lentille blonde, sèche
+
+< en:lentils
+en: cooked lentils
+fr: lentilles cuites
+agribalyse_proxy_food_code:en: 20505
+agribalyse_proxy_food_name:fr: Lentille, cuite
 
 # <en:aggregate
 < en:green lentils
@@ -73126,6 +73328,12 @@ eurocode_2_group_2:en: 8.55
 wikidata:en: Q237169
 wikipedia:en: https://en.wikipedia.org/wiki/Seaweed
 
+< en:seaweed
+en: agar-agar, agar
+fr: agar-agar, agar
+agribalyse_proxy_food_code:en: 11084
+agribalyse_proxy_food_name:fr: Agar (algue), cru
+
 < en:algae
 en: algae concentrate
 de: Algenkonzentrat
@@ -77557,6 +77765,12 @@ it: filetti di aringa
 nl: haringfilet
 pl: filety śledziowe, filety ze śledzia, filet ze śledzia, filet śledziowy
 # 250 in 6 @2021-09-10
+
+< en:herring
+en: smoked herring, kipper
+fr: hareng fumé
+agribalyse_proxy_food_code:en: 26013
+agribalyse_proxy_food_name:fr: Hareng fumé, au naturel
 
 # description:en:Atlantic herring (Clupea harengus) is a herring in the family Clupeidae.
 
@@ -86784,6 +86998,18 @@ vegetarian:en: yes
 # zh-tw:蛋
 wikipedia:en: https://en.wikipedia.org/wiki/Egg_as_food
 
+< en:egg
+en: hard-boiled egg, hard boiled egg
+fr: œuf dur
+agribalyse_proxy_food_code:en: 22010
+agribalyse_proxy_food_name:fr: Oeuf, dur
+
+< en:egg
+en: fried egg, egg sunny side up
+fr: œuf au plat
+agribalyse_proxy_food_code:en: 22505
+agribalyse_proxy_food_name:fr: Oeuf, au plat, sans matière grasse
+
 # do not add egg as parent, as it does have to be derived from eggs
 < en:flavouring
 en: egg flavour
@@ -88826,6 +89052,36 @@ agribalyse_food_code:en: 23403
 ciqual_food_name:en: Pizza pastry base
 ciqual_food_name:fr: Préparation pour pâte à pizza
 
+< en:dough
+en: brick pastry, brick dough
+fr: feuille de brick, pâte à brick
+agribalyse_proxy_food_code:en: 51550
+agribalyse_proxy_food_name:fr: Khatfa feuille de brick, préemballée
+
+< en:dough
+en: pizza dough base
+fr: pâte à pizza
+agribalyse_proxy_food_code:en: 23402
+agribalyse_proxy_food_name:fr: Pâte à pizza fine, crue
+
+< en:dough
+en: filo pastry, phyllo pastry, filo dough, phyllo dough
+fr: pâte filo, pâte phyllo
+agribalyse_proxy_food_code:en: 23445
+agribalyse_proxy_food_name:fr: Pâte phyllo ou Pâte filo, crue
+
+< en:dough
+en: shortcrust pastry, shortcrust pie crust
+fr: pâte brisée
+agribalyse_proxy_food_code:en: 23414
+agribalyse_proxy_food_name:fr: Pâte brisée, pur beurre, crue
+
+< en:dough
+en: puff pastry
+fr: pâte feuilletée
+agribalyse_proxy_food_code:en: 23421
+agribalyse_proxy_food_name:fr: Pâte feuilletée, surgelée, crue
+
 #<en:compound
 < en:pizza dough
 en: pizza base
@@ -89080,6 +89336,24 @@ it: pasta fresca cotta
 
 < en:pasta
 fr: pâtes alimentaires aux oeufs cuites
+
+< en:pasta
+en: gnocchi, potato gnocchi
+fr: gnocchi, gnocchi de pomme de terre
+agribalyse_proxy_food_code:en: 26264
+agribalyse_proxy_food_name:fr: Gnocchi à la pomme de terre, cru
+
+< en:pasta
+en: gluten-free pasta, gluten free pasta
+fr: pâtes sans gluten
+agribalyse_proxy_food_code:en: 9874
+agribalyse_proxy_food_name:fr: Pâtes sèches, sans gluten, crues
+
+< en:pasta
+en: whole wheat pasta, wholemeal pasta, whole grain pasta
+fr: pâtes au blé complet, pâtes complètes
+agribalyse_proxy_food_code:en: 9870
+agribalyse_proxy_food_name:fr: Pâtes sèches, au blé complet, crues
 
 # description:en:TAGLIATELLE and tagliolini (from the Italian tagliare, meaning "to cut") are a traditional type of pasta from the Emilia-Romagna and Marche regions of Italy.
 
@@ -89496,6 +89770,18 @@ it: noodles alcalini
 ja: かんすい
 description:en: variation of noodles with a much higher quantity of alkali than usual. The most common examples are Chinese Lamian noodles and Japanese Ramen noodles.
 wikidata:en: Q9017170
+
+< en:noodle
+en: asian noodles, Asian-style noodles
+fr: nouilles asiatiques
+agribalyse_proxy_food_code:en: 9086
+agribalyse_proxy_food_name:fr: Nouilles asiatiques cuites, nature, non salées
+
+< en:noodle
+en: rice vermicelli, rice noodle vermicelli
+fr: vermicelle de riz
+agribalyse_proxy_food_code:en: 9900
+agribalyse_proxy_food_name:fr: Vermicelle de riz, sèche
 
 < en:dough
 en: shortcrust dough
@@ -92860,6 +93146,12 @@ hr: marmelada, marmelada miješano voće
 it: marmellata
 wikidata:en: Q5834964
 wikipedia:en: https://en.wikipedia.org/wiki/Marmalade
+
+< en:jam
+en: cherry jam, cherry confiture
+fr: confiture de cerises, confiture de cerise
+agribalyse_proxy_food_code:en: 31038
+agribalyse_proxy_food_name:fr: Confiture de cerise (extra ou classique)
 
 # <en:compound
 < en:jam
