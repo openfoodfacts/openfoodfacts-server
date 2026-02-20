@@ -1,1 +1,67 @@
-{}
+{
+   "qfdmo_solutions" : {
+      "elements" : [
+         {
+            "element_type" : "text",
+            "text_element" : {
+               "html" : "Si vous êtes en France, vous pouvez trouver des solutions à proximité pour prolonger la vie de ce produit ou le recycler de manière responsable."
+            }
+         },
+         {
+            "element_type" : "text",
+            "text_element" : {
+               "html" : "<p>Les solutions disponibles incluent :</p><ul><li><strong>Réparer</strong> : Trouvez des ateliers de réparation et des services pour réparer votre produit au lieu de le jeter</li><li><strong>Donner</strong> : Donnez une seconde vie à votre produit en le donnant à des associations ou des personnes dans le besoin</li><li><strong>Vendre ou échanger</strong> : Vendez ou échangez votre produit sur des plateformes de seconde main</li><li><strong>Recycler</strong> : Trouvez des points de collecte pour un recyclage approprié lorsque le produit arrive en fin de vie</li></ul>",
+               "type" : "summary"
+            }
+         },
+         {
+            "action_element" : {
+               "actions" : [
+                  {
+                     "action_type" : "link",
+                     "title" : "Trouver des solutions à proximité sur QFDMO",
+                     "url" : "https://quefairedemesdechets.ademe.fr/dechet/test-category"
+                  }
+               ],
+               "html" : "Utilisez le service Que Faire De Mes Objets ? pour trouver des solutions près de chez vous :"
+            },
+            "element_type" : "action"
+         },
+         {
+            "element_type" : "text",
+            "text_element" : {
+               "html" : "<p><strong>Catégorie de produit</strong> : Test category</p>",
+               "type" : "note"
+            }
+         }
+      ],
+      "level" : "info",
+      "title_element" : {
+         "icon_color_from_evaluation" : false,
+         "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
+         "subtitle" : "Trouvez des lieux pour réparer, donner, vendre ou recycler",
+         "title" : "Solutions d'économie circulaire à proximité"
+      },
+      "topics" : [
+         "reuse"
+      ]
+   },
+   "reuse_card" : {
+      "elements" : [
+         {
+            "element_type" : "panel",
+            "panel_element" : {
+               "panel_id" : "qfdmo_solutions"
+            }
+         }
+      ],
+      "expanded" : true,
+      "title_element" : {
+         "title" : "Réemploi"
+      },
+      "topics" : [
+         "reuse"
+      ],
+      "type" : "card"
+   }
+}
