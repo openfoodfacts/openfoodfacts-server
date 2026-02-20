@@ -597,14 +597,15 @@ sub remove_object($path) {
 	return;
 }
 
-=head2 object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef)
+=head2 object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef, $skip_until_path = undef)
 
 Iterates over the path returning a cursor that can return object paths whose
-name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern
+name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern.
+If $skip_until_path is provided, skips all object paths that are lexicographically less than $skip_until_path.
 
 =cut
 
-sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef) {
+sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef, $skip_until_path = undef) {
 	my @dirs = ($initial_path);
 	my @object_paths = ();
 	return sub {
@@ -636,6 +637,7 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 					$last_name = $object_name;
 
 					next if ($name_pattern and $object_name !~ $name_pattern);
+					next if (defined $skip_until_path and "$current_dir/$object_name" lt $skip_until_path);
 					push(@object_paths, "$current_dir/$object_name");
 				}
 			}

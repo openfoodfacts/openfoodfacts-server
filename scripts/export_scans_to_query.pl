@@ -77,7 +77,7 @@ sub send_scans($fully_loaded = 0) {
 	return 1;
 }
 
-my $next = product_iter($BASE_DIRS{PRODUCTS}, qr/scans/);
+my $next = product_iter($BASE_DIRS{PRODUCTS}, qr/scans/, qr/^(conflicting|invalid)-codes$/, $last_processed_path);
 while (my $path = $next->()) {
 	if (not $can_process) {
 		if ($path eq $last_processed_path) {
