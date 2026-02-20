@@ -573,8 +573,10 @@ close $LOG;
 
 print "products: $i - scans: $scans\n";
 
-foreach my $country_code (sort {$countries_for_all_products{$a} <=> $countries_for_all_products{$b}}
-	keys %countries_for_all_products)
+foreach my $country_code (
+	sort {$countries_for_all_products{$a} <=> $countries_for_all_products{$b}}
+	keys %countries_for_all_products
+	)
 {
 	print "$country_code: $countries_for_all_products{$country_code}\n";
 }
