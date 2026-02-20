@@ -1572,11 +1572,11 @@ msgstr "Produk yang tidak mengandungi nutriment %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Fakta pemakanan"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Fakta pemakanan"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1648,7 +1648,7 @@ msgstr "Sisihan piawai"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Fakta pemakanan"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -3462,7 +3462,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Asal-usul"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3470,7 +3470,7 @@ msgstr "Bahan-bahan"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Fakta pemakanan"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -4337,7 +4337,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Selesai"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4440,7 +4440,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Kod bar tidak sah"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4683,7 +4683,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Tahap pemprosesan makanan tidak diketahui"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -5142,11 +5142,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Pelbagai"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Pelbagai"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5164,7 +5164,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "Bentuk"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5172,7 +5172,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Bahan"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5980,6 +5980,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Tiada label yang dinilai"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Beberapa faedah alam sekitar"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Faedah alam sekitar yang tinggi"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Faedah alam sekitar yang sangat tinggi"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6358,17 +6374,17 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Padanan yang sangat baik"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "Padanan yang baik"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Padanan yang lemah"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
@@ -6559,7 +6575,7 @@ msgstr ""
 
 msgctxt "sign_in"
 msgid "Sign in"
-msgstr ""
+msgstr "Daftar masuk"
 
 msgctxt "sign_out"
 msgid "Sign out"
@@ -6756,7 +6772,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Bilangan unit"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6788,19 +6804,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Masukkan bilangan unit pembungkusan dengan bentuk dan bahan yang sama yang terkandung dalam produk."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Masukkan nama bentuk yang disenaraikan dalam arahan kitar semula jika ada atau pilih satu bentuk."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Masukkan bahan tertentu jika ia dapat ditentukan (kod bahan di dalam segitiga selalunya boleh didapati pada bahagian pembungkusan), atau bahan generik (contohnya plastik atau logam) jika anda tidak pasti."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Masukkan arahan kitar semula hanya jika ia disenaraikan pada produk."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6810,7 +6826,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Masukkan berat bersih atau isipadu bersih dan nyatakan unitnya (contohnya g atau ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7430,17 +7446,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Jenis produk"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Makanan"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Makanan haiwan peliharaan"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7482,7 +7498,7 @@ msgstr ""
 
 msgctxt "delete"
 msgid "Delete"
-msgstr ""
+msgstr "Padam"
 
 msgctxt "f_add_product_to_our_database"
 msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
@@ -7630,7 +7646,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Keutamaan tersebut adalah berdasarkan pemahaman Open Food Facts tentang senarai ramuan dan sentiasa ada kemungkinan ia mungkin tidak tepat atau lengkap, sentiasa semak produk itu sendiri."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7688,4 +7704,36 @@ msgstr "Harga runcit cadangan pengilang (MSRP), tidak termasuk diskaun dan promo
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Harta peribadi"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Tidak mengandungi minyak sawit"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Mungkin mengandungi minyak sawit"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Label alam sekitar"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "data tiada"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Impak tinggi"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Kesan sederhana"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Impak rendah"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Kesan tidak dinilai"
 

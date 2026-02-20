@@ -657,7 +657,7 @@ msgstr "Sinu kasutajakonto muudatused on salvestatud."
 
 msgctxt "edit_user_preferences"
 msgid "Preferences"
-msgstr ""
+msgstr "Eelistused"
 
 msgctxt "edit_user_preferences_result"
 msgid "Your preferences have been changed."
@@ -1151,19 +1151,19 @@ msgstr ""
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
-msgstr ""
+msgstr "Koostisosade arv"
 
 msgctxt "ingredients_n_s"
 msgid "Number of ingredients"
-msgstr ""
+msgstr "Koostisosade arv"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Tuvastatud koostisosade arv"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "Tuvastamata koostisosade arv"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1171,7 +1171,7 @@ msgstr ""
 
 msgctxt "ingredients_products"
 msgid "Products that contain the ingredient %s"
-msgstr ""
+msgstr "Tooted, mis sisaldavad koostisosa: %s"
 
 msgctxt "ingredients_s"
 msgid "ingredient"
@@ -1179,7 +1179,7 @@ msgstr "koostisosa"
 
 msgctxt "ingredients_text"
 msgid "Ingredients list"
-msgstr ""
+msgstr "Koostisosade loend"
 
 msgctxt "ingredients_text_display_note"
 msgid "Ingredients are listed in order of importance (quantity)."
@@ -1720,7 +1720,7 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Pakend"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1732,7 +1732,7 @@ msgstr ""
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "pakend"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1740,7 +1740,7 @@ msgstr ""
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "pakend"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -2401,7 +2401,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Riik"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -3362,15 +3362,15 @@ msgstr ""
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "koostisosade analüüs"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "koostisosade analüüs"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr ""
+msgstr "Koostisosade analüüs"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
@@ -3478,7 +3478,7 @@ msgstr ""
 
 msgctxt "fields_group_packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Pakend"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -4700,7 +4700,7 @@ msgstr "Töödeldud kulinaarsed koostisosad"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
-msgstr ""
+msgstr "Töödeldud toidud"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra-processed foods"
@@ -5147,7 +5147,7 @@ msgstr ""
 # A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
 msgctxt "packaging_part_short"
 msgid "Packaging"
-msgstr ""
+msgstr "Pakend"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5665,7 +5665,7 @@ msgstr ""
 
 msgctxt "environmental_score_packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Pakend"
 
 msgctxt "environmental_score_transportation"
 msgid "Transportation"
@@ -5972,6 +5972,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Hinnatud silte pole"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Mõned keskkonnaalased eelised"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Suured keskkonnaalased eelised"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Väga suured keskkonnaalased eelised"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6118,7 +6134,7 @@ msgstr ""
 
 msgctxt "health"
 msgid "Health"
-msgstr ""
+msgstr "Tervis"
 
 msgctxt "contribution_panel_title"
 msgid "Contribution"
@@ -7622,7 +7638,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Need eelistused põhinevad Open Food Factsi arusaamal koostisosade loetelust ja alati on võimalik, et see ei pruugi olla täpne või täielik, kontrollige toodet alati ise."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7680,4 +7696,36 @@ msgstr "Tootja soovituslik jaemüügihind (MSRP), välja arvatud allahindlused j
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Isikupärastatud vara"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Ei sisalda palmiõli"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Võib sisaldada palmiõli"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Keskkonnamärgised"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Puuduvad andmed"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Suur mõju"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Keskmise mõjuga"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Madal mõju"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Mõju ei ole hinnatud"
 

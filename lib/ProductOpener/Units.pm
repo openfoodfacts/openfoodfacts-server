@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -335,6 +335,9 @@ sub extract_standard_unit ($quantity_field) {
 =head2 get_standard_unit ($unit)
 
 Converts the given unit to its corresponding standard unit.
+
+e.g. "kg" -> "g"
+	 "l"  -> "ml"
 
 =head3 Parameters
 

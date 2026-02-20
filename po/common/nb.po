@@ -2406,7 +2406,7 @@ msgstr "Rediger produktet igjen"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -3460,7 +3460,7 @@ msgstr "Produktidentifikasjon"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Opprinnelse"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -4438,7 +4438,7 @@ msgstr "Mangler strekkode"
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Ugyldig strekkode"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -5140,11 +5140,11 @@ msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Diverse"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Diverse"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5170,7 +5170,7 @@ msgstr "Inneholdt mengde"
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Materiale"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5978,6 +5978,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etiketter med veldig store miljøfordeler"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Ingen vurderte etiketter"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Noen miljøfordeler"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Høye miljøgevinster"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Svært høye miljøfordeler"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Andre"
@@ -6754,7 +6770,7 @@ msgstr "Verdi konvertert"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Antall enheter"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6786,19 +6802,19 @@ msgstr "Ugyldig verdi: må være 0 eller 1"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Angi antall emballasjeenheter av samme form og materiale som produktet inneholder."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Skriv inn formnavnet som er oppført i resirkuleringsinstruksjonene hvis de er tilgjengelige, eller velg en form."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Oppgi det spesifikke materialet hvis det kan bestemmes (en materialkode inni en trekant finnes ofte på emballasjedelene), eller et generisk materiale (for eksempel plast eller metall) hvis du er usikker."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Skriv bare inn resirkuleringsinstruksjoner hvis de er oppført på produktet."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6808,7 +6824,7 @@ msgstr "Fjern all gjenværende mat og vask og tørk emballasjedelen før du veie
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Skriv inn nettovekten eller nettovolumet og angi enheten (for eksempel g eller ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7428,17 +7444,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Produkttype"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Mat"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Kjæledyrfôr"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7628,7 +7644,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Disse innstillingene er basert på Open Food Facts' forståelse av ingredienslisten og det er alltid en mulighet for at det ikke kan være nøyaktig eller fullstendig, kontroller produktet selv selv."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7686,4 +7702,36 @@ msgstr "Produsent foreslo til utsalgspris (MSRP), unntatt rabatter og kampanjer,
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Personlig egenskap"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Inneholder ikke palmeolje"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Kan inneholde palmeolje"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Miljømerker"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Manglende data"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Høy belastning"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Middels påvirkning"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Lav innvirkning"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Påvirkning ikke vurdert"
 

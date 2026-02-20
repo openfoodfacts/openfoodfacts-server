@@ -2410,7 +2410,7 @@ msgstr "Torna a editar el producte"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5982,6 +5982,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etiquetes amb beneficis ambientals molt alts"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Sense etiquetes avaluades"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Alguns beneficis mediambientals"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Alts beneficis mediambientals"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Beneficis ambientals molt elevats"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Altres"
@@ -6758,7 +6774,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Nombre d'unitats"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -7432,7 +7448,7 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Tipus de producte"
 
 # Food product type
 msgctxt "product_type_food"
@@ -7632,7 +7648,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Aquestes preferències es basen en la comprensió que fa Open Food Facts de la llista d'ingredients i sempre hi ha la possibilitat que no sigui precisa o completa; comproveu sempre el producte vosaltres mateixos."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7690,4 +7706,36 @@ msgstr "Preu de venda recomanat pel fabricant (PVP), excloent-hi descomptes i pr
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "propietat personalitzada"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "No conté oli de palma"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Pot contenir oli de palma"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Etiquetes ambientals"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Dades que falten"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Alt impacte"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Impacte mitjà"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Baix impacte"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Impacte no avaluat"
 

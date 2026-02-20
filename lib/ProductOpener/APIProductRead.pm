@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -125,6 +125,8 @@ sub read_product_api ($request_ref) {
 		}
 	}
 
+	my $requested_fields = request_param($request_ref, 'fields') || "all";
+
 	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
 
 		# Return an error if we could not find a product
@@ -140,9 +142,13 @@ sub read_product_api ($request_ref) {
 		);
 		$response_ref->{result} = {id => "product_not_found"};
 	}
+	# Product with a different product type
+	# If the requested fields is "raw", we return the product even if it has a different product type
+	# This is useful in particular for tests
 	elsif ( (not $server_options{private_products})
 		and (defined $product_ref->{product_type})
-		and ($product_ref->{product_type} ne $options{product_type}))
+		and ($product_ref->{product_type} ne $options{product_type})
+		and (not $requested_fields eq "raw"))
 	{
 
 		# If the product has a product_type and it is not the product_type of the server,

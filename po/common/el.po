@@ -598,7 +598,7 @@ msgstr "Δωρεά στο Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://gr.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://world-el.openfoodfacts.org/dorea-se-openfoodfacts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -4096,7 +4096,7 @@ msgstr "Ευχαριστούμε!"
 
 msgctxt "thank_you_very_much"
 msgid "Thank you very much!"
-msgstr ""
+msgstr "Σας ευχαριστώ πολύ!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -4608,7 +4608,7 @@ msgstr "Όταν αγοράζετε προϊόντα δικαίου εμπορί
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
-msgstr ""
+msgstr "Διατροφική ποιότητα"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
@@ -5980,6 +5980,22 @@ msgstr "Ετικέτες με υψηλά περιβαλλοντικά οφέλη
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr "Ετικέτες με πολύ υψηλά περιβαλλοντικά οφέλη"
+
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Δεν υπάρχουν αξιολογημένες ετικέτες"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Μερικά περιβαλλοντικά οφέλη"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Υψηλά περιβαλλοντικά οφέλη"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Πολύ υψηλά περιβαλλοντικά οφέλη"
 
 msgctxt "other"
 msgid "Other"
@@ -7631,36 +7647,36 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Αυτές οι προτιμήσεις βασίζονται στην κατανόηση της λίστας συστατικών από το Open Food Facts και υπάρχει πάντα η πιθανότητα να μην είναι ακριβής ή πλήρης, επομένως να ελέγχετε πάντα το προϊόν μόνοι σας."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
-msgstr ""
+msgid "Suffering Footprint"
+msgstr "Δακτυλικό αποτύπωμα που υποφέρει"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
-msgstr ""
+msgstr "Δείκτης ταλαιπωρίας ζώων που υπολογίζεται ανά προϊόν"
 
 msgctxt "section_animal_welfare_title"
 msgid "Animal welfare"
-msgstr ""
+msgstr "Ευημερία ζώων"
 
 msgctxt "external_panels"
 msgid "External Knowledge Panels"
-msgstr ""
+msgstr "Εξωτερικοί Πίνακες Γνώσεων"
 
 msgctxt "external_panel_unavailable"
 msgid "Panel unavailable"
-msgstr ""
+msgstr "Πίνακας μη διαθέσιμος"
 
 msgctxt "external_panel_unavailable_for_product"
 msgid "Panel unavailable for this product"
-msgstr ""
+msgstr "Πίνακας μη διαθέσιμος για αυτό το προϊόν"
 
 msgctxt "external_sources"
 msgid "External sources"
-msgstr ""
+msgstr "Εξωτερικές πηγές"
 
 msgctxt "provided_by"
 msgid "Provided by"
-msgstr ""
+msgstr "Παρέχεται από"
 
 msgctxt "recommendation_eu_tobacco_health_warning_title"
 msgid "Smoking kills"
@@ -7689,4 +7705,36 @@ msgstr "Προτεινόμενη τιμή λιανικής πώλησης (MSRP)
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Εξατομικευμένη ιδιοκτησία"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Δεν περιέχει φοινικέλαιο"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Μπορεί να περιέχει φοινικέλαιο"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Περιβαλλοντικές ετικέτες"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Λείπουν δεδομένα"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Υψηλός αντίκτυπος"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Μέτρια επίδραση"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Χαμηλός αντίκτυπος"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Δεν αξιολογήθηκε ο αντίκτυπος"
 
