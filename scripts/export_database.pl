@@ -43,7 +43,7 @@ use ProductOpener::Images qw/:all add_images_urls_to_product/;
 use ProductOpener::Lang qw/$lc  %lang_lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/product_url/;
-use ProductOpener::Food qw/%nutriments_tables/;
+use ProductOpener::Food qw/%nutrients_tables/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Text qw/xml_escape/;
@@ -57,6 +57,7 @@ use Storable qw/dclone/;
 use Encode;
 #use DateTime qw/:all/;
 use POSIX qw(strftime);
+use Data::DeepAccess qw(deep_get);
 
 init_emb_codes();
 
@@ -129,7 +130,7 @@ foreach my $field (@export_fields) {
 }
 
 $fields_ref->{empty} = 1;
-$fields_ref->{nutriments} = 1;
+$fields_ref->{nutrition} = 1;
 $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
 $fields_ref->{lc} = 1;
@@ -242,7 +243,7 @@ XML
 
 	my @nutrients_to_export = ();
 
-	foreach my $nid (@{$nutriments_tables{"off_europe"}}) {
+	foreach my $nid (@{$nutrients_tables{"off_europe"}}) {
 
 		$nid =~ /^#/ and next;
 
@@ -291,6 +292,11 @@ XML
 		$cursor->immortal(1);
 
 		while (my $product_ref = $cursor->next) {
+
+			# Note: we do not upgrade the schema of the products, they are read directly from MongoDB.
+			# This means that some old products may not have all the fields we expect (e.g. for the migration to the new nutrition schema)
+			# One possibility could be to upgrade products read from MongoDB (but it could add a lot of overhead if we do it on all products)
+			# For those types of changes, we can also suspend the export for a few days, and instead run upgrade_all_products.pl once.
 
 			# Skip empty products and products without code
 			# We filter them here instead of in the query
@@ -437,8 +443,10 @@ XML
 
 			foreach my $nid (@nutrients_to_export) {
 
-				if (defined $product_ref->{nutriments}{$nid . "_100g"}) {
-					my $value = $product_ref->{nutriments}{$nid . "_100g"};
+				# New nutrition schema: we export values from the aggregated set, which is in per 100g or per 100ml
+				my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+				if (defined $value) {
 					if ($value =~ /e/) {
 						# 7e-05 1.71e-06
 						$value = sprintf("%.10f", $value);
@@ -499,14 +507,14 @@ XML
 				my $nid = $nutrient_tagid;
 				$nid =~ s/^zz://g;
 
-				if (    (defined $product_ref->{nutriments}{$nid . '_100g'})
-					and ($product_ref->{nutriments}{$nid . '_100g'} ne ''))
-				{
+				my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+				if (defined $value) {
 					my $property = $nid;
 					$property =~ s/-([a-z])/ucfirst($1)/eg;
 					$property .= "Per100g";
 
-					$rdf .= "\t<food:$property>" . $product_ref->{nutriments}{$nid . '_100g'} . "</food:$property>\n";
+					$rdf .= "\t<food:$property>" . $value . "</food:$property>\n";
 				}
 			}
 

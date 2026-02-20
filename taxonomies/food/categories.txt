@@ -99,7 +99,11 @@ stopwords:de: und, mit, von
 # Careful: it should be the same main tag, not a synonym
 # Remark: add the property to the highest parent
 
-# In European Union food of animal origin must be tagged by a packaging code (a number in a circle).
+# default per quantity for nutrition: used to display per 100g or per 100ml
+# default_nutrition_as_sold_per:en: 100g (possible values: 100g, 100ml, 1kg)
+# default_nutrition_prepared_per:en: 100ml (e.g. for dehydrated beverages)
+
+# In European Union food of animal origin must be tagged by a packaging code (a number in a circle). 
 # The followig tag is added to food of animal origin:
 # food_of_animal_origin:en: yes
 
@@ -1316,6 +1320,7 @@ hr: Pripravci za piće
 hu: Italkészítmények
 it: Preparati per bevande
 nl: Drankbereidingen
+default_nutrition_prepared_per:en: 100ml
 description:en: Any product which purpose it is to create a beverage which uses water (hor or cold) in some way (diluting, infusing, dissolving, etc).
 
 < en:Beverages and beverages preparations
@@ -1354,6 +1359,7 @@ th: เครื่องดื่ม
 tr: İçecekler
 uk: Напої
 zh: 饮料, 飲品
+default_nutrition_as_sold_per:en: 100ml
 google_product_taxonomy_id:en: 413
 intake24_category_code:en: DRNK
 wikidata:en: Q40050
@@ -36362,7 +36368,7 @@ intake24_category_code:en: BRDR
 
 < en:Bread rolls
 en: Soft bread rolls
-nl: Zachte broodjes, puntjes
+nl: Zachte broodjes, puntjes, bollen
 
 < en:Breads
 en: Breadsticks, Grissini, Bread sticks
@@ -40021,8 +40027,8 @@ ciqual_food_name:en: Dark chocolate bar, filled with praline
 ciqual_food_name:fr: Chocolat noir fourré praliné, tablette
 
 < en:Dark chocolates
-en: Dark chocolate bar for cooking with more than 40% cocoa
-fr: Chocolat noir pâtissier en tablette à 40% de cacao minimum, Tablettes de chocolat noir pâtissier à 40% de cacao minimum
+en: Dark chocolate bars for cooking, Dark chocolate bar for cooking with more than 40% cocoa
+fr: Chocolats noirs pâtissiers en tablette, Chocolat noir pâtissier en tablette à 40% de cacao minimum, Tablettes de chocolat noir pâtissier à 40% de cacao minimum
 hr: Tamna čokolada za kuhanje s više od 40% kakaa
 lt: Juodos šokolado plytelės kepimui su daugiau nei 40% kakavos, Kepinių šokoladai, Šokoladai kepimui
 agribalyse_food_code:en: 31085
@@ -40030,12 +40036,9 @@ ciqual_food_code:en: 31085
 ciqual_food_name:en: Dark chocolate bar, more than 40% cocoa, for cooking
 ciqual_food_name:fr: Chocolat noir à 40% de cacao minimum, à pâtisser, tablette
 
-< en:Dark chocolates
-en: Dark chocolate paste for cooking, Dark chocolate paste
-fr: Pâte de chocolat noir pâtissier, Pâte de chocolat noir
-agribalyse_proxy_food_code:en: 31085
-agribalyse_proxy_food_name:en: Dark chocolate bar, more than 40% cocoa, for cooking
-agribalyse_proxy_food_name:fr: Chocolat noir à 40% de cacao minimum, à pâtisser, tablette
+< en:Milk chocolates
+en: Milk chocolate bars for cooking
+fr: Chocolats au lait pâtissiers en tablette
 
 < en:Chocolates
 en: Salted chocolates
@@ -60359,6 +60362,7 @@ zh: 植物油
 ciqual_food_code:en: 17001
 ciqual_food_name:en: Vegetable oil (average)
 ciqual_food_name:fr: Huile végétale (aliment moyen)
+default_nutrition_as_sold_per:en: 100ml
 gpc_category_code:en: 10000040
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any edible liquid oil derived from the following: grains, nuts, olives, palms, palm kernels, seeds, corn, maize, fruit pulp, beans or combination of these, that can be poured or dispensed as a spray, intended for cooking or for use as a dressing for salads. Products can include added flavouring, such as chilli and herbs. Definition Excludes: Specifically excludes products defined in the brick Oils Edible - Vegetable or Plant (Perishable). Excludes products such as health supplement based oils, such as Cod Liver, and non edible oils, such as non-food grade Linseed Oil.
 gpc_category_name:en: Oils Edible - Vegetable or Plant (Shelf Stable)
@@ -65679,13 +65683,20 @@ ciqual_food_name:fr: Semoule de blé dur, crue
 wikidata:en: Q381350
 
 < en:Durum wheat semolinas
-en: Durum wheat semolinas for couscous
+en: Durum wheat semolinas for couscous, Couscous
+bg: Кускус
 de: Hartweizengrieße für Couscous, Hartweizengrieß für Couscous
-es: Sémolas de trigo duro para couscous
-fr: Semoules de blé dur pour couscous
-hr: Griz od durum pšenice za kus-kus
+es: Sémolas de trigo duro para couscous, Cuscús
+fr: Semoules de blé dur pour couscous, Couscous
+hr: Griz od durum pšenice za kus-kus, Kuskus
 it: Semolino di grano duro per couscous
+ja: クスクス
+lt: Kuskusas
 nl: Couscous griesmelen van harde tarwe, Harde tarwe griesmelen voor couscous
+agribalyse_food_code:en: 9681
+ciqual_food_code:en: 9681
+ciqual_food_name:en: Couscous (durum wheat semolina pre-cooked with steam), raw
+ciqual_food_name:fr: Couscous (semoule de blé dur roulée précuite à la vapeur), crue
 intake24_category_code:en: UCCGR
 
 < en:Durum wheat semolinas
@@ -76235,6 +76246,7 @@ sv: Såser, Sås
 th: กลุ่มผลิตภัณฑ์ไส้กรอก
 tr: Sos
 zh: 酱汁
+default_nutrition_as_sold_per:en: 100ml
 food_groups:en: en:dressings-and-sauces
 pnns_group_2:en: Dressings and sauces
 who_id:en: 17
@@ -76258,6 +76270,8 @@ hr: Dehidrirani umaci
 it: Salse disidratate
 lt: Padažai miltelių pagrindu
 nl: Gedroogde sauzen, Gedroogde saus
+default_nutrition_prepared_per:en: 100ml
+
 
 < en:Sauces
 en: Vegetarian sauces
@@ -81034,20 +81048,6 @@ ciqual_food_name:en: Chop suey (pork or chicken)
 ciqual_food_name:fr: Chop suey (porc ou poulet)
 
 < en:Meals
-en: Couscous, Durum wheat semolina pre-cooked with steam
-xx: Couscous
-bg: Кускус
-es: Cuscús
-fr: Couscous, Semoule de blé dur roulée précuite à la vapeur
-hr: Kuskus
-ja: クスクス
-lt: Kuskusas
-agribalyse_food_code:en: 9681
-ciqual_food_code:en: 9681
-ciqual_food_name:en: Couscous (durum wheat semolina pre-cooked with steam), raw
-ciqual_food_name:fr: Couscous (semoule de blé dur roulée précuite à la vapeur), crue
-
-< en:Meals
 en: Cooked unsalted couscous, Unsalted durum wheat semolina pre-cooked with steam
 fr: Couscous non salé, Semoule de blé dur roulée précuite à la vapeur non salée
 agribalyse_food_code:en: 9683
@@ -83948,70 +83948,6 @@ fr: Flammekueches aux pommes
 en: Frozen flammekueche
 fr: Flammekueches surgelées
 
-< en:Meals
-en: Samosas, sambusa, samboksa, Samoosas
-de: Samosas
-es: Samosas
-fi: Samosat, Samoosat
-fr: Samoussas, samossas, samosas
-hr: Samose
-ja: サモサ
-nl: Samosa
-agribalyse_food_code:en: 25108
-ciqual_food_code:en: 25108
-ciqual_food_name:en: Samosas or samoosas
-ciqual_food_name:fr: Samossas ou Samoussas
-food_groups:en: en:appetizers
-pnns_group_2:en: Appetizers
-wikidata:en: Q491517
-
-< en:Poultry meals
-< en:Samosas
-en: Samoussas with poultry
-fr: Samoussas à la volaille, samossas à la volaille
-hr: Samousse s peradi
-nl: Gevogelte samosa
-#wikidata:en:
-
-< en:Samosas
-en: Samoussas with chicken
-fr: Samoussas au poulet, samossas au poulet
-#wikidata:en:
-
-< en:Beef dishes
-< en:Samosas
-en: Beef samosas
-fr: Samoussas au bœuf, samossas au bœuf
-hr: Goveđe samose
-nl: Rundvleessamosa
-#wikidata:en:
-
-< en:Samosas
-en: Cheese samosas
-fr: Samoussas au fromage, samossas au fromage
-wikidata:en: Q16675459
-
-< en:Pork meals
-< en:Samosas
-en: Pork samosas
-fr: Samoussas au porc, samossas au porc
-hr: Svinjske samose
-nl: Varkensvleessamosa
-#wikidata:en:
-
-< en:Meals with fish
-< en:Samosas
-en: Tuna samosas
-fr: Samoussas au thon, samossas au thon
-#wikidata:en:
-
-< en:Samosas
-en: Vegetable samosas
-fr: Samoussas aux légumes, samossas aux légumes
-hr: Samose od povrća
-nl: Groentesamosa
-#wikidata:en:
-
 # Patties that often replace meat in vegeterian meals
 < en:Meat alternatives
 < en:Prepared vegetables
@@ -85336,6 +85272,10 @@ ciqual_food_name:fr: Tarte ou quiche salée (aliment moyen)
 intake24_category_code:en: QCHE
 wikidata:en: Q722595
 
+< en:Pizzas pies and quiches
+en: Salted crumbles
+fr: Crumbles salés
+
 < en:Quiches
 en: Lorraine quiche, Quiche Lorraine, Eggs and lardoons quiche
 de: Quiche Lorraine
@@ -85410,9 +85350,6 @@ wikidata:en: Q43669693
 < en:Quiches
 < en:Quiches with vegetables
 fr: Quiches aux épinards, Quiche à l'épinard, Tartes aux épinards
-
-< en:Meals
-en: Salted crumbles
 
 < en:Meals
 en: Prepared salads
@@ -98179,6 +98116,12 @@ ciqual_food_code:en: 23900
 ciqual_food_name:en: Pastry (average)
 ciqual_food_name:fr: Pâtisserie (aliment moyen)
 wikidata:en: Q477248
+
+< en:Pastries
+en: Cinnamon rolls
+da: Kanelsnegle
+sv: Kanelbullar
+wikidata:en: Q254979
 
 < en:Pastries
 en: Strudels
@@ -111932,7 +111875,7 @@ en: Potatoes from Val de Picones
 de: Kartoffeln aus Val de Picones
 fr: Pommes de terre de Val de Picones
 hr: Krumpir iz val de picones
-nl: Aardappelen ui Val de Picones
+nl: Aardappelen uit Val de Picones
 
 #<en:Potatoes
 #en:Potatoes from the United Kingdom
@@ -115726,6 +115669,7 @@ agribalyse_food_code:en: 11018
 ciqual_food_code:en: 11018
 ciqual_food_name:en: Vinegar
 ciqual_food_name:fr: Vinaigre
+default_nutrition_as_sold_per:en: 100ml
 food_groups:en: en:dressings-and-sauces
 google_product_taxonomy_id:en: 2140
 gpc_category_code:en: 10000051
@@ -121888,6 +121832,16 @@ fr: Produits thermogéniques
 hr: Termogenika
 wikidata:en: Q7783178
 
+< en:Dietary supplements
+en: Ayurvedic supplements, Ayurvedic medicines
+wikidata:en: Q112879390
+
+< en:Ayurvedic supplements
+en: Chyawanprash
+xx: Chyawanprash, Chyavanprash
+sa: च्यवनप्राश
+wikidata:en: Q1090209
+
 < en:Desserts
 en: Sushki
 es: Sushki
@@ -121966,6 +121920,26 @@ hr: Slastičarski pomoćnici
 nl: Banketbakkerhulpmiddelen
 ru: Добавки для мучных изделий
 
+< en:Cocoa and its products
+< en:Pastry helpers
+en: Cocoa glazes
+fr: Glaçages au cacao
+
+< en:Pastry helpers
+en: Chocolate drops
+fr: Pépites de chocolat
+agribalyse_proxy_food_code:en: 31005
+agribalyse_proxy_food_name:en: Dark chocolate bar, less than 70% cocoa
+agribalyse_proxy_food_name:fr: Chocolat noir à moins de 70% de cacao, à croquer, tablette
+
+< en:Chocolate drops
+en: Milk chocolate drops
+fr: Pépites de chocolat au lait
+
+< en:Chocolate drops
+en: Dark chocolate drops
+fr: Pépites de chocolat noir
+
 < en:Cooking helpers
 en: Sugary cooking helpers
 de: Süße Kochhelfer, Backhilfen, Kochhilfen für Süßspeisen
@@ -121975,7 +121949,7 @@ nl: Zoete kookhulpmiddelen
 
 < en:Pastry helpers
 en: Fondants
-fr: Pâtes à sucre, Fondants
+fr: Pâtes à sucre, Fondants, glaçages au sucre
 hr: Fondanti
 ja: フォンダン
 nl: Fondants
@@ -122158,6 +122132,19 @@ pa: ਚਾਟ
 uk: Чаат
 description:en: Chaat is a type of Indian street food that typically includes savory snacks served with tangy chutneys and spices. It is a popular and flavorful food that can be found in various forms across India.
 wikidata:en: Q153584
+
+< en:Meals
+en: Dal Baati Churma, Dal Bati Churma
+bn: ডাল বাটি চুরমা
+gu: દાલ બાટી ચૂરમા
+hi: दाल बाटी चूरमा
+kn: ದಾಲ್ ಬಾಟಿ ಚೂರ್ಮಾ
+ml: ദാൽ ബാറ്റി ചൂർമ
+mr: डाळ बाटी चूरमा
+pa: ਦਾਲ ਬਾਟੀ ਚੂਰਮਾ
+ta: தால் பாட்டி சூர்மா
+te: దాల్ బాటి చూర్మా
+description:en: Dal Baati Churma is a traditional Rajasthani dish consisting of lentil curry (dal), baked wheat dumplings (baati), and a sweet crushed wheat preparation (churma), typically served together as a complete meal.
 
 < en:Frozen vegetables
 < en:Salsifis
@@ -122654,14 +122641,6 @@ ciqual_proxy_food_code:en: 23445
 ciqual_proxy_food_name:en: Phyllo or filo dough, raw
 ciqual_proxy_food_name:fr: Pâte phyllo ou Pâte filo, crue
 
-< en:Food decorations
-< en:Pastry helpers
-en: Chocolate drops
-fr: Pépites de chocolat
-agribalyse_proxy_food_code:en: 31005
-agribalyse_proxy_food_name:en: Dark chocolate bar, less than 70% cocoa
-agribalyse_proxy_food_name:fr: Chocolat noir à moins de 70% de cacao, à croquer, tablette
-
 < en:Meals
 en: Tajine
 fr: Tajine, tagine
@@ -122731,7 +122710,67 @@ ja: バインバオ
 wikidata:en: Q564271
 
 < en:Salty snacks
-en: Salty Fritters
+en: Samosas, sambusa, samboksa, Samoosas
+de: Samosas
+es: Samosas
+fi: Samosat, Samoosat
+fr: Samoussas, samossas, samosas
+hr: Samose
+ja: サモサ
+nl: Samosa
+agribalyse_food_code:en: 25108
+ciqual_food_code:en: 25108
+ciqual_food_name:en: Samosas or samoosas
+ciqual_food_name:fr: Samossas ou Samoussas
+food_groups:en: en:appetizers
+pnns_group_2:en: Appetizers
+wikidata:en: Q491517
+
+< en:Samosas
+en: Samoussas with poultry
+fr: Samoussas à la volaille, samossas à la volaille
+hr: Samousse s peradi
+nl: Gevogelte samosa
+#wikidata:en:
+
+< en:Samosas
+en: Chicken samosas, Samoussas with chicken
+fr: Samoussas au poulet, samossas au poulet
+#wikidata:en:
+
+< en:Samosas
+en: Beef samosas
+fr: Samoussas au bœuf, samossas au bœuf
+hr: Goveđe samose
+nl: Rundvleessamosa
+#wikidata:en:
+
+< en:Samosas
+en: Cheese samosas
+fr: Samoussas au fromage, samossas au fromage
+wikidata:en: Q16675459
+
+< en:Samosas
+en: Pork samosas
+fr: Samoussas au porc, samossas au porc
+hr: Svinjske samose
+nl: Varkensvleessamosa
+#wikidata:en:
+
+< en:Samosas
+en: Tuna samosas
+fr: Samoussas au thon, samossas au thon
+#wikidata:en:
+
+< en:Samosas
+en: Vegetable samosas
+fr: Samoussas aux légumes, samossas aux légumes
+hr: Samose od povrća
+nl: Groentesamosa
+#wikidata:en:
+
+< en:Salty snacks
+en: Salty fritters
 fi: Suolaiset uppopaistokset, Suolaiset fritit
 fr: Beignets salés
 hr: Slane popečke
@@ -122748,6 +122787,14 @@ ciqual_food_name:en: Vegetable fritters
 ciqual_food_name:fr: Beignet de légumes
 intake24_category_code:en: 19VFRIT
 intake24_category_code:fr: 19VFRIT
+
+< en:Salty snacks
+en: Pakora
+xx: Pakora
+Wikidata:en: Q1126275
+
+< en:Pakora
+en: Chicken pakora
 
 < en:Sweet snacks
 en: Sweet Fritters

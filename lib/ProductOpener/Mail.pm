@@ -85,7 +85,7 @@ Text used after logging an email
 
 =cut
 
-$LOG_EMAIL_END = "\n---- EMAIL END ----\n";
+$LOG_EMAIL_END = "\n---- EMAIL END ----";
 
 =head1 FUNCTIONS
 
