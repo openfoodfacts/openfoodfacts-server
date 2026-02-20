@@ -73,6 +73,7 @@ BEGIN {
 		%energy_from_nutrients
 		&get_nutrient_from_nutrient_set_in_default_unit
 		&default_unit_for_nid
+		&add_misc_tags_for_input_nutrition_data_pers
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -203,6 +204,9 @@ None
 =cut
 
 sub generate_nutrient_aggregated_set ($product_ref) {
+
+	add_tag($product_ref, "misc", "en:generate-nutrition-data-per-test");
+
 	if (!defined $product_ref) {
 		return;
 	}
@@ -2849,6 +2853,42 @@ sub default_unit_for_nid ($nid) {
 	}
 
 	return "g";
+}
+
+=head2 add_misc_tags_for_input_nutrition_data_pers ( $product_ref )
+
+Add misc tags for the different pers used in the input nutrition data,
+to make it easier to filter products based on the pers used in their nutrition data.
+(e.g. to find all ice creams with per 100ml)
+
+Estimates are not included.
+
+add_tag($product_ref, "misc", "en:nutrition-data-per-100g") if we have at least one input set with per 100g;
+
+=cut
+
+sub add_misc_tags_for_input_nutrition_data_pers($product_ref) {
+
+	# Go through each input set, check the pers used, add misc tags accordingly
+	my $inputs_sets_array_ref = deep_get($product_ref, "nutrition", "input_sets");
+
+	if (defined $inputs_sets_array_ref) {
+		foreach my $input_set_ref (@{$inputs_sets_array_ref}) {
+			my $source = $input_set_ref->{source} || "";
+			my $per = $input_set_ref->{per} || "";
+
+			# skip estimate from ingredients
+			if ($source eq "estimate") {
+				next;
+			}
+
+			if (defined $per) {
+				add_tag($product_ref, "misc", "en:nutrition-data-per-${per}");
+			}
+		}
+	}
+
+	return;
 }
 
 1;
