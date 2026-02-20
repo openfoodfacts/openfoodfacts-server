@@ -40,6 +40,9 @@ my $checkpoint = ProductOpener::Checkpoint->new;
 my $last_processed_path = $checkpoint->{value};
 my $can_process = $last_processed_path ? 0 : 1;
 
+print "last_processed_path: $last_processed_path\n";
+print "can_process: $can_process\n";
+
 my $batch_size = $ARGV[0] // 100;
 my $scans = "{";
 my $scan_count = 0;

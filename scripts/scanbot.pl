@@ -45,6 +45,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::GeoIP;
 use ProductOpener::HTTP qw/create_user_agent/;
+use ProductOpener::Redis qw/push_product_update_to_redis/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -65,7 +66,7 @@ GetOptions(
 	'add-countries' => \$add_countries,
 );
 
-if ((not defined $year) or not((defined $update_popularity) or (defined $update_scans))) {
+if ((not defined $year) or not(1 or (defined $update_popularity) or (defined $update_scans))) {
 	print STDERR <<USAGE
 scanbot.pl processes nginx log files that have been filtered to keep only the OFF apps scans for a particular year.
 
@@ -115,15 +116,18 @@ my $output_dir = "$BASE_DIRS{PRIVATE_DATA}/scanbot.$year";
 ensure_dir_created_or_die($output_dir);
 
 my %ips = ();
+my $lines = 0;
 
 while (<STDIN>) {
 	my $line = $_;
 	my $ip = $_;
 	$ip =~ s/\s.*//;
 	chomp($ip);
+	$lines++;
 
 	# Get the product code e.g. "GET /api/v0/product/4548022405787.json?fields=image_front_small_url,product_name HTTP/2.0"
-	if ($line =~ / \/api\/v(?:[^\/]+)\/product\/(\d+)/) {
+	# or now: "GET /cgi/display.pl?/api/v3/product/6111242101852/?lc=fr&tags_lc=fr&cc=ma&fields=product_name%2Cproduct_name_languages%2Cbrands%2Ccode%2Cproduct_type%2Cnutrition_grade_fr%2Cimage_ [..]
+	if ($line =~ /(?: |\/cgi\/display.pl\?)\/api\/v(?:[^\/]+)\/product\/(\d+)/) {
 
 		my $code = $1;
 
@@ -144,7 +148,7 @@ while (<STDIN>) {
 	}
 }
 
-print STDERR "Loaded scan logs: $scans scans\n";
+print STDERR "Loaded scan logs: $scans scans from $lines lines\n";
 
 my $changed_products = 0;
 my $added_countries = 0;
@@ -568,4 +572,8 @@ close $PRODUCTS;
 close $LOG;
 
 print "products: $i - scans: $scans\n";
+
+foreach my $country_code (sort {$countries_for_all_products{$a} <=> $countries_for_all_products{$b}} keys %countries_for_all_products) {
+		print "$country_code: $countries_for_all_products{$country_code}\n";
+	}
 
