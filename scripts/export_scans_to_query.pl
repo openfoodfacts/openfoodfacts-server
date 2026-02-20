@@ -67,12 +67,7 @@ sub send_scans($fully_loaded = 0) {
 		'Content-Type' => 'application/json; charset=utf-8'
 	);
 	if (!$resp->is_success) {
-		print '['
-			. localtime()
-			. $query_post_url
-			. " resp: "
-			. $resp->status_line . "\n"
-			. $scans . "\n";
+		print '[' . localtime() . $query_post_url . " resp: " . $resp->status_line . "\n" . $scans . "\n";
 		die;
 	}
 
@@ -82,7 +77,12 @@ sub send_scans($fully_loaded = 0) {
 	return 1;
 }
 
-my $next = product_iter($BASE_DIRS{PRODUCTS}, qr/scans/, qr/^((conflicting|invalid|other-flavors)-codes|deleted-off-products-codes-replaced-by-other-flavors|new_images|invalid)$/, $last_processed_path);
+my $next = product_iter(
+	$BASE_DIRS{PRODUCTS},
+	qr/scans/,
+	qr/^((conflicting|invalid|other-flavors)-codes|deleted-off-products-codes-replaced-by-other-flavors|new_images|invalid)$/,
+	$last_processed_path
+);
 while (my $path = $next->()) {
 	if (not $can_process) {
 		if ($path eq $last_processed_path) {
