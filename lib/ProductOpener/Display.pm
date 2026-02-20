@@ -9487,7 +9487,7 @@ CSS
 					# If we don't have a value for energy-kj, check if we have a value for energy-kcal
 					if (($nid eq "energy") and (not defined $value)) {
 						$value = deep_get($product_ref, @nutrients_path, "energy-kcal", "value");
-						$nutrient_set_unit = deep_get($product_ref, @nutrients_path, "enrgy-kcal", "unit");
+						$nutrient_set_unit = deep_get($product_ref, @nutrients_path, "energy-kcal", "unit");
 						if (defined $value) {
 							# We will display ? for the energy in kj, but we will display the kcal value
 							$value = '?';
