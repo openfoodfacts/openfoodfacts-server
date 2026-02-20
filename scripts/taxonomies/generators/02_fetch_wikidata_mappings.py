@@ -167,7 +167,7 @@ def main():
     # Save basic mappings
     mappings_output = output_dir / "wikidata_mappings.json"
     with open(mappings_output, 'w', encoding='utf-8') as f:
-        json.dump(mappings, f, indent=2, ensure_ascii=False)
+        json.dump(mappings, f, indent=2, ensure_ascii=False, sort_keys=True)
     print(f"Saved {len(mappings)} mappings to {mappings_output}")
     
     # Save with labels for reference
@@ -181,7 +181,7 @@ def main():
     
     detailed_output = output_dir / "wikidata_mappings_detailed.json"
     with open(detailed_output, 'w', encoding='utf-8') as f:
-        json.dump(mappings_with_labels, f, indent=2, ensure_ascii=False)
+        json.dump(mappings_with_labels, f, indent=2, ensure_ascii=False, sort_keys=True)
     print(f"Saved detailed mappings to {detailed_output}")
     
     # Optionally fetch multilingual labels
@@ -193,7 +193,7 @@ def main():
     # Save multilingual labels
     labels_output = output_dir / "wikidata_labels.json"
     with open(labels_output, 'w', encoding='utf-8') as f:
-        json.dump(multilingual_labels, f, indent=2, ensure_ascii=False)
+        json.dump(multilingual_labels, f, indent=2, ensure_ascii=False, sort_keys=True)
     print(f"Saved multilingual labels to {labels_output}")
     
     print(f"\n=== Summary ===")

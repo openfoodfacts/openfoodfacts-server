@@ -91,7 +91,7 @@ jobs:
           use: true
 
       # Restore taxonomies cache
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         id: cache
         with:
           path: ./build-cache
@@ -329,7 +329,7 @@ jobs:
       - name: Compute registry ref for Buildkit cache
         id: registry_ref
         run: |
-          echo registry_ref=ghcr.io/${{ github.repository }}/frontend-buildx-cache:${{ hashFiles('Dockerfile.frontend', 'package*.json', 'gulpfile.ts', 'html/**', 'icons/**', 'scss/**') }} >> $GITHUB_OUTPUT
+          echo registry_ref=ghcr.io/${{ github.repository }}/frontend-buildx-cache:${{ hashFiles('Dockerfile.frontend', 'package*.json', 'gulpfile.mjs', 'html/**', 'icons/**', 'scss/**') }} >> $GITHUB_OUTPUT
 
       - name: Build frontend image with cache
         uses: docker/build-push-action@v6
@@ -367,7 +367,7 @@ jobs:
         fetch-depth: 1
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
-    - uses: actions/cache/restore@v4
+    - uses: actions/cache/restore@v5
       id: cache
       with:
         path: ./build-cache
@@ -423,14 +423,14 @@ jobs:
           --validate \
           --output /workspace/perl-sbom.json
     - name: Upload Perl SBOM as artifact
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: perl-sbom
         path: perl-sbom.json
         retention-days: 90
     - name: Submit Perl SBOM to Dependency Graph
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: advanced-security/spdx-dependency-submission-action@v0.1.1
+      uses: advanced-security/spdx-dependency-submission-action@v0.1.2
       with:
         filePath: perl-sbom.json
 
@@ -550,7 +550,7 @@ jobs:
         fetch-depth: 1
     
     # Cache dynamic test groups and timing data
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
@@ -599,7 +599,7 @@ jobs:
     
     # Restore cached taxonomies built in build_backend job
     # This avoids rebuilding taxonomies for each test group
-    - uses: actions/cache/restore@v4
+    - uses: actions/cache/restore@v5
       id: taxonomies_cache
       with:
         path: ./build-cache
@@ -608,7 +608,7 @@ jobs:
     
     # Cache dynamic test groups and timing data
     # This enables persistent learning and avoids regenerating groups unnecessarily
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
@@ -714,7 +714,7 @@ jobs:
       with:
         fetch-depth: 1
     
-    - uses: actions/cache/restore@v4
+    - uses: actions/cache/restore@v5
       id: taxonomies_cache
       with:
         path: ./build-cache
@@ -723,7 +723,7 @@ jobs:
     
     # Cache dynamic test groups and timing data for integration tests
     # Integration tests typically have more variable execution times
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
@@ -838,7 +838,7 @@ jobs:
     - uses: actions/checkout@v5
       with:
         fetch-depth: 1
-    - uses: actions/cache/restore@v4
+    - uses: actions/cache/restore@v5
       id: cache
       with:
         path: ./build-cache

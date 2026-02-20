@@ -2,15 +2,16 @@ from common import config
 import json
 import os
 import tempfile
+import pytest
 
-CONFIG_TEST_FILE = os.path.join(os.path.dirname(__file__), '../test_files/packager_sources_config_test.json')
-TEXT_REPLACEMENTS_TEST_FILE = os.path.join(os.path.dirname(__file__), '../test_files/packager_text_replacements_test.json')
+try:
+    from jsonschema import validate, ValidationError
+    HAS_JSONSCHEMA = True
+except ImportError:
+    HAS_JSONSCHEMA = False
 
-def test_load_config(monkeypatch):
-    monkeypatch.setattr(config, "CONFIG_FILE", CONFIG_TEST_FILE)
-    cfg = config.load_config()
-    assert "hr" in cfg
-    assert cfg["hr"]["country_name"] == "Croatia"
+ACTUAL_CONFIG_FILE = os.path.join(os.path.dirname(__file__), '../../packager_sources_config.json')
+CONFIG_SCHEMA_FILE = os.path.join(os.path.dirname(__file__), '../../tests/packager_sources_config_schema.json')
 
 
 def test_save_config():
@@ -18,8 +19,18 @@ def test_save_config():
         test_data = {
             "hr": {
                 "country_name": "Croatia",
-                "sources": [],
-                "last_filename": "03-11-2025. svi odobreni objekti.xls"
+                "sources": [
+                    {
+                        "url": "http://example.com/hr",
+                        "files": [
+                            {
+                                "type": "excel",
+                                "keyword": "test",
+                                "last_filename": "03-11-2025. svi odobreni objekti.xls"
+                            }
+                        ]
+                    }
+                ]
             }
         }
         json.dump(test_data, temp_file)
@@ -30,28 +41,52 @@ def test_save_config():
         config.CONFIG_FILE = temp_file_path
 
         cfg = config.load_config()
-        cfg["hr"]["last_filename"] = "NEW-FILE.xls"
+        cfg["hr"]["sources"][0]["files"][0]["last_filename"] = "NEW-FILE.xls"
         config.save_config(cfg)
 
         with open(temp_file_path, 'r', encoding='utf-8') as f:
             loaded = json.load(f)
-        assert loaded["hr"]["last_filename"] == "NEW-FILE.xls"
+        assert loaded["hr"]["sources"][0]["files"][0]["last_filename"] == "NEW-FILE.xls"
     
     finally:
         os.remove(temp_file_path)
 
 
-def test_load_text_replacements(monkeypatch):
-    monkeypatch.setattr(config, "TEXT_REPLACEMENTS_FILE", TEXT_REPLACEMENTS_TEST_FILE)
+def test_load_text_replacements(monkeypatch, tmp_path):
+    """Test that load_text_replacements correctly builds regex patterns from config."""
+    test_config = {
+        "test": {
+            "abbreviations": {"sv.": "sveti "},
+            "typos": {"Dugoplje": "Dugopolje"},
+            "cleanup_patterns": {"remove_parens": r"\s*\([^)]*\)"}
+        }
+    }
+    
+    test_file = tmp_path / "test_replacements.json"
+    test_file.write_text(json.dumps(test_config))
+    monkeypatch.setattr(config, "TEXT_REPLACEMENTS_FILE", str(test_file))
 
-    expected = {
-        r'\bsv\.\s*': "sveti",
-        r'\bn/m\s*': "na moru",
+    result = config.load_text_replacements("test")
+    
+    assert result == {
+        r'\bsv\.\s*': "sveti ",
         r'\bDugoplje\b': "Dugopolje",
-        r'\bBelejske\b': "Belajske",
-        r'\s*\([^)]*\)': "",
-        r'\s+kod\s+.*': ""
+        r'\s*\([^)]*\)': ""
     }
 
-    replacements = config.load_text_replacements("hr")
-    assert replacements == expected
+
+@pytest.mark.skipif(not HAS_JSONSCHEMA, reason="jsonschema package not installed")
+def test_validate_config_with_schema():
+    """Validate production config against JSON Schema."""
+    with open(CONFIG_SCHEMA_FILE, 'r', encoding='utf-8') as f:
+        schema = json.load(f)
+    
+    with open(ACTUAL_CONFIG_FILE, 'r', encoding='utf-8') as f:
+        cfg = json.load(f)
+    
+    try:
+        validate(instance=cfg, schema=schema)
+    except ValidationError as e:
+        pytest.fail(f"Config validation failed: {e.message}\nPath: {list(e.path)}")
+
+

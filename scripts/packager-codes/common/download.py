@@ -23,6 +23,7 @@ from bs4 import BeautifulSoup
 import json
 import requests
 from time import sleep
+from urllib.parse import urljoin
 
 HEADERS = {'User-Agent': 'packager-openfoodfacts'}
 
@@ -38,27 +39,26 @@ def download_excel_file(country_name: str, url: str, output_file: str, keyword: 
        - Returns None if filename matches (no update needed)
        - Returns the current filename if different
        
-    2. Direct download mode (keyword is None):
-       - Directly downloads the file at expected_file_name from the URL
-       - No change detection in this mode
+    2. Filename search mode (keyword is None, expected_file_name provided):
+       - Scrapes the page for Excel file matching expected_file_name
+       - No change detection (filename doesn't change over time)
+       - Downloads the file
        - Returns None
     
     Args:
         country_name: Name of the country for logging
-        url: The URL of the page containing the Excel file (or direct file URL if keyword is None)
+        url: The URL of the page containing Excel file links
         output_file: The path where to save the downloaded file
         keyword: Optional keyword to search for in Excel file links (e.g., 'svi odobreni objekti').
-                If None, downloads expected_file_name directly.
-        expected_file_name: The expected filename for comparison (keyword mode) or direct download (no keyword mode).
-                           In keyword mode: returns None if found filename matches this.
-                           In direct mode: appended to URL for download.
+                If provided, enables change detection.
+        expected_file_name: The expected filename for comparison (keyword mode) or exact filename to find (filename search mode).
     
     Returns:
-        str or None: Current filename if new version found in keyword mode, None if no update needed or direct mode
+        str or None: Current filename if new version found in keyword mode, None otherwise
         
     Raises:
-        FileNotFoundError: If no Excel files found or keyword doesn't match any file
-        ValueError: If expected_file_name not provided in direct mode
+        FileNotFoundError: If no Excel files found or filename doesn't match
+        ValueError: If neither keyword nor expected_file_name is provided
         RuntimeError: If download fails
     """
     print(f"\n{country_name} - Step - Downloading Excel file from {url}")
@@ -97,7 +97,10 @@ def download_excel_file(country_name: str, url: str, output_file: str, keyword: 
                 else:
                     print(f"{country_name} - Info - New version detected: '{current_filename}' (expected: '{expected_file_name}')")
             
-            excel_response = requests.get(excel_link, headers=HEADERS)
+            # Construct absolute URL (handles both relative and absolute links)
+            absolute_url = urljoin(url, excel_link)
+            
+            excel_response = requests.get(absolute_url, headers=HEADERS)
             excel_response.raise_for_status()
             
             with open(output_file, 'wb') as f:
@@ -107,14 +110,30 @@ def download_excel_file(country_name: str, url: str, output_file: str, keyword: 
             
             return current_filename
             
-        else:
-            if not expected_file_name:
-                raise ValueError("expected_file_name must be provided when keyword is None")
+        elif expected_file_name:
+            # Filename search mode: scrape page for specific filename
+            print(f"{country_name} - Info - Filename search mode: looking for '{expected_file_name}'")
             
-            file_url = f"{url.rstrip('/')}/{expected_file_name}"
-            print(f"{country_name} - Info - Direct download mode: {file_url}")
+            response = requests.get(url, headers=HEADERS)
+            response.raise_for_status()
             
-            excel_response = requests.get(file_url, headers=HEADERS)
+            soup = BeautifulSoup(response.content, 'html.parser')
+            
+            excel_link = None
+            for link in soup.find_all('a', href=True):
+                href = link['href']
+                if (href.endswith('.xls') or href.endswith('.xlsx')) and expected_file_name in href:
+                    excel_link = href
+                    break
+            
+            if not excel_link:
+                raise FileNotFoundError(f"Could not find Excel file matching '{expected_file_name}' in {url}.")
+            
+            # Construct absolute URL (handles both relative and absolute links)
+            absolute_url = urljoin(url, excel_link)
+            print(f"{country_name} - Info - Found file at: {absolute_url}")
+            
+            excel_response = requests.get(absolute_url, headers=HEADERS)
             excel_response.raise_for_status()
             
             with open(output_file, 'wb') as f:
@@ -123,6 +142,9 @@ def download_excel_file(country_name: str, url: str, output_file: str, keyword: 
             print(f"{country_name} - Info - Excel file downloaded successfully: {output_file}, file size: {len(excel_response.content)} bytes")
             
             return None
+            
+        else:
+            raise ValueError("Either keyword or expected_file_name must be provided")
         
     except requests.exceptions.RequestException as e:
         raise RuntimeError(f"Failed to download file: {e}") from e

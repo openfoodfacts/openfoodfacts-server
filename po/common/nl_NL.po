@@ -2408,7 +2408,7 @@ msgstr "Bewerk het product opnieuw"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "Country"
+msgstr "Land"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5980,6 +5980,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etiketten met zeer hoge milieuvoordelen"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Geen beoordeelde etiketten"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Enkele milieuvoordelen"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Grote milieuvoordelen"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Zeer hoge milieuvoordelen"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Andere"
@@ -7630,12 +7646,12 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Deze voorkeuren zijn gebaseerd op de interpretatie van Open Food Facts van de ingrediëntenlijst. Er bestaat altijd een mogelijkheid dat deze interpretatie niet nauwkeurig of volledig is. Controleer daarom altijd zelf het product."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
-msgstr ""
+msgid "Suffering Footprint"
+msgstr "Lijdende vingerafdruk"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
-msgstr ""
+msgstr "Indicator van dierenleed berekend per product"
 
 msgctxt "section_animal_welfare_title"
 msgid "Animal welfare"
@@ -7643,7 +7659,7 @@ msgstr "Dierenwelzijn"
 
 msgctxt "external_panels"
 msgid "External Knowledge Panels"
-msgstr ""
+msgstr "Externe kennispanelen"
 
 msgctxt "external_panel_unavailable"
 msgid "Panel unavailable"
@@ -7667,15 +7683,15 @@ msgstr "Roken is dodelijk"
 
 msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
 msgid "Tobacco seriously damages health. Don't start. Quit now."
-msgstr "Tabak is ernstig schadelijk voor de gezondheid. Begin er niet aan. Stop er nu mee."
+msgstr "Tabak is zeer schadelijk voor de gezondheid. Begin er niet mee. Stop nu."
 
 msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
-msgstr "Roken is zeer verslavend. Begin er niet aan. Roken is dodelijk – stop er nu mee. Roken verstopt de slagaders en veroorzaakt hartaanvallen en beroertes. Roken veroorzaakt dodelijke longkanker. Roken tijdens de zwangerschap is schadelijk voor uw baby. Bescherm kinderen: laat ze uw rook niet inademen. Uw arts of apotheker kan u helpen met stoppen met roken. Roken kan de bloeddoorstroming verminderen en impotentie veroorzaken. Roken veroorzaakt huidveroudering. Roken kan het sperma beschadigen en de vruchtbaarheid verminderen. Rook bevat benzeen, nitrosaminen, formaldehyde en waterstofcyanide."
+msgstr "Roken is zeer verslavend. Begin er niet mee. Roken is dodelijk – stop nu. Roken verstopt de slagaders en veroorzaakt hartaanvallen en beroertes. Roken veroorzaakt dodelijke longkanker. Roken tijdens de zwangerschap is schadelijk voor uw baby. Bescherm kinderen: laat ze niet uw rook inademen. Uw arts of apotheker kan u helpen om te stoppen met roken. Roken kan de bloeddoorstroming verminderen en impotentie veroorzaken. Roken veroorzaakt huidveroudering. Roken kan het sperma beschadigen en de vruchtbaarheid verminderen. Rook bevat benzeen, nitrosaminen, formaldehyde en waterstofcyanide."
 
 msgctxt "public_price"
 msgid "Public price"
-msgstr "Publieke prijs"
+msgstr "Openbare prijs"
 
 msgctxt "public_price_example"
 msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
@@ -7683,9 +7699,41 @@ msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
 
 msgctxt "public_price_note"
 msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
-msgstr "Adviesprijs van de fabrikant (MSRP), exclusief kortingen en acties, zoals aangegeven op de productverpakking of op de website van de fabrikant (inclusief of exclusief belastingen op basis van wetgeving). Gebruik een door komma's gescheiden lijst als prijzen in meerdere valuta's worden vermeld."
+msgstr "Adviesprijs van de fabrikant (MSRP), exclusief kortingen en promoties, zoals aangegeven op de productverpakking of de website van de fabrikant (inclusief of exclusief belastingen op basis van de wetgeving). Gebruik een door komma's gescheiden lijst als prijzen in meerdere valuta's worden vermeld."
 
 msgctxt "folksonomy_property"
 msgid "Personalized property"
-msgstr "Gepersonaliseerde eigendom"
+msgstr "Gepersonaliseerd eigendom"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Bevat geen palmolie"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Kan palmolie bevatten"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Milieukeurmerken"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Ontbrekende gegevens"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Grote impact"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Gemiddelde impact"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Lage impact"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Impact niet beoordeeld"
 

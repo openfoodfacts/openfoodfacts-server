@@ -21,44 +21,48 @@
                      "title" : "Nutri-Score C"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                     "description_short" : "0.0497 g / 100 g",
+                     "grade" : "a",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
                      "id" : "low_salt",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 96.6875,
                      "name" : "Salt",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Salt in unknown quantity"
+                     "panel_id" : "nutrient_level_salt",
+                     "status" : "known",
+                     "title" : "Salt in low quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                     "description_short" : "10.4 g / 100 g",
+                     "grade" : "c",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                      "id" : "low_fat",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 53.8349264705882,
                      "name" : "Fat",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Fat in unknown quantity"
+                     "panel_id" : "nutrient_level_fat",
+                     "status" : "known",
+                     "title" : "Fat in moderate quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                     "description_short" : "7.26 g / 100 g",
+                     "grade" : "b",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
                      "id" : "low_sugars",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 61.9025,
                      "name" : "Sugars",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Sugars in unknown quantity"
+                     "panel_id" : "nutrient_level_sugars",
+                     "status" : "known",
+                     "title" : "Sugars in moderate quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                     "description_short" : "4.9 g / 100 g",
+                     "grade" : "d",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-medium.svg",
                      "id" : "low_saturated_fat",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 21.6607142857143,
                      "name" : "Saturated fat",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Saturated fat in unknown quantity"
+                     "panel_id" : "nutrient_level_saturated_fat",
+                     "status" : "known",
+                     "title" : "Saturated fat in moderate quantity"
                   }
                ],
                "id" : "nutritional_quality",
@@ -313,6 +317,7 @@
                      "id" : "forest_footprint",
                      "match" : 99.7025,
                      "name" : "Forest footprint",
+                     "panel_id" : "forest_footprint",
                      "status" : "known",
                      "title" : "Very small forest footprint"
                   }
@@ -657,6 +662,7 @@
                      "id" : "forest_footprint",
                      "match" : 0,
                      "name" : "Forest footprint",
+                     "panel_id" : "forest_footprint",
                      "status" : "known",
                      "title" : "Forest footprint not computed"
                   }
@@ -709,44 +715,48 @@
                      "title" : "Nutri-Score A"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                     "description_short" : "0.07 g / 100 g",
+                     "grade" : "a",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
                      "id" : "low_salt",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 95.3333333333333,
                      "name" : "Salt",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Salt in unknown quantity"
+                     "panel_id" : "nutrient_level_salt",
+                     "status" : "known",
+                     "title" : "Salt in low quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                     "description_short" : "1.76 g / 100 g",
+                     "grade" : "a",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-low.svg",
                      "id" : "low_fat",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 88.2888888888889,
                      "name" : "Fat",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Fat in unknown quantity"
+                     "panel_id" : "nutrient_level_fat",
+                     "status" : "known",
+                     "title" : "Fat in low quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                     "description_short" : "7.6 g / 100 g",
+                     "grade" : "c",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
                      "id" : "low_sugars",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 59.2,
                      "name" : "Sugars",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Sugars in unknown quantity"
+                     "panel_id" : "nutrient_level_sugars",
+                     "status" : "known",
+                     "title" : "Sugars in moderate quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                     "description_short" : "0.472 g / 100 g",
+                     "grade" : "a",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-low.svg",
                      "id" : "low_saturated_fat",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 93.7022222222222,
                      "name" : "Saturated fat",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Saturated fat in unknown quantity"
+                     "panel_id" : "nutrient_level_saturated_fat",
+                     "status" : "known",
+                     "title" : "Saturated fat in low quantity"
                   }
                ],
                "id" : "nutritional_quality",
@@ -1001,6 +1011,7 @@
                      "id" : "forest_footprint",
                      "match" : 99.4711111111111,
                      "name" : "Forest footprint",
+                     "panel_id" : "forest_footprint",
                      "status" : "known",
                      "title" : "Very small forest footprint"
                   }
@@ -1053,44 +1064,48 @@
                      "title" : "Nutri-Score C"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                     "description_short" : "0.00127 g / 100 g",
+                     "grade" : "a",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
                      "id" : "low_salt",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 99.9155555555556,
                      "name" : "Salt",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Salt in unknown quantity"
+                     "panel_id" : "nutrient_level_salt",
+                     "status" : "known",
+                     "title" : "Salt in low quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                     "description_short" : "16.8 g / 100 g",
+                     "grade" : "d",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                      "id" : "low_fat",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 31.4588235294119,
                      "name" : "Fat",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Fat in unknown quantity"
+                     "panel_id" : "nutrient_level_fat",
+                     "status" : "known",
+                     "title" : "Fat in moderate quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                     "description_short" : "6.73 g / 100 g",
+                     "grade" : "b",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
                      "id" : "low_sugars",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 66.1333333333334,
                      "name" : "Sugars",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Sugars in unknown quantity"
+                     "panel_id" : "nutrient_level_sugars",
+                     "status" : "known",
+                     "title" : "Sugars in moderate quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                     "description_short" : "8.23 g / 100 g",
+                     "grade" : "e",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-high.svg",
                      "id" : "low_saturated_fat",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 7.07733333333336,
                      "name" : "Saturated fat",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Saturated fat in unknown quantity"
+                     "panel_id" : "nutrient_level_saturated_fat",
+                     "status" : "known",
+                     "title" : "Saturated fat in high quantity"
                   }
                ],
                "id" : "nutritional_quality",
@@ -1345,6 +1360,7 @@
                      "id" : "forest_footprint",
                      "match" : 0,
                      "name" : "Forest footprint",
+                     "panel_id" : "forest_footprint",
                      "status" : "known",
                      "title" : "Forest footprint not computed"
                   }
@@ -1397,44 +1413,48 @@
                      "title" : "Nutri-Score A"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                     "description_short" : "0.0019 g / 100 g",
+                     "grade" : "a",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
                      "id" : "low_salt",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 99.8733333333333,
                      "name" : "Salt",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Salt in unknown quantity"
+                     "panel_id" : "nutrient_level_salt",
+                     "status" : "known",
+                     "title" : "Salt in low quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                     "description_short" : "0.0975 g / 100 g",
+                     "grade" : "a",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-low.svg",
                      "id" : "low_fat",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 99.35,
                      "name" : "Fat",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Fat in unknown quantity"
+                     "panel_id" : "nutrient_level_fat",
+                     "status" : "known",
+                     "title" : "Fat in low quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                     "description_short" : "7.58 g / 100 g",
+                     "grade" : "c",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
                      "id" : "low_sugars",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 59.4,
                      "name" : "Sugars",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Sugars in unknown quantity"
+                     "panel_id" : "nutrient_level_sugars",
+                     "status" : "known",
+                     "title" : "Sugars in moderate quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                     "description_short" : "0.0158 g / 100 g",
+                     "grade" : "a",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-low.svg",
                      "id" : "low_saturated_fat",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 99.79,
                      "name" : "Saturated fat",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Saturated fat in unknown quantity"
+                     "panel_id" : "nutrient_level_saturated_fat",
+                     "status" : "known",
+                     "title" : "Saturated fat in low quantity"
                   }
                ],
                "id" : "nutritional_quality",
@@ -1672,15 +1692,15 @@
                "attributes" : [
                   {
                      "description" : "",
-                     "description_short" : "Very high environmental impact",
-                     "grade" : "d",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-e.svg",
+                     "description_short" : "High environmental impact",
+                     "grade" : "c",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg",
                      "id" : "ecoscore",
-                     "match" : 25,
+                     "match" : 41,
                      "name" : "Green-Score",
                      "panel_id" : "environmental_score",
                      "status" : "known",
-                     "title" : "Green-Score E"
+                     "title" : "Green-Score D"
                   },
                   {
                      "description" : "",
@@ -1690,6 +1710,7 @@
                      "id" : "forest_footprint",
                      "match" : 0,
                      "name" : "Forest footprint",
+                     "panel_id" : "forest_footprint",
                      "status" : "known",
                      "title" : "Forest footprint not computed"
                   }
@@ -1731,55 +1752,59 @@
                "attributes" : [
                   {
                      "description" : "",
-                     "description_short" : "Very good nutritional quality",
-                     "grade" : "b",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-a-new-en.svg",
+                     "description_short" : "Average nutritional quality",
+                     "grade" : "c",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-en.svg",
                      "id" : "nutriscore",
-                     "match" : 73.6666666666667,
+                     "match" : 49.4444444444444,
                      "name" : "Nutri-Score",
                      "panel_id" : "nutriscore_2023",
                      "status" : "known",
-                     "title" : "Nutri-Score A"
+                     "title" : "Nutri-Score C"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                     "description_short" : "0.00336 g / 100 g",
+                     "grade" : "a",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
                      "id" : "low_salt",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 99.776,
                      "name" : "Salt",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Salt in unknown quantity"
+                     "panel_id" : "nutrient_level_salt",
+                     "status" : "known",
+                     "title" : "Salt in low quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                     "description_short" : "0.065 g / 100 g",
+                     "grade" : "a",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-low.svg",
                      "id" : "low_fat",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 99.5666666666667,
                      "name" : "Fat",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Fat in unknown quantity"
+                     "panel_id" : "nutrient_level_fat",
+                     "status" : "known",
+                     "title" : "Fat in low quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                     "description_short" : "25 g / 100 g",
+                     "grade" : "e",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                      "id" : "low_sugars",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 0,
                      "name" : "Sugars",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Sugars in unknown quantity"
+                     "panel_id" : "nutrient_level_sugars",
+                     "status" : "known",
+                     "title" : "Sugars in high quantity"
                   },
                   {
-                     "grade" : "unknown",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                     "description_short" : "0.0105 g / 100 g",
+                     "grade" : "a",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-low.svg",
                      "id" : "low_saturated_fat",
-                     "missing" : "Missing nutrition facts",
+                     "match" : 99.86,
                      "name" : "Saturated fat",
-                     "panel_id" : "nutrition_facts_table",
-                     "status" : "unknown",
-                     "title" : "Saturated fat in unknown quantity"
+                     "panel_id" : "nutrient_level_saturated_fat",
+                     "status" : "known",
+                     "title" : "Saturated fat in low quantity"
                   }
                ],
                "id" : "nutritional_quality",
@@ -1788,7 +1813,7 @@
             {
                "attributes" : [
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-gluten.svg",
                      "id" : "allergens_no_gluten",
@@ -1798,7 +1823,7 @@
                      "title" : "Does not contain: Gluten"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-milk.svg",
                      "id" : "allergens_no_milk",
@@ -1808,7 +1833,7 @@
                      "title" : "Does not contain: Milk"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-eggs.svg",
                      "id" : "allergens_no_eggs",
@@ -1818,7 +1843,7 @@
                      "title" : "Does not contain: Eggs"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg",
                      "id" : "allergens_no_nuts",
@@ -1828,7 +1853,7 @@
                      "title" : "Does not contain: Nuts"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg",
                      "id" : "allergens_no_peanuts",
@@ -1838,7 +1863,7 @@
                      "title" : "Does not contain: Peanuts"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg",
                      "id" : "allergens_no_sesame_seeds",
@@ -1848,7 +1873,7 @@
                      "title" : "Does not contain: Sesame seeds"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg",
                      "id" : "allergens_no_soybeans",
@@ -1858,7 +1883,7 @@
                      "title" : "Does not contain: Soybeans"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg",
                      "id" : "allergens_no_celery",
@@ -1868,7 +1893,7 @@
                      "title" : "Does not contain: Celery"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg",
                      "id" : "allergens_no_mustard",
@@ -1878,7 +1903,7 @@
                      "title" : "Does not contain: Mustard"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg",
                      "id" : "allergens_no_lupin",
@@ -1888,7 +1913,7 @@
                      "title" : "Does not contain: Lupin"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg",
                      "id" : "allergens_no_fish",
@@ -1898,7 +1923,7 @@
                      "title" : "Does not contain: Fish"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg",
                      "id" : "allergens_no_crustaceans",
@@ -1908,7 +1933,7 @@
                      "title" : "Does not contain: Crustaceans"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg",
                      "id" : "allergens_no_molluscs",
@@ -1918,7 +1943,7 @@
                      "title" : "Does not contain: Molluscs"
                   },
                   {
-                     "debug" : "2 ingredients (0 unknown)",
+                     "debug" : "3 ingredients (0 unknown)",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg",
                      "id" : "allergens_no_sulphur_dioxide_and_sulphites",
@@ -1990,14 +2015,14 @@
             {
                "attributes" : [
                   {
-                     "grade" : "a",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
+                     "grade" : "b",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                      "id" : "nova",
-                     "match" : 100,
+                     "match" : 75,
                      "name" : "NOVA group",
                      "panel_id" : "nova",
                      "status" : "known",
-                     "title" : "Unprocessed or minimally processed foods"
+                     "title" : "Processed foods"
                   },
                   {
                      "grade" : "a",
@@ -2017,15 +2042,15 @@
                "attributes" : [
                   {
                      "description" : "",
-                     "description_short" : "Very high environmental impact",
-                     "grade" : "d",
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-e.svg",
+                     "description_short" : "High environmental impact",
+                     "grade" : "c",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg",
                      "id" : "ecoscore",
-                     "match" : 25,
+                     "match" : 41,
                      "name" : "Green-Score",
                      "panel_id" : "environmental_score",
                      "status" : "known",
-                     "title" : "Green-Score E"
+                     "title" : "Green-Score D"
                   },
                   {
                      "description" : "",
@@ -2035,6 +2060,7 @@
                      "id" : "forest_footprint",
                      "match" : 0,
                      "name" : "Forest footprint",
+                     "panel_id" : "forest_footprint",
                      "status" : "known",
                      "title" : "Forest footprint not computed"
                   }

@@ -759,23 +759,9 @@
       },
       {
          "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts",
-         "important" : false,
-         "name" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive",
-         "unit" : "%"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts-dried",
-         "important" : false,
-         "name" : "Fruits‚ légumes et noix - séchés",
-         "unit" : "%"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts-estimate",
-         "important" : false,
-         "name" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation manuelle avec la liste des ingrédients)",
+         "id" : "fruits-vegetables-legumes",
+         "important" : true,
+         "name" : "Fruits‚ légumes‚ légumes secs",
          "unit" : "%"
       },
       {
@@ -805,27 +791,6 @@
          "important" : false,
          "name" : "Empreinte carbone",
          "unit" : "g"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "carbon-footprint-from-meat-or-fish",
-         "important" : false,
-         "name" : "Empreinte carbone de la viande ou du poisson",
-         "unit" : "g"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "nutrition-score-fr",
-         "important" : false,
-         "name" : "Score nutritionnel - France",
-         "unit" : ""
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "nutrition-score-uk",
-         "important" : false,
-         "name" : "Nutrition score - UK",
-         "unit" : ""
       },
       {
          "display_in_edit_form" : false,

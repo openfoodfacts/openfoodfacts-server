@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -106,7 +106,7 @@ use ProductOpener::Auth qw/:all/;
 use ProductOpener::Keycloak qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Minion qw/queue_job write_minion_log/;
-use ProductOpener::Tags qw/country_to_cc cc_to_country/;
+use ProductOpener::Tags qw/display_taxonomy_tag_name country_to_cc cc_to_country/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -287,8 +287,12 @@ sub subscribe_user_newsletter_task ($job, $args_ref) {
 		$job->fail({errors => ['User with id ' . $userid . ' not found in Keycloak.']});
 		return;
 	}
-
-	add_contact_to_list($user_ref->{email}, $user_ref->{name}, $user_ref->{country}, $user_ref->{preferred_language});
+	add_contact_to_list(
+		$user_ref->{email}, $user_ref->{userid},
+		display_taxonomy_tag_name("en", "countries", $user_ref->{country}),
+		$user_ref->{preferred_language},
+		$user_ref->{name}
+	);
 
 	write_minion_log("subscribe_user_newsletter_task - job: $job_id done");
 	$job->finish("done");
@@ -505,7 +509,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 
 	$log->debug("check_user_form", {type => $type, user_ref => $user_ref, email => $email}) if $log->is_debug();
 
-	if ((defined $email) and ($email ne '') and ($user_ref->{email} ne $email)) {
+	if ((defined $email) and ($email ne '') and (($user_ref->{email} // '') ne $email)) {
 
 		# check that the email is not already used
 		my $user_id_from_mail;
@@ -610,6 +614,7 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		my $address;
 		eval {$address = Email::Valid->address(-address => $user_ref->{email}, -mxcheck => 1);};
 		$address = 0 if $@;
+		$log->debug("check_user_form - address", {mail => $user_ref->{email}, address => $address}) if $log->is_debug();
 		if (not $address) {
 			push @{$errors_ref}, $Lang{error_invalid_email}{$lc};
 		}
@@ -842,8 +847,12 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 
 			# Check if the user subscribed to the newsletter
 			if ($user_ref->{newsletter}) {
-				add_contact_to_list($user_ref->{email}, $user_ref->{user_id}, $user_ref->{country},
-					$user_ref->{preferred_language});
+				add_contact_to_list(
+					$user_ref->{email}, $user_ref->{userid},
+					display_taxonomy_tag_name("en", "countries", $user_ref->{country}),
+					$user_ref->{preferred_language},
+					$user_ref->{name}
+				);
 			}
 		}
 
@@ -1162,14 +1171,19 @@ sub retrieve_user_preferences ($user_id) {
 # This fetches the data from Keycloak and merges it into the local data
 # This might take some time so should only be used if you really need all the user information
 sub retrieve_user ($user_id) {
+	my $user_ref = retrieve_user_preferences($user_id);
 	my $keycloak_user_ref;
 	if (get_oidc_implementation_level() > 1) {
 		# Fetch the user from Keycloak once it has become the source of truth
 		# Do this before fetching the local preferences as it can take a while
 		my $keycloak = ProductOpener::Keycloak->new();
 		$keycloak_user_ref = $keycloak->find_user_by_username($user_id);
+
+		# encrypted_password is write only for OIDC Level 2 and above
+		if ($user_ref) {
+			delete $user_ref->{encrypted_password};
+		}
 	}
-	my $user_ref = retrieve_user_preferences($user_id);
 	if ($keycloak_user_ref) {
 		$user_ref //= {};
 		$user_ref->{email} = $keycloak_user_ref->{email};
@@ -1601,7 +1615,6 @@ sub init_user ($request_ref) {
 					{
 						user_id => $user_id,
 						user_session => $user_session,
-						stock_session => $user_ref->{'user_sessions'},
 						stock_ip => $user_ref->{'user_last_ip'},
 						current_ip => remote_addr()
 					}

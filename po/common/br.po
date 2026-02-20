@@ -4861,11 +4861,11 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "Un efed izel war an endro (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "Ar Green-Score zo ur skor endroel eus A da E hag a aesa keñveriañ levezon ar produioù boued war an endro."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5961,6 +5961,22 @@ msgstr ""
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr ""
+
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Tikedenn priziet ebet"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Un nebeud gounidoù evit an endro"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Gounidoù uhel evit an endro"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Gounidoù uhel-kenañ evit an endro"
 
 msgctxt "other"
 msgid "Other"
@@ -7612,7 +7628,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Diazezet eo an dibaboù-se war gompren Open Food Facts eus roll ar c'hementadoù ha bepred ez eus ur chañs da vezañ reizh pe klok, gwiriit ar produ hoc'h-unan bepred."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7670,4 +7686,36 @@ msgstr "Priz gwerzhañ kinniget gant ar c'henderc'her (MSRP), hep kontañ ar gop
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Perc'henniezh personelaet"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "N'eus ket eoul palmez ennañ"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Eoul-palmez a c'hell bezañ ennañ"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Tikedennoù evit an endro"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Roadennoù mankout"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Un efed uhel"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Levezon etre"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Efed izel"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "N'eo ket bet priziet an efedoù"
 

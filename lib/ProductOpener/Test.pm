@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -70,7 +70,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Data qw/execute_query get_orgs_collection get_products_collection get_recent_changes_collection/;
 use ProductOpener::Store "store";
 use ProductOpener::Auth qw/get_token_using_client_credentials get_oidc_implementation_level/;
-use ProductOpener::APITest qw/get_minion_jobs/;
+use ProductOpener::APITest qw/get_minion_jobs get_last_minion_job_created/;
 
 use Carp qw/confess/;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
@@ -176,6 +176,10 @@ TXT
 
 	my $update_expected_results;
 
+	# Some tests may call init_expected_results() multiple times (as it's also called in execute_api_tests()),
+	# so we make a local copy of @ARGV as GetOptions consumes it
+	# otherwise $update_expected_results would not be set on subsequent calls
+	local (@ARGV) = @ARGV;
 	GetOptions("update-expected-results" => \$update_expected_results)
 		or confess("Error in command line arguments.\n\n" . $usage);
 
@@ -247,6 +251,9 @@ sub remove_all_products () {
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
+	# Note: we do not remove categories stats from PRIVATE_DATA and TEST_PRIVATE_DATA
+	# In integration tests, PRIVATE_DATA/categories_stats should not exist,
+	# and categories stats should be loaded from TEST_PRIVATE_DATA/categories_stats
 }
 
 =head2 remove_all_users ()
@@ -261,7 +268,7 @@ sub remove_all_users () {
 	# Important: check we are not on a prod database
 	check_not_production();
 
-	my $before_delete_ts = time();
+	my $before_delete_ts = get_last_minion_job_created();
 	my $keycloak_users_affected = 0;
 
 	# clean files
@@ -282,6 +289,7 @@ sub remove_all_users () {
 	# Wait for minion jobs triggered by Redis complete as otherwise can get race conditions with the main test
 	if ($keycloak_users_affected and get_oidc_implementation_level() > 1) {
 		my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts);
+		# print STDERR "[" . localtime() . "] Delete jobs: " . JSON::encode_json($jobs_ref) . "\n";
 	}
 
 	return;
@@ -396,7 +404,8 @@ If the test fail, the test reference will be output in the C<diag>
 
 sub compare_to_expected_results ($object_ref, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
-	my $json = JSON->new->allow_nonref->canonical;
+	# Make sure we include convert_blessed to cater for blessed objects, like booleans
+	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical;
 
 	my $desc = undef;
 	if (defined $test_ref) {
@@ -851,11 +860,11 @@ sub normalize_product_for_test_comparison ($product_ref) {
 	my %specification = (
 		fields_ignore_content => [
 			qw(
-				last_modified_t last_updated_t created_t owner_fields
+				last_modified_t last_updated_t nutrition.input_sets.*.last_updated_t created_t owner_fields
 				entry_dates_tags last_edit_dates_tags
 				last_image_t last_image_datetime last_image_dates_tags images.*.uploaded_t images.uploaded.*.uploaded_t sources.*.import_t
 				created_datetime last_modified_datetime last_updated_datetime
-				blame.*.*.previous_t blame.*.*.t
+				blame.*.*.previous_t blame.*.*.t nutrition.input_sets.*.last_updated_t
 			)
 		],
 		fields_sort => ["_keywords"],
@@ -966,6 +975,13 @@ sub normalize_html_for_test_comparison ($html_ref) {
 
 	# normalize URLs be removing scheme to avoid false positive alerts on security
 	$$html_ref =~ s/https?:\/\//\/\//g;
+
+	# Normalize DOCTYPE to avoid differences in case Apache version changes
+	$$html_ref =~ s/<!DOCTYPE [^>]+>/<!DOCTYPE --ignore-->/g;
+
+	# Normalize Apache version in error pages
+	# <address>Apache/2.4.66 (Debian) Server at world.openfoodfacts.localhost Port 80</address>
+	$$html_ref =~ s/<address>Apache\/[^\s]+ /<address>Apache\/--ignore-- /g;
 
 	return;
 }

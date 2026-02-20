@@ -2406,7 +2406,7 @@ msgstr "Muokkaa tuotetta uudelleen"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Maa"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5979,6 +5979,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Merkkejä, joilla on erittäin suuri ympäristöhyöty"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Ei arvioituja merkintöjä"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Joitakin ympäristöhyötyjä"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Korkeat ympäristöhyödyt"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Erittäin korkeat ympäristöhyödyt"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Muu"
@@ -7629,7 +7645,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Nämä mieltymykset perustuvat Open Food Factsin käsitykseen ainesosaluettelosta, ja on aina mahdollista, että se ei ole tarkka tai täydellinen. Tarkista aina tuote itse."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7687,4 +7703,36 @@ msgstr "Valmistajan suosittelema vähittäishinta (MSRP) ilman alennuksia ja tar
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Personoitu omaisuus"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Ei sisällä palmuöljyä"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Saattaa sisältää palmuöljyä"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Ympäristömerkit"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Puuttuvat tiedot"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Suuri vaikutus"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Keskivaikea vaikutus"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Vähäinen vaikutus"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Vaikutusta ei ole arvioitu"
 

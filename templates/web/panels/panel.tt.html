@@ -133,10 +133,10 @@
             </h4>
             [% IF panel.title_element.subtitle.defined %]
                 <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.subtitle %]</span>
-            [% ELSIF panel.title.value_string.defined %]
+            [% ELSIF panel.title_element.value_string.defined %]
                 <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value_string %]</span>  
             [% ELSIF panel.title_element.value.defined %]
-                [% IF panel.title.element.type.defined AND panel.title.element.type == "percent" %]
+                [% IF panel.title_element.type.defined AND panel.title_element.type == "percent" %]
                     <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value %]%</span>
                 [% ELSE %]
                     <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.value %]</span>
@@ -352,7 +352,7 @@
     #---------------------------------------------------------------------- ~%]
 
     [% table_element = element_ref.table_element %]
-    <table[% IF element.table_id %] id="[% table_element.table_id %]"[% END %] aria-label="[% table_element.title %]">
+    <table[% IF element.id %] id="[% table_element.id %]"[% END %] aria-label="[% table_element.title %]">
         <thead>
             <tr>
                 [% FOREACH column IN table_element.columns %]
@@ -392,13 +392,12 @@
     </div>
 
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/leaflet.css" />
-    <script src="[% static_subdomain %]/js/dist/leaflet.js"></script>
-    <script src="[% static_subdomain %]/js/dist/osmtogeojson.js"></script>
-    <script src="[% static_subdomain %]/js/dist/display-tag.js"></script>
+    
+    <script type="module">
+    import { displayMap } from '[% static_subdomain %]/js/dist/display-tag.js';
 
-    <script>
     document.addEventListener('DOMContentLoaded', function () {
-        displayMap([% encode_json(map_element.pointers) %], null);
+        displayMap([% encode_json(map_element.pointers) %], []);
     });
     </script>
 
