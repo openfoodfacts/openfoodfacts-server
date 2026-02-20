@@ -649,6 +649,7 @@ description:en: GELATIN or GELATINE is a translucent, colorless, brittle (when d
 vegan:en: no
 vegetarian:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Gelatin
+agribalyse_food_code:en: 11007
 
 < en:beef
 < en:gelatin
@@ -4235,6 +4236,8 @@ nl: Griekse yoghurt
 pl: jogurt grecki, jogurt typu greckiego
 sk: Grécky jogurt
 # 395 in 5 @2021-08-25
+agribalyse_proxy_food_code:en: 19860
+agribalyse_proxy_food_name:fr: Yaourt à la grecque, nature
 
 < en:greek yogurt
 en: Plain Greek-style Yogurt
@@ -4753,6 +4756,8 @@ vegetarian:en: yes
 wikidata:en: Q13228
 wikipedia:en: https://en.wikipedia.org/wiki/Cream
 # ingredient/cream has 27881 products in 29 languages @2019-07-12
+agribalyse_proxy_food_code:en: 19430
+agribalyse_proxy_food_name:fr: Crème de lait, 15 à 20% MG, légère, semi-épaisse, UHT
 
 < en:Cream
 fr: Crème fleurette, Crèmes fleurettes
@@ -5018,6 +5023,8 @@ hr: vrhnje za šlag
 it: panna da montare
 sv: vispgrädde
 # ingredient/fr:creme-a-fouetter has 21 products in 5 languages @2020-05-21
+agribalyse_proxy_food_code:en: 19420
+agribalyse_proxy_food_name:fr: Crème chantilly, sous pression, UHT
 
 < en:whipping cream
 en: pasteurized whipping cream
@@ -5782,12 +5789,16 @@ carbon_footprint_fr_foodges_value:fr: 3.6
 wikidata:en: Q198815
 wikipedia:en: https://en.wikipedia.org/wiki/Goat_cheese
 # fr:fromage de chèvre has 391 products in 6 languages @2018-10-27
+agribalyse_proxy_food_code:en: 12800
+agribalyse_proxy_food_name:fr: Fromage de chèvre frais, au lait pasteurisé (type bûchette fraîche)
 
 < en:goat cheese
 fr: fromage de chèvre frais
 ca: formatge fresc de llet de cabra
 de: Ziegenfrischkäse
 es: queso fresco de cabra
+agribalyse_proxy_food_code:en: 12800
+agribalyse_proxy_food_name:fr: Fromage de chèvre frais, au lait pasteurisé (type bûchette fraîche)
 
 < en:goat cheese
 # <en:pasteurized
@@ -9951,6 +9962,8 @@ zh: 牛
 nutriscore_red_meat:en: yes
 vegan:en: no
 vegetarian:en: no
+agribalyse_proxy_food_code:en: 6001
+agribalyse_proxy_food_name:fr: Boeuf, côte, crue
 
 < en:beef
 en: Grilled lean beef rib steak
@@ -10424,6 +10437,8 @@ nutriscore_red_meat:en: yes
 # scn:Agneddu
 # sco:lamm
 wikidata:en: Q4575936
+agribalyse_proxy_food_code:en: 21502
+agribalyse_proxy_food_name:fr: Agneau, gigot, cru
 
 # description:en:LAMB, hogget and mutton are the meat of domestic sheep (species Ovis aries) at different ages. The meat of a lamb is taken from the animal between one month and one year old, with a carcase (carcass in American English) weight of between 5.5 and 30 kg. This meat generally is more tender than that from older sheep and appears more often on tables in some Western countries.
 # comment:en:The translations of the wikipedia-entry are not clear. They seem to refer to the animal rather than the meat. So they have not been used here.
@@ -10933,6 +10948,8 @@ zh: 兔
 # zh-tw:兔
 wikidata:en: Q9394
 wikipedia:en: https://en.wikipedia.org/wiki/Rabbit
+agribalyse_proxy_food_code:en: 34000
+agribalyse_proxy_food_name:fr: Lapin, viande braisée
 
 < en:meat
 # category:en en:rabbit-meat
@@ -11208,6 +11225,8 @@ nutriscore_red_meat:en: yes
 # zh-hk:羊
 wikidata:en: Q7368
 wikipedia:en: https://en.wikipedia.org/wiki/Sheep
+agribalyse_proxy_food_code:en: 21001
+agribalyse_proxy_food_name:fr: Mouton, viande, crue
 
 # description:en:mutton is the meat of domestic sheep (species Ovis aries). The meat of an adult sheep is mutton, a term only used for the meat, not the living animals. Meat from sheep features prominently in several cuisines of the Mediterranean.
 # comment:en:Some wikidata translation seems to refer to lamb and not mutton.
@@ -11897,6 +11916,8 @@ zh: 猪
 nutriscore_red_meat:en: yes
 vegan:en: no
 vegetarian:en: no
+agribalyse_proxy_food_code:en: 28100
+agribalyse_proxy_food_name:fr: Porc, côte, crue
 
 < en:meat
 < en:pork
@@ -12741,6 +12762,8 @@ sv: kokt skinka
 ecobalyse:en: 755225f1-f0c5-497f-b8a9-263828a84a22
 ecobalyse_labels_en_organic:en: 4de5e41e-3271-4489-aa27-a973e4045082
 ecobalyse_origins_en_france:en: 755225f1-f0c5-497f-b8a9-263828a84a22
+agribalyse_proxy_food_code:en: 28910
+agribalyse_proxy_food_name:fr: Jambon cuit, choix
 
 < en:cooked ham
 fr: jambon cuit choix
@@ -13264,6 +13287,8 @@ nl: kalf
 nutriscore_red_meat:en: yes
 vegan:en: no
 vegetarian:en: no
+agribalyse_proxy_food_code:en: 6530
+agribalyse_proxy_food_name:fr: Veau, filet, cru
 
 # <en:bone
 < en:veal
@@ -13624,6 +13649,7 @@ hr: mortadela
 pl: mortadela
 pt: mortadela
 wikidata:en: Q169757
+agribalyse_food_code:en: 30789
 
 < en:meat
 en: smoked sausage
@@ -13717,6 +13743,8 @@ carbon_footprint_fr_foodges_value:fr: 5.1
 
 < en:meat
 fr: saucisse de strasbourg
+agribalyse_proxy_food_code:en: 30742
+agribalyse_proxy_food_name:fr: Saucisse de Strasbourg ou Knack
 
 fr: plasma déshydraté
 # ingredient/fr:plasma-déshydraté has 46 products in french @2019-02-10
@@ -13736,6 +13764,8 @@ wikidata:en: Q1470283
 wikipedia:en: https://en.wikipedia.org/wiki/Liver_(food)
 # ingredient/fr:foie has 57 products in french @2019-03-01
 # Porc 91% (gorge, foie, épaule)
+agribalyse_proxy_food_code:en: 40106
+agribalyse_proxy_food_name:fr: Foie, veau, cru
 
 < en:animal
 < en:meat
@@ -15104,6 +15134,8 @@ sk: rastlinný tuk
 sl: rastlinska maščoba, rastlinska mast
 sq: yndyrë bimore
 sv: vegetabiliska fetter, vegetabiliskt fett, vegetabilsk fett, vegetabilisk fett
+agribalyse_proxy_food_code:en: 16734
+agribalyse_proxy_food_name:fr: Matière grasse végétale (type margarine), à tartiner, à 30-40% MG, légère, demi-sel
 
 < en:vegetable fat
 en: vegetable suet
@@ -16171,6 +16203,8 @@ pl: Oliwa z oliwek z pierwszego tłoczenia, Oliwa z oliwek virgin
 pt: azeite de oliva virgem, azeite virgem
 sv: jungfruolivolja, virgin olivolja
 wikidata:en: Q57656262
+agribalyse_proxy_food_code:en: 17270
+agribalyse_proxy_food_name:fr: Huile d'olive vierge extra
 
 < en:virgin olive oil
 en: extra virgin olive oil
@@ -16415,6 +16449,8 @@ description:en: Canola oil, or canola for short, originally known as low erucic 
 description:es: El aceite de colza (aceite de nabina o de canola) es el extracto de la semilla de la colza, usado sobre todo en el norte de Europa como condimento y para el alumbrado.
 description:pt: Canola é um cultivo criado para ter baixo teor de ácido erúcico. O termo canola (Brassica napus L., Brassica rapa L., e Brassica juncea) se refere a variedades de plantas de três espécies da família das crucíferas, pertencentes ao gênero Brassica, que produzem um óleo comestível.
 wikipedia:en: https://en.wikipedia.org/wiki/Canola_oil
+agribalyse_proxy_food_code:en: 17130
+agribalyse_proxy_food_name:fr: Huile de colza
 
 #process:en: en:fully hydrogenated
 #<en:canola oil
@@ -18244,6 +18280,7 @@ pl: ocet cydrowy
 pt: vinagre de sidra
 sv: cidervinäger
 #ast:Vinagre de sidra
+agribalyse_food_code:en: 11090
 
 < en:cider vinegar
 en: apple cider vinegar
@@ -20232,6 +20269,8 @@ ciqual_food_name:fr: Eau de vie
 
 < en:eau de vie
 fr: eau de vie de vin
+agribalyse_proxy_food_code:en: 1023
+agribalyse_proxy_food_name:fr: Eau de vie de vin, type armagnac, cognac
 
 #category/vermouth
 < en:alcohol
@@ -23998,6 +24037,8 @@ fr: blé dur précuit
 hr: prethodno kuhana durum pšenica
 # 167 @2021-09-28
 it: grano duro precotto, grano duro pre cotto
+agribalyse_proxy_food_code:en: 9080
+agribalyse_proxy_food_name:fr: Blé dur précuit, entier, cru
 
 < en:pre-cooked durum wheat
 fr: blé dur précuit concassé, blé dur concassé précuit
@@ -24553,6 +24594,8 @@ en: wheat bulgur
 fr: boulgour de blé
 hr: pšenični bulgur
 it: grano bulgur
+agribalyse_proxy_food_code:en: 9691
+agribalyse_proxy_food_name:fr: Boulgour de blé, cuit, non salé
 
 < en:bulgur
 en: whole wheat bulgur, wholewheat bulgur, wholemeal wheat bulgur
@@ -26180,6 +26223,8 @@ uk: вівсяне молоко
 zh: 燕麦奶
 wikidata:en: Q20972637
 #28 @2021-09-22
+agribalyse_proxy_food_code:en: 18905
+agribalyse_proxy_food_name:fr: Boisson à base d'avoine, nature
 
 # <en:compound
 en: oat base
@@ -27697,6 +27742,8 @@ fr: farine de blé tendre, farine de blés tendres
 hr: meko pšenično brašno
 it: farina di grano tenero
 pl: mąka z pszenicy miękkiej, mąka z miękkiej pszenicy
+agribalyse_proxy_food_code:en: 9437
+agribalyse_proxy_food_name:fr: Farine de blé tendre ou froment avec levure incorporée
 
 < en:soft wheat flour
 < en:wholemeal flour
@@ -28675,6 +28722,8 @@ ecobalyse:en: 6467c956-277d-4e09-80c2-b0b062f84086
 ecobalyse_labels_en_organic:en: 741c0970-2823-430a-b4e4-e61ce08ea95a
 ecobalyse_origins_en_france:en: 40fa68b6-381e-4dd6-ba70-8b43cfdee64e
 eurocode_2_group_3:en: 8.45.50
+agribalyse_proxy_food_code:en: 20233
+agribalyse_proxy_food_name:fr: Maïs doux, surgelé, cru
 
 < en:sweet corn
 en: baby corn
@@ -29272,6 +29321,8 @@ fr: riz complet
 nl: volkorenrijst
 nn: fullkornris
 sv: fullkornris
+agribalyse_proxy_food_code:en: 9103
+agribalyse_proxy_food_name:fr: Riz complet, cuit, non salé
 
 #category/brown-rices
 < en:whole grain rice
@@ -30127,6 +30178,7 @@ sv: riskli
 zh: 米糠
 wikidata:en: Q34041491
 #772 in 9 @2021-10-03
+agribalyse_food_code:en: 9643
 
 # see ingredients_processing.txt
 < en:rice
@@ -31183,6 +31235,8 @@ description:en: Since the 6th century BC, cane sugar producers have crushed the 
 wikidata:en: Q165267
 wikipedia:en: https://en.wikipedia.org/wiki/Sucrose#Cane
 # ingredient/cane-sugar has 17093 products in 23 languages @2019-05-31
+agribalyse_proxy_food_code:en: 31016
+agribalyse_proxy_food_name:fr: Sucre blanc
 
 < en:sugarcane juice
 en: evaporated cane juice
@@ -34818,6 +34872,8 @@ vegetarian:en: yes
 # zh-sg:巧克力
 # zh-tw:朱古力
 wikipedia:en: https://en.wikipedia.org/wiki/Chocolate
+agribalyse_proxy_food_code:en: 24080
+agribalyse_proxy_food_name:fr: Sablé au cacao ou chocolat, au praliné ou autre
 
 < en:chocolate
 en: belgian chocolate
@@ -36091,6 +36147,8 @@ vegan:en: yes
 vegetarian:en: yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/soy
 # 39698 products in 23 languages @2018-09-25
+agribalyse_proxy_food_code:en: 20901
+agribalyse_proxy_food_name:fr: Soja, graine entière
 
 < en:soya
 en: soya flower
@@ -37447,6 +37505,8 @@ nl: gedroogd fruit
 pl: owoce suszone, suszone owoce, owoców suszonych
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-séchés
 # 33 products @2018-10-02
+agribalyse_proxy_food_code:en: 32111
+agribalyse_proxy_food_name:fr: Muesli croustillant aux fruits ou fruits secs, enrichi en vitamines et minéraux
 
 # description:en:Juice is a drink made from the extraction or pressing of the natural liquid contained in fruit and vegetables.
 
@@ -37561,6 +37621,8 @@ pl: przecier owocowy, przecier z owoców
 pt: puré de fruta, puré de frutas, puré de fruto, puré de frutos
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-fruits
 # Is and Compound, i.e. ingredient:jus et purées de fruits à base de concentré :pomme, mangue, orange, ananas et fruits de la passion.
+agribalyse_proxy_food_code:en: 13153
+agribalyse_proxy_food_name:fr: Purée de fruits, tout type de fruits, type "compote sans sucres ajoutés"
 
 < fr:purée de fruits
 fr: purées de fruits à base de concentrés, purees de fruits à base de concentres
@@ -38178,6 +38240,8 @@ nl: weegbree
 pl: plantan, plantany, plantana
 # ingredient/fr:plantain has 51 products @2019-02-25
 # fibres végétales (chicorée, pomme de terre, pois, riz, plantain, psyllium)
+agribalyse_proxy_food_code:en: 53100
+agribalyse_proxy_food_name:fr: Banane plantain, crue
 
 < en:banana
 en: green banana flour
@@ -38314,6 +38378,8 @@ eurocode_2_group_3:en: 8.40.52
 #zdj:furiapa, friapa
 wikidata:en: Q5869893
 wikipedia:en: https://en.wikipedia.org/wiki/Breadfruit
+agribalyse_proxy_food_code:en: 54500
+agribalyse_proxy_food_name:fr: Fruit à pain, cru
 
 < en:fruit
 en: jackfruit
@@ -38651,6 +38717,8 @@ ecobalyse_labels_en_organic:en: ef57c898-8780-48cb-b00f-7d8a310f46aa
 # yue:芒果
 wikidata:en: Q3919027
 wikipedia:en: https://en.wikipedia.org/wiki/Mango
+agribalyse_proxy_food_code:en: 13025_2
+agribalyse_proxy_food_name:fr: Mangue importée par bateau, pulpe, crue
 
 < en:mango
 fr: Mangue importée en avion
@@ -38838,6 +38906,8 @@ wikidata:en: Q13411121
 # szl:Fyrzicha
 # zh-min-nan:Thô-á
 wikipedia:en: https://en.wikipedia.org/wiki/Peach
+agribalyse_proxy_food_code:en: 13043
+agribalyse_proxy_food_name:fr: Pêche, pulpe et peau, crue
 
 #process:en:halved
 #<en:peach
@@ -39142,6 +39212,8 @@ wikidata:en: Q13099586
 # zh-min-nan:梨
 wikipedia:en: https://en.wikipedia.org/wiki/Pear
 # 130 products in 5 languages @2018-09-28
+agribalyse_proxy_food_code:en: 13107
+agribalyse_proxy_food_name:fr: Poire, pulpe, crue
 
 < en:pear
 en: conference pear
@@ -39480,6 +39552,8 @@ description:en: The QUINCE (Cydonia oblonga) is the sole member of the genus Cyd
 wikidata:en: Q2751465
 wikipedia:en: https://en.wikipedia.org/wiki/Quince
 # ingredient/fr:coings has 76 products @2019-02-16
+agribalyse_proxy_food_code:en: 13010
+agribalyse_proxy_food_name:fr: Coing, cru
 
 < en:quince
 en: quince jelly
@@ -40051,6 +40125,8 @@ fi: omenasose
 nl: appelcompote
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:compote-de-pommes
 # 74 products in 4 languages @2018-10-04
+agribalyse_proxy_food_code:en: 13038
+agribalyse_proxy_food_name:fr: Compote de pomme
 
 < fr:compote de pommes
 fr: compote de pommes allégée en sucres
@@ -42165,6 +42241,8 @@ wikidata:en: Q219059
 # nds:Sjuderaans
 # sco:Oranger juice
 wikipedia:en: https://en.wikipedia.org/wiki/Orange_juice
+agribalyse_proxy_food_code:en: 2013
+agribalyse_proxy_food_name:fr: Jus d'orange, maison
 
 < en:orange juice
 fr: Jus d'orange IGP Valencia
@@ -44662,6 +44740,8 @@ it: Fico d'India
 nl: cactusvijg
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cactus-fig
 # 3 products in 1 language @2018-09-29
+agribalyse_proxy_food_code:en: 13063
+agribalyse_proxy_food_name:fr: Figue de Barbarie, pulpe et graines, crue
 
 ###################################################################################################
 #
@@ -44882,6 +44962,8 @@ wikidata:en: Q3181909
 # udm:гуайява
 wikipedia:en: https://en.wikipedia.org/wiki/Guava
 # 1058 in 12 @2021-09-29
+agribalyse_proxy_food_code:en: 13083
+agribalyse_proxy_food_name:fr: Goyave, pulpe, crue
 
 < en:guava
 en: guava puree, guavas puree
@@ -45336,6 +45418,8 @@ wikidata:en: Q5881191
 # zh-hant:瓜
 # zh-hk:瓜
 wikipedia:en: https://en.wikipedia.org/wiki/Melon
+agribalyse_proxy_food_code:en: 13026
+agribalyse_proxy_food_name:fr: Melon cantaloup (par ex.: Charentais, de Cavaillon) pulpe, cru
 
 # description:en:MELONS CONFITS is a compound ingredient
 
@@ -46120,6 +46204,8 @@ wikidata:en: Q10817602
 wikipedia:en: https://en.wikipedia.org/wiki/Pineapple
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pineapple
 # 2512 products in 11 languages @2018-09-30
+agribalyse_proxy_food_code:en: 13002
+agribalyse_proxy_food_name:fr: Ananas, pulpe, cru
 
 < en:pineapple
 en: pineapple segments, pineapple chunks, pineapple rings
@@ -46315,6 +46401,8 @@ wikidata:en: Q13222088
 wikipedia:en: https://fr.wikipedia.org/wiki/Grenade_(fruit)
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grenade
 # 53 products in 3 languages @2018-10-03
+agribalyse_proxy_food_code:en: 13018
+agribalyse_proxy_food_name:fr: Grenade, pulpe et pépins, crue
 
 < en:pomegranate
 en: pomegranate Ruby Red
@@ -46918,6 +47006,8 @@ eurocode_2_group_3:en: 9.30.15
 # yue:士多啤梨
 wikidata:en: Q14458220
 wikipedia:en: https://en.wikipedia.org/wiki/Strawberry
+agribalyse_proxy_food_code:en: 13014_3
+agribalyse_proxy_food_name:fr: Fraise, crue
 
 < en:strawberry
 en: strawberry pieces
@@ -48995,6 +49085,8 @@ eurocode_2_group_1:en: 8
 nutriscore_fruits_vegetables_nuts:en: yes
 vegan:en: yes
 vegetarian:en: yes
+agribalyse_proxy_food_code:en: 20101
+agribalyse_proxy_food_name:fr: Légumes, mélange surgelé, crus
 
 < en:vegetable
 en: vegetables in variable proportion
@@ -49203,6 +49295,8 @@ eurocode_2_group_3:en: 8.10.10
 # scn:nirvia
 # sr-ec:ендивија
 wikidata:en: Q178547
+agribalyse_proxy_food_code:en: 20090
+agribalyse_proxy_food_name:fr: Scarole, crue
 
 en: Red endive
 it: indivia rossa
@@ -51158,6 +51252,8 @@ ua: Кольрабі
 eurocode_2_group_3:en: 8.15.50
 wikidata:en: Q147202
 wikipedia:en: https://en.wikipedia.org/wiki/Kohlrabi
+agribalyse_proxy_food_code:en: 20065
+agribalyse_proxy_food_name:fr: Chou-rave, cru
 
 < en:kohlrabi
 en: cooked kohlrabi, boiled kohlrabi
@@ -51901,6 +51997,8 @@ eurocode_2_group_3:en: 8.20.50
 wikidata:en: Q20767168
 # plant:wikidata:en:Q7535
 wikipedia:en: https://en.wikipedia.org/wiki/Rhubarb
+agribalyse_proxy_food_code:en: 13047
+agribalyse_proxy_food_name:fr: Rhubarbe, tige, crue
 
 < en:rhubarb
 en: rhubarb juice
@@ -52026,6 +52124,8 @@ eurocode_2_group_3:en: 8.25.10
 # zh-tw:蘆筍
 wikidata:en: Q23041045
 wikipedia:en: https://en.wikipedia.org/wiki/Asparagus
+agribalyse_proxy_food_code:en: 20073
+agribalyse_proxy_food_name:fr: Asperge, pelée, crue
 
 < en:asparagus
 fr: asperges fraîches
@@ -52402,6 +52502,8 @@ eurocode_2_group_3:en: 8.25.40
 # yue:竹
 wikidata:en: Q35922
 wikipedia:en: https://en.wikipedia.org/wiki/Bamboo
+agribalyse_proxy_food_code:en: 20188
+agribalyse_proxy_food_name:fr: Bambou, pousses, appertisées, égouttées
 
 # description:en:Bamboo shoots or bamboo sprouts are the edible shoots (new bamboo culms that come out of the ground) of many bamboo species including Bambusa vulgaris and Phyllostachys edulis.
 
@@ -52521,6 +52623,8 @@ tl: Ubod
 eurocode_2_group_3:en: 8.25.50
 wikidata:en: Q743144
 wikipedia:en: https://en.wikipedia.org/wiki/Heart_of_palm
+agribalyse_proxy_food_code:en: 20018
+agribalyse_proxy_food_name:fr: Coeur de palmier, appertisé, égoutté
 
 
 # ONION-FAMILY VEGETABLES (Eurocode 2 8.30)
@@ -54787,6 +54891,8 @@ zh: 木薯根淀粉
 description:en: TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
 wikidata:en: Q873761
 wikipedia:en: https://en.wikipedia.org/wiki/Tapioca
+agribalyse_proxy_food_code:en: 4000
+agribalyse_proxy_food_name:fr: Tapioca ou Perles du Japon, cru
 
 < en:modified starch
 < en:tapioca starch
@@ -54843,6 +54949,8 @@ eurocode_2_group_3:en: 8.34.40
 nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q8047551
 wikipedia:en: https://en.wikipedia.org/wiki/Yam_(vegetable)
+agribalyse_proxy_food_code:en: 53502
+agribalyse_proxy_food_name:fr: Igname, épluchée, crue
 
 < en:yam
 en: chinese yam
@@ -54992,6 +55100,8 @@ en: new potato, new potatoes
 fr: pomme de terre nouvelle, pommes de terre nouvelles
 it: patata novella
 eurocode_2_group_3:en: 8.34.10
+agribalyse_proxy_food_code:en: 4023
+agribalyse_proxy_food_name:fr: Pomme de terre nouvelle, crue
 
 < en:potato
 en: table potatoes
@@ -56553,6 +56663,8 @@ nl: okra
 pt: Quiabo
 eurocode_2_group_3:en: 8.45.60
 wikidata:en: Q12047207
+agribalyse_proxy_food_code:en: 58103
+agribalyse_proxy_food_name:fr: Gombo, fruit, cuit
 
 # description:fr:La SALADE est un terme générique désignant en jardinage et horticulture diverses sortes de feuilles, c'est-à-dire de plantes potagères dont les feuilles, consommées crues, entrent dans la composition d'un mets froid dont elles ont pris le nom, la « salade », sous-entendu « salade verte ».
 # comment:en:in english salad seems to refer more to the group of dishes than the group of plants.
@@ -56578,6 +56690,8 @@ zh: 沙拉
 carbon_footprint_fr_foodges_ingredient:fr: Salade
 carbon_footprint_fr_foodges_value:fr: 0.8
 wikipedia:en: https://en.wikipedia.org/wiki/Salad
+agribalyse_proxy_food_code:en: 20272
+agribalyse_proxy_food_name:fr: Mesclun ou salade, mélange de jeunes pousses
 
 < en:salad
 en: batavia
@@ -57720,6 +57834,8 @@ eurocode_2_group_3:en: 8.40.10
 # zh-sg:番茄
 # zh-tw:番茄
 wikidata:en: Q20638126
+agribalyse_proxy_food_code:en: 20047_3
+agribalyse_proxy_food_name:fr: Tomate, crue
 
 < en:tomato
 en: organic tomato
@@ -58695,6 +58811,8 @@ ecobalyse_labels_en_organic:en: squash-organic
 ecobalyse_origins_en_france:en: squash-fr
 eurocode_2_group_3:en: 8.40.45
 wikidata:en: Q2142043
+agribalyse_proxy_food_code:en: 20143
+agribalyse_proxy_food_name:fr: Courge spaghetti, pulpe, cuite
 
 < en:spaghetti squash
 en: spaghetti squash pulp
@@ -59160,6 +59278,8 @@ eurocode_2_group_3:en: 8.45.30
 #war:hantak
 #yue:荳角
 wikidata:en: Q2987371
+agribalyse_proxy_food_code:en: 20070
+agribalyse_proxy_food_name:fr: Haricot vert, surgelé, cru
 
 #<en:green bean
 #fr:haricots verts tres fins issus de l'agriculture biologique
@@ -59508,6 +59628,8 @@ sv: vit böna, vita bönor
 # ingredient/fr:lingots-blancs has 8 products @2019-06-02
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.10
+agribalyse_proxy_food_code:en: 20501
+agribalyse_proxy_food_name:fr: Haricot blanc, sec
 
 < en:white beans
 en: large white beans
@@ -59610,6 +59732,8 @@ eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.25
 wikidata:en: Q1828227
 wikipedia:en: https://en.wikipedia.org/wiki/Kidney_bean
+agribalyse_proxy_food_code:en: 20525
+agribalyse_proxy_food_name:fr: Haricot rouge, sec
 
 < en:red beans
 en: small red beans
@@ -59719,6 +59843,8 @@ eurocode_2_group_3:en: 7.10.38
 #yue:綠豆
 wikidata:en: Q484447
 wikipedia:en: https://en.wikipedia.org/wiki/Mung_bean
+agribalyse_proxy_food_code:en: 20530
+agribalyse_proxy_food_name:fr: Haricot mungo, sec
 
 < en:pulse
 en: black gram, urd bean, urd, Urad bean, Mungo bean, Black matpe bean, Urad Dal
@@ -61045,6 +61171,8 @@ sv: gröna linser
 carbon_footprint_fr_foodges_ingredient:fr: Lentilles vertes
 carbon_footprint_fr_foodges_value:fr: 0.3
 # ingredient/fr:lentille-verte has 228 products in 7 languages @2019-06-02
+agribalyse_proxy_food_code:en: 20587
+agribalyse_proxy_food_name:fr: Lentille verte, cuite
 
 < en:green lentils
 en: organic green lentils
@@ -61816,6 +61944,8 @@ ciqual_proxy_food_name:en: Cashew nut, dry-grilled, unsalted
 wikidata:en: Q28788216
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cashew-nuts
 # 999 in 12 languages products @2018-10-05
+agribalyse_proxy_food_code:en: 15019
+agribalyse_proxy_food_name:fr: Noix de cajou, grillée, salée
 
 < en:cashew nuts
 en: grilled and salted cashew nut
@@ -61964,6 +62094,8 @@ it: marroni
 wikidata:en: Q3177204
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:marron
 # 218 products in 5 languages @2018-10-07
+agribalyse_proxy_food_code:en: 15039
+agribalyse_proxy_food_name:fr: Châtaigne ou Marron, appertisé
 
 < fr:marron
 fr: Marrons UE
@@ -61993,6 +62125,7 @@ pt: créme de castanha, créme de castanhas
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-marrons
 # 53 products in 1 language @2018-10-07
 # usage:fr:(sucre, châtaignes, eau, extrait pur de vanille)
+agribalyse_food_code:en: 15013
 
 #process:en:pureed
 #<fr:marron
@@ -63293,6 +63426,8 @@ description:it: I semi di chia, ricchi di omega-3, sono paragonabili dal punto d
 # ingredient/chia-seed 2376 in 18 @2021-08-20
 nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q27688832
+agribalyse_proxy_food_code:en: 15047
+agribalyse_proxy_food_name:fr: Chia, graine, séchée
 
 < en: chia seed
 en: white chia seed, white chia seeds
@@ -66844,6 +66979,7 @@ bg: еднозърнеста горчица
 nl: ambachtelijke mosterd
 sv: gammaldags senap
 # 389 in 5 @2021-09-10
+agribalyse_food_code:en: 11021
 
 < en:flavouring
 < en:mustard
@@ -66965,6 +67101,8 @@ sv: kyndel
 wikidata:en: Q19787919
 wikipedia:en: https://en.wikipedia.org/wiki/Summer_savory
 # 739 in 7 @2021-09-17
+agribalyse_proxy_food_code:en: 11062
+agribalyse_proxy_food_name:fr: Sarriette, séchée
 
 < en:coriander
 < en:herb
@@ -70320,6 +70458,8 @@ it: marshmallow, Toffolette
 nl: Marshmallow
 wikidata:en: Q272198
 wikipedia:en: https://en.wikipedia.org/wiki/Marshmallow
+agribalyse_proxy_food_code:en: 31050
+agribalyse_proxy_food_name:fr: Guimauve ou marshmallow
 
 < en:marshmallow
 en: marshmallow paste
@@ -71448,6 +71588,8 @@ ecobalyse_origins_en_france:en: sunflower-fr
 wikidata:en: Q26949
 wikipedia:en: https://en.wikipedia.org/wiki/Helianthus
 # en:sunflower has 16610 products @2018-10-15
+agribalyse_proxy_food_code:en: 15045
+agribalyse_proxy_food_name:fr: Tournesol, graine, grillé, salé
 
 < en:sunflower
 en: sprouted sunflower seeds
@@ -72160,6 +72302,8 @@ wikidata:en: Q13241
 wikipedia:en: https://en.wikipedia.org/wiki/Vanilla
 # ingredient/vanilla has 4542 products in 14 languages @2019-02-24
 # en:process:en:powdered
+agribalyse_proxy_food_code:en: 11098
+agribalyse_proxy_food_name:fr: Vanille, extrait aqueux
 
 < en:vanilla
 en: natural vanilla
@@ -73655,6 +73799,8 @@ vegetarian:en: yes
 # yue:菇
 wikidata:en: Q654236
 wikipedia:en: https://en.wikipedia.org/wiki/Mushroom
+agribalyse_proxy_food_code:en: 20105
+agribalyse_proxy_food_name:fr: Champignon, morille, crue
 
 < en:plant protein
 en: mushroom proteins
@@ -75357,6 +75503,8 @@ vegetarian:en: no
 # zh-tw:魚
 wikidata:en: Q600396
 wikipedia:en: https://en.wikipedia.org/wiki/Fish
+agribalyse_proxy_food_code:en: 26028
+agribalyse_proxy_food_name:fr: Poisson, croquette ou beignet ou nuggets, frit
 
 # Fish are classified as while or oily
 < en:fish
@@ -75862,6 +76010,8 @@ wikidata:en: 188387
 wikipedia:en: https://en.wikipedia.org/wiki/European_anchovy
 # ingredient/fr:Engraulis-encrasicolus has 32 products @2019-01-12
 # ingredient/fr:Engraulis-encrasicholus has 1 product @2019-01-12
+agribalyse_proxy_food_code:en: 26187
+agribalyse_proxy_food_name:fr: Anchois commun, mariné
 
 < en:fish
 < en:white fish
@@ -75935,6 +76085,8 @@ ciqual_food_name:fr: Lotte ou baudroie, crue
 < en:fish
 fr: loup
 description:fr: Loup est un nom vernaculaire ambigu désignant en français certains poissons prédateurs marins.
+agribalyse_proxy_food_code:en: 27030
+agribalyse_proxy_food_name:fr: Bar commun ou loup, rôti/cuit au four
 
 < en:fish
 en: Atlantic wolffish
@@ -76105,6 +76257,8 @@ description:en: The burbot (Lota lota) is the only gadiform (cod-like) freshwate
 # zh-tw:江鱈
 wikipedia:en: https://en.wikipedia.org/wiki/Burbot
 # ingredient/fr:lotte has 10 products in french @2018-12-31
+agribalyse_proxy_food_code:en: 26081
+agribalyse_proxy_food_name:fr: Lotte ou baudroie, grillée/poêlée
 
 < en:fish
 en: bogue
@@ -76572,6 +76726,8 @@ fr: perche
 hr: smuđ
 it: persico
 nl: baars
+agribalyse_proxy_food_code:en: 27005
+agribalyse_proxy_food_name:fr: Perche, rôtie/cuite au four
 
 < en:perch
 en: nile perch
@@ -76725,6 +76881,8 @@ description:nl: De Europese zeebaars of zeebaars (Dicentrarchus labrax) is een s
 description:pt: Dicentrarchus labrax é uma espécie de peixe da família Moronidae de tons acinzentados. Vulgarmente conhecido em Portugal por robalo e robalete, é muito apreciado na culinária portuguesa e de outros países europeus.
 wikidata:en: Q217129
 wikipedia:en: https://en.wikipedia.org/wiki/European_bass
+agribalyse_proxy_food_code:en: 27030
+agribalyse_proxy_food_name:fr: Bar commun ou loup, rôti/cuit au four
 
 
 < en:European seabass
@@ -76902,6 +77060,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/European_plaice
 # ingredient/fr:carrelet has 2 products in 3 languages @2018-12-31
 # ingredient/fr:Pleuronectes-platessa has 6 products in 3 languages @2018-12-31
 # structure:inner:role:synonym, eg carrelet (Pleuronectes platessa)
+agribalyse_proxy_food_code:en: 26204
+agribalyse_proxy_food_name:fr: Plie commune, crue
 
 #<en:European plaice
 #en:Raw European plaice
@@ -77070,6 +77230,8 @@ ru: мерлуза
 sv: kummel
 tl: Merlusa
 tr: Berlam
+agribalyse_proxy_food_code:en: 26048
+agribalyse_proxy_food_name:fr: Merlu, filet, surgelé, cru
 
 < en:hake
 en: European hake
@@ -78327,6 +78489,8 @@ it: Sogliola
 ja: ウシノシタ
 ms: Ikan sebelah
 zh: 龍脷
+agribalyse_proxy_food_code:en: 26061
+agribalyse_proxy_food_name:fr: Sole, bouillie/cuite à l'eau
 
 < en:fish
 en: Tonguesole, tropical sole, tongue sole
@@ -79715,6 +79879,8 @@ zh: 鱒魚
 wikidata:en: Q2258881
 wikipedia:en: https://en.wikipedia.org/wiki/Trout
 # ingredient/fr:truite has 53 products in 3 languages @2018-12-30
+agribalyse_proxy_food_code:en: 27008
+agribalyse_proxy_food_name:fr: Truite d'élevage, crue
 
 < en:trout
 en: farmed trout
@@ -81029,6 +81195,8 @@ description:en: Scallop is a common name that is primarily applied to any one of
 # sr-ec:Морски чешљеви
 wikidata:en: Q1311395
 wikipedia:en: https://en.wikipedia.org/wiki/Scallop
+agribalyse_proxy_food_code:en: 10004
+agribalyse_proxy_food_name:fr: Coquille Saint-Jacques, noix et corail, cuite
 
 < en:scallop
 en: Scallop without coral
@@ -85001,6 +85169,7 @@ it: cetriolini
 nl: augurken, augurk
 pl: korniszon, korniszony, ogórek konserwowy, ogórki konserwowe
 ro: castraveți murați
+agribalyse_food_code:en: 99999
 
 # this is done in the style of other "X or Y" ingredients
 < en: baby cucumber
@@ -85009,6 +85178,7 @@ en: gherkin, pickled or unpickled gherkin
 sv: inläggningsgurka
 description:en: GHERKIN can refer to either a pickled small cucumber (esp. in Ireland and the UK) or an unpickled small cucumber
 # ingredient/gherkin has 1006 products in 8 languages @2018-12-01
+agribalyse_food_code:en: 99999
 
 < en:pickled gherkin
 en: vinegar gherkin
@@ -85476,6 +85646,8 @@ de: Huhn aus Freilandhaltung
 fr: poulet fermier, poulet fermier élevé en plein air
 hr: tradicionalni slobodni uzgoj piletine
 # ingredient/fr:poulet-fermier has 13 products in french @2019-05-25
+agribalyse_proxy_food_code:en: 36008
+agribalyse_proxy_food_name:fr: Poulet fermier, viande et peau, cru
 
 < en:chicken
 en: whole chicken, whole chickens
@@ -85967,6 +86139,8 @@ pt: Pato
 sv: Anka
 tr: ördek
 zh: 鸭
+agribalyse_proxy_food_code:en: 36206
+agribalyse_proxy_food_name:fr: Canard, magret, cru
 
 < en:duck
 < en:poultry meat
@@ -86220,6 +86394,8 @@ zh: 火雞
 wikipedia:en: https://en.wikipedia.org/wiki/Turkey_(bird)
 # usage:en:meat extracts [turkey, chicken]
 # ingredient/fr:dinde has 161 products in 4 languages @2019-04-16
+agribalyse_proxy_food_code:en: 36301
+agribalyse_proxy_food_name:fr: Dinde, viande, crue
 
 # description:en:TURKEY MEAT, commonly referred to as just turkey, is the meat from turkeys, typically domesticated turkeys. Turkeys are sold sliced and ground, as well as "whole" in a manner similar to chicken with the head, feet, and feathers removed. Frozen whole turkeys remain popular. Sliced turkey is frequently used as a sandwich meat or served as cold cuts.
 
@@ -86395,6 +86571,8 @@ pl: przepiórka, przepiórki, przepiórczy, przepiórcze, przepiórcza
 wikidata:en: Q6072584
 wikipedia:en: https://en.wikipedia.org/wiki/Quail
 # ingredient/fr:cailles has 4 products @2019-05-31
+agribalyse_proxy_food_code:en: 36102
+agribalyse_proxy_food_name:fr: Caille, viande et peau, cuite
 
 
 < en:poultry
@@ -86406,6 +86584,8 @@ fr: oie
 hr: guska
 nl: gans, ganzen
 pl: gęś, gęsi, gęsia, gęsie
+agribalyse_proxy_food_code:en: 36500
+agribalyse_proxy_food_name:fr: Oie, viande crue
 
 < en:goose
 en: goose meat
@@ -86915,6 +87095,8 @@ zh: 蛋粉
 #ciqual_food_code:en:22013
 #ciqual_food_name:en:Egg, powder
 #ciqual_food_name:fr:Oeuf, en poudre
+agribalyse_proxy_food_code:en: 22013
+agribalyse_proxy_food_name:fr: Oeuf, en poudre
 
 < en:egg
 en: whole egg, whole eggs
@@ -86933,6 +87115,8 @@ nl: hele eieren, geheel eieren
 pl: Całe jajo
 pt: Ovo inteiro
 # ingredient/fr:œuf-entier has 2004 products in 7 languages @2018-12-18
+agribalyse_proxy_food_code:en: 22000
+agribalyse_proxy_food_name:fr: Oeuf, cru
 
 < en:whole egg
 bg: пастьоризирани цели яйца
@@ -88483,6 +88667,8 @@ fr: pain au chocolat
 carbon_footprint_fr_foodges_ingredient:fr: Viennoiseries pain au chocolat
 carbon_footprint_fr_foodges_value:fr: 2.3
 # ingredient/fr:pain-au-chocolat has 17 products in french @2019-03-07
+agribalyse_proxy_food_code:en: 7733
+agribalyse_proxy_food_name:fr: Pain au chocolat, préemballé
 
 #category/brioches
 en: brioche, Brioches
@@ -88880,6 +89066,8 @@ pt: Massa fresca
 # ingredient/fr:pâtes-fraîches has 49 products in french @2018-12-10
 carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
 carbon_footprint_fr_foodges_value:fr: 0.5
+agribalyse_proxy_food_code:en: 9816
+agribalyse_proxy_food_name:fr: Pâtes fraîches, aux œufs, cuites, non salées
 
 < en:fresh pasta
 en: cooked fresh pasta
@@ -89337,6 +89525,8 @@ nl: bladerdeeg
 # ingredient/fr:pâte-feuilletée has 208 products in 8 languages @2018-12-10
 carbon_footprint_fr_foodges_ingredient:fr: Pâte à tarte
 carbon_footprint_fr_foodges_value:fr: 7.3
+agribalyse_proxy_food_code:en: 23421
+agribalyse_proxy_food_name:fr: Pâte feuilletée, surgelée, crue
 
 < en:pasta
 en: dried pasta
@@ -89819,6 +90009,8 @@ vegan:en: maybe
 vegetarian:en: yes
 wikidata:en: Q7802
 wikipedia:en: https://en.wikipedia.org/wiki/Bread
+agribalyse_proxy_food_code:en: 7002
+agribalyse_proxy_food_name:fr: Pain, baguette ou boule, au levain
 
 < en:bread
 en: crispbread
@@ -89853,6 +90045,8 @@ fr: pain spécial cuit
 < en:special bread
 fr: pain de mie
 # ingredient/fr:pain-de-mie has 104 products in 4 languages @2019-03-07
+agribalyse_proxy_food_code:en: 7112
+agribalyse_proxy_food_name:fr: Pain de mie, au son
 
 < en:special bread
 fr: Pain de mie aux céréales
@@ -89924,6 +90118,8 @@ pl: chleb żytni
 wikidata:en: Q3893120
 wikipedia:en: https://en.wikipedia.org/wiki/Rye_bread
 # category:en:Rye breads
+agribalyse_proxy_food_code:en: 7125
+agribalyse_proxy_food_name:fr: Pain de seigle, et froment
 
 < en:rye bread
 en: grated rye bread
@@ -89997,6 +90193,7 @@ zh: 皮塔饼
 wikidata:en: Q211340
 wikipedia:en: https://en.wikipedia.org/wiki/Pita
 # ingredient/fr:pain-pita has 3 products in 1 language @2020-06-13
+agribalyse_food_code:en: 7180
 
 # description:en:A tortilla is a type of thin flatbread, typically made from nixtamalized corn or wheat flour.
 
@@ -90196,6 +90393,8 @@ description:en: Neapolitan wafers are a wafer and chocolate-cream sandwich biscu
 wikidata:en: Q176927
 wikipedia:en: https://en.wikipedia.org/wiki/Neapolitan_wafer
 # usage:de:Waffel (Weizenmehl, Zucker, Hühnereigelbpulver, Palmöl, Rahmpulver, Emulgator:Sojalecithin, Backtriebmittel:E500ii , Caramelzuckersirup, Kochsalz jodiert)
+agribalyse_proxy_food_code:en: 24300
+agribalyse_proxy_food_name:fr: Gaufrette ou éventail sans fourrage
 
 < en:Neapolitan wafer
 fr: éclats de gaufrettes, éclats de gaufrette
@@ -90234,6 +90433,7 @@ it: grissini
 nl: Broodstengels
 pt: gressinos
 sv: Grissini
+agribalyse_food_code:en: 7525
 
 # mainIngredient:en:milk
 # <en:dessert
@@ -90446,6 +90646,7 @@ likely_allergens:en: en:gluten
 wikidata:en: Q107064986
 wikipedia:en: https://en.wikipedia.org/wiki/Speculaas
 # ingredient/speculoos 141 in 5 @2021-08-20
+agribalyse_food_code:en: 24009
 
 # description:en:SPECULAAS is a type of spiced shortcrust biscuit, traditionally baked for consumption on or just before St Nicholas' day in the Netherlands (5 December), Belgium (6 December), and around Christmas in Germany and Austria. Today most speculaas versions are made from white (wheat) flour, brown sugar, butter and spices.
 # comment:en:This is different from speculoos, which is a sugar-based variant (no spices).
@@ -91246,6 +91447,7 @@ en: tempeh
 de: Tempeh
 fr: tempeh
 allergens:en: en:soybeans
+agribalyse_food_code:en: 20917
 
 # mainIngredient:en:sugar
 fr: Décor orange
@@ -92048,6 +92250,8 @@ wikidata:en: Q893
 wikipedia:en: https://en.wikipedia.org/wiki/Lemonade
 # ingredient/fr:limonade has 37 products in 5 languages @2019-02-16
 # usage:fr:Limonade  (eau gazéifiée, sucre, acidifiant :acide citrique ; anitioxydant :acide ascorbique ; arôme)
+agribalyse_proxy_food_code:en: 18016
+agribalyse_proxy_food_name:fr: Limonade, sucrée, avec édulcorants
 
 # <en:compound
 de: kakaohaltiges Getränkepulver
@@ -92137,6 +92341,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Soy_milk
 # ingredient/fr:tonyu has 105 products in 4 languages @2019-04-08
 # category/soy-milks has 417 products @2019-05-08
 # usage:fr:Tonyu (eau, graines de soja)
+agribalyse_proxy_food_code:en: 18900
+agribalyse_proxy_food_name:fr: Boisson au soja, nature
 
 # <en:compound
 en: mirepoix
@@ -92286,6 +92492,7 @@ nl: korst niet eetbaar
 fr: crème pâtissière
 # ingredient/fr:crème-pâtissière has 113 products in french @2019-02-03
 # usage:fr:Crème pâtissière 30% (eau, sucre, transforméamidon, blancs d’œufs frais, poudre de lait entier, lactosérum en poudre, arômes naturels, arôme, maltodextrine, épaississant (gomme de xanthane), colorant (béta carotène))
+agribalyse_food_code:en: 39710
 
 
 # <en:compound
@@ -92643,6 +92850,8 @@ vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q1269
 wikipedia:en: https://en.wikipedia.org/wiki/Confiture
+agribalyse_proxy_food_code:en: 31110
+agribalyse_proxy_food_name:fr: Confiture, tout type de fruits, allégée en sucres (extra ou classique)
 
 < en:jam
 en: marmalade
@@ -93933,6 +94142,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Vinaigrette
 # ingredient/fr:vinaigrette has 78 products in 4 languages @2019-03-04
 # vinaigrette (maltodextrine de maïs, vinaigre de vin, sucre, sel, oignon 0,2%, mélange d'épices, arômes naturels, arôme, épaississants:gomme de xanthane et pectine)
 # usage:fr:sauce vinaigrette (huile de colza, eau, huile d'olive vierge extra, vinaigre d'alcool, moutarde de Dijon, sel, amidon modifié de pomme de terre, épaississant :gomme xanthane)
+agribalyse_proxy_food_code:en: 11110
+agribalyse_proxy_food_name:fr: Sauce vinaigrette (50 à 75% d'huile), préemballée
 
 < en:vinaigrette
 en: lemon vinaigrette
@@ -94608,6 +94819,7 @@ fr: tomates farcies, tomate farcie
 hr: punjene rajčice
 it: pomodori ripieni
 nl: gevulde tomaat, gevulde tomaten
+agribalyse_food_code:en: 25103
 
 en: stuffed poblano peppers
 it: peperoni poblano ripieni
