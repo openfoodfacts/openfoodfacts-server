@@ -1,1 +1,51 @@
-{}
+{
+   "maintain_card" : {
+      "elements" : [
+         {
+            "element_type" : "panel",
+            "panel_element" : {
+               "panel_id" : "maintenance_advice_fr_epargnonsnosressources"
+            }
+         }
+      ],
+      "expanded" : true,
+      "title_element" : {
+         "title" : "Entretien et réparation"
+      },
+      "topics" : [
+         "maintain"
+      ],
+      "type" : "card"
+   },
+   "maintenance_advice_fr_epargnonsnosressources" : {
+      "elements" : [
+         {
+            "element_type" : "text",
+            "text_element" : {
+               "html" : "\n                <p>Pour limiter notre impact sur la planète, il est important d'entretenir et de réparer nos produits pour les garder le plus longtemps possible.</p>\n                <p>Le site <strong>Épargnons nos ressources</strong> du gouvernement français vous propose des conseils pratiques pour entretenir et réparer vos produits.</p>\n                "
+            }
+         },
+         {
+            "action_element" : {
+               "actions" : [
+                  {
+                     "action_type" : "uri",
+                     "uri" : "https://epargnonsnosressources.gouv.fr/entretien/centrale-vapeur-ou-fer-a-repasser/"
+                  }
+               ],
+               "title" : "Voir les conseils d'entretien et de réparation"
+            },
+            "element_type" : "action"
+         }
+      ],
+      "expand_for" : "large",
+      "level" : "info",
+      "title_element" : {
+         "subtitle" : "Prolongez la durée de vie de vos produits",
+         "title" : "Entretenir et réparer - Test category"
+      },
+      "topics" : [
+         "maintain"
+      ]
+   }
+}
