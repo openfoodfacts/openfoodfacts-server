@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -56,6 +56,7 @@ BEGIN {
 		&write_off_csv_file
 		&print_unknown_entries_in_gs1_maps
 		&convert_gs1_xml_file_to_json
+		&load_gpc_category_codes_from_categories_taxonomy
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -64,7 +65,8 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/%language_fields canonicalize_taxonomy_tag exists_taxonomy_tag/;
+use ProductOpener::Tags
+	qw/%language_fields canonicalize_taxonomy_tag exists_taxonomy_tag create_property_to_tag_mapping_table/;
 use ProductOpener::Display qw/$tt process_template display_date_iso/;
 
 use JSON::MaybeXS;
@@ -134,6 +136,44 @@ my %gs1_maps = (
 		"X99" => "None",
 	},
 
+	# https://gs1.se/en/guides/documentation/code-lists/t4066-diet-type-code/
+	dietTypeCode => {
+		"COELIAC" => "en:coeliac",
+		"DIABETIC" => "en:diabetic",
+		"DIETETIC" => "en:dietetic",
+		"FREE_FROM_GLUTEN" => "en:free-from-gluten",
+		"GRAIN_FREE" => "en:grain-free",
+		"HALAL" => "en:halal",
+		"HIGH_CARB" => "en:high-carb",
+		"HIGH_PROTEIN" => "en:high-protein",
+		"INFANT_FORMULA" => "en:infant-formula",
+		"KETO" => "en:keto",
+		"KOSHER" => "en:kosher",
+		"LACTASE_ENZYME" => "en:lactase-enzyme",
+		"LACTOSE_FREE" => "en:lactose-free",
+		"LOW_CALORIE" => "en:low-calorie",
+		"LOW_CARB" => "en:low-carb",
+		"LOW_FAT" => "en:low-fat",
+		"LOW_PROTEIN" => "en:low-protein",
+		"LOW_SALT" => "en:low-salt",
+		"MEAL_REPLACEMENT" => "en:meal-replacement",
+		"MOTHERS_MILK_SUBSTITUTE" => "en:mothers-milk-substitute",
+		"NUTRITION_SUPPLEMENT" => "en:nutrition-supplement",
+		"ORGANIC" => "en:organic",
+		"PALEO" => "en:paleo",
+		"PESCATARIAN" => "en:pescatarian",
+		"PLANT_BASED" => "en:plant-based",
+		"POLLOTARIAN" => "en:pollotarian",
+		"PROBIOTICS" => "en:probiotics",
+		"RAW" => "en:raw-food-diet",
+		"TOTAL_DIET_REPLACEMENT" => "en:total-diet-replacement",
+		"VEGAN" => "en:vegan",
+		"VEGETARIAN" => "en:vegetarian",
+		"WITHOUT_BEEF" => "en:without-beef",
+		"WITHOUT_PORK" => "en:without-pork",
+	},
+
+	# https://gs1.se/en/guides/documentation/code-lists/t3780-measurement-unit-code/
 	measurementUnitCode => {
 		"GRM" => "g",
 		"KGM" => "kg",
@@ -145,6 +185,7 @@ my %gs1_maps = (
 		"E14" => "kcal",
 		"KJO" => "kJ",
 		"H87" => "pièces",
+		"P1" => "%",
 	},
 
 	# reference: GS1 T4073 Nutrient type code
@@ -295,6 +336,7 @@ my %gs1_maps = (
 		"ŒUFS_DE_FRANCE" => "en:french-eggs",
 		"OEUFS_DE_FRANCE" => "en:french-eggs",
 		"ORIGINE_FRANCE_GARANTIE" => "fr:origine-france",
+		"PME_PLUS" => "fr:pme-plus",
 		"POMMES_DE_TERRES_DE_FRANCE" => "en:potatoes-from-france",
 		"PRODUIT_EN_BRETAGNE" => "en:produced-in-brittany",
 		"PROTECTED_DESIGNATION_OF_ORIGIN" => "en:pdo",
@@ -312,6 +354,14 @@ my %gs1_maps = (
 		"VOLAILLE_FRANCAISE" => "en:french-poultry",
 	},
 
+	# https://gs1.se/en/guides/documentation/code-lists/t4069-preparation-state-code/
+	# Note: there are many other values, but at this point we will just use PREPARED and UNPREPARED,
+	# and see if we do get other values in actual data.
+	preparationStateCode => {
+		"PREPARED" => "prepared",
+		"UNPREPARED" => "as_sold",
+	},
+
 	# https://gs1.se/en/guides/documentation/code-lists/t3783-target-market-country-code/
 	targetMarketCountryCode => {
 		"040" => "en:austria",
@@ -326,6 +376,10 @@ my %gs1_maps = (
 	timeMeasurementUnitCode => {
 		"MON" => "month",
 		"DAY" => "day",
+	},
+
+	claimElementCode => {
+		"SUGARS" => "en:no-added-sugars",
 	},
 );
 
@@ -520,6 +574,29 @@ my %gs1_message_to_off = (
 	],
 );
 
+=head2 %gs1_gpc_category_codes_to_off
+
+Maps GPC category codes to OFF categories.
+
+=cut
+
+my %gs1_gpc_category_codes_to_off = ();
+
+=head2 load_gpc_category_codes_from_categories_taxonomy()
+
+Loads the GPC category codes from the categories taxonomy (in the gpc_category_code:en: property) and stores them in %gs1_gpc_category_codes_to_off.
+
+=cut
+
+sub load_gpc_category_codes_from_categories_taxonomy() {
+
+	# exit if already loaded
+	return if %gs1_gpc_category_codes_to_off;
+
+	%gs1_gpc_category_codes_to_off = %{create_property_to_tag_mapping_table("categories", "gpc_category_code:en")};
+	return;
+}
+
 =head2 %gs1_product_to_off
 
 Defines the structure of the GS1 product data and how it maps to the OFF data.
@@ -551,7 +628,8 @@ my %gs1_product_to_off = (
 			"gdsnTradeItemClassification",
 			{
 				fields => [
-					["gpcCategoryCode", "sources_fields:org-gs1:gpcCategoryCode"],
+					# check if we have a category with the corresponding gpc property
+					["gpcCategoryCode", "sources_fields:org-gs1:gpcCategoryCode, +categories%gpc_category_codes"],
 					# not always present and could be in different languages
 					["gpcCategoryName", "sources_fields:org-gs1:gpcCategoryName, +categories_if_match_in_taxonomy"],
 				],
@@ -694,6 +772,27 @@ my %gs1_product_to_off = (
 								],
 
 								[
+									"diet_information:dietInformationModule",
+									{
+										fields => [
+											[
+												"dietInformation",
+												{
+													fields => [
+														[
+															"dietTypeInformation",
+															{
+																fields => [["dietTypeCode", "+labels%dietTypeCode"],],
+															},
+														],
+													],
+												},
+											],
+										],
+									},
+								],
+
+								[
 									"food_and_beverage_ingredient:foodAndBeverageIngredientModule",
 									{
 										fields => [["ingredientStatement", "ingredients_text"],],
@@ -736,6 +835,24 @@ my %gs1_product_to_off = (
 									},
 								],
 
+								# See https://navigator.gs1.org/gdsn/class-details?name=NutritionalProgramIngredientTypeCode&version=12
+								# As of 2025/06/01, the nutritionalProgramIngredients values seem to refer to the old Nutri-Score formula
+								# There seems to be new fields for the new formula:
+								# https://www.gs1.nl/kennisbank/gs1-data-source/levensmiddelen-drogisterij/welke-data/nutri-score/ (in Dutch)
+
+								# <health_related_information:healthRelatedInformationModule xmlns:health_related_information="urn:gs1:gdsn:health_related_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:health_related_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/HealthRelatedInformationModule.xsd">
+								#  <healthRelatedInformation>
+								#   <nutritionalProgram>
+								#    <nutritionalProgramCode>8</nutritionalProgramCode>
+								#    <nutritionalScore>A</nutritionalScore>
+								#    <nutritionalProgramIngredients>
+								#     <nutritionalProgramIngredientMeasurement measurementUnitCode="P1">59</nutritionalProgramIngredientMeasurement>
+								#     <nutritionalProgramIngredientTypeCode>FRUITS_VEGETABLES_LEGUMES_AND_NUTS</nutritionalProgramIngredientTypeCode>
+								#    </nutritionalProgramIngredients>
+								#   </nutritionalProgram>
+								#  </healthRelatedInformation>
+								# </health_related_information:healthRelatedInformationModule>
+
 								# 2021-12-20: it looks like the nutritionalProgramCode is now in an extra nutritionProgram field
 								[
 									"health_related_information:healthRelatedInformationModule",
@@ -751,6 +868,69 @@ my %gs1_product_to_off = (
 																match => [["nutritionalProgramCode", "8"],],
 																fields => [
 																	["nutritionalScore", "nutriscore_grade_producer"],
+																	[
+																		"nutritionalProgramIngredients",
+																		[
+																			# New Nutri-Score formula (2023)
+																			{
+																				match => [
+																					[
+																						"nutritionalProgramIngredientTypeCode",
+																						"FRUITS_VEGETABLES_LEGUMES_AND_NUTS"
+																					],
+																				],
+																				fields => [
+																					[
+																						'nutritionalProgramIngredientMeasurement',
+																						'fruits-vegetables-nuts_100g_value_unit'
+																					],
+																				],
+																			},
+																			{
+																				match => [
+																					[
+																						"nutritionalProgramIngredientTypeCode",
+																						"FRUITS_VEGETABLES_LEGUMES_AND_NUTS"
+																					],
+																				],
+																				fields => [
+																					[
+																						'nutritionalProgramIngredientMeasurement',
+																						'fruits-vegetables-nuts_100g_value_unit'
+																					],
+																				],
+																			},
+																			# Old Nutri-Score formula (2021)
+																			{
+																				match => [
+																					[
+																						"nutritionalProgramIngredientTypeCode",
+																						"FRUITS_VEGETABLES_LEGUMES_AND_NUTS"
+																					],
+																				],
+																				fields => [
+																					[
+																						'nutritionalProgramIngredientMeasurement',
+																						'fruits-vegetables-nuts_100g_value_unit'
+																					],
+																				],
+																			},
+																			{
+																				match => [
+																					[
+																						"nutritionalProgramIngredientTypeCode",
+																						"CONCENTRATED_FRUITS_AND_VEGETABLES"
+																					],
+																				],
+																				fields => [
+																					[
+																						'nutritionalProgramIngredientMeasurement',
+																						'fruits-vegetables-nuts-dried_100g_value'
+																					],
+																				],
+																			},
+																		],
+																	],
 																],
 															},
 														],
@@ -903,6 +1083,37 @@ my %gs1_product_to_off = (
 										],
 									},
 								],
+								[
+									"product_information:productInformationModule",
+									{
+										fields => [
+											[
+												"productInformationDetail",
+												{
+													fields => [
+														[
+															"claimDetail",
+															[
+																{
+																	match => [
+																		["claimMarkedOnPackage", "TRUE"],
+																		["claimTypeCode", "NO_ADDED"],
+																	],
+																	fields => [
+																		[
+																			"claimElementCode",
+																			"+labels%claimElementCode"
+																		],
+																	],
+																}
+															]
+														]
+													]
+												}
+											]
+										]
+									}
+								]
 							],
 						},
 					],
@@ -959,9 +1170,9 @@ sub assign_field ($results_ref, $target_field, $target_value) {
 	return;
 }
 
-sub extract_nutrient_quantity_contained ($type, $per, $results_ref, $nid, $nutrient_detail_ref) {
+sub extract_nutrient_quantity_contained ($preparation, $per, $results_ref, $nid, $nutrient_detail_ref) {
 
-	my $nutrient_field = $nid . $type . "_" . $per;
+	my $nutrient_field = "nutrition.input_sets.manufacturer.$preparation.$per.$nid";
 
 	my $nutrient_value;
 	my $nutrient_unit;
@@ -1002,15 +1213,15 @@ sub extract_nutrient_quantity_contained ($type, $per, $results_ref, $nid, $nutri
 		# energy: based on the nutrient unit, assign the energy-kj or energy-kcal field
 		if ($nid eq "energy") {
 			if ($nutrient_unit eq "kcal") {
-				$nutrient_field = "energy-kcal" . $type . "_" . $per;
+				$nutrient_field =~ s/\.energy$/\.energy-kcal/;
 			}
 			else {
-				$nutrient_field = "energy-kj" . $type . "_" . $per;
+				$nutrient_field =~ s/\.energy$/\.energy-kj/;
 			}
 		}
 
-		assign_field($results_ref, $nutrient_field . "_value", $nutrient_value);
-		assign_field($results_ref, $nutrient_field . "_unit", $nutrient_unit);
+		assign_field($results_ref, $nutrient_field . ".value_string", $nutrient_value);
+		assign_field($results_ref, $nutrient_field . ".unit", $nutrient_unit);
 	}
 	return;
 }
@@ -1164,10 +1375,20 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 
 				foreach my $nutrient_header_ref (@{$json_ref->{$source_field}}) {
 
-					my $type = "";
+					my $preparation = $gs1_maps{preparationStateCode}{$nutrient_header_ref->{preparationStateCode}};
 
-					if ($nutrient_header_ref->{preparationStateCode} eq "PREPARED") {
-						$type = "_prepared";
+					if (not defined $preparation) {
+						$log->error("gs1_to_off - unrecognized preparation state",
+							{code => $results_ref->{code}, nutrient_header_ref => $nutrient_header_ref})
+							if $log->is_error();
+						my $map = "preparationStateCode";
+						my $source_value = $nutrient_header_ref->{preparationStateCode};
+						defined $unknown_entries_in_gs1_maps{$map} or $unknown_entries_in_gs1_maps{$map} = {};
+						defined $unknown_entries_in_gs1_maps{$map}{$source_value}
+							or $unknown_entries_in_gs1_maps{$map}{$source_value} = 0;
+						$unknown_entries_in_gs1_maps{$map}{$source_value}++;
+						# Skip this nutrients table
+						next;
 					}
 
 					my $serving_size_value;
@@ -1175,20 +1396,46 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 					my $serving_size_description;
 					my $serving_size_description_lc;
 
-					if (defined $nutrient_header_ref->{servingSize}{'#'}) {
-						$serving_size_value = $nutrient_header_ref->{servingSize}{'#'};
-						$serving_size_unit = $gs1_maps{measurementUnitCode}
-							{$nutrient_header_ref->{servingSize}{'@'}{measurementUnitCode}};
-					}
-					elsif (defined $nutrient_header_ref->{servingSize}{'$t'}) {
-						$serving_size_value = $nutrient_header_ref->{servingSize}{'$t'};
-						$serving_size_unit
-							= $gs1_maps{measurementUnitCode}{$nutrient_header_ref->{servingSize}{measurementUnitCode}};
+					# We can have servingSize in different formats
+					# we can also have no serving size, but a nutrientBasisQuantity
+					# e.g.  nutrientBasisQuantity => {"\$t" => "100.00",measurementUnitCode => "MLT"}
+
+					# Check nutrientBasisQuantity first
+					if (defined $nutrient_header_ref->{nutrientBasisQuantity}) {
+						if (defined $nutrient_header_ref->{nutrientBasisQuantity}{'#'}) {
+							$serving_size_value = $nutrient_header_ref->{nutrientBasisQuantity}{'#'};
+							$serving_size_unit = $gs1_maps{measurementUnitCode}
+								{$nutrient_header_ref->{nutrientBasisQuantity}{'@'}{measurementUnitCode}};
+						}
+						elsif (defined $nutrient_header_ref->{nutrientBasisQuantity}{'$t'}) {
+							$serving_size_value = $nutrient_header_ref->{nutrientBasisQuantity}{'$t'};
+							$serving_size_unit = $gs1_maps{measurementUnitCode}
+								{$nutrient_header_ref->{nutrientBasisQuantity}{measurementUnitCode}};
+						}
+						else {
+							$log->error("gs1_to_off - unrecognized nutrient basis quantity",
+								{nutrientBasisQuantity => $nutrient_header_ref->{nutrientBasisQuantity}})
+								if $log->is_error();
+						}
 					}
 					else {
-						$log->error("gs1_to_off - unrecognized serving size",
-							{servingSize => $nutrient_header_ref->{servingSize}})
-							if $log->is_error();
+						# then check servingSize
+						if (defined $nutrient_header_ref->{servingSize}{'#'}) {
+							$serving_size_value = $nutrient_header_ref->{servingSize}{'#'};
+							$serving_size_unit = $gs1_maps{measurementUnitCode}
+								{$nutrient_header_ref->{servingSize}{'@'}{measurementUnitCode}};
+						}
+						elsif (defined $nutrient_header_ref->{servingSize}{'$t'}) {
+							$serving_size_value = $nutrient_header_ref->{servingSize}{'$t'};
+							$serving_size_unit
+								= $gs1_maps{measurementUnitCode}
+								{$nutrient_header_ref->{servingSize}{measurementUnitCode}};
+						}
+						else {
+							$log->error("gs1_to_off - unrecognized serving size",
+								{servingSize => $nutrient_header_ref->{servingSize}})
+								if $log->is_error();
+						}
 					}
 
 					# We may have a servingSizeDescription in multiple languages, in that case, take the first one
@@ -1216,39 +1463,63 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 						}
 					}
 
-					my $per = "100g";
+					# Determine which per to use
 
-					if ((defined $serving_size_value) and ($serving_size_value != 100)) {
-						$per = "serving";
-						$serving_size_value += 0;    # remove extra .0
+					my $per;
 
-						# Some serving sizes have an extra description
-						# e.g. par portion : 14 g + 200 ml d'eau
-						my $extra_serving_size_description = "";
-						if ((defined $serving_size_description) and (defined $serving_size_description_lc)) {
-							# Par Portion de 30 g (2)
-							$serving_size_description
-								=~ s/^(par |pour )?((1 |une )?(part |portion ))?(de )?\s*:?=?\s*//i;
-							$serving_size_description =~ s/( |\d)(gr|grammes)$/$1g/i;
-							# Par Portion de 30 g (2) : remove number of portions
-							$serving_size_description =~ s/\(\d+\)//i;
-							$serving_size_description =~ s/^\s+//;
-							$serving_size_description =~ s/\s+$//;
-							# skip the extra description if it is equal to value + unit
-							# to avoid things like 43 g (43 g)
-							# "Pour 45g ?²?" --> ignore bogus characters at the end
-							if (
-								($serving_size_description !~ /^\s*$/)
-								and ($serving_size_description
-									!~ /^$serving_size_value\s*$serving_size_unit(\?|\.|\,|\s|\*|²)*$/i)
-								)
-							{
-								$extra_serving_size_description = ' (' . $serving_size_description . ')';
-							}
+					if ((defined $serving_size_value) and (defined $serving_size_unit)) {
+						if (($serving_size_value == 100) and ($serving_size_unit eq "g")) {
+							$per = "100g";
 						}
+						elsif (($serving_size_value == 100) and ($serving_size_unit eq "ml")) {
+							$per = "100ml";
+						}
+						elsif (($serving_size_value == 1) and (uc($serving_size_unit) eq "L")) {
+							$per = "1l";
+						}
+						elsif (($serving_size_value == 1) and ($serving_size_unit eq "kg")) {
+							$per = "1kg";
+						}
+						else {
+							$per = "serving";
 
-						assign_field($results_ref, "serving_size",
-							$serving_size_value . " " . $serving_size_unit . $extra_serving_size_description);
+							$serving_size_value += 0;    # remove extra .0
+
+							# Some serving sizes have an extra description
+							# e.g. par portion : 14 g + 200 ml d'eau
+							my $extra_serving_size_description = "";
+							if ((defined $serving_size_description) and (defined $serving_size_description_lc)) {
+								# Par Portion de 30 g (2)
+								$serving_size_description
+									=~ s/^(par |pour )?((1 |une )?(part |portion ))?(de )?\s*:?=?\s*//i;
+								$serving_size_description =~ s/( |\d)(gr|grammes)$/$1g/i;
+								# Par Portion de 30 g (2) : remove number of portions
+								$serving_size_description =~ s/\(\d+\)//i;
+								$serving_size_description =~ s/^\s+//;
+								$serving_size_description =~ s/\s+$//;
+								# skip the extra description if it is equal to value + unit
+								# to avoid things like 43 g (43 g)
+								# "Pour 45g ?²?" --> ignore bogus characters at the end
+								if (
+									($serving_size_description !~ /^\s*$/)
+									and ($serving_size_description
+										!~ /^$serving_size_value\s*$serving_size_unit(\?|\.|\,|\s|\*|²)*$/i)
+									)
+								{
+									$extra_serving_size_description = ' (' . $serving_size_description . ')';
+								}
+							}
+
+							assign_field($results_ref, "serving_size",
+								$serving_size_value . " " . $serving_size_unit . $extra_serving_size_description);
+						}
+					}
+					else {
+						$log->error("gs1_to_off - unrecognized serving size",
+							{code => $results_ref->{code}, nutrient_header_ref => $nutrient_header_ref})
+							if $log->is_error();
+						# Skip this nutrients table
+						next;
 					}
 
 					if (defined $nutrient_header_ref->{nutrientDetail}) {
@@ -1265,7 +1536,7 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 							my $nid = $gs1_maps{nutrientTypeCode}{$nutrient_detail_ref->{nutrientTypeCode}};
 
 							if (defined $nid) {
-								extract_nutrient_quantity_contained($type, $per, $results_ref, $nid,
+								extract_nutrient_quantity_contained($preparation, $per, $results_ref, $nid,
 									$nutrient_detail_ref);
 							}
 							else {
@@ -1418,6 +1689,32 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 							and not(($source_field eq "partyName") and (length($source_value) < 2))
 							)
 						{
+
+							# special look up to see if we have a category with the corresponding property
+							if ($target_field eq '+categories%gpc_category_codes') {
+								if (defined $gs1_gpc_category_codes_to_off{$source_value}) {
+									$source_value = $gs1_gpc_category_codes_to_off{$source_value};
+									$target_field = '+categories';
+								}
+								else {
+									$log->debug(
+										"gs1_to_off - unknown gpc source value",
+										{
+											code => $results_ref->{code},
+											source_field => $source_field,
+											source_value => $source_value,
+											target_field => $target_field
+										}
+									) if $log->is_error();
+									defined $unknown_entries_in_gs1_maps{gpcCategoryCode}
+										or $unknown_entries_in_gs1_maps{gpcCategoryCode} = {};
+									defined $unknown_entries_in_gs1_maps{gpcCategoryCode}{$source_value}
+										or $unknown_entries_in_gs1_maps{gpcCategoryCode}{$source_value} = 0;
+									$unknown_entries_in_gs1_maps{gpcCategoryCode}{$source_value}++;
+									# Skip the entry
+									next;
+								}
+							}
 
 							# allergenTypeCode => '+traces%allergens',
 							# % sign means we will use a map to transform the source value
@@ -1703,7 +2000,7 @@ sub convert_gs1_json_message_to_off_products_csv ($json_ref, $products_ref, $mes
 		)
 	{
 		if (defined $json_ref->{$field}) {
-			print STDERR "removing encapsulating field $field\n";
+			# print STDERR "removing encapsulating field $field\n";
 			# If it is an array (e.g. catalogue_item_notification:catalogueItemNotification is an array in Alnatura GmbH messages),
 			# call convert_gs1_json_message_to_off_products_csv() for every child
 			if (ref($json_ref->{$field}) eq 'ARRAY') {

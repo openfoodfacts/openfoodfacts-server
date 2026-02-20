@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -25,43 +25,30 @@ use utf8;
 
 use ProductOpener::Config qw/%options $query_url/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Data qw/get_products_collection/;
-use ProductOpener::Products qw/split_code/;
-use LWP::UserAgent;
+use ProductOpener::Products qw/product_id_from_path product_iter/;
+use ProductOpener::Store qw/retrieve_object_json/;
+use ProductOpener::Checkpoint;
+use ProductOpener::HTTP qw/create_user_agent/;
+
 use Path::Tiny;
 use File::Slurp;
 
 # This script recursively visits all scans.json files from the root of the products directory
 # and sends the data to off-query
-
-my $batch_size = $ARGV[0] // 100;
-my ($checkpoint_file, $last_processed_path) = open_checkpoint('export_scans_to_query_checkpoint.tmp');
+# Add a "resume" argument to resume from the last checkpoint
+my $checkpoint = ProductOpener::Checkpoint->new;
+my $last_processed_path = $checkpoint->{value};
 my $can_process = $last_processed_path ? 0 : 1;
 
+my $batch_size = $ARGV[0] // 100;
 my $scans = "{";
 my $scan_count = 0;
 
 $query_url =~ s/^\s+|\s+$//g;
 my $query_post_url = URI->new("$query_url/scans");
-my $ua = LWP::UserAgent->new();
+my $ua = create_user_agent();
 # Add a timeout to the HTTP query
 $ua->timeout(15);
-
-sub process_file($path, $code) {
-	my $scans_file = $path . "/scans.json";
-	return if not -e $scans_file;
-	my $scans_ref = read_file($scans_file);
-
-	$scans .= '"' . $code . '":' . $scans_ref . ',';
-	$scan_count++;
-
-	if ($scan_count % $batch_size == 0) {
-		send_scans();
-		update_checkpoint($checkpoint_file, $path);
-	}
-
-	return 1;
-}
 
 sub send_scans($fully_loaded = 0) {
 	print '[' . localtime() . "] $scan_count products processed...";
@@ -78,8 +65,9 @@ sub send_scans($fully_loaded = 0) {
 			. localtime()
 			. "] query response not ok calling "
 			. $query_post_url
-			. " error: "
-			. $resp->status_line . "\n";
+			. " resp: "
+			. $resp->status_line . "\n"
+			. $scans . "\n";
 		die;
 	}
 
@@ -89,88 +77,26 @@ sub send_scans($fully_loaded = 0) {
 	return 1;
 }
 
-# Directory scanning version
-sub find_products($dir, $code) {
-	opendir DH, "$dir" or die "could not open $dir directory: $!\n";
-	my @files = readdir(DH);
-	closedir DH;
-	foreach my $entry (sort @files) {
-		next if $entry =~ /^\.\.?$/;
-		my $file_path = "$dir/$entry";
-
-		if (not $can_process and $file_path eq $last_processed_path) {
+my $next = product_iter($BASE_DIRS{PRODUCTS}, qr/scans/);
+while (my $path = $next->()) {
+	if (not $can_process) {
+		if ($path eq $last_processed_path) {
 			$can_process = 1;
-			print "Resuming from '$last_processed_path'\n";
-			next;    # we don't want to process the product again
 		}
-
-		if (-d $file_path and ($can_process or ($last_processed_path =~ m/^\Q$file_path/))) {
-			find_products($file_path, "$code$entry");
-			next;
-		}
-		next if not $can_process;
-
-		if ($entry eq 'scans.json') {
-			process_file($dir, $code);
-		}
+		next;    # we don't want to process the product again
 	}
 
-	return;
-}
+	my $scans_ref = retrieve_object_json($path);
+	my $code = product_id_from_path($path);
 
-# MongoDB version
-# sub find_products($dir, $code) {
-# 	my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
+	$scans .= '"' . $code . '":' . $scans_ref . ',';
+	$scan_count++;
 
-# 	# Collection that will be used to iterate products
-# 	my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
-
-# 	# only retrieve important fields
-# 	my $cursor = $products_collection->query({})->sort({code => 1})->fields({code => 1});
-# 	$cursor->immortal(1);
-
-# 	while (my $product_ref = $cursor->next) {
-# 		my $code = $product_ref->{code};
-# 		my $product_path = split_code($code);
-# 		my $file_path = "$dir/$product_path";
-
-# 		if (not $can_process and $file_path eq $last_processed_path) {
-# 			$can_process = 1;
-# 			print "Resuming from '$last_processed_path'\n";
-# 			next;    # we don't want to process the product again
-# 		}
-# 		next if not $can_process;
-# 		process_file($file_path, $code);
-# 	}
-
-# 	return;
-# }
-
-sub open_checkpoint($filename) {
-	if (!-e $filename) {
-		`touch $filename`;
+	if ($scan_count % $batch_size == 0) {
+		send_scans();
+		$checkpoint->update($path);
 	}
-	open(my $checkpoint_file, '+<', $filename) or die "Could not open file '$filename' $!";
-	seek($checkpoint_file, 0, 0);
-	my $checkpoint = <$checkpoint_file>;
-	chomp $checkpoint if $checkpoint;
-	my $last_processed_path;
-	if ($checkpoint) {
-		$last_processed_path = $checkpoint;
-	}
-	return ($checkpoint_file, $last_processed_path);
 }
-
-sub update_checkpoint($checkpoint_file, $dir) {
-	seek($checkpoint_file, 0, 0);
-	print $checkpoint_file $dir;
-	truncate($checkpoint_file, tell($checkpoint_file));
-	return 1;
-}
-
-find_products($BASE_DIRS{PRODUCTS}, '');
 
 # Always send last batch even if no scans to indicate all loaded
 send_scans(1);
-
-close $checkpoint_file;

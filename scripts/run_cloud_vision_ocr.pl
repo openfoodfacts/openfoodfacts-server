@@ -29,6 +29,7 @@ use ProductOpener::PerlStandards
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Images qw/@CLOUD_VISION_FEATURES_FULL send_image_to_cloud_vision/;
+use ProductOpener::Redis qw/push_ocr_ready_to_redis/;
 
 use AnyEvent::Inotify::Simple;
 use Log::Any qw($log);
@@ -50,9 +51,12 @@ sub send_file_to_ocr ($file) {
 	# compute arguments
 
 	my $code;
+	my $imgid;
 
-	if ($file =~ /^([^\.]*)\.(\d+)\./) {
+	if ($file =~ /^([^\.]*)\.(\d+)\.(\d+)/) {
+		# the format of the image file is {timestamp}.{code}.{imgid}.jpg
 		$code = $2;
+		$imgid = $3;
 	}
 
 	my $path = $destination;
@@ -80,6 +84,9 @@ sub send_file_to_ocr ($file) {
 	if (defined $cloudvision_ref) {
 		unlink($file);
 	}
+
+	# We notify that the OCR file is ready on Redis
+	push_ocr_ready_to_redis($code, $imgid, $json_url);
 	return;
 }
 

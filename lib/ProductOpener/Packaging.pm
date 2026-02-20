@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -22,7 +22,7 @@
 
 =head1 NAME
 
-ProductOpener::Packaging 
+ProductOpener::Packaging
 
 =head1 SYNOPSIS
 
@@ -65,7 +65,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Store qw/get_fileid get_string_id_for_lang retrieve_json/;
+use ProductOpener::Store qw/get_fileid get_string_id_for_lang retrieve_config/;
 use ProductOpener::API qw/add_warning/;
 use ProductOpener::Numbers qw/convert_string_to_number/;
 use ProductOpener::Units qw/normalize_quantity/;
@@ -79,19 +79,19 @@ my $categories_packagings_materials_stats_ref;
 
 sub load_categories_packagings_materials_stats() {
 	if (not defined $categories_packagings_materials_stats_ref) {
-		my $file = "$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_materials_stats.all.popular.json";
+		my $file = "$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_materials_stats.all.popular";
 		# In dev environments, we provide a sample stats file in the data-default directory
 		# so that we can run tests with meaningful and unchanging data
 		if (!-e $file) {
 			my $default_file
-				= "$BASE_DIRS{PRIVATE_DATA}-default/categories_stats/categories_packagings_materials_stats.all.popular.json";
+				= "$BASE_DIRS{PRIVATE_DATA}-default/categories_stats/categories_packagings_materials_stats.all.popular";
 			$log->debug("local packaging stats file does not exist, will use default",
 				{file => $file, default_file => $default_file})
 				if $log->is_debug();
 			$file = $default_file;
 		}
 		$log->debug("loading packagings materials stats", {file => $file}) if $log->is_debug();
-		$categories_packagings_materials_stats_ref = retrieve_json($file);
+		$categories_packagings_materials_stats_ref = retrieve_config($file);
 		if (not defined $categories_packagings_materials_stats_ref) {
 			$log->debug("unable to load packagings materials stats", {file => $file}) if $log->is_debug();
 		}
@@ -101,21 +101,16 @@ sub load_categories_packagings_materials_stats() {
 
 =head1 FUNCTIONS
 
-=head2 extract_packagings_from_image( $product_ref $id $ocr_engine $results_ref )
+=head2 extract_packagings_from_image( $product_ref, $image_type, $image_lc, $ocr_engine, $results_ref )
 
 Extract packaging data from packaging info / recycling instructions photo.
 
 =cut
 
-sub extract_packaging_from_image ($product_ref, $id, $ocr_engine, $results_ref) {
+sub extract_packaging_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref) {
 
-	my $lc = $product_ref->{lc};
-
-	if ($id =~ /_(\w\w)$/) {
-		$lc = $1;
-	}
-
-	extract_text_from_image($product_ref, $id, "packaging_text_from_image", $ocr_engine, $results_ref);
+	extract_text_from_image($product_ref, $image_type, $image_lc, "packaging_text_from_image", $ocr_engine,
+		$results_ref);
 
 	# TODO: extract structured data from the text
 	if (($results_ref->{status} == 0) and (defined $results_ref->{packaging_text_from_image})) {
@@ -147,10 +142,6 @@ sub init_packaging_taxonomies_regexps() {
 
 		$packaging_taxonomies_regexps{$taxonomy}
 			= generate_regexps_matching_taxonomy_entries($taxonomy, "list_of_regexps", {});
-
-		$log->debug("init_packaging_taxonomies_regexps - result",
-			{taxonomy => $taxonomy, packaging_taxonomies_regexps => $packaging_taxonomies_regexps{$taxonomy}})
-			if $log->is_debug();
 	}
 
 	return;
@@ -802,7 +793,7 @@ sub set_packaging_facets_tags ($product_ref) {
 
 =head2 set_packaging_misc_tags($product_ref)
 
-Set some tags in the /misc/ facet so that we can track the products that have 
+Set some tags in the /misc/ facet so that we can track the products that have
 (or don't have) packaging data.
 
 =cut
@@ -998,6 +989,12 @@ sub compute_weight_stats_for_parent_materials ($product_ref) {
 					$packagings_materials_main_weight = $parent_material_ref->{weight};
 				}
 			}
+			# If there’s no packaging weight defined, but there’s one packaging item and we know that
+			# the packaging is complete, we know that the weight of that item is 100% of the total
+			# packaging weight, even if we don’t know what that weight is.
+			elsif ((scalar @{$product_ref->{packagings}} == 1) and ($product_ref->{packagings_complete})) {
+				$parent_material_ref->{weight_percent} = 100;
+			}
 		}
 	}
 
@@ -1011,7 +1008,7 @@ sub compute_weight_stats_for_parent_materials ($product_ref) {
 	return;
 }
 
-=head2 initialize_packagings_structure_with_data_from_packaging_text ($product_ref, $response_ref) 
+=head2 initialize_packagings_structure_with_data_from_packaging_text ($product_ref, $response_ref)
 
 This function populates the packagings structure with data extracted from the packaging_text field.
 It is used only when there is no pre-existing data in the packagings structure.

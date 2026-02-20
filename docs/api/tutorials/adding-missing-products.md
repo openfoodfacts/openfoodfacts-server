@@ -1,3 +1,5 @@
+# Adding missing products
+
 **Dave** regularly adds new products to the database and completes missing information via API calls. He has described the process below to show other developers how easy it is to contribute.
 
 ---
@@ -14,14 +16,14 @@ If you have an app that makes POST calls and you don't want your users to authen
 ---
 
 ## Adding images to support your edit, and get machine learning predictions
-If you ask your users just one thing, it would be to send photos of the packaging (front, ingredients, nutrition, recycling, the more the better)<br>
+If you ask your users just one thing, it would be to send photos of the packaging (front, ingredients, nutrition, recycling, the more the better)
 Please refer to our [comprehensive tutorial on uploading images](../tutorial-uploading-photo-to-a-product.md)
 
 ---
 
 ## Sending the right country and language parameters, based on the country your user is located in, and the language the product is in.
 
-Traditionaly we advised to define the subdomain for the query as `us`. The subdomain automatically defines the country code (`cc`) and language of the interface (`lc`). The country code determines that only the products sold in the US are displayed. The language of the interface for the country code US is English.<br>
+Traditionaly we advised to define the subdomain for the query as `us`. The subdomain automatically defines the country code (`cc`) and language of the interface (`lc`). The country code determines that only the products sold in the US are displayed. The language of the interface for the country code US is English.
 In this case:
 [https://us.openfoodfacts.org/cgi/product_jqm2.pl?​​​​​​​](https://us.openfoodfacts.org/cgi/product_jqm2.pl?​​​​​​​)
 
@@ -106,12 +108,15 @@ To achieve this you need the upload image section above. Adding data like produc
 Getting your users to [check ingredients OCR in an autonomous fashion](./get-ingredient-related-analysis.md)
 
 ## Getting your users to input nutrition facts
+
 [Getting your users to input nutrition facts](../../dev/explain-nutrition-data.md)
 
 ## Getting your users to input packaging data
+
 Getting your users to [input packaging data](../../dev/explain-packaging-data.md)
 
 ## Showing the result of their work
+
 - You can then reload the product, potentially using Knowledge Panels, to show the rewarding result of their work.
 - Make sure to congratulate them each time for their contribution to Open Food Facts and the common good.
 

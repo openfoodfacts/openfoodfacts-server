@@ -1,0 +1,9 @@
+# Trivy configuration to ignore specific copyleft licenses
+license:
+  ignored-licenses:
+    - GPL-1.0
+    - GPL-2.0
+    - GPL-3.0
+    - AGPL-3.0
+    - LGPL-2.1
+    - LGPL-3.0

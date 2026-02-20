@@ -20,11 +20,25 @@
     - ./debug:/mnt/podata/debug/
     # sftp folder for the pro platform
     - ./sftp:/mnt/podata/sftp/
-  # Allow the container to connect to the host when using Linux.
-  # This is needed to access other services that are running outside of Docker
-  # e.g. when developing with openfoodfacts-query
   extra_hosts:
-    - "host.docker.internal:host-gateway"
+    # Allow the containers to connect to the host when using Linux.
+    # This is needed to access other services that are running outside of Docker
+    # e.g. when developing with openfoodfacts-query
+    - host.docker.internal=host-gateway
+    - auth.openfoodfacts.localhost=host-gateway
+    # Define domains needed by "make update_tests_results"
+    # Used by backend but defined here as extra_hosts cannot be defined in parts
+    - ch-it.openfoodfacts.localhost=127.0.0.1
+    - es-it.openfoodfacts.localhost=127.0.0.1
+    - es.openfoodfacts.localhost=127.0.0.1
+    - fr.openfoodfacts.localhost=127.0.0.1
+    - fr.pro.openfoodfacts.localhost=127.0.0.1
+    - ssl-api.openfoodfacts.localhost=127.0.0.1
+    - world-it.openfoodfacts.localhost=127.0.0.1
+    - world.openfoodfacts.localhost=127.0.0.1
+    - world.pro.openfoodfacts.localhost=127.0.0.1
+  networks:
+    default:
 
 x-minion-db-network: &minion-db-network
   networks:
@@ -38,10 +52,12 @@ services:
     # only turn on for off profile
     <<: *minion-db-network
   backend:
-    <<: [*backend-conf, *minion-db-network] 
+    # For some reason we need to list minion-db-network first otherwise it isn't included
+    <<: [*minion-db-network, *backend-conf] 
   incron: *backend-conf
+  redis-listener: *backend-conf
   minion:
-    <<: [*backend-conf, *minion-db-network]
+    <<: [*minion-db-network, *backend-conf]
   # in dev we want to use watch assets and recompile on the fly
   # also we want to build at start time in case some files changed, as we want to avoid recreating volumes
   dynamicfront:
@@ -65,7 +81,14 @@ services:
       - ./html:/opt/product-opener/html
       - ./icons:/opt/product-opener/icons
       - ./scss:/opt/product-opener/scss
-      - ./gulpfile.ts:/opt/product-opener/gulpfile.ts
+      - ./gulpfile.mjs:/opt/product-opener/gulpfile.mjs
+      # We may mount webcomponents here to test development version
+      # by referencing them by package.json
+      # see ../docs/dev/how-to-develop-with-webcomponents.md
+      # by default we use a small dir, with whatever content,
+      # that we know exists
+      - ${WEBCOMPONENTS_DIR:-./web-default}/web-components:/opt/webcomponents
+
   frontend:
     image: openfoodfacts-server/frontend:dev
     build:
@@ -78,19 +101,30 @@ services:
       - ./html:/opt/product-opener/html/
       - ./icons:/opt/product-opener/icons
       - ./scss:/opt/product-opener/scss
-      - ./gulpfile.ts:/opt/product-opener/
+      - ./gulpfile.mjs:/opt/product-opener/
       - ./snyk:/opt/product-opener/
     networks:
         default:
           aliases:
             # trick: make it possible for robotoff to reach it internally, 
             # using localhost domain
-            - world.openfoodfacts.localhost
-            - static.openfoodfacts.localhost
-            - images.openfoodfacts.localhost
+            - world.${PRODUCT_OPENER_DOMAIN}
+            - static.${PRODUCT_OPENER_DOMAIN}
+            - images.${PRODUCT_OPENER_DOMAIN}
+            - fr.${PRODUCT_OPENER_DOMAIN}
+            - world-be.${PRODUCT_OPENER_DOMAIN}
+            - world-de.${PRODUCT_OPENER_DOMAIN}
+            - world-it.${PRODUCT_OPENER_DOMAIN}
+            - es-it.${PRODUCT_OPENER_DOMAIN}
+            - ch-it.${PRODUCT_OPENER_DOMAIN}
+            - ssl-api.${PRODUCT_OPENER_DOMAIN}
+            - fr.pro.${PRODUCT_OPENER_DOMAIN}
+            - world.pro.${PRODUCT_OPENER_DOMAIN}
+            - auth.${PRODUCT_OPENER_DOMAIN}
+            - es.${PRODUCT_OPENER_DOMAIN}
+            - be-fr.${PRODUCT_OPENER_DOMAIN}
 
 volumes:
-  product_images:
   html_data:
   other_servers:
   products:
@@ -103,6 +137,8 @@ volumes:
     name: ${PO_COMMON_PREFIX:-}po_orgs
   export_files:
     name: ${PO_COMMON_PREFIX:-}po_export_files
+  product_images:
+    name: ${PO_COMMON_PREFIX:-}po_off_product_images
   podata:
 
 networks:

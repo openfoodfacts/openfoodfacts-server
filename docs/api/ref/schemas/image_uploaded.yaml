@@ -1,0 +1,15 @@
+components:
+  schemas:
+    ImageUploaded:
+      type: object
+      title: Uploaded image
+      description: |
+        Image uploaded by a user or provided by a manufacturer identified by an integer 'imgid'.
+      properties:
+        uploader:
+          type: string
+          description: |
+            userid of the user who uploaded the image.
+          example: "stephane"
+        sizes:
+          $ref: "./image_sizes.yaml#/components/schemas/ImageSizes"          

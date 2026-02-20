@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -46,6 +46,7 @@ BEGIN {
 		$admin_email
 		$producers_email
 
+		$tesseract_ocr_available
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
 
@@ -62,10 +63,15 @@ BEGIN {
 		$rate_limiter_blocking_enabled
 		$facets_kp_url
 		$redis_url
+		$folksonomy_url
+		$process_global_redis_events
 
 		$mongodb
 		$mongodb_host
 		$mongodb_timeout_ms
+
+		$recipe_estimator_url
+		$recipe_estimator_scipy_url
 
 		$memd_servers
 
@@ -79,6 +85,8 @@ BEGIN {
 
 		%options
 		%server_options
+		%oidc_options
+		%slack_hook_urls
 
 		@product_fields
 		@product_other_fields
@@ -96,9 +104,11 @@ BEGIN {
 		@edit_rules
 
 		$build_cache_repo
+		$serialize_to_json
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
+
 use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config2;
@@ -175,10 +185,10 @@ $flavor = "opff";
 %options = (
 	site_name => "Open Pet Food Facts",
 	product_type => "petfood",
-	og_image_url => "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png",
-	#android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk",
-	#android_app_link => "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&utm_source=opff&utf_medium=web",
-	#ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=opff&utf_medium=web",
+	og_image_url => "https://static.openpetfoodfacts.org/images/logos/opff-logo-vertical-white-social-media-preview.png",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases?utm_source=opff&utf_medium=web",
+android_app_link => "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opff&utf_medium=web",
+ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=opff&utf_medium=web",
 	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=opff&utf_medium=web",
 	#x_account => "OpenBeautyFacts",
 	default_preferences =>
@@ -231,6 +241,7 @@ $conf_root = $ProductOpener::Config2::conf_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
+$tesseract_ocr_available = $ProductOpener::Config2::tesseract_ocr_available;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 $google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
@@ -242,21 +253,41 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $query_url = $ProductOpener::Config2::query_url;
 
+# recipe-estimator product service
+# To test a locally running recipe-estimator with product opener in a docker dev environment:
+# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+
+$recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
+$recipe_estimator_scipy_url = $ProductOpener::Config2::recipe_estimator_scipy_url;
+
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
 $events_url = $ProductOpener::Config2::events_url;
 $events_username = $ProductOpener::Config2::events_username;
 $events_password = $ProductOpener::Config2::events_password;
 
+# Redis is used to push updates to the search server
+$redis_url = $ProductOpener::Config2::redis_url;
+# Only the OFF instance processes the global events
+$process_global_redis_events = 0;
+
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
 $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ProductOpener::Config2::folksonomy_url;
 
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
 
 $build_cache_repo = $ProductOpener::Config2::build_cache_repo;
+
+#11901: Remove once production is migrated
+$serialize_to_json = $ProductOpener::Config2::serialize_to_json;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -291,30 +322,6 @@ $analytics = <<HTML
   })();
 </script>
 <noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=9&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-HTML
-	;
-
-$options{favicons} = <<HTML
-<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-touch-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon-180x180.png">
-<link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon/android-chrome-192x192.png" sizes="192x192">
-<link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/cgi/manifest.pl">
-<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="shortcut icon" href="/images/favicon/favicon.ico">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
-<meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
 HTML
 	;
 
@@ -546,6 +553,52 @@ XML
 	last_image_t
 );
 
+# List of fields that can be imported on the producers platform
+# and that are also exported from the producers platform to the public platform
+$options{import_export_fields_groups} = [
+	[
+		"identification",
+		[
+			"code", "producer_product_id",
+			"producer_version_id", "lc",
+			"product_name", "abbreviated_product_name",
+			"generic_name",
+			"quantity_value_unit", "net_weight_value_unit",
+			"drained_weight_value_unit", "volume_value_unit",
+			"serving_size_value_unit", "packaging",
+			"brands", "brand_owner",
+			"categories", "categories_specific",
+			"labels", "labels_specific",
+			"countries", "stores",
+			"obsolete", "obsolete_since_date",
+			"periods_after_opening"    # included for OBF imports via the producers platform
+		]
+	],
+	[
+		"origins",
+		["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+	],
+	["ingredients", ["ingredients_text", "allergens", "traces"]],
+	["nutrition"],
+	["nutrition_other"],
+	["packaging"],
+	[
+		"other",
+		["conservation_conditions", "warning", "preparation", "nova_group_producer", "customer_service", "link",]
+	],
+	[
+		"images",
+		[
+			"image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url",
+			"image_other_url", "image_other_type",
+		]
+	],
+];
+
+# Secondary fields that are computed by OFF from primary data
+# Those fields are only exported, they are not imported.
+# Todo: populate when calculated indicators are available on OPFF
+
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
 $options{attribute_groups} = [["labels", ["labels_organic", "labels_fair_trade"]],];
@@ -597,6 +650,9 @@ $options{attribute_default_preferences_json}
 );
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates";
+$options{redis_stream_name_product_updates} = "product_updates";
+# Name of the Redis stream where we notify that OCR results
+# are ready
+$options{redis_stream_name_ocr_ready} = "ocr_ready";
 
 1;

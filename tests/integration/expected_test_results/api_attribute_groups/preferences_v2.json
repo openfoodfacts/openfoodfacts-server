@@ -1,0 +1,22 @@
+[
+   {
+      "id" : "not_important",
+      "name" : "Not important"
+   },
+   {
+      "factor" : 1,
+      "id" : "important",
+      "name" : "Important"
+   },
+   {
+      "factor" : 2,
+      "id" : "very_important",
+      "name" : "Very important"
+   },
+   {
+      "factor" : 4,
+      "id" : "mandatory",
+      "minimum_match" : 20,
+      "name" : "Mandatory"
+   }
+]

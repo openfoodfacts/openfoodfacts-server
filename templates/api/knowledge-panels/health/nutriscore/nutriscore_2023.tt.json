@@ -60,7 +60,7 @@
             },
         },        
         // Start with negative points first, as the positive points depend on negative points
-        [% IF product.nutriscore.2023.data.components.negative.size > 0 %]
+        [% IF product.nutriscore.2023.data.components.negative.size.defined && product.nutriscore.2023.data.components.negative.size > 0 %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
@@ -78,7 +78,7 @@
         }, 
         [% END %]
         // Positive points
-        [% IF product.nutriscore.2023.data.components.positive.size > 0 %]         
+        [% IF product.nutriscore.2023.data.components.positive.defined && product.nutriscore.2023.data.components.positive.size > 0 %]         
         {
             "element_type": "panel_group",
             "panel_group_element": {

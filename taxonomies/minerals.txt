@@ -15,6 +15,8 @@ synonyms:en: sulfide, sulphide
 
 synonyms:en: iron, ferric, ferrous
 
+synonyms:en: sodium, natrium
+
 synonyms:fr: de fer, ferreux, ferrique
 
 synonyms:fr: monosodique, mono-sodique, sodique, disodique, trisodique, de sodium
@@ -22,8 +24,6 @@ synonyms:fr: monosodique, mono-sodique, sodique, disodique, trisodique, de sodiu
 synonyms:fr: monopotassique, mono-potassique, potassique, dipotassique, tripotassique, de potassium
 
 synonyms:fr: monocalcique, mono-calcique, calcique, dicalcique, tricalcique, de calcium
-
-synonyms:fr: orthophosphate, phosphate
 
 en: Mineral, Minerals
 af: Mineraal
@@ -344,7 +344,7 @@ sv: kaliumbikarbonat
 en: potassium carbonate
 bg: Калиев карбонат
 cs: uhličitan draselný
-de: Kaliumcarbonat, Kaliumcarbonate
+# de: Kaliumcarbonat, Kaliumcarbonate
 el: ανθρακικό κάλιο
 es: carbonato de potasio
 et: kaaliumkarbonaat
@@ -574,7 +574,7 @@ sv: kaliumglycerolfosfat
 < en:Potassium
 en: Potassium phosphate
 de: Kaliumphosphat
-fr: Phosphate de potassium
+fr: Phosphate de potassium, orthophosphate de potassium
 it: Fosfato di potassio
 
 < en:Potassium
@@ -1072,7 +1072,7 @@ sv: kalciumlaktat
 
 < en:Calcium
 en: Calcium phosphate
-fr: Phosphate de calcium
+fr: Phosphate de calcium, orthophosphate de calcium
 it: Fosfato di calcio
 
 
@@ -1350,7 +1350,7 @@ hi: मैग्नेशियम तत्त्व
 hr: magnezij
 ht: Manyezyòm
 hu: Magnézium
-hy:մագնեզիումia:magnesium
+hy: մագնեզիումia:magnesium
 id: magnesium
 io: magnezo
 is: magnesín
@@ -1641,7 +1641,7 @@ sv: magnesiumglycerolfosfat
 
 < en:Magnesium
 en: Magnesium phosphate
-fr: Phosphate de magnesium
+fr: Phosphate de magnesium, orthophosphate de magnesium
 it: magnesio fosfato, fosfato di magnesio
 
 < en:Magnesium
@@ -1689,6 +1689,13 @@ ro: lactat de magneziu
 sk: mliečnan horečnatý
 sl: magnezijev laktat
 sv: magnesiumlaktat
+
+< en:Magnesium
+en: magnesium malate
+de: Magnesiummalat
+sv: magnesiummalat
+wikidata:en: Q5927277
+wikipedia:en: https://en.wikipedia.org/wiki/Magnesium_malate
 
 < en:Magnesium
 en: magnesium hydroxide
@@ -2403,7 +2410,7 @@ el: εναμμώνιος φωσφορικός σίδηρος
 es: fosfato de amonio ferroso
 et: raud(II)ammooniumfosfaat
 fi: rauta-II-ammoniumfosfaatti
-fr: phosphate d’ammonium ferreux
+fr: phosphate d’ammonium ferreux, orthophosphate d’ammonium ferreux
 hu: Vas(II)-ammónium-foszfát
 it: fosfato ferroso di ammonio
 lt: geležies (II) amonio fosfatas
@@ -2588,9 +2595,36 @@ en: iron salts
 es: sales de hierro
 it: sali di ferro
 
+< en:iron
+en: ferric pyrophosphate
+it: pirofosfato ferrico
+pl: dwufosforan żelazowy
+
+
+
 en: phosphor
 es: fosforo
 it: fosforo
+
+
+# Unspecified phosphate variety
+
+en: phosphate
+bg: фосфат, фосфати
+de: Phosphat
+es: Fosfato
+fi: fosfaatti, fosfaatit
+fr: phosphate, orthophosphate
+hr: fosfat
+hu: foszfát, foszfátok
+it: fosfato
+nl: fosfaat
+pt: fosfato, fosfatos
+# ingredient/fr:phosphates has 57 products @2019-02-22
+# usage:fr:Séquestrant : phosphate
+# usage:fr:stabilisants : phosphates
+# sodium (mono, hexameta, and/or tripoly) phosphate
+
 
 # comment:en:Probably plural is preferred on mineral waters.
 
@@ -4614,7 +4648,7 @@ cs: Jod
 cv: Иод
 cy: Ïodin
 da: jod
-de: Jod
+de: Jod, Iodid
 dv: އަޔޮޑިން
 el: Ιώδιο
 eo: jodo
@@ -4895,7 +4929,7 @@ nl: calciumjodaat
 pl: Jodan wapnia
 pt: iodato de cálcio
 ru: Иодат кальция
-sh:Kalcijum jodatsr:Kalcijum jodat
+sh: Kalcijum jodatsr:Kalcijum jodat
 ta: கால்சியம் அயோடேட்டு
 tr: Kalsiyum iyodat
 vi: Canxi iodat
@@ -5101,7 +5135,7 @@ pt: bicarbonato de sódio
 ro: bicarbonat de sodiu
 sk: hydrouhličitan sodný
 sl: natrijev bikarbonat
-sv: natriumbikarbonat
+sv: natriumbikarbonat, bikarbonat
 
 < en:Sodium
 en: sodium carbonate
@@ -5131,6 +5165,7 @@ sv: natriumkarbonat
 
 < en:sodium
 en: sodium chloride, sodium chlorure
+xx: NaCl
 ar: كلوريد الصوديوم
 az: Natrium Xlorid
 bg: Натриев хлорид
@@ -5181,7 +5216,7 @@ sh: Natrijum-hlorid
 sk: chlorid sodný
 sl: natrijev klorid
 sq: Klouri i natriumit
-sv: natriumklorid, nacl
+sv: natriumklorid
 ta: சோடியம் குளோரைடு
 th: โซเดียมคลอไรด์
 tl: Sodium chloride
@@ -5205,16 +5240,19 @@ description:en: SODIUM CHLORIDE commonly known as salt (though sea salt also con
 wikidata:en: Q2314
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_chloride
 
+# plural here additives.txt
+# singular here after
 #<en:E331
 < en:Sodium
 en: sodium citrate
-bg: натриев цитрат, натриеви цитрати
-ca: citronan sodný
+bg: натриев цитрат
+ca: citronan sodný, citrat de sodi
 de: Natriumcitrat
 el: κιτρικό νάτριο
 es: citrato de sodio
 et: Naatriumtsitraat
 fr: citrate de sodium
+hr: natrijev citrat
 hu: nátrium-citrát
 it: citrato di sodio
 ja: クエン酸ナトリウム, クエン酸Na, クエン酸Ｎａ
@@ -5303,7 +5341,7 @@ sv: natriumhydroxid
 < en:Sodium
 en: sodium phosphate
 de: Natriumphosphat, Natriumphosphate
-fr: phosphate de sodium
+fr: phosphate de sodium, orthophosphate de sodium
 it: fosfato di sodio, sodio fosfato
 
 < en:Sodium

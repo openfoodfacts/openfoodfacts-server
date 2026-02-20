@@ -4,15 +4,16 @@
 # list copied from:
 # REGULATION (EU) No 609/2013 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL
 # of 12 June 2013
-# on food intended for infants and young children, food for special medical purposes, 
+# on food intended for infants and young children, food for special medical purposes,
 # and total diet replacement for weight control and repealing Council Directive 92/52/EEC,
 # Commission Directives 96/8/EC, 1999/21/EC, 2006/125/EC and 2006/141/EC,
-# Directive 2009/39/EC of the European Parliament and of the Council and 
+# Directive 2009/39/EC of the European Parliament and of the Council and
 # Commission Regulations (EC) No 41/2009 and (EC) No 953/2009
 # http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0609&from=FR
 
 en: L-alanine
 bg: L-аланин
+da: L-alanin
 de: L-Alanin
 fr: L-alanine
 hu: L-alanin
@@ -39,7 +40,7 @@ it: L-arginina
 ja: L-アルギニン
 lt: L-argininas
 lv: L-arginīns
-mt:L-arġinina:
+mt: L-arġinina
 pl: L-arginina
 pt: L-arginina
 ro: L-arginină
@@ -406,6 +407,7 @@ ro: L-prolină
 sk: L-prolín
 sl: L-prolin
 sv: L-prolin
+wikidata:en: Q20035886
 
 en: L-threonine
 bg: L-треонин
@@ -428,28 +430,85 @@ ro: L-treonină
 sk: L-treonín
 sl: L-treonin
 sv: L-treonin
+wikidata:en: Q186521
+
+# description:en:L-tryptophan—pyruvate aminotransferase is an enzyme with systematic name L-tryptophan:pyruvate aminotransferase.
 
 en: L-tryptophan
-bg: L-триптофан
-cs: L-tryptofan
-el: L-τρυπτοφάνη
-es: L-triptófano
-et: L-trüptofaan
-fi: L-tryptofaani
-fr: L-tryptophane
-hu: L-triptofán
-it: L-triptofano
-ja: L-トリプトファン
-lt: L-triptofanas
-lv: L-triptofāns
-mt: L-triptofanina
-nl: L-tryptofaan
-pl: L-tryptofan
-pt: L-triptofano
-ro: L-triptofan
-sk: L-tryptofan
-sl: L-triptofan
-sv: L-tryptofan
+af: Triptofaan
+ar: تريبتوفان
+be: Трыптафан
+bg: Триптофан
+bn: ট্রিপ্টোফ্যান
+ca: triptòfan
+cs: L-tryptofan, tryptofan
+da: Tryptofan
+de: L-Tryptophan, Tryptophan
+el: Τρυπτοφάνη
+eo: triptofano
+es: L-Triptófano, Triptófano
+et: Trüptofaan
+eu: Triptofano
+fa: تریپتوفان
+fi: tryptofaani, l-tryptofaani
+fr: l-tryptophane, tryptophane
+gl: Triptófano
+he: טריפטופן
+hr: Triptofan
+hu: Triptofán
+hy: Տրիպտոֆան
+id: Triptofan
+it: L-triptofano, triptofano
+ja: トリプトファン
+jv: Triptofan
+ko: 트립토판
+ku: Trîptofan
+lb: Tryptophan
+lt: Triptofanas
+lv: triptofāns
+mk: Триптофан
+ms: Triptofan
+nb: Tryptofan
+nl: L-Tryptofaan, tryptofaan
+nn: L-tryptofan
+oc: Triptofan
+pl: L-tryptofan, tryptofan
+pt: Triptófano
+ro: Triptofan
+ru: триптофан
+sh: Triptofan
+sk: Tryptofán
+sl: Triptofan
+sr: триптофан
+sv: Tryptofan
+ta: டிரிப்டோபான்
+th: ทริปโตเฟน
+tr: Triptofan
+uk: Триптофан
+vi: Tryptophan
+zh: 色氨酸
+# azb:تریپتوفان
+# be-tarask:Трыптафан
+# de-ch:Tryptophan
+# en-ca:Tryptophan# en-gb:Tryptophan
+# ku-arab:تریپتۆفان
+# ku-latn:Trîptofan
+# nan:Tryptophan
+# pt-br:Triptófano
+# sco:tryptophan
+# sr-ec:триптофан
+# sr-el:Triptofan
+# yue:色氨酸
+# zh-cn:色氨酸
+# zh-hans:色氨酸
+# zh-hant:色氨酸
+# zh-hk:色胺酸
+# zh-sg:色氨酸
+# zh-tw:色胺酸
+wikidata:en: Q181003
+wikipedia:en: https://en.wikipedia.org/wiki/L-tryptophan—pyruvate_aminotransferase
+# amino-acid/l-tryptophan has 79 products @2019-03-16
+# ingredient/fr:l-tryptophane has 61 products in 4 languages @2019-03-16
 
 en: L-tyrosine
 bg: L-тирозин
@@ -472,6 +531,7 @@ ro: L-tirozină
 sk: L-tyrozín
 sl: L-tirozin
 sv: L-tyrosin
+wikidata:en: Q188017
 
 en: L-valine
 bg: L-валин
@@ -494,6 +554,7 @@ ro: L-valină
 sk: L-valín
 sl: L-valin
 sv: L-valin
+wikidata:en: Q483752
 
 en: L-serine
 bg: L-серин
@@ -516,6 +577,7 @@ ro: L-serină
 sk: L- serín
 sl: L-serin
 sv: L-serin
+wikidata:en: Q183290
 
 en: L-arginine-L-aspartate
 bg: L-аргинин-L-аспартат
@@ -538,6 +600,7 @@ ro: L-arginină-L-aspartat
 sk: L-arginín-L-aspartát
 sl: L-arginin-L-aspartat
 sv: L-arginin-L-aspartat
+wikidata:en: Q82004220
 
 en: L-lysine-L-aspartate
 bg: L-лизин-L-аспартат

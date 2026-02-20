@@ -1,4 +1,4 @@
-### Translations
+### How to add a translation
 You can translate Open Food Facts at https://translate.openfoodfacts.org thanks to the Crowdin platform. Please do not translate directly in the code, or your translations will be overwritten.
 
 If you want to add a translatable string in the code:

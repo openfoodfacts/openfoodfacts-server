@@ -30,16 +30,26 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "@openfoodfacts/openfoodfacts-webcomponents": "//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js",
+            "leaflet": "//static.openfoodfacts.localhost/js/dist/leaflet-src.js",
+            "leaflet.markercluster": "//static.openfoodfacts.localhost/js/dist/leaflet.markercluster.js",
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
+    <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	
     <style media="all">
-        
         .show-when-no-access-to-producers-platform {display:none}
 .show-when-logged-in {display:none}
 .select2-container--default .select2-results > .select2-results__options {
     max-height: 400px
 }
 
-		
+
 		.badge-container{
 			margin: 0 auto;
 		}
@@ -85,17 +95,58 @@
 
 
 
+	<off-webcomponents-configuration
+  language-code="en"
+  country-code="world"
+  robotoff-configuration='{
+    "apiUrl": "//backend:8881//api/v1",
+    "imgUrl": "//images.openfoodfacts.localhost/images/products"
+  }'
+  
+  folksonomy-configuration='{
+  "apiUrl": "//api.folksonomy.openfoodfacts.localhost"
+  }'
+  
+  openfoodfacts-api-url="//world.openfoodfacts.localhost"
+  assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
+  ></off-webcomponents-configuration>
+
 	
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
 	
+
+	<div id="barcode-scanner-modal" class="modal is_hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2><span>Scan a product</span></h2>
+      <button class="modal-close-button">&times;</button>
+    </div>
+    <div>
+      <barcode-scanner id="barcode-scanner"></barcode-scanner>
+    </div>
+    <div>
+    </div>
+    <div >
+      <label for="barcode-modal-input">Or enter barcode manually</label>
+      <div class="barcode-modal-group">
+        <input type="text" id="barcode-modal-input" class="barcode-modal-input" inputmode="numeric" pattern="\d*" />
+        <button class="barcode-modal-button button" id="barcode-modal-button" disabled>Scan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="//static.openfoodfacts.localhost/js/dist/barcode-scanner.js"></script>
+
 
 	<div id="page">
 		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
-				
+
 				<section class="top-bar-section">
-					
+
 					<!-- Left Nav Section -->
 					<ul class="left">
 
@@ -105,7 +156,7 @@
 									menu
 								</span>
 							</a>
-							<ul class="dropdown">				
+							<ul class="dropdown">
 								
 									<li><a href="/discover">Discover</a></li>
 									<li><a href="/contribute">Contribute</a></li>
@@ -128,7 +179,7 @@
 								
 							</ul>
 						</li>
-						
+
 						<li>
 							<ul class="country_language_selection">
 								<li class="has-form has-dropdown" id="select_country_li">
@@ -149,11 +200,11 @@
 
 
 					<!-- Right Nav Section -->
-					
+
 					<ul class="right">
 						
 							<li class="h-space-tiny has-form">
-								<a href="/cgi/session.pl" class="round button secondary">
+								<a href="/cgi/oidc_signin.pl?return_url=http%3A%2F%2Fworld.openfoodfacts.localhost" class="round button secondary">
 									<span class="material-icons material-symbols-button">account_circle</span>
 									Sign in
 								</a>
@@ -166,7 +217,7 @@
 		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-		
+
 		
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
@@ -186,10 +237,10 @@
 					
 					
 					<section class="top-bar-section">
-					
-						<ul class="left small-4" style="margin-right:2rem;">
+
+						<ul class="left small-4">
 							<li class="search-li">
-							
+
 								<form action="/cgi/search.pl">
 								<div class="row"><div class="small-12">
 								<div class="row collapse postfix-round">
@@ -198,9 +249,22 @@
 									<input name="search_simple" value="1" type="hidden">
 									<input name="action" value="process" type="hidden">
 									</div>
-									<div class="columns">
+									<div class="columns postfix-button-wrapper">
 									<button type="submit" title="Search" class="button postfix" style="line-height:normal"><svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></button>
 									</div>
+									<div class="columns postfix-button-wrapper is_hidden">
+  <button
+    type="button"
+    title="Scan a product"
+    class="button barcode-scanner-button"
+    id="barcode-scanner-button"
+  >
+    <svg style="width:24px;height:24px" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M2,6H4V18H2V6M5,6H6V18H5V6M7,6H10V18H7V6M11,6H12V18H11V6M14,6H16V18H14V6M17,6H20V18H17V6M21,6H22V18H21V6Z"/></svg>
+  </button>
+
+  <script src="//static.openfoodfacts.localhost/js/dist/barcode-scanner-button.js"></script>
+</div>
+
 								</div>
 								</div></div>
 								</form>
@@ -249,13 +313,13 @@
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
-			
+
 				<a class="exit-off-canvas"></a>
 
 				
-				
+
 				<!-- full width banner on mobile -->
-				
+
 				
 
 				
@@ -278,7 +342,10 @@
 
 								
 
+
+
 <section id="donation-banner-top" class="donation-banner row">
+
   <div class="donation-banner__left-aside">
     <div class="donation-banner__hook-section">
       <p>Help us inform millions of consumers around the world about what they eat</p>
@@ -292,9 +359,9 @@
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner__main-title">Please give to our 2024 Fundraiser</h3>
+        <h3 class="donation-banner__main-title">Please give to our 2026 Fundraiser</h3>
       </div>
       <div style="padding:1rem;">
         <p>Your donations fund the day-to-day operations of our non-profit association:</p>
@@ -321,7 +388,7 @@
       <div class="donation-banner__actions-section__financial">
         <p>
           
-          Each donation counts! We appreciate your support in bringing further food transparency in the world.  
+          Each donation counts! We appreciate your support in bringing further food transparency in the world.
           
         </p>
       </div>
@@ -332,6 +399,8 @@
       </div>
     </div>
   </div>
+
+
   <div class="donation-banner__close">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -349,7 +418,7 @@
     let domain = 'domain=.' + getDomain.slice(1).join('.');
     document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
   }
-  
+
   function getBannerCookie(bcname) {
     const name = bcname + '=';
     const decodedCookies = decodeURIComponent(document.cookie);
@@ -359,18 +428,18 @@
       while (c.charAt(0) == ' ') { c = c.substring(1); }
       if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
     }
-    
+
     return '';
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2024_a', 1, 180);
+    setBannerCookie('off_days_2025', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
+  if (getBannerCookie('off_days_2025') !== '') {
     bannerID.style.display = 'none';
-  } else { 
+  } else {
     bannerID.style.display = 'flex';
   }
 </script>
@@ -379,7 +448,7 @@
 							
 						
 						
-            			
+
 						
 							<div class="row">
 								<div class="small-12 column">
@@ -553,7 +622,8 @@
             
         </div>
 
-        <!-- Ingredients Form -->
+        
+        <!-- Ingredients Form - only on food, petfood and beauty -->
 
         <h3>Ingredients</h3>
 
@@ -602,49 +672,9 @@
             
         </div>
         
-            <div class="small-12 medium-12 large-6 columns">
-                <label>Additives</label>
-                <input type="radio" name="additives" value="without" id="without_additives" />
-                    <label for="without_additives">Without</label>
-                <input type="radio" name="additives" value="with" id="with_additives" />
-                    <label for="with_additives">With</label>
-                <input type="radio" name="additives" value="indifferent" id="indifferent_additives" checked="checked"/>
-                    <label for="indifferent_additives">Indifferent</label>
-            </div>
-        
-            <div class="small-12 medium-12 large-6 columns">
-                <label>Ingredients from palm oil</label>
-                <input type="radio" name="ingredients_from_palm_oil" value="without" id="without_ingredients_from_palm_oil" />
-                    <label for="without_ingredients_from_palm_oil">Without</label>
-                <input type="radio" name="ingredients_from_palm_oil" value="with" id="with_ingredients_from_palm_oil" />
-                    <label for="with_ingredients_from_palm_oil">With</label>
-                <input type="radio" name="ingredients_from_palm_oil" value="indifferent" id="indifferent_ingredients_from_palm_oil" checked="checked"/>
-                    <label for="indifferent_ingredients_from_palm_oil">Indifferent</label>
-            </div>
-        
-            <div class="small-12 medium-12 large-6 columns">
-                <label>Ingredients that may be from palm oil</label>
-                <input type="radio" name="ingredients_that_may_be_from_palm_oil" value="without" id="without_ingredients_that_may_be_from_palm_oil" />
-                    <label for="without_ingredients_that_may_be_from_palm_oil">Without</label>
-                <input type="radio" name="ingredients_that_may_be_from_palm_oil" value="with" id="with_ingredients_that_may_be_from_palm_oil" />
-                    <label for="with_ingredients_that_may_be_from_palm_oil">With</label>
-                <input type="radio" name="ingredients_that_may_be_from_palm_oil" value="indifferent" id="indifferent_ingredients_that_may_be_from_palm_oil" checked="checked"/>
-                    <label for="indifferent_ingredients_that_may_be_from_palm_oil">Indifferent</label>
-            </div>
-        
-            <div class="small-12 medium-12 large-6 columns">
-                <label>Ingredients from or that may be from palm oil</label>
-                <input type="radio" name="ingredients_from_or_that_may_be_from_palm_oil" value="without" id="without_ingredients_from_or_that_may_be_from_palm_oil" />
-                    <label for="without_ingredients_from_or_that_may_be_from_palm_oil">Without</label>
-                <input type="radio" name="ingredients_from_or_that_may_be_from_palm_oil" value="with" id="with_ingredients_from_or_that_may_be_from_palm_oil" />
-                    <label for="with_ingredients_from_or_that_may_be_from_palm_oil">With</label>
-                <input type="radio" name="ingredients_from_or_that_may_be_from_palm_oil" value="indifferent" id="indifferent_ingredients_from_or_that_may_be_from_palm_oil" checked="checked"/>
-                    <label for="indifferent_ingredients_from_or_that_may_be_from_palm_oil">Indifferent</label>
-            </div>
-        
-    </div>
 
-        <!-- Nutriments Form -->
+        
+        <!-- Nutriments Form - only of food and petfood -->
 
         <h3>Nutriments</h3>
 
@@ -696,8 +726,6 @@
                                     <option value="carbohydrates" label="Carbohydrates">Carbohydrates</option>
                                 
                                     <option value="carbon-footprint" label="Carbon footprint">Carbon footprint</option>
-                                
-                                    <option value="carbon-footprint-from-meat-or-fish" label="Carbon footprint from meat or fish">Carbon footprint from meat or fish</option>
                                 
                                     <option value="carnitine" label="Carnitine">Carnitine</option>
                                 
@@ -753,13 +781,9 @@
                                 
                                     <option value="fructose" label="Fructose">Fructose</option>
                                 
-                                    <option value="fruits-vegetables-nuts-dried" label="Fruits‚ vegetables and nuts - dried">Fruits‚ vegetables and nuts - dried</option>
+                                    <option value="fruits-vegetables-legumes" label="Fruits‚ vegetables‚ legumes">Fruits‚ vegetables‚ legumes</option>
                                 
-                                    <option value="fruits-vegetables-nuts" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils</option>
-                                
-                                    <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)</option>
-                                
-                                    <option value="fruits-vegetables-nuts-estimate" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)</option>
+                                    <option value="galactose" label="Galactose">Galactose</option>
                                 
                                     <option value="gamma-linolenic-acid" label="Gamma-linolenic acid">Gamma-linolenic acid</option>
                                 
@@ -779,6 +803,8 @@
                                 
                                     <option value="iron" label="Iron">Iron</option>
                                 
+                                    <option value="isomalt" label="Isomalt">Isomalt</option>
+                                
                                     <option value="lactose" label="Lactose">Lactose</option>
                                 
                                     <option value="lauric-acid" label="Lauric acid">Lauric acid</option>
@@ -789,6 +815,8 @@
                                 
                                     <option value="magnesium" label="Magnesium">Magnesium</option>
                                 
+                                    <option value="maltitol" label="Maltitol">Maltitol</option>
+                                
                                     <option value="maltodextrins" label="Maltodextrins">Maltodextrins</option>
                                 
                                     <option value="maltose" label="Maltose">Maltose</option>
@@ -798,6 +826,8 @@
                                     <option value="mead-acid" label="Mead acid">Mead acid</option>
                                 
                                     <option value="melissic-acid" label="Melissic acid">Melissic acid</option>
+                                
+                                    <option value="methylsulfonylmethane" label="Methylsulfonylmethane">Methylsulfonylmethane</option>
                                 
                                     <option value="molybdenum" label="Molybdenum">Molybdenum</option>
                                 
@@ -823,10 +853,6 @@
                                 
                                     <option value="unknown_ingredients_n" label="Number of unrecognized ingredients">Number of unrecognized ingredients</option>
                                 
-                                    <option value="nutrition-score-fr" label="Nutrition score - France">Nutrition score - France</option>
-                                
-                                    <option value="nutrition-score-uk" label="Nutrition score - UK">Nutrition score - UK</option>
-                                
                                     <option value="oleic-acid" label="Oleic acid">Oleic acid</option>
                                 
                                     <option value="omega-3-fat" label="Omega 3 fat">Omega 3 fat</option>
@@ -835,47 +861,51 @@
                                 
                                     <option value="omega-9-fat" label="Omega 9 fat">Omega 9 fat</option>
                                 
-                                    <option value="packagings_materials.all.weight" label="Packaging - All materials - Weight">Packaging - All materials - Weight</option>
+                                    <option value="packagings_materials.all.weight" label="Packaging – All materials – Weight">Packaging – All materials – Weight</option>
                                 
-                                    <option value="packagings_materials.all.weight_100g" label="Packaging - All materials - Weight per 100g of product">Packaging - All materials - Weight per 100g of product</option>
+                                    <option value="packagings_materials.all.weight_100g" label="Packaging – All materials – Weight per 100g of product">Packaging – All materials – Weight per 100g of product</option>
                                 
-                                    <option value="packagings_materials.all.weight_percent" label="Packaging - All materials - Weight percent">Packaging - All materials - Weight percent</option>
+                                    <option value="packagings_materials.all.weight_percent" label="Packaging – All materials – Weight percent">Packaging – All materials – Weight percent</option>
                                 
-                                    <option value="packagings_materials.en:glass.weight" label="Packaging - Glass - Weight">Packaging - Glass - Weight</option>
+                                    <option value="packagings_materials.en:glass.weight" label="Packaging – Glass – Weight">Packaging – Glass – Weight</option>
                                 
-                                    <option value="packagings_materials.en:glass.weight_100g" label="Packaging - Glass - Weight per 100g of product">Packaging - Glass - Weight per 100g of product</option>
+                                    <option value="packagings_materials.en:glass.weight_100g" label="Packaging – Glass – Weight per 100g of product">Packaging – Glass – Weight per 100g of product</option>
                                 
-                                    <option value="packagings_materials.en:glass.weight_percent" label="Packaging - Glass - Weight percent">Packaging - Glass - Weight percent</option>
+                                    <option value="packagings_materials.en:glass.weight_percent" label="Packaging – Glass – Weight percent">Packaging – Glass – Weight percent</option>
                                 
-                                    <option value="packagings_materials.en:metal.weight" label="Packaging - Metal - Weight">Packaging - Metal - Weight</option>
+                                    <option value="packagings_materials.en:metal.weight" label="Packaging – Metal – Weight">Packaging – Metal – Weight</option>
                                 
-                                    <option value="packagings_materials.en:metal.weight_100g" label="Packaging - Metal - Weight per 100g of product">Packaging - Metal - Weight per 100g of product</option>
+                                    <option value="packagings_materials.en:metal.weight_100g" label="Packaging – Metal – Weight per 100g of product">Packaging – Metal – Weight per 100g of product</option>
                                 
-                                    <option value="packagings_materials.en:metal.weight_percent" label="Packaging - Metal - Weight percent">Packaging - Metal - Weight percent</option>
+                                    <option value="packagings_materials.en:metal.weight_percent" label="Packaging – Metal – Weight percent">Packaging – Metal – Weight percent</option>
                                 
-                                    <option value="packagings_materials.en:paper-or-cardboard.weight" label="Packaging - Paper or cardboard - Weight">Packaging - Paper or cardboard - Weight</option>
+                                    <option value="packagings_materials.en:paper-or-cardboard.weight" label="Packaging – Paper or cardboard – Weight">Packaging – Paper or cardboard – Weight</option>
                                 
-                                    <option value="packagings_materials.en:paper-or-cardboard.weight_100g" label="Packaging - Paper or cardboard - Weight per 100g of product">Packaging - Paper or cardboard - Weight per 100g of product</option>
+                                    <option value="packagings_materials.en:paper-or-cardboard.weight_100g" label="Packaging – Paper or cardboard – Weight per 100g of product">Packaging – Paper or cardboard – Weight per 100g of product</option>
                                 
-                                    <option value="packagings_materials.en:paper-or-cardboard.weight_percent" label="Packaging - Paper or cardboard - Weight percent">Packaging - Paper or cardboard - Weight percent</option>
+                                    <option value="packagings_materials.en:paper-or-cardboard.weight_percent" label="Packaging – Paper or cardboard – Weight percent">Packaging – Paper or cardboard – Weight percent</option>
                                 
-                                    <option value="packagings_materials.en:plastic.weight" label="Packaging - Plastic - Weight">Packaging - Plastic - Weight</option>
+                                    <option value="packagings_materials.en:plastic.weight" label="Packaging – Plastic – Weight">Packaging – Plastic – Weight</option>
                                 
-                                    <option value="packagings_materials.en:plastic.weight_100g" label="Packaging - Plastic - Weight per 100g of product">Packaging - Plastic - Weight per 100g of product</option>
+                                    <option value="packagings_materials.en:plastic.weight_100g" label="Packaging – Plastic – Weight per 100g of product">Packaging – Plastic – Weight per 100g of product</option>
                                 
-                                    <option value="packagings_materials.en:plastic.weight_percent" label="Packaging - Plastic - Weight percent">Packaging - Plastic - Weight percent</option>
+                                    <option value="packagings_materials.en:plastic.weight_percent" label="Packaging – Plastic – Weight percent">Packaging – Plastic – Weight percent</option>
                                 
-                                    <option value="packagings_materials.en:unknown.weight" label="Packaging - Unknown - Weight">Packaging - Unknown - Weight</option>
+                                    <option value="packagings_materials.en:unknown.weight" label="Packaging – Unknown – Weight">Packaging – Unknown – Weight</option>
                                 
-                                    <option value="packagings_materials.en:unknown.weight_100g" label="Packaging - Unknown - Weight per 100g of product">Packaging - Unknown - Weight per 100g of product</option>
+                                    <option value="packagings_materials.en:unknown.weight_100g" label="Packaging – Unknown – Weight per 100g of product">Packaging – Unknown – Weight per 100g of product</option>
                                 
-                                    <option value="packagings_materials.en:unknown.weight_percent" label="Packaging - Unknown - Weight percent">Packaging - Unknown - Weight percent</option>
+                                    <option value="packagings_materials.en:unknown.weight_percent" label="Packaging – Unknown – Weight percent">Packaging – Unknown – Weight percent</option>
                                 
                                     <option value="palmitic-acid" label="Palmitic acid">Palmitic acid</option>
+                                
+                                    <option value="folksonomy" label="Personalized property">Personalized property</option>
                                 
                                     <option value="ph" label="PH">PH</option>
                                 
                                     <option value="phosphorus" label="Phosphorus">Phosphorus</option>
+                                
+                                    <option value="polydextrose" label="Polydextrose">Polydextrose</option>
                                 
                                     <option value="polyols" label="Polyols (sugar alcohols)">Polyols (sugar alcohols)</option>
                                 
@@ -884,6 +914,8 @@
                                     <option value="potassium" label="Potassium">Potassium</option>
                                 
                                     <option value="proteins" label="Proteins">Proteins</option>
+                                
+                                    <option value="psicose" label="Psicose (Allulose)">Psicose (Allulose)</option>
                                 
                                     <option value="product_quantity" label="Quantity">Quantity</option>
                                 
@@ -901,6 +933,8 @@
                                 
                                     <option value="soluble-fiber" label="Soluble fiber">Soluble fiber</option>
                                 
+                                    <option value="sorbitol" label="Sorbitol">Sorbitol</option>
+                                
                                     <option value="starch" label="Starch">Starch</option>
                                 
                                     <option value="stearic-acid" label="Stearic acid">Stearic acid</option>
@@ -912,6 +946,8 @@
                                     <option value="sulphate" label="Sulphate">Sulphate</option>
                                 
                                     <option value="taurine" label="Taurine">Taurine</option>
+                                
+                                    <option value="carbohydrates-total" label="Total carbohydrates (includes fiber)">Total carbohydrates (includes fiber)</option>
                                 
                                     <option value="trans-fat" label="Trans fat">Trans fat</option>
                                 
@@ -946,6 +982,8 @@
                                     <option value="water-hardness" label="Water hardness">Water hardness</option>
                                 
                                     <option value="zinc" label="Zinc">Zinc</option>
+                                
+                                    <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="zz:fruits-vegetables-nuts-estimate-from-ingredients">zz:fruits-vegetables-nuts-estimate-from-ingredients</option>
                                 
                             </select>
                         </div>
@@ -1017,8 +1055,6 @@
                                 
                                     <option value="carbon-footprint" label="Carbon footprint">Carbon footprint</option>
                                 
-                                    <option value="carbon-footprint-from-meat-or-fish" label="Carbon footprint from meat or fish">Carbon footprint from meat or fish</option>
-                                
                                     <option value="carnitine" label="Carnitine">Carnitine</option>
                                 
                                     <option value="casein" label="Casein">Casein</option>
@@ -1073,13 +1109,9 @@
                                 
                                     <option value="fructose" label="Fructose">Fructose</option>
                                 
-                                    <option value="fruits-vegetables-nuts-dried" label="Fruits‚ vegetables and nuts - dried">Fruits‚ vegetables and nuts - dried</option>
+                                    <option value="fruits-vegetables-legumes" label="Fruits‚ vegetables‚ legumes">Fruits‚ vegetables‚ legumes</option>
                                 
-                                    <option value="fruits-vegetables-nuts" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils</option>
-                                
-                                    <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)</option>
-                                
-                                    <option value="fruits-vegetables-nuts-estimate" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)</option>
+                                    <option value="galactose" label="Galactose">Galactose</option>
                                 
                                     <option value="gamma-linolenic-acid" label="Gamma-linolenic acid">Gamma-linolenic acid</option>
                                 
@@ -1099,6 +1131,8 @@
                                 
                                     <option value="iron" label="Iron">Iron</option>
                                 
+                                    <option value="isomalt" label="Isomalt">Isomalt</option>
+                                
                                     <option value="lactose" label="Lactose">Lactose</option>
                                 
                                     <option value="lauric-acid" label="Lauric acid">Lauric acid</option>
@@ -1109,6 +1143,8 @@
                                 
                                     <option value="magnesium" label="Magnesium">Magnesium</option>
                                 
+                                    <option value="maltitol" label="Maltitol">Maltitol</option>
+                                
                                     <option value="maltodextrins" label="Maltodextrins">Maltodextrins</option>
                                 
                                     <option value="maltose" label="Maltose">Maltose</option>
@@ -1118,6 +1154,8 @@
                                     <option value="mead-acid" label="Mead acid">Mead acid</option>
                                 
                                     <option value="melissic-acid" label="Melissic acid">Melissic acid</option>
+                                
+                                    <option value="methylsulfonylmethane" label="Methylsulfonylmethane">Methylsulfonylmethane</option>
                                 
                                     <option value="molybdenum" label="Molybdenum">Molybdenum</option>
                                 
@@ -1143,10 +1181,6 @@
                                 
                                     <option value="unknown_ingredients_n" label="Number of unrecognized ingredients">Number of unrecognized ingredients</option>
                                 
-                                    <option value="nutrition-score-fr" label="Nutrition score - France">Nutrition score - France</option>
-                                
-                                    <option value="nutrition-score-uk" label="Nutrition score - UK">Nutrition score - UK</option>
-                                
                                     <option value="oleic-acid" label="Oleic acid">Oleic acid</option>
                                 
                                     <option value="omega-3-fat" label="Omega 3 fat">Omega 3 fat</option>
@@ -1155,47 +1189,51 @@
                                 
                                     <option value="omega-9-fat" label="Omega 9 fat">Omega 9 fat</option>
                                 
-                                    <option value="packagings_materials.all.weight" label="Packaging - All materials - Weight">Packaging - All materials - Weight</option>
+                                    <option value="packagings_materials.all.weight" label="Packaging – All materials – Weight">Packaging – All materials – Weight</option>
                                 
-                                    <option value="packagings_materials.all.weight_100g" label="Packaging - All materials - Weight per 100g of product">Packaging - All materials - Weight per 100g of product</option>
+                                    <option value="packagings_materials.all.weight_100g" label="Packaging – All materials – Weight per 100g of product">Packaging – All materials – Weight per 100g of product</option>
                                 
-                                    <option value="packagings_materials.all.weight_percent" label="Packaging - All materials - Weight percent">Packaging - All materials - Weight percent</option>
+                                    <option value="packagings_materials.all.weight_percent" label="Packaging – All materials – Weight percent">Packaging – All materials – Weight percent</option>
                                 
-                                    <option value="packagings_materials.en:glass.weight" label="Packaging - Glass - Weight">Packaging - Glass - Weight</option>
+                                    <option value="packagings_materials.en:glass.weight" label="Packaging – Glass – Weight">Packaging – Glass – Weight</option>
                                 
-                                    <option value="packagings_materials.en:glass.weight_100g" label="Packaging - Glass - Weight per 100g of product">Packaging - Glass - Weight per 100g of product</option>
+                                    <option value="packagings_materials.en:glass.weight_100g" label="Packaging – Glass – Weight per 100g of product">Packaging – Glass – Weight per 100g of product</option>
                                 
-                                    <option value="packagings_materials.en:glass.weight_percent" label="Packaging - Glass - Weight percent">Packaging - Glass - Weight percent</option>
+                                    <option value="packagings_materials.en:glass.weight_percent" label="Packaging – Glass – Weight percent">Packaging – Glass – Weight percent</option>
                                 
-                                    <option value="packagings_materials.en:metal.weight" label="Packaging - Metal - Weight">Packaging - Metal - Weight</option>
+                                    <option value="packagings_materials.en:metal.weight" label="Packaging – Metal – Weight">Packaging – Metal – Weight</option>
                                 
-                                    <option value="packagings_materials.en:metal.weight_100g" label="Packaging - Metal - Weight per 100g of product">Packaging - Metal - Weight per 100g of product</option>
+                                    <option value="packagings_materials.en:metal.weight_100g" label="Packaging – Metal – Weight per 100g of product">Packaging – Metal – Weight per 100g of product</option>
                                 
-                                    <option value="packagings_materials.en:metal.weight_percent" label="Packaging - Metal - Weight percent">Packaging - Metal - Weight percent</option>
+                                    <option value="packagings_materials.en:metal.weight_percent" label="Packaging – Metal – Weight percent">Packaging – Metal – Weight percent</option>
                                 
-                                    <option value="packagings_materials.en:paper-or-cardboard.weight" label="Packaging - Paper or cardboard - Weight">Packaging - Paper or cardboard - Weight</option>
+                                    <option value="packagings_materials.en:paper-or-cardboard.weight" label="Packaging – Paper or cardboard – Weight">Packaging – Paper or cardboard – Weight</option>
                                 
-                                    <option value="packagings_materials.en:paper-or-cardboard.weight_100g" label="Packaging - Paper or cardboard - Weight per 100g of product">Packaging - Paper or cardboard - Weight per 100g of product</option>
+                                    <option value="packagings_materials.en:paper-or-cardboard.weight_100g" label="Packaging – Paper or cardboard – Weight per 100g of product">Packaging – Paper or cardboard – Weight per 100g of product</option>
                                 
-                                    <option value="packagings_materials.en:paper-or-cardboard.weight_percent" label="Packaging - Paper or cardboard - Weight percent">Packaging - Paper or cardboard - Weight percent</option>
+                                    <option value="packagings_materials.en:paper-or-cardboard.weight_percent" label="Packaging – Paper or cardboard – Weight percent">Packaging – Paper or cardboard – Weight percent</option>
                                 
-                                    <option value="packagings_materials.en:plastic.weight" label="Packaging - Plastic - Weight">Packaging - Plastic - Weight</option>
+                                    <option value="packagings_materials.en:plastic.weight" label="Packaging – Plastic – Weight">Packaging – Plastic – Weight</option>
                                 
-                                    <option value="packagings_materials.en:plastic.weight_100g" label="Packaging - Plastic - Weight per 100g of product">Packaging - Plastic - Weight per 100g of product</option>
+                                    <option value="packagings_materials.en:plastic.weight_100g" label="Packaging – Plastic – Weight per 100g of product">Packaging – Plastic – Weight per 100g of product</option>
                                 
-                                    <option value="packagings_materials.en:plastic.weight_percent" label="Packaging - Plastic - Weight percent">Packaging - Plastic - Weight percent</option>
+                                    <option value="packagings_materials.en:plastic.weight_percent" label="Packaging – Plastic – Weight percent">Packaging – Plastic – Weight percent</option>
                                 
-                                    <option value="packagings_materials.en:unknown.weight" label="Packaging - Unknown - Weight">Packaging - Unknown - Weight</option>
+                                    <option value="packagings_materials.en:unknown.weight" label="Packaging – Unknown – Weight">Packaging – Unknown – Weight</option>
                                 
-                                    <option value="packagings_materials.en:unknown.weight_100g" label="Packaging - Unknown - Weight per 100g of product">Packaging - Unknown - Weight per 100g of product</option>
+                                    <option value="packagings_materials.en:unknown.weight_100g" label="Packaging – Unknown – Weight per 100g of product">Packaging – Unknown – Weight per 100g of product</option>
                                 
-                                    <option value="packagings_materials.en:unknown.weight_percent" label="Packaging - Unknown - Weight percent">Packaging - Unknown - Weight percent</option>
+                                    <option value="packagings_materials.en:unknown.weight_percent" label="Packaging – Unknown – Weight percent">Packaging – Unknown – Weight percent</option>
                                 
                                     <option value="palmitic-acid" label="Palmitic acid">Palmitic acid</option>
+                                
+                                    <option value="folksonomy" label="Personalized property">Personalized property</option>
                                 
                                     <option value="ph" label="PH">PH</option>
                                 
                                     <option value="phosphorus" label="Phosphorus">Phosphorus</option>
+                                
+                                    <option value="polydextrose" label="Polydextrose">Polydextrose</option>
                                 
                                     <option value="polyols" label="Polyols (sugar alcohols)">Polyols (sugar alcohols)</option>
                                 
@@ -1204,6 +1242,8 @@
                                     <option value="potassium" label="Potassium">Potassium</option>
                                 
                                     <option value="proteins" label="Proteins">Proteins</option>
+                                
+                                    <option value="psicose" label="Psicose (Allulose)">Psicose (Allulose)</option>
                                 
                                     <option value="product_quantity" label="Quantity">Quantity</option>
                                 
@@ -1221,6 +1261,8 @@
                                 
                                     <option value="soluble-fiber" label="Soluble fiber">Soluble fiber</option>
                                 
+                                    <option value="sorbitol" label="Sorbitol">Sorbitol</option>
+                                
                                     <option value="starch" label="Starch">Starch</option>
                                 
                                     <option value="stearic-acid" label="Stearic acid">Stearic acid</option>
@@ -1232,6 +1274,8 @@
                                     <option value="sulphate" label="Sulphate">Sulphate</option>
                                 
                                     <option value="taurine" label="Taurine">Taurine</option>
+                                
+                                    <option value="carbohydrates-total" label="Total carbohydrates (includes fiber)">Total carbohydrates (includes fiber)</option>
                                 
                                     <option value="trans-fat" label="Trans fat">Trans fat</option>
                                 
@@ -1267,6 +1311,8 @@
                                 
                                     <option value="zinc" label="Zinc">Zinc</option>
                                 
+                                    <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="zz:fruits-vegetables-nuts-estimate-from-ingredients">zz:fruits-vegetables-nuts-estimate-from-ingredients</option>
+                                
                             </select>
                         </div>
                         <div class="small-2 columns">
@@ -1291,6 +1337,7 @@
                 </div>
             
         </div>
+        
 
         <!-- Different types to display results -->
 
@@ -1332,18 +1379,6 @@
                                 
                                     
                                         <option value=100 label=100>100</option>
-                                    
-                                
-                                    
-                                        <option value=250 label=250>250</option>
-                                    
-                                
-                                    
-                                        <option value=500 label=500>500</option>
-                                    
-                                
-                                    
-                                        <option value=1000 label=1000>1000</option>
                                     
                                 
                             </select>
@@ -1416,8 +1451,6 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="carbon-footprint" label="Carbon footprint">Carbon footprint</option>
                                     
-                                        <option value="carbon-footprint-from-meat-or-fish" label="Carbon footprint from meat or fish">Carbon footprint from meat or fish</option>
-                                    
                                         <option value="carnitine" label="Carnitine">Carnitine</option>
                                     
                                         <option value="casein" label="Casein">Casein</option>
@@ -1472,13 +1505,9 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="fructose" label="Fructose">Fructose</option>
                                     
-                                        <option value="fruits-vegetables-nuts-dried" label="Fruits‚ vegetables and nuts - dried">Fruits‚ vegetables and nuts - dried</option>
+                                        <option value="fruits-vegetables-legumes" label="Fruits‚ vegetables‚ legumes">Fruits‚ vegetables‚ legumes</option>
                                     
-                                        <option value="fruits-vegetables-nuts" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils</option>
-                                    
-                                        <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)</option>
-                                    
-                                        <option value="fruits-vegetables-nuts-estimate" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)</option>
+                                        <option value="galactose" label="Galactose">Galactose</option>
                                     
                                         <option value="gamma-linolenic-acid" label="Gamma-linolenic acid">Gamma-linolenic acid</option>
                                     
@@ -1498,6 +1527,8 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="iron" label="Iron">Iron</option>
                                     
+                                        <option value="isomalt" label="Isomalt">Isomalt</option>
+                                    
                                         <option value="lactose" label="Lactose">Lactose</option>
                                     
                                         <option value="lauric-acid" label="Lauric acid">Lauric acid</option>
@@ -1508,6 +1539,8 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="magnesium" label="Magnesium">Magnesium</option>
                                     
+                                        <option value="maltitol" label="Maltitol">Maltitol</option>
+                                    
                                         <option value="maltodextrins" label="Maltodextrins">Maltodextrins</option>
                                     
                                         <option value="maltose" label="Maltose">Maltose</option>
@@ -1517,6 +1550,8 @@ get a cloud of products (scatter plot).</p>
                                         <option value="mead-acid" label="Mead acid">Mead acid</option>
                                     
                                         <option value="melissic-acid" label="Melissic acid">Melissic acid</option>
+                                    
+                                        <option value="methylsulfonylmethane" label="Methylsulfonylmethane">Methylsulfonylmethane</option>
                                     
                                         <option value="molybdenum" label="Molybdenum">Molybdenum</option>
                                     
@@ -1542,10 +1577,6 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="unknown_ingredients_n" label="Number of unrecognized ingredients">Number of unrecognized ingredients</option>
                                     
-                                        <option value="nutrition-score-fr" label="Nutrition score - France">Nutrition score - France</option>
-                                    
-                                        <option value="nutrition-score-uk" label="Nutrition score - UK">Nutrition score - UK</option>
-                                    
                                         <option value="oleic-acid" label="Oleic acid">Oleic acid</option>
                                     
                                         <option value="omega-3-fat" label="Omega 3 fat">Omega 3 fat</option>
@@ -1554,47 +1585,51 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="omega-9-fat" label="Omega 9 fat">Omega 9 fat</option>
                                     
-                                        <option value="packagings_materials.all.weight" label="Packaging - All materials - Weight">Packaging - All materials - Weight</option>
+                                        <option value="packagings_materials.all.weight" label="Packaging – All materials – Weight">Packaging – All materials – Weight</option>
                                     
-                                        <option value="packagings_materials.all.weight_100g" label="Packaging - All materials - Weight per 100g of product">Packaging - All materials - Weight per 100g of product</option>
+                                        <option value="packagings_materials.all.weight_100g" label="Packaging – All materials – Weight per 100g of product">Packaging – All materials – Weight per 100g of product</option>
                                     
-                                        <option value="packagings_materials.all.weight_percent" label="Packaging - All materials - Weight percent">Packaging - All materials - Weight percent</option>
+                                        <option value="packagings_materials.all.weight_percent" label="Packaging – All materials – Weight percent">Packaging – All materials – Weight percent</option>
                                     
-                                        <option value="packagings_materials.en:glass.weight" label="Packaging - Glass - Weight">Packaging - Glass - Weight</option>
+                                        <option value="packagings_materials.en:glass.weight" label="Packaging – Glass – Weight">Packaging – Glass – Weight</option>
                                     
-                                        <option value="packagings_materials.en:glass.weight_100g" label="Packaging - Glass - Weight per 100g of product">Packaging - Glass - Weight per 100g of product</option>
+                                        <option value="packagings_materials.en:glass.weight_100g" label="Packaging – Glass – Weight per 100g of product">Packaging – Glass – Weight per 100g of product</option>
                                     
-                                        <option value="packagings_materials.en:glass.weight_percent" label="Packaging - Glass - Weight percent">Packaging - Glass - Weight percent</option>
+                                        <option value="packagings_materials.en:glass.weight_percent" label="Packaging – Glass – Weight percent">Packaging – Glass – Weight percent</option>
                                     
-                                        <option value="packagings_materials.en:metal.weight" label="Packaging - Metal - Weight">Packaging - Metal - Weight</option>
+                                        <option value="packagings_materials.en:metal.weight" label="Packaging – Metal – Weight">Packaging – Metal – Weight</option>
                                     
-                                        <option value="packagings_materials.en:metal.weight_100g" label="Packaging - Metal - Weight per 100g of product">Packaging - Metal - Weight per 100g of product</option>
+                                        <option value="packagings_materials.en:metal.weight_100g" label="Packaging – Metal – Weight per 100g of product">Packaging – Metal – Weight per 100g of product</option>
                                     
-                                        <option value="packagings_materials.en:metal.weight_percent" label="Packaging - Metal - Weight percent">Packaging - Metal - Weight percent</option>
+                                        <option value="packagings_materials.en:metal.weight_percent" label="Packaging – Metal – Weight percent">Packaging – Metal – Weight percent</option>
                                     
-                                        <option value="packagings_materials.en:paper-or-cardboard.weight" label="Packaging - Paper or cardboard - Weight">Packaging - Paper or cardboard - Weight</option>
+                                        <option value="packagings_materials.en:paper-or-cardboard.weight" label="Packaging – Paper or cardboard – Weight">Packaging – Paper or cardboard – Weight</option>
                                     
-                                        <option value="packagings_materials.en:paper-or-cardboard.weight_100g" label="Packaging - Paper or cardboard - Weight per 100g of product">Packaging - Paper or cardboard - Weight per 100g of product</option>
+                                        <option value="packagings_materials.en:paper-or-cardboard.weight_100g" label="Packaging – Paper or cardboard – Weight per 100g of product">Packaging – Paper or cardboard – Weight per 100g of product</option>
                                     
-                                        <option value="packagings_materials.en:paper-or-cardboard.weight_percent" label="Packaging - Paper or cardboard - Weight percent">Packaging - Paper or cardboard - Weight percent</option>
+                                        <option value="packagings_materials.en:paper-or-cardboard.weight_percent" label="Packaging – Paper or cardboard – Weight percent">Packaging – Paper or cardboard – Weight percent</option>
                                     
-                                        <option value="packagings_materials.en:plastic.weight" label="Packaging - Plastic - Weight">Packaging - Plastic - Weight</option>
+                                        <option value="packagings_materials.en:plastic.weight" label="Packaging – Plastic – Weight">Packaging – Plastic – Weight</option>
                                     
-                                        <option value="packagings_materials.en:plastic.weight_100g" label="Packaging - Plastic - Weight per 100g of product">Packaging - Plastic - Weight per 100g of product</option>
+                                        <option value="packagings_materials.en:plastic.weight_100g" label="Packaging – Plastic – Weight per 100g of product">Packaging – Plastic – Weight per 100g of product</option>
                                     
-                                        <option value="packagings_materials.en:plastic.weight_percent" label="Packaging - Plastic - Weight percent">Packaging - Plastic - Weight percent</option>
+                                        <option value="packagings_materials.en:plastic.weight_percent" label="Packaging – Plastic – Weight percent">Packaging – Plastic – Weight percent</option>
                                     
-                                        <option value="packagings_materials.en:unknown.weight" label="Packaging - Unknown - Weight">Packaging - Unknown - Weight</option>
+                                        <option value="packagings_materials.en:unknown.weight" label="Packaging – Unknown – Weight">Packaging – Unknown – Weight</option>
                                     
-                                        <option value="packagings_materials.en:unknown.weight_100g" label="Packaging - Unknown - Weight per 100g of product">Packaging - Unknown - Weight per 100g of product</option>
+                                        <option value="packagings_materials.en:unknown.weight_100g" label="Packaging – Unknown – Weight per 100g of product">Packaging – Unknown – Weight per 100g of product</option>
                                     
-                                        <option value="packagings_materials.en:unknown.weight_percent" label="Packaging - Unknown - Weight percent">Packaging - Unknown - Weight percent</option>
+                                        <option value="packagings_materials.en:unknown.weight_percent" label="Packaging – Unknown – Weight percent">Packaging – Unknown – Weight percent</option>
                                     
                                         <option value="palmitic-acid" label="Palmitic acid">Palmitic acid</option>
+                                    
+                                        <option value="folksonomy" label="Personalized property">Personalized property</option>
                                     
                                         <option value="ph" label="PH">PH</option>
                                     
                                         <option value="phosphorus" label="Phosphorus">Phosphorus</option>
+                                    
+                                        <option value="polydextrose" label="Polydextrose">Polydextrose</option>
                                     
                                         <option value="polyols" label="Polyols (sugar alcohols)">Polyols (sugar alcohols)</option>
                                     
@@ -1603,6 +1638,8 @@ get a cloud of products (scatter plot).</p>
                                         <option value="potassium" label="Potassium">Potassium</option>
                                     
                                         <option value="proteins" label="Proteins">Proteins</option>
+                                    
+                                        <option value="psicose" label="Psicose (Allulose)">Psicose (Allulose)</option>
                                     
                                         <option value="product_quantity" label="Quantity">Quantity</option>
                                     
@@ -1620,6 +1657,8 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="soluble-fiber" label="Soluble fiber">Soluble fiber</option>
                                     
+                                        <option value="sorbitol" label="Sorbitol">Sorbitol</option>
+                                    
                                         <option value="starch" label="Starch">Starch</option>
                                     
                                         <option value="stearic-acid" label="Stearic acid">Stearic acid</option>
@@ -1631,6 +1670,8 @@ get a cloud of products (scatter plot).</p>
                                         <option value="sulphate" label="Sulphate">Sulphate</option>
                                     
                                         <option value="taurine" label="Taurine">Taurine</option>
+                                    
+                                        <option value="carbohydrates-total" label="Total carbohydrates (includes fiber)">Total carbohydrates (includes fiber)</option>
                                     
                                         <option value="trans-fat" label="Trans fat">Trans fat</option>
                                     
@@ -1666,7 +1707,14 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="zinc" label="Zinc">Zinc</option>
                                     
+                                        <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="zz:fruits-vegetables-nuts-estimate-from-ingredients">zz:fruits-vegetables-nuts-estimate-from-ingredients</option>
+                                    
                                 </select>
+                                <!-- hidden (unless the field value is "folksonomy") field for axis_[id]_folksonomy_property -->
+                                <div id="axis_x_folksonomy_property_div" style="display:none">
+                                    <label for="axis_x_folksonomy_property">Personalized property</label>
+                                    <input type="text" name="axis_x_folksonomy_property" id="axis_x_folksonomy_property" value="" />
+                                </div>
                             </div>
                         
                             <div class="small-12 medium-6 columns">
@@ -1715,8 +1763,6 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="carbon-footprint" label="Carbon footprint">Carbon footprint</option>
                                     
-                                        <option value="carbon-footprint-from-meat-or-fish" label="Carbon footprint from meat or fish">Carbon footprint from meat or fish</option>
-                                    
                                         <option value="carnitine" label="Carnitine">Carnitine</option>
                                     
                                         <option value="casein" label="Casein">Casein</option>
@@ -1771,13 +1817,9 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="fructose" label="Fructose">Fructose</option>
                                     
-                                        <option value="fruits-vegetables-nuts-dried" label="Fruits‚ vegetables and nuts - dried">Fruits‚ vegetables and nuts - dried</option>
+                                        <option value="fruits-vegetables-legumes" label="Fruits‚ vegetables‚ legumes">Fruits‚ vegetables‚ legumes</option>
                                     
-                                        <option value="fruits-vegetables-nuts" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils</option>
-                                    
-                                        <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)</option>
-                                    
-                                        <option value="fruits-vegetables-nuts-estimate" label="Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)">Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)</option>
+                                        <option value="galactose" label="Galactose">Galactose</option>
                                     
                                         <option value="gamma-linolenic-acid" label="Gamma-linolenic acid">Gamma-linolenic acid</option>
                                     
@@ -1797,6 +1839,8 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="iron" label="Iron">Iron</option>
                                     
+                                        <option value="isomalt" label="Isomalt">Isomalt</option>
+                                    
                                         <option value="lactose" label="Lactose">Lactose</option>
                                     
                                         <option value="lauric-acid" label="Lauric acid">Lauric acid</option>
@@ -1807,6 +1851,8 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="magnesium" label="Magnesium">Magnesium</option>
                                     
+                                        <option value="maltitol" label="Maltitol">Maltitol</option>
+                                    
                                         <option value="maltodextrins" label="Maltodextrins">Maltodextrins</option>
                                     
                                         <option value="maltose" label="Maltose">Maltose</option>
@@ -1816,6 +1862,8 @@ get a cloud of products (scatter plot).</p>
                                         <option value="mead-acid" label="Mead acid">Mead acid</option>
                                     
                                         <option value="melissic-acid" label="Melissic acid">Melissic acid</option>
+                                    
+                                        <option value="methylsulfonylmethane" label="Methylsulfonylmethane">Methylsulfonylmethane</option>
                                     
                                         <option value="molybdenum" label="Molybdenum">Molybdenum</option>
                                     
@@ -1841,10 +1889,6 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="unknown_ingredients_n" label="Number of unrecognized ingredients">Number of unrecognized ingredients</option>
                                     
-                                        <option value="nutrition-score-fr" label="Nutrition score - France">Nutrition score - France</option>
-                                    
-                                        <option value="nutrition-score-uk" label="Nutrition score - UK">Nutrition score - UK</option>
-                                    
                                         <option value="oleic-acid" label="Oleic acid">Oleic acid</option>
                                     
                                         <option value="omega-3-fat" label="Omega 3 fat">Omega 3 fat</option>
@@ -1853,47 +1897,51 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="omega-9-fat" label="Omega 9 fat">Omega 9 fat</option>
                                     
-                                        <option value="packagings_materials.all.weight" label="Packaging - All materials - Weight">Packaging - All materials - Weight</option>
+                                        <option value="packagings_materials.all.weight" label="Packaging – All materials – Weight">Packaging – All materials – Weight</option>
                                     
-                                        <option value="packagings_materials.all.weight_100g" label="Packaging - All materials - Weight per 100g of product">Packaging - All materials - Weight per 100g of product</option>
+                                        <option value="packagings_materials.all.weight_100g" label="Packaging – All materials – Weight per 100g of product">Packaging – All materials – Weight per 100g of product</option>
                                     
-                                        <option value="packagings_materials.all.weight_percent" label="Packaging - All materials - Weight percent">Packaging - All materials - Weight percent</option>
+                                        <option value="packagings_materials.all.weight_percent" label="Packaging – All materials – Weight percent">Packaging – All materials – Weight percent</option>
                                     
-                                        <option value="packagings_materials.en:glass.weight" label="Packaging - Glass - Weight">Packaging - Glass - Weight</option>
+                                        <option value="packagings_materials.en:glass.weight" label="Packaging – Glass – Weight">Packaging – Glass – Weight</option>
                                     
-                                        <option value="packagings_materials.en:glass.weight_100g" label="Packaging - Glass - Weight per 100g of product">Packaging - Glass - Weight per 100g of product</option>
+                                        <option value="packagings_materials.en:glass.weight_100g" label="Packaging – Glass – Weight per 100g of product">Packaging – Glass – Weight per 100g of product</option>
                                     
-                                        <option value="packagings_materials.en:glass.weight_percent" label="Packaging - Glass - Weight percent">Packaging - Glass - Weight percent</option>
+                                        <option value="packagings_materials.en:glass.weight_percent" label="Packaging – Glass – Weight percent">Packaging – Glass – Weight percent</option>
                                     
-                                        <option value="packagings_materials.en:metal.weight" label="Packaging - Metal - Weight">Packaging - Metal - Weight</option>
+                                        <option value="packagings_materials.en:metal.weight" label="Packaging – Metal – Weight">Packaging – Metal – Weight</option>
                                     
-                                        <option value="packagings_materials.en:metal.weight_100g" label="Packaging - Metal - Weight per 100g of product">Packaging - Metal - Weight per 100g of product</option>
+                                        <option value="packagings_materials.en:metal.weight_100g" label="Packaging – Metal – Weight per 100g of product">Packaging – Metal – Weight per 100g of product</option>
                                     
-                                        <option value="packagings_materials.en:metal.weight_percent" label="Packaging - Metal - Weight percent">Packaging - Metal - Weight percent</option>
+                                        <option value="packagings_materials.en:metal.weight_percent" label="Packaging – Metal – Weight percent">Packaging – Metal – Weight percent</option>
                                     
-                                        <option value="packagings_materials.en:paper-or-cardboard.weight" label="Packaging - Paper or cardboard - Weight">Packaging - Paper or cardboard - Weight</option>
+                                        <option value="packagings_materials.en:paper-or-cardboard.weight" label="Packaging – Paper or cardboard – Weight">Packaging – Paper or cardboard – Weight</option>
                                     
-                                        <option value="packagings_materials.en:paper-or-cardboard.weight_100g" label="Packaging - Paper or cardboard - Weight per 100g of product">Packaging - Paper or cardboard - Weight per 100g of product</option>
+                                        <option value="packagings_materials.en:paper-or-cardboard.weight_100g" label="Packaging – Paper or cardboard – Weight per 100g of product">Packaging – Paper or cardboard – Weight per 100g of product</option>
                                     
-                                        <option value="packagings_materials.en:paper-or-cardboard.weight_percent" label="Packaging - Paper or cardboard - Weight percent">Packaging - Paper or cardboard - Weight percent</option>
+                                        <option value="packagings_materials.en:paper-or-cardboard.weight_percent" label="Packaging – Paper or cardboard – Weight percent">Packaging – Paper or cardboard – Weight percent</option>
                                     
-                                        <option value="packagings_materials.en:plastic.weight" label="Packaging - Plastic - Weight">Packaging - Plastic - Weight</option>
+                                        <option value="packagings_materials.en:plastic.weight" label="Packaging – Plastic – Weight">Packaging – Plastic – Weight</option>
                                     
-                                        <option value="packagings_materials.en:plastic.weight_100g" label="Packaging - Plastic - Weight per 100g of product">Packaging - Plastic - Weight per 100g of product</option>
+                                        <option value="packagings_materials.en:plastic.weight_100g" label="Packaging – Plastic – Weight per 100g of product">Packaging – Plastic – Weight per 100g of product</option>
                                     
-                                        <option value="packagings_materials.en:plastic.weight_percent" label="Packaging - Plastic - Weight percent">Packaging - Plastic - Weight percent</option>
+                                        <option value="packagings_materials.en:plastic.weight_percent" label="Packaging – Plastic – Weight percent">Packaging – Plastic – Weight percent</option>
                                     
-                                        <option value="packagings_materials.en:unknown.weight" label="Packaging - Unknown - Weight">Packaging - Unknown - Weight</option>
+                                        <option value="packagings_materials.en:unknown.weight" label="Packaging – Unknown – Weight">Packaging – Unknown – Weight</option>
                                     
-                                        <option value="packagings_materials.en:unknown.weight_100g" label="Packaging - Unknown - Weight per 100g of product">Packaging - Unknown - Weight per 100g of product</option>
+                                        <option value="packagings_materials.en:unknown.weight_100g" label="Packaging – Unknown – Weight per 100g of product">Packaging – Unknown – Weight per 100g of product</option>
                                     
-                                        <option value="packagings_materials.en:unknown.weight_percent" label="Packaging - Unknown - Weight percent">Packaging - Unknown - Weight percent</option>
+                                        <option value="packagings_materials.en:unknown.weight_percent" label="Packaging – Unknown – Weight percent">Packaging – Unknown – Weight percent</option>
                                     
                                         <option value="palmitic-acid" label="Palmitic acid">Palmitic acid</option>
+                                    
+                                        <option value="folksonomy" label="Personalized property">Personalized property</option>
                                     
                                         <option value="ph" label="PH">PH</option>
                                     
                                         <option value="phosphorus" label="Phosphorus">Phosphorus</option>
+                                    
+                                        <option value="polydextrose" label="Polydextrose">Polydextrose</option>
                                     
                                         <option value="polyols" label="Polyols (sugar alcohols)">Polyols (sugar alcohols)</option>
                                     
@@ -1902,6 +1950,8 @@ get a cloud of products (scatter plot).</p>
                                         <option value="potassium" label="Potassium">Potassium</option>
                                     
                                         <option value="proteins" label="Proteins">Proteins</option>
+                                    
+                                        <option value="psicose" label="Psicose (Allulose)">Psicose (Allulose)</option>
                                     
                                         <option value="product_quantity" label="Quantity">Quantity</option>
                                     
@@ -1919,6 +1969,8 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="soluble-fiber" label="Soluble fiber">Soluble fiber</option>
                                     
+                                        <option value="sorbitol" label="Sorbitol">Sorbitol</option>
+                                    
                                         <option value="starch" label="Starch">Starch</option>
                                     
                                         <option value="stearic-acid" label="Stearic acid">Stearic acid</option>
@@ -1930,6 +1982,8 @@ get a cloud of products (scatter plot).</p>
                                         <option value="sulphate" label="Sulphate">Sulphate</option>
                                     
                                         <option value="taurine" label="Taurine">Taurine</option>
+                                    
+                                        <option value="carbohydrates-total" label="Total carbohydrates (includes fiber)">Total carbohydrates (includes fiber)</option>
                                     
                                         <option value="trans-fat" label="Trans fat">Trans fat</option>
                                     
@@ -1965,7 +2019,14 @@ get a cloud of products (scatter plot).</p>
                                     
                                         <option value="zinc" label="Zinc">Zinc</option>
                                     
+                                        <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="zz:fruits-vegetables-nuts-estimate-from-ingredients">zz:fruits-vegetables-nuts-estimate-from-ingredients</option>
+                                    
                                 </select>
+                                <!-- hidden (unless the field value is "folksonomy") field for axis_[id]_folksonomy_property -->
+                                <div id="axis_y_folksonomy_property_div" style="display:none">
+                                    <label for="axis_y_folksonomy_property">Personalized property</label>
+                                    <input type="text" name="axis_y_folksonomy_property" id="axis_y_folksonomy_property" value="" />
+                                </div>
                             </div>
                         
                     </div>
@@ -2073,12 +2134,12 @@ get a cloud of products (scatter plot).</p>
 							<div class="small-12 medium-12 large-12 v-space-normal column badge-container">
 								<!-- android_app_link - //play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en -->
 								<a  href="//play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web&utm_campaign=install_the_app_android_footer_en"><img src="/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get It On Google Play" loading="lazy" height="40" width="120"></a>
-								
+
 								<a href="//f-droid.org/packages/openfoodfacts.github.scrachx.openfood"><img src="/images/misc/f-droid/svg/get-it-on-en.svg" alt="Available on F-Droid" loading="lazy" height="40" width="120"></a>
 
 								<!-- android_apk_app_link - //world.openfoodfacts.org/images/apps/off.apk -->
 								<a href="//github.com/openfoodfacts/smooth-app/releases/latest?utm_source=off&utf_medium=web&utm_campaign=install_the_app_apk_footer_en"><img src="/images/misc/app-landing-page/download-apk/download-apk_en.svg" alt="Android APK" loading="lazy" height="40" width="120"></a>
-								
+
 								<!-- msgid "//apps.apple.com/app/open-beauty-facts/id1122926380" -->
 								<a href="//apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web&utm_campaign=install_the_app_ios_footer_en"><img src="/images/misc/appstore/black/appstore_US.svg" alt="Download on the App Store"  loading="lazy" height="40" width="120"></a>
 							</div>
@@ -2113,9 +2174,9 @@ get a cloud of products (scatter plot).</p>
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Please give to our 2024 Fundraiser</h3>
+        <h3 class="donation-banner-footer__main-title">Please give to our 2026 Fundraiser</h3>
       </div>
       <p>Your donations fund the day-to-day operations of our non-profit association:</p>
       <ul>
@@ -2153,7 +2214,7 @@ get a cloud of products (scatter plot).</p>
 
 
 			
-      		
+
 			<div class="block_light block_cappucino" id="contribute_and_discover_links_block">
 				<div class="row">
 					<div class="small-12 large-6 columns v-space-normal block_off">
@@ -2198,7 +2259,7 @@ get a cloud of products (scatter plot).</p>
 								<a href="/" style="font-size:1rem;"><img id="logo" src="//static.openfoodfacts.localhost/images/logos/off-logo-horizontal-mono-white.svg" alt="Open Food Facts" style="margin:8px;height:48px;width:auto;"></a>
 
 								<p>A collaborative, free and open database of food products from around the world.</p>
-								
+
 								<ul class="inline-list text-center text-small">
 									<li><a href="/legal">Legal</a></li>
 									<li><a href="/privacy">Privacy</a></li>
@@ -2227,7 +2288,7 @@ get a cloud of products (scatter plot).</p>
 <script src="//static.openfoodfacts.localhost/js/dist/display.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/stikelem.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/scrollNav.js"></script>
-  
+
 
 <script>
 $(function() {
@@ -2253,7 +2314,9 @@ $('#result_accordion').on('toggled', function (event, accordion) {
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
-<script type="text/javascript" src="/js/dist/search.js"></script>
+<script>const folksonomy_url = "//api.folksonomy.openfoodfacts.localhost";</script>
+<script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/search.js?v=--ignore--"></script>
+
 
 <script>
 $(document).foundation({

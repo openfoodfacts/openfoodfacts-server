@@ -1,0 +1,29 @@
+# All brands in the brands taxonomy are language less and use the xx: prefix
+# Brands are not translated, we record what is written on the package, and we display it back as-is
+
+# Adding brands in the taxonomy allows to:
+# - display proper capitalization and accentuation
+# - handle variations using the synonyms (e.g. missing or added separators like ' or spaces, possibly missing 's)
+
+# The brands taxonomy should not be used to:
+# - handle misspelings (do not add misspellings in the taxonomy as synonyms)
+# - handle parent / child brands (too much potential for errors and conflicts, especially in an international setting and with products from different types)
+# Note: an old draft owners/brands taxonomy lives in taxonomies/unused/brands.txt, but it is hierarchic, which is something we do not want in this taxonomy.
+# You can usefully read: https://wiki.openfoodfacts.org/Brands to get up and running on the subtleties of the topic.
+
+xx: Bluewear
+
+xx: DELTACO
+wikidata:en: Q112801046
+
+xx: HAALE, HAALE Ring
+#web:en: https://haalering.com/
+
+xx: MEEC Tools
+
+xx: Renée Voltaire, Renee Voltaire
+wikidata:en: Q136622857
+
+xx: Wahl, Wahl Clipper Corp.
+wikidata:en: Q7959809
+

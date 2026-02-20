@@ -26,13 +26,14 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/init_request/;
 use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Owner_id $User_id %User/;
-use ProductOpener::Images qw/is_protected_image process_image_crop/;
-use ProductOpener::Products qw/normalize_code product_data_is_protected product_id_for_owner retrieve_product/;
+use ProductOpener::Images qw/is_protected_image process_image_crop get_image_type_and_image_lc_from_imagefield/;
+use ProductOpener::Products
+	qw/normalize_code product_data_is_protected product_id_for_owner retrieve_product process_product_edit_rules/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -40,6 +41,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::MaybeXS;
 use Log::Any qw($log);
+use Data::DeepAccess qw(deep_get);
 
 my $request_ref = ProductOpener::Display::init_request();
 
@@ -51,28 +53,25 @@ my $code = normalize_code(single_param('code'));
 my $product_id = product_id_for_owner($Owner_id, $code);
 
 my $imgid = single_param('imgid');
-my $angle = single_param('angle');
 my $id = single_param('id');
-my ($x1, $y1, $x2, $y2) = (single_param('x1'), single_param('y1'), single_param('x2'), single_param('y2'));
-my $normalize = single_param('normalize');
-my $white_magic = single_param('white_magic');
 
-# The new product_multilingual.pl form will set $coordinates_image_size to "full"
-# the current Android app will not send it, and it will send coordinates related to the ".400" image
-# that has a max width and height of 400 pixels
-my $coordinates_image_size = single_param('coordinates_image_size') || $crop_size;
+my $generation_ref = {
+	angle => single_param('angle'),
+	coordinates_image_size => single_param('coordinates_image_size'),
+	x1 => single_param('x1'),
+	y1 => single_param('y1'),
+	x2 => single_param('x2'),
+	y2 => single_param('y2'),
+	normalize => single_param('normalize'),
+	white_magic => single_param('white_magic'),
+};
 
 $log->debug(
 	"start",
 	{
 		code => $code,
 		imgid => $imgid,
-		x1 => $x1,
-		y1 => $y1,
-		x2 => $x2,
-		y2 => $y2,
-		param_coordinates_image_size => single_param('coordinates_image_size'),
-		coordinates_image_size => $coordinates_image_size
+		generation_ref => $generation_ref,
 	}
 ) if $log->is_debug();
 
@@ -85,9 +84,43 @@ if (not defined $code) {
 
 my $product_ref = retrieve_product($product_id);
 
+# the id field is of the form [image_type]_[image_lc]
+my ($image_type, $image_lc) = get_image_type_and_image_lc_from_imagefield($id);
+if (not defined $image_type) {
+	my $data = encode_json(
+		{
+			status =>
+				'status not ok - invalid image type (id field), must be of the form (front|ingredients|nutrition|packaging)_([a-z]{2})'
+		}
+	);
+
+	$log->debug("JSON data output", {data => $data}) if $log->is_debug();
+
+	print header(-type => 'application/json', -charset => 'utf-8') . $data;
+
+	exit;
+}
+
+# Check edit rules
+my $proceed_with_edit = process_product_edit_rules($product_ref);
+
+$log->debug("edit rules processed", {proceed_with_edit => $proceed_with_edit}) if $log->is_debug();
+
+if (not $proceed_with_edit) {
+
+	my $data = encode_json({status => 'status not ok - edit against edit rules'});
+
+	$log->debug("JSON data output", {data => $data}) if $log->is_debug();
+
+	print header(-type => 'application/json', -charset => 'utf-8') . $data;
+
+	exit;
+}
+
 # Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
 # when the corresponding organization has the protect_data checkbox checked
 my $protected_data = product_data_is_protected($product_ref);
+my $return_code;
 
 if (    (defined $product_ref)
 	and ($protected_data)
@@ -108,30 +141,57 @@ elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "20
 	if (    (defined $product_ref)
 		and (defined $product_ref->{images})
 		and (defined $product_ref->{images}{$imgid})
-		and (not is_protected_image($product_ref, $id) or $User{moderator}))
+		and (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator}))
 	{
-		$product_ref
-			= process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2,
-			$y2, $coordinates_image_size);
+		$return_code = process_image_crop($User_id, $product_ref, $image_type, $image_lc, $imgid, $generation_ref);
 	}
 }
 else {
-	if (not is_protected_image($product_ref, $id) or $User{moderator}) {
-		$product_ref
-			= process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2,
-			$y2, $coordinates_image_size);
+	if (not is_protected_image($product_ref, $image_type, $image_lc) or $User{moderator}) {
+		$return_code = process_image_crop($User_id, $product_ref, $image_type, $image_lc, $imgid, $generation_ref);
 	}
 }
 
-my $data = encode_json(
-	{
-		status => 'status ok',
-		image => {
-			display_url => "$id." . $product_ref->{images}{$id}{rev} . ".$display_size.jpg",
-		},
-		imagefield => $id,
+my $data;
+
+if (not defined $return_code) {
+	$data = encode_json(
+		{
+			status => 'status not ok - image not selected',
+			imagefield => $id,
+		}
+	);
+}
+elsif ($return_code < 0) {
+	# -1: imgid not in uploaded images
+	# -2: image cannot be read
+	my $msg;
+	if ($return_code == -1) {
+		$msg = "status not ok - image not selected - imgid not in uploaded images";
 	}
-);
+	elsif ($return_code == -2) {
+		$msg = "status not ok - image not selected - image cannot be read";
+	}
+	$data = encode_json(
+		{
+			status => $msg,
+			imagefield => $id,
+		}
+	);
+}
+else {
+	my $rev = deep_get($product_ref, "images", "selected", $image_type, $image_lc, "rev");
+
+	$data = encode_json(
+		{
+			status => 'status ok',
+			image => {
+				display_url => "$id." . $rev . ".$display_size.jpg",
+			},
+			imagefield => $id,
+		}
+	);
+}
 
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -40,6 +40,7 @@ BEGIN {
 		&process_change_product_code_request_if_we_have_one
 		&process_change_product_type_request_if_we_have_one
 		&skip_protected_field
+		&update_images_selected
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -47,9 +48,8 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/$subdomain $country/;
-use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
-use ProductOpener::Lang qw/$lc/;
+use ProductOpener::Users qw/$Org_id $Owner_id/;
+use ProductOpener::Lang qw/$lc %Langs/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::API
 	qw/add_error add_warning check_user_permission customize_response_for_product normalize_requested_code/;
@@ -58,7 +58,10 @@ use ProductOpener::Packaging
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Tags qw/%language_fields %writable_tags_fields add_tags_to_field compute_field_tags/;
 use ProductOpener::URL qw(format_subdomain);
+use ProductOpener::Auth qw/get_azp/;
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
+use ProductOpener::Images qw/:all/;
+use ProductOpener::Nutrition qw/assign_nutrition_values_from_request_object/;
 
 use Encode;
 
@@ -349,6 +352,14 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 				$request_ref->{updated_product_fields}{$field} = 1;
 			}
 		}
+		# Images selection
+		elsif ($field eq "images") {
+			update_images_selected($request_ref, $product_ref, $response_ref);
+		}
+		# Nutrition data
+		elsif ($field eq "nutrition") {
+			assign_nutrition_values_from_request_object($request_ref, $product_ref);
+		}
 		# Unrecognized field
 		else {
 			add_warning(
@@ -361,6 +372,127 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 			);
 		}
 	}
+	return;
+}
+
+=head2 update_images_selected($request_ref, $product_ref, $response_ref)
+
+Select and crop images based on images.selected
+
+This function is called by the product WRITE API, but also by the product image upload API
+when the caller uploads and image and wants to select it at the same time.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $product_ref (input)
+
+Reference to the product object.
+
+=head4 $response_ref (input)
+
+Reference to the response object.
+
+=cut
+
+sub update_images_selected ($request_ref, $product_ref, $response_ref) {
+
+	my $request_body_ref = $request_ref->{body_json};
+
+	if (not exists $request_ref->{updated_product_fields}) {
+		$request_ref->{updated_product_fields} = {};
+	}
+
+	my $input_product_ref = $request_body_ref->{product};
+
+	# Go through the input images.selected.[image_type].[image_lc]
+	# to select or unselect images
+	foreach my $image_type (sort keys %{$input_product_ref->{images}{selected}}) {
+
+		# Check if the image type is valid
+		if (not defined $valid_image_types{$image_type}) {
+			add_error(
+				$response_ref,
+				{
+					message => {id => "invalid_image_type"},
+					field => {id => "images.selected.$image_type"},
+					impact => {id => "field_ignored"},
+				},
+				200
+			);
+			next;
+		}
+
+		foreach my $image_lc (sort keys %{$input_product_ref->{images}{selected}{$image_type}}) {
+
+			# Check the image language code is valid
+			if (not defined $Langs{$image_lc}) {
+				add_error(
+					$response_ref,
+					{
+						message => {id => "invalid_language_code"},
+						field => {id => "images.selected.$image_type.$image_lc"},
+						impact => {id => "field_ignored"},
+					},
+					200
+				);
+				next;
+			}
+
+			# Check if the image is protected (sent by a producer)
+			if (is_protected_image($product_ref, $image_type, $image_lc) and not $request_ref->{moderator}) {
+				add_warning(
+					$response_ref,
+					{
+						message => {id => "no_permission"},
+						field => {id => "images.selected.$image_type.$image_lc"},
+						impact => {id => "field_ignored"},
+					}
+				);
+				next;
+			}
+
+			my $image_selected_ref = $input_product_ref->{images}{selected}{$image_type}{$image_lc};
+
+			if (defined $image_selected_ref) {
+				# On success, this will also update product_ref to add selected image information
+				my $return_code = process_image_crop(
+					$request_ref->{user_id},
+					$product_ref, $image_type, $image_lc,
+					$image_selected_ref->{imgid},
+					$image_selected_ref->{generation}
+				);
+				if ($return_code < 0) {
+					# -1: the image imgid does not exist in uploaded images
+					# -2: the image cannot be read
+					add_error(
+						$response_ref,
+						{
+							message => {id => "image_not_found"},
+							field => {id => "images.selected.$image_type.$image_lc.imgid"},
+							impact => {id => "field_ignored"},
+						},
+						200
+					);
+				}
+				else {
+					# The image was selected
+					$request_ref->{updated_product_fields}{"images.selected.$image_type.$image_lc"} = 1;
+					# TODO: find a way to return the image URL (without storing it in the product)
+					# especially if the "fields" value is "updated"
+				}
+			}
+			else {
+				# We were passed a null value, unselect the image
+				my $return_code = process_image_unselect($product_ref, $image_type, $image_lc);
+				$request_ref->{updated_product_fields}{"images.selected.$image_type.$image_lc"} = 1;
+			}
+		}
+	}
+
 	return;
 }
 
@@ -545,7 +677,12 @@ sub write_product_api ($request_ref) {
 
 		# The product does not exist yet, or the requested code is "test"
 		if (not defined $product_ref) {
-			$product_ref = init_product($User_id, $Org_id, $code, $country);
+			$product_ref = init_product(
+				$request_ref->{user_id},
+				$Org_id, $code,
+				$request_ref->{country},
+				get_azp($request_ref->{access_token})
+			);
 			$product_ref->{interface_version_created} = "20221102/api/v3";
 		}
 		else {
@@ -558,21 +695,15 @@ sub write_product_api ($request_ref) {
 				and ($product_ref->{product_type} ne $options{product_type}))
 			{
 				redirect_to_url($request_ref, 307,
-					format_subdomain($subdomain, $product_ref->{product_type}) . '/api/v3/product/' . $code);
+						  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
+						. '/api/v3/product/'
+						. $code);
 			}
 		}
 
 		# Use default request language if we did not get tags_lc
 		if (not defined $request_body_ref->{tags_lc}) {
 			$request_body_ref->{tags_lc} = $lc;
-			add_warning(
-				$response_ref,
-				{
-					message => {id => "missing_field"},
-					field => {id => "tags_lc", default_value => $request_body_ref->{tags_lc}},
-					impact => {id => "warning"},
-				}
-			);
 		}
 
 		# Process edit rules
@@ -625,7 +756,8 @@ sub write_product_api ($request_ref) {
 				# Save the product
 				if ($code ne "test") {
 					my $comment = $request_body_ref->{comment} || "API v3";
-					store_product($User_id, $product_ref, $comment);
+					store_product($request_ref->{user_id},
+						$product_ref, $comment, get_azp($request_ref->{access_token}));
 				}
 
 				# Select / compute only the fields requested by the caller, default to updated fields

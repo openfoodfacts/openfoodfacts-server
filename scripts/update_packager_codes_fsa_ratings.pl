@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -26,15 +26,15 @@ use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/%packager_codes normalize_packager_codes/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::MaybeXS;
-use LWP::Simple;
 
 my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
 if (not defined $packager_codes_ref) {
@@ -110,10 +110,9 @@ foreach my $code (@codes) {
 
 		print "URL: $url\n";
 
-		my $content = get($url);
-		if (not defined $content) {
-			print
-				"http error, could not load http://ratings.food.gov.uk/enhanced-search/en-GB/$uriname/%5E/Relevance/0/%5E/%5E/1/1/10/json\n";
+		my $resp = create_user_agent()->get($url);
+		if (!$resp->is_success) {
+			print "http error, could not load $url: " . $resp->status_line . "\n";
 		}
 		else {
 
@@ -132,7 +131,7 @@ foreach my $code (@codes) {
 	"Geocode":{"Longitude":"-4.043087","Latitude":"52.40259"},"Distance":{"\@xsi:nil":"true"}}}}}
 JSON
 				;
-			my $json = $content;
+			my $json = $resp->decoded_content;
 			my $json_ref;
 			# URL: http://ratings.food.gov.uk/enhanced-search/en-GB/Framptons/%5E/Relevance/0/%5E/%5E/1/1/10/json
 			# malformed UTF-8 character in JSON string, at character offset 3698 (before "\x{e9} Bar","Address...") at ./update_packager_codes_fsa_ratings.pl line 137.

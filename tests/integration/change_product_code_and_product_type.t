@@ -13,27 +13,22 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 # Create an admin
 my $admin_ua = new_client();
-my $resp = create_user($admin_ua, \%admin_user_form);
-ok(!html_displays_error($resp));
+create_user($admin_ua, \%admin_user_form);
 
 # Create a normal user
 my $ua = new_client();
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
-$resp = create_user($ua, \%create_user_args);
-ok(!html_displays_error($resp));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+create_user($ua, \%create_user_args);
 
 # Create a moderator
 my $moderator_ua = new_client();
-$resp = create_user($moderator_ua, \%moderator_user_form);
-ok(!html_displays_error($resp));
+create_user($moderator_ua, \%moderator_user_form);
 
 # Admin gives moderator status
 my %moderator_edit_form = (
@@ -41,7 +36,7 @@ my %moderator_edit_form = (
 	user_group_moderator => "1",
 	type => "edit",
 );
-$resp = edit_user($admin_ua, \%moderator_edit_form);
+my $resp = edit_user($admin_ua, \%moderator_edit_form);
 ok(!html_displays_error($resp));
 
 # Note: expected results are stored in json files, see execute_api_tests
@@ -519,6 +514,22 @@ my $tests_ref = [
 			},
 			"fields": "updated"
 		}',
+		ua => $moderator_ua,
+		expected_status_code => 307,
+		expected_type => 'html',
+	},
+	# Change the product_name with API v2
+	# we have changed the product type, so we should get a redirect request
+	{
+		test_case => 'change-product-name-of-oppf-product-with-api-v2',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			type => "edit",
+			action => "process",
+			code => "1234567890300",
+			product_name => "Test product 3 - update with API v2",
+		},
 		ua => $moderator_ua,
 		expected_status_code => 307,
 		expected_type => 'html',

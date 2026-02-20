@@ -2,7 +2,7 @@
 
 # Import a CSV file
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 
 use Log::Any::Adapter 'TAP';
 use Mock::Quick qw/qobj qmeth/;
@@ -25,8 +25,7 @@ my $inputs_dir = "$test_dir/inputs/$test_id/";
 my $outputs_dir = "$test_dir/outputs/$test_id/";
 
 # fake image download using input directory instead of distant server
-sub fake_download_image ($) {
-	my $image_url = shift;
+sub fake_download_image ($image_url) {
 
 	my $fname = (split(m|/|, $image_url))[-1];
 	my $image_path = $inputs_dir . $fname;
@@ -51,8 +50,15 @@ my @tests = (
 	{
 		test_case => "replace_existing_values",
 		csv_files => ["replace_existing_values_1.csv", "replace_existing_values_2.csv"],
-
-	}
+	},
+	{
+		test_case => "old_nutrition",
+		csv_files => ["old_nutrition.csv"],
+	},
+	{
+		test_case => "new_nutrition",
+		csv_files => ["new_nutrition.csv"],
+	},
 );
 
 # Testing import of a csv file

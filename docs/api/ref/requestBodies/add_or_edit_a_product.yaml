@@ -1,6 +1,9 @@
 type: object
 description: |
-  You can provide most of the properties defined in the product schema.
+  You can provide most of the properties defined in the product READ schema.
+  This includes language-specific fields like product_name_[language_code], ingredients_text_[language_code], etc.
+allOf:
+  - $ref: ../schemas/product_type.yaml
 properties:
   code:
     type: string
@@ -8,40 +11,69 @@ properties:
     example: "0074570036004"
   user_id:
     type: string
-    description: A valid username.
-    example: myusername
+    description: |
+      Username to authenticate with
+
+      Note: you must always use the username (and not the email)
+      as it is far less brittle.
   password:
     type: string
-    description: A valid corresponding password (related to specific environment).
-    example: mypassword
-  comment:
+    description: Password to authenticate with
+    format: password
+
+  lc:
     type: string
-    description: A comment for the change. It will be shown in product changes history.
-    example: new packaging from super-app
-  brands:
-    type: array
-    items:
-      type: string
-    description: The brands of the product (comma separated list of values).
-    examples:
-      - - Häagen-Dazs
-          General-mills
+    description: '2 letter code of the language of the interface. Used to determine the language of certain fields (e.g. product_name and taxonomy fields like categories and labels). If not passed, the language may be inferred by the country of the user (passed through the cc field or inferred by the IP address). Full list at https://static.openfoodfacts.org/data/taxonomies/languages.json'
+
+  # Basic product information
+  lang:
+    type: string
+    description: 2 letter language code of the main language of the product (the most prominent on the packaging)
+  product_name:
+    type: string
+    description: Product name in the language sent in the lc field. For backward compatibility only, use the field product_name_[language_code] instead.
+  abbreviated_product_name:
+    type: string
+    description: Abbreviated product name. For backward compatibility only, use the field abbreviated_product_name_[language_code] instead.
+  generic_name:
+    type: string
+    description: Legal name of the product. For backward compatibility only, use the field generic_name_[language_code] instead.
+  ingredients_text:
+    type: string
+    description: Raw list of ingredients text. For backward compatibility only, use the field ingredients_text_[language_code] instead.
+  packaging_text:
+    type: string
+    description: Packaging information text. For backward compatibility only, use the field packaging_text_[language_code] instead.
+
+  # Other editable fields
+  quantity:
+    type: string
+    description: Product quantity with unit
+
+  # Tags fields
   labels:
-    type: array
-    items:
-      type: string
-    description: The labels of the product (comma separated list of values).
-    examples:
-      - - Kosher
-          Ferroro
+    type: string
+    description: Product labels (comma-separated list)
   categories:
-    type: array
-    items:
-      type: string
-    description: The categories of the product (comma separated list of values).
-    examples:
-      - - Desserts
-          Frozen foods
+    type: string
+    description: Product categories (comma-separated list)
+  brands:
+    type: string
+    description: Product brands (comma-separated list)
+  stores:
+    type: string
+    description: Stores where product is sold
+  countries:
+    type: string
+    description: Countries where product is sold
+  origins:
+    type: string
+    description: Origins of ingredients
+  traces:
+    type: string
+    description: Traces of allergens
+
+  # Legacy fields (for backward compatibility)
   packaging:
     type: string
     description: |
@@ -49,6 +81,54 @@ properties:
       The [v3 API documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#operation/post-api-v3-product-barcode)
       has a more structured data for `packaging`.
     example: Frozen
+  
+  # Nutritional information
+  serving_size:
+    type: string
+    description: Serving size
+  nutrition_data_per:
+    type: string
+    description: Whether nutrition data is per 100g or per serving. Note that this field applies to all nutriment fields (existing or new). So if its value is changed, all nutrients should be supplied, so that we don't have existing values per 100g when the new values are per serving, or vice versa.
+    enum:
+      - "100g"
+      - "serving"
+
+patternProperties:
+  # Language-specific product name fields
+  'product_name_(?<language_code>\w\w)':
+    type: string
+    description: Product name in language designated by `language_code`
+
+  # Language-specific abbreviated product name fields
+  'abbreviated_product_name_(?<language_code>\w\w)':
+    type: string
+    description: Abbreviated product name in language designated by `language_code`
+
+  # Language-specific generic name fields
+  'generic_name_(?<language_code>\w\w)':
+    type: string
+    description: Generic/legal name in language designated by `language_code`
+
+  # Language-specific ingredients text fields
+  'ingredients_text_(?<language_code>\w\w)':
+    type: string
+    description: Ingredients list in language designated by `language_code`, as it appears on the packaging
+
+  # Language-specific packaging text fields
+  'packaging_text_(?<language_code>\w\w)':
+    type: string
+    description: Packaging information text in language designated by `language_code`
+
+  # Nutrient value fields
+  'nutriments_(?<nutrient_id>[\w-]+)':
+    type: string
+    description: Value for the nutrient designated by `nutrient_id` (from nutrients.txt taxonomy, e.g. energy-kj, energy-kcal, fat, saturated-fat, etc.)
+
+  # Nutrient unit fields
+  'nutriment_(?<nutrient_id>[\w-]+)_unit':
+    type: string
+    description: Unit for the nutrient designated by `nutrient_id` (from nutrients.txt taxonomy, e.g. energy-kj, fat etc.)
+
 required:
   - code
   - user_id

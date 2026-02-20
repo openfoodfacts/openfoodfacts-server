@@ -28,7 +28,7 @@ use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -108,7 +108,7 @@ my $notfound = 0;
 					else {
 						$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, { upsert => 1 });
 					}
-					store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
+					store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 				}
 			}
 		}

@@ -1,5 +1,8 @@
 <!-- start templates/[% template.name %] -->
 <script src="[% static_subdomain %]/js/dist/JsBarcode.all.min.js"></script>
+
+[% INCLUDE web/common/includes/external_sources_scripts.tt.html %]
+
 [% IF product_changes_saved %]
     <div data-alert class="alert-box info">
         <span>lang('product_changes_saved')</span>
@@ -10,7 +13,6 @@
     [% END %]
 [% END %]
 
-[% INCLUDE web/common/includes/off_webcomponents_configuration.tt.html language_code = lc robotoff_domain = robotoff_url images_domain = images_subdomain %]
 <a href="#upNav" class="back-to-top scrollto button">
     <span class="material-icons size-20 ">
         arrow_upward
@@ -67,7 +69,7 @@
                         </div>
                     [% END %]
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
     <div class="block v-space-tiny prod-nav product_banner_unranked" id="prodNav">
@@ -85,9 +87,12 @@
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>[% lang("environment") %]</span></a></li>
                         [% IF secondhand_card_panel %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#secondhand"><span>[% lang("secondhand") %]</span></a></li>
-                        [% END %]                        
+                        [% END %]
                         [% IF report_problem_card_panel %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>[% lang("report_problem_navigation") %]</span></a></li>
+                        [% END %]
+                        [% IF product_card_panel %]
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#product_kp"><span>[% lang("raw_product_information") %]</span></a></li>
                         [% END %]
                         [% IF display_data_quality_issues_and_improvement_opportunities %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#improvement"><span>[% lang("improvements_navigation") %]</span></a></li>
@@ -95,24 +100,24 @@
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>[% lang("contribution_navigation") %]</span></a></li>
                     </ul>
                 </nav><!-- .navbar -->
-            </div> 
+            </div>
         </div>
     </div>
 <div id="prodInfos">
     <!-- product_characteristics -->
     <section class="row" id="product">
         <div class="large-12 column">
-            
+
             <div class="card" style="border-top:none">
                 <div id="prodBanner" style="display:none"></div>
                 <div class="card-section">
                     [% IF front_image %]
                         <div class="row">
                             <div class="medium-4 small-12 columns">
-                                [% INCLUDE web/panels/image.tt.html code = code image = front_image %]
+                                [% INCLUDE web/panels/image.tt.html code = code image = front_image imgid = imgid nutripatrol_url = nutripatrol_url %]
                             </div>
                             <div class="medium-8 small-12 columns">
-                    [% END %]   
+                    [% END %]
 
 
                     <h2 class="title-1" property="food:name" itemprop="name">[% title %]</h1>
@@ -120,7 +125,7 @@
                     [% IF server_options_producers_platform %]
                         <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
                     [% END %]
-                    
+
             <!-- Obsolete product -->
             [% IF product_is_obsolete %]
                 <div data-alert class="alert-box warn" id="obsolete" style="display: block; background:#ffaa33;color:black;">
@@ -148,8 +153,8 @@
             <!-- owner -->
             [% IF owner %]
                 <p>
-                    [% FILTER format(lang("sources_manufacturer")) %]<a href="facets/editors/[% owner %]">[% owner_org.name %]</a>[% END %]
-                    
+                    [% FILTER format(lang("sources_manufacturer")) %]<a href="/facets[% canonicalize_taxonomy_tag_link("editors", owner) %]">[% owner_org.name %]</a>[% END %]
+
                     [% IF owner_org.customer_service.email || owner_org.customer_service.link || owner_org.customer_service.phone %]
                             - [% lang("customer_service") %][% sep %]:
                             [% IF owner_org.customer_service.email %]
@@ -157,14 +162,14 @@
                             [% ELSIF owner_org.customer_service.link %]
                                 [% display_icon('email') %] <a href="[% owner_org.customer_service.link %]">[% lang("contact_form") %]</a>
                             [% END %]
-                            
+
                             [% IF owner_org.customer_service.phone %]
                                 [% display_icon('phone') %] <span itemprop="telephone"><a href="tel:[% owner_org.customer_service.phone %]">[% owner_org.customer_service.phone %]</a></span>
                             [% END %]
                     [% END %]
                 </p>
-            [% END %]                    
-                    
+            [% END %]
+
                     <!-- Display UPC code if the EAN starts with 0 -->
                         [% IF upc_code == 'defined' %]
                             <div id="barcode_div">
@@ -188,15 +193,14 @@
                          [%# put in DOM for folksonomy %]
                           <span id="barcode"  style="display: none;">[% code %]</span>
                         [% END %]
-                        
+
                         [% product_fields %]
 
-                        [% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
+                       [% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
                             <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
                                 the voter uniqueness is based on a hash of its ip address -->
-                            [% INCLUDE web/common/includes/robotoff_question.tt.html product_code = code id = "robotoff-question"  %]
+                            [% INCLUDE web/common/includes/robotoff_contribution_message.tt.html product_code = code id = "robotoff-contribution-message" is_logged_in = user_id.defined %]
                         [% END %]
-
                     [% IF front_image.defined %]
                             </div>
                         </div>
@@ -208,25 +212,22 @@
         </div>
     </section>
 
-    [% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
-    [% INCLUDE web/common/includes/robotoff_nutrients.tt.html product_code = code  %]
-    [% END %]
 [% IF user_preferences %]
     <!-- product summary -->
     <section class="row" id="match">
         <div class="large-12 column">
-            
+
             <div class="card">
                 <div class="card-section">
                     <h2 id="match_title">[% lang('matching_with_your_preferences') %]</h2>
 
                     <div id="match_score_and_status"></div>
-                            
+
                     <div id="product_summary" class="v-space-short text-left"></div>
 
                     <div id="preferences_selected" class="text-left"></div>
-                        
-                    <div id="preferences_selection_form" class="text-left v-space-whide h-space-wide" style="display:none"></div>                   
+
+                    <div id="preferences_selection_form" class="text-left v-space-whide h-space-wide" style="display:none"></div>
                 </div>
             </div>
 
@@ -288,7 +289,19 @@
     </section>
 [% END %]
 
-<!-- Report problem card, if not on the platform for producers -->    
+[% IF product_card_panel %]
+<section class="row" id="product_kp">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                        [% product_card_panel %]
+                </div>
+            </div>
+        </div>
+    </section>
+[% END %]
+
+<!-- Report problem card, if not on the platform for producers -->
 [% IF ! server_options_producers_platform %]
     <section class="row" id="report_problem">
         <div class="large-12 column">
@@ -347,7 +360,7 @@
 			[% ELSE %]
 				[% source.name %]
 			[% END %]
-			
+
 			[% IF source.source_licence_url %]
 				<a href="\[% source.source_licence_url %]\">[% source.name %]</a></li>
 			[% ELSE %]
@@ -374,7 +387,7 @@
             [% other_editors %]
             [% checked %]
         </p>
- 
+
             <div class="alert-box info">
                 [% lang('fixme_product') %]
             </div>
@@ -414,6 +427,26 @@
 </div>
 </section>
 
-[% INCLUDE web/common/includes/folksonomy_script.tt.html %]
+<section class="row" id="folksonomy_editor">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="reblock card-section">
+                    <div class="large-12 column">
+                        <folksonomy-editor product-code="[% code %]" page-type="[% IF is_user %]edit[% ELSE %]view[%END%]">
+                        </folksonomy-editor>
+                    </div>
+                    [% IF not is_user %]
+                    <div class="edit_button center text-center" >
+                        <a href=[% IF oidc_implementation_level < 3 %]"/cgi/session.pl"[% ELSE %]"/cgi/oidc_signin.pl?return_url=[% uri_escape(formatted_subdomain _  this_product_url _ '#folksonomy_editor') %]"[% END %] class="button small">
+                            [% display_icon('edit') %]
+                            [% lang('signin_to_edit_fe_properties') %]
+                        </a>
+                    </div>
+                    [% END %]
+
+                </div>
+            </div>
+        </div>
+</section>
 
 <!-- end templates/[% template.name %] -->

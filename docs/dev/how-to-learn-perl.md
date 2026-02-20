@@ -14,3 +14,8 @@ Here are some introductory resources to learn Perl:
 - [Perl.org](https://www.perl.org/) - Official Perl website with documentation, tutorials, and community resources.
 - [Learn Perl](https://learn.perl.org/) - Perl programming language tutorials for beginners.
 - [Perl Maven](https://perlmaven.com/) - Perl programming tutorials, tips, and code examples.
+
+### Some useful docs
+
+- [Perl.org special variables](https://perldoc.perl.org/variables/) - if you search for meaning of special variables (like `$'` or `$#` etc.)
+- [Perl.org regular expression](https://perldoc.perl.org/perlre) - we use it quite a lot in ProductOpener's code

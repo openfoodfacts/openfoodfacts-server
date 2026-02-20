@@ -13,7 +13,7 @@ fi
 if [ ! -f lib/ProductOpener/Paths.pm ]; then
     >&2 echo "lib/ProductOpener/Paths.pm not found. ./scripts/gen_feeds_daily.sh must be launched from server root"
     exit 1
-fi  
+fi
 
 export PERL5LIB=lib:$PERL5LIB
 
@@ -31,41 +31,40 @@ fi
 
 cd $OFF_SCRIPTS_DIR
 
-ERRORS=0
-FAILED_COMMANDS=""
+# load utils
+. error_report_utils.sh
 
 # off-pro flavor: we don't generate most exports
 # but we have some special processing
 if [ -n "$IS_PRO_PLATFORM" ]; then
     echo "Generating feeds for off-pro flavor"
-    ./save_org_product_data_daily_off_pro.pl
+    ./save_org_product_data_daily_off_pro.pl || report_error $? "save_org_product_data_daily_off_pro.pl"
     echo "Skipping exports for off-pro flavor"
-    exit 0
+    report_failed_commands $0
 fi
 
-./remove_empty_products.pl
-./gen_top_tags_per_country.pl
+# on Sunday, fix non normalized barcodes
+if [ "$(date +%u)" = "7" ]
+then
+    ./fix_non_normalized_codes.pl --skip-sto || report_error $? "fix_non_normalized_codes.pl"
+fi
+
+./remove_empty_products.pl || report_error $? "remove_empty_products.pl"
+./gen_top_tags_per_country.pl  || report_error $? "gen_top_tags_per_country.pl"
 
 # Generate the CSV and RDF exports
-./export_database.pl
-RETURN=$?
+./export_database.pl || report_error $? "export_database.pl"
 
-if [ $RETURN -ne 0 ];
-then
-    >&2 echo "export_database.pl not executed successfully - return value: $RETURN"
-    ERRORS=`expr $ERRORS + 1`
-    FAILED_COMMANDS="${FAILED_COMMANDS}export_database.pl
-"
-fi
-
-# compress CSV exports
+echo "Compress CSV exports"
 cd $OFF_PUBLIC_DATA_DIR
 for export in en.$PRODUCT_OPENER_DOMAIN.products.csv fr.$PRODUCT_OPENER_DOMAIN.products.csv en.$PRODUCT_OPENER_DOMAIN.products.rdf fr.$PRODUCT_OPENER_DOMAIN.products.rdf; do
-   nice pigz < $export > new.$export.gz
-   mv -f new.$export.gz $export.gz
+    echo "Compressing ${export} to new.${export}.gz..."
+    nice pigz < $export > new.$export.gz
+    echo "Moving new.${export}.gz to ${export}.gz"
+    mv -f new.$export.gz $export.gz
 done
 
-# Copy CSV and RDF files to AWS S3 using MinIO client
+echo "Copying CSV and RDF files to AWS S3 using MinIO client..."
 mc cp \
     en.$PRODUCT_OPENER_DOMAIN.products.csv \
     en.$PRODUCT_OPENER_DOMAIN.products.csv.gz \
@@ -73,12 +72,13 @@ mc cp \
     fr.$PRODUCT_OPENER_DOMAIN.products.csv \
     fr.$PRODUCT_OPENER_DOMAIN.products.csv.gz \
     fr.$PRODUCT_OPENER_DOMAIN.products.rdf \
-    s3/$PRODUCT_OPENER_FLAVOR-ds
+    s3/$PRODUCT_OPENER_FLAVOR-ds \
+    || report_error $? "mc.cp.csv"
 
 # Generate the MongoDB dumps and jsonl export
 cd $OFF_SCRIPTS_DIR
 
-./mongodb_dump.sh $OFF_PUBLIC_DATA_DIR $PRODUCT_OPENER_FLAVOR $MONGODB_HOST $PRODUCT_OPENER_FLAVOR_SHORT
+./mongodb_dump.sh $OFF_PUBLIC_DATA_DIR $PRODUCT_OPENER_FLAVOR $MONGODB_HOST $PRODUCT_OPENER_FLAVOR_SHORT || report_error $? "mongodb_dump.sh"
 
 # Small products data and images export for Docker dev environments
 # for about 1/100000th of the products contained in production.
@@ -86,20 +86,23 @@ cd $OFF_SCRIPTS_DIR
     --products-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-100000.tar.gz \
     --images-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-100000.images.tar.gz \
     --jsonl-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-100000.jsonl.gz \
-    --mongo-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-100000.mongodbdump.gz
+    --mongo-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-100000.mongodbdump.gz \
+    || report_error $? "export_products_data_and_images.pl.modulo-100000"
 # On saturday, export modulo 1000 and 10000 for larger sample
 if [ "$(date +%u)" = "6" ]
 then
     ./export_products_data_and_images.pl --sample-mod 10000,0 \
-    --products-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.tar.gz \
-    --images-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.images.tar.gz \
-    --jsonl-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.jsonl.gz \
-    --mongo-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.mongodbdump.gz
+        --products-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.tar.gz \
+        --images-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.images.tar.gz \
+        --jsonl-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.jsonl.gz \
+        --mongo-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-10000.mongodbdump.gz \
+        || report_error $? "export_products_data_and_images.pl.modulo-10000"
     ./export_products_data_and_images.pl --sample-mod 1000,0 \
         --products-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-1000.tar.gz \
         --images-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-1000.images.tar.gz \
         --jsonl-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-1000.jsonl.gz \
-        --mongo-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-1000.mongodbdump.gz
+        --mongo-file $OFF_PUBLIC_EXPORTS_DIR/products.random-modulo-1000.mongodbdump.gz \
+        || report_error $? "export_products_data_and_images.pl.modulo-1000"
 fi
 
 # Generate small CSV dump for the offline mode of the mobile app
@@ -115,27 +118,14 @@ fi
 
 # Exports for Carrefour
 cd $OFF_SCRIPTS_DIR
-./export_csv_file.pl --fields code,nutrition_grades_tags --query editors_tags=carrefour --separator ';' > $OFF_PUBLIC_DATA_DIR/exports/carrefour_nutriscore.csv
+./export_csv_file.pl --fields code,nutrition_grades_tags --query editors_tags=carrefour --separator ';' > $OFF_PUBLIC_DATA_DIR/exports/carrefour_nutriscore.csv || report_error $? "export_csv_file.pl.carrefour_nutriscore"
 
-./export_csv_file.pl --fields code,nutrition_grades_tags --separator ';' > $OFF_PUBLIC_DATA_DIR/exports/nutriscore.csv
+./export_csv_file.pl --fields code,nutrition_grades_tags --separator ';' > $OFF_PUBLIC_DATA_DIR/exports/nutriscore.csv  || report_error $? "export_csv_file.pl.nutriscore"
 
 # On OFF and on Sunday, generates madenearme pages
 if [ "$PRODUCT_OPENER_FLAVOR" == "off" ] && [ "$(date +%u)" = "7" ]
 then
-    ./generate_madenearme_pages.sh
+    ./generate_madenearme_pages.sh  || report_error $? "generate_madenearme_pages.sh"
 fi
 
-# If there were commands that resulted in errors,
-# echo the list of commands so that it is included in the
-# failure e-mail sent to root
-if [ $ERRORS -gt 0 ];
-then
-    >&2 echo "$ERRORS ERROR(S) DURING EXECUTION OF gen_fields_daily.sh"
-    >&2 echo "FAILED COMMANDS:
-$FAILED_COMMANDS"
-    exit 1
-else
-    echo "No errors during execution of gen_fields_daily.sh"
-    exit 0
-fi
-
+report_failed_commands $0

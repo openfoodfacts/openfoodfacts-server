@@ -17,24 +17,29 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
-  # FIXME: not used yet
   filter:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
     outputs:
-      code_modified: ${{ steps.filter.outputs.code_modified }}
+      code_modified: ${{ steps.filter.outputs.code }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Get changed files
-        uses: step-security/changed-files@v45
-        id: changed_files
-
-      - name: Filter non-markdown and non-docs files
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
         id: filter
-        run: ./.github/scripts/path-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}"
+        with:
+          # FIXME: we need to consider more than these files
+          # We need to consider every file in the repository and have it in a category
+          # Maybe using negative match: https://github.com/micromatch/picomatch?tab=readme-ov-file#advanced-globbing
+          filters: |
+            code:
+            - '**/*'       # Catch everything else
+            - '!**/*.md'   # Exclude all Markdown files
+            - '!docs/**'   # Exclude docs/ folder
+          predicate-quantifier: 'every'
 
   lint:
     name: 🕵️‍♀️ NPM lint
@@ -42,63 +47,314 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v4
+    - uses: actions/setup-node@v6
       with:
         node-version: '22.x'
-    - name: Cache node modules
-      uses: actions/cache@v4
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
+        cache: 'npm'
+        cache-dependency-path: 'package-lock.json'
     - name: gulp build
       run: make front_build
     - name: lint
       run: make front_lint
+    - name: Verify package-lock is the right one
+      run: |
+        cp package-lock.json package-lock.json.orig
+        make update_package_lock
+        if ! diff -q package-lock.json.orig package-lock.json
+        then
+          echo "Package lock is not up to date, please run make update_package_lock"
+          diff -u package-lock.json.orig package-lock.json
+          exit 1
+        fi
 
   # this will build the docker image and upload as an artifact for following jobs
   build_backend:
     name: 🏗 Build backend dev image for tests
-    needs: filter
+    permissions:
+      contents: read
+      # needed to use cache-to type=registry for buildx
+      packages: write
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
     steps:
-    - uses: actions/checkout@v4
-      with:
-        # needs depth to run git log below
-        fetch-depth: 50
-    - uses: actions/cache@v4
-      id: cache
-      with:
-        path: ./build-cache
-        key: taxonomies-${{ hashFiles('taxonomies/**') }}
-        restore-keys: taxonomies-
-    - name: build
-      run: make build container=backend
-    - name: push backend image as artifact
-      uses: ishworkh/container-image-artifact-upload@v2.0.0
-      with:
-        image: "openfoodfacts-server/backend:dev"
-    - name: Setup Git and Restore Taxonomies
-      run: ./.github/scripts/setup_git.sh
-    - name: Rebuild taxonomies for Open Food Facts (off)
-      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-    - name: Rebuild taxonomies for Open Beauty Facts (obf)
-      run: |
-        source env/setenv.sh obf
-        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-    - name: Rebuild taxonomies for Open Products Facts (opf)
-      run: |
-        source env/setenv.sh opf
-        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-    - name: Rebuild taxonomies for Open Pet Food Facts (opff)
-      run: |
-        source env/setenv.sh opff
-        make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+      - uses: actions/checkout@v5
+        with:
+          # needs depth to run git log below
+          fetch-depth: 50
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          driver: docker-container
+          use: true
+
+      # Restore taxonomies cache
+      - uses: actions/cache@v5
+        id: cache
+        with:
+          path: ./build-cache
+          key: taxonomies-${{ hashFiles('taxonomies/**') }}
+          restore-keys: taxonomies-
+
+      # Get current user/group IDs for proper file permissions in Docker
+      - name: Get user IDs
+        id: user_ids
+        run: |
+          echo "uid=$(id -u)" >> $GITHUB_OUTPUT
+          echo "gid=$(id -g)" >> $GITHUB_OUTPUT
+
+      - name: Login to DockerHub to enable pushing buildx cache
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compute registry ref for Buildkit cache
+        id: registry_ref
+        run: |
+          echo registry_ref=ghcr.io/${{ github.repository }}/backend-buildx-cache:${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }} >> $GITHUB_OUTPUT
+
+      - name: Build backend image with cache
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          build-args: |
+            USER_UID=${{ steps.user_ids.outputs.uid }}
+            USER_GID=${{ steps.user_ids.outputs.gid }}
+            CPANMOPTS=--with-develop
+          # Multi-layer caching strategy for maximum performance
+          # Note: we don't use gha cache because we run out of cache otherwise
+          # So we use registry cache, see https://docs.docker.com/build/cache/backends/registry/
+          cache-from: |
+            type=registry,ref=${{ steps.registry_ref.outputs.registry_ref }}
+          # cache to is enabled only for non fork, for otherwise there is no permission to write
+          cache-to: |
+            ${{
+              (!github.event.pull_request.head.repo.fork) &&
+              format('type=registry,ref={0},mode=max', steps.registry_ref.outputs.registry_ref) ||
+              '' 
+            }}
+          load: true                   # loads the image into local docker daemon
+          tags: openfoodfacts-server/backend:dev
+      # Clean up BuildKit cache duplication to free space for Docker save
+      - name: Clean up duplicate BuildKit cache and additional space
+        run: |
+          echo "🧹 Cleaning up duplicate BuildKit cache before Docker save..."
+          
+          # Show space before cleanup
+          echo "Space before cleanup:"
+          df -h / | tail -1
+          
+          # Remove the old BuildKit cache (keeping the new one)
+          echo "Removing old BuildKit cache..."
+          time rm -rf /tmp/.buildx-cache
+          
+          # Additional cleanup to get us over the threshold
+          echo "Additional cleanup for more space..."
+          
+          # Remove APT package cache (can be regenerated)
+          time sudo apt-get clean
+          time sudo rm -rf /var/cache/apt/archives/*.deb
+          
+          # Remove large APT lists (can be regenerated)
+          time sudo rm -rf /var/lib/apt/lists/*
+          
+          # Remove any temporary files in /tmp
+          time sudo find /tmp -type f -size +50M -delete 2>/dev/null || true
+          
+          # Remove Docker build cache that's not needed for save
+          time docker builder prune -af || true
+          
+          # Show space freed
+          echo "Space after cleanup:"
+          time df -h / | tail -1
+          
+          # Calculate available space
+          AVAIL=$(df / | tail -1 | awk '{print $4}')
+          AVAIL_GB=$((AVAIL/1024/1024))
+          echo "Available space: ${AVAIL_GB}GB"
+          
+          # Docker save will need ~12-16GB, check if we have enough
+          if [ "$AVAIL_GB" -lt 16 ]; then
+            echo "⚠️ Still tight on space. Available: ${AVAIL_GB}GB, needed: ~12-16GB"
+            echo "Need more cleanup..."
+            
+            # Additional aggressive cleanup - AVOID Docker image cleanup entirely
+            echo "Performing aggressive system cleanup (avoiding Docker images)..."
+            
+            # First verify our target image exists
+            echo "Checking if target image exists..."
+            time docker images openfoodfacts-server/backend:dev
+            
+            # SKIP Docker cleanup entirely to preserve our image
+            echo "Skipping Docker cleanup to preserve target image..."
+            
+            # Focus on system files only
+            echo "Cleaning system caches and files..."
+            
+
+            echo "Clean up system caches (this freed the most space)"
+            time sudo rm -rf /var/log/*.log /var/log/*/*.log || true
+            time sudo rm -rf /var/cache/* || true
+            time sudo rm -rf /usr/share/doc/* || true
+            time sudo rm -rf /usr/share/man/* || true
+            time sudo rm -rf /usr/share/locale/* || true
+            
+            echo "Clean up more system temporary files"
+            time sudo rm -rf /tmp/* || true
+            time sudo rm -rf /var/tmp/* || true
+            
+            # Verify our image still exists
+            echo "Verifying target image still exists..."
+            time docker images openfoodfacts-server/backend:dev
+            
+            # Final space check
+            echo "Space after aggressive cleanup:"
+            df -h / | tail -1
+            AVAIL=$(df / | tail -1 | awk '{print $4}')
+            AVAIL_GB=$((AVAIL/1024/1024))
+            echo "Final available space: ${AVAIL_GB}GB"
+            
+            if [ "$AVAIL_GB" -lt 15 ]; then
+              echo "removing files at the cost of time"
+
+              # Remove any large files in common locations
+              time sudo find /var -type f -size +100M -delete 2>/dev/null || true
+              time sudo find /usr -type f -size +100M -delete 2>/dev/null || true
+              time sudo find /opt -type f -size +100M -delete 2>/dev/null || true
+
+              echo "Space after more aggressive cleanup:"
+              df -h / | tail -1
+              AVAIL=$(df / | tail -1 | awk '{print $4}')
+              AVAIL_GB=$((AVAIL/1024/1024))
+
+              if [ "$AVAIL_GB" -lt 15 ]; then
+
+                echo "⚠️ Still might be tight with ${AVAIL_GB}GB available"
+              else
+                echo "✅ Should have sufficient space now"
+              fi
+            else
+              echo "✅ Should have sufficient space"
+            fi
+          else
+            echo "✅ Sufficient space available for Docker save"
+          fi
+
+      - name: push backend image as artifact
+        uses: ishworkh/container-image-artifact-upload@v2.0.0
+        with:
+          image: "openfoodfacts-server/backend:dev"
+          # Add retention to save space in Actions storage
+          retention_days: 1
+
+      # Prepare cache for next run (old cache was removed for space)
+      - name: Prepare cache for next run
+        if: always()
+        run: |
+          # The old cache was already removed, just rename the new one
+          if [ -d /tmp/.buildx-cache-new ]; then
+            mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+            echo "Moved new BuildKit cache into place"
+          else
+            echo "ℹNo new BuildKit cache found"
+          fi
+
+      - name: Setup Git and Restore Taxonomies
+        run: ./.github/scripts/setup_git.sh
+        
+      # Update dynamic test groups before running tests
+      - name: Update dynamic test groups
+        run: ./.github/scripts/update_test_groups.sh
+
+        # Set up environment variables for proper Docker user/group permissions
+      - name: Set up user environment for Docker
+        run: |
+          echo "export USER_UID=$(id -u)" >> .envrc
+          echo "export USER_GID=$(id -g)" >> .envrc
+
+      - name: Rebuild taxonomies for Open Food Facts (off)
+        run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+
+      - name: Rebuild taxonomies for Open Beauty Facts (obf)
+        run: |
+          source env/setenv.sh obf
+          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+
+      - name: Rebuild taxonomies for Open Products Facts (opf)
+        run: |
+          source env/setenv.sh opf
+          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+
+      - name: Rebuild taxonomies for Open Pet Food Facts (opff)
+        run: |
+          source env/setenv.sh opff
+          make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+
+  build_frontend:
+    name: 🏗 Build frontend image for tests
+    permissions:
+      contents: read
+      packages: write
+    runs-on: ubuntu-latest
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          driver: docker-container
+          use: true
+
+      - name: Get user IDs
+        id: user_ids
+        run: |
+          echo "uid=$(id -u)" >> $GITHUB_OUTPUT
+          echo "gid=$(id -g)" >> $GITHUB_OUTPUT
+
+      - name: Login to DockerHub to enable pushing buildx cache
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compute registry ref for Buildkit cache
+        id: registry_ref
+        run: |
+          echo registry_ref=ghcr.io/${{ github.repository }}/frontend-buildx-cache:${{ hashFiles('Dockerfile.frontend', 'package*.json', 'gulpfile.mjs', 'html/**', 'icons/**', 'scss/**') }} >> $GITHUB_OUTPUT
+
+      - name: Build frontend image with cache
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile.frontend
+          build-args: |
+            USER_UID=${{ steps.user_ids.outputs.uid }}
+            USER_GID=${{ steps.user_ids.outputs.gid }}
+          cache-from: |
+            type=registry,ref=${{ steps.registry_ref.outputs.registry_ref }}
+          cache-to: |
+            ${{
+              (!github.event.pull_request.head.repo.fork) &&
+              format('type=registry,ref={0},mode=max', steps.registry_ref.outputs.registry_ref) ||
+              ''
+            }}
+          load: true
+          tags: openfoodfacts-server/frontend:dev
+
+      - name: Push frontend image as artifact
+        uses: ishworkh/container-image-artifact-upload@v2.0.0
+        with:
+          image: "openfoodfacts-server/frontend:dev"
+          retention_days: 1
 
   check_perl:
     name: 🐪 Check Perl
@@ -106,12 +362,12 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
-    - uses: actions/cache/restore@v4
+    - uses: actions/cache/restore@v5
       id: cache
       with:
         path: ./build-cache
@@ -119,16 +375,10 @@ jobs:
         restore-keys: taxonomies-
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.0.0
+      uses: ishworkh/container-image-artifact-download@v2.1.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
-    - name: Remove downloaded image
-      env:
-        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
-      run: rm $FILE
+        download_tmp_dir: ${{ runner.temp }}
     - name: build taxonomies (should use cache)
       run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
     - name: check taxonomies
@@ -140,68 +390,455 @@ jobs:
     - name: check perl
       run: make check_perl
 
-  tests:
-    name: 🐪 Perl unit tests
+  generate_perl_sbom:
+    name: 📦 Generate Perl SBOM
+    permissions:
+      contents: write
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
-    - uses: actions/cache/restore@v4
-      id: cache
+    - name: Download backend image from artifacts
+      id: downloadbackendimage
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: Remove downloaded image file
+      env:
+        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
+      run: rm $FILE
+    - name: Generate Perl SBOM with cpan-sbom
+      run: |
+        docker run --rm -v $(pwd):/workspace openfoodfacts-server/backend:dev \
+          cpan-sbom \
+          --project-directory /workspace \
+          --project-name "Product Opener" \
+          --project-type application \
+          --project-license AGPL-3.0 \
+          --project-author "Open Food Facts <contact@openfoodfacts.org>" \
+          --vulnerabilities \
+          --validate \
+          --output /workspace/perl-sbom.json
+    - name: Upload Perl SBOM as artifact
+      uses: actions/upload-artifact@v6
+      with:
+        name: perl-sbom
+        path: perl-sbom.json
+        retention-days: 90
+    - name: Submit Perl SBOM to Dependency Graph
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: advanced-security/spdx-dependency-submission-action@v0.1.2
+      with:
+        filePath: perl-sbom.json
+
+  generate_docker_sbom:
+    name: 📦 Generate Docker SBOM
+    permissions:
+      contents: write
+      security-events: write
+    needs: [filter, build_backend]
+    runs-on: ubuntu-latest
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+    - name: Download backend image from artifacts
+      id: downloadbackendimage
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: Remove downloaded image file
+      env:
+        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
+      run: rm $FILE
+    - name: Generate SBOM for backend image
+      uses: anchore/sbom-action@v0
+      with:
+        image: openfoodfacts-server/backend:dev
+        format: cyclonedx-json
+        output-file: backend-sbom.cyclonedx.json
+        upload-artifact: true
+        upload-artifact-retention: 90
+        artifact-name: backend-sbom
+        dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    - name: Trivy scan for backend image
+      uses: aquasecurity/trivy-action@0.33.1
+      with:
+        image-ref: openfoodfacts-server/backend:dev
+        format: 'sarif'
+        output: backend-trivy.sarif
+        trivy-config: trivy.yaml
+        vuln-type: 'os,library'
+        scanners: 'vuln,secret,config,license'
+        severity: 'CRITICAL,HIGH,MEDIUM,LOW'
+        ignore-unfixed: true
+        cache: true
+        skip-dirs: opt/product-opener/build-cache/,opt/product-opener/taxonomies
+    - name: Upload Trivy results to GitHub Security
+      uses: github/codeql-action/upload-sarif@v4
+      if: always()
+      with:
+        sarif_file: backend-trivy.sarif
+        category: trivy-backend
+
+  generate_frontend_sbom:
+    name: 📦 Generate Frontend SBOM
+    permissions:
+      contents: write
+      security-events: write
+    needs: [build_frontend]
+    runs-on: ubuntu-latest
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request')
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+    - name: Download frontend image from artifacts
+      id: downloadfrontendimage
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/frontend:dev"
+    - name: Remove downloaded image file
+      env:
+        FILE: "${{ steps.downloadfrontendimage.outputs.download_path }}"
+      run: rm $FILE
+    - name: Generate SBOM for frontend image
+      uses: anchore/sbom-action@v0
+      with:
+        image: openfoodfacts-server/frontend:dev
+        format: cyclonedx-json
+        output-file: frontend-sbom.cyclonedx.json
+        upload-artifact: true
+        upload-artifact-retention: 90
+        artifact-name: frontend-sbom
+        dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    - name: Trivy scan for frontend image
+      uses: aquasecurity/trivy-action@0.33.1
+      with:
+        image-ref: openfoodfacts-server/frontend:dev
+        format: 'sarif'
+        output: frontend-trivy.sarif
+        trivy-config: trivy.yaml
+        vuln-type: 'os,library'
+        scanners: 'vuln,secret,config,license'
+        severity: 'CRITICAL,HIGH,MEDIUM,LOW'
+        ignore-unfixed: true
+        cache: true
+    - name: Upload Trivy results to GitHub Security
+      uses: github/codeql-action/upload-sarif@v4
+      if: always()
+      with:
+        sarif_file: frontend-trivy.sarif
+        category: trivy-frontend
+
+  # Calculate dynamic test group matrix based on current test files and timing data
+  calculate_test_matrix:
+    name: 🧮 Calculate Dynamic Test Matrix
+    needs: [filter]
+    runs-on: ubuntu-latest
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    outputs:
+      unit_test_groups: ${{ steps.matrix.outputs.unit_test_groups }}
+      integration_test_groups: ${{ steps.matrix.outputs.integration_test_groups }}
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+    
+    # Cache dynamic test groups and timing data
+    - uses: actions/cache@v5
+      id: test_groups_cache
+      with:
+        path: ./.test_groups_cache
+        key: test-groups-${{ hashFiles('tests/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.py') }}
+        restore-keys: |
+          test-groups-${{ hashFiles('tests/**/*.t') }}-
+          test-groups-
+    
+    - name: Calculate optimal test group counts
+      id: matrix
+      run: |
+        echo "🥫 Calculating optimal test group counts..."
+        
+        # Generate matrix configuration using the Python script
+        python3 scripts/generate_matrix_config.py > matrix_config.json
+        
+        # Extract group counts
+        unit_groups=$(python3 -c "import json; data=json.load(open('matrix_config.json')); print(json.dumps(data['unit_group_range']))")
+        integration_groups=$(python3 -c "import json; data=json.load(open('matrix_config.json')); print(json.dumps(data['integration_group_range']))")
+        
+        echo "🥫 Unit test groups: $unit_groups"
+        echo "🥫 Integration test groups: $integration_groups"
+        
+        # Set outputs for the matrix
+        echo "unit_test_groups=$unit_groups" >> $GITHUB_OUTPUT
+        echo "integration_test_groups=$integration_groups" >> $GITHUB_OUTPUT
+        
+        # Display the calculated matrix
+        cat matrix_config.json
+
+  unit_tests:
+    # for now "🐪 Perl Unit Tests" is the expected label for end of tests,
+    # so we had "Only" here to not get confused
+    name: 🐪 Perl Unit Tests Only
+    needs: [filter, build_backend, calculate_test_matrix]
+    runs-on: ubuntu-latest
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.unit_test_groups) }}
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+    
+    # Restore cached taxonomies built in build_backend job
+    # This avoids rebuilding taxonomies for each test group
+    - uses: actions/cache/restore@v5
+      id: taxonomies_cache
       with:
         path: ./build-cache
         key: taxonomies-${{ hashFiles('taxonomies/**') }}
         restore-keys: taxonomies-
+    
+    # Cache dynamic test groups and timing data
+    # This enables persistent learning and avoids regenerating groups unnecessarily
+    - uses: actions/cache@v5
+      id: test_groups_cache
+      with:
+        path: ./.test_groups_cache
+        key: test-groups-unit-${{ hashFiles('tests/unit/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.py') }}
+        restore-keys: |
+          test-groups-unit-${{ hashFiles('tests/unit/**/*.t') }}-
+          test-groups-unit-
+    
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
+    
+    # Update dynamic test groups before running tests
+    # This ensures optimal load balancing based on historical timing data
+    - name: Update dynamic test groups
+      run: |
+        echo "🥫 Checking and updating dynamic test groups..."
+        ./.github/scripts/update_test_groups.sh
+        
+        # Ensure .mk files are regenerated for current test discovery
+        echo "🥫 Regenerating unit test groups for Makefile..."
+        python3 scripts/dynamic_test_grouper.py --type=unit --force > .test_groups_cache/unit_groups.mk
+    
+    # Download the Docker image built in build_backend job as an artifact
+    # This reuses the cached Docker image instead of rebuilding it
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.0.0
+      uses: ishworkh/container-image-artifact-download@v2.1.0
       with:
         image: "openfoodfacts-server/backend:dev"       
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
+    
+    # Clean up downloaded file to save GitHub Actions storage space
+    # The image is already loaded into Docker daemon, file no longer needed
     - name: Remove downloaded image
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
       run: rm $FILE
-    - name: tests
+    
+    # Build test-specific taxonomies and language files
+    # These use the cached taxonomies from build_backend when possible
+    - name: Build taxonomies for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Build language files for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_lang_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    
+    # Run unit tests for this specific test group (parallel execution)
+    # Matrix strategy splits tests across 6 parallel jobs for faster execution
+    # Now uses dynamically generated groups for optimal load balancing
+    - name: Run unit test group ${{ matrix.test-group }}
       run: |
+        echo "🥫 Running dynamically balanced unit test group ${{ matrix.test-group }}..."
         make codecov_prepare
-        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" tests GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
-    - name: generate coverage results
-      # even if tests failed
+        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" unit_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    
+    # Update timing data after test execution for future optimization
+    # This enables the system to learn and improve load balancing over time
+    - name: Update test timing data
+      if: always()
+      run: |
+        echo "🥫 Updating timing data from test results..."
+        if [ -d "tests/unit/outputs" ] && [ "$(ls -A tests/unit/outputs/*.xml 2>/dev/null)" ]; then
+          python3 scripts/dynamic_test_grouper.py --type=unit --update-timings --junit-dir=tests/unit/outputs
+          echo "🥫 Timing data updated successfully"
+        else
+          echo "🥫 No JUnit XML files found, skipping timing update"
+        fi
+
+    # Generate coverage results for this test group
+    # Codecov will automatically merge coverage from all parallel test groups
+    - name: Generate coverage results
       if: always()
       run: |
         make coverage_txt
         make codecov
-    - uses: codecov/codecov-action@v5
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v5
       if: always()
       with:
         files: cover_db/codecov.json
         token: ${{ secrets.CODECOV_TOKEN }}
+        flags: unit-test-group-${{ matrix.test-group }}
+        name: unit-coverage-${{ matrix.test-group }}
+
     - name: Upload test results to Codecov
       if: ${{ !cancelled() }}
       uses: codecov/test-results-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./tests/unit/outputs/junit.xml,./tests/integration/outputs/junit.xml
+        files: ./tests/unit/outputs/junit_group_${{ matrix.test-group }}.xml
+        flags: unit-test-group-${{ matrix.test-group }}
+
+  integration_tests:
+    name: 🐪 Perl Integration Tests
+    needs: [filter, build_backend, calculate_test_matrix]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.integration_test_groups) }}
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+    
+    - uses: actions/cache/restore@v5
+      id: taxonomies_cache
+      with:
+        path: ./build-cache
+        key: taxonomies-${{ hashFiles('taxonomies/**') }}
+        restore-keys: taxonomies-
+    
+    # Cache dynamic test groups and timing data for integration tests
+    # Integration tests typically have more variable execution times
+    - uses: actions/cache@v5
+      id: test_groups_cache
+      with:
+        path: ./.test_groups_cache
+        key: test-groups-integration-${{ hashFiles('tests/integration/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.py') }}
+        restore-keys: |
+          test-groups-integration-${{ hashFiles('tests/integration/**/*.t') }}-
+          test-groups-integration-
+    
+    - name: Setup Git and Restore Taxonomies
+      run: ./.github/scripts/setup_git.sh
+  
+    # Update dynamic test groups before running tests
+    # Integration tests benefit more from timing-based grouping due to variable execution times
+    - name: Update dynamic test groups
+      run: |
+        echo "🥫 Checking and updating dynamic integration test groups..."
+        ./.github/scripts/update_test_groups.sh
+        
+        # Ensure .mk files are regenerated for current test discovery
+        echo "🥫 Regenerating integration test groups for Makefile..."
+        python3 scripts/dynamic_test_grouper.py --type=integration --force > .test_groups_cache/integration_groups.mk
+
+    - name: Download backend image from artifacts
+      id: downloadbackendimage
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/backend:dev"       
+    
+    - name: Remove downloaded image
+      env:
+        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
+      run: rm $FILE
+    
+    - name: Build taxonomies for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    - name: Build language files for tests
+      run: make DOCKER_LOCAL_DATA="$(pwd)" build_lang_test GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    
+    # Run integration tests for this specific test group (parallel execution)
+    # Matrix strategy splits tests across 9 parallel jobs (more than unit tests)
+    # Integration tests typically take longer and test end-to-end functionality
+    # Now uses dynamically generated groups for optimal load balancing
+    - name: Run integration test group ${{ matrix.test-group }}
+      run: |
+        echo "🥫 Running dynamically balanced integration test group ${{ matrix.test-group }}..."
+        make codecov_prepare
+        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' DOCKER_LOCAL_DATA="$(pwd)" integration_test_group TEST_GROUP=${{ matrix.test-group }} GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+    
+    # Update timing data after test execution for future optimization
+    # Integration test timing data is especially valuable due to higher variance
+    - name: Update test timing data
+      if: always()
+      run: |
+        echo "🥫 Updating integration test timing data from test results..."
+        if [ -d "tests/integration/outputs" ] && [ "$(ls -A tests/integration/outputs/*.xml 2>/dev/null)" ]; then
+          python3 scripts/dynamic_test_grouper.py --type=integration --update-timings --junit-dir=tests/integration/outputs
+          echo "🥫 Integration test timing data updated successfully"
+        else
+          echo "🥫 No JUnit XML files found, skipping timing update"
+        fi
+
+    # Generate coverage results for this test group
+    # Codecov will automatically merge coverage from all parallel test groups
+    - name: Generate coverage results
+      if: always()
+      run: |
+        make coverage_txt
+        make codecov
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v5
+      if: always()
+      with:
+        files: cover_db/codecov.json
+        token: ${{ secrets.CODECOV_TOKEN }}
+        flags: integration-test-group-${{ matrix.test-group }}
+        name: integration-coverage-${{ matrix.test-group }}
+
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./tests/integration/outputs/junit_group_${{ matrix.test-group }}.xml
+        flags: integration-test-group-${{ matrix.test-group }}
+
+  tests_summary:
+    # if all tests did run correctly acknowledge the branch protection rule
+    # use the name that is settled in branch protection rules, although it's not fully correct
+    name: 🐪 Perl unit tests
+    needs: [unit_tests, integration_tests]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Check if unit and integration tests succeeded or fail
+        run: |
+          if [ ${{ needs.unit_tests.result }} = "failure" ] || [ ${{ needs.integration_tests.result }} = "failure" ]
+          then
+            echo "Some tests did fail"
+            exit 1
+          else
+            echo "All Perl unit and integration test groups finished."
+          fi
 
   tests_dev:
     name: 🧪 Test make dev
-    needs: [filter, build_backend]  # build_backend - only to avoid building taxonomies
+    needs: [filter, build_backend, build_frontend]
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
-    - uses: actions/cache/restore@v4
+    - uses: actions/cache/restore@v5
       id: cache
       with:
         path: ./build-cache
@@ -209,16 +846,10 @@ jobs:
         restore-keys: taxonomies-
     - name: Download backend image from artifacts
       id: downloadbackendimage
-      uses: ishworkh/container-image-artifact-download@v2.0.0
+      uses: ishworkh/container-image-artifact-download@v2.1.0
       with:
         image: "openfoodfacts-server/backend:dev"
-    # downloadbackendimage task loads the image into docker and keeps the original file.
-    # As our runs tend to hit the storage limits for GitHub Actions, manually delete the
-    # downloaded file for now. It's not needed after being loaded into docker.
-    - name: Remove downloaded image
-      env:
-        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
-      run: rm $FILE
+        download_tmp_dir: ${{ runner.temp }}
     - name: set right UID and GID in .envrc
       run: |
         rm -f .envrc
@@ -239,7 +870,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
     - name: verify apache2 envvars is correct
