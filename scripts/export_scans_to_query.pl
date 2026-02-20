@@ -38,11 +38,8 @@ use File::Slurp;
 # Add a "resume" argument to resume from the last checkpoint
 my $checkpoint = ProductOpener::Checkpoint->new;
 my $last_processed_path = $checkpoint->{value};
-$last_processed_path = "/srv/off/products/999/136/048/6034/scans";
-my $can_process = $last_processed_path ? 0 : 1;
 
 print "last_processed_path: $last_processed_path\n";
-print "can_process: $can_process\n";
 
 my $batch_size = $ARGV[0] // 100;
 my $scans = "{";
@@ -84,10 +81,7 @@ my $next = product_iter(
 	$last_processed_path
 );
 while (my $path = $next->()) {
-	if (not $can_process) {
-		if ($path eq $last_processed_path) {
-			$can_process = 1;
-		}
+	if ($path eq $last_processed_path) {
 		next;    # we don't want to process the product again
 	}
 

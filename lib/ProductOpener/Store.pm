@@ -624,7 +624,7 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 					# avoid conflicting-codes and invalid-codes
 					next if $exclude_path_pattern and $file =~ $exclude_path_pattern;
 					my $path = "$current_dir/$file";
-					print STDERR "skip_until_path: $skip_until_path - current: $path\n";
+					#print STDERR "skip_until_path: $skip_until_path - current: $path\n";
 					# If the path is < $skip_until_path then skip it unless $path is the beginning of the $skip_until_path (i.e. we are skipping a directory and this is the first file in the directory)
 					next
 						if ((defined $skip_until_path)
