@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Bendradarbiaujanti, nemokama ir atvira maisto produktų iš viso pasaulio duomenų bazė."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -3722,6 +3722,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "duomenų kokybės klaidos"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "duomenų kokybė, išsamumas"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "duomenų kokybės informacija"
@@ -5977,6 +5981,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Labai didelę naudą aplinkai teikiančios etiketės"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Nėra įvertintų etikečių"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Kai kurie aplinkosauginiai privalumai"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Didelė nauda aplinkai"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Labai didelė nauda aplinkai"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Kita"
@@ -6132,6 +6152,14 @@ msgstr "Bendradarbiavimas"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Bendradarbiavimas"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Duomenų kokybės išsamumas"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Šiek tiek informacijos apie šio produkto duomenų kokybės išsamumą"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7424,12 +7452,12 @@ msgstr "Produkto tipas"
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Maistas"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Naminių gyvūnėlių ėdalas"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7617,4 +7645,96 @@ msgstr "Neradome: {unwanted_ingredients}. Galbūt praleidome kai kuriuos ingredi
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Šie pageidavimai pagrįsti „Open Food Facts“ supratimu apie ingredientų sąrašą ir visada yra tikimybė, kad jis gali būti netikslus ar neišsamus, todėl visada patikrinkite produktą patys."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Rūkymas žudo"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Tabakas rimtai kenkia sveikatai. Nepradėkite. Meskite dabar."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Rūkymas sukelia didelę priklausomybę. Nepradėkite. Rūkymas žudo – meskite dabar. Rūkymas užkemša arterijas ir sukelia širdies priepuolius bei insultus. Rūkymas sukelia mirtiną plaučių vėžį. Rūkymas nėštumo metu kenkia jūsų kūdikiui. Apsaugokite vaikus: neverskite jų kvėpuoti dūmais. Jūsų gydytojas arba vaistininkas gali padėti jums mesti rūkyti. Rūkymas gali sumažinti kraujotaką ir sukelti impotenciją. Rūkymas sendina odą. Rūkymas gali pažeisti spermą ir sumažinti vaisingumą. Dūmuose yra benzeno, nitrozaminų, formaldehido ir vandenilio cianido."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Vieša kaina"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Gamintojo siūloma mažmeninė kaina (MSRP) be nuolaidų ir akcijų, kaip nurodyta ant produkto pakuotės arba gamintojo svetainėje (įskaitant arba be mokesčių pagal teisės aktus). Jei kainos nurodytos keliomis valiutomis, naudokite kableliais atskirtą sąrašą."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Personalizuotas turtas"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Sudėtyje nėra palmių aliejaus"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Gali būti palmių aliejaus"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Aplinkosaugos ženklai"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Trūkstami duomenys"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Didelis poveikis"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Vidutinis poveikis"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Mažas poveikis"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Poveikis neįvertintas"
 

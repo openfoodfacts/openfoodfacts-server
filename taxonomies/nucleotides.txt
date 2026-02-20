@@ -97,8 +97,6 @@ zh: 核苷酸
 wikidata:en: Q28745
 wikipedia:en: https://en.wikipedia.org/wiki/Nucleotide
 
-# description:en:ADENOSINE MONOPHOSPHATE (AMP) is a nucleotide. AMP plays an important role in many cellular metabolic processes
-
 < en:nucleotides
 en: Adenosine monophosphate, adenosine 5'-monophosphate, adenosine-5'-monophosphate, adenosine 5'-phosphoric acid, AMP
 ar: أدينوسين أحادي الفوسفات
@@ -150,6 +148,7 @@ sv: Adenosinmonofosfat
 tr: Adenozin monofosfat
 uk: Аденозинмонофосфат
 vi: Adenosine monophosphate
+# adenosine 5'-monophosphate has 3 products @2019-06-23
 # yue:單磷酸腺苷
 # zh:單磷酸腺苷
 # zh-cn:单磷酸腺苷
@@ -158,8 +157,9 @@ vi: Adenosine monophosphate
 # zh-hk:單磷酸腺苷
 # zh-sg:单磷酸腺苷
 # zh-tw:單磷酸腺苷
-wikidata:en: Q318369
 # adenosine 5'-monophosphate has 3 products @2019-06-23
+description:en: ADENOSINE MONOPHOSPHATE (AMP) is a nucleotide. AMP plays an important role in many cellular metabolic processes
+wikidata:en: Q318369
 
 < en:Adenosine monophosphate
 en: sodium salts of AMP
@@ -185,8 +185,6 @@ sl: natrijeve soli AMP
 sv: natriumsalter av AMP
 # ingredient/sodium-salts-of-AMP has no products @2019-06-23
 
-# description:Cytidine monophosphate (CMP) is a nucleotide that is used as a monomer in RNA.
-
 < en:nucleotides
 en: Cytidine monophosphate, cytidine 5'-monophosphate, cytidine-5'-monophosphate, cytidine 5'-monophosphoric acid, cytidine-, CMP
 ar: سيتيدين أحادي الفوسفات
@@ -210,6 +208,7 @@ sr: цитидин-монофосфат
 # sr-ec:цитидин-монофосфат
 # sr-el:Citidin-monofosfat
 zh: 單磷酸胞苷
+description:en: Cytidine monophosphate (CMP) is a nucleotide that is used as a monomer in RNA.
 # zh-cn:单磷酸胞苷
 # zh-hans:单磷酸胞苷
 # zh-hant:單磷酸胞苷
@@ -303,8 +302,6 @@ sk: sodné soli GMP
 sl: natrijeve soli GMP
 sv: natriumsalter av GMP
 
-# description:en:INOSINE MONOPHOSPHATE (IMP) is a nucleoside monophosphate. Widely used as a flavor enhancer, it is typically obtained from chicken byproducts or other meat industry waste.
-
 # <en:E630 has also doubles in that taxonomy
 < en:nucleotides
 en: inosine monophosphate, inosine-5'-monophosphate, inosine 5'-phosphoric acid, IMP
@@ -323,6 +320,7 @@ sr: инозинска киселина
 # sr-el:Inozinska kiselina
 tr: İnosinik asit
 zh: 肌苷酸
+description:en: INOSINE MONOPHOSPHATE (IMP) is a nucleoside monophosphate. Widely used as a flavor enhancer, it is typically obtained from chicken byproducts or other meat industry waste.
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q255933
@@ -352,8 +350,6 @@ sl: natrijeve soli IMP
 sv: natriumsalter av IMP
 # ingredient/disodium-inosine-5'-monophosphate has 2 products @2019-06-23
 
-# description:en:URIDINE MONOPHOSPHATE (UMP) is a nucleotide that is used as a monomer in RNA.
-
 < en:nucleotides
 en: uridine monophosphate, uridine-monophosphate, uridine-5'-monophosphate, uridine 5'-phosphoric acid, UMP
 ar: يوريدين أحادي الفوسفات
@@ -378,6 +374,7 @@ sr: уридин-монофосфат
 # sr-ec:уридин-монофосфат
 # sr-el:Uridin-monofosfat
 zh: 單磷酸尿苷
+description:en: URIDINE MONOPHOSPHATE (UMP) is a nucleotide that is used as a monomer in RNA.
 # zh-cn:单磷酸尿苷
 # zh-hans:单磷酸尿苷
 # zh-hant:單磷酸尿苷

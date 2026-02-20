@@ -11,12 +11,14 @@ requires 'XML::Encoding'; # libxml-encoding-perl
 requires 'MIME::Lite'; # libmime-lite-perl
 requires 'MIME::Base32';
 requires 'Cache::Memcached::Fast'; #libcache-memcached-fast-perl
+requires 'CHI'; # required by the packager code refresh scripts
 requires 'JSON'; # libjson-perl
 requires 'JSON::PP'; # libjson-pp-perl
 requires 'Cpanel::JSON::XS'; # libcpanel-json-xs-perl - fast parsing
 requires 'JSON::MaybeXS'; # libjson-maybexs-perl
 requires 'Clone'; # libclone-perl
 requires 'Crypt::PasswdMD5'; #11866: Delete after Keycloak Migration
+requires 'Data::Table'; # libdata-table-perl - required by the packager code refresh scripts
 requires 'Encode::Detect'; # libencode-detect-perl
 requires 'Barcode::ZBar'; # libbarcode-zbar-perl
 requires 'XML::FeedPP'; # libxml-feedpp-perl
@@ -37,13 +39,15 @@ requires 'Pod::Simple::HTMLBatch'; # libpod-simple-perl
 requires 'GeoIP2', '>= 2.006002, < 3.0'; # libgeoip2-perl, deps: libdata-validate-ip-perl libio-compress-perl libjson-maybexs-perl liblist-someutils-perl, libdata-dumper-concise-perl, libdata-printer-perl
 requires 'Email::Valid', '>= 1.202, < 2.0'; # libemail-valid-perl
 requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
-requires 'XML::RPC', '== 2'; # libxml-rpc-fast-perl
+requires 'XML::LibXSLT'; # libxml-libxslt-perl - required by the packager code refresh scripts
+requires 'XML::RPC', '>= 2'; # libxml-rpc-fast-perl
 requires 'AnyEvent::RipeRedis'; # libanyevent-redis-perl
 
 # Probably not available as Debian/Ubuntu packages
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
 # we fix this because MongoDB depends on it, and 0.023 does not install correctly
-requires 'Type::Tiny::XS', '==0.022';
+# 2025/02/03: bumping to 0.025 as 0.022 is not download from CPAN anymore - https://github.com/openfoodfacts/openfoodfacts-server/issues/13000
+requires 'Type::Tiny::XS', '==0.025';
 requires 'GraphViz2'; # deps: libfile-which-perl, libdata-section-simple-perl, libwant-perl, libipc-run3-perl, liblog-handler-perl, libtest-deep-perl
 requires 'Algorithm::CheckDigits'; # libalgorithm-checkdigits-perl has 0.50 vs 1.3.3. deps: libprobe-perl-perl
 requires 'Image::OCR::Tesseract'; # deps: libfile-find-rule-perl
@@ -83,8 +87,6 @@ requires 'Log::Log4perl', '>= 1.54, < 2.0'; # liblog-log4perl-perl
 requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl-perl
 
 # Retry
-requires 'Action::CircuitBreaker';
-requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 requires 'LWP::UserAgent::Plugin';
 requires 'LWP::UserAgent::Plugin::Retry';
 
@@ -159,6 +161,7 @@ on 'develop' => sub {
   requires 'Devel::Cover::Report::Codecovbash';
   requires 'Test2::Harness', '<2'; # Seems to be a problem with newer versions in Docker. See #11858
   requires 'Test2::Harness::Renderer::JUnit', '<2'; # As above
+  requires 'App::CPAN::SBOM', '1.03'; # For generating SBOMs
 };
 
 feature "off_server_dev_tools", "Optional development tools" => sub {

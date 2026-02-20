@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "來自全世界共同協作、自由且開放的食品資料庫。"
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -47,7 +47,7 @@ msgstr ""
 # OPF
 msgctxt "site_description_opf"
 msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
+msgstr "協作式、免費且開放的全球產品成份及資訊資料庫。"
 
 msgctxt "tagline_opf"
 msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -927,7 +927,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -2405,7 +2405,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "地區"
+msgstr "國家"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2903,7 +2903,7 @@ msgstr "合作伙伴"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr "/合作夥伴"
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
@@ -3718,6 +3718,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "資料品質缺陷"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "資料品質完整性"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "資料品質資訊"
@@ -3803,7 +3807,7 @@ msgstr "潛在提升"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -5135,11 +5139,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "各種各樣的"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "各種各樣的"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5165,7 +5169,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "材料"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5973,6 +5977,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "未評估標籤"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "一些環境效益"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "高環境效益"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "極高的環境效益"
+
 msgctxt "other"
 msgid "Other"
 msgstr "其它"
@@ -6128,6 +6148,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "資料品質完整性"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "關於該產品數據品質完整性的一些信息"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6343,32 +6371,32 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "非常精彩的比賽"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "完美匹配"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "匹配度差"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "未知匹配"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "可能不匹配"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "不匹配"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6741,7 +6769,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "單位數量"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6773,19 +6801,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "請輸入產品中包含的相同形狀和材質的包裝單元的數量。"
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "如果回收說明中有列出形狀名稱，請輸入說明中列出的形狀名稱；或選擇一個形狀。"
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "如果可以確定特定材料，請輸入特定材料（包裝部件上通常可以找到三角形內的材料代碼）；如果不確定，請輸入通用材料（例如塑膠或金屬）。"
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "只有當產品上列有回收說明時，才需要填寫這些說明。"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6795,7 +6823,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "輸入淨重或淨體積，並註明單位（例如克或毫升）。"
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7415,7 +7443,7 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "產品類型"
 
 # Food product type
 msgctxt "product_type_food"
@@ -7613,4 +7641,96 @@ msgstr "我們沒有檢測到： {unwanted_ingredients}。我們可能遺漏了�
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "這些偏好是基於 Open Food Facts 對成分錶的理解，並且始終存在不準確或不完整的可能性，請務必親自檢查產品。"
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "吸煙有害健康"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "吸煙嚴重危害健康。不要開始吸煙。現在就戒菸。"
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "吸菸極易上癮。切勿開始。吸菸有害健康－立即戒菸。吸菸會阻塞動脈，導致心臟病發作和中風。吸煙會導致致命的肺癌。孕婦吸煙會損害胎兒。保護孩子：不要讓他們吸入您的煙霧。您的醫生或藥劑師可以幫助您戒菸。吸煙可能會減少血液流動並導致陽痿。吸煙會導致皮膚老化。吸煙會損害精子並降低生育能力。煙霧中含有苯、亞硝胺、甲醛和氰化氫。"
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "公開價格"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 歐元，2.99 美元，4.00 英鎊"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "廠商建議零售價（MSRP），不含折扣和促銷活動，以產品包裝或廠商網站所示為準（含稅或不含稅，視法律法規而定）。如需列出多種貨幣價格，請以逗號分隔。"
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "個人財產"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "不含棕櫚油"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "可能含有棕櫚油"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "環境標籤"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "缺失資料"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "高影響力"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "中等影響"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "低影響"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "影響尚未評估"
 

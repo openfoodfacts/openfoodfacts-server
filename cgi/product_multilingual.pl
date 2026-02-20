@@ -28,7 +28,7 @@ use ProductOpener::Auth qw/access_to_protected_resource get_oidc_implementation_
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Web qw/display_knowledge_panel get_languages_options_list/;
@@ -39,7 +39,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food
-	qw/%nutriments_tables %other_nutriments_lists assign_nutriments_values_from_request_parameters compute_nutrition_data_per_100g_and_per_serving get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
+	qw/%nutrients_tables %other_nutrients_lists get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -60,6 +60,7 @@ use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use ProductOpener::Orgs qw/update_import_date update_last_import_type/;
 use ProductOpener::APIProductWrite
 	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one/;
+use ProductOpener::Nutrition qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -72,7 +73,7 @@ use JSON::MaybeXS;
 use Log::Any qw($log);
 use File::Copy qw(move);
 use Data::Dumper;
-use Data::DeepAccess qw(deep_get deep_set);
+use Data::DeepAccess qw(deep_get deep_set deep_exists);
 
 # Function to display a form to add a product with a specific barcode (either typed in a field, or extracted from a barcode photo)
 # or without a barcode
@@ -207,6 +208,9 @@ local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
 my $template_data_ref = {};
+
+# Nutrition source: packaging on public platform, manufacturer on producers platform
+my $source = get_source_for_site_and_org($request_ref->{org_id});
 
 $log->debug("product_multilingual - start", {code => $code, type => $type, action => $action}) if $log->is_debug();
 
@@ -668,8 +672,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 
 	# Update the nutrients
-
-	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table, $User{moderator});
+	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
 
 	# Process packaging components
 	create_packaging_components_from_request_parameters($product_ref);
@@ -811,9 +814,6 @@ sub display_input_field ($product_ref, $field, $language, $request_ref) {
 
 if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
-	# Populate the energy-kcal or energy-kj field from the energy field if it exists
-	compute_nutrition_data_per_100g_and_per_serving($product_ref);
-
 	my $template_data_ref_display = {};
 
 	$log->debug("displaying product", {code => $code}) if $log->is_debug();
@@ -827,7 +827,6 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$request_ref->{header} .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
-<link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
 HTML
 		;
 
@@ -1071,7 +1070,7 @@ CSS
 	my $checked = '';
 	my $tablestyle = 'display: table;';
 	my $disabled = '';
-	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+	if (has_no_nutrition_data_on_packaging($product_ref)) {
 		$checked = 'checked="checked"';
 		$tablestyle = 'display: none;';
 		$disabled = 'disabled="disabled"';
@@ -1101,42 +1100,54 @@ CSS
 
 	my $hidden_inputs = '';
 
-	#<p class="note">&rarr; $Lang{nutrition_data_table_note}{$lc}</p>
+	# Nutrition data
+	#
+	# With the new nutrition data model introduced in 2025, the product edit form on the web
+	# will only allow to edit input sets for a single source:
+	# - the "packaging" source on the public platform
+	# - the "manufacturer" source for most organizations on the producers platform
+	# - the "database-[name]" source for organizations with an id org-database-[name] (e.g. org-database-usda)
+	#
+	# 6 input sets will be writable for the selected source:
+	# - as sold per 100g
+	# - as sold per 100ml
+	# - as sold per serving
+	# - prepared per 100g
+	# - prepared per 100ml
+	# - prepared per serving
+	#
+	# The API v2 will be extended to allow editing those input sets
 
 	# We first go through all nutrients, so that we can see the ones for which we have data
 	# as we will check the nutrition_data checkbox if we have data for at least one nutrient
 
-	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
+	my @preparations = get_preparations_for_product_type($product_ref->{product_type});
+	my @pers = get_pers_for_product_type($product_ref->{product_type});
 
-	my @unknown_nutriments = ();
-	my %seen_unknown_nutriments = ();
-	foreach my $nid (keys %{$product_ref->{nutriments}}) {
+	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
 
-		next if (($nid =~ /_/) and ($nid !~ /_prepared$/));
+	# Go through all nutrients and all input sets
+	# We will display a table with one row per nutrient and one column per input set
 
-		$nid =~ s/_prepared$//;
+	# If we have a value for at least one nutrient in one input set, we will display the corresponding column
+	my %input_sets = ();
 
-		$log->trace("detect unknown nutriment", {nid => $nid}) if $log->is_trace();
+	# If we have a value for at least one input set for one nutrient, we will display the corresponding line
+	# @nutrients will contain the list of nutrients to display with their values and units for each input set
+	my @nutrients = ();
 
-		if (    (not exists_taxonomy_tag("nutrients", "zz:$nid"))
-			and (defined $product_ref->{nutriments}{$nid . "_label"})
-			and (not defined $seen_unknown_nutriments{$nid}))
-		{
-			push @unknown_nutriments, $nid;
-			$log->debug("unknown nutriment detected", {nid => $nid}) if $log->is_debug();
-		}
-	}
+	$template_data_ref_display->{source} = $source;
+	$template_data_ref_display->{preparations} = \@preparations;
+	$template_data_ref_display->{pers} = \@pers;
+	$template_data_ref_display->{nutrients} = \@nutrients;
+	$template_data_ref_display->{input_sets} = \%input_sets;
 
-	# Go through all nutrients
+	foreach my $nutrient (@{$nutrients_tables{$nutrient_table}}) {
 
-	my %nutrition_data_exists = ();
-	my @nutriments;
-	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments, 'new_0', 'new_1') {
+		my $nutrient_ref = {};
 
-		my $nutriment_ref = {};
-
-		next if $nutriment =~ /^\#/;
-		my $nid = $nutriment;
+		next if $nutrient =~ /^\#/;
+		my $nid = $nutrient;
 		$nid =~ s/^(-|!)+//g;
 		$nid =~ s/-$//g;
 
@@ -1148,425 +1159,167 @@ CSS
 		my $class = 'main';
 		my $prefix = '';
 
-		my $shown = 0;
+		my $nutrient_shown = 0;
 
+		# In the nutrient table, nutrients ending with a - minus sign are not shown by default
 		if (
-			   ($nutriment !~ /-$/)
-			or ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
-			or (    (defined $product_ref->{nutriments}{$nid . "_prepared"})
-				and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
-			or (    (defined $product_ref->{nutriments}{$nid . "_modifier"})
-				and ($product_ref->{nutriments}{$nid . "_modifier"} eq '-'))
-			or (    (defined $product_ref->{nutriments}{$nid . "_prepared_modifier"})
-				and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-'))
-			or ($nid eq 'new_0')
-			or ($nid eq 'new_1')
+			($nutrient !~ /-$/)
+			# FIXME: add an or condition that is true if we have a value or modifier in any of the input sets for the selected source
 			)
 		{
-			$shown = 1;
+			$nutrient_shown = 1;
 		}
 
 		# Nutrients starting with a - are sub-nutrients
 		# They may be prefixed with a ! to indicate that the nutrient is always shown when displaying the nutrition facts table
-		if (($shown) and ($nutriment =~ /^!?-/)) {
+		if (($nutrient_shown) and ($nutrient =~ /^!?-/)) {
 			$class = 'sub';
-			if ($nutriment =~ /^--/) {
+			if ($nutrient =~ /^--/) {
 				$prefix = "&nbsp; ";
 			}
 		}
 
-		my $display = '';
-		if ($nid eq 'new_0') {
-			$display = ' style="display:none"';
-		}
+		$nutrient_ref->{nid} = $nid;
+		$nutrient_ref->{class} = $class;
+		$nutrient_ref->{label_value} = $product_ref->{nutrients}{$nid . "_label"};
+		$nutrient_ref->{product_add_nutrient} = $Lang{product_add_nutrient}{$lc};
+		$nutrient_ref->{prefix} = $prefix;
 
-		my $enid = encodeURIComponent($nid);
-
-		# for prepared product
-		my $nidp = $nid . "_prepared";
-		my $enidp = encodeURIComponent($nidp);
-
-		$nutriment_ref->{label_value} = $product_ref->{nutriments}{$nid . "_label"};
-		$nutriment_ref->{product_add_nutrient} = $Lang{product_add_nutrient}{$lc};
-		$nutriment_ref->{prefix} = $prefix;
-
-		my $unit = "g";
+		my $default_unit = "g";
 
 		if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
-			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
+			$nutrient_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 			# We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
-			$unit = get_nutrient_unit($nid, $request_ref->{cc});
+			$default_unit = get_nutrient_unit($nid, $request_ref->{cc});
 		}
 		else {
-			if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
-				$unit = $product_ref->{nutriments}{$nid . "_unit"};
-			}
+			# Unknown nutrients are now unsupported in the new nutrition schema introduced in 2025, skip
+			$log->debug("skipping unknown nutrient", {nid => $nid}) if $log->is_debug();
 		}
 
-		my $value;    # product as sold
-		my $valuep;    # prepared product
+		# Loop through all the possible input sets for the selected source to populate the values for the corresponding columns
 
-		if ($nid eq 'water-hardness') {
-			$value = mmoll_to_unit($product_ref->{nutriments}{$nid}, $unit);
-			$valuep = mmoll_to_unit($product_ref->{nutriments}{$nidp}, $unit);
-		}
-		elsif ($nid eq 'energy-kcal') {
-			# energy-kcal is already in kcal
-			$value = $product_ref->{nutriments}{$nid};
-			$valuep = $product_ref->{nutriments}{$nidp};
-		}
-		else {
-			$value = g_to_unit($product_ref->{nutriments}{$nid}, $unit);
-			$valuep = g_to_unit($product_ref->{nutriments}{$nidp}, $unit);
-		}
+		# We record all the units we have for this nutrient in the different input sets
+		# If all the sets have the same unit, we will hide the unit selectors for each input set,
+		# and instead add one global selector for the nutrient
 
-		# If we have a user specified unit and value, use it instead of the default unit of the field
-		if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
-			$unit = $product_ref->{nutriments}{$nid . "_unit"};
-			if (defined $product_ref->{nutriments}{$nid . "_value"}) {
-				$value = $product_ref->{nutriments}{$nid . "_value"};
-			}
+		my %nutrient_units = ();
 
-			if (defined $product_ref->{nutriments}{$nidp . "_value"}) {
-				$valuep = $product_ref->{nutriments}{$nidp . "_value"};
-			}
-		}
+		$nutrient_ref->{units_options} = get_unit_options_for_nutrient($nid);
 
-		# Record that we have a value for at least one nutrient for the product as sold or prepared
-		if (defined $value) {
-			$nutrition_data_exists{""} = 1;
-		}
-		if (defined $valuep) {
-			$nutrition_data_exists{"_prepared"} = 1;
-		}
+		foreach my $preparation (@preparations) {
 
-		# Add modifiers
-		if (defined $product_ref->{nutriments}{$nid . "_modifier"}) {
+			foreach my $per (@pers) {
 
-			if ($value ne '') {
-				$product_ref->{nutriments}{$nid . "_modifier"} eq '<' and $value = "&lt; $value";
-				$product_ref->{nutriments}{$nid . "_modifier"} eq "\N{U+2264}" and $value = "&le; $value";
-				$product_ref->{nutriments}{$nid . "_modifier"} eq '>' and $value = "&gt; $value";
-				$product_ref->{nutriments}{$nid . "_modifier"} eq "\N{U+2265}" and $value = "&ge; $value";
-				$product_ref->{nutriments}{$nid . "_modifier"} eq '~' and $value = "~ $value";
-			}
-			elsif ($product_ref->{nutriments}{$nid . "_modifier"} eq '-') {
-				# The - minus sign indicates that there is no value specified on the product
-				$value = '-';
-			}
-		}
+				my $unit = $default_unit;
+				my $value_string = '';
 
-		if (defined $product_ref->{nutriments}{$nidp . "_modifier"}) {
+				my $input_set_ref = deep_get($input_sets_hash_ref, $source, $preparation, $per);
+				if (defined $input_set_ref) {
 
-			if ($valuep ne '') {
-				$product_ref->{nutriments}{$nidp . "_modifier"} eq '<' and $valuep = "&lt; $valuep";
-				$product_ref->{nutriments}{$nidp . "_modifier"} eq "\N{U+2264}" and $valuep = "&le; $valuep";
-				$product_ref->{nutriments}{$nidp . "_modifier"} eq '>' and $valuep = "&gt; $valuep";
-				$product_ref->{nutriments}{$nidp . "_modifier"} eq "\N{U+2265}" and $valuep = "&ge; $valuep";
-				$product_ref->{nutriments}{$nidp . "_modifier"} eq '~' and $valuep = "~ $valuep";
-			}
-			elsif ($product_ref->{nutriments}{$nidp . "_modifier"} eq '-') {
-				# The - minus sign indicates that there is no value specified on the product
-				$valuep = '-';
-			}
-		}
+					my $input_set_nutrient_ref = deep_get($input_set_ref, "nutrients", $nid);
+					if (defined $input_set_nutrient_ref) {
+						$value_string = $input_set_nutrient_ref->{value_string};
+						$unit = $input_set_nutrient_ref->{unit};
+						# If we have a value, record the unit
+						if ((defined $value_string) and ($value_string ne '')) {
+							$nutrient_units{$unit} = 1;
+						}
 
-		if (lc($unit) eq "mcg") {
-			$unit = "µg";
-		}
+						# If we have a modifier, include it in the value_string
+						if (defined $input_set_nutrient_ref->{modifier}) {
+							$value_string = "&lt; $value_string" if $input_set_nutrient_ref->{modifier} eq '<';
+							$value_string = "&le; $value_string" if $input_set_nutrient_ref->{modifier} eq "\N{U+2264}";
+							$value_string = "&gt; $value_string" if $input_set_nutrient_ref->{modifier} eq '>';
+							$value_string = "&ge; $value_string" if $input_set_nutrient_ref->{modifier} eq "\N{U+2265}";
+							$value_string = "~ $value_string" if $input_set_nutrient_ref->{modifier} eq '~';
+							$value_string = '-' if $input_set_nutrient_ref->{modifier} eq '-';
+						}
 
-		my $disabled_backup = $disabled;
-		if ($nid eq 'carbon-footprint') {
-			# Workaround, so that the carbon footprint, that could be in a location different from actual nutrition facts,
-			# will never be disabled.
-			$disabled = '';
-		}
+						# Record that we have nutrition data for this input set and this nutrient
+						# so that we can display the corresponding input set column and nutrient row
+						deep_set($input_sets{$preparation}, $per, 'shown', 1);
+						$nutrient_shown = 1;
 
-		if (($nid eq 'alcohol') or ($nid eq 'energy-kj') or ($nid eq 'energy-kcal')) {
-			$unit = '';
-
-			if (($nid eq 'alcohol')) {$unit = '% vol / °';}    # alcohol in % vol / °
-			elsif (($nid eq 'energy-kj')) {$unit = 'kJ';}
-			elsif (($nid eq 'energy-kcal')) {$unit = 'kcal';}
-
-			$nutriment_ref->{nutriment_unit} = $unit;
-
-		}
-		# make sure pet nutrients (analytical_constituents) are always in percent
-		elsif (($nid eq 'crude-fat')
-			or ($nid eq 'crude-protein')
-			or ($nid eq 'crude-ash')
-			or ($nid eq 'crude-fibre')
-			or ($nid eq 'moisture'))
-		{
-			$nutriment_ref->{nutriment_unit} = '%';
-		}
-		else {
-
-			my @units = ('g', 'mg', 'µg');
-			my @units_arr;
-
-			if ($nid =~ /^energy/) {
-				@units = ('kJ', 'kcal');
-			}
-			elsif ($nid eq 'water-hardness') {
-				@units = (
-					'mol/l', 'mmol/l', 'mval/l', 'ppm', "\N{U+00B0}rH", "\N{U+00B0}fH",
-					"\N{U+00B0}e", "\N{U+00B0}dH", 'gpg'
-				);
-			}
-
-			if (   (defined get_property("nutrients", "zz:$nid", "dv_value:en"))
-				or ($nid =~ /^new_/)
-				or (uc($unit) eq '% DV'))
-			{
-				push @units, '% DV';
-			}
-			if (   (defined get_property("nutrients", "zz:$nid", "iu_value:en"))
-				or ($nid =~ /^new_/)
-				or (uc($unit) eq 'IU')
-				or (uc($unit) eq 'UI'))
-			{
-				push @units, 'IU';
-			}
-
-			my $hide_percent = '';
-			my $hide_select = '';
-
-			if ($unit eq '') {
-				$hide_percent = ' style="display:none"';
-				$hide_select = ' style="display:none"';
-
-			}
-			elsif ($unit eq '%') {
-				$hide_select = ' style="display:none"';
-			}
-			else {
-				$hide_percent = ' style="display:none"';
-			}
-
-			$nutriment_ref->{hide_select} = $hide_select;
-			$nutriment_ref->{hide_percent} = $hide_percent;
-			$nutriment_ref->{nutriment_unit_disabled} = $disabled;
-
-			$disabled = $disabled_backup;
-
-			foreach my $u (@units) {
-				my $selected = '';
-				if (lc($unit) eq lc($u)) {
-					$selected = 'selected="selected" ';
-				}
-				my $label = $u;
-				# Display both mcg and µg as different food labels show the unit differently
-				if ($u eq 'µg') {
-					$label = "mcg/µg";
-				}
-
-				push(
-					@units_arr,
-					{
-						u => $u,
-						label => $label,
-						selected => $selected,
 					}
-				);
-			}
-
-			$nutriment_ref->{units_arr} = \@units_arr;
-
-		}
-
-		# Determine which field has a value from the manufacturer and if it is protected
-		$nutriment_ref->{owner_field} = is_owner_field($product_ref, $nid);
-		$nutriment_ref->{protected_field} = skip_protected_field($product_ref, $nid, $User{moderator});
-		$nutriment_ref->{protected_field_prepared}
-			= skip_protected_field($product_ref, $nid . "_prepared", $User{moderator});
-
-		$nutriment_ref->{shown} = $shown;
-		$nutriment_ref->{enid} = $enid;
-		$nutriment_ref->{enidp} = $enidp;
-		$nutriment_ref->{nid} = $nid;
-		$nutriment_ref->{class} = $class;
-		$nutriment_ref->{value} = $value;
-		$nutriment_ref->{valuep} = $valuep;
-		$nutriment_ref->{display} = $display;
-		$nutriment_ref->{disabled} = $disabled;
-
-		push(@nutriments, $nutriment_ref);
-	}
-
-	$template_data_ref_display->{nutriments} = \@nutriments;
-
-	# Display 2 checkbox to indicate the nutrition values present on the product
-
-	if (not defined $product_ref->{nutrition_data}) {
-		# by default, display the nutrition data entry column for the product as sold
-
-		$product_ref->{nutrition_data} = "on";
-	}
-
-	if (not defined $product_ref->{nutrition_data_prepared}) {
-		# by default, do not display the nutrition data entry column for the prepared product
-		# unless if it is in a category that should have prepared data
-		if (has_category_that_should_have_prepared_nutrition_data($product_ref)) {
-			$product_ref->{nutrition_data_prepared} = "on";
-		}
-		else {
-			$product_ref->{nutrition_data_prepared} = "";
-		}
-	}
-
-	# In all cases, if we have data, we will check the checkbox.
-	# We also check the "as sold" checkbox for petfood products,
-	# as we don't display the checkboxes to indicate the presence of nutrition data for "as sold" and "prepared" for petfood products
-	# (they can only have "as sold" nutrition data)
-	if (($nutrition_data_exists{""}) or ($options{product_type} eq "petfood")) {
-		$product_ref->{nutrition_data} = "on";
-	}
-
-	# only food products can have prepared product (dehydrated for example)
-	if (    ($options{product_type} eq "food")
-		and ($nutrition_data_exists{"_prepared"}))
-	{
-		$product_ref->{nutrition_data_prepared} = "on";
-	}
-
-	my %column_display_style = ();
-	my %nutrition_data_per_display_style = ();
-
-	# We can display 2 nutrition facts columns, one for the product as sold, and one for the prepared product
-	my @nutrition_product_types = ();
-
-	# keep existing field ids for the product as sold, and append _prepared_product for the product after it has been prepared
-	foreach my $product_type ("", "_prepared") {
-
-		my $nutrition_data = "nutrition_data" . $product_type;
-		my $nutrition_data_exists = "nutrition_data" . $product_type . "_exists";
-		my $nutrition_data_instructions = "nutrition_data" . $product_type . "_instructions";
-
-		my $checked = '';
-		$column_display_style{$nutrition_data} = '';
-		my $hidden = '';
-		if (($product_ref->{$nutrition_data} eq 'on')) {
-			$checked = 'checked="checked"';
-		}
-		else {
-			$column_display_style{$nutrition_data} = 'style="display:none"';
-			$hidden = 'style="display:none"';
-		}
-
-		my $checked_per_serving = '';
-		my $checked_per_xxg = 'checked="checked"';
-		$nutrition_data_per_display_style{$nutrition_data . "_serving"} = ' style="display:none"';
-		$nutrition_data_per_display_style{$nutrition_data . "_xxg"} = '';
-
-		my $nutrition_data_per = "nutrition_data" . $product_type . "_per";
-
-		if (
-			# petfood products are always "as sold" (not per a given quantity)
-			$options{product_type} eq "food"
-			)
-		{
-			if (
-				(
-					($product_ref->{$nutrition_data_per} eq 'serving')
-					# display by serving by default for the prepared product
-					or (($product_type eq '_prepared') and (not defined $product_ref->{nutrition_data_prepared_per}))
-				)
-				)
-			{
-				$checked_per_serving = 'checked="checked"';
-				$checked_per_xxg = '';
-				$nutrition_data_per_display_style{$nutrition_data . "_serving"} = '';
-				$nutrition_data_per_display_style{$nutrition_data . "_xxg"} = ' style="display:none"';
-			}
-
-			my $nutriment_col_class = "nutriment_col" . $product_type;
-
-			my $product_type_as_sold_or_prepared = "as_sold";
-			if ($product_type eq "_prepared") {
-				$product_type_as_sold_or_prepared = "prepared";
-			}
-
-			push(
-				@nutrition_product_types,
-				{
-					checked => $checked,
-					nutrition_data => $nutrition_data,
-					nutrition_data_exists => $Lang{$nutrition_data_exists}{$lc},
-					nutrition_data_per => $nutrition_data_per,
-					checked_per_xxg => $checked_per_xxg,
-					checked_per_serving => $checked_per_serving,
-					nutrition_data_instructions => $nutrition_data_instructions,
-					nutrition_data_instructions_check => $Lang{$nutrition_data_instructions},
-					nutrition_data_instructions_lang => $Lang{$nutrition_data_instructions}{$lc},
-					hidden => $hidden,
-					nutriment_col_class => $nutriment_col_class,
-					product_type_as_sold_or_prepared => $product_type_as_sold_or_prepared,
-					checkmate => $product_ref->{$nutrition_data_per},
+					# The - minus sign indicates that there is no value specified on the product
+					# Check if the nutrient is in the unspecified_nutrients array for this input set
+					elsif ( (defined $input_set_ref->{unspecified_nutrients})
+						and (ref($input_set_ref->{unspecified_nutrients}) eq 'ARRAY')
+						and (grep {$_ eq $nid} @{$input_set_ref->{unspecified_nutrients}}))
+					{
+						$value_string = '-';
+						# Record that we have nutrition data for this input set and this nutrient
+						# so that we can display the corresponding input set column and nutrient row
+						deep_set($input_sets{$preparation}, $per, 'shown', 1);
+						$nutrient_shown = 1;
+					}
 				}
-			);
+
+				# Record the values to pass to the template
+				deep_set($nutrient_ref, "input_sets", $preparation, $per,
+					{value_string => $value_string, unit => $unit});
+			}
+		}
+
+		# If we have only one unit set for the nutrient (across all input sets), set it as the nutrient unit
+		# and we won't display individual unit selectors for each input set
+		my @units = keys %nutrient_units;
+		if (scalar @units == 1) {
+			$nutrient_ref->{unit} = $units[0];
+		}
+		# Otherwise if we don't have any value, set the default unit
+		elsif (scalar @units == 0) {
+			$nutrient_ref->{unit} = $default_unit;
+		}
+
+		$nutrient_ref->{shown} = $nutrient_shown;
+
+		push(@nutrients, $nutrient_ref);
+	}
+	# We display checkboxes for each possible nutrition input set (for each preparation and for each per)
+	# to indicate which nutrition facts columns should be displayed on the product page
+	# %input_sets contains the input sets for which we have at least one nutrient value
+
+	# If we don't have nutrition data for the prepared product, we will display the column for the product as sold even if it is empty
+	if (not deep_exists(\%input_sets, 'prepared')) {
+		my $default_per = get_default_per_for_product($product_ref);
+		$input_sets{'as_sold'}{$default_per}{'shown'} = 1;
+
+		# if the product is in a category that should have prepared nutrition data, we will check the checkbox for prepared nutrition data
+		if (has_category_that_should_have_prepared_nutrition_data($product_ref)) {
+			my $default_prepared_per = get_default_per_for_product($product_ref, "prepared");
+			$input_sets{'prepared'}{$default_prepared_per}{'shown'} = 1;
 		}
 	}
 
-	# nutrition table differs between flavors (food and petfood)
-
-	$template_data_ref_display->{nutrition_product_types} = \@nutrition_product_types;
-
-	$template_data_ref_display->{column_display_style_nutrition_data} = $column_display_style{"nutrition_data"};
-	$template_data_ref_display->{column_display_style_nutrition_data_prepared}
-		= $column_display_style{"nutrition_data_prepared"};
-	$template_data_ref_display->{nutrition_data_xxg_style} = $nutrition_data_per_display_style{"nutrition_data_xxg"};
-	$template_data_ref_display->{nutrition_data_serving_style}
-		= $nutrition_data_per_display_style{"nutrition_data_serving"};
-	$template_data_ref_display->{nutrition_data_prepared_xxg_style}
-		= $nutrition_data_per_display_style{"nutrition_data_prepared_xxg"};
-	$template_data_ref_display->{nutrition_data_prepared_serving_style}
-		= $nutrition_data_per_display_style{"nutrition_data_prepared_serving"};
-
-	$template_data_ref_display->{tablestyle} = $tablestyle;
-
-	# Compute a list of nutrients that will not be displayed in the nutrition facts table in the product edit form
+	# Create a list of the nutrients that are hidden in the displayed in the nutrition facts table in the product edit form
 	# because they are not set for the product, and are not displayed by default in the user's country.
-	# Users will be allowed to add those nutrients, and this list will be used for nutrient name autocompletion.
+	# Users will be allowed to add those nutrients, and the list will be used for selecting nutrients to add.
 
-	my $other_nutriments = '';
-	my $nutriments = '';
-	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
-		my $other_nutriment_value = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
+	my $other_nutrients = '';
+	# Add an empty value for the select2 placeholder
+	$other_nutrients .= '{ "id" : "", "text" : ""},' . "\n";
+	foreach my $nid (@{$other_nutrients_lists{$nutrient_table}}) {
 
 		# Some nutrients cannot be entered directly by users, so don't suggest them
 		my $automatically_computed = get_property("nutrients", "zz:$nid", "automatically_computed:en");
 		next if ((defined $automatically_computed) and ($automatically_computed eq "yes"));
 
-		if ((not defined $product_ref->{nutriments}{$nid}) or ($product_ref->{nutriments}{$nid} eq '')) {
-			my $supports_iu = "false";
-			if (defined get_property("nutrients", "zz:$nid", "iu_value:en")) {
-				$supports_iu = "true";
-			}
+		# Do not display the energy field without a unit, as we display energy-kcal or energy-kj instead
+		next if $nid eq "energy";
 
-			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en") || '';
-			$other_nutriments
-				.= '{ "value" : "'
-				. $other_nutriment_value
-				. '", "unit" : "'
-				. $other_nutriment_unit
-				. '", "iu": '
-				. $supports_iu . '  },' . "\n";
-		}
-		$nutriments .= '"' . $other_nutriment_value . '" : "' . $nid . '",' . "\n";
+		my $other_nutrient_label = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
+
+		$other_nutrients .= '{ "id" : "' . $nid . '", "text" : "' . $other_nutrient_label . '"},' . "\n";
 	}
-	$nutriments =~ s/,\n$//s;
-	$other_nutriments =~ s/,\n$//s;
+	$other_nutrients =~ s/,\n$//s;
 
 	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript">
-var nutriments = {
-$nutriments
-};
 
-var otherNutriments = [
-$other_nutriments
+var other_nutrients = [
+$other_nutrients
 ];
 </script>
 

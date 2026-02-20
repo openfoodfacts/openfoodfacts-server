@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Совместная, бесплатная и открытая база данных продуктов питания со всего мира."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "Совместная, бесплатная и открытая база данных кормов для домашних животных со всего мира."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -3723,6 +3723,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "ошибка качества данных"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "полнота качества данных"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "информация о качестве данных"
@@ -5978,6 +5982,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Этикетки с очень высоким уровнем положительного воздействия на экологию"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Нет оцененных этикеток"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Некоторые экологические преимущества"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Высокие экологические преимущества"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Очень высокая экологическая выгода"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Прочее"
@@ -6133,6 +6153,14 @@ msgstr "Вклад"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Вклад"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Полнота качества данных"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Некоторая информация о полноте качества данных по этому продукту"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7619,4 +7647,96 @@ msgstr "Мы не обнаружили: {unwanted_ingredients}. Возможно
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Эти предпочтения основаны на понимании Open Food Facts списка ингредиентов, и всегда существует вероятность, что он может быть неточным или неполным, всегда проверяйте продукт самостоятельно."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr "Отпечаток страданий"
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr "Индикатор страдания животных, рассчитанный по продукту"
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr "Благополучие животных"
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr "Панели внешних знаний"
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr "Панель недоступна"
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr "Панель недоступна для этого товара"
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr "Внешние источники"
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr "Предоставлено"
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Курение убивает"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Табак серьёзно вредит здоровью. Не начинайте. Бросьте прямо сейчас."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Курение вызывает сильную зависимость. Не начинайте. Курение убивает – бросьте прямо сейчас. Курение закупоривает артерии и вызывает инфаркты и инсульты. Курение вызывает смертельный рак лёгких. Курение во время беременности вредит вашему ребёнку. Защитите детей: не заставляйте их вдыхать ваш дым. Ваш врач или фармацевт помогут вам бросить курить. Курение может ухудшить кровообращение и вызвать импотенцию. Курение вызывает старение кожи. Курение может повредить сперму и снизить фертильность. Дым содержит бензол, нитрозамины, формальдегид и цианистый водород."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Публичная цена"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 евро, 2,99 долларов США, 4,00 фунтов стерлингов"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Рекомендованная производителем розничная цена (MSRP) без учёта скидок и акций, указанная на упаковке товара или на сайте производителя (включая налоги, предусмотренные законодательством, или без них). Если цены указаны в нескольких валютах, используйте список, разделённый запятыми."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Персонализированная собственность"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Не содержит пальмового масла."
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Может содержать пальмовое масло"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Экологические этикетки"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Отсутствующие данные"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Большое влияние"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Средний удар"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Низкое воздействие"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Воздействие не оценивалось."
 

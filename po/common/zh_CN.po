@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "來自全世界共同協作、自由且開放的食品資料庫。"
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "一个来自世界各地的宠物食品产品的协作、免费和开放的数据库。"
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -297,7 +297,7 @@ msgstr "产品页面已被修改"
 
 msgctxt "analytical_constituents"
 msgid "Analytical constituents"
-msgstr ""
+msgstr "分析成分"
 
 msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
@@ -314,7 +314,7 @@ msgstr "Android APK文件"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -927,7 +927,7 @@ msgstr "隐私"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr "/隐私"
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -3717,6 +3717,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "数据质量错误"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "数据质量完整性"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "数据质量信息"
@@ -3802,7 +3806,7 @@ msgstr "可能的改进"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr "/导入产品"
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -4059,7 +4063,7 @@ msgstr "营养评分"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "营养分数"
+msgstr "营养价值评分"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -4069,7 +4073,7 @@ msgstr "营养分数"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "营养分数"
+msgstr "营养价值评分"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4603,7 +4607,7 @@ msgstr "营养质量"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "营养分数"
+msgstr "营养价值评分"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4854,7 +4858,7 @@ msgstr "环境影响"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "生态得分"
+msgstr "绿色评分"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4867,7 +4871,7 @@ msgstr "Green-Score 是从 A 到 E 的环境评分，可以轻松比较食品对
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "生态得分"
+msgstr "绿色评分"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -5118,19 +5122,19 @@ msgstr "缺少预制产品的营养成分表"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "生态得分"
+msgstr "绿色评分"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "生态得分"
+msgstr "绿色评分"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "生态得分"
+msgstr "绿色评分"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "生态得分"
+msgstr "绿色评分"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5972,6 +5976,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "具有极高环保效益的标签"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "未评估标签"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "一些环境效益"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "高环境效益"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "极高的环境效益"
+
 msgctxt "other"
 msgid "Other"
 msgstr "其他"
@@ -6127,6 +6147,14 @@ msgstr "贡献"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "贡献"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "数据质量完整性"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "关于该产品数据质量完整性的一些信息"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7167,7 +7195,7 @@ msgstr "您需要启用 cookies 才能登录。"
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
-msgstr ""
+msgstr "您不能删除主要联系人。请先更改它。"
 
 msgctxt "open_in_crm"
 msgid "Open in CRM"
@@ -7259,7 +7287,7 @@ msgstr "拒绝"
 
 msgctxt "users_requested_to_join_org"
 msgid "These users have requested to join the organization:"
-msgstr ""
+msgstr "以下用户请求加入该组织："
 
 msgctxt "last_login"
 msgid "Last login date"
@@ -7275,7 +7303,7 @@ msgstr ""
 
 msgctxt "select_product_data_file"
 msgid "Select a file with product data"
-msgstr ""
+msgstr "选择包含产品数据的文件"
 
 msgctxt "number_of_products_without_nutriscore"
 msgid "Number of products without Nutri-Score"
@@ -7283,7 +7311,7 @@ msgstr "没有 Nutri-Score 的产品数量"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
-msgstr ""
+msgstr "计算营养价值评分的产品百分比"
 
 msgctxt "products_to_be_exported"
 msgid "Products to be exported"
@@ -7414,17 +7442,17 @@ msgstr "成分信息"
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "产品类型"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "食物"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "宠物食品"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7612,4 +7640,96 @@ msgstr "我们没有检测到： {unwanted_ingredients}。我们可能遗漏了�
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "这些偏好基于 Open Food Facts 对成分表的理解，并且始终存在不准确或不完整的可能性，请务必亲自检查产品。"
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr "动物受苦评分轨迹"
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr "按产品计算动物受苦的指标"
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr "动物福祉"
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr "外部知识面板"
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr "面板不可用"
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr "此产品暂无面板可用"
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr "外部来源"
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr "提供者"
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "吸烟有害健康"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "吸烟严重危害健康。不要开始吸烟。现在就戒烟。"
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "吸烟极易上瘾。切勿开始。吸烟有害健康——立即戒烟。吸烟会阻塞动脉，导致心脏病发作和中风。吸烟会导致致命的肺癌。孕妇吸烟会损害胎儿。保护孩子：不要让他们吸入您的烟雾。您的医生或药剂师可以帮助您戒烟。吸烟可能会减少血液流动并导致阳痿。吸烟会导致皮肤老化。吸烟会损害精子并降低生育能力。烟雾中含有苯、亚硝胺、甲醛和氰化氢。"
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "公开价格"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 欧元，2.99 美元，4.00 英镑"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "厂商建议零售价（MSRP），不含折扣和促销活动，以产品包装或厂商网站所示为准（含税或不含税，具体视法律法规而定）。如需列出多种货币价格，请以逗号分隔。"
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "个人财产"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "不含棕榈油"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "可能含有棕榈油"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "环境标签"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "缺失数据"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "高影响力"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "中等影响"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "低影响"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "影响尚未评估"
 

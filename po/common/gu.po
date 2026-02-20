@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -3706,6 +3706,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "ડેટા ગુણવત્તા સંપૂર્ણતા"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -5961,6 +5965,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "કોઈ મૂલ્યાંકન કરેલ લેબલ નથી"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "કેટલાક પર્યાવરણીય ફાયદા"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "ઉચ્ચ પર્યાવરણીય લાભો"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "ખૂબ ઊંચા પર્યાવરણીય લાભો"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6116,6 +6136,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "ડેટા ગુણવત્તા સંપૂર્ણતા"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "આ ઉત્પાદન પર ડેટા ગુણવત્તા સંપૂર્ણતા વિશે કેટલીક માહિતી"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7601,4 +7629,96 @@ msgstr "અમને આ મળ્યું નથી: {unwanted_ingredients}. �
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "તે પસંદગીઓ ઓપન ફૂડ ફેક્ટ્સની ઘટકોની સૂચિની સમજ પર આધારિત છે અને હંમેશા એવી શક્યતા રહે છે કે તે સચોટ અથવા સંપૂર્ણ ન પણ હોય, હંમેશા ઉત્પાદન જાતે તપાસો."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "ધૂમ્રપાન મૃત્યુ પામે છે"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "તમાકુ સ્વાસ્થ્યને ગંભીર નુકસાન પહોંચાડે છે. શરૂઆત ના કરો. હમણાં જ છોડી દો."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "ધૂમ્રપાન ખૂબ જ વ્યસનકારક છે. શરૂઆત કરશો નહીં. ધૂમ્રપાન મારી નાખે છે - હમણાં જ છોડી દો. ધૂમ્રપાન ધમનીઓને બંધ કરે છે અને હૃદયરોગના હુમલા અને સ્ટ્રોકનું કારણ બને છે. ધૂમ્રપાન ફેફસાના કેન્સરનું કારણ બને છે. ગર્ભાવસ્થા દરમિયાન ધૂમ્રપાન કરવાથી તમારા બાળકને નુકસાન થાય છે. બાળકોનું રક્ષણ કરો: તેમને તમારા ધુમાડામાં શ્વાસ લેવા માટે ન દો. તમારા ડૉક્ટર અથવા તમારા ફાર્માસિસ્ટ તમને ધૂમ્રપાન બંધ કરવામાં મદદ કરી શકે છે. ધૂમ્રપાન રક્ત પ્રવાહ ઘટાડી શકે છે અને નપુંસકતાનું કારણ બની શકે છે. ધૂમ્રપાન ત્વચાને વૃદ્ધત્વ આપે છે. ધૂમ્રપાન શુક્રાણુઓને નુકસાન પહોંચાડી શકે છે અને પ્રજનનક્ષમતા ઘટાડે છે. ધુમાડામાં બેન્ઝીન, નાઇટ્રોસેમાઇન્સ, ફોર્માલ્ડીહાઇડ અને હાઇડ્રોજન સાયનાઇડ હોય છે."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "જાહેર કિંમત"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "૩.૫૦ યુરો, ૨.૯૯ યુએસડી, ૪.૦૦ જીબીપી"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "ઉત્પાદક દ્વારા સૂચવેલ છૂટક કિંમત (MSRP), ડિસ્કાઉન્ટ અને પ્રમોશન સિવાય, ઉત્પાદન પેકેજિંગ અથવા ઉત્પાદકની સાઇટ પર દર્શાવેલ છે (કાયદાના આધારે કર સહિત અથવા બાકાત). જો કિંમતો બહુવિધ ચલણોમાં સૂચિબદ્ધ હોય તો અલ્પવિરામથી વિભાજિત સૂચિનો ઉપયોગ કરો."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "વ્યક્તિગત મિલકત"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "પામ તેલ શામેલ નથી"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "પામ તેલ શામેલ હોઈ શકે છે"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "પર્યાવરણીય લેબલ્સ"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "ડેટા ખૂટે છે"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "ઉચ્ચ અસર"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "મધ્યમ અસર"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "ઓછી અસર"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "અસરનું મૂલ્યાંકન થયું નથી"
 

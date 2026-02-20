@@ -81,7 +81,7 @@ services:
       - ./html:/opt/product-opener/html
       - ./icons:/opt/product-opener/icons
       - ./scss:/opt/product-opener/scss
-      - ./gulpfile.ts:/opt/product-opener/gulpfile.ts
+      - ./gulpfile.mjs:/opt/product-opener/gulpfile.mjs
       # We may mount webcomponents here to test development version
       # by referencing them by package.json
       # see ../docs/dev/how-to-develop-with-webcomponents.md
@@ -101,7 +101,7 @@ services:
       - ./html:/opt/product-opener/html/
       - ./icons:/opt/product-opener/icons
       - ./scss:/opt/product-opener/scss
-      - ./gulpfile.ts:/opt/product-opener/
+      - ./gulpfile.mjs:/opt/product-opener/
       - ./snyk:/opt/product-opener/
     networks:
         default:
@@ -125,7 +125,6 @@ services:
             - be-fr.${PRODUCT_OPENER_DOMAIN}
 
 volumes:
-  product_images:
   html_data:
   other_servers:
   products:
@@ -138,6 +137,8 @@ volumes:
     name: ${PO_COMMON_PREFIX:-}po_orgs
   export_files:
     name: ${PO_COMMON_PREFIX:-}po_export_files
+  product_images:
+    name: ${PO_COMMON_PREFIX:-}po_off_product_images
   podata:
 
 networks:

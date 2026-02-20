@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -41,6 +41,8 @@ use Exporter qw< import >;
 use Log::Any qw($log);
 use Data::Dumper;
 
+use ProductOpener::Booleans qw(:all);
+
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
@@ -49,6 +51,8 @@ BEGIN {
 		&create_knowledge_panels
 		&create_panel_from_json_template
 		&add_taxonomy_properties_in_target_languages_to_object
+		&create_reuse_card_panel
+		&create_maintain_card_panel
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -62,7 +66,6 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Users qw/$User_id/;
-use ProductOpener::Food qw/%categories_nutriments_per_country/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
@@ -78,6 +81,7 @@ use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use JSON::MaybeXS;
 use Encode;
 use Data::DeepAccess qw(deep_get);
+use boolean;
 
 =head1 FUNCTIONS
 
@@ -89,10 +93,13 @@ Initialize the options for knowledge panels from parameters.
 
 sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request_ref) {
 
+	# Activate simplified_root + simplified cards only when specified
+	$knowledge_panels_options_ref->{activate_knowledge_panels_simplified}
+		= normalize_boolean(single_param("activate_knowledge_panels_simplified"));
+
 	# Activate physical activity knowledge panel only when specified
-	if (single_param("activate_knowledge_panel_physical_activities")) {
-		$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities} = 1;
-	}
+	$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities}
+		= normalize_boolean(single_param("activate_knowledge_panel_physical_activities"));
 
 	# Specify if we knowledge panels are requested from the app or the website
 	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)
@@ -243,6 +250,11 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			= create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	my $has_reuse_card;
+	if ($panel_is_requested->('reuse_card')) {
+		$has_reuse_card = create_reuse_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	my $has_report_problem_card;
 	if (not $options_ref->{producers_platform} and $panel_is_requested->('report_problem_card')) {
 		$has_report_problem_card
@@ -261,6 +273,12 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			= create_secondhand_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	my $has_maintain_card;
+	if ($panel_is_requested->('maintain_card')) {
+		$has_maintain_card
+			= create_maintain_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
 		"root",
@@ -270,7 +288,9 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			has_report_problem_card => $has_report_problem_card,
 			has_contribution_card => $has_contribution_card,
 			has_environment_card => $has_environment_card,
+			has_reuse_card => $has_reuse_card,
 			has_secondhand_card => $has_secondhand_card,
+			has_maintain_card => $has_maintain_card,
 			has_product_card => $has_product_card,
 		},
 		$product_ref,
@@ -279,6 +299,58 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$options_ref,
 		$request_ref
 	);
+
+	# If requested, create simplified knowledge panels for mobile app
+
+	if ($knowledge_panels_options_ref->{activate_knowledge_panels_simplified}) {
+
+		# Create the simplified root panel that contains simplified versions of the health and environment cards
+		# (used on mobile app)
+		create_panel_from_json_template(
+			"simplified_root",
+			"api/knowledge-panels/simplified_root.tt.json",
+			{
+				has_health_card => $has_health_card,
+				has_environment_card => $has_environment_card,
+			},
+			$product_ref,
+			$target_lc,
+			$target_cc,
+			$options_ref,
+			$request_ref
+		);
+		# Create the simplified cards
+		if ($has_health_card) {
+			create_panel_from_json_template("health_card_simplified",
+				"api/knowledge-panels/health/health_card_simplified.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
+		if ($has_environment_card) {
+			create_panel_from_json_template("environment_card_simplified",
+				"api/knowledge-panels/environment/environment_card_simplified.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+			# Simplified environmental panels
+			create_panel_from_json_template(
+				"origins_of_ingredients_simplified",
+				"api/knowledge-panels/environment/origins_of_ingredients_simplified.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+			);
+			create_panel_from_json_template(
+				"threatened_species_simplified",
+				"api/knowledge-panels/environment/threatened_species_simplified.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+			);
+			create_panel_from_json_template("packaging_simplified",
+				"api/knowledge-panels/environment/packaging_simplified.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+			create_panel_from_json_template(
+				"environmental_labels_simplified",
+				"api/knowledge-panels/environment/environmental_labels_simplified.tt.json",
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+			);
+		}
+
+	}
 
 	return;
 }
@@ -659,6 +731,13 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 		create_panel_from_json_template("environmental_score_total",
 			"api/knowledge-panels/environment/environmental_score/total.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+		# Add environmental_score_adjustments panel group (used in simplified environment card)
+		create_panel_from_json_template(
+			"environmental_score_adjustments",
+			"api/knowledge-panels/environment/environmental_score/environmental_score_adjustments.tt.json",
+			{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+		);
 	}
 	# Environmental-Score is not applicable
 	elsif ( (defined $product_ref->{environmental_score_grade})
@@ -728,6 +807,7 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 			);
 		}
 	}
+
 	return;
 }
 
@@ -773,7 +853,8 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 			)
 		{
 
-			create_panel_from_json_template("palm_oil", "api/knowledge-panels/environment/palm_oil.tt.json",
+			create_panel_from_json_template("threatened_species",
+				"api/knowledge-panels/environment/threatened_species.tt.json",
 				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		}
 	}
@@ -784,8 +865,7 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	}
 
 	# Create panel for packaging components, and packaging materials
-	create_panel_from_json_template("packaging_recycling",
-		"api/knowledge-panels/environment/packaging_recycling.tt.json",
+	create_panel_from_json_template("packaging", "api/knowledge-panels/environment/packaging.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	create_panel_from_json_template("packaging_materials",
 		"api/knowledge-panels/environment/packaging_materials.tt.json",
@@ -804,10 +884,123 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	# Forest footprint
+	if (defined $product_ref->{forest_footprint_data}) {
+		create_panel_from_json_template("forest_footprint", "api/knowledge-panels/environment/forest_footprint.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	# Create the environment_card panel
 	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc);
 	create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	return 1;
+}
+
+=head2 create_reuse_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates a knowledge panel card that contains information about circular economy solutions for reuse
+
+It's a container for specific knowledge panels.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Created knowledge panels will be added to product_ref
+
+=head4 language code $target_lc
+
+=head4 country code $target_cc
+
+=head4 options configuration reference $options_ref
+
+=head4 request reference $request_ref
+
+=cut
+
+sub create_reuse_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	$log->debug("create reuse card panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+	my $sub_panels = 0;
+
+	$sub_panels += create_qfdmo_fr_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	if ($sub_panels == 0) {
+		return 0;
+	}
+
+	my $panel_data_ref = {};
+	# Create the reuse_card panel
+	create_panel_from_json_template("reuse_card", "api/knowledge-panels/reuse/reuse_card.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	return 1;
+}
+
+=head2 create_qfdmo_fr_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates a knowledge panel card that contains information about circular economy solutions
+through QFDMO (Ou et comment donner, reparer et recycler).
+
+Only created for:
+- Products on Open Products Facts (product_type "product")
+- Products with a category that has a qfdmo_name_fr property
+- Users in France (target_cc = "fr")
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Created knowledge panels will be added to product_ref
+
+=head4 language code $target_lc
+
+=head4 country code $target_cc
+
+=head4 options configuration reference $options_ref
+
+=head4 request reference $request_ref
+
+=head3 Return value
+
+1 in case a panel was created, 0 otherwise
+
+=cut
+
+sub create_qfdmo_fr_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+	my $panel_data_ref = {};
+
+	# Only available for the product_type "product" (Open Products Facts)
+	if ($options{product_type} ne "product") {
+		return 0;
+	}
+
+	# Only show for France
+	if ($target_cc ne 'fr') {
+		return 0;
+	}
+
+	# Check if any category in the hierarchy has a qfdmo_name_fr property
+	my ($qfdmo_name_fr, $category_id) = get_inherited_property_from_categories_tags($product_ref, "qfdmo_id:fr");
+
+	# Don't create the panel if no category has QFDMO info
+	if (not defined $qfdmo_name_fr) {
+		return 0;
+	}
+
+	# Get the French name of the category with QFDMO info
+	my $category_name_fr = display_taxonomy_tag_name("fr", "categories", $category_id);
+
+	# Add QFDMO info to panel data
+	$panel_data_ref->{qfdmo_name_fr} = $qfdmo_name_fr;
+	$panel_data_ref->{category_name_fr} = $category_name_fr;
+
+	# Create QFDMO solutions panel
+	create_panel_from_json_template("qfdmo_solutions", "api/knowledge-panels/reuse/qfdmo_solutions.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
 	return 1;
 }
 
@@ -832,6 +1025,10 @@ This parameter sets the desired language for the user facing strings.
 =head4 country code $target_cc
 
 Used to select secondhand options (e.g. classified ads sites) that are relevant for the user.
+
+=head3 Return value
+
+1 in case a panel was created, 0 otherwise
 
 =cut
 
@@ -873,6 +1070,125 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	return 1;
+}
+
+=head2 create_maintain_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates a knowledge panel card that contains maintenance and repair advice for products.
+
+Created for products in specific categories that have maintenance URLs, for users in specific countries.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+The panel is added in the product
+
+=head4 language code $target_lc
+
+=head4 country code $target_cc
+
+=head4 options reference $options_ref
+
+=head4 request reference $request_ref
+
+=head3 Return value
+
+1 if panel created, 0 otherwise
+
+=cut
+
+sub create_maintain_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	$log->debug("create maintain card panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+	my $sub_panel_count = 0;
+
+	$sub_panel_count
+		+= create_epargnonsnosressources_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	my $panel_data_ref = {};
+
+	# Create the maintain_card panel only if we have created at least one sub-panel
+	if ($sub_panel_count > 0) {
+		create_panel_from_json_template("maintain_card", "api/knowledge-panels/maintain/maintain_card.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		return 1;
+	}
+
+	return 0;
+}
+
+=head2 create_epargnonsnosressources_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Link to epargnonsnosressource website
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+The panel is added in the product
+
+=head4 language code $target_lc
+
+=head4 country code $target_cc
+
+=head4 options reference $options_ref
+
+=head4 request reference $request_ref
+
+=head3 Return value
+
+1 if panel created, 0 otherwise
+
+=cut
+
+sub create_epargnonsnosressources_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	my $panel_data_ref = {};
+
+	# Only available for the product_type "product"
+	if ($options{product_type} ne "product") {
+		return 0;
+	}
+
+	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
+	my $category_id;
+	if (
+		not(ref($product_ref->{categories_hierarchy}) eq 'ARRAY'
+			and @{$product_ref->{categories_hierarchy}})
+		)
+	{
+		return 0;
+	}
+
+	# Check if the product has a category with a maintenance URL
+	my ($maintenance_url, $category_with_url)
+		= get_inherited_property_from_categories_tags($product_ref, "epargnonsnosressources_fr_link:en");
+
+	if (defined $maintenance_url) {
+		$category_id = $product_ref->{categories_hierarchy}[-1];
+		$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
+		$panel_data_ref->{maintenance_url} = $maintenance_url;
+		$panel_data_ref->{category_with_maintenance_url} = $category_with_url;
+
+		# Create panel for maintenance advice for France
+		if ($target_cc eq 'fr') {
+			create_panel_from_json_template(
+				"maintenance_advice_fr_epargnonsnosressources",
+				"api/knowledge-panels/maintain/maintenance_advice_fr_epargnonsnosressources.tt.json",
+				$panel_data_ref,
+				$product_ref,
+				$target_lc,
+				$target_cc,
+				$options_ref,
+				$request_ref
+			);
+			return 1;
+		}
+	}
+
+	return 0;
 }
 
 sub create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
@@ -1278,12 +1594,26 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 	{
 
 		# Compare the product nutrition facts to the most specific category
-		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_cc, 1);
-		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
+		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_lc, $target_cc, 1);
 
+		# Create a first panel with the aggregated set and comparison to category (if any)
+		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 		create_panel_from_json_template("nutrition_facts_table",
 			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+		# Create a second detailed panel with the aggregated set + all input sets
+		my $panel_data_detailed_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref, 1);
+		create_panel_from_json_template(
+			"nutrition_facts_table_with_input_sets",
+			"api/knowledge-panels/health/nutrition/nutrition_facts_table_with_input_sets.tt.json",
+			$panel_data_detailed_ref,
+			$product_ref,
+			$target_lc,
+			$target_cc,
+			$options_ref,
+			$request_ref
+		);
 	}
 	return;
 }
@@ -1377,12 +1707,12 @@ sub create_physical_activities_panel ($product_ref, $target_lc, $target_cc, $opt
 		if $log->is_debug();
 
 	# Generate a panel only for food products that have an energy per 100g value
-	if (    (defined $product_ref->{nutriments})
-		and (defined $product_ref->{nutriments}{energy_100g})
-		and ($product_ref->{nutriments}{energy_100g} > 0))
+	if (    (!$product_ref->{nutrition}{no_nutrition_data})
+		and (defined $product_ref->{nutrition}{aggregated_set}{nutrients}{energy})
+		and ($product_ref->{nutrition}{aggregated_set}{nutrients}{energy} > 0))
 	{
 
-		my $energy = $product_ref->{nutriments}{energy_100g};
+		my $energy = $product_ref->{nutrition}{aggregated_set}{nutrients}{energy};
 
 		# Compute energy density: low, moderate, high
 		# We might want to move it to the nutrients level at some point

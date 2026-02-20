@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -141,7 +141,7 @@ msgstr ""
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Добродошли!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -681,7 +681,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "Кодови за праћење"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -701,7 +701,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "код за праћење"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -1851,7 +1851,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "Додајте хранљиву материју"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -3445,7 +3445,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Порекло"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3703,6 +3703,10 @@ msgstr ""
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
+
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "потпуност квалитета података"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -4316,7 +4320,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Готово"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4419,7 +4423,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Неважећи бар код"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4662,7 +4666,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Ниво обраде хране непознат"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -5121,11 +5125,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Разно"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Разно"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5143,7 +5147,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "Облик"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5151,7 +5155,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Материјал"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5959,6 +5963,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Нема процењених ознака"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Неке еколошке користи"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Високе еколошке користи"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Веома високе еколошке користи"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6114,6 +6134,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Комплетност квалитета података"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Неке информације о потпуности квалитета података о овом производу"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6329,22 +6357,22 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Веома добра утакмица"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "Добро поклапање"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Лоше подударање"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "Непознато подударање"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6354,7 +6382,7 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "Не подудара се"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6534,7 +6562,7 @@ msgstr "Prijavite se"
 
 msgctxt "sign_out"
 msgid "Sign out"
-msgstr ""
+msgstr "Одјавите се"
 
 msgctxt "your_contributions"
 msgid "Your contributions"
@@ -6727,7 +6755,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Број јединица"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6759,19 +6787,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Унесите број јединица паковања истог облика и материјала које се налазе у производу."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Унесите назив облика наведен у упутствима за рециклажу ако су доступна или изаберите облик."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Унесите специфичан материјал ако се може утврдити (шифра материјала унутар троугла се често може наћи на деловима паковања) или генерички материјал (на пример, пластика или метал) ако нисте сигурни."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Упутства за рециклажу унесите само ако су наведена на производу."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6781,7 +6809,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Унесите нето тежину или нето запремину и назначите јединицу (на пример г или мл)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7401,17 +7429,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Тип производа"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Храна"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Храна за кућне љубимце"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7599,4 +7627,96 @@ msgstr "Нисмо открили: {unwanted_ingredients}. Можда смо п�
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Те преференције се заснивају на разумевању листе састојака од стране Open Food Facts и увек постоји могућност да она није тачна или потпуна, увек сами проверите производ."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Пушење убија"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Дуван озбиљно штети здрављу. Не почињи. Престани одмах."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Пушење изазива велику зависност. Не почињите. Пушење убија – престаните одмах. Пушење зачепљује артерије и изазива срчане и мождане ударе. Пушење узрокује фатални рак плућа. Пушење током трудноће штети вашој беби. Заштитите децу: немојте их терати да удишу ваш дим. Ваш лекар или фармацеут могу вам помоћи да престанете са пушењем. Пушење може смањити проток крви и изазвати импотенцију. Пушење узрокује старење коже. Пушење може оштетити сперму и смањити плодност. Дим садржи бензен, нитрозамине, формалдехид и водоник цијанид."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Јавна цена"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 евра, 2,99 америчких долара, 4,00 британских фунти"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Препоручена малопродајна цена произвођача (MSRP), без попуста и промоција, као што је назначено на паковању производа или на веб-сајту произвођача (укључујући или искључујући порезе на основу законских прописа). Користите листу одвојену зарезима ако су цене наведене у више валута."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Персонализована имовина"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Не садржи палмино уље"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Може да садржи палмино уље"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Еколошке ознаке"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Недостају подаци"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Велики утицај"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Средњи утицај"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Мали утицај"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Утицај није процењен"
 

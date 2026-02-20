@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "En fællesskabsdrevet, gratis og åben database med fødevareprodukter for hele verden."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "En kollaborativ, gratis og åben database med kæledyrsfødevareprodukter fra hele verden."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -1030,7 +1030,7 @@ msgstr "Forsidebillede"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr "Bilde av ingredienser"
+msgstr "Billede af ingredienser"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
@@ -1301,7 +1301,7 @@ msgstr "Ved at tilføje oplysninger, data og/eller fotos accepterer du, uigenkal
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr "Link til produktsiden på producentens officielle wensted"
+msgstr "Link til produktsiden på producentens officielle websted"
 
 msgctxt "list_of_x"
 msgid "List of %s"
@@ -3721,6 +3721,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "datakvalitetsfejl"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "datakvalitetens fuldstændighed"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "datakvalitetsinfo"
@@ -5976,6 +5980,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etiketter med meget store miljøfordele"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Ingen vurderede etiketter"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Nogle miljømæssige fordele"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Høje miljømæssige fordele"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Meget høje miljømæssige fordele"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Andet"
@@ -6131,6 +6151,14 @@ msgstr "Bidrag"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Bidrag"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Datakvalitetens fuldstændighed"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Nogle oplysninger om fuldstændigheden af datakvaliteten på dette produkt"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7616,4 +7644,96 @@ msgstr "Vi fandt ikke: {unwanted_ingredients}. Vi har muligvis overset nogle ing
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Disse præferencer er baseret på Open Food Facts' forståelse af ingredienslisten, og der er altid en mulighed for, at den ikke er nøjagtig eller fuldstændig. Tjek altid produktet selv."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr "Indikator for dyrs lidelse beregnet efter produkt"
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr "Dyrevelfærd"
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr "Eksterne videnspaneler"
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr "Panelet er ikke tilgængeligt"
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr "Panel ikke tilgængeligt for dette produkt"
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr "Eksterne kilder"
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr "Leveret af"
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Rygning dræber"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Tobak skader helbredet alvorligt. Start ikke. Stop nu."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Rygning er stærkt vanedannende. Start ikke. Rygning dræber – stop nu. Rygning tilstopper arterierne og forårsager hjerteanfald og slagtilfælde. Rygning forårsager dødelig lungekræft. Rygning under graviditet skader din baby. Beskyt børn: Lad dem ikke indånde din røg. Din læge eller apoteker kan hjælpe dig med at stoppe med at ryge. Rygning kan reducere blodgennemstrømningen og forårsage impotens. Rygning forårsager ældning af huden. Rygning kan skade sædcellerne og mindske fertiliteten. Røg indeholder benzen, nitrosaminer, formaldehyd og hydrogencyanid."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Offentlig pris"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Producentens vejledende udsalgspris (MSRP), eksklusive rabatter og kampagner, som angivet på produktemballagen eller producentens hjemmeside (inklusive eller eksklusive skatter baseret på lovgivningen). Brug en kommasepareret liste, hvis priser i flere valutaer er angivet."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Personlig ejendom"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Indeholder ikke palmeolie"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Kan indeholde palmeolie"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Miljømærkninger"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Manglende data"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Høj effekt"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Middelstor påvirkning"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Lav påvirkning"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Virkning ikke vurderet"
 

@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -3703,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "te whakaotinga o te kounga raraunga"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -5958,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Karekau he tapanga aromatawai"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Ko etahi painga o te taiao"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Nga painga taiao teitei"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "He tino nui nga painga o te taiao"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6113,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Te Whakaoti Kounga Raraunga"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Ko etahi korero mo te whakaotinga o te kounga raraunga mo tenei hua"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7598,4 +7626,96 @@ msgstr "Kaore i kitea e matou: {unwanted_ingredients}. Kua ngaro pea i a maatau 
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Ko aua manakohanga i ahu mai i runga i te maaramatanga o Open Food Facts ki te rarangi whakauru me te kore pea e tika, kia oti ranei, tirohia tonu te hua."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Ka mate te kai paipa"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Ka tino kino te hauora o te tupeka. Kaua e timata. Whakamutua inaianei."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Ko te momi paipa he tino faatîtîraa. Kaua e timata. Ka mate te kai paipa - kati inaianei. Ko te kai paipa ka purua nga uaua, ka pa te ngakau me nga whiu. Ko te kai paipa ka mate te mate pukupuku mate pukupuku. Ko te kai paipa i te wa e hapu ana ka pa te kino ki to peepi. Tiakihia nga tamariki: kaua e whakapouri i to auahi. Ka taea e to taakuta me to kai rongoa te awhina i a koe kia mutu te kai paipa. Ma te kai paipa ka heke te rere o te toto me te ngoikore. Ko te kai paipa ka paheke te kiri. Ka taea e te kai paipa te kino te parāoa me te whakaheke i te hua. Kei roto i te auahi he benzene, nitrosamines, formaldehyde me te hauwai hauwai."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Utu a te iwi"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 EUR, 2.99 USD, 4.00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Ko te utu hokohoko i whakaarohia e te Kaihanga (MSRP), haunga nga utu me nga whakatairanga, kua tohuhia i runga i te kohinga hua, i te waahi ranei o te kaihanga (tae atu ki nga taake ranei i runga i te ture). Whakamahia he rarangi wehea piko ki te whakarārangihia nga utu i roto i nga moni maha."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Taonga whaiaro"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Karekau he hinu nikau"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Kei roto pea te hinu nikau"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Nga tapanga taiao"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Nga raraunga ngaro"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Te awe nui"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Pānga Waenga"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Pānga iti"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Ko te paanga kaore i aromatawaihia"
 

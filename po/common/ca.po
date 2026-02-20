@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Una base de dades col·laborativa, lliure i oberta dels productes alimentaris de tot el món."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "Una base de dades col·laborativa, gratuïta i oberta de productes alimentaris per a mascotes arreu del món."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -3723,6 +3723,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "problemes de qualitat de les dades"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "integritat de la qualitat de les dades"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "informació sobre la qualitat de les dades"
@@ -5978,6 +5982,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etiquetes amb beneficis ambientals molt alts"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Sense etiquetes avaluades"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Alguns beneficis mediambientals"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Alts beneficis mediambientals"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Beneficis ambientals molt elevats"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Altres"
@@ -6133,6 +6153,14 @@ msgstr "Contribució"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Contribució"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Qualitat de les dades i integritat"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Algunes informacions sobre la integritat de la qualitat de les dades d'aquest producte"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6746,7 +6774,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Nombre d'unitats"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -7420,7 +7448,7 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Tipus de producte"
 
 # Food product type
 msgctxt "product_type_food"
@@ -7618,4 +7646,96 @@ msgstr "No hem detectat: {unwanted_ingredients}. Potser hem passat per alt algun
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Aquestes preferències es basen en la comprensió que fa Open Food Facts de la llista d'ingredients i sempre hi ha la possibilitat que no sigui precisa o completa; comproveu sempre el producte vosaltres mateixos."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Fumar mata"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "El tabac perjudica greument la salut. No comencis. Deixa-ho ara."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Fumar és altament addictiu. No comencis. Fumar mata: deixa-ho ara. Fumar obstrueix les artèries i provoca atacs de cor i accidents cerebrovasculars. Fumar causa càncer de pulmó mortal. Fumar durant l'embaràs perjudica el teu nadó. Protegeix els nens: no els facis respirar el teu fum. El teu metge o el teu farmacèutic et poden ajudar a deixar de fumar. Fumar pot reduir el flux sanguini i causar impotència. Fumar provoca l'envelliment de la pell. Fumar pot danyar els espermatozoides i disminueix la fertilitat. El fum conté benzè, nitrosamines, formaldehid i cianur d'hidrogen."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Preu públic"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Preu de venda recomanat pel fabricant (PVP), excloent-hi descomptes i promocions, tal com s'indica a l'embalatge del producte o al lloc web del fabricant (inclosos o exclosos els impostos segons la legislació). Utilitzeu una llista separada per comes si es mostren preus en diverses monedes."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "propietat personalitzada"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "No conté oli de palma"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Pot contenir oli de palma"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Etiquetes ambientals"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Dades que falten"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Alt impacte"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Impacte mitjà"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Baix impacte"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Impacte no avaluat"
 

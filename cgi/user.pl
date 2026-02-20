@@ -25,7 +25,7 @@ use ProductOpener::PerlStandards;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Web qw/get_countries_options_list get_languages_options_list/;
@@ -444,7 +444,7 @@ elsif ($action eq 'process') {
 
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
 		$template_data_ref->{add_user_existing_org}
-			= sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
+			= sprintf(lang("add_user_existing_org"), org_name($requested_org_ref) // '');
 
 		$template_data_ref->{user_org} = $user_ref->{org};
 

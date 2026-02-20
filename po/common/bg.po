@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за хранителни продукти от света."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за хранителни продукти за домашни любимци от света."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -945,7 +945,7 @@ msgstr "Условия за ползване"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr "/условия за ползване"
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -3723,6 +3723,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "грешки в качеството на данните"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "пълнота на качеството на данните"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "информация за качеството на данните"
@@ -5978,6 +5982,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Етикети с много високи ползи за околната среда"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Няма оценени етикети"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Някои ползи за околната среда"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Високи ползи за околната среда"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Много високи ползи за околната среда"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Друго"
@@ -6133,6 +6153,14 @@ msgstr "Принос"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Принос"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Пълнота на качеството на данните"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Някои данни относно качеството и пълнотата на данните за този продукт"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7420,17 +7448,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Тип продукт"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Храна"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Храна за домашни любимци"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7618,4 +7646,96 @@ msgstr "Не открихме: {unwanted_ingredients}. Възможно е да 
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Тези предпочитания се основават на разбирането на Open Food Facts за списъка със съставки и винаги има вероятност той да не е точен или пълен, винаги проверявайте продукта сами."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Пушенето убива"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Тютюнът сериозно уврежда здравето. Не започвайте. Спрете веднага."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Пушенето е силно пристрастяващо. Не започвайте. Пушенето убива – спрете сега. Пушенето запушва артериите и причинява инфаркти и инсулти. Пушенето причинява фатален рак на белия дроб. Пушенето по време на бременност вреди на вашето бебе. Защитете децата: не ги карайте да вдишват вашия дим. Вашият лекар или фармацевт може да ви помогне да спрете да пушите. Пушенето може да намали кръвния поток и да причини импотентност. Пушенето причинява стареене на кожата. Пушенето може да увреди сперматозоидите и да намали плодовитостта. Димът съдържа бензен, нитрозамини, формалдехид и циановодород."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Публична цена"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 евро, 2,99 щатски долара, 4,00 британски лири"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Препоръчителна цена на дребно от производителя (MSRP), без отстъпки и промоции, както е посочено на опаковката на продукта или на сайта на производителя (включително или без данъци, съгласно законодателството). Използвайте списък, разделен със запетаи, ако са посочени цени в няколко валути."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Персонализирана собственост"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Не съдържа палмово масло"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Може да съдържа палмово масло"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Екологични етикети"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Липсващи данни"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Силно въздействие"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Средно въздействие"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Ниско въздействие"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Въздействието не е оценено"
 

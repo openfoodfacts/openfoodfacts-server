@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "世界中から食品の、共同のフリーでオープンなデータベース。"
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -926,7 +926,7 @@ msgstr "プライバシー"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr "/プライバシー"
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -3721,6 +3721,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "データ品質のバグ"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "データ品質の完全性"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "データ品質情報"
@@ -5976,6 +5980,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "環境上の非常に大きな利点を示すラベルあり"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "評価ラベルなし"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "環境面での利点"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "高い環境メリット"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "非常に高い環境メリット"
+
 msgctxt "other"
 msgid "Other"
 msgstr "その他"
@@ -6131,6 +6151,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "データ品質の完全性"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "この製品のデータ品質の完全性に関する情報"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7418,7 +7446,7 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "製品タイプ"
 
 # Food product type
 msgctxt "product_type_food"
@@ -7616,4 +7644,96 @@ msgstr "検出されませんでした: {unwanted_ingredients}。一部の成分
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "これらの好みは、Open Food Facts の成分リストの理解に基づいており、正確または完全ではない可能性が常にありますので、必ず自分で製品を確認してください。"
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "喫煙は死をもたらす"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "タバコは健康に深刻な害を及ぼします。始めないでください。今すぐやめましょう。"
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "喫煙は非常に中毒性があります。始めないでください。喫煙は死をもたらします。今すぐやめましょう。喫煙は動脈を詰まらせ、心臓発作や脳卒中を引き起こします。喫煙は致命的な肺がんを引き起こします。妊娠中の喫煙は胎児に悪影響を及ぼします。子供たちを守りましょう。子供たちにあなたの煙を吸わせないでください。医師または薬剤師が禁煙のお手伝いをいたします。喫煙は血流を低下させ、インポテンツを引き起こす可能性があります。喫煙は皮膚の老化を引き起こします。喫煙は精子にダメージを与え、生殖能力を低下させる可能性があります。煙にはベンゼン、ニトロソアミン、ホルムアルデヒド、シアン化水素が含まれています。"
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "公示価格"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50ユーロ、2.99米ドル、4.00ポンド"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "メーカー希望小売価格（MSRP）で、割引やプロモーションは含まれません。製品パッケージまたはメーカーのウェブサイトに記載されている価格です（法令に基づき、税金を含む場合と含まない場合があります）。複数の通貨で価格を記載する場合は、カンマ区切りのリストを使用してください。"
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "パーソナライズされた財産"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "パーム油は含まれていません"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "パーム油を含む場合があります"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "環境ラベル"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "欠損データ"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "大きな影響"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "中程度の影響"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "低影響"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "影響は評価されていない"
 

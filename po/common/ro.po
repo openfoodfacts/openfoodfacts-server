@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "O bază de date colaborativă, liberă și deschisă a produselor alimentare din întreaga lume."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "O bază de date colaborativă, gratuită și deschisă cu produse alimentare pentru animale de companie din întreaga lume."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -3720,6 +3720,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "erori de calitate a datelor"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "calitatea datelor completă"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "informații despre calitatea datelor"
@@ -4062,7 +4066,7 @@ msgstr "Scorul nutrițional"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "Nutri-Scor"
+msgstr ""
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -4072,7 +4076,7 @@ msgstr "Scor Nutri-Score"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "Nutri-Scor"
+msgstr ""
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4606,7 +4610,7 @@ msgstr "Calitatea nutrițională"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "Nutri-Scor"
+msgstr ""
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -5975,6 +5979,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etichete cu beneficii foarte mari pentru mediu"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Nicio etichetă evaluată"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Unele beneficii pentru mediu"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Beneficii ridicate pentru mediu"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Beneficii foarte mari pentru mediu"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Altele"
@@ -6130,6 +6150,14 @@ msgstr "Contribuiți"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Contribuiți"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Calitatea datelor completă"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Câteva informații despre completitudinea calității datelor pentru acest produs"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7417,17 +7445,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Tipul de produs"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Mâncare"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Hrană pentru animale de companie"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7615,4 +7643,96 @@ msgstr "Nu am detectat: {unwanted_ingredients}. Este posibil să fi omis unele i
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Aceste preferințe se bazează pe înțelegerea de către Open Food Facts a listei de ingrediente și există întotdeauna posibilitatea ca aceasta să nu fie exactă sau completă; verificați întotdeauna produsul dumneavoastră."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Fumatul ucide"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Tutunul dăunează grav sănătății. Nu începe. Renunță acum."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Fumatul creează o dependență ridicată. Nu începe. Fumatul ucide – renunță acum. Fumatul înfundă arterele și provoacă atacuri de cord și accidente vasculare cerebrale. Fumatul provoacă cancer pulmonar fatal. Fumatul în timpul sarcinii este dăunător pentru bebeluș. Protejați copiii: nu-i obligați să inhaleze fumul dumneavoastră. Medicul sau farmacistul vă pot ajuta să renunțați la fumat. Fumatul poate reduce fluxul sanguin și poate provoca impotență. Fumatul provoacă îmbătrânirea pielii. Fumatul poate deteriora spermatozoizii și scade fertilitatea. Fumatul conține benzen, nitrozamine, formaldehidă și cianură de hidrogen."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Preț public"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Prețul de vânzare cu amănuntul recomandat de producător (MSRP), excluzând reducerile și promoțiile, așa cum este indicat pe ambalajul produsului sau pe site-ul producătorului (inclusiv sau excluzând taxele în funcție de legislație). Folosiți o listă separată prin virgulă dacă sunt afișate prețuri în mai multe monede."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Proprietate personalizată"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Nu conține ulei de palmier"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Poate conține ulei de palmier"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Etichete de mediu"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Date lipsă"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Impact ridicat"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Impact mediu"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Impact redus"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Impactul nu a fost evaluat"
 

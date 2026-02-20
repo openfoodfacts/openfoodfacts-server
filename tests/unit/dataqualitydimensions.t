@@ -7,6 +7,8 @@ $Data::Dumper::Terse = 1;
 
 use ProductOpener::DataQualityDimensions qw/compute_accuracy_score compute_completeness_score/;
 use ProductOpener::Tags qw/has_tag/;
+use ProductOpener::FoodProducts qw/:all/;
+use boolean qw/:all/;
 
 #################################
 ####     H E L P E R S      ####
@@ -81,14 +83,14 @@ check_tags(
 		"en:nutrition-photo-to-be-selected" => 1,
 		"en:categories-completed" => 0,
 		"en:categories-to-be-completed" => 1,
-		"en:nutriments-completed" => 0,
-		"en:nutriments-to-be-completed" => 1,
+		"en:nutrition-completed" => 0,
+		"en:nutrition-to-be-completed" => 1,
 		"en:packaging-photo-selected" => 0,
 		"en:packaging-photo-to-be-selected" => 1,
 		"en:packagings-completed" => 0,
 		"en:packagings-to-be-completed" => 1,
 		"en:traceability-codes-completed" => 0,
-		"en:traceability-codes-to-be-completed" => 1,
+		"en:traceability-codes-to-be-completed" => 0,    # applies only for EU + animal origin categories
 		"en:front-photo-selected" => 0,
 		"en:front-photo-to-be-selected" => 1,
 		"en:product-name-completed" => 0,
@@ -103,88 +105,144 @@ check_tags(
 );
 
 # incremental completeness tests
-compute_and_test_completeness({images => {ingredients_sl => {}}, languages_codes => {'sl' => 1}},
+compute_and_test_completeness({images => {selected => {front => {sl => {}}}}, languages_codes => {'sl' => 1}},
 	"0.08", 'product with 1 selected ingredients image and 1 lang');
 
-compute_and_test_completeness({images => {ingredients_sl => {}}, languages_codes => {'hr' => 1, 'sl' => 1}},
+compute_and_test_completeness(
+	{images => {selected => {ingredients => {sl => {}}}}, languages_codes => {'hr' => 1, 'sl' => 1}},
 	"0.07", 'product with 1 selected ingredients image and 2 langs');
 
 compute_and_test_completeness(
 	{
-		images => {front_cs => {}, ingredients_cs => {}, nutrition_cs => {}, packaging_cs => {}},
+		images => {
+			selected =>
+				{front => {cs => {}}, ingredients => {cs => {}}, nutrition => {cs => {}}, packaging => {cs => {}}}
+		},
 		languages_codes => {'cs' => 1}
 	},
-	"0.31",
-	'product with all 4 selected images and 1 lang'
+	"0.33",
+	'product with all 4 selected images and 1 lang, no food of animal origin category'
 );
 
 compute_and_test_completeness(
 	{
-		images => {front_cs => {}, ingredients_cs => {}, ingredients_sk => {}, nutrition_cs => {}, packaging_cs => {}},
+		images => {
+			selected => {
+				front => {cs => {}},
+				ingredients => {cs => {}, sk => {}},
+				nutrition => {cs => {}},
+				packaging => {cs => {}}
+			}
+		},
 		languages_codes => {'cs' => 1, 'sk' => 1}
 	},
-	"0.33",
-	'product with all 4 selected images in 1 lang and 1 ingredients image in another lang'
+	"0.36",
+	'product with all 4 selected images in 1 lang and 1 ingredients image in another lang, no food of animal origin category'
 );
 
 compute_and_test_completeness(
 	{
 		brands => 'qux',
-		categories => 'quux',
+		categories => 'meats',
 		countries => ['en:italy'],
 		emb_codes => 'corge',
 		expiration_date => 'grault',
 		ingredients_text_it => 'garply',
 		languages_codes => {'it' => 1},
-		packagings => 'baz',
+		packagings => [],
 		product_name => 'foo',
 		quantity => 'bar'
 	},
-	"0.54",
-	'product with all string fields'
+	"0.58",
+	'product with all string fields, no food of animal origin category'
 );
 
-compute_and_test_completeness({no_nutrition_data => 'on', nutriments => {}},
-	"0.18", 'product with no_nutrition_data and no nutriments');
+compute_and_test_completeness({nutrition => {no_nutrition_data_on_packaging => true}},
+	"0.20", 'product with no_nutrition_data on and no nutrition data and not from animal origin category');
 
-compute_and_test_completeness({nutriments => {}}, "0.00", 'product without nutriments but no nutrition data is not on');
-
-compute_and_test_completeness({nutriments => {carbohydrates => 2}}, "0.09", 'product with nutriments');
+compute_and_test_completeness({}, "0.00", 'product without nutrition data');
 
 $product_ref = {
-	nutriments => {
-		"fruits-vegetables-nuts-estimate-from-ingredients_100g" => 0,
-		"fruits-vegetables-nuts-estimate-from-ingredients_serving" => 0,
-		"nova-group" => 4,
-		"nova-group_100g" => 4,
-		"nova-group_serving" => 4
+	nutrition => {
+		input_sets => [
+			{
+				nutrients => {
+					fat => {unit => 'g', value => 10}
+				},
+				source => 'packaging',
+				per => '100g',
+				preparation => 'as_sold'
+			}
+		]
 	}
 };
-compute_and_test_completeness($product_ref, "0.00", 'NOVA and fruit/veg estimates ignored in completeness');
+specific_processes_for_food_product($product_ref);
+
+compute_and_test_completeness($product_ref, "0.10", 'product with nutrition data and not from animal origin category');
+
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				nutrients => {
+					"fruits-vegetables-nuts" => {
+						unit => "g",
+						value => 80
+					}
+				},
+				source => "estimate",
+				per => "100g",
+				preparation => "as_sold"
+			}
+		]
+	}
+};
+specific_processes_for_food_product($product_ref);
+
+compute_and_test_completeness($product_ref, "0.00", 'Nutrient estimates ignored in completeness');
 check_tags(
 	$product_ref,
 	"completeness",
 	(
-		"en:nutriments-to-be-completed" => 1,
-		"en:nutriments-completed" => 0,
+		"en:nutrition-to-be-completed" => 1,
+		"en:nutrition-completed" => 0,
 	)
 );
 
 # fully complete product
 $product_ref = {
 	brands => 'qux',
-	categories => 'quux',
+	categories_tags => ['en:meats-and-their-products'],
+	categories => 'Meats and their products',
 	countries_tags => ['en:hungary'],
 	emb_codes => 'corge',
 	expiration_date => 'grault',
-	images => {front_hu => {}, ingredients_hu => {}, nutrition_hu => {}, packaging_hu => {}},
+	images => {
+		selected => {front => {hu => {}}, ingredients => {hu => {}}, nutrition => {hu => {}}, packaging => {hu => {}}}
+	},
 	ingredients_text_hu => 'garply',
 	languages_codes => {'hu' => 1},
-	nutriments => {carbohydrates => 2},
-	packagings => 'baz',
+	nutrition => {
+		input_sets => [
+			{
+				nutrients => {
+					fat => {unit => 'g', value => 10},
+					carbohydrates => {unit => 'g', value => 20},
+					proteins => {unit => 'g', value => 30},
+					salt => {unit => 'g', value => 1.5},
+					energy => {unit => 'kcal', value => 200}
+				},
+				source => 'packaging',
+				per => '100g',
+				preparation => 'as_sold'
+			}
+		]
+	},
+	packagings => [],
 	product_name => 'foo',
 	quantity => 'bar'
 };
+specific_processes_for_food_product($product_ref);
 compute_and_test_completeness($product_ref, "1.00", 'completeness - product all fields');
 check_tags(
 	$product_ref,
@@ -198,8 +256,8 @@ check_tags(
 		"en:nutrition-photo-to-be-selected" => 0,
 		"en:categories-completed" => 1,
 		"en:categories-to-be-completed" => 0,
-		"en:nutriments-completed" => 1,
-		"en:nutriments-to-be-completed" => 0,
+		"en:nutrition-completed" => 1,
+		"en:nutrition-to-be-completed" => 0,
 		"en:packaging-photo-selected" => 1,
 		"en:packaging-photo-to-be-selected" => 0,
 		"en:packagings-completed" => 1,

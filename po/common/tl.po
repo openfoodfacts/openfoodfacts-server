@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Isang pagtutulungan, libre at bukas na datos ng mga produktong pagkain mula sa buong mundo."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -312,7 +312,7 @@ msgstr ""
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Filipino.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -1117,11 +1117,11 @@ msgstr ""
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "1 sangkap"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} (na) sangkap"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1157,11 +1157,11 @@ msgstr "Bilang ng mga sangkap"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Bilang ng mga kinikilalang sangkap"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "Bilang ng mga hindi nakikilalang sangkap"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1206,11 +1206,11 @@ msgstr "Mga produkto na hindi naglalaman ng sangkap %s"
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr ""
+msgstr "/images/misc/appstore/black/appstore_PH.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
+msgstr "I-download sa App Store"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1462,7 +1462,7 @@ msgstr "Ilipat ang mga imahe sa ibang produkto"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s (na) produkto"
 
 msgctxt "name"
 msgid "Name"
@@ -3238,7 +3238,7 @@ msgstr ""
 # Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr ""
+msgstr "Kunin ang app"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
@@ -3712,6 +3712,10 @@ msgstr ""
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
+
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "pagkakumpleto ng kalidad ng data"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -5968,6 +5972,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Walang mga nasuring label"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Ang ilang mga benepisyo sa kapaligiran"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Mataas na benepisyo sa kapaligiran"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Napakataas na benepisyo sa kapaligiran"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6123,6 +6143,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Pagkumpleto ng Kalidad ng Data"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Ilang impormasyon tungkol sa pagkakumpleto ng kalidad ng data sa produktong ito"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7608,4 +7636,96 @@ msgstr "Hindi namin nakita ang: {unwanted_ingredients}. Maaaring may napalampas 
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Ang mga kagustuhang iyon ay batay sa pag-unawa ng Open Food Facts sa listahan ng mga sangkap at palaging may posibilidad na hindi ito tumpak o kumpleto, palaging suriin ang produkto sa iyong sarili."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Nakamamatay ang paninigarilyo"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Ang tabako ay malubhang nakakapinsala sa kalusugan. Huwag magsimula. Tumigil ka na."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Ang paninigarilyo ay lubhang nakakahumaling. Huwag simulan. Ang paninigarilyo ay nakamamatay - huminto ngayon. Ang paninigarilyo ay bumabara sa mga ugat at nagiging sanhi ng atake sa puso at stroke. Ang paninigarilyo ay nagdudulot ng nakamamatay na kanser sa baga. Ang paninigarilyo kapag buntis ay nakakapinsala sa iyong sanggol. Protektahan ang mga bata: huwag silang pasinghap ng usok mo. Matutulungan ka ng iyong doktor o parmasyutiko na huminto sa paninigarilyo. Maaaring bawasan ng paninigarilyo ang daloy ng dugo at maging sanhi ng kawalan ng lakas. Ang paninigarilyo ay nagdudulot ng pagtanda ng balat. Ang paninigarilyo ay maaaring makapinsala sa tamud at bumababa sa pagkamayabong. Ang usok ay naglalaman ng benzene, nitrosamines, formaldehyde at hydrogen cyanide."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Pampublikong presyo"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 EUR, 2.99 USD, 4.00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Manufacturer suggested retail price (MSRP), hindi kasama ang mga diskwento at promosyon, gaya ng nakasaad sa packaging ng produkto o sa site ng manufacturer (kasama o hindi kasama ang mga buwis batay sa batas). Gumamit ng listahang pinaghihiwalay ng kuwit kung nakalista ang mga presyo sa maraming pera."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Personalized na ari-arian"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Hindi naglalaman ng palm oil"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Maaaring naglalaman ng palm oil"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Mga label sa kapaligiran"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Nawawalang data"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Mataas na epekto"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Katamtamang epekto"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Mababang epekto"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Hindi nasuri ang epekto"
 

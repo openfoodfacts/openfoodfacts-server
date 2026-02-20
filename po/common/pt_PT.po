@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Uma base de dados colaborativa, livre e aberta sobre produtos alimentares de todo o mundo."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "Uma base de dados colaborativa, livre e aberta sobre produtos alimentares para animais de todo o mundo."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -598,7 +598,7 @@ msgstr "Fazer um donativo ao Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-pt.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://world-pt.openfoodfacts.org/fazer-um-donativo-ao-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -3720,6 +3720,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "erros de qualidade dos dados"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "integridade da qualidade dos dados"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "informação de qualidade dos dados"
@@ -5975,6 +5979,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etiquetas com elevados benefícios ambientais"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Sem rótulos avaliados"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Alguns benefícios ambientais"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Altos benefícios ambientais"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Altíssimos benefícios ambientais"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Outro"
@@ -6130,6 +6150,14 @@ msgstr "Contribuição"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Contribuição"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Completude da qualidade dos dados"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Algumas informações sobre a integridade da qualidade dos dados deste produto"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7615,4 +7643,96 @@ msgstr "Não detetámos: {unwanted_ingredients}. Podemos ter-nos esquecido de al
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Estas preferências baseiam-se no entendimento da Open Food Facts sobre a lista de ingredientes e existe sempre a possibilidade de não ser precisa ou completa. Verifique sempre o produto por si."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Fumar mata"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "O tabaco prejudica gravemente a saúde. Não comece. Pare agora mesmo."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Fumar é altamente viciante. Não comece. Fumar mata – pare já. Fumar obstrui as artérias e provoca ataques cardíacos e acidentes vasculares cerebrais. Fumar causa cancro de pulmão fatal. Fumar durante a gravidez prejudica o bebé. Proteja as crianças: não as faça respirar o fumo. O seu médico ou farmacêutico pode ajudá-lo a deixar de fumar. Fumar pode reduzir o fluxo sanguíneo e causar impotência. Fumar provoca o envelhecimento da pele. Fumar pode danificar os espermatozoides e diminuir a fertilidade. O fumo contém benzeno, nitrosaminas, formaldeído e cianeto de hidrogénio."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Preço público"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Preço de venda sugerido pelo fabricante (PVP), excluindo descontos e promoções, conforme indicado na embalagem do produto ou no website do fabricante (incluindo ou excluindo impostos, de acordo com a legislação). Utilize uma lista separada por vírgulas no caso de os preços estarem em várias moedas."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Propriedade personalizada"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Não contém óleo de palma."
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Pode conter óleo de palma."
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Rótulos ambientais"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Dados em falta"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Alto impacto"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Impacto médio"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Baixo impacto"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Impacto não avaliado"
 

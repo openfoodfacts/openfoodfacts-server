@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -3703,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "klokded kalite ar roadennoù"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -4857,11 +4861,11 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "Un efed izel war an endro (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "Ar Green-Score zo ur skor endroel eus A da E hag a aesa keñveriañ levezon ar produioù boued war an endro."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5958,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Tikedenn priziet ebet"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Un nebeud gounidoù evit an endro"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Gounidoù uhel evit an endro"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Gounidoù uhel-kenañ evit an endro"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6113,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Klokded kalite ar roadennoù"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Un nebeud titouroù diwar-benn klokded kalite ar roadennoù war ar produ-mañ"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7598,4 +7626,96 @@ msgstr "N'hon eus ket detektet : {unwanted_ingredients}. Marteze hon eus kollet 
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Diazezet eo an dibaboù-se war gompren Open Food Facts eus roll ar c'hementadoù ha bepred ez eus ur chañs da vezañ reizh pe klok, gwiriit ar produ hoc'h-unan bepred."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Lazhañ a ra ar butun"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Ar butun a ra droug bras d'ar yec'hed. Arabat kregiñ. Paouez bremañ."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Ar butun a zo stag-tre ouzh an dud. Arabat kregiñ. Lazhañ a ra ar butun – paouezit bremañ. Ar butun a stank an gwazhiennoù hag a laka taolioù-kalon ha taolioù-kalon. Ar butun a laka ar c'hrign-bev marvus da greskiñ. Butuniñ pa vez dougerez a ra droug d'ho pugel. Diwallit ar vugale : na lakait ket anezho da c'hwezhañ ho moged. Ho medisin pe ho apotiker a c'hell sikour ac'hanoc'h da zilezel ar butun. Ar butun a c'hell digreskiñ ar red gwad ha lakaat an dud da vezañ dic'hallus. Ar butun a laka ar c'hroc'hen da goshaat. Ar butun a c'hell gwastañ ar sperm ha digreskiñ ar frouezhusted. Er moged e kaver benzen, nitrozaminoù, formaldehid ha sianur hidrogen."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Priz foran"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Priz gwerzhañ kinniget gant ar c'henderc'her (MSRP), hep kontañ ar goproù hag ar bruderezh, evel m'eo merket war pakadoù ar produ pe war lec'hienn ar c'henderc'her (en o zouez pe hep kontañ an tailhoù diazezet war al lezenn). Implijit ur roll dispartiet gant ur virgulenn ma vez meneget prizioù e meur a moneiz."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Perc'henniezh personelaet"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "N'eus ket eoul palmez ennañ"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Eoul-palmez a c'hell bezañ ennañ"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Tikedennoù evit an endro"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Roadennoù mankout"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Un efed uhel"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Levezon etre"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Efed izel"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "N'eo ket bet priziet an efedoù"
 

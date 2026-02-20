@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Μια συλλογική, ελεύθερη και ανοιχτή βάση δεδομένων των προϊόντων τροφίμων από όλο τον κόσμο."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων προϊόντων τροφών για κατοικίδια από όλο τον κόσμο."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -598,7 +598,7 @@ msgstr "Δωρεά στο Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://gr.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://world-el.openfoodfacts.org/dorea-se-openfoodfacts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -3722,6 +3722,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "σφάλματα ποιότητας δεδομένων"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "πληρότητα ποιότητας δεδομένων"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "πληροφορίες ποιότητας δεδομένων"
@@ -4092,7 +4096,7 @@ msgstr "Ευχαριστούμε!"
 
 msgctxt "thank_you_very_much"
 msgid "Thank you very much!"
-msgstr ""
+msgstr "Σας ευχαριστώ πολύ!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -4604,7 +4608,7 @@ msgstr "Όταν αγοράζετε προϊόντα δικαίου εμπορί
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
-msgstr ""
+msgstr "Διατροφική ποιότητα"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
@@ -5977,6 +5981,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Ετικέτες με πολύ υψηλά περιβαλλοντικά οφέλη"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Δεν υπάρχουν αξιολογημένες ετικέτες"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Μερικά περιβαλλοντικά οφέλη"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Υψηλά περιβαλλοντικά οφέλη"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Πολύ υψηλά περιβαλλοντικά οφέλη"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Άλλο"
@@ -6132,6 +6152,14 @@ msgstr "Συνεισφορά"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Συνεισφορά"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Πληρότητα Ποιότητας Δεδομένων"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Ορισμένες πληροφορίες σχετικά με την πληρότητα της ποιότητας των δεδομένων σε αυτό το προϊόν"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7617,4 +7645,96 @@ msgstr "Δεν εντοπίσαμε: {unwanted_ingredients}. Μπορεί να �
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Αυτές οι προτιμήσεις βασίζονται στην κατανόηση της λίστας συστατικών από το Open Food Facts και υπάρχει πάντα η πιθανότητα να μην είναι ακριβής ή πλήρης, επομένως να ελέγχετε πάντα το προϊόν μόνοι σας."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr "Δακτυλικό αποτύπωμα που υποφέρει"
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr "Δείκτης ταλαιπωρίας ζώων που υπολογίζεται ανά προϊόν"
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr "Ευημερία ζώων"
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr "Εξωτερικοί Πίνακες Γνώσεων"
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr "Πίνακας μη διαθέσιμος"
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr "Πίνακας μη διαθέσιμος για αυτό το προϊόν"
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr "Εξωτερικές πηγές"
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr "Παρέχεται από"
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Το κάπνισμα σκοτώνει"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Ο καπνός βλάπτει σοβαρά την υγεία. Μην ξεκινήσετε. Κόψτε το τώρα."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Το κάπνισμα είναι εξαιρετικά εθιστικό. Μην ξεκινήσετε. Το κάπνισμα σκοτώνει - σταματήστε το τώρα. Το κάπνισμα φράζει τις αρτηρίες και προκαλεί καρδιακές προσβολές και εγκεφαλικά επεισόδια. Το κάπνισμα προκαλεί θανατηφόρο καρκίνο του πνεύμονα. Το κάπνισμα κατά τη διάρκεια της εγκυμοσύνης βλάπτει το μωρό σας. Προστατέψτε τα παιδιά: μην τα κάνετε να αναπνέουν τον καπνό σας. Ο γιατρός ή ο φαρμακοποιός σας μπορεί να σας βοηθήσει να σταματήσετε το κάπνισμα. Το κάπνισμα μπορεί να μειώσει τη ροή του αίματος και να προκαλέσει ανικανότητα. Το κάπνισμα προκαλεί γήρανση του δέρματος. Το κάπνισμα μπορεί να βλάψει το σπέρμα και να μειώσει τη γονιμότητα. Ο καπνός περιέχει βενζόλιο, νιτροζαμίνες, φορμαλδεΰδη και υδροκυάνιο."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Δημόσια τιμή"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 ευρώ, 2,99 δολάρια ΗΠΑ, 4,00 λίρες Αγγλίας"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Προτεινόμενη τιμή λιανικής πώλησης (MSRP) του κατασκευαστή, εξαιρουμένων των εκπτώσεων και των προωθητικών ενεργειών, όπως αναγράφεται στη συσκευασία του προϊόντος ή στον ιστότοπο του κατασκευαστή (συμπεριλαμβανομένων ή μη φόρων βάσει νομοθεσίας). Χρησιμοποιήστε μια λίστα διαχωρισμένη με κόμμα εάν αναφέρονται τιμές σε πολλά νομίσματα."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Εξατομικευμένη ιδιοκτησία"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Δεν περιέχει φοινικέλαιο"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Μπορεί να περιέχει φοινικέλαιο"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Περιβαλλοντικές ετικέτες"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Λείπουν δεδομένα"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Υψηλός αντίκτυπος"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Μέτρια επίδραση"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Χαμηλός αντίκτυπος"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Δεν αξιολογήθηκε ο αντίκτυπος"
 

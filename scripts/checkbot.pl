@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -27,6 +27,8 @@ use CGI::Carp qw(fatalsToBrowser);
 use Modern::Perl '2017';
 use utf8;
 
+use Log::Any::Adapter ('Stdout');
+
 my $usage = <<TXT
 checkbot.pl is a script that controls product quality and sends alerts to
 a slack channel.
@@ -48,7 +50,7 @@ use Encode;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Tags qw/has_tag/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -60,7 +62,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Data qw/:all/;
-use ProductOpener::HTTP qw/create_user_agent/;
+use ProductOpener::Slack qw/send_slack_message/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -69,14 +71,11 @@ use Encode;
 use JSON::MaybeXS;
 use Getopt::Long;
 
-my $ua = create_user_agent();
-
 # Initial settings
 my $max_sendings = 10;    # maximum number of alerts sent by the bot
 # The bot use "incoming webhooks" of slack
 #   Doc: https://api.slack.com/incoming-webhooks
 #   OFF webhooks settings: https://openfoodfacts.slack.com/services/B033QD1T1
-my $server_endpoint = "https://hooks.slack.com/services/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";
 my $channel;
 my $country = '';
 my $product_order = '';
@@ -109,26 +108,7 @@ sub send_msg($) {
 		return;
 	}
 
-	# set custom HTTP request header fields
-	my $req = HTTP::Request->new(POST => $server_endpoint);
-	$req->header('content-type' => 'application/json');
-
-	# add POST data to HTTP request body
-	#   * tests can be made with "channel": "@YourAccount" instead of "#bots-alert"
-	my $post_data
-		= '{"channel": "' . $channel . '", "username": "checkbot", "text": "' . $msg . '", "icon_emoji": ":hamster:"}';
-	$req->content_type("text/plain; charset='utf8'");
-	$req->content(Encode::encode_utf8($post_data));
-
-	my $resp = $ua->request($req);
-	if ($resp->is_success) {
-		my $message = $resp->decoded_content;
-		print "Received reply: $message\n";
-	}
-	else {
-		print "HTTP POST error code: " . $resp->code . "\n";
-		print "HTTP POST error message: " . $resp->message . "\n";
-	}
+	send_slack_message($channel, 'checkbot', $msg, ':hamster:');
 
 	return;
 }

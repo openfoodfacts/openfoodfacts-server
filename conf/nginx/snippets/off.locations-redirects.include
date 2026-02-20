@@ -218,32 +218,3 @@ location = /donate {
 	return 301 https://$host/donate-to-open-food-facts;
 }
 
-# 2022-06-13 Redirect press pages to blog post about the new Flutter app
-# FR
-location = /presse {
-	try_files /presskit.html =404;
-}
-
-# EN
-location = /press {
-	try_files /presskit.html =404;
-}
-
-# ES
-location = /prensa {
-	    try_files /presskit.html =404;
-}
-
-# IT
-location = /stampa {
-	    try_files /presskit.html =404;
-}
-
-# EN
-location = /press-and-blogs {
-	try_files /presskit.html =404;
-}
-
-location = /pers {
-	try_files /presskit.html =404;
-}

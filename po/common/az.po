@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -141,7 +141,7 @@ msgstr "Qeydiyyat"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Xoş gəlmisiniz!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -681,7 +681,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "İzlənilə bilən kodlar"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -701,7 +701,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "izləmə kodu"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -726,7 +726,7 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "Xəta"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -936,7 +936,7 @@ msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr ""
+msgstr "İstifadə şərtləri"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -1565,11 +1565,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Qidalanma faktları"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Qidalanma faktları"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1633,7 +1633,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "porsiya başına"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
@@ -1641,7 +1641,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Qidalanma faktları"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1850,7 +1850,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "Qidalandırıcı maddə əlavə edin"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -2014,7 +2014,7 @@ msgstr ""
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "Məhsullar"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -2070,7 +2070,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "Şifrəni sıfırlayın"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2411,7 +2411,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "Porsiya ölçüsü"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
@@ -2491,7 +2491,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "Mağazalar"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2568,7 +2568,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "Naməlum"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -3444,7 +3444,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Mənşəyi"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3452,7 +3452,7 @@ msgstr "Tərkibi"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Qidalanma faktları"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3702,6 +3702,10 @@ msgstr ""
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
+
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "məlumat keyfiyyətinin tamlığı"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -4315,7 +4319,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Hazırdır"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4418,7 +4422,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Yanlış barkod"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4661,7 +4665,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Qida emalı səviyyəsi məlum deyil"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -5120,11 +5124,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Müxtəlif"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Müxtəlif"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5142,7 +5146,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "Forma"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5150,7 +5154,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Material"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5958,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Qiymətləndirilmiş etiket yoxdur"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Bəzi ekoloji faydalar"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Yüksək ekoloji faydalar"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Çox yüksək ekoloji faydalar"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6113,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Məlumat keyfiyyətinin tamlığı"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Bu məhsulda məlumat keyfiyyətinin tamlığı haqqında bəzi məlumatlar"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6328,22 +6356,22 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Çox yaxşı uyğunluq"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "Yaxşı uyğunluq"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Uyğunsuz"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "Naməlum uyğunluq"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6353,7 +6381,7 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "Uyğun gəlmir"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6529,11 +6557,11 @@ msgstr ""
 
 msgctxt "sign_in"
 msgid "Sign in"
-msgstr ""
+msgstr "Daxil ol"
 
 msgctxt "sign_out"
 msgid "Sign out"
-msgstr ""
+msgstr "Çıxış"
 
 msgctxt "your_contributions"
 msgid "Your contributions"
@@ -6726,7 +6754,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Vahidlərin sayı"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6758,19 +6786,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Məhsulda olan eyni forma və materialdan olan qablaşdırma vahidlərinin sayını daxil edin."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Təkrar emal təlimatlarında sadalanan forma adını varsa, daxil edin və ya forma seçin."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Əgər müəyyən edilə bilirsə, konkret materialı (üçbucağın içərisindəki material koduna tez-tez qablaşdırma hissələrində rast gəlmək olar), yaxud əmin deyilsinizsə, ümumi materialı (məsələn, plastik və ya metal) daxil edin."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Təkrar emal təlimatlarını yalnız məhsulun üzərində sadalandığı təqdirdə daxil edin."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6780,7 +6808,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Xalis çəkini və ya xalis həcmi daxil edin və vahidi göstərin (məsələn, q və ya ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7400,17 +7428,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Məhsul növü"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Yemək"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Ev heyvanları üçün yem"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7598,4 +7626,96 @@ msgstr "Biz aşkar etmədik: {unwanted_ingredients}. Bəzi inqrediyentləri qaç
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Bu üstünlüklər Açıq Qida Faktlarının inqrediyentlər siyahısı haqqında anlayışına əsaslanır və onun dəqiq və ya tam olmama ehtimalı həmişə var, həmişə məhsulu özünüz yoxlayın."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Siqaret öldürür"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Tütün sağlamlığa ciddi ziyan vurur. başlama. İndi çıxın."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Siqaret çəkmək çox asılılıq yaradır. başlama. Siqaret öldürür - indi çıxın. Siqaret damarları bağlayır, infarkt və insultlara səbəb olur. Siqaret ölümcül ağciyər xərçənginə səbəb olur. Hamiləlik dövründə siqaret çəkmək körpənizə zərər verir. Uşaqları qoruyun: onlara tüstündən nəfəs almağa məcbur etməyin. Həkiminiz və ya əczaçınız siqareti dayandırmağınıza kömək edə bilər. Siqaret qan axını azalda bilər və iktidarsızlığa səbəb ola bilər. Siqaret dərinin qocalmasına səbəb olur. Siqaret spermaya zərər verə bilər və məhsuldarlığı azaldır. Dumanın tərkibində benzol, nitrozaminlər, formaldehid və hidrogen siyanid var."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "İctimai qiymət"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 EUR, 2.99 USD, 4.00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "İstehsalçı məhsulun qablaşdırmasında və ya istehsalçının saytında göstərildiyi kimi endirimlər və promosyonlar istisna olmaqla (qanunvericiliyə əsaslanan vergilər daxil və ya istisna olmaqla) təklif etdiyi pərakəndə satış qiymətini (MSRP) təklif etmişdir. Bir neçə valyutada qiymətlər qeyd olunubsa, vergüllə ayrılmış siyahıdan istifadə edin."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Fərdi mülkiyyət"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Tərkibində palma yağı yoxdur"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Tərkibində palma yağı ola bilər"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Ətraf mühit etiketləri"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Çatışmayan data"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Yüksək təsir"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Orta təsir"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Aşağı təsir"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Təsir qiymətləndirilməyib"
 

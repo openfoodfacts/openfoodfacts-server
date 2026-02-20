@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Sebuah basis data kolaboratif, bebas, dan terbuka mengenai produk makanan dari seluruh dunia."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "Sebuah basis data produk makanan hewan peliharaan dari seluruh dunia yang kolaboratif, bebas, dan terbuka."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -2147,7 +2147,7 @@ msgstr "setara garam"
 
 msgctxt "save"
 msgid "Save"
-msgstr "menyimpan "
+msgstr "Simpan"
 
 msgctxt "saved"
 msgid "Saved."
@@ -3720,6 +3720,10 @@ msgstr "bug kualitas data"
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "kumpulan bug kualitas data"
+
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "kelengkapan kualitas data"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -5976,6 +5980,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Label dengan manfaat lingkungan yang sangat tinggi"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Tidak ada label yang dinilai"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Beberapa manfaat lingkungan"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Manfaat lingkungan yang tinggi"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Manfaat lingkungan yang sangat tinggi"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Lainnya"
@@ -6131,6 +6151,14 @@ msgstr "Kontribusi"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Kontribusi"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Kelengkapan Kualitas Data"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Beberapa info tentang kelengkapan kualitas data pada produk ini"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7616,4 +7644,96 @@ msgstr "Kami tidak mendeteksi: {unwanted_ingredients}. Kami mungkin melewatkan b
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Preferensi tersebut didasarkan pada pemahaman Open Food Facts terhadap daftar bahan dan selalu ada kemungkinan daftar tersebut tidak akurat atau lengkap, selalu periksa sendiri produknya."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Merokok membunuh"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Tembakau sangat merusak kesehatan. Jangan mulai. Berhenti sekarang juga."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Merokok sangat adiktif. Jangan mulai. Merokok mematikan – berhentilah sekarang juga. Merokok menyumbat arteri dan menyebabkan serangan jantung dan stroke. Merokok menyebabkan kanker paru-paru yang fatal. Merokok saat hamil membahayakan bayi Anda. Lindungi anak-anak: jangan biarkan mereka menghirup asap rokok Anda. Dokter atau apoteker Anda dapat membantu Anda berhenti merokok. Merokok dapat mengurangi aliran darah dan menyebabkan impotensi. Merokok menyebabkan penuaan kulit. Merokok dapat merusak sperma dan menurunkan kesuburan. Asap rokok mengandung benzena, nitrosamin, formaldehida, dan hidrogen sianida."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Harga publik"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Harga eceran yang disarankan produsen (MSRP), tidak termasuk diskon dan promosi, sebagaimana tertera pada kemasan produk atau situs web produsen (termasuk atau tidak termasuk pajak berdasarkan peraturan perundang-undangan). Gunakan daftar yang dipisahkan koma jika harga tercantum dalam beberapa mata uang."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Properti yang dipersonalisasi"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Tidak mengandung minyak sawit"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Mungkin mengandung minyak sawit"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Label lingkungan"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Data hilang"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Dampak tinggi"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Dampak sedang"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Dampak rendah"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Dampak belum dinilai"
 

@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -3703,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "iomlanachd càileachd dàta"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -5958,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Gun leubailean air am measadh"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Beagan bhuannachdan àrainneachdail"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Buannachdan àrda àrainneachdail"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Buannachdan àrainneachdail glè àrd"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6113,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Iomlanachd Càileachd Dàta"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Beagan fiosrachaidh mu iomlanachd càileachd dàta air an toradh seo"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7598,4 +7626,96 @@ msgstr "Cha do lorg sinn: {unwanted_ingredients}. Is dòcha gu bheil sinn air cu
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Tha na roghainnean sin stèidhichte air tuigse Open Food Facts air liosta nan tàthchuid agus tha cothrom ann an-còmhnaidh nach eil e ceart no coileanta, thoir sùil air an toradh thu fhèin an-còmhnaidh."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Bidh smocadh a’ marbhadh"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Tha tombaca a’ dèanamh cron mòr air slàinte. Na tòisich. Sguir a-nis."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Tha smocadh gu math addictive. Na tòisich. Bidh smocadh a’ marbhadh – sguir dheth a-nis. Bidh smocadh a’ bacadh nan artaireachdan agus ag adhbhrachadh grèim-cridhe agus stròcan. Bidh smocadh ag adhbhrachadh aillse sgamhain marbhtach. Bidh smocadh nuair a tha thu trom le leanabh a’ dèanamh cron air do phàisde. Dìon clann: na toir orra anail a tharraing air do cheò. Faodaidh do dhotair no do chungaidheadair do chuideachadh le bhith a’ sgur a smocadh. Faodaidh smocadh sruth na fala a lughdachadh agus neo-chomas adhbhrachadh. Bidh smocadh ag adhbhrachadh aois a’ chraicinn. Faodaidh smocadh cron a dhèanamh air an sperm agus torachas a lughdachadh. Tha beinséin, nitrosamines, formaldehyde agus haidridean cyanide ann an ceò."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Prìs phoblach"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 EUR, 2.99 USD, 4.00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Prìs reic a thathar a’ moladh leis an neach-dèanamh (MSRP), gun lasachaidhean agus àrdachadh sam bith, mar a tha air a chomharrachadh air pasgan an toraidh no air làrach-lìn an neach-dèanamh (a’ gabhail a-steach no às aonais chìsean stèidhichte air reachdas). Cleachd liosta air a sgaradh le cromagan ma tha prìsean ann an iomadh airgead air an liostadh."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Seilbh phearsantaichte"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Chan eil ola pailme ann"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Dh’fhaodadh ola pailme a bhith ann"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Leubail àrainneachdail"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Dàta a dhìth"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Buaidh mhòr"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Buaidh mheadhanach"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Buaidh ìosal"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Cha deach measadh a dhèanamh air a’ bhuaidh"
 

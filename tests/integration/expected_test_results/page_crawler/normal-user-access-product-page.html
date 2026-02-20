@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <title>Only-Product – Nutella – 100 g</title>
-    <meta name="description" content="Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product Only-Product – Nutella – 100 g">
+    <meta name="description" content="Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact,and information on product Only-Product – Nutella – 100 g">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
@@ -13,7 +13,7 @@
     <meta property="og:url" content="//world.openfoodfacts.localhost/product/0200000000235/only-product-nutella">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
-    <meta property="og:description" content="Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product Only-Product – Nutella – 100 g">
+    <meta property="og:description" content="Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact,and information on product Only-Product – Nutella – 100 g">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/off/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/off/favicon-16x16.png">
@@ -30,12 +30,22 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "@openfoodfacts/openfoodfacts-webcomponents": "//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js",
+            "leaflet": "//static.openfoodfacts.localhost/js/dist/leaflet-src.js",
+            "leaflet.markercluster": "//static.openfoodfacts.localhost/js/dist/leaflet.markercluster.js",
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<meta name="x:card" content="product">
 <meta name="x:site" content="@OpenFoodFacts">
 <meta name="x:creator" content="@OpenFoodFacts">
 <meta name="x:title" content="Only-Product – Nutella – 100 g">
-<meta name="x:description" content="Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product Only-Product – Nutella – 100 g">
+<meta name="x:description" content="Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact,and information on product Only-Product – Nutella – 100 g">
 <meta name="x:label1" content="brand">
 <meta name="x:data1" content="Nutella">
 <meta name="x:label2" content="category">
@@ -47,7 +57,7 @@
         .show-when-no-access-to-producers-platform {display:none}
 .show-when-logged-in {display:none}
 
-		
+
 		.badge-container{
 			margin: 0 auto;
 		}
@@ -108,7 +118,7 @@
   openfoodfacts-api-url="//world.openfoodfacts.localhost"
   assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
   ></off-webcomponents-configuration>
-	
+
 	
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
 	
@@ -117,7 +127,7 @@
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <span><h2>Scan a product<h2></span>
+      <h2><span>Scan a product</span></h2>
       <button class="modal-close-button">&times;</button>
     </div>
     <div>
@@ -142,9 +152,9 @@
 		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
-				
+
 				<section class="top-bar-section">
-					
+
 					<!-- Left Nav Section -->
 					<ul class="left">
 
@@ -154,7 +164,7 @@
 									menu
 								</span>
 							</a>
-							<ul class="dropdown">				
+							<ul class="dropdown">
 								
 									<li><a href="/discover">Discover</a></li>
 									<li><a href="/contribute">Contribute</a></li>
@@ -177,7 +187,7 @@
 								
 							</ul>
 						</li>
-						
+
 						<li>
 							<ul class="country_language_selection">
 								<li class="has-form has-dropdown" id="select_country_li">
@@ -198,11 +208,11 @@
 
 
 					<!-- Right Nav Section -->
-					
+
 					<ul class="right">
 						
 							<li class="h-space-tiny has-form">
-								<a href="/cgi/session.pl" class="round button secondary">
+								<a href="/cgi/oidc_signin.pl?return_url=http%3A%2F%2Fworld.openfoodfacts.localhost%2Fproduct%2F0200000000235%2Fonly-product-nutella" class="round button secondary">
 									<span class="material-icons material-symbols-button">account_circle</span>
 									Sign in
 								</a>
@@ -215,7 +225,7 @@
 		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-		
+
 		
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
@@ -235,10 +245,10 @@
 					
 					
 					<section class="top-bar-section">
-					
+
 						<ul class="left small-4">
 							<li class="search-li">
-							
+
 								<form action="/cgi/search.pl">
 								<div class="row"><div class="small-12">
 								<div class="row collapse postfix-round">
@@ -311,13 +321,13 @@
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
-			
+
 				<a class="exit-off-canvas"></a>
 
 				
-				
+
 				<!-- full width banner on mobile -->
-				
+
 				
 
 				
@@ -357,9 +367,9 @@
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner__main-title">Please give to our 2025 Fundraiser</h3>
+        <h3 class="donation-banner__main-title">Please give to our 2026 Fundraiser</h3>
       </div>
       <div style="padding:1rem;">
         <p>Your donations fund the day-to-day operations of our non-profit association:</p>
@@ -446,7 +456,7 @@
 							
 						
 						
-            			
+
 						
 							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
 							<!-- start templates/web/pages/product/product_page.tt.html -->
@@ -527,7 +537,7 @@
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>Environment</span></a></li>
                         
                         
-                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem.</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#report_problem"><span>Report a problem</span></a></li>
                         
                         
                         
@@ -746,7 +756,9 @@
                 
             >
                 
-                Nutri-Score unknown
+                
+                    Nutri-Score unknown
+                
             </h4>
             
                 <span >Missing nutrition facts</span>
@@ -821,7 +833,9 @@
                 
             >
                 
-                Discover the new Nutri-Score!
+                
+                    Discover the new Nutri-Score!
+                
             </h4>
             
             <hr class="floatclear">
@@ -903,7 +917,9 @@
                 
             >
                 
-                What is the Nutri-Score?
+                
+                    What is the Nutri-Score?
+                
             </h4>
             
             <hr class="floatclear">
@@ -1015,7 +1031,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
                 
-                Nutrition facts
+                
+                    Nutrition facts
+                
             </h4>
             
             <hr class="floatclear">
@@ -1041,13 +1059,385 @@ The score is calculated from the data of the nutrition facts table and the compo
                     As sold<br>for 100 g / 100 ml
                 </th>
                 
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Energy
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Fat
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 1rem;"
+         
+         >
+            Saturated fat
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Carbohydrates
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 1rem;"
+         
+         >
+            Sugars
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Fiber
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Proteins
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Salt
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Fruits‚ vegetables‚ legumes
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ~ 0 %
+        </span>
+    
+                    </td>
+                
+            </tr>
+            
+        </tbody>
+    </table>
+    </div>
+              
+
+	<!-- start templates/web/panels/panel.tt.html - panel_id: nutrition_facts_table_with_input_sets -->
+
+	<ul data-accordion class="panel_accordion accordion" id="panel_nutrition_facts_table_with_input_sets"
+    
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    
+>
+<li class="accordion-navigation">
+
+    
+        <a href="#panel_nutrition_facts_table_with_input_sets_content" class="panel_title"
+            
+        >
+            
+            <h4 
+                class="evaluation_unknown_title"
+                
+            >
+                
+                    <span class="evaluation_unknown_title">
+					<svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+                    </span>
+                
+                
+                    Nutrition facts (Detailed data)
+                
+            </h4>
+            
+            <hr class="floatclear">
+        </a>
+    
+
+	   	 <div
+	   	    id="panel_nutrition_facts_table_with_input_sets_content"
+	   	    class="content panel_content"
+	   	  >
+          
+              <div style="margin-bottom:0.5rem">
+       
+    <table aria-label="Nutrition facts">
+        <thead>
+            <tr>
+                
+                <th scope="col" style="max-width:15rem">
+                    Nutrition facts
+                </th>
+                
                 <th scope="col">
-                    As sold<br>per serving (10 g)
+                    As sold<br>for 100 g / 100 ml
+                </th>
+                
+                <th scope="col">
+                    As sold for 100 g (estimate)
                 </th>
                 
             </tr>
         </thead>
         <tbody>
+            
+            <tr>
+                
+                    <td style="max-width:15rem">
+                      
+
+     
+         <span
+         
+             style="padding-left: 0rem;"
+         
+         >
+            Energy
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+                    <td >
+                      
+
+     
+         <span
+         
+         >
+            ?
+        </span>
+    
+                    </td>
+                
+            </tr>
             
             <tr>
                 
@@ -1354,7 +1744,7 @@ The score is calculated from the data of the nutrition facts table and the compo
              style="padding-left: 0rem;"
          
          >
-            Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)
+            Fruits‚ vegetables‚ legumes
         </span>
     
                     </td>
@@ -1366,7 +1756,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            0 %
+            ~ 0 %
         </span>
     
                     </td>
@@ -1378,7 +1768,7 @@ The score is calculated from the data of the nutrition facts table and the compo
          <span
          
          >
-            0 %
+            ~ 0 %
         </span>
     
                     </td>
@@ -1388,6 +1778,12 @@ The score is calculated from the data of the nutrition facts table and the compo
         </tbody>
     </table>
     </div>
+	   	 </div>
+	
+</li>
+</ul>
+
+	<!-- end templates/web/panels/panel.tt.html - panel_id: nutrition_facts_table_with_input_sets -->
 	   	 </div>
 	
 </li>
@@ -1484,7 +1880,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
                 
-                2 ingredients
+                
+                    2 ingredients
+                
             </h4>
             
             <hr class="floatclear">
@@ -1534,7 +1932,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
                 
-                Ingredient information
+                
+                    Ingredient information
+                
             </h4>
             
             <hr class="floatclear">
@@ -1569,7 +1969,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 style="font-size:1.1rem;"
             >
                 
-                Water: 75.0% (estimate)
+                
+                    Water: 75.0% (estimate)
+                
             </h4>
             
             <hr class="floatclear">
@@ -1610,7 +2012,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 style="font-size:1.1rem;"
             >
                 
-                Test-ingredient: 25.0% (estimate)
+                
+                    Test-ingredient: 25.0% (estimate)
+                
             </h4>
             
             <hr class="floatclear">
@@ -1684,7 +2088,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
                 
-                Processed foods
+                
+                    Processed foods
+                
             </h4>
             
             <hr class="floatclear">
@@ -1825,7 +2231,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 style="font-size:1.1rem;"
             >
                 
-                Palm oil content unknown
+                
+                    Palm oil content unknown
+                
             </h4>
             
             <hr class="floatclear">
@@ -1960,7 +2368,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 style="font-size:1.1rem;"
             >
                 
-                Vegan status unknown
+                
+                    Vegan status unknown
+                
             </h4>
             
             <hr class="floatclear">
@@ -2095,7 +2505,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 style="font-size:1.1rem;"
             >
                 
-                Vegetarian status unknown
+                
+                    Vegetarian status unknown
+                
             </h4>
             
             <hr class="floatclear">
@@ -2254,7 +2666,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 style="font-size:1.1rem;"
             >
                 
-                Details of the analysis of the ingredients
+                
+                    Details of the analysis of the ingredients
+                
             </h4>
             
                 <span style="font-size:0.9rem;">We need your help!</span>
@@ -2358,8 +2772,8 @@ The score is calculated from the data of the nutrition facts table and the compo
     
            <div class="panel_text">
              <ol id="ordered_ingredients_list">
-<li><span>water</span> -> en:water – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;18066 – percent_min:&nbsp;50 – percent_max:&nbsp;100</li>
-<li><span class="text_info unknown_ingredient">test_ingredient</span> -> en:test-ingredient – percent_min:&nbsp;0 – percent_max:&nbsp;50</li>
+<li><span>water</span> -> en:water – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;18066 – percent_min:&nbsp;50 – percent_estimate:&nbsp;75 – percent_max:&nbsp;100</li>
+<li><span class="text_info unknown_ingredient">test_ingredient</span> -> en:test-ingredient – percent_min:&nbsp;0 – percent_estimate:&nbsp;25 – percent_max:&nbsp;50</li>
 </ol>
 
            </div>
@@ -2447,25 +2861,27 @@ The score is calculated from the data of the nutrition facts table and the compo
 <li class="accordion-navigation">
 
     
-        <a href="#panel_environmental_score_content" class="panel_title grade_d"
+        <a href="#panel_environmental_score_content" class="panel_title grade_e"
             
         >
             
-            <img src="//static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg"
+            <img src="//static.openfoodfacts.localhost/images/attributes/dist/green-score-e.svg"
                 style="height:72px;float:left;margin-right:1rem;"
                 alt="icon"
                 
             >
             
-            <h4 class="grade_d_title"
+            <h4 class="grade_e_title"
                 
                 
             >
                 
-                Green-Score D
+                
+                    Green-Score E
+                
             </h4>
             
-                <span >High environmental impact</span>
+                <span >Very high environmental impact</span>
             
             <hr class="floatclear">
         </a>
@@ -2519,7 +2935,7 @@ The score is calculated from the data of the nutrition facts table and the compo
            <div class="panel_text panel_text_note">→
              
                     
-                        The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.
+                        The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.
                                     
                 
            </div>
@@ -2553,7 +2969,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 <li class="accordion-navigation">
 
     
-        <a href="#panel_environmental_score_agribalyse_content" class="panel_title grade_c"
+        <a href="#panel_environmental_score_agribalyse_content" class="panel_title grade_d"
             
         >
             
@@ -2565,12 +2981,14 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
             
-            <h4 class="grade_c_title"
+            <h4 class="grade_d_title"
                 
                 
             >
                 
-                Average impact of products of the same category: C (Score: 51/100)
+                
+                    Average impact of products of the same category: D (Score: 42/100)
+                
             </h4>
             
                 <span >Category: Chocolate spread with hazelnuts</span>
@@ -2598,11 +3016,11 @@ The score is calculated from the data of the nutrition facts table and the compo
                     </p>
                     <ul>
                         <li>
-                            PEF environmental score: 0.53
+                            PEF environmental score: 0.70
                             (the lower the score, the lower the impact)
                         </li>
                         <li>
-                            including impact on climate change: 7.56
+                            including impact on climate change: 9.11
                             kg CO2 eq/kg of product
                         </li>
                     </ul>
@@ -2656,11 +3074,11 @@ The score is calculated from the data of the nutrition facts table and the compo
          <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
              <div class="agribalyse_impact_bar_full">
                  <div class="percent_bar "
-                     style="width:166px;height:1.2rem;"></div>
+                     style="width:168px;height:1.2rem;"></div>
                  </div>
              </div>
          </div>
-         82.9 %
+         84.1 %
      
                     </td>
                 
@@ -2689,11 +3107,11 @@ The score is calculated from the data of the nutrition facts table and the compo
          <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
              <div class="agribalyse_impact_bar_full">
                  <div class="percent_bar "
-                     style="width:18px;height:1.2rem;"></div>
+                     style="width:12px;height:1.2rem;"></div>
                  </div>
              </div>
          </div>
-         8.9 %
+         6.1 %
      
                     </td>
                 
@@ -2722,11 +3140,11 @@ The score is calculated from the data of the nutrition facts table and the compo
          <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
              <div class="agribalyse_impact_bar_full">
                  <div class="percent_bar "
-                     style="width:7px;height:1.2rem;"></div>
+                     style="width:11px;height:1.2rem;"></div>
                  </div>
              </div>
          </div>
-         3.5 %
+         5.6 %
      
                     </td>
                 
@@ -2755,11 +3173,11 @@ The score is calculated from the data of the nutrition facts table and the compo
          <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
              <div class="agribalyse_impact_bar_full">
                  <div class="percent_bar "
-                     style="width:8px;height:1.2rem;"></div>
+                     style="width:7px;height:1.2rem;"></div>
                  </div>
              </div>
          </div>
-         3.8 %
+         3.5 %
      
                     </td>
                 
@@ -2788,11 +3206,11 @@ The score is calculated from the data of the nutrition facts table and the compo
          <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
              <div class="agribalyse_impact_bar_full">
                  <div class="percent_bar "
-                     style="width:2px;height:1.2rem;"></div>
+                     style="width:1px;height:1.2rem;"></div>
                  </div>
              </div>
          </div>
-         0.9 %
+         0.7 %
      
                     </td>
                 
@@ -2886,7 +3304,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
                 
-                Missing origins of ingredients information
+                
+                    Missing origins of ingredients information
+                
             </h4>
             
                 <span >Malus: -5</span>
@@ -2956,7 +3376,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
                 
-                No ingredients that threaten species
+                
+                    No ingredients that threaten species
+                
             </h4>
             
             <hr class="floatclear">
@@ -2997,7 +3419,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
                 
-                Missing packaging information for this product
+                
+                    Missing packaging information for this product
+                
             </h4>
             
                 <span >Malus: -15</span>
@@ -3084,22 +3508,24 @@ The score is calculated from the data of the nutrition facts table and the compo
 <li class="accordion-navigation">
 
     
-        <a href="#panel_environmental_score_total_content" class="panel_title grade_d"
+        <a href="#panel_environmental_score_total_content" class="panel_title grade_e"
             
         >
             
-            <img src="//static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg"
+            <img src="//static.openfoodfacts.localhost/images/attributes/dist/green-score-e.svg"
                 style="height:72px;float:left;margin-right:1rem;"
                 alt="icon"
                 
             >
             
-            <h4 class="grade_d_title"
+            <h4 class="grade_e_title"
                 
                 
             >
                 
-                Impact for this product: D (Score: 31/100)
+                
+                    Impact for this product: E (Score: 22/100)
+                
             </h4>
             
                 <span >Product: Only-Product – Nutella – 100 g</span>
@@ -3122,12 +3548,12 @@ The score is calculated from the data of the nutrition facts table and the compo
     
            <div class="panel_text">
              
-                Life cycle analysis score: 51<br>
+                Life cycle analysis score: 42<br>
                 Sum of bonuses and maluses:
                     
                         -20
                     <br><br>
-                Final score: 31/100
+                Final score: 22/100
                 
            </div>
     
@@ -3214,10 +3640,12 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
                 
-                Equal to driving 3.9 km in a petrol car
+                
+                    Equal to driving 4.7 km in a petrol car
+                
             </h4>
             
-                <span >756 g CO₂e per 100g of product</span>
+                <span >911 g CO₂e per 100g of product</span>
             
             <hr class="floatclear">
         </a>
@@ -3291,11 +3719,11 @@ The score is calculated from the data of the nutrition facts table and the compo
          <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
              <div class="agribalyse_impact_bar_full">
                  <div class="percent_bar "
-                     style="width:181px;height:1.2rem;"></div>
+                     style="width:177px;height:1.2rem;"></div>
                  </div>
              </div>
          </div>
-         90.5 %
+         88.4 %
      
                     </td>
                 
@@ -3324,11 +3752,11 @@ The score is calculated from the data of the nutrition facts table and the compo
          <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
              <div class="agribalyse_impact_bar_full">
                  <div class="percent_bar "
-                     style="width:8px;height:1.2rem;"></div>
+                     style="width:6px;height:1.2rem;"></div>
                  </div>
              </div>
          </div>
-         4.0 %
+         2.9 %
      
                     </td>
                 
@@ -3357,11 +3785,11 @@ The score is calculated from the data of the nutrition facts table and the compo
          <div style="width:200px;float:left;margin-right:1rem;" class="show-for-large-up">
              <div class="agribalyse_impact_bar_full">
                  <div class="percent_bar "
-                     style="width:5px;height:1.2rem;"></div>
+                     style="width:11px;height:1.2rem;"></div>
                  </div>
              </div>
          </div>
-         2.3 %
+         5.4 %
      
                     </td>
                 
@@ -3394,7 +3822,7 @@ The score is calculated from the data of the nutrition facts table and the compo
                  </div>
              </div>
          </div>
-         2.9 %
+         3.2 %
      
                     </td>
                 
@@ -3488,15 +3916,15 @@ The score is calculated from the data of the nutrition facts table and the compo
                         
 
         
-            <h3 id="panel_group_packaging_recycling" class="panel_title_card">Packaging</h3>
+            <h3 id="panel_group_packaging" class="panel_title_card">Packaging</h3>
         
 
         
             
 
-	<!-- start templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
+	<!-- start templates/web/panels/panel.tt.html - panel_id: packaging -->
 
-	<ul data-accordion class="panel_accordion accordion" id="panel_packaging_recycling"
+	<ul data-accordion class="panel_accordion accordion" id="panel_packaging"
     
         style="margin-top:0.5rem;margin-bottom:1.5rem;"
     
@@ -3504,7 +3932,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 <li class="accordion-navigation">
 
     
-        <a href="#panel_packaging_recycling_content" class="panel_title"
+        <a href="#panel_packaging_content" class="panel_title"
             
         >
             
@@ -3521,7 +3949,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
                 
-                Missing packaging information for this product
+                
+                    Missing packaging information for this product
+                
             </h4>
             
             <hr class="floatclear">
@@ -3529,7 +3959,7 @@ The score is calculated from the data of the nutrition facts table and the compo
     
 
 	   	 <div
-	   	    id="panel_packaging_recycling_content"
+	   	    id="panel_packaging_content"
 	   	    class="content panel_content"
 	   	  >
           
@@ -3573,7 +4003,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 </li>
 </ul>
 
-	<!-- end templates/web/panels/panel.tt.html - panel_id: packaging_recycling -->
+	<!-- end templates/web/panels/panel.tt.html - panel_id: packaging -->
         
 
                         
@@ -3620,7 +4050,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
                 
-                Origins of ingredients
+                
+                    Origins of ingredients
+                
             </h4>
             
                 <span >Missing origins of ingredients information</span>
@@ -3755,7 +4187,9 @@ The score is calculated from the data of the nutrition facts table and the compo
                 
             >
                 
-                Incomplete or incorrect information?
+                
+                    Incomplete or incorrect information?
+                
             </h4>
             
                 <span >Category, labels, ingredients, allergens, nutritional information, photos etc.</span>
@@ -3926,7 +4360,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 </div>
 </section>
 
-<section class="row">
+<section class="row" id="folksonomy_editor">
         <div class="large-12 column">
             <div class="card">
                 <div class="reblock card-section">
@@ -3934,6 +4368,15 @@ The score is calculated from the data of the nutrition facts table and the compo
                         <folksonomy-editor product-code="0200000000235" page-type="view">
                         </folksonomy-editor>
                     </div>
+                    
+                    <div class="edit_button center text-center" >
+                        <a href="/cgi/oidc_signin.pl?return_url=http%3A%2F%2Fworld.openfoodfacts.localhost%2Fproduct%2F0200000000235%2Fonly-product-nutella%23folksonomy_editor" class="button small">
+                            <svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                            Sign-in to add or edit properties
+                        </a>
+                    </div>
+                    
+
                 </div>
             </div>
         </div>
@@ -3966,12 +4409,12 @@ The score is calculated from the data of the nutrition facts table and the compo
 							<div class="small-12 medium-12 large-12 v-space-normal column badge-container">
 								<!-- android_app_link - //play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en -->
 								<a  href="//play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web&utm_campaign=install_the_app_android_footer_en"><img src="/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get It On Google Play" loading="lazy" height="40" width="120"></a>
-								
+
 								<a href="//f-droid.org/packages/openfoodfacts.github.scrachx.openfood"><img src="/images/misc/f-droid/svg/get-it-on-en.svg" alt="Available on F-Droid" loading="lazy" height="40" width="120"></a>
 
 								<!-- android_apk_app_link - //world.openfoodfacts.org/images/apps/off.apk -->
 								<a href="//github.com/openfoodfacts/smooth-app/releases/latest?utm_source=off&utf_medium=web&utm_campaign=install_the_app_apk_footer_en"><img src="/images/misc/app-landing-page/download-apk/download-apk_en.svg" alt="Android APK" loading="lazy" height="40" width="120"></a>
-								
+
 								<!-- msgid "//apps.apple.com/app/open-beauty-facts/id1122926380" -->
 								<a href="//apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web&utm_campaign=install_the_app_ios_footer_en"><img src="/images/misc/appstore/black/appstore_US.svg" alt="Download on the App Store"  loading="lazy" height="40" width="120"></a>
 							</div>
@@ -4006,9 +4449,9 @@ The score is calculated from the data of the nutrition facts table and the compo
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Please give to our 2025 Fundraiser</h3>
+        <h3 class="donation-banner-footer__main-title">Please give to our 2026 Fundraiser</h3>
       </div>
       <p>Your donations fund the day-to-day operations of our non-profit association:</p>
       <ul>
@@ -4046,7 +4489,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 
 
 			
-      		
+
 			<div class="block_light block_cappucino" id="contribute_and_discover_links_block">
 				<div class="row">
 					<div class="small-12 large-6 columns v-space-normal block_off">
@@ -4091,7 +4534,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 								<a href="/" style="font-size:1rem;"><img id="logo" src="//static.openfoodfacts.localhost/images/logos/off-logo-horizontal-mono-white.svg" alt="Open Food Facts" style="margin:8px;height:48px;width:auto;"></a>
 
 								<p>A collaborative, free and open database of food products from around the world.</p>
-								
+
 								<ul class="inline-list text-center text-small">
 									<li><a href="/legal">Legal</a></li>
 									<li><a href="/privacy">Privacy</a></li>
@@ -4120,7 +4563,7 @@ The score is calculated from the data of the nutrition facts table and the compo
 <script src="//static.openfoodfacts.localhost/js/dist/display.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/stikelem.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/scrollNav.js"></script>
-  
+
 
 <script>
 $(function() {
@@ -4148,7 +4591,7 @@ display_product_summary("#product_summary", product);
 var page_type = "product";
 var default_preferences = {"ecoscore":"important","nova":"important","nutriscore":"very_important"};
 var preferences_text = "Classify products according to your preferences";
-var product = {"attribute_groups":[{"attributes":[{"description":"","description_short":"Missing data to compute the Nutri-Score","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-en.svg","id":"nutriscore","match":0,"name":"Nutri-Score","panel_id":"nutriscore_2023","status":"unknown","title":"Nutri-Score unknown"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg","id":"low_salt","missing":"Missing nutrition facts","name":"Salt","panel_id":"nutrition_facts_table","status":"unknown","title":"Salt in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg","id":"low_fat","missing":"Missing nutrition facts","name":"Fat","panel_id":"nutrition_facts_table","status":"unknown","title":"Fat in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg","id":"low_sugars","missing":"Missing nutrition facts","name":"Sugars","panel_id":"nutrition_facts_table","status":"unknown","title":"Sugars in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg","id":"low_saturated_fat","missing":"Missing nutrition facts","name":"Saturated fat","panel_id":"nutrition_facts_table","status":"unknown","title":"Saturated fat in unknown quantity"}],"id":"nutritional_quality","name":"Nutritional quality"},{"attributes":[{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/gluten-content-unknown.svg","id":"allergens_no_gluten","name":"Gluten","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Gluten"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/milk-content-unknown.svg","id":"allergens_no_milk","name":"Milk","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Milk"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/eggs-content-unknown.svg","id":"allergens_no_eggs","name":"Eggs","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Eggs"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nuts-content-unknown.svg","id":"allergens_no_nuts","name":"Nuts","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Nuts"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/peanuts-content-unknown.svg","id":"allergens_no_peanuts","name":"Peanuts","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Peanuts"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/sesame-seeds-content-unknown.svg","id":"allergens_no_sesame_seeds","name":"Sesame seeds","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Sesame seeds"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/soybeans-content-unknown.svg","id":"allergens_no_soybeans","name":"Soybeans","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Soybeans"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/celery-content-unknown.svg","id":"allergens_no_celery","name":"Celery","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Celery"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/mustard-content-unknown.svg","id":"allergens_no_mustard","name":"Mustard","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Mustard"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/lupin-content-unknown.svg","id":"allergens_no_lupin","name":"Lupin","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Lupin"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/fish-content-unknown.svg","id":"allergens_no_fish","name":"Fish","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Fish"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/crustaceans-content-unknown.svg","id":"allergens_no_crustaceans","name":"Crustaceans","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Crustaceans"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/molluscs-content-unknown.svg","id":"allergens_no_molluscs","name":"Molluscs","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Molluscs"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/sulphur-dioxide-and-sulphites-content-unknown.svg","id":"allergens_no_sulphur_dioxide_and_sulphites","name":"Sulphur dioxide and sulphites","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Sulphur dioxide and sulphites"}],"id":"allergens","name":"Allergens","warning":"There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."},{"attributes":[{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegan-status-unknown.svg","id":"vegan","name":"Vegan","panel_id":"ingredients_analysis_en:vegan-status-unknown","status":"unknown","title":"Vegan status unknown"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegetarian-status-unknown.svg","id":"vegetarian","name":"Vegetarian","panel_id":"ingredients_analysis_en:vegetarian-status-unknown","status":"unknown","title":"Vegetarian status unknown"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/palm-oil-content-unknown.svg","id":"palm_oil_free","name":"Palm oil free","panel_id":"ingredients_analysis_en:palm-oil-content-unknown","status":"unknown","title":"Palm oil content unknown"}],"id":"ingredients_analysis","name":"Ingredients","warning":"Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."},{"attributes":[{"grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg","id":"nova","match":75,"name":"NOVA group","panel_id":"nova","status":"known","title":"Processed foods"},{"grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/0-additives.svg","id":"additives","match":100,"name":"Additives","panel_id":"additives","status":"known","title":"Without additives"}],"id":"processing","name":"Food processing"},{"attributes":[{"description":"","description_short":"High environmental impact","grade":"d","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg","id":"ecoscore","match":31,"name":"Green-Score","panel_id":"environmental_score","status":"known","title":"Green-Score D"},{"description":"","description_short":"Currently only for products with chicken or eggs","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg","id":"forest_footprint","match":0,"name":"Forest footprint","status":"known","title":"Forest footprint not computed"}],"id":"environment","name":"Environment"},{"attributes":[{"description":"Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.","description_short":"Organic products promote ecological sustainability and biodiversity.","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/organic-unknown.svg","id":"labels_organic","name":"Organic farming","status":"unknown","title":"Missing information: organic product?"},{"description":"When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.","description_short":"Fair trade products help producers in developing countries.","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/fair-trade-unknown.svg","id":"labels_fair_trade","name":"Fair trade","status":"unknown","title":"Missing information: fair trade product?"}],"id":"labels","name":"Labels"}]};
+var product = {"attribute_groups":[{"attributes":[{"description":"","description_short":"Missing data to compute the Nutri-Score","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-en.svg","id":"nutriscore","match":0,"name":"Nutri-Score","panel_id":"nutriscore_2023","status":"unknown","title":"Nutri-Score unknown"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg","id":"low_salt","missing":"Missing nutrition facts","name":"Salt","panel_id":"nutrition_facts_table","status":"unknown","title":"Salt in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg","id":"low_fat","missing":"Missing nutrition facts","name":"Fat","panel_id":"nutrition_facts_table","status":"unknown","title":"Fat in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg","id":"low_sugars","missing":"Missing nutrition facts","name":"Sugars","panel_id":"nutrition_facts_table","status":"unknown","title":"Sugars in unknown quantity"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg","id":"low_saturated_fat","missing":"Missing nutrition facts","name":"Saturated fat","panel_id":"nutrition_facts_table","status":"unknown","title":"Saturated fat in unknown quantity"}],"id":"nutritional_quality","name":"Nutritional quality"},{"attributes":[{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/gluten-content-unknown.svg","id":"allergens_no_gluten","name":"Gluten","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Gluten"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/milk-content-unknown.svg","id":"allergens_no_milk","name":"Milk","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Milk"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/eggs-content-unknown.svg","id":"allergens_no_eggs","name":"Eggs","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Eggs"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nuts-content-unknown.svg","id":"allergens_no_nuts","name":"Nuts","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Nuts"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/peanuts-content-unknown.svg","id":"allergens_no_peanuts","name":"Peanuts","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Peanuts"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/sesame-seeds-content-unknown.svg","id":"allergens_no_sesame_seeds","name":"Sesame seeds","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Sesame seeds"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/soybeans-content-unknown.svg","id":"allergens_no_soybeans","name":"Soybeans","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Soybeans"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/celery-content-unknown.svg","id":"allergens_no_celery","name":"Celery","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Celery"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/mustard-content-unknown.svg","id":"allergens_no_mustard","name":"Mustard","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Mustard"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/lupin-content-unknown.svg","id":"allergens_no_lupin","name":"Lupin","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Lupin"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/fish-content-unknown.svg","id":"allergens_no_fish","name":"Fish","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Fish"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/crustaceans-content-unknown.svg","id":"allergens_no_crustaceans","name":"Crustaceans","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Crustaceans"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/molluscs-content-unknown.svg","id":"allergens_no_molluscs","name":"Molluscs","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Molluscs"},{"debug":"too many unknown ingredients: 2 ingredients (1 unknown)","description_short":"Some ingredients were not recognized","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/sulphur-dioxide-and-sulphites-content-unknown.svg","id":"allergens_no_sulphur_dioxide_and_sulphites","name":"Sulphur dioxide and sulphites","panel_id":"ingredients_analysis_details","status":"unknown","title":"Presence unknown: Sulphur dioxide and sulphites"}],"id":"allergens","name":"Allergens","warning":"There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."},{"attributes":[{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegan-status-unknown.svg","id":"vegan","name":"Vegan","panel_id":"ingredients_analysis_en:vegan-status-unknown","status":"unknown","title":"Vegan status unknown"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegetarian-status-unknown.svg","id":"vegetarian","name":"Vegetarian","panel_id":"ingredients_analysis_en:vegetarian-status-unknown","status":"unknown","title":"Vegetarian status unknown"},{"grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/palm-oil-content-unknown.svg","id":"palm_oil_free","name":"Palm oil free","panel_id":"ingredients_analysis_en:palm-oil-content-unknown","status":"unknown","title":"Palm oil content unknown"}],"id":"ingredients_analysis","name":"Ingredients","warning":"Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."},{"attributes":[{"grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg","id":"nova","match":75,"name":"NOVA group","panel_id":"nova","status":"known","title":"Processed foods"},{"grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/0-additives.svg","id":"additives","match":100,"name":"Additives","panel_id":"additives","status":"known","title":"Without additives"}],"id":"processing","name":"Food processing"},{"attributes":[{"description":"","description_short":"Very high environmental impact","grade":"d","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-e.svg","id":"ecoscore","match":22,"name":"Green-Score","panel_id":"environmental_score","status":"known","title":"Green-Score E"},{"description":"","description_short":"Currently only for products with chicken or eggs","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg","id":"forest_footprint","match":0,"name":"Forest footprint","panel_id":"forest_footprint","status":"known","title":"Forest footprint not computed"}],"id":"environment","name":"Environment"},{"attributes":[{"description":"Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.","description_short":"Organic products promote ecological sustainability and biodiversity.","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/organic-unknown.svg","id":"labels_organic","name":"Organic farming","status":"unknown","title":"Missing information: organic product?"},{"description":"When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.","description_short":"Fair trade products help producers in developing countries.","grade":"unknown","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/fair-trade-unknown.svg","id":"labels_fair_trade","name":"Fair trade","status":"unknown","title":"Missing information: fair trade product?"}],"id":"labels","name":"Labels"}]};
 var product_type = "food";
 </script>
 

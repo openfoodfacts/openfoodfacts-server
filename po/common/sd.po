@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -3703,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "ڊيٽا جي معيار جي مڪمليت"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -5958,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "ڪو به جائزو نه ورتو ويو ليبل"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "ڪجھ ماحولياتي فائدا"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "اعليٰ ماحولياتي فائدا"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "تمام وڏا ماحولياتي فائدا"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6113,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "ڊيٽا جي معيار جي مڪمل ٿيڻ"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "هن پراڊڪٽ تي ڊيٽا جي معيار جي مڪمل ٿيڻ بابت ڪجهه معلومات"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7598,4 +7626,96 @@ msgstr "اسان کي خبر نه پئي: {unwanted_ingredients}. اسان شا�
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "اهي ترجيحون اوپن فوڊ فيڪٽس جي اجزاء جي فهرست جي سمجھ تي ٻڌل آهن ۽ هميشه اهو امڪان آهي ته اهو صحيح يا مڪمل نه هجي، هميشه پاڻ پراڊڪٽ چيڪ ڪريو."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "سگريٽ نوشي ماري ٿي"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "تمباکو صحت کي سخت نقصان پهچائي ٿو. شروع نه ڪريو. هاڻي ڇڏي ڏيو."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "سگريٽ نوشي تمام گهڻي لت آهي. شروع نه ڪريو. سگريٽ نوشي ماري ٿي - هاڻي ڇڏي ڏيو. سگريٽ نوشي شريانن کي بند ڪري ٿي ۽ دل جي دوري ۽ فالج جو سبب بڻجي ٿي. سگريٽ نوشي موتمار ڦڦڙن جي ڪينسر جو سبب بڻجي ٿي. حمل دوران سگريٽ نوشي توهان جي ٻار کي نقصان پهچائي ٿي. ٻارن جي حفاظت ڪريو: انهن کي پنهنجو دونھو ساهه کڻڻ تي مجبور نه ڪريو. توهان جو ڊاڪٽر يا توهان جو فارماسسٽ توهان کي سگريٽ نوشي بند ڪرڻ ۾ مدد ڪري سگهي ٿو. سگريٽ نوشي رت جي وهڪري کي گهٽائي سگهي ٿي ۽ نامرديءَ جو سبب بڻجي سگهي ٿي. سگريٽ نوشي چمڙي جي عمر جو سبب بڻجي ٿي. سگريٽ نوشي سپرم کي نقصان پهچائي سگهي ٿي ۽ زرخيزي کي گهٽائي ٿي. تماڪ ۾ بينزين، نائٽروسامين، فارملڊيهائيڊ ۽ هائيڊروجن سائانائيڊ شامل آهن."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "عوامي قيمت"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 يورو، 2.99 آمريڪي ڊالر، 4.00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "ٺاهيندڙ جي تجويز ڪيل پرچون قيمت (MSRP)، رعايتون ۽ پروموشنز کانسواءِ، جيئن پراڊڪٽ پيڪنگنگ يا ٺاهيندڙ جي سائيٽ تي ظاهر ڪيو ويو آهي (قانون جي بنياد تي ٽيڪسن سميت يا ان کان سواءِ). جيڪڏهن قيمتون ڪيترن ئي ڪرنسي ۾ درج ٿيل آهن ته ڪاما سان الڳ ٿيل فهرست استعمال ڪريو."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "ذاتي ملڪيت"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "پام آئل شامل ناهي"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "شايد پام آئل شامل هجي"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "ماحولياتي ليبل"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "ڊيٽا غائب آهي"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "وڏو اثر"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "وچولي اثر"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "گهٽ اثر"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "اثر جو جائزو نه ورتو ويو آهي"
 

@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -3703,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "డేటా నాణ్యత పరిపూర్ణత"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -5958,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "అంచనా వేయబడిన లేబుల్‌లు లేవు"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "కొన్ని పర్యావరణ ప్రయోజనాలు"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "అధిక పర్యావరణ ప్రయోజనాలు"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "చాలా ఎక్కువ పర్యావరణ ప్రయోజనాలు"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6113,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "డేటా నాణ్యత పరిపూర్ణత"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "ఈ ఉత్పత్తిపై డేటా నాణ్యత పరిపూర్ణత గురించి కొన్ని సమాచారం"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7598,4 +7626,96 @@ msgstr "మేము గుర్తించలేదు: {unwanted_ingredients
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "ఆ ప్రాధాన్యతలు ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ పదార్థాల జాబితా యొక్క అవగాహనపై ఆధారపడి ఉంటాయి మరియు అది ఖచ్చితమైనది లేదా పూర్తిగా ఉండకపోవచ్చు, ఎల్లప్పుడూ ఉత్పత్తిని మీరే తనిఖీ చేయండి."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "ధూమపానం చంపుతుంది"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "పొగాకు ఆరోగ్యానికి తీవ్రంగా హాని కలిగిస్తుంది. మొదలుపెట్టకండి. ఇప్పుడే మానేయండి."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "ధూమపానం చాలా వ్యసనపరుడైనది. ప్రారంభించవద్దు. ధూమపానం చంపుతుంది - ఇప్పుడే మానేయండి. ధూమపానం ధమనులను మూసుకుపోతుంది మరియు గుండెపోటు మరియు స్ట్రోక్‌లకు కారణమవుతుంది. ధూమపానం ప్రాణాంతక ఊపిరితిత్తుల క్యాన్సర్‌కు కారణమవుతుంది. గర్భవతిగా ఉన్నప్పుడు ధూమపానం మీ బిడ్డకు హాని కలిగిస్తుంది. పిల్లలను రక్షించండి: మీ పొగను వారు పీల్చేలా చేయవద్దు. మీ వైద్యుడు లేదా మీ ఫార్మసిస్ట్ ధూమపానం మానేయడంలో మీకు సహాయపడగలరు. ధూమపానం రక్త ప్రవాహాన్ని తగ్గిస్తుంది మరియు నపుంసకత్వానికి కారణమవుతుంది. ధూమపానం చర్మం వృద్ధాప్యానికి కారణమవుతుంది. ధూమపానం స్పెర్మ్‌ను దెబ్బతీస్తుంది మరియు సంతానోత్పత్తిని తగ్గిస్తుంది. పొగలో బెంజీన్, నైట్రోసమైన్‌లు, ఫార్మాల్డిహైడ్ మరియు హైడ్రోజన్ సైనైడ్ ఉంటాయి."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "పబ్లిక్ ధర"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 యూరో, 2.99 USD, 4.00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "ఉత్పత్తి ప్యాకేజింగ్ లేదా తయారీదారు సైట్‌లో సూచించిన విధంగా డిస్కౌంట్లు మరియు ప్రమోషన్‌లను మినహాయించి, తయారీదారు సూచించిన రిటైల్ ధర (MSRP) (చట్టం ఆధారంగా పన్నులతో సహా లేదా మినహాయించి). బహుళ కరెన్సీలలో ధరలు జాబితా చేయబడితే కామాతో వేరు చేయబడిన జాబితాను ఉపయోగించండి."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "వ్యక్తిగతీకరించిన ఆస్తి"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "పామాయిల్ లేదు"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "పామాయిల్ కలిగి ఉండవచ్చు"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "పర్యావరణ లేబుల్స్"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "డేటా లేదు"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "అధిక ప్రభావం"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "మధ్యస్థ ప్రభావం"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "తక్కువ ప్రభావం"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "ప్రభావాన్ని అంచనా వేయలేదు"
 

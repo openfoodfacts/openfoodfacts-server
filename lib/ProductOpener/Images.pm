@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -1191,14 +1191,13 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 				}
 			);
 
-			if ($imgid > $product_ref->{max_imgid}) {
+			if ((not defined $product_ref->{max_imgid}) or ($imgid > $product_ref->{max_imgid})) {
 				$product_ref->{max_imgid} = $imgid;
 			}
 			my $store_comment = "new image $imgid";
 			if ((defined $comment) and ($comment ne '')) {
 				$store_comment .= ' - ' . $comment;
 			}
-
 			$log->debug("storing product", {product_id => $product_id}) if $log->is_debug();
 			store_product($user_id, $product_ref, $store_comment);
 
@@ -2562,10 +2561,11 @@ sub extract_text_from_image ($product_ref, $image_type, $image_lc, $field, $requ
 	# DOCUMENT_TEXT_DETECTION does not bring significant advantages
 	# See https://github.com/openfoodfacts/openfoodfacts-server/issues/9723
 	{type => 'TEXT_DETECTION'},
-	{type => 'LOGO_DETECTION'},
-	{type => 'LABEL_DETECTION'},
-	{type => 'SAFE_SEARCH_DETECTION'},
-	{type => 'FACE_DETECTION'},
+	# Disable other Cloud Vision temporarily to save credits
+	# {type => 'LOGO_DETECTION'},
+	# {type => 'LABEL_DETECTION'},
+	# {type => 'SAFE_SEARCH_DETECTION'},
+	# {type => 'FACE_DETECTION'},
 );
 
 @CLOUD_VISION_FEATURES_TEXT = ({type => 'TEXT_DETECTION'});

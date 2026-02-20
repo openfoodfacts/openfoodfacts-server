@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,10 +70,10 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
-msgstr "/open-food-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
@@ -682,7 +682,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "ট্রেসেবিলিটি কোড"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -702,7 +702,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "ট্রেসেবিলিটি কোড"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -937,7 +937,7 @@ msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr ""
+msgstr "ব্যবহারের শর্তাবলী"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -1851,7 +1851,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "একটি পুষ্টি যোগ করুন"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -2015,7 +2015,7 @@ msgstr ""
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "পণ্য"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -2071,7 +2071,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "পাসওয়ার্ড রিসেট করুন"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2569,7 +2569,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "অজানা"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -3445,7 +3445,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "উৎপত্তি"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3703,6 +3703,10 @@ msgstr ""
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
+
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "ডেটা মানের সম্পূর্ণতা"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -4316,7 +4320,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "সম্পন্ন"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4419,7 +4423,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "অবৈধ বারকোড"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4662,7 +4666,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "খাদ্য প্রক্রিয়াকরণের স্তর অজানা"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -5121,11 +5125,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "বিবিধ"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "বিবিধ"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5143,7 +5147,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "আকৃতি"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5151,7 +5155,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "উপাদান"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5959,6 +5963,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "কোনও মূল্যায়ন করা লেবেল নেই"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "কিছু পরিবেশগত সুবিধা"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "উচ্চ পরিবেশগত সুবিধা"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "অত্যন্ত উচ্চ পরিবেশগত সুবিধা"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6114,6 +6134,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "ডেটা মানের সম্পূর্ণতা"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "এই পণ্যের ডেটা মানের সম্পূর্ণতা সম্পর্কে কিছু তথ্য"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6329,32 +6357,32 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "খুব ভালো মিল।"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "ভালো মিল।"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "খারাপ মিল"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "অজানা মিল"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "মিল নাও হতে পারে"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "মেলে না।"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6727,7 +6755,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "ইউনিট সংখ্যা"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6759,19 +6787,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "পণ্যটিতে থাকা একই আকৃতি এবং উপাদানের প্যাকেজিং ইউনিটের সংখ্যা লিখুন।"
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "পুনর্ব্যবহারের নির্দেশাবলীতে তালিকাভুক্ত আকৃতির নাম লিখুন, যদি তা পাওয়া যায়, অথবা একটি আকৃতি নির্বাচন করুন।"
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "যদি নির্দিষ্ট উপাদানটি নির্ধারণ করা যায় (ত্রিভুজের ভিতরে একটি উপাদান কোড প্রায়শই প্যাকেজিং যন্ত্রাংশে পাওয়া যায়), অথবা যদি আপনি নিশ্চিত না হন তবে একটি সাধারণ উপাদান (যেমন প্লাস্টিক বা ধাতু) লিখুন।"
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "পণ্যের তালিকায় থাকলেই কেবল পুনর্ব্যবহারের নির্দেশাবলী লিখুন।"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6781,7 +6809,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "নেট ওজন বা নেট আয়তন লিখুন এবং এককটি নির্দেশ করুন (উদাহরণস্বরূপ g বা ml)।"
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7401,17 +7429,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "পণ্যের ধরণ"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "খাদ্য"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "পোষা প্রাণীর খাবার"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7599,4 +7627,96 @@ msgstr "আমরা সনাক্ত করতে পারিনি: {unwant
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "এই পছন্দগুলি ওপেন ফুড ফ্যাক্টসের উপাদান তালিকার বোঝার উপর ভিত্তি করে তৈরি এবং সর্বদা এটি সঠিক বা সম্পূর্ণ নাও হতে পারে, সর্বদা নিজেই পণ্যটি পরীক্ষা করে দেখুন।"
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "ধূমপান মৃত্যু ঘটায়"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "তামাক স্বাস্থ্যের মারাত্মক ক্ষতি করে। শুরু করো না। এখনই ছেড়ে দাও।"
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "ধূমপান অত্যন্ত আসক্তিকর। শুরু করবেন না। ধূমপান মৃত্যু ঘটায় - এখনই ত্যাগ করুন। ধূমপান ধমনী বন্ধ করে দেয় এবং হার্ট অ্যাটাক এবং স্ট্রোকের কারণ হয়। ধূমপান মারাত্মক ফুসফুসের ক্যান্সারের কারণ হয়। গর্ভবতী অবস্থায় ধূমপান আপনার শিশুর ক্ষতি করে। শিশুদের রক্ষা করুন: তাদের আপনার ধোঁয়া শ্বাস নিতে বাধ্য করবেন না। আপনার ডাক্তার বা আপনার ফার্মাসিস্ট আপনাকে ধূমপান বন্ধ করতে সাহায্য করতে পারেন। ধূমপান রক্ত প্রবাহ কমিয়ে দিতে পারে এবং পুরুষত্বহীনতা সৃষ্টি করতে পারে। ধূমপানের ফলে ত্বকের বার্ধক্য দেখা দেয়। ধূমপান শুক্রাণুর ক্ষতি করতে পারে এবং উর্বরতা হ্রাস করতে পারে। ধূমপানে বেনজিন, নাইট্রোসামিন, ফর্মালডিহাইড এবং হাইড্রোজেন সায়ানাইড থাকে।"
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "সর্বজনীন মূল্য"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "৩.৫০ ইউরো, ২.৯৯ মার্কিন ডলার, ৪.০০ জিবিপি"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "পণ্যের প্যাকেজিং বা প্রস্তুতকারকের সাইটে (আইনের উপর ভিত্তি করে কর সহ বা বাদ দিয়ে) নির্দেশিত ডিসকাউন্ট এবং প্রচারণা ব্যতীত প্রস্তুতকারকের প্রস্তাবিত খুচরা মূল্য (MSRP)। একাধিক মুদ্রায় দাম তালিকাভুক্ত থাকলে কমা দ্বারা পৃথক তালিকা ব্যবহার করুন।"
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "ব্যক্তিগতকৃত সম্পত্তি"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "পাম তেল নেই"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "পাম তেল থাকতে পারে"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "পরিবেশগত লেবেল"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "অনুপস্থিত তথ্য"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "উচ্চ প্রভাব"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "মাঝারি প্রভাব"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "কম প্রভাব"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "প্রভাব মূল্যায়ন করা হয়নি"
 

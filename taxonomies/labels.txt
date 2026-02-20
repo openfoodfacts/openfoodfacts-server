@@ -229,6 +229,11 @@ ru: гарантированный пищевой стандарт
 image:en: assured-food-standards.82x90.svg
 wikidata:en: Q4810404
 
+xx: Varefakta kontrolleret, Varefakta
+da: Varefakta kontrolleret
+image:da: varefakta-kontrolleret.79x90.svg
+web:en: https://varefakta.dk/en/
+
 de: Nach traditioneller Art, Hausmacher Art
 fr: À l'ancienne
 
@@ -326,6 +331,9 @@ ingredients:en: en:egg
 origins:en: en:france
 
 fr: Oeufs origine France
+es: Huevos de origen Francia
+it: Uova di origine Francia
+pt: Ovos de origem França
 
 < en:Free range
 en: Free range eggs
@@ -550,6 +558,38 @@ xx: Carbon Trust Lower Carbon
 < en:Carbon Trust
 en: Carbon Trust Reducing CO2
 xx: Carbon Trust Reducing CO2
+
+< en:No GMOs
+sv: Svenskt Sigill, Sigillmärkt
+xx: Svenskt Sigill
+country:en: en:Sweden
+image:sv: svenskt-sigill.122x90.svg
+label_categories:en: en:Animal welfare, en:Certification, en:Environment, en:Food safety, en:Geographic label, en:Origins
+origins:en: en:sweden
+web:sv: https://www.sigill.se/
+wikidata:en: Q10685699
+
+< sv:Svenskt Sigill
+sv: Svenskt Sigill Arbetsvillkor
+xx: Svenskt Sigill Arbetsvillkor
+image:sv: svenskt-sigill-arbetsvillkor.89x90.svg
+label_categories:en: en:Certification, en:Social responsibility
+web:sv: https://www.sigill.se/om-sigill/vara-markningar/svenskt-sigill-arbetsvillkor
+
+< sv:Svenskt Sigill
+sv: Svenskt Sigill Naturbeteskött
+xx: Svenskt Sigill Naturbeteskött
+image:sv: svenskt-sigill-naturbeteskott.85x90.svg
+label_categories:en: en:Certification, en:Environment
+web:sv: https://www.sigill.se/om-sigill/vara-markningar/svenskt-sigill-naturbeteskott
+
+< en:Carbon footprint
+< sv:Svenskt Sigill
+sv: Svenskt Sigill Klimatcertifierad
+xx: Svenskt Sigill Klimatcertifierad
+image:sv: svenskt-sigill-klimatcertifierad.85x90.svg
+label_categories:en: en:Certification, en:Environment
+web:sv: https://www.sigill.se/om-sigill/vara-markningar/svenskt-sigill-klimatcertifierad
 
 en: Blue Angel
 de: Blauer Engel
@@ -1258,6 +1298,8 @@ pt: Alimentado sem OGM, alimentado sem alimentos geneticamente modificados, alim
 en: Eggs from animals fed without GMOs
 es: Huevos de animales alimentados sin OGM
 fr: Oeufs issus d'animaux nourris sans OGMs, oeufs issus de poules nourries sans OGMs
+it: Uova da animali alimentati senza OGM
+nl: Eieren van dieren gevoerd zonder OGM
 pt: Ovos de animais alimentados sem OGM, ovos de animais alimentados sem alimentos geneticamente modificados, ovos de animais alimentados sem transgênicos, ovos de animais alimentados sem transgénicos
 
 en: Fed without soy
@@ -1274,6 +1316,7 @@ he: מזון חופש
 fr: Tréfilage au bronze, tréfilé au bronze
 hr: Brunirani trefilni postupak
 it: Trafilata al bronzo
+nl: Bronzen getrokken
 
 # Packaging labels
 
@@ -1457,6 +1500,12 @@ hr: Znak precrtane pšenice
 image:en: crossed-grain-trademark.90x90.svg
 label_categories:en: en:Certification
 web:en: https://www.aoecs.org/working-with-food/gluten-free-certification/
+
+< en:No gluten
+< en:No milk
+en: free from dairy and gluten
+hr: bez mliječnih bjelančevina i glutena
+hu: glutént és tejterméket nem tartalmaz
 
 < en:Crossed Grain Trademark
 en: CH-043-006
@@ -1730,6 +1779,7 @@ description:en: In EU, a claim that a food is a source of fibre may only be made
 < en:source of fibre
 en: High fibres, high fibers, Rich in fiber, high fiber
 xx: High fibres
+bg: Високо съдържание на хранителни влакнини
 ca: Alt en fibra, ric en fibra
 de: ballaststoffreich
 es: Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra, Alto Contenido en Fibra
@@ -1846,7 +1896,7 @@ nl: Eiwitrijk, Rijk aan protéines, Rijk aan Eiwit
 pl: Wysoka zawartość białka, Bogaty w białko
 pt: Proteínas altas
 ru: Обогащено протеинами
-sv: Proteinrik
+sv: Proteinrik, Högt proteininnehåll
 th: โปรตีนสูง
 description:en: In EU, a claim that a food is high in protein may only be made where at least 20 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
@@ -3312,7 +3362,7 @@ pt: Sem açúcares adicionados, sem adição de açúcares, sem açúcar adicion
 ro: Fără zahăr adăugat
 ru: Без добавления сахара
 sk: Bez pridaného cukru
-sl: Brez dodanega sladkorja, obsahuje prírodné cukry, brez dodanih sladkorjev
+sl: Brez dodanega sladkorja, obsahuje prírodné cukry, brez dodanih sladkorjev, vsebuje naravno prisotne sladkorje
 sq: Pa sheqer të shtuar
 sr: Без додатог шећера
 sv: Inget tillsat socker, Utan tillsatt socker
@@ -3340,6 +3390,7 @@ nl: Suikervrij, Zonder suiker
 pl: Bez cukru, Nie zawiera cukru
 pt: Sem açúcar, sem açúcares
 ru: Без сахара
+sv: Sockerfri, Sockerfria, Utan socker
 th: ไม่มีน้ำตาล
 tr: Şekersiz
 description:en: In EU, a claim that a food is sugar-free may only be made where the product contains no more than 0,5 g of sugars per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
@@ -3402,6 +3453,24 @@ origins:en: en:australia
 bs: Proizvodeno u Bosni i Hercegovinu
 xx: Proizvodeno u Bosni i Hercegovinu
 
+es: Hecho en Argentina
+en: Made in Argentina
+fr: Fabriqué en Argentine
+pt: Feito na Argentina
+label_categories:en: en:Geographic label
+
+es: Hecho en Bolivia
+en: Made in Bolivia
+fr: Fabriqué en Bolivie
+pt: Feito na Bolívia
+label_categories:en: en:Geographic label
+
+es: Hecho en Brazil
+en: Made in Brazil
+fr: Fabriqué au Brésil
+pt: Feito no Brasil
+label_categories:en: en:Geographic label
+
 en: Made in Bulgaria
 bg: Произведено в България
 de: Hergestellt in Bulgarien
@@ -3410,6 +3479,47 @@ fr: Fabriqué en Bulgarie
 it: Prodotto in Bulgaria
 nl: Gemaakt in Bulgarije
 country:en: en:Bulgaria
+label_categories:en: en:Geographic label
+
+en: Made in China
+ar: صنع في الصين
+de: Hergestellt in China
+es: Hecho en China
+fr: Fabriqué en Chine
+it: Fatto in Cina
+ja: 中国製
+ko: 중국산
+nl: Gemaakt in China
+pl: Wyprodukowano w Chinach
+pt: Feito na China
+ru: Сделано в Китае
+zh: 中国制造
+label_categories:en: en:Geographic label
+
+en: Made in Greece
+bg: Произведено в Гърция
+fr: Fabriqué en Grèce
+country:en: en:Greece
+label_categories:en: en:Geographic label
+
+es: Hecho en India
+en: Made in India
+fr: Fabriqué en Inde
+pt: Feito na Índia
+label_categories:en: en:Geographic label
+
+es: Hecho en Indonesia
+en: Made in Indonesia
+fr: Fabriqué en Indonésie
+pt: Feito na Indonésia
+label_categories:en: en:Geographic label
+
+en: Made in Japan
+de: Hergestellt in Japan
+es: Hecho en Japón
+fr: Fabriqué au Japon
+it: Fatto in Giappone
+ja: 日本製
 label_categories:en: en:Geographic label
 
 en: Made in Romania
@@ -3424,10 +3534,36 @@ fr: Fabriqué en Serbie
 country:en: en:Serbia
 label_categories:en: en:Geographic label
 
-en: Made in Greece
-bg: Произведено в Гърция
-fr: Fabriqué en Grèce
-country:en: en:Greece
+en: Made in Taiwan
+de: Hergestellt in Taiwan
+es: Hecho en Taiwán
+fr: Fabriqué à Taïwan
+it: Fatto a Taiwan
+pt: Feito em Taiwan
+ru: Сделано на Тайване
+zh: 台灣製造
+label_categories:en: en:Geographic label
+
+es: Hecho en Thailandia
+en: Made in Thailand
+fr: Fabriqué en Thaïlande
+pt: Feito na Tailândia
+label_categories:en: en:Geographic label
+
+en: Made in USA
+de: Hergestellt in den USA
+es: Hecho en EE. UU.
+fr: Fabriqué aux États-Unis
+it: Fatto negli Stati Uniti
+pt: Feito nos EUA
+label_categories:en: en:Geographic label
+
+en: Made in Vietnam
+de: Hergestellt in Vietnam
+es: Hecho en Vietnam
+fr: Fabriqué au Viêt Nam
+it: Fatto in Vietnam
+vi: Sản xuất tại Việt Nam
 label_categories:en: en:Geographic label
 
 # Croatia
@@ -3592,7 +3728,7 @@ web:en: https://www.metalrecyclesforever.eu/
 
 en: Made in Denmark
 bg: Произведено в Дания
-da: Fremstillet i Danmark
+da: Fremstillet i Danmark, Produceret i Danmark
 de: Hergestellt in Dänemark
 es: Hecho en Dinamarca
 fi: Valmistettu Tanskassa
@@ -4180,9 +4316,11 @@ fr: La Lorraine notre signature
 label_categories:en: en:Geographic label
 origins:en: en:france, en:lorraine
 
-fr: Saveurs en Or, Saveurs en'Or
+fr: Saveurs en'Or, Saveurs en Or
+image:fr: saveurs-en-or.85x90.png
 label_categories:en: en:Geographic label
 origins:en: en:france, en:hauts-de-france
+web:fr: https://saveursenor.fr/
 wikidata:en: Q3474531
 
 fr: Savourez l'Alsace
@@ -4477,9 +4615,13 @@ hu: Mesterséges adalékanyagok nélkül, Hozzáadott mesterséges adalékanyag 
 it: Senza additivi artificiali
 nl: Zonder kunstmatige toevoegingen
 pt: Sem aditivos artificiais, sem aditivo artificial
+sv: Inga konstgjorda tillsatser
 label_categories:en: en:Health, en:Additives
 
 en: No yeast, Contains no yeast
+
+en: No anticaking agent
+de: Ohne Trennmittel
 
 sv: Ä-märket
 xx: Ä-märket
@@ -5018,6 +5160,7 @@ pt: Produto natural sem óleos vegetais, produto natural sem óleo vegetal
 ru: натуральный продукт без растительных жиров
 
 en: Natural ingredients, Ingredients from natural origins
+sv: 100% naturliga råvaror
 
 < en:No flavour enhancer
 #instruction:en:Do NOT change the english key.
@@ -5150,7 +5293,7 @@ fi: laktoositon, ei laktoosia, ilman laktoosia
 fr: sans lactose
 he: נטול לקטוז
 hr: bez laktoze
-hu: Laktózmentes, laktóz mentes
+hu: Laktózmentes, laktóz mentes, természetes módon laktózmentes
 id: Bebas laktosa
 it: Senza lattosio, Naturalmente senza lattosio
 ja: ラクトースフリー
@@ -5396,7 +5539,7 @@ incompatible_with:en: labels:en:no-soy
 label_categories:en: en:Environment, en:Soy, en:Allergens
 opposite:en: en:no-soy
 
-en: Made with soy, Made from soya
+en: Made with soy, Made from soya, Made with Soy Protein
 incompatible_with:en: labels:en:no-soy
 
 #instruction:en:Do NOT change the english key.
@@ -5678,7 +5821,7 @@ pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta o
 ro: din agricultură ecologică controlată, din cultură organică controlată
 sk: z kontrolovaného ekologického poľnohospodárstva, produkt ekologického poľnohospodárstva
 sl: iz kontrolirane ekološke pridelave
-sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk
+sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk, kontrollerat ekologiskt jordbruk
 th: ออร์แกนิค
 tr: Organik
 zh: 有机
@@ -18872,14 +19015,17 @@ pl: Wieprzowina bez domieszek
 pt: Carne de porco pura, Puro bife, 100% bife, bife puro, pura carne de porco, 100% carne de porco
 
 en: Rainforest Alliance
-xx: Rainforest Alliance, Rainforest Alliance People & Nature, Rainforest Alliance People and Nature, Rainforest
+xx: Rainforest Alliance, Rainforest Alliance People & Nature, Rainforest Alliance People and Nature, Rainforest, Rainforest Alliance Certified
 ca: Aliança Tropical
 cs: certifikováno rainforest alliance, certifikovano rainforest alliance
+da: Rainforest Alliance, Rainforest Alliance-certificeret
+de: Rainforest Alliance, Rainforest Alliance-zertifiziert
 es: Alianza para Bosques
 fr: Vérifié Rainforest Alliance, Certifié Rainforest Alliance
 hr: Certificirano Rainforest Alliance
 it: Alleanza della Foresta Pluviale
-sv: Rainforest Alliance, Rainforest Alliance-certifierad, Rainforest Alliance Certified
+nb: Rainforest Alliance, Rainforest Alliance-sertifisert
+sv: Rainforest Alliance, Rainforest Alliance-certifierad
 auth_url:en: https://www.rainforest-alliance.org
 wikidata:en: Q2034373
 
@@ -19734,7 +19880,7 @@ hr: Održiv
 it: Sostenibile
 nl: Duurzaam
 pt: Sustentável
-sv: Hållbar, Hållbart
+sv: Hållbar, Hållbart, Hållbart producerat och certifierad
 
 < en:Sustainable
 en: Sustainable fishery, Sustainable fishing, Sustainable Seafood
@@ -20303,6 +20449,9 @@ fr: Sans sulfites, sans sulfite
 hu: Szulfitmentes, szulfitok nélkül, szulfitokat nem tartalmaz
 it: Senza solfiti
 pt: Sem sulfitos, 0% sulfitos, não contém sulfitos
+sv: Utan sulfiter
+incompatible_with:en: labels:en:with-sulfites
+opposite:en: en:With sulfites
 
 en: Without sulfur
 ca: Sense sofre
@@ -20376,6 +20525,12 @@ pt: Sem adoçantes, sem edulcorantes, sem adoçantes, sem edulcorantes, 0% adoç
 sv: Utan sötningsmedel
 incompatible_with:en: labels:en:with-sweeteners
 opposite:en: en:With sweeteners
+
+en: With fluorite
+sv: Innehåller fluor
+
+en: With xylitol
+sv: Innehåller xylitol
 
 en: 100% muscle
 ca: Múscul 100%
@@ -20812,9 +20967,11 @@ it: DOC, D.O.C, Denominazione di origine controllata
 wikidata:en: Q654824
 
 it: DOCG, Denominazione di origine controllata e garantita
+wikidata:en: Q2305591
 
 fr: Concours Mondial de Bruxelles
 pt: Concurso Mundial de Bruxelas
+wikidata:en: Q5159017
 
 < fr:Concours Mondial de Bruxelles
 en: Silver medal of the Concours Mondial de Bruxelles
@@ -21315,8 +21472,6 @@ pt: Sociedade Agrícola Alemã
 country:en: en:Germany
 label_categories:en: en:Quality
 wikidata:en: Q316331
-
-
 
 < en:German Agricultural Society
 en: Bronze medal of the German Agricultural Society
@@ -21841,6 +21996,8 @@ country:en: en:Switzerland
 
 en: swiss sugar
 fr: sucre suisse
+it: zucchero svizzero
+nl: Zwitserse suiker
 
 < en:Organic
 en: Bio Suisse, BioSuisse
@@ -22210,8 +22367,23 @@ pt: Receita nova, nova receita
 th: สูตรใหม่
 
 en: New flavour, New taste
+bg: Нов вкус
+ca: Nou sabor
 da: Ny smag
+de: Neuer Geschmack
+es: Nuevo sabor
+fi: Uusi maku
+fr: Nouveau goût, nouvelle saveur
+he: טעם חדש
+hu: Új íz
+it: Nuovo sapore
+nl: Nieuwe smaak
+pl: Nowy smak
+pt: Novo sabor
+ru: Новый вкус
 sv: Ny smak
+th: รสชาติใหม่
+tr: Yeni tat
 
 en: 2016 Nutrition labelling experiment
 ca: Experiment d’etiquetatge nutricional 2016
@@ -22287,7 +22459,7 @@ label_categories:en: en:Nutrition Grades, en:Health
 
 en: Nutriscore
 xx: Nutriscore, Nutri-Score
-ca: Comptador Nutricional, Nutriscore
+ca: Nutri-Score, Comptador Nutricional, Nutriscore
 label_categories:en: en:Nutrition Grades, en:Health
 wikidata:en: Q46577569
 
@@ -22330,6 +22502,7 @@ fi: Nutriscore-arvosana D
 he: דירוג D ב־Nutriscore
 hr: Nutriscore oznaka D
 pt: Nutri-Score grau D
+ro: Nutri-Score grad D
 label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
@@ -22338,6 +22511,8 @@ xx: Nutriscore E, Nutri-Score E
 ca: Grau E NutriScore
 fi: Nutriscore-arvosana E
 hr: Nutriscore oznaka E
+pt: Nutri-Score grau E
+ro: Nutri-Score grad E
 label_categories:en: en:Nutrition Grades, en:Health
 
 < en:Nutriscore
@@ -22421,6 +22596,7 @@ fr: Nutriscore E - Nouveau calcul
 hr: Nutriscore oznaka E - Novi izračun
 it: Nutriscore E - Nuovo calcolo
 nl: Nutriscore E - Nieuwe berekening
+pt: Nutri-Score grau E - Novo cálculo
 label_categories:en: en:Nutrition Grades, en:Health
 
 en: Nutri-Score A/B
@@ -22510,6 +22686,8 @@ origins:en: en:france
 
 < fr:Fruits et Légumes de France
 fr: Légumes de France, Légumes français
+es: Verduras de Francia, verduras francesas
+it: Verdure francesi, verdure di Francia, verdure dalla Francia
 pt: Legumas de França, legumes da França
 origins:en: en:france
 
@@ -22517,6 +22695,7 @@ fr: concombres cultivés en france
 es: pepinos cultivados en francia
 it: cetrioli coltivati in francia
 pt: pepinos cultivados na frança
+ingredients:en: en:cucumber
 origins:en: en:france
 
 fr: Maïs de France
@@ -22562,6 +22741,8 @@ de: Apfel aus Frankreich
 es: Manzana origen Francia
 it: Mela di origine Francia
 pt: Maçã de origem França
+ingredients:en: en:apple
+origins:en: en:france
 
 en: Bee Friendly, I protect the bees
 xx: Bee Friendly
@@ -22681,7 +22862,10 @@ fi: antibiootiton, antibioottivapaa, kasvatettu ilman antibiootteja
 fr: Sans antibiotique, sans antibiotiques, sans traitement antibiotique, élevage sans antibiotique, élevé sans antibiotique, élevés sans antibiotique, élevée sans antibiotique, élevées sans antibiotique
 hu: Antibiotikum mentes
 it: Senza antibiotici
+pl: Bez antybiotyków
 pt: Sem antibióticos, 0% antibióticos, livre de antibióticos, criado sem antibióticos, criados sem antibióticos, criada sem antibióticos, criadas sem antibióticos
+ru: Без антибиотиков
+sv: Utan antibiotika
 label_categories:en: en:Health
 
 < en:No antibiotics
@@ -22696,6 +22880,9 @@ pt: Sem antibióticos desde o nascimento, nenhum antibiótico nunca
 
 < en:No antibiotics
 en: Without antibiotics after weaning
+de: Ohne Antibiotika nach dem Absetzen
+es: Sin antibióticos después del destete
+fi: Ei antibiootteja vieroituksen jälkeen
 fr: Sans antibiotique après sevrage, sans antibiotique dès la fin du sevrage, sans antibiotique après la fin du sevrage
 it: Senza antibiotici dopo lo svezzamento
 pt: Sem antibióticos depois da desmama, nenhum antibiótico depois da desmama, Sem antibióticos depois do desmamar, nenhum antibiótico depois do desmamar
@@ -22761,7 +22948,9 @@ pt: Galinha criada sem antibióticos desde o nascimento, galinhas criadas sem an
 < en:No antibiotics
 en: Hens raised without antibiotics
 de: Hennenaufzucht ohne Antibiotika
+es: Gallinas criadas sin antibióticos
 fr: Poules élevées sans antibiotique
+it: Galline allevate senza antibiotici
 pt: Poedeiras criadas sem antibióticos, galinhas poedeiras criadas sem antibióticos, poedeira criada sem antibióticos, galinha poedeira criada sem antibióticos
 
 < en:Hens raised without antibiotics
@@ -22773,10 +22962,12 @@ pt: Poedeiras criadas sem antibióticos durante a fase de postura, galinhas poed
 en: Without hormones, raised without hormones
 bg: Без хормони, отгледано без хормони
 de: ohne Hormone, Aufzucht ohne Hormone
+es: Sin hormonas, criado sin hormonas, criados sin hormonas, criada sin hormonas, criadas sin hormonas
 fi: hormoniton, kasvatettu ilman hormoneja
 fr: Sans hormone, élevé sans hormone
 it: Senza ormoni, allevato senza ormoni
 pt: Sem hormonas, criado sem hormonas, criados sem hormonas, criada sem hormonas, criadas sem hormonas
+
 
 < en:No antibiotics
 < en:Without hormones
@@ -22953,6 +23144,8 @@ en: Cold pressed
 es: Prensado en frío
 fr: Pression à froid, haute pression à froid
 nl: Koudgeperst
+pt: Prensado a frio
+sv: Kallpressad, kallpressade
 
 en: Unfiltered, cloudy
 bg: Нефилтрирано

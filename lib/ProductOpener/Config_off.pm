@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -87,6 +87,7 @@ BEGIN {
 		%options
 		%server_options
 		%oidc_options
+		%slack_hook_urls
 
 		@product_fields
 		@product_other_fields
@@ -429,6 +430,9 @@ $options{users_who_can_upload_small_images} = {
 			["ignore_nutriment_alcohol"], ["ignore_nutriment_vitamin-d"],
 			["ignore_nutriment_calcium"], ["ignore_nutriment_potassium"],
 			["ignore_serving_size"],
+			# block image selection
+			["block_if_regexp_match_id", "^(front|ingredients|nutrition|packaging).*"],
+			["block_if_regexp_match_imagefield", "^(front|ingredients|nutrition|packaging).*"],
 		],
 	},
 );
@@ -577,11 +581,6 @@ my @related_applications = (
 		'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner'
 	},
 	{'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://apps.apple.com/app/id588797948'},
-	{
-		'platform' => 'windows',
-		'id' => '9nblggh0dkqr',
-		'url' => 'https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr'
-	},
 );
 
 my $manifest = {
@@ -953,7 +952,6 @@ $options{import_export_fields_groups} = [
 	],
 	["ingredients", ["ingredients_text", "allergens", "traces"]],
 	["nutrition"],
-	["nutrition_other"],
 	["packaging"],
 	[
 		"other",

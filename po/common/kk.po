@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -3704,6 +3704,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "деректер сапасының толықтығы"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -5959,6 +5963,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Бағаланған белгілер жоқ"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Кейбір экологиялық артықшылықтар"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Жоғары экологиялық пайда"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Экологиялық пайдасы өте жоғары"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6114,6 +6134,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Деректер сапасының толықтығы"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Осы өнімдегі деректер сапасының толықтығы туралы кейбір ақпарат"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7599,4 +7627,96 @@ msgstr "Біз анықтамадық: {unwanted_ingredients}. Біз кейбі
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Бұл таңдаулар Open Food Facts компаниясының ингредиенттер тізімін түсінуіне негізделген және оның нақты немесе толық болмауы мүмкін, әрқашан өнімді өзіңіз тексеріңіз."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Темекі өлтіреді"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Темекі денсаулыққа айтарлықтай зиян келтіреді. Бастама. Қазір шығыңыз."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Темекі шегу өте тәуелді. Бастама. Темекі шегу өлтіреді - қазір тастаңыз. Темекі шегу қан тамырларын бітеп, инфаркт пен инсульт тудырады. Темекі шегу өлімге әкелетін өкпе ісігін тудырады. Жүктілік кезінде темекі шегу балаңызға зиян тигізеді. Балаларды қорғаңыз: оларға түтініңізді жұтуға мәжбүрлемеңіз. Сіздің дәрігеріңіз немесе фармацевтіңіз темекі шегуді тоқтатуға көмектесе алады. Темекі шегу қан ағымын азайтып, импотенцияны тудыруы мүмкін. Темекі шегу терінің қартаюын тудырады. Темекі шегу сперматозоидты зақымдауы және құнарлылығын төмендетуі мүмкін. Түтіннің құрамында бензол, нитрозамин, формальдегид және цианид сутегі бар."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Қоғамдық баға"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 АҚШ доллары, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Өндіруші өнімнің қаптамасында немесе өндірушінің сайтында көрсетілген (заңнама негізіндегі салықтарды қоса алғанда немесе қоспағанда) жеңілдіктер мен акцияларды қоспағанда, бөлшек сауда бағасын (MSRP) ұсынды. Бірнеше валютадағы бағалар тізімде болса, үтірмен бөлінген тізімді пайдаланыңыз."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Жеке меншік"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Құрамында пальма майы жоқ"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Құрамында пальма майы болуы мүмкін"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Экологиялық белгілер"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Деректер жетіспейді"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Жоғары әсер"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Орташа әсер"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Төмен әсер"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Әсері бағаланбаған"
 

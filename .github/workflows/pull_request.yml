@@ -25,18 +25,21 @@ jobs:
     name: "Filter changed paths"
     runs-on: ubuntu-latest
     outputs:
-      code_modified: ${{ steps.filter.outputs.code_modified }}
+      code_modified: ${{ steps.filter.outputs.code }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-
-      - name: Get changed files
-        uses: step-security/changed-files@v46
-        id: changed_files
-
-      - name: Filter non-markdown and non-docs files
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
         id: filter
-        run: ./.github/scripts/path-filter.sh "${{ steps.changed_files.outputs.all_changed_files }}"
+        with:
+          # FIXME: we need to consider more than these files
+          # We need to consider every file in the repository and have it in a category
+          # Maybe using negative match: https://github.com/micromatch/picomatch?tab=readme-ov-file#advanced-globbing
+          filters: |
+            code:
+            - '**/*'       # Catch everything else
+            - '!**/*.md'   # Exclude all Markdown files
+            - '!docs/**'   # Exclude docs/ folder
+          predicate-quantifier: 'every'
 
   lint:
     name: 🕵️‍♀️ NPM lint
@@ -88,7 +91,7 @@ jobs:
           use: true
 
       # Restore taxonomies cache
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         id: cache
         with:
           path: ./build-cache
@@ -292,6 +295,67 @@ jobs:
           source env/setenv.sh opff
           make DOCKER_LOCAL_DATA="$(pwd)" build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
+  build_frontend:
+    name: 🏗 Build frontend image for tests
+    permissions:
+      contents: read
+      packages: write
+    runs-on: ubuntu-latest
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          driver: docker-container
+          use: true
+
+      - name: Get user IDs
+        id: user_ids
+        run: |
+          echo "uid=$(id -u)" >> $GITHUB_OUTPUT
+          echo "gid=$(id -g)" >> $GITHUB_OUTPUT
+
+      - name: Login to DockerHub to enable pushing buildx cache
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compute registry ref for Buildkit cache
+        id: registry_ref
+        run: |
+          echo registry_ref=ghcr.io/${{ github.repository }}/frontend-buildx-cache:${{ hashFiles('Dockerfile.frontend', 'package*.json', 'gulpfile.mjs', 'html/**', 'icons/**', 'scss/**') }} >> $GITHUB_OUTPUT
+
+      - name: Build frontend image with cache
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile.frontend
+          build-args: |
+            USER_UID=${{ steps.user_ids.outputs.uid }}
+            USER_GID=${{ steps.user_ids.outputs.gid }}
+          cache-from: |
+            type=registry,ref=${{ steps.registry_ref.outputs.registry_ref }}
+          cache-to: |
+            ${{
+              (!github.event.pull_request.head.repo.fork) &&
+              format('type=registry,ref={0},mode=max', steps.registry_ref.outputs.registry_ref) ||
+              ''
+            }}
+          load: true
+          tags: openfoodfacts-server/frontend:dev
+
+      - name: Push frontend image as artifact
+        uses: ishworkh/container-image-artifact-upload@v2.0.0
+        with:
+          image: "openfoodfacts-server/frontend:dev"
+          retention_days: 1
+
   check_perl:
     name: 🐪 Check Perl
     needs: [filter, build_backend]
@@ -303,7 +367,7 @@ jobs:
         fetch-depth: 1
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
-    - uses: actions/cache/restore@v4
+    - uses: actions/cache/restore@v5
       id: cache
       with:
         path: ./build-cache
@@ -326,10 +390,155 @@ jobs:
     - name: check perl
       run: make check_perl
 
+  generate_perl_sbom:
+    name: 📦 Generate Perl SBOM
+    permissions:
+      contents: write
+    needs: [filter, build_backend]
+    runs-on: ubuntu-latest
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+    - name: Download backend image from artifacts
+      id: downloadbackendimage
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: Remove downloaded image file
+      env:
+        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
+      run: rm $FILE
+    - name: Generate Perl SBOM with cpan-sbom
+      run: |
+        docker run --rm -v $(pwd):/workspace openfoodfacts-server/backend:dev \
+          cpan-sbom \
+          --project-directory /workspace \
+          --project-name "Product Opener" \
+          --project-type application \
+          --project-license AGPL-3.0 \
+          --project-author "Open Food Facts <contact@openfoodfacts.org>" \
+          --vulnerabilities \
+          --validate \
+          --output /workspace/perl-sbom.json
+    - name: Upload Perl SBOM as artifact
+      uses: actions/upload-artifact@v6
+      with:
+        name: perl-sbom
+        path: perl-sbom.json
+        retention-days: 90
+    - name: Submit Perl SBOM to Dependency Graph
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: advanced-security/spdx-dependency-submission-action@v0.1.2
+      with:
+        filePath: perl-sbom.json
+
+  generate_docker_sbom:
+    name: 📦 Generate Docker SBOM
+    permissions:
+      contents: write
+      security-events: write
+    needs: [filter, build_backend]
+    runs-on: ubuntu-latest
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+    - name: Download backend image from artifacts
+      id: downloadbackendimage
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: Remove downloaded image file
+      env:
+        FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
+      run: rm $FILE
+    - name: Generate SBOM for backend image
+      uses: anchore/sbom-action@v0
+      with:
+        image: openfoodfacts-server/backend:dev
+        format: cyclonedx-json
+        output-file: backend-sbom.cyclonedx.json
+        upload-artifact: true
+        upload-artifact-retention: 90
+        artifact-name: backend-sbom
+        dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    - name: Trivy scan for backend image
+      uses: aquasecurity/trivy-action@0.33.1
+      with:
+        image-ref: openfoodfacts-server/backend:dev
+        format: 'sarif'
+        output: backend-trivy.sarif
+        trivy-config: trivy.yaml
+        vuln-type: 'os,library'
+        scanners: 'vuln,secret,config,license'
+        severity: 'CRITICAL,HIGH,MEDIUM,LOW'
+        ignore-unfixed: true
+        cache: true
+        skip-dirs: opt/product-opener/build-cache/,opt/product-opener/taxonomies
+    - name: Upload Trivy results to GitHub Security
+      uses: github/codeql-action/upload-sarif@v4
+      if: always()
+      with:
+        sarif_file: backend-trivy.sarif
+        category: trivy-backend
+
+  generate_frontend_sbom:
+    name: 📦 Generate Frontend SBOM
+    permissions:
+      contents: write
+      security-events: write
+    needs: [build_frontend]
+    runs-on: ubuntu-latest
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request')
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+    - name: Download frontend image from artifacts
+      id: downloadfrontendimage
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/frontend:dev"
+    - name: Remove downloaded image file
+      env:
+        FILE: "${{ steps.downloadfrontendimage.outputs.download_path }}"
+      run: rm $FILE
+    - name: Generate SBOM for frontend image
+      uses: anchore/sbom-action@v0
+      with:
+        image: openfoodfacts-server/frontend:dev
+        format: cyclonedx-json
+        output-file: frontend-sbom.cyclonedx.json
+        upload-artifact: true
+        upload-artifact-retention: 90
+        artifact-name: frontend-sbom
+        dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    - name: Trivy scan for frontend image
+      uses: aquasecurity/trivy-action@0.33.1
+      with:
+        image-ref: openfoodfacts-server/frontend:dev
+        format: 'sarif'
+        output: frontend-trivy.sarif
+        trivy-config: trivy.yaml
+        vuln-type: 'os,library'
+        scanners: 'vuln,secret,config,license'
+        severity: 'CRITICAL,HIGH,MEDIUM,LOW'
+        ignore-unfixed: true
+        cache: true
+    - name: Upload Trivy results to GitHub Security
+      uses: github/codeql-action/upload-sarif@v4
+      if: always()
+      with:
+        sarif_file: frontend-trivy.sarif
+        category: trivy-frontend
+
   # Calculate dynamic test group matrix based on current test files and timing data
   calculate_test_matrix:
     name: 🧮 Calculate Dynamic Test Matrix
-    needs: [filter] 
+    needs: [filter]
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     outputs:
@@ -341,7 +550,7 @@ jobs:
         fetch-depth: 1
     
     # Cache dynamic test groups and timing data
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
@@ -390,7 +599,7 @@ jobs:
     
     # Restore cached taxonomies built in build_backend job
     # This avoids rebuilding taxonomies for each test group
-    - uses: actions/cache/restore@v4
+    - uses: actions/cache/restore@v5
       id: taxonomies_cache
       with:
         path: ./build-cache
@@ -399,7 +608,7 @@ jobs:
     
     # Cache dynamic test groups and timing data
     # This enables persistent learning and avoids regenerating groups unnecessarily
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
@@ -505,7 +714,7 @@ jobs:
       with:
         fetch-depth: 1
     
-    - uses: actions/cache/restore@v4
+    - uses: actions/cache/restore@v5
       id: taxonomies_cache
       with:
         path: ./build-cache
@@ -514,7 +723,7 @@ jobs:
     
     # Cache dynamic test groups and timing data for integration tests
     # Integration tests typically have more variable execution times
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
@@ -611,25 +820,25 @@ jobs:
     steps:
       - name: Check if unit and integration tests succeeded or fail
         run: |
-          if [ ${{ needs.unit_tests.result }} = "success" ] && [ ${{ needs.integration_tests.result }} = "success" ]
+          if [ ${{ needs.unit_tests.result }} = "failure" ] || [ ${{ needs.integration_tests.result }} = "failure" ]
           then
-            echo "All Perl unit and integration test groups finished."
-          else
             echo "Some tests did fail"
             exit 1
+          else
+            echo "All Perl unit and integration test groups finished."
           fi
 
   tests_dev:
     name: 🧪 Test make dev
-    needs: [filter, build_backend]  # build_backend - only to avoid building taxonomies
+    needs: [filter, build_backend, build_frontend]
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v5
       with:
         fetch-depth: 1
-    - uses: actions/cache/restore@v4
+    - uses: actions/cache/restore@v5
       id: cache
       with:
         path: ./build-cache
