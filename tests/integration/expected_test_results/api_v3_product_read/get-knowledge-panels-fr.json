@@ -3,232 +3,12 @@
    "errors" : [],
    "product" : {
       "knowledge_panels" : {
-         "additive_en:e100" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "<p>La curcumine ne présente pas de risques connus pour la santé.</p>"
-                  }
-               }
-            ],
-            "level" : "info",
-            "size" : "small",
-            "title_element" : {
-               "title" : "E100 - Curcumine"
-            },
-            "topics" : [
-               "health"
-            ]
-         },
-         "additive_en:e322" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "<strong>Lecithin :</strong> Lecithin -UK: , US: , from the Greek lekithos, \"egg yolk\"- is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, which are amphiphilic – they attract both water and fatty substances -and so are both hydrophilic and lipophilic-, and are used for smoothing food textures, dissolving powders -emulsifying-, homogenizing liquid mixtures, and repelling sticking materials.Lecithins are mixtures of glycerophospholipids including phosphatidylcholine, phosphatidylethanolamine, phosphatidylinositol, phosphatidylserine, and phosphatidic acid.Lecithin was first isolated in 1845 by the French chemist and pharmacist Theodore Gobley. In 1850, he named the phosphatidylcholine lécithine. Gobley originally isolated lecithin from egg yolk—λέκιθος lekithos is \"egg yolk\" in Ancient Greek—and established the complete chemical formula of phosphatidylcholine in 1874; in between, he had demonstrated the presence of lecithin in a variety of biological matters, including venous blood, in human lungs, bile, human brain tissue, fish eggs, fish roe, and chicken and sheep brain. Lecithin can easily be extracted chemically using solvents such as hexane, ethanol, acetone, petroleum ether, benzene, etc., or extraction can be done mechanically. It is usually available from sources such as soybeans, eggs, milk, marine sources, rapeseed, cottonseed, and sunflower. It has low solubility in water, but is an excellent emulsifier. In aqueous solution, its phospholipids can form either liposomes, bilayer sheets, micelles, or lamellar structures, depending on hydration and temperature. This results in a type of surfactant that usually is classified as amphipathic. Lecithin is sold as a food additive and dietary supplement. In cooking, it is sometimes used as an emulsifier and to prevent sticking, for example in nonstick cooking spray.",
-                     "source_language" : "Anglais",
-                     "source_lc" : "en",
-                     "source_text" : "Wikipedia",
-                     "source_url" : "https://en.wikipedia.org/wiki/Lecithin"
-                  }
-               }
-            ],
-            "level" : "info",
-            "size" : "small",
-            "title_element" : {
-               "title" : "E322 - Lécithines"
-            },
-            "topics" : [
-               "health"
-            ]
-         },
-         "additive_en:e322i" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "<strong>Lecithin :</strong> Lecithin -UK: , US: , from the Greek lekithos, \"egg yolk\"- is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, which are amphiphilic – they attract both water and fatty substances -and so are both hydrophilic and lipophilic-, and are used for smoothing food textures, dissolving powders -emulsifying-, homogenizing liquid mixtures, and repelling sticking materials.Lecithins are mixtures of glycerophospholipids including phosphatidylcholine, phosphatidylethanolamine, phosphatidylinositol, phosphatidylserine, and phosphatidic acid.Lecithin was first isolated in 1845 by the French chemist and pharmacist Theodore Gobley. In 1850, he named the phosphatidylcholine lécithine. Gobley originally isolated lecithin from egg yolk—λέκιθος lekithos is \"egg yolk\" in Ancient Greek—and established the complete chemical formula of phosphatidylcholine in 1874; in between, he had demonstrated the presence of lecithin in a variety of biological matters, including venous blood, in human lungs, bile, human brain tissue, fish eggs, fish roe, and chicken and sheep brain. Lecithin can easily be extracted chemically using solvents such as hexane, ethanol, acetone, petroleum ether, benzene, etc., or extraction can be done mechanically. It is usually available from sources such as soybeans, eggs, milk, marine sources, rapeseed, cottonseed, and sunflower. It has low solubility in water, but is an excellent emulsifier. In aqueous solution, its phospholipids can form either liposomes, bilayer sheets, micelles, or lamellar structures, depending on hydration and temperature. This results in a type of surfactant that usually is classified as amphipathic. Lecithin is sold as a food additive and dietary supplement. In cooking, it is sometimes used as an emulsifier and to prevent sticking, for example in nonstick cooking spray.",
-                     "source_language" : "Anglais",
-                     "source_lc" : "en",
-                     "source_text" : "Wikipedia",
-                     "source_url" : "https://en.wikipedia.org/wiki/Lecithin"
-                  }
-               }
-            ],
-            "level" : "info",
-            "size" : "small",
-            "title_element" : {
-               "title" : "E322i - Lécithine"
-            },
-            "topics" : [
-               "health"
-            ]
-         },
-         "additives" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "additive_en:e100"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "additive_en:e322"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "additive_en:e322i"
-                  }
-               }
-            ],
-            "expanded" : true,
-            "level" : "info",
-            "topics" : [
-               "health"
-            ],
-            "type" : "inline"
-         },
-         "carbon_footprint" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    <p>Le chiffre d'émission carbone est issu de la base de données Agribalyse de l'ADEME, pour la catégorie : \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/24000\">Biscuit sec, sans précision</a>\n                    (Source : Base de données ADEME Agribalyse)\n                    </p>\n                    ",
-                     "type" : "summary"
-                  }
-               },
-               {
-                  "element_type" : "table",
-                  "table_element" : {
-                     "columns" : [
-                        {
-                           "text" : "Etape",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Impact",
-                           "type" : "percent"
-                        }
-                     ],
-                     "id" : "environmental_score_carbon_impact_by_stages_table",
-                     "rows" : [
-                        {
-                           "id" : "agriculture",
-                           "values" : [
-                              {
-                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg",
-                                 "text" : "Agriculture"
-                              },
-                              {
-                                 "percent" : 63.5097493036212,
-                                 "text" : "63.5 %"
-                              }
-                           ]
-                        },
-                        {
-                           "id" : "processing",
-                           "values" : [
-                              {
-                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/processing.svg",
-                                 "text" : "Transformation"
-                              },
-                              {
-                                 "percent" : 5.20891364902507,
-                                 "text" : "5.2 %"
-                              }
-                           ]
-                        },
-                        {
-                           "id" : "packaging",
-                           "values" : [
-                              {
-                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-                                 "text" : "Emballage"
-                              },
-                              {
-                                 "percent" : 24.5125348189415,
-                                 "text" : "24.5 %"
-                              }
-                           ]
-                        },
-                        {
-                           "id" : "transportation",
-                           "values" : [
-                              {
-                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/transportation.svg",
-                                 "text" : "Transport"
-                              },
-                              {
-                                 "percent" : 5.90529247910863,
-                                 "text" : "5.9 %"
-                              }
-                           ]
-                        },
-                        {
-                           "id" : "distribution",
-                           "values" : [
-                              {
-                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/distribution.svg",
-                                 "text" : "Distribution"
-                              },
-                              {
-                                 "percent" : 0.749303621169916,
-                                 "text" : "0.7 %"
-                              }
-                           ]
-                        },
-                        {
-                           "id" : "consumption",
-                           "values" : [
-                              {
-                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/consumption.svg",
-                                 "text" : "Consommation"
-                              },
-                              {
-                                 "percent" : 0,
-                                 "text" : "0.0 %"
-                              }
-                           ]
-                        }
-                     ],
-                     "table_type" : "percents",
-                     "title" : "Détail des impacts par étapes du cycle de vie"
-                  }
-               }
-            ],
-            "evaluation" : "average",
-            "expanded" : false,
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/car.svg",
-               "subtitle" : "359 g de CO₂e pour 100 g de produit",
-               "title" : "Équivaut à parcourir 1.9 km dans une voiture à essence"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
          "environment_card" : {
             "elements" : [
                {
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "environmental_score"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "carbon_footprint"
-                     ],
-                     "title" : "Empreinte carbone"
                   }
                },
                {
@@ -249,21 +29,6 @@
                      ],
                      "title" : "Transport"
                   }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "threatened_species"
-                     ],
-                     "title" : "Espèces menacées"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "forest_footprint"
-                  }
                }
             ],
             "expanded" : true,
@@ -280,504 +45,26 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Sélectionnez un pays pour inclure l'impact total du transport.",
-                     "type" : "warning"
-                  }
-               },
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "Le <a href=\"http://world-fr.openfoodfacts.localhost/green-score\">Green-Score</a> est un score expérimental qui synthétise les impacts environnementaux des produits alimentaires."
-                  }
-               },
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    \n                        Le Green-Score a été initialement conçu pour la France et est en cours d'extension à d'autres pays européens. La formule du Green-Score est susceptible d'évoluer car elle est régulièrement améliorée pour la rendre plus précise et mieux adaptée à chaque pays.\n                                    \n                ",
-                     "type" : "note"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "environmental_score_agribalyse"
-                     ],
-                     "title" : "Analyse du cycle de vie"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "environmental_score_origins_of_ingredients",
-                        "environmental_score_threatened_species",
-                        "environmental_score_packaging"
-                     ],
-                     "title" : "Bonus et malus"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "environmental_score_total"
-                     ],
-                     "title" : "Green-Score pour ce produit"
-                  }
-               },
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n<p>&rarr; <a href=\"http://world-fr.openfoodfacts.localhost/green-score\">En savoir plus sur le Green-Score</a></p>\n"
-                  }
-               }
-            ],
-            "level" : "info",
-            "title_element" : {
-               "grade" : "d",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg",
-               "name" : "Green-Score",
-               "subtitle" : "Impact environnemental élevé",
-               "title" : "Green-Score D",
-               "type" : "grade"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "environmental_score_adjustments" : {
-            "elements" : [
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "environmental_score_origins_of_ingredients",
-                        "environmental_score_packaging",
-                        "environmental_score_production_system",
-                        "environmental_score_threatened_species"
-                     ]
-                  }
-               }
-            ],
-            "expanded" : true,
-            "level" : "info",
-            "topics" : [
-               "environment"
-            ]
-         },
-         "environmental_score_agribalyse" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    <p>Catégorie : \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/24000\">Biscuit sec, sans précision</a>\n                    </p>\n                    <ul>\n                        <li>\n                            Score environnemental PEF : 0.37\n                            (plus le score est bas, plus l'impact est faible)\n                        </li>\n                        <li>\n                            dont impact sur le changement climatique : 3.59\n                            kg CO2 eq/kg de produit\n                        </li>\n                    </ul>\n                    ",
+                     "html" : "Nous n'avons pas pu calculer le Green-Score de ce produit car il manque certaines données, pourriez-vous nous aider à le compléter ?",
                      "type" : "summary"
                   }
                },
                {
-                  "element_type" : "table",
-                  "table_element" : {
-                     "columns" : [
-                        {
-                           "text" : "Etape",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Impact",
-                           "type" : "percent"
-                        }
+                  "action_element" : {
+                     "actions" : [
+                        "add_categories"
                      ],
-                     "id" : "environmental_score_lca_impacts_by_stages_table",
-                     "rows" : [
-                        {
-                           "id" : "agriculture",
-                           "values" : [
-                              {
-                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg",
-                                 "text" : "Agriculture"
-                              },
-                              {
-                                 "percent" : 68.4782608695652,
-                                 "text" : "68.5 %"
-                              }
-                           ]
-                        },
-                        {
-                           "id" : "processing",
-                           "values" : [
-                              {
-                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/processing.svg",
-                                 "text" : "Transformation"
-                              },
-                              {
-                                 "percent" : 10.1358695652174,
-                                 "text" : "10.1 %"
-                              }
-                           ]
-                        },
-                        {
-                           "id" : "packaging",
-                           "values" : [
-                              {
-                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-                                 "text" : "Emballage"
-                              },
-                              {
-                                 "percent" : 15.5163043478261,
-                                 "text" : "15.5 %"
-                              }
-                           ]
-                        },
-                        {
-                           "id" : "transportation",
-                           "values" : [
-                              {
-                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/transportation.svg",
-                                 "text" : "Transport"
-                              },
-                              {
-                                 "percent" : 4.45652173913044,
-                                 "text" : "4.5 %"
-                              }
-                           ]
-                        },
-                        {
-                           "id" : "distribution",
-                           "values" : [
-                              {
-                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/distribution.svg",
-                                 "text" : "Distribution"
-                              },
-                              {
-                                 "percent" : 1.45923913043478,
-                                 "text" : "1.5 %"
-                              }
-                           ]
-                        },
-                        {
-                           "id" : "consumption",
-                           "values" : [
-                              {
-                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/consumption.svg",
-                                 "text" : "Consommation"
-                              },
-                              {
-                                 "percent" : 0,
-                                 "text" : "0.0 %"
-                              }
-                           ]
-                        }
-                     ],
-                     "table_type" : "percents",
-                     "title" : "Détail des impacts par étapes du cycle de vie"
-                  }
+                     "html" : "La catégorie de ce produit n'est pas assez précise pour calculer le Green-Score. Pourriez-vous ajouter une catégorie de produit plus précise ?"
+                  },
+                  "element_type" : "action"
                }
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "b",
-               "icon_color_from_evaluation" : true,
-               "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/lca.svg",
-               "subtitle" : "Catégorie : Biscuit sec, sans précision",
-               "title" : "Impact moyen des produits de la même catégorie : B (Score: 67/100)",
-               "type" : "grade"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "environmental_score_origins_of_ingredients" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                Les origines des ingrédients de ce produit ne sont pas indiquées.<br><br>\n                Si elles sont indiquées sur l'emballage, vous pouvez modifier la fiche produit et les ajouter.<br><br>\n                Si vous êtes le fabricant de ce produit, vous pouvez nous transmettre les informations avec notre <a href=\"https://fr.pro.openfoodfacts.org\">plateforme gratuite pour les producteurs</a>.\n                    ",
-                     "type" : "warning"
-                  }
-               }
-            ],
-            "evaluation" : "unknown",
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
-               "subtitle" : "Malus : -5",
-               "title" : "Informations manquantes sur les origines des ingrédients"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "environmental_score_packaging" : {
-            "elements" : [
-               {
-                  "element_type" : "table",
-                  "table_element" : {
-                     "columns" : [
-                        {
-                           "text" : "Forme",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Matière",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Recyclage",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Impact",
-                           "type" : "text"
-                        }
-                     ],
-                     "id" : "environmental_score_packaging_components",
-                     "rows" : [
-                        {
-                           "values" : [
-                              {
-                                 "text" : "1 Boîte"
-                              },
-                              {
-                                 "text" : "Bois"
-                              },
-                              {
-                                 "evaluation" : "good",
-                                 "text" : "Recycler"
-                              },
-                              {
-                                 "evaluation" : "neutral",
-                                 "text" : "Moyen"
-                              }
-                           ]
-                        },
-                        {
-                           "values" : [
-                              {
-                                 "text" : "6 Bouteille"
-                              },
-                              {
-                                 "text" : "Verre"
-                              },
-                              {
-                                 "text" : "Réutiliser"
-                              },
-                              {
-                                 "evaluation" : "good",
-                                 "text" : "Faible"
-                              }
-                           ]
-                        },
-                        {
-                           "values" : [
-                              {
-                                 "text" : "3 Couvercle"
-                              },
-                              {
-                                 "text" : "Acier"
-                              },
-                              {
-                                 "evaluation" : "good",
-                                 "text" : "Recycler"
-                              },
-                              {
-                                 "evaluation" : "good",
-                                 "text" : "Faible"
-                              }
-                           ]
-                        },
-                        {
-                           "values" : [
-                              {
-                                 "text" : "1 Film"
-                              },
-                              {
-                                 "text" : "Plastique"
-                              },
-                              {
-                                 "evaluation" : "bad",
-                                 "text" : "Jeter"
-                              },
-                              {
-                                 "evaluation" : "bad",
-                                 "text" : "élevé"
-                              }
-                           ]
-                        }
-                     ],
-                     "title" : "Elements d'emballage"
-                  }
-               }
-            ],
-            "evaluation" : "average",
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "subtitle" : "Malus : -8",
-               "title" : "Emballage à impact moyen"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "environmental_score_production_system" : {
-            "evaluation" : "neutral",
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg",
-               "title" : "Pas de labels avec des avantages environnementaux"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "environmental_score_threatened_species" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                        <p><strong>Contient de l'huile de palme</strong></p> \n                        <p>Les forêts tropicales d'Asie, d'Afrique et d'Amérique latine sont détruites pour créer et étendre les plantations de palmiers à huile. La déforestation contribue au changement climatique et met en danger des espèces telles que l'orang-outan, l'éléphant pygmée et le rhinocéros de Sumatra.</p> \n                        ",
-                     "type" : "summary"
-                  }
-               }
-            ],
-            "evaluation" : "bad",
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/monkey_unhappy.svg",
-               "subtitle" : "Malus : -10",
-               "title" : "Ingrédients qui menacent des espèces"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "environmental_score_total" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                Score d'analyse du cycle de vie : 67<br>\n                Somme des bonus et malus :\n                    \n                        -23\n                    <br><br>\n                Score final : 44/100\n                ",
-                     "type" : "summary"
-                  }
-               }
-            ],
-            "level" : "info",
-            "title_element" : {
-               "grade" : "d",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg",
-               "subtitle" : "Produit : Some product – 100 g",
-               "title" : "Impact pour ce produit: D (Score: 44/100)",
-               "type" : "grade"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "forest_footprint" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                <p><strong>Ingrédients nécessitant du soja</strong></p>\n                <p>L'empreinte forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation.</p>\n                ",
-                     "type" : "summary"
-                  }
-               },
-               {
-                  "element_type" : "table",
-                  "table_element" : {
-                     "columns" : [
-                        {
-                           "text" : "Ingrédient",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Type",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "% dans le produit",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Facteur de transformation<br><span style=\"font-weight:normal\">(% d'aliments après transformation)</span>",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Facteur de l'alimentation au soja<br><span style=\"font-weight:normal\">(kg de soja par kg d'aliment)</span>",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Rendement du soja<br><span style=\"font-weight:normal\">(kg de soja par m²)</span>",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Risque de déforestation<br><span style=\"font-weight:normal\">(%)</span>",
-                           "type" : "text"
-                        },
-                        {
-                           "text" : "Empreinte forêt<br><span style=\"font-weight:normal\">(m² par kg d'aliment)</span>",
-                           "type" : "text"
-                        }
-                     ],
-                     "id" : "forest_footprint_table",
-                     "rows" : [
-                        {
-                           "values" : [
-                              {
-                                 "text" : "Œuf"
-                              },
-                              {
-                                 "text" : "Oeufs Bio"
-                              },
-                              {
-                                 "text" : "10.42 %"
-                              },
-                              {
-                                 "text" : "100 %"
-                              },
-                              {
-                                 "text" : "0.028"
-                              },
-                              {
-                                 "text" : "0.18"
-                              },
-                              {
-                                 "text" : "10 %"
-                              },
-                              {
-                                 "text" : "0.00"
-                              }
-                           ]
-                        }
-                     ],
-                     "title" : "Ingrédients nécessitant du soja"
-                  }
-               },
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    <h3>Empreinte forêt totale</h3>\n                    <p><strong>0.00 m² par kg d'aliment</strong></p>\n                ",
-                     "type" : "summary"
-                  }
-               }
-            ],
-            "level" : "info",
-            "title_element" : {
-               "grade" : "a",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
-               "name" : "Empreinte forêt",
-               "subtitle" : "Pas de risque de déforestation",
-               "title" : "Très petite empreinte forêt",
+               "grade" : "unknown",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
+               "subtitle" : "Catégorie précise manquante",
+               "title" : "Green-Score non calculé",
                "type" : "grade"
             },
             "topics" : [
@@ -791,7 +78,8 @@
                   "panel_group_element" : {
                      "panel_group_id" : "nutrition",
                      "panel_ids" : [
-                        "nutriscore_2023"
+                        "nutriscore_2023",
+                        "nutrient_levels"
                      ],
                      "title" : "Nutrition",
                      "type" : "subcard"
@@ -825,15 +113,6 @@
                         "nova"
                      ],
                      "title" : "Transformation des aliments"
-                  }
-               },
-               {
-                  "element_type" : "panel_group",
-                  "panel_group_element" : {
-                     "panel_ids" : [
-                        "additives"
-                     ],
-                     "title" : "Additifs"
                   }
                },
                {
@@ -906,7 +185,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Pomme : 58.3% (estimation)"
+               "title" : "Eau : 75.0% (estimation)"
             },
             "topics" : [
                "health"
@@ -917,73 +196,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Lait : 20.8% (estimation)"
-            },
-            "topics" : [
-               "health"
-            ]
-         },
-         "ingredient_3" : {
-            "elements" : [],
-            "level" : "info",
-            "size" : "small",
-            "title_element" : {
-               "title" : "Œuf : 10.4% (estimation)"
-            },
-            "topics" : [
-               "health"
-            ]
-         },
-         "ingredient_4" : {
-            "elements" : [],
-            "level" : "info",
-            "size" : "small",
-            "title_element" : {
-               "title" : "Huile de palme : 5.2% (estimation)"
-            },
-            "topics" : [
-               "health"
-            ]
-         },
-         "ingredient_5" : {
-            "elements" : [],
-            "level" : "info",
-            "size" : "small",
-            "title_element" : {
-               "title" : "Colorant : 2.6% (estimation)"
-            },
-            "topics" : [
-               "health"
-            ]
-         },
-         "ingredient_6" : {
-            "elements" : [],
-            "level" : "info",
-            "size" : "small",
-            "title_element" : {
-               "title" : "— E100 : 2.6% (estimation)"
-            },
-            "topics" : [
-               "health"
-            ]
-         },
-         "ingredient_7" : {
-            "elements" : [],
-            "level" : "info",
-            "size" : "small",
-            "title_element" : {
-               "title" : "Émulsifiant : 2.6% (estimation)"
-            },
-            "topics" : [
-               "health"
-            ]
-         },
-         "ingredient_8" : {
-            "elements" : [],
-            "level" : "info",
-            "size" : "small",
-            "title_element" : {
-               "title" : "— Lécithine de soja : 2.6% (estimation)"
+               "title" : "test-ingredient : 25.0% (estimation)"
             },
             "topics" : [
                "health"
@@ -996,16 +209,10 @@
                   "text_element" : {
                      "edit_field_id" : "ingredients_text_en",
                      "edit_field_type" : "ingredients_text",
-                     "edit_field_value" : "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
-                     "html" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil, coloring: curcumin, emulsifier: soy lecithin",
+                     "edit_field_value" : "water, test_ingredient",
+                     "html" : "water, test_ingredient",
                      "language" : "Anglais",
                      "lc" : "en"
-                  }
-               },
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "<strong>Allergènes :</strong> \n                    en:Apple, Œufs, Lait, Soja\n                "
                   }
                },
                {
@@ -1022,7 +229,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/ingredients.svg",
-               "title" : "8 ingrédients"
+               "title" : "2 ingrédients"
             },
             "topics" : [
                "health"
@@ -1033,19 +240,19 @@
                {
                   "element_type" : "panel",
                   "panel_element" : {
-                     "panel_id" : "ingredients_analysis_en:palm-oil"
+                     "panel_id" : "ingredients_analysis_en:palm-oil-content-unknown"
                   }
                },
                {
                   "element_type" : "panel",
                   "panel_element" : {
-                     "panel_id" : "ingredients_analysis_en:non-vegan"
+                     "panel_id" : "ingredients_analysis_en:vegan-status-unknown"
                   }
                },
                {
                   "element_type" : "panel",
                   "panel_element" : {
-                     "panel_id" : "ingredients_analysis_en:vegetarian"
+                     "panel_id" : "ingredients_analysis_en:vegetarian-status-unknown"
                   }
                },
                {
@@ -1065,15 +272,21 @@
          "ingredients_analysis_details" : {
             "elements" : [
                {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "en: <span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>, <span>coloring</span> (<span>curcumin</span>), <span>emulsifier</span> (<span>soy lecithin</span>)"
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_analysis_help"
                   }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;13050 – percent_min:&nbsp;16.6666666666667 – percent_estimate:&nbsp;58.3333333333333 – percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;19051 – percent_min:&nbsp;0 – percent_estimate:&nbsp;20.8333333333333 – percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;22000 – percent_min:&nbsp;0 – percent_estimate:&nbsp;10.4166666666667 – percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil – vegan:&nbsp;yes – vegetarian:&nbsp;yes – from_palm_oil:&nbsp;yes – ciqual_food_code:&nbsp;16129 – percent_min:&nbsp;0 – percent_estimate:&nbsp;5.20833333333333 – percent_max:&nbsp;25</li>\n<li><span>coloring</span> -> en:colour – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;20<ol id=\"ordered_ingredients_list\">\n<li><span>curcumin</span> -> en:e100 – vegan:&nbsp;yes – vegetarian:&nbsp;yes – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;20</li>\n</ol>\n</li>\n<li><span>emulsifier</span> -> en:emulsifier – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;16.6666666666667<ol id=\"ordered_ingredients_list\">\n<li><span>soy lecithin</span> -> en:soya-lecithin – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;42200 – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;16.6666666666667</li>\n</ol>\n</li>\n</ol>\n"
+                     "html" : "en: <span>water</span>, <span class=\"text_info unknown_ingredient\">test_ingredient</span>"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>water</span> -> en:water – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;18066 – percent_min:&nbsp;50 – percent_estimate:&nbsp;75 – percent_max:&nbsp;100</li>\n<li><span class=\"text_info unknown_ingredient\">test_ingredient</span> -> en:test-ingredient – percent_min:&nbsp;0 – percent_estimate:&nbsp;25 – percent_max:&nbsp;50</li>\n</ol>\n"
                   }
                },
                {
@@ -1083,87 +296,129 @@
                   }
                }
             ],
-            "evaluation" : "unknown",
+            "evaluation" : "average",
             "level" : "info",
             "size" : "small",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/off-magnifying-glass.svg",
+               "subtitle" : "Nous avons besoin de votre aide !",
                "title" : "Détail de l'analyse des ingrédients"
             },
             "topics" : [
                "health"
             ]
          },
-         "ingredients_analysis_en:non-vegan" : {
+         "ingredients_analysis_en:palm-oil-content-unknown" : {
             "elements" : [
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Ingrédients non végétaliens :</strong>\n                    Lait, Œuf\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Ingrédients non reconnus :</strong>\n                    en:test-ingredient\n                \n                    ",
                      "type" : "summary"
                   }
-               }
-            ],
-            "evaluation" : "bad",
-            "level" : "info",
-            "size" : "small",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_size" : "small",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/leaf.svg",
-               "title" : "Non végétalien"
-            },
-            "topics" : [
-               "health"
-            ]
-         },
-         "ingredients_analysis_en:palm-oil" : {
-            "elements" : [
+               },
                {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                \n                    <strong>Ingrédients contenant de l'huile de palme :</strong>\n                    Huile de palme\n                \n                    ",
-                     "type" : "summary"
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_analysis_help"
                   }
                }
             ],
-            "evaluation" : "bad",
+            "evaluation" : "unknown",
             "level" : "info",
             "size" : "small",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
-               "title" : "Huile de palme"
+               "title" : "La présence d'huile de palme n'a pas été déterminée"
             },
             "topics" : [
                "health"
             ]
          },
-         "ingredients_analysis_en:vegetarian" : {
+         "ingredients_analysis_en:vegan-status-unknown" : {
             "elements" : [
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    Aucun ingrédient non végétarien détecté\n                    \n                \n                    ",
+                     "html" : "\n                \n                    <strong>Ingrédients non reconnus :</strong>\n                    en:test-ingredient\n                \n                    ",
                      "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_analysis_help"
                   }
                }
             ],
-            "evaluation" : "good",
+            "evaluation" : "unknown",
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/leaf.svg",
+               "title" : "Caractère végétalien inconnu"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredients_analysis_en:vegetarian-status-unknown" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                \n                    <strong>Ingrédients non reconnus :</strong>\n                    en:test-ingredient\n                \n                    ",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_analysis_help"
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
             "level" : "info",
             "size" : "small",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/vegetarian.svg",
-               "title" : "Végétarien"
+               "title" : "Caractère végétarien inconnu"
             },
             "topics" : [
                "health"
             ]
+         },
+         "ingredients_analysis_help" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p class=\"text_info\">Certains ingrédients n'ont pas été identifiés.</p>"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <h3>Nous avons besoin de votre aide !</h3>\n                <p>Vous pouvez nous aider à reconnaître d'autres ingrédients et à mieux analyser la liste des ingrédients pour ce produit et d'autres en :</p>\n                <ul>\n                    <li>Modifiez la page de ce produit pour corriger les fautes d'orthographe dans la liste des ingrédients, pour supprimer des ingrédients dans d'autres langues ou pour supprimer des phrases qui ne correspondent pas aux ingrédients.</li>\n                    <li>Ajoutez de nouvelles entrées, synonymes ou traductions à nos listes multilingues d'ingrédients, de méthodes de traitement des ingrédients, et de labels.</li>\n                </ul>\n                <p>Rejoignez le canal #ingredients dans <a href=\"https://slack.openfoodfacts.org\">notre espace de discussion Slack</a> et apprenez-en plus sur <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">l'analyse des ingrédients sur notre wiki</a>, si vous désirez nous aider. Merci !</p>                \n                ",
+                     "type" : "callout_info"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "topics" : [
+               "health"
+            ],
+            "type" : "inline"
          },
          "ingredients_list" : {
             "elements" : [
@@ -1177,42 +432,6 @@
                   "element_type" : "panel",
                   "panel_element" : {
                      "panel_id" : "ingredient_2"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "ingredient_3"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "ingredient_4"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "ingredient_5"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "ingredient_6"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "ingredient_7"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "ingredient_8"
                   }
                }
             ],
@@ -1228,15 +447,9 @@
          "nova" : {
             "elements" : [
                {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "recommendation_ultra_processed_foods"
-                  }
-               },
-               {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n\n    \n        \n            <p>Éléments qui indiquent que le produit est dans le groupe 4 - Produits alimentaires et boissons ultra-transformés :</p>\n            <ul>\n            \n                <li>Additif : E100 - Curcumine</li>\n            \n                <li>Additif : E322 - Lécithines</li>\n            \n                <li>Ingrédient : Colorant</li>\n            \n                <li>Ingrédient : Émulsifiant</li>\n            \n            </ul>\n        \n    \n\n"
+                     "html" : "\n\n    \n    \n\n"
                   }
                },
                {
@@ -1248,9 +461,154 @@
             ],
             "level" : "info",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
-               "subtitle" : "4 marqueurs d'ultra-transformation",
-               "title" : "Aliments ultra-transformés"
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
+               "title" : "Aliments non transformés ou minimalement transformés"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrient_level_fat" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<b>Ce que vous devez savoir</b>\n<ul>\n<li>Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques.</li>\n</ul>\n<br>\n<b>Recommandation</b> :\n<b>Réduire la consommation de matières grasses et d'acides gras saturés</b>\n<ul>\n<li>Choisissez des produits à faible teneur en matières grasses et acides gras saturés.</li>\n</ul>\n",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n",
+                     "source_language" : "en",
+                     "source_text" : "National Health Service UK (NHS) - Fat: the facts",
+                     "source_url" : "https://www.nhs.uk/live-well/eat-well/food-types/different-fats-nutrition/",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "half_width_on_mobile" : true,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/misc/moderate.svg",
+               "name" : "Matières grasses",
+               "title" : "Matières grasses en quantité modérée (8.5%)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrient_level_salt" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<b>Ce que vous devez savoir</b>\n<ul>\n<li>Une forte consommation de sel (ou de sodium) peut entraîner une augmentation de la pression artérielle, ce qui peut augmenter le risque de maladie cardiaque et d'accident vasculaire cérébral.</li>\n<li>De nombreuses personnes souffrant d'hypertension ne le savent pas, car il n'y a souvent aucun symptôme.</li>\n<li>La plupart des gens consomment trop de sel (en moyenne 9 à 12 grammes par jour), soit environ le double de l'apport maximal recommandé.</li>\n</ul>\n<br>\n<b>Recommandation</b> :\n<b>Limiter la consommation de sel et d'aliments salés</b>\n<ul>\n<li>Réduisez la quantité de sel utilisée lors de la cuisson et ne salez plus à table.</li>\n<li>Limitez la consommation de collations salées et choisissez des produits à faible teneur en sel.</li>\n</ul>\n",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n",
+                     "source_language" : "en",
+                     "source_text" : "World Health Organization (WHO) - Fact sheet - Salt reduction",
+                     "source_url" : "https://www.who.int/news-room/fact-sheets/detail/salt-reduction",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n",
+                     "source_language" : "en",
+                     "source_text" : "National Health Service UK (NHS) - Salt: the facts",
+                     "source_url" : "https://www.nhs.uk/live-well/eat-well/food-types/salt-nutrition/",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "good",
+            "half_width_on_mobile" : true,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/misc/low.svg",
+               "name" : "Sel",
+               "title" : "Sel en faible quantité (0.0502%)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrient_level_saturated-fat" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<b>Ce que vous devez savoir</b>\n<ul>\n<li>Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques.</li>\n</ul>\n<br>\n<b>Recommandation</b> :\n<b>Réduire la consommation de matières grasses et d'acides gras saturés</b>\n<ul>\n<li>Choisissez des produits à faible teneur en matières grasses et acides gras saturés.</li>\n</ul>\n",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n",
+                     "source_language" : "en",
+                     "source_text" : "National Health Service UK (NHS) - Fat: the facts",
+                     "source_url" : "https://www.nhs.uk/live-well/eat-well/food-types/different-fats-nutrition/",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "half_width_on_mobile" : true,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
+               "name" : "Acides gras saturés",
+               "title" : "Acides gras saturés en quantité élevée (5.6%)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrient_level_sugars" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<b>Ce que vous devez savoir</b>\n<ul>\n<li>Une forte consommation de sucre peut entraîner une prise de poids et des caries dentaires. Il augmente également le risque de diabète de type 2 et de maladies cardio-vasculaires.</li>\n</ul>\n<br>\n<b>Recommandation</b> :\n<b>Limiter la consommation de sucre et de boissons sucrées</b>\n<ul>\n<li>Les boissons sucrées (comme les sodas, les boissons aux fruits, les jus et nectars de fruits) doivent être limitées au maximum (pas plus d'un verre par jour).</li>\n<li>Choisissez des produits à faible teneur en sucre et réduisez la consommation de produits avec des sucres ajoutés.</li>\n</ul>\n",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n",
+                     "source_language" : "en",
+                     "source_text" : "National Health Service UK (NHS) - Sugar: the facts",
+                     "source_url" : "https://www.nhs.uk/live-well/eat-well/food-types/how-does-sugar-in-our-diet-affect-our-health/",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "half_width_on_mobile" : true,
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/misc/moderate.svg",
+               "name" : "Sucres",
+               "title" : "Sucres en quantité modérée (12.5%)"
             },
             "topics" : [
                "health"
@@ -1262,7 +620,12 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_group_id" : "nutrient_levels_group",
-                     "panel_ids" : []
+                     "panel_ids" : [
+                        "nutrient_level_fat",
+                        "nutrient_level_saturated-fat",
+                        "nutrient_level_sugars",
+                        "nutrient_level_salt"
+                     ]
                   }
                }
             ],
@@ -1284,18 +647,9 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Les données nutritionnelles du produit doivent être spécifiées afin de calculer le Nutri-Score.<p>Informations nutritionnelles manquantes : <b>Énergie, Matières grasses, Protéines, Acides gras saturés, Sodium, Sucres</b></p>\n                    ",
+                     "html" : "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la liste des ingrédients : 0\n                    ",
                      "type" : "warning"
                   }
-               },
-               {
-                  "action_element" : {
-                     "actions" : [
-                        "add_nutrition_facts"
-                     ],
-                     "html" : "Pourriez-vous ajouter les informations nécessaires pour calculer le Nutri-Score ?"
-                  },
-                  "element_type" : "action"
                },
                {
                   "element_type" : "panel",
@@ -1308,15 +662,192 @@
                   "panel_element" : {
                      "panel_id" : "nutriscore_description"
                   }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "evaluation" : "bad",
+                     "icon_color_from_evaluation" : true,
+                     "icon_size" : "small",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/circle-minus.svg",
+                     "panel_ids" : [
+                        "nutriscore_component_energy",
+                        "nutriscore_component_sugars",
+                        "nutriscore_component_saturated_fat",
+                        "nutriscore_component_salt"
+                     ],
+                     "title" : "Points négatifs : 9/55"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "evaluation" : "good",
+                     "icon_color_from_evaluation" : true,
+                     "icon_size" : "small",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/circle-plus.svg",
+                     "panel_ids" : [
+                        "nutriscore_component_proteins",
+                        "nutriscore_component_fiber",
+                        "nutriscore_component_fruits_vegetables_legumes"
+                     ],
+                     "title" : "Points positifs : 1/17"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutriscore_details"
+                  }
                }
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
-               "subtitle" : "Données nutritionnelles manquantes",
-               "title" : "Nutri-Score inconnu",
+               "grade" : "c",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-fr.svg",
+               "subtitle" : "Qualité nutritionnelle moyenne",
+               "title" : "Nutri-Score C",
                "type" : "grade"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_energy" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    Les apports énergétiques supérieurs aux besoins énergétiques sont associés à des risques accrus de prise de poids, de surpoids, d'obésité et, par conséquent, à un risque de maladies chroniques liées à l'alimentation.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-1-10.svg",
+               "subtitle" : "1/10 points (400kJ)",
+               "title" : "Énergie"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_fiber" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Consommer des aliments riches en fibres (notamment les aliments à grains entiers) réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-0-5.svg",
+               "subtitle" : "0/5 points (2g)",
+               "title" : "Fibre"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_fruits_vegetables_legumes" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Consommer des aliments riches en fruits, légumes et légumes secs réduit les risques de cancers aérodigestifs, de maladies cardiovasculaires, d’obésité et de diabète.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-0-5.svg",
+               "subtitle" : "0/5 points (0%)",
+               "title" : "Fruits, légumes et légumes secs"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_proteins" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    Les aliments riches en protéines sont généralement riches en calcium ou en fer, des minéraux essentiels aux nombreux bienfaits pour la santé.\n    \n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-positive-1-7.svg",
+               "subtitle" : "1/7 points (4.5g)",
+               "title" : "Protéines"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_salt" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    Une forte consommation de sel (ou de sodium) peut entraîner une augmentation de la pression artérielle, ce qui peut augmenter le risque de maladie cardiaque et d'accident vasculaire cérébral.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-0-20.svg",
+               "subtitle" : "0/20 points (0.05g)",
+               "title" : "Sel"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_saturated_fat" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    Une consommation élevée de matières grasses, en particulier d'acides gras saturés, peut augmenter le cholestérol, ce qui augmente le risque de maladies cardiaques.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-5-10.svg",
+               "subtitle" : "5/10 points (5.6g)",
+               "title" : "Acides gras saturés"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_component_sugars" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>\n    \n    Une forte consommation de sucre peut entraîner une prise de poids et des caries dentaires. Il augmente également le risque de diabète de type 2 et de maladies cardio-vasculaires.\n</p>\n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/points-negative-3-15.svg",
+               "subtitle" : "3/15 points (12.5g)",
+               "title" : "Sucres"
             },
             "topics" : [
                "health"
@@ -1343,6 +874,33 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
                "title" : "Qu'est ce que le Nutri-Score ?",
+               "type" : "info"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore_details" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la liste des ingrédients : 0\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n\n    <p>Ce produit n'est pas considéré comme une boisson pour le calcul du Nutri-Score.</p>\n\n\n\n\n\n<p>Les points pour les protéines sont comptés car les points négatifs sont inférieurs à 11.</p>\n\n<p>\n  <strong>Score nutritionnel : 8</strong>\n  (9 - 1)\n</p>\n<p><strong>Nutri-Score : C</strong></p>                \n                "
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/info.svg",
+               "title" : "Détail du calcul du Nutri-Score",
                "type" : "info"
             },
             "topics" : [
@@ -1393,13 +951,6 @@
                            "text" : "Tel que vendu<br>pour 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "Tel que vendu<br>par portion (10 g)",
-                           "text_for_small_screens" : "par portion",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -1409,10 +960,204 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
+                                 "text" : "Énergie"
+                              },
+                              {
+                                 "text" : "400 kJ<br>(140 kcal)"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
                                  "text" : "Matières grasses"
                               },
                               {
+                                 "text" : "8.5 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Acides gras saturés"
+                              },
+                              {
+                                 "text" : "5.6 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Glucides"
+                              },
+                              {
+                                 "text" : "10.5 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sucres"
+                              },
+                              {
+                                 "text" : "12.5 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fibres alimentaires"
+                              },
+                              {
+                                 "text" : "2 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Protéines"
+                              },
+                              {
+                                 "text" : "4.5 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sel"
+                              },
+                              {
+                                 "text" : "0.0502 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sodium"
+                              },
+                              {
+                                 "text" : "~ 0.02008 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fruits‚ légumes‚ légumes secs"
+                              },
+                              {
+                                 "text" : "~ 0 %"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Tableau nutritionnel"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutrition_facts_table_with_input_sets"
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/scale-balance.svg",
+               "title" : "Tableau nutritionnel"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrition_facts_table_with_input_sets" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "style" : "max-width:15rem",
+                           "text" : "Tableau nutritionnel",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Tel que vendu<br>pour 100 g / 100 ml",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Tel que vendu pour 100 g (packaging)",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Tel que vendu pour 100 g (estimate)",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "nutrition_facts_table_with_input_sets",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Énergie"
+                              },
+                              {
+                                 "text" : "400 kJ<br>(140 kcal)"
+                              },
+                              {
+                                 "text" : "400 kJ<br>(96 kcal)"
+                              },
+                              {
                                  "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Matières grasses"
+                              },
+                              {
+                                 "text" : "8.5 g"
+                              },
+                              {
+                                 "text" : "8.5 g"
                               },
                               {
                                  "text" : "?"
@@ -1427,7 +1172,10 @@
                                  "text" : "Acides gras saturés"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "5.6 g"
+                              },
+                              {
+                                 "text" : "5.6 g"
                               },
                               {
                                  "text" : "?"
@@ -1442,7 +1190,10 @@
                                  "text" : "Glucides"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "10.5 g"
+                              },
+                              {
+                                 "text" : "10.5 g"
                               },
                               {
                                  "text" : "?"
@@ -1457,7 +1208,10 @@
                                  "text" : "Sucres"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "12.5 g"
+                              },
+                              {
+                                 "text" : "12.5 g"
                               },
                               {
                                  "text" : "?"
@@ -1472,7 +1226,10 @@
                                  "text" : "Fibres alimentaires"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "2 g"
+                              },
+                              {
+                                 "text" : "2 g"
                               },
                               {
                                  "text" : "?"
@@ -1487,7 +1244,10 @@
                                  "text" : "Protéines"
                               },
                               {
-                                 "text" : "?"
+                                 "text" : "4.5 g"
+                              },
+                              {
+                                 "text" : "4.5 g"
                               },
                               {
                                  "text" : "?"
@@ -1502,6 +1262,27 @@
                                  "text" : "Sel"
                               },
                               {
+                                 "text" : "0.0502 g"
+                              },
+                              {
+                                 "text" : "50.2 mg"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sodium"
+                              },
+                              {
+                                 "text" : "~ 0.02008 g"
+                              },
+                              {
                                  "text" : "?"
                               },
                               {
@@ -1514,13 +1295,16 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)"
+                                 "text" : "Fruits‚ légumes‚ légumes secs"
                               },
                               {
-                                 "text" : "58,333 %"
+                                 "text" : "~ 0 %"
                               },
                               {
-                                 "text" : "58,333 %"
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "~ 0 %"
                               }
                            ]
                         }
@@ -1530,13 +1314,10 @@
                }
             ],
             "evaluation" : "unknown",
-            "expand_for" : "large",
             "expanded" : false,
             "level" : "info",
             "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/scale-balance.svg",
-               "title" : "Tableau nutritionnel"
+               "title" : "Tableau nutritionnel (Données détaillées)"
             },
             "topics" : [
                "health"
@@ -1752,14 +1533,7 @@
             ]
          },
          "product_card" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "raw_labels"
-                  }
-               }
-            ],
+            "elements" : [],
             "expanded" : true,
             "title_element" : {
                "title" : "Informations sur le produit"
@@ -1768,51 +1542,6 @@
                "product"
             ],
             "type" : "card"
-         },
-         "raw_labels" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n        <ul>\n            \n                <li><a href=\"http://world-fr.openfoodfacts.localhost/facets/labels/bio\">Bio</a></li>\n            \n        </ul>\n        "
-                  }
-               }
-            ],
-            "evaluation" : "neutral",
-            "expand_for" : "large",
-            "level" : "info",
-            "title_element" : {
-               "title" : "Labels, certifications, récompenses"
-            },
-            "topics" : [
-               "product"
-            ]
-         },
-         "recommendation_ultra_processed_foods" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                    Plusieurs études ont montré qu'une consommation plus faible d'aliments ultra-transformés est associée à un risque diminué de maladies chroniques non transmissibles, telles que l'obésité, l'hypertension et le diabète.\n                    ",
-                     "source_language" : "en",
-                     "source_text" : "Ultra-processed foods increase noncommunicable chronic disease risk",
-                     "source_url" : "https://pubmed.ncbi.nlm.nih.gov/34798466/",
-                     "type" : "quote"
-                  }
-               }
-            ],
-            "evaluation" : "bad",
-            "level" : "recommendation",
-            "title_element" : {
-               "evaluation" : "bad",
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/arrow-bottom-right-thick.svg",
-               "subtitle" : "Limiter les aliments ultra-transformés réduit le risque de maladies chroniques",
-               "title" : "Limiter les aliments ultra-transformés"
-            },
-            "topics" : [
-               "health"
-            ]
          },
          "report_problem_card" : {
             "elements" : [
@@ -1877,28 +1606,6 @@
                "health"
             ],
             "type" : "inline"
-         },
-         "threatened_species" : {
-            "elements" : [
-               {
-                  "element_type" : "text",
-                  "text_element" : {
-                     "html" : "\n                        <p>Les forêts tropicales d'Asie, d'Afrique et d'Amérique latine sont détruites pour créer et étendre les plantations de palmiers à huile. La déforestation contribue au changement climatique et met en danger des espèces telles que l'orang-outan, l'éléphant pygmée et le rhinocéros de Sumatra.</p> \n                        ",
-                     "type" : "summary"
-                  }
-               }
-            ],
-            "evaluation" : "bad",
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
-               "subtitle" : "Stimule la déforestation et menace des espèces telles que l'orang-outan",
-               "title" : "Contient de l'huile de palme"
-            },
-            "topics" : [
-               "environment"
-            ]
          }
       }
    },

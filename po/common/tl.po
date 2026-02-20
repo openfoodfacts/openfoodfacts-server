@@ -312,7 +312,7 @@ msgstr ""
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Filipino.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -1117,11 +1117,11 @@ msgstr ""
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "1 sangkap"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} (na) sangkap"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1157,11 +1157,11 @@ msgstr "Bilang ng mga sangkap"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Bilang ng mga kinikilalang sangkap"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "Bilang ng mga hindi nakikilalang sangkap"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1206,11 +1206,11 @@ msgstr "Mga produkto na hindi naglalaman ng sangkap %s"
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr ""
+msgstr "/images/misc/appstore/black/appstore_PH.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
+msgstr "I-download sa App Store"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1462,7 +1462,7 @@ msgstr "Ilipat ang mga imahe sa ibang produkto"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s (na) produkto"
 
 msgctxt "name"
 msgid "Name"
@@ -3238,7 +3238,7 @@ msgstr ""
 # Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr ""
+msgstr "Kunin ang app"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
@@ -5972,6 +5972,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Walang mga nasuring label"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Ang ilang mga benepisyo sa kapaligiran"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Mataas na benepisyo sa kapaligiran"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Napakataas na benepisyo sa kapaligiran"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -7622,7 +7638,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Ang mga kagustuhang iyon ay batay sa pag-unawa ng Open Food Facts sa listahan ng mga sangkap at palaging may posibilidad na hindi ito tumpak o kumpleto, palaging suriin ang produkto sa iyong sarili."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7680,4 +7696,36 @@ msgstr "Manufacturer suggested retail price (MSRP), hindi kasama ang mga diskwen
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Personalized na ari-arian"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Hindi naglalaman ng palm oil"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Maaaring naglalaman ng palm oil"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Mga label sa kapaligiran"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Nawawalang data"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Mataas na epekto"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Katamtamang epekto"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Mababang epekto"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Hindi nasuri ang epekto"
 

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -90,6 +90,8 @@ BEGIN {
 
 		&estimate_nutriscore_2021_milk_percent_from_ingredients
 		&estimate_nutriscore_2023_red_meat_percent_from_ingredients
+		&estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients
+		&estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients
 		&estimate_added_sugars_percent_from_ingredients
 
 		&has_specific_ingredient_property
@@ -122,6 +124,7 @@ use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Units qw/normalize_quantity/;
 use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
+use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
 
 use Encode;
 use Clone qw(clone);
@@ -209,7 +212,7 @@ my %may_contain_regexps = (
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti|Taip pat, gali būti|gali būti|dalių",
-	lv => "var saturēt|var saturé|sastāva var but|alergēni|pārpalikumi|dalinas",
+	lv => "alergēni|kupātdesiņa var|pārpalikumi|produkts var|dalinas|sastāva var but|var saturé|var satur[ēé]t",
 	mk => "Производот може да содржи|може да содржи",
 	nl =>
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar|Kan ook",
@@ -622,7 +625,10 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 			. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
 			. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
 			. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum
-			. $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';    # strings that can be ignored
+			. $ignore_strings_after_percent
+			. '|\s|\)|\]|\}|(?:'
+			. $symbols_regexp
+			. '))*';    # strings that can be ignored
 	}
 
 	return;
@@ -928,13 +934,17 @@ Add a percent_max value for salt and sugar ingredients, based on the nutrition f
 
 sub add_percent_max_for_ingredients_from_nutrition_facts ($product_ref) {
 
-	# Check if we have values for salt and sugar in the nutrition facts
+	# If the preperation for the nutrition aggregated set is "as_sold",
+	# we check if we have values for salt and sugar in the nutrition facts (with a source different than "estimate")
+	# In that case we can set max values for any ingredient or sub-ingredient that is (or is a child of) sugar or salt.
+
 	my @ingredient_max_values = ();
-	my $sugars_100g = deep_get($product_ref, qw(nutriments sugars_100g));
+
+	my $sugars_100g = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sugars");
 	if (defined $sugars_100g) {
 		push @ingredient_max_values, {ingredientid => "en:sugar", value => $sugars_100g};
 	}
-	my $salt_100g = deep_get($product_ref, qw(nutriments salt_100g));
+	my $salt_100g = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "salt");
 	if (defined $salt_100g) {
 		push @ingredient_max_values, {ingredientid => "en:salt", value => $salt_100g};
 	}
@@ -1369,12 +1379,13 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		hr => "(?:zemlja (?:porijekla|podrijetla|podrijetlo|porekla)|uzgojeno u)",
 		hu => "(?:származási (?:hely|ország))",
 		it => "(?:paese di (?:molitura|coltivazione del grano))",
+		lv => "(?:izcelsmes valsts)",
 		mk => "(?:земја на потекло)",
 		pl => "(?:kraj pochodzenia)",
 		ro => "(?:tara de origine)",
 		rs => "(?:zemlja porekla)",
 		sl => "(?:(?:država|krajina) porekla|gojeno(?: v))",
-		sv => "(?:ursprung)",
+		sv => "(?:ursprung|odlade inom)",
 		uk => "(?:kраїна походження)",
 	);
 
@@ -1807,7 +1818,9 @@ sub select_ingredients_lc ($product_ref) {
 	my @ingredients_text_fields = sort grep {/^ingredients_text_(\w\w)$/} (keys %$product_ref);
 
 	# Put the main language first
-	unshift @ingredients_text_fields, "ingredients_text_" . $product_ref->{lc};
+	if (defined $product_ref->{lc}) {    # Should always be defined, except in old unit tests
+		unshift @ingredients_text_fields, "ingredients_text_" . $product_ref->{lc};
+	}
 
 	$log->debug("select_ingredients_lc - ingredients_text_fields",
 		{ingredients_text_fields => \@ingredients_text_fields})
@@ -2636,8 +2649,8 @@ Text to analyze
 				}
 
 				# remove * and other chars before and after the name of ingredients
-				$ingredient =~ s/(\s|\*|\)|\]|\}|$stops|$dashes|')+$//;
-				$ingredient =~ s/^(\s|\*|\)|\]|\}|$stops|$dashes|')+//;
+				$ingredient =~ s/(\s|$symbols_regexp|\)|\]|\}|$stops|$dashes|')+$//;
+				$ingredient =~ s/^(\s|$symbols_regexp|\)|\]|\}|$stops|$dashes|')+//;
 
 				$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
@@ -3505,9 +3518,6 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 		else {
 			estimate_ingredients_percent_service($product_ref, {}, []);
 		}
-
-		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
-		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
 	}
 	else {
 		remove_fields(
@@ -3516,20 +3526,6 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 				# assign_property_to_ingredients - may have been introduced in previous version
 				"ingredients_without_ciqual_codes",
 				"ingredients_without_ciqual_codes_n",
-			]
-		);
-		remove_fields(
-			$product_ref->{nutriments},
-			[
-				# estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients - may have been introduced in previous version
-				"fruits-vegetables-nuts-estimate-from-ingredients_100g",
-				"fruits-vegetables-nuts-estimate-from-ingredients_serving",
-				"fruits-vegetables-legumes-estimate-from-ingredients_100g",
-				"fruits-vegetables-legumes-estimate-from-ingredients_serving",
-				"fruits-vegetables-nuts-estimate-from-ingredients-prepared_100g",
-				"fruits-vegetables-nuts-estimate-from-ingredients-prepared_serving",
-				"fruits-vegetables-legumes-estimate-from-ingredients-prepared_100g",
-				"fruits-vegetables-legumes-estimate-from-ingredients-prepared_serving",
 			]
 		);
 	}
@@ -5703,6 +5699,9 @@ my %phrases_after_ingredients_list = (
 	lv => [
 		'uzglabāt (sausā|vēsā)',    # keep in dry place
 		'analītiskā sastāva',    # pet food
+		'ieteicams līdz',    # recommended until
+		'pēc iepakojuma atvēršanas izlietot',    # use after opening the package
+		'Chocolate contains',    # chocolate contains
 	],
 
 	mk => [
@@ -6046,7 +6045,7 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 	if (defined $phrases_after_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
-			if ($text =~ /\*?\s*\b$regexp\b(.*)$/is) {
+			if ($text =~ /(?:$symbols_regexp)?\s*\b$regexp\b(.*)$/is) {
 				$text = $`;
 				$log->debug("removed phrases_after_ingredients_list", {removed => $1, kept => $text, regexp => $regexp})
 					if $log->is_debug();
@@ -8315,7 +8314,7 @@ sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 	return ($percent, $water_percent);
 }
 
-=head2 estimate_ingredients_matching_function ( $product_ref, $match_function_ref, $nutrient_id = undef )
+=head2 estimate_ingredients_matching_function ( $product_ref, $match_function_ref)
 
 This function analyzes the ingredients to estimate the percentage of ingredients of a specific type
 (e.g. fruits/vegetables/legumes for the Nutri-Score).
@@ -8328,17 +8327,13 @@ This function analyzes the ingredients to estimate the percentage of ingredients
 
 Reference to a function that matches specific ingredients (e.g. fruits/vegetables/legumes)
 
-=head4 $nutrient_id (optional)
-
-If the $nutrient_id argument is defined, we also store the nutrient value in $product_ref->{nutriments}.
-
 =head3 Return value
 
 Estimated percentage of ingredients matching the function.
 
 =cut
 
-sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $nutrient_id = undef) {
+sub estimate_ingredients_matching_function ($product_ref, $match_function_ref) {
 
 	my ($percent, $water_percent);
 
@@ -8383,17 +8378,6 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $
 			and ((not defined $percent) or ($specific_ingredients_percent > $percent)))
 		{
 			$percent = $specific_ingredients_percent;
-		}
-	}
-
-	if (defined $nutrient_id) {
-		if (defined $percent) {
-			$product_ref->{nutriments}{$nutrient_id . "_100g"} = $percent;
-			$product_ref->{nutriments}{$nutrient_id . "_serving"} = $percent;
-		}
-		elsif (defined $product_ref->{nutriments}) {
-			delete $product_ref->{nutriments}{$nutrient_id . "_100g"};
-			delete $product_ref->{nutriments}{$nutrient_id . "_serving"};
 		}
 	}
 
@@ -8449,17 +8433,13 @@ fruits, vegetables, nuts, olive / walnut / rapeseed oil, so that we can compute
 the Nutri-Score fruit points if we don't have a value given by the manufacturer
 or estimated by users.
 
-Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} (and _serving)
+This function is called by ProductOpener::Nutrition::compute_estimated_nutrients ($product_ref)
 
 =cut
 
 sub estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ($product_ref) {
 
-	return estimate_ingredients_matching_function(
-		$product_ref,
-		\&is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils,
-		"fruits-vegetables-nuts-estimate-from-ingredients"
-	);
+	return estimate_ingredients_matching_function($product_ref, \&is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils);
 
 }
 
@@ -8587,7 +8567,7 @@ sub is_fruits_vegetables_legumes_for_fat_oil_nuts_seed ($ingredient_id, $process
 This function analyzes the ingredients to estimate the minimum percentage of
 fruits, vegetables, legumes, so that we can compute the Nutri-Score (2023) fruit points.
 
-Results are stored in $product_ref->{nutriments}{"fruits-vegetables-legumes-estimate-from-ingredients_100g"} (and _serving)
+This function is called by ProductOpener::Nutrition::compute_estimated_nutrients ($product_ref)
 
 =cut
 
@@ -8602,9 +8582,7 @@ sub estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients 
 		$matching_function_ref = \&is_fruits_vegetables_legumes;
 	}
 
-	return estimate_ingredients_matching_function($product_ref, $matching_function_ref,
-		"fruits-vegetables-legumes-estimate-from-ingredients",
-	);
+	return estimate_ingredients_matching_function($product_ref, $matching_function_ref);
 }
 
 =head2 is_milk ( $ingredient_id, $processing = undef )
@@ -8680,7 +8658,6 @@ sub estimate_added_sugars_percent_from_ingredients ($product_ref) {
 			my ($ingredient_id, $processing) = @_;
 			return is_a("ingredients", $ingredient_id, "en:added-sugar");
 		},
-		#"added-sugars-estimate-from-ingredients"
 	);
 }
 

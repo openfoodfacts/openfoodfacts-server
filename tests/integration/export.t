@@ -116,6 +116,9 @@ my $separator = "\t";
 # Export database script to generate CSV exports of the whole database
 # Note: the test update seems to fail if the expected results files already exist.
 # remove tests/integration/expected_test_results/export_database/ before updating expected results.
+if ($update_expected_results) {
+	#remove_tree($expected_result_dir . "/export_database");
+}
 
 # unlink CSV export if it exists, and launch script
 my $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/en.$server_domain.products.csv";
@@ -123,7 +126,7 @@ unlink($csv_filename) if -e $csv_filename;
 
 my $script_out = `perl scripts/export_database.pl`;
 
-ProductOpener::Test::compare_csv_file_to_expected_results($csv_filename, $expected_result_dir . "_database",
+ProductOpener::Test::compare_csv_file_to_expected_results($csv_filename, $expected_result_dir . "/export_database",
 	$update_expected_results, "export_database");
 
 # CSV export
@@ -148,13 +151,15 @@ open($exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not c
 $export_args_ref->{filehandle} = $exported_csv;
 $export_args_ref->{export_computed_fields} = 1;
 $export_args_ref->{export_canonicalized_tags_fields} = 1;
+$export_args_ref->{export_nutrition_aggregated_set} = 1;
 $export_args_ref->{include_images_paths} = 1;
 
 export_csv($export_args_ref);
 
 close($exported_csv);
 
-ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, "${expected_result_dir}_more_fields",
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file,
+	"${expected_result_dir}/export_more_fields",
 	$update_expected_results, "csv-export-more-fields");
 
 done_testing();

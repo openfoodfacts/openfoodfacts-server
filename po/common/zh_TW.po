@@ -927,7 +927,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -2405,7 +2405,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "國家"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2903,7 +2903,7 @@ msgstr "合作伙伴"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr "/合作夥伴"
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
@@ -3807,7 +3807,7 @@ msgstr "潛在提升"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -5977,6 +5977,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "未評估標籤"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "一些環境效益"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "高環境效益"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "極高的環境效益"
+
 msgctxt "other"
 msgid "Other"
 msgstr "其它"
@@ -7627,7 +7643,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "這些偏好是基於 Open Food Facts 對成分錶的理解，並且始終存在不準確或不完整的可能性，請務必親自檢查產品。"
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7685,4 +7701,36 @@ msgstr "廠商建議零售價（MSRP），不含折扣和促銷活動，以產�
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "個人財產"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "不含棕櫚油"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "可能含有棕櫚油"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "環境標籤"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "缺失資料"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "高影響力"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "中等影響"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "低影響"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "影響尚未評估"
 

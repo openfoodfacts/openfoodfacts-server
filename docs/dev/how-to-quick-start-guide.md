@@ -119,6 +119,19 @@ If you use Docker Desktop:
 - ensure you allow enough memory for your VMs (at least 4G)
 - ensure you Enabled host networking (in Resources / Network)
 
+#### macOS Users: Use VirtioFS to Avoid File Sync Issues
+
+If you're on macOS and run into "missing taxonomy files" errors when running `make dev`, the culprit is usually Docker's file sharing being a bit slow. Switching to VirtioFS fixes this:
+
+1. Open **Docker Desktop** and go to **Settings** (the gear icon)
+2. Head to **Resources** → **File Sharing**
+3. Select **VirtioFS** under "Virtual file shares"
+4. Hit **Apply & Restart**
+
+VirtioFS is way faster than the default and should sort out any timing issues. You'll need macOS 12.5 or later for this to work.
+
+Still having trouble? Try bumping up Docker's resources—6-8 GB of memory and 4+ CPU cores usually does the trick.
+
 
 ## 2. Fork and clone the repository from GitHub
 
