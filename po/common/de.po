@@ -2409,7 +2409,7 @@ msgstr "Das Produkt erneut bearbeiten"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5980,6 +5980,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etiketten mit sehr starken Umweltvorteilen"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Keine bewerteten Etiketten"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Einige Vorteile für die Umwelt"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Hoher Umweltnutzen"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Sehr hoher ökologischer Nutzen"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Weitere"
@@ -7630,7 +7646,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Diese Präferenzen basieren auf dem Verständnis der Zutatenliste durch Open Food Facts und es besteht immer die Möglichkeit, dass diese nicht genau oder vollständig ist. Überprüfen Sie das Produkt immer selbst."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7688,4 +7704,36 @@ msgstr "Unverbindliche Preisempfehlung des Herstellers (UVP), ohne Rabatte und S
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Personalisierte Immobilie"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Enthält kein Palmöl"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Kann Palmöl enthalten"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Umweltlabel"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Fehlende Daten"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Hohe Wirkung"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Mittlere Auswirkungen"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Geringe Auswirkungen"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Auswirkungen nicht bewertet"
 

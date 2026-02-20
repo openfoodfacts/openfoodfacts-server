@@ -2409,7 +2409,7 @@ msgstr "Redaguoti produktą dar kartą"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Šalis"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5981,6 +5981,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Labai didelę naudą aplinkai teikiančios etiketės"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Nėra įvertintų etikečių"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Kai kurie aplinkosauginiai privalumai"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Didelė nauda aplinkai"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Labai didelė nauda aplinkai"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Kita"
@@ -7631,7 +7647,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Šie pageidavimai pagrįsti „Open Food Facts“ supratimu apie ingredientų sąrašą ir visada yra tikimybė, kad jis gali būti netikslus ar neišsamus, todėl visada patikrinkite produktą patys."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7689,4 +7705,36 @@ msgstr "Gamintojo siūloma mažmeninė kaina (MSRP) be nuolaidų ir akcijų, kai
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Personalizuotas turtas"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Sudėtyje nėra palmių aliejaus"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Gali būti palmių aliejaus"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Aplinkosaugos ženklai"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Trūkstami duomenys"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Didelis poveikis"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Vidutinis poveikis"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Mažas poveikis"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Poveikis neįvertintas"
 

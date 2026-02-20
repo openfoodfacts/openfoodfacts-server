@@ -2410,7 +2410,7 @@ msgstr "Изменить продукт еще раз"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Страна"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5982,6 +5982,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Этикетки с очень высоким уровнем положительного воздействия на экологию"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Нет оцененных этикеток"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Некоторые экологические преимущества"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Высокие экологические преимущества"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Очень высокая экологическая выгода"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Прочее"
@@ -7633,36 +7649,36 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Эти предпочтения основаны на понимании Open Food Facts списка ингредиентов, и всегда существует вероятность, что он может быть неточным или неполным, всегда проверяйте продукт самостоятельно."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
-msgstr ""
+msgid "Suffering Footprint"
+msgstr "Отпечаток страданий"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
-msgstr ""
+msgstr "Индикатор страдания животных, рассчитанный по продукту"
 
 msgctxt "section_animal_welfare_title"
 msgid "Animal welfare"
-msgstr ""
+msgstr "Благополучие животных"
 
 msgctxt "external_panels"
 msgid "External Knowledge Panels"
-msgstr ""
+msgstr "Панели внешних знаний"
 
 msgctxt "external_panel_unavailable"
 msgid "Panel unavailable"
-msgstr ""
+msgstr "Панель недоступна"
 
 msgctxt "external_panel_unavailable_for_product"
 msgid "Panel unavailable for this product"
-msgstr ""
+msgstr "Панель недоступна для этого товара"
 
 msgctxt "external_sources"
 msgid "External sources"
-msgstr ""
+msgstr "Внешние источники"
 
 msgctxt "provided_by"
 msgid "Provided by"
-msgstr ""
+msgstr "Предоставлено"
 
 msgctxt "recommendation_eu_tobacco_health_warning_title"
 msgid "Smoking kills"
@@ -7691,4 +7707,36 @@ msgstr "Рекомендованная производителем рознич
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Персонализированная собственность"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Не содержит пальмового масла."
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Может содержать пальмовое масло"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Экологические этикетки"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Отсутствующие данные"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Большое влияние"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Средний удар"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Низкое воздействие"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Воздействие не оценивалось."
 

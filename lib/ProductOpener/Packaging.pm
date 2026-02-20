@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -142,10 +142,6 @@ sub init_packaging_taxonomies_regexps() {
 
 		$packaging_taxonomies_regexps{$taxonomy}
 			= generate_regexps_matching_taxonomy_entries($taxonomy, "list_of_regexps", {});
-
-		$log->debug("init_packaging_taxonomies_regexps - result",
-			{taxonomy => $taxonomy, packaging_taxonomies_regexps => $packaging_taxonomies_regexps{$taxonomy}})
-			if $log->is_debug();
 	}
 
 	return;

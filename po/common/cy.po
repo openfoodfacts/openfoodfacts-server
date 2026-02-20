@@ -530,7 +530,7 @@ msgstr ""
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "gwlad"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -2392,7 +2392,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Gwlad"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5963,6 +5963,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Dim labeli wedi'u hasesu"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Rhai manteision amgylcheddol"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Manteision amgylcheddol uchel"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Manteision amgylcheddol uchel iawn"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -7613,7 +7629,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Mae'r dewisiadau hynny'n seiliedig ar ddealltwriaeth Open Food Facts o'r rhestr gynhwysion ac mae yna bob amser bosibilrwydd nad yw'n gywir nac yn gyflawn, gwiriwch y cynnyrch eich hun bob amser."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7671,4 +7687,36 @@ msgstr "Pris manwerthu awgrymedig y gwneuthurwr (MSRP), ac eithrio gostyngiadau 
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Eiddo personol"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Nid yw'n cynnwys olew palmwydd"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Gall gynnwys olew palmwydd"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Labeli amgylcheddol"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Data ar goll"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Effaith uchel"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Effaith ganolig"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Effaith isel"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Effaith heb ei hasesu"
 

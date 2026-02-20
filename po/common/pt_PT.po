@@ -598,7 +598,7 @@ msgstr "Fazer um donativo ao Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-pt.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://world-pt.openfoodfacts.org/fazer-um-donativo-ao-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -2407,7 +2407,7 @@ msgstr "Editar o produto novamente"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5979,6 +5979,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etiquetas com elevados benefícios ambientais"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Sem rótulos avaliados"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Alguns benefícios ambientais"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Altos benefícios ambientais"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Altíssimos benefícios ambientais"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Outro"
@@ -7629,7 +7645,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Estas preferências baseiam-se no entendimento da Open Food Facts sobre a lista de ingredientes e existe sempre a possibilidade de não ser precisa ou completa. Verifique sempre o produto por si."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7687,4 +7703,36 @@ msgstr "Preço de venda sugerido pelo fabricante (PVP), excluindo descontos e pr
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Propriedade personalizada"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Não contém óleo de palma."
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Pode conter óleo de palma."
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Rótulos ambientais"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Dados em falta"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Alto impacto"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Impacto médio"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Baixo impacto"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Impacto não avaliado"
 

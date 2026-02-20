@@ -28,7 +28,7 @@ my %product_fields = (
 	origin => "france",
 	serving_size => "10g",
 	packaging_text => "Plastic box, paper lid",
-	nutriment_salt_value => "1.1",
+	nutriment_salt => "1.1",
 	nutriment_salt_unit => "g",
 );
 

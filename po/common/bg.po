@@ -945,7 +945,7 @@ msgstr "Условия за ползване"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -2410,7 +2410,7 @@ msgstr "Редактирай продукта отново"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Страна"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -5982,6 +5982,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Етикети с много високи ползи за околната среда"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Няма оценени етикети"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Някои ползи за околната среда"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Високи ползи за околната среда"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Много високи ползи за околната среда"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Друго"
@@ -7632,7 +7648,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Тези предпочитания се основават на разбирането на Open Food Facts за списъка със съставки и винаги има вероятност той да не е точен или пълен, винаги проверявайте продукта сами."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7690,4 +7706,36 @@ msgstr "Препоръчителна цена на дребно от произ�
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Персонализирана собственост"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Не съдържа палмово масло"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Може да съдържа палмово масло"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Екологични етикети"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Липсващи данни"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Силно въздействие"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Средно въздействие"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Ниско въздействие"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Въздействието не е оценено"
 
