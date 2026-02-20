@@ -973,7 +973,7 @@ sub create_qfdmo_fr_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 	my $panel_data_ref = {};
 
 	# Only available for the product_type "product" (Open Products Facts)
-	if ($options_ref->{product_type} ne "product") {
+	if ($options{product_type} ne "product") {
 		return 0;
 	}
 
@@ -1148,7 +1148,7 @@ sub create_epargnonsnosressources_panel ($product_ref, $target_lc, $target_cc, $
 	my $panel_data_ref = {};
 
 	# Only available for the product_type "product"
-	if ($options_ref->{product_type} ne "product") {
+	if ($options{product_type} ne "product") {
 		return 0;
 	}
 

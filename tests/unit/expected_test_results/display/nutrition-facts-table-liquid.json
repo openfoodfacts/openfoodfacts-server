@@ -3,6 +3,7 @@
       "header" : {
          "columns" : [
             {
+               "class" : "product",
                "col_id" : "as_sold_100ml",
                "name" : "As sold<br>for 100 g / 100 ml",
                "per" : "100ml",
@@ -18,7 +19,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:energyPer100g\" content=\"0\"",
                   "type" : "normal",
@@ -32,7 +33,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:fatPer100g\" content=\"0\"",
                   "type" : "normal",
@@ -46,7 +47,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -60,7 +61,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:carbohydratesPer100g\" content=\"0\"",
                   "type" : "normal",
@@ -74,7 +75,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -88,7 +89,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -102,7 +103,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:proteinsPer100g\" content=\"0\"",
                   "type" : "normal",
@@ -116,7 +117,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:saltPer100g\" content=\"3.75\"",
                   "type" : "normal",
@@ -130,7 +131,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
