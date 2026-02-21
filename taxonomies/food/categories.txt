@@ -73742,6 +73742,7 @@ nl: Oreganoplanten in pot
 < en:Aromatic herbs
 en: Parsley
 bg: Магданоз
+da: Persille
 de: Petersilie
 es: Perejil
 fi: persilja
@@ -73753,18 +73754,21 @@ la: Petroselinum crispum
 lt: Petražolės
 nl: Peterselie
 pl: Pietruszka
+sv: Persilja
 tr: Maydanoz
-#wikidata:en:Q65522500
 agribalyse_proxy_food_code:en: 11014
 agribalyse_proxy_food_name:en: Parsley, fresh
 agribalyse_proxy_food_name:fr: Persil, frais
+comment:en: Wikidata item Q25284 is the biological taxon where Q65522500 is for “parsley-as-a-herb”.
 sales_format:en: weight, package, unit
 wikidata:en: Q25284
+#wikidata:en: Q65522500
 
 < en:Fresh aromatic plants
 < en:Parsley
 en: Fresh parsley
 bg: Пресен магданоз
+da: Frisk persille
 de: Frische Petersilie
 es: Perejil fresco
 fr: Persil frais
@@ -73772,6 +73776,7 @@ hr: Svježi peršin
 lt: Šviežios petražolės
 nl: Verse peterselie
 pl: Pietruszka świeża
+sv: Färsk persilja
 agribalyse_food_code:en: 11014
 ciqual_food_code:en: 11014
 ciqual_food_name:en: Parsley, fresh
@@ -73780,6 +73785,7 @@ ciqual_food_name:fr: Persil, frais
 < en:Frozen aromatic plants
 < en:Parsley
 en: Frozen parsley
+da: Frossen persille
 de: Petersilie gefroren
 es: Perejil congelado
 fr: Persil surgelé
@@ -73787,14 +73793,22 @@ hr: Smrznuti peršin
 lt: Šaldytos petražolės
 nl: Bevroren peterselie
 pl: Pietruszka mrożona
+sv: Fryst persilja
+
+< en:Frozen parsley
+en: Frozen chopped parsley
+da: Frossen hakket persille
+sv: Fryst hackad persilja
 
 < en:Dried aromatic plants
 < en:Parsley
 en: Dried parsley
+da: Tørret persille
 fr: Persil séché
 hr: Sušeni peršin
 lt: Džiovintos petražolės
 pl: Pietruszka suszona
+sv: Torkad persilja
 agribalyse_food_code:en: 11024
 ciqual_food_code:en: 11024
 ciqual_food_name:en: Parsley, dried
@@ -73807,6 +73821,7 @@ expected_ingredients:en: en:flatleaf parsley
 < en:Ground dried aromatic plants
 < en:Parsley
 en: Ground dried parsley, Parsley flakes
+da: Malet tørret persille
 de: Petersilie gerebelt
 es: Perejil seco molido
 fr: Persil séché moulu
@@ -73814,10 +73829,16 @@ hr: Samljeveni suhi peršin
 lt: Džiovintis maltos petražolės
 nl: Gemalen gedroogde peterselie
 pl: Pietruszka suszona mielona
+sv: Malad torkad persilja
+agribalyse_proxy_food_code:en: 11024
+ciqual_proxy_food_code:en: 11024
+ciqual_proxy_food_name:en: Parsley, dried
+ciqual_proxy_food_name:fr: Persil, séché
 
 < en:Lyophilized aromatic plants
 < en:Parsley
 en: Lyophilized parsley, Freeze-dried parsley
+da: Frysetørret persille
 de: Gefriergetrocknete Petersilie
 es: Perejil liofilizado
 fr: Persil lyophilisée
@@ -73825,16 +73846,19 @@ hr: Liofilizirani peršin
 lt: Šalčiu džiovintos petražolės
 nl: Gevriesdroogde peterselie
 pl: Pietruszka liofilizowana
+sv: Frystorkad persilja
 
 < en:Parsley
 < en:Potted aromatic plants
 en: Potted parsley
+da: Persille i krukke
 es: Macetas de perejil, Perejil en maceta
 fr: Persil en pot
 hr: Peršin u posudi
 lt: Petražolės vazonėlyje
 nl: Peterselieplanten in pot
 pl: Pietruszka w doniczce
+sv: Persilja i kruka
 
 < en:Aromatic herbs
 en: Rosemary
