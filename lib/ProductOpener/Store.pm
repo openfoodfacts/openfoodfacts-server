@@ -597,7 +597,7 @@ sub remove_object($path) {
 	return;
 }
 
-=head2 object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef, $skip_until_path = undef)
+=head2 object_iter($base_path, $name_pattern = undef, $exclude_path_pattern = undef, $skip_until_path = undef)
 
 Iterates over the path returning a cursor that can return object paths whose
 name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern.
