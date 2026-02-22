@@ -242,6 +242,10 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 	if ($panel_is_requested->('product_card')) {
 		$has_product_card = create_product_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
+	my $has_website_panel;
+    if ($panel_is_requested->('website')) {
+    	$has_website_panel = create_website_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
 
 	my $has_environment_card;
 	if ($panel_is_requested->('environment_card')) {
@@ -1806,6 +1810,29 @@ sub create_nova_panel ($product_ref, $target_lc, $target_cc, $options_ref, $requ
 
 	}
 	return;
+}
+=head2 create_website_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates a knowledge panel to display the product website URL.
+
+=cut
+
+sub create_website_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+    $log->debug("create website panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+    if (defined $product_ref->{website} && $product_ref->{website} ne '') {
+        my $panel_data_ref = {
+            website => $product_ref->{website},
+        };
+        create_panel_from_json_template(
+            "website",
+            "api/knowledge-panels/product/website.tt.json",
+            $panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+        );
+        return 1;
+    }
+    return 0;
 }
 
 1;

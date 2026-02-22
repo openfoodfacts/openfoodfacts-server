@@ -1,0 +1,40 @@
+{
+    "elements": [
+      {
+        "element_type": "text",
+        "text_element": {
+          "html": ``<a href="[% panel.website %]">[% panel.website %]</a>``
+        }
+      }
+    ],
+    "level": "info",
+    "parent_panel_id": "product_card",
+    "type": "raw"
+  }
+  ```
+  
+  ### What each part means
+  
+  **`[% panel.website %]`**
+  This is Template Toolkit syntax (Perl's templating system). `panel` refers to the `$panel_data_ref` hash you passed in Step 1, and `.website` accesses the `website` key from it. So it gets replaced at runtime with the actual URL like `https://www.someproduct.com`.
+  
+  **The double backticks ` `` ` around the HTML**
+  As explained in the `create_panel_from_json_template` docs in the file itself, double backticks mean "convert this multiline string, removing line breaks and extra spaces." It's a special feature of this project's template system, not standard JSON. You must use it for any HTML string in these templates.
+  
+  **`"element_type": "text"`**
+  Tells the mobile app / frontend that this element contains text/HTML.
+  
+  **`"level": "info"`**
+  Visual styling level. Other panels use `"info"`, `"warning"`, `"trivia"` etc.
+  
+  **`"parent_panel_id": "product_card"`**
+  Tells the system this panel belongs under the product card section.
+  
+  **`"type": "raw"`**
+  This is the key part matching the issue title — "Raw Knowledge Panel". It means the data is exposed as-is without special formatting.
+  
+  ### How to verify it works
+  
+  Look at an existing simple template like:
+  ```
+  templates/api/knowledge-panels/environment/manufacturing_place.tt.json
