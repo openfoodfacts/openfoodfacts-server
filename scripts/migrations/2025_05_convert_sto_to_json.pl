@@ -34,28 +34,28 @@ use ProductOpener::Checkpoint;
 # Add a "resume" argument to resume from the last checkpoint
 my $checkpoint = ProductOpener::Checkpoint->new;
 my $last_processed_path = $checkpoint->{value};
-my $can_process = $last_processed_path ? 0 : 1;
 
 my $count = 0;
 # Note intentionally use object_iter here rather than product_iter so we get all excluded paths too
-my $next = object_iter($BASE_DIRS{PRODUCTS});
+my $next = object_iter($BASE_DIRS{PRODUCTS}, undef, undef, $last_processed_path);
 while (my $path = $next->()) {
-	if (not $can_process) {
-		if ($path eq $last_processed_path) {
-			$can_process = 1;
-		}
+	if ($path eq $last_processed_path) {
 		next;    # we don't want to process the product again
 	}
 	next if ($path =~ /.*scans$/);    # We expect scans to not have an STO file
 									  # print "$path\n";
+
 	store_object($path, retrieve_object($path));
-$count++;
-if ($count % 1000 == 0) {
-    print "Updated $count files.\n";
+
+	# Sleep for a bit so we don't overwhelm the server
+	select(undef, undef, undef, 0.002);
+	$count++;
+	if ($count % 1000 == 0) {
+		$checkpoint->log("Updated $count files. Just did $path");
+	}
+
+	# Update checkpoint only after successful processing
+	$checkpoint->update($path);
 }
 
-# Update checkpoint only after successful processing
-$checkpoint->update($path);
-
-}
-print "Updated $count files.\n";
+$checkpoint->log("Updated $count files.");

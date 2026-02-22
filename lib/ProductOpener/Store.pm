@@ -617,6 +617,13 @@ sub object_iter($base_path, $name_pattern = undef, $exclude_path_pattern = undef
 				# Sort files so that we always explore them in the same order (useful for tests)
 				my @candidates = sort readdir(DIR);
 				closedir(DIR);
+				my $skip_until;
+				# If this is a subset of the skip path then we want to skip all files up to the
+				# next part of the skip path
+				if (defined $skip_until_path and $skip_until_path =~ /^\Q$current_dir\E\/([^\/]*)/) {
+					$skip_until = $1;
+				}
+				my @sub_dirs = ();
 				my $last_name = '';
 				foreach my $file (@candidates) {
 					# avoid ..
@@ -624,15 +631,10 @@ sub object_iter($base_path, $name_pattern = undef, $exclude_path_pattern = undef
 					# avoid conflicting-codes and invalid-codes
 					next if $exclude_path_pattern and $file =~ $exclude_path_pattern;
 					my $path = "$current_dir/$file";
-					#print STDERR "skip_until_path: $skip_until_path - current: $path\n";
-					# If the path is < $skip_until_path then skip it unless $path is the beginning of the $skip_until_path (i.e. we are skipping a directory and this is the first file in the directory)
-					next
-						if ((defined $skip_until_path)
-						and ($path lt $skip_until_path)
-						and not($skip_until_path =~ /^\Q$path\E/));
+					next if defined $skip_until and $file lt $skip_until;
 					if (-d $path) {
 						# explore sub dirs
-						push @dirs, $path;
+						push @sub_dirs, $path;
 						next;
 					}
 					# Have a file. Strip off any extension before pattern matching
@@ -645,6 +647,8 @@ sub object_iter($base_path, $name_pattern = undef, $exclude_path_pattern = undef
 					next if ($name_pattern and $object_name !~ $name_pattern);
 					push(@object_paths, "$current_dir/$object_name");
 				}
+				# Insert sub-dirs before others at this level so that we go deep first
+				unshift @dirs, @sub_dirs;
 			}
 		}
 		# if we still have object_paths, return a name
