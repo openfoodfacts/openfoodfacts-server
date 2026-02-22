@@ -3583,11 +3583,11 @@ Provides default exclusions so people don't forget to apply them
 =cut
 
 sub product_iter(
-	$initial_path = $BASE_DIRS{PRODUCTS},
+	$base_path = $BASE_DIRS{PRODUCTS},
 	$name_pattern = qr/product$/i,
 	$exclude_path_pattern = qr/^(conflicting|invalid)-codes$/,
 	$skip_until_path = undef,
 	)
 {
-	return object_iter($initial_path, $name_pattern, $exclude_path_pattern, $skip_until_path);
+	return object_iter($base_path, $name_pattern, $exclude_path_pattern, $skip_until_path);
 }

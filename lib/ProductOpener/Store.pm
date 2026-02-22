@@ -605,8 +605,8 @@ If $skip_until_path is provided, skips all object paths that are lexicographical
 
 =cut
 
-sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef, $skip_until_path = undef) {
-	my @dirs = ($initial_path);
+sub object_iter($base_path, $name_pattern = undef, $exclude_path_pattern = undef, $skip_until_path = undef) {
+	my @dirs = ($base_path);
 	my @object_paths = ();
 	return sub {
 		if (scalar @object_paths == 0) {
