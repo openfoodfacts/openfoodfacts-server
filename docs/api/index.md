@@ -129,6 +129,19 @@ We are building a complete OpenAPI reference. Here is a list of the current API 
 - A [cheatsheet](../api/ref-cheatsheet.md) listing some common patterns.
 - A [change log for the API and product schema](../api/ref-api-and-product-schema-change-log.md)
 
+## Search API examples
+
+This section provides practical examples for using the Search API with pagination
+and filters.
+
+### Pagination
+
+You can paginate search results using the `page` and `page_size` parameters.
+
+Example:
+
+```http
+GET /api/v2/search?page=2&page_size=20
 ## Tutorials
 
 - A comprehensive introduction to [Using the Open Food Facts API](tutorial-off-api.md).
