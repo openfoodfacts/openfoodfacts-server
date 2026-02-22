@@ -247,7 +247,14 @@ tbody {
   padding: 0;
   vertical-align: middle;
 }
-
+@media (max-width: 768px) {
+  .data_table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+}
 .data_table td,
 .data_table th {
   margin: 0;
