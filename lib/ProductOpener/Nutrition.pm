@@ -269,7 +269,7 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 			}
 			else {
 				my $standard_unit = get_standard_unit($input_sets[0]{set}{per_unit});
-				if ($standard_unit eq "g") {
+				if ((not defined $standard_unit) or ($standard_unit eq "g")) {
 					$aggregated_nutrient_set_ref->{per} = "100g";
 				}
 				elsif ($standard_unit eq "ml") {
