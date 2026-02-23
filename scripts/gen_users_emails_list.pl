@@ -75,7 +75,7 @@ my @userids;
 my $arg = $ARGV[0] || "";
 
 if (scalar $#userids < 0) {
-	@userids = retrieve_preference_userids();
+	@userids = retrieve_user_preference_ids();
 }
 
 foreach my $userid (@userids) {
