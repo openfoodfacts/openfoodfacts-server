@@ -644,9 +644,9 @@ sub export_csv ($args_ref) {
 				$worksheet->write_row($j, 0, \@values);
 			}
 			else {
-				$csv->print($filehandle, \@values);
+   				 @values = map { sanitize_csv_field($_) } @values;
+    			 $csv->print($filehandle, \@values);
 			}
-
 		}
 
 	}
@@ -654,7 +654,15 @@ sub export_csv ($args_ref) {
 	# Return the count of products exported
 	return $j;
 }
+sub sanitize_csv_field {
+    my ($value) = @_;
+    return '' unless defined $value;
 
+    $value = "$value";
+    $value =~ s/[\t\n\r]/ /g;
+
+    return $value;
+}
 sub include_image_paths ($product_ref, $populated_fields_ref, $other_images_ref) {
 
 	# First list the selected images
