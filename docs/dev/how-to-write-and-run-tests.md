@@ -123,6 +123,39 @@ Read [perldoc about debugger](https://perldoc.perl.org/perldebug) to learn more.
 
 
 > :pencil: Note: With this method, in integration tests that issue requests to the server, you won't be able to run the debugger inside the server code, only in the test.
+>
+
+## API Testing
+
+This section describes how to write and run API-level tests for the Open Food Facts server.
+
+### Purpose of API tests
+
+API tests ensure that endpoints:
+- Return correct HTTP status codes
+- Produce valid and stable response structures
+- Handle invalid inputs gracefully
+- Do not introduce regressions over time
+
+API tests are usually written as integration tests.
+
+### Writing API tests
+
+API tests are generally located in:
+
+API tests usually rely on real HTTP requests made to the running server.
+They verify that API endpoints behave as expected and return correct responses.
+
+When writing API tests:
+- Test both success and error cases
+- Validate important fields in the JSON response
+- Use clear test identifiers (`id` or `desc`) for easier debugging
+
+Example API endpoint tested:
+
+```http
+GET /api/v2/product/3274080005003.json
+
 
 ## Some known errors
 
