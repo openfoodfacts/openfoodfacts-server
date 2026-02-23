@@ -4,7 +4,7 @@ components:
       type: object
       title: Product Tags
       allOf:
-      - $ref: './product_base_tags.yaml#/components/schemas/ProductBaseTags'
+      - $ref: './product_base_tags.yaml'
       - type: object
         properties:
           tags_sources:

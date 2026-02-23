@@ -2,7 +2,7 @@ type: object
 description: |
   Data about a product which is represented as tags
 allOf:
-  - $ref: './product_base_tags.yaml#/components/schemas/ProductBaseTags'
+  - $ref: './product_base_tags.yaml'
   - type: object
     properties:
       brands_hierarchy:
