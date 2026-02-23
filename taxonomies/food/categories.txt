@@ -103,7 +103,7 @@ stopwords:de: und, mit, von
 # default_nutrition_as_sold_per:en: 100g (possible values: 100g, 100ml, 1kg)
 # default_nutrition_prepared_per:en: 100ml (e.g. for dehydrated beverages)
 
-# In European Union food of animal origin must be tagged by a packaging code (a number in a circle). 
+# In European Union food of animal origin must be tagged by a packaging code (a number in a circle).
 # The followig tag is added to food of animal origin:
 # food_of_animal_origin:en: yes
 
@@ -108098,6 +108098,15 @@ incompatible_with:en: categories:en:fruits
 intake24_category_code:en: VTGB
 
 < en:Vegetables
+en: Thinly-shredded vegetables
+fr: Julienne de légumes
+
+< en:Vegetables
+en: Diced vegetables
+da: Ternede grøntsager
+fr: Brunoise de légumes
+
+< en:Vegetables
 en: Root vegetables, root vegetable
 fr: Légumes-racines, légume-racine
 wikidata:en: Q20136
@@ -108389,6 +108398,8 @@ hr: Konzervirane blitve
 nl: Snijbiet in blik/pot
 
 < en:Canned vegetables
+< en:Diced vegetables
+< en:Mixed vegetables
 en: Canned diced mixed vegetables
 fr: Macédoines de légumes en conserve, macédoines de légume en conserve, macédoine de légumes en conserve, macédoine de légume en conserve, Macédoines de légumes appertisées, Macédoines de légumes appertisées
 agribalyse_food_code:en: 20051
@@ -117382,7 +117393,8 @@ ciqual_food_code:en: 20271
 ciqual_food_name:en: Mixed diced vegetables, frozen
 ciqual_food_name:fr: Macédoine de légumes, surgelée
 
-< en:Frozen mixed vegetables
+< en:Frozen vegetables
+< en:Thinly-shredded vegetables
 en: Frozen thinly-shredded vegetables
 fr: Julienne de légumes surgelée
 agribalyse_food_code:en: 20265
@@ -117390,6 +117402,7 @@ ciqual_food_code:en: 20265
 ciqual_food_name:en: Thinly-shredded or diced vegetables, frozen, raw
 ciqual_food_name:fr: Julienne ou brunoise de légumes, surgelée, crue
 
+< en:Diced vegetables
 < en:Frozen vegetables
 en: Frozen diced vegetables
 fr: Brunoise de légumes surgelée
@@ -117401,10 +117414,6 @@ ciqual_food_name:fr: Julienne ou brunoise de légumes, surgelée, crue
 < en:Frozen mixed vegetables
 en: Frozen mixed vegetables for wok, Frozen mixed wok vegetables
 sv: Djupfrysta blandade grönsager för wok, Djupfryst wokgrönsagsblandning, Djupfryst wokgrönsagsmix
-
-< en:Vegetables
-en: thinly-shredded vegetables, diced vegetables
-fr: Julienne de légumes, Brunoise de légumes
 
 < en:Vegetables
 en: Mustard greens
