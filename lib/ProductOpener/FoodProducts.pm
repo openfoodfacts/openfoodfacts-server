@@ -55,7 +55,8 @@ use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 use ProductOpener::Food
 	qw/assign_categories_properties_to_product compute_nova_group compute_nutriscore compute_nutrient_levels/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
-use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set compute_estimated_nutrients/;
+use ProductOpener::Nutrition
+	qw/generate_nutrient_aggregated_set compute_estimated_nutrients add_misc_tags_for_input_nutrition_data_pers/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::EnvironmentalScore qw/compute_environmental_score/;
 use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
@@ -120,6 +121,9 @@ sub specific_processes_for_food_product ($product_ref) {
 
 	# Add some labels from nutrition data (e.g. glycemic index, carbon footprint)
 	add_labels_from_nutrition_data($product_ref);
+
+	# Add misc tags for nutrition data per X (done last as compute_nutriscore() removes misc_tags starting with en:nutrition)
+	add_misc_tags_for_input_nutrition_data_pers($product_ref);
 
 	return;
 }
