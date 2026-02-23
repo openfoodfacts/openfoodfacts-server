@@ -688,6 +688,11 @@ sub export_csv ($args_ref) {
 						}
 					}
 				}
+				 if (defined $value) {
+                                        $value =~ s/\t/ /g;
+                                        $value =~ s/\n/ /g;
+                                        $value =~ s/\r/ /g;
+                }
 
 				push @values, $value;
 			}
