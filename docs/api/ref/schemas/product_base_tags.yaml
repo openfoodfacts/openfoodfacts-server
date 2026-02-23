@@ -1,0 +1,123 @@
+components:
+  schemas:
+    ProductBaseTags:
+      type: object
+      title: Product Base Tags
+      properties:
+        brands:
+          type: string
+          description: |
+            Comma separated list of brands (not taxonomized), in the last language used to edit it (recorded in brands_lc)
+            This field is mostly used for debugging and testing purposes. Do not use it for display purposes.
+        brands_tags:
+          type: array
+          description: |
+            An array of indexed brands tag entries (for search).
+      
+            That is the id of brands found in taxonomy + 
+            brands not found in taxonomy (with case / accents / spaces normalized).
+      
+            This is mostly used for search as the normalization of entries not in the taxonomy is lossy.
+          items:
+            $ref: ./tags/indexed_taxonomy_tag_entry.yaml    
+        
+        categories:
+          type: string
+          description: |
+            Comma separated list of categories (not taxonomized), in the last language used to edit it (recorded in categories_lc)
+            This field is mostly used for debugging and testing purposes. Do not use it for display purposes.
+        categories_tags:
+          type: array
+          description: |
+            An array of indexed categories tag entries (for search).
+      
+            That is the id of categories found in taxonomy + 
+            categories not found in taxonomy (with case / accents / spaces normalized).
+      
+            This is mostly used for search as the normalization of entries not in the taxonomy is lossy.
+          items:
+            $ref: ./tags/indexed_taxonomy_tag_entry.yaml      
+
+        checkers_tags:
+          type: array
+          items:
+            type: string
+            description: List of checkers (users who checked the product) tags
+        
+        cities:
+          type: string
+        cities_tags:
+          type: array
+          items:
+            type: object
+  
+        correctors_tags:
+          type: array
+          items:
+            type: string
+
+        countries:
+          type: string
+          description: |
+            List of countries where the product is sold.
+        countries_tags:
+          type: array
+          items:
+            type: string
+  
+        ecoscore_tags:
+          description: |
+            All ecoscore of a product.
+            Most of the time it's only one value,
+            but it might eventually be more for products composed of sub-products.
+            See also: `ecoscore_score`, `ecoscore_grade`.
+          type: array
+          items:
+            type: string
+
+        emb_codes:
+          type: string
+          description: |
+            Packager code. EMB is the French system of traceability codes for packager.
+          example: EMB 2013330
+        emb_codes_tags:
+          type: array
+          items:
+            type: object
+
+        labels:
+          type: string
+        labels_tags:
+          type: array
+          items:
+            type: string
+
+        entry_dates_tags:
+          description: |
+            The data as a series of tag: `yyyy-mm-dd`, `yyyy-mm`, `yyyy`
+          type: array
+          items:
+            type: string
+          examples:
+            - - "2016-03-11"
+              - "2016-03"
+              - "2016"
+
+        manufacturing_places:
+          type: string
+          description: |
+            Places where the product was manufactured or transformed.
+        manufacturing_places_tags:
+          type: array
+          items:
+            type: "string"
+  
+        nova_groups_tags:
+          type: array
+          items:
+            type: string
+  
+        nutrient_levels_tags:
+          type: array
+          items:
+            type: string
