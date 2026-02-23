@@ -23,6 +23,7 @@ allOf:
   - $ref: "../api.yaml#/components/schemas/Product-Base"
   - $ref: "../api.yaml#/components/schemas/Product-Misc"
   - $ref: "../api.yaml#/components/schemas/Product-Tags"
+  - $ref: "./product_tags_v3.yaml#/components/schemas/ProductTagsV3"
   - $ref: "./product_images_v3.yaml#/components/schemas/ProductImagesV3"
   - $ref: "../api.yaml#/components/schemas/Product-Eco-Score"
   - $ref: "../api.yaml#/components/schemas/Product-Ingredients"
