@@ -66,11 +66,8 @@ BEGIN {
 		&display_error
 		&display_error_and_exit
 
-		&add_product_nutriment_to_stats
-		&compute_stats_for_products
 		&compare_product_nutrition_facts_to_categories
 		&data_to_display_nutrition_table
-		&display_nutrition_table
 		&display_product
 		&display_product_api
 		&display_product_history
@@ -110,7 +107,7 @@ BEGIN {
 		@lcs
 		$tt
 
-		$nutriment_table
+		$nutrient_table
 
 		%file_timestamps
 
@@ -148,7 +145,8 @@ use ProductOpener::Text
 use ProductOpener::Nutriscore qw(%points_thresholds compute_nutriscore_grade);
 use ProductOpener::EnvironmentalScore qw(localize_environmental_score);
 use ProductOpener::Attributes qw(compute_attributes list_attributes);
-use ProductOpener::KnowledgePanels qw(create_knowledge_panels initialize_knowledge_panels_options);
+use ProductOpener::KnowledgePanels
+	qw(create_panel_from_json_template create_knowledge_panels initialize_knowledge_panels_options);
 use ProductOpener::KnowledgePanelsTags qw(create_tag_knowledge_panels);
 use ProductOpener::Orgs qw(is_user_in_org_group retrieve_org);
 use ProductOpener::Web
@@ -157,7 +155,7 @@ use ProductOpener::Recipes qw(add_product_recipe_to_set analyze_recipes compute_
 use ProductOpener::PackagerCodes
 	qw($ec_code_regexp %geocode_addresses %packager_codes init_geocode_addresses init_packager_codes);
 use ProductOpener::Export qw(export_csv);
-use ProductOpener::API qw(add_error customize_response_for_product process_api_request process_auth_header);
+use ProductOpener::API qw(add_error customize_response_for_product process_api_request process_auth_header sanitize);
 use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key get_cache_results set_cache_results/;
 use ProductOpener::Permissions qw/has_permission/;
@@ -166,6 +164,7 @@ use ProductOpener::RequestStats qw(:all);
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
 use ProductOpener::ConfigEnv qw/:all/;
+use ProductOpener::Stats qw/:all/;
 
 use Encode;
 use URI::Escape::XS qw/uri_escape/;
@@ -188,12 +187,13 @@ use boolean;
 use Excel::Writer::XLSX;
 use Template;
 use Devel::Size qw(size total_size);
-use Data::DeepAccess qw(deep_get deep_set);
+use Data::DeepAccess qw(deep_get deep_set deep_exists);
 use Log::Log4perl;
 use Tie::IxHash;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
+use Apache2::Request ();
 use Apache2::RequestUtil ();
 use Apache2::RequestRec ();
 use Apache2::Const qw(:http :common);
@@ -325,6 +325,8 @@ Add some functions and variables needed by many templates and process the templa
 
 sub process_template ($template_filename, $template_data_ref, $result_content_ref, $request_ref = {}) {
 
+	# give priority to request_ref lc but eventually fallback to global $lc
+	my $target_lc = $request_ref->{lc} // $lc;
 	# Add functions and values that are passed to all templates
 
 	# Features for each product type
@@ -364,21 +366,24 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{moderator} = $User{moderator};
 	$template_data_ref->{pro_moderator} = $User{pro_moderator};
 	$template_data_ref->{sep} = separator_before_colon($lc);
-	$template_data_ref->{lang} = \&lang;
+	$template_data_ref->{lang} = sub ($stringid) {
+		return lang_in_other_lc($target_lc, $stringid);
+	};
 	# also provide lang_flavor() and lang_product_type() to provide translations specific
 	# to a flavor (e.g. off, obf) or product type (e.g. food, beauty)
 	$template_data_ref->{lang_flavor} = sub ($stringid) {
-		return lang($stringid . "_" . $flavor);
+		return lang_in_other_lc($target_lc, $stringid . "_" . $flavor);
 	};
 	$template_data_ref->{lang_product_type} = sub ($stringid) {
-		return lang($stringid . "_" . $options{product_type});
+		return lang_in_other_lc($target_lc, $stringid . "_" . $options{product_type});
 	};
-	$template_data_ref->{f_lang} = \&f_lang;
+	$template_data_ref->{f_lang} = sub ($stringid, $variables_ref) {
+		return f_lang_in_lc($target_lc, $stringid, $variables_ref);
+	};
 	# escaping quotes for use in javascript or json
 	# using short names to favour readability
 	$template_data_ref->{esq} = sub {escape_char(@_, "\'")};    # esq as escape_single_quote_and_newlines
 	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
-	$template_data_ref->{lang_sprintf} = \&lang_sprintf;
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} //= $request_ref->{cc};
 	$template_data_ref->{display_icon} = \&display_icon;
@@ -480,7 +485,7 @@ Reference to request object.
 
 sub init_request ($request_ref = {}) {
 
-	$log->debug("init_request - start", {request_ref => $request_ref}) if $log->is_debug();
+	$log->debug("init_request - start", {request_ref => sanitize($request_ref)}) if $log->is_debug();
 
 	$request_ref->{stats} = init_request_stats();
 
@@ -725,16 +730,16 @@ sub init_request ($request_ref = {}) {
 	}
 
 	if ($options{product_type} eq "petfood") {
-		$nutriment_table = $cc_nutriment_table{"opff_default"};
-		if (exists $cc_nutriment_table{"opff_" . $cc}) {
-			$nutriment_table = $cc_nutriment_table{"opff_" . $cc};
+		$nutrient_table = $cc_nutrient_table{"opff_default"};
+		if (exists $cc_nutrient_table{"opff_" . $cc}) {
+			$nutrient_table = $cc_nutrient_table{"opff_" . $cc};
 		}
 	}
 	# food
 	else {
-		$nutriment_table = $cc_nutriment_table{"off_default"};
-		if (exists $cc_nutriment_table{"off_" . $cc}) {
-			$nutriment_table = $cc_nutriment_table{"off_" . $cc};
+		$nutrient_table = $cc_nutrient_table{"off_default"};
+		if (exists $cc_nutrient_table{"off_" . $cc}) {
+			$nutrient_table = $cc_nutrient_table{"off_" . $cc};
 		}
 	}
 
@@ -939,7 +944,7 @@ Set two attributes to `request_ref`:
 =cut
 
 sub set_user_agent_request_ref_attributes ($request_ref) {
-	my $user_agent_str = user_agent();
+	my $user_agent_str = user_agent() // '';
 	$request_ref->{user_agent} = $user_agent_str;
 
 	my $is_crawl_bot = 0;
@@ -1067,7 +1072,7 @@ The request is not terminated by this function, it will continue to run.
 sub display_error ($request_ref, $error_message, $status_code) {
 
 	$log->debug("display_error",
-		{error_message => $error_message, status_code => $status_code, request_ref => $request_ref})
+		{error_message => $error_message, status_code => $status_code, request_ref => sanitize($request_ref)})
 		if $log->is_debug();
 
 	# We need to remove the canonical URL from the request so that it does not get displayed in the error page
@@ -1859,7 +1864,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 
 		my $th_nutriments = '';
 
-		my $categories_nutriments_ref = $categories_nutriments_per_country{$request_ref->{cc}};
+		my $categories_stats_ref = $categories_stats_per_country{$request_ref->{cc}};
 		my @cols = ();
 
 		if ($tagtype eq 'categories') {
@@ -1975,9 +1980,6 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			}
 
 			my $td_nutriments = '';
-			#if ($tagtype eq 'categories') {
-			#	$td_nutriments .= "<td style=\"text-align:right\">" . $countries_tags{$country}{$tagtype . "_nutriments"}{$tagid} . "</td>";
-			#}
 
 			# known tag?
 
@@ -1986,18 +1988,14 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			if ($tagtype eq 'categories') {
 
 				if (defined $request_ref->{stats_nid}) {
+					my $nid = $request_ref->{stats_nid};
+					# remove possible lang prefix (en: or zz:)
+					$nid =~ s/^(en|zz)://;
 
 					foreach my $col (@cols) {
-						if ((defined $categories_nutriments_ref->{$tagid})) {
-							$td_nutriments
-								.= "<td>"
-								. $categories_nutriments_ref->{$tagid}{nutriments}
-								{$request_ref->{stats_nid} . '_' . $col} . "</td>";
-						}
-						else {
-							$td_nutriments .= "<td></td>";
-							# next;	 # datatables sorting does not work with empty values
-						}
+						my $value
+							= deep_get($categories_stats_ref, $tagid, 'values', $request_ref->{stats_nid}, $col) || "-";
+						$td_nutriments .= "<td>" . $value . "</td>";
 					}
 				}
 				else {
@@ -2356,7 +2354,7 @@ HTML
 				$colors = "'#1E8F4E','#60AC0E','#EEAE0E','#FF6F1E','#DF1F1F','#a0a0a0','#a0a0a0'";
 				$series_data = '';
 				foreach my $nutrition_grade ('a', 'b', 'c', 'd', 'e', 'not-applicable', 'unknown') {
-					$series_data .= ($products{$nutrition_grade} + 0) . ',';
+					$series_data .= (($products{$nutrition_grade} || 0) + 0) . ',';
 				}
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'environmental_score') {
@@ -2366,7 +2364,7 @@ HTML
 				foreach
 					my $environmental_score_grade ('a-plus', 'a', 'b', 'c', 'd', 'e', 'f', 'not-applicable', 'unknown')
 				{
-					$series_data .= ($products{$environmental_score_grade} + 0) . ',';
+					$series_data .= (($products{$environmental_score_grade} || 0) + 0) . ',';
 				}
 			}
 			elsif ($request_ref->{groupby_tagtype} eq 'nova_groups') {
@@ -2378,7 +2376,7 @@ HTML
 					"en:3-processed-foods", "en:4-ultra-processed-food-and-drink-products",
 					)
 				{
-					$series_data .= ($products{$nova_group} + 0) . ',';
+					$series_data .= (($products{$nova_group} || 0) + 0) . ',';
 				}
 			}
 
@@ -3802,7 +3800,9 @@ sub display_tag ($request_ref) {
 			}
 
 			if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid}{'wikidata:en'})) {
-				push @wikidata_objects, $properties{$tagtype}{$canon_tagid}{'wikidata:en'};
+				if (($options{product_type} eq 'food') and ($tagtype eq 'categories')) {
+					push @wikidata_objects, $properties{$tagtype}{$canon_tagid}{'wikidata:en'};
+				}
 			}
 		}
 
@@ -4174,7 +4174,7 @@ HTML
 
 					# Display the user profile
 
-					if (($tagid eq $User_id) or $request_ref->{admin}) {
+					if (((defined $User_id) and ($tagid eq $User_id)) or $request_ref->{admin}) {
 						$user_template_data_ref->{edit_profile} = 1;
 						$user_template_data_ref->{userid} = $tagid;
 					}
@@ -4207,37 +4207,6 @@ HTML
 				}
 
 				$description .= $profile_html;
-			}
-		}
-
-		if (    (feature_enabled("nutrition"))
-			and ($tagtype eq 'categories'))
-		{
-
-			my $categories_nutriments_ref = $categories_nutriments_per_country{$request_ref->{cc}};
-
-			$log->debug("checking if this category has stored statistics",
-				{cc => $request_ref->{cc}, tagtype => $tagtype, tagid => $tagid})
-				if $log->is_debug();
-			if (    (defined $categories_nutriments_ref)
-				and (defined $categories_nutriments_ref->{$canon_tagid})
-				and (defined $categories_nutriments_ref->{$canon_tagid}{stats}))
-			{
-				$log->debug(
-					"statistics found for the tag, addind stats to description",
-					{cc => $request_ref->{cc}, tagtype => $tagtype, tagid => $tagid}
-				) if $log->is_debug();
-
-				$description
-					.= "<h2>"
-					. lang("nutrition_data") . "</h2>" . "<p>"
-					. sprintf(
-					lang("nutrition_data_average"),
-					$categories_nutriments_ref->{$canon_tagid}{n},
-					$display_tag, $categories_nutriments_ref->{$canon_tagid}{count}
-					)
-					. "</p>"
-					. display_nutrition_table($categories_nutriments_ref->{$canon_tagid}, undef, $request_ref);
 			}
 		}
 
@@ -4601,7 +4570,8 @@ sub add_country_and_owner_filters_to_query ($request_ref, $query_ref) {
 		}
 	}
 
-	$log->debug("result of add_country_and_owner_filters_to_query", {request => $request_ref, query => $query_ref})
+	$log->debug("result of add_country_and_owner_filters_to_query",
+		{request => sanitize($request_ref), query => $query_ref})
 		if $log->is_debug();
 
 	return;
@@ -4712,7 +4682,7 @@ my %ignore_params = (
 	no_count => 1,
 );
 
-sub add_params_and_filters_to_query($request_ref, $query_ref) {
+sub add_params_and_filters_to_query ($request_ref, $query_ref) {
 
 	my $params_ref = get_all_request_params($request_ref);
 
@@ -4954,13 +4924,18 @@ sub add_params_to_query ($params_ref, $query_ref) {
 
 		# Conditions on nutrients
 
-		# e.g. saturated-fat_prepared_serving=<3=0
-		# the parameter name is exactly the same as the key in the nutriments hash of the product
+		# e.g. saturated-fat_prepared_serving=<3 , sugars_100g=<=10
+		# 2025/12/1: with the new nutrition schema update, we will remove support for searching nutrients per serving
+		# and we will search only on the aggregated nutrients set (which may be as sold or prepared, depending on product category)
 
-		elsif ($field =~ /^(.*?)_(100g|serving)$/) {
+		elsif ($field =~ /^(.*?)_(100g)$/) {
 
 			# We can have multiple conditions, separated with a comma
 			# e.g. sugars_100g=>10,<=20
+
+			my $nutrient = $1;
+			$nutrient =~ s/_prepared$//
+				;    # Matching against aggregated set, which will be prepared or as sold depending on category
 
 			my $conditions = $params_ref->{$field};
 
@@ -4995,14 +4970,15 @@ sub add_params_to_query ($params_ref, $query_ref) {
 				);
 
 				if ($operator eq '=') {
-					$query_ref->{"nutriments." . $field}
+					$query_ref->{"nutrition.aggregated_set.nutrients.$nutrient.value"}
 						= $value + 0.0;    # + 0.0 to force scalar to be treated as a number
 				}
 				else {
 					if (not defined $query_ref->{$field}) {
-						$query_ref->{"nutriments." . $field} = {};
+						$query_ref->{"nutrition.aggregated_set.nutrients.$nutrient.value"} = {};
 					}
-					$query_ref->{"nutriments." . $field}{'$' . $mongo_operators{$operator}} = $value + 0.0;
+					$query_ref->{"nutrition.aggregated_set.nutrients.$nutrient.value"}
+						{'$' . $mongo_operators{$operator}} = $value + 0.0;
 				}
 			}
 		}
@@ -5080,7 +5056,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	my $template_data_ref = {};
 
 	$log->debug("search_and_display_products",
-		{request_ref => $request_ref, query_ref => $query_ref, sort_by => $sort_by})
+		{request_ref => sanitize($request_ref), query_ref => $query_ref, sort_by => $sort_by})
 		if $log->is_debug();
 
 	add_params_and_filters_to_query($request_ref, $query_ref);
@@ -5266,6 +5242,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		# by Attributes.pm to compute attributes.
 		# This list should be updated if new attributes are added.
 		$fields_ref = {
+			# we need the schema version so that we can update (or not update) products to the latest schema version
+			"schema_version" => 1,
 			# we do not need the _id tag (it currently contains the barcode, same as "code" field)
 			"_id" => 0,
 			# generic fields
@@ -5316,14 +5294,10 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			"nova_group" => 1,
 			"nutrient_levels" => 1,
 			# Only the nutrients needed for the nutrient levels
-			"nutriments.salt_100g" => 1,
-			"nutriments.salt_prepared_100g" => 1,
-			"nutriments.sugar_100g" => 1,
-			"nutriments.sugar_prepared_100g" => 1,
-			"nutriments.fat_100g" => 1,
-			"nutriments.fat_prepared_100g" => 1,
-			"nutriments.saturated-fat_100g" => 1,
-			"nutriments.saturated-fat_prepared_100g" => 1,
+			"nutrition.aggregated_set.nutrients.salt.value" => 1,
+			"nutrition.aggregated_set.nutrients.sugars.value" => 1,
+			"nutrition.aggregated_set.nutrients.fat.value" => 1,
+			"nutrition.aggregated_set.nutrients.saturated-fat.value" => 1,
 			# Get only the Nutri-Score fields needed to compute attributes
 			"nutriscore.2021.score" => 1,
 			"nutriscore.2021.grade" => 1,
@@ -6032,10 +6006,38 @@ sub get_search_field_path_components ($field) {
 	}
 	# we assume other fields are nutrients ids
 	else {
-		@fields = ("nutriments", $field . "_100g");
+		@fields = ("nutrition", "aggregated_set", "nutrients", $field, "value");
 	}
 	return @fields;
 }
+
+=head2 get_search_field_title_and_details ($field)
+
+Given a search field name, return the title, unit, unit2 and allow_decimals details
+
+=head3 Arguments
+
+=head4 $field
+
+Search field name
+
+=head3 Returns
+
+=head4 $title
+
+Title to display for the field
+
+=head4 $unit Unit to display after the title
+
+For nutrients, includes "per 100g" information
+
+=head4 $unit2 Unit to display in the tooltip for each product
+
+Does not include "per 100g" information (already displayed in the tooltip above all nutrients)
+
+=head4 $allow_decimals Whether decimals are allowed for the field
+
+=cut
 
 sub get_search_field_title_and_details ($field) {
 
@@ -6097,11 +6099,8 @@ sub get_search_field_title_and_details ($field) {
 	}
 	else {
 		$title = display_taxonomy_tag($lc, "nutrients", "zz:" . $field);
-		$unit2 = $title;    # displayed in the tooltip
-		$unit
-			= " ("
-			. (get_property("nutrients", "zz:" . $field, "unit:en") // 'g') . " "
-			. lang("nutrition_data_per_100g") . ")";
+		$unit2 = get_property("nutrients", "zz:" . $field, "unit:en") // 'g';
+		$unit = " (" . $unit2 . " " . lang("nutrition_data_per_100g") . ")";
 		$unit =~ s/\&nbsp;/ /g;
 	}
 
@@ -6157,12 +6156,20 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		$fields{$field} = [get_search_field_path_components($field)];
 	}
 
-	my %nutriments = ();
+	my %nutrients = ();
 
 	my $i = 0;
 
 	my %series = ();
 	my %series_n = ();
+
+	foreach my $axis ('x', 'y') {
+		# Store the field path components so that we can use them with deep_get() when going through the products
+		my $field = $graph_ref->{"axis_" . $axis};
+		$fields{$field} = [get_search_field_path_components($field)];
+	}
+
+	# Go through all products first so that we can get the min for each axis
 
 	foreach my $product_ref (@products) {
 
@@ -6176,11 +6183,13 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 			my $value = deep_get($product_ref, @{$fields{$field}});
 
 			# For nutrients except energy-kcal, convert to the default nutrient unit
-			if ((defined $value) and ($fields{$field}[0] eq "nutriments") and ($field !~ /energy-kcal/)) {
+			if ((defined $value) and ($fields{$field}[0] eq "nutrition") and ($field !~ /energy-kcal/)) {
 				$value = g_to_unit($value, (get_property("nutrients", "zz:$field", "unit:en") // 'g'));
 			}
 
 			if (defined $value) {
+				# If the value seems to use a , as decimal separator, convert it to a .
+				$value =~ s/(\d),(\d)/$1.$2/;
 				$value = $value + 0;    # Make sure the value is a number
 			}
 
@@ -6196,7 +6205,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		# Add values to stats, and set min axis
 		foreach my $axis ('x', 'y') {
 			my $field = $graph_ref->{"axis_" . $axis};
-			add_product_nutriment_to_stats(\%nutriments, $field, $data{$axis});
+			add_product_value_to_stats(\%nutrients, $field, $data{$axis});
 		}
 
 		# Identify the series id
@@ -6257,6 +6266,28 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 		$series_n{$seriesid}++;
 		$i++;
 
+	}
+
+	foreach my $axis ("x", "y") {
+		# Set the titles and details of each axis
+		my $field = $graph_ref->{"axis_" . $axis};
+		my ($title, $unit, $unit2, $allow_decimals) = get_search_field_title_and_details($field);
+		$axis_details{$axis} = {
+			title => $title,
+			unit => $unit,
+			unit2 => $unit2,
+			allow_decimals => $allow_decimals,
+		};
+
+		# Set the minimum value for the axis (0 in most cases, except for Nutri-Score)
+		$min{$axis} = 0;
+
+		if ($field =~ /^nutrition-score/) {
+			$min{$axis} = -15;
+		}
+		elsif ($field =~ /^folksonomy\./) {
+			$min{$axis} = $nutrients{$field}{min} // 0;
+		}
 	}
 
 	my $series_data = '';
@@ -6452,16 +6483,33 @@ HTML
 
 	# Display stats
 
-	my $stats_ref = {};
+	# Currently displayed only as a nutrition table, so enabling only for OFF and OPFF
+	# FIXME: should be converted to a simple table and not use display_nutrition_table
 
-	compute_stats_for_products($stats_ref, \%nutriments, $count, $i, 5, 'search');
+	if (($options{product_type} eq "food") or ($options{product_type} eq "pet_food")) {
 
-	$html .= display_nutrition_table($stats_ref, undef, $request_ref);
+		my $stats_ref = {};
+		compute_stats_for_products($stats_ref, \%nutrients, $count, $i, 2, 'search');
 
-	$html .= "<p>&nbsp;</p>";
+		# We use knowledge panels to display nutrition facts for the result set
+
+		my $panel_data_ref = data_to_display_nutrition_table($stats_ref, undef, $request_ref);
+
+		$log->debug(
+			"Computed stats for scatter plot",
+			{stats_ref => $stats_ref, nutrients_ref => \%nutrients, data_to_display_nutrition_table => $panel_data_ref}
+		) if $log->is_debug();
+
+		create_panel_from_json_template("nutrition_facts_table",
+			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
+			$panel_data_ref, $stats_ref, $request_ref->{lc}, $request_ref->{cc}, $knowledge_panels_options_ref,
+			$request_ref);
+
+		$html .= display_knowledge_panel($stats_ref, $stats_ref->{"knowledge_panels_" . $request_ref->{lc}},
+			"nutrition_facts_table");
+	}
 
 	return $html;
-
 }
 
 =head2 display_histogram ($graph_ref, $products_ref, $request_ref)
@@ -6533,7 +6581,7 @@ sub display_histogram ($graph_ref, $products_ref, $request_ref) {
 		my $value = deep_get($product_ref, @fields);
 
 		# For nutrients except energy-kcal, convert to the default nutrient unit
-		if ((defined $value) and ($fields[0] eq "nutriments") and ($field !~ /energy-kcal/)) {
+		if ((defined $value) and ($fields[0] eq "nutrition") and ($field !~ /energy-kcal/)) {
 			$value = g_to_unit($value, (get_property("nutrients", "zz:$field", "unit:en") // 'g'));
 		}
 
@@ -7017,6 +7065,12 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		my $field = $graph_ref->{"axis_$axis"};
 		# If the field starts with folksonomy. , we will get the values from Folksonomy Engine as they are not in MongoDB
 		next if ($field =~ /^folksonomy\.(.+)$/);
+		# histogram has no axis_y value, or it is 'products_n'
+		next
+			if ($axis eq 'y')
+			and ((not defined $graph_ref->{axis_y})
+			or ($graph_ref->{axis_y} eq '')
+			or ($graph_ref->{axis_y} eq 'products_n'));
 		# Get the field path components
 		my @fields = get_search_field_path_components($field);
 		# Convert to dot notation to get the MongoDB field
@@ -7684,7 +7738,7 @@ sub display_page ($request_ref) {
 
 	# Display a banner from users on Android or iOS
 
-	my $user_agent = $ENV{HTTP_USER_AGENT};
+	my $user_agent = $ENV{HTTP_USER_AGENT} // '';
 
 	# add a user_agent parameter so that we can test from desktop easily
 	if (defined single_param('user_agent')) {
@@ -8740,67 +8794,33 @@ Reference to a data structure with needed data to display.
 
 sub data_to_display_nutrient_levels ($product_ref) {
 
+	return if not defined $product_ref->{nutrient_levels};
+
 	my $result_data_ref = {};
 
-	# Do not display traffic lights for baby foods
-	if (has_tag($product_ref, "categories", "en:baby-foods")) {
+	$result_data_ref->{nutrient_levels} = [];
 
-		$result_data_ref->{do_not_display} = 1;
-	}
+	foreach my $nutrient_level_ref (@nutrient_levels) {
+		my ($nid, $low, $high) = @{$nutrient_level_ref};
 
-	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, coffee, tea)
-	# unless we have nutrition data for the prepared product
+		if (    (defined $product_ref->{nutrient_levels})
+			and (defined $product_ref->{nutrient_levels}{$nid}))
+		{
+			my $nutrient_value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
 
-	my $prepared = "";
-
-	foreach my $category_tag ("en:dried-products-to-be-rehydrated",
-		"en:chocolate-powders", "en:dessert-mixes", "en:flavoured-syrups")
-	{
-
-		if (has_tag($product_ref, "categories", $category_tag)) {
-
-			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
-				$prepared = '_prepared';
-				last;
-			}
-			else {
-				$result_data_ref->{do_not_display} = 1;
-			}
-		}
-	}
-
-	if (not $result_data_ref->{do_not_display}) {
-
-		$result_data_ref->{nutrient_levels} = [];
-
-		foreach my $nutrient_level_ref (@nutrient_levels) {
-			my ($nid, $low, $high) = @{$nutrient_level_ref};
-
-			if (    (defined $product_ref->{nutrient_levels})
-				and (defined $product_ref->{nutrient_levels}{$nid})
-				and (defined $product_ref->{nutriments}{$nid . $prepared . "_100g"}))
-			{
-
-				push @{$result_data_ref->{nutrient_levels}}, {
-					nid => $nid,
-					nutrient_level => $product_ref->{nutrient_levels}{$nid},
-					evaluation => evaluate_nutrient_level($nid, $product_ref->{nutrient_levels}{$nid}),
-					nutrient_name => display_taxonomy_tag($lc, "nutrients", "zz:$nid"),
-					nutrient_quantity_in_grams =>
-						sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0,
-					nutrient_in_quantity => sprintf(
-						lang("nutrient_in_quantity"),
-						display_taxonomy_tag($lc, "nutrients", "zz:$nid"),
-						lang($product_ref->{nutrient_levels}{$nid} . "_quantity")
-					),
-					# Needed for the current display on product page, can be removed once transitioned fully to knowledge panels
-					nutrient_bold_in_quantity => sprintf(
-						lang("nutrient_in_quantity"),
-						"<b>" . display_taxonomy_tag($lc, "nutrients", "zz:$nid") . "</b>",
-						lang($product_ref->{nutrient_levels}{$nid} . "_quantity")
-					),
+			push @{$result_data_ref->{nutrient_levels}},
+				{
+				nid => $nid,
+				nutrient_level => $product_ref->{nutrient_levels}{$nid},
+				evaluation => evaluate_nutrient_level($nid, $product_ref->{nutrient_levels}{$nid}),
+				nutrient_name => display_taxonomy_tag($lc, "nutrients", "zz:$nid"),
+				nutrient_quantity_in_grams => sprintf("%.2e", $nutrient_value) + 0.0,
+				nutrient_in_quantity => sprintf(
+					lang("nutrient_in_quantity"),
+					display_taxonomy_tag($lc, "nutrients", "zz:$nid"),
+					lang($product_ref->{nutrient_levels}{$nid} . "_quantity")
+				),
 				};
-			}
 		}
 	}
 
@@ -8997,110 +9017,6 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 	return $result_data_ref;
 }
 
-sub add_product_nutriment_to_stats ($nutriments_ref, $nid, $value) {
-
-	if ((defined $value) and ($value ne '')) {
-
-		if (not defined $nutriments_ref->{"${nid}_n"}) {
-			$nutriments_ref->{"${nid}_n"} = 0;
-			$nutriments_ref->{"${nid}_s"} = 0;
-			$nutriments_ref->{"${nid}_array"} = [];
-		}
-
-		$nutriments_ref->{"${nid}_n"}++;
-		$nutriments_ref->{"${nid}_s"} += $value + 0.0;
-		push @{$nutriments_ref->{"${nid}_array"}}, $value + 0.0;
-
-	}
-	return 1;
-}
-
-sub compute_stats_for_products ($stats_ref, $nutriments_ref, $count, $n, $min_products, $id) {
-
-	#my $stats_ref        ->    where we will store the stats
-	#my $nutriments_ref   ->    values for some nutriments
-	#my $count            ->    total number of products (including products that have no values for the nutriments we are interested in)
-	#my $n                ->    number of products with defined values for specified nutriments
-	#my $min_products     ->    min number of products needed to compute stats
-	#my $id               ->    id (e.g. category id)
-
-	$stats_ref->{stats} = 1;
-	$stats_ref->{nutriments} = {};
-	$stats_ref->{id} = $id;
-	$stats_ref->{count} = $count;
-	$stats_ref->{n} = $n;
-
-	foreach my $nid (keys %{$nutriments_ref}) {
-		next if $nid !~ /_n$/;
-		$nid = $`;
-
-		next if ($nutriments_ref->{"${nid}_n"} < $min_products);
-
-		# Compute the mean and standard deviation, without the bottom and top 5% (so that huge outliers
-		# that are likely to be errors in the data do not completely overweight the mean and std)
-
-		my @values = sort {$a <=> $b} @{$nutriments_ref->{"${nid}_array"}};
-		my $nb_values = $#values + 1;
-		my $kept_values = 0;
-		my $sum_of_kept_values = 0;
-
-		my $i = 0;
-		foreach my $value (@values) {
-			$i++;
-			next if ($i <= $nb_values * 0.05);
-			next if ($i >= $nb_values * 0.95);
-			$kept_values++;
-			$sum_of_kept_values += $value;
-		}
-
-		my $mean_for_kept_values = $sum_of_kept_values / $kept_values;
-
-		$nutriments_ref->{"${nid}_mean"} = $mean_for_kept_values;
-
-		my $sum_of_square_differences_for_kept_values = 0;
-		$i = 0;
-		foreach my $value (@values) {
-			$i++;
-			next if ($i <= $nb_values * 0.05);
-			next if ($i >= $nb_values * 0.95);
-			$sum_of_square_differences_for_kept_values
-				+= ($value - $mean_for_kept_values) * ($value - $mean_for_kept_values);
-		}
-		my $std_for_kept_values = sqrt($sum_of_square_differences_for_kept_values / $kept_values);
-
-		$nutriments_ref->{"${nid}_std"} = $std_for_kept_values;
-
-		$stats_ref->{nutriments}{"${nid}_n"} = $nutriments_ref->{"${nid}_n"};
-		$stats_ref->{nutriments}{"$nid"} = $nutriments_ref->{"${nid}_mean"};
-		$stats_ref->{nutriments}{"${nid}_100g"} = sprintf("%.2e", $nutriments_ref->{"${nid}_mean"}) + 0.0;
-		$stats_ref->{nutriments}{"${nid}_std"} = sprintf("%.2e", $nutriments_ref->{"${nid}_std"}) + 0.0;
-
-		if ($nid =~ /^energy/) {
-			$stats_ref->{nutriments}{"${nid}_100g"} = int($stats_ref->{nutriments}{"${nid}_100g"} + 0.5);
-			$stats_ref->{nutriments}{"${nid}_std"} = int($stats_ref->{nutriments}{"${nid}_std"} + 0.5);
-		}
-
-		$stats_ref->{nutriments}{"${nid}_min"} = sprintf("%.2e", $values[0]) + 0.0;
-		$stats_ref->{nutriments}{"${nid}_max"} = sprintf("%.2e", $values[$nutriments_ref->{"${nid}_n"} - 1]) + 0.0;
-		#$stats_ref->{nutriments}{"${nid}_5"} = $nutriments_ref->{"${nid}_array"}[int ( ($nutriments_ref->{"${nid}_n"} - 1) * 0.05) ];
-		#$stats_ref->{nutriments}{"${nid}_95"} = $nutriments_ref->{"${nid}_array"}[int ( ($nutriments_ref->{"${nid}_n"}) * 0.95) ];
-		$stats_ref->{nutriments}{"${nid}_10"}
-			= sprintf("%.2e", $values[int(($nutriments_ref->{"${nid}_n"} - 1) * 0.10)]) + 0.0;
-		$stats_ref->{nutriments}{"${nid}_90"}
-			= sprintf("%.2e", $values[int(($nutriments_ref->{"${nid}_n"}) * 0.90)]) + 0.0;
-		$stats_ref->{nutriments}{"${nid}_50"}
-			= sprintf("%.2e", $values[int(($nutriments_ref->{"${nid}_n"}) * 0.50)]) + 0.0;
-
-		#print STDERR "-> lc: lc -category $tagid - count: $count - n: nutriments: " . $nn . "$n \n";
-		#print "categories stats - cc: $request_ref->{cc} - n: $n- values for category $id: " . join(", ", @values) . "\n";
-		#print "tagid: $id - nid: $nid - 100g: " .  $stats_ref->{nutriments}{"${nid}_100g"}  . " min: " . $stats_ref->{nutriments}{"${nid}_min"} . " - max: " . $stats_ref->{nutriments}{"${nid}_max"} .
-		#	"mean: " . $stats_ref->{nutriments}{"${nid}_mean"} . " - median: " . $stats_ref->{nutriments}{"${nid}_50"} . "\n";
-
-	}
-
-	return;
-}
-
 =head2 compare_product_nutrition_facts_to_categories ($product_ref, $target_cc, $max_number_of_categories)
 
 Compares a product nutrition facts to average nutrition facts of each of its categories.
@@ -9121,38 +9037,31 @@ Reference to a comparisons data structure that can be passed to the data_to_disp
 
 =cut
 
-sub compare_product_nutrition_facts_to_categories ($product_ref, $target_cc, $max_number_of_categories) {
+sub compare_product_nutrition_facts_to_categories ($product_ref, $target_lc, $target_cc, $max_number_of_categories) {
 
 	my @comparisons = ();
 
-	if (
-		(
-			not(    (defined $product_ref->{not_comparable_nutrition_data})
-				and ($product_ref->{not_comparable_nutrition_data}))
-		)
-		and (defined $product_ref->{categories_tags})
-		and (scalar @{$product_ref->{categories_tags}} > 0)
-		)
+	if (    (defined $product_ref->{categories_tags})
+		and (scalar @{$product_ref->{categories_tags}} > 0))
 	{
 
-		my $categories_nutriments_ref = $categories_nutriments_per_country{$target_cc};
+		my $categories_stats_ref = $categories_stats_per_country{$target_cc};
 
-		if (defined $categories_nutriments_ref) {
+		if (defined $categories_stats_ref) {
 
 			foreach my $cid (@{$product_ref->{categories_tags}}) {
 
-				if (    (defined $categories_nutriments_ref->{$cid})
-					and (defined $categories_nutriments_ref->{$cid}{stats}))
+				if (    (defined $categories_stats_ref->{$cid})
+					and (defined $categories_stats_ref->{$cid}{stats}))
 				{
-
 					push @comparisons,
 						{
 						id => $cid,
-						name => display_taxonomy_tag($lc, 'categories', $cid),
-						link => "/facets" . canonicalize_taxonomy_tag_link($lc, 'categories', $cid),
-						nutriments => compare_nutriments($product_ref, $categories_nutriments_ref->{$cid}),
-						count => $categories_nutriments_ref->{$cid}{count},
-						n => $categories_nutriments_ref->{$cid}{n},
+						name => display_taxonomy_tag($target_lc, 'categories', $cid),
+						link => "/facets" . canonicalize_taxonomy_tag_link($target_lc, 'categories', $cid),
+						nutrients => compare_nutrients($product_ref, $categories_stats_ref->{$cid}),
+						count => $categories_stats_ref->{$cid}{count},
+						n => $categories_stats_ref->{$cid}{n},
 						};
 				}
 			}
@@ -9192,13 +9101,18 @@ The resulting data structure can be passed to a template to generate HTML or the
 
 Reference to an array with nutrition facts for 1 or more categories.
 
+=head4 Include input sets in the table $include_input_sets (default: 0)
+
+If set to 1, we will include in the table the nutrition facts for each of the nutrition input sets of the product (if any), without comparisons.
+If set to 0, we will only include the nutrition facts for the aggregated set + the comparisons.
+
 =head3 Return values
 
 Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_ref) {
+sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_ref, $include_input_sets = 0) {
 
 	my $template_data_ref = {};
 	# This function populates a data structure that is used by the template to display the nutrition facts table
@@ -9215,6 +9129,7 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 			},
 		};
 	}
+
 	# food
 	else {
 		$template_data_ref = {
@@ -9237,36 +9152,16 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 	my %columns = ();
 
 	# We can have data for the product as sold, and/or prepared
-	my @displayed_product_types = ();
-	my %displayed_product_types = ();
+	# We display only one column for the product, the one that is in the aggregated set
 
-	if (   (not defined $product_ref->{nutrition_data})
-		or ($product_ref->{nutrition_data})
-		or has_nutrition_data_for_product_type($product_ref, ""))
-	{
-		# by default, old products did not have a checkbox, display the nutrition data entry column for the product as sold
-		push @displayed_product_types, "";
-		$displayed_product_types{as_sold} = 1;
-	}
-	if (   ((defined $product_ref->{nutrition_data_prepared}) and ($product_ref->{nutrition_data_prepared} eq 'on'))
-		or (has_nutrition_data_for_product_type($product_ref, "_prepared")))
-	{
-		push @displayed_product_types, "prepared_";
-		$displayed_product_types{prepared} = 1;
-	}
+	my $preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
 
-	foreach my $product_type (@displayed_product_types) {
+	if (defined $preparation) {
 
-		my $nutrition_data_per = "nutrition_data" . "_" . $product_type . "per";
+		my $col_name = lang("preparation_" . $preparation);
+		my $per = deep_get($product_ref, "nutrition", "aggregated_set", "per");
 
-		my $col_name = lang("product_as_sold");
-		if ($product_type eq 'prepared_') {
-			$col_name = lang("prepared_product");
-		}
-
-		# only for 100g, petfood is diplayed per 1kg
-		# update header name here
-		# update value later
+		# per is always either 100g or 100ml for food and per 1kg for petfood
 		my $name_per_xxg;
 		if ((defined $product_ref->{product_type}) && ($product_ref->{product_type} eq "petfood")) {
 			$name_per_xxg = $col_name . "<br>" . lang("analytical_constituents_per_1kg");
@@ -9274,67 +9169,21 @@ sub data_to_display_nutrition_table ($product_ref, $comparisons_ref, $request_re
 		else {
 			$name_per_xxg = $col_name . "<br>" . lang("nutrition_data_per_100g");
 		}
-		$columns{$product_type . "100g"} = {
+
+		$columns{$preparation . "_" . $per} = {
 			scope => "product",
-			product_type => $product_type,
-			per => "100g",
+			preparation => $preparation,
+			per => $per,
 			name => $name_per_xxg,
-			short_name => "100g",
+			short_name => $per,
+			class => "product",
 		};
 
-		$columns{$product_type . "serving"} = {
-			scope => "product",
-			product_type => $product_type,
-			per => "serving",
-			name => $col_name . "<br>" . lang("nutrition_data_per_serving"),
-			short_name => lang("nutrition_data_per_serving"),
-		};
-
-		if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne '')) {
-			$columns{$product_type . "serving"}{name} .= ' (' . $product_ref->{serving_size} . ')';
-		}
-
-		if (not defined $product_ref->{$nutrition_data_per}) {
-			$product_ref->{$nutrition_data_per} = '100g';
-		}
-
-		if ($product_ref->{$nutrition_data_per} eq 'serving') {
-
-			if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
-				if (($product_type eq "") and ($displayed_product_types{prepared})) {
-					# do not display non prepared by portion if we have data for the prepared product
-					# -> the portion size is for the prepared product
-					push @cols, $product_type . '100g';
-				}
-				else {
-					push @cols, ($product_type . '100g', $product_type . 'serving');
-				}
-			}
-			else {
-				push @cols, $product_type . 'serving';
-			}
-		}
-		else {
-			if ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
-				if (($product_type eq "") and ($displayed_product_types{prepared})) {
-					# do not display non prepared by portion if we have data for the prepared product
-					# -> the portion size is for the prepared product
-					push @cols, $product_type . '100g';
-				}
-				else {
-					push @cols, ($product_type . '100g', $product_type . 'serving');
-				}
-			}
-			else {
-				push @cols, $product_type . '100g';
-			}
-		}
+		push @cols, $preparation . "_" . $per;
 	}
-	# }
 
 	# Comparisons with other products, categories, recommended daily values etc.
-
-	if ((defined $comparisons_ref) and (scalar @{$comparisons_ref} > 0)) {
+	if ((not $include_input_sets) and (defined $comparisons_ref) and (scalar @{$comparisons_ref} > 0)) {
 
 		# Add a comparisons array to the template data structure
 
@@ -9387,11 +9236,50 @@ CSS
 		}
 	}
 
+	# Display a column for each of the nutrition input sets
+	my $input_sets = deep_get($product_ref, "nutrition", "input_sets");
+	if (($include_input_sets) and (defined $input_sets)) {
+
+		my $i = 0;
+
+		foreach my $input_set_ref (@$input_sets) {
+
+			my $col_id = "input_set_" . $i;
+
+			push @cols, $col_id;
+
+			my $preparation = deep_get($input_set_ref, "preparation");
+			my $per = deep_get($input_set_ref, "per");
+			my $per_quantity = deep_get($input_set_ref, "per_quantity");
+			my $per_unit = deep_get($input_set_ref, "per_unit");
+
+			my $per_lang = lang("per_" . $per);
+			if (($per eq 'serving') and (defined $per_quantity) and (defined $per_unit)) {
+				$per_lang .= " (" . $per_quantity . " " . $per_unit . ")";
+			}
+
+			my $source = deep_get($input_set_ref, "source");
+
+			my $col_name = lang("preparation_" . $preparation) . " " . $per_lang . " (" . $source . ")";
+
+			$columns{$col_id} = {
+				scope => "product",
+				preparation => $preparation,
+				per => $per,
+				name => $col_name,
+				short_name => $per,
+				class => "product",
+			};
+
+			$i++;
+		}
+	}
+
 	# Stats for categories
 
 	if (defined $product_ref->{stats}) {
 
-		foreach my $col_id ('std', 'min', '10', '50', '90', 'max') {
+		foreach my $col_id ('mean', 'std', 'min', '10', '50', '90', 'max') {
 			push @cols, $col_id;
 			$columns{$col_id} = {
 				"scope" => "categories",
@@ -9419,45 +9307,20 @@ CSS
 
 	# Data for the nutrition table body
 
-	defined $product_ref->{nutriments} or $product_ref->{nutriments} = {};
-
-	my @unknown_nutriments = ();
-	my %seen_unknown_nutriments = ();
-	foreach my $nid (keys %{$product_ref->{nutriments}}) {
-
-		next if (($nid =~ /_/) and ($nid !~ /_prepared$/));
-
-		$nid =~ s/_prepared$//;
-
-		if (    (not exists_taxonomy_tag("nutrients", "zz:$nid"))
-			and (defined $product_ref->{nutriments}{$nid . "_label"})
-			and (not defined $seen_unknown_nutriments{$nid}))
-		{
-			push @unknown_nutriments, $nid;
-			$seen_unknown_nutriments{$nid} = 1;
-		}
-	}
-
 	# Display estimate of fruits, vegetables, nuts from the analysis of the ingredients list
-	my @nutriments = ();
-	foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}, @unknown_nutriments) {
-		push @nutriments, $nutriment;
-		if (($nutriment eq "fruits-vegetables-nuts-estimate-")) {
-			push @nutriments, "fruits-vegetables-nuts-estimate-from-ingredients-";
-		}
-	}
+	$log->debug("displaying nutrition table, nutrient table", {nutrient_table => $nutrient_table}) if $log->is_debug();
+	my @nutrients = @{$nutrients_tables{$nutrient_table || "off_europe"}}
+		;    # Note: some tests may not have $nutrient_table initialized
 
 	my $decf = get_decimal_formatter($lc);
 	my $perf = get_percent_formatter($lc, 0);
 
-	foreach my $nutriment (@nutriments) {
+	foreach my $nutrient (@nutrients) {
 
-		next if $nutriment =~ /^\#/;
-		my $nid = $nutriment;
+		next if $nutrient =~ /^\#/;
+		my $nid = $nutrient;
 		$nid =~ s/^(-|!)+//g;
 		$nid =~ s/-$//g;
-
-		next if $nid eq 'sodium';
 
 		# Skip "energy-kcal" and "energy-kj" as we will display "energy" which has both
 		next if (($nid eq "energy-kcal") or ($nid eq "energy-kj"));
@@ -9465,42 +9328,23 @@ CSS
 		# Determine if the nutrient should be shown
 		my $shown = 0;
 
-		# Check if we have a value for the nutrient
-		my $is_nutrient_with_value = (
-			((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne ''))
-				or ((defined $product_ref->{nutriments}{$nid . "_100g"})
-				and ($product_ref->{nutriments}{$nid . "_100g"} ne ''))
-				or ((defined $product_ref->{nutriments}{$nid . "_prepared"})
-				and ($product_ref->{nutriments}{$nid . "_prepared"} ne ''))
-				or ((defined $product_ref->{nutriments}{$nid . "_modifier"})
-				and ($product_ref->{nutriments}{$nid . "_modifier"} eq '-'))
-				or ((defined $product_ref->{nutriments}{$nid . "_prepared_modifier"})
-				and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-'))
-		);
+		# Check if we have a value for the nutrient (product) that is not estimated,
+		# or for the category (stats)
+		my $nutrient_value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+		my $nutrient_source = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "source");
 
-		# Show rows that are not optional (id with a trailing -), or for which we have a value
-		if (($nutriment !~ /-$/) or $is_nutrient_with_value) {
-			$shown = 1;
-		}
-
-		# Hide rows that are not important when we don't have a value
-		if ((($nutriment !~ /^!/) or ($product_ref->{id} eq 'search'))
-			and not($is_nutrient_with_value))
+		if (   ((defined $nutrient_value) and (defined $nutrient_source) and ($nutrient_source ne 'estimate'))
+			or (deep_exists($product_ref, "values", $nid, "mean")))
 		{
-			$shown = 0;
+			$shown = 1;
+			$log->debug("showing nutrient in nutrition table", {nid => $nid}) if $log->is_debug();
 		}
-
-		# Show the UK nutrition score only if the country is matching
-		# Always show the FR nutrition score (Nutri-Score)
-
-		if ($nid =~ /^nutrition-score-(.*)$/) {
-			# Always show the FR score and Nutri-Score
-			if (($request_ref->{cc} ne $1) and (not($1 eq 'fr'))) {
-				$shown = 0;
-			}
-
-			# 2021-12: now not displaying the Nutrition scores and Nutri-Score in nutrition facts table (experimental)
-			$shown = 0;
+		# Show rows that are important (id with a starting !) or the id is search
+		# as we have only 1 or 2 nutrients for search graphs
+		elsif (($nutrient =~ /^!/) or ((defined $product_ref->{id}) and ($product_ref->{id} eq 'search'))) {
+			$shown = 1;
+			$log->debug("showing nutrient in nutrition table even if no value", {nid => $nid})
+				if $log->is_debug();
 		}
 
 		if ($shown) {
@@ -9508,9 +9352,9 @@ CSS
 			# Level of the nutrient: 0 for main nutrients, 1 for sub-nutrients, 2 for sub-sub-nutrients
 			my $level = 0;
 
-			if ($nutriment =~ /^!?-/) {
+			if ($nutrient =~ /^!?-/) {
 				$level = 1;
-				if ($nutriment =~ /^!?--/) {
+				if ($nutrient =~ /^!?--/) {
 					$level = 2;
 				}
 			}
@@ -9524,79 +9368,87 @@ CSS
 				$name = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 				$unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
 			}
-			else {
-				if (defined $product_ref->{nutriments}{$nid . "_label"}) {
-					$name = $product_ref->{nutriments}{$nid . "_label"};
-				}
-				if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
-					$unit = $product_ref->{nutriments}{$nid . "_unit"};
-				}
-			}
-			my @columns;
-			my @extra_row_columns;
 
-			my $extra_row = 0;    # Some rows will trigger an extra row (e.g. Salt adds Sodium)
+			my @columns;
 
 			foreach my $col_id (@cols) {
 
 				my $values;    # Value for row
-				my $values2;    # Value for extra row (e.g. after the row for salt, we add an extra row for sodium)
 				my $col_class = $columns{$col_id}{class};
 				my $percent;
-				my $percent_numeric_value;
 
 				my $rdfa = '';    # RDFA property for row
-				my $rdfa2 = '';    # RDFA property for extra row
 
 				my $col_type;
 
-				if ($col_id =~ /compare_(.*)/) {    #comparisons
+				# Stats for categories
+				if ((defined $col_class) and ($col_class eq 'stats')) {
+					$col_type = "category_stats";
+					my $stat_value = deep_get($product_ref, "values", $nid, $col_id);
+					if (defined $stat_value) {
 
+						# energy-kcal is already in kcal
+						if ($nid eq 'energy-kcal') {
+							$stat_value = $stat_value;
+						}
+						else {
+							$stat_value = $decf->format(g_to_unit($stat_value, $unit));
+						}
+
+						# too small values are converted to e notation: 7.18e-05
+						if (($stat_value . ' ') =~ /e/) {
+							# use %f (outputs extras 0 in the general case)
+							$stat_value = sprintf("%f", g_to_unit($stat_value, $unit));
+						}
+
+						$values = "$stat_value $unit";
+					}
+					else {
+						$values = '?';
+					}
+				}
+				# comparisons
+				elsif ($col_id =~ /compare_(.*)/) {    #comparisons
 					$col_type = "comparison";
 
 					my $comparison_ref = $comparisons_ref->[$1];
+					my $value = deep_get($comparison_ref, "nutrients", $nid, "mean");
+					my $value_percent = deep_get($comparison_ref, "nutrients", $nid, "mean_percent");
 
-					my $value = "";
-					if (defined $comparison_ref->{nutriments}{$nid . "_100g"}) {
+					if (defined $comparison_ref->{nutrients}{$nid}) {
 						# energy-kcal is already in kcal
 						if ($nid eq 'energy-kcal') {
-							$value = $comparison_ref->{nutriments}{$nid . "_100g"};
+							$value = $value;
 						}
 						else {
-							$value = $decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit));
+							$value = $decf->format(g_to_unit($value, $unit));
 						}
 					}
 					# too small values are converted to e notation: 7.18e-05
 					if (($value . ' ') =~ /e/) {
 						# use %f (outputs extras 0 in the general case)
-						$value = sprintf("%f", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit));
+						$value = sprintf("%f", g_to_unit($value, $unit));
 					}
 
-					# 0.045 g	0.0449 g
-
 					$values = "$value $unit";
-					if (   (not defined $comparison_ref->{nutriments}{$nid . "_100g"})
-						or ($comparison_ref->{nutriments}{$nid . "_100g"} eq ''))
+					if (   (not defined $value)
+						or ($comparison_ref->{nutrients}{$nid} eq ''))
 					{
 						$values = '?';
 					}
 					elsif (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 						# Use the actual value in kcal if we have it
-						my $value_in_kcal;
-						if (defined $comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"}) {
-							$value_in_kcal = $comparison_ref->{nutriments}{$nid . "-kcal" . "_100g"};
+						my $value_in_kcal = deep_get($comparison_ref, "nutrients", $nid . "-kcal", "mean");
+						if (not defined $value_in_kcal) {
+							$value_in_kcal = g_to_unit($comparison_ref->{nutrients}{$nid}, 'kcal');
 						}
-						# Otherwise convert the value in kj
-						else {
-							$value_in_kcal = g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, 'kcal');
-						}
-						$values .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
+						$values .= " (" . sprintf("%d", $value_in_kcal) . ' kcal)';
 					}
 
-					$percent = $comparison_ref->{nutriments}{"${nid}_100g_%"};
+					$percent = deep_get($comparison_ref, "nutrients", $nid, "mean_percent");
 					if ((defined $percent) and ($percent ne '')) {
 
-						$percent_numeric_value = $percent;
+						my $percent_numeric_value = $percent;
 						$percent = $perf->format($percent / 100.0);
 						# issue 2273 -  minus signs are rendered with different characters in different locales, e.g. Finnish
 						# so just test positivity of numeric value
@@ -9605,232 +9457,108 @@ CSS
 						}
 						# If percent is close to 0, just put "-"
 						if (sprintf("%.0f", $percent_numeric_value) eq "0") {
-							$percent = "-";
-						}
-					}
-					else {
-						$percent = undef;
-					}
-
-					if ($nid eq 'sodium') {
-						if (   (not defined $comparison_ref->{nutriments}{$nid . "_100g"})
-							or ($comparison_ref->{nutriments}{$nid . "_100g"} eq ''))
-						{
-							$values2 = '?';
+							$values .= " (~0%)";
 						}
 						else {
-							$values2
-								= ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} * 2.5, $unit)))
-								. " "
-								. $unit;
-						}
-					}
-					elsif ($nid eq 'salt') {
-						if (   (not defined $comparison_ref->{nutriments}{$nid . "_100g"})
-							or ($comparison_ref->{nutriments}{$nid . "_100g"} eq ''))
-						{
-							$values2 = '?';
-						}
-						else {
-							$values2
-								= ($decf->format(g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"} / 2.5, $unit)))
-								. " "
-								. $unit;
-						}
-					}
-					elsif ($nid eq 'nutrition-score-fr') {
-						# We need to know the category in order to select the right thresholds for the nutrition grades
-						# as it depends on whether it is food or drink
-
-						# if it is a category stats, the category id is the id field
-						if (    (not defined $product_ref->{categories_tags})
-							and (defined $product_ref->{id})
-							and ($product_ref->{id} =~ /^en:/))
-						{
-							$product_ref->{categories} = $product_ref->{id};
-							compute_field_tags($product_ref, "en", "categories");
-						}
-
-						if (defined $product_ref->{categories_tags}) {
-
-							my $nutriscore_grade = compute_nutriscore_grade(
-								$product_ref->{nutriments}{$nid . "_100g"},
-								is_beverage_for_nutrition_score($product_ref),
-								is_water_for_nutrition_score($product_ref)
-							);
-
-							$values2 = uc($nutriscore_grade);
+							$values .= " (" . $percent . ")";
 						}
 					}
 				}
 				else {
+					# We will determine the path prefix to get nutrient data for the column based on its id:
+					# id = input_set_[index] : nutrition, input_sets, [index], nutrients
+					# otherwise: nutrition, aggregated_set, nutrients
+
+					my @nutrients_path = ("nutrition", "aggregated_set", "nutrients");
+					if ($col_id =~ /^input_set_(\d+)$/) {
+						my $input_set_index = $1;
+						@nutrients_path = ("nutrition", "input_sets", $input_set_index, "nutrients");
+					}
+
 					$col_type = "normal";
 					my $value_unit = "";
-
-					# Nutriscore: per serving = per 100g
-					if (($nid =~ /(nutrition-score(-\w\w)?)/)) {
-						# same Nutri-Score for 100g / serving and prepared / as sold
-						$product_ref->{nutriments}{$nid . "_" . $col_id} = $product_ref->{nutriments}{$1 . "_100g"};
+					my $value = deep_get($product_ref, @nutrients_path, $nid, "value");
+					my $nutrient_set_unit = deep_get($product_ref, @nutrients_path, $nid, "unit");
+					# If the nid and we don't have a value, check if we have a value for energy-kj (energy is not present on input sets)
+					if (($nid eq "energy") and (not defined $value)) {
+						$value = deep_get($product_ref, @nutrients_path, "energy-kj", "value");
+						$nutrient_set_unit = deep_get($product_ref, @nutrients_path, "energy-kj", "unit");
+					}
+					# If we don't have a value for energy-kj, check if we have a value for energy-kcal
+					if (($nid eq "energy") and (not defined $value)) {
+						$value = deep_get($product_ref, @nutrients_path, "energy-kcal", "value");
+						$nutrient_set_unit = deep_get($product_ref, @nutrients_path, "energy-kcal", "unit");
+						if (defined $value) {
+							# We will display ? for the energy in kj, but we will display the kcal value
+							$value = '?';
+						}
 					}
 
-					# We need to know if the column corresponds to a prepared value, in order to be able to retrieve the right modifier
-					my $prepared = '';
-					if ($col_id =~ /prepared/) {
-						$prepared = "_prepared";
+					# FIXME: if the packaging / manufacturer input set has the nutrient in the unspecified_nutrients array,
+					# we used to display a "-" sign."
+					if (0) {
+						# The nutrient is not indicated on the package, display a minus sign
+						$value_unit = '-';
 					}
-
-					if (   (not defined $product_ref->{nutriments}{$nid . "_" . $col_id})
-						or ($product_ref->{nutriments}{$nid . "_" . $col_id} eq ''))
-					{
-						if (    (defined $product_ref->{nutriments}{$nid . $prepared . "_modifier"})
-							and ($product_ref->{nutriments}{$nid . $prepared . "_modifier"} eq '-'))
-						{
-							# The nutrient is not indicated on the package, display a minus sign
-							$value_unit = '-';
-						}
-						else {
-							$value_unit = '?';
-						}
+					elsif (not defined $value) {
+						$value_unit = '?';
 					}
 					else {
 
-						# this is the actual value on the package, not a computed average. do not try to round to 2 decimals.
-						my $value;
+						my $formatted_value = $value;
 
-						# energy-kcal is already in kcal
-						if ($nid eq 'energy-kcal') {
-							$value = $product_ref->{nutriments}{$nid . "_" . $col_id};
+						if ($value ne '?') {
+							# too small values are converted to e notation: 7.18e-05
+							if (($formatted_value . ' ') =~ /e/) {
+								# use %f (outputs extras 0 in the general case)
+								$formatted_value = sprintf("%f", $value);
+							}
+						}
+
+						if (defined $nutrient_set_unit) {
+							$value_unit = "$formatted_value $nutrient_set_unit";
 						}
 						else {
-							# only for 100g, petfood is diplayed per 1kg
-							# update header above
-							# update value here
-							if (   (defined $product_ref->{product_type})
-								&& ($product_ref->{product_type} eq "petfood")
-								&& ($unit ne "%"))
-							{
-								$value = $decf->format(
-									g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id} * 10, $unit));
-							}
-							else {
-								$value
-									= $decf->format(g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
-							}
+							$value_unit = $formatted_value;
 						}
 
-						# too small values are converted to e notation: 7.18e-05
-						if (($value . ' ') =~ /e/) {
-							# use %f (outputs extras 0 in the general case)
-							$value = sprintf("%f", g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, $unit));
-						}
+						my $modifier = deep_get($product_ref, @nutrients_path, $nid, "modifier");
 
-						$value_unit = "$value $unit";
-
-						if (defined $product_ref->{nutriments}{$nid . $prepared . "_modifier"}) {
-							$value_unit
-								= $product_ref->{nutriments}{$nid . $prepared . "_modifier"} . " " . $value_unit;
+						if (defined $modifier) {
+							$value_unit = $modifier . " " . $value_unit;
 						}
 
 						if (($nid eq "energy") or ($nid eq "energy-from-fat")) {
 							# Use the actual value in kcal if we have it
-							my $value_in_kcal;
-							if (defined $product_ref->{nutriments}{$nid . "-kcal" . "_" . $col_id}) {
-								$value_in_kcal = $product_ref->{nutriments}{$nid . "-kcal" . "_" . $col_id};
-							}
+							my $value_in_kcal = deep_get($product_ref, @nutrients_path, $nid . "-kcal", "value");
 							# Otherwise convert the value in kj
-							else {
-								$value_in_kcal = g_to_unit($product_ref->{nutriments}{$nid . "_" . $col_id}, 'kcal');
+							if (not defined $value_in_kcal) {
+								if ($value ne '?') {
+									$value_in_kcal = g_to_unit($value, 'kcal');
+								}
+								else {
+									$value_in_kcal = '?';
+								}
 							}
 							$value_unit .= "<br>(" . sprintf("%d", $value_in_kcal) . ' kcal)';
 						}
 					}
 
-					if ($nid eq 'sodium') {
-						my $salt;
-						if (defined $product_ref->{nutriments}{$nid . "_" . $col_id}) {
-							$salt = $product_ref->{nutriments}{$nid . "_" . $col_id} * 2.5;
-						}
-						if (exists $product_ref->{nutriments}{"salt" . "_" . $col_id}) {
-							$salt = $product_ref->{nutriments}{"salt" . "_" . $col_id};
-						}
-						if (defined $salt) {
-							$salt = $decf->format(g_to_unit($salt, $unit));
-							if ($col_id eq '100g') {
-								$rdfa2 = "property=\"food:saltEquivalentPer100g\" content=\"$salt\"";
-							}
-							$salt .= " " . $unit;
-						}
-						else {
-							$salt = "?";
-						}
-						$values2 = $salt;
-					}
-					elsif ($nid eq 'salt') {
-						my $sodium;
-						if (defined $product_ref->{nutriments}{$nid . "_" . $col_id}) {
-							$sodium = $product_ref->{nutriments}{$nid . "_" . $col_id} / 2.5;
-						}
-						if (exists $product_ref->{nutriments}{"sodium" . "_" . $col_id}) {
-							$sodium = $product_ref->{nutriments}{"sodium" . "_" . $col_id};
-						}
-						if (defined $sodium) {
-							$sodium = $decf->format(g_to_unit($sodium, $unit));
-							if ($col_id eq '100g') {
-								$rdfa2 = "property=\"food:sodiumEquivalentPer100g\" content=\"$sodium\"";
-							}
-							$sodium .= " " . $unit;
-						}
-						else {
-							$sodium = "?";
-						}
-						$values2 = $sodium;
-					}
-					elsif ($nid eq 'nutrition-score-fr') {
-						# We need to know the category in order to select the right thresholds for the nutrition grades
-						# as it depends on whether it is food or drink
-
-						# if it is a category stats, the category id is the id field
-						if (    (not defined $product_ref->{categories_tags})
-							and (defined $product_ref->{id})
-							and ($product_ref->{id} =~ /^en:/))
+					# Add % DV if applicable
+					if ($col_id eq $product_ref->{nutrition}{aggregated_set}{per}) {
+						if (    (defined $value)
+							and (defined $unit)
+							and ($nutrient_set_unit eq '% DV'))
 						{
-							$product_ref->{categories} = $product_ref->{id};
-							compute_field_tags($product_ref, "en", "categories");
-						}
-
-						if (defined $product_ref->{categories_tags}) {
-
-							if ($col_id ne "std") {
-
-								my $nutriscore_grade = compute_nutriscore_grade(
-									$product_ref->{nutriments}{$nid . "_" . $col_id},
-									is_beverage_for_nutrition_score($product_ref),
-									is_water_for_nutrition_score($product_ref)
-								);
-
-								$values2 = uc($nutriscore_grade);
-							}
-						}
-					}
-					elsif ($col_id eq $product_ref->{nutrition_data_per}) {
-						# % DV ?
-						if (    (defined $product_ref->{nutriments}{$nid . "_value"})
-							and (defined $product_ref->{nutriments}{$nid . "_unit"})
-							and ($product_ref->{nutriments}{$nid . "_unit"} eq '% DV'))
-						{
-							$value_unit
-								.= ' ('
-								. $product_ref->{nutriments}{$nid . "_value"} . ' '
-								. $product_ref->{nutriments}{$nid . "_unit"} . ')';
+							$value_unit .= ' (' . $value . ' ' . $nutrient_set_unit . ')';
 						}
 					}
 
-					if (($col_id eq '100g') and (defined $product_ref->{nutriments}{$nid . "_" . $col_id})) {
+					if (defined $value) {
 						my $property = $nid;
 						$property =~ s/-([a-z])/ucfirst($1)/eg;
 						$property .= "Per100g";
-						$rdfa = " property=\"food:$property\" content=\""
-							. $product_ref->{nutriments}{$nid . "_" . $col_id} . "\"";
+						$rdfa = " property=\"food:$property\" content=\"" . $value . "\"";
 					}
 
 					$values = $value_unit;
@@ -9844,45 +9572,7 @@ CSS
 					type => $col_type,
 				};
 
-				# Add evaluation
-				if (defined $percent_numeric_value) {
-
-					my $nutrient_evaluation = get_property("nutrients", "zz:$nid", "evaluation:en")
-						;    # Whether the nutrient is considered good or not
-
-					# Determine if the value of this nutrient compared to other products is good or not
-
-					if (defined $nutrient_evaluation) {
-
-						if (   (($nutrient_evaluation eq "good") and ($percent_numeric_value >= 10))
-							or (($nutrient_evaluation eq "bad") and ($percent_numeric_value <= -10)))
-						{
-							$cell_data_ref->{evaluation} = "good";
-						}
-						elsif ((($nutrient_evaluation eq "bad") and ($percent_numeric_value >= 10))
-							or (($nutrient_evaluation eq "good") and ($percent_numeric_value <= -10)))
-						{
-							$cell_data_ref->{evaluation} = "bad";
-						}
-					}
-				}
-
 				push(@columns, $cell_data_ref);
-
-				push(
-					@extra_row_columns,
-					{
-						value => $values2,
-						rdfa => $rdfa2,
-						class => $col_class,
-						percent => $percent,
-						type => $col_type,
-					}
-				);
-
-				if (defined $values2) {
-					$extra_row = 1;
-				}
 			}
 
 			# Add the row data to the template
@@ -9893,82 +9583,9 @@ CSS
 				name => $name,
 				columns => \@columns,
 				};
-
-			# Add an extra row for specific nutrients
-			# 2021-12: There may not be a lot of value to display an extra sodium or salt row,
-			# tentatively disabling it. Keeping code in place in case we want to re-enable it under some conditions.
-			if (0 and (defined $extra_row)) {
-				if ($nid eq 'sodium') {
-
-					push @{$template_data_ref->{nutrition_table}{rows}},
-						{
-						name => lang("salt_equivalent"),
-						nid => "salt_equivalent",
-						level => 1,
-						columns => \@extra_row_columns,
-						};
-				}
-				elsif ($nid eq 'salt') {
-
-					push @{$template_data_ref->{nutrition_table}{rows}},
-						{
-						name => display_taxonomy_tag($lc, "nutrients", "zz:sodium"),
-						nid => "sodium",
-						level => 1,
-						columns => \@extra_row_columns,
-						};
-				}
-				elsif ($nid eq 'nutrition-score-fr') {
-
-					push @{$template_data_ref->{nutrition_table}{rows}},
-						{
-						name => "Nutri-Score",
-						nid => "nutriscore",
-						level => 1,
-						columns => \@extra_row_columns,
-						};
-				}
-			}
 		}
 	}
-
 	return $template_data_ref;
-}
-
-=head2 display_nutrition_table ( $product_ref, $comparisons_ref )
-
-Generates HTML to display a nutrition table.
-
-Use data produced by data_to_display_nutrition_table
-
-This function is no longer used to display the nutrition table on product pages (replaced by a knowledge panel),
-but it is used to show average nutrition tables for categories.
-
-=head3 Arguments
-
-=head4 Product reference $product_ref
-
-=head4 Comparisons reference $product_ref
-
-Reference to an array with nutrition facts for 1 or more categories.
-
-=head3 Return values
-
-HTML for the nutrition table.
-
-=cut
-
-sub display_nutrition_table ($product_ref, $comparisons_ref, $request_ref) {
-
-	my $html = '';
-
-	my $template_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
-
-	process_template('web/pages/product/includes/nutrition_facts_table.tt.html',
-		$template_data_ref, \$html, $request_ref)
-		|| return "template error: " . $tt->error();
-
-	return $html;
 }
 
 =head2 display_taxonomy_api ( $request_ref )

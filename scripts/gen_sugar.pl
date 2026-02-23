@@ -68,7 +68,7 @@ my @fields = qw (
 	origins
 	ingredients
 	labels
-	nutriments
+	nutrition
 	traces
 	users
 	photographers
@@ -92,12 +92,10 @@ foreach my $l ('en') {
 
 	$lc = $l;
 
-	my $fields_ref = {code => 1, product_name => 1, brands => 1, quantity => 1, nutriments => 1};
+	my $fields_ref = {code => 1, product_name => 1, brands => 1, quantity => 1, nutrition => 1};
 	my %tags = ();
 
 	my $query_ref = {lc => $lc, states_tags => 'en:complete'};
-	#$query_ref->{"nutriments.sugars_100g"}{ '$gte'}  = 0.01;
-	# -> does not seem to work for sugars, maybe some string values?!
 
 	my $cursor = get_products_collection()->query($query_ref);
 
@@ -136,7 +134,9 @@ HTML
 
 		$k++;
 
-		($product_ref->{"nutriments"}{"sugars_100g"}) < 0.01 and next;
+		my $sugar_value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "sugars", "value");
+
+		if ((not defined $sugar_value) or ($sugar_value < 0.01)) {next;}
 
 		$kk++;
 
@@ -178,7 +178,7 @@ HTML
 
 		my $qx = $q * $x;
 
-		my $s = $qx * $product_ref->{"nutriments"}{"sugars_100g"} / 100;
+		my $s = $qx * $sugar_value / 100;
 		my $sucres_g = int($s + 0.4999);
 		my $sc = $s / 4;
 		my $small = int($sc + 0.4999);
@@ -244,7 +244,7 @@ HTML
 				. "</td><td>"
 				. $product_ref->{quantity}
 				. "</td><td>$q x $x = $qx</td><td>$s</td><td>$sc</td><td>"
-				. $product_ref->{"nutriments"}{"sugars_100g"}
+				. $sugar_value
 				. "</td></tr>\n";
 
 			my $description

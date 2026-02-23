@@ -52,7 +52,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:nutriments-to-be-completed\"> en:nutriments-to-be-completed <br><span class=\"description\">The nutrition facts need to be completed.</span> </li> <li id=\"data-error-en:nutrition-photo-to-be-selected\"> en:nutrition-photo-to-be-selected <br><span class=\"description\">A photo for the nutrition facts needs to be selected.</span> </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:nutrition-photo-to-be-selected\"> en:nutrition-photo-to-be-selected <br><span class=\"description\">A photo for the nutrition facts needs to be selected.</span> </li> <li id=\"data-error-en:nutrition-to-be-completed\"> en:nutrition-to-be-completed <br><span class=\"description\">The nutrition facts need to be completed.</span> </li> </ul>"
                   }
                },
                {
@@ -116,6 +116,21 @@
          },
          "data_quality_info" : {
             "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:no-nutrition-data\"> No nutrition data </li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_nutrition_facts"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
                {
                   "element_type" : "text",
                   "text_element" : {
@@ -819,17 +834,181 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "As sold<br>per serving (10 g)",
-                           "text_for_small_screens" : "per serving",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
                      "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Energy"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fat"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Saturated fat"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Carbohydrates"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sugars"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fiber"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Proteins"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Salt"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fruits‚ vegetables‚ legumes"
+                              },
+                              {
+                                 "text" : "~ 0 %"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Nutrition facts"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutrition_facts_table_with_input_sets"
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/scale-balance.svg",
+               "title" : "Nutrition facts"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrition_facts_table_with_input_sets" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "style" : "max-width:15rem",
+                           "text" : "Nutrition facts",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "As sold<br>for 100 g / 100 ml",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "As sold for 100 g (estimate)",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "nutrition_facts_table_with_input_sets",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Energy"
+                              },
+                              {
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
                         {
                            "values" : [
                               {
@@ -940,13 +1119,13 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+                                 "text" : "Fruits‚ vegetables‚ legumes"
                               },
                               {
-                                 "text" : "0 %"
+                                 "text" : "~ 0 %"
                               },
                               {
-                                 "text" : "0 %"
+                                 "text" : "~ 0 %"
                               }
                            ]
                         }
@@ -956,13 +1135,10 @@
                }
             ],
             "evaluation" : "unknown",
-            "expand_for" : "large",
             "expanded" : false,
             "level" : "info",
             "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/scale-balance.svg",
-               "title" : "Nutrition facts"
+               "title" : "Nutrition facts (Detailed data)"
             },
             "topics" : [
                "health"

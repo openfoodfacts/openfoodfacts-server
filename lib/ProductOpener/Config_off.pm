@@ -952,7 +952,6 @@ $options{import_export_fields_groups} = [
 	],
 	["ingredients", ["ingredients_text", "allergens", "traces"]],
 	["nutrition"],
-	["nutrition_other"],
 	["packaging"],
 	[
 		"other",
