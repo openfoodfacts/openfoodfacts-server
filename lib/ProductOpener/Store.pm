@@ -597,15 +597,16 @@ sub remove_object($path) {
 	return;
 }
 
-=head2 object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef)
+=head2 object_iter($base_path, $name_pattern = undef, $exclude_path_pattern = undef, $skip_until_path = undef)
 
 Iterates over the path returning a cursor that can return object paths whose
-name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern
+name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern.
+If $skip_until_path is provided, skips all object paths that are lexicographically less than $skip_until_path.
 
 =cut
 
-sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef) {
-	my @dirs = ($initial_path);
+sub object_iter($base_path, $name_pattern = undef, $exclude_path_pattern = undef, $skip_until_path = undef) {
+	my @dirs = ($base_path);
 	my @object_paths = ();
 	return sub {
 		if (scalar @object_paths == 0) {
@@ -623,6 +624,12 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 					# avoid conflicting-codes and invalid-codes
 					next if $exclude_path_pattern and $file =~ $exclude_path_pattern;
 					my $path = "$current_dir/$file";
+					#print STDERR "skip_until_path: $skip_until_path - current: $path\n";
+					# If the path is < $skip_until_path then skip it unless $path is the beginning of the $skip_until_path (i.e. we are skipping a directory and this is the first file in the directory)
+					next
+						if ((defined $skip_until_path)
+						and ($path lt $skip_until_path)
+						and not($skip_until_path =~ /^\Q$path\E/));
 					if (-d $path) {
 						# explore sub dirs
 						push @dirs, $path;
