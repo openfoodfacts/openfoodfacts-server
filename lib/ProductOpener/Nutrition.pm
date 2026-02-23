@@ -205,8 +205,6 @@ None
 
 sub generate_nutrient_aggregated_set ($product_ref) {
 
-	add_tag($product_ref, "misc", "en:generate-nutrition-data-per-test");
-
 	if (!defined $product_ref) {
 		return;
 	}

@@ -82,8 +82,6 @@ sub specific_processes_for_food_product ($product_ref) {
 
 	# Ingredients analysis
 
-	print STDERR "Processing ingredients for product $product_ref->{code}...\n";
-
 	# Select best language to parse ingredients
 	select_ingredients_lc($product_ref);
 	clean_ingredients_text($product_ref);
