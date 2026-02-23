@@ -26,6 +26,7 @@ use utf8;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/object_iter retrieve_object store_object/;
 use ProductOpener::Checkpoint;
+use Time::HiRes qw/sleep/;
 
 # This script converts all product sto files to json depending on the SERIALIZE_TO_JSON environment variable
 # If we are at level 1 then both files will exist afterwards. At level 2 the STO file will be deleted
@@ -48,7 +49,7 @@ while (my $path = $next->()) {
 	store_object($path, retrieve_object($path));
 
 	# Sleep for a bit so we don't overwhelm the server
-	select(undef, undef, undef, 0.002);
+	sleep(0.002);
 	$count++;
 	if ($count % 1000 == 0) {
 		$checkpoint->log("Updated $count files. Just did $path");
