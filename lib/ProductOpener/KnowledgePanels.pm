@@ -51,8 +51,6 @@ BEGIN {
 		&create_knowledge_panels
 		&create_panel_from_json_template
 		&add_taxonomy_properties_in_target_languages_to_object
-		&create_reuse_card_panel
-		&create_maintain_card_panel
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -273,12 +271,6 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			= create_secondhand_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
-	my $has_maintain_card;
-	if ($panel_is_requested->('maintain_card')) {
-		$has_maintain_card
-			= create_maintain_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
-	}
-
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
 		"root",
@@ -288,9 +280,7 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			has_report_problem_card => $has_report_problem_card,
 			has_contribution_card => $has_contribution_card,
 			has_environment_card => $has_environment_card,
-			has_reuse_card => $has_reuse_card,
 			has_secondhand_card => $has_secondhand_card,
-			has_maintain_card => $has_maintain_card,
 			has_product_card => $has_product_card,
 		},
 		$product_ref,
@@ -897,48 +887,6 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	return 1;
 }
 
-=head2 create_reuse_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
-
-Creates a knowledge panel card that contains information about circular economy solutions for reuse
-
-It's a container for specific knowledge panels.
-
-=head3 Arguments
-
-=head4 product reference $product_ref
-
-Created knowledge panels will be added to product_ref
-
-=head4 language code $target_lc
-
-=head4 country code $target_cc
-
-=head4 options configuration reference $options_ref
-
-=head4 request reference $request_ref
-
-=cut
-
-sub create_reuse_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
-
-	$log->debug("create reuse card panel", {code => $product_ref->{code}}) if $log->is_debug();
-
-	my $sub_panels = 0;
-
-	$sub_panels += create_qfdmo_fr_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
-
-	if ($sub_panels == 0) {
-		return 0;
-	}
-
-	my $panel_data_ref = {};
-	# Create the reuse_card panel
-	create_panel_from_json_template("reuse_card", "api/knowledge-panels/reuse/reuse_card.tt.json",
-		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
-
-	return 1;
-}
-
 =head2 create_qfdmo_fr_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains information about circular economy solutions
@@ -998,8 +946,11 @@ sub create_qfdmo_fr_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 	$panel_data_ref->{category_name_fr} = $category_name_fr;
 
 	# Create QFDMO solutions panel
-	create_panel_from_json_template("qfdmo_solutions", "api/knowledge-panels/reuse/qfdmo_solutions.tt.json",
-		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	create_panel_from_json_template(
+		"repair_reuse_recycle_fr_qfdmo",
+		"api/knowledge-panels/secondhand/repair_reuse_recycle_fr_qfdmo.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+	);
 
 	return 1;
 }
@@ -1047,6 +998,11 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 	my $category_id = $product_ref->{categories_hierarchy}[-1];
 	$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
 
+	# Create panels for repairing and maintaining products, as they are relevant for secondhand products
+	create_epargnonsnosressources_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	create_qfdmo_fr_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
 	# Create paneld for donations
 
 	create_panel_from_json_template("donated_products_fr_geev",
@@ -1070,53 +1026,6 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	return 1;
-}
-
-=head2 create_maintain_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
-
-Creates a knowledge panel card that contains maintenance and repair advice for products.
-
-Created for products in specific categories that have maintenance URLs, for users in specific countries.
-
-=head3 Arguments
-
-=head4 product reference $product_ref
-
-The panel is added in the product
-
-=head4 language code $target_lc
-
-=head4 country code $target_cc
-
-=head4 options reference $options_ref
-
-=head4 request reference $request_ref
-
-=head3 Return value
-
-1 if panel created, 0 otherwise
-
-=cut
-
-sub create_maintain_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
-
-	$log->debug("create maintain card panel", {code => $product_ref->{code}}) if $log->is_debug();
-
-	my $sub_panel_count = 0;
-
-	$sub_panel_count
-		+= create_epargnonsnosressources_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
-
-	my $panel_data_ref = {};
-
-	# Create the maintain_card panel only if we have created at least one sub-panel
-	if ($sub_panel_count > 0) {
-		create_panel_from_json_template("maintain_card", "api/knowledge-panels/maintain/maintain_card.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
-		return 1;
-	}
-
-	return 0;
 }
 
 =head2 create_epargnonsnosressources_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
@@ -1175,14 +1084,9 @@ sub create_epargnonsnosressources_panel ($product_ref, $target_lc, $target_cc, $
 		# Create panel for maintenance advice for France
 		if ($target_cc eq 'fr') {
 			create_panel_from_json_template(
-				"maintenance_advice_fr_epargnonsnosressources",
-				"api/knowledge-panels/maintain/maintenance_advice_fr_epargnonsnosressources.tt.json",
-				$panel_data_ref,
-				$product_ref,
-				$target_lc,
-				$target_cc,
-				$options_ref,
-				$request_ref
+				"repair_fr_epargnonsnosressources",
+				"api/knowledge-panels/secondhand/repair_fr_epargnonsnosressources.tt.json",
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
 			);
 			return 1;
 		}

@@ -1,5 +1,5 @@
 {
-   "qfdmo_solutions" : {
+   "repair_reuse_recycle_fr_qfdmo" : {
       "elements" : [
          {
             "element_type" : "text",
@@ -45,23 +45,5 @@
       "topics" : [
          "reuse"
       ]
-   },
-   "reuse_card" : {
-      "elements" : [
-         {
-            "element_type" : "panel",
-            "panel_element" : {
-               "panel_id" : "qfdmo_solutions"
-            }
-         }
-      ],
-      "expanded" : true,
-      "title_element" : {
-         "title" : "Réemploi"
-      },
-      "topics" : [
-         "reuse"
-      ],
-      "type" : "card"
    }
 }
