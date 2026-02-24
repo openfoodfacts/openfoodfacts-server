@@ -73,11 +73,12 @@ while (my $path = $next->()) {
 	my $product_id = $product_ref->{_id};
 	my $code = $product_ref->{code};
 	if (not defined $product_id) {
-		$product_id = $code . ''; # Ensure it is a string
+		$product_id = $code . '';    # Ensure it is a string
 		$product_ref->{_id} = $code . '';
 		store_object($path, $product_ref);
 		$checkpoint->log("$product_id had no id. Setting to code");
-	} elsif ($product_id ne $code) {
+	}
+	elsif ($product_id ne $code) {
 		$checkpoint->log("$product_id has a different code: $code");
 	}
 	my $filter = {"_id" => $product_id};
