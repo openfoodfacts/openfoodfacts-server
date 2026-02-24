@@ -70,8 +70,17 @@ while (my $path = $next->()) {
 	}
 
 	my $product_ref = retrieve_object($path);
+	my $product_id = $product_ref->{_id};
 	my $code = $product_ref->{code};
-	my $filter = {"code" => $code};
+	if (not defined $product_id) {
+		$product_id = $code . ''; # Ensure it is a string
+		$product_ref->{_id} = $code . '';
+		store_object($path, $product_ref);
+		$checkpoint->log("$product_id had no id. Setting to code");
+	} elsif ($product_id ne $code) {
+		$checkpoint->log("$product_id has a different code: $code");
+	}
+	my $filter = {"_id" => $product_id};
 
 	# See which collections the product exists in
 	my @collection_ids = ();
@@ -85,17 +94,17 @@ while (my $path = $next->()) {
 		my $server = $product_ref->{server};
 		if ($server) {
 			$product_type = product_type_for_server($server);
-			$checkpoint->log("$code has no product type. Assigned from server $server");
+			$checkpoint->log("$product_id has no product type. Assigned from server $server");
 		}
 		else {
 			my $first_collection = $collection_ids[0];
 			if (defined $first_collection) {
 				$product_type = (split /_/, $first_collection)[0];
-				$checkpoint->log("$code has no product type. Assigned $product_type from MongoDB");
+				$checkpoint->log("$product_id has no product type. Assigned $product_type from MongoDB");
 			}
 			else {
 				$product_type = 'food';
-				$checkpoint->log("$code has no product type. Defaulting to food");
+				$checkpoint->log("$product_id has no product type. Defaulting to food");
 			}
 		}
 		$product_ref->{product_type} = $product_type;
@@ -110,7 +119,7 @@ while (my $path = $next->()) {
 
 		if (not $expected_collection ~~ @collection_ids) {
 			$collections{$expected_collection}->insert_one($product_ref);
-			$checkpoint->log("$code not found in expected $expected_collection collection");
+			$checkpoint->log("$product_id not found in expected $expected_collection collection");
 			# If we are adding to food then send an event for query
 			if ($expected_collection eq 'food' or $expected_collection = 'food_obsolete') {
 				push_product_update_to_redis($product_ref,
@@ -122,7 +131,7 @@ while (my $path = $next->()) {
 	foreach my $collection_id (@collection_ids) {
 		if ($collection_id ne $expected_collection) {
 			$collections{$collection_id}->delete_one($filter);
-			$checkpoint->log("$code ($expected_collection) deleted from $collection_id");
+			$checkpoint->log("$product_id ($expected_collection) deleted from $collection_id");
 
 			# If we are deleting from food then send an event for query
 			if ($collection_id eq 'food' or $collection_id = 'food_obsolete') {
@@ -137,7 +146,7 @@ while (my $path = $next->()) {
 
 	$count += 1;
 	if ($count % 1000 == 0) {
-		$checkpoint->log("Processed $count products. Up to $code");
+		$checkpoint->log("Processed $count products. Up to $product_id");
 	}
 
 	# Sleep for a bit so we don't overwhelm the server
