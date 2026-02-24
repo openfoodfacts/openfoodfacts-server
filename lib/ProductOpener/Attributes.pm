@@ -1246,12 +1246,6 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 	else {
 		$attribute_ref->{status} = "known";
 
-		my $prepared = "";
-
-		if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
-			$prepared = '_prepared';
-		}
-
 		foreach my $nutrient_level_ref (@nutrient_levels) {
 			my ($nutrient_level_nid, $low, $high) = @{$nutrient_level_ref};
 
@@ -1264,7 +1258,20 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 				$high = $high / 2;
 			}
 
-			my $value = $product_ref->{nutriments}{$nid . $prepared . "_100g"};
+			my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+			$log->debug(
+				"compute attributes nutrient quantity for product - known",
+				{
+					code => $product_ref->{code},
+					level => $level,
+					nid => $nid,
+					value => $value,
+					low => $low,
+					high => $high,
+					xproduct => $product_ref
+				}
+			) if $log->is_debug();
 
 			my $match;
 
