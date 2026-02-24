@@ -31,6 +31,7 @@ use ProductOpener::Redis qw/push_product_update_to_redis/;
 use ProductOpener::Checkpoint;
 
 use experimental qw/switch smartmatch/;
+use Time::HiRes qw/sleep/;
 
 # This script recursively visits all products and checks that they are in the correct MongoDB collection
 # removing them from all others
@@ -84,17 +85,17 @@ while (my $path = $next->()) {
 		my $server = $product_ref->{server};
 		if ($server) {
 			$product_type = product_type_for_server($server);
-			$checkpoint->log("Product $code has no product type. Assigned from server $server");
+			$checkpoint->log("$code has no product type. Assigned from server $server");
 		}
 		else {
 			my $first_collection = $collection_ids[0];
 			if (defined $first_collection) {
 				$product_type = (split /_/, $first_collection)[0];
-				$checkpoint->log("Product $code has no product type. Assigned $product_type from MongoDB");
+				$checkpoint->log("$code has no product type. Assigned $product_type from MongoDB");
 			}
 			else {
 				$product_type = 'food';
-				$checkpoint->log("Product $code has no product type. Defaulting to food");
+				$checkpoint->log("$code has no product type. Defaulting to food");
 			}
 		}
 		$product_ref->{product_type} = $product_type;
@@ -103,13 +104,13 @@ while (my $path = $next->()) {
 	}
 
 	my $obsolete_suffix = $product_ref->{obsolete} ? '_obsolete' : '';
-	my $expected_collection = '';
+	my $expected_collection = $product_type . '_deleted';
 	if (not $product_ref->{deleted}) {
 		$expected_collection = $product_type . $obsolete_suffix;
 
 		if (not $expected_collection ~~ @collection_ids) {
 			$collections{$expected_collection}->insert_one($product_ref);
-			$checkpoint->log("Product $code not found in expected $expected_collection collection");
+			$checkpoint->log("$code not found in expected $expected_collection collection");
 			# If we are adding to food then send an event for query
 			if ($expected_collection eq 'food' or $expected_collection = 'food_obsolete') {
 				push_product_update_to_redis($product_ref,
@@ -121,7 +122,7 @@ while (my $path = $next->()) {
 	foreach my $collection_id (@collection_ids) {
 		if ($collection_id ne $expected_collection) {
 			$collections{$collection_id}->delete_one($filter);
-			$checkpoint->log("Deleted $expected_collection code $code from $collection_id");
+			$checkpoint->log("$code ($expected_collection) deleted from $collection_id");
 
 			# If we are deleting from food then send an event for query
 			if ($collection_id eq 'food' or $collection_id = 'food_obsolete') {
@@ -138,5 +139,8 @@ while (my $path = $next->()) {
 	if ($count % 1000 == 0) {
 		$checkpoint->log("Processed $count products. Up to $code");
 	}
+
+	# Sleep for a bit so we don't overwhelm the server
+	sleep(0.002);
 }
 $checkpoint->log("Processed $count products.");
