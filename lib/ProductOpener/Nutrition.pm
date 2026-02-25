@@ -332,14 +332,22 @@ sub sort_sets_by_priority ($input_sets_ref) {
 	@$input_sets_ref =
 
 		sort {
-		my $source_a = defined $source_priority{$a->{source}} ? $source_priority{$a->{source}} : $source_priority{_default};
-		my $source_b = defined $source_priority{$b->{source}} ? $source_priority{$b->{source}} : $source_priority{_default};
+		my $source_a
+			= defined $source_priority{$a->{source}} ? $source_priority{$a->{source}} : $source_priority{_default};
+		my $source_b
+			= defined $source_priority{$b->{source}} ? $source_priority{$b->{source}} : $source_priority{_default};
 
 		my $per_a = defined $per_priority{$a->{per}} ? $per_priority{$a->{per}} : $per_priority{_default};
 		my $per_b = defined $per_priority{$b->{per}} ? $per_priority{$b->{per}} : $per_priority{_default};
 
-		my $preparation_a = defined $preparation_priority{$a->{preparation}} ? $preparation_priority{$a->{preparation}} : $preparation_priority{_default};
-		my $preparation_b = defined $preparation_priority{$b->{preparation}} ? $preparation_priority{$b->{preparation}} : $preparation_priority{_default};
+		my $preparation_a
+			= defined $preparation_priority{$a->{preparation}}
+			? $preparation_priority{$a->{preparation}}
+			: $preparation_priority{_default};
+		my $preparation_b
+			= defined $preparation_priority{$b->{preparation}}
+			? $preparation_priority{$b->{preparation}}
+			: $preparation_priority{_default};
 
 		# sort priority : preparation, source, per
 		return ($preparation_a <=> $preparation_b) || ($source_a <=> $source_b) || ($per_a <=> $per_b);
