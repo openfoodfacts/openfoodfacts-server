@@ -3,26 +3,20 @@
       "aggregated_set" : {
          "nutrients" : {
             "salt" : {
-               "modifier" : "~",
-               "source" : "packaging",
-               "source_index" : 1,
+               "modifier" : "<=",
+               "source" : "unknown_source",
+               "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 6.25
+               "value" : 5
             },
             "sodium" : {
-               "source" : "packaging",
-               "source_index" : 1,
+               "modifier" : "<=",
+               "source" : "unknown_source",
+               "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 2.5
-            },
-            "sugars" : {
-               "source" : "manufacturer",
-               "source_index" : 0,
-               "source_per" : "serving",
-               "unit" : "g",
-               "value" : 12.6
+               "value" : 2
             }
          },
          "per" : "100g",
@@ -31,32 +25,38 @@
       "input_sets" : [
          {
             "nutrients" : {
-               "sugars" : {
+               "salt" : {
+                  "modifier" : "<=",
                   "unit" : "g",
-                  "value" : 6.3,
-                  "value_string" : "6.3"
+                  "value_computed" : 5
+               },
+               "sodium" : {
+                  "modifier" : "<=",
+                  "unit" : "g",
+                  "value" : 2,
+                  "value_string" : "2.0"
                }
             },
-            "per" : "serving",
-            "per_quantity" : "50",
+            "per" : "100g",
+            "per_quantity" : "100",
             "per_unit" : "g",
             "preparation" : "as_sold",
-            "source" : "manufacturer"
+            "source" : "unknown_source"
          },
          {
             "nutrients" : {
                "salt" : {
                   "unit" : "g",
-                  "value_computed" : 6.25
+                  "value_computed" : 0.25
                },
                "sodium" : {
                   "unit" : "g",
-                  "value" : 2.5,
-                  "value_string" : "2.5"
+                  "value" : 0.1,
+                  "value_string" : "0.1"
                }
             },
-            "per" : "100g",
-            "per_quantity" : "100",
+            "per" : "serving",
+            "per_quantity" : "10",
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "packaging"

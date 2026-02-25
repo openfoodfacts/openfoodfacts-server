@@ -248,6 +248,8 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 	# Make sure the input sets are sorted by priority
 	sort_sets_by_priority($input_sets_ref);
 
+	print STDERR "generate_nutrient_aggregated_set_from_sets: sorted input sets: " . Data::Dumper::Dumper($input_sets_ref) . "\n";
+
 	# store original index to get index source of nutrients for generated set
 	my @input_sets = map {{index => $_, set => $input_sets_ref->[$_]}} 0 .. $#$input_sets_ref;
 	my $aggregated_nutrient_set_ref = {};
@@ -280,6 +282,8 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 			}
 		}
 
+		print STDERR "generate_nutrient_aggregated_set_from_sets: aggregated set after setting preparation and per: " . Data::Dumper::Dumper($aggregated_nutrient_set_ref) . "\n";
+
 		set_nutrient_values($aggregated_nutrient_set_ref, @input_sets);
 	}
 	return $aggregated_nutrient_set_ref;
@@ -304,29 +308,30 @@ Reference to array of unsorted input nutrient sets
 
 =cut
 
+my %preparation_priority = (
+	prepared => 0,
+	as_sold => 1,
+	_default => 2,
+);
+
+my %source_priority = (
+	manufacturer => 0,
+	packaging => 1,
+	usda => 2,
+	estimate => 3,
+	_default => 4,
+);
+
+my %per_priority = (
+	"100g" => 0,
+	"100ml" => 1,
+	"1l" => 2,    # for water
+	"1kg" => 3,    # for pet food
+	serving => 4,
+	_default => 5,
+);
+
 sub sort_sets_by_priority ($input_sets_ref) {
-	my %source_priority = (
-		manufacturer => 0,
-		packaging => 1,
-		usda => 2,
-		estimate => 3,
-		_default => 4,
-	);
-
-	my %per_priority = (
-		"100g" => 0,
-		"100ml" => 1,
-		"1l" => 2,    # for water
-		"1kg" => 3,    # for pet food
-		serving => 4,
-		_default => 5,
-	);
-
-	my %preparation_priority = (
-		prepared => 0,
-		as_sold => 1,
-		_default => 2,
-	);
 
 	@$input_sets_ref =
 
@@ -346,8 +351,8 @@ sub sort_sets_by_priority ($input_sets_ref) {
 		my $preparation_a = $preparation_priority{$preparation_key_a};
 		my $preparation_b = $preparation_priority{$preparation_key_b};
 
-		# sort priority : source then per then preparation
-		return $preparation_a <=> $preparation_b || $per_a <=> $per_b || $source_a <=> $source_b;
+		# sort priority : preparation, source, per
+		return ($preparation_a <=> $preparation_b) || ($source_a <=> $source_b) || ($per_a <=> $per_b);
 		} @$input_sets_ref;
 
 	return @$input_sets_ref;
