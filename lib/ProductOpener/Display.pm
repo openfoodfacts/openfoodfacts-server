@@ -4928,58 +4928,46 @@ sub add_params_to_query ($params_ref, $query_ref) {
 		# 2025/12/1: with the new nutrition schema update, we will remove support for searching nutrients per serving
 		# and we will search only on the aggregated nutrients set (which may be as sold or prepared, depending on product category)
 
-		elsif ($field =~ /^(.*?)_(100g)$/) {
+		elsif ($field =~ /^(.*?)_(100g|serving)$/) {
 
-			# We can have multiple conditions, separated with a comma
-			# e.g. sugars_100g=>10,<=20
+				my $nutrient = $1;
+				$nutrient =~ s/_prepared$//;
 
-			my $nutrient = $1;
-			$nutrient =~ s/_prepared$//
-				;    # Matching against aggregated set, which will be prepared or as sold depending on category
+				my $conditions = $params_ref->{$field};
 
-			my $conditions = $params_ref->{$field};
+				foreach my $condition (split(/,/, $conditions)) {
 
-			$log->debug("add_params_to_query - nutrient conditions", {field => $field, conditions => $conditions})
-				if $log->is_debug();
+					my ($operator, $value);
 
-			foreach my $condition (split(/,/, $conditions)) {
-
-				# the field value is a number, possibly preceded by <, >, <= or >=
-
-				my $operator;
-				my $value;
-
-				if ($condition =~ /^(<|>|<=|>=)(\d.*)$/) {
-					$operator = $1;
-					$value = $2;
-				}
-				else {
-					$operator = '=';
-					$value = $params_ref->{$field};
-				}
-
-				$log->debug("add_params_to_query - nutrient condition",
-					{field => $field, condition => $condition, operator => $operator, value => $value})
-					if $log->is_debug();
-
-				my %mongo_operators = (
-					'<' => 'lt',
-					'<=' => 'lte',
-					'>' => 'gt',
-					'>=' => 'gte',
-				);
-
-				if ($operator eq '=') {
-					$query_ref->{"nutrition.aggregated_set.nutrients.$nutrient.value"}
-						= $value + 0.0;    # + 0.0 to force scalar to be treated as a number
-				}
-				else {
-					if (not defined $query_ref->{$field}) {
-						$query_ref->{"nutrition.aggregated_set.nutrients.$nutrient.value"} = {};
+					if ($condition =~ /^(<=|>=|<|>)(\d.*)$/) {
+						$operator = $1;
+						$value = $2;
+					} else {
+						$operator = '=';
+						$value = $condition;
 					}
-					$query_ref->{"nutrition.aggregated_set.nutrients.$nutrient.value"}
-						{'$' . $mongo_operators{$operator}} = $value + 0.0;
-				}
+
+					# Remove units like g, mg, etc.
+					$value =~ s/[^\d\.]//g;
+
+					my %mongo_operators = (
+						'<'  => 'lt',
+						'<=' => 'lte',
+						'>'  => 'gt',
+						'>=' => 'gte',
+					);
+
+					my $mongo_field = "nutrition.aggregated_set.nutrients.$nutrient.value";
+
+					if ($operator eq '=') {
+						$query_ref->{$mongo_field} = $value + 0.0;
+					}
+					else {
+						if (not defined $query_ref->{$mongo_field}) {
+							$query_ref->{$mongo_field} = {};
+						}
+						$query_ref->{$mongo_field}{'$' . $mongo_operators{$operator}} = $value + 0.0;
+					}
 			}
 		}
 
