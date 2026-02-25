@@ -111219,7 +111219,7 @@ bn: পিঁয়াজ
 ca: ceba
 cs: cibule
 cy: Nionyn
-da: løg
+da: Løg
 de: Zwiebeln, Zwiebel
 el: κρεμμύδι
 eo: cepo
@@ -111240,7 +111240,7 @@ nv: tłʼohchin
 pl: cebula
 pt: cebola
 ru: лук
-sv: lök
+sv: Lökar, Lök
 tr: soğan
 vi: hành tây
 zh: 洋葱
@@ -111278,12 +111278,14 @@ protected_name_type:en: pgi
 < en:Fresh vegetables
 < en:Onions
 en: Fresh onions
+da: Friske løg
 de: Frische Zwiebeln
 es: Cebollas frescas
 fr: Oignons frais
 he: בצלים טריים
 hr: Svježi luk
 nl: Verse uien
+sv: Färska lökar
 season_in_country_fr:en: 1,2,3,4,9,10,11,12
 
 < en:Onions
@@ -111332,6 +111334,7 @@ fr: Oignons rouges, oignon rouge
 hr: Crveni luk
 ja: 赤たまねぎ, 紫たまねぎ
 nl: Rode uien
+sv: Rödlökar
 expected_ingredients:en: en:red onion
 sales_format:en: weight, package
 wikidata:en: Q622350
@@ -111343,14 +111346,17 @@ en: Fresh red onions
 fr: Oignons rouges frais
 hr: Svježi crveni luk
 nl: Verse rode uien
+sv: Färska rödlökar
 expected_ingredients:en: en:red onion
 
 < en:Cooked vegetables
 < en:Onions
 en: Cooked onions
+da: Kokte løg
 fr: Oignons cuits
 hr: Kuhani luk
 nl: Gekookte uien
+sv: Kokade lökar
 agribalyse_food_code:en: 20035
 ciqual_food_code:en: 20035
 ciqual_food_name:en: Onion, cooked
@@ -111358,6 +111364,7 @@ ciqual_food_name:fr: Oignon, cuit
 
 < en:Onions
 en: Shallots
+da: Skalotteløg
 de: Schalotten
 es: Echalotes, Chalotas, Escalonias
 fi: Salottisipulit
@@ -111366,6 +111373,7 @@ hr: Ljutika
 ja: エシャロット
 la: Allium cepa var. aggregatum, Allium ascalonicum
 nl: Sjalotjes
+sv: Schalottenlökar, Schallottenlök
 agribalyse_food_code:en: 20097
 ciqual_food_code:en: 20097
 ciqual_food_name:en: Shallot, raw
@@ -111374,21 +111382,25 @@ expected_ingredients:en: en:shallots
 sales_format:en: weight, package
 wikidata:en: Q193498
 
-< en:Fresh vegetables
+< en:Fresh onions
 < en:Shallots
 en: Fresh shallots
+da: Friske skalotteløg
 fr: Échalotes fraîches
 hr: Svježa ljutika
 nl: Verse sjalotjes
+sv: Färska schalottenlökar
 expected_ingredients:en: en:shallots
 season_in_country_fr:en: 10,11,12
 
-< en:Cooked vegetables
+< en:Cooked onions
 < en:Shallots
 en: Cooked shallots
+da: Kokte skalotteløg
 fr: Échalotes cuites
 hr: Kuhana ljutika
 nl: Gekookte sjalotjes
+sv: Kokade schalottenlökar
 agribalyse_food_code:en: 20255
 ciqual_food_code:en: 20255
 ciqual_food_name:en: Shallot, cooked
@@ -111557,7 +111569,6 @@ agribalyse_food_code:en: 20275
 ciqual_food_code:en: 20275
 ciqual_food_name:en: Sweet pepper, red, canned, drained
 ciqual_food_name:fr: Poivron rouge, appertisé, égoutté
-
 
 < en:Sweet Peppers
 fr: Doux California Wonder
@@ -117870,8 +117881,10 @@ ciqual_food_name:fr: Navet, surgelé, cru
 < en:Onions
 en: Frozen onions
 bg: Замразен лук
+da: Frosne løg
 fr: Oignons surgelés
 hr: Smrznuti luk
+sv: Frysta lökar
 agribalyse_food_code:en: 20235
 ciqual_food_code:en: 20235
 ciqual_food_name:en: Onion, frozen, raw
@@ -117879,11 +117892,19 @@ ciqual_food_name:fr: Oignon, surgelé, cru
 
 < en:Frozen onions
 en: Frozen chopped onions
+da: Frosne hakkede løg
 de: Tiefgefrorene gehackte Zwiebeln
 es: Cebollas troceadas congeladas, Cebollas congeladas troceadas
 fr: Oignons hachés surgelés, Oignons émincés surgelés
 hr: Smrznuti nasjeckani luk
 nl: Diepvries gehakte uien
+sv: Frysta hackade lökar
+
+< en:Frozen chopped onions
+< en:Shallots
+en: Frozen chopped shallots
+da: Frosne hakkede skalotteløg
+sv: Frysta hackade schalottenlökar
 
 < en:Frozen vegetables
 < en:Garlic
