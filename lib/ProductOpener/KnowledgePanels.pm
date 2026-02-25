@@ -248,11 +248,6 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			= create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
-	my $has_reuse_card;
-	if ($panel_is_requested->('reuse_card')) {
-		$has_reuse_card = create_reuse_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
-	}
-
 	my $has_report_problem_card;
 	if (not $options_ref->{producers_platform} and $panel_is_requested->('report_problem_card')) {
 		$has_report_problem_card
@@ -931,7 +926,7 @@ sub create_qfdmo_fr_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 	}
 
 	# Check if any category in the hierarchy has a qfdmo_name_fr property
-	my ($qfdmo_name_fr, $category_id) = get_inherited_property_from_categories_tags($product_ref, "qfdmo_id:fr");
+	my ($qfdmo_name_fr, $category_id) = get_inherited_property_from_categories_tags($product_ref, "qfdmo_name:fr");
 
 	# Don't create the panel if no category has QFDMO info
 	if (not defined $qfdmo_name_fr) {
