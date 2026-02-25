@@ -248,8 +248,6 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 	# Make sure the input sets are sorted by priority
 	sort_sets_by_priority($input_sets_ref);
 
-	print STDERR "generate_nutrient_aggregated_set_from_sets: sorted input sets: " . Data::Dumper::Dumper($input_sets_ref) . "\n";
-
 	# store original index to get index source of nutrients for generated set
 	my @input_sets = map {{index => $_, set => $input_sets_ref->[$_]}} 0 .. $#$input_sets_ref;
 	my $aggregated_nutrient_set_ref = {};
@@ -281,8 +279,6 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 				}
 			}
 		}
-
-		print STDERR "generate_nutrient_aggregated_set_from_sets: aggregated set after setting preparation and per: " . Data::Dumper::Dumper($aggregated_nutrient_set_ref) . "\n";
 
 		set_nutrient_values($aggregated_nutrient_set_ref, @input_sets);
 	}
