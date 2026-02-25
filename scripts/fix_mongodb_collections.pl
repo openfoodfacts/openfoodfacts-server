@@ -35,6 +35,14 @@ use Time::HiRes qw/sleep/;
 
 # This script recursively visits all products and checks that they are in the correct MongoDB collection
 # removing them from all others
+my $checkpoint = ProductOpener::Checkpoint->new;
+my $last_processed_path = $checkpoint->{value};
+
+my $do_update = not 'preview' ~~ @ARGV;
+if (not $do_update) {
+	$checkpoint->log("Running in preview mode");
+}
+
 sub product_type_for_server($server) {
 	return do {
 		given ($server) {
@@ -46,8 +54,6 @@ sub product_type_for_server($server) {
 	};
 }
 
-my $checkpoint = ProductOpener::Checkpoint->new;
-my $last_processed_path = $checkpoint->{value};
 my %collections;
 foreach my $server (qw/off obf opff opf/) {
 	foreach my $obsolete (qw/0 1/) {
@@ -75,7 +81,9 @@ while (my $path = $next->()) {
 	if (not defined $product_id) {
 		$product_id = $code . '';    # Ensure it is a string
 		$product_ref->{_id} = $code . '';
-		store_object($path, $product_ref);
+		if ($do_update) {
+			store_object($path, $product_ref);
+		}
 		$checkpoint->log("$product_id had no id. Setting to code");
 	}
 	elsif ($product_id ne $code) {
@@ -109,8 +117,10 @@ while (my $path = $next->()) {
 			}
 		}
 		$product_ref->{product_type} = $product_type;
-		# Bypass normal MongoDB logic in store product
-		store_object($path, $product_ref);
+		if ($do_update) {
+			# Bypass normal MongoDB logic in store product
+			store_object($path, $product_ref);
+		}
 	}
 
 	my $obsolete_suffix = $product_ref->{obsolete} ? '_obsolete' : '';
@@ -119,27 +129,31 @@ while (my $path = $next->()) {
 		$expected_collection = $product_type . $obsolete_suffix;
 
 		if (not $expected_collection ~~ @collection_ids) {
-			$collections{$expected_collection}->insert_one($product_ref);
-			$checkpoint->log("$product_id not found in expected $expected_collection collection");
-			# If we are adding to food then send an event for query
-			if ($expected_collection eq 'food' or $expected_collection = 'food_obsolete') {
-				push_product_update_to_redis($product_ref,
-					{"userid" => 'fix_mongodb_collections', "comment" => 'Was missing from MongoDB'},
-					"reprocessed");
+			if ($do_update) {
+				$collections{$expected_collection}->insert_one($product_ref);
+				# If we are adding to food then send an event for query
+				if ($expected_collection eq 'food' or $expected_collection = 'food_obsolete') {
+					push_product_update_to_redis($product_ref,
+						{"userid" => 'fix_mongodb_collections', "comment" => 'Was missing from MongoDB'},
+						"reprocessed");
+				}
 			}
+			$checkpoint->log("$product_id not found in expected $expected_collection collection");
 		}
 	}
 	foreach my $collection_id (@collection_ids) {
 		if ($collection_id ne $expected_collection) {
-			$collections{$collection_id}->delete_one($filter);
-			$checkpoint->log("$product_id ($expected_collection) deleted from $collection_id");
+			if ($do_update) {
+				$collections{$collection_id}->delete_one($filter);
 
-			# If we are deleting from food then send an event for query
-			if ($collection_id eq 'food' or $collection_id = 'food_obsolete') {
-				push_product_update_to_redis($product_ref,
-					{"userid" => 'fix_mongodb_collections', "comment" => "Should not have been in MongoDB"},
-					"reprocessed");
+				# If we are deleting from food then send an event for query
+				if ($collection_id eq 'food' or $collection_id = 'food_obsolete') {
+					push_product_update_to_redis($product_ref,
+						{"userid" => 'fix_mongodb_collections', "comment" => "Should not have been in MongoDB"},
+						"reprocessed");
+				}
 			}
+			$checkpoint->log("$product_id ($expected_collection) deleted from $collection_id");
 		}
 	}
 
@@ -151,6 +165,8 @@ while (my $path = $next->()) {
 	}
 
 	# Sleep for a bit so we don't overwhelm the server
-	sleep(0.002);
+	if ($do_update) {
+		sleep(0.002);
+	}
 }
 $checkpoint->log("Processed $count products.");
