@@ -125,7 +125,7 @@ while (my $path = $next->()) {
 	}
 
 	my $obsolete_suffix = $product_ref->{obsolete} ? '_obsolete' : '';
-	my $expected_collection = $product_type . '_deleted';
+	my $expected_collection = 'deleted';
 	if (not $deleted) {
 		$expected_collection = $product_type . $obsolete_suffix;
 
