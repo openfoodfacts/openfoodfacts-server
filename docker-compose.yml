@@ -87,9 +87,21 @@
     - ./conf/apache2-docker/apache-mpm_prefork.conf:/etc/apache2/mods-enabled/mpm_prefork.conf
     - ./conf/apache-2.4/modperl.conf:/etc/apache2/conf-enabled/modperl.conf
 
+  logging:
+    driver: "json-file"
+    options:
+      max-size: "20m"
+      max-file: "5"
+
+
 services:
   memcached:
     image: memcached:1.6-alpine
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
   postgres:
     image: pgautoupgrade/pgautoupgrade:17-alpine
     # we want postgres for off, but not for pro profile
@@ -107,6 +119,11 @@ services:
       retries: 2
     volumes:
       - pgdata:/var/lib/postgresql/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
   backend: *backend-conf
   minion:
     <<: *backend-conf
@@ -170,7 +187,11 @@ services:
       - ./conf/nginx/snippets/off.locations-redirects.include:/etc/nginx/snippets/off.locations-redirects.include
     ports:
       - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_PORT}:80
-
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
 volumes:
   pgdata:
   icons_dist:
