@@ -129,7 +129,7 @@ stopwords:el: περιέχει
 stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
 stopwords:es: contiene, de, del, la, el, las, los, con, y, e, en, minimo, maximo, puede, contener, por, categoria, calibre, minimo, min, vereidad, variedad, de cultivo, origen, nota, produccion, controlada, equivalente, equivale
 stopwords:fi: allergiatiedot, jossa, käymisen aikana muodostuva, koskenlaskija, muun muassa, noin, sisältää, snellmanin, valio
-stopwords:fr: aux, au, de, le, du, la, a, et, avec, ou, en, proportion, variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d', avec ajout, sachet, marquants, demeter, minimum, base
+stopwords:fr: aux, au, de, le, du, la, a, et, avec, ou, en, proportion, variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d', avec ajout, sachet, marquants, demeter, minimum, base, ingrédient
 # example: grašak u prahu BOGAT BJELANČEVINAMA
 # example: KLASIČNA MJEŠAVINA arabica i robusta kave
 # example: luk u prahu (OD ČEGA mladi luk 0,06 %)
@@ -37249,6 +37249,10 @@ nl: plantconcentraat, plantconcentraten
 pl: koncentraty roślinne
 sv: växtkoncentrat, plantkoncentrat
 
+< en:plant concentrate
+en: colouring plant concentrate
+sv: färgande växtkoncentrat
+
 fr: specialité de fruits pomme poire
 
 < en:preparation
@@ -53577,6 +53581,7 @@ sv: morotkoncentrat, morotskoncentrat
 # fr:concentré-de-carotte has 221 products in 4 languages @2018-10-10
 
 < en:carrot concentrate
+< en:colouring plant concentrate
 en: colouring carrot concentrate
 sv: färgande morotkoncentrat
 
@@ -53690,7 +53695,7 @@ lv: melnais burkāns
 nb: sort gulrot
 nl: zwarte wortel
 pl: czarna marchew, czarnej marchwi
-sv: svart morot
+sv: svart morot, svart morots
 wikidata:en: Q11767451
 # fr:carotte-noire has 122 products in 4 languages @2018-10-20
 
