@@ -99,7 +99,8 @@ while (my $path = $next->()) {
 		}
 	}
 	my $product_type = $product_ref->{product_type};
-	if (not defined $product_type) {
+	my $deleted = $product_ref->{deleted};
+	if (not defined $product_type and not $deleted) {
 		my $server = $product_ref->{server};
 		if ($server) {
 			$product_type = product_type_for_server($server);
@@ -125,7 +126,7 @@ while (my $path = $next->()) {
 
 	my $obsolete_suffix = $product_ref->{obsolete} ? '_obsolete' : '';
 	my $expected_collection = $product_type . '_deleted';
-	if (not $product_ref->{deleted}) {
+	if (not $deleted) {
 		$expected_collection = $product_type . $obsolete_suffix;
 
 		if (not $expected_collection ~~ @collection_ids) {
