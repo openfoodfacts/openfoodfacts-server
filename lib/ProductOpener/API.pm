@@ -1004,12 +1004,41 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		# Sub fields using the dot notation (e.g. images.selected.front)
 		if ($field =~ /\./) {
 			my @components = split(/\./, $field);
-			my $field_value = deep_get($product_ref, @components);
+			my $field_value;
+			my $current_ref = $product_ref;
+			my $is_valid_path = 1;
+
+			foreach my $component (@components) {
+				if (ref($current_ref) eq "HASH") {
+					if (not exists $current_ref->{$component}) {
+						$is_valid_path = 0;
+						last;
+					}
+					$current_ref = $current_ref->{$component};
+				}
+				elsif (ref($current_ref) eq "ARRAY") {
+					if (($component !~ /^\d+$/) or (not defined $current_ref->[$component])) {
+						$is_valid_path = 0;
+						last;
+					}
+					$current_ref = $current_ref->[$component];
+				}
+				else {
+					$is_valid_path = 0;
+					last;
+				}
+			}
+
+			if ($is_valid_path) {
+				$field_value = $current_ref;
+			}
+
 			if (defined $field_value) {
 				deep_set($customized_product_ref, @components, $field_value);
 			}
 			next;
 		}
+
 
 		# straight fields
 		if ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
