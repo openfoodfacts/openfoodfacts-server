@@ -280,8 +280,9 @@ paths:
 
         It allows you create many custom APIs for your use case.
 
-        If the search query parameter has 2 possible values, they are seperated by a comma(,).
-        When filtering via a parameter that has different language codes like `fr`, `de` or `en`, specify the language code in the parameter name e.g `categories_tags_en`
+        If a search query parameter has multiple values, separate them with commas (`,`).
+        When filtering with a language-specific parameter (`fr`, `de`, `en`, etc.),
+        specify the language code in the parameter name (for example: `categories_tags_en`).
 
         **Important:** search API v2 does not support full text request (search_term),
         you have to use [search API v1](https://wiki.openfoodfacts.org/API/Read/Search) for that.
@@ -291,13 +292,13 @@ paths:
 
         You can limit the size of returned objects thanks to the `fields` object (see below).
 
-        eg: `fields=code,product_name,brands,attribute_groups``
+        Example: `fields=code,product_name,brands,attribute_groups`
 
         Please use it as much as possible to avoid overloading the servers.
 
-        The search use pagination, see `page` and `page_size` parameters.
+        The search endpoint uses pagination: see `page` and `page_size` parameters.
 
-        **Beware:** the `page_count` data in item is a bit counter intuitive…, read the description.
+        **Beware:** `page_count` is the number of products returned in the current page, not the total number of pages.
 
         ### Conditions on tags
 
@@ -319,7 +320,7 @@ paths:
 
         ### Conditions on nutriments
 
-        To get a list of nutrients
+        To get a list of nutrients:
 
         You can either query on nutrient per 100g (`_100g` suffix)
         or per serving (`serving` suffix).
@@ -328,13 +329,38 @@ paths:
         to get the nutrients in the prepared product instead of as sold.
 
         You can add a comparison operator and value to the parameter name
-        to get products with nutrient above or bellow a value.
+        to get products with nutrient above or below a value.
         If you use a parameter value it exactly match it.
 
         * `energy-kj_100g<200` products where energy in kj for 100g is less than 200kj
         * `sugars_serving>10` products where sugar per serving is greater than 10g
         * `saturated-fat_100g=1` products where saturated fat per 100g is exactly 10g
         * `salt_prepared_serving<0.1` products where salt per serving for prepared product is less than 0.1g
+
+        ### Combining filters and pagination (examples)
+
+        1. Breakfast cereals with Nutri-Score A or B, with explicit pagination:
+           `/api/v2/search?categories_tags_en=breakfast-cereals&nutrition_grades_tags=a|b&page=2&page_size=20&fields=code,product_name,nutrition_grades`
+
+        2. Multiple constraints in one query (category + nutrients + sorting + compact fields):
+           `/api/v2/search?categories_tags_en=orange-juices&sugars_100g%3C8&salt_100g%3C0.2&sort_by=last_modified_t&page=1&page_size=24&fields=code,product_name,nutriments`
+
+        3. Include/exclude tags together:
+           `/api/v2/search?labels_tags=en:organic,en:-fair-trade&page=1&page_size=24&fields=code,product_name,labels_tags`
+
+        ### Response structure at a glance
+
+        A successful response contains:
+
+        * `count`: total number of matching products
+        * `page`: current page number
+        * `page_size`: requested number of products per page
+        * `page_count`: number of products actually returned in this page
+        * `skip`: number of products skipped before this page
+        * `products`: array of products for the current page
+
+        Total page count can be computed with:
+        `Math.floor((count - 1) / page_size) + 1`
 
         ### More references
 
