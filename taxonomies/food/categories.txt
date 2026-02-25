@@ -45521,6 +45521,7 @@ nova:en: 3
 pnns_group_2:en: Cheese
 who_id:en: 8
 wikidata:en: Q10943
+plant_alternative:en: en:cheese-substitutes
 # Most cheeses have the same Agribalyse scores, except specific cheeses for which we added the specific values
 
 < en:Canned foods
@@ -51445,6 +51446,7 @@ gpc_category_name:en: Butter (Perishable)
 incompatible_with:en: categories:en:Goat butters, Sheep butters
 intake24_category_code:en: BUTR
 wikidata:en: Q34172
+plant_alternative:en: en:plant-based-butter-alternatives
 
 < en:Butters
 fr: Beurres de baratte
@@ -51685,7 +51687,6 @@ protected_name_file_number:en: PDO-ES-0187
 protected_name_type:en: pdo
 wikidata:en: Q11934902
 
-< en:Butters
 < en:Plant-based spreads
 en: Plant-based butter alternatives, Vegan butter alternatives, Dairy-free butter substitutes
 de: Pflanzliche Butteralternativen, Vegane Butteralternativen
@@ -52054,6 +52055,7 @@ google_product_taxonomy_id:en: 418
 intake24_category_code:en: MDNK
 pnns_group_2:en: Milk and yogurt
 wikidata:en: Q8495
+plant_alternative:en: en:plant-based-milk-alternatives
 
 < en:Milks
 en: Refrigerated milks
@@ -53001,7 +53003,6 @@ google_product_taxonomy_id:en: 5724
 pnns_group_2:en: Plant-based milk substitutes
 wikidata:en: Q1626970
 
-< en:Milks
 < en:Milk substitutes
 < en:Plant-based beverages
 en: Plant-based milk alternatives, Plant milks, Vegetable milks, Vegetable drinks, Non-dairy milks
@@ -59305,6 +59306,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: In Shell Table Eggs
 pnns_group_2:en: Eggs
 wikidata:en: Q659503
+plant_alternative:en: en:plant-based-egg-alternatives
 
 
 < en:Eggs
@@ -59608,7 +59610,6 @@ en: Century egg
 fr: Oeuf de cent ans, Oeuf de 100 ans
 agribalyse_proxy_food_code:en: 22060
 
-< en:Eggs
 en: Plant-based egg alternatives, Vegan egg alternatives, Egg substitutes
 de: Vegane Eialternativen, Pflanzliche Eialternativen
 es: Alternativas vegetales al huevo
@@ -85937,6 +85938,7 @@ food_groups:en: en:meat-other-than-poultry
 intake24_category_code:en: MEAT
 # Products that are poultry hopefully have the en:Poultries category which will assign the en:Poultry food group
 pnns_group_2:en: Meat
+plant_alternative:en: en:meat-analogues
 
 #Products containing at least 99% meat according to French regulations. Products with lower meat percentage goes in "Ground meat preparations"
 < en:Meats
@@ -100477,6 +100479,7 @@ google_product_taxonomy_id:en: 4629
 intake24_category_code:en: C002
 pnns_group_2:en: Fish and seafood
 wikidata:en: Q192935
+plant_alternative:en: en:fish-analogues
 
 < en:Seafood
 en: Shelf-stable prepared aquatic invertebrates
@@ -101720,6 +101723,7 @@ tr: Balık
 zh: 鱼类
 intake24_category_code:en: RWFH
 wikidata:en: Q600396
+plant_alternative:en: en:fish-analogues
 
 < en:Fishes
 en: Shelf-stable unprepared fishes
@@ -119722,7 +119726,6 @@ nl: Vleesvervangers
 pl: Alternatywy mięsa
 
 # Meat alternatives that are created to look replace meat and often look like it. E.g. vegetarian sausages, nuggets...
-< en:Meats
 < en:Meat alternatives
 en: Meat analogues, Meat substitutes, Mock meats
 ca: Substitutius de carn
@@ -120065,15 +120068,12 @@ ciqual_food_name:en: Plant-based sausage with tofu (vegan)
 ciqual_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
 
 #Meat and fish categories are separated while Fish analogues is under meat analogue. This difference is intended, since fishes are animals and therefore considered as meat by vegetarians
-< en:Fishes
-< en:Seafood
 < en:Meat analogues
 en: Fish analogues, Plantbased fish
 hr: Analozi ribe
 nl: Plantaardige vissen
 pl: Zastępniki ryb
 
-< en:Cheeses
 < en:Dairy substitutes
 < en:Plant-based foods
 < en:Vegan products
