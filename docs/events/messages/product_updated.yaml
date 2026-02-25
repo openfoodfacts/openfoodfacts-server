@@ -78,9 +78,6 @@ product_updated:
           - fields:
               change:
                 - categories
-      ip:
-        description: The IP address of the client device that made the change
-        type: string
       client_id:
         description: The OIDC client_id of an application that made the change on behalf of a user
         type: string
