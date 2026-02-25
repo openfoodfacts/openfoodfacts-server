@@ -1,0 +1,356 @@
+{
+  "_description": "Maps animal product categories to plant-based alternative categories for environmental impact comparison. Used by knowledge panels to show lower-impact alternatives.",
+  "_source": "Category mappings based on functional equivalence (same meal occasion/use case). Environmental impact ratios derived from Poore & Nemecek (2018) meta-analysis and Agribalyse v3 LCA data via Open Food Facts.",
+  "_version": "1.0.0",
+  "_related_issue": "https://github.com/openfoodfacts/openfoodfacts-server/issues/4302",
+  "mappings": [
+    {
+      "animal_category": "en:milks",
+      "alternative_categories": [
+        "en:oat-based-drinks",
+        "en:soy-based-drinks",
+        "en:almond-based-drinks",
+        "en:rice-based-drinks",
+        "en:coconut-based-drinks",
+        "en:hazelnut-based-drinks",
+        "en:hemp-based-drinks",
+        "en:spelt-based-drinks",
+        "en:plant-based-milk-alternatives"
+      ],
+      "meal_function": "drinking milk, cereal, coffee, cooking liquid",
+      "typical_impact_ratio": "3x",
+      "notes": "Cow's milk ~3.2 kg CO2e/kg vs oat milk ~0.9, soy milk ~1.0 (Poore & Nemecek 2018)"
+    },
+    {
+      "animal_category": "en:cheeses",
+      "alternative_categories": [
+        "en:cheese-substitutes",
+        "en:sliced-cheese-substitutes",
+        "en:shredded-cheese-substitutes",
+        "en:cheese-spreads-substitutes"
+      ],
+      "meal_function": "cheese for sandwiches, cooking, snacking",
+      "typical_impact_ratio": "5-10x",
+      "notes": "Cheese ~13.5 kg CO2e/kg — one of the highest-impact dairy products"
+    },
+    {
+      "animal_category": "en:yogurts",
+      "alternative_categories": [
+        "en:non-dairy-yogurts",
+        "en:soy-milk-yogurts",
+        "en:coconutmilk-yogurts",
+        "en:oat-milk-yogurts",
+        "en:almond-milk-yogurts",
+        "en:greek-style-non-dairy-yogurts"
+      ],
+      "meal_function": "yogurt for breakfast, snack, dessert",
+      "typical_impact_ratio": "3x",
+      "notes": "Dairy yogurt ~2.5 kg CO2e/kg vs soy yogurt ~0.8"
+    },
+    {
+      "animal_category": "en:butters",
+      "alternative_categories": [
+        "en:margarines",
+        "en:light-margarines"
+      ],
+      "meal_function": "spreading, baking, cooking fat",
+      "typical_impact_ratio": "3-4x",
+      "notes": "Butter ~12 kg CO2e/kg vs margarine ~3.3. OFF taxonomy does not yet have a dedicated 'plant-based butter' or 'vegan butter' category — margarines are the closest functional match."
+    },
+    {
+      "animal_category": "en:creams",
+      "alternative_categories": [
+        "en:plant-based-creams",
+        "en:plant-based-creams-for-cooking",
+        "en:coconut-based-creams-for-cooking",
+        "en:oat-based-creams-for-cooking",
+        "en:soy-based-creams-for-cooking"
+      ],
+      "meal_function": "cooking cream, sauce base, dessert cream",
+      "typical_impact_ratio": "3-5x",
+      "notes": "Heavy cream ~5.6 kg CO2e/kg; plant-based cooking creams typically 1-2 kg CO2e/kg"
+    },
+    {
+      "animal_category": "en:whipped-creams",
+      "alternative_categories": [
+        "en:pressurized-whipped-cream-substitutes",
+        "en:plant-based-creams"
+      ],
+      "meal_function": "whipped topping for desserts",
+      "typical_impact_ratio": "3-5x",
+      "notes": "Whipped cream is high-fat dairy; plant-based pressurized alternatives exist in the taxonomy"
+    },
+    {
+      "animal_category": "en:ice-creams-and-sorbets",
+      "alternative_categories": [
+        "en:plant-based-ice-creams",
+        "en:plant-based-ice-cream-bars",
+        "en:plant-based-ice-cream-tubs",
+        "en:plant-based-ice-cream-cones",
+        "en:plant-based-ice-cream-sandwiches",
+        "en:soy-based-ice-creams"
+      ],
+      "meal_function": "frozen dessert",
+      "typical_impact_ratio": "2-3x",
+      "notes": "Dairy ice cream ~4 kg CO2e/kg vs plant-based ~1.5-2"
+    },
+    {
+      "animal_category": "en:beef-hamburgers",
+      "alternative_categories": [
+        "en:vegetarian-hamburgers",
+        "en:vegan-patties",
+        "en:soy-steak",
+        "en:patties-from-soy-and-or-wheat-proteins"
+      ],
+      "meal_function": "burger patty for sandwiches and meals",
+      "typical_impact_ratio": "6-10x",
+      "notes": "Beef burger ~27 kg CO2e/kg vs plant-based patty ~3-4"
+    },
+    {
+      "animal_category": "en:hamburgers",
+      "alternative_categories": [
+        "en:vegetarian-hamburgers",
+        "en:vegan-patties",
+        "en:patties-from-soy-and-or-wheat-proteins"
+      ],
+      "meal_function": "burger (generic category, includes beef and other meats)",
+      "typical_impact_ratio": "5-10x",
+      "notes": "General burger category; impact ratio depends on meat type"
+    },
+    {
+      "animal_category": "en:chicken-nuggets",
+      "alternative_categories": [
+        "en:vegan-nuggets",
+        "en:vegetarian-nuggets",
+        "en:nuggets-from-soy-and-wheat-proteins"
+      ],
+      "meal_function": "breaded nuggets for snack or meal",
+      "typical_impact_ratio": "2-4x",
+      "notes": "Chicken nuggets ~5-6 kg CO2e/kg vs plant-based nuggets ~2"
+    },
+    {
+      "animal_category": "en:poultry-nuggets",
+      "alternative_categories": [
+        "en:vegan-nuggets",
+        "en:vegetarian-nuggets",
+        "en:nuggets-from-soy-and-wheat-proteins"
+      ],
+      "meal_function": "breaded poultry nuggets",
+      "typical_impact_ratio": "2-4x",
+      "notes": "Broader poultry nuggets category; same alternatives apply"
+    },
+    {
+      "animal_category": "en:sausages",
+      "alternative_categories": [
+        "en:vegan-sausages",
+        "en:vegetarian-sausages",
+        "en:vegan-sausages-from-tofu",
+        "en:plant-based-sausage-with-wheat-or-seitan",
+        "en:vegetarian-hot-dog-sausages",
+        "en:vegetarian-frankfurt-sausages",
+        "en:vegetarian-vienna-sausages"
+      ],
+      "meal_function": "sausage for grilling, breakfast, hot dog",
+      "typical_impact_ratio": "3-6x",
+      "notes": "Pork sausage ~7 kg CO2e/kg, beef sausage higher; plant-based sausages ~1.5-3"
+    },
+    {
+      "animal_category": "en:ground-meats",
+      "alternative_categories": [
+        "en:meat-analogues",
+        "en:meat-analogues-from-soy-or-wheat-proteins",
+        "en:meat-analogues-from-pea-proteins",
+        "en:soy-based-minced-prepacked"
+      ],
+      "meal_function": "ground/minced meat for bolognese, tacos, stir-fry",
+      "typical_impact_ratio": "5-10x",
+      "notes": "Ground beef ~27 kg CO2e/kg; soy mince ~2-3"
+    },
+    {
+      "animal_category": "en:ground-beef-meats",
+      "alternative_categories": [
+        "en:meat-analogues",
+        "en:meat-analogues-from-soy-or-wheat-proteins",
+        "en:meat-analogues-from-pea-proteins",
+        "en:soy-based-minced-prepacked"
+      ],
+      "meal_function": "ground beef for bolognese, burgers, tacos",
+      "typical_impact_ratio": "8-10x",
+      "notes": "Specifically beef mince — highest-impact ground meat"
+    },
+    {
+      "animal_category": "en:meat-lasagnas",
+      "alternative_categories": [
+        "en:vegetable-lasagnas",
+        "en:vegetarian-lasagne"
+      ],
+      "meal_function": "lasagne/lasagna main dish",
+      "typical_impact_ratio": "3-5x",
+      "notes": "Meat lasagne uses ground beef + cheese; vegetable lasagne avoids the highest-impact ingredients"
+    },
+    {
+      "animal_category": "en:bolognese-lasagne",
+      "alternative_categories": [
+        "en:vegetable-lasagnas",
+        "en:vegetarian-lasagne"
+      ],
+      "meal_function": "bolognese-style lasagne",
+      "typical_impact_ratio": "3-5x",
+      "notes": "Bolognese sauce with beef is the primary impact driver"
+    },
+    {
+      "animal_category": "en:beef-stews",
+      "alternative_categories": [
+        "en:vegan-meals",
+        "en:vegetarian-meals"
+      ],
+      "meal_function": "hearty stew main dish",
+      "typical_impact_ratio": "5-8x",
+      "notes": "No specific 'vegetable stew' category in OFF taxonomy; vegan/vegetarian meals is the closest parent. Beef stew ~15+ kg CO2e/kg"
+    },
+    {
+      "animal_category": "en:chicken-hamburgers",
+      "alternative_categories": [
+        "en:vegetarian-hamburgers",
+        "en:vegan-patties",
+        "en:patties-from-soy-and-or-wheat-proteins"
+      ],
+      "meal_function": "chicken burger sandwich",
+      "typical_impact_ratio": "2-3x",
+      "notes": "Chicken burger ~5-6 kg CO2e/kg vs plant-based ~2-3"
+    },
+    {
+      "animal_category": "en:breaded-chicken",
+      "alternative_categories": [
+        "en:vegan-nuggets",
+        "en:vegetarian-nuggets"
+      ],
+      "meal_function": "breaded chicken pieces",
+      "typical_impact_ratio": "2-4x",
+      "notes": "Breaded chicken products; vegan nuggets serve the same meal function"
+    },
+    {
+      "animal_category": "en:fish-fingers",
+      "alternative_categories": [
+        "en:breaded-fish-substitutes",
+        "en:fish-analogues"
+      ],
+      "meal_function": "breaded fish sticks/fingers",
+      "typical_impact_ratio": "2-4x",
+      "notes": "Fish fingers ~3-5 kg CO2e/kg (varies by species); plant-based alternatives ~1.5-2"
+    },
+    {
+      "animal_category": "en:fish-hamburgers",
+      "alternative_categories": [
+        "en:fish-analogues",
+        "en:vegetarian-hamburgers"
+      ],
+      "meal_function": "fish burger",
+      "typical_impact_ratio": "2-4x",
+      "notes": "Fish burgers; plant-based fish and veggie burgers serve the same meal function"
+    },
+    {
+      "animal_category": "en:breaded-fish",
+      "alternative_categories": [
+        "en:breaded-fish-substitutes",
+        "en:fish-analogues"
+      ],
+      "meal_function": "breaded fish fillets or portions",
+      "typical_impact_ratio": "2-4x",
+      "notes": "Breaded fish products — plant-based breaded fish substitutes exist in the taxonomy"
+    },
+    {
+      "animal_category": "en:meat-balls",
+      "alternative_categories": [
+        "en:vegetarian-balls",
+        "en:falafels"
+      ],
+      "meal_function": "meatball for pasta, sandwiches, standalone",
+      "typical_impact_ratio": "4-8x",
+      "notes": "Beef meatballs ~20+ kg CO2e/kg; falafels and vegetarian balls ~1.5-3"
+    },
+    {
+      "animal_category": "en:beef-meat-balls",
+      "alternative_categories": [
+        "en:vegetarian-balls",
+        "en:falafels"
+      ],
+      "meal_function": "beef meatball",
+      "typical_impact_ratio": "6-10x",
+      "notes": "Specifically beef-based meatballs — highest impact in the meatball category"
+    },
+    {
+      "animal_category": "en:eggs",
+      "alternative_categories": [
+        "en:meat-alternatives"
+      ],
+      "meal_function": "eggs for cooking and eating",
+      "typical_impact_ratio": "2-3x",
+      "notes": "Eggs ~4.7 kg CO2e/kg. OFF taxonomy does not yet have a specific 'egg alternatives' category. Tofu (en:tofu) and other meat alternatives serve as functional replacements in many use cases."
+    },
+    {
+      "animal_category": "en:fermented-milk-drinks",
+      "alternative_categories": [
+        "en:non-dairy-yogurts",
+        "en:soy-milk-yogurts"
+      ],
+      "meal_function": "fermented dairy drinks (kefir, lassi, etc.)",
+      "typical_impact_ratio": "2-3x",
+      "notes": "Fermented dairy beverages; non-dairy yogurts and soy yogurts serve similar probiotic/cultured functions"
+    },
+    {
+      "animal_category": "en:hams",
+      "alternative_categories": [
+        "en:ham-substitutes",
+        "en:prepared-meat-cuts-substitutes"
+      ],
+      "meal_function": "sliced deli meat for sandwiches",
+      "typical_impact_ratio": "3-5x",
+      "notes": "Pork ham ~5-7 kg CO2e/kg; plant-based deli slices ~1.5-2"
+    },
+    {
+      "animal_category": "en:cow-cheeses",
+      "alternative_categories": [
+        "en:cheese-substitutes",
+        "en:sliced-cheese-substitutes",
+        "en:shredded-cheese-substitutes"
+      ],
+      "meal_function": "cow's milk cheese",
+      "typical_impact_ratio": "5-10x",
+      "notes": "Subcategory of cheeses specifically from cow's milk — same alternatives apply"
+    },
+    {
+      "animal_category": "en:processed-cheeses",
+      "alternative_categories": [
+        "en:cheese-substitutes",
+        "en:cheese-spreads-substitutes"
+      ],
+      "meal_function": "processed/spreadable cheese",
+      "typical_impact_ratio": "4-8x",
+      "notes": "Processed cheese slices and spreads; cheese spread substitutes are the direct alternative"
+    },
+    {
+      "animal_category": "en:ground-beef-steaks",
+      "alternative_categories": [
+        "en:vegan-patties",
+        "en:soy-steak",
+        "en:patties-from-soy-and-or-wheat-proteins",
+        "en:tofu-patties",
+        "en:seitan-patties"
+      ],
+      "meal_function": "formed ground beef steak/patty",
+      "typical_impact_ratio": "6-10x",
+      "notes": "Ground beef steaks/patties — tofu, seitan, and soy patties serve identical meal functions"
+    },
+    {
+      "animal_category": "en:cheeseburgers",
+      "alternative_categories": [
+        "en:vegetarian-hamburgers",
+        "en:vegan-patties"
+      ],
+      "meal_function": "cheeseburger sandwich",
+      "typical_impact_ratio": "6-10x",
+      "notes": "Cheeseburger combines beef + dairy — double impact; plant-based burgers with vegan cheese are significantly lower"
+    }
+  ]
+}
