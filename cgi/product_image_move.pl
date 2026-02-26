@@ -200,7 +200,7 @@ if ($move_to ne 'trash') {
 			Clone->import(qw( clone ));
 
 			foreach my $field (@fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'lang',
-				'nutriments')
+				'nutrition')
 			{
 				if (defined $product_ref->{$field}) {
 					$new_product_ref->{$field} = clone($product_ref->{$field});

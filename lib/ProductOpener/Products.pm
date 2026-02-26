@@ -139,9 +139,11 @@ use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
 use ProductOpener::HTTP qw/single_param create_user_agent/;
 use ProductOpener::Redis qw/push_product_update_to_redis/;
-use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
+use ProductOpener::Food qw/%nutrients_lists %cc_nutrient_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::Slack qw/send_slack_message/;
+use ProductOpener::Nutrition
+	qw/has_non_estimated_nutrition_data get_nutrition_data_as_key_values_pairs has_no_nutrition_data_on_packaging/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -1648,8 +1650,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 			}
 			else {
 				if (    ($imagetype eq "nutrition")
-					and (defined $product_ref->{no_nutrition_data})
-					and ($product_ref->{no_nutrition_data} eq 'on'))
+					and (has_no_nutrition_data_on_packaging($current_ref)))
 				{
 					$images_completeness += $image_step;
 				}
@@ -1726,16 +1727,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		$complete = 0;
 	}
 
-	if (
-		(
-			(
-					(defined $current_ref->{nutriments})
-				and (scalar grep {$_ !~ /^(nova|fruits-vegetables)/} keys %{$current_ref->{nutriments}}) > 0
-			)
-		)
-		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))
-		)
-	{
+	if ((has_no_nutrition_data_on_packaging($product_ref)) or (has_non_estimated_nutrition_data($product_ref))) {
 		push @states_tags, "en:nutrition-facts-completed";
 		$notempty++;
 		$completeness += $step;
@@ -2193,16 +2185,13 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 	# Read all previous versions to see which fields have been added or edited
 
 	my @fields = (
-		'product_type', 'code',
-		'lang', 'product_name',
-		'generic_name', @ProductOpener::Config::product_fields,
-		@ProductOpener::Config::product_other_fields, 'no_nutrition_data',
-		'nutrition_data_per', 'nutrition_data_prepared_per',
-		'serving_size', 'allergens',
-		'traces', 'ingredients_text'
+		'product_type', 'code', 'lang', 'product_name', 'generic_name',
+		@ProductOpener::Config::product_fields,
+		@ProductOpener::Config::product_other_fields,
+		'serving_size', 'allergens', 'traces', 'ingredients_text'
 	);
 
-	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
+	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, packagings => {});
 	my %last = %previous;
 	my %current;
 
@@ -2227,7 +2216,8 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/$rev");
+		# We use retrieve_product to get the product at a specific revision, upgrading the schema if needed
+		my $product_ref = retrieve_product($product_id, 1, $rev);
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
@@ -2256,7 +2246,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				uploaded_images => {},
 				selected_images => {},
 				fields => {},
-				nutriments => {},
 				packagings => {},
 			);
 
@@ -2269,12 +2258,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 			# $product_ref->{images}{$id} ($id = front / ingredients / nutrition)
 
 			if (defined $product_ref->{images}) {
-
-				# Old revisions may have the old image schema, with uploaded and selected images at the root
-				if ((not defined $product_ref->{schema_version} or ($product_ref->{schema_version} < 1002))) {
-					ProductOpener::ProductSchemaChanges::convert_schema_1001_to_1002_refactor_images_object(
-						$product_ref);
-				}
 
 				# Uploaded images
 				if (defined $product_ref->{images}{uploaded}) {
@@ -2321,15 +2304,9 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				}
 			}
 
-			# Nutriments
-
-			if (defined $product_ref->{nutriments}) {
-				foreach my $nid (keys %{$product_ref->{nutriments}}) {
-					if ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne '')) {
-						$current{nutriments}{$nid} = $product_ref->{nutriments}{$nid};
-					}
-				}
-			}
+			# Nutrition data
+			# Record changes for all nutrition input sets
+			$current{nutrition} = get_nutrition_data_as_key_values_pairs($product_ref);
 
 			# Packagings components
 			if (defined $product_ref->{packagings}) {
@@ -2376,7 +2353,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 			record_user_edit_type($users_ref, "checkers", $product_ref->{last_checker});
 		}
 
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments', 'packagings') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packagings') {
 
 			defined $blame_ref->{$group} or $blame_ref->{$group} = {};
 
@@ -2410,9 +2387,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					}
 				}
 			}
-			elsif ($group eq 'nutriments') {
-				@ids = @{$nutriments_lists{off_europe}};
-			}
 			elsif ($group eq 'packagings') {
 				@ids = ("data", "weights_measured");
 			}
@@ -2421,7 +2395,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					my %seen;
 					grep {!$seen{$_}++} @_;
 				};
-				@ids = $uniq->(keys %{$current{$group}}, keys %{$previous{$group}});
+				@ids = sort $uniq->(keys %{$current{$group}}, keys %{$previous{$group}});
 			}
 
 			foreach my $id (@ids) {
@@ -2961,12 +2935,17 @@ sub review_product_type ($product_ref) {
 
 Process the edit_rules (see C<@edit_rules> in in Config file).
 
+Note: edit 
+
 =head3 where it applies
 
 It applies in all API/form that edit the product.
 It applies to apply an image crop.
 
 It does not block image upload.
+
+Note: product edit rules were designed for API v0, v1 and v2.
+In v3, parameters are passed in a currently different way, so it is very likely that some rules will not apply correctly.
 
 =head3 edit_rules structure
 
@@ -3179,8 +3158,8 @@ sub process_product_edit_rules ($product_ref) {
 							# nutrient 100g ? remove 100g to get value in request
 							$default_field = $`;
 						}
-						elsif ($field =~ /nutriments_.*$/) {
-							# also consider nutrient_100g
+						elsif ($field =~ /nutriment_.*$/) {
+							# also consider nutriment_100g
 							$default_field = $field . "_100g";
 						}
 
@@ -3273,7 +3252,7 @@ sub process_product_edit_rules ($product_ref) {
 						}
 						else {
 							$action_log
-								= "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
+								= "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: (none) \n";
 						}
 
 						if ($condition_ok) {
@@ -3379,7 +3358,7 @@ sub compute_changes_diff_text ($change_ref) {
 	my $diffs = '';
 	if (defined $change_ref->{diffs}) {
 		my %diffs = %{$change_ref->{diffs}};
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packaging') {
 			if (defined $diffs{$group}) {
 				$diffs .= lang("change_$group") . " ";
 
@@ -3515,21 +3494,8 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	$log->debug("analyze_and_enrich_product_data - start") if $log->is_debug();
 
-	# Initialiaze the misc_tags, they will be populated by functions called by this function
+	# Initialize the misc_tags, they will be populated by functions called by this function
 	$product_ref->{misc_tags} = [];
-
-	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-	}
-
-	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
-		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
-	}
 
 	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
 
@@ -3608,7 +3574,7 @@ sub is_owner_field ($product_ref, $field) {
 	return 0;
 }
 
-=head2 product_iter($initial_path = $BASE_DIRS{PRODUCTS}, $name_pattern = qr/product$/i, $exclude_path_pattern = qr/^(conflicting|invalid)-codes$/)
+=head2 product_iter($base_path = $BASE_DIRS{PRODUCTS}, $name_pattern = qr/product$/i, $exclude_path_pattern = qr/^(conflicting|invalid)-codes$/)
 
 Iterate over all products in the specified path whose
 name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern.
@@ -3617,10 +3583,11 @@ Provides default exclusions so people don't forget to apply them
 =cut
 
 sub product_iter(
-	$initial_path = $BASE_DIRS{PRODUCTS},
+	$base_path = $BASE_DIRS{PRODUCTS},
 	$name_pattern = qr/product$/i,
-	$exclude_path_pattern = qr/^(conflicting|invalid)-codes$/
+	$exclude_path_pattern = qr/^(conflicting|invalid)-codes$/,
+	$skip_until_path = undef,
 	)
 {
-	return object_iter($initial_path, $name_pattern, $exclude_path_pattern);
+	return object_iter($base_path, $name_pattern, $exclude_path_pattern, $skip_until_path);
 }

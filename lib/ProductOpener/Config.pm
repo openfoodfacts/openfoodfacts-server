@@ -146,6 +146,16 @@ $ProductOpener::Config::options{product_types_domains} = {
 	product => "openproductsfacts.org"
 };
 
+$ProductOpener::Config::options{product_types_preparations} = {
+	food => ["as_sold", "prepared"],
+	petfood => ["as_sold"],
+};
+
+$ProductOpener::Config::options{product_types_pers} = {
+	food => ["100g", "100ml", "1l", "serving"],
+	petfood => ["1kg"],
+};
+
 $ProductOpener::Config::options{other_servers} = {
 	obf => {
 		name => "Open Beauty Facts",
