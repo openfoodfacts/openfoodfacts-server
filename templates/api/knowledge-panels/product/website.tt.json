@@ -1,16 +1,16 @@
 {
-    "elements": [
-      {
-        "element_type": "text",
-        "text_element": {
-          "html": ``<a href="[% panel.website %]">[% panel.website %]</a>``
-        }
-      }
-    ],
-    "level": "info",
-    "parent_panel_id": "product_card",
-    "type": "raw"
-  }
+   
+  "elements": [
+    {
+      "element_type": "text",
+      "text": "<a href=\"[% panel.website %]\">[% panel.website %]</a>"
+    }
+  ],
+  "level": "info",
+  "parent_panel_id": "product_card",
+  "type": "raw"
+}
+
   ```
 
   
