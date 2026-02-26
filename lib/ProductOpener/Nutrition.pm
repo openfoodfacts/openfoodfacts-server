@@ -73,6 +73,7 @@ BEGIN {
 		%energy_from_nutrients
 		&get_nutrient_from_nutrient_set_in_default_unit
 		&default_unit_for_nid
+		&add_misc_tags_for_input_nutrition_data_pers
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -203,6 +204,7 @@ None
 =cut
 
 sub generate_nutrient_aggregated_set ($product_ref) {
+
 	if (!defined $product_ref) {
 		return;
 	}
@@ -302,50 +304,53 @@ Reference to array of unsorted input nutrient sets
 
 =cut
 
+my %preparation_priority = (
+	prepared => 0,
+	as_sold => 1,
+	_default => 2,
+);
+
+my %source_priority = (
+	manufacturer => 0,
+	packaging => 1,
+	usda => 2,
+	estimate => 3,
+	_default => 4,
+);
+
+my %per_priority = (
+	"100g" => 0,
+	"100ml" => 1,
+	"1l" => 2,    # for water
+	"1kg" => 3,    # for pet food
+	serving => 4,
+	_default => 5,
+);
+
 sub sort_sets_by_priority ($input_sets_ref) {
-	my %source_priority = (
-		manufacturer => 0,
-		packaging => 1,
-		usda => 2,
-		estimate => 3,
-		_default => 4,
-	);
-
-	my %per_priority = (
-		"100g" => 0,
-		"100ml" => 1,
-		"1l" => 2,    # for water
-		"1kg" => 3,    # for pet food
-		serving => 4,
-		_default => 5,
-	);
-
-	my %preparation_priority = (
-		prepared => 0,
-		as_sold => 1,
-		_default => 2,
-	);
 
 	@$input_sets_ref =
 
 		sort {
-		my $source_key_a = defined $a->{source} ? $a->{source} : '_default';
-		my $source_key_b = defined $b->{source} ? $b->{source} : '_default';
-		my $source_a = $source_priority{$source_key_a};
-		my $source_b = $source_priority{$source_key_b};
+		my $source_a
+			= defined $source_priority{$a->{source}} ? $source_priority{$a->{source}} : $source_priority{_default};
+		my $source_b
+			= defined $source_priority{$b->{source}} ? $source_priority{$b->{source}} : $source_priority{_default};
 
-		my $per_key_a = defined $a->{per} ? $a->{per} : '_default';
-		my $per_key_b = defined $b->{per} ? $b->{per} : '_default';
-		my $per_a = $per_priority{$per_key_a};
-		my $per_b = $per_priority{$per_key_b};
+		my $per_a = defined $per_priority{$a->{per}} ? $per_priority{$a->{per}} : $per_priority{_default};
+		my $per_b = defined $per_priority{$b->{per}} ? $per_priority{$b->{per}} : $per_priority{_default};
 
-		my $preparation_key_a = defined $a->{preparation} ? $a->{preparation} : '_default';
-		my $preparation_key_b = defined $b->{preparation} ? $b->{preparation} : '_default';
-		my $preparation_a = $preparation_priority{$preparation_key_a};
-		my $preparation_b = $preparation_priority{$preparation_key_b};
+		my $preparation_a
+			= defined $preparation_priority{$a->{preparation}}
+			? $preparation_priority{$a->{preparation}}
+			: $preparation_priority{_default};
+		my $preparation_b
+			= defined $preparation_priority{$b->{preparation}}
+			? $preparation_priority{$b->{preparation}}
+			: $preparation_priority{_default};
 
-		# sort priority : source then per then preparation
-		return $preparation_a <=> $preparation_b || $per_a <=> $per_b || $source_a <=> $source_b;
+		# sort priority : preparation, source, per
+		return ($preparation_a <=> $preparation_b) || ($source_a <=> $source_b) || ($per_a <=> $per_b);
 		} @$input_sets_ref;
 
 	return @$input_sets_ref;
@@ -2849,6 +2854,42 @@ sub default_unit_for_nid ($nid) {
 	}
 
 	return "g";
+}
+
+=head2 add_misc_tags_for_input_nutrition_data_pers ( $product_ref )
+
+Add misc tags for the different pers used in the input nutrition data,
+to make it easier to filter products based on the pers used in their nutrition data.
+(e.g. to find all ice creams with per 100ml)
+
+Estimates are not included.
+
+add_tag($product_ref, "misc", "en:nutrition-data-per-100g") if we have at least one input set with per 100g;
+
+=cut
+
+sub add_misc_tags_for_input_nutrition_data_pers($product_ref) {
+
+	# Go through each input set, check the pers used, add misc tags accordingly
+	my $inputs_sets_array_ref = deep_get($product_ref, "nutrition", "input_sets");
+
+	if (defined $inputs_sets_array_ref) {
+		foreach my $input_set_ref (@{$inputs_sets_array_ref}) {
+			my $source = $input_set_ref->{source} || "";
+			my $per = $input_set_ref->{per} || "";
+
+			# skip estimate from ingredients
+			if ($source eq "estimate") {
+				next;
+			}
+
+			if (defined $per) {
+				add_tag($product_ref, "misc", "en:nutrition-data-per-${per}");
+			}
+		}
+	}
+
+	return;
 }
 
 1;

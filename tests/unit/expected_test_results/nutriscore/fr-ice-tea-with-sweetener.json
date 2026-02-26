@@ -168,7 +168,9 @@
                "percent_estimate" : 0.05,
                "percent_max" : 0.1,
                "percent_min" : 0,
-               "text" : "citrate trisodique"
+               "text" : "citrate trisodique",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -229,17 +231,17 @@
       }
    ],
    "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
-         "en:sodium-citrate"
+      "en:maybe-vegan" : [
+         "en:flavouring"
       ],
-      "en:vegetarian-status-unknown" : [
-         "en:sodium-citrate"
+      "en:maybe-vegetarian" : [
+         "en:flavouring"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 16,
@@ -342,7 +344,8 @@
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-d-2023-d"
+      "en:nutriscore-2021-d-2023-d",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group" : 4,
    "nova_group_debug" : "",
