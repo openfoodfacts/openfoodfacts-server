@@ -106,7 +106,9 @@
                      "id" : "en:sodium-citrate",
                      "is_in_taxonomy" : 1,
                      "percent_estimate" : 0.234375,
-                     "text" : "citrate de sodium"
+                     "text" : "citrate de sodium",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
                   }
                ],
                "is_in_taxonomy" : 1,
@@ -386,24 +388,22 @@
       }
    ],
    "ingredients_analysis" : {
+      "en:maybe-vegetarian" : [
+         "en:natural-orange-flavouring",
+         "en:flavouring"
+      ],
       "en:non-vegan" : [
          "en:lactose-and-milk-proteins",
          "en:egg"
       ],
       "en:palm-oil" : [
          "en:palm-oil"
-      ],
-      "en:vegan-status-unknown" : [
-         "en:sodium-citrate"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:sodium-citrate"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil",
       "en:non-vegan",
-      "en:vegetarian-status-unknown"
+      "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 42,
