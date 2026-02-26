@@ -4738,7 +4738,7 @@ Reference to the MongoDB query object.
 # in addition to tags fields.
 # It is safer to use a positive list, instead of just the %ignore_params list
 
-my %valid_params = (code => 1, creator => 1);
+my %valid_params = (code => 1, creator => 1, schema_version => 1);
 
 sub add_params_to_query ($params_ref, $query_ref) {
 
@@ -5029,7 +5029,17 @@ sub add_params_to_query ($params_ref, $query_ref) {
 					$query_ref->{$field} = normalize_code($values);
 				}
 				else {
-					$query_ref->{$field} = $values;
+					if ($values =~ /^-/) {
+						# match products without a value
+						my $value = $';
+						if ($field eq 'schema_version') {
+							$value += 0;
+						}
+						$query_ref->{$field} = {'$ne' => $value};
+					}
+					else {
+						$query_ref->{$field} = $values;
+					}
 				}
 			}
 		}
