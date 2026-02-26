@@ -12,8 +12,7 @@
     "type": "raw"
   }
   ```
-  
-  ### What each part means
+
   
   **`[% panel.website %]`**
   This is Template Toolkit syntax (Perl's templating system). `panel` refers to the `$panel_data_ref` hash you passed in Step 1, and `.website` accesses the `website` key from it. So it gets replaced at runtime with the actual URL like `https://www.someproduct.com`.
