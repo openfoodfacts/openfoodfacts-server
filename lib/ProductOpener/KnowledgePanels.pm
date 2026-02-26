@@ -1598,6 +1598,15 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 
 		# Create a first panel with the aggregated set and comparison to category (if any)
 		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
+		my $nutrition_is_empty = 1;
+		if (defined $product_ref->{nutriments}) {
+			foreach my $key (keys %{$product_ref->{nutriments}}) {
+				next if $key =~ /_(unit|modifier|label|rank|value)$/;
+				$nutrition_is_empty = 0;
+				last;
+			}
+		}
+		$panel_data_ref->{nutrition_is_empty} = $nutrition_is_empty;
 		create_panel_from_json_template("nutrition_facts_table",
 			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
