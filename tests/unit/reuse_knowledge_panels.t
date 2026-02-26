@@ -22,7 +22,7 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 			'get_inherited_property_from_categories_tags' => sub {
 				my ($product_ref, $inherited_property_name) = @_;
 				# validate argument
-				is($inherited_property_name, "qfdmo_id:fr");
+				is($inherited_property_name, "qfdmo_name:fr");
 				if ($product_ref->{code} eq $no_qfdmo_code) {
 					return (undef, undef);
 				}
