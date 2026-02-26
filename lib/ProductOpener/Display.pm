@@ -4930,44 +4930,76 @@ sub add_params_to_query ($params_ref, $query_ref) {
 
 		elsif ($field =~ /^(.*?)_(100g|serving)$/) {
 
-				my $nutrient = $1;
-				$nutrient =~ s/_prepared$//;
+    # Example: sugars_100g=>10,<=20
 
-				my $conditions = $params_ref->{$field};
+			my $nutrient = $1;
+			$nutrient =~ s/_prepared$//;
 
-				foreach my $condition (split(/,/, $conditions)) {
+			my $conditions = $params_ref->{$field};
 
-					my ($operator, $value);
+			my %mongo_operators = (
+				'<'  => 'lt',
+				'<=' => 'lte',
+				'>'  => 'gt',
+				'>=' => 'gte',
+			);
 
-					if ($condition =~ /^(<=|>=|<|>)(\d.*)$/) {
-						$operator = $1;
-						$value = $2;
-					} else {
-						$operator = '=';
-						$value = $condition;
-					}
+			my $mongo_field = "nutrition.aggregated_set.nutrients.$nutrient.value";
 
-					# Remove units like g, mg, etc.
-					$value =~ s/[^\d\.]//g;
+			foreach my $condition (split(/,/, $conditions)) {
 
-					my %mongo_operators = (
-						'<'  => 'lt',
-						'<=' => 'lte',
-						'>'  => 'gt',
-						'>=' => 'gte',
-					);
+				my ($operator, $value);
 
-					my $mongo_field = "nutrition.aggregated_set.nutrients.$nutrient.value";
+				if ($condition =~ /^(<=|>=|<|>)(\d.*)$/) {
+					$operator = $1;
+					$value    = $2;
+				}
+				else {
+					$operator = '=';
+					$value    = $condition;
+				}
 
-					if ($operator eq '=') {
-						$query_ref->{$mongo_field} = $value + 0.0;
+				# Remove units like g, mg etc.
+				$value =~ s/[^\d\.]//g;
+
+				$log->debug(
+					"add_params_to_query - nutrient condition",
+					{ field => $field, condition => $condition, operator => $operator, value => $value }
+				) if $log->is_debug();
+
+				if ($operator eq '=') {
+
+					# Direct equality
+					$query_ref->{$mongo_field} = $value + 0.0;
+				}
+				else {
+
+					my $mongo_op = '$' . $mongo_operators{$operator};
+
+					# If field already has a scalar value, convert to $and (OFF style)
+					if (defined $query_ref->{$mongo_field}
+						and ref($query_ref->{$mongo_field}) ne 'HASH')
+					{
+						my $existing = $query_ref->{$mongo_field};
+						delete $query_ref->{$mongo_field};
+
+						if (not defined $query_ref->{'$and'}) {
+							$query_ref->{'$and'} = [];
+						}
+
+						push @{$query_ref->{'$and'}}, { $mongo_field => $existing };
+						push @{$query_ref->{'$and'}},
+							{ $mongo_field => { $mongo_op => $value + 0.0 } };
 					}
 					else {
+
 						if (not defined $query_ref->{$mongo_field}) {
 							$query_ref->{$mongo_field} = {};
 						}
-						$query_ref->{$mongo_field}{'$' . $mongo_operators{$operator}} = $value + 0.0;
+
+						$query_ref->{$mongo_field}{$mongo_op} = $value + 0.0;
 					}
+				}
 			}
 		}
 
