@@ -12,12 +12,22 @@ my %query;
 
 add_params_to_query(\%params, \%query);
 
-ok(exists $query{'nutriments.sugars_100g'}, 'nutrient field created');
+ok(exists $query{'nutriments.sugars_100g'});
+ok(exists $query{'nutriments.sugars_100g'}{'$gte'});
+ok(exists $query{'nutriments.sugars_100g'}{'$lt'});
 
-ok(exists $query{'nutriments.sugars_100g'}{'$gte'}, 'gte exists');
-ok(exists $query{'nutriments.sugars_100g'}{'$lt'}, 'lt exists');
+is($query{'nutriments.sugars_100g'}{'$gte'}, 0.2);
+is($query{'nutriments.sugars_100g'}{'$lt'}, 10);
 
-is($query{'nutriments.sugars_100g'}{'$gte'}, 0.2, 'gte parsed correctly');
-is($query{'nutriments.sugars_100g'}{'$lt'}, 10, 'lt parsed correctly');
+my %params_with_unit = (
+    'sugars_100g_serving' => '>=0.2g,<10g'
+);
+
+my %query_with_unit;
+
+add_params_to_query(\%params_with_unit, \%query_with_unit);
+
+is($query_with_unit{'nutriments.sugars_100g'}{'$gte'}, 0.2);
+is($query_with_unit{'nutriments.sugars_100g'}{'$lt'}, 10);
 
 done_testing();
