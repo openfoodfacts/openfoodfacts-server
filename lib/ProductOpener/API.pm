@@ -1054,7 +1054,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	api_compatibility_for_product_response($customized_product_ref, $request_ref->{api_version});
 
 	# Handle old requested nutrients from API V2
-	if (scalar @old_requested_nutrients > 0) {
+	if ((scalar @old_requested_nutrients > 0) and (defined $customized_product_ref->{nutriments})) {
 		# The new nutrition structure has been converted to the old nutriments hash
 		# we now need to filter the nutriments hash to keep only the requested nutrients
 		# Copy the nutriments hash and delete it, then re-add only the requested nutrients
