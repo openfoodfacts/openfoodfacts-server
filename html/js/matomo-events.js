@@ -1,4 +1,5 @@
 /*exported trackMatomoEvent*/
+/*global _paq*/
 
 // Safely track event to Matomo queue, ignoring if blocked.
 function trackMatomoEvent(category, action, name, value) {
@@ -6,7 +7,7 @@ function trackMatomoEvent(category, action, name, value) {
         return;
     }
 
-    var eventData = ['trackEvent', category, action];
+    const eventData = ['trackEvent', category, action];
 
     if (name) {
         eventData.push(name);
