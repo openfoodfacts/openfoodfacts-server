@@ -239,9 +239,9 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$has_health_card = create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
-	my $has_product_card;
-	if ($panel_is_requested->('product_card')) {
-		$has_product_card = create_product_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	my $has_website_panel;
+	if ($panel_is_requested->('website')) {
+		$has_website_panel = create_website_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 	my $has_website_panel;
     if ($panel_is_requested->('website')) {
@@ -2066,8 +2066,47 @@ sub create_nova_panel ($product_ref, $target_lc, $target_cc, $options_ref, $requ
 		create_panel_from_json_template("nova", "api/knowledge-panels/health/ingredients/nova.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
+	}return;
+}
+
+sub _sanitize_website_url ($raw_url) {
+
+	return undef unless defined $raw_url;
+
+	$raw_url =~ s/^\s+//;
+	$raw_url =~ s/\s+$//;
+
+	return undef if $raw_url eq q{};
+
+	if ($raw_url =~ m{^https?://}i) {
+		return $raw_url;
 	}
-	return;
+
+	$log->warn("Rejected unsafe website URL for knowledge panel", {website => $raw_url})
+		if $log->is_warn();
+
+	return undef;
+}
+
+sub create_website_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	$log->debug("create website panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+	my $website = _sanitize_website_url($product_ref->{website});
+
+	return 0 unless defined $website and $website ne q{};
+
+	my $panel_data_ref = {
+		website => $website,
+	};
+
+	create_panel_from_json_template(
+		"website",
+		"api/knowledge-panels/product/website.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+	);
+
+	return 1;
 }
 =head2 create_website_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
