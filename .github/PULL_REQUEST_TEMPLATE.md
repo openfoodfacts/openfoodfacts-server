@@ -21,7 +21,7 @@ Following `type`s are allowed:
   - `l10n`, for Localization and translation updates
   - `taxonomy`, for Changes to product categories and tags taxonomy
 -->
-<!-- IMPORTANT CHECKLIST : Make sure you've done all the following (You can delete the checklist before submitting)-->
+<!-- IMPORTANT CHECKLIST: Make sure you've done all the following (You can delete the checklist before submitting)-->
 <!-- - [ ] Code is well documented-->
 <!-- - [ ] Include unit tests for new functionality-->
 <!-- - [ ] Code passes GitHub workflow checks in your branch-->
