@@ -25,7 +25,7 @@
 <meta name="theme-color" content="#ffffff">
 
 	<meta name="apple-itunes-app" content="app-id=588797948">
-    <link rel="canonical" href="//world.openfoodfacts.localhost/category/en:desserts">
+    <link rel="canonical" href="//world.openfoodfacts.localhost/facets/categories/en:desserts/1">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/app-ltr.css?v=--ignore--" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
@@ -65,7 +65,10 @@
 			}
 		}
     </style>
-    <!-- Matomo -->
+</head>
+<body class="products_page">
+
+	<!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -107,6 +110,7 @@
 
 	
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
+	
 
 	<div id="barcode-scanner-modal" class="modal is_hidden">
   <div class="modal-backdrop"></div>
@@ -134,6 +138,7 @@
 
 
 	<div id="page">
+		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
 
@@ -206,6 +211,7 @@
 				</section>
 			</nav>
 		</div>
+		
 
 		<div id="main_container" style="position:relative" class="block_latte">
 
@@ -300,6 +306,7 @@
 				</form>
 			</div>
 		</nav>
+		
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
@@ -312,8 +319,12 @@
 
 				
 
+				
+
 				<div class="main block_light">
 					<div id="main_column">
+
+						
 						
 							
 							
@@ -444,8 +455,8 @@
 
             <div class="tag_navigation">
                 
-                    <a href="/categories">Category</a>:
-                    <a href="/category/desserts">Desserts</a>
+                    <a href="/facets/categories">Category</a>:
+                    <a href="/facets/categories/desserts">Desserts</a>
                     
                 
             </div>
@@ -638,23 +649,23 @@
           <ul id="drop_sort" data-dropdown-content class="f-dropdown" aria-hidden="true">
           
             <li>
-              <a href="/category/desserts?sort_by=popularity" onclick="$.cookie('last_sort_by', 'popularity', { expires: 180, path: '/' });">Most scanned products</a>
+              <a href="/facets/categories/desserts?sort_by=popularity" onclick="$.cookie('last_sort_by', 'popularity', { expires: 180, path: '/' });">Most scanned products</a>
             </li>
         
             <li>
-              <a href="/category/desserts?sort_by=nutriscore_score" onclick="$.cookie('last_sort_by', 'nutriscore_score', { expires: 180, path: '/' });">Products with the best Nutri-Score</a>
+              <a href="/facets/categories/desserts?sort_by=nutriscore_score" onclick="$.cookie('last_sort_by', 'nutriscore_score', { expires: 180, path: '/' });">Products with the best Nutri-Score</a>
             </li>
         
             <li>
-              <a href="/category/desserts?sort_by=ecoscore_score" onclick="$.cookie('last_sort_by', 'ecoscore_score', { expires: 180, path: '/' });">Products with the best Eco-Score</a>
+              <a href="/facets/categories/desserts?sort_by=environmental_score_score" onclick="$.cookie('last_sort_by', 'environmental_score_score', { expires: 180, path: '/' });">Products with the best Green-Score</a>
             </li>
         
             <li>
-              <a href="/category/desserts?sort_by=created_t" onclick="$.cookie('last_sort_by', 'created_t', { expires: 180, path: '/' });">Recently added products</a>
+              <a href="/facets/categories/desserts?sort_by=created_t" onclick="$.cookie('last_sort_by', 'created_t', { expires: 180, path: '/' });">Recently added products</a>
             </li>
         
             <li>
-              <a href="/category/desserts?sort_by=last_modified_t" onclick="$.cookie('last_sort_by', 'last_modified_t', { expires: 180, path: '/' });">Recently modified products</a>
+              <a href="/facets/categories/desserts?sort_by=last_modified_t" onclick="$.cookie('last_sort_by', 'last_modified_t', { expires: 180, path: '/' });">Recently modified products</a>
             </li>
         
           </ul>
@@ -667,125 +678,121 @@
             Explore products by...
           </button>
           <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
-            
-            <li>
-              <a href="/category/desserts/countries" rel="nofollow">Countries</a>
-            </li>
-            
-            <li>
-               <a href="/category/desserts/weight" rel="nofollow">Weight</a>
-             </li>
           
             <li>
-              <a href="/category/desserts/nutrition-grades" rel="nofollow">Nutrition grades</a>
+              <a href="/facets/categories/desserts/countries" rel="nofollow">Countries</a>
             </li>
           
             <li>
-              <a href="/category/desserts/nova-groups" rel="nofollow">NOVA groups</a>
+              <a href="/facets/categories/desserts/nutrition-grades" rel="nofollow">Nutrition grades</a>
             </li>
           
             <li>
-              <a href="/category/desserts/eco-score" rel="nofollow">Eco-Score</a>
+              <a href="/facets/categories/desserts/nova-groups" rel="nofollow">NOVA groups</a>
             </li>
           
             <li>
-              <a href="/category/desserts/brands" rel="nofollow">Brands</a>
+              <a href="/facets/categories/desserts/environmental-score" rel="nofollow">Green-Score</a>
             </li>
           
             <li>
-              <a href="/category/desserts/categories" rel="nofollow">Categories</a>
+              <a href="/facets/categories/desserts/brands" rel="nofollow">Brands</a>
             </li>
           
             <li>
-              <a href="/category/desserts/labels" rel="nofollow">Labels</a>
+              <a href="/facets/categories/desserts/categories" rel="nofollow">Categories</a>
             </li>
           
             <li>
-              <a href="/category/desserts/packaging" rel="nofollow">Packaging</a>
+              <a href="/facets/categories/desserts/labels" rel="nofollow">Labels</a>
             </li>
           
             <li>
-              <a href="/category/desserts/origins" rel="nofollow">Origins of ingredients</a>
+              <a href="/facets/categories/desserts/packaging" rel="nofollow">Packaging</a>
             </li>
           
             <li>
-              <a href="/category/desserts/manufacturing-places" rel="nofollow">Manufacturing or processing places</a>
+              <a href="/facets/categories/desserts/origins" rel="nofollow">Origins of ingredients</a>
             </li>
           
             <li>
-              <a href="/category/desserts/packager-codes" rel="nofollow">Traceability codes</a>
+              <a href="/facets/categories/desserts/manufacturing-places" rel="nofollow">Manufacturing or processing places</a>
             </li>
           
             <li>
-              <a href="/category/desserts/ingredients" rel="nofollow">Ingredients</a>
+              <a href="/facets/categories/desserts/packager-codes" rel="nofollow">Traceability codes</a>
             </li>
           
             <li>
-              <a href="/category/desserts/additives" rel="nofollow">Additives</a>
+              <a href="/facets/categories/desserts/ingredients" rel="nofollow">Ingredients</a>
             </li>
           
             <li>
-              <a href="/category/desserts/vitamins" rel="nofollow">Added vitamins</a>
+              <a href="/facets/categories/desserts/additives" rel="nofollow">Additives</a>
             </li>
           
             <li>
-              <a href="/category/desserts/minerals" rel="nofollow">Added minerals</a>
+              <a href="/facets/categories/desserts/vitamins" rel="nofollow">Added vitamins</a>
             </li>
           
             <li>
-              <a href="/category/desserts/amino-acids" rel="nofollow">Added amino acids</a>
+              <a href="/facets/categories/desserts/minerals" rel="nofollow">Added minerals</a>
             </li>
           
             <li>
-              <a href="/category/desserts/nucleotides" rel="nofollow">Added nucleotides</a>
+              <a href="/facets/categories/desserts/amino-acids" rel="nofollow">Added amino acids</a>
             </li>
           
             <li>
-              <a href="/category/desserts/other-nutritional-substances" rel="nofollow">Other nutritional substances added</a>
+              <a href="/facets/categories/desserts/nucleotides" rel="nofollow">Added nucleotides</a>
             </li>
           
             <li>
-              <a href="/category/desserts/allergens" rel="nofollow">Allergens</a>
+              <a href="/facets/categories/desserts/other-nutritional-substances" rel="nofollow">Other nutritional substances added</a>
             </li>
           
             <li>
-              <a href="/category/desserts/traces" rel="nofollow">Traces</a>
+              <a href="/facets/categories/desserts/allergens" rel="nofollow">Allergens</a>
             </li>
           
             <li>
-              <a href="/category/desserts/misc" rel="nofollow"></a>
+              <a href="/facets/categories/desserts/traces" rel="nofollow">Traces</a>
             </li>
           
             <li>
-              <a href="/category/desserts/languages" rel="nofollow">Languages</a>
+              <a href="/facets/categories/desserts/misc" rel="nofollow">Miscellaneous</a>
             </li>
           
             <li>
-              <a href="/category/desserts/contributors" rel="nofollow">Contributors</a>
+              <a href="/facets/categories/desserts/languages" rel="nofollow">Languages</a>
             </li>
           
             <li>
-              <a href="/category/desserts/states" rel="nofollow">States</a>
+              <a href="/facets/categories/desserts/contributors" rel="nofollow">Contributors</a>
             </li>
           
             <li>
-              <a href="/category/desserts/data-sources" rel="nofollow">Data sources</a>
+              <a href="/facets/categories/desserts/states" rel="nofollow">States</a>
             </li>
           
             <li>
-              <a href="/category/desserts/entry-dates" rel="nofollow">Entry dates</a>
+              <a href="/facets/categories/desserts/data-sources" rel="nofollow">Data sources</a>
             </li>
           
             <li>
-              <a href="/category/desserts/last-edit-dates" rel="nofollow">Last edit dates</a>
+              <a href="/facets/categories/desserts/entry-dates" rel="nofollow">Entry dates</a>
             </li>
           
             <li>
-              <a href="/category/desserts/last-check-dates" rel="nofollow">Last check dates</a>
+              <a href="/facets/categories/desserts/last-edit-dates" rel="nofollow">Last edit dates</a>
             </li>
           
             <li>
-              <a href="/category/desserts/teams" rel="nofollow">Teams</a>
+              <a href="/facets/categories/desserts/last-check-dates" rel="nofollow">Last check dates</a>
+            </li>
+          
+            <li>
+              <a href="/facets/categories/desserts/teams" rel="nofollow">Teams</a>
             </li>
           
           </ul>
@@ -831,8 +838,7 @@
   </div>
       
     
-	</ul>
-
+	
   </div>
 </div>
 
@@ -848,6 +854,7 @@
 		</div>
 		</div>
 
+		
 		<footer>
 			<div class="block_light bg-white" id="install_the_app_block">
 				<div class="row">
@@ -902,8 +909,8 @@
     <div>
       <div class="donation-banner-footer__main-section">
         <img
-          width="50px"
-          height="50px"
+          width="50"
+          height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="Open Food Facts logo"
         />
@@ -935,7 +942,7 @@
         </p>
       </div>
       <div class="donation-banner-footer__actions-section__donate-button">
-        <a href="//world.openfoodfacts.org/donate-to-open-food-facts//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
+        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
           <button>I SUPPORT</button>
         </a>
       </div>
@@ -954,10 +961,9 @@
 						<p>Join us on <a href="//slack.openfoodfacts.org">Slack</a></p>
 						<p><a href="//forum.openfoodfacts.org/">Forum</a></p>
 						<p id="footer_social_icons">Follow us: 
-							<a href="//twitter.com/OpenFoodFacts"><img src="/images/icons/dist/twitter.svg" class="footer_social_icon" alt="Twitter"></a>
+							<a href="//x.com/OpenFoodFacts"><img src="/images/icons/dist/x.svg" class="footer_social_icon" alt="x"></a>
 							<a href="//www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
 							<a href="//www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
-                     <a href=" https://www.linkedin.com/company/open-food-facts/posts/"><img src="/Users/vans/Documents/GitHub/open food /openfoodfacts-server/icons/material/Linkedin.svg" class="footer_social_icon" alt="Linkedin"></a>
 							
 						</p>
 						<p><a href="//link.openfoodfacts.org/newsletter-en">Subscribe to our newsletter</a></p>
@@ -1009,6 +1015,7 @@
 				</div>
 			</div>
 		</footer>
+		
 
 	</div>
 
@@ -1050,7 +1057,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Poor nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
@@ -1294,8 +1301,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -1303,7 +1308,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"c",
@@ -1325,13 +1330,13 @@ var products = [
                   "description":"",
                   "description_short":"Low environmental impact",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":62,
                   "name":"Green-Score",
                   "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -1389,7 +1394,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Poor nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
@@ -1634,8 +1639,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -1643,7 +1646,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"c",
@@ -1728,7 +1731,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Poor nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
@@ -1973,8 +1976,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -1982,7 +1983,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"c",
@@ -2312,8 +2313,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Ultra processed foods",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-4.svg",
                   "id":"nova",
@@ -2321,7 +2320,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 4"
+                  "title":"Ultra-processed foods"
                },
                {
                   "grade":"e",
@@ -2343,13 +2342,13 @@ var products = [
                   "description":"",
                   "description_short":"Low environmental impact",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":66,
                   "name":"Green-Score",
                   "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -2651,8 +2650,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -2660,7 +2657,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"a",
@@ -2682,13 +2679,13 @@ var products = [
                   "description":"",
                   "description_short":"Low environmental impact",
                   "grade":"b",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
                   "match":66,
                   "name":"Green-Score",
                   "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Eco-Score B"
+                  "title":"Green-Score B"
                },
                {
                   "description":"",
@@ -2745,7 +2742,7 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Poor nutritional quality",
+                  "description_short":"Lower nutritional quality",
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-en.svg",
                   "id":"nutriscore",
@@ -2990,8 +2987,6 @@ var products = [
          {
             "attributes":[
                {
-                  "description":"",
-                  "description_short":"Processed foods",
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                   "id":"nova",
@@ -2999,7 +2994,7 @@ var products = [
                   "name":"NOVA group",
                   "panel_id":"nova",
                   "status":"known",
-                  "title":"NOVA 3"
+                  "title":"Processed foods"
                },
                {
                   "grade":"c",
@@ -3020,13 +3015,13 @@ var products = [
                {
                   "description_short":"Missing a precise category",
                   "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/ecoscore-unknown.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
                   "id":"ecoscore",
                   "match":0,
-                  "name":"Eco-Score",
-                  "panel_id":"ecoscore",
+                  "name":"Green-Score",
+                  "panel_id":"environmental_score",
                   "status":"unknown",
-                  "title":"Eco-Score not computed"
+                  "title":"Green-Score not computed"
                },
                {
                   "description":"",
@@ -3117,7 +3112,7 @@ $(document).foundation({
 	"url": "//world.openfoodfacts.localhost",
 	"logo": "//static.openfoodfacts.localhost/images/logos/off-logo-vertical-light.svg",
 	"name": "Open Food Facts",
-	"sameAs" : ["//www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web", "//twitter.com/OpenFoodFacts"]
+	"sameAs" : ["//www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web", "//x.com/OpenFoodFacts"]
 }
 </script>
 
