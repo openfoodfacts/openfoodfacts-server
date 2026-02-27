@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -134,6 +134,8 @@ digit grouping separators or used to indicate decimals.
 =cut
 
 sub convert_string_to_number ($value) {
+
+	return if (not defined $value);
 
 	$value =~ s/(\d) (\d)/$1$2/g;
 

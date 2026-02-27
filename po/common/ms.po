@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Pangkalan data usahasama, percuma dan terbuka untuk produk makanan daripada seluruh dunia."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -358,10 +358,6 @@ msgstr "Anda juga boleh bantu biayai projek Open Food Facts"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -1576,11 +1572,11 @@ msgstr "Produk yang tidak mengandungi nutriment %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Fakta pemakanan"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Fakta pemakanan"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1652,7 +1648,7 @@ msgstr "Sisihan piawai"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Fakta pemakanan"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -3466,7 +3462,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Asal-usul"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3474,7 +3470,7 @@ msgstr "Bahan-bahan"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Fakta pemakanan"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3724,6 +3720,10 @@ msgstr "pepijat kualiti data"
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "pepijat kualiti data"
+
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "kesempurnaan kualiti data"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -4337,7 +4337,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Selesai"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4440,7 +4440,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Kod bar tidak sah"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4635,17 +4635,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Data tiada untuk mengira Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
+msgid "Nutri-Score not applicable"
 msgstr "Nutri-Score tidak berkenaan"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "Tidak berkenaan untuk kategori: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4683,7 +4683,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Tahap pemprosesan makanan tidak diketahui"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -5120,6 +5120,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Fakta pemakanan yang hilang untuk produk yang disediakan"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr ""
@@ -5138,11 +5142,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Pelbagai"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Pelbagai"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5160,7 +5164,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "Bentuk"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5168,7 +5172,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Bahan"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5462,6 +5466,10 @@ msgstr ""
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Tiada kategori yang tepat"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5972,6 +5980,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Tiada label yang dinilai"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Beberapa faedah alam sekitar"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Faedah alam sekitar yang tinggi"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Faedah alam sekitar yang sangat tinggi"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6108,6 +6132,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Fakta pemakanan yang hilang untuk produk yang disediakan:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
@@ -6123,6 +6151,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Kesempurnaan Kualiti Data"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Beberapa maklumat tentang kesempurnaan kualiti data pada produk ini"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6195,6 +6231,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Hilang fakta pemakanan yang disediakan"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6334,17 +6374,17 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Padanan yang sangat baik"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "Padanan yang baik"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Padanan yang lemah"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
@@ -6380,6 +6420,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Kategori yang kami ada untuk produk ini tidak cukup tepat untuk mengira Skor Hijau. Bolehkah anda menambah kategori produk yang lebih tepat?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6531,7 +6575,7 @@ msgstr ""
 
 msgctxt "sign_in"
 msgid "Sign in"
-msgstr ""
+msgstr "Daftar masuk"
 
 msgctxt "sign_out"
 msgid "Sign out"
@@ -6728,7 +6772,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Bilangan unit"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6760,19 +6804,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Masukkan bilangan unit pembungkusan dengan bentuk dan bahan yang sama yang terkandung dalam produk."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Masukkan nama bentuk yang disenaraikan dalam arahan kitar semula jika ada atau pilih satu bentuk."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Masukkan bahan tertentu jika ia dapat ditentukan (kod bahan di dalam segitiga selalunya boleh didapati pada bahagian pembungkusan), atau bahan generik (contohnya plastik atau logam) jika anda tidak pasti."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Masukkan arahan kitar semula hanya jika ia disenaraikan pada produk."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6782,7 +6826,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Masukkan berat bersih atau isipadu bersih dan nyatakan unitnya (contohnya g atau ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7359,11 +7403,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "Indeks kebolehbaikan tidak berkenaan"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7402,17 +7446,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Jenis produk"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Makanan"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Makanan haiwan peliharaan"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7454,7 +7498,7 @@ msgstr ""
 
 msgctxt "delete"
 msgid "Delete"
-msgstr ""
+msgstr "Padam"
 
 msgctxt "f_add_product_to_our_database"
 msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
@@ -7509,9 +7553,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Laporkan imej ini kepada moderator kami"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Kami kehilangan nilai saiz hidangan dan/atau unit untuk mengira Skor Nutri"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> dibuat oleh persatuan bukan untung, bebas daripada industri. Ia dibuat untuk semua, oleh semua, dan ia dibiayai oleh semua. Anda boleh menyokong kerja kami dengan menderma kepada Open Food Facts.<br/><b>Terima kasih!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> dibuat oleh persatuan bukan untung, bebas daripada industri. Ia dibuat untuk semua, oleh semua, dan ia dibiayai oleh semua. Anda boleh menyokong kerja kami dengan menderma kepada Open Food Facts dan juga dengan menggunakan enjin carian Lilo.<br/><b>Terima kasih!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Enjin carian Lilo"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Disebabkan penyalahgunaan berat daripada robot, kami tidak dapat menyampaikan halaman ini kepada pengguna yang tidak dikenali. Sila buat akaun Open Food Facts percuma untuk mengakses semua Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Asal-usul bahan ramuan"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Maklumat produk"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Maklumat produk mentah"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7525,7 +7601,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Anggaran kuantiti gula tambahan dalam ramuan"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Kuantiti gula tambahan"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Cari produk dalam kategori yang sama tanpa gula tambahan:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Bahan-bahan yang tidak diingini"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Keutamaan ini adalah berdasarkan pemahaman Open Food Facts tentang senarai ramuan dan mungkin tidak tepat, sentiasa semak produk itu sendiri."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Kehadiran bahan yang tidak diingini tidak diketahui"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Tiada bahan yang tidak diingini dikesan"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Mengandungi bahan yang tidak diingini"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Sesetengah bahan tidak diiktiraf"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Kami tidak mengesan: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Kami tidak mengesan: {unwanted_ingredients}. Kami mungkin terlepas beberapa bahan, sila semak senarai ramuan."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Keutamaan tersebut adalah berdasarkan pemahaman Open Food Facts tentang senarai ramuan dan sentiasa ada kemungkinan ia mungkin tidak tepat atau lengkap, sentiasa semak produk itu sendiri."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Merokok membunuh"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Tembakau merosakkan kesihatan secara serius. Jangan mulakan. Berhenti sekarang."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Merokok sangat ketagihan. Jangan mulakan. Merokok membunuh - berhenti sekarang. Merokok menyumbat arteri dan menyebabkan serangan jantung dan strok. Merokok menyebabkan kanser paru-paru yang membawa maut. Merokok semasa mengandung membahayakan bayi anda. Lindungi kanak-kanak: jangan biarkan mereka menghirup asap anda. Doktor atau ahli farmasi anda boleh membantu anda berhenti merokok. Merokok boleh mengurangkan aliran darah dan menyebabkan mati pucuk. Merokok menyebabkan penuaan kulit. Merokok boleh merosakkan sperma dan mengurangkan kesuburan. Asap mengandungi benzena, nitrosamin, formaldehid dan hidrogen sianida."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Harga awam"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 EUR, 2.99 USD, 4.00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Harga runcit cadangan pengilang (MSRP), tidak termasuk diskaun dan promosi, seperti yang ditunjukkan pada pembungkusan produk atau tapak pengilang (termasuk atau tidak termasuk cukai berdasarkan perundangan). Gunakan senarai dipisahkan koma jika harga dalam berbilang mata wang disenaraikan."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Harta peribadi"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Tidak mengandungi minyak sawit"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Mungkin mengandungi minyak sawit"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Label alam sekitar"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "data tiada"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Impak tinggi"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Kesan sederhana"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Impak rendah"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Kesan tidak dinilai"
 

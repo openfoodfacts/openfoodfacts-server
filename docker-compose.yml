@@ -19,11 +19,12 @@
     - EVENTS_PASSWORD
     - REDIS_URL
     - FOLKSONOMY_URL
-    - PROCESS_GLOBAL_REDIS_EVENTS
     - GOOGLE_CLOUD_VISION_API_KEY
     - GOOGLE_CLOUD_VISION_API_URL
     - CROWDIN_PROJECT_IDENTIFIER
     - CROWDIN_PROJECT_KEY
+    - BREVO_API_KEY
+    - BREVO_LIST_ID
     - GEOLITE2_PATH
     - LOG_LEVEL_ROOT
     - LOG_LEVEL_MONGODB
@@ -38,17 +39,16 @@
     - ODOO_CRM_PASSWORD
     - OIDC_IMPLEMENTATION_LEVEL
     - OIDC_DISCOVERY_URL
-    - OFF_CLIENT_SECRET
-    - OBF_CLIENT_SECRET
-    - OPFF_CLIENT_SECRET
-    - OPF_CLIENT_SECRET
-    - OFF_PRO_CLIENT_SECRET
+    - OIDC_CLIENT_ID
+    - OIDC_CLIENT_SECRET
     - RECIPE_ESTIMATOR_URL
     - RECIPE_ESTIMATOR_SCIPY_URL
+    - SLACK_HOOK_URLS
     #11901: Remove once production is migrated
     - SERIALIZE_TO_JSON
   depends_on:
-    - memcached
+    memcached:
+        condition: service_started
   volumes:
     # pointer to openfoodfacts-web/lang
     - ${WEB_RESOURCES_PATH}/lang:/mnt/podata/lang
@@ -98,6 +98,13 @@ services:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
       - POSTGRES_DB=minion
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      start_interval: 1s
+      start_period: 60s
+      retries: 2
     volumes:
       - pgdata:/var/lib/postgresql/data
   backend: *backend-conf

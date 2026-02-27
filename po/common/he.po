@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "מסד נתונים חופשי, פתוח ושיתופי של מוצרי מזון מכל רחבי העולם."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "מסד נתונים חופשי, פתוח ושיתופי של מוצרי מזון לחיות מחמד מכל רחבי העולם."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -359,10 +359,6 @@ msgstr "ניתן גם לסייע במימון המיזם Open Food Facts"
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "מדריך הניהול ליצרנים"
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> מופעל על ידי אגודה ללא מטרות רווח, ללא תלות בתעשייה. למען כולם, על ידי כולם וממומן על ידי כולם. אפשר לתמוך בעבודה שלנו על ידי <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">תרומה ל־Open Food Facts</a> and גם על ידי <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">חיפוש במנוע החיפוש Lilo</a>.<br/><b>תודה רבה!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -3725,6 +3721,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "תקלות באיכות הנתונים"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "שלמות איכות הנתונים"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "פרטי איכות הנתונים"
@@ -4635,17 +4635,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "חסרים נתונים לחישוב Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Nutri-Score לא ניתן ליישום"
+msgid "Nutri-Score not applicable"
+msgstr "ציון תזונתי לא רלוונטי"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "לא חל על הקטגוריה"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr "לא חל על הקטגוריה: {category}"
+msgid "Not applicable for the category: {category}"
+msgstr "לא רלוונטי לקטגוריה: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5120,6 +5120,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "עובדות תזונתיות חסרות"
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "חסרים נתונים תזונתיים עבור מוצר מוכן"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr "Green-Score"
@@ -5462,6 +5466,10 @@ msgstr "Green-Score לא מחושב"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "ההשפעה על איכות הסביבה לא ידועה"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "חסרה קטגוריה מדויקת"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5972,6 +5980,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "תוויות עם יתרונות סביבתיים רבים מאוד"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "אין תוויות שנבדקו"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "כמה יתרונות סביבתיים"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "יתרונות סביבתיים גבוהים"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "יתרונות סביבתיים גבוהים מאוד"
+
 msgctxt "other"
 msgid "Other"
 msgstr "אחר"
@@ -6108,6 +6132,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr "עובדות תזונתיות חסרות:"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "חסרים נתונים תזונתיים עבור מוצר מוכן:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "יש לציין את הקטגוריה ואת העובדות התזונתיות של המוצר כדי לחשב Nutri-Score."
@@ -6123,6 +6151,14 @@ msgstr "תרומה"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "תרומה"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "שלמות איכות הנתונים"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "קצת מידע על שלמות איכות הנתונים במוצר זה"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6195,6 +6231,10 @@ msgstr "חסרה קטגוריה"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "עובדות תזונתיות חסרות"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "חסרים מידע תזונתי מוכן"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6380,6 +6420,10 @@ msgstr "נוכל לבקש ממך להוסיף את המידע הדרוש לחי�
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "נוכל לבקש ממך להוסיף קטגוריה מדויקת כדי שנוכל לחשב Green-Score?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "הקטגוריה שיש לנו עבור מוצר זה אינה מדויקת מספיק כדי לחשב את הציון הירוק. האם תוכל להוסיף קטגוריית מוצר מדויקת יותר?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7359,11 +7403,11 @@ msgid "Repairability index unknown"
 msgstr "מדד יכולת תיקון לא ידוע"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr "מדד יכולת תיקון לא ישים"
+msgid "Repairability index not applicable"
+msgstr "מדד יכולת התיקון אינו רלוונטי"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "לא חל על הקטגוריה"
 
 # variable names between { } must not be translated
@@ -7509,9 +7553,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "דיווח על התמונה הזאת למפקחים שלנו"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "חסר לנו ערך גודל מנה ו/או יחידה לחישוב הציון התזונתי"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> מיוצר על ידי עמותה ללא מטרות רווח, שאינה תלויה בתעשייה. הוא מיוצר עבור כולם, על ידי כולם, וממומן על ידי כולם. tpar לתמוך בעבודתנו על ידי תרומה ל־Open Food Facts.<br/><b>תודה!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> נוצר על ידי עמותה ללא מטרות רווח, שאינה תלויה בתעשייה. הוא נוצר עבור כולם, על ידי כולם, וממומן על ידי כולם. אפשר לתמוך בעבודתנו על ידי תרומה ל־Open Food Facts וגם על ידי שימוש במנוע החיפוש Lilo.<br/><b>תודה!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "מנוע החיפוש Lilo"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "עקב שימוש לרעה מצד רובוטים באופן חמור, איננו יכולים להציג דף זה למשתמשים לא מזוהים. נא ליצור חשבון Open Food Facts בחינם כדי לגשת לכל Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "מקור הרכיבים"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "מקור המוצר"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "מידע על המוצר"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "מידע גולמי על המוצר"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7525,7 +7601,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "כמות משוערת של סוכרים מוספים במרכיבים"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "כמות הסוכרים המוספים"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "חיפוש מוצרים באותה קטגוריה ללא תוספת סוכר:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "מרכיבים לא רצויים"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "העדפה זו מבוססת על הבנת Open Food Facts את רשימת הרכיבים וייתכן שאינה מדויקת, יש לבדוק תמיד את המוצר בעצמכם."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "נוכחות רכיבים לא רצויים לא ידועה"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "לא זוהו רכיבים לא רצויים"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "מכיל רכיבים לא רצויים"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "חלק מהרכיבים לא זוהו"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "לא זיהינו: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "לא זיהינו: {unwanted_ingredients}. ייתכן שפספסנו כמה מרכיבים, אנא בדקו תמיד את רשימת המרכיבים."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "העדפות אלו מבוססות על הבנת Open Food Facts את רשימת הרכיבים ותמיד קיימת אפשרות שהיא לא תהיה מדויקת או מלאה, לכן יש לבדוק תמיד את המוצר בעצמכם."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "עישון הורג"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "טבק פוגע קשות בבריאות. אל תתחיל. תפסיק עכשיו."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "עישון הוא ממכר מאוד. אל תתחילו. עישון הורג - הפסיקו עכשיו. עישון סותם את העורקים וגורם להתקפי לב ושבץ מוחי. עישון גורם לסרטן ריאות קטלני. עישון במהלך ההריון פוגע בתינוקכם. הגנו על ילדים: אל תכריחו אותם לנשום את העשן שלכם. הרופא או הרוקח שלכם יכולים לעזור לכם להפסיק לעשן. עישון עלול להפחית את זרימת הדם ולגרום לאין-אונות. עישון גורם להזדקנות העור. עישון עלול לפגוע בזרע ולהפחית את הפוריות. עשן מכיל בנזן, ניטרוסמינים, פורמלדהיד ומימן ציאניד."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "מחיר ציבורי"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 אירו, 2.99 דולר, 4.00 ליש״ט"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "מחיר מומלץ לצרכן (MSRP), לא כולל הנחות ומבצעים, כפי שמצוין על אריזת המוצר או באתר היצרן (כולל או לא כולל מיסים בהתאם לחקיקה). יש להשתמש ברשימה מופרדת בפסיקים אם רשומים מחירים במספר מטבעות."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "מאפיין מותאם אישית"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "אינו מכיל שמן דקלים"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "עשוי להכיל שמן דקלים"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "תוויות סביבתיות"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "נתונים חסרים"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "השפעה גבוהה"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "השפעה בינונית"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "השפעה נמוכה"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "ההשפעה לא הוערכה"
 

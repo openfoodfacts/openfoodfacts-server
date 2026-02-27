@@ -37,6 +37,9 @@ is(normalize_code('https://dalgiardino.com/01/09506000134376/10/ABC/21/123456?17
 	'9506000134376', 'should reduce GS1 Digital Link URI to GTIN');
 is(normalize_code('https://example.com/01/00012345000058?17=271200'),
 	'0012345000058', 'should reduce GS1 Digital Link URI to GTIN');
+is(normalize_code('HTTPS://EXAMPLE.COM/01/12312312312333/10/ABC123?99=TESTING'),
+	'12312312312333', 'should reduce upper case GS1 Digital Link URI to GTIN')
+	;    # https://www.gs1.org/standards/gs1-barcodes/gs1-barcode-syntax-resource
 is(normalize_code('https://world.openfoodfacts.org/'), '', 'non-GS1 URIs should return an empty string');
 is(normalize_code('http://spam.zip/'), '', 'non-GS1 URIs should return an empty string');
 is(normalize_code('0100360505082919'),
@@ -135,83 +138,6 @@ is(
 	'long code should return "invalid"'
 );
 is(product_path_from_id('4015533014963'), '401/553/301/4963', 'code should be split in four parts');
-
-# compute_completeness_and_missing_tags
-my $previous_ref = {};
-
-sub compute_and_test_completeness($$$) {
-	my $product_ref = shift;
-	my $fraction = shift;
-	my $with = shift;
-	my $percent = $fraction * 100.0;
-	compute_completeness_and_missing_tags($product_ref, $product_ref, $previous_ref);
-	my $message = sprintf('%s is %g%% complete', $with, $percent);
-	#delta_ok($product_ref->{completeness}, $fraction, $message);
-	is($product_ref->{completeness}, float($fraction), $message);
-
-	return;
-}
-
-my $step = 1.0 / 10.0;    # Currently, we check for 10 properties.
-my $product_ref = {};
-compute_and_test_completeness($product_ref, 0.0, 'empty product');
-
-$product_ref = {uploaded_images => {}, lc => 'de'};
-$product_ref->{uploaded_images}->{foo} = 'bar';
-compute_and_test_completeness($product_ref, $step * 0.5, 'product with at least one uploaded_images');
-
-$product_ref = {uploaded_images => {}, selected_images => {}, lc => 'de'};
-$product_ref->{uploaded_images}->{foo} = 'bar';
-$product_ref->{selected_images}->{front_de} = 'bar';
-compute_and_test_completeness(
-	$product_ref,
-	$step * 0.5 + $step * 0.5 * 0.25,
-	'product with at least one uploaded_images and front'
-);
-
-$product_ref = {uploaded_images => {}, selected_images => {}, lc => 'de'};
-$product_ref->{uploaded_images}->{foo} = 'bar';
-$product_ref->{selected_images}->{front_de} = 'bar';
-$product_ref->{selected_images}->{ingredients_de} = 'bar';
-$product_ref->{selected_images}->{nutrition_de} = 'bar';
-$product_ref->{selected_images}->{packaging_de} = 'bar';
-compute_and_test_completeness($product_ref, $step,
-	'product with at least one uploaded_images and front/ingredients/nutrition/packaging selected');
-
-my @string_fields = qw(product_name quantity packaging brands categories emb_codes expiration_date ingredients_text);
-foreach my $field (@string_fields) {
-	$product_ref = {$field => 'foo'};
-	compute_and_test_completeness($product_ref, $step, "product with $field");
-}
-
-$product_ref = {};
-foreach my $field (@string_fields) {
-	$product_ref->{$field} = 'foo';
-}
-
-compute_and_test_completeness($product_ref, $step * (scalar @string_fields), 'product with all @string_fields');
-
-$product_ref = {no_nutrition_data => 'on'};
-compute_and_test_completeness($product_ref, $step, 'product with no_nutrition_data');
-
-$product_ref = {nutriments => {}};
-$product_ref->{nutriments}->{foo} = 'bar';
-compute_and_test_completeness($product_ref, $step, 'product with at least one nutrient');
-
-$product_ref = {nutriments => {}, uploaded_images => {}, selected_images => {}, lc => 'de'};
-$product_ref->{nutriments}->{foo} = 'bar';
-$product_ref->{uploaded_images}->{foo} = 'bar';
-$product_ref->{selected_images}->{front_de} = 'bar';
-$product_ref->{selected_images}->{ingredients_de} = 'bar';
-$product_ref->{selected_images}->{nutrition_de} = 'bar';
-$product_ref->{selected_images}->{packaging_de} = 'bar';
-$product_ref->{last_modified_t} = time();
-
-foreach my $field (@string_fields) {
-	$product_ref->{$field} = 'foo';
-}
-
-compute_and_test_completeness($product_ref, 1.0, 'product all fields');
 
 # Test the function that recognizes the app and app uuid from changes and sets the app and userid
 
@@ -329,7 +255,8 @@ foreach my $change_ref (@get_change_userid_or_uuid_tests) {
 
 # Test remove_fields
 
-$product_ref = {"languages" => {}, "category_properties" => {}, "categories_properties" => {}, "name" => "test_prod"};
+my $product_ref
+	= {"languages" => {}, "category_properties" => {}, "categories_properties" => {}, "name" => "test_prod"};
 my $fields_to_remove = ["languages", "category_properties", "categories_properties"];
 
 remove_fields($product_ref, $fields_to_remove);
@@ -338,23 +265,6 @@ foreach my $rem_field (@$fields_to_remove) {
 	is($product_ref->{$rem_field}, undef);
 }
 is($product_ref->{name}, "test_prod");
-
-# Test that NOVA and estimated % of fruits and vegetables are ignored when determining if the nutrients are completed.
-$product_ref->{nutriments} = {
-	"fruits-vegetables-nuts-estimate-from-ingredients_100g" => 0,
-	"fruits-vegetables-nuts-estimate-from-ingredients_serving" => 0,
-	"nova-group" => 4,
-	"nova-group_100g" => 4,
-	"nova-group_serving" => 4
-};
-
-compute_completeness_and_missing_tags($product_ref, $product_ref, {});
-
-my $facts_to_be_completed_state_found = grep {/en:nutrition-facts-to-be-completed/} $product_ref->{states};
-my $facts_completed_state_found = grep {/en:nutrition-facts-completed/} $product_ref->{states};
-
-is($facts_completed_state_found, 0);
-is($facts_to_be_completed_state_found, 1);
 
 # Test preprocess_product_field
 is(preprocess_product_field('product_name', 'Test Product'), 'Test Product');

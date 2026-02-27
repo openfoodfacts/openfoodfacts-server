@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -139,8 +139,11 @@ use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
 use ProductOpener::HTTP qw/single_param create_user_agent/;
 use ProductOpener::Redis qw/push_product_update_to_redis/;
-use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
+use ProductOpener::Food qw/%nutrients_lists %cc_nutrient_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Slack qw/send_slack_message/;
+use ProductOpener::Nutrition
+	qw/has_non_estimated_nutrition_data get_nutrition_data_as_key_values_pairs has_no_nutrition_data_on_packaging/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -441,7 +444,7 @@ sub _try_normalize_code_gs1 ($code) {
 				$ai_data_str = $encoder->ai_data_str();
 			}
 		}
-		elsif ($code =~ /^http?s:\/\/.+/) {
+		elsif ($code =~ /^http?s:\/\/.+/i) {
 			# Code could be a GS1 unbracketed AI element string
 			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
 			if ($encoder->data_str($code)) {
@@ -1170,7 +1173,11 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 		$log->info("changing product type",
 			{old_product_type => $product_ref->{old_product_type}, product_type => $product_ref->{product_type}})
 			if $log->is_info();
-		$delete_from_previous_products_collection = 1;
+		# We need to remove the product from its previous collection, unless we are on the pro platform
+		# where we have only one collection for all product types
+		if (not $server_options{private_products}) {
+			$delete_from_previous_products_collection = 1;
+		}
 		delete $product_ref->{old_product_type};
 	}
 
@@ -1643,8 +1650,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 			}
 			else {
 				if (    ($imagetype eq "nutrition")
-					and (defined $product_ref->{no_nutrition_data})
-					and ($product_ref->{no_nutrition_data} eq 'on'))
+					and (has_no_nutrition_data_on_packaging($current_ref)))
 				{
 					$images_completeness += $image_step;
 				}
@@ -1721,16 +1727,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		$complete = 0;
 	}
 
-	if (
-		(
-			(
-					(defined $current_ref->{nutriments})
-				and (scalar grep {$_ !~ /^(nova|fruits-vegetables)/} keys %{$current_ref->{nutriments}}) > 0
-			)
-		)
-		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))
-		)
-	{
+	if ((has_no_nutrition_data_on_packaging($product_ref)) or (has_non_estimated_nutrition_data($product_ref))) {
 		push @states_tags, "en:nutrition-facts-completed";
 		$notempty++;
 		$completeness += $step;
@@ -2012,7 +2009,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 			foreach my $users_field (@users_fields) {
 				if (defined $product_ref->{$users_field}) {
 					for (my $i = 0; $i < scalar @{$product_ref->{$users_field}}; $i++) {
-						if ($product_ref->{$users_field}[$i] eq $user_id) {
+						if (($product_ref->{$users_field}[$i] // '') eq $user_id) {
 							$product_ref->{$users_field}[$i] = $new_user_id;
 							$changes++;
 						}
@@ -2188,16 +2185,13 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 	# Read all previous versions to see which fields have been added or edited
 
 	my @fields = (
-		'product_type', 'code',
-		'lang', 'product_name',
-		'generic_name', @ProductOpener::Config::product_fields,
-		@ProductOpener::Config::product_other_fields, 'no_nutrition_data',
-		'nutrition_data_per', 'nutrition_data_prepared_per',
-		'serving_size', 'allergens',
-		'traces', 'ingredients_text'
+		'product_type', 'code', 'lang', 'product_name', 'generic_name',
+		@ProductOpener::Config::product_fields,
+		@ProductOpener::Config::product_other_fields,
+		'serving_size', 'allergens', 'traces', 'ingredients_text'
 	);
 
-	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
+	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, packagings => {});
 	my %last = %previous;
 	my %current;
 
@@ -2222,7 +2216,8 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/$rev");
+		# We use retrieve_product to get the product at a specific revision, upgrading the schema if needed
+		my $product_ref = retrieve_product($product_id, 1, $rev);
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
@@ -2251,7 +2246,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				uploaded_images => {},
 				selected_images => {},
 				fields => {},
-				nutriments => {},
 				packagings => {},
 			);
 
@@ -2265,12 +2259,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 
 			if (defined $product_ref->{images}) {
 
-				# Old revisions may have the old image schema, with uploaded and selected images at the root
-				if ((not defined $product_ref->{schema_version} or ($product_ref->{schema_version} < 1002))) {
-					ProductOpener::ProductSchemaChanges::convert_schema_1001_to_1002_refactor_images_object(
-						$product_ref);
-				}
-
 				# Uploaded images
 				if (defined $product_ref->{images}{uploaded}) {
 					foreach my $imgid (sort keys %{$product_ref->{images}{uploaded}}) {
@@ -2283,9 +2271,10 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
 						foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
 							$current{selected_images}{$image_type . '_' . $image_lc}
-								= $product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} . ' '
-								. $product_ref->{images}{selected}{$image_type}{$image_lc}{rev} . ' '
-								. $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry};
+								= ($product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} // '') . ' '
+								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{rev} // '') . ' '
+								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry}
+									// '');
 						}
 					}
 				}
@@ -2315,15 +2304,9 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				}
 			}
 
-			# Nutriments
-
-			if (defined $product_ref->{nutriments}) {
-				foreach my $nid (keys %{$product_ref->{nutriments}}) {
-					if ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne '')) {
-						$current{nutriments}{$nid} = $product_ref->{nutriments}{$nid};
-					}
-				}
-			}
+			# Nutrition data
+			# Record changes for all nutrition input sets
+			$current{nutrition} = get_nutrition_data_as_key_values_pairs($product_ref);
 
 			# Packagings components
 			if (defined $product_ref->{packagings}) {
@@ -2370,7 +2353,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 			record_user_edit_type($users_ref, "checkers", $product_ref->{last_checker});
 		}
 
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments', 'packagings') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packagings') {
 
 			defined $blame_ref->{$group} or $blame_ref->{$group} = {};
 
@@ -2404,9 +2387,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					}
 				}
 			}
-			elsif ($group eq 'nutriments') {
-				@ids = @{$nutriments_lists{off_europe}};
-			}
 			elsif ($group eq 'packagings') {
 				@ids = ("data", "weights_measured");
 			}
@@ -2415,7 +2395,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					my %seen;
 					grep {!$seen{$_}++} @_;
 				};
-				@ids = $uniq->(keys %{$current{$group}}, keys %{$previous{$group}});
+				@ids = sort $uniq->(keys %{$current{$group}}, keys %{$previous{$group}});
 			}
 
 			foreach my $id (@ids) {
@@ -2955,12 +2935,17 @@ sub review_product_type ($product_ref) {
 
 Process the edit_rules (see C<@edit_rules> in in Config file).
 
+Note: edit 
+
 =head3 where it applies
 
 It applies in all API/form that edit the product.
 It applies to apply an image crop.
 
 It does not block image upload.
+
+Note: product edit rules were designed for API v0, v1 and v2.
+In v3, parameters are passed in a currently different way, so it is very likely that some rules will not apply correctly.
 
 =head3 edit_rules structure
 
@@ -2990,12 +2975,14 @@ C<ignore> alone, ignore every edits.
 You can also have rules of the form
 C<ignore_FIELD> and C<warn_FIELD> which will ignore (or notify) edits on the specific field.
 
+C<block_FIELD> will block any edit if the field is present or match a condition (see below).
+
 Note that ignore rules also create a notification.
 
 For nutriments use C<nutriments_NUTRIMENT_NAME> for C<FIELD>.
 
 You can guard the rule on the field with a condition:
-C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
+C<block_if_CONDITION_FIELD>, C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
 This time it's to check the value the user want's to add.
 
 C<CONDITION> is one of the following:
@@ -3149,8 +3136,8 @@ sub process_product_edit_rules ($product_ref) {
 						$proceed_with_edit = 0;
 					}
 					# rules with conditions
-					elsif (
-						$action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match))?_?(.*)$/)
+					elsif ($action
+						=~ /^(ignore|warn|block)(_if_(existing|0|greater|lesser|equal|match|regexp_match))?_?(.*)$/)
 					{
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
@@ -3171,8 +3158,8 @@ sub process_product_edit_rules ($product_ref) {
 							# nutrient 100g ? remove 100g to get value in request
 							$default_field = $`;
 						}
-						elsif ($field =~ /nutriments_.*$/) {
-							# also consider nutrient_100g
+						elsif ($field =~ /nutriment_.*$/) {
+							# also consider nutriment_100g
 							$default_field = $field . "_100g";
 						}
 
@@ -3265,7 +3252,7 @@ sub process_product_edit_rules ($product_ref) {
 						}
 						else {
 							$action_log
-								= "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
+								= "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: (none) \n";
 						}
 
 						if ($condition_ok) {
@@ -3282,6 +3269,10 @@ sub process_product_edit_rules ($product_ref) {
 									Delete($default_field);
 									$log->info("edit_rule: Removed $default_field") if $log->is_info();
 								}
+							}
+							elsif ($type eq 'block') {
+								$log->info("block action => do not proceed with edits") if $log->is_debug();
+								$proceed_with_edit = 0;
 							}
 						}
 
@@ -3322,47 +3313,13 @@ sub process_product_edit_rules ($product_ref) {
 										$emoji = ":pear:";
 									}
 
-									my $ua = create_user_agent();
-									my $server_endpoint
-										= "https://hooks.slack.com/services/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";
-
-									my $msg = $action_log;
-
-									# set custom HTTP request header fields
-									my $req = HTTP::Request->new(POST => $server_endpoint);
-									$req->header('content-type' => 'application/json');
-
-									# add POST data to HTTP request body
-									my $post_data
-										= '{"channel": "#'
-										. $channel
-										. '", "username": "editrules", "text": "'
-										. $msg
-										. '", "icon_emoji": "'
-										. $emoji . '" }';
-									$req->content_type("text/plain; charset='utf8'");
-									$req->content(Encode::encode_utf8($post_data));
-
-									my $resp = $ua->request($req);
-									if ($resp->is_success) {
-										my $message = $resp->decoded_content;
-										$log->info("Notification sent to Slack successfully", {response => $message})
-											if $log->is_info();
-									}
-									else {
-										$log->warn(
-											"Notification could not be sent to Slack",
-											{code => $resp->code, response => $resp->message}
-										) if $log->is_warn();
-									}
-
+									send_slack_message($channel, 'editrules', $action_log, $emoji);
 								}
 							}
 						}
 					}
 				}
 			}
-
 		}
 	}
 
@@ -3401,7 +3358,7 @@ sub compute_changes_diff_text ($change_ref) {
 	my $diffs = '';
 	if (defined $change_ref->{diffs}) {
 		my %diffs = %{$change_ref->{diffs}};
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packaging') {
 			if (defined $diffs{$group}) {
 				$diffs .= lang("change_$group") . " ";
 
@@ -3537,21 +3494,8 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	$log->debug("analyze_and_enrich_product_data - start") if $log->is_debug();
 
-	# Initialiaze the misc_tags, they will be populated by functions called by this function
+	# Initialize the misc_tags, they will be populated by functions called by this function
 	$product_ref->{misc_tags} = [];
-
-	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-	}
-
-	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
-		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
-	}
 
 	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
 
@@ -3630,7 +3574,7 @@ sub is_owner_field ($product_ref, $field) {
 	return 0;
 }
 
-=head2 product_iter($initial_path = $BASE_DIRS{PRODUCTS}, $name_pattern = qr/product$/i, $exclude_path_pattern = qr/^(conflicting|invalid)-codes$/)
+=head2 product_iter($base_path = $BASE_DIRS{PRODUCTS}, $name_pattern = qr/product$/i, $exclude_path_pattern = qr/^(conflicting|invalid)-codes$/)
 
 Iterate over all products in the specified path whose
 name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern.
@@ -3639,10 +3583,11 @@ Provides default exclusions so people don't forget to apply them
 =cut
 
 sub product_iter(
-	$initial_path = $BASE_DIRS{PRODUCTS},
+	$base_path = $BASE_DIRS{PRODUCTS},
 	$name_pattern = qr/product$/i,
-	$exclude_path_pattern = qr/^(conflicting|invalid)-codes$/
+	$exclude_path_pattern = qr/^(conflicting|invalid)-codes$/,
+	$skip_until_path = undef,
 	)
 {
-	return object_iter($initial_path, $name_pattern, $exclude_path_pattern);
+	return object_iter($base_path, $name_pattern, $exclude_path_pattern, $skip_until_path);
 }

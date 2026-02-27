@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -357,10 +357,6 @@ msgstr ""
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -3707,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "klokded kalite ar roadennoù"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -4617,17 +4617,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr ""
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score n'eo ket arveret"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "N'eo ket arveret evit ar rummad : {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4861,11 +4861,11 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr ""
+msgstr "Un efed izel war an endro (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "Ar Green-Score zo ur skor endroel eus A da E hag a aesa keñveriañ levezon ar produioù boued war an endro."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5101,6 +5101,10 @@ msgstr ""
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Mankout a ra titouroù diwar-benn ar boued evit ar produ prientet"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
@@ -5444,6 +5448,10 @@ msgstr ""
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Mankout a ra ur rummad resis"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5954,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Tikedenn priziet ebet"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Un nebeud gounidoù evit an endro"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Gounidoù uhel evit an endro"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Gounidoù uhel-kenañ evit an endro"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6090,6 +6114,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Mankout a ra titouroù diwar-benn ar boued evit ar produ prientet :"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
@@ -6105,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Klokded kalite ar roadennoù"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Un nebeud titouroù diwar-benn klokded kalite ar roadennoù war ar produ-mañ"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6177,6 +6213,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Mankout a ra titouroù diwar-benn ar boued prientet"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6362,6 +6402,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "N'eo ket resis a-walc'h ar rummad hon eus evit ar produ-mañ evit jediñ ar Green-Score. Ha gallout a rit ouzhpennañ ur rummad produioù resisoc'h ?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7341,11 +7385,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "N'eo ket arveret an indez dresañ"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7491,9 +7535,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Kemenn ar skeudenn-mañ d'hon evezhierien"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Mankout a ra deomp ar werzh ment ha/pe an unanenn evit jediñ ar Nutri-Score"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> a vez graet gant ur gevredigezh hep pal kenwerzhel, dizalc'h diouzh ar greanterezh. Graet eo evit an holl, gant an holl, hag arc'hantaouet eo gant an holl. Gallout a rit skoazellañ hor labour en ur reiñ arc'hant da Open Food Facts.<br/><b>Trugarez deoc'h !</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> a vez graet gant ur gevredigezh hep pal kenwerzhel, dizalc'h diouzh ar greanterezh. Graet eo evit an holl, gant an holl, hag arc'hantaouet eo gant an holl. Gallout a rit skoazellañ hor labour en ur reiñ arc'hant da Open Food Facts hag ivez en ur implijout al lusker enklask Lilo.<br/><b>Trugarez deoc'h !</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lusker enklask Lilo"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Abalamour d'an drougimplij bras graet gant ar robotoù, n'hallomp ket kinnig ar bajenn-mañ d'an implijerien dianavezet. Krouit ur gont Open Food Facts digoust evit mont e darempred gant an holl Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Orin an aozennoù"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Titouroù diwar-benn ar produ"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Titouroù diwar-benn ar produ c'hrouet"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7507,7 +7583,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Kementad priziet ar sukroù ouzhpennet er c'hementadoù"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Kementad sukroù ouzhpennet"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Klask produioù eus ar memes rummad hep sukr ouzhpennet :"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Elfennoù dic'hoantaet"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Diazezet eo an dibab-mañ war kompren Open Food Facts eus roll ar c'hementadoù ha marteze ne vo ket reizh, gwiriit ar produ hoc'h-unan bepred."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Dianav ez eus elfennoù dic'hoantaet"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "N'eus bet kavet elfenn dic'hoantaet ebet"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Ennañ elfennoù dic'hoantaet"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "N'eo ket bet anavezet elfennoù zo"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "N'hon eus ket detektet : {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "N'hon eus ket detektet : {unwanted_ingredients}. Marteze hon eus kollet elfennoù zo, gwiriit bepred roll an elfennoù."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Diazezet eo an dibaboù-se war gompren Open Food Facts eus roll ar c'hementadoù ha bepred ez eus ur chañs da vezañ reizh pe klok, gwiriit ar produ hoc'h-unan bepred."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Lazhañ a ra ar butun"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Ar butun a ra droug bras d'ar yec'hed. Arabat kregiñ. Paouez bremañ."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Ar butun a zo stag-tre ouzh an dud. Arabat kregiñ. Lazhañ a ra ar butun – paouezit bremañ. Ar butun a stank an gwazhiennoù hag a laka taolioù-kalon ha taolioù-kalon. Ar butun a laka ar c'hrign-bev marvus da greskiñ. Butuniñ pa vez dougerez a ra droug d'ho pugel. Diwallit ar vugale : na lakait ket anezho da c'hwezhañ ho moged. Ho medisin pe ho apotiker a c'hell sikour ac'hanoc'h da zilezel ar butun. Ar butun a c'hell digreskiñ ar red gwad ha lakaat an dud da vezañ dic'hallus. Ar butun a laka ar c'hroc'hen da goshaat. Ar butun a c'hell gwastañ ar sperm ha digreskiñ ar frouezhusted. Er moged e kaver benzen, nitrozaminoù, formaldehid ha sianur hidrogen."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Priz foran"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Priz gwerzhañ kinniget gant ar c'henderc'her (MSRP), hep kontañ ar goproù hag ar bruderezh, evel m'eo merket war pakadoù ar produ pe war lec'hienn ar c'henderc'her (en o zouez pe hep kontañ an tailhoù diazezet war al lezenn). Implijit ur roll dispartiet gant ur virgulenn ma vez meneget prizioù e meur a moneiz."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Perc'henniezh personelaet"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "N'eus ket eoul palmez ennañ"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Eoul-palmez a c'hell bezañ ennañ"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Tikedennoù evit an endro"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Roadennoù mankout"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Un efed uhel"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Levezon etre"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Efed izel"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "N'eo ket bet priziet an efedoù"
 

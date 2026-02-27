@@ -76,9 +76,9 @@ hu: Savanyúságot szabályozó anyag, Savanyúságot szabályozó anyagok, Sava
 id: pengatur keasaman
 is: Sýrustillir, Sýrustillar
 it: correttore di acidità, correttori di acidità, regolatore di acidità, regolatori di acidità, correttore d'acidità
-ja: pH調整剤, ｐＨ調整剤
+ja: pH調整剤, ｐＨ調整剤, pH調整劑
 lt: Rūgštingumą reguliuojanti medžiaga
-lv: Skābuma regulētājs
+lv: Skābuma regulētājs, Skābuma regulētāji
 mt: Regolatur tal-Aċidità
 nb: Surhetsregulerende middel, Surhetsregulerende midler
 nl: Zuurteregelaar, Zuurteregelaars
@@ -118,7 +118,7 @@ bg: Антислепващ агент
 ca: Antiaglomerant
 cs: Protispékavá látka, protispékavé látky
 da: Antiklumpningsmiddel
-de: Rieselhilfe, Antiagglomerationsmittel, Rieselhilfen, Trennmittel
+de: Rieselhilfe, Antiagglomerationsmittel, Rieselhilfen, Trennmittel, Antiklumpmittel
 el: Αντισυσσωματωτικό
 es: Antiaglomerante, antiaglutinante, agente antiadherente, agente antiaglutinante, angente de empolvo, agente de sacado
 et: Paakumisvastane aine
@@ -139,6 +139,7 @@ ro: Agent antiaglomerant, antiaglomerant
 sk: Protihrudkovacia látka
 sl: Sredstvo proti sprijemanju
 sv: Klumpförebyggande medel, Klumpförebyggandemedel
+th: สารป้องกันการจับเป็นก้อน
 description:en: Anti-caking agents are substances which reduce the tendency of individual particles of a foodstuff to adhere to one another.
 description:cs: Protispékavými látkami se rozumějí látky, které snižují sklon jednotlivých částic potraviny ulpívat vzájemně na sobě.
 description:da: Antiklumpningsmidler: stoffer, der reducerer en fødevares individuelle partiklers tendens til at klæbe sammen.
@@ -222,7 +223,7 @@ ga: Frithocsaídeoir
 hr: antioksidans, antioksidansi, antioksidant, antioksidat, antioksindans
 hu: Antioxidáns, antioxidánsok
 it: Antiossidante, antiossidanti, agente antiossidante, agenti antiossidanti
-ja: 酸化防止剤
+ja: 酸化防止剤, 酸化防止劑
 lt: Antioksidantas
 lv: Antioksidants
 mk: антиоксиданс
@@ -523,7 +524,7 @@ is: Litarefni
 it: Colorante, coloranti, alimento colorante
 ja: 着色料
 lt: Dažiklis
-lv: Krāsa
+lv: Krāsa, Krāsviela
 mk: боја
 mt: Kulur
 nb: Farge, Farve, Fargestoff, Fargestoffer, fødevarer der farver
@@ -1298,7 +1299,7 @@ is: Rotvarnarefni
 it: Conservante, conservanti, agente conservante, agenti conservanti
 ja: 保存料
 lt: Konservantas
-lv: Konservants
+lv: konservants, konservanti
 mt: Preservattiv
 nb: Konserveringsmiddel, Konserveringsmidler
 nl: Conserveermiddel, Conserveermiddelen, conserveringsmiddelen
@@ -1476,7 +1477,7 @@ hr: sredstvo za rahljenje, tvar za rahljenje, tvari za rahljenje, tvar za rahlje
 hu: Térfogatnövelő szer, térfogatnövelő szerek
 is: Lyftiefni
 it: Agente lievitante, agenti lievitanti, lievitante, lievitanti
-ja: 膨脹剤
+ja: 膨脹剤, 発酵種
 lt: Tešlos kildymo medžiaga
 lv: Irdinātājs
 mt: Aġent li jgħolli l-ikel
@@ -1646,8 +1647,8 @@ hr: sladila, sladilo, zaslađivač, zaslađivači, zaslađivanje
 hu: Édesítőszer, édesítőszerek
 it: Edulcorante, edulcoranti, dolcificante, dolcificanti
 ja: 甘味料
-lt: Saldiklis
-lv: Saldinātājs
+lt: saldiklis
+lv: saldinātājs, saldinātāji
 mk: сладила
 mt: Dolċifikant
 nb: Søtningsmiddel, Søtstoff, Søtstoffer
@@ -1656,7 +1657,7 @@ pl: Substancja słodząca, Substancje słodzące, słodzik, słodziki, substancj
 pt: Edulcorante
 ro: Îndulcitor
 ru: подсластитель, подсластители, заменитель сахара
-sk: Sladidlo
+sk: Sladidlo, sladidlá
 sl: sladila, sladilo, sladidlá
 sv: Sötningsmedel
 zh: 甜味劑
@@ -1921,7 +1922,10 @@ zh: 盐替代品
 
 # also in ingredients.txt
 # <en:compound
-fr: agent crémeux
+en: creaming agent
+es: agente cremoso
+fr: agent de crémage, agent crémeux
+it: agente cremoso
 # ingredient/fr:agent-cremeux has 16 products in french @2018-02-17
 
 # also in ingredients.txt
@@ -1938,6 +1942,7 @@ fi: vahvenne
 fr: améliorant, améliorants
 hu: javító
 it: miglioranti, migliorante, agente migliorante, agenti miglioranti
+lv: uzlabotājs
 nl: verbeteraar
 # ingredient/fr:améliorant has 95 products in 5 languages @2019-03-06
 # améliorants (émulsifiant: E 472e, correcteurs d'acidité: E 516 et acide ascorbique, farine de soja, farine de blé)
@@ -1947,6 +1952,7 @@ nl: verbeteraar
 en: bread improver
 bg: подобрител за хляб
 de: Backmittel
+fr: améliorant de la panification
 it: miglioranti per panificazione
 ru: улучшитель хлебопекарный
 
@@ -1972,3 +1978,4 @@ hr: aditiv, funkcionalno svojstvo
 
 # roughly translates to "complex food supplement"
 ru: комплексная пищевая добавка
+

@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Bendradarbiaujanti, nemokama ir atvira maisto produktų iš viso pasaulio duomenų bazė."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -361,10 +361,6 @@ msgstr "Taip pat galite finansiškai paremti Open Food Facts projektą"
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Gamintojo administratoriaus vadovas"
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Paremti Open Food Facts\" /></a><p><<site_name>> sukurta ne pelno siekianti asociacija, nepriklausoma nuo pramonės. Tai yra sukurta visiems, ir visi ją finansuoja. Galite paremti mūsų darbą <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">aukodami „Open Food Facts“</a> ir <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">naudodamiesi „Lilo“ paieškos varikliu</a>.<br/><b>ačiū!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -3726,6 +3722,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "duomenų kokybės klaidos"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "duomenų kokybė, išsamumas"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "duomenų kokybės informacija"
@@ -4636,16 +4636,16 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Trūksta duomenų Nutri-Score apskaičiuoti"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Nutri-Score netaikomas"
+msgid "Nutri-Score not applicable"
+msgstr "„Nutri-Score“ netaikoma"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Netaikoma šiai kategorijai"
+msgid "Not applicable for the category"
+msgstr "Netaikoma kategorijai"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
+msgid "Not applicable for the category: {category}"
 msgstr "Netaikoma kategorijai: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
@@ -5121,6 +5121,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Trūksta maistingumo"
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Trūksta paruošto produkto maistingumo informacijos"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr "Green-Score"
@@ -5463,6 +5467,10 @@ msgstr "Ekologinis balas neapskaičiuotas"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Nežinomas poveikis aplinkai"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Trūksta tikslios kategorijos"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5973,6 +5981,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Labai didelę naudą aplinkai teikiančios etiketės"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Nėra įvertintų etikečių"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Kai kurie aplinkosauginiai privalumai"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Didelė nauda aplinkai"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Labai didelė nauda aplinkai"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Kita"
@@ -6109,6 +6133,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr "Trūksta maistinė vertė:"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Trūkstamos paruošto produkto maistingumo informacijos:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Norint apskaičiuoti Nutri-Score, būtina nurodyti produkto kategoriją ir maistinius faktus."
@@ -6124,6 +6152,14 @@ msgstr "Bendradarbiavimas"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Bendradarbiavimas"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Duomenų kokybės išsamumas"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Šiek tiek informacijos apie šio produkto duomenų kokybės išsamumą"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6196,6 +6232,10 @@ msgstr "Trūksta kategorijos"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Trūksta maistingumo"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Trūksta paruoštų maistingumo faktų"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6381,6 +6421,10 @@ msgstr "Ar galėtumėte pridėti informacijos, reikalingos Nutri-Score apskaiči
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "Ar galėtumėte pridėti tikslią produkto kategoriją, kad galėtume apskaičiuoti Green-Score?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Šio produkto kategorija, kurią turime, nėra pakankamai tiksli, kad būtų galima apskaičiuoti „Green-Score“. Gal galėtumėte pridėti tikslesnę produkto kategoriją?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7360,12 +7404,12 @@ msgid "Repairability index unknown"
 msgstr "Taisomumo indeksas nežinomas"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr "Taisomumo indeksas netaikomas"
+msgid "Repairability index not applicable"
+msgstr "Remontuojamumo indeksas netaikomas"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Netaikoma šiai kategorijai"
+msgid "Not applicable for the category"
+msgstr "Netaikoma kategorijai"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
@@ -7408,12 +7452,12 @@ msgstr "Produkto tipas"
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Maistas"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Naminių gyvūnėlių ėdalas"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7510,9 +7554,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Pranešti apie šią nuotrauką mūsų moderatoriams"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Trūksta porcijos dydžio vertės ir (arba) matavimo vieneto, kad būtų galima apskaičiuoti „Nutri-Score“"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> yra sukurta ne pelno siekiančios asociacijos, kuri nepriklauso nuo pramonės. Jis sukurtas visiems, visų ir jį finansuoja visi. Galite paremti mūsų darbą aukodami „Open Food Facts“.<br/><b>Ačiū!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> sukūrė ne pelno siekianti asociacija, nepriklausoma nuo pramonės. Jis sukurtas visiems, visų ir jį finansuoja visi. Galite paremti mūsų darbą aukodami „Open Food Facts“ ir naudodamiesi „Lilo“ ieškos sistema.<br/><b>Ačiū!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo ieškos sistema"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Dėl smarkaus robotų piktnaudžiavimo mes negalime atidaryti šio puslapio nežinomiems vartotojams. Kad turėtumėte prieigą prie visų „Open Food Facts“ puslapių, susikurkite nemokamą „Open Food Facts“ paskyrą."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Sudedamųjų dalių kilmė"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Produkto informacija"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Neapdoroto produkto informacija"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7526,7 +7602,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Apytikslis pridėtinio cukraus kiekis ingredientuose"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Pridėtinio cukraus kiekis"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Ieškoti produktų toje pačioje kategorijoje be pridėtinio cukraus:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Nepageidaujami ingredientai"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Šis pasirinkimas pagrįstas „Open Food Facts“ supratimu apie ingredientų sąrašą ir gali būti netikslus, visada patikrinkite produktą patys."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Nepageidaujamų ingredientų buvimas nežinomas"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Nerasta jokių nepageidaujamų ingredientų"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Sudėtyje yra nepageidaujamų ingredientų"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Kai kurie ingredientai nebuvo atpažinti"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Neaptikome: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Neradome: {unwanted_ingredients}. Galbūt praleidome kai kuriuos ingredientus, todėl visada patikrinkite ingredientų sąrašą."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Šie pageidavimai pagrįsti „Open Food Facts“ supratimu apie ingredientų sąrašą ir visada yra tikimybė, kad jis gali būti netikslus ar neišsamus, todėl visada patikrinkite produktą patys."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Rūkymas žudo"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Tabakas rimtai kenkia sveikatai. Nepradėkite. Meskite dabar."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Rūkymas sukelia didelę priklausomybę. Nepradėkite. Rūkymas žudo – meskite dabar. Rūkymas užkemša arterijas ir sukelia širdies priepuolius bei insultus. Rūkymas sukelia mirtiną plaučių vėžį. Rūkymas nėštumo metu kenkia jūsų kūdikiui. Apsaugokite vaikus: neverskite jų kvėpuoti dūmais. Jūsų gydytojas arba vaistininkas gali padėti jums mesti rūkyti. Rūkymas gali sumažinti kraujotaką ir sukelti impotenciją. Rūkymas sendina odą. Rūkymas gali pažeisti spermą ir sumažinti vaisingumą. Dūmuose yra benzeno, nitrozaminų, formaldehido ir vandenilio cianido."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Vieša kaina"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Gamintojo siūloma mažmeninė kaina (MSRP) be nuolaidų ir akcijų, kaip nurodyta ant produkto pakuotės arba gamintojo svetainėje (įskaitant arba be mokesčių pagal teisės aktus). Jei kainos nurodytos keliomis valiutomis, naudokite kableliais atskirtą sąrašą."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Personalizuotas turtas"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Sudėtyje nėra palmių aliejaus"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Gali būti palmių aliejaus"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Aplinkosaugos ženklai"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Trūkstami duomenys"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Didelis poveikis"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Vidutinis poveikis"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Mažas poveikis"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Poveikis neįvertintas"
 

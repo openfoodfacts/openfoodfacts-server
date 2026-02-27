@@ -14,7 +14,7 @@ you can load any module of `ProductOpener` from within it.
 
 Just run
 
-```
+``` sh
 docker compose run --rm backend re.pl
 ```
 
@@ -22,7 +22,8 @@ If you want to access external services (like mongodb), do not forget to start t
 
 **_NOTE:_** If you get "exec: re.pl: not found", it means you may not have dev tools installed.
 Try going in your .env (or [.envrc](./how-to-use-direnv/)) file and add the line:
-```
+
+``` sh
 CPANMOPTS=--with-develop --with-feature=off_server_dev_tools
 ```
 then just make build and retry, you will then be able to run re.pl

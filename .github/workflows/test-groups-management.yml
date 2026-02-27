@@ -1,0 +1,219 @@
+name: Test Groups Management
+
+on:
+  schedule:
+    # Run weekly to optimize groups based on accumulated timing data
+    - cron: '0 6 * * 1'  # Every Monday at 6 AM UTC
+  workflow_dispatch:
+    inputs:
+      force_regenerate:
+        description: 'Force regeneration of all test groups'
+        required: false
+        default: false
+        type: boolean
+      target_time_minutes:
+        description: 'Target execution time per group (minutes)'
+        required: false
+        default: '12'
+        type: string
+
+  
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  analyze_and_optimize:
+    name: 🔍 Analyze Test Performance & Optimize Groups
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 1
+    
+    # Restore test groups cache to analyze current performance
+    - uses: actions/cache@v5
+      id: test_groups_cache
+      with:
+        path: ./.test_groups_cache
+        key: test-groups-${{ hashFiles('tests/**/*.t') }}-${{ hashFiles('scripts/dynamic_test_grouper.py') }}
+        restore-keys: |
+          test-groups-${{ hashFiles('tests/**/*.t') }}-
+          test-groups-
+    
+    - name: Setup environment
+      run: |
+        # Python 3 is already available in ubuntu-latest
+        echo " Python version: $(python3 --version)"
+    
+    - name: Analyze current test groups performance
+      run: |
+        echo "🥫 Analyzing current test group performance..."
+        
+        # Check if we have timing data
+        if [ -f ".test_groups_cache/unit_timings.json" ]; then
+          echo "Unit test timing data found"
+          echo "Current unit test groups:"
+          python3 scripts/dynamic_test_grouper.py --type=unit --groups=6 2>&1 | grep "^# Group" || true
+        else
+          echo "No unit test timing data found"
+        fi
+        
+        if [ -f ".test_groups_cache/integration_timings.json" ]; then
+          echo " Integration test timing data found"
+          echo "Current integration test groups:"
+          python3 scripts/dynamic_test_grouper.py --type=integration --groups=9 2>&1 | grep "^# Group" || true
+        else
+          echo "No integration test timing data found"
+        fi
+    
+    - name: Regenerate test groups if needed
+      run: |
+        FORCE_REGENERATE="${{ github.event.inputs.force_regenerate }}"
+        TARGET_TIME="${{ github.event.inputs.target_time_minutes }}"
+        
+        if [ "$FORCE_REGENERATE" = "true" ]; then
+          echo "Force regenerating all test groups..."
+          rm -rf .test_groups_cache/*.json .test_groups_cache/*.mk
+        fi
+        
+        # Set target time if provided
+        if [ -n "$TARGET_TIME" ] && [ "$TARGET_TIME" != "12" ]; then
+          echo "Using custom target time: ${TARGET_TIME} minutes"
+          # Update the script's target time (this would require modifying the Python script)
+          # For now, we'll note this in the output
+          echo "Custom target time noted: ${TARGET_TIME} minutes"
+        fi
+        
+        # Generate optimized groups
+        echo "🥫 Generating optimized unit test groups..."
+        python3 scripts/dynamic_test_grouper.py --type=unit --groups=6 --force > .test_groups_cache/unit_groups.mk
+        
+        echo "🥫 Generating optimized integration test groups..."
+        python3 scripts/dynamic_test_grouper.py --type=integration --groups=9 --force > .test_groups_cache/integration_groups.mk
+        
+        echo "Test groups regenerated successfully"
+    
+    - name: Generate performance report
+      run: |
+        echo "Generating test group performance report..."
+        
+        cat > test_groups_report.md << 'EOF'
+        # Test Groups Performance Report
+        
+        Generated on: $(date)
+        
+        ## Unit Test Groups (6 groups)
+        
+        EOF
+        
+        # Add unit test statistics
+        if python3 scripts/dynamic_test_grouper.py --type=unit --groups=6 2>&1 | grep -q "Group Statistics"; then
+          echo '```' >> test_groups_report.md
+          python3 scripts/dynamic_test_grouper.py --type=unit --groups=6 2>&1 | grep -A 20 "Group Statistics" >> test_groups_report.md
+          echo '```' >> test_groups_report.md
+        fi
+        
+        cat >> test_groups_report.md << 'EOF'
+        
+        ## Integration Test Groups (9 groups)
+        
+        EOF
+        
+        # Add integration test statistics
+        if python3 scripts/dynamic_test_grouper.py --type=integration --groups=9 2>&1 | grep -q "Group Statistics"; then
+          echo '```' >> test_groups_report.md
+          python3 scripts/dynamic_test_grouper.py --type=integration --groups=9 2>&1 | grep -A 20 "Group Statistics" >> test_groups_report.md
+          echo '```' >> test_groups_report.md
+        fi
+        
+        cat >> test_groups_report.md << 'EOF'
+        
+        ## Recommendations
+        
+        - Groups are automatically balanced using historical timing data
+        - Target execution time: 10-13 minutes per group
+        - Performance improves automatically as more timing data is collected
+        - Groups are regenerated when new tests are added
+        
+        EOF
+        
+        # Display the report
+        cat test_groups_report.md
+    
+    - name: Upload performance report
+      uses: actions/upload-artifact@v6
+      with:
+        name: test-groups-performance-report
+        path: test_groups_report.md
+        retention-days: 30
+    
+    - name: Check for group balance issues
+      run: |
+        echo "Checking for group balance issues..."
+        
+        # Check unit test groups
+        if python3 scripts/dynamic_test_grouper.py --type=unit --groups=6 2>&1 | grep -q "WARNING"; then
+          echo "Warning: Unit test groups have balance issues:"
+          python3 scripts/dynamic_test_grouper.py --type=unit --groups=6 2>&1 | grep "WARNING"
+          echo "Consider increasing the number of unit test groups in CI"
+        else
+          echo "Unit test groups are well balanced"
+        fi
+        
+        # Check integration test groups
+        if python3 scripts/dynamic_test_grouper.py --type=integration --groups=9 2>&1 | grep -q "WARNING"; then
+          echo "Warning: Integration test groups have balance issues:"
+          python3 scripts/dynamic_test_grouper.py --type=integration --groups=9 2>&1 | grep "WARNING"
+          echo "Consider increasing the number of integration test groups in CI"
+        else
+          echo "Integration test groups are well balanced"
+        fi
+    
+    - name: Create issue for manual review (if needed)
+      if: failure()
+      uses: actions/github-script@v8
+      with:
+        script: |
+          const title = 'Test Groups Need Manual Review';
+          const body = `
+          ## Test Groups Performance Issue
+          
+          The automated test group optimization has detected issues that may need manual review.
+          
+          **Triggered by:** ${context.eventName}
+          **Workflow run:** ${context.runId}
+          
+          ### Recommended Actions:
+          - Review the performance report artifact
+          - Consider adjusting the number of test groups
+          - Check for any extremely slow tests that might need optimization
+          
+          ### Files to check:
+          - \`.test_groups_cache/unit_timings.json\`
+          - \`.test_groups_cache/integration_timings.json\`
+          - \`scripts/dynamic_test_grouper.py\`
+          
+          This issue was automatically created by the Test Groups Management workflow.
+          `;
+          
+          // Check if issue already exists
+          const issues = await github.rest.issues.listForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            state: 'open',
+            labels: 'test-groups,automation'
+          });
+          
+          const existingIssue = issues.data.find(issue => issue.title === title);
+          
+          if (!existingIssue) {
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: title,
+              body: body,
+              labels: ['test-groups', 'automation', 'needs-review']
+            });
+          }

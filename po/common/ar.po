@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "قاعدة بيانات التعاونية وحرة ومفتوحة للمنتجات الغذائية من جميع أنحاء العالم."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "قاعدة بيانات تعاونية, مجانية و مفتوحة للمنتجات الغذائية للحيوانات الأليفة من جميع أنحاء العالم."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -362,10 +362,6 @@ msgstr "يمكنك أيضًا المساعدة في تمويل مشروع حقا
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "دليل الإدارة للمنتجين"
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -2070,7 +2066,7 @@ msgstr "المنتجات التي لا تباع في %s"
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr "كمية"
+msgstr "الكميه"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2416,7 +2412,7 @@ msgstr "قم بتعديل المنتج مرة أخرى"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "البلد"
+msgstr "بلد"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -3729,6 +3725,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "أخطاء جودة البيانات"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "اكتمال جودة البيانات"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "معلومات جودة البيانات"
@@ -3814,7 +3814,7 @@ msgstr "تحسينات ممكنة"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr "/ استيراد المنتجات"
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -4071,7 +4071,7 @@ msgstr "الدرجة الغذائية"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "درجة الجودة الغذائية"
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -4081,7 +4081,7 @@ msgstr "نتيجة درجة الجودة الغذائية"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "درجة الجودة الغذائية"
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4615,7 +4615,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "درجة الجودة الغذائية"
+msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4639,16 +4639,16 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "بيانات مفقودة لحساب درجة الجودة الغذائية"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "درجة الجودة الغذائية غير قابل للتطبيق"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score غير قابل للتطبيق"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "غير قابل للتطبيق على الفئة"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
+msgid "Not applicable for the category: {category}"
 msgstr "غير قابل للتطبيق على الفئة: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
@@ -5124,6 +5124,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "حقائق غذائية مفقودة"
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "معلومات غذائية مفقودة للمنتج المُحضر"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr "النتيجة البيئية"
@@ -5142,11 +5146,11 @@ msgstr "النتيجة البيئية"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "متنوع"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "متنوع"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5164,7 +5168,7 @@ msgstr "رقم"
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "شكل"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5172,7 +5176,7 @@ msgstr "الكمية الواردة"
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "مادة"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5466,6 +5470,10 @@ msgstr "لم يتم حساب الدرجة البيئية"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "التأثير البيئي غير المعروف"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "فقدان فئة دقيقة"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5976,6 +5984,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "ملصقات ذات فوائد بيئية عالية جدًا"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "لا توجد ملصقات تقييمية"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "بعض الفوائد البيئية"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "فوائد بيئية عالية"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "فوائد بيئية عالية جداً"
+
 msgctxt "other"
 msgid "Other"
 msgstr "أخرى"
@@ -6112,6 +6136,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr "حقائق غذائية مفقودة:"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "معلومات غذائية مفقودة للمنتج المُحضر:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "يجب تحديد فئة المنتج والحقائق الغذائية الخاصة به حتى تتمكن من حساب درجة الجودة الغذائية."
@@ -6127,6 +6155,14 @@ msgstr "مساهمة"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "مساهمة"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "اكتمال جودة البيانات"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "بعض المعلومات حول اكتمال جودة البيانات لهذا المنتج"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6150,59 +6186,63 @@ msgstr "معلومات جودة البيانات"
 
 msgctxt "data_quality_info_panel_subtitle"
 msgid "Some infos about data quality on this product"
-msgstr ""
+msgstr "بعض المعلومات حول جودة البيانات لهذا المنتج"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
-msgstr ""
+msgstr "مقارنةً بـ"
 
 # name of an activity / a sport
 msgctxt "activity_walking"
 msgid "Walking"
-msgstr ""
+msgstr "المشي"
 
 # name of an activity / a sport
 msgctxt "activity_swimming"
 msgid "Swimming"
-msgstr ""
+msgstr "السباحة"
 
 # name of an activity / a sport
 msgctxt "activity_bicycling"
 msgid "Bicycling"
-msgstr ""
+msgstr "ركوب الدراجات"
 
 # name of an activity / a sport
 msgctxt "activity_running"
 msgid "Running"
-msgstr ""
+msgstr "الجري"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_energy_per_100g"
 msgid "{kj} kJ per 100g"
-msgstr ""
+msgstr "{kj} كيلوجول لكل 100 غرام"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_equal_to_walking_minutes_or_steps"
 msgid "Equal to walking {minutes} minutes or {steps} steps"
-msgstr ""
+msgstr "ما يعادل المشي لمدة {minutes} دقيقة أو {steps} خطوة"
 
 # Don't translate {kg} and {lb}, it will be replaced by a number
 msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
-msgstr ""
+msgstr "استهلاك الطاقة لشخص يزن {kg} كغ / {lb} رطل"
 
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
-msgstr ""
+msgstr "الفئة مفقودة"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "حقائق غذائية مفقودة"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "معلومات غذائية مفقودة"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
-msgstr ""
+msgstr "الفئة والحقائق الغذائية مفقودة"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -6325,7 +6365,7 @@ msgstr "لم نتمكن من التعرف على بعض المكونات وتح�
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
-msgstr ""
+msgstr "إلغاء تحديد الصورة"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
@@ -6338,17 +6378,17 @@ msgstr "تعرف على المزيد حول الدرجة البيئية"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "مباراة جيدة جدًا"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "مباراة جيدة"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "مباراة سيئة"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
@@ -6358,12 +6398,12 @@ msgstr "تطابق غير معروف"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "قد لا يتطابق"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "لا يتطابق"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6384,6 +6424,10 @@ msgstr "هل بإمكانك إضافة المعلومات اللازمة لحس�
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "هل بإمكانك إضافة فئة منتج محددة حتى نتمكن من حساب النتيجة البيئية؟"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "تصنيف هذا المنتج ليس دقيقًا بما يكفي لحساب درجة الجودة الخضراء. هل يمكنك إضافة تصنيف أكثر دقة؟"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6461,77 +6505,77 @@ msgstr "أضف أي ملصق موجود على هذا المنتج"
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "أضف البلد الذي وجدت فيه هذا المنتج"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "التقط صورة لرموز التتبع"
 
 msgctxt "action_report_product_to_nutripatrol"
 msgid "Report this product to our moderators"
-msgstr ""
+msgstr "أبلِغ مشرفينا عن هذا المنتج"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
 msgid "What you need to know"
-msgstr ""
+msgstr "ما تحتاج إلى معرفته"
 
 msgctxt "knowledge_panels_recommendation"
 msgid "Recommendation"
-msgstr ""
+msgstr "توصية"
 
 msgctxt "nutrient_info_salt_risk"
 msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
-msgstr ""
+msgstr "يمكن أن يؤدي الاستهلاك العالي من الملح (أو الصوديوم) إلى رفع ضغط الدم، مما قد يزيد خطر الإصابة بأمراض القلب والسكتة الدماغية."
 
 msgctxt "nutrient_info_salt_high_blood_pressure"
 msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
-msgstr ""
+msgstr "كثير من الأشخاص الذين يعانون ارتفاع ضغط الدم لا يعلمون بذلك، إذ غالبًا لا توجد أعراض."
 
 msgctxt "nutrient_info_salt_high_consumption"
 msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
-msgstr ""
+msgstr "يستهلك معظم الناس كميات مفرطة من الملح (بمعدل 9 إلى 12 غرامًا يوميًا)، أي نحو ضعفي الحد الأقصى الموصى به للاستهلاك."
 
 msgctxt "nutrient_recommendation_salt_title"
 msgid "Limit the consumption of salt and salted food"
-msgstr ""
+msgstr "حدّ من استهلاك الملح والأطعمة المالحة"
 
 msgctxt "nutrient_recommendation_salt_cooking_and_table"
 msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
-msgstr ""
+msgstr "قلّل كمية الملح المستخدمة عند الطهي، ولا تُضِف مزيدًا من الملح على المائدة."
 
 msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
 msgid "Limit the consumption of salty snacks and choose products with lower salt content."
-msgstr ""
+msgstr "حدّ من استهلاك الوجبات الخفيفة المالحة واختر منتجات ذات محتوى أقل من الملح."
 
 msgctxt "nutrient_info_sugars_risk"
 msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
-msgstr ""
+msgstr "يمكن أن يؤدي الاستهلاك العالي للسكر إلى زيادة الوزن وتسوس الأسنان، كما يزيد من خطر الإصابة بمرض السكري من النوع الثاني والأمراض القلبية الوعائية."
 
 msgctxt "nutrient_recommendation_sugars_title"
 msgid "Limit the consumption of sugar and sugary drinks"
-msgstr ""
+msgstr "حدّ من استهلاك السكر والمشروبات السكرية"
 
 msgctxt "nutrient_recommendation_sugars_drinks"
 msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
-msgstr ""
+msgstr "يجب الحدّ قدر الإمكان من المشروبات السكرية (مثل المشروبات الغازية، ومشروبات الفواكه، والعصائر والرحيق)، بحيث لا تزيد عن كوب واحد في اليوم."
 
 msgctxt "nutrient_recommendation_sugars_food"
 msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
-msgstr ""
+msgstr "اختر منتجات ذات محتوى أقل من السكر وقلّل استهلاك المنتجات المحتوية على سكريات مضافة."
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "يمكن أن يؤدي الاستهلاك العالي للدهون، وخاصة الدهون المشبعة، إلى رفع الكوليسترول، مما يزيد خطر الإصابة بأمراض القلب."
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr ""
+msgstr "قلّل استهلاك الدهون والدهون المشبعة"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr ""
+msgstr "اختر منتجات ذات محتوى أقل من الدهون والدهون المشبعة."
 
 msgctxt "sign_in"
 msgid "Sign in"
@@ -6551,16 +6595,16 @@ msgstr "المنتجات المضافة"
 
 msgctxt "products_edited"
 msgid "Products edited"
-msgstr ""
+msgstr "المنتجات المعدلة"
 
 msgctxt "products_photographed"
 msgid "Products photographed"
-msgstr ""
+msgstr "المنتجات المصوَّرة"
 
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
 msgid "Matching with your preferences"
-msgstr ""
+msgstr "مطابقة لتفضيلاتك"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
@@ -6575,18 +6619,18 @@ msgstr ""
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
 msgid "Follow us: {links}"
-msgstr ""
+msgstr "تابِعنا: {links}"
 
 # Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
 msgctxt "footer_install_the_app_exclamation_mark"
 msgid "Install the app!"
-msgstr ""
+msgstr "ثبّت التطبيق!"
 
 # HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "امسح <span id=\"foods\">أطعمتك</span> <span id=\"everyday\">اليومية</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6607,59 +6651,59 @@ msgstr "البيئة"
 
 msgctxt "api_result_failure"
 msgid "Failure"
-msgstr ""
+msgstr "فشل"
 
 msgctxt "api_result_product_found"
 msgid "Product found"
-msgstr ""
+msgstr "تم العثور على المنتج"
 
 msgctxt "api_result_product_not_found"
 msgid "Product not found"
-msgstr ""
+msgstr "لم يُعثر على المنتج"
 
 msgctxt "api_result_product_found_with_a_different_product_type"
 msgid "Product found with a different product type"
-msgstr ""
+msgstr "تم العثور على المنتج بنوع منتج مختلف"
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
-msgstr ""
+msgstr "تم تحديث المنتج"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
-msgstr ""
+msgstr "إجراء API غير صالح"
 
 msgctxt "api_message_invalid_api_method"
 msgid "Invalid API method"
-msgstr ""
+msgstr "طريقة API غير صالحة"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "محتوى الطلب فارغ"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
-msgstr ""
+msgstr "JSON غير صالح في محتوى الطلب"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
-msgstr ""
+msgstr "رمز غير صالح"
 
 msgctxt "api_message_invalid_product_type"
 msgid "Invalid product type"
-msgstr ""
+msgstr "نوع منتج غير صالح"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
-msgstr ""
+msgstr "نوع غير صالح: يجب أن يكون كائنًا"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr ""
+msgstr "نوع خاطئ: يجب ان تكون مصفوفه"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr ""
+msgstr "نوع خاطئ: يجب ان يكون عدد صحيح"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
@@ -6667,15 +6711,15 @@ msgstr "نوع غير صالح: يجب أن يكون رقم"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
-msgstr ""
+msgstr "مساحة مفقودة"
 
 msgctxt "api_message_unrecognized_field"
 msgid "Unrecognized field"
-msgstr ""
+msgstr "مساحة غير معروفة"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
-msgstr ""
+msgstr "قيمة غير معروفة"
 
 msgctxt "api_message_image_already_uploaded"
 msgid "Image already uploaded"
@@ -6719,11 +6763,11 @@ msgstr "تحذير"
 
 msgctxt "api_impact_failure"
 msgid "Failure"
-msgstr ""
+msgstr "فشل"
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
-msgstr ""
+msgstr "تم تجاهل المساحة"
 
 msgctxt "api_impact_value_converted"
 msgid "Value converted"
@@ -6732,65 +6776,65 @@ msgstr "تم تحويل القيمة"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "عدد الوحدات"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "وزن وحدة واحدة فارغة"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "كمية المنتج الموجودة في كل وحدة"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
 msgid "Help categorize more {title} on Hunger Games"
-msgstr ""
+msgstr "ساعد في تصنيف المزيد من {title} حول Hunger Games"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "تم إدراج جميع أجزاء تغليف المنتج."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "اسم المستخدم وكلمة المرور غير صحيحين"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "قيمة غير صالحة: يجب أن تكون 0 أو 1"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "أدخل عدد وحدات التغليف من نفس الشكل والمادة الموجودة في المنتج."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "أدخل اسم الشكل المدرج في تعليمات إعادة التدوير إذا كانت متوفرة، أو حدد شكلاً."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "أدخل المادة المحددة إذا كان من الممكن تحديدها (غالبًا ما يمكن العثور على رمز المادة داخل مثلث على أجزاء التغليف)، أو مادة عامة (على سبيل المثال البلاستيك أو المعدن) إذا كنت غير متأكد."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "أدخل تعليمات إعادة التدوير فقط إذا كانت مدرجة على المنتج."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr ""
+msgstr "أزل أي بقايا طعام واغسل وجفف غلاف المنتج قبل وزنه. يُفضل استخدام ميزان بدقة 0.1 غرام أو 0.01 غرام."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "أدخل الوزن الصافي أو الحجم الصافي وأشر إلى الوحدة (على سبيل المثال جرام أو مل)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
-msgstr ""
+msgstr "استيراد وتصدير المنتجات"
 
 msgctxt "add_products"
 msgid "Add products"
@@ -6799,23 +6843,23 @@ msgstr "أضف المنتجات"
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
 msgid "Install the app to add products"
-msgstr ""
+msgstr "قم بتثبيت التطبيق لإضافة المنتجات"
 
 msgctxt "search_and_analyze_products"
 msgid "Search and analyze products"
-msgstr ""
+msgstr "البحث عن المنتجات وتحليلها"
 
 msgctxt "resources"
 msgid "Resources"
-msgstr ""
+msgstr "الموارد"
 
 msgctxt "pro_platform_user_guide"
 msgid "Pro platform user guide"
-msgstr ""
+msgstr "دليل مستخدم المنصة الاحترافية"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr ""
+msgstr "أسئلة وأجوبة للمنتجين"
 
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
@@ -6824,87 +6868,87 @@ msgstr "الرجاء إدخال قيمة بين 0 و {max}."
 
 msgctxt "please_ask_users_create_account_first"
 msgid "Please ask the following users to create an Open Food Facts account first:"
-msgstr ""
+msgstr "يرجى مطالبة المستخدمين التاليين بإنشاء حساب على منصة Open Food Facts أولاً:"
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
-msgstr ""
+msgstr "تمت إضافة المستخدمين إلى المؤسسة بنجاح:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
-msgstr ""
+msgstr "يجب ألا تتجاوز نسبة السكريات نسبة الكربوهيدرات."
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr ""
+msgstr "يجب ألا تكون نسبة الدهون المشبعة أعلى من نسبة الدهون."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
-msgstr ""
+msgstr "مواد التغليف"
 
 msgctxt "packaging_weight_total"
 msgid "Packaging weight"
-msgstr ""
+msgstr "وزن التغليف"
 
 msgctxt "packaging_weight_100g"
 msgid "Packaging weight per 100 g of product"
-msgstr ""
+msgstr "وزن التغليف لكل 100 غرام من المنتج"
 
 msgctxt "packaging_weight_100g_mean"
 msgid "Mean packaging weight per 100 g of product"
-msgstr ""
+msgstr "متوسط وزن التغليف لكل 100 غرام من المنتج"
 
 msgctxt "total"
 msgid "Total"
-msgstr ""
+msgstr "المجموع"
 
 msgctxt "packaging_material_products_percent"
 msgid "% of products containing the material"
-msgstr ""
+msgstr "% من المنتجات المحتوية على المادة"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "% من المنتجات المحتوية على معظم المادة"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
-msgstr ""
+msgstr "للمنتجات التي تحتوي على المادة"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
-msgstr ""
+msgstr "للمنتجات التي تحتوي في الغالب على المادة"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
-msgstr ""
+msgstr "نسبة إلى جميع المنتجات"
 
 msgctxt "preferred_language"
 msgid "Preferred Language"
-msgstr ""
+msgstr "اللغة المفضلة"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
-msgstr ""
+msgstr "أرقام مكونات التغليف"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr ""
+msgstr "عدد مكونات التغليف"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
-msgstr ""
+msgstr "جميع المواد"
 
 msgctxt "weight"
 msgid "Weight"
-msgstr ""
+msgstr "الوزن"
 
 msgctxt "weight_100g"
 msgid "Weight per 100g of product"
-msgstr ""
+msgstr "الوزن لكل 100 غرام من المنتج"
 
 msgctxt "weight_percent"
 msgid "Weight percent"
-msgstr ""
+msgstr "النسبة المئوية للوزن"
 
 msgctxt "nutriscore_component_energy"
 msgid "Energy"
@@ -6924,7 +6968,7 @@ msgstr "الدهون المشبعة"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr ""
+msgstr "الدهون المشبعة / الدهون"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6932,11 +6976,11 @@ msgstr "ملح"
 
 msgctxt "nutriscore_component_non_nutritive_sweeteners"
 msgid "Non-nutritive sweeteners"
-msgstr ""
+msgstr "المحليات غير المغذية"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr ""
+msgstr "الفواكه والخضراوات والبقوليات"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6948,210 +6992,210 @@ msgstr "البروتينات"
 
 msgctxt "presence"
 msgid "Presence"
-msgstr ""
+msgstr "الحضور"
 
 msgctxt "absence"
 msgid "Absence"
-msgstr ""
+msgstr "الغياب"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "يُعتبر هذا المنتج ماءً لحساب مؤشر القيمة الغذائية (Nutri-Score)."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "يُعتبر هذا المنتج دهونًا أو زيوتًا أو مكسرات أو بذورًا لحساب مؤشر القيمة الغذائية."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "يُعتبر هذا المنتج جبنًا عند حساب مؤشر القيمة الغذائية (Nutri-Score)."
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "يُعتبر هذا المنتج من منتجات اللحوم الحمراء عند حساب مؤشر القيمة الغذائية (Nutri-Score)."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr ""
+msgstr "يتم احتساب النقاط الخاصة بالبروتينات لأن المنتج يعتبر مشروبًا."
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr ""
+msgstr "يتم احتساب النقاط الخاصة بالبروتينات لأن المنتج يعتبر جبناً."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr ""
+msgstr "يتم احتساب النقاط الخاصة بالبروتينات لأن النقاط السالبة أقل من 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "يتم احتساب النقاط الخاصة بالبروتينات لأن النقاط السلبية أقل من 11."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "لا يتم احتساب النقاط الخاصة بالبروتينات لأن النقاط السالبة أكبر من أو تساوي 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "لا يتم احتساب النقاط الخاصة بالبروتينات لأن النقاط السالبة أكبر من أو تساوي 11."
 
 msgctxt "nutriscore_new_computation_title"
 msgid "Discover the new Nutri-Score!"
-msgstr ""
+msgstr "اكتشف نظام Nutri-Score الجديد!"
 
 msgctxt "nutriscore_new_computation_description"
 msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
-msgstr ""
+msgstr "<p>يتم تطوير حساب مؤشر التغذية لتقديم توصيات أفضل بناءً على أحدث الأدلة العلمية.</p><p>التحسينات الرئيسية:</p><ul><li>تحسين النتيجة لبعض الأسماك الدهنية والزيوت الغنية بالدهون الصحية</li><li>تحسين النتيجة للمنتجات الكاملة الغنية بالألياف</li><li>انخفاض النتيجة للمنتجات التي تحتوي على الكثير من الملح أو السكر</li><li>انخفاض النتيجة للحوم الحمراء (مقارنة بالدواجن)</li></ul>"
 
 msgctxt "nutriscore_new_computation_link_text"
 msgid "Discover all the improvements of the new Nutri-Score"
-msgstr ""
+msgstr "اكتشف جميع التحسينات التي طرأت على نظام Nutri-Score الجديد"
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "Nutri-Score هو شعار يشير إلى الجودة الغذائية الشاملة للمنتجات."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "يتم حساب النتيجة من A إلى E بناءً على العناصر الغذائية والأطعمة التي يفضل تناولها (البروتينات والألياف والفواكه والخضروات والبقوليات ...) والعناصر الغذائية التي يجب الحد منها (السعرات الحرارية والدهون المشبعة والسكريات والملح)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "يتم حساب النتيجة من بيانات جدول الحقائق الغذائية وبيانات التركيب (الفواكه والخضراوات والبقوليات)."
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
-msgstr ""
+msgstr "توصي سلطات الصحة العامة بعرض هذا الشعار دون أي التزام على الشركات."
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr ""
+msgstr "ما هو مؤشر التغذية (Nutri-Score)؟"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
-msgstr ""
+msgstr "يرتبط تناول الطاقة بما يزيد عن الاحتياجات من الطاقة بزيادة مخاطر زيادة الوزن، وزيادة الوزن، والسمنة، وبالتالي خطر الإصابة بالأمراض المزمنة المرتبطة بالنظام الغذائي."
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "يمكن أن يؤدي الاستهلاك العالي للدهون، وخاصة الدهون المشبعة، إلى رفع الكوليسترول، مما يزيد خطر الإصابة بأمراض القلب."
 
 msgctxt "nutrient_info_saturated_fat_ratio_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "يمكن أن يؤدي الاستهلاك العالي للدهون، وخاصة الدهون المشبعة، إلى رفع الكوليسترول، مما يزيد خطر الإصابة بأمراض القلب."
 
 msgctxt "nutrient_info_energy_from_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr ""
+msgstr "يمكن أن يؤدي الاستهلاك العالي للدهون، وخاصة الدهون المشبعة، إلى رفع الكوليسترول، مما يزيد خطر الإصابة بأمراض القلب."
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
-msgstr ""
+msgstr "قد لا تُحقق المُحليات غير المغذية أي فائدة طويلة الأمد في تقليل دهون الجسم لدى البالغين أو الأطفال. وقد يكون لاستخدامها على المدى الطويل آثار جانبية غير مرغوب فيها، مثل زيادة خطر الإصابة بداء السكري من النوع الثاني وأمراض القلب والأوعية الدموية لدى البالغين."
 
 msgctxt "nutrient_info_fiber_benefit"
 msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "إن تناول الأطعمة الغنية بالألياف (وخاصة الأطعمة المصنوعة من الحبوب الكاملة) يقلل من مخاطر الإصابة بسرطانات الجهاز التنفسي الهضمي، وأمراض القلب والأوعية الدموية، والسمنة، ومرض السكري."
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "يقلل تناول الأطعمة الغنية بالفواكه والخضراوات والبقوليات من مخاطر الإصابة بسرطانات الجهاز التنفسي والهضمي، وأمراض القلب والأوعية الدموية، والسمنة، ومرض السكري."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
-msgstr ""
+msgstr "الأطعمة الغنية بالبروتينات عادة ما تكون غنية بالكالسيوم أو الحديد، وهما من المعادن الأساسية ذات الفوائد الصحية العديدة."
 
 msgctxt "revert"
 msgid "Revert to this revision"
-msgstr ""
+msgstr "العودة إلى هذه النسخة"
 
 msgctxt "product_js_product_revert_confirm"
 msgid "Revert to this product revision?"
-msgstr ""
+msgstr "هل تريد العودة إلى هذا الإصدار من المنتج؟"
 
 msgctxt "api_status_success"
 msgid "Success"
-msgstr ""
+msgstr "نجاح"
 
 msgctxt "api_status_failure"
 msgid "Failure"
-msgstr ""
+msgstr "فشل"
 
 msgctxt "api_result_product_reverted"
 msgid "Product reverted to the specified revision"
-msgstr ""
+msgstr "تمت إعادة المنتج إلى الإصدار المحدد"
 
 msgctxt "api_result_product_not_reverted"
 msgid "Product not reverted to the specified revision"
-msgstr ""
+msgstr "لم يتم إرجاع المنتج إلى الإصدار المحدد"
 
 # sweeteners (additives), plural
 msgctxt "sweeteners"
 msgid "sweeteners"
-msgstr ""
+msgstr "المحليات"
 
 # sweetener (additive), singular
 msgctxt "sweetener"
 msgid "sweetener"
-msgstr ""
+msgstr "محلّي"
 
 msgctxt "action_edit_product"
 msgid "Complete or correct product information"
-msgstr ""
+msgstr "كمّل أو صحّح معلومات المنتج"
 
 msgctxt "report_problem_panel_title"
 msgid "Report a problem"
-msgstr ""
+msgstr "إبلاغ عن مشكلة"
 
 # duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr ""
+msgstr "إبلاغ عن مشكلة"
 
 msgctxt "report_problem_navigation"
 msgid "Report a problem."
-msgstr ""
+msgstr "الإبلاغ عن مشكلة."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
-msgstr ""
+msgstr "معلومات غير كاملة أو غير صحيحة؟"
 
 msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
-msgstr ""
+msgstr "التصنيف، والملصقات، والمكونات، والمواد المسببة للحساسية، والمعلومات الغذائية، والصور، إلخ."
 
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
-msgstr ""
+msgstr "إذا لم تتطابق المعلومات مع المعلومات الموجودة على العبوة، يمكنك إكمالها أو تصحيحها. شكرًا لك!"
 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
-msgstr ""
+msgstr "Open Food Facts هي قاعدة بيانات تعاونية، وكل مساهمة فيها مفيدة للجميع."
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
-msgstr ""
+msgstr "إذا كنت ترغب في الإبلاغ عن أعمال تخريب أو محتوى غير لائق أو بيانات خاطئة لا يمكنك إصلاحها بنفسك، فأبلغ فريق المشرفين لدينا."
 
 msgctxt "description"
 msgid "Description"
-msgstr ""
+msgstr "الوصف"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
-msgstr ""
+msgstr "أدخل اسم المستخدم الخاص بجهة الاتصال الرئيسية:"
 
 msgctxt "change_main_contact"
 msgid "Change main contact"
-msgstr ""
+msgstr "تغيير جهة الاتصال الرئيسية"
 
 msgctxt "main_contact_updated"
 msgid "Main contact updated"
-msgstr ""
+msgstr "تم تحديث جهة الاتصال الرئيسية"
 
 msgctxt "error_unknown_member"
 msgid "This user is not a member of the organization."
-msgstr ""
+msgstr "هذا المستخدم ليس عضواً في المنظمة."
 
 msgctxt "skip_to_content"
 msgid "Skip to Content"
-msgstr ""
+msgstr "التخطي للمحتوى"
 
 msgctxt "oidc_signin_no_cookie"
 msgid "You need to enable cookies to sign in."
@@ -7159,143 +7203,143 @@ msgstr "يجب عليك تفعيل ملفات تعريف الارتباط لتس
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
-msgstr ""
+msgstr "لا يمكنك إزالة جهة الاتصال الرئيسية. قم بتغييره أولاً."
 
 msgctxt "open_in_crm"
 msgid "Open in CRM"
-msgstr ""
+msgstr "افتح في نظام إدارة علاقات العملاء (CRM)"
 
 msgctxt "information_provided_by_the_manufacturer"
 msgid "Information provided by the manufacturer"
-msgstr ""
+msgstr "المعلومات مقدمة من الشركة المصنعة"
 
 msgctxt "information_provided_by_the_manufacturer_edit_form"
 msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
-msgstr ""
+msgstr "المعلومات المحددة برمز المصنع مقدمة من الشركة المصنعة. ولا يمكن تغييرها إلا من قبل الشركة المصنعة والمشرفين. إذا كانت المعلومات قديمة أو غير صحيحة، يُرجى إبلاغنا."
 
 msgctxt "knowledge_panels_did_you_know"
 msgid "Did you know?"
-msgstr ""
+msgstr "هل تعلم؟"
 
 msgctxt "knowledge_panels_why_it_matters"
 msgid "Why it matters"
-msgstr ""
+msgstr "لماذا هذا مهم؟"
 
 msgctxt "knowledge_panels_what_you_can_do"
 msgid "What you can do"
-msgstr ""
+msgstr "ما يمكنك فعله"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_title"
 msgid "Good for agricultural biodiversity"
-msgstr ""
+msgstr "مفيد للتنوع البيولوجي الزراعي"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
 msgid "Contains neglected or underutilized crops:"
-msgstr ""
+msgstr "يحتوي على محاصيل مهملة أو غير مستغلة بشكل كافٍ:"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
 msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
-msgstr ""
+msgstr "منذ عام 1900، فُقد 75% من التنوع النباتي نتيجةً لتخلي المزارعين حول العالم عن الأصناف المحلية لصالح أصناف عالية الإنتاجية مُتكيفة مع عمليات التصنيع واسعة النطاق. ونتيجةً لذلك، يأتي 60% من استهلاك الطاقة البشرية في العالم من ثلاثة أنواع فقط: القمح والأرز والذرة."
 
 msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
 msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
-msgstr ""
+msgstr "إن قلة تنوع المحاصيل تجعل إمداداتنا الغذائية أكثر عرضة للآفات والأمراض وتغير المناخ."
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
 msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
-msgstr ""
+msgstr "يساهم تناول أنواع متنوعة من الحبوب والبقوليات والخضراوات والفواكه في:"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
 msgid "preserving neglected and underutilized species"
-msgstr ""
+msgstr "الحفاظ على الأنواع المهملة وغير المستغلة"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
 msgid "rural development and support of local farmers and companies"
-msgstr ""
+msgstr "التنمية الريفية ودعم المزارعين والشركات المحلية"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
 msgid "preserving of diversified landscapes"
-msgstr ""
+msgstr "الحفاظ على المناظر الطبيعية المتنوعة"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
 msgid "food security"
-msgstr ""
+msgstr "الأمن الغذائي"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
 msgid "and your health!"
-msgstr ""
+msgstr "وصحتك!"
 
 msgctxt "created_by"
 msgid "Created by"
-msgstr ""
+msgstr "أنشئ من طرف"
 
 msgctxt "org_id"
 msgid "Org id"
-msgstr ""
+msgstr "معرف المؤسسة"
 
 msgctxt "verified_status"
 msgid "Verified status"
-msgstr ""
+msgstr "تم التحقق من الحالة"
 
 msgctxt "creation_date"
 msgid "Creation date"
-msgstr ""
+msgstr "تاريخ الإنشاء"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
 msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
-msgstr ""
+msgstr "تشارك حقائق الغذاء المفتوحة في المشروع الأوروبي <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (الممول من برنامج أفق 2020 للبحث والإبداع). ويهدف برنامج DIVINFOOD إلى تطوير سلاسل غذائية قيِّمة التنوع البيولوجي الزراعي غير المستغل بالقدر الكافي من أجل التصدي لتدهور التنوع البيولوجي وتلبية توقعات المستهلكين المتزايدة في مجال الصحة والصحة. المنتجات المحلية التي تسهم في النظم الغذائية المستدامة."
 
 msgctxt "deny"
 msgid "Deny"
-msgstr ""
+msgstr "رفض"
 
 msgctxt "users_requested_to_join_org"
 msgid "These users have requested to join the organization:"
-msgstr ""
+msgstr "طلب هؤلاء المستخدمون الانضمام إلى المنظمة:"
 
 msgctxt "last_login"
 msgid "Last login date"
-msgstr ""
+msgstr "تاريخ آخر تسجيل دخول"
 
 msgctxt "last_import"
 msgid "Last import date"
-msgstr ""
+msgstr "تاريخ آخر استيراد"
 
 msgctxt "drop_a_file"
 msgid "Drop"
-msgstr ""
+msgstr "إسقاط"
 
 msgctxt "select_product_data_file"
 msgid "Select a file with product data"
-msgstr ""
+msgstr "حدد ملفًا يحتوي على بيانات المنتج"
 
 msgctxt "number_of_products_without_nutriscore"
 msgid "Number of products without Nutri-Score"
-msgstr ""
+msgstr "عدد المنتجات التي لا تحتوي على مؤشر Nutri-Score"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
-msgstr ""
+msgstr "% من المنتجات التي يتم فيها حساب نقاط التغذية"
 
 msgctxt "products_to_be_exported"
 msgid "Products to be exported"
-msgstr ""
+msgstr "المنتجات المراد تصديرها"
 
 msgctxt "products_exported"
 msgid "Products exported"
-msgstr ""
+msgstr "المنتجات المصدرة"
 
 msgctxt "opportunities_to_improve_nutriscore"
 msgid "Opp. for Nutri-Score improvements"
-msgstr ""
+msgstr "فرص لتحسين مؤشر التغذية"
 
 msgctxt "date_of_last_update"
 msgid "Date of last update"
-msgstr ""
+msgstr "تاريخ آخر تحديث"
 
 msgctxt "number_of_products_on_public_platform"
 msgid "Number of products on public platform"
-msgstr ""
+msgstr "عدد المنتجات على المنصة العامة"
 
 msgctxt "number_of_products_on_producer_platform"
 msgid "Number of products on producer platform"
@@ -7363,11 +7407,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "مؤشر قابلية الإصلاح غير قابل للتطبيق"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "غير قابل للتطبيق على الفئة"
 
 # variable names between { } must not be translated
@@ -7406,17 +7450,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "نوع المنتج"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "طعام"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "طعام الحيوانات الأليفة"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7471,7 +7515,7 @@ msgstr ""
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
-msgstr ""
+msgstr "متوفر على F-Droid"
 
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
@@ -7513,9 +7557,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "أبلغ المشرفين لدينا عن هذه الصورة"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "نحن نفتقد قيمة حجم الحصة و/أو الوحدة لحساب النتيجة الغذائية"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> من إنتاج جمعية غير ربحية، مستقلة عن قطاع الأغذية. صُنع للجميع، من قِبل الجميع، وبتمويل من الجميع. يمكنك دعم عملنا بالتبرع لـ Open Food Facts.<br/><b>شكرًا لك!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> من إنتاج جمعية غير ربحية، مستقلة عن قطاع الأغذية. صُنع للجميع، من قِبل الجميع، وبتمويل من الجميع. يمكنك دعم عملنا بالتبرع لـ Open Food Facts، وكذلك باستخدام محرك بحث Lilo.<br/><b>شكرًا لك!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "محرك بحث ليلو"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "بسبب سوء استخدام الروبوتات، لا يمكننا عرض هذه الصفحة للمستخدمين المجهولين. يُرجى إنشاء حساب مجاني على Open Food Facts للوصول إلى جميع محتويات Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "أصل المكونات"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "أصل المنتج"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "معلومات المنتج"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "معلومات المنتج الخام"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7529,7 +7605,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "الكمية المقدرة للسكريات المضافة في المكونات"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "كمية السكريات المضافة"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "ابحث عن المنتجات في نفس الفئة بدون إضافة سكريات:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "المكونات غير المرغوب فيها"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "يعتمد هذا التفضيل على فهم Open Food Facts لقائمة المكونات وقد لا يكون دقيقًا، لذا تحقق دائمًا من المنتج بنفسك."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "وجود مكونات غير مرغوب فيها غير معروفة"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "لم يتم الكشف عن أي مكونات غير مرغوب فيها"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "يحتوي على مكونات غير مرغوب فيها"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "لم يتم التعرف على بعض المكونات"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "لم نكتشف: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "لم نكتشف: {unwanted_ingredients}. ربما فاتتنا بعض المكونات، لذا يُرجى مراجعة قائمة المكونات دائمًا."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "تعتمد هذه التفضيلات على فهم Open Food Facts لقائمة المكونات، وهناك دائمًا احتمال ألا تكون دقيقة أو كاملة، لذا تحقق دائمًا من المنتج بنفسك."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr "بصمة المعاناة"
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr "مؤشر معاناة الحيوانات محسوب حسب المنتج"
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr "رعاية الحيوان"
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr "لجان المعرفة الخارجية"
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr "اللوحة غير متوفرة"
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr "اللوحة غير متوفرة لهذا المنتج"
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr "مصادر خارجية"
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr "مقدّم من"
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "التدخين يقتل"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "التبغ مُضرٌّ بالصحة بشكل خطير. لا تبدأ به. أقلع عنه الآن."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "التدخين مُسبب للإدمان. لا تبدأ به. التدخين قاتل - أقلع عنه الآن. يُسد التدخين الشرايين ويُسبب النوبات القلبية والسكتات الدماغية. يُسبب سرطان الرئة المميت. التدخين أثناء الحمل يُضر بطفلك. احمِ أطفالك: لا تجعلهم يتنفسون دخانك. يُمكن لطبيبك أو الصيدلي مساعدتك على الإقلاع عن التدخين. قد يُقلل التدخين من تدفق الدم ويُسبب العجز الجنسي. يُسبب التدخين شيخوخة الجلد. يُمكن أن يُلحق التدخين الضرر بالحيوانات المنوية ويُقلل الخصوبة. يحتوي الدخان على البنزين والنيتروزامين والفورمالديهايد وسيانيد الهيدروجين."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "السعر العام"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 يورو، 2.99 دولار أمريكي، 4.00 جنيه إسترليني"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "سعر التجزئة المقترح من الشركة المصنعة (MSRP)، باستثناء الخصومات والعروض الترويجية، كما هو موضح على عبوة المنتج أو موقع الشركة المصنعة (بما في ذلك الضرائب أو استبعادها وفقًا للتشريعات). استخدم قائمة مفصولة بفواصل إذا كانت الأسعار مُدرجة بعملات متعددة."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "الممتلكات الشخصية"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "لا يحتوي على زيت النخيل"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "قد يحتوي على زيت النخيل"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "الملصقات البيئية"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "البيانات المفقودة"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "تأثير قوي"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "تأثير متوسط"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "تأثير منخفض"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "لم يتم تقييم الأثر"
 

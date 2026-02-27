@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -86,6 +86,7 @@ BEGIN {
 		%options
 		%server_options
 		%oidc_options
+		%slack_hook_urls
 
 		@product_fields
 		@product_other_fields
@@ -183,11 +184,11 @@ $flavor = 'obf';
 %options = (
 	site_name => "Open Beauty Facts",
 	product_type => "beauty",
-	og_image_url => "https://static.openfoodfacts.org/images/logos/obf-logo-vertical-white-social-media-preview.png",
-	android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk?utm_source=obf&utf_medium=web",
-	android_app_link =>
-		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=obf&utf_medium=web",
-	ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=obf&utf_medium=web",
+	og_image_url => "https://static.openbeautyfacts.org/images/logos/obf-logo-vertical-white-social-media-preview.png",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases?utm_source=obf&utf_medium=web",
+android_app_link =>
+"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=obf&utf_medium=web",
+ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=obf&utf_medium=web",
 	facebook_page_url => "https://www.facebook.com/openfoodfacts?utm_source=obf&utf_medium=web",
 	x_account => "OpenFoodFacts",
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
@@ -266,7 +267,8 @@ $events_password = $ProductOpener::Config2::events_password;
 
 # Redis is used to push updates to the search server
 $redis_url = $ProductOpener::Config2::redis_url;
-$process_global_redis_events = $ProductOpener::Config2::process_global_redis_events;
+# Only the OFF instance processes the global events
+$process_global_redis_events = 0;
 
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
@@ -568,8 +570,10 @@ $options{import_export_fields_groups} = [
 
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
-$options{attribute_groups}
-	= [["ingredients_analysis", ["vegan", "palm_oil_free",]], ["labels", ["labels_organic", "labels_fair_trade"]],];
+$options{attribute_groups} = [
+	["ingredients_analysis", ["vegan", "palm_oil_free", "unwanted_ingredients"]],
+	["labels", ["labels_organic", "labels_fair_trade"]],
+];
 
 # default preferences for attributes
 $options{attribute_default_preferences} = {

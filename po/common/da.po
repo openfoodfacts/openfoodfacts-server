@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "En fællesskabsdrevet, gratis og åben database med fødevareprodukter for hele verden."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "En kollaborativ, gratis og åben database med kæledyrsfødevareprodukter fra hele verden."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -358,10 +358,6 @@ msgstr "Du kan også hjælpe med at finansiere projektet Open Food Facts"
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Producentadminvejledning"
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> er etableret af en almennyttig, brancheuafhængig forening. Den er lavet til alle, af alle og finansieres af alle. Du kan støtte arbejdet ved at <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donere til Open Food Facts</a> samt ved <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">brug af Lilo-søgemaskinen</a>.<br/><b>Tak!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -1034,7 +1030,7 @@ msgstr "Forsidebillede"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr "Bilde av ingredienser"
+msgstr "Billede af ingredienser"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
@@ -1305,7 +1301,7 @@ msgstr "Ved at tilføje oplysninger, data og/eller fotos accepterer du, uigenkal
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr "Link til produktsiden på producentens officielle wensted"
+msgstr "Link til produktsiden på producentens officielle websted"
 
 msgctxt "list_of_x"
 msgid "List of %s"
@@ -3725,6 +3721,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "datakvalitetsfejl"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "datakvalitetens fuldstændighed"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "datakvalitetsinfo"
@@ -4635,17 +4635,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Mangler data til beregning af Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Nutri-Score uanvendelig"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score ikke relevant"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Endnu ikke anvendelig for kategorien"
+msgid "Not applicable for the category"
+msgstr "Ikke relevant for kategorien"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr "Ikke anvendelig for flg. kategori: {category}"
+msgid "Not applicable for the category: {category}"
+msgstr "Ikke relevant for kategorien: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5120,6 +5120,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Manglende ernæringsfakta"
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Manglende næringsindhold for færdiglavet produkt"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr "Øko-Score"
@@ -5462,6 +5466,10 @@ msgstr "Green-Score ikke beregnet"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Ukendt miljøpåvirkning"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Mangler en præcis kategori"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5972,6 +5980,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etiketter med meget store miljøfordele"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Ingen vurderede etiketter"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Nogle miljømæssige fordele"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Høje miljømæssige fordele"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Meget høje miljømæssige fordele"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Andet"
@@ -6108,6 +6132,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr "Manglende næringsindhold:"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Manglende næringsindhold for tilberedt produkt:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Produktkategori samt -ernæringsfakta skal angives for at kunne beregne Nutri-Score."
@@ -6123,6 +6151,14 @@ msgstr "Bidrag"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Bidrag"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Datakvalitetens fuldstændighed"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Nogle oplysninger om fuldstændigheden af datakvaliteten på dette produkt"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6195,6 +6231,10 @@ msgstr "Mangler kategori"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Manglende ernæringsfakta"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Manglende næringsoplysninger tilberedt"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6380,6 +6420,10 @@ msgstr "Kan du tilføje de nødvendige oplysninger til at beregne Nutri-Score?"
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "Kan du kategorisere produktet præcist, så Øko-Score kan beregnes?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Den kategori, vi har for dette produkt, er ikke præcis nok til at beregne Green-Score. Kunne I tilføje en mere præcis produktkategori?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7359,12 +7403,12 @@ msgid "Repairability index unknown"
 msgstr "Reparationsindeks ukendt"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr "Reparationsindeks er ikke relevant"
+msgid "Repairability index not applicable"
+msgstr "Reparerbarhedsindeks ikke relevant"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Endnu ikke anvendelig for kategorien"
+msgid "Not applicable for the category"
+msgstr "Ikke relevant for kategorien"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
@@ -7509,9 +7553,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Rapportér dette billede til vores moderatorer"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Vi mangler portionsstørrelsen og/eller enheden for at beregne næringsscoren."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> er lavet af en nonprofitorganisation, uafhængig af branchen. Den er lavet for alle, af alle, og den er finansieret af alle. Du kan støtte vores arbejde ved at donere til Open Food Facts.<br/><b>Tak!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> er lavet af en nonprofitorganisation, uafhængig af branchen. Den er lavet for alle, af alle, og den er finansieret af alle. Du kan støtte vores arbejde ved at donere til Open Food Facts og også ved at bruge Lilo-søgemaskinen.<br/><b>Tak!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo-søgemaskine"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "På grund af omfattende misbrug fra robotter kan vi ikke vise denne side til uidentificerede brugere. Opret venligst en gratis Open Food Facts-konto for at få adgang til alle Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Oprindelse af ingredienser"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "Produktoprindelse"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Produktinformation"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Rå produktinformation"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7525,7 +7601,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Anslået mængde tilsat sukker i ingredienser"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Mængde tilsat sukker"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Søg efter produkter i samme kategori uden tilsat sukker:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Uønskede ingredienser"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Denne præference er baseret på Open Food Facts' forståelse af ingredienslisten og er muligvis ikke nøjagtig. Tjek altid produktet selv."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Tilstedeværelsen af uønskede ingredienser er ukendt"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Ingen uønskede ingredienser fundet"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Indeholder uønskede ingredienser"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Nogle ingredienser blev ikke genkendt"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Vi fandt ikke: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Vi fandt ikke: {unwanted_ingredients}. Vi har muligvis overset nogle ingredienser. Tjek altid ingredienslisten."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Disse præferencer er baseret på Open Food Facts' forståelse af ingredienslisten, og der er altid en mulighed for, at den ikke er nøjagtig eller fuldstændig. Tjek altid produktet selv."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr "Indikator for dyrs lidelse beregnet efter produkt"
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr "Dyrevelfærd"
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr "Eksterne videnspaneler"
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr "Panelet er ikke tilgængeligt"
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr "Panel ikke tilgængeligt for dette produkt"
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr "Eksterne kilder"
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr "Leveret af"
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Rygning dræber"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Tobak skader helbredet alvorligt. Start ikke. Stop nu."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Rygning er stærkt vanedannende. Start ikke. Rygning dræber – stop nu. Rygning tilstopper arterierne og forårsager hjerteanfald og slagtilfælde. Rygning forårsager dødelig lungekræft. Rygning under graviditet skader din baby. Beskyt børn: Lad dem ikke indånde din røg. Din læge eller apoteker kan hjælpe dig med at stoppe med at ryge. Rygning kan reducere blodgennemstrømningen og forårsage impotens. Rygning forårsager ældning af huden. Rygning kan skade sædcellerne og mindske fertiliteten. Røg indeholder benzen, nitrosaminer, formaldehyd og hydrogencyanid."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Offentlig pris"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Producentens vejledende udsalgspris (MSRP), eksklusive rabatter og kampagner, som angivet på produktemballagen eller producentens hjemmeside (inklusive eller eksklusive skatter baseret på lovgivningen). Brug en kommasepareret liste, hvis priser i flere valutaer er angivet."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Personlig ejendom"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Indeholder ikke palmeolie"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Kan indeholde palmeolie"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Miljømærkninger"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Manglende data"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Høj effekt"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Middelstor påvirkning"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Lav påvirkning"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Virkning ikke vurderet"
 

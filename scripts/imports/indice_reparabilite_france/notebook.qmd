@@ -1,0 +1,127 @@
+---
+title: Process
+jupyter: python3
+format: gfm
+---
+
+## Source
+
+### Source file
+
+Download the data and save it as `source.csv`:
+
+```{python}
+#| vscode: {languageId: shellscript}
+%%bash
+wget -q https://www.data.gouv.fr/api/1/datasets/r/60be0572-1ba9-4cad-95e0-bfb32fd20d70 -O source.csv
+
+ls -lh --time-style='+%Y-%m-%d %H:%M' source.csv | awk '{print $6, $7, $9, $5, $8}'
+
+```
+
+Number of lines:
+
+```{python}
+#| vscode: {languageId: shellscript}
+%%bash
+wc -l source.csv
+```
+
+
+Print 5 first rows as a table:
+
+```{python}
+#| vscode: {languageId: shellscript}
+
+import pandas as pd
+from tabulate import tabulate
+print(tabulate(pd.read_csv("source.csv", nrows=6), 
+               headers="keys", tablefmt="heavy_grid"))
+```
+
+### Mapping
+
+Display mapping (10 first rows):
+
+```{python}
+import pandas as pd
+from tabulate import tabulate
+print(tabulate(pd.read_csv("mapping.csv", nrows=11), 
+               headers="keys", tablefmt="heavy_grid"))
+```
+
+## Transformation
+
+### Test
+
+Print 10 first rows as CSV format, from data.gouv.fr dataset (Product Opener target):
+
+```{python}
+#| vscode: {languageId: shellscript}
+%%bash
+wget -q -O - https://www.data.gouv.fr/api/1/datasets/r/60be0572-1ba9-4cad-95e0-bfb32fd20d70 | ./ir_data2opf_csv.py --limit 10
+```
+
+Print 10 first rows as CSV format, from data.gouv.fr dataset (Folksonomy Engine target):
+
+```{python}
+#| vscode: {languageId: shellscript}
+%%bash
+wget -q -O - https://www.data.gouv.fr/api/1/datasets/r/60be0572-1ba9-4cad-95e0-bfb32fd20d70 | ./ir_data2opf_csv.py --target "Folksonomy Engine" --limit 10
+```
+
+
+### Transform
+
+If you want to convert all the dataset (product opener target):
+```{python}
+#| echo: true      # Afficher le code
+#| eval: true      # Exécuter le code
+#| output: true    # Afficher la sortie
+%%bash
+wget -q -O - https://www.data.gouv.fr/api/1/datasets/r/60be0572-1ba9-4cad-95e0-bfb32fd20d70 | ./ir_data2opf_csv.py > ir_data_opf.csv
+
+ls -lh --time-style='+%Y-%m-%d %H:%M' ir_data_opf.csv | awk '{print $6, $7, $9, $5, $8}'
+```
+
+or, if you have downloaded the dataset as `source.csv` (Product Opener target):
+
+```{python}
+#| echo: true      # Afficher le code
+#| eval: true      # Exécuter le code
+#| output: true    # Afficher la sortie
+%%bash
+./ir_data2opf_csv.py source.csv > ir_data_opf.csv
+
+ls -lh --time-style='+%Y-%m-%d %H:%M' ir_data_opf.csv | awk '{print $6, $7, $9, $5, $8}'
+```
+
+Number of lines:
+
+```{python}
+#| vscode: {languageId: shellscript}
+%%bash
+wc -l ir_data_opf.csv
+```
+
+The script has ecluded products that don't have a normalized barcode.
+
+
+If you want to convert all the dataset (Folksonomy Engine target):
+```{python}
+#| echo: true      # Afficher le code
+#| eval: true      # Exécuter le code
+#| output: true    # Afficher la sortie
+%%bash
+./ir_data2opf_csv.py source.csv --target "Folksonomy Engine" > ir_data_folksonomy_engine.csv
+
+ls -lh --time-style='+%Y-%m-%d %H:%M' ir_data_folksonomy_engine.csv | awk '{print $6, $7, $9, $5, $8}'
+```
+
+Number of lines:
+
+```{python}
+#| vscode: {languageId: shellscript}
+%%bash
+wc -l ir_data_folksonomy_engine.csv
+```

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -597,15 +597,16 @@ sub remove_object($path) {
 	return;
 }
 
-=head2 object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef)
+=head2 object_iter($base_path, $name_pattern = undef, $exclude_path_pattern = undef, $skip_until_path = undef)
 
 Iterates over the path returning a cursor that can return object paths whose
-name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern
+name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern.
+If $skip_until_path is provided, skips all object paths that are lexicographically less than $skip_until_path.
 
 =cut
 
-sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef) {
-	my @dirs = ($initial_path);
+sub object_iter($base_path, $name_pattern = undef, $exclude_path_pattern = undef, $skip_until_path = undef) {
+	my @dirs = ($base_path);
 	my @object_paths = ();
 	return sub {
 		if (scalar @object_paths == 0) {
@@ -616,6 +617,13 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 				# Sort files so that we always explore them in the same order (useful for tests)
 				my @candidates = sort readdir(DIR);
 				closedir(DIR);
+				my $skip_until;
+				# If this is a subset of the skip path then we want to skip all files up to the
+				# next part of the skip path
+				if (defined $skip_until_path and $skip_until_path =~ /^\Q$current_dir\E\/([^\/]*)/) {
+					$skip_until = $1;
+				}
+				my @sub_dirs = ();
 				my $last_name = '';
 				foreach my $file (@candidates) {
 					# avoid ..
@@ -623,9 +631,10 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 					# avoid conflicting-codes and invalid-codes
 					next if $exclude_path_pattern and $file =~ $exclude_path_pattern;
 					my $path = "$current_dir/$file";
+					next if defined $skip_until and $file lt $skip_until;
 					if (-d $path) {
 						# explore sub dirs
-						push @dirs, $path;
+						push @sub_dirs, $path;
 						next;
 					}
 					# Have a file. Strip off any extension before pattern matching
@@ -638,6 +647,8 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 					next if ($name_pattern and $object_name !~ $name_pattern);
 					push(@object_paths, "$current_dir/$object_name");
 				}
+				# Insert sub-dirs before others at this level so that we go deep first
+				unshift @dirs, @sub_dirs;
 			}
 		}
 		# if we still have object_paths, return a name

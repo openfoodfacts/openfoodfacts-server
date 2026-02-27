@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -357,10 +357,6 @@ msgstr ""
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -3707,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "kompletezza tal-kwalità tad-dejta"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -4617,17 +4617,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr ""
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score mhux applikabbli"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "Mhux applikabbli għall-kategorija: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5102,6 +5102,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Fatti nutrizzjonali nieqsa għall-prodott ippreparat"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr ""
@@ -5444,6 +5448,10 @@ msgstr ""
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Nieqsa minn kategorija preċiża"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5954,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "L-ebda tikketta vvalutata"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Xi benefiċċji ambjentali"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Benefiċċji ambjentali għoljin"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Benefiċċji ambjentali għoljin ħafna"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6090,6 +6114,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Fatti nutrizzjonali nieqsa għall-prodott ippreparat:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
@@ -6105,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Kompletezza tal-Kwalità tad-Data"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Xi informazzjoni dwar il-kompletezza tal-kwalità tad-dejta fuq dan il-prodott"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6177,6 +6213,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Fatti nutrizzjonali ppreparati nieqsa"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6362,6 +6402,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Il-kategorija li għandna għal dan il-prodott mhijiex preċiża biżżejjed biex tikkalkula l-Green-Score. Tista' żżid kategorija ta' prodott aktar preċiża?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7341,11 +7385,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "L-indiċi tar-riparabbiltà mhux applikabbli"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7491,9 +7535,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Irrapporta din l-immaġni lill-moderaturi tagħna"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Qed nieqes il-valur tad-daqs tas-servizz u/jew l-unità biex nikkalkulaw in-Nutri-Score."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> huwa magħmul minn assoċjazzjoni mingħajr skop ta' qligħ, indipendenti mill-industrija. Huwa magħmul għal kulħadd, minn kulħadd, u huwa ffinanzjat minn kulħadd. Tista' tappoġġja x-xogħol tagħna billi tagħti donazzjoni lil Open Food Facts.<br/><b>Grazzi!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> huwa magħmul minn assoċjazzjoni mingħajr skop ta' qligħ, indipendenti mill-industrija. Huwa magħmul għal kulħadd, minn kulħadd, u huwa ffinanzjat minn kulħadd. Tista' tappoġġja x-xogħol tagħna billi tagħti donazzjoni lil Open Food Facts u wkoll billi tuża l-magna tat-tiftix Lilo.<br/><b>Grazzi!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Magna tat-tiftix Lilo"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Minħabba abbuż qawwi mir-robots, ma nistgħux inservu din il-paġna lil utenti mhux identifikati. Jekk jogħġbok oħloq kont Open Food Facts b'xejn biex taċċessa l-Open Food Facts kollha."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr ""
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Informazzjoni dwar il-prodott"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Informazzjoni dwar il-prodott mhux ipproċessat"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7507,7 +7583,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Kwantità stmata ta' zokkor miżjud fl-ingredjenti"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Kwantità ta' zokkor miżjud"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Fittex għal prodotti fl-istess kategorija mingħajr zokkor miżjud:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Ingredjenti mhux mixtieqa"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Din il-preferenza hija bbażata fuq il-fehim ta' Open Food Facts tal-lista tal-ingredjenti u tista' ma tkunx preċiża, dejjem iċċekkja l-prodott int stess."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Il-preżenza ta' ingredjenti mhux mixtieqa mhix magħrufa"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Ma nstab l-ebda ingredjent mhux mixtieq"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Fih ingredjenti mhux mixtieqa"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Xi ingredjenti ma ġewx rikonoxxuti"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Ma skoprejniex: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Ma skoprejniex: {unwanted_ingredients}. Jista' jkun li tlifna xi ingredjenti, jekk jogħġbok dejjem iċċekkja l-lista tal-ingredjenti."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Dawk il-preferenzi huma bbażati fuq il-fehim ta' Open Food Facts tal-lista tal-ingredjenti u dejjem hemm il-possibbiltà li din ma tkunx preċiża jew kompluta, dejjem iċċekkja l-prodott int stess."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "It-tipjip joqtol"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "It-tabakk jagħmel ħsara serja lis-saħħa. Tibdiex. Ieqaf issa."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "It-tipjip huwa vizzjuż ħafna. Tibdiex. It-tipjip joqtol – ieqaf issa. It-tipjip jimblokka l-arterji u jikkawża attakki tal-qalb u puplesiji. It-tipjip jikkawża kanċer fatali tal-pulmun. It-tipjip waqt it-tqala jagħmel ħsara lit-tarbija tiegħek. Ipproteġi lit-tfal: tħallihomx jieħdu n-nifs tad-duħħan tiegħek. It-tabib jew l-ispiżjar tiegħek jistgħu jgħinuk tieqaf tpejjep. It-tipjip jista’ jnaqqas il-fluss tad-demm u jikkawża impotenza. It-tipjip jikkawża t-tixjiħ tal-ġilda. It-tipjip jista’ jagħmel ħsara lill-isperma u jnaqqas il-fertilità. Id-duħħan fih benżin, nitrosamini, formaldehyde u hydrogen cyanide."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Prezz pubbliku"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 EUR, 2.99 USD, 4.00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Prezz bl-imnut issuġġerit mill-manifattur (MSRP), esklużi skontijiet u promozzjonijiet, kif indikat fuq l-imballaġġ tal-prodott jew fuq is-sit tal-manifattur (inklużi jew esklużi t-taxxi bbażati fuq il-leġiżlazzjoni). Uża lista separata b'virgola jekk ikunu elenkati l-prezzijiet f'muniti multipli."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Proprjetà personalizzata"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Ma fihx żejt tal-palm"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Jista' jkun fih żejt tal-palm"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Tikketti ambjentali"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Dejta nieqsa"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Impatt għoli"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Impatt medju"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Impatt baxx"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "L-impatt mhux ivvalutat"
 

@@ -27,10 +27,9 @@ use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/$subdomain init_request/;
+use ProductOpener::Texts qw/:all/;
+use ProductOpener::Display qw/init_request/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Lang qw/$lc lang/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -60,8 +59,8 @@ my %manifest = (
 	lang => $lc,
 	name => $long_name,
 	short_name => $short_name,
-	description => lang('site_description'),
-	start_url => format_subdomain($subdomain),
+	description => lang("site_description_$flavor"),
+	start_url => $request_ref->{formatted_subdomain},
 	scope => '/',
 	display => 'standalone',
 	prefer_related_applications => $JSON::MaybeXS::true,

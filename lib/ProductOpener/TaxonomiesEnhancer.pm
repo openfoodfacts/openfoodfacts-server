@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -564,10 +564,6 @@ sub detect_missing_ingredients {
 	my ($ingredients1, $ingredients2, $lang1, $lang2, $missing_ingredients, $ingredients_typo, $mismatch_in_taxonomy)
 		= @_;
 
-	$log->debug(
-		"check_ingredients_between_languages > detect_missing_ingredients - start,  lang1 is $lang1, lang2 is $lang2")
-		if $log->is_debug();
-
 	foreach my $i (0 .. $#$ingredients1) {
 		if ($ingredients1->[$i]{is_in_taxonomy} && !$ingredients2->[$i]{is_in_taxonomy}) {
 			$log->debug(
@@ -724,10 +720,6 @@ sub check_ingredients_between_languages {
 
 	foreach my $lang1 (keys %ingredients_hash) {
 		foreach my $lang2 (keys %ingredients_hash) {
-			$log->debug(
-				"check_ingredients_between_languages -   next iteration lang1 (ref): $lang1 and lang2 (analyzed): $lang2"
-			) if $log->is_debug();
-
 			# Reminder: ingredients1 is the reference and missing stop words or missing ingredients are searched into ingredients2 only
 			next
 				if $lang1 eq $lang2

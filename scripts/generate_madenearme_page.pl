@@ -29,7 +29,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -119,11 +119,14 @@ GetOptions("verbose" => \$verbose) or die($usage);
 my $request_ref = {};
 my $cc = $ARGV[0];
 $lc = $ARGV[1];
-$subdomain = $cc;
-$formatted_subdomain = format_subdomain($subdomain);
+my $subdomain = $cc;
+my $formatted_subdomain = format_subdomain($subdomain);
 $request_ref->{header} = "";
 $request_ref->{initjs} = "";
 $request_ref->{cc} = $cc;
+$request_ref->{subdomain} = $subdomain;
+$request_ref->{formatted_subdomain} = $formatted_subdomain;
+my $country;
 
 if ((not defined $cc) or (not defined $lc)) {
 	die("$usage\nError: Pass country code (or world) and language code as arguments.\n");

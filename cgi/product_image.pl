@@ -27,7 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/retrieve_object/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/canonicalize_tag_link/;

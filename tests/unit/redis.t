@@ -55,9 +55,9 @@ subtest 'user registration from redis to minion' => sub {
 		]
 	);
 
-	# Need to mock keycloak->create_or_update_user for unit test
+	# Need to mock keycloak->find_user_by_username for unit test
 	# and Keycloak -> new so it doesn't try to load OIDC configuration
-	my $create_or_update_user_called = 0;
+	my $find_user_by_username_called = 0;
 	my $keycloak_mock = mock 'ProductOpener::Keycloak' => (
 		override => [
 			'new' => sub {
@@ -65,9 +65,9 @@ subtest 'user registration from redis to minion' => sub {
 				bless $self, shift;
 				return $self;
 			},
-			'create_or_update_user' => sub {
-				++$create_or_update_user_called;
-				return;
+			'find_user_by_username' => sub {
+				++$find_user_by_username_called;
+				return {};
 			}
 		]
 	);
@@ -82,9 +82,9 @@ subtest 'user registration from redis to minion' => sub {
 	is($user1_called, 1, 'process_xread_stream_reply called Minion->enqueue with user1');
 	is($user2_called, 2, 'process_xread_stream_reply called Minion->enqueue with user2');
 
-	if (get_oidc_implementation_level() < 5) {
-		# Legacy code will be called until we have migrated registration to Keycloak
-		is($create_or_update_user_called, 2, 'create_or_update_user for each user');
+	if (get_oidc_implementation_level() < 2) {
+		# Legacy code will be called until Keycloak is the master source of truth
+		is($find_user_by_username_called, 2, 'find_user_by_username for each user');
 	}
 };
 

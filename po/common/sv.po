@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "En kollaborativ, fri och öppen databas över livsmedelsprodukter från hela världen."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -359,10 +359,6 @@ msgstr "Du kan också hjälpa till att finansiera Open Food Facts"
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Producentens Admin manual"
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donera till Open Food Facts\" /></a><p><<site_name>> är gjord av en ideell förening, oberoende av branschen. Den är gjord för alla, av alla, och den finansieras av alla. Du kan stödja vårt arbete genom att <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donera till Open Food Facts</a> och även genom att <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">använda Lilos sökmotor</a>.<br/><b>Tack!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -3727,6 +3723,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "datakvalitetsbuggar"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "fullständighet i datakvalitet"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "datakvalitetsinfo"
@@ -4561,7 +4561,7 @@ msgstr "Organisk produkt"
 
 msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
-msgstr ""
+msgstr "Inte en ekologisk produkt"
 
 msgctxt "attribute_labels_organic_unknown_title"
 msgid "Missing information: organic product?"
@@ -4585,27 +4585,27 @@ msgstr "Rättvis handel"
 
 msgctxt "attribute_labels_fair_trade_yes_title"
 msgid "Fair trade product"
-msgstr ""
+msgstr "Rättvisemärkt produkt"
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
-msgstr ""
+msgstr "Inte rättvisemärkt produkt"
 
 msgctxt "attribute_labels_fair_trade_unknown_title"
 msgid "Missing information: fair trade product?"
-msgstr ""
+msgstr "Saknad information: rättvisemärkt produkt?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developing countries."
-msgstr ""
+msgstr "Hjälper producenter i utvecklingsländer."
 
 msgctxt "attribute_labels_fair_trade_description_short"
 msgid "Fair trade products help producers in developing countries."
-msgstr ""
+msgstr "Rättvisemärkta produkter hjälper producenter i utvecklingsländer."
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
-msgstr ""
+msgstr "När du köper rättvisemärkta produkter får producenter i utvecklingsländer ett högre och rättvisare pris, vilket hjälper dem att förbättra och upprätthålla högre sociala och ofta miljömässiga standarder."
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
@@ -4637,17 +4637,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr ""
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score inte tillämpligt"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "Inte tillämpligt för kategorin: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4685,7 +4685,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Livsmedelsbearbetningsnivå okänd"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -4820,7 +4820,7 @@ msgstr ""
 # Do not translate the file name
 msgctxt "import_photos_format_packaging"
 msgid "3001234567890.packaging_es.jpg: recycling instructions in Spanish."
-msgstr ""
+msgstr "3001234567890.packaging_es.jpg: återvinningsinstruktioner på spanska."
 
 msgctxt "packaging_text"
 msgid "Recycling instructions and/or packaging information"
@@ -5107,7 +5107,7 @@ msgstr "Redigera dina inställningar"
 
 msgctxt "preferences_your_preferences"
 msgid "Your preferences"
-msgstr ""
+msgstr "Dina inställningar"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5121,6 +5121,10 @@ msgstr ""
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Saknar näringsinformation för färdig produkt"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
@@ -5464,6 +5468,10 @@ msgstr "Eco-score ej beräknad"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Okänd miljöpåverkan"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Saknar en exakt kategori"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5974,6 +5982,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Inga bedömda etiketter"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Några miljöfördelar"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Höga miljöfördelar"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Mycket höga miljöfördelar"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Övrigt"
@@ -6110,6 +6134,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Saknar näringsinformation för färdig produkt:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
@@ -6125,6 +6153,14 @@ msgstr "Bidrag"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Bidrag"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Fullständighet av datakvalitet"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Lite information om fullständigheten av datakvaliteten för den här produkten"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6168,7 +6204,7 @@ msgstr ""
 # name of an activity / a sport
 msgctxt "activity_bicycling"
 msgid "Bicycling"
-msgstr ""
+msgstr "Cykling"
 
 # name of an activity / a sport
 msgctxt "activity_running"
@@ -6197,6 +6233,10 @@ msgstr "Kategori saknas"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Saknar näringsfakta för färdigberedda produkter"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6382,6 +6422,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Den kategori vi har för den här produkten är inte tillräckligt exakt för att beräkna Green-Score. Kan ni lägga till en mer exakt produktkategori?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6730,7 +6774,7 @@ msgstr "Värde konverterat"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Antal enheter"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6762,19 +6806,19 @@ msgstr "Ogiltigt värde: måste vara 0 eller 1"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Ange antalet förpackningsenheter av samma form och material som produkten innehåller."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Ange formens namn som anges i återvinningsinstruktionerna om de är tillgängliga, eller välj en form."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Ange det specifika materialet om det kan fastställas (en materialkod inuti en triangel finns ofta på förpackningsdelar), eller ett generiskt material (till exempel plast eller metall) om du är osäker."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Ange endast återvinningsinstruktioner om de finns listade på produkten."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6784,7 +6828,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Ange nettovikt eller nettovolym och ange enhet (till exempel g eller ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7361,11 +7405,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "Reparerbarhetsindex inte tillämpligt"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7400,7 +7444,7 @@ msgstr ""
 # information on several ingredients, in plural in languages like French
 msgctxt "ingredient_information"
 msgid "Ingredient information"
-msgstr ""
+msgstr "Ingrediensinformation"
 
 msgctxt "product_type"
 msgid "Product type"
@@ -7511,9 +7555,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Rapportera den här bilden till våra moderatorer"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Vi saknar portionsstorleksvärdet och/eller enheten för att beräkna näringspoängen."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> är tillverkad av en ideell förening, oberoende av branschen. Den är gjord för alla, av alla, och finansieras av alla. Du kan stödja vårt arbete genom att donera till Open Food Facts.<br/><b>Tack!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> är skapad av en ideell förening, oberoende av branschen. Den är gjord för alla, av alla, och finansieras av alla. Du kan stödja vårt arbete genom att donera till Open Food Facts och även genom att använda sökmotorn Lilo.<br/><b>Tack!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo sökmotor"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "På grund av omfattande missbruk från robotar kan vi inte visa den här sidan för oidentifierade användare. Skapa ett gratis Open Food Facts-konto för att få tillgång till alla Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Ingredients ursprung"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "Produktens ursprung"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Produktinformation"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Rå produktinformation"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7527,7 +7603,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Uppskattad mängd tillsatt socker i ingredienser"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Mängd tillsatt socker"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Sök efter produkter i samma kategori utan tillsatt socker:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Oönskade ingredienser"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Denna preferens baseras på Open Food Facts förståelse av ingredienslistan och är eventuellt inte korrekt, kontrollera alltid produkten själv."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Förekomst av oönskade ingredienser okänd"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Inga oönskade ingredienser upptäckta"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Innehåller oönskade ingredienser"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Vissa ingredienser kändes inte igen"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Vi upptäckte inte: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Vi upptäckte inte: {unwanted_ingredients}. Vi kan ha missat vissa ingredienser, vänligen kontrollera alltid ingredienslistan."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Dessa preferenser baseras på Open Food Facts förståelse av ingredienslistan och det finns alltid en möjlighet att den inte är korrekt eller fullständig, kontrollera alltid produkten själv."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Rökning dödar"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Tobak skadar hälsan allvarligt. Börja inte. Sluta nu."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Rökning är mycket beroendeframkallande. Börja inte. Rökning dödar – sluta nu. Rökning täpper till artärerna och orsakar hjärtattacker och stroke. Rökning orsakar dödlig lungcancer. Rökning under graviditet skadar ditt barn. Skydda barn: tvinga dem inte att andas in din rök. Din läkare eller apotekspersonal kan hjälpa dig att sluta röka. Rökning kan minska blodflödet och orsaka impotens. Rökning orsakar åldrande av huden. Rökning kan skada spermierna och minska fertiliteten. Rök innehåller bensen, nitrosaminer, formaldehyd och vätecyanid."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Offentligt pris"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Tillverkarens rekommenderade pris (MSRP), exklusive rabatter och kampanjer, som anges på produktförpackningen eller tillverkarens webbplats (inklusive eller exklusive skatter baserat på lagstiftning). Använd en kommaseparerad lista om priser i flera valutor anges."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Personlig egendom"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Innehåller inte palmolja"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Kan innehålla palmolja"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Miljömärkningar"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Saknade uppgifter"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Hög effekt"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Medelstor påverkan"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Låg påverkan"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Konsekvenser har inte bedömts"
 

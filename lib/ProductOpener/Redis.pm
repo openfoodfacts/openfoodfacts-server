@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -56,10 +56,13 @@ use vars @EXPORT_OK;
 use Log::Any qw/$log/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Minion qw/queue_job/;
-use ProductOpener::Users qw/retrieve_user store_user/;
+use ProductOpener::Users qw/retrieve_user store_user_preferences retrieve_user_preferences/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
+use ProductOpener::Cache qw/$memd/;
+use ProductOpener::Tags qw/cc_to_country/;
+
 use AnyEvent;
 use AnyEvent::RipeRedis;
 
@@ -145,7 +148,7 @@ sub subscribe_to_redis_streams () {
 		return;
 	}
 
-	if (get_oidc_implementation_level() >= 4) {
+	if (get_oidc_implementation_level() >= 2) {
 		# Read Keycloak events to process actions following user creation / deletion
 		_read_user_streams('$');
 	}
@@ -155,15 +158,11 @@ sub subscribe_to_redis_streams () {
 
 sub _read_user_streams($search_from) {
 	# Listen for user-deleted events so that we can redact product contributions for this flavor
-	# This will block for up to 5 seceonds waiting for messages and return a maximum of 1000
-	my @streams = ('COUNT', 1000, 'BLOCK', 5000, 'STREAMS', 'user-deleted');
-	# If this process handles global events then also listen for the user-registered events from Keycloak
-	if ($process_global_redis_events) {
-		push(@streams, 'user-registered');
-		push(@streams, $search_from);
-	}
-	# Note the message index to search from is provided at the end of the list in the same order as the list of keys
-	push(@streams, $search_from);
+	# This will block for up to 5 seconds waiting for messages and return a maximum of 1000
+	my @streams = (
+		'COUNT', 1000, 'BLOCK', 5000, 'STREAMS', 'user-deleted',
+		'user-registered', 'user-updated', $search_from, $search_from, $search_from
+	);
 
 	$log->info("Reading from Redis", {streams => \@streams}) if $log->is_info();
 	$redis_client->xread(
@@ -204,74 +203,111 @@ sub process_xread_stream_reply($reply_ref) {
 		elsif ($stream[0] eq 'user-deleted') {
 			$last_processed_message_id = _process_deleted_users_stream($stream[1]);
 		}
+		elsif ($stream[0] eq 'user-updated') {
+			$last_processed_message_id = _process_updated_users_stream($stream[1]);
+		}
 
 	}
 
 	return $last_processed_message_id,;
 }
 
+sub message_to_hash($outer_ref) {
+	my @outer = @{$outer_ref};
+	my $message_id = $outer[0];
+	my @values = @{$outer[1]};
+
+	my %message_hash;
+	for (my $i = 0; $i < scalar(@values); $i += 2) {
+		my $key = $values[$i];
+		my $value = $values[$i + 1];
+		$message_hash{$key} = $value;
+	}
+
+	return ($message_id, %message_hash);
+}
+
+sub cache_user(%message_hash) {
+	my $user_id = $message_hash{'userName'};
+	my $cache_user_ref = {
+		userid => $user_id,
+		email => $message_hash{'email'},
+		name => $message_hash{'name'},
+		preferred_language => $message_hash{'locale'},
+		country => cc_to_country($message_hash{'country'})
+	};
+	$memd->set("user/$user_id", $cache_user_ref);
+
+	# At level 2 we keep the STO file in sync with Keycloak
+	# This ensures that any services still at Level 1 can read the data
+	if (get_oidc_implementation_level() == 2) {
+		my $user_preferences = retrieve_user_preferences($user_id);
+		if ($user_preferences) {
+			$user_preferences->{email} = $cache_user_ref->{email};
+			$user_preferences->{name} = $cache_user_ref->{name};
+			$user_preferences->{country} = $cache_user_ref->{country};
+			$user_preferences->{preferred_language} = $cache_user_ref->{preferred_language};
+			store_user_preferences($user_preferences);
+		}
+	}
+	return;
+}
+
 sub _process_registered_users_stream($stream_values_ref) {
 	my $last_processed_message_id;
 
 	foreach my $outer_ref (@{$stream_values_ref}) {
-		my @outer = @{$outer_ref};
-		my $message_id = $outer[0];
-		my @values = @{$outer[1]};
+		my ($message_id, %message_hash) = message_to_hash($outer_ref);
 
-		my %message_hash;
-		for (my $i = 0; $i < scalar(@values); $i += 2) {
-			my $key = $values[$i];
-			my $value = $values[$i + 1];
-			$message_hash{$key} = $value;
-		}
+		cache_user(%message_hash);
 
-		my $user_id = $message_hash{'userName'};
-		my $newsletter = $message_hash{'newsletter'};
-		my $requested_org = $message_hash{'requestedOrg'};
-		my $email = $message_hash{'email'};
-		my $clientId = $message_hash{'clientId'};
+		if ($process_global_redis_events) {
+			my $user_id = $message_hash{'userName'};
+			my $newsletter = $message_hash{'newsletter'};
+			my $requested_org = $message_hash{'requestedOrg'};
+			my $email = $message_hash{'email'};
+			my $clientId = $message_hash{'clientId'};
 
-		$log->info("User registered", {user_id => $user_id, newsletter => $newsletter})
-			if $log->is_info();
+			$log->info("User registered", {user_id => $user_id, newsletter => $newsletter})
+				if $log->is_info();
 
-		# Create the user if they don't exist and set the properties
-		my $user_ref = retrieve_user($user_id);
-		unless ($user_ref) {
-			# This doesn't set registered_t and other fields,
-			# these are updated in Auth.pm when the user is redirected back to PO
-			$user_ref = {
-				userid => $user_id,
-				name => $user_id
-			};
-		}
-		$user_ref->{email} = $email;
-		if (defined $requested_org) {
-			$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => $requested_org);
+			# Create the user preferences if they don't exist and set the properties
+			my $user_ref = retrieve_user($user_id);
+			if ($user_ref) {
+				if (defined $requested_org) {
+					$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => $requested_org);
 
-			my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
+					my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
 
-			if ($requested_org_id ne "") {
-				$user_ref->{requested_org_id} = $requested_org_id;
-				$user_ref->{pro} = 1;
+					if ($requested_org_id ne "") {
+						$user_ref->{requested_org_id} = $requested_org_id;
+						$user_ref->{pro} = 1;
+					}
+				}
+				store_user_preferences($user_ref);
+
+				my $args_ref = {userid => $user_id};
+
+				# Register interest in joining an organization
+				if (defined $requested_org) {
+					queue_job(
+						process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
+				}
+
+				if (not defined $clientId or $clientId ne 'OFF-PRO') {
+					# Don't send normal welcome email for users that sign-up via the pro platform
+					queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+				}
+
+				# Subscribe to newsletter
+				if (defined $newsletter and $newsletter eq 'subscribe') {
+					queue_job(
+						subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
+				}
 			}
-		}
-		store_user($user_ref);
-
-		my $args_ref = {userid => $user_id};
-
-		if (not defined $clientId or $clientId ne 'OFF_PRO') {
-			# Don't send normal welcome email for users that sign-up via the pro platform
-			queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
-		}
-
-		# Subscribe to newsletter
-		if (defined $newsletter and $newsletter eq 'subscribe') {
-			queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
-		}
-
-		# Register interest in joining an organization
-		if (defined $requested_org) {
-			queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
+			else {
+				$log->warn("User $user_id not found when processing user registered event") if $log->is_warn();
+			}
 		}
 
 		$last_processed_message_id = $message_id;
@@ -284,24 +320,33 @@ sub _process_deleted_users_stream($stream_values_ref) {
 	my $last_processed_message_id;
 
 	foreach my $outer_ref (@{$stream_values_ref}) {
-		my @outer = @{$outer_ref};
-		my $message_id = $outer[0];
-		my @values = @{$outer[1]};
+		my ($message_id, %message_hash) = message_to_hash($outer_ref);
 
-		my %message_hash;
-		for (my $i = 0; $i < scalar(@values); $i += 2) {
-			my $key = $values[$i];
-			my $value = $values[$i + 1];
-			$message_hash{$key} = $value;
-		}
-
-		$log->info("User deleted", {user_id => $message_hash{'userName'}}) if $log->is_info();
+		# Remove user from the cache
+		my $userid = $message_hash{'userName'};
+		$memd->delete("user/$userid");
 
 		my $args_ref = {
-			userid => $message_hash{'userName'},
+			userid => $userid,
 			newuserid => $message_hash{'newUserName'}
 		};
-		queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		my $job_id = queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		$log->info("[" . localtime() . "] User deletion queued", {args_ref => $args_ref, job_id => $job_id})
+			if $log->is_info();
+
+		$last_processed_message_id = $message_id;
+	}
+
+	return $last_processed_message_id;
+}
+
+sub _process_updated_users_stream($stream_values_ref) {
+	my $last_processed_message_id;
+
+	foreach my $outer_ref (@{$stream_values_ref}) {
+		my ($message_id, %message_hash) = message_to_hash($outer_ref);
+
+		cache_user(%message_hash);
 
 		$last_processed_message_id = $message_id;
 	}
@@ -363,8 +408,9 @@ sub push_product_update_to_redis ($product_ref, $change_ref, $action) {
 				'code', Encode::encode_utf8($product_ref->{code}),
 				'rev', Encode::encode_utf8($product_ref->{rev}),
 				# product_type should be used over flavor (kept for backward compatibility)
+				# And should reflect the actual product, not the server it was processed on
 				'product_type',
-				$options{product_type},
+				$product_ref->{product_type} // $options{product_type},
 				'flavor', $flavor,
 				'user_id',
 				Encode::encode_utf8($change_ref->{userid}),
@@ -374,8 +420,6 @@ sub push_product_update_to_redis ($product_ref, $change_ref, $action) {
 				Encode::encode_utf8($change_ref->{comment}),
 				'diffs',
 				encode_json($change_ref->{diffs} // {}),
-				'ip',
-				Encode::encode_utf8($change_ref->{ip}),
 				'client_id',
 				Encode::encode_utf8($change_ref->{clientid}),
 				sub {
@@ -453,7 +497,6 @@ sub push_ocr_ready_to_redis ($code, $image_id, $json_url, $timestamp = time()) {
 	if (defined $redis_client) {
 		$log->debug("Pushing `ocr_ready` event to Redis", {code => $code}) if $log->is_debug();
 		eval {
-			my $cv = AE::cv;
 			$redis_client->xadd(
 				# name of the Redis stream
 				$options{redis_stream_name_ocr_ready},
@@ -480,11 +523,9 @@ sub push_ocr_ready_to_redis ($code, $image_id, $json_url, $timestamp = time()) {
 						$log->debug("Data added to stream with ID", {reply => $reply}) if $log->is_info();
 					}
 
-					$cv->send;
 					return;
 				}
 			);
-			$cv->recv;
 		};
 		$error = $@;
 	}

@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -357,10 +357,6 @@ msgstr ""
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -860,7 +856,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
@@ -3707,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "ಡೇಟಾ ಗುಣಮಟ್ಟದ ಸಂಪೂರ್ಣತೆ"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -4617,17 +4617,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr ""
+msgid "Nutri-Score not applicable"
+msgstr "ನ್ಯೂಟ್ರಿ-ಸ್ಕೋರ್ ಅನ್ವಯಿಸುವುದಿಲ್ಲ"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "ವರ್ಗಕ್ಕೆ ಅನ್ವಯಿಸುವುದಿಲ್ಲ: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5102,6 +5102,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "ಸಿದ್ಧಪಡಿಸಿದ ಉತ್ಪನ್ನದ ಪೌಷ್ಟಿಕಾಂಶದ ಸಂಗತಿಗಳು ಕಾಣೆಯಾಗಿವೆ."
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr ""
@@ -5444,6 +5448,10 @@ msgstr ""
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "ನಿಖರವಾದ ವರ್ಗ ಕಾಣೆಯಾಗಿದೆ."
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5954,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "ಯಾವುದೇ ಮೌಲ್ಯಮಾಪನ ಮಾಡಿದ ಲೇಬಲ್‌ಗಳಿಲ್ಲ."
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "ಕೆಲವು ಪರಿಸರ ಪ್ರಯೋಜನಗಳು"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "ಹೆಚ್ಚಿನ ಪರಿಸರ ಪ್ರಯೋಜನಗಳು"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "ಅತಿ ಹೆಚ್ಚಿನ ಪರಿಸರ ಪ್ರಯೋಜನಗಳು"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6090,6 +6114,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "ಸಿದ್ಧಪಡಿಸಿದ ಉತ್ಪನ್ನದ ಪೌಷ್ಟಿಕಾಂಶದ ಸಂಗತಿಗಳು ಕಾಣೆಯಾಗಿವೆ:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
@@ -6105,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "ಡೇಟಾ ಗುಣಮಟ್ಟದ ಸಂಪೂರ್ಣತೆ"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "ಈ ಉತ್ಪನ್ನದ ದತ್ತಾಂಶ ಗುಣಮಟ್ಟದ ಸಂಪೂರ್ಣತೆಯ ಕುರಿತು ಕೆಲವು ಮಾಹಿತಿಗಳು"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6177,6 +6213,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "ಸಿದ್ಧಪಡಿಸಿದ ಪೌಷ್ಟಿಕಾಂಶದ ಸಂಗತಿಗಳು ಕಾಣೆಯಾಗಿವೆ"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6362,6 +6402,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "ಈ ಉತ್ಪನ್ನಕ್ಕಾಗಿ ನಾವು ಹೊಂದಿರುವ ವರ್ಗವು ಗ್ರೀನ್-ಸ್ಕೋರ್ ಅನ್ನು ಲೆಕ್ಕಾಚಾರ ಮಾಡುವಷ್ಟು ನಿಖರವಾಗಿಲ್ಲ. ನೀವು ಹೆಚ್ಚು ನಿಖರವಾದ ಉತ್ಪನ್ನ ವರ್ಗವನ್ನು ಸೇರಿಸಬಹುದೇ?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7341,11 +7385,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "ದುರಸ್ತಿ ಸೂಚ್ಯಂಕ ಅನ್ವಯಿಸುವುದಿಲ್ಲ"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7491,9 +7535,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "ಈ ಚಿತ್ರವನ್ನು ನಮ್ಮ ಮಾಡರೇಟರ್‌ಗಳಿಗೆ ವರದಿ ಮಾಡಿ"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "ನ್ಯೂಟ್ರಿ-ಸ್ಕೋರ್ ಅನ್ನು ಲೆಕ್ಕಾಚಾರ ಮಾಡಲು ನಮಗೆ ಸರ್ವಿಂಗ್ ಗಾತ್ರದ ಮೌಲ್ಯ ಮತ್ತು/ಅಥವಾ ಘಟಕ ಕಾಣೆಯಾಗಿದೆ."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr ""
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr ""
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "ಲಿಲೋ ಸರ್ಚ್ ಎಂಜಿನ್"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "ರೋಬೋಟ್‌ಗಳ ಭಾರೀ ದುರುಪಯೋಗದಿಂದಾಗಿ, ಗುರುತಿಸಲಾಗದ ಬಳಕೆದಾರರಿಗೆ ಈ ಪುಟವನ್ನು ಒದಗಿಸಲು ನಮಗೆ ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ಎಲ್ಲಾ ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್‌ಗಳನ್ನು ಪ್ರವೇಶಿಸಲು ದಯವಿಟ್ಟು ಉಚಿತ ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್‌ಗಳ ಖಾತೆಯನ್ನು ರಚಿಸಿ."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "ಪದಾರ್ಥಗಳ ಮೂಲ:"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "ಉತ್ಪನ್ನ ಮಾಹಿತಿ"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "ಕಚ್ಚಾ ಉತ್ಪನ್ನ ಮಾಹಿತಿ"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7507,7 +7583,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "ಪದಾರ್ಥಗಳಲ್ಲಿ ಸೇರಿಸಿದ ಸಕ್ಕರೆಗಳ ಅಂದಾಜು ಪ್ರಮಾಣ"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "ಸೇರಿಸಿದ ಸಕ್ಕರೆಗಳ ಪ್ರಮಾಣ"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "ಸಕ್ಕರೆ ಸೇರಿಸದೆ ಒಂದೇ ವರ್ಗದಲ್ಲಿ ಉತ್ಪನ್ನಗಳನ್ನು ಹುಡುಕಿ:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "ಬೇಡದ ಪದಾರ್ಥಗಳು"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "ಈ ಆದ್ಯತೆಯು ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್‌ನ ಪದಾರ್ಥಗಳ ಪಟ್ಟಿಯ ತಿಳುವಳಿಕೆಯನ್ನು ಆಧರಿಸಿದೆ ಮತ್ತು ಅದು ನಿಖರವಾಗಿಲ್ಲದಿರಬಹುದು, ಯಾವಾಗಲೂ ಉತ್ಪನ್ನವನ್ನು ನೀವೇ ಪರಿಶೀಲಿಸಿ."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "ಅನಗತ್ಯ ಪದಾರ್ಥಗಳ ಉಪಸ್ಥಿತಿ ತಿಳಿದಿಲ್ಲ."
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "ಯಾವುದೇ ಅನಗತ್ಯ ಅಂಶಗಳು ಪತ್ತೆಯಾಗಿಲ್ಲ."
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "ಅನಗತ್ಯ ಪದಾರ್ಥಗಳನ್ನು ಒಳಗೊಂಡಿದೆ"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "ಕೆಲವು ಪದಾರ್ಥಗಳನ್ನು ಗುರುತಿಸಲಾಗಿಲ್ಲ."
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "ನಮಗೆ ಇದು ಪತ್ತೆಯಾಗಲಿಲ್ಲ: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "ನಮಗೆ ಇದು ಪತ್ತೆಯಾಗಲಿಲ್ಲ: {unwanted_ingredients}. ನಮಗೆ ಕೆಲವು ಪದಾರ್ಥಗಳು ತಪ್ಪಿಹೋಗಿರಬಹುದು, ದಯವಿಟ್ಟು ಯಾವಾಗಲೂ ಪದಾರ್ಥಗಳ ಪಟ್ಟಿಯನ್ನು ಪರಿಶೀಲಿಸಿ."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "ಆ ಆದ್ಯತೆಗಳು ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್‌ನ ಪದಾರ್ಥಗಳ ಪಟ್ಟಿಯ ತಿಳುವಳಿಕೆಯನ್ನು ಆಧರಿಸಿವೆ ಮತ್ತು ಅದು ನಿಖರವಾಗಿ ಅಥವಾ ಪೂರ್ಣವಾಗಿರದಿರುವ ಸಾಧ್ಯತೆ ಯಾವಾಗಲೂ ಇರುತ್ತದೆ, ಯಾವಾಗಲೂ ಉತ್ಪನ್ನವನ್ನು ನೀವೇ ಪರಿಶೀಲಿಸಿ."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "ಧೂಮಪಾನ ಕೊಲ್ಲುತ್ತದೆ"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "ತಂಬಾಕು ಆರೋಗ್ಯಕ್ಕೆ ಗಂಭೀರ ಹಾನಿ ಮಾಡುತ್ತದೆ. ಪ್ರಾರಂಭಿಸಬೇಡಿ. ಈಗಲೇ ಬಿಟ್ಟುಬಿಡಿ."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "ಧೂಮಪಾನವು ತುಂಬಾ ವ್ಯಸನಕಾರಿಯಾಗಿದೆ. ಪ್ರಾರಂಭಿಸಬೇಡಿ. ಧೂಮಪಾನ ಕೊಲ್ಲುತ್ತದೆ - ಈಗಲೇ ಬಿಡಿ. ಧೂಮಪಾನವು ಅಪಧಮನಿಗಳನ್ನು ಮುಚ್ಚಿ ಹೃದಯಾಘಾತ ಮತ್ತು ಪಾರ್ಶ್ವವಾಯುಗಳಿಗೆ ಕಾರಣವಾಗುತ್ತದೆ. ಧೂಮಪಾನವು ಮಾರಕ ಶ್ವಾಸಕೋಶದ ಕ್ಯಾನ್ಸರ್‌ಗೆ ಕಾರಣವಾಗುತ್ತದೆ. ಗರ್ಭಾವಸ್ಥೆಯಲ್ಲಿ ಧೂಮಪಾನವು ನಿಮ್ಮ ಮಗುವಿಗೆ ಹಾನಿ ಮಾಡುತ್ತದೆ. ಮಕ್ಕಳನ್ನು ರಕ್ಷಿಸಿ: ನಿಮ್ಮ ಹೊಗೆಯನ್ನು ಅವರು ಉಸಿರಾಡುವಂತೆ ಮಾಡಬೇಡಿ. ನಿಮ್ಮ ವೈದ್ಯರು ಅಥವಾ ನಿಮ್ಮ ಔಷಧಿಕಾರರು ಧೂಮಪಾನವನ್ನು ನಿಲ್ಲಿಸಲು ನಿಮಗೆ ಸಹಾಯ ಮಾಡಬಹುದು. ಧೂಮಪಾನವು ರಕ್ತದ ಹರಿವನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ ಮತ್ತು ದುರ್ಬಲತೆಗೆ ಕಾರಣವಾಗಬಹುದು. ಧೂಮಪಾನವು ಚರ್ಮದ ವಯಸ್ಸಾಗುವಿಕೆಗೆ ಕಾರಣವಾಗುತ್ತದೆ. ಧೂಮಪಾನವು ವೀರ್ಯವನ್ನು ಹಾನಿಗೊಳಿಸುತ್ತದೆ ಮತ್ತು ಫಲವತ್ತತೆಯನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ. ಹೊಗೆಯಲ್ಲಿ ಬೆಂಜೀನ್, ನೈಟ್ರೋಸಮೈನ್‌ಗಳು, ಫಾರ್ಮಾಲ್ಡಿಹೈಡ್ ಮತ್ತು ಹೈಡ್ರೋಜನ್ ಸೈನೈಡ್ ಇರುತ್ತದೆ."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "ಸಾರ್ವಜನಿಕ ಬೆಲೆ"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 ಯೂರೋ, 2.99 ಯುಎಸ್‌ಡಿ, 4.00 ಜಿಬಿಪಿ"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "ಉತ್ಪನ್ನ ಪ್ಯಾಕೇಜಿಂಗ್ ಅಥವಾ ತಯಾರಕರ ಸೈಟ್‌ನಲ್ಲಿ ಸೂಚಿಸಿದಂತೆ (ಕಾನೂನಿನ ಆಧಾರದ ಮೇಲೆ ತೆರಿಗೆಗಳನ್ನು ಒಳಗೊಂಡಂತೆ ಅಥವಾ ಹೊರತುಪಡಿಸಿ) ರಿಯಾಯಿತಿಗಳು ಮತ್ತು ಪ್ರಚಾರಗಳನ್ನು ಹೊರತುಪಡಿಸಿ, ತಯಾರಕರು ಸೂಚಿಸಿದ ಚಿಲ್ಲರೆ ಬೆಲೆ (MSRP). ಬಹು ಕರೆನ್ಸಿಗಳಲ್ಲಿ ಬೆಲೆಗಳನ್ನು ಪಟ್ಟಿ ಮಾಡಿದ್ದರೆ ಅಲ್ಪವಿರಾಮದಿಂದ ಬೇರ್ಪಟ್ಟ ಪಟ್ಟಿಯನ್ನು ಬಳಸಿ."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "ವೈಯಕ್ತಿಕಗೊಳಿಸಿದ ಆಸ್ತಿ"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "ತಾಳೆ ಎಣ್ಣೆಯನ್ನು ಒಳಗೊಂಡಿಲ್ಲ."
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "ತಾಳೆ ಎಣ್ಣೆಯನ್ನು ಒಳಗೊಂಡಿರಬಹುದು"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "ಪರಿಸರ ಲೇಬಲ್‌ಗಳು"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "ಡೇಟಾ ಕಾಣೆಯಾಗಿದೆ"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "ಹೆಚ್ಚಿನ ಪರಿಣಾಮ"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "ಮಧ್ಯಮ ಪರಿಣಾಮ"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "ಕಡಿಮೆ ಪರಿಣಾಮ"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "ಪರಿಣಾಮವನ್ನು ನಿರ್ಣಯಿಸಲಾಗಿಲ್ಲ"
 

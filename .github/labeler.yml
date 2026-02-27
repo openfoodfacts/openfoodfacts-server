@@ -553,10 +553,10 @@ Categories:
   - changed-files:
       - any-glob-to-any-file: "taxonomies/food/categories.txt"
 
-# Brands are not yet taxonomized, thus brands taxonomy is in the unused folder.
+# Brands are taxonomized. The taxonomy needs expansion.
 brands:
   - changed-files:
-      - any-glob-to-any-file: "taxonomies/unused/brands.txt"
+      - any-glob-to-any-file: "taxonomies/brands.txt"
 
 # Origins are used for Eco-Score computation. We want to have structured origins.
 # Tracking issue:
@@ -696,6 +696,11 @@ Nutrients:
       - any-glob-to-any-file: "docs/​api/​ref/​schemas/​nutrients.yaml"
       - any-glob-to-any-file: "docs/​api/​ref/​schemas/​nutrient_unit.yaml"
       - any-glob-to-any-file: "docs/​api/​ref/​responses/​get_nutrients.yaml"
+      - any-glob-to-any-file: "taxonomies/nutrients.txt"
+
+units:
+  - changed-files:
+      - any-glob-to-any-file: "taxonomies/units.txt"
 
 Nutrition facts:
   - changed-files:
@@ -756,11 +761,11 @@ Cyprus:
   - changed-files:
       - any-glob-to-any-file: "scripts/packager-codes/cy_packagers_refresh.py"
 
-Croatia:
+🇭🇷 Croatia:
   - changed-files:
       - any-glob-to-any-file: "scripts/packager-codes/hr-packagers-refresh.pl"
 
-Italy:
+🇮🇹 Italy:
   - changed-files:
       - any-glob-to-any-file: "scripts/packager-codes/it_packagers_refresh.py"
 

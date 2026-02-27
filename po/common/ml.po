@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -359,17 +359,13 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr ""
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "ബ്രാൻഡുകൾ"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -385,7 +381,7 @@ msgstr ""
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "ബ്രാൻഡ്"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -429,7 +425,7 @@ msgstr ""
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "വിഭാഗം"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -1246,7 +1242,7 @@ msgstr ""
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "ലേബൽ"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -3707,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "ഡാറ്റ ഗുണനിലവാര പൂർണ്ണത"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -4356,7 +4356,7 @@ msgstr ""
 
 msgctxt "contributor_settings"
 msgid "Contributor"
-msgstr ""
+msgstr "സംഘാടകർ"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
@@ -4617,17 +4617,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr ""
+msgid "Nutri-Score not applicable"
+msgstr "ന്യൂട്രി-സ്കോർ ബാധകമല്ല"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "വിഭാഗത്തിന് ബാധകമല്ല: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5102,6 +5102,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "തയ്യാറാക്കിയ ഉൽപ്പന്നത്തിന്റെ പോഷകാഹാര വസ്തുതകൾ വിട്ടുപോയിരിക്കുന്നു."
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr ""
@@ -5444,6 +5448,10 @@ msgstr ""
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "കൃത്യമായ ഒരു വിഭാഗം വിട്ടുപോയിരിക്കുന്നു"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5954,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "വിലയിരുത്തിയ ലേബലുകളൊന്നുമില്ല."
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "ചില പാരിസ്ഥിതിക നേട്ടങ്ങൾ"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "ഉയർന്ന പാരിസ്ഥിതിക നേട്ടങ്ങൾ"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "വളരെ ഉയർന്ന പാരിസ്ഥിതിക നേട്ടങ്ങൾ"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6090,6 +6114,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "തയ്യാറാക്കിയ ഉൽപ്പന്നത്തിന്റെ പോഷക വസ്തുതകൾ വിട്ടുപോയിരിക്കുന്നു:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
@@ -6105,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "ഡാറ്റ ഗുണനിലവാര പൂർണ്ണത"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "ഈ ഉൽപ്പന്നത്തിന്റെ ഡാറ്റ ഗുണനിലവാര സമ്പൂർണ്ണതയെക്കുറിച്ചുള്ള ചില വിവരങ്ങൾ"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6177,6 +6213,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "തയ്യാറാക്കിയ പോഷകാഹാര വസ്തുതകൾ വിട്ടുപോയിരിക്കുന്നു"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6362,6 +6402,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "ഈ ഉൽപ്പന്നത്തിന് ഞങ്ങൾ നൽകുന്ന വിഭാഗം ഗ്രീൻ-സ്കോർ കണക്കാക്കാൻ പര്യാപ്തമല്ല. കൂടുതൽ കൃത്യമായ ഒരു ഉൽപ്പന്ന വിഭാഗം ചേർക്കാമോ?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7341,11 +7385,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "നന്നാക്കൽ സൂചിക ബാധകമല്ല"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7491,9 +7535,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "ഈ ചിത്രം ഞങ്ങളുടെ മോഡറേറ്റർമാർക്ക് റിപ്പോർട്ട് ചെയ്യുക"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "ന്യൂട്രി-സ്കോർ കണക്കാക്കുന്നതിനുള്ള സെർവിംഗ് സൈസ് മൂല്യവും/അല്ലെങ്കിൽ യൂണിറ്റും ഞങ്ങൾക്ക് നഷ്ടമായി."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr ""
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr ""
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "ലിലോ സെർച്ച് എഞ്ചിൻ"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "റോബോട്ടുകളുടെ കടുത്ത ദുരുപയോഗം കാരണം, തിരിച്ചറിയാത്ത ഉപയോക്താക്കൾക്ക് ഈ പേജ് നൽകാൻ ഞങ്ങൾക്ക് കഴിയില്ല. എല്ലാ ഓപ്പൺ ഫുഡ് ഫാക്റ്റുകളും ആക്‌സസ് ചെയ്യുന്നതിന് ദയവായി ഒരു സൗജന്യ ഓപ്പൺ ഫുഡ് ഫാക്റ്റ്സ് അക്കൗണ്ട് സൃഷ്ടിക്കുക."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr ""
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "ഉൽപ്പന്ന വിവരം"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "അസംസ്കൃത ഉൽപ്പന്ന വിവരങ്ങൾ"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7507,7 +7583,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "ചേരുവകളിൽ ചേർത്ത പഞ്ചസാരയുടെ ഏകദേശ അളവ്"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "ചേർത്ത പഞ്ചസാരയുടെ അളവ്"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "പഞ്ചസാര ചേർക്കാത്ത അതേ വിഭാഗത്തിലുള്ള ഉൽപ്പന്നങ്ങൾക്കായി തിരയുക:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "ആവശ്യമില്ലാത്ത ചേരുവകൾ"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "ഓപ്പൺ ഫുഡ് ഫാക്റ്റ്സിന്റെ ചേരുവകളുടെ പട്ടികയെക്കുറിച്ചുള്ള ധാരണയെ അടിസ്ഥാനമാക്കിയുള്ളതാണ് ഈ മുൻഗണന, ഇത് കൃത്യമായിരിക്കില്ല, എല്ലായ്പ്പോഴും ഉൽപ്പന്നം സ്വയം പരിശോധിക്കുക."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "അനാവശ്യമായ ചേരുവകളുടെ സാന്നിധ്യം അജ്ഞാതം."
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "അനാവശ്യമായ ചേരുവകളൊന്നും കണ്ടെത്തിയില്ല."
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "ആവശ്യമില്ലാത്ത ചേരുവകൾ അടങ്ങിയിരിക്കുന്നു"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "ചില ചേരുവകൾ തിരിച്ചറിഞ്ഞില്ല."
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "ഞങ്ങൾക്ക് ഇത് കണ്ടെത്താൻ കഴിഞ്ഞില്ല: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "ഞങ്ങൾക്ക് ഇത് കണ്ടെത്താൻ കഴിഞ്ഞില്ല: {unwanted_ingredients}. ചില ചേരുവകൾ ഞങ്ങൾക്ക് നഷ്ടപ്പെട്ടിട്ടുണ്ടാകാം, ദയവായി എപ്പോഴും ചേരുവകളുടെ പട്ടിക പരിശോധിക്കുക."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "ആ മുൻഗണനകൾ ഓപ്പൺ ഫുഡ് ഫാക്റ്റ്സിന്റെ ചേരുവകളുടെ പട്ടികയെക്കുറിച്ചുള്ള ധാരണയെ അടിസ്ഥാനമാക്കിയുള്ളതാണ്, അത് കൃത്യമോ പൂർണ്ണമോ ആകണമെന്നില്ല എന്നതിന് എപ്പോഴും സാധ്യതയുണ്ട്, എല്ലായ്പ്പോഴും ഉൽപ്പന്നം സ്വയം പരിശോധിക്കുക."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "പുകവലി കൊല്ലുന്നു"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "പുകയില ആരോഗ്യത്തിന് ഗുരുതരമായ ദോഷം ചെയ്യും. തുടങ്ങരുത്. ഇപ്പോൾ നിർത്തൂ."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "പുകവലി വളരെ ആസക്തിയുണ്ടാക്കുന്ന ഒന്നാണ്. തുടങ്ങരുത്. പുകവലി കൊല്ലുന്നു - ഇപ്പോൾ നിർത്തുക. പുകവലി ധമനികളെ തടസ്സപ്പെടുത്തുകയും ഹൃദയാഘാതത്തിനും പക്ഷാഘാതത്തിനും കാരണമാവുകയും ചെയ്യുന്നു. പുകവലി മാരകമായ ശ്വാസകോശ അർബുദത്തിന് കാരണമാകുന്നു. ഗർഭിണിയായിരിക്കുമ്പോൾ പുകവലിക്കുന്നത് നിങ്ങളുടെ കുഞ്ഞിന് ദോഷം ചെയ്യും. കുട്ടികളെ സംരക്ഷിക്കുക: നിങ്ങളുടെ പുക ശ്വസിക്കാൻ അവരെ നിർബന്ധിക്കരുത്. നിങ്ങളുടെ ഡോക്ടർക്കോ ഫാർമസിസ്റ്റിനോ പുകവലി നിർത്താൻ നിങ്ങളെ സഹായിക്കാനാകും. പുകവലി രക്തയോട്ടം കുറയ്ക്കുകയും ബലഹീനതയ്ക്ക് കാരണമാവുകയും ചെയ്യും. പുകവലി ചർമ്മത്തിന്റെ വാർദ്ധക്യത്തിന് കാരണമാകുന്നു. പുകവലി ബീജത്തെ നശിപ്പിക്കുകയും പ്രത്യുൽപാദനക്ഷമത കുറയ്ക്കുകയും ചെയ്യും. പുകയിൽ ബെൻസീൻ, നൈട്രോസാമൈനുകൾ, ഫോർമാൽഡിഹൈഡ്, ഹൈഡ്രജൻ സയനൈഡ് എന്നിവ അടങ്ങിയിരിക്കുന്നു."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "പൊതു വില"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 യൂറോ, 2.99 യുഎസ് ഡോളർ, 4.00 ജിബിപി"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "ഉൽപ്പന്ന പാക്കേജിംഗിലോ നിർമ്മാതാവിന്റെ സൈറ്റിലോ സൂചിപ്പിച്ചിരിക്കുന്നതുപോലെ (നിയമനിർമ്മാണത്തെ അടിസ്ഥാനമാക്കിയുള്ള നികുതികൾ ഉൾപ്പെടെ അല്ലെങ്കിൽ ഒഴിവാക്കി) കിഴിവുകളും പ്രമോഷനുകളും ഒഴികെയുള്ള നിർമ്മാതാവ് നിർദ്ദേശിച്ച ചില്ലറ വിൽപ്പന വില (MSRP). ഒന്നിലധികം കറൻസികളിലുള്ള വിലകൾ ലിസ്റ്റ് ചെയ്തിട്ടുണ്ടെങ്കിൽ, കോമയാൽ വേർതിരിച്ച ഒരു ലിസ്റ്റ് ഉപയോഗിക്കുക."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "വ്യക്തിപരമാക്കിയ പ്രോപ്പർട്ടി"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "പാം ഓയിൽ അടങ്ങിയിട്ടില്ല"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "പാം ഓയിൽ അടങ്ങിയിരിക്കാം"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "പരിസ്ഥിതി ലേബലുകൾ"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "ഡാറ്റ നഷ്ടപ്പെട്ടു"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "ഉയർന്ന ആഘാതം"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "ഇടത്തരം ആഘാതം"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "കുറഞ്ഞ ആഘാതം"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "ആഘാതം വിലയിരുത്തിയിട്ടില്ല"
 

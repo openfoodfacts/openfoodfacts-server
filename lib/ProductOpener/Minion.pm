@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -43,6 +43,7 @@ BEGIN {
 
 		&get_minion
 		&queue_job
+		&write_minion_log
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -51,6 +52,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 use Minion;
 
@@ -85,7 +87,22 @@ sub get_minion() {
 }
 
 sub queue_job {    ## no critic (Subroutines::RequireArgUnpacking)
-	return get_minion()->enqueue(@_);
+	my $create_time = time();
+	my $job_id = get_minion()->enqueue(@_);
+
+	# Can uncomment this for debugging during integration testing but need to comment out again for normal use
+	# my $job = get_minion()->job($job_id);
+	# write_minion_log("Job $job_id for " . $job->task . " created at " . localtime($create_time) . " has created time of " . localtime($job->info->{created}));
+
+	return $job_id;
 }
 
+sub write_minion_log($message) {
+	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
+	print $log "[" . localtime() . "] $message\n";
+	close($log);
+	print STDERR "[" . localtime() . "] $message\n";
+
+	return;
+}
 1;

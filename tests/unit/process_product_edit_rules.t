@@ -98,16 +98,24 @@ my @tests = (
 		desc => "Remove edit on a salt nutrient",
 		edit_rules => [{name => "Disallow salt", actions => [["ignore_nutriments_salt"]]},],
 		product => {nutrients => {salt_100g => 1}},
-		form => {nutrients_salt => 2},
-		delete_param => ["nutriments_salt", "nutriments_salt_100g"],
+		form => {nutriments_salt => 2},
+		delete_param => ["nutriments_salt"],
 		result => 1,
+	},
+	{
+		id => "block_nutrients_salt_100g",
+		desc => "Block edit on a salt nutrient",
+		edit_rules => [{name => "Block salt", actions => [["block_nutriments_salt_100g"]]},],
+		product => {nutrients => {salt_100g => 1}},
+		form => {nutriments_salt_100g => 2},
+		result => 0,
 	},
 	{
 		id => "ignore_nutrients_salt_100g",
 		desc => "Remove edit on a salt nutrient",
 		edit_rules => [{name => "Disallow salt", actions => [["ignore_nutriments_salt_100g"]]},],
 		product => {nutrients => {salt_100g => 1}},
-		form => {nutrients_salt_100g => 2},
+		form => {nutriments_salt_100g => 2},
 		delete_param => ["nutriments_salt_100g", "nutriments_salt"],
 		result => 1,
 	},
@@ -145,7 +153,7 @@ my @tests = (
 			[{name => "Disallow ingredients", actions => [["ignore_if_0_nutriment_fruits-vegetables-nuts"]]},],
 		form => {"nutriment_fruits-vegetables-nuts" => 0},
 		result => 1,
-		delete_param => ["nutriment_fruits-vegetables-nuts"],
+		delete_param => ["nutriment_fruits-vegetables-nuts", "nutriment_fruits-vegetables-nuts_100g"],
 	},
 	{
 		id => "ignore_if_equal_nutriments_sugar",
@@ -154,7 +162,7 @@ my @tests = (
 		product => {"nutriment" => {"sugar_100g" => 22}},
 		form => {"nutriment_sugar" => 100},
 		result => 1,
-		delete_param => ["nutriment_sugar"],
+		delete_param => ["nutriment_sugar", "nutriment_sugar_100g"],
 	},
 	{
 		id => "ignore_if_match_serving_size",
@@ -172,6 +180,14 @@ my @tests = (
 		form => {"brands" => "Another, Acme inc."},
 		result => 1,
 		delete_param => ["brands"],
+	},
+	{
+		id => "block_if_regexp_match_brand",
+		desc => "Block edit if string value match a regexp",
+		edit_rules =>
+			[{name => "Disallow ingredients", actions => [["block_if_regexp_match_brands", "(acme|hacky)"]]},],
+		form => {"brands" => "Another, Acme inc."},
+		result => 0,
 	},
 	{
 		id => "combine_actions",
@@ -195,7 +211,10 @@ my @tests = (
 			"brands" => "Another, Acme inc."
 		},
 		result => 1,
-		delete_param => ["ingredients_text_fr", "ingredients_text", "nutriment_sugar", "serving_size", "brands"],
+		delete_param => [
+			"ingredients_text_fr", "ingredients_text", "nutriment_sugar", "nutriment_sugar_100g",
+			"serving_size", "brands"
+		],
 	},
 	# FIXME: add tests on warning and slack notifications
 );

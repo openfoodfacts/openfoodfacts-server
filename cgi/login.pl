@@ -46,13 +46,13 @@ $log->info('start') if $log->is_info();
 my $r = shift;
 my $redirect = single_param('redirect');
 
-if (get_oidc_implementation_level() < 5) {
-	# Keep legacy method until we have moved the login process to Keycloak
+if (get_oidc_implementation_level() < 2) {
+	# Keep legacy method until we are using Keycloak for all backchannel user verification
 
 	my $template_data_ref = {};
 	$template_data_ref->{redirect} = $redirect;
 	if (defined $User_id) {
-		my $loc = $redirect || $formatted_subdomain . "/cgi/session.pl";
+		my $loc = $redirect || $request_ref->{formatted_subdomain} . "/cgi/session.pl";
 		$r->headers_out->set(Location => $loc);
 		$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
 		$r->status(302);
@@ -103,7 +103,7 @@ if (get_oidc_implementation_level() < 5) {
 	display_page($request_ref);
 }
 else {
-	my $loc = $redirect || $formatted_subdomain . "/cgi/session.pl";
+	my $loc = $redirect || $request_ref->{formatted_subdomain} . "/cgi/session.pl";
 	my $status_code = Apache2::Const::HTTP_BAD_REQUEST;
 	my $final_status_set = 0;
 	if (defined $User_id) {
@@ -122,10 +122,10 @@ else {
 	}
 
 	if (not($final_status_set)) {
-		my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
+		my ($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
 			= password_signin(encode_utf8(decode utf8 => single_param('user_id')),
 			encode_utf8(decode utf8 => single_param('password')), $request_ref);
-		if ($oidc_user_id) {
+		if ($user_ref) {
 			$r->headers_out->set(Location => $loc);
 			$status_code = Apache2::Const::HTTP_MOVED_TEMPORARILY;
 		}

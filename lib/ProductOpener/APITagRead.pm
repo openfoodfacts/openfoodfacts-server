@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -131,7 +131,7 @@ sub read_tag_api ($request_ref) {
 		my $tag_ref = {};    # Object to store the knowledge panels
 		my $panels_created
 			= create_tag_knowledge_panels($tag_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $tagtype,
-			$canon_tagid);
+			$canon_tagid, $request_ref);
 
 		if ($panels_created) {
 			$response_ref->{tag}{knowledge_panels} = $tag_ref->{"knowledge_panels" . "_" . $lc};

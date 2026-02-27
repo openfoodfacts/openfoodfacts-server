@@ -1,3 +1,5 @@
+# Product prices
+
 ### Open Prices
 * Open Prices is a project to collect and share prices of food products around the world. It’s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.
 * We are crowdsourcing an open-source dataset of food prices. Prices can be added by users through our web app. Retailers or third-party apps can contribute as well by using our API.

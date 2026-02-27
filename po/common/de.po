@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Eine gemeinsame, freie und offene Datenbank von Lebensmittelprodukten aus der ganzen Welt."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr "Eine gemeinsame, freie und offene Datenbank von Tiernahrung aus der ganzen Welt."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -359,10 +359,6 @@ msgstr "Sie können außerdem helfen, das Projekt Open Food Facts mitzufinanzier
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Administrationshandbuch für Produzenten"
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Spenden für Open Food Facts\" /></a><p><<site_name>> wird von einem gemeinnützigen, von der Industrie unabhängigen Verein erstellt. Es wird für alle gemacht, von allen, und es wird von allen finanziert. Sie können unsere Arbeit unterstützen, indem Sie <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">für Open Food Facts spenden</a> und auch indem Sie <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">die Lilo-Suchmaschine benutzen</a>.<br/><b>Vielen Dank!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -3725,6 +3721,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "Datenqualitätsfehler"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "Datenqualität Vollständigkeit"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "Datenqualität"
@@ -4635,17 +4635,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Daten zur Berechnung des Nutri-Scores fehlen"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Nutri-Score nicht zutreffend"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score nicht anwendbar"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "Nicht zutreffend für diese Kategorie"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr "Nicht zutreffend für diese Kategorie: {category}"
+msgid "Not applicable for the category: {category}"
+msgstr "Nicht anwendbar für die Kategorie: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5120,6 +5120,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Nährwertangaben fehlen"
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Fehlende Nährwertangaben für zubereitetes Produkt"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr "Green-Score"
@@ -5462,6 +5466,10 @@ msgstr "Green-Score nicht berechnet"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Unbekannte Umweltauswirkungen"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Genaue Kategorie fehlt"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5972,6 +5980,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etiketten mit sehr starken Umweltvorteilen"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Keine bewerteten Etiketten"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Einige Vorteile für die Umwelt"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Hoher Umweltnutzen"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Sehr hoher ökologischer Nutzen"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Weitere"
@@ -6108,6 +6132,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr "Nährwertangaben fehlen:"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Fehlende Nährwertangaben für zubereitetes Produkt:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Zur Berechnung des Nutri-Score muss die Kategorie des Produkts angegeben werden."
@@ -6123,6 +6151,14 @@ msgstr "Mitwirken"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Mitwirken"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Vollständigkeit der Datenqualität"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Einige Informationen zur Vollständigkeit der Datenqualität zu diesem Produkt"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6195,6 +6231,10 @@ msgstr "Fehlende Kategorie"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Nährwertangaben fehlen"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Fehlende Nährwertangaben"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6334,7 +6374,7 @@ msgstr "Erfahren Sie mehr über den Green-Score"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr "Sehr guter Treffer"
+msgstr "Sehr gute Übereinstimmung"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
@@ -6349,12 +6389,12 @@ msgstr "Schlechter Treffer"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr "Unbekannte Übereinstimmung"
+msgstr "Unbekanntes Produkt"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr "Weicht möglicherweise ab"
+msgstr "Stimmt möglicherweise nicht überein"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
@@ -6380,6 +6420,10 @@ msgstr "Könnten Sie bitte die für die Berechnung des Nutri-Score erforderliche
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "Könnten Sie bitte eine genaue Produktkategorie angeben, damit wir den Green-Score berechnen können?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Die Kategorie, die für dieses Produkt vorgesehen ist, ist nicht präzise genug, um den Green-Score zu berechnen. Kannst du eine genauere Produktkategorie hinzufügen?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7359,11 +7403,11 @@ msgid "Repairability index unknown"
 msgstr "Reparierbarkeitsindex unbekannt"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
+msgid "Repairability index not applicable"
 msgstr "Reparierbarkeitsindex nicht anwendbar"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "Nicht zutreffend für diese Kategorie"
 
 # variable names between { } must not be translated
@@ -7509,9 +7553,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Melden Sie dieses Bild unseren Moderatoren"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Es fehlen die Angaben zur Portionsgröße und/oder Einheit, um den Nutri-Score berechnen zu können"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> wird von einem gemeinnützigen Verein unabhängig von der Industrie erstellt. Es ist für alle, von allen und wird von allen finanziert. Sie können unsere Arbeit unterstützen, indem Sie an Open Food Facts spenden.<br/><b>Vielen Dank!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> wird von einem gemeinnützigen Verein unabhängig von der Industrie erstellt. Es ist für alle, von allen und wird von allen finanziert. Sie können unsere Arbeit unterstützen, indem Sie an Open Food Facts spenden und die Lilo-Suchmaschine nutzen.<br/><b>Vielen Dank!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo-Suchmaschine"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Aufgrund des starken Missbrauchs durch automatisierte Systeme können wir diese Seite nicht an unbekannte Benutzer ausliefern. Bitte erstellen Sie ein kostenloses Open Food Facts-Konto, um auf alle Open Food Facts zugreifen zu können."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Herkunft der Inhaltsstoffe"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "Herkunft des Produkts"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Produktinformationen"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Rohproduktinformationen"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7525,7 +7601,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Geschätzte Menge an zugesetztem Zucker in Zutaten"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Menge an zugesetztem Zucker"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Suche nach Produkten der gleichen Kategorie ohne Zuckerzusatz:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Unerwünschte Inhaltsstoffe"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Diese Präferenz basiert auf dem Verständnis der Zutatenliste durch Open Food Facts und ist möglicherweise nicht genau. Überprüfen Sie das Produkt immer selbst."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Vorhandensein unerwünschter Inhaltsstoffe unbekannt"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Keine unerwünschten Inhaltsstoffe festgestellt"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Enthält unerwünschte Inhaltsstoffe"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Einige Zutaten wurden nicht erkannt"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Wir haben nicht erkannt: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Wir haben Folgendes nicht erkannt: {unwanted_ingredients}. Möglicherweise haben wir einige Zutaten übersehen. Bitte überprüfen Sie immer die Zutatenliste."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Diese Präferenzen basieren auf dem Verständnis der Zutatenliste durch Open Food Facts und es besteht immer die Möglichkeit, dass diese nicht genau oder vollständig ist. Überprüfen Sie das Produkt immer selbst."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Rauchen ist tödlich"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Tabak schädigt die Gesundheit schwer. Fang gar nicht erst an. Hör jetzt auf."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Rauchen macht stark abhängig. Fangen Sie gar nicht erst damit an. Rauchen ist tödlich – hören Sie jetzt auf. Rauchen verstopft die Arterien und verursacht Herzinfarkte und Schlaganfälle. Rauchen verursacht tödlichen Lungenkrebs. Rauchen während der Schwangerschaft schadet Ihrem Baby. Schützen Sie Kinder: Lassen Sie sie Ihren Rauch nicht einatmen. Ihr Arzt oder Apotheker kann Ihnen helfen, mit dem Rauchen aufzuhören. Rauchen kann die Durchblutung verringern und Impotenz verursachen. Rauchen führt zur Hautalterung. Rauchen kann die Spermien schädigen und die Fruchtbarkeit verringern. Rauch enthält Benzol, Nitrosamine, Formaldehyd und Blausäure."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Öffentlicher Preis"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Unverbindliche Preisempfehlung des Herstellers (UVP), ohne Rabatte und Sonderangebote, wie auf der Produktverpackung oder der Website des Herstellers angegeben (einschließlich oder ohne Steuern gemäß gesetzlicher Bestimmungen). Verwenden Sie eine durch Kommas getrennte Liste, wenn Preise in mehreren Währungen aufgeführt sind."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Personalisierte Immobilie"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Enthält kein Palmöl"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Kann Palmöl enthalten"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Umweltlabel"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Fehlende Daten"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Hohe Wirkung"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Mittlere Auswirkungen"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Geringe Auswirkungen"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Auswirkungen nicht bewertet"
 
