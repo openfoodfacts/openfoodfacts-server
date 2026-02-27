@@ -12,14 +12,14 @@ Following `type`s are allowed:
   - `fix`, for Bug Fixes
   - `docs`, for Documentation
   - `ci`, for Automation
-  - `style`,
+  - `style`, for Code style changes (formatting, whitespace, etc.)
   - `refactor`, for code Refactoring
   - `chore`, for Miscellaneous things
-  - `test`,
-  - `build`,
-  - `revert`,
-  - `l10n`,
-  - `taxonomy`,
+  - `test`, for Adding or updating tests
+  - `build`, for Build system or dependency changes
+  - `revert`, for Reverting previous changes
+  - `l10n`, for Localization and translation updates
+  - `taxonomy`, for Changes to product categories and tags taxonomy
 -->
 <!-- IMPORTANT CHECKLIST : Make sure you've done all the following (You can delete the checklist before submitting)-->
 <!-- - [ ] Code is well documented-->
