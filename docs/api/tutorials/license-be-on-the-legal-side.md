@@ -1,3 +1,5 @@
+# License - be on the legal side
+
 ## Understanding and being compliant with our data licences
 
 -   The Open Food Facts database is available under the [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/).

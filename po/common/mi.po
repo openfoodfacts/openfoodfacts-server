@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -357,10 +357,6 @@ msgstr ""
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -3707,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "te whakaotinga o te kounga raraunga"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -4617,17 +4617,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr ""
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score kaore e tika ana"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "Kaore e tika ana mo te waahanga: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5102,6 +5102,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Kei te ngaro nga korero kai mo te hua kua oti te whakarite"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr ""
@@ -5444,6 +5448,10 @@ msgstr ""
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Kei te ngaro tetahi waahanga tika"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5954,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Karekau he tapanga aromatawai"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Ko etahi painga o te taiao"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Nga painga taiao teitei"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "He tino nui nga painga o te taiao"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6090,6 +6114,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Kei te ngaro nga korero kai mo te hua kua rite:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
@@ -6105,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Te Whakaoti Kounga Raraunga"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Ko etahi korero mo te whakaotinga o te kounga raraunga mo tenei hua"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6177,6 +6213,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Kei te ngaro nga korero kai kua rite"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6362,6 +6402,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Ko te waahanga kei a maatau mo tenei hua kaore i te tino tika ki te tatau i te Tohu-Kakariki. Ka taea e koe te taapiri i tetahi waahanga hua tino tika?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7341,11 +7385,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "Karekau te taupū whakatika e tika ana"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7491,9 +7535,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Panuitia tenei whakaahua ki o maatau kaiwhakariterite"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Kei te ngaro te uara rahi o te kai me te waeine hei tatau i te Nutri-Score"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> he mea hanga e te roopu kore-painga, motuhake mai i te ahumahi. He mea hanga ma te katoa, ma te katoa, ka utua e te katoa. Ka taea e koe te tautoko i a maatau mahi ma te koha ki te Open Food Facts.<br/><b>Tēnā koe!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> he mea hanga e te roopu kore-painga, motuhake mai i te ahumahi. He mea hanga ma te katoa, ma te katoa, ka utua e te katoa. Ka taea e koe te tautoko i a maatau mahi ma te koha ki te Open Food Facts me te whakamahi i te miihini rapu a Lilo.<br/><b>Tēnā koe!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo miihini rapu"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Na te nui o te tukino a nga robots, kaore e taea e matou te tuku i tenei wharangi ki nga kaiwhakamahi kore mohio. Hangaia he kaute mo te Open Food Facts kore utu kia uru atu ki nga Meka Kai Tuwhera katoa."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr ""
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Nga korero hua"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Nga korero hua mata"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7507,7 +7583,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Ko te nui o te huka taapiri i roto i nga kai"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Te nui o nga huka taapiri"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Rapua nga hua i roto i te waahanga kotahi kaore he huka taapiri:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Nga kai e kore e hiahiatia"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "I ahu mai tenei manakohanga i runga i te maaramatanga o Open Food Facts ki te rarangi whakauru me te kore e tika, tirohia tonu te hua."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Te aroaro o nga kai kore e mohiotia"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Karekau he kai kino i kitea"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Kei roto nga kai kore e hiahiatia"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Ko etahi kai kaore i mohiotia"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Kaore i kitea e matou: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Kaore i kitea e matou: {unwanted_ingredients}. Kua ngaro pea i a maatau etahi kai, tena koa tirohia te rarangi whakauru."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Ko aua manakohanga i ahu mai i runga i te maaramatanga o Open Food Facts ki te rarangi whakauru me te kore pea e tika, kia oti ranei, tirohia tonu te hua."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Ka mate te kai paipa"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Ka tino kino te hauora o te tupeka. Kaua e timata. Whakamutua inaianei."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Ko te momi paipa he tino faatîtîraa. Kaua e timata. Ka mate te kai paipa - kati inaianei. Ko te kai paipa ka purua nga uaua, ka pa te ngakau me nga whiu. Ko te kai paipa ka mate te mate pukupuku mate pukupuku. Ko te kai paipa i te wa e hapu ana ka pa te kino ki to peepi. Tiakihia nga tamariki: kaua e whakapouri i to auahi. Ka taea e to taakuta me to kai rongoa te awhina i a koe kia mutu te kai paipa. Ma te kai paipa ka heke te rere o te toto me te ngoikore. Ko te kai paipa ka paheke te kiri. Ka taea e te kai paipa te kino te parāoa me te whakaheke i te hua. Kei roto i te auahi he benzene, nitrosamines, formaldehyde me te hauwai hauwai."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Utu a te iwi"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 EUR, 2.99 USD, 4.00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Ko te utu hokohoko i whakaarohia e te Kaihanga (MSRP), haunga nga utu me nga whakatairanga, kua tohuhia i runga i te kohinga hua, i te waahi ranei o te kaihanga (tae atu ki nga taake ranei i runga i te ture). Whakamahia he rarangi wehea piko ki te whakarārangihia nga utu i roto i nga moni maha."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Taonga whaiaro"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Karekau he hinu nikau"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Kei roto pea te hinu nikau"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Nga tapanga taiao"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Nga raraunga ngaro"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Te awe nui"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Pānga Waenga"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Pānga iti"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Ko te paanga kaore i aromatawaihia"
 

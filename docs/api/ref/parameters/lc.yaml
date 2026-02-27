@@ -1,0 +1,13 @@
+components:
+  parameters:
+    Lc:
+      name: lc
+      in: query
+      description: |
+        2 letter code of the language of the user.
+        Used for localizing some fields in returned values (e.g. knowledge panels).
+        If not passed, the language may be inferred by the domain name prefix.
+      required: false
+      schema:
+        type: string
+        example: "fr"

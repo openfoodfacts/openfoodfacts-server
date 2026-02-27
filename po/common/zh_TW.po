@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "來自全世界共同協作、自由且開放的食品資料庫。"
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
@@ -47,7 +47,7 @@ msgstr ""
 # OPF
 msgctxt "site_description_opf"
 msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
+msgstr "協作式、免費且開放的全球產品成份及資訊資料庫。"
 
 msgctxt "tagline_opf"
 msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -359,10 +359,6 @@ msgstr "你也可以贊助Open Food Facts的專案"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -931,7 +927,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -2409,7 +2405,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr "地區"
+msgstr "國家"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2907,7 +2903,7 @@ msgstr "合作伙伴"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr "/合作夥伴"
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
@@ -3722,6 +3718,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "資料品質缺陷"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "資料品質完整性"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "資料品質資訊"
@@ -3807,7 +3807,7 @@ msgstr "潛在提升"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -4632,17 +4632,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr ""
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score 不適用"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "不適用於以下類別： {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4697,19 +4697,19 @@ msgstr "NOVA %s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr "Group 1. Group 1. Group 1. Group 1. Group 1. Group 1. Unprocessed or minimally processed foods"
+msgstr ""
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
-msgstr "Group 2. Group 2. Group 2. Processed culinary ingredients"
+msgstr ""
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
-msgstr "Group 3. Processed foods"
+msgstr ""
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra-processed foods"
-msgstr "The overall purpose of ultra-processing is to create branded, convenient (durable, ready to consume), attractive (hyper-palatable) and highly profitable (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively. Ultra-processed food products are usually packaged attractively and marketed intensively."
+msgstr ""
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
@@ -5117,6 +5117,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "缺少預製產品的營養成分錶"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr ""
@@ -5135,11 +5139,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "各種各樣的"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "各種各樣的"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5165,7 +5169,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "材料"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5459,6 +5463,10 @@ msgstr ""
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "缺少精確的類別"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5969,6 +5977,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "未評估標籤"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "一些環境效益"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "高環境效益"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "極高的環境效益"
+
 msgctxt "other"
 msgid "Other"
 msgstr "其它"
@@ -6105,6 +6129,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "製備產品缺少的營養成分錶："
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
@@ -6120,6 +6148,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "資料品質完整性"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "關於該產品數據品質完整性的一些信息"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6192,6 +6228,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "缺少準備好的營養成分錶"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6331,32 +6371,32 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "非常精彩的比賽"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "完美匹配"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "匹配度差"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "未知匹配"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "可能不匹配"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "不匹配"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6377,6 +6417,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "該產品的類別不夠精確，無法計算綠色評分。您能否新增更精確的產品類別？"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6725,7 +6769,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "單位數量"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6757,19 +6801,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "請輸入產品中包含的相同形狀和材質的包裝單元的數量。"
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "如果回收說明中有列出形狀名稱，請輸入說明中列出的形狀名稱；或選擇一個形狀。"
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "如果可以確定特定材料，請輸入特定材料（包裝部件上通常可以找到三角形內的材料代碼）；如果不確定，請輸入通用材料（例如塑膠或金屬）。"
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "只有當產品上列有回收說明時，才需要填寫這些說明。"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6779,7 +6823,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "輸入淨重或淨體積，並註明單位（例如克或毫升）。"
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7356,11 +7400,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "可修復性指數不適用"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7399,7 +7443,7 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "產品類型"
 
 # Food product type
 msgctxt "product_type_food"
@@ -7506,9 +7550,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "向我們的版主檢舉此圖片"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "我們缺少計算營養評分所需的份量值和/或單位"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> 由一個獨立於食品業的非營利協會製作。它由所有人製作，惠及所有人，並由所有人資助。您可以透過向 Open Food Facts 捐款來支持我們的工作。<br/><b>謝謝！</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> 由一個獨立於食品業的非營利協會製作。它為所有人服務，由所有人製作，並由所有人資助。您可以透過向 Open Food Facts 捐款或使用 Lilo 搜尋引擎來支持我們的工作。<br/><b>謝謝！</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo搜尋引擎"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "由於機器人濫用現象嚴重，我們無法向未知的使用者提供此頁面。請建立一個免費的 Open Food Facts 帳戶，以存取所有 Open Food Facts 內容。"
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "配料來源"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "產品資訊"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "原始產品訊息"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7522,7 +7598,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "成分中添加糖的估計數量"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "添加糖的數量"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "搜尋同一類別中不添加糖的產品："
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "不需要的成分"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "此偏好基於 Open Food Facts 對成分錶的理解，可能不準確，請務必自行檢查產品。"
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "是否有未知的有害成分"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "未檢測到不需要的成分"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "含有有害成分"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "有些成分無法被識別"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "我們沒有檢測到： {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "我們沒有檢測到： {unwanted_ingredients}。我們可能遺漏了一些成分，請務必檢查成分錶。"
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "這些偏好是基於 Open Food Facts 對成分錶的理解，並且始終存在不準確或不完整的可能性，請務必親自檢查產品。"
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "吸煙有害健康"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "吸煙嚴重危害健康。不要開始吸煙。現在就戒菸。"
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "吸菸極易上癮。切勿開始。吸菸有害健康－立即戒菸。吸菸會阻塞動脈，導致心臟病發作和中風。吸煙會導致致命的肺癌。孕婦吸煙會損害胎兒。保護孩子：不要讓他們吸入您的煙霧。您的醫生或藥劑師可以幫助您戒菸。吸煙可能會減少血液流動並導致陽痿。吸煙會導致皮膚老化。吸煙會損害精子並降低生育能力。煙霧中含有苯、亞硝胺、甲醛和氰化氫。"
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "公開價格"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 歐元，2.99 美元，4.00 英鎊"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "廠商建議零售價（MSRP），不含折扣和促銷活動，以產品包裝或廠商網站所示為準（含稅或不含稅，視法律法規而定）。如需列出多種貨幣價格，請以逗號分隔。"
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "個人財產"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "不含棕櫚油"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "可能含有棕櫚油"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "環境標籤"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "缺失資料"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "高影響力"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "中等影響"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "低影響"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "影響尚未評估"
 

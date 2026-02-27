@@ -20,8 +20,8 @@
 
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
-/*global lang admin otherNutriments Tagify*/
-/*exported add_line upload_image update_image update_nutrition_image_copy*/
+/*global lang admin initializeTagifyInput other_nutrients:writable trackMatomoEvent*/ // we change other_nutrients to remove nutrients when they are added
+/*exported upload_image update_image update_nutrition_image_copy*/
 
 //Polyfill, just in case
 if (!Array.isArray) {
@@ -30,21 +30,15 @@ if (!Array.isArray) {
     };
 }
 
-var code;
-var current_cropbox;
-var images = [];
-var imgids = {};
-var img_path;
-var angles = {};
-var imagefield_imgid = {};
-var imagefield_url = {};
-var use_low_res_images = false;
-
-var units = [
-    ['g', 'mg', "\u00B5g", '% DV'],
-    ['mol/l', 'moll/l', 'mmol/l', 'mval/l', 'ppm', "\u00B0rH", "\u00B0fH", "\u00B0e", "\u00B0dH", 'gpg'],
-    ['kJ', 'kcal'],
-];
+let code;
+let current_cropbox;
+let images = [];
+const imgids = {};
+let img_path;
+const angles = {};
+const imagefield_imgid = {};
+const imagefield_url = {};
+let use_low_res_images = false;
 
 function stringStartsWith(string, prefix) {
     return string.slice(0, prefix.length) == prefix;
@@ -124,78 +118,6 @@ function add_language_tab(lc, language) {
     $(document).foundation('tab', 'reflow');
 }
 
-function select_nutriment(event, ui) {
-
-
-    //alert(ui.item.id + ' = ' + ui.item.value);
-    //alert($("#add_nutriment").val());
-    let id = $(this).attr('id');
-    id = id.replace("_label", "");
-    $('#' + id).focus();
-    $('#' + id + '_unit').val(ui.item.unit);
-    const unit = (ui.item.unit == '%' ? '%' : ui.item.unit).toLowerCase();
-    const unitElement = $('#' + id + '_unit');
-    const percentElement = $('#' + id + '_unit_percent');
-    if (unit === '') {
-        unitElement.hide();
-        percentElement.hide();
-    } else if (unit == '%') {
-        unitElement.hide();
-        percentElement.show();
-    } else {
-        unitElement.show();
-        percentElement.hide();
-
-        for (const entry of units) {
-            for (const unitEntry of entry) {
-                if (unitEntry.toLowerCase() == unit) {
-                    const domElement = unitElement[0];
-                    domElement.options.length = 0; // Remove current entries.
-                    for (const unitValue of entry) {
-                        domElement.options[domElement.options.length] = new Option(unitValue, unitValue, false, unitValue.toLowerCase() == unit);
-                    }
-        
-                    if (ui.item.iu) {
-                        domElement.options[domElement.options.length] = new Option('IU', 'IU', false, 'iu' == unit);
-                    }
-        
-                    return;
-                }
-            }
-        }
-    }
-}
-
-function add_line() {
-
-    $(this).unbind("change");
-
-    const id = parseInt($("#new_max").val(), 10) + 1;
-    $("#new_max").val(id);
-
-    const newline = $("#nutriment_new_0_tr").clone();
-    const newid = "nutriment_new_" + id;
-    newline.attr('id', newid + "_tr");
-    newline.find(".nutriment_label").attr("id", newid + "_label").attr("name", newid + "_label");
-    newline.find(".nutriment_unit").attr("id", newid + "_unit").attr("name", newid + "_unit");
-    newline.find(".nutriment_unit_percent").attr("id", newid + "_unit_percent").attr("name", newid + "_unit_percent");
-    newline.find("#nutriment_new_0").attr("id", newid).attr("name", newid);
-    newline.find("#nutriment_new_0_prepared").attr("id", newid + "_prepared").attr("name", newid + "_prepared");
-
-    $('#nutrition_data_table > tbody:last').append(newline);
-    newline.show();
-
-    newline.find(".nutriment_label").autocomplete({
-        source: otherNutriments,
-        select: select_nutriment,
-        //change: add_line
-    });
-
-    newline.find(".nutriment_label").change(add_line);
-
-    $(document).foundation('equalizer', 'reflow');
-}
-
 function update_image(imagefield) {
 
     $('#crop_' + imagefield).attr("src", "/cgi/product_image_rotate.pl?code=" + code + "&imgid=" + imagefield_imgid[imagefield] +
@@ -213,7 +135,6 @@ function rotate_image(event) {
 
     $('img#crop_' + imagefield).cropper('rotate', angle);
 
-    //var selection = $('img#crop_' + imagefield ).cropper('getData');
     const selection = $('img#crop_' + imagefield).cropper('getCropBoxData');
 
     selection.x = selection.left;
@@ -529,196 +450,24 @@ function update_display(imagefield, first_display, protected_product) {
 function initializeTagifyInputs() {
     document.
         querySelectorAll("input.tagify-me").
-        forEach((input) => initializeTagifyInput(input));
-}
+        forEach((input) => initializeTagifyInput(input, maximumRecentEntriesPerTag)); // defined in tagify-init.js
 
-const maximumRecentEntriesPerTag = 10;
-
-function initializeTagifyInput(el) {
-    const input = new Tagify(el, {
-        autocomplete: true,
-        whitelist: get_recents(el.id) || [],
-        dropdown: {
-            highlightFirst: false,
-            enabled: 0,
-            maxItems: 100
-        }
-    });
-
-    let abortController;
-    let debounceTimer;
-    const timeoutWait = 300;
-    let value = "";
-
-    function updateSuggestions(show) {
-        if (value) {
-            const lc = (/^\w\w:/).exec(value);
-            const term = lc ? value.substring(lc[0].length) : value;
-            if (show) {
-                input.dropdown.show(term);
-            }
-        } else {
-            input.whitelist = get_recents(el.id) || [];
-            if (show) {
-                input.dropdown.show();
-            }
-        }
-    }
-
-    function autocompleteWithSearch(newValue) {
-        value = newValue;
-        input.whitelist = null; // reset the whitelist
-
-        if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
-            clearTimeout(debounceTimer);
-
-            debounceTimer = setTimeout(function () {
-                // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
-                if (abortController) {
-                    abortController.abort();
-                }
-
-                abortController = new AbortController();
-
-                fetch(el.dataset.autocomplete + "&string=" + value + "&get_synonyms=1", {
-                    signal: abortController.signal
-                }).
-                    then((RES) => RES.json()).
-                    then(function (json) {
-                        const lc = (/^\w\w:/).exec(value);
-                        let whitelist = Object.values(json.matched_synonyms);
-                        if (lc) {
-                            whitelist = whitelist.map(function (e) {
-                                return {"value": lc + e, "searchBy": e};
-                            });
-                        }
-                        const synonymMap = Object.create(null);
-                        // eslint-disable-next-line guard-for-in
-                        for (const k in json.matched_synonyms) {
-                            synonymMap[json.matched_synonyms[k]] = k;
-                        }
-                        input.synonymMap = synonymMap;
-                        input.whitelist = whitelist;
-                        updateSuggestions(true); // render the suggestions dropdown
-                    });
-            }, timeoutWait);
-        }
-        updateSuggestions(true);
-    }
-
-    input.on("input", function (event) {
-        autocompleteWithSearch(event.detail.value);
-    });
-
-    input.on("edit:input", function (event) {
-        autocompleteWithSearch(event.detail.data.newValue);
-    });
-
-    input.on("edit:start", function (event) {
-        autocompleteWithSearch(event.detail.data.value);
-    });
-
-    input.on("change", function () {
-        value = "";
-        updateSuggestions(false);
-    });
-
-    input.on("edit:updated", function () {
-        value = "";
-        updateSuggestions(false);
-    });
-
-    input.on("dropdown:show", function() {
-        if (!input.synonymMap) {
-            return;
-        }
-        $(input.DOM.dropdown).find("div.tagify__dropdown__item").each(function(_,e) {
-            let synonymName = e.getAttribute("value");
-            const lc = (/^\w\w:/).exec(synonymName);
-            if (lc) {
-                synonymName = synonymName.substring(3);
-            }
-            const canonicalName = input.synonymMap[synonymName];
-            if (canonicalName && canonicalName !== synonymName) {
-                e.innerHTML += " (&rarr; <i>" + canonicalName + "</i>)";
-            }
-        });
-    });
-
-    input.on("add", function (event) {
-        let obj;
-
-        try {
-            obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-        } catch (err) {
-            if (err.name == "NS_ERROR_FILE_CORRUPTED") {
-                obj = null;
-            }
-        }
-
-        const tag = event.detail.data.value;
-        if (obj === null) {
-            obj = {};
-            obj[el.id] = [tag];
-        } else if (obj[el.id] === null || !Array.isArray(obj[el.id])) {
-            obj[el.id] = [tag];
-        } else if (obj[el.id].indexOf(tag) == -1) {
-            if (obj[el.id].length >= maximumRecentEntriesPerTag) {
-                obj[el.id].pop();
-            }
-
-            obj[el.id].unshift(tag);
-        }
-
-        try {
-            window.localStorage.setItem("po_last_tags", JSON.stringify(obj));
-        } catch (err) {
-            if (err.name == "NS_ERROR_FILE_CORRUPTED") {
-                // Don't to anything
-            }
-        }
-
-        value = "";
-        updateSuggestions(false);
-    });
-
-    input.on("focus", function () {
-        value = "";
-        updateSuggestions(false);
-    });
-
-    input.on("blur", function () {
-        value = "";
-        updateSuggestions(false);
-    });
-
+    // Before submitting the form, we need to convert the Tagify values (array of objects) to a simple comma-separated string
     document.
         getElementById("product_form").
         addEventListener("submit", function () {
-            el.value = input.value.map((obj) => obj.value).join(",");
+            document.
+                querySelectorAll("input.tagify-me").
+                forEach((input) => {
+                    // Parse the Tagify value (JSON string) into an array of objects
+                    const tagifyValues = JSON.parse(input.value || "[]");
+                    // Map the objects to their `value` property and join them into a string
+                    input.value = tagifyValues.map((obj) => obj.value).join(",");
+                });
         });
 }
 
-function get_recents(tagfield) {
-    let obj;
-    try {
-        obj = JSON.parse(window.localStorage.getItem("po_last_tags"));
-    } catch (e) {
-        if (e.name == "NS_ERROR_FILE_CORRUPTED") {
-            obj = null;
-        }
-    }
-
-    if (
-        obj !== null &&
-        typeof obj[tagfield] !== "undefined" &&
-        obj[tagfield] !== null
-    ) {
-        return obj[tagfield];
-    }
-
-    return [];
-}
+const maximumRecentEntriesPerTag = 10;
 
 (function ($) {
 
@@ -896,6 +645,7 @@ function get_recents(tagfield) {
 
                                     $('#' + imagefield + '_' + data.result.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
                                     change_image(imagefield, data.result.image.imgid);
+                                    trackMatomoEvent('Product', 'Image Upload', imagefield);
                                 }
 
                                 if (data.result.error) {
@@ -912,7 +662,7 @@ function get_recents(tagfield) {
                             $("#imgsearchbutton_" + imagefield).show();
                             $("#imgsearchmsg_" + imagefield).hide();
 
-                            // showing the message "image recieved" once user uploads the image
+                            // showing the message "image received" once user uploads the image
                             if (typeof data_info === "string" && stringStartsWith(data_info, "protect")) {
                                 $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
                                 $("#imgsearchmsg_" + imagefield).show();
@@ -939,7 +689,7 @@ function get_recents(tagfield) {
                             }
                         },
                         progress: function (e, data) {
-                            $("#progressmeter_" + imagefield).css('width', parseInt(data.loaded / data.total * 100, 10) + "%");
+                            $("#progressmeter_" + imagefield).css('width', Number.parseInt(data.loaded / data.total * 100, 10) + "%");
                         }
 
                     });
@@ -991,7 +741,7 @@ function get_recents(tagfield) {
     };
 
     $('#back-btn').click(function () {
-        window.location.href = window.location.origin + '/product/' + window.code;
+        window.location.href = window.location.origin + '/product/' + code;
     });
 
     initLanguageAdding();
@@ -1112,58 +862,36 @@ $(function () {
         $(document).foundation('equalizer', 'reflow');
     });
 
+    // Select2 for adding nutrients
 
-    $(".nutriment_label").autocomplete({
-        source: otherNutriments,
-        select: select_nutriment,
-        //change: add_line
+    $('#add_nutrient_select').select2({
+      placeholder: lang().product_js_add_a_nutrient,
+      data: other_nutrients, // Use the other_nutrients array to populate the dropdown
+      allowClear: true
+    }); 
+    $('#add_nutrient_select').val(null).trigger('change');
+
+    $("#add_nutrient_select").on("select2:select", function (e) {
+        // get the selected id, and show the corresponding row with id "nutrient_<id>_tr"
+        // move the corresponding row to the bottom of the table, just before the add_nutrient_tr row
+        const id = e.params.data.id;
+        const nutrientRow = $('#nutrient_' + id + '_tr');
+        const inputRow = $('#add_nutrient_tr');
+        nutrientRow.insertBefore(inputRow);
+        nutrientRow.show();
+
+        // remove the selected nutrient from the other_nutrients array
+        other_nutrients = other_nutrients.filter(function (item) {
+            return item.id !== id;
+        });
+        // update the select2 dropdown
+        $(this).empty().select2({
+            placeholder: lang().product_js_add_a_nutrient,
+            data: other_nutrients, // Use the other_nutrients array to populate the dropdown
+            allowClear: true
+        });
+        $('#add_nutrient_select').val(null).trigger('change');
     });
-
-    $("#nutriment_sodium").change(function () {
-        swapSalt($("#nutriment_sodium"), $("#nutriment_salt"), 2.5);
-    });
-
-    $("#nutriment_salt").change(function () {
-        swapSalt($("#nutriment_salt"), $("#nutriment_sodium"), 1 / 2.5);
-    });
-
-    $("#nutriment_sodium_prepared").change(function () {
-        swapSalt($("#nutriment_sodium_prepared"), $("#nutriment_salt_prepared"), 2.5);
-    });
-
-    $("#nutriment_salt_prepared").change(function () {
-        swapSalt($("#nutriment_salt_prepared"), $("#nutriment_sodium_prepared"), 1 / 2.5);
-    });
-
-    function swapSalt(from, to, multiplier) {
-        const source = from.val().replace(",", ".");
-        const regex = /^(.*?)(\d+(?:\.\d+)?)(.*?)$/g;
-        const match = regex.exec(source);
-        let target = match[1] + (parseFloat(match[2]) * multiplier) + match[3];
-
-        if (match) {
-            if (match[1] == ".") {
-                const number = "0." + match[2];
-                target = (parseFloat(number) * multiplier) + match[3];
-            }
-
-            to.val(target);
-        } else {
-            to.val(from.val());
-        }
-    }
-
-    $("#nutriment_sodium_unit").change(function () {
-        $("#nutriment_salt_unit").val($("#nutriment_sodium_unit").val());
-    });
-
-    $("#nutriment_salt_unit").change(function () {
-        $("#nutriment_sodium_unit").val($("#nutriment_salt_unit").val());
-    });
-
-    $("#nutriment_new_0_label").change(add_line);
-    $("#nutriment_new_1_label").change(add_line);
-
 });
 
 $(function () {
@@ -1246,44 +974,82 @@ $('#manage_images_accordion').on('toggled', function () {
     toggle_manage_images_buttons();
 });
 
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+
+
+    return div.innerHTML;
+}
+
+async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copyData = null) {
+
+    const deleteBtn = document.getElementById('delete_images');
+    const moveBtn = document.getElementById('move_images');
+    const msgDiv = document.querySelector('div[id="moveimagesmsg"]');
+
+    deleteBtn.classList.add('disabled');
+    moveBtn.classList.add('disabled');
+
+    msgDiv.innerHTML = '<img src="/images/misc/loading2.gif" /> ' + escapeHtml(loadingMsg);
+    msgDiv.style.display = 'block';
+    msgDiv.style.opacity = '1';
+
+    const formData = new FormData(document.getElementById('product_form'));
+    formData.append('code', code);
+    formData.append('move_to_override', moveTo);
+    if (copyData !== null) {
+        formData.append('copy_data_override', copyData);
+    }
+
+    formData.append('imgids', get_list_of_imgids());
+
+    try {
+        const response = await fetch("/cgi/product_image_move.pl", {
+            method: "POST",
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+
+        const data = await response.json();
+
+        if (data.error) {
+            msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(data.error);
+            msgDiv.style.opacity = '1';
+        } else {
+            const linkHtml = data.code ? ` &rarr; <a href="${encodeURI(data.url)}">${escapeHtml(data.code)}</a>` : '';
+            msgDiv.innerHTML = escapeHtml(successMsg) + linkHtml;
+            msgDiv.style.opacity = '1';
+        }
+        $([]).selectcrop('init_images', data.images);
+        $(".select_crop").selectcrop('show');
+    } catch (error) {
+        msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(error.message);
+        msgDiv.style.opacity = '1';
+    } finally {
+        setTimeout(() => {
+            msgDiv.style.opacity = '0';
+        }, 1700);
+        setTimeout(() => {
+            msgDiv.style.display = 'none';
+        }, 2000);
+        toggle_manage_images_buttons();
+    }
+}
+
 $("#delete_images").click({}, function (event) {
 
     event.stopPropagation();
     event.preventDefault();
 
-    if (!$("#delete_images").hasClass("disabled")) {
-
-        $("#delete_images").addClass("disabled");
-        $("#move_images").addClass("disabled");
-
-        $('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_deleting_images);
-        $('div[id="moveimagesmsg"]').show();
-
-        get_list_of_imgids();
-
-        $("#product_form").ajaxSubmit({
-
-            url: "/cgi/product_image_move.pl",
-            data: { code: code, move_to_override: "trash", imgids: get_list_of_imgids() },
-            dataType: 'json',
-            success: function (data) {
-
-                if (data.error) {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + data.error);
-                } else {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_deleted);
-                }
-                $([]).selectcrop('init_images', data.images);
-                $(".select_crop").selectcrop('show');
-
-            },
-            error: function (textStatus) {
-                $('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + textStatus);
-            },
-        });
-
+    if ($("#delete_images").hasClass("disabled")) {
+      return;
     }
 
+    performImageAction(lang().product_js_deleting_images, lang().product_js_images_deleted, lang().product_js_images_delete_error, "trash");
 });
 
 $("#move_images").click({}, function (event) {
@@ -1291,103 +1057,36 @@ $("#move_images").click({}, function (event) {
     event.stopPropagation();
     event.preventDefault();
 
-    if (!$("#move_images").hasClass("disabled")) {
-
-        $("#delete_images").addClass("disabled");
-        $("#move_images").addClass("disabled");
-
-        $('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_moving_images);
-        $('div[id="moveimagesmsg"]').show();
-
-        get_list_of_imgids();
-
-        $("#product_form").ajaxSubmit({
-
-            url: "/cgi/product_image_move.pl",
-            data: { code: code, move_to_override: $("#move_to").val(), copy_data_override: $("#copy_data").prop("checked"), imgids: get_list_of_imgids() },
-            dataType: 'json',
-            success: function (data) {
-
-                if (data.error) {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + data.error);
-                } else {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_moved + ' &rarr; ' + data.link);
-                }
-                $([]).selectcrop('init_images', data.images);
-                $(".select_crop").selectcrop('show');
-
-            },
-            error: function (textStatus) {
-                $('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + textStatus);
-            },
-            complete: function () {
-                $("#move_images").addClass("disabled");
-                $("#move_images").addClass("disabled");
-                $("#manage .ui-selected").first().each(function () {
-                    $("#move_images").removeClass("disabled");
-                    $("#move_images").removeClass("disabled");
-                });
-            }
-        });
-
+    if ($("#move_images").hasClass("disabled")) {
+      return;
     }
 
+    performImageAction(lang().product_js_moving_images, lang().product_js_images_moved, lang().product_js_images_move_error, document.getElementById('move_to').value, document.getElementById('copy_data').checked);
 });
 
 // Nutrition facts
 
 $(function () {
-    $('#nutrition_data').change(function() {
+
+    // Nutrition input set checkboxes
+    // For each element with the class nutrition_input_set,
+    // we use the id of the checkbox nutrition_input_sets_${preparation}_${per}_shown
+    // to show or hide the input set column cells with the class nutrition_input_sets_${preparation}_${per}
+
+    $('.nutrition_input_set').on('change', function() {
+        const id = $(this).attr('id');
+        // remove _shown at the end
+        const input_set_class = id.replace(/_shown$/, '');
         if ($(this).prop('checked')) {
-            $('#nutrition_data_instructions').show();
-            $('.nutriment_col').show();
+            $('.' + input_set_class).show();
         } else {
-            $('#nutrition_data_instructions').hide();
-            $('.nutriment_col').hide();
-            $('.nutriment_value_as_sold').val('');
+            $('.' + input_set_class).hide();
+            // clear the values: inputs with class nutrient_value that are inside a cell with the input_set_class
+            $('.' + input_set_class + ' input.nutrient_value').val('');
         }
-        update_nutrition_image_copy();
-        $(document).foundation('equalizer', 'reflow');
     });
 
-    $('input[name=nutrition_data_per]').change(function() {
-        if ($('input[name=nutrition_data_per]:checked').val() == '100g') {
-            $('#nutrition_data_100g').show();
-            $('#nutrition_data_serving').hide();
-        } else {
-            $('#nutrition_data_100g').hide();
-            $('#nutrition_data_serving').show();
-        }
-        update_nutrition_image_copy();
-        $(document).foundation('equalizer', 'reflow');
-    });
-
-    $('#nutrition_data_prepared').change(function() {
-        if ($(this).prop('checked')) {
-            $('#nutrition_data_prepared_instructions').show();
-            $('.nutriment_col_prepared').show();
-        } else {
-            $('#nutrition_data_prepared_instructions').hide();
-            $('.nutriment_col_prepared').hide();
-            $('.nutriment_value_prepared').val('');
-        }
-        update_nutrition_image_copy();
-        $(document).foundation('equalizer', 'reflow');
-    });
-
-    $('input[name=nutrition_data_prepared_per]').change(function() {
-        if ($('input[name=nutrition_data_prepared_per]:checked').val() == '100g') {
-            $('#nutrition_data_prepared_100g').show();
-            $('#nutrition_data_prepared_serving').hide();
-        } else {
-            $('#nutrition_data_prepared_100g').hide();
-            $('#nutrition_data_prepared_serving').show();
-        }
-        update_nutrition_image_copy();
-        $(document).foundation('equalizer', 'reflow');
-    });
-
-    $('#no_nutrition_data').change(function() {
+    $('#no_nutrition_data').on('change', function() {
         if ($(this).prop('checked')) {
             $('#nutrition_data_div').hide();
         } else {
@@ -1395,29 +1094,86 @@ $(function () {
         }
     });
 
+    // If we have global nutrient unit select boxes, when their value changes, we update all the nutrient unit select boxes for all input sets
+    // The global unit selectors have the class global_nutrient_unit and an id of the form global_nutrient_[% nutrient.nid %]_unit
+    // The input set unit selectors have a class of the form nutrient_[% nutrient.nid %]_unit
+    $('.global_nutrient_unit').on('change', function() {
+        const id = $(this).attr('id');
+        const nutrient_id = id.replace(/^global_nutrient_/, '').replace(/_unit$/, '');
+        const new_unit = $(this).val();
+        $('.nutrient_' + nutrient_id + '_unit').val(new_unit);
+        // trigger a change event on the unit select boxes so that any dependent code is executed
+        $('.nutrient_' + nutrient_id + '_unit').trigger('change');
+    });
+
 });
 
-function show_warning(should_show, nutrient_id, warning_message){
+// eslint-disable-next-line max-params
+function show_warning(should_show, input_id, nutrient_id, per, preparation, warning_message){
+    const question_mark_id = `#nutrient_question_mark_${nutrient_id}_${preparation}_${per}`;
+    const warning_id = `#nutrient_sugars_warning_${nutrient_id}_${preparation}_${per}`;
+    
     if(should_show) {
-        $('#nutriment_'+nutrient_id).css("background-color", "rgb(255 237 235)");
-        $('#nutriment_question_mark_'+nutrient_id).css("display", "inline-table");
-        $('#nutriment_sugars_warning_'+nutrient_id).text(warning_message);
+        $(input_id).css("background-color", "rgb(255 237 235)");
+        $(question_mark_id).css("display", "inline-table");
+        $(warning_id).text(warning_message);
     }
     // clear the warning only if the warning message we don't show is the same as the existing warning
     // so that we don't remove a warning on sugars > 100g if we change carbohydrates
-    else if (warning_message == $('#nutriment_sugars_warning_'+nutrient_id).text()) {
-        $('#nutriment_'+nutrient_id).css("background-color", "white");
-        $('#nutriment_question_mark_'+nutrient_id).css("display", "none");
+    else if (warning_message == $(warning_id).text()) {
+        $(input_id).css("background-color", "white");
+        $(question_mark_id).css("display", "none");
     }
 }
 
-function check_nutrient(nutrient_id) {
+function get_nutrient_unit(nutrient_id) {
+    // line selector case (user chooses a unit from a list for the whole row of the nutrient)
+    const select = $(`#global_nutrient_${nutrient_id}_unit`);
+    if (select.length) {
+        
+        return select.val();
+    }
+    // per-cell selector case (user chooses a unit from a list for one particular cell)
+    const selectPerCell = $(`#nutrient_${nutrient_id}_tr select.nutrient_unit`).first();
+    if (selectPerCell.length) {
+        return selectPerCell.val();
+    }
+    // fixed unit case (for nutrients with only one unit, e.g. kJ for energy-kj)
+    
+    return $(`#nutrient_${nutrient_id}_tr .nutrient_unit`).first().text().trim();
+}
+
+function get_nutrient_value(nutrient_id, per, preparation, wanted_unit) {
+
+    const input_id = `#nutrition_input_sets_${preparation}_${per}_nutrients_${nutrient_id}_value_string`;
+
+    let value = Number.parseFloat(($(input_id).val() || '').replace(',', '.'));
+    
+    if (!Number.isNaN(value)) {
+        const current_unit = get_nutrient_unit(nutrient_id);
+
+        const factor = {
+            'g': 1,
+            'mg': 0.001,
+            'µg': 0.000001
+        };
+
+        if (factor[current_unit] !== null && factor[wanted_unit] !== null) {
+            value *= (factor[current_unit] / factor[wanted_unit]);
+        }
+
+        return value;
+    }
+}
+
+function check_nutrient(nutrient_id, per, preparation, id) {
     // check the changed nutrient value
-    const nutrient_value = $('#nutriment_' + nutrient_id).val().replace(',','.').replace(/^(<|>|~)/, '');
-    const nutrient_unit = $('#nutriment_' + nutrient_id + '_unit').val();
+    const nutrient_value = $('#' + id).val().replace(',', '.').replace(/^(<|>|~)/, '');
+    const nutrient_unit = get_nutrient_unit(nutrient_id);
 
     // define the max valid value
     let max;
+    const per_serving = (per === "serving");  // true if "serving", false if "100g"
     let percent;
 
     if (nutrient_id == 'energy-kj') {
@@ -1442,38 +1198,62 @@ function check_nutrient(nutrient_id) {
 
     let is_above_or_below_max;
     if (max) {
-        is_above_or_below_max = (isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
+        is_above_or_below_max = (Number.isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
         // if the nutrition facts are indicated per serving, the value can be above 100
-        if ((nutrient_value > max) && ($('#nutrition_data_per_serving').is(':checked')) && !percent) {
+        if ((nutrient_value > max) && per_serving && !percent) {
             is_above_or_below_max = false;
         }
-        show_warning(is_above_or_below_max, nutrient_id, lang().product_js_enter_value_between_0_and_max.replace('{max}', max));
+        show_warning(is_above_or_below_max, "#"+id, nutrient_id, per, preparation, lang().product_js_enter_value_between_0_and_max.replace('{max}', max));
     }
 
     // check that nutrients are sound (e.g. sugars is not above carbohydrates)
     // but only if the changed nutrient does not have a warning
     // otherwise we may clear the sugars or saturated-fat warning
     if (! is_above_or_below_max) {
-        const fat_value = $('#nutriment_fat').val().replace(',','.');
-        const carbohydrates_value = $('#nutriment_carbohydrates').val().replace(',','.');
-        const sugars_value = $('#nutriment_sugars').val().replace(',','.');
-        const saturated_fats_value = $('#nutriment_saturated-fat').val().replace(',','.');
+        const fat_value = get_nutrient_value("fat", per, preparation, nutrient_unit);
+        const carbohydrates_value = get_nutrient_value("carbohydrates", per, preparation, nutrient_unit);
+        const sugars_value = get_nutrient_value("sugars", per, preparation, nutrient_unit);
+        const saturated_fats_value = get_nutrient_value("saturated-fat", per, preparation, nutrient_unit);
 
-        const is_sugars_above_carbohydrates = parseFloat(carbohydrates_value) < parseFloat(sugars_value);
-        show_warning(is_sugars_above_carbohydrates, 'sugars', lang().product_js_sugars_warning);
+        const is_sugars_above_carbohydrates = Number.parseFloat(carbohydrates_value) < Number.parseFloat(sugars_value);
+        const sugars_input_id = `nutrition_input_sets_${preparation}_${per}_nutrients_sugars_value_string`;
+        show_warning(is_sugars_above_carbohydrates, sugars_input_id, "sugars", per, preparation, lang().product_js_sugars_warning);
 
-        const is_fat_above_saturated_fats = parseFloat(fat_value) < parseFloat(saturated_fats_value);
-        show_warning(is_fat_above_saturated_fats, 'saturated-fat', lang().product_js_saturated_fat_warning);
+        const is_fat_above_saturated_fats = Number.parseFloat(fat_value) < Number.parseFloat(saturated_fats_value);
+        const saturated_fat_input_id = `nutrition_input_sets_${preparation}_${per}_nutrients_saturated-fat_value_string`;
+        show_warning(is_fat_above_saturated_fats, saturated_fat_input_id, "saturated-fat", per, preparation, lang().product_js_saturated_fat_warning);
     }
 }
 
 $(function () {
-    $('.nutriment_value_as_sold').each(function () {
-        const nutrient_id = this.id.replace('nutriment_', '');
+    $('.nutrient_value').each(function () {
+        // looking at the template of nutrient inputs, their ids are
+        // nutrition_input_sets_[preparation]_[per]_nutrients_[nutrient id]_value_string
+        const id = this.id;
+        const idParts = this.id.split('_');
+        // preparation can be "as_sold" of "prepared"
+        // so the index of the nutrient id and of the preparation can vary because of preparation
+        // the index of "nutrients" is used to retrieve the id and the per values
+        const nutrientIndex = idParts.indexOf('nutrients');
+
+        if (nutrientIndex === -1) {
+            // we can't analyze it because we can't get nutrient_id, per and preparation
+            return;
+        }
+
+        const nutrient_id = idParts[nutrientIndex + 1]; // nutrient id is after "nutrients" (index can vary depending on preparation)
+        const per = idParts[nutrientIndex - 1];        // per value is before "nutrients" (index can vary depending on preparation)
+        const preparation = idParts.slice(3, nutrientIndex - 1).join('_'); 
+
         this.oninput = function() {
-            check_nutrient(nutrient_id);
+            check_nutrient(nutrient_id, per, preparation, id);
         };
-        check_nutrient(nutrient_id);
+        check_nutrient(nutrient_id, per, preparation, id);
     });
+
+     $('.nutrient_unit').on('change', function () {
+        $('.nutrient_value').trigger('input');
+    });
+    
     }
 );

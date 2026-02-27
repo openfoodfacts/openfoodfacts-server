@@ -6,6 +6,20 @@ fr: CE, Marquage CE
 image:en: ce.126x90.svg
 wikidata:en: Q467405
 
+# Textile labels
+
+en: OEKO Tex Standard 100
+xx: OEKO Tex Standard 100
+wikidata:en: Q591258
+
+en: Fair Wear Foundation
+xx: Fair Wear Foundation
+fr: Fair Wear Foundation
+wikidata:en: Q1590777
+
+en: Global Organic Textile Standard
+wikidata:en: Q1531646
+
 xx: Energy Star
 en: Energy Star
 fr: Energy Star
@@ -30,6 +44,7 @@ en: EPEAT Climate+
 xx: FCC
 en: FCC, FCC certification
 fr: FCC, Certification FCC
+image:en: fcc.122x90.svg
 wikidata:en: Q16836423
 
 xx: RoHS
@@ -53,12 +68,12 @@ xx: UKNI, UK(NI)
 en: UKNI, UKNI marking
 image:en: ukni.90x90.png
 web:en: https://www.gov.uk/guidance/using-the-ukni-marking
-# wikidata:en: 
+# wikidata:en:
 
 xx: ICASA Approved
 en: ICASA Approved
 auth_url:en: https://www.icasa.org.za/
-# wikidata:en: 
+# wikidata:en:
 
 en: Battery included
 ar: بطارية مشمولة
@@ -90,24 +105,41 @@ zh: 包含可充电电池
 
 en: Without perfume
 da: Uden parfume
+de: Ohne Parfüm
+es: Sin perfume
+fr: Sans parfum
+it: Senza profumo
 nb: Uten parfyme
+nl: Zonder parfum
+pl: Bez perfum
+pt: Sem perfume
 sv: Utan parfym
 
-### Manufacturing and assembly places claims
+xx: IP 2X
+description:fr: protégé contre les corps solides supérieurs à 12,5 mm. Aucune protection contre les intrusions d'eau.
 
-en: Made in China
-ar: صنع في الصين
-de: Hergestellt in China
-es: Hecho en China
-fr: Fabriqué en Chine
-it: Fatto in Cina
-ja: 中国製
-ko: 중국산
-nl: Gemaakt in China
-pl: Wyprodukowano w Chinach
-pt: Feito na China
-ru: Сделано в Китае
-zh: 中国制造
+xx: IP 23
+description:fr: première résistance à l'eau et à l'humidité mais non étanche (ne doit pas être placé au-dessus d'une douche par exemple).
+
+xx: IP 44
+description:fr: protégé contre les corps solides supérieurs à 1 mm. Protégé contre les projections d'eau de toutes directions.
+
+xx: IP 54
+description:fr: protégé contre les poussières et autres résidus microscopiques. Protégé contre les projections d'eau de toutes directions.
+
+xx: IP 65
+description:fr: totalement protégé contre les poussières. Protégé contre les jets d'eau de toutes directions à la lance (buse de 6,3 mm, distance 2,5 à 3 m, débit 12,5 l/min ±5 %).
+
+xx: IP 67
+description:fr: totalement étanche à la poussière. Protégé contre l'immersion pendant 30 min jusqu'à 1 m de profondeur[b].
+
+xx: IP 68
+description:fr: totalement étanche à la poussière. Protégé contre l'immersion selon les spécifications du fabricant. Par exemple, de nombreux smartphones IP68 sont étanches 30 min à 1,5 m[8] tandis que des spots de piscine peuvent être étanches à 10 m pour de très longues périodes[9].
+
+xx: IP 69K
+description:fr: protégé contre les effets des jets d'eau à haute pression et du nettoyage à la vapeur
+
+### Manufacturing and assembly places claims
 
 en: Assembled in Europe
 ar: جمع في أوروبا
@@ -149,30 +181,6 @@ pl: Zmontowano we Francji
 pt: Montado na França
 ru: Собрано во Франции
 zh: 法国组装
-
-en: Made in Germany
-de: Hergestellt in Deutschland
-fr: Fabriqué en Allemagne
-
-en: Made in France
-de: Hergestellt in Frankreich
-fr: Fabriqué en France
-
-en: Made in USA
-es: Hecho en EE. UU.
-fr: Fabriqué aux États-Unis
-
-en: Made in Japan
-fr: Fabriqué au Japon
-ja: 日本製
-
-en: Made in Vietnam
-fr: Fabriqué au Viêt Nam
-vi: Sản xuất tại Việt Nam
-
-en: Made in Taiwan
-fr: Fabriqué à Taïwan
-zh: 台灣製造
 
 # Video Games
 # https://en.wikipedia.org/wiki/PEGI
@@ -241,13 +249,22 @@ de: USK ab 18 freigegeben
 # Smartphone specific labels, quality schemes and common claims
 
 en: Wireless Charging
+de: Kabelloses Laden
+es: Carga inalámbrica
 fr: Chargement sans fil
+it: Ricarica wireless
 
 en: Quick Charging
+de: Schnellladung
+es: Carga rápida
 fr: Charge rapide
+it: Ricarica rapida
 
 en: Water resistant
+de: Wasserresistent
+es: Resistente al agua
 fr: Résistant à l'eau
+it: Resistente all'acqua
 
 en: Dust resistant
 ar: مقاومة للغبار
@@ -1801,4 +1818,26 @@ pt: Índice de reparabilidade 10.0 - França
 ru: Индекс ремонтопригодности 10.0 - Франция
 zh: 可修复性指数 10.0 - 法国
 repairability_index_france_value:en: 10.0
+
+de: Schädlich für Wasserorganismen, R52
+en: Harmful to aquatic organisms, R52
+cs: Škodlivý pro vodní organismy, R52
+da: Skadelig for organismer\, der lever i vand, R52
+el: Επιβλαβές για τους υδρόβιους οργανισµούς, R52
+es: Nocivo para los organismos acuáticos, R52
+et: Kahjulik veeorganismidele, R52
+fi: Haitallista vesieliöille, R52
+fr: Nocif pour les organismes aquatiques, R52
+hu: Ártalmas a vízi szervezetekre, R52
+it: Nocivo per gli organismi acquatici, R52
+lt: Kenksminga vandens organizmams, R52
+lv: Kaitīgs ūdens organismiem, R52
+mt: Jaħmel ħsara lil organiżmi akwatiċi, R52
+nl: Schadelijk voor in het water levende organismen, R52
+no: Skadelig for vannlevende organismer, R52
+pl: Działa szkodliwie na organizmy wodne, R52
+pt: Nocivo para os organismos aquáticos, R52
+sk: Škodlivý pre vodné organizmy, R52
+sl: Škodljivo za vodne organizme, R52
+sv: Skadligt för vattenlevande organismer, R52
 

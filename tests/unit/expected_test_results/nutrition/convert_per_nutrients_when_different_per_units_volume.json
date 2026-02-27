@@ -1,42 +1,34 @@
 {
    "nutrition" : {
-      "nutrient_set_preferred" : {
+      "aggregated_set" : {
          "nutrients" : {
-            "sodium" : {
+            "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
+               "source_index" : 1,
                "source_per" : "serving",
                "unit" : "g",
-               "value" : 0.0125,
-               "value_string" : "0.0125"
+               "value" : 0.0625
+            },
+            "sodium" : {
+               "source" : "packaging",
+               "source_index" : 1,
+               "source_per" : "serving",
+               "unit" : "g",
+               "value" : 0.025
             },
             "sugars" : {
                "source" : "manufacturer",
+               "source_index" : 0,
                "source_per" : "serving",
                "unit" : "g",
-               "value" : 0.063,
-               "value_string" : "0.063"
+               "value" : 0.126
             }
          },
-         "per" : "serving",
-         "per_quantity" : "50",
-         "per_unit" : "ml",
+         "per" : "100ml",
          "preparation" : "as_sold"
       },
-      "nutrient_sets" : [
-         {
-            "nutrients" : {
-               "sodium" : {
-                  "unit" : "g",
-                  "value" : 0.25,
-                  "value_string" : "0.25"
-               }
-            },
-            "per" : "serving",
-            "per_quantity" : "1",
-            "per_unit" : "l",
-            "preparation" : "as_sold",
-            "source" : "packaging"
-         },
+      "input_sets" : [
          {
             "nutrients" : {
                "sugars" : {
@@ -50,6 +42,24 @@
             "per_unit" : "ml",
             "preparation" : "as_sold",
             "source" : "manufacturer"
+         },
+         {
+            "nutrients" : {
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0.625
+               },
+               "sodium" : {
+                  "unit" : "g",
+                  "value" : 0.25,
+                  "value_string" : "0.25"
+               }
+            },
+            "per" : "serving",
+            "per_quantity" : "1",
+            "per_unit" : "l",
+            "preparation" : "as_sold",
+            "source" : "packaging"
          }
       ]
    }

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "empreinte_souffrance",
+    "name": "Empreinte Souffrance",
+    "description": "Indicateur de la quantité de souffrance animale par produit",
+    "icon_url": "https://lheuredescomptes.org/logo_ES_alpha.svg",
+    "knowledge_panel_url": "https://api.lheuredescomptes.org/off/v1/knowledge-panel/$code?lang=$lc&country=$cc",
+    "provider_name": "l'Heure des Comptes",
+    "provider_website": "https://lheuredescomptes.org/",
+    "section": "animal_welfare",
+    "filters": {
+      "categories": [
+        "en:eggs"
+      ],
+      "countries": [],
+      "languages": [],
+      "product_types": [
+        "food"
+      ]
+    },
+    "privacy_policy_url": "",
+    "scope": "moderators"
+  }
+]

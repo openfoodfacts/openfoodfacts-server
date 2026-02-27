@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -39,7 +39,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/write_cors_headers single_param redirect_to_url/;
 use ProductOpener::Tags qw/%language_fields %tags_fields add_tags_to_field compute_field_tags/;
@@ -49,7 +49,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc %lang_lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/assign_nutriments_values_from_request_parameters/;
+use ProductOpener::Nutrition qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
@@ -67,9 +67,39 @@ use Apache2::Const ();
 use CGI qw/:cgi :form :cgi-lib escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
-use Encode;
+use Encode qw/decode encode /;
 use JSON::MaybeXS;
 use Log::Any qw($log);
+
+# hack to get params in body of GET requests from Yuka
+# Yuka sends a POSTDATA parameter in JSON:
+# "POSTDATA":"{\"code\":\"3270160874071\",\"lc\":\"fr\",\"cc\":\"FR\",\"user_id\":\"kiliweb\" [..]
+# This needs to be done before init_request() as the body contains user_id and password for authentication
+if ((user_agent() =~ /Symfony HttpClient/) and (request_method() eq 'GET') and (not param("code"))) {
+
+	my $r = Apache2::RequestUtil->request();
+
+	my $content = '';
+
+	{
+		use bytes;
+
+		my $offset = 0;
+		my $cnt = 0;
+		do {
+			$cnt = $r->read($content, 262144, $offset);
+			$offset += $cnt;
+		} while ($cnt == 262144);
+	}
+
+	my $postdata_params_ref = eval {JSON::MaybeXS->new->utf8->decode($content)};
+	if (defined $postdata_params_ref) {
+
+		foreach my $key (sort keys %$postdata_params_ref) {
+			param($key, encode('UTF-8', $postdata_params_ref->{$key}));
+		}
+	}
+}
 
 my $request_ref = ProductOpener::Display::init_request();
 
@@ -88,6 +118,21 @@ my $code = single_param('code');
 my $product_id;
 
 $log->debug("start", {code => $code, lc => $lc}) if $log->is_debug();
+
+# Store parameters for debug purposes
+# Change 0 to 1 to activate
+if (0) {
+	ensure_dir_created($BASE_DIRS{CACHE_DEBUG}) or display_error_and_exit($request_ref, "Missing path", 503);
+
+	open(
+		my $out,
+		">",
+		"$BASE_DIRS{CACHE_DEBUG}/product_jqm_multilingual." . time() . "." . $code . "_" . ($User_id || "unidentified")
+	);
+	print $out encode_json(Vars());
+	close $out;
+
+}
 
 # Allow apps to create products without barcodes
 # Assign a code and return it in the response.
@@ -114,11 +159,13 @@ elsif (not is_valid_code($code)) {
 }
 else {
 
+	my $source = get_source_for_site_and_org($Org_id);
+
 	my $product_id = product_id_for_owner($Owner_id, $code);
 	my $product_ref = retrieve_product($product_id);
 
 	if (not defined $product_ref) {
-		$product_ref = init_product($User_id, $Org_id, $code, $country);
+		$product_ref = init_product($User_id, $Org_id, $code, $request_ref->{country});
 		$product_ref->{interface_version_created} = $interface_version;
 	}
 	else {
@@ -131,7 +178,9 @@ else {
 			and ($product_ref->{product_type} ne $options{product_type}))
 		{
 			redirect_to_url($request_ref, 307,
-				format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product_jqm.pl?code=' . $code);
+					  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
+					. '/cgi/product_jqm.pl?code='
+					. $code);
 		}
 	}
 
@@ -158,12 +207,6 @@ else {
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
 	my @errors = ();
-
-	# Store parameters for debug purposes
-	ensure_dir_created($BASE_DIRS{CACHE_DEBUG}) or display_error_and_exit($request_ref, "Missing path", 503);
-	open(my $out, ">", "$BASE_DIRS{CACHE_DEBUG}/product_jqm_multilingual." . time() . "." . $code);
-	print $out encode_json(Vars());
-	close $out;
 
 	# Fix too low salt values
 	# 2020/02/25 - https://github.com/openfoodfacts/openfoodfacts-server/issues/2945
@@ -428,7 +471,8 @@ else {
 
 	# Nutrition data
 
-	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table, $User{moderator});
+	assign_nutrition_values_from_old_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
+	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
 
 	analyze_and_enrich_product_data($product_ref, $response_ref);
 

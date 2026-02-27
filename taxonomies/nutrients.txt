@@ -2501,6 +2501,7 @@ wikidata:en: Q127900
 wikipedia:en: https://en.wikipedia.org/wiki/Lactose
 
 zz: galactose
+xx: galactose
 en: galactose
 fr: galactose
 it: galattosio
@@ -2693,7 +2694,9 @@ gl: Polidextrosa
 it: polidestrosio
 ja: ポリデキストロース
 pt: Polidextrose
-description:en: Polydextrose is a synthetic polymer of glucose.[1] It is a food ingredient classified as soluble fiber by the US FDA as well as Health Canada, as of April 2013. It is frequently used to increase the dietary fiber content of food, to replace sugar
+description:en: Polydextrose is a synthetic polymer of glucose. It is a food ingredient classified as soluble fiber by the US FDA as well as Health Canada, as of April 2013. It is frequently used to increase the dietary fiber content of food, to replace sugar
+unit:en: g
+wikidata:en: Q424616
 
 zz: polyols
 xx: Polyols, Sugar alcohols
@@ -4160,7 +4163,7 @@ be: біятын
 bg: Биотин
 bs: Biotin
 ca: biotina
-cy:Biotin cs:Biotin, vitamin B7, vitamin H
+cy: Biotin cs:Biotin, vitamin B7, vitamin H
 da: Biotin
 de: Biotin (Vitamin B8/B7/H), Biotin, Vitamin B7, Vitamin H
 dv: ވިޓަމިން ބީ7
@@ -5123,7 +5126,7 @@ hi: मैग्नेशियम तत्त्व
 hr: Magnezij
 ht: Manyezyòm
 hu: Magnézium
-hy:մագնեզիումia:magnesium
+hy: մագնեզիումia:magnesium
 id: magnesium
 io: magnezo
 is: magnesín
@@ -6283,45 +6286,6 @@ pt: Frutas\, vegetais e frutos secos - secos
 ro: Fructe\, legume\, nuci uscate
 unit:en: %
 
-zz: fruits-vegetables-nuts-estimate
-xx: Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (manual estimate from ingredients list)
-en: Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (manual estimate from ingredients list)
-bg: Плодове\, зеленчуци\, ядки и рапица\, орехи и зехтин (ръчна оценка от списъка на съставките)
-de: Obst\, Gemüse und Nüsse (Schätzung aus Zutatenliste)
-es: Frutas\, verduras y nueces (estimación de la lista de ingredientes)
-fi: Hedelmät\, kasvikset\, pähkinät ja rapsi-\, saksanpähkinä- ja oliiviöljyt (arvio ainesosaluettelosta)
-fr: Fruits\, légumes\, noix et huiles de colza\, noix et olive (estimation manuelle avec la liste des ingrédients)
-it: Frutta\, verdura\, noci e olio di colza\, noci e oliva (stima manuale dalla lista degli ingredienti)
-nl: Fruit\, groenten en noten (Schat uit ingrediëntenlijst)
-nl_be: Fruit\, groenten en noten (Schat uit ingrediëntenlijst)
-unit:en: %
-
-zz: fruits-vegetables-nuts-estimate-from-ingredients
-xx: Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (estimate from ingredients list analysis)
-en: Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (estimate from ingredients list analysis)
-ar: الفواكه \ ، الخضار \ ، المكسرات والبذور \ ، زيوت الجوز والزيتون (تقدير من تحليل قائمة المكونات)
-bg: Плодове\, зеленчуци\, ядки и рапица\, орехи и зехтин (оценка от анализ на списъка на съставките)
-cs: Ovoce \, zelenina \, ořechy a řepky \, ořechové a olivové oleje (odhad z analýzy seznamu ingrediencí)
-de: Obst\, Gemüse und Nüsse (Schätzung aus der Analyse der Zutatenliste)
-el: Fruits \, λαχανικά \, καρύδια και κράμβη \, καρυδιά και ελαιόλαδο (εκτίμηση από την ανάλυση λίστας συστατικών)
-es: Frutas \, verduras \, nueces y colza \, aceites de nuez y oliva (estimación del análisis de la lista de ingredientes)
-fi: Hedelmät \, vihannekset \, pähkinät ja rypäleet \, pähkinä- ja oliiviöljyt (arvio ainesosaluettelon analyysistä)
-fr: Fruits\, légumes\, noix et huiles de colza\, noix et olive (estimation par analyse de la liste des ingrédients)
-he: פירות \, ירקות \, אגוזים ונאנס \, שמני אגוז וזית (הערכת מניתוח רשימת החומרים)
-it: Frutta\, verdura\, noci e olio di colza\, noci e oliva (stima dall'analisi dell'elenco degli ingredienti)
-ja: 果物\、野菜\、ナッツと菜種\、クルミ\、オリーブオイル（成分リスト分析からの推定）
-ko: 과일 \, 야채 \, 견과류 및 유채 \, 호두 및 올리브 오일 (성분 목록 분석에서 추정)
-nl: Vruchten \, groenten \, noten en raapzaad \, walnoot- en olijfolie (schatting van ingrediëntenlijstanalyse)
-pl: Owoce \, warzywa \, orzechy i rzepak \, orzech orzechowy i oliwek (ocena analizy listy składników)
-pt: Frutas \, vegetais \, nozes e colza \, nogueira e azeite (estimativa da análise da lista de ingredientes)
-ro: Fructe \, legume \, nuci și rapsee \, nuc și uleiuri de măsline (estimare din analiza listei de ingrediente)
-ru: Фрукты \, овощи \, орехи и рапса \, ореховые и оливковые масла (оценка из анализа ингредиентов)
-th: ผลไม้ \, ผัก \, ถั่วและเรพซีด \, วอลนัทและน้ำมันมะกอก (ประมาณจากการวิเคราะห์รายการส่วนผสม)
-vi: Trái cây \, rau \, các loại hạt và dầu hạt cải dầu\, gỗ óc chó và dầu ô liu (ước tính từ phân tích danh sách thành phần)
-zh: 水果\，蔬菜\，坚果和菜籽油，核桃和橄榄油（根据成分清单分析估算）
-automatically_computed:en: yes
-unit:en: %
-
 zz: fruits-vegetables-legumes
 xx: Fruits\, vegetables\, legumes
 en: Fruits\, vegetables\, legumes
@@ -6345,32 +6309,6 @@ ru: Фрукты\, овощи\, бобовые
 th: ผลไม้\, ผัก\, ถั่ว
 vi: Trái cây\, rau\, đậu
 zh: 水果\，蔬菜\，豆类
-unit:en: %
-
-zz: fruits-vegetables-legumes-estimate-from-ingredients
-xx: Fruits\, vegetables\, legumes (estimate from ingredients list analysis)
-en: Fruits\, vegetables\, legumes (estimate from ingredients list analysis)
-ar: الفواكه\, الخضروات\, البقوليات (تقدير من تحليل قائمة المكونات)
-bg: Плодове\, зеленчуци\, бобови (оценка от анализ на списъка със съставки)
-cs: Ovoce\, zelenina\, luštěniny (odhad z analýzy seznamu ingrediencí)
-de: Früchte\, Gemüse\, Hülsenfrüchte (Schätzung aus der Analyse der Zutatenliste)
-el: Φρούτα\, λαχανικά\, όσπρια (εκτίμηση από την ανάλυση της λίστας συστατικών)
-es: Frutas\, verduras\, legumbres (estimación a partir del análisis de la lista de ingredientes)
-fi: Hedelmät\, vihannekset\, palkokasvit (arvio ainesosaluettelon analyysistä)
-fr: Fruits\, légumes\, légumes secs (estimation à partir de l'analyse de la liste des ingrédients)
-he: פירות\, ירקות\, קטניות (הערכה מתוך ניתוח רשימת המרכיבים)
-it: Frutta\, verdura\, legumi (stima dall'analisi dell'elenco degli ingredienti)
-ja: 果物\、野菜\、豆類（成分リスト分析からの推定）
-ko: 과일\, 야채\, 콩류 (성분 목록 분석에서 추정)
-nl: Fruit\, groenten\, peulvruchten (schatting van ingrediëntenlijstanalyse)
-pl: Owoce\, warzywa\, rośliny strączkowe (szacunek na podstawie analizy listy składników)
-pt: Frutas\, vegetais\, legumes (estimativa da análise da lista de ingredientes)
-ro: Fructe\, legume\, leguminoase (estimare din analiza listei de ingrediente)
-ru: Фрукты\, овощи\, бобовые (оценка из анализа списка ингредиентов)
-th: ผลไม้\, ผัก\, ถั่ว (ประมาณจากการวิเคราะห์รายการส่วนผสม)
-vi: Trái cây\, rau\, đậu (ước tính từ phân tích danh sách thành phần)
-zh: 水果\，蔬菜\，豆类（根据成分清单分析估算）
-automatically_computed:en: yes
 unit:en: %
 
 zz: whole-grain
@@ -6467,40 +6405,6 @@ zh: 碳足印
 unit:en: g
 wikidata:en: Q310667
 wikipedia:en: https://en.wikipedia.org/wiki/Carbon_footprint
-
-zz: carbon-footprint-from-meat-or-fish
-xx: Carbon footprint from meat or fish
-en: Carbon footprint from meat or fish
-bg: Въглероден отпечатък от месо или риба
-fi: Hiilijalanjälki lihasta tai kalasta
-fr: Empreinte carbone de la viande ou du poisson
-nl: koolstofvoetafdruk voor vlees of vis
-automatically_computed:en: yes
-unit:en: g
-
-zz: nutrition-score-fr
-xx: Nutrition score - France
-en: Nutrition score - France
-bg: Хранителна оценка – Франция
-el: Βαθμολογία θρεπτικής αξίας-FR
-fi: Ravintopisteet - Ranska
-fr: Score nutritionnel - France
-nl: Voedingsscore - FR
-pt: Classificação de nutrição - França
-automatically_computed:en: yes
-unit:en:
-
-zz: nutrition-score-uk
-xx: Nutrition score - UK
-en: Nutrition score - UK
-bg: Хранителна оценка – Обединено кралство
-el: Bαθμολογία θρεπτικής αξίας-UK
-fi: Ravintopisteet - UK
-nl: Voedingsscore - UK
-nl_be: Voedingsgraad
-pt: Classificação de nutrição - Reino Unido
-automatically_computed:en: yes
-unit:en:
 
 zz: glycemic-index
 xx: Glycemic Index
@@ -6799,6 +6703,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Carnitine
 
 zz: melatonin
 xx: Melatonin
+en: Melatonin
 unit:en: µg
 wikidata:en: Q180912
 wikipedia:en: https://en.wikipedia.org/wiki/Melatonin
@@ -6846,6 +6751,7 @@ description:en: Spermidine is a polyamine compound (C7H19N3) found in ribosomes 
 wikipedia:en: https://en.wikipedia.org/wiki/Spermidine
 
 zz: water
+xx: water
 en: Water
 ca: Aigua
 es: Agua
@@ -6854,6 +6760,7 @@ it: Acqua
 unit:en: g
 
 zz: acidity
+xx: Acidity
 en: Acidity
 ca: Acidesa
 cs: Kyselost
@@ -6869,6 +6776,7 @@ sv: Surhet
 unit:en: % vol
 
 zz: dry-residue
+xx: Dry residue
 en: Dry residue
 es: Residuo seco
 fr: Résidu sec
@@ -6931,6 +6839,7 @@ wikidata:en: Q483752
 wikipedia:en: https://en.wikipedia.org/wiki/Valine
 
 zz: l-leucine
+xx: L-Leucine, Leucine
 en: L-Leucine, Leucine
 ca: L-Leucina, Leucina
 es: L-Leucina, Leucina
@@ -6940,6 +6849,7 @@ wikidata:en: Q483745
 wikipedia:en: https://en.wikipedia.org/wiki/Leucine
 
 zz: l-isoleucine
+xx: L-Isoleucine, Isoleucine
 en: L-Isoleucine, Isoleucine
 ca: L-Isoleucina, Isoleucina
 es: L-Isoleucina, Isoleucina
@@ -6978,6 +6888,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Glutathione
 # following nutrients are for pet food
 # https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
 # I- analytical constituents
+# crude fat ~ similar to human food fat
 zz: crude fat
 xx: crude fat
 en: crude fat, Fat Content
@@ -7006,6 +6917,8 @@ sl: surove maščobe, Vsebnost maščob
 sv: råfett, fettinnehåll
 unit:en: %
 
+# crude protein ~ similar to human food protein
+# protein value ~ how much the animal can actually use
 zz: crude protein
 xx: crude protein
 en: crude protein
@@ -7202,4 +7115,35 @@ en: choline chloride
 fr: chlorure de choline
 hr: kolin klorid
 unit:en: mg
+
+
+# crude protein ~ similar to human food protein
+# protein value ~ how much the animal can actually use
+zz: protein value
+xx: protein value
+en: protein value
+bg: Протеинова стойност
+cs: hodnota proteinu
+da: proteinværdi
+de: Eiweißwert, Proteinwert
+el: Πρωτεϊνική αξία
+es: Valor proteico
+et: valgusisaldusväärtus
+fi: proteiiniarvo
+fr: valeur protéique
+hr: proteinska vrijednost
+hu: fehérjeérték
+it: valore proteico
+lt: baltymų vertė
+lv: proteīna vērtība
+mt: valur tal-proteina
+nl: eiwitwaarde
+pl: wartość białka
+pt: valor proteico
+ro: valoare proteică
+ru: Протеиновая ценность
+sk: hodnota bielkovín
+sl: beljakovinska vrednost
+sv: proteinvärde
+unit:en: g/kg
 

@@ -18,47 +18,47 @@ properties:
 
           (per 100g or per serving) in kj
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
-      energy_kcal:
+      energy-kcal:
         description: |
           energy in kcal, if it is specified
 
           (per 100g or per serving) in a standard unit (g or ml)
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
-      energy_kj:
+      energy-kj:
         description: |
           energy in kj, if it is specified
 
           (per 100g or per serving) in a standard unit (g or ml)
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       fat:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       saturated-fat:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       trans-fat:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       cholesterol:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       salt:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       sodium:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       carbohydrates:
         description: |
@@ -66,7 +66,7 @@ properties:
 
           (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       carbohydrates-total:
         description: |
@@ -74,39 +74,39 @@ properties:
 
           (per 100g, per 100ml or per serving) in a standard unit (g or ml)
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       fiber:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       sugars:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       added-sugars:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       proteins:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       vitamin-d:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       calcium:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       iron:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
       potassium:
         allOf:
-          - $ref: "../schemas/product_nutrient_values.yaml"
+          - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
     additionalProperties: 
       description: |
@@ -116,7 +116,7 @@ properties:
 
         (per 100g, per 100ml or per serving) in a standard unit (g or ml)
       allOf:
-        - $ref: "../schemas/product_nutrient_values.yaml"
+        - $ref: "../schemas/nutrient_values_v3_base.yaml"
         - type: object
           properties:
             source:

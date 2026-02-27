@@ -61,7 +61,7 @@ TXT
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/retrieve_object store_object/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$User_id %User/;
@@ -83,6 +83,7 @@ use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::LoadData qw/load_data/;
 use ProductOpener::Redis qw/push_product_update_to_redis/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -155,6 +156,7 @@ my $obsolete = 0;
 my $fix_obsolete;
 my $fix_last_modified_t;    # Will set the update key and ensure last_updated_t is initialised
 my $add_product_type = '';    # Add product type to products that don't have it, based on off/opf/obf/opff flavor
+my $force_new_version = 0;
 
 my $query_params_ref = {};    # filters for mongodb query
 
@@ -190,6 +192,7 @@ GetOptions(
 	"fix-non-string-ids" => \$fix_non_string_ids,
 	"fix-non-string-codes" => \$fix_non_string_codes,
 	"fix-string-last-modified-t" => \$fix_string_last_modified_t,
+	"force-new-version" => \$force_new_version,
 	"user-id=s" => \$User_id,
 	"comment=s" => \$comment,
 	"run-ocr" => \$run_ocr,
@@ -775,7 +778,7 @@ while (my $product_ref = $cursor->next) {
 					$fix_rev_not_incremented_fixed++;
 					$product_ref->{rev} = $last_rev;
 					my $blame_ref = {};
-					compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
+					compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 					compute_data_sources($product_ref, $changes_ref);
 					store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 				}
@@ -955,7 +958,6 @@ while (my $product_ref = $cursor->next) {
 				if ($product_ref->{nutrition_data_per} eq "100g") {
 					print STDERR "code $code deleting serving size " . $product_ref->{serving_size} . "\n";
 					delete $product_ref->{serving_size};
-					ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					$product_values_changed = 1;
 				}
 
@@ -969,7 +971,6 @@ while (my $product_ref = $cursor->next) {
 					print STDERR "code $code changing " . $product_ref->{serving_size} . "\n";
 					$product_ref->{serving_size} =~ s/(\d)\s?(mg)\b/$1 ml/i;
 					print STDERR "code $code changed to " . $product_ref->{serving_size} . "\n";
-					ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					$product_values_changed = 1;
 				}
 			}
@@ -1201,7 +1202,6 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_nutriscore) {
-			fix_salt_equivalent($product_ref);
 			compute_nutriscore($product_ref);
 			compute_nutrient_levels($product_ref);
 		}
@@ -1210,41 +1210,8 @@ while (my $product_ref = $cursor->next) {
 			compute_codes($product_ref);
 		}
 
-		if ($compute_carbon) {
-			compute_carbon_footprint_from_ingredients($product_ref);
-			compute_carbon_footprint_from_meat_or_fish($product_ref);
-			compute_nutrition_data_per_100g_and_per_serving($product_ref);
-			delete $product_ref->{environment_infocard};
-			delete $product_ref->{environment_infocard_en};
-			delete $product_ref->{environment_infocard_fr};
-		}
-
-		# Fix energy-kcal values so that energy-kcal and energy-kcal/100g is stored in kcal instead of kJ
-		if ($reassign_energy_kcal) {
-			foreach my $product_type ("", "_prepared") {
-
-				# see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/3561
-				# for details
-
-				if (defined $product_ref->{nutriments}{"energy-kcal" . $product_type}) {
-					if (not defined $product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}) {
-						$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"} = "kcal";
-					}
-					# Reassign so that the energy-kcal field is recomputed
-					assign_nid_modifier_value_and_unit(
-						$product_ref,
-						"energy-kcal" . $product_type,
-						$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
-						$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
-						$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}
-					);
-				}
-			}
-			ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
-		}
-
 		if ($compute_serving_size) {
-			ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
+			normalize_product_quantity_and_serving_size($product_ref);
 		}
 
 		if ($check_quality) {
@@ -1255,7 +1222,7 @@ while (my $product_ref = $cursor->next) {
 			my $blame_ref = {};
 
 			my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
+			compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 
 			if (
 					(defined $blame_ref->{nutriments})
@@ -1319,33 +1286,10 @@ while (my $product_ref = $cursor->next) {
 						$product_ref->{nutriments}{'salt_modifier'},
 						$salt, $product_ref->{nutriments}{'salt_unit'});
 
-					fix_salt_equivalent($product_ref);
-					compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					compute_nutriscore($product_ref);
 					compute_nutrient_levels($product_ref);
 					$product_values_changed = 1;
 				}
-			}
-		}
-
-		if (0) {    # fix float numbers for salt
-			if ((defined $product_ref->{nutriments}) and ($product_ref->{nutriments}{salt_value})) {
-
-				my $salt = $product_ref->{nutriments}{salt_value};
-				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
-					$salt = $` . '.' . $1;
-				}
-				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
-					$salt = $` . '.' . $1 . ($2 + 1);
-				}
-
-				assign_nid_modifier_value_and_unit($product_ref, 'salt', $product_ref->{nutriments}{'salt_modifier'},
-					$salt, $product_ref->{nutriments}{'salt_unit'});
-
-				fix_salt_equivalent($product_ref);
-				compute_nutrition_data_per_100g_and_per_serving($product_ref);
-				compute_nutriscore($product_ref);
-				compute_nutrient_levels($product_ref);
 			}
 		}
 
@@ -1371,7 +1315,7 @@ while (my $product_ref = $cursor->next) {
 				$changes_ref = [];
 			}
 			my $blame_ref = {};
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $blame_ref);
+			compute_product_history_and_completeness($product_ref, $changes_ref, $blame_ref);
 			compute_data_sources($product_ref, $changes_ref);
 			store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 		}
@@ -1505,7 +1449,7 @@ while (my $product_ref = $cursor->next) {
 
 			# Create a new version of the product and create a new .sto file
 			# Useful when we actually change a value entered by a user
-			if ((defined $User_id) and ($User_id ne '') and ($product_values_changed)) {
+			if ((defined $User_id) and ($User_id ne '') and ($product_values_changed or $force_new_version)) {
 				store_product($User_id, $product_ref, "update_all_products.pl - " . $comment);
 				$products_new_version_created++;
 			}

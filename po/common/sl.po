@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Skupna, brezplačna in odprta zbirka podatkov o prehrambenih izdelkih iz celega sveta."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -358,10 +358,6 @@ msgstr "Prav tako lahko pomagate pri financiranju projekta Open Food Facts"
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Skrbniški priročnik za proizvajalce"
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -3722,6 +3718,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "napake v kakovosti podatkov"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "popolnost kakovosti podatkov"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "informacije o kakovosti podatkov"
@@ -4632,17 +4632,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Manjkajoči podatki za izračun Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Nutri-Score ni mogoče uporabiti"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score se ne uporablja"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Ne velja za kategorijo"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr "Ne velja za kategorijo: {category}"
+msgid "Not applicable for the category: {category}"
+msgstr "Ni primerno za kategorijo: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -5117,6 +5117,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Manjkajoče hranilne vrednosti"
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Manjkajoče hranilne vrednosti za pripravljen izdelek"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr ""
@@ -5135,11 +5139,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Razno"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Razno"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5459,6 +5463,10 @@ msgstr "Eko-ocena ni izračunana"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Vpliv na okolje ni znan"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Manjka natančna kategorija"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5969,6 +5977,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Oznake z zelo visokimi okoljskimi koristmi"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Ni ocenjenih oznak"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Nekatere okoljske koristi"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Visoke okoljske koristi"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Zelo visoke okoljske koristi"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Drugo"
@@ -6105,6 +6129,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Manjkajoče hranilne vrednosti za pripravljen izdelek:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Za izračun Nutri-Score je potrebno navesti kategorijo in hranilne vrednosti izdelkov."
@@ -6120,6 +6148,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Popolnost kakovosti podatkov"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Nekaj informacij o popolnosti kakovosti podatkov za ta izdelek"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6192,6 +6228,10 @@ msgstr "Manjka kategorija"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Manjkajoče hranilne vrednosti"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Manjkajo pripravljeni podatki o hranilni vrednosti"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6377,6 +6417,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Kategorija, ki jo imamo za ta izdelek, ni dovolj natančna za izračun ocene Green-Score. Ali lahko dodate natančnejšo kategorijo izdelka?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6725,7 +6769,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Število enot"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6757,19 +6801,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Vnesite število embalažnih enot enake oblike in materiala, ki jih izdelek vsebuje."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Vnesite ime oblike, navedeno v navodilih za recikliranje, če so na voljo, ali izberite obliko."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Vnesite specifičen material, če ga je mogoče določiti (koda materiala znotraj trikotnika je pogosto navedena na embalaži), ali generični material (na primer plastika ali kovina), če niste prepričani."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Navodila za recikliranje vnesite le, če so navedena na izdelku."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6779,7 +6823,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Vnesite neto težo ali neto prostornino in navedite enoto (na primer g ali ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7356,12 +7400,12 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "Indeks popravljivosti ni uporaben"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
-msgstr "Ne velja za kategorijo"
+msgid "Not applicable for the category"
+msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
@@ -7399,17 +7443,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Vrsta izdelka"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Hrana"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Hrana za hišne ljubljenčke"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7506,9 +7550,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Prijavi to sliko našim moderatorjem"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Za izračun Nutri-Score nam manjka vrednost velikosti porcije in/ali enota."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> je izdelalo neprofitno združenje, neodvisno od industrije. Namenjeno je vsem, vsem in financirano s strani vseh. Naše delo lahko podprete z donacijo organizaciji Open Food Facts.<br/><b>Hvala!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> je izdelalo neprofitno združenje, neodvisno od industrije. Namenjeno je vsem, vsem in financirano s strani vseh. Naše delo lahko podprete z donacijo za Open Food Facts in tudi z uporabo iskalnika Lilo.<br/><b>Hvala!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Iskalnik Lilo"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Zaradi hudih zlorab robotov te strani ne moremo prikazati neidentificiranim uporabnikom. Za dostop do vseh dejstev o hrani ustvarite brezplačen račun Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Poreklo sestavin"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "Poreklo izdelka"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Informacije o izdelku"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Informacije o surovem izdelku"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7522,7 +7598,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Ocenjena količina dodanih sladkorjev v sestavinah"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Količina dodanih sladkorjev"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Išči izdelke v isti kategoriji brez dodanih sladkorjev:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Neželene sestavine"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Ta preferenca temelji na razumevanju seznama sestavin s strani Open Food Facts in morda ni natančna, zato izdelek vedno preverite sami."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Prisotnost neželenih sestavin ni znana"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Ni zaznanih neželenih sestavin"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Vsebuje neželene sestavine"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Nekatere sestavine niso bile prepoznane"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Nismo zaznali: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Nismo zaznali: {unwanted_ingredients}. Morda smo nekatere sestavine spregledali, zato vedno preverite seznam sestavin."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Te preference temeljijo na razumevanju seznama sestavin s strani Open Food Facts in vedno obstaja možnost, da seznam ni točen ali popoln, zato izdelek vedno preverite sami."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Kajenje ubija"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Tobak resno škoduje zdravju. Ne začenjajte. Nehajte takoj."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Kajenje je zelo zasvojljivo. Ne začenjajte. Kajenje ubija – prenehajte zdaj. Kajenje maši arterije in povzroča srčne infarkte in kapi. Kajenje povzroča smrtonosnega pljučnega raka. Kajenje med nosečnostjo škoduje vašemu otroku. Zaščitite otroke: ne silite jih, da vdihavajo vaš dim. Vaš zdravnik ali farmacevt vam lahko pomaga prenehati kaditi. Kajenje lahko zmanjša pretok krvi in povzroči impotenco. Kajenje povzroča staranje kože. Kajenje lahko poškoduje spermo in zmanjša plodnost. Dim vsebuje benzen, nitrozamine, formaldehid in vodikov cianid."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Javna cena"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Priporočena maloprodajna cena proizvajalca (MSRP) brez popustov in promocij, kot je navedeno na embalaži izdelka ali na spletni strani proizvajalca (vključno z davki ali brez njih v skladu z zakonodajo). Če so cene navedene v več valutah, uporabite seznam, ločen z vejicami."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Prilagojena lastnina"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Ne vsebuje palmovega olja"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Lahko vsebuje palmovo olje"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Okoljske oznake"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Manjkajoči podatki"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Velik vpliv"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Srednji vpliv"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Majhen vpliv"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Vpliv ni bil ocenjen"
 

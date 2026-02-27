@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -38,7 +38,8 @@ use File::Slurp;
 # Add a "resume" argument to resume from the last checkpoint
 my $checkpoint = ProductOpener::Checkpoint->new;
 my $last_processed_path = $checkpoint->{value};
-my $can_process = $last_processed_path ? 0 : 1;
+
+print "last_processed_path: $last_processed_path\n";
 
 my $batch_size = $ARGV[0] // 100;
 my $scans = "{";
@@ -51,6 +52,8 @@ my $ua = create_user_agent();
 $ua->timeout(15);
 
 sub send_scans($fully_loaded = 0) {
+	# Skip if there are no scans
+	return if $scans eq "{";
 	print '[' . localtime() . "] $scan_count products processed...";
 	# Remove last comma
 	chop($scans);
@@ -61,13 +64,7 @@ sub send_scans($fully_loaded = 0) {
 		'Content-Type' => 'application/json; charset=utf-8'
 	);
 	if (!$resp->is_success) {
-		print '['
-			. localtime()
-			. "] query response not ok calling "
-			. $query_post_url
-			. " resp: "
-			. $resp->status_line . "\n"
-			. $scans . "\n";
+		print '[' . localtime() . $query_post_url . " resp: " . $resp->status_line . "\n" . $scans . "\n";
 		die;
 	}
 
@@ -77,12 +74,14 @@ sub send_scans($fully_loaded = 0) {
 	return 1;
 }
 
-my $next = product_iter($BASE_DIRS{PRODUCTS}, qr/scans/);
+my $next = product_iter(
+	$BASE_DIRS{PRODUCTS},
+	qr/scans/,
+	qr/^((conflicting|invalid|other-flavors)-codes|deleted-off-products-codes-replaced-by-other-flavors|new_images|invalid)$/,
+	$last_processed_path
+);
 while (my $path = $next->()) {
-	if (not $can_process) {
-		if ($path eq $last_processed_path) {
-			$can_process = 1;
-		}
+	if ($path eq $last_processed_path) {
 		next;    # we don't want to process the product again
 	}
 

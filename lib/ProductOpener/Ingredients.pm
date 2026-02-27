@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -90,6 +90,8 @@ BEGIN {
 
 		&estimate_nutriscore_2021_milk_percent_from_ingredients
 		&estimate_nutriscore_2023_red_meat_percent_from_ingredients
+		&estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients
+		&estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients
 		&estimate_added_sugars_percent_from_ingredients
 
 		&has_specific_ingredient_property
@@ -122,6 +124,7 @@ use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Units qw/normalize_quantity/;
 use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
+use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
 
 use Encode;
 use Clone qw(clone);
@@ -192,13 +195,14 @@ my %may_contain_regexps = (
 	bs => "može da sadrži",
 	ca => "pot contenir",
 	cs => "může obsahovat|může obsahovat stopy",
-	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
+	da =>
+		"produktet kan indeholde|kan også indeholde bestanddele fra|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann|Enthält möglicherweise",
 	el => "Μπορεί να περιέχει ίχνη από",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda|osakesi",
 	fi =>
-		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
+		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää myös pieniä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace|Traces éventuelles de|Peut contenir des traces de",
 	hr =>
@@ -207,8 +211,8 @@ my %may_contain_regexps = (
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
-	lt => "sudėtyje gali būti|gali būti",
-	lv => "var saturēt|var saturé|sastāva var but|alergēni|pārpalikumi|dalinas",
+	lt => "sudėtyje gali būti|Taip pat, gali būti|gali būti|dalių",
+	lv => "alergēni|kupātdesiņa var|pārpalikumi|produkts var|dalinas|sastāva var but|var saturé|var satur[ēé]t",
 	mk => "Производот може да содржи|може да содржи",
 	nl =>
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar|Kan ook",
@@ -231,6 +235,7 @@ my %contains_regexps = (
 	en => "contains",
 	bg => "съдържа",
 	ca => "conté",
+	cs => "obsahují",
 	da => "indeholder",
 	es => "contiene",
 	et => "sisaldab",
@@ -620,7 +625,10 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 			. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
 			. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
 			. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum
-			. $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';    # strings that can be ignored
+			. $ignore_strings_after_percent
+			. '|\s|\)|\]|\}|(?:'
+			. $symbols_regexp
+			. '))*';    # strings that can be ignored
 	}
 
 	return;
@@ -926,13 +934,17 @@ Add a percent_max value for salt and sugar ingredients, based on the nutrition f
 
 sub add_percent_max_for_ingredients_from_nutrition_facts ($product_ref) {
 
-	# Check if we have values for salt and sugar in the nutrition facts
+	# If the preperation for the nutrition aggregated set is "as_sold",
+	# we check if we have values for salt and sugar in the nutrition facts (with a source different than "estimate")
+	# In that case we can set max values for any ingredient or sub-ingredient that is (or is a child of) sugar or salt.
+
 	my @ingredient_max_values = ();
-	my $sugars_100g = deep_get($product_ref, qw(nutriments sugars_100g));
+
+	my $sugars_100g = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sugars");
 	if (defined $sugars_100g) {
 		push @ingredient_max_values, {ingredientid => "en:sugar", value => $sugars_100g};
 	}
-	my $salt_100g = deep_get($product_ref, qw(nutriments salt_100g));
+	my $salt_100g = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "salt");
 	if (defined $salt_100g) {
 		push @ingredient_max_values, {ingredientid => "en:salt", value => $salt_100g};
 	}
@@ -1076,6 +1088,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		es => "contenido(?: (?:$minimum_or_total))",
 		fr => "(?:teneur|taux)(?: (?:$minimum_or_total))?(?: en)?",   # need to have " en" as it's not in the $of regexp
 		hr => "ukupni(?: udio)?|udio",
+		sl => "vsebuje",
 		sv => "(?:(?:$minimum_or_total) )?mängd",
 	);
 	my $content_of_ingredient = $content_of_ingredient{$ingredients_lc};
@@ -1363,15 +1376,16 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		es => "(?:origen)",
 		fi => "(?:alkuperä)",
 		fr => "(?:origine (?:de |du |de la |des |de l'))",
-		hr => "(?:zemlja (?:porijekla|podrijetla|porekla)|uzgojeno u)",
+		hr => "(?:zemlja (?:porijekla|podrijetla|podrijetlo|porekla)|uzgojeno u)",
 		hu => "(?:származási (?:hely|ország))",
 		it => "(?:paese di (?:molitura|coltivazione del grano))",
+		lv => "(?:izcelsmes valsts)",
 		mk => "(?:земја на потекло)",
 		pl => "(?:kraj pochodzenia)",
 		ro => "(?:tara de origine)",
 		rs => "(?:zemlja porekla)",
-		sl => "(?:(?:država|krajina) porekla|gojeno v)",
-		sv => "(?:ursprung)",
+		sl => "(?:(?:država|krajina) porekla|gojeno(?: v))",
+		sv => "(?:ursprung|odlade inom)",
 		uk => "(?:kраїна походження)",
 	);
 
@@ -1804,7 +1818,9 @@ sub select_ingredients_lc ($product_ref) {
 	my @ingredients_text_fields = sort grep {/^ingredients_text_(\w\w)$/} (keys %$product_ref);
 
 	# Put the main language first
-	unshift @ingredients_text_fields, "ingredients_text_" . $product_ref->{lc};
+	if (defined $product_ref->{lc}) {    # Should always be defined, except in old unit tests
+		unshift @ingredients_text_fields, "ingredients_text_" . $product_ref->{lc};
+	}
 
 	$log->debug("select_ingredients_lc - ingredients_text_fields",
 		{ingredients_text_fields => \@ingredients_text_fields})
@@ -2633,8 +2649,8 @@ Text to analyze
 				}
 
 				# remove * and other chars before and after the name of ingredients
-				$ingredient =~ s/(\s|\*|\)|\]|\}|$stops|$dashes|')+$//;
-				$ingredient =~ s/^(\s|\*|\)|\]|\}|$stops|$dashes|')+//;
+				$ingredient =~ s/(\s|$symbols_regexp|\)|\]|\}|$stops|$dashes|')+$//;
+				$ingredient =~ s/^(\s|$symbols_regexp|\)|\]|\}|$stops|$dashes|')+//;
 
 				$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
@@ -2857,6 +2873,9 @@ Text to analyze
 						my %ignore_regexps = (
 							'bs' => [
 								'u promjenljivom odnosu',    # in a variable ratio
+							],
+							'cs' => [
+								'v různém poměru',    # in variable proportions
 							],
 
 							'da' => [
@@ -3499,9 +3518,6 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 		else {
 			estimate_ingredients_percent_service($product_ref, {}, []);
 		}
-
-		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
-		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
 	}
 	else {
 		remove_fields(
@@ -3510,20 +3526,6 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 				# assign_property_to_ingredients - may have been introduced in previous version
 				"ingredients_without_ciqual_codes",
 				"ingredients_without_ciqual_codes_n",
-			]
-		);
-		remove_fields(
-			$product_ref->{nutriments},
-			[
-				# estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients - may have been introduced in previous version
-				"fruits-vegetables-nuts-estimate-from-ingredients_100g",
-				"fruits-vegetables-nuts-estimate-from-ingredients_serving",
-				"fruits-vegetables-legumes-estimate-from-ingredients_100g",
-				"fruits-vegetables-legumes-estimate-from-ingredients_serving",
-				"fruits-vegetables-nuts-estimate-from-ingredients-prepared_100g",
-				"fruits-vegetables-nuts-estimate-from-ingredients-prepared_serving",
-				"fruits-vegetables-legumes-estimate-from-ingredients-prepared_100g",
-				"fruits-vegetables-legumes-estimate-from-ingredients-prepared_serving",
 			]
 		);
 	}
@@ -3745,7 +3747,7 @@ reference to the name of the country
 sub get_geographical_area ($originid) {
 	# Getting information about the country
 	my $ecobalyse_area = "";
-	my $ecobalyse_is_part_of_eu_result = get_inherited_property("countries", $originid, "ecobalyse_is_part_of_eu");
+	my $ecobalyse_is_part_of_eu_result = get_inherited_property("countries", $originid, "ecobalyse_is_part_of_eu:en");
 	if (defined $ecobalyse_is_part_of_eu_result
 		&& $ecobalyse_is_part_of_eu_result eq "yes")
 	{
@@ -4568,6 +4570,7 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 			# Traverse the ingredients tree, breadth first
 
 			my @ingredients = @{$product_ref->{ingredients}};
+			my $ingredients_n = 0;
 
 			while (@ingredients) {
 
@@ -4607,11 +4610,10 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 					}
 				}
 
-				# if the property value is "maybe" and the ingredient has sub-ingredients,
+				# if the property value is undef or "maybe" and the ingredient has sub-ingredients,
 				# we ignore the ingredient and only look at its sub-ingredients (already added)
 				# e.g. "Vegetable oil (rapeseed oil, ...)""
-				if (    (defined $value)
-					and ($value eq "maybe")
+				if (    ((not defined $value) or ($value eq "maybe"))
 					and (defined $ingredient_ref->{ingredients}))
 				{
 					$value = "ignore";
@@ -4623,6 +4625,7 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 				push @{$values{$value}}, $ingredientid;
 
 				# print STDERR "ingredientid: $ingredientid - property: $property - value: $value\n";
+				$ingredients_n++;
 			}
 
 			# Compute the resulting property value for the product
@@ -4639,6 +4642,10 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 				# So all known ingredients without a value for the property are assumed to be negative
 
 				# value can can be "ignore"
+
+				my $unknown_but_not_ignore_ingredients_n
+					= (defined $values{unknown_ingredients} ? scalar(@{$values{unknown_ingredients}}) : 0)
+					- (defined $values{ignore} ? scalar(@{$values{ignore}}) : 0);
 
 				if (defined $values{yes}) {
 					# One yes ingredient -> yes for the whole product
@@ -4657,17 +4664,20 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 				# Exception: If there are lots of unrecognized ingredients though (e.g. more than 1 third), it may be that the ingredients list
 				# is bogus (e.g. OCR errors) and the likelyhood of missing a palm oil ingredient increases.
 				# --> In this case, we mark the product as palm oil content unknown
-				elsif (defined $values{unknown_ingredients}) {
+				# Note: we substract ignore ingredients from the total count
+				elsif ($unknown_but_not_ignore_ingredients_n > 0) {
 					# Some ingredients were not recognized
+					my $unknown_rate = $unknown_but_not_ignore_ingredients_n / $ingredients_n;
+
 					$log->debug(
 						"analyze_ingredients - unknown ingredients",
 						{
 							unknown_ingredients_n => (scalar @{$values{unknown_ingredients}}),
-							ingredients_n => (scalar(@{$product_ref->{ingredients}}))
+							unknown_but_not_ignore_ingredients_n => $unknown_but_not_ignore_ingredients_n,
+							ingredients_n => $ingredients_n,
+							unknown_rate => $unknown_rate,
 						}
 					) if $log->is_debug();
-					my $unknown_rate
-						= (scalar @{$values{unknown_ingredients}}) / (scalar @{$product_ref->{ingredients}});
 					# for palm-oil, as there are few products containing it, we consider status to be unknown only if there is more than 30% unknown ingredients (which may indicates bogus ingredient list, eg. OCR errors)
 					if (($from_what_with_dashes eq "palm-oil") and ($unknown_rate <= 0.3)) {
 						$property_value = "en:" . $from_what_with_dashes . "-free";    # en:palm-oil-free
@@ -4728,7 +4738,9 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 	if (has_tag($product_ref, "labels", "en:palm-oil-free")) {
 		# Labeled as palm oil free, but has a palm oil containing ingredient
 		# Set to may-contain as a heads up to double-check
-		if ($ingredients_analysis_properties_ref->{from_palm_oil} eq "en:palm-oil") {
+		if (    (defined $ingredients_analysis_properties_ref->{from_palm_oil})
+			and ($ingredients_analysis_properties_ref->{from_palm_oil} eq "en:palm-oil"))
+		{
 			$ingredients_analysis_properties_ref->{from_palm_oil} = "en:may-contain-palm-oil";
 		}
 		else {
@@ -4739,11 +4751,15 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 	if (has_tag($product_ref, "labels", "en:vegan")) {
 		# Labeled as vegan, but has non-vegan ingredients
 		# Set to maybe-vegan as a heads up to double-check
-		if ($ingredients_analysis_properties_ref->{vegetarian} eq "en:non-vegetarian") {
+		if (    (defined $ingredients_analysis_properties_ref->{vegetarian})
+			and ($ingredients_analysis_properties_ref->{vegetarian} eq "en:non-vegetarian"))
+		{
 			$ingredients_analysis_properties_ref->{vegan} = "en:maybe-vegan";
 			$ingredients_analysis_properties_ref->{vegetarian} = "en:maybe-vegetarian";
 		}
-		elsif ($ingredients_analysis_properties_ref->{vegan} eq "en:non-vegan") {
+		elsif ( (defined $ingredients_analysis_properties_ref->{vegan})
+			and ($ingredients_analysis_properties_ref->{vegan} eq "en:non-vegan"))
+		{
 			$ingredients_analysis_properties_ref->{vegan} = "en:maybe-vegan";
 		}
 		else {
@@ -4758,7 +4774,9 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 	if (has_tag($product_ref, "labels", "en:vegetarian")) {
 		# Labeled as vegetarian, but has non-vegetarian ingredients
 		# Set to maybe-vegetarian as a heads up to double-check
-		if ($ingredients_analysis_properties_ref->{vegetarian} eq "en:non-vegetarian") {
+		if (    (defined $ingredients_analysis_properties_ref->{vegetarian})
+			and ($ingredients_analysis_properties_ref->{vegetarian} eq "en:non-vegetarian"))
+		{
 			$ingredients_analysis_properties_ref->{vegetarian} = "en:maybe-vegetarian";
 		}
 		else {
@@ -5219,6 +5237,8 @@ my %phrases_before_ingredients_list = (
 
 	et => ['koostisosad', 'Koostis',],
 
+	eu => ['[Oo]sagaiak',],
+
 	fi => ['aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?', 'ainesosia', 'valmistusaineet', 'Kokoonpano', 'koostumus',],
 
 	fr => [
@@ -5374,6 +5394,7 @@ my %phrases_after_ingredients_list = (
 		'(heотворен|Неотворен)',    # before opening ...
 		'След отваряне',    # after opening ...
 		'Опаковани в защитна атмосфера',    # packaged in protective atmosphere
+		'най добър до',    # best before
 	],
 
 	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
@@ -5454,6 +5475,7 @@ my %phrases_after_ingredients_list = (
 		'best before',    #'Best before',
 		'keep cool and dry',
 		'Can be stored unopened at room temperature',
+		'cooking time',
 		'for allergens',
 		'instruction',
 		'nutrition(al)? (as sold|facts|information|typical|value[s]?)',
@@ -5677,6 +5699,9 @@ my %phrases_after_ingredients_list = (
 	lv => [
 		'uzglabāt (sausā|vēsā)',    # keep in dry place
 		'analītiskā sastāva',    # pet food
+		'ieteicams līdz',    # recommended until
+		'pēc iepakojuma atvēršanas izlietot',    # use after opening the package
+		'Chocolate contains',    # chocolate contains
 	],
 
 	mk => [
@@ -5746,6 +5771,7 @@ my %phrases_after_ingredients_list = (
 	ro => [
 		'constituenți analitici',    # pet food
 		'declaratie nutritional(a|ă)',
+		'a se consuma de preferinţă înainte de',    # best before
 		'a si pastra la frigider dup(a|ă) deschidere',
 		'a se agita inainte de deschidere',
 		'a se păstra',    # Store in a dry and cool place / at temperature
@@ -5756,7 +5782,7 @@ my %phrases_after_ingredients_list = (
 
 	ru => [
 		'Аналитические компоненты',    # pet food
-		'xранить в сухом',    # store in a dry place
+		'(x|Х)ранить в сухом',    # store in a dry place
 	],
 
 	sk => [
@@ -5778,7 +5804,7 @@ my %phrases_after_ingredients_list = (
 		'predlog za serviranje ',    # serving suggestion
 		'prosječne hranjive vrijednosti 100 g proizvoda',    # average nutritional value of 100 g of product
 		'številka serije',    # keep until
-		'uporabno (najmanj )do',    # keep until
+		'uporabno (?:najmanj )do',    # keep until
 		'uvoznik',    # imported/distributed by
 	],
 
@@ -5843,7 +5869,8 @@ my %ignore_phrases = (
 		'za više informacija posjetiti stranicu ra\.org',
 	],
 	hu => [
-		'Valamennyi százalékos adat a késztermékre vonatkozik',    # All percentages refer to the finished product.
+		'a késztermékben',    # in the finished product
+		'valamennyi százalékos adat a késztermékre vonatkozik',    # All percentages refer to the finished product.
 	],
 	sk => [
 		'obsah laktózy',    # lactose content <0,1g/100 g
@@ -6018,7 +6045,7 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 	if (defined $phrases_after_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
-			if ($text =~ /\*?\s*\b$regexp\b(.*)$/is) {
+			if ($text =~ /(?:$symbols_regexp)?\s*\b$regexp\b(.*)$/is) {
 				$text = $`;
 				$log->debug("removed phrases_after_ingredients_list", {removed => $1, kept => $text, regexp => $regexp})
 					if $log->is_debug();
@@ -6262,8 +6289,8 @@ my %ingredients_categories_and_types = (
 	cs => [
 		# oil and fat
 		{
-			categories => ["rostlinné oleje"],
-			types => ["řepkový", "slunečnicový",],
+			categories => ["rostlinné oleje, rostlinné tuky"],
+			types => ["bambucký", "kokosový", "olivový", "palmový", "palmojadrový", "řepkový", "slunečnicový",],
 			alternate_names => ["<type> olej"],
 		},
 	],
@@ -8287,7 +8314,7 @@ sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 	return ($percent, $water_percent);
 }
 
-=head2 estimate_ingredients_matching_function ( $product_ref, $match_function_ref, $nutrient_id = undef )
+=head2 estimate_ingredients_matching_function ( $product_ref, $match_function_ref)
 
 This function analyzes the ingredients to estimate the percentage of ingredients of a specific type
 (e.g. fruits/vegetables/legumes for the Nutri-Score).
@@ -8300,17 +8327,13 @@ This function analyzes the ingredients to estimate the percentage of ingredients
 
 Reference to a function that matches specific ingredients (e.g. fruits/vegetables/legumes)
 
-=head4 $nutrient_id (optional)
-
-If the $nutrient_id argument is defined, we also store the nutrient value in $product_ref->{nutriments}.
-
 =head3 Return value
 
 Estimated percentage of ingredients matching the function.
 
 =cut
 
-sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $nutrient_id = undef) {
+sub estimate_ingredients_matching_function ($product_ref, $match_function_ref) {
 
 	my ($percent, $water_percent);
 
@@ -8355,17 +8378,6 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $
 			and ((not defined $percent) or ($specific_ingredients_percent > $percent)))
 		{
 			$percent = $specific_ingredients_percent;
-		}
-	}
-
-	if (defined $nutrient_id) {
-		if (defined $percent) {
-			$product_ref->{nutriments}{$nutrient_id . "_100g"} = $percent;
-			$product_ref->{nutriments}{$nutrient_id . "_serving"} = $percent;
-		}
-		elsif (defined $product_ref->{nutriments}) {
-			delete $product_ref->{nutriments}{$nutrient_id . "_100g"};
-			delete $product_ref->{nutriments}{$nutrient_id . "_serving"};
 		}
 	}
 
@@ -8421,17 +8433,13 @@ fruits, vegetables, nuts, olive / walnut / rapeseed oil, so that we can compute
 the Nutri-Score fruit points if we don't have a value given by the manufacturer
 or estimated by users.
 
-Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} (and _serving)
+This function is called by ProductOpener::Nutrition::compute_estimated_nutrients ($product_ref)
 
 =cut
 
 sub estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ($product_ref) {
 
-	return estimate_ingredients_matching_function(
-		$product_ref,
-		\&is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils,
-		"fruits-vegetables-nuts-estimate-from-ingredients"
-	);
+	return estimate_ingredients_matching_function($product_ref, \&is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils);
 
 }
 
@@ -8559,7 +8567,7 @@ sub is_fruits_vegetables_legumes_for_fat_oil_nuts_seed ($ingredient_id, $process
 This function analyzes the ingredients to estimate the minimum percentage of
 fruits, vegetables, legumes, so that we can compute the Nutri-Score (2023) fruit points.
 
-Results are stored in $product_ref->{nutriments}{"fruits-vegetables-legumes-estimate-from-ingredients_100g"} (and _serving)
+This function is called by ProductOpener::Nutrition::compute_estimated_nutrients ($product_ref)
 
 =cut
 
@@ -8574,9 +8582,7 @@ sub estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients 
 		$matching_function_ref = \&is_fruits_vegetables_legumes;
 	}
 
-	return estimate_ingredients_matching_function($product_ref, $matching_function_ref,
-		"fruits-vegetables-legumes-estimate-from-ingredients",
-	);
+	return estimate_ingredients_matching_function($product_ref, $matching_function_ref);
 }
 
 =head2 is_milk ( $ingredient_id, $processing = undef )
@@ -8652,7 +8658,6 @@ sub estimate_added_sugars_percent_from_ingredients ($product_ref) {
 			my ($ingredient_id, $processing) = @_;
 			return is_a("ingredients", $ingredient_id, "en:added-sugar");
 		},
-		#"added-sugars-estimate-from-ingredients"
 	);
 }
 

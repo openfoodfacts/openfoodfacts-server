@@ -15,27 +15,22 @@ use boolean qw/:all/;
 # Make sure we include convert_blessed to cater for blessed objects, like booleans
 my $json = JSON::MaybeXS->new->convert_blessed->utf8->canonical;
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 # Create an admin
 my $admin_ua = new_client();
-my $resp = create_user($admin_ua, \%admin_user_form);
-ok(!html_displays_error($resp));
+create_user($admin_ua, \%admin_user_form);
 
 # Create a normal user
 my $ua = new_client();
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
-$resp = create_user($ua, \%create_user_args);
-ok(!html_displays_error($resp));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+create_user($ua, \%create_user_args);
 
 # Create a moderator
 my $moderator_ua = new_client();
-$resp = create_user($moderator_ua, \%moderator_user_form);
-ok(!html_displays_error($resp));
+create_user($moderator_ua, \%moderator_user_form);
 
 # Admin gives moderator status
 my %moderator_edit_form = (
@@ -43,7 +38,7 @@ my %moderator_edit_form = (
 	user_group_moderator => "1",
 	type => "edit",
 );
-$resp = edit_user($admin_ua, \%moderator_edit_form);
+my $resp = edit_user($admin_ua, \%moderator_edit_form);
 ok(!html_displays_error($resp));
 
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/upload_images";

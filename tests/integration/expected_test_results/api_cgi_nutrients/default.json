@@ -431,6 +431,15 @@
                "id" : "soluble-fiber",
                "important" : false,
                "name" : "Soluble fiber",
+               "nutrients" : [
+                  {
+                     "display_in_edit_form" : false,
+                     "id" : "polydextrose",
+                     "important" : false,
+                     "name" : "Polydextrose",
+                     "unit" : "g"
+                  }
+               ],
                "unit" : "g"
             },
             {
@@ -750,23 +759,9 @@
       },
       {
          "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts",
-         "important" : false,
-         "name" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils",
-         "unit" : "%"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts-dried",
-         "important" : false,
-         "name" : "Fruits‚ vegetables and nuts - dried",
-         "unit" : "%"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts-estimate",
-         "important" : false,
-         "name" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)",
+         "id" : "fruits-vegetables-legumes",
+         "important" : true,
+         "name" : "Fruits‚ vegetables‚ legumes",
          "unit" : "%"
       },
       {
@@ -796,27 +791,6 @@
          "important" : false,
          "name" : "Carbon footprint",
          "unit" : "g"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "carbon-footprint-from-meat-or-fish",
-         "important" : false,
-         "name" : "Carbon footprint from meat or fish",
-         "unit" : "g"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "nutrition-score-fr",
-         "important" : false,
-         "name" : "Nutrition score - France",
-         "unit" : ""
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "nutrition-score-uk",
-         "important" : false,
-         "name" : "Nutrition score - UK",
-         "unit" : ""
       },
       {
          "display_in_edit_form" : false,

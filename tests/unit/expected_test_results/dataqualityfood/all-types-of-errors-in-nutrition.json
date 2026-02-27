@@ -1,0 +1,160 @@
+{
+   "data_quality_bugs_tags" : [
+      "en:main-language-code-missing",
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing"
+   ],
+   "data_quality_completeness_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-to-be-completed",
+      "en:nutrition-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-to-be-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed"
+   ],
+   "data_quality_dimensions" : {
+      "accuracy" : {
+         "overall" : "0.00"
+      },
+      "completeness" : {
+         "general_information" : "0.00",
+         "ingredients" : "0.00",
+         "nutrition" : "0.33",
+         "overall" : "0.10",
+         "packaging" : "0.00"
+      }
+   },
+   "data_quality_errors_tags" : [
+      "en:nutrition-packaging-as-sold-100g-energy-value-in-kcal-greater-than-in-kj",
+      "en:nutrition-packaging-as-sold-100g-energy-value-in-kcal-and-kj-are-reversed",
+      "en:nutrition-packaging-as-sold-100g-energy-value-in-kcal-does-not-match-value-in-kj",
+      "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
+      "en:nutrition-packaging-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
+      "en:nutrition-packaging-as-sold-100g-saturated-fat-greater-than-fat",
+      "en:nutrition-packaging-as-sold-100g-soluble-fiber-plus-insoluble-fiber-greater-than-fiber",
+      "en:nutrition-packaging-as-sold-100g-value-over-105-saturated-fat",
+      "en:nutrition-packaging-as-sold-100g-value-total-over-105"
+   ],
+   "data_quality_info_tags" : [
+      "en:no-packaging-data",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown"
+   ],
+   "data_quality_tags" : [
+      "en:main-language-code-missing",
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing",
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-to-be-completed",
+      "en:nutrition-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-to-be-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed",
+      "en:no-packaging-data",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown",
+      "en:nutrition-packaging-as-sold-100g-value-under-0-001-g-salt",
+      "en:nutrition-packaging-as-sold-100g-energy-value-in-kcal-greater-than-in-kj",
+      "en:nutrition-packaging-as-sold-100g-energy-value-in-kcal-and-kj-are-reversed",
+      "en:nutrition-packaging-as-sold-100g-energy-value-in-kcal-does-not-match-value-in-kj",
+      "en:nutrition-packaging-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates",
+      "en:nutrition-packaging-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
+      "en:nutrition-packaging-as-sold-100g-saturated-fat-greater-than-fat",
+      "en:nutrition-packaging-as-sold-100g-soluble-fiber-plus-insoluble-fiber-greater-than-fiber",
+      "en:nutrition-packaging-as-sold-100g-value-over-105-saturated-fat",
+      "en:nutrition-packaging-as-sold-100g-value-total-over-105"
+   ],
+   "data_quality_warnings_tags" : [
+      "en:nutrition-packaging-as-sold-100g-value-under-0-001-g-salt"
+   ],
+   "images" : {
+      "selected" : {}
+   },
+   "languages_codes" : {},
+   "nutriscore" : {
+      "2023" : {}
+   },
+   "nutrition" : {
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "carbohydrates" : {
+                  "unit" : "mg",
+                  "value" : 10
+               },
+               "energy-kcal" : {
+                  "unit" : "kcal",
+                  "value" : 20
+               },
+               "energy-kj" : {
+                  "unit" : "kj",
+                  "value" : 5
+               },
+               "fat" : {
+                  "unit" : "g",
+                  "value" : 70
+               },
+               "fiber" : {
+                  "unit" : "g",
+                  "value" : 2
+               },
+               "insoluble-fiber" : {
+                  "unit" : "g",
+                  "value" : 3
+               },
+               "lactose" : {
+                  "unit" : "g",
+                  "value" : 25
+               },
+               "proteins" : {
+                  "unit" : "g",
+                  "value" : 40
+               },
+               "salt" : {
+                  "unit" : "mg",
+                  "value" : 4e-05
+               },
+               "saturated-fat" : {
+                  "unit" : "g",
+                  "value" : 125
+               },
+               "sodium" : {
+                  "unit" : "mg",
+                  "value" : 5000
+               },
+               "soluble-fiber" : {
+                  "unit" : "g",
+                  "value" : 1
+               },
+               "starch" : {
+                  "unit" : "g",
+                  "value" : 1
+               },
+               "sugars" : {
+                  "unit" : "mg",
+                  "value" : 11
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : 100,
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
+   }
+}

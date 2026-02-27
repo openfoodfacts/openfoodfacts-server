@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Isang pagtutulungan, libre at bukas na datos ng mga produktong pagkain mula sa buong mundo."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -312,7 +312,7 @@ msgstr ""
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Filipino.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -357,10 +357,6 @@ msgstr ""
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -1121,11 +1117,11 @@ msgstr ""
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "1 sangkap"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} (na) sangkap"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1161,11 +1157,11 @@ msgstr "Bilang ng mga sangkap"
 
 msgctxt "known_ingredients_n_s"
 msgid "Number of recognized ingredients"
-msgstr ""
+msgstr "Bilang ng mga kinikilalang sangkap"
 
 msgctxt "unknown_ingredients_n_s"
 msgid "Number of unrecognized ingredients"
-msgstr ""
+msgstr "Bilang ng mga hindi nakikilalang sangkap"
 
 msgctxt "ingredients_p"
 msgid "ingredients"
@@ -1210,11 +1206,11 @@ msgstr "Mga produkto na hindi naglalaman ng sangkap %s"
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr ""
+msgstr "/images/misc/appstore/black/appstore_PH.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
+msgstr "I-download sa App Store"
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1466,7 +1462,7 @@ msgstr "Ilipat ang mga imahe sa ibang produkto"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s (na) produkto"
 
 msgctxt "name"
 msgid "Name"
@@ -3242,7 +3238,7 @@ msgstr ""
 # Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr ""
+msgstr "Kunin ang app"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
@@ -3716,6 +3712,10 @@ msgstr ""
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
+
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "pagkakumpleto ng kalidad ng data"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -4627,21 +4627,21 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr ""
+msgid "Nutri-Score not applicable"
+msgstr "Hindi naaangkop ang Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "Hindi naaangkop para sa kategorya: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
-msgstr ""
+msgstr "Sobrang gandang kalidad ng nutrisyon"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
@@ -4892,7 +4892,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
-msgstr ""
+msgstr "Mababang epekto sa kalikasan"
 
 msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
@@ -5111,6 +5111,10 @@ msgstr ""
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Mga nawawalang katotohanan sa nutrisyon para sa inihandang produkto"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
@@ -5454,6 +5458,10 @@ msgstr ""
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Nawawala ang isang tiyak na kategorya"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5964,6 +5972,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Walang mga nasuring label"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Ang ilang mga benepisyo sa kapaligiran"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Mataas na benepisyo sa kapaligiran"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Napakataas na benepisyo sa kapaligiran"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6100,13 +6124,17 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Mga nawawalang katotohanan sa nutrisyon para sa inihandang produkto:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
 
 msgctxt "health"
 msgid "Health"
-msgstr ""
+msgstr "Kalusugan"
 
 msgctxt "contribution_panel_title"
 msgid "Contribution"
@@ -6115,6 +6143,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Pagkumpleto ng Kalidad ng Data"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Ilang impormasyon tungkol sa pagkakumpleto ng kalidad ng data sa produktong ito"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6187,6 +6223,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Nawawala ang mga inihandang katotohanan sa nutrisyon"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6372,6 +6412,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Ang kategoryang mayroon kami para sa produktong ito ay hindi sapat na tumpak upang makalkula ang Green-Score. Maaari ka bang magdagdag ng mas tumpak na kategorya ng produkto?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7351,11 +7395,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "Hindi naaangkop ang index ng pagkukumpuni"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7501,9 +7545,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Iulat ang larawang ito sa aming mga moderator"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Nawawala ang halaga ng laki ng paghahatid at/o unit para kalkulahin ang Nutri-Score"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "Ang <<site_name>> ay ginawa ng isang non-profit na asosasyon, na hiwalay sa industriya. Ito ay ginawa para sa lahat, ng lahat, at ito ay pinondohan ng lahat. Maaari mong suportahan ang aming trabaho sa pamamagitan ng pagbibigay ng donasyon sa Open Food Facts.<br/><b>Salamat!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "Ang <<site_name>> ay ginawa ng isang non-profit na asosasyon, na hiwalay sa industriya. Ito ay ginawa para sa lahat, ng lahat, at ito ay pinondohan ng lahat. Maaari mong suportahan ang aming trabaho sa pamamagitan ng pagbibigay ng donasyon sa Open Food Facts at gayundin sa paggamit ng Lilo search engine.<br/><b>Salamat!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo search engine"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Dahil sa matinding pang-aabuso mula sa mga robot, hindi namin maihatid ang page na ito sa mga hindi kilalang user. Mangyaring lumikha ng isang libreng Open Food Facts account upang ma-access ang lahat ng Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Pinagmulan ng mga sangkap"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Impormasyon ng produkto"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Raw na impormasyon ng produkto"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7517,7 +7593,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "Tinantyang dami ng idinagdag na asukal sa mga sangkap"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Dami ng idinagdag na asukal"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Maghanap ng mga produkto sa parehong kategorya na walang idinagdag na asukal:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Mga hindi gustong sangkap"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Ang kagustuhang ito ay batay sa pag-unawa ng Open Food Facts sa listahan ng mga sangkap at maaaring hindi tumpak, palaging suriin ang produkto sa iyong sarili."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Hindi alam ang pagkakaroon ng mga hindi gustong sangkap"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Walang nakitang mga hindi gustong sangkap"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Naglalaman ng mga hindi gustong sangkap"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Ang ilang mga sangkap ay hindi nakilala"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Hindi namin nakita ang: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Hindi namin nakita ang: {unwanted_ingredients}. Maaaring may napalampas kaming mga sangkap, mangyaring palaging suriin ang listahan ng mga sangkap."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Ang mga kagustuhang iyon ay batay sa pag-unawa ng Open Food Facts sa listahan ng mga sangkap at palaging may posibilidad na hindi ito tumpak o kumpleto, palaging suriin ang produkto sa iyong sarili."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Nakamamatay ang paninigarilyo"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Ang tabako ay malubhang nakakapinsala sa kalusugan. Huwag magsimula. Tumigil ka na."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Ang paninigarilyo ay lubhang nakakahumaling. Huwag simulan. Ang paninigarilyo ay nakamamatay - huminto ngayon. Ang paninigarilyo ay bumabara sa mga ugat at nagiging sanhi ng atake sa puso at stroke. Ang paninigarilyo ay nagdudulot ng nakamamatay na kanser sa baga. Ang paninigarilyo kapag buntis ay nakakapinsala sa iyong sanggol. Protektahan ang mga bata: huwag silang pasinghap ng usok mo. Matutulungan ka ng iyong doktor o parmasyutiko na huminto sa paninigarilyo. Maaaring bawasan ng paninigarilyo ang daloy ng dugo at maging sanhi ng kawalan ng lakas. Ang paninigarilyo ay nagdudulot ng pagtanda ng balat. Ang paninigarilyo ay maaaring makapinsala sa tamud at bumababa sa pagkamayabong. Ang usok ay naglalaman ng benzene, nitrosamines, formaldehyde at hydrogen cyanide."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Pampublikong presyo"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 EUR, 2.99 USD, 4.00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Manufacturer suggested retail price (MSRP), hindi kasama ang mga diskwento at promosyon, gaya ng nakasaad sa packaging ng produkto o sa site ng manufacturer (kasama o hindi kasama ang mga buwis batay sa batas). Gumamit ng listahang pinaghihiwalay ng kuwit kung nakalista ang mga presyo sa maraming pera."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Personalized na ari-arian"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Hindi naglalaman ng palm oil"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Maaaring naglalaman ng palm oil"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Mga label sa kapaligiran"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Nawawalang data"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Mataas na epekto"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Katamtamang epekto"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Mababang epekto"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Hindi nasuri ang epekto"
 

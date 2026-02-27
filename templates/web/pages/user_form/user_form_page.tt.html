@@ -205,6 +205,11 @@
         <!-- Show different messages depending on whether it is a pro account
         and whether we are on the public platform or the pro platform -->
 
+        <!-- loggedin-->
+        <!-- the loggedin comment above is parsed by Open Food Facts Dart plugin to check if a signup was successful-->
+        <!-- It should not be removed until apps (OFF app and 3rd party apps using the Dart plugin) have migrated to the upcoming Keycloak authentification -->
+        <!-- See https://github.com/openfoodfacts/openfoodfacts-dart/blob/v3.26.0/lib/src/model/sign_up_status.dart -->
+
         [% IF user_requested_org.defined %]
 
             <!-- Pro account, but the requested org already exists -->

@@ -11,6 +11,7 @@
 en: Unknown food group 1
 es: Grupo de alimentos desconocido 1
 fr: Groupe alimentaire de niveau 1 inconnu
+it: Gruppo alimentare sconosciuto 1
 nl: Onbekende voedselgroep 1
 
 en: Unknown food group 2
@@ -28,11 +29,13 @@ nl: Onbekende voedselgroep 3
 en: Fruits and vegetables
 es: Frutas y verduras
 fr: Fruits et légumes
+it: Frutta e verdura
 ja: 果物と野菜
 nl: Groenten en fruit
 
 < en:Fruits and vegetables
 en: Fruits
+fr: Fruits
 ja: 果物
 nl: Fruit
 
@@ -44,6 +47,7 @@ nl: Gedroogde vruchten, gedroogd fruit
 
 < en:Fruits and vegetables
 en: Vegetables
+fr: Légumes
 ja: 野菜
 nl: Groenten
 
@@ -62,6 +66,9 @@ nl: Gedroogde soepen
 
 < en:Fruits and vegetables
 en: Fresh soups
+es: Sopas frescas
+fr: Soupes fraîches
+it: Zuppe fresche
 nl: Verse soepen
 
 en: Cereals and potatoes
@@ -123,18 +130,21 @@ en: Breakfast cereals
 nl: Ontbijtgranen
 
 en: Milk and dairy products
+fr: Lait et produits laitiers
 
 < en:Milk and dairy products
 en: Dairy desserts
+fr: Desserts lactés
 
 < en:Milk and dairy products
 en: Cheese
+fr: Fromage
 ja: チーズ
 nl: Kaas
 
 < en:Cheese
 en: Blue cheese
-fr: Fromage persillé
+fr: Fromage persillé, fromage bleu
 ja: ブルーチーズ
 
 < en:Cheese
@@ -155,69 +165,88 @@ fr: Fromage fondu
 
 < en:Milk and dairy products
 en: Ice cream
+fr: Crème glacée
 ja: アイスクリーム
 nl: Ijs, ijsjes
 
 < en:Milk and dairy products
 en: Milk and yogurt
+fr: Lait et yaourt
 
 < en:Milk and yogurt
 en: Plain milk and yogurt
+fr: Lait et yaourt natures
 
 < en:Milk and yogurt
 en: Sweetened milk and yogurt
+fr: Lait et yaourt sucrés
 
 en: Fish\, Meat\, Eggs
+fr: Poisson\, Viande\, Oeufs
 
 < en:Fish\, Meat\, Eggs
 en: Offals
+fr: Abats
 ja: もつ
 
 < en:Fish\, Meat\, Eggs
 en: Processed meat
+fr: Charcuterie
 ja: 加工肉
 
 < en:Fish\, Meat\, Eggs
 en: Eggs
+fr: Oeufs
 ja: 卵
 nl: Eieren
 
 < en:Fish\, Meat\, Eggs
 en: Fish and seafood
+fr: Poisson et produits de la mer
 
 < en:Fish and seafood
 en: Lean fish
+fr: Poisson maigre
 
 < en:Fish and seafood
 en: Fatty fish
+fr: Poisson gras
 
 < en:Fish and seafood
 en: Smoked fish
+fr: Poisson fumé
 
 < en:Fish and seafood
 en: Seafood
+fr: Produits de la mer
 
 < en:Fish\, Meat\, Eggs
 en: Meat
+fr: Viande
 ja: 肉
 nl: Vlees
 
 < en:Meat
 en: Poultry
+fr: Volaille
 nl: Gevogelte
 
 < en:Meat
 en: Meat other than poultry
+fr: Viande autre que volaille
 
 en: Sugary snacks
+fr: Snacks sucrés
 
 < en:Sugary snacks
 en: Chocolate products
+fr: Produits chocolatés
 ja: チョコレート製品
 nl: Chocoladeproducten
 
 < en:Chocolate products
 en: Dark chocolate
+fr: Chocolat noir
 ja: ダークチョコレート
 nl: Pure chocolade
 
@@ -231,67 +260,87 @@ nl: Melkchocolade
 
 < en:Chocolate products
 en: White chocolate
+fr: Chocolat blanc
 ja: ホワイトチョコレート
 nl: Witte chocolade
 
 < en:Chocolate products
 en: Other chocolate-based products
+fr: Autres produits chocolatés
 
 < en:Sugary snacks
 en: Sweets
+fr: Sucreries
 
 < en:Sugary snacks
 en: Biscuits and cakes
+es: Galletas y pasteles
+fr: Biscuits et gâteaux
+it: Biscotti e torte
+nl: Koekjes en gebak
 
 < en:Sugary snacks
 en: Pastries
+fr: Pâtisseries
 
 en: Salty snacks
 de: Salzige Snacks
 es: Snacks salados
 fr: Snacks salés
+it: Snack salati
 nl: Zoute snacks
 
 < en:Salty snacks
 en: Nuts
+fr: Noix
 ja: ナッツ
 nl: Noten
 
 < en:Nuts
 en: Unsalted nuts
+fr: Noix non-salées
 nl: Ongezouten noten
 
 < en:Nuts
 en: Salted nuts
+fr: Noix salées
 nl: Gezouten noten
 
 < en:Nuts
 en: Nut butter
+fr: Beurre de fruits à coque
 ja: ナッツバター
 
 < en:Salty snacks
 en: Appetizers
+fr: Apéritifs
 ja: 前菜
 
 < en:Salty snacks
 en: Salty and fatty products
+fr: Produits salés et gras
 
 en: Fats and sauces
+fr: Matières grasses et sauces
 
 < en:Fats and sauces
 en: Fats
+fr: Matières grasses
 ja: 油脂
 
 < en:Fats
 en: Animal fats
+fr: Matières grasses animales
 ja: 動物性油脂
 
 < en:Fats
 en: Vegetable oils
+fr: Huiles végétales
 ja: 植物油
 
 < en:Fats
 en: Vegetable margarines
+fr: Margarines végétales
 
 < en:Fats and sauces
 en: Dressings and sauces
@@ -304,6 +353,7 @@ ja: ドレッシング
 # (eg warm sauces (tomato-based))
 < en:Dressings and sauces
 en: Sauces
+fr: Sauces
 ja: ソース
 
 en: Composite foods
@@ -319,38 +369,60 @@ en: Sandwiches
 ja: サンドイッチ
 
 en: Beverages
+fr: Boissons
 ja: 飲料
 
 < en:Beverages
 en: Artificially sweetened beverages
+fr: Boissons édulcorées artificiellement
+it: Bevande edulcorate artificialmente
 
 < en:Beverages
 en: Unsweetened beverages
+fr: Boissons non sucrées
 
 < en:Beverages
 en: Sweetened beverages
+fr: Boissons sucrées
 ja: 甘味料入り飲料
 nl: Gezoete dranken
 
 < en:Beverages
 en: Fruit juices
+fr: Jus de fruits
 
 < en:Beverages
 en: Fruit nectars
+fr: Nectars de fruits
 
 < en:Beverages
 en: Waters and flavored waters
+fr: Eaux et eaux aromatisées
 ja: 水とフレーバードウォーター
 nl: Water en gearomatiseerd water
 
 < en:Beverages
 en: Teas and herbal teas and coffees
+fr: Thés et tisanes et cafés
 
 < en:Beverages
 en: Plant-based milk substitutes
+fr: Laits végétaux
 
 # en:Alcoholic beverages level 1 group contains a level 2 entry of the same name,
 # we will deal with it in the code
 en: Alcoholic beverages
+fr: Boissons alcoolisées
 ja: 酒, さけ
+
+en: Baby foods and milks
+fr: Aliments et laits pour bébé
+
+< en: Baby foods and milks
+en: Baby foods
+fr: Aliments pour bébé
+
+< en:Baby foods and milks
+en: Baby milks
+fr: Laits pour bébé
 

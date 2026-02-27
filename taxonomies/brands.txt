@@ -11,62 +11,341 @@
 # Note: an old draft owners/brands taxonomy lives in taxonomies/unused/brands.txt, but it is hierarchic, which is something we do not want in this taxonomy.
 # You can usefully read: https://wiki.openfoodfacts.org/Brands to get up and running on the subtleties of the topic.
 
-xx: Albert Heijn
+xx: No brand
+comment:en: to be used when absolutely no brand (or proxy brand) can be found on the packaging.
+
+xx: Abbot Kinney's
+wikidata:en: Q136824393
+
+xx: Albert Heijn, AH
+wikidata:en: Q136838017
+
+xx: AH Excellent, Albert Heijn Excellent
+wikidata:en: Q136928844
+
+xx: AH to go
+wikidata:en: Q137104297
+
+xx: Albert Heijn Terra
+wikidata:en: Q136837987
 
 xx: Aldi
 
 xx: Alesto
+wikidata:en: Q137428531
+
+xx: Al'fez
+wikidata:en: Q136892984
+
+xx: Alfred Rothschild & Cie
+wikidata:en: Q137674348
+
+xx: Alisa
+wikidata:en: Q137513962
+
+xx: Almhof
+wikidata:en: Q136825392
+
+xx: Almhof hoekje
+# a subbrand of Almhof for dessert with sprinklings in a hoekje
+
+#< xx:Lidl
+xx: Alpenfest style, Alpenfest, Alpen fest, Alpen fest style, Alpen fest style Lidl
 
 xx: alpro
-wikidata:en: Q498666
+wikidata:en: Q136824379
+
+xx: Amanie
+# subbrand of Lidl
+
+xx: anamma
+
+xx: Andros
+wikidata:en: Q137477221
+
+xx: apoteket
+wikidata:en: Q1785637
+
+xx: Arla
+wikidata:en: Q674575
+
+xx: Anna & Clara's
+# subbrand of Søstrene Grene
+
+xx: Aroy-D
+wikidata:en: Q137460581
+
+xx: Asia Green Garden
+
+xx: Aubel
+#v no EU trademark registered
+
+xx: Aviateur patisserie
+wikidata:en: Q137731140
+
+xx: Bad Reichenhaller
+#web:en: https://www.bad-reichenhaller.de/en/index.html
 
 xx: Banderos
+
+xx: Baronie
+wikidata:en: Q137300630
+
+xx: Barebells
+
+xx: Barkleys
+wikidata:en: Q136929948
+
+xx: Beauvais
+wikidata:en: Q12303007
+
+xx: Beillevaire
+wikidata:en: Q137478612
+
+xx: Bertolli
 
 #< xx:Unilever
 xx: Best Foods
 wikidata:en: Q809061
 
+xx: Bioheme
+wikidata:en: Q137512976
+
+xx: Bio Today
+wikidata:en: Q136929973
+
+xx: biorganica nuova
+
 xx: Bio Village
+
+xx: Bio+
 
 #< xx:Lotus Bakeries
 xx: Biscoff
 wikidata:en: Q116641741
 
+xx: BitesWeLove
+wikidata:en: Q136996105
+
+xx: Björnekulla
+wikidata:en: Q112757315
+
+xx: Blå Band
+wikidata:en: Q10431648
+
+# This seems to be different from “BSc” made by Australian(/Swedish?)
+# “Body Science International”, owned by “Humble Group Australia”,
+# which is what https://www.wikidata.org/wiki/Q18208172 is about.
+xx: Body Science
+
 xx: Bodylab
 wikidata:en: Q27530939
 
+xx: Domaine Bassac
+wikidata:en: Q137569515
+
 xx: bonÀrea
 
+xx: Bongran
+wikidata:en: Q137512889
+
+xx: Boss Coffee
+wikidata:en: Q4947502
+
+xx: Bostan
+wikidata:en: Q137459231
+
+xx: Brets
+wikidata:en: Q137863645
+
+xx: Brouwmeester
+wikidata:en: Q136929479
+
+xx: Brämhults, Brämhult
+wikidata:en: Q10436937
+
+xx: Bonne Maman
+
+xx: Carbonell
+wikidata:en: Q8262951
+
 xx: Carrefour BIO
+wikidata:en: Q55221138
+
+xx: Carrefour Classic
+wikidata:en: Q137731179
 
 xx: Chaque Jour Sans Gluten
+
+xx: Chalo
+
+#< xx:Lidl
+xx: ChanteSel
+comment:en: subbrand of Lidl
+
+xx: Chef Select
+# only sold in Lidl, also subbrand of Lidl
+
+xx: Chokay
+wikidata:en: Q136951951
 
 xx: Choice
 
 # Renamed to Kakaoarbo in 2020 or late 2019
 xx: Chøkolade, Chøkolade fra Samsø
 
-# This brand is used by different consumer cooperatives around the world
+xx: Cirio
+wikidata:en: Q3070443
+
+xx: Cloetta
+wikidata:en: Q3437039
+
+xx: Combino
+wikidata:en: Q137799780
+
+xx: Completa
+
 xx: Coop
+comment:en: This brand is used by different consumer cooperatives around the world. Some disambiguation might be needed.
 wikidata:en: Q115764026
+
+xx: Coop naturaplan
+wikidata:en: Q137481545
+
+xx: Coppola Salerno, Coppola
+#web:en: https://www.coppolasalerno.com/
+
+xx: Cristaline
+wikidata:en: Q3002817
+
+xx: Croma
+wikidata:en: Q138087655
+
+xx: Crownfield
+
+xx: Culinea
+
+xx: Daelmans
+wikidate:en: Q136842173
+
+xx: DA
+
+xx: Dafgårds, Gunnar Dafgård
+wikidata:en: Q5618977
+
+xx: Dahls
+
+xx: Daily Chef
+
+xx: Dakatine
+wikidata:en: Q3012237
+
+xx: Dan Cake, DanCake
+wikidata:en: Q12307101
+
+xx: Danerolles
+wikidata:en: Q137400053
+
+xx: Dansukker, Dan Sukker
+#web:en: https://www.dansukker.com/
 
 xx: Dave & Jon's, Dave & Jon's Snack Factory, Dave and Jon's
 wikidata:en: Q134125853
 
+xx: Dazzley
+
+xx: De Cecco
+wikidata:en: Q931123
+
+xx: Dekamarkt
+
+xx: Deka's Keuken
+wikidata:en: Q137458930
+
+xx: Delibake
+#web:en: https://delibake.se/en/
+
+xx: Delicata, AH Delicata
+comment:en: private chocolate label of Albert Heijn
+wikidata:en: Q137351879
+
+xx: Délifrance
+wikidata:en: Q136996080
+# NL this brand is used by Home Baked Bread (Q136996055)
+
 xx: Delief
+
+xx: de Vleeschmeesters
+wikidata:en: Q136842208
+
+xx: Donny Craves Vegan Koek
+wikidata:en: Q136929463
+
+xx: Deluxe
+# subbrand of xx:Lidl
+
+xx: De Zaanse Hoeve
+comment:en: Private label of Albert Heijn
+
+xx: Diamant
 
 xx: dmBio, dm Bio
 
+xx: Driscoll's
+wikidata:en: Q136955368
+
 xx: Dr. Oetker
+wikidata:en: Q137476942
+
+xx: Dubbelfrisss
+wikidata:en: Q136891966
 
 xx: DUG
 
+xx: Durra
+#web:en: https://www.aldurra.com/
+
+xx: Duyvis
+wikidata:en: Q2189294
+
 xx: Délisse
+
+xx: EAGLOBE, 鷹球牌
+zh: 鷹球牌
+
+xx: EasiYo
+
+xx: Egelykke
 
 xx: El Taco Truck, El Taco Truck AB, Taco Truck
 
 xx: Eldorado
 wikidata:en: Q5324313
+
+xx: Elix
+
+xx: Emmi
+wikidata:en: Q136824621
+
+xx: Em-eukal
+
+xx: Estrella
+wikidata:en: Q6303102
+
+xx: Etiquable
+wikidata:en: Q137731175
+
+xx: Eurobakker
+wikidata:en: Q137176343
+
+xx: Euroma
+wikidata:en: Q137440717
+
+xx: Fanta
+
+xx: Favorina
+comment:en: Private brand of Lidl for pralines
+wikidata:en: Q137149537
 
 xx: Fazer
 wikidata:en: Q996907
@@ -75,24 +354,117 @@ wikidata:en: Q996907
 # In the Nordic countries, Felix is a (human) food brand and the cat food brand is called Latz
 xx: Felix
 
+xx: Findus
+wikidata:en: Q869728
+
+xx: First Price
+wikidata:en: Q5453722
+
+xx: Flevosap
+wikidata:en: Q137177197
+
 xx: Flora
 wikidata:en: Q5460271
 
+xx: Fontana
+
+xx: Font Vella
+wikidata:en: Q3811351
+
+xx: Frank Le Gourmand
+wikidata:en: Q137168617
+
+xx: Freshona
+comment:en: Private label of Lidl
+wikidata:en: Q137168327
+
+xx: fresh & easy
+wikidata:en: Q137568908
+
+xx: Frutesse
+comment:en: work trademark in Benelux
+wikidata:en: Q137177165
+
+xx: GAAM
+
+xx: Galbusera
+wikidata:en: Q137049250
+
+xx: Galbusera ZeroGrano
+comment:en: the EU trademark is expired
+wikidata:en: Q137049237
+
+xx: Galle & Jessen
+wikidata:en: Q5518906
+
 xx: Garant
+
+xx: Garofalo
+#web:en: https://www.pasta-garofalo.com/
 
 # Axfood brand targeted at large kitchens, like restaurants
 xx: Gastrino
 
+xx: Gestus
+
+xx: Gerblé
+wikidata:en: Q30753159
+
+xx: Golden Power
+
 xx: Golden Sun
+wikidata:en: Q136825332
+
+xx: Grafenwalder
+wikidata:en: Q2181927
+
+xx: Go-Tan, Go Tan
+wikidata:en: Q137442304
+
+xx: Go Vega!
+commemt:en: no trademark found in Benelux or EU
+wikidata:en: Q137177089
 
 xx: Grainway
 
 xx: Green Star
 
+xx: Grain de Sail
+wikidata:en: Q137570852
+
+xx: Grillon d'Or
+wikidata:en: Q137569393
+
+xx: Grøn Balance
+#web:da: https://www.grønbalance.dk/
+wikidata:en: Q65410727
+
+xx: g'woon, gwoon
+wikidata:en: Q136875635
+
 xx: H-E-B, HEB
 wikidata:en: Q830621
 
+xx: Hanegal
+
+xx: HappyVore
+wikidata:en: Q137477235
+
+xx: Haribo
+wikidata:en: Q169552
+
+xx: Hatting
+#web:da: https://www.hatting.dk/
+
+xx: Healthy Co
+
 xx: Heinz
+
+xx: HEMA
+wikidata:en: Q137799387
+
+xx: Hünkar
+wikidata:en: Q137440806
 
 #< xx:Unilever
 xx: Hellmann's, Hellmann's est. 1913, Hellmanns
@@ -103,26 +475,160 @@ xx: Hälsans Kök
 xx: ICA
 wikidata:en: Q10516119
 
+#< xx:ICA
+xx: ICA Asia
+
+#< xx:ICA
+xx: ICA Basic, ICA Bas%c
+
+#< xx:ICA
+xx: ICA i❤️eco, ICA I Love Eco, i love eco, I Love Eco ICA, ICA i♥eco, i♥eco, i❤️eco, ICA i <3 eco, i <3 eco, I Heart Eco, ICA eco
+#web:sv: https://www.ica.se/icas-egna-varor/varumarken/ica-i-love-eco/
+
+#< xx:ICA
+xx: ICA Selection
+
+xx: Ikbal
+ar: إقبال
+wikidata:en: Q137049723
+
+xx: IKEA
+wikidata:en: Q54078
+
+xx: Il Molino Chiavazza
+comment:en: brand not trademarked in the EU
+wikidata:en: Q137151953
+
+xx: Indus
+
 xx: innocent
 #web:en: https://www.innocentdrinks.com
 
+xx: Ísey
+wikidata:en: Q16422529
+
 xx: Issawi Bageri, Bageri Issawi, Issawi, مخبز العيساوي, العيساوي
+ar: مخبز العيساوي
 #web:sv: https://www.issawi.se/
+
+#< xx:Lidl
+xx: Italiamo
+
+xx: Jardin Bio étic
+wikidata:en: Q137591022
+
+xx: Jimmy's
+
+xx: Johma
+wikidata:en: Q137400555
+
+xx: Jonnie Boer
+wikidata:en: Q137440721
 
 xx: JOZO
 wikidata:en: Q10538850
 
+xx: JUMBO, Jumbo
+comment:en: this brand seems only trademarked in the Benelux. It is a multipurpose brand that appears on goods, services, supermarkets and teh holding company.
+wikidata:en: Q136824505
+
+xx: JuraSel
+
+xx: Kania
+comment:en: private brand of Lidl
+wikidata:en: Q136824610
+
+xx: Kiekeboe
+wikidata:en: Q136880977
+
+xx: Kaptein
+wikidate:en: Q136825884
+
+xx: Kavli
+wikidata:en: Q1208110
+
 xx: Kellogg's, Kelloggs, Kellogg
+
+xx: Kit Kat
+wikidata:en: Q367251
+
+xx: Kleinste Soepfabriek
+
+xx: Klene
+wikidata:en: Q1853862
+
+xx: Knorr
+wikidata:en: Q136824598
 
 xx: Kockens
 wikidata:en: Q10546877
+
+xx: Koningsvogel
+wikidata:en: Q137442154
 
 xx: KOTI, KOTISINAPPI, KOTI sinappi, KOTISENAP, KOTI senap
 #web:en: https://www.kotisinappi.fi/english
 #web:fi: https://www.kotisinappi.fi/
 #web:sv: https://www.kotisinappi.fi/svenska
 
+xx: Kruidvat
+wikidata:en: Q136868232
+
+xx: Krekeltje
+
+xx: Kryddhuset
+#web:sv: https://kryddhusetiljung.se/
+
+xx: Kung Markatta
+wikidata:en: Q10550149
+
+xx: Kungsörnen
+wikidata:en: Q6444566
+
+xx: La Baleine
+#web:en: https://www.labaleine.com/
+
+xx: Lambertz
+wikidata:en: Q137799639
+
+xx: Larnaudie, Jean Larnaudie
+
+xx: Lätta
+wikidata:en: Q1625477
+
+xx: La vie est belle
+wikidata:en: Q137440477
+
+xx: Lay's
+wikidata:en: Q136914164
+
+xx: Lay's Max
+wikidata:en: Q136914171
+
 xx: Leader Price, Leaderprice
+
+xx: Leerdammer
+wikidata:en: Q137322826
+
+xx: Lee Kum Kee, 李錦記, 李锦记, Lee Kim Kee
+zh: 李錦記
+#web:en: https://lkk.com/
+wikidata:en: Q855533
+
+xx: Leffe
+wikidata:en: Q1341618
+
+xx: Les Prés d'Ariège
+wikidata:en: Q137510641
+
+xx: Limax Spolka
+comment:en: a proxy brand of the packager
+wikidata:en: Q137049303
+
+xx: Lindahls
+
+xx: Lindt, Lindt & Sprüngl
+wikidata:en: Q152822
 
 xx: Loka
 wikidata:en: Q10568903
@@ -130,111 +636,488 @@ wikidata:en: Q10568903
 xx: Lotus, Lotus Bakeries, Lotus Since 1932
 wikidata:en: Q590113
 
+xx: Lotus Natur
+
+xx: Løgismose
+wikidata:en: Q6711394
+
+xx: Madame Magnifique
+comment:en: non-trademarked brand of Q137165248
+
+xx: Maggi
+wikidata:en: Q688424
+
+xx: Magioni
+wikidata:en: Q137393512
+
+xx: Maître CoQ
+
+xx: Lyttos
+# Associated brand: Aldi
+
+xx: mãe terra
+
 xx: Malaco
 wikidata:en: Q4346282
+
+xx: Marabou
+wikidata:en: Q1812718
 
 # Portuguese version of Marque Repère
 xx: Marca Guia
 
-xx: Marks & Spencers, Marks and Spencers
+xx: Maggi
+wikidata:en: Q688424
+
+xx: Markant
+
+xx: Marks & Spencers, Marks and Spencers, Marks and Spencer, M&S
 wikidata:en: Q714491
 
 xx: Marque Repère
 wikidata:en: Q3294723
 
+xx: Matriket
+
 # Swedish burger chain
 xx: Max
 wikidata:en: Q1912172
 
-xx: Maître CoQ
+xx: Maza
+wikidata:en: Q136912666
+
+xx: Melkan
+wikidata:en: Q136913078
+
+xx: Melkunie
+wikidata:en: Q2310590
+
+xx: Melvita
+
+xx: McVitie's
+wikidata:en: Q557614
+
+xx: Melkan
+# dairy producer
+
+xx: Milbona
+wikidata:en: Q136824789
+
+xx: Milka
+wikidata:en: Q757388
+
+xx: Milner
+wikidata:en: Q115574159
+
+xx: Minute Maid
+wikidata:en: Q136859200
 
 xx: Monte Castello
 
+xx: Mutti
+#web:en: https://mutti-parma.com/
+wikidata:en: Q16580706
+
+xx: nākd
+wikidata:en: Q137870223
+
 xx: NAT&vie, NAT&vie veggie
+
+xx: Nature Valley
+wikidata:en: Q23661669
+
+xx: Nature's Pride
 
 xx: Naturli'
 
 xx: Nestlé
 wikidata:en: Q160746
 
+xx: NOCCO
+wikidata:en: Q97225239
+
+xx: Nosugar company
+
+xx: NS Galletas
+
+xx: næmt, naemt
+
 xx: Oatly
 wikidata:en: Q10605824
 
+#< xx:Valio
 xx: Oddlygood, Oddly good
 
-# this (Swedish) brand was purchased by (Finnish) Oddlygood in 2023
-xx: Planti
+xx: Oldtimers
+wikidata:en: Q137393008
 
-xx: Premier
+xx: OLW, Old London Wasa
+wikidata:en: Q1775404
 
-xx: Pureness
+xx: Oot
+wikidata:en: Q137036335
+
+xx: Optimel
+wikidata:en: Q124221966
 
 xx: Pågen, Pågen AB
 wikidata:en: Q3102193
 
+xx: Patak's
+wikidata:en: Q137459252
+
+xx: Petti
+
+xx: Picnic
+wikidata:en: Q136825786
+
+xx: Pierre Martinet
+wikidata:en: Q136824443
+
+xx: Pimélia
+
+# this (Swedish) brand was purchased by (Finnish) Oddlygood in 2023
+xx: Planti
+
+xx: Plein Fruit
+wikidata:en: Q137856939
+
+xx: PLUS
+wikidata:en: Q136875384
+
+xx: Poiesz
+wikidata:en: Q137701150
+
+xx: Premier
+
+xx: Premieur
+
+xx: Priméal
+wikidata:en: Q137393142
+
+xx: ProActiv
+wikidata:en: Q136880765
+
+xx: Progresso
+wikidata:en: Q136952902
+
+xx: Prominent
+
+xx: ProPud
+
+xx: Prung Thip, ปรุงทิพย์
+th: ปรุงทิพย์
+#web:th: https://www.trs.co.th/th/p/prung-thip/
+
+xx: Purasana
+
+xx: Pureness
+
+#< xx:Monde Nissin
+xx: Quorn
+wikidata:en: Q2123676
+
+xx: Rawfoodshop
+
+xx: REMA 1000, REMA1000, REMA
+wikidata:en: Q28459
+
+xx: Remia
+
+xx: Renée Voltaire, Renee Voltaire
+wikidata:en: Q136622857
+
+xx: Ribena
+wikidata:en: Q3092323
+
 xx: Rice Krispies
 
+xx: Risenta
+
+xx: River
+wikidata:en: Q137799710
+
+xx: Roosterz & Co
+
+xx: Roze Bunker
+
+xx: Rydbergs
+
+xx: Rynkeby
+wikidata:en: Q12334047
+
 xx: Récoltons l'Avenir, Récoltons l'Avenir l'agriculture durable
+
+xx: Royal
+
+xx: Royal Mediterranean
+wikidata:en: Q136984611
 
 xx: Saffola
 
 xx: Sainsbury's, Sainsburys
 
-xx: Santa Maria
+xx: Salling
+wikidata:en: Q137992460
+
+xx: Salakis
+wikidata:en: Q137946506
+
+xx: Saltå kvarn
+wikidata:en: Q10660794
+
+xx: San Pellegrino
+wikidata:en: Q629009
+
+xx: Santa Maria, Santa Maria Norge AS
+#web:en: https://www.santamariaworld.com/
+
+xx: Sawa
 
 xx: Schulstad
 wikidata:en: Q12334753
+
+xx: Semper
+wikidata:en: Q136913700
 
 xx: Sevan
 
 xx: SIA Glass, SIA
 wikidata:en: Q7390267
 
+xx: Smikkelhuys
+wikidata:en: Q136930176
+
+xx: Signature Foods
+web:en: en: www.signaturefoods.com
+
+xx: Signature Foods Tapas
+#subbrand of xx:Signature Foods
+
+xx: Silvo
+wikidata:en: Q137552503
+
+#< xx:lidl
+xx: Snack Day
+comment:en: subbrand of Lidl
+
+xx: Snack Fan
+# related_brand:en: en:aldi
+
+xx: Sojade
+wikidata:en: Q137211136
+
 xx: Sol&Mar
+
+xx: Solevita
+
+xx: Sonko
+
+xx: Søstrene Grene
 
 xx: Soutenons nos agriculteurs
 
 xx: Special K
 
+xx: Spree
+wikidata:en: Q7580308
+
+xx: Star Nutrition
+
+xx: Streeckgenoten
+wikidata:en: Q137187464
+
+xx: Sum & Sam
+
+#< xx:Scandic Food
+xx: Svansø
+
+xx: Svenskt Kosttillskott
+#web:sv: https://www.svensktkosttillskott.se/
+
+xx: Swedish Supplements
+#web:en: https://www.swedish-supplements.com/
+
 xx: Södervidinge
 wikidata:en: Q10688845
+
+xx: Takis
+wikidata:en: Q107071944
 
 xx: Takovo
 wikidata:en: Q58177342
 
+xx: Tastes Good
+wikidata:en: Q137589623
+
+xx: Tastino
+wikidata:en: Q137941243
+
+xx: TastyBasics, Tasty Basics
+wikidata:en: Q136824528
+
+xx: tat, Tat Gıda
+#web:en: https://www.tatgida.com.tr/en/
+wikidata:en: Q20471706
+
+xx: The Bridge
+wikidata:en: Q137513415
+
+xx: The Hummus House, Hummus House
+#web:es: https://thehummushouse.com/
+
+xx: Thise
+#web:da: https://thise.dk/
+#web:en: https://thise.eu/
+
+xx: Tlant
+
 xx: Tokapi
+
+xx: Tortex
+wikidata:en: Q1747471
 
 #< xx:Trader Joe's
 xx: Trader Darwin's
 
 xx: Trader Joe's
-wikidata:en: Q688825
+wikidata:en: Q136841248
 
 xx: Triumf Glass, Triumf
 wikidata:en: Q10704719
 
+xx: Tuana
+wikidata:en: Q136933479
+
+xx: Tuc
+# owner: Mondelez
+
+xx: Trophy Smaakmakers
+# associated brand: xx:Aldi
+
 xx: Turini
+
+xx: Twin Dragon
+#facebook:sv: https://www.facebook.com/twindragonsweden/
+#instagram:sv: https://www.instagram.com/twindragonsweden
+#trademark:sv: https://search.prv.se/#/trademark/2020-04255
+comment:en: private brand of A Chau Lien (Swedish org.no. 556447-2305)
+
+xx: tyngre
+
+xx: Unox
+wikidata:en: Q137735589
 
 xx: Urtekram
 wikidata:en: Q12340334
 
+xx: Valio
+wikidata:en: Q2625965
+
+xx: Valrhona
+wikidata:en: Q928566
+
+xx: Valsemøllen
+wikidata:en: Q127161776
+
 xx: Valsoia
 wikidata:en: Q4008334
 
+xx: Valsølille
+
+xx: Van Delft
+wikidata:en: Q136952141
+
+xx: Van de Boom
+wikidata:en: Q136891976
+
+xx: Van Eigen Deeg
+
+xx: Van 't Huijs
+wikidata:en: Q137384962
+
 xx: Vemondo
+wikidata:en: Q136841178
+
+xx: Venco
+wikidata:en: Q136933516
+
+xx: Vivani
+wikidata:en: Q2528978
 
 xx: Veritas
+
+xx: Verkade
+
+xx: Verpaco
+
+xx: Verstegen
+
+xx: Vitasia
+wikidata:en: Q137300729
+
+xx: Vita d'Or
+# related/parent brand Lidl
+
+xx: Vivera
+wikidata:en: Q2492388
+
+xx: Vivo
+
+xx: wasa
+wikidata:en: Q2298302
+
+xx: Weetabix
+wikidata:en: Q1456721
+
+xx: Wolf
+wikidata:en: Q136841107
+
+xx: Yipin
+#web:sv: https://yipin.se/
+
+xx: Yonca
+wikidata:en: Q137442478
 
 xx: Xtra, Xtra Coop
 wikidata:en: Q11902541
 
+xx: XXL Nutrition
+
 xx: Yeo's, Yeos
+
+xx: Zanetti
+
+xx: Zaanlander
+# cheese brand of xx: Albert Heijn
+
+xx: Zalg
+wikidata:en: Q137780699
+
+xx: Zandvliet
+wikidata:en: Q137477005
 
 xx: Zeina's
 
 xx: Zeta
 wikidata:en: Q10724505
 
-xx: Änglamark
+xx: Zwagerman
+comment:en: Benelux word trademark
+wikidata:en: Q137104443
+
+xx: Änglamark, Anglemark
 wikidata:en: Q65229572
+
+xx: ØGO
+
+xx: Økoladen
+
+#< xx:ALDI
+xx: Økolivet, Øko Livet
+
+xx: 1de Beste
+wikidata:en: Q136929195
+
+xx: 움트리
 

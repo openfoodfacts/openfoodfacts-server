@@ -91,7 +91,8 @@ if ($action eq "process") {
 		}
 		close($out);
 
-		%data = (location => "$formatted_subdomain/cgi/import_file_select_format.pl?file_id=$file_id&action=display",);
+		%data = (location => $request_ref->{formatted_subdomain}
+				. "/cgi/import_file_select_format.pl?file_id=$file_id&action=display",);
 
 		# Keep track of uploaded files attributes and status
 

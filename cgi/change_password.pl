@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -42,7 +42,7 @@ use Log::Any qw($log);
 my $request_ref = ProductOpener::Display::init_request();
 
 if (get_oidc_implementation_level() < 5) {
-	# Keep legacy method until we have moved registration and account management to Keycloak
+	# Keep legacy method until we have account management to Keycloak
 	my $template_data_ref = {method => $ENV{'REQUEST_METHOD'}};
 
 	$log->info('start') if $log->is_info();

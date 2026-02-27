@@ -12,24 +12,22 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-wait_application_ready();
-
+wait_application_ready(__FILE__);
+remove_all_products();
 remove_all_users();
 
-remove_all_products();
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/upload_images";
 
 # Create an owner
 my $owner_ua = new_client();
-my %create_user_argss = (%default_user_form, (name => 'sample-owner', userid => "sample-owner"));
-my $resp = create_user($owner_ua, \%create_user_argss);
-ok(!html_displays_error($resp));
+my %create_user_argss
+	= (%default_user_form, (name => 'sample-owner', userid => "sample-owner", email => 'sample-owner@example.com'));
+create_user($owner_ua, \%create_user_argss);
 
 # Create a normal user
 my $ua = new_client();
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
-$resp = create_user($ua, \%create_user_args);
-ok(!html_displays_error($resp));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+create_user($ua, \%create_user_args);
 
 my %product_form = (
 	generic_name => "A generic name",

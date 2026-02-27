@@ -5,9 +5,14 @@ on:
     branches:
       - main
       - deploy-*
-    tags: 
+    tags:
       - v*.*.*
-      
+
+permissions:
+  contents: write
+  packages: write
+  security-events: write
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -22,18 +27,18 @@ jobs:
           "backend"
         ]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 1
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
       with:
-        version: v0.6.0
+        version: v0.31.1
         buildkitd-flags: --debug
 
     - name: Login to DockerHub
-      uses: docker/login-action@v3 
+      uses: docker/login-action@v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -61,3 +66,33 @@ jobs:
         cache-to: type=registry,ref=ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:buildcache,mode=max
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+
+    - name: Generate SBOM for ${{ matrix.image_name }} image
+      uses: anchore/sbom-action@v0
+      with:
+        image: ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:sha-${{ github.sha }}
+        format: cyclonedx-json
+        output-file: ${{ matrix.image_name }}-sbom.cyclonedx.json
+        upload-artifact: true
+        upload-artifact-retention: 90
+        artifact-name: ${{ matrix.image_name }}-sbom
+        dependency-snapshot: ${{ github.ref == 'refs/heads/main' }}
+    - name: Trivy scan for ${{ matrix.image_name }} image
+      uses: aquasecurity/trivy-action@0.33.1
+      with:
+        image-ref: ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:sha-${{ github.sha }}
+        format: 'sarif'
+        output: ${{ matrix.image_name }}-trivy.sarif
+        vuln-type: 'os,library'
+        scanners: 'vuln,secret,config,license'
+        severity: 'CRITICAL,HIGH,MEDIUM,LOW'
+        ignore-unfixed: true
+        cache: true
+        skip-dirs: opt/product-opener/build-cache/,opt/product-opener/taxonomies
+        trivy-config: trivy.yaml
+    - name: Upload Trivy results to GitHub Security
+      uses: github/codeql-action/upload-sarif@v4
+      if: always()
+      with:
+        sarif_file: ${{ matrix.image_name }}-trivy.sarif
+        category: trivy-${{ matrix.image_name }}

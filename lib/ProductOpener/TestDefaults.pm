@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -59,7 +59,7 @@ A basic user.
 =cut
 
 %default_user_form = (
-	email => 'test@test.com',
+	email => 'test@example.com',
 	userid => "tests",
 	name => "Test",
 	password => $test_password,

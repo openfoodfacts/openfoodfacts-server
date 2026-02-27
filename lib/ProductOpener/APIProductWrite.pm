@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -48,7 +48,6 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/$subdomain $country/;
 use ProductOpener::Users qw/$Org_id $Owner_id/;
 use ProductOpener::Lang qw/$lc %Langs/;
 use ProductOpener::Products qw/:all/;
@@ -62,6 +61,7 @@ use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::Auth qw/get_azp/;
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::Nutrition qw/assign_nutrition_values_from_request_object/;
 
 use Encode;
 
@@ -355,6 +355,10 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 		# Images selection
 		elsif ($field eq "images") {
 			update_images_selected($request_ref, $product_ref, $response_ref);
+		}
+		# Nutrition data
+		elsif ($field eq "nutrition") {
+			assign_nutrition_values_from_request_object($request_ref, $product_ref);
 		}
 		# Unrecognized field
 		else {
@@ -673,8 +677,12 @@ sub write_product_api ($request_ref) {
 
 		# The product does not exist yet, or the requested code is "test"
 		if (not defined $product_ref) {
-			$product_ref = init_product($request_ref->{user_id}, $Org_id, $code, $country,
-				get_azp($request_ref->{access_token}));
+			$product_ref = init_product(
+				$request_ref->{user_id},
+				$Org_id, $code,
+				$request_ref->{country},
+				get_azp($request_ref->{access_token})
+			);
 			$product_ref->{interface_version_created} = "20221102/api/v3";
 		}
 		else {
@@ -687,7 +695,9 @@ sub write_product_api ($request_ref) {
 				and ($product_ref->{product_type} ne $options{product_type}))
 			{
 				redirect_to_url($request_ref, 307,
-					format_subdomain($subdomain, $product_ref->{product_type}) . '/api/v3/product/' . $code);
+						  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
+						. '/api/v3/product/'
+						. $code);
 			}
 		}
 

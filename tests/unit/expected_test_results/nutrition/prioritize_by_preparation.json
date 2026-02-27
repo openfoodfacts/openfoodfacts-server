@@ -1,50 +1,40 @@
 {
    "nutrition" : {
-      "nutrient_set_preferred" : {
+      "aggregated_set" : {
          "nutrients" : {
-            "sodium" : {
+            "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
+               "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.1,
-               "value_string" : "0.1"
+               "value" : 0.25
+            },
+            "sodium" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.1
             },
             "sugars" : {
                "source" : "packaging",
+               "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 5.2,
-               "value_string" : "5.2"
+               "value" : 5.2
             }
          },
          "per" : "100g",
-         "per_quantity" : "100",
-         "per_unit" : "g",
          "preparation" : "prepared"
       },
-      "nutrient_sets" : [
+      "input_sets" : [
          {
             "nutrients" : {
-               "protein" : {
+               "salt" : {
                   "unit" : "g",
-                  "value" : 6.2,
-                  "value_string" : "6.2"
+                  "value_computed" : 0.25
                },
-               "sodium" : {
-                  "modifier" : "<=",
-                  "unit" : "g",
-                  "value" : 2,
-                  "value_string" : "2.0"
-               }
-            },
-            "per" : "100g",
-            "per_quantity" : "100",
-            "per_unit" : "g",
-            "preparation" : "as_sold",
-            "source" : "packaging"
-         },
-         {
-            "nutrients" : {
                "sodium" : {
                   "unit" : "g",
                   "value" : 0.1,
@@ -60,6 +50,31 @@
             "per_quantity" : "100",
             "per_unit" : "g",
             "preparation" : "prepared",
+            "source" : "packaging"
+         },
+         {
+            "nutrients" : {
+               "protein" : {
+                  "unit" : "g",
+                  "value" : 6.2,
+                  "value_string" : "6.2"
+               },
+               "salt" : {
+                  "modifier" : "<=",
+                  "unit" : "g",
+                  "value_computed" : 5
+               },
+               "sodium" : {
+                  "modifier" : "<=",
+                  "unit" : "g",
+                  "value" : 2,
+                  "value_string" : "2.0"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
             "source" : "packaging"
          }
       ]

@@ -96,6 +96,12 @@ html/js/sigma*
 # coverage data
 /cover_db
 
+# SBOM files (generated in CI)
+*-sbom.json
+*-sbom.cyclonedx.json
+*-sbom.spdx.json
+perl-sbom.json
+
 # Env files
 .env*
 venv
@@ -111,3 +117,9 @@ taxonomies/*.all.txt
 # Shared services and other dependencies
 /deps
 /deps/*
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

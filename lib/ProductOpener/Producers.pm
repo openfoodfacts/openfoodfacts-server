@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -50,6 +50,7 @@ BEGIN {
 
 		&load_csv_or_excel_file
 
+		&build_fields_columns_names_for_lang
 		&init_fields_columns_names_for_lang
 		&match_column_name_to_field
 		&init_columns_fields_match
@@ -71,18 +72,18 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created ensure_dir_created_or_die/;
-use ProductOpener::Store qw/get_string_id_for_lang retrieve store/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve store store_config retrieve_config/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/%cc_nutriment_table %nutriments_tables/;
+use ProductOpener::Food qw/%cc_nutrient_table %nutrients_tables/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
-use ProductOpener::Display qw/$nutriment_table/;
+use ProductOpener::Display qw/$nutrient_table/;
 use ProductOpener::Export qw/export_csv/;
 use ProductOpener::Import
 	qw/$IMPORT_MAX_PACKAGING_COMPONENTS import_csv_file import_products_categories_from_public_database/;
 use ProductOpener::ImportConvert qw/clean_fields/;
-use ProductOpener::Minion qw/get_minion/;
+use ProductOpener::Minion qw/get_minion write_minion_log/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Orgs qw/update_export_date/;
 use ProductOpener::Images qw/$valid_image_types_regexp/;
@@ -831,6 +832,43 @@ sub init_fields_columns_names_for_lang ($l) {
 		return;
 	}
 
+	my $path = "$BASE_DIRS{CACHE_BUILD}/pro/fields_column_names/$l";
+
+	$fields_columns_names_for_lang{$l} = retrieve_config($path);
+
+	if (not defined $fields_columns_names_for_lang{$l}) {
+		die("Could not load $path.json, run scripts/build_pro_platform_fields_columns_names.pl");
+	}
+
+	return $fields_columns_names_for_lang{$l};
+}
+
+=head2 build_fields_columns_names_for_lang ( $l )
+
+Creates global $fields_columns_names_for_lang for the specified language.
+
+The function creates a hash of all the possible localized column names
+that we can automatically recognize, and maps them to the corresponding field in OFF.
+
+The result is stored in the global variable %fields_columns_names_for_lang,
+and saved to a file.
+
+This function can be called through the script scripts/build_pro_platform_fields_column_names.pl
+
+=head3 Arguments
+
+=head4 $l - required
+
+Language code (string)
+
+=head3 Return value
+
+Reference to the column names hash.
+
+=cut
+
+sub build_fields_columns_names_for_lang ($l) {
+
 	$fields_columns_names_for_lang{$l} = {};
 
 	init_nutrients_columns_names_for_lang($l);
@@ -845,9 +883,9 @@ sub init_fields_columns_names_for_lang ($l) {
 	}
 	$fields_columns_names_for_lang{$l}{"kj"} = {field => "energy-kj_100g_value_unit", value_unit => "value_in_kj"};
 
-	ensure_dir_created($BASE_DIRS{CACHE_DEBUG});
+	my $path = "$BASE_DIRS{CACHE_BUILD}/pro/fields_column_names/$l";
 
-	store("$BASE_DIRS{CACHE_DEBUG}/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
+	store_config($path, $fields_columns_names_for_lang{$l});
 
 	return $fields_columns_names_for_lang{$l};
 }
@@ -917,7 +955,7 @@ sub init_packaging_columns_names_for_lang ($l) {
 
 sub init_nutrients_columns_names_for_lang ($l) {
 
-	$nutriment_table = $cc_nutriment_table{off_default};
+	$nutrient_table = $cc_nutrient_table{off_default};
 
 	# Go through all the nutrients in the nutrients taxonomy
 	foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
@@ -1506,7 +1544,7 @@ sub init_columns_fields_match ($input_headers_ref, $rows_ref) {
 					if (
 						(
 							$columns_fields_ref->{$column}{field}
-							=~ /^(fat|saturated-fat|carbohydrates|sugars|proteins|salt|fiber|fruits-vegetables-nuts)_100g_value_unit$/
+							=~ /^(fat|saturated-fat|carbohydrates|sugars|proteins|salt|fiber|fruits-vegetables-nuts|fruits-vegetables-legumes)_100g_value_unit$/
 						)
 						and ($columns_fields_ref->{$column}{max} <= 100)
 						)
@@ -1667,17 +1705,18 @@ JSON
 		if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
 
 			# Go through the nutriment table
-			foreach my $nutriment (@{$nutriments_tables{$nutriment_table}}) {
+			foreach my $nutriment (@{$nutrients_tables{$nutrient_table}}) {
 
 				next if $nutriment =~ /^\#/;
 				my $nid = $nutriment;
 
-				# %Food::nutriments_tables ids have an ending - for nutrients that are not displayed by default
+				# %Food::nutrients_tables ids have an ending - for nutrients that are not displayed by default
 				# Keep the % of fruits/vegetables/nuts in the main nutrition group
 
 				if (    ($nid =~ /-$/)
 					and ($nid ne 'fruits-vegetables-nuts-')
-					and ($nid ne 'fruits-vegetables-nuts-dried-'))
+					and ($nid ne 'fruits-vegetables-nuts-dried-')
+					and ($nid ne 'fruits-vegetables-legumes-'))
 				{
 					next if ($group_id eq "nutrition");
 				}
@@ -1702,12 +1741,16 @@ JSON
 				push @{$select2_group_ref->{children}},
 					{
 					id => $nid . "_prepared_100g_value_unit",
-					text => ucfirst($name) . " - " . lang("prepared_product") . " " . lang("nutrition_data_per_100g")
+					text => ucfirst($name) . " - "
+						. lang("preparation_prepared") . " "
+						. lang("nutrition_data_per_100g")
 					};
 				push @{$select2_group_ref->{children}},
 					{
 					id => $nid . "_prepared_serving_value_unit",
-					text => ucfirst($name) . " - " . lang("prepared_product") . " " . lang("nutrition_data_per_serving")
+					text => ucfirst($name) . " - "
+						. lang("preparation_prepared") . " "
+						. lang("nutrition_data_per_serving")
 					};
 			}
 		}
@@ -1938,16 +1981,11 @@ sub import_csv_file_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $log "import_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-	close($log);
-
-	print STDERR "import_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-
-	print STDERR "import_csv_file_task - job: $job_id - running import_csv_file\n";
+	write_minion_log("import_csv_file_task - job: $job_id started - args: " . encode_json($args_ref));
 
 	ProductOpener::Import::import_csv_file($args_ref);
 
+	write_minion_log("import_csv_file_task - job: $job_id done");
 	$job->finish("done");
 
 	return;
@@ -1959,13 +1997,7 @@ sub export_csv_file_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $minion_log "export_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-	close($minion_log);
-
-	print STDERR "export_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-
-	print STDERR "export_csv_file_task - job: $job_id - running export_csv_file\n";
+	write_minion_log("export_csv_file_task - job: $job_id started - args: " . encode_json($args_ref));
 
 	my $filehandle;
 	open($filehandle, ">:encoding(UTF-8)", $args_ref->{csv_file})
@@ -1977,11 +2009,7 @@ sub export_csv_file_task ($job, $args_ref) {
 
 	close($filehandle);
 
-	print STDERR "export_csv_file_task - job: $job_id - done\n";
-
-	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $log "export_csv_file_task - job: $job_id done\n";
-	close($log);
+	write_minion_log("export_csv_file_task - job: $job_id done");
 
 	$job->finish("done");
 
@@ -1994,21 +2022,12 @@ sub import_products_categories_from_public_database_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $minion_log "import_products_categories_from_public_database_file_task - job: $job_id started - args: "
-		. encode_json($args_ref) . "\n";
-	close($minion_log);
-
-	print STDERR "import_products_categories_from_public_database_file_task - job: $job_id started - args: "
-		. encode_json($args_ref) . "\n";
+	write_minion_log("import_products_categories_from_public_database_file_task - job: $job_id started - args: "
+			. encode_json($args_ref));
 
 	ProductOpener::Import::import_products_categories_from_public_database($args_ref);
 
-	print STDERR "import_products_categories_from_public_database_file_task - job: $job_id - done\n";
-
-	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $log "import_products_categories_from_public_database_file_task - job: $job_id done\n";
-	close($log);
+	write_minion_log("import_products_categories_from_public_database_file_task - job: $job_id done");
 
 	$job->finish("done");
 
@@ -2021,21 +2040,11 @@ sub update_export_status_for_csv_file_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $minion_log "update_export_status_for_csv_file_task - job: $job_id started - args: "
-		. encode_json($args_ref) . "\n";
-	close($minion_log);
-
-	print STDERR "update_export_status_for_csv_file_task - job: $job_id started - args: "
-		. encode_json($args_ref) . "\n";
+	write_minion_log("update_export_status_for_csv_file_task - job: $job_id started - args: " . encode_json($args_ref));
 
 	ProductOpener::Import::update_export_status_for_csv_file($args_ref);
 
-	print STDERR "update_export_status_for_csv_file_task - job: $job_id - done\n";
-
-	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
-	print $log "update_export_status_file_task - job: $job_id done\n";
-	close($log);
+	write_minion_log("update_export_status_file_task - job: $job_id done");
 
 	$job->finish("done");
 

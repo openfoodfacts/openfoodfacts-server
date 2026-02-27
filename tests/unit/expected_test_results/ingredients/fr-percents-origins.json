@@ -37,21 +37,16 @@
          "origins" : "en:france,en:italy",
          "percent" : 98,
          "percent_estimate" : 0,
-         "text" : "chlorure de sodium"
+         "text" : "chlorure de sodium",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
-         "en:sodium-chloride"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:sodium-chloride"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 4,
@@ -101,11 +96,5 @@
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
-   },
    "unknown_ingredients_n" : 0
 }

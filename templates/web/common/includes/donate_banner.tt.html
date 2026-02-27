@@ -2,7 +2,358 @@
 
 [% banner_main = BLOCK %]
 
-[% IF "off_days_2025" == "off_days_2025" %]
+[% IF product_type == "food" %]
+
+  [% IF lc == "fr" %]
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>Aidez-nous à promouvoir la biodiversité sur Open Food Facts !</h2>
+      <p>Pourriez-vous consacrer quelques minutes à répondre à notre enquête sur une nouvelle fonctionnalité que nous développons
+        dans le cadre du projet européen DIVINFOOD pour promouvoir l'agrobiodiversité dans les aliments que nous consommons ?</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Répondre à l'enquête</a>
+    </div>
+  </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="Logo DIVINFOOD" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Drapeau de l'Union européenne" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>DIVINFOOD a été financé par le programme de recherche et d'innovation Horizon 2020 de l'Union européenne dans le cadre de l'accord de subvention n°101000383</p>
+    </div>
+  </div>
+</section>
+
+[% ELSIF lc == "it" %]
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>Aiutaci a promuovere la biodiversità su Open Food Facts!</h2>
+      <p>Potresti dedicare qualche minuto per rispondere al nostro sondaggio su una nuova funzionalità che stiamo sviluppando nell'ambito del progetto europeo DIVINFOOD per promuovere l'agrobiodiversità negli alimenti che consumiamo?</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Rispondi al sondaggio</a>
+    </div>
+  </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="Logo DIVINFOOD" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Bandiera dell'Unione Europea" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>DIVINFOOD è stato finanziato dal programma di ricerca e innovazione Horizon 2020 dell'Unione europea nell'ambito dell'accordo di sovvenzione n°101000383</p>
+    </div>
+  </div>
+</section>
+
+[% ELSIF lc == "pt" %]
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>Ajude-nos a promover a biodiversidade no Open Food Facts!</h2>
+      <p>Você poderia dedicar alguns minutos para responder à nossa pesquisa sobre um novo recurso que estamos desenvolvendo como parte do projeto europeu DIVINFOOD para promover a agrobiodiversidade nos alimentos que consumimos?</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Responder à pesquisa</a>
+    </div>
+  </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="Logo DIVINFOOD" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Bandeira da União Europeia" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>O DIVINFOOD foi financiado pelo programa de pesquisa e inovação Horizon 2020 da União Europeia no âmbito do Acordo de Subvenção nº 101000383</p>
+    </div>
+  </div>
+</section>
+
+[% ELSIF lc == "es" %]
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>¡Ayúdanos a promover la biodiversidad en Open Food Facts!</h2>
+      <p>¿Podrías dedicar unos minutos a responder nuestra encuesta sobre una nueva función que estamos desarrollando como parte del proyecto europeo DIVINFOOD para promover la agrobiodiversidad en los alimentos que consumimos?</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Responder a la encuesta</a>
+    </div>
+  </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="Logo DIVINFOOD" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Bandera de la Unión Europea" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>DIVINFOOD ha sido financiado por el programa de investigación e innovación Horizonte 2020 de la Unión Europea en el marco del Acuerdo de Subvención nº 101000383</p>
+    </div>
+  </div>
+</section>
+
+[% ELSIF lc == "hu" %]
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>Segítsen nekünk előmozdítani a biodiverzitást az Open Food Facts oldalon!</h2>
+      <p>Szánna néhány percet arra, hogy kitöltse felmérésünket egy új funkcióról, amelyet az európai DIVINFOOD projekt részeként fejlesztünk az élelmiszerek biológiai sokféleségének népszerűsítésére?</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Válaszoljon a felmérésre</a>
+    </div>
+  </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="Logo DIVINFOOD" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Az Európai Unió zászlaja" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>A DIVINFOOD az Európai Unió Horizon 2020 kutatási és innovációs programja finanszírozásában részesült az 101000383 számú támogatási megállapodás keretében</p>
+    </div>
+  </div>
+</section>
+
+[% ELSIF lc == "da" %]
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>Hjælp os med at fremme biodiversitet på Open Food Facts!</h2>
+      <p>Vil du afsætte et par minutter til at besvare vores undersøgelse om en ny funktion, vi udvikler som en del af det europæiske projekt DIVINFOOD for at fremme agrodiversitet i de fødevarer, vi spiser?</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Svar på undersøgelsen</a>
+    </div>
+  </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="Logo DIVINFOOD" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Flaget af Den Europæiske Union" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>DIVINFOOD er finansieret af Den Europæiske Unions Horizon 2020 forsknings- og innovationsprogram under tilskudsaftale nr. 101000383</p>
+    </div>
+  </div>
+</section>
+
+[% ELSIF lc == "sv" %]
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>Hjälp oss att främja biologisk mångfald på Open Food Facts!</h2>
+      <p>Kan du avvara några minuter för att svara på vår undersökning om en ny funktion vi utvecklar som en del av det europeiska projektet DIVINFOOD för att främja agrobiodiversitet i den mat vi äter?</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Svara på undersökningen</a>
+    </div>
+  </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="Logo DIVINFOOD" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Europeiska unionens flagga" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>DIVINFOOD har finansierats av Europeiska unionens forsknings- och innovationsprogram Horisont 2020 enligt bidragsavtal nr 101000383</p>
+    </div>
+  </div>
+</section>
+
+[% ELSIF lc == "de" %]
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>Hilf uns, die Biodiversität auf Open Food Facts zu fördern!</h2>
+      <p>Könntest du ein paar Minuten investieren, um an unserer Umfrage zu einer neuen Funktion teilzunehmen, die wir im Rahmen des europäischen Projekts DIVINFOOD entwickeln, um die Agrobiodiversität in den Lebensmitteln, die wir konsumieren, zu fördern?</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">An Umfrage teilnehmen</a>
+    </div>
+  </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="DIVINFOOD-Logo" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Flagge der Europäischen Union" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>DIVINFOOD wurde durch das Forschungs- und Innovationsprogramm Horizont 2020 der Europäischen Union im Rahmen des Zuschussvertrags Nr. 101000383 finanziert</p>
+    </div>
+  </div>
+</section>
+
+[% ELSIF lc == "cs" %]
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>Pomoz nám podpořit biodiverzitu na Open Food Facts!</h2>
+      <p>Mohl bys věnovat pár minut vyplnění našeho průzkumu o nové funkci, kterou vyvíjíme v rámci evropského projektu DIVINFOOD na podporu agrobiodiverzity v potravinách, které konzumujeme?</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Zúčastnit se průzkumu</a>
+    </div>
+  </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="Logo DIVINFOOD" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Vlajka Evropské unie" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>DIVINFOOD byl financován výzkumným a inovačním programem Horizont 2020 Evropské unie na základě grantové smlouvy č. 101000383</p>
+    </div>
+  </div>
+</section>
+
+[% ELSIF lc == "ro" %]
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>Ajută-ne să promovăm biodiversitatea pe Open Food Facts!</h2>
+      <p>Ai putea să ne acorzi câteva minute pentru a răspunde sondajului nostru despre o nouă funcție pe care o dezvoltăm în cadrul proiectului european DIVINFOOD pentru a promova agrobiodiversitatea în alimentele pe care le consumăm?</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Participă la sondaj</a>
+    </div>
+  </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="Logo DIVINFOOD" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Drapelul Uniunii Europene" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>DIVINFOOD a fost finanțat din programul de cercetare și inovare Horizon 2020 al Uniunii Europene în cadrul Acordului de Grant nr. 101000383</p>
+    </div>
+  </div>
+</section>
+
+[% ELSIF lc == "el" %]
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>Βοήθησέ μας να προωθήσουμε τη βιοποικιλότητα στο Open Food Facts!</h2>
+      <p>Θα μπορούσες να αφιερώσεις λίγα λεπτά για να απαντήσεις στη δημοσκόπησή μας για μια νέα δυνατότητα που αναπτύσσουμε στο πλαίσιο του ευρωπαϊκού έργου DIVINFOOD για να προωθήσουμε τη αγρο-βιοποικιλότητα στα τρόφιμα που καταναλώνουμε;</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Απάντησε στη δημοσκόπηση</a>
+    </div>
+  </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="Λογότυπο DIVINFOOD" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Σημαία της Ευρωπαϊκής Ένωσης" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>Το DIVINFOOD χρηματοδοτήθηκε από το πρόγραμμα έρευνας και καινοτομίας Horizon 2020 της Ευρωπαϊκής Ένωσης στο πλαίσιο της Σύμβασης Επιχορήγησης αρ. 101000383</p>
+    </div>
+  </div>
+</section>
+
+[% ELSIF lc == "pl" %]
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>Pomożesz nam promować bioróżnorodność na Open Food Facts?</h2>
+      <p>Czy mógłbyś poświęcić kilka minut na wypełnienie naszej ankiety dotyczącej nowej funkcji, którą rozwijamy w ramach europejskiego projektu DIVINFOOD w celu promowania agrobioróżnorodności w żywności, którą spożywamy?</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Weź udział w ankiecie</a>
+    </div>
+  </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="Logo DIVINFOOD" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Flaga Unii Europejskiej" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>DIVINFOOD zostało sfinansowane przez program badawczo-innowacyjny Unii Europejskiej Horyzont 2020 w ramach umowy o grant nr 101000383</p>
+    </div>
+  </div>
+</section>
+
+[% ELSE %]
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>Help us promote biodiversity in Open Food Facts!</h2>
+      <p>Could you spare a few minutes to answer our survey on a new feature we are developing
+        as part of the European project DIVINFOOD to promote agrobiodiversity in the food we eat?</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Answer the survey</a>
+    </div>
+  </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="DIVINFOOD logo" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="European Union flag" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>DIVINFOOD has been funded from the European Union’s Horizon 2020 research and innovation programme under the Grant Agreement N°101000383</p>
+    </div>
+  </div>
+</section>
+  [% END %]
+
+<style>
+  #donation-banner-top .survey-logo {
+      max-height: 80px;
+      width: auto;
+      display: block;
+      margin: auto;
+  }
+  #donation-banner-top {
+      display: flex;
+      flex-direction: column;
+  }
+  #donation-banner-top .homepage-greeter__button {
+      background-color: #28a745 !important;
+      border-color: #28a745 !important;
+      color: #fff !important;
+  }
+  #donation-banner-top .homepage-greeter__button:hover {
+      background-color: #218838 !important;
+      border-color: #1e7e34 !important;
+  }
+</style>
+[% ELSIF "off_days_2025" == "off_days_2025_deactivated" %]
 <section id="donation-banner-top" class="row" style="position:relative">
   [% IF lc == "fr" %]
   <a href="https://connect.openfoodfacts.org/fr/event/open-food-facts-days-2025-30/register">
@@ -44,9 +395,9 @@
           width="50"
           height="50"
           src="https://world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner__main-title">[% f_lang("f_donation_title_year", { year => "2025" } ) %]</h3>
+        <h3 class="donation-banner__main-title">[% f_lang("f_donation_title_year", { year => "2026" } ) %]</h3>
       </div>
       <div style="padding:1rem;">
         <p>[% lang("donation_list_2024_main") %]</p>
@@ -120,11 +471,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_days_2025', 1, 180);
+    setBannerCookie('divinfood_survey_2026', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_days_2025') !== '') {
+  if (getBannerCookie('divinfood_survey_2026') !== '') {
     bannerID.style.display = 'none';
   } else {
     bannerID.style.display = 'flex';
@@ -150,9 +501,9 @@
           width="50"
           height="50"
           src="https://world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">[% f_lang("f_donation_title_year", { year => "2025" } ) %]</h3>
+        <h3 class="donation-banner-footer__main-title">[% f_lang("f_donation_title_year", { year => "2026" } ) %]</h3>
       </div>
       <p>[% lang("donation_list_2024_main") %]</p>
       <ul>

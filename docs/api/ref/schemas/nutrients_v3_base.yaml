@@ -17,59 +17,59 @@ properties:
           It is the same as `energy-kj` if we have it, or computed from `energy-kcal` otherwise
 
           (per 100g or per serving) in kj
-        $ref: "../schemas/product_nutrient_values.yaml"
-      energy_kcal:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      energy-kcal:
         description: |
           energy in kcal, if it is specified
 
           (per 100g or per serving) in a standard unit (g or ml)
-        $ref: "../schemas/product_nutrient_values.yaml"
-      energy_kj:
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
+      energy-kj:
         description: |
           energy in kj, if it is specified
 
           (per 100g or per serving) in a standard unit (g or ml)
-        $ref: "../schemas/product_nutrient_values.yaml"
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
       fat:
-        $ref: "../schemas/product_nutrient_values.yaml"
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
       saturated-fat:
-        $ref: "../schemas/product_nutrient_values.yaml"
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
       trans-fat:
-        $ref: "../schemas/product_nutrient_values.yaml"  
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"  
       cholesterol:
-        $ref: "../schemas/product_nutrient_values.yaml"
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
       salt:
-        $ref: "../schemas/product_nutrient_values.yaml"
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
       sodium:
-        $ref: "../schemas/product_nutrient_values.yaml"  
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"  
       carbohydrates-total:
         description: |
           This follows the US / Canada definition of carbohydrates which includes fiber, also known as gross carbohydrates
 
           (per 100g, per 100ml or per serving) in a standard unit (g or ml)
-        $ref: "../schemas/product_nutrient_values.yaml"  
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"  
       carbohydrates:
         description: |
           This is the available carbohydrates (excluding fiber), also known as net carbohydrates
 
           (per 100g, per 100ml or per serving) in a standard unit (g or ml)
-        $ref: "../schemas/product_nutrient_values.yaml"
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
       fiber:
-        $ref: "../schemas/product_nutrient_values.yaml"
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
       sugars:
-        $ref: "../schemas/product_nutrient_values.yaml"  
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"  
       added-sugars:
-        $ref: "../schemas/product_nutrient_values.yaml"
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
       proteins:
-        $ref: "../schemas/product_nutrient_values.yaml"
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
       vitamin-d:
-        $ref: "../schemas/product_nutrient_values.yaml"
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
       calcium:
-        $ref: "../schemas/product_nutrient_values.yaml"
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
       iron:
-        $ref: "../schemas/product_nutrient_values.yaml"
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
       potassium:
-        $ref: "../schemas/product_nutrient_values.yaml"
+        $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
     additionalProperties:
       description: |
         Quantity of other nutrients from the nutrients taxonomy.
@@ -77,4 +77,4 @@ properties:
         See [nutrients taxonomy file](https://static.openfoodfacts.org/data/taxonomies/nutrients.json) for all nutrients in Open Food Facts.
 
         (per 100g, per 100ml or per serving) in a standard unit (g or ml)
-      $ref: "../schemas/product_nutrient_values.yaml"
+      $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
