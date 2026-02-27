@@ -431,6 +431,35 @@ my @tests = (
 		]
 	],
 
+	# Issue #3959 - colon followed immediately by opening bracket should parse as nested ingredients
+	[
+		{lc => "en", ingredients_text => "meat: (beef, pork, lamb)"},
+		[
+			{
+				'id' => 'en:meat',
+				'text' => 'meat',
+				'is_in_taxonomy' => 1,
+				'ingredients' => [
+					{
+						'id' => 'en:beef-meat',
+						'is_in_taxonomy' => 1,
+						'text' => 'beef',
+					},
+					{
+						'id' => 'en:pork-meat',
+						'is_in_taxonomy' => 1,
+						'text' => 'pork',
+					},
+					{
+						'id' => 'en:lamb-meat',
+						'is_in_taxonomy' => 1,
+						'text' => 'lamb',
+					},
+				],
+			},
+		]
+	],
+
 );
 
 foreach my $test_ref (@tests) {
