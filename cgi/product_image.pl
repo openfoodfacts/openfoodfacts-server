@@ -26,8 +26,8 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/retrieve/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Store qw/retrieve_object/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/canonicalize_tag_link/;
@@ -36,6 +36,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::HTTP qw/single_param/;
+use ProductOpener::ConfigEnv qw/$nutripatrol_url/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -43,19 +44,51 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::MaybeXS;
 use Log::Any qw($log);
+use Data::DeepAccess qw(deep_get);
 
 my $request_ref = ProductOpener::Display::init_request();
 
 my $template_data_ref = {};
 
 my $code = normalize_code(single_param('code'));
-my $id = single_param('id');
-
-$log->debug("start", {code => $code, id => $id}) if $log->is_debug();
 
 if (not defined $code) {
-	display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
+	display_error_and_exit($request_ref, lang("api_result_product_not_found"), 404);
 }
+
+# We can be passed an imgid, or image_type + image_lc
+# Previously, we used an id that could be either imgid or image_type + image_lc
+
+my $imgid = single_param('imgid');
+my $image_type = single_param('image_type');
+my $image_lc = single_param('image_lc');
+
+my $id = single_param('id');
+
+# Legacy support for old URLs, could probably be removed
+if (defined $id) {
+	if ($id =~ /^\d+$/) {
+		# imgid
+		$imgid = $id;
+	}
+	else {
+		# image_type + image_lc
+		($image_type, $image_lc) = get_image_type_and_image_lc_from_imagefield($id);
+	}
+}
+
+$log->debug(
+	"start",
+	{
+		code => $code,
+		id => $id,
+		imgid => $imgid,
+		image_type => $image_type,
+		image_lc => $image_lc
+	}
+) if $log->is_debug();
+
+# Retrieve the image data from the product
 
 my $product_id = product_id_for_owner($Owner_id, $code);
 
@@ -65,8 +98,18 @@ if (not(defined $product_ref)) {
 	display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
 }
 
-if ((not(defined $product_ref->{images})) or (not(defined $product_ref->{images}{$id}))) {
-	display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
+my $image_ref;
+
+if (defined $imgid) {
+	$image_ref = deep_get($product_ref, "images", "uploaded", $imgid);
+}
+elsif ((defined $image_type) and (defined $image_lc)) {
+	$image_ref = deep_get($product_ref, "images", "selected", $image_type, $image_lc);
+	$id = $image_type . '_' . $image_lc;
+}
+
+if (not(defined $image_ref)) {
+	display_error_and_exit($request_ref, lang("api_result_product_image_not_found"), 404);
 }
 
 my $imagetext;
@@ -78,34 +121,34 @@ else {
 }
 
 my $path = product_path_from_id($product_id);
-my $rev = $product_ref->{images}{$id}{rev};
 my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $imagetext;
 
 my $display_image_url;
 my $full_image_url;
-if ($id =~ /^\d+$/) {
-	$display_image_url = "$images_subdomain/images/products/$path/$id.$display_size.jpg";
-	$full_image_url = "$images_subdomain/images/products/$path/$id.jpg";
+if (defined $imgid) {
+	$display_image_url = "$images_subdomain/images/products/$path/$imgid.$display_size.jpg";
+	$full_image_url = "$images_subdomain/images/products/$path/$imgid.jpg";
 }
 else {
-	$display_image_url = "$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg";
-	$full_image_url = "$images_subdomain/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
+	$image_ref->{id} = $id;
+	$display_image_url = get_image_url($product_ref, $image_ref, $display_size);
+	$full_image_url = get_image_url($product_ref, $image_ref, "full");
 }
 
-my $photographer = $product_ref->{images}{$id}{uploader};
-my $editor = $photographer;
+my $photographer;
+my $editor;
 my $site_name = $options{site_name};
 
-my $original_id = $product_ref->{images}{$id}{imgid};
+my $original_id = $imgid || $image_ref->{imgid};
 my $original_link = "";
-if ((defined $original_id) and (defined $product_ref->{images}{$original_id})) {
-	$photographer = $product_ref->{images}{$original_id}{uploader};
-	$original_link = " <a href=\"/cgi/product_image.pl?code=$code&id=$original_id\" rel=\"isBasedOn\">"
+if ((defined $original_id) and (defined $product_ref->{images}{uploaded}{$original_id})) {
+	$photographer = $product_ref->{images}{uploaded}{$original_id}{uploader};
+	$original_link = " <a href=\"/cgi/product_image.pl?code=$code&imgid=$original_id\" rel=\"isBasedOn\">"
 		. lang("image_original_link_text") . "</a>";
 }
 
-if (defined $product_ref->{images}{$id}{rev}) {
-	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+if (defined $image_ref->{rev}) {
+	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}
@@ -120,7 +163,7 @@ if (defined $product_ref->{images}{$id}{rev}) {
 		}
 		$current_rev--;
 
-		if ($change_rev eq $product_ref->{images}{$id}{rev}) {
+		if ($change_rev eq $image_ref->{rev}) {
 			$editor = $change_ref->{userid};
 		}
 	}
@@ -162,14 +205,17 @@ my $creativecommons = sprintf(
 );
 
 $template_data_ref->{display_image_url} = $display_image_url;
-$template_data_ref->{display_size_width} = $product_ref->{images}{$id}{sizes}{$display_size}{w};
-$template_data_ref->{display_size_height} = $product_ref->{images}{$id}{sizes}{$display_size}{h};
+$template_data_ref->{display_size_width} = $image_ref->{sizes}{$display_size}{w};
+$template_data_ref->{display_size_height} = $image_ref->{sizes}{$display_size}{h};
 $template_data_ref->{alt} = $alt;
 $template_data_ref->{full_image_url} = $full_image_url;
 $template_data_ref->{full_size} = $full_size;
 $template_data_ref->{creativecommons} = $creativecommons;
 $template_data_ref->{original_link} = $original_link;
 $template_data_ref->{attribution} = $attribution;
+$template_data_ref->{original_id} = $original_id;
+$template_data_ref->{code} = $code;
+$template_data_ref->{nutripatrol_url} = $nutripatrol_url;
 
 my $html;
 process_template('web/pages/product/includes/product_image.tt.html', $template_data_ref, \$html) or $html = '';

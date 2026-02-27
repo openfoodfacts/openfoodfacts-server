@@ -38,18 +38,17 @@ The structure should be simple enough to read. You get different image type, and
 
 ## Computing images URL
 
-In get you want to get an image which url is not directly present in product data, you need to compute the image url by yourself.
+In case you want to get an image which url is not directly present in product data, you need to compute the image url by yourself.
 
 ### Computing single product image folder
 
 Images of a product are stored in a single directory. The path of this directory can be inferred easily from the product barcode:
 
-If the barcode is less than 13 digits long, it must be padded with leading 0s so that it has 13 digits.
+* If the barcode is less than 13 digits long, it must be padded with leading 0s so that it has 13 digits.
 
-Then split the first 9 digits of the barcode into 3 groups of 3 digits to get the first 3 folder names, and use the rest of the barcode as the last folder name^[split-regexp].
-   For example, barcode `3435660768163` is split into: `343/566/076/8163`, thus product images will be in `https://images.openfoodfacts.org/images/products/343/566/076/8163`
-
-^[split-regexp]: The following regex can be used to split the barcode into subfolders: `/^(...)(...)(...)(.*)$/`
+* Then split the first 9 digits of the barcode into 3 groups of 3 digits to get the first 3 folder names, and use the rest of the barcode as the last folder name.
+  * The following regex can be used to split the barcode into subfolders: `/^(...)(...)(...)(.*)$/`
+  * For example, barcode `3435660768163` is split into: `343/566/076/8163`, thus product images will be in `https://images.openfoodfacts.org/images/products/343/566/076/8163`
 
 ### Computing single image file name
 

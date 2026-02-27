@@ -8,13 +8,28 @@ ARG CPANMOPTS=
 ######################
 # Base modperl image stage
 ######################
-FROM debian:bullseye AS modperl
+FROM debian:bullseye-slim AS modperl
+
+# BEGIN zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
+
+# Install ca-certificates, so that apt can connect to github pages with HTTPS
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
+    ca-certificates
+
+# Add backport repo
+COPY --chown=root:root ./docker/zxing-cpp-backport.gpg /usr/share/keyrings/
+COPY --chown=root:root  ./docker/zxing-cpp-backport.sources /etc/apt/sources.list.d/
+
+# END zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
 
 # Install cpm to install cpanfile dependencies
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
-    apt update && \
-    apt install -y \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
         apache2 \
         apt-utils \
         cpanminus \
@@ -45,6 +60,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # Packages from ./cpanfile:
         # If cpanfile specifies a newer version than apt has, cpanm will install the newer version.
         #
+        libfile-slurp-perl \
         libtie-ixhash-perl \
         libwww-perl \
         libimage-magick-perl \
@@ -54,6 +70,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libcache-memcached-fast-perl \
         libjson-pp-perl \
         libclone-perl \
+        #11866: Delete following after Keycloak Migration:
         libcrypt-passwdmd5-perl \
         libencode-detect-perl \
         libgraphics-color-perl \
@@ -68,6 +85,9 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libdbd-pg-perl \
         libtemplate-perl \
         liburi-escape-xs-perl \
+        libxml-libxslt-perl \
+        libdata-table-perl \
+        libanyevent-redis-perl \
         # NB: not available in ubuntu 1804 LTS:
         libmath-random-secure-perl \
         libfile-copy-recursive-perl \
@@ -85,14 +105,12 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     # rerun apt update, because last RUN might be in cache
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
-      apt update || true \
+      apt-get update || true \
     ) && \
-    apt install -y \
+    apt-get install -y --no-install-recommends \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
         #
-        # Action::Retry
-        libmath-fibonacci-perl \
         # EV - event loop
         libev-perl \
         # Algorithm::CheckDigits
@@ -164,11 +182,13 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libperl-dev \
         # needed to build Apache2::Connection::XForwardedFor
         libapache2-mod-perl2-dev \
+        # OpenSSL dev needed by OIDC::Lite
+        libssl-dev \
         # needed for  Imager::File::WEBP
         libwebpmux3 \
         # Imager::zxing - build deps
-        cmake \
         pkg-config \
+        libzxing-dev \
         # Imager::zxing - decoders
         libavif-dev \
         libde265-dev \
@@ -177,20 +197,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libpng-dev \
         libwebp-dev \
         libx265-dev
-
-# Install zxing-cpp from source until 2.1 or higher is available in Debian: https://github.com/openfoodfacts/openfoodfacts-server/pull/8911/files#r1322987464
-RUN set -x && \
-    cd /tmp && \
-    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v2.1.0.tar.gz && \
-    tar xfz v2.1.0.tar.gz && \
-    cmake -S zxing-cpp-2.1.0 -B zxing-cpp.release \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DBUILD_WRITERS=OFF -DBUILD_READERS=ON -DBUILD_EXAMPLES=OFF && \
-    cmake --build zxing-cpp.release -j8 && \
-    cmake --install zxing-cpp.release && \
-    cd / && \
-    rm -rf /tmp/v2.1.0.tar.gz /tmp/zxing-cpp*
 
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
@@ -216,7 +222,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     set -x && \
     # also run apt update if needed because some package might need to apt install
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
-      apt update || true \
+      apt-get update || true \
     ) && \
     # first install some dependencies that are not well handled
     cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
@@ -251,7 +257,7 @@ RUN \
     chown www-data:www-data -R /mnt/podata && \
     # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
     # NOTE: do not changes those links for they are in a volume, or handle migration in entry-point
-    for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates; do \
+    for path in external-data emb_codes ingredients madenearme packager-codes po taxonomies templates; do \
         ln -sf /opt/product-opener/${path} /mnt/podata/${path}; \
     done && \
     # Create some necessary files to ensure permissions in volumes

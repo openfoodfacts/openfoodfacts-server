@@ -4,12 +4,12 @@
 <html class="no-js" lang="es" data-serverdomain="openfoodfacts.localhost" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Lista de ingredientes - España</title>
+    <title>Lista de ingredientes – España</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="fb:app_id" content="219331381518041">
     <meta property="og:type" content="food">
-    <meta property="og:title" content="Lista de ingredientes - España">
+    <meta property="og:title" content="Lista de ingredientes – España">
     <meta property="og:url" content="//es.openfoodfacts.localhost/facets/ingredientes/1">
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
@@ -30,14 +30,24 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//es.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "@openfoodfacts/openfoodfacts-webcomponents": "//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js",
+            "leaflet": "//static.openfoodfacts.localhost/js/dist/leaflet-src.js",
+            "leaflet.markercluster": "//static.openfoodfacts.localhost/js/dist/leaflet.markercluster.js",
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
+    <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<link rel="stylesheet" href="//static.openfoodfacts.localhost/js/datatables.min.css">
 
     <style media="all">
-        
         .show-when-no-access-to-producers-platform {display:none}
 .show-when-logged-in {display:none}
 
-		
+
 		.badge-container{
 			margin: 0 auto;
 		}
@@ -83,17 +93,58 @@
 
 
 
+	<off-webcomponents-configuration
+  language-code="es"
+  country-code="es"
+  robotoff-configuration='{
+    "apiUrl": "//backend:8881//api/v1",
+    "imgUrl": "//images.openfoodfacts.localhost/images/products"
+  }'
+  
+  folksonomy-configuration='{
+  "apiUrl": "//api.folksonomy.openfoodfacts.localhost"
+  }'
+  
+  openfoodfacts-api-url="//es.openfoodfacts.localhost"
+  assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
+  ></off-webcomponents-configuration>
+
 	
 	<div class="skip"><a href="#content" tabindex="0">Saltar al Contenido</a></div>
 	
+
+	<div id="barcode-scanner-modal" class="modal is_hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2><span>Escanear un producto</span></h2>
+      <button class="modal-close-button">&times;</button>
+    </div>
+    <div>
+      <barcode-scanner id="barcode-scanner"></barcode-scanner>
+    </div>
+    <div>
+    </div>
+    <div >
+      <label for="barcode-modal-input">O introducir manualmente el código de barras</label>
+      <div class="barcode-modal-group">
+        <input type="text" id="barcode-modal-input" class="barcode-modal-input" inputmode="numeric" pattern="\d*" />
+        <button class="barcode-modal-button button" id="barcode-modal-button" disabled>Escanear</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="//static.openfoodfacts.localhost/js/dist/barcode-scanner.js"></script>
+
 
 	<div id="page">
 		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
-				
+
 				<section class="top-bar-section">
-					
+
 					<!-- Left Nav Section -->
 					<ul class="left">
 
@@ -103,7 +154,7 @@
 									menu
 								</span>
 							</a>
-							<ul class="dropdown">				
+							<ul class="dropdown">
 								
 									<li><a href="/descubrir">Descubrir</a></li>
 									<li><a href="/contribuir">Contribuir</a></li>
@@ -126,7 +177,7 @@
 								
 							</ul>
 						</li>
-						
+
 						<li>
 							<ul class="country_language_selection">
 								<li class="has-form has-dropdown" id="select_country_li">
@@ -147,11 +198,11 @@
 
 
 					<!-- Right Nav Section -->
-					
+
 					<ul class="right">
 						
 							<li class="h-space-tiny has-form">
-								<a href="/cgi/session.pl" class="round button secondary">
+								<a href="/cgi/oidc_signin.pl?return_url=http%3A%2F%2Fes.openfoodfacts.localhost%2Ffacets%2Fingredientes%2F1" class="round button secondary">
 									<span class="material-icons material-symbols-button">account_circle</span>
 									Iniciar sesión
 								</a>
@@ -164,7 +215,7 @@
 		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-		
+
 		
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
@@ -184,10 +235,10 @@
 					
 					
 					<section class="top-bar-section">
-					
-						<ul class="left small-4" style="margin-right:2rem;">
+
+						<ul class="left small-4">
 							<li class="search-li">
-							
+
 								<form action="/cgi/search.pl">
 								<div class="row"><div class="small-12">
 								<div class="row collapse postfix-round">
@@ -196,9 +247,22 @@
 									<input name="search_simple" value="1" type="hidden">
 									<input name="action" value="process" type="hidden">
 									</div>
-									<div class="columns">
+									<div class="columns postfix-button-wrapper">
 									<button type="submit" title="Buscar" class="button postfix" style="line-height:normal"><svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></button>
 									</div>
+									<div class="columns postfix-button-wrapper is_hidden">
+  <button
+    type="button"
+    title="Escanear un producto"
+    class="button barcode-scanner-button"
+    id="barcode-scanner-button"
+  >
+    <svg style="width:24px;height:24px" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M2,6H4V18H2V6M5,6H6V18H5V6M7,6H10V18H7V6M11,6H12V18H11V6M14,6H16V18H14V6M17,6H20V18H17V6M21,6H22V18H21V6Z"/></svg>
+  </button>
+
+  <script src="//static.openfoodfacts.localhost/js/dist/barcode-scanner-button.js"></script>
+</div>
+
 								</div>
 								</div></div>
 								</form>
@@ -247,13 +311,13 @@
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
-			
+
 				<a class="exit-off-canvas"></a>
 
 				
-				
+
 				<!-- full width banner on mobile -->
-				
+
 				
 
 				
@@ -276,60 +340,58 @@
 
 								
 
-<section id="donation-banner-top" class="donation-banner row">
-  <div class="donation-banner__left-aside">
-    <div class="donation-banner__hook-section">
-      <p>Ayúdanos a informar a millones de consumidores de todo el mundo sobre lo que comen.</p>
+
+
+  
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>¡Ayúdanos a promover la biodiversidad en Open Food Facts!</h2>
+      <p>¿Podrías dedicar unos minutos a responder nuestra encuesta sobre una nueva función que estamos desarrollando como parte del proyecto europeo DIVINFOOD para promover la agrobiodiversidad en los alimentos que consumimos?</p>
     </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
-  </div>
-  <div>
-    <div class="donation-banner__aside">
-      <div class="donation-banner__main-section">
-        <img
-          width="50"
-          height="50"
-          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
-        />
-        <h3 class="donation-banner__main-title">Please give to our 2024 Fundraiser</h3>
-      </div>
-      <div style="padding:1rem;">
-        <p>Your donations fund the day-to-day operations of our non-profit association:</p>
-        <ul>
-          <li>
-            keeping our database open & available to all,
-            <ul>
-              <li>technical infrastructure (website/mobile app) & a small permanent team</li>
-            </ul>
-          </li>
-          <li>
-            <p>remain independent of the food industry,</p>
-          </li>
-          <li>
-            <p>engage a community of committed citizens,</p>
-          </li>
-          <li>
-            <p>support the advancement of public health research.</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="donation-banner__actions-section">
-      <div class="donation-banner__actions-section__financial">
-        <p>
-          
-          ¡Cada donación cuenta! Agradecemos su apoyo para lograr una mayor transparencia alimentaria en el mundo.  
-          
-        </p>
-      </div>
-      <div class="donation-banner__actions-section__donate-button">
-        <a href="//world-es.openfoodfacts.org/dar-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
-          <button>YO APOYO</button>
-        </a>
-      </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="//ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Responder a la encuesta</a>
     </div>
   </div>
+
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="Logo DIVINFOOD" />
+    </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Bandera de la Unión Europea" />
+    </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>DIVINFOOD ha sido financiado por el programa de investigación e innovación Horizonte 2020 de la Unión Europea en el marco del Acuerdo de Subvención nº 101000383</p>
+    </div>
+  </div>
+</section>
+
+
+
+<style>
+  #donation-banner-top .survey-logo {
+      max-height: 80px;
+      width: auto;
+      display: block;
+      margin: auto;
+  }
+  #donation-banner-top {
+      display: flex;
+      flex-direction: column;
+  }
+  #donation-banner-top .homepage-greeter__button {
+      background-color: #28a745 !important;
+      border-color: #28a745 !important;
+      color: #fff !important;
+  }
+  #donation-banner-top .homepage-greeter__button:hover {
+      background-color: #218838 !important;
+      border-color: #1e7e34 !important;
+  }
+</style>
+
+
   <div class="donation-banner__close">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -347,7 +409,7 @@
     let domain = 'domain=.' + getDomain.slice(1).join('.');
     document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
   }
-  
+
   function getBannerCookie(bcname) {
     const name = bcname + '=';
     const decodedCookies = decodeURIComponent(document.cookie);
@@ -357,18 +419,18 @@
       while (c.charAt(0) == ' ') { c = c.substring(1); }
       if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
     }
-    
+
     return '';
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2024_a', 1, 180);
+    setBannerCookie('divinfood_survey_2026', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
+  if (getBannerCookie('divinfood_survey_2026') !== '') {
     bannerID.style.display = 'none';
-  } else { 
+  } else {
     bannerID.style.display = 'flex';
   }
 </script>
@@ -377,11 +439,11 @@
 							
 						
 						
-            			
+
 						
 							<div class="row">
 								<div class="small-12 column">
-									<h1 class="if-empty-dnone">Lista de ingredientes - España</h1>
+									<h1 class="if-empty-dnone">Lista de ingredientes – España</h1>
 									<!-- start templates/web/pages/tag/tag.tt.html -->
 <div class="tag">
     <div class="row">
@@ -511,13 +573,13 @@
 						<div class="row">
 							<div class="small-12 medium-12 large-12 v-space-normal column badge-container">
 								<!-- android_app_link - //play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en -->
-								<a  href="//play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web&utm_campaign=install_the_app_android_footer_es"><img src="/images/misc/playstore/img/es_get.svg" alt="Disponible en Google Play" loading="lazy" height="40" width="120"></a>
-								
-								<a href="//f-droid.org/packages/openfoodfacts.github.scrachx.openfood"><img src="/images/misc/f-droid/svg/get-it-on-en.svg" alt="Available on F-Droid" loading="lazy" height="40" width="120"></a>
+								<a  href="//play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web&utm_campaign=install_the_app_android_footer_es"><img src="//static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Spanish.svg" alt="Disponible en Google Play" loading="lazy" height="40" width="120"></a>
+
+								<a href="//f-droid.org/packages/openfoodfacts.github.scrachx.openfood"><img src="/images/misc/f-droid/svg/get-it-on-en.svg" alt="Disponible en F-Droid" loading="lazy" height="40" width="120"></a>
 
 								<!-- android_apk_app_link - //world.openfoodfacts.org/images/apps/off.apk -->
-								<a href="//github.com/openfoodfacts/smooth-app/releases/latest?utm_source=off&utf_medium=web&utm_campaign=install_the_app_apk_footer_es"><img src="/images/misc/android-apk.svg" alt="Android APK" loading="lazy" height="40" width="120"></a>
-								
+								<a href="//github.com/openfoodfacts/smooth-app/releases/latest?utm_source=off&utf_medium=web&utm_campaign=install_the_app_apk_footer_es"><img src="/images/misc/app-landing-page/download-apk/download-apk_en.svg" alt="Android APK" loading="lazy" height="40" width="120"></a>
+
 								<!-- msgid "//apps.apple.com/app/open-beauty-facts/id1122926380" -->
 								<a href="//apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web&utm_campaign=install_the_app_ios_footer_es"><img src="/images/misc/appstore/black/appstore_ES.svg" alt="Descargar en la App Store"  loading="lazy" height="40" width="120"></a>
 							</div>
@@ -552,26 +614,26 @@
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Please give to our 2024 Fundraiser</h3>
+        <h3 class="donation-banner-footer__main-title">Por favor, contribuye a nuestra campaña de recaudación de fondos 2026</h3>
       </div>
-      <p>Your donations fund the day-to-day operations of our non-profit association:</p>
+      <p>Sus donaciones financian las operaciones diarias de nuestra asociación sin fines de lucro:</p>
       <ul>
         <li>
-          keeping our database open & available to all,
+          Manteniendo nuestra base de datos abierta y disponible para todos,
           <ul>
-            <li>technical infrastructure (website/mobile app) & a small permanent team</li>
+            <li>Infraestructura técnica (sitio web/aplicación móvil) y un pequeño equipo permanente</li>
           </ul>
         </li>
         <li>
-          <p>remain independent of the food industry,</p>
+          <p>permanecer independiente de la industria alimentaria,</p>
         </li>
         <li>
-          <p>engage a community of committed citizens,</p>
+          <p>involucrar a una comunidad de ciudadanos comprometidos,</p>
         </li>
         <li>
-          <p>support the advancement of public health research.</p>
+          <p>Apoyar el avance de la investigación en salud pública.</p>
         </li>
       </ul>
     </div>
@@ -592,7 +654,7 @@
 
 
 			
-      		
+
 			<div class="block_light block_cappucino" id="contribute_and_discover_links_block">
 				<div class="row">
 					<div class="small-12 large-6 columns v-space-normal block_off">
@@ -637,7 +699,7 @@
 								<a href="/" style="font-size:1rem;"><img id="logo" src="//static.openfoodfacts.localhost/images/logos/off-logo-horizontal-mono-white.svg" alt="Open Food Facts" style="margin:8px;height:48px;width:auto;"></a>
 
 								<p>Una base de datos colaborativa, libre y abierta de productos alimenticios de todo el mundo.</p>
-								
+
 								<ul class="inline-list text-center text-small">
 									<li><a href="/legal">Menciones legales</a></li>
 									<li><a href="/privacidad">Privacidad</a></li>
@@ -666,7 +728,7 @@
 <script src="//static.openfoodfacts.localhost/js/dist/display.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/stikelem.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/scrollNav.js"></script>
-  
+
 
 <script>
 $(function() {
@@ -693,6 +755,7 @@ let oTable = $('#tagstable').DataTable({
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/matomo-events.js"></script>
 <script src="//static.openfoodfacts.localhost/js/datatables.min.js"></script>
 
 <script>
@@ -743,8 +806,7 @@ $(document).foundation({
 platform: public
 can_use_cache: 1
 cache_miss
-no_off_query: 
-off_query: 
+off_query: 1
 platform: public
 query_url: //query:5510
 can_use_off_query: 1

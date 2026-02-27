@@ -8,8 +8,8 @@
          "percent_max" : 100,
          "percent_min" : 33.3333333333333,
          "text" : "mono- et diglycérides d'acides gras",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "from_palm_oil" : "maybe",
@@ -19,8 +19,8 @@
          "percent_max" : 50,
          "percent_min" : 0,
          "text" : "huile",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "en:e428",
@@ -29,8 +29,8 @@
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "gélatine",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
@@ -81,11 +81,5 @@
    "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 3,
    "lc" : "fr",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "unknown_ingredients_n" : 0
 }

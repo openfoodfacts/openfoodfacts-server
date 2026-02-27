@@ -18,10 +18,13 @@
     - EVENTS_USERNAME
     - EVENTS_PASSWORD
     - REDIS_URL
+    - FOLKSONOMY_URL
     - GOOGLE_CLOUD_VISION_API_KEY
     - GOOGLE_CLOUD_VISION_API_URL
     - CROWDIN_PROJECT_IDENTIFIER
     - CROWDIN_PROJECT_KEY
+    - BREVO_API_KEY
+    - BREVO_LIST_ID
     - GEOLITE2_PATH
     - LOG_LEVEL_ROOT
     - LOG_LEVEL_MONGODB
@@ -34,8 +37,18 @@
     - ODOO_CRM_DB
     - ODOO_CRM_USER
     - ODOO_CRM_PASSWORD
+    - OIDC_IMPLEMENTATION_LEVEL
+    - OIDC_DISCOVERY_URL
+    - OIDC_CLIENT_ID
+    - OIDC_CLIENT_SECRET
+    - RECIPE_ESTIMATOR_URL
+    - RECIPE_ESTIMATOR_SCIPY_URL
+    - SLACK_HOOK_URLS
+    #11901: Remove once production is migrated
+    - SERIALIZE_TO_JSON
   depends_on:
-    - memcached
+    memcached:
+        condition: service_started
   volumes:
     # pointer to openfoodfacts-web/lang
     - ${WEB_RESOURCES_PATH}/lang:/mnt/podata/lang
@@ -64,7 +77,6 @@
     # all the rest
     - podata:/mnt/podata
 
-
     # Logs
     - ./logs/apache2:/var/log/apache2
     - ./logs/apache2:/mnt/podata/logs
@@ -75,18 +87,24 @@
     - ./conf/apache2-docker/apache-mpm_prefork.conf:/etc/apache2/mods-enabled/mpm_prefork.conf
     - ./conf/apache-2.4/modperl.conf:/etc/apache2/conf-enabled/modperl.conf
 
-
 services:
   memcached:
     image: memcached:1.6-alpine
   postgres:
-    image: postgres:12-alpine
+    image: pgautoupgrade/pgautoupgrade:17-alpine
     # we want postgres for off, but not for pro profile
     profiles: ["off"]
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
       - POSTGRES_DB=minion
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      start_interval: 1s
+      start_period: 60s
+      retries: 2
     volumes:
       - pgdata:/var/lib/postgresql/data
   backend: *backend-conf
@@ -103,8 +121,15 @@ services:
       - "$MINION_QUEUE"
   incron:
     <<: *backend-conf
-    # This service watch for new images to trigger ocr and robotoff processing
-    command: ["perl", "scripts/run_cloud_vision_ocr.pl", "/mnt/podata/new_images"]
+    # This service watches for new images to trigger ocr and robotoff processing
+    command:
+      ["perl", "scripts/run_cloud_vision_ocr.pl", "/mnt/podata/new_images"]
+  redis-listener:
+    <<: *backend-conf
+    # we want the redis_listerner for off, but not for pro profile
+    profiles: ["off"]
+    # This service watches for new events on a redis stream to delete users
+    command: ["perl", "scripts/listen_to_redis_stream.pl"]
   frontend:
     image: ghcr.io/openfoodfacts/openfoodfacts-server/frontend:${TAG}
     depends_on:
@@ -127,7 +152,6 @@ services:
 
       # openfoodfacts-web static files
       - ${WEB_RESOURCES_PATH}/html:/opt/product-opener/html/off_web_html
-
 
       # Logs
       - ./logs/nginx/:/var/log/nginx/

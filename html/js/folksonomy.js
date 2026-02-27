@@ -7,10 +7,10 @@
 /* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
 
 // Product Opener (Open Food Facts web app) uses:
-// * jQuery 2.1.4:                view-source:https://static.openfoodfacts.org/js/dist/jquery.js (~84 KB)
-//                                http://code.jquery.com/jquery-2.1.4.min.js
-// * jQuery-UI 1.12.1:            view-source:https://static.openfoodfacts.org/js/dist/jquery-ui.js (~82 KB)
-//                                http://code.jquery.com/ui/1.12.1/jquery-ui.min.js
+// * jQuery 2.2.4:                view-source:https://static.openfoodfacts.org/js/dist/jquery.js (~84 KB)
+//                                http://code.jquery.com/jquery-2.2.4.min.js
+// * jQuery-UI 1.14.1:            view-source:https://static.openfoodfacts.org/js/dist/jquery-ui.js (~35 KB)
+//                                http://code.jquery.com/ui/1.14.1/jquery-ui.min.js
 // * Tagify 3.x:                  https://github.com/yairEO/tagify (~47 KB)
 // * Foundation 5 CSS Framework:  https://sudheerdev.github.io/Foundation5CheatSheet/
 //                                See also: https://github.com/openfoodfacts/openfoodfacts-server/pull/2987
@@ -40,7 +40,7 @@ const corsProxy = "";                                        // For production
 const docURL = new URL(document.URL);
 const feHost = "api.folksonomy." + docURL.hostname.split(".").slice(1).join(".");
 const feAPI = corsProxy + docURL.protocol + "//" + feHost;
-var feAPIProductURL, code, bearer, prop;
+let feAPIProductURL, code, bearer, prop;
 const authrenewal = 1 * 5 * 60 * 60 * 1000;
 //folksonomy_engine_init();
 
@@ -124,17 +124,34 @@ function folskonomy_engine_init() {
 
     if (pageType === "property") {
         // detect /property/test or /property/test/value/test_value
-        const results = new RegExp('/property/([^/]*)(/value/)?(.*)').exec(window.location.href);
+        // we capture a value without / and quotes (to avoid html injection)
+        const results = new RegExp("/property/([^\"'/]*)(/value/)?(.*)").exec(
+          window.location.href
+        );
         if (results === null) {
-            return null;
+          return null;
         }
+      
         const property = results[1];
-        const value = results[3];
-        displayProductsWithProperty(property, value);
-    }
+      
+        const webComponentHTML = `
+          <div style="padding: 32px;">
+            <folksonomy-property-products property-name="${property}"></folksonomy-property-products>
+          </div>
+        `;
+      
+        $("#main_column").append(webComponentHTML);
+      }
+      
 
     if (pageType === "properties") {
-        displayAllProperties();
+        const webComponentHTML = `
+          <div style="padding: 32px;">
+            <folksonomy-properties></folksonomy-properties>
+          </div>
+        `;
+
+        $("#main_column").append(webComponentHTML);
     }
 }
 
@@ -322,11 +339,10 @@ function displayFolksonomyPropertyValues() {
             return;
         }
         console.log("FEUS - displayFolksonomyPropertyValues() - " + JSON.stringify(data));
-        let index = data.length;
         let content = "";
         // Sort by property
         const d = data.sort(function(a,b){ return a.k <b.k ? 1 :-1; });
-        while (index--) {
+        for (let index = data.length - 1; index >= 0; index -= 1) {
             content += ('<tr>' +
                         '<td class="version" data-version="' + d[index].version + '"> </td>' +
                         '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+d[index].k+'">🛈</a></td>' +
@@ -352,104 +368,6 @@ function displayFolksonomyPropertyValues() {
                 editPropertyValue(this);
             });
         } );
-    });
-}
-
-
-function displayProductsWithProperty(_property, _value) {
-
-    /* curl -X 'GET' \
-        'https://api.folksonomy.openfoodfacts.org/products?k=test&v=test' \
-        -H 'accept: application/json'
-    */
-    //$("#main_column p").remove();  // remove <p>Invalid address.</p>
-    $("#main_column").append('<!-- display products with property ' + _property + (_value ? ": "+ _value : '') + ' -->' +
-                        '<h2 id="property_title">Folksonomy property: '+ _property + (_value ? ": "+ _value : '') + '</h2>' +
-                        '<p>You should find a <a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+ _property + '">dedicated documentation</a>' +
-                        ' about this property on Open Food Facts wiki</p>' +
-                        '<p>List of products using this property:</p>' +
-                        '<div id="fe_infobox" style="float: right; border: solid black; width: 20%">Tip: you can also find the <a href="/properties">list of all properties</a>.</div>' +
-                        '<ul id="product_list"></ul>');
-    //$("#main_column h1").remove(); // remove <h1>Error</h1>
-
-    console.log("FEUS - displayProductsWithProperty(_property) - GET " + feAPI + "/products?k=" + _property + (_value ? "&v="+ _value : ''));
-    $.getJSON(feAPI + "/products?k=" + _property + (_value ? "&v="+ _value : ''), function(data) {
-        console.log("FEUS - displayProductsWithProperty() - " + JSON.stringify(data));
-        let index = data.length; 
-        let content = "";
-        //const mainAPI = window.location.origin;
-        //$.getJSON(mainAPI +
-        content +=
-            '<table id="properties_list">' +
-            '<tr>' +
-            '<th class="product_code">Product barcode</th>' +
-            '<th class="values">Corresponding value</th>' +
-            '</tr>' +
-            '<tbody id="free_prop_body">';
-        while (index--) {
-            content += ('<tr>' +
-                        '<td class="product_code">' +
-                        '<a href="/product/'+ data[index].product + '">' + data[index].product + '</a>' +
-                        '</td>' +
-                        '<td class="property_value">'+
-                        '<a href="/property/'+ _property + '/value/' + data[index].v + '">' + data[index].v + '</a>' +
-                        '</td>' +
-                        '</tr>');
-        }
-        content +=
-            '' +
-            '</tbody>' +
-            '</table>';
-        $("#product_list").append(content);
-    });
-}
-
-
-function displayAllProperties() {
-
-    /* curl -X 'GET' \
-            'https://api.folksonomy.openfoodfacts.org/keys' \
-            -H 'accept: application/json'
-    */
-    // TODO: add owner filter?
-    //$("#main_column p").remove(); // remove <p>Invalid address.</p>
-
-    // Display empty table
-    $("#main_column").append(String('<h2 id="property_title">Properties</h2>' +
-                        "<p>Open Food Facts allows anyone to reuse contributed properties or create new ones " +
-                        "(see the <a href='https://wiki.openfoodfacts.org/Folksonomy_Engine'>Folksonomy Engine project</a>). " + 
-                        "Here's the list of all contributed properties.</p>" +
-                        '<table id="properties_list">' +
-                        '<tr>' +
-                        '<th> </th>' +
-                        '<th class="property_name">Property</th>' +
-                        '<th class="doc">Documentation</th>' +
-                        '<th class="count">Count</th>' +
-                        '<th class="values">Values</th>' +
-                        '</tr>' +
-                        '<tbody id="free_prop_body">') +
-                        '</tbody>' +
-                        '</table>');
-    //$("#main_column h1").remove(); // remove <h1>Error</h1>
-
-    // Populate table
-    console.log("FEUS - displayAllProperties(_owner) - GET " + feAPI + "/keys");
-    $.getJSON(feAPI + "/keys", function(data) {
-        console.log("FEUS - displayAllProperties() - " + JSON.stringify(data));
-        let index = data.length;
-        let content = "";
-        // sort by count
-        const d = data.sort(function(a,b){ return a.count >b.count ?1 :-1; });
-        while (index--) {
-            content += ('<tr class="property">' +
-                        '<td> </td>' +
-                        '<td><a href="/property/'+ d[index].k + '">' + d[index].k + '</a></td>' +
-                        '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/' + d[index].k + '">🛈</a></td>' +
-                        '<td>' + d[index].count + '</td>' +
-                        '<td>' + d[index].values + '</td>' +
-                        '</tr>');
-        }
-        $("#properties_list").append(content);
     });
 }
 
@@ -702,10 +620,9 @@ function displayFolksonomyForm() {
     $.getJSON(feAPIProductURL, function(data) {
         console.log("FEUS - displayFolksonomyForm() - URL: " + feAPIProductURL);
         console.log("FEUS - displayFolksonomyForm() - " + JSON.stringify(data));
-        let index = data.length;
         let content = "";
         const d = data.sort(function(a,b){ return a.k <b.k ?1 :-1; });
-        while (index--) {
+        for (let index = data.length - 1; index >= 0; index -= 1) {
             content += ('<form class="free_properties_form">' +
                         '<p class="property_value">' +
                         '<label for="feus-' + d[index].k + '" class="property">' + d[index].k + '</label> ' +
@@ -787,7 +704,7 @@ function isPageType() {
 
 function loginProcess(callback) {
     // Try to authenticate using the Open Food Facts cookie first
-    var cookie = $.cookie('session') ? $.cookie('session') : "";
+    const cookie = $.cookie('session') ? $.cookie('session') : "";
     if (cookie) {
         console.log("FEUS - loginProcess(callback) => getCredentialsFromCookie()");
         getCredentialsFromCookie(cookie, callback);
@@ -1006,7 +923,7 @@ function findOcc(arr, key) {
         // If yes! then increase the occurrence by 1
         arr2.forEach((k) => {
         if (k[key] === x[key]) {
-            k.occurrence++;
+            k.occurrence += 1;
         }
         });
     } else {

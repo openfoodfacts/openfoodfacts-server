@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -43,6 +43,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&check_quality_food
+		&is_european_product
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -50,11 +51,11 @@ BEGIN {
 use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
-use ProductOpener::Food qw(%categories_nutriments_per_country);
-use ProductOpener::EnvironmentalScore qw(is_environmental_score_extended_data_more_precise_than_agribalyse);
+use ProductOpener::Stats qw(%categories_stats_per_country);
 use ProductOpener::Units qw(extract_standard_unit);
+use ProductOpener::Nutrition qw(:all);
 
-use Data::DeepAccess qw(deep_exists);
+use Data::DeepAccess qw(deep_get deep_exists deep_set);
 
 use Log::Any qw($log);
 
@@ -771,121 +772,63 @@ sub detect_categories ($product_ref) {
 	return;
 }
 
-=head2 check_nutrition_grades( PRODUCT_REF )
+=head2 check_nutriscore_grades( PRODUCT_REF )
 
 Compares the nutrition score and nutrition grade (Nutri-Score) we have computed with
 the score and grade provided by manufacturers.
 
 =cut
 
-sub check_nutrition_grades ($product_ref) {
+sub check_nutriscore_grades ($product_ref) {
 
-	if ((defined $product_ref->{nutrition_grade_fr_producer}) and (defined $product_ref->{nutrition_grade_fr})) {
+	if ((defined $product_ref->{nutriscore_grade_producer}) and (defined $product_ref->{nutriscore_grade})) {
 
-		if ($product_ref->{nutrition_grade_fr_producer} eq $product_ref->{nutrition_grade_fr}) {
-			push @{$product_ref->{data_quality_info_tags}}, "en:nutrition-grade-fr-producer-same-ok";
+		if ($product_ref->{nutriscore_grade_producer} eq $product_ref->{nutriscore_grade}) {
+			push @{$product_ref->{data_quality_info_tags}}, "en:nutriscore-grade-producer-same-ok";
 		}
 		else {
-			push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-grade-fr-producer-mismatch-nok";
+			push @{$product_ref->{data_quality_warnings_tags}}, "en:nutriscore-grade-producer-mismatch-nok";
 		}
 	}
 
-	if (    (defined $product_ref->{nutriments})
-		and (defined $product_ref->{nutriments}{"nutrition-score-fr-producer"})
-		and (defined $product_ref->{nutriments}{"nutrition-score-fr"}))
+	if (    (defined $product_ref->{nutriscore_score_producer})
+		and (defined $product_ref->{nutriscore_score}))
 	{
 
-		if ($product_ref->{nutriments}{"nutrition-score-fr-producer"} eq
-			$product_ref->{nutriments}{"nutrition-score-fr"})
-		{
-			push @{$product_ref->{data_quality_info_tags}}, "en:nutrition-score-fr-producer-same-ok";
+		if ($product_ref->{nutriscore_score_producer} == $product_ref->{nutriscore_score}) {
+			push @{$product_ref->{data_quality_info_tags}}, "en:nutriscore-score-producer-same-ok";
 		}
 		else {
-			push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-score-fr-producer-mismatch-nok";
+			push @{$product_ref->{data_quality_warnings_tags}}, "en:nutriscore-score-producer-mismatch-nok";
 		}
 	}
 
 	return;
 }
 
-=head2 check_carbon_footprint( PRODUCT_REF )
+=head2 check_nutrition_data_energy_computation ($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags)
 
-Checks related to the carbon footprint computed from ingredients analysis.
+Checks related to the energy value computed from other nutrients for a given input set.
+
+This function should be called on input sets
+
+=head3 Parameters
+
+=head4 $product_ref: reference to the product hash.
+
+=head4 $nutrition_set_ref: reference to the input set hash.
 
 =cut
 
-sub check_carbon_footprint ($product_ref) {
+sub check_nutrition_data_energy_computation ($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags) {
 
-	if (defined $product_ref->{nutriments}) {
-
-		if ((defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
-			and not(defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"}))
-		{
-			push @{$product_ref->{data_quality_info_tags}},
-				"en:carbon-footprint-from-meat-or-fish-but-not-from-known-ingredients";
-		}
-		if (    (not defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
-			and (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"}))
-		{
-			push @{$product_ref->{data_quality_info_tags}},
-				"en:carbon-footprint-from-known-ingredients-but-not-from-meat-or-fish";
-		}
-		if (
-				(defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
-			and (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})
-			and ($product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"}
-				> $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})
-			)
-		{
-			push @{$product_ref->{data_quality_warnings_tags}},
-				"en:carbon-footprint-from-known-ingredients-less-than-from-meat-or-fish";
-		}
-		if (
-				(defined $product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"})
-			and (defined $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})
-			and ($product_ref->{nutriments}{"carbon-footprint-from-meat-or-fish_100g"}
-				< $product_ref->{nutriments}{"carbon-footprint-from-known-ingredients_100g"})
-			)
-		{
-			push @{$product_ref->{data_quality_info_tags}},
-				"en:carbon-footprint-from-known-ingredients-more-than-from-meat-or-fish";
-		}
+	if (not defined $nutrition_set_ref) {
+		return;
 	}
 
-	return;
-}
+	my $nutrients_ref = $nutrition_set_ref->{nutrients};
 
-=head2 check_nutrition_data_energy_computation ( PRODUCT_REF )
-
-Checks related to the nutrition facts values.
-
-In particular, checks for obviously invalid values (e.g. more than 105 g of any nutrient for 100 g / 100 ml).
-105 g is used instead of 100 g, because for some liquids, 100 ml can weight more than 100 g.
-
-=cut
-
-# Nutrients to energy conversion
-# Currently only supporting Europe's method (similar to US and Canada 4-4-9, 4-4-9-7 and 4-4-9-7-2)
-
-my %energy_from_nutrients = (
-	europe => {
-		carbohydrates_minus_polyols => {kj => 17, kcal => 4},
-		polyols_minus_erythritol => {kj => 10, kcal => 2.4},
-		proteins => {kj => 17, kcal => 4},
-		fat => {kj => 37, kcal => 9},
-		salatrim => {kj => 25, kcal => 6},    # no corresponding nutrients in nutrient tables?
-		alcohol => {kj => 29, kcal => 7},
-		organic_acids => {kj => 13, kcal => 3},    # no corresponding nutrients in nutrient tables?
-		fiber => {kj => 8, kcal => 2},
-		erythritol => {kj => 0, kcal => 0},
-	},
-);
-
-sub check_nutrition_data_energy_computation ($product_ref) {
-
-	my $nutriments_ref = $product_ref->{nutriments};
-
-	if (not defined $nutriments_ref) {
+	if (not defined $nutrients_ref) {
 		return;
 	}
 
@@ -898,41 +841,10 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 
 	foreach my $unit ("kj", "kcal") {
 
-		my $specified_energy = $nutriments_ref->{"energy-${unit}_value"};
-		# We need at a minimum carbohydrates, fat and proteins to be defined to compute
-		# energy.
-		if (    (defined $specified_energy)
-			and (defined $nutriments_ref->{"carbohydrates_value"})
-			and (defined $nutriments_ref->{"fat_value"})
-			and (defined $nutriments_ref->{"proteins_value"}))
-		{
+		my $specified_energy = deep_get($nutrients_ref, "energy-${unit}", "value");
+		my $computed_energy = deep_get($nutrients_ref, "energy-${unit}", "value_computed");
 
-			# Compute the energy from other nutrients
-			my $computed_energy = 0;
-			foreach my $nid (keys %{$energy_from_nutrients{europe}}) {
-
-				my $energy_per_gram = $energy_from_nutrients{europe}{$nid}{$unit};
-				my $grams = 0;
-				# handles nutriment1__minus__nutriment2 case
-				if ($nid =~ /_minus_/) {
-					my $nid_minus = $';
-					$nid = $`;
-
-					# If we are computing carbohydrates minus polyols, and we do not have a value for polyols
-					# but we have a value for erythritol (which is a polyol), then we need to remove erythritol
-					if (($nid_minus eq "polyols") and (not defined $product_ref->{nutriments}{$nid_minus . "_value"})) {
-						$nid_minus = "erythritol";
-					}
-					# Similarly for polyols minus erythritol
-					if (($nid eq "polyols") and (not defined $product_ref->{nutriments}{$nid . "_value"})) {
-						$nid = "erythritol";
-					}
-
-					$grams -= $product_ref->{nutriments}{$nid_minus . "_value"} || 0;
-				}
-				$grams += $product_ref->{nutriments}{$nid . "_value"} || 0;
-				$computed_energy += $grams * $energy_per_gram;
-			}
+		if ((defined $specified_energy) and (defined $computed_energy)) {
 
 			# following error/warning should be ignored for some categories
 			# for example, lemon juices containing organic acid, it is forbidden to display organic acid in nutrition tables but
@@ -958,25 +870,21 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 					or ($computed_energy > ($specified_energy * 1.3 + 5)))
 				{
 					# we have a quality problem
-					push @{$product_ref->{data_quality_errors_tags}},
-						"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
+					push @{$product_ref->{$data_quality_tags}},
+						"en:${set_id}-energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
 				}
 
 				# Compare to specified energy value with a tolerance of 15% + an additiontal tolerance of 5
 				if (   ($computed_energy < ($specified_energy * 0.85 - 5))
 					or ($computed_energy > ($specified_energy * 1.15 + 5)))
 				{
-					# we have a quality warning
+					# we have a quality warning, don't use $data_quality_tags here
 					push @{$product_ref->{data_quality_warnings_tags}},
-						"en:energy-value-in-$unit-may-not-match-value-computed-from-other-nutrients";
+						"en:${set_id}-energy-value-in-$unit-may-not-match-value-computed-from-other-nutrients";
 				}
 			}
+		}
 
-			$nutriments_ref->{"energy-${unit}_value_computed"} = $computed_energy;
-		}
-		else {
-			delete $nutriments_ref->{"energy-${unit}_value_computed"};
-		}
 	}
 
 	return;
@@ -993,24 +901,37 @@ In particular, checks for obviously invalid values (e.g. more than 105 g of any 
 
 sub check_nutrition_data ($product_ref) {
 
-	if ((defined $product_ref->{multiple_nutrition_data}) and ($product_ref->{multiple_nutrition_data} eq 'on')) {
+	my $input_sets_ref = deep_get($product_ref, "nutrition", "input_sets");
 
-		push @{$product_ref->{data_quality_info_tags}}, "en:multiple-nutrition-data";
-
-		if ((defined $product_ref->{not_comparable_nutrition_data}) and $product_ref->{not_comparable_nutrition_data}) {
-			push @{$product_ref->{data_quality_info_tags}}, "en:not-comparable-nutrition-data";
-		}
-	}
 	my $is_dried_product = has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated");
 
-	my $nutrition_data_prepared
-		= defined $product_ref->{nutrition_data_prepared} && $product_ref->{nutrition_data_prepared} eq 'on';
-	my $no_nutrition_data = defined $product_ref->{no_nutrition_data} && $product_ref->{no_nutrition_data} eq 'on';
-	my $nutrition_data = defined $product_ref->{nutrition_data} && $product_ref->{nutrition_data} eq 'on';
+	# Check if we have input sets that are not estimated, and if one of them is for the prepared product
+	my $nutrition_data = 0;
+	my $nutrition_data_prepared = 0;
+	my $has_nutrition_per_serving = 0;
+	if (defined $input_sets_ref) {
 
-	$log->debug("nutrition_data_prepared: " . $nutrition_data_prepared) if $log->debug();
+		foreach my $set_ref (@{$input_sets_ref}) {
 
-	if ($no_nutrition_data) {
+			my $source = deep_get($set_ref, "source");
+			my $preparation = deep_get($set_ref, "preparation");
+			my $per = deep_get($set_ref, "per");
+
+			if (($source ne "estimate") and (defined $set_ref->{nutrients})) {
+				$nutrition_data = 1;
+
+				if ($preparation eq "prepared") {
+					$nutrition_data_prepared = 1;
+				}
+			}
+
+			if ($per eq "serving") {
+				$has_nutrition_per_serving = 1;
+			}
+		}
+	}
+
+	if (not $nutrition_data) {
 		push @{$product_ref->{data_quality_info_tags}}, "en:no-nutrition-data";
 	}
 	else {
@@ -1022,373 +943,424 @@ sub check_nutrition_data ($product_ref) {
 					"en:nutrition-data-prepared-without-category-dried-products-to-be-rehydrated";
 			}
 		}
-
-		# catch serving_size = "serving", regardless of setting (per 100g or per serving)
-		if (    (defined $product_ref->{serving_size})
-			and ($product_ref->{serving_size} ne "")
-			and ($product_ref->{serving_size} ne "-")
-			and ($product_ref->{serving_size} !~ /\d/))
-		{
-			push @{$product_ref->{data_quality_errors_tags}}, "en:serving-size-is-missing-digits";
-		}
-		if (    $nutrition_data
-			and (defined $product_ref->{nutrition_data_per})
-			and ($product_ref->{nutrition_data_per} eq 'serving'))
-		{
-			if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} eq '')) {
-				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-missing-serving-size";
-			}
-			elsif (defined $product_ref->{serving_quantity} and $product_ref->{serving_quantity} eq "0") {
-				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
-			}
-		}
 	}
-
-	my $has_prepared_data = 0;
-
-	if (defined $product_ref->{nutriments}) {
-
-		my $total = 0;
-		# variables to check if there are 3 or more duplicates in nutriments
-		my @major_nutriments_values = ();
-		my %nutriments_values_occurences = ();
-		my %nutriments_values = ();
-
-		if (    (defined $product_ref->{nutriments}{"energy-kcal_value"})
-			and (defined $product_ref->{nutriments}{"energy-kj_value"}))
-		{
-
-			# energy in kcal greater than in kj
-			if ($product_ref->{nutriments}{"energy-kcal_value"} > $product_ref->{nutriments}{"energy-kj_value"}) {
-				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-greater-than-in-kj";
-
-				# additionally check if kcal value and kj value are reversed. Exact opposite condition as next error below
-				if (
-					(
-						$product_ref->{nutriments}{"energy-kcal_value"}
-						> 3.7 * $product_ref->{nutriments}{"energy-kj_value"} - 2
-					)
-					and ($product_ref->{nutriments}{"energy-kcal_value"}
-						< 4.7 * $product_ref->{nutriments}{"energy-kj_value"} + 2)
-					)
-				{
-					push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-and-kj-are-reversed";
-				}
-			}
-
-			# check energy in kcal is ~ 4.2 (+/- 0.5) energy in kj
-			#   +/- 2 to avoid false positives due to rounded values below 2 Kcal.
-			#   Eg. 1.49 Kcal -> 6.26 KJ in reality, can be rounded by the producer to 1 Kcal -> 6 KJ.
-			if (
-				(
-					$product_ref->{nutriments}{"energy-kj_value"}
-					< 3.7 * $product_ref->{nutriments}{"energy-kcal_value"} - 2
-				)
-				or ($product_ref->{nutriments}{"energy-kj_value"}
-					> 4.7 * $product_ref->{nutriments}{"energy-kcal_value"} + 2)
-				)
-			{
-				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-does-not-match-value-in-kj";
-			}
-		}
-
-		foreach my $nid (sort keys %{$product_ref->{nutriments}}) {
-			$log->debug("nid: " . $nid . ": " . $product_ref->{nutriments}{$nid}) if $log->is_debug();
-
-			if ($nid =~ /_prepared_100g$/ && $product_ref->{nutriments}{$nid} > 0) {
-				$has_prepared_data = 1;
-			}
-
-			if ($nid =~ /_100g/) {
-
-				my $nid2 = $`;
-				$nid2 =~ s/_/-/g;
-
-				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 105)) {
-					# product opener / ingredients analysis issue (See issue #10064)
-					if ($nid =~ /estimate/) {
-						push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-over-105-$nid2";
-					}
-					else {
-						push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-105-$nid2";
-					}
-				}
-
-				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid} > 1000)) {
-					# product opener / ingredients analysis issue (See issue #10064)
-					if ($nid =~ /estimate/) {
-						push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-over-1000-$nid2";
-					}
-					else {
-						push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
-					}
-				}
-
-				if (($product_ref->{nutriments}{$nid} < 0) and (index($nid, "nutrition-score") == -1)) {
-					# product opener / ingredients analysis issue (See issue #10064)
-					if ($nid =~ /estimate/) {
-						push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-negative-$nid2";
-					}
-					else {
-						push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
-					}
-				}
-			}
-
-			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
-				and (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')))
-			{
-				$total += $product_ref->{nutriments}{$nid . "_100g"};
-			}
-
-			# variables to check if there are many duplicates in nutriments
-			if (   ($nid eq 'energy-kj_100g')
-				or ($nid eq 'energy-kcal_100g')
-				or ($nid eq 'fat_100g')
-				or ($nid eq 'saturated-fat_100g')
-				or ($nid eq 'carbohydrates_100g')
-				or ($nid eq 'sugars_100g')
-				or ($nid eq 'fiber_100g')
-				or ($nid eq 'proteins_100g')
-				or ($nid eq 'salt_100g')
-				or ($nid eq 'sodium_100g'))
-			{
-				push(@major_nutriments_values, $product_ref->{nutriments}{$nid});
-				$nutriments_values{$nid} = $product_ref->{nutriments}{$nid};
-			}
-
-		}
-
-		# create a hash key: nutriment value, value: number of occurences
-		foreach my $nutriment_value (@major_nutriments_values) {
-			if (exists($nutriments_values_occurences{$nutriment_value})) {
-				$nutriments_values_occurences{$nutriment_value}++;
-			}
-			else {
-				$nutriments_values_occurences{$nutriment_value} = 1;
-			}
-		}
-		# retrieve max number of occurences
-		my $nutriments_values_occurences_max_value = -1;
-		# raise warning if there are 3 or more duplicates in nutriments and nutriment is above 1
-		foreach my $key (keys %nutriments_values_occurences) {
-			if (($nutriments_values_occurences{$key} > 2) and ($key > 1)) {
-				add_tag($product_ref, "data_quality_warnings", "en:nutrition-3-or-more-values-are-identical");
-			}
-			if ($nutriments_values_occurences{$key} > $nutriments_values_occurences_max_value) {
-				$nutriments_values_occurences_max_value = $nutriments_values_occurences{$key};
-			}
-		}
-		# raise error if
-		# all values are identical
-		# and values (check first value only) are above 1 (see issue #9572)
-		#  OR
-		# all values but one - because sodium and salt can be automatically calculated one depending on the value of the other - are identical
-		# and values (check salt (should not check sodium which could be lower)) are above 1 (see issue #9572)
-		# and at least 4 values are input by contributors (see issue #9572)
-		if (
-			(
-				(
-					$nutriments_values_occurences_max_value == scalar @major_nutriments_values
-					and ($major_nutriments_values[0] > 1)
-				)
-				or (
-					($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
-					and (   (defined $nutriments_values{'salt_100g'})
-						and (defined $nutriments_values{'sodium_100g'})
-						and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'})
-						and ($nutriments_values{'salt_100g'} > 1))
-				)
-			)
-			and (scalar @major_nutriments_values > 3)
-			)
-		{
-			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-values-are-all-identical";
-		}
-
-		if ($total > 105) {
-			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-total-over-105";
-		}
-		if ($total > 1000) {
-			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-total-over-1000";
-		}
-
-		if (    (defined $product_ref->{nutriments}{"energy_100g"})
-			and ($product_ref->{nutriments}{"energy_100g"} > 3800))
-		{
-			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3800-energy";
-		}
-
-		# sugar + starch cannot be greater than carbohydrates
-		# do not raise error if sugar or starch contains "<" symbol (see issue #9267)
-		if (
-			(defined $product_ref->{nutriments}{"carbohydrates_100g"})
-			and (
-				# without "<" symbol, check sum of sugar and starch is not greater than carbohydrates
-				(
-					(
-						(
-							(
-								(defined $product_ref->{nutriments}{"sugars_100g"})
-								? $product_ref->{nutriments}{"sugars_100g"}
-								: 0
-							) + (
-								(defined $product_ref->{nutriments}{"starch_100g"})
-								? $product_ref->{nutriments}{"starch_100g"}
-								: 0
-							)
-						) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
-					)
-					and not(defined $product_ref->{nutriments}{"sugar_modifier"})
-					and not(defined $product_ref->{nutriments}{"starch_modifier"})
-				)
-				or
-				# with "<" symbo, check only that sugar or starch are not greater than carbohydrates
-				(
-					(
-						(
-								(defined $product_ref->{nutriments}{"sugar_modifier"})
-							and ($product_ref->{nutriments}{"sugar_modifier"} eq "<")
-						)
-						and (
-							(
-								(defined $product_ref->{nutriments}{"sugars_100g"})
-								? $product_ref->{nutriments}{"sugars_100g"}
-								: 0
-							) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
-						)
-					)
-					or (
-						(
-								(defined $product_ref->{nutriments}{"starch_modifier"})
-							and ($product_ref->{nutriments}{"starch_modifier"} eq "<")
-						)
-						and (
-							(
-								(defined $product_ref->{nutriments}{"starch_100g"})
-								? $product_ref->{nutriments}{"starch_100g"}
-								: 0
-							) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
-						)
-					)
-				)
-			)
-			)
-		{
-
-			push @{$product_ref->{data_quality_errors_tags}},
-				"en:nutrition-sugars-plus-starch-greater-than-carbohydrates";
-		}
-
-		# sum of nutriments that compose sugar can not be greater than sugar value
-		if (defined $product_ref->{nutriments}{sugars_100g}) {
-			my $fructose
-				= defined $product_ref->{nutriments}{fructose_100g} ? $product_ref->{nutriments}{fructose_100g} : 0;
-			my $glucose
-				= defined $product_ref->{nutriments}{glucose_100g} ? $product_ref->{nutriments}{glucose_100g} : 0;
-			my $maltose
-				= defined $product_ref->{nutriments}{maltose_100g} ? $product_ref->{nutriments}{maltose_100g} : 0;
-			# sometimes lactose < 0.01 is written below the nutrition table together whereas
-			# sugar is 0 in the nutrition table (#10715)
-			my $sucrose
-				= defined $product_ref->{nutriments}{sucrose_100g} ? $product_ref->{nutriments}{sucrose_100g} : 0;
-
-			# ignore lactose when having "<" symbol
-			my $lactose = 0;
-			if (defined $product_ref->{nutriments}{lactose_100g}) {
-				my $lactose_modifier = $product_ref->{nutriments}{'lactose_modifier'};
-				if (!defined $lactose_modifier || $lactose_modifier ne '<') {
-					$lactose = $product_ref->{nutriments}{lactose_100g};
-				}
-			}
-
-			my $total_sugar = $fructose + $glucose + $maltose + $lactose + $sucrose;
-
-			if ($total_sugar > $product_ref->{nutriments}{sugars_100g} + 0.001) {
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
-			}
-		}
-
-		if (    (defined $product_ref->{nutriments}{"saturated-fat_100g"})
-			and (defined $product_ref->{nutriments}{"fat_100g"})
-			and ($product_ref->{nutriments}{"saturated-fat_100g"} > ($product_ref->{nutriments}{"fat_100g"} + 0.001)))
-		{
-
-			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-saturated-fat-greater-than-fat";
-
-		}
-
-		# sum of nutriments that compose fiber can not be greater than the value of fiber
-		# ignore if there is "<" symbol (example: <1 + 5 = 5, issue #11075)
-		if (defined $product_ref->{nutriments}{fiber_100g}) {
-			my $soluble_fiber = 0;
-			my $insoluble_fiber = 0;
-
-			if (defined $product_ref->{nutriments}{'soluble-fiber_100g'}) {
-				my $soluble_modifier = $product_ref->{nutriments}{'soluble-fiber_modifier'};
-				if (!defined $soluble_modifier || $soluble_modifier ne '<') {
-					$soluble_fiber = $product_ref->{nutriments}{'soluble-fiber_100g'};
-				}
-			}
-
-			if (defined $product_ref->{nutriments}{'insoluble-fiber_100g'}) {
-				my $insoluble_modifier = $product_ref->{nutriments}{'insoluble-fiber_modifier'};
-				if (!defined $insoluble_modifier || $insoluble_modifier ne '<') {
-					$insoluble_fiber = $product_ref->{nutriments}{'insoluble-fiber_100g'};
-				}
-			}
-
-			my $total_fiber = $soluble_fiber + $insoluble_fiber;
-
-			# increased threshold from 0.001 to 0.01 (see issue #10491)
-			# make sure that floats stop after 2 decimals
-			if (sprintf("%.2f", $total_fiber) > sprintf("%.2f", $product_ref->{nutriments}{fiber_100g} + 0.01)) {
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
-			}
-		}
-
-		# Too small salt value? (e.g. g entered in mg)
-		# warning for salt < 0.1 was removed because it was leading to too much false positives (see #9346)
-		if ((defined $product_ref->{nutriments}{"salt_100g"}) and ($product_ref->{nutriments}{"salt_100g"} > 0)) {
-
-			if ($product_ref->{nutriments}{"salt_100g"} < 0.001) {
-				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-001-g-salt";
-			}
-			elsif ($product_ref->{nutriments}{"salt_100g"} < 0.01) {
-				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-01-g-salt";
-			}
-		}
-
-		# some categories have expected nutriscore grade - push data quality error if calculated nutriscore grade differs from expected nutriscore grade or if it is not calculated
-		my ($expected_nutriscore_grade, $category_id)
-			= get_inherited_property_from_categories_tags($product_ref, "expected_nutriscore_grade:en");
-
-		if (
-			# exclude error if nutriscore cannot be calculated due to missing nutrients information (see issue #9297)
-			(
-					(defined $product_ref->{nutriscore}{2023}{nutrients_available})
-				and ($product_ref->{nutriscore}{2023}{nutrients_available} == 1)
-			)
-			# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
-			and (defined $expected_nutriscore_grade)
-			and (($expected_nutriscore_grade =~ /^([a-e]){1}$/i))
-			# nutriscore calculated but unexpected nutriscore grade
-			and (defined $product_ref->{nutrition_grade_fr})
-			and ($product_ref->{nutrition_grade_fr} ne $expected_nutriscore_grade)
-			)
-		{
-			push @{$product_ref->{data_quality_errors_tags}},
-				"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
-		}
-	}
-	$log->debug("has_prepared_data: " . $has_prepared_data) if $log->debug();
 
 	# issue 1466: Add quality facet for dehydrated products that are missing prepared values
-	if ($is_dried_product && ($no_nutrition_data || !($nutrition_data_prepared && $has_prepared_data))) {
+	if ($is_dried_product and not $nutrition_data_prepared) {
 		push @{$product_ref->{data_quality_warnings_tags}},
 			"en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated";
+	}
+
+	# catch serving_size = "serving", regardless of setting (per 100g or per serving)
+	if (    (defined $product_ref->{serving_size})
+		and ($product_ref->{serving_size} ne "")
+		and ($product_ref->{serving_size} ne "-")
+		and ($product_ref->{serving_size} !~ /\d/))
+	{
+		push @{$product_ref->{data_quality_errors_tags}}, "en:serving-size-is-missing-digits";
+	}
+	if ($has_nutrition_per_serving) {
+		if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} eq '')) {
+			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-missing-serving-size";
+		}
+		elsif (defined $product_ref->{serving_quantity} and $product_ref->{serving_quantity} eq "0") {
+			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
+		}
+	}
+
+	# Check each input set
+	if (defined $input_sets_ref) {
+		foreach my $nutrition_set_ref (@{$input_sets_ref}) {
+			# compute an id for the set to include in the warning/error tags
+			my $set_id = "";
+			my $source = deep_get($nutrition_set_ref, "source") || "unknown-source";
+			my $preparation = deep_get($nutrition_set_ref, "preparation") || "unknown-preparation";
+			my $per = deep_get($nutrition_set_ref, "per") || "unknown-per";
+			$set_id = "nutrition-${source}-${preparation}-${per}";
+			$set_id =~ s/[^a-z0-9]+/-/g;
+			# Do not generate errors for estimated sets
+			if (not(defined $nutrition_set_ref->{source} and $nutrition_set_ref->{source} eq "estimate")) {
+				# We will generate errors for input sets
+				my $data_quality_tags = "data_quality_errors_tags";
+				check_nutrition_data_for_input_set($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags);
+				check_nutrition_data_energy_computation($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags);
+			}
+		}
+	}
+
+	# Also check the aggregated nutrition set
+	# Note: it is likely that there will be a lot of errors here, as the aggregated set is computed
+	# from multiple input sets, some of which may be estimated.
+	# So we only generate warnings.
+	# We will have to review if those warnings are useful or not, and possibly remove them altogether.
+	my $aggregated_nutrition_set_ref = deep_get($product_ref, "nutrition", "aggregated_set");
+	if (defined $aggregated_nutrition_set_ref) {
+		# We will generate errors for the aggregated set
+		my $data_quality_tags = "data_quality_warnings_tags";
+		# For the aggregated set, we used a fixed set id (matching tags we generated before the nutrition data restructure in 2025)
+		my $set_id = "nutrition";
+		check_nutrition_data_for_input_set($product_ref, $aggregated_nutrition_set_ref, $set_id, $data_quality_tags);
+		check_nutrition_data_energy_computation($product_ref, $aggregated_nutrition_set_ref, $set_id,
+			$data_quality_tags);
+	}
+
+	return;
+}
+
+sub check_energy_for_input_set ($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags) {
+
+	my $nutrients_ref = $nutrition_set_ref->{nutrients};
+
+	my $energy_kj = deep_get($nutrients_ref, "energy-kj", "value");
+	my $energy_kcal = deep_get($nutrients_ref, "energy-kcal", "value");
+
+	if ((defined $energy_kj) and (defined $energy_kcal)) {
+
+		# energy in kcal greater than in kj
+		if ($energy_kcal > $energy_kj) {
+			push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-energy-value-in-kcal-greater-than-in-kj";
+
+			# additionally check if kcal value and kj value are reversed. Exact opposite condition as next error below
+			if (    ($energy_kcal > 3.7 * $energy_kj - 2)
+				and ($energy_kcal < 4.7 * $energy_kj + 2))
+			{
+				push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-energy-value-in-kcal-and-kj-are-reversed";
+			}
+		}
+
+		# check energy in kcal is ~ 4.2 (+/- 0.5) energy in kj
+		#   +/- 2 to avoid false positives due to rounded values below 2 Kcal.
+		#   Eg. 1.49 Kcal -> 6.26 KJ in reality, can be rounded by the producer to 1 Kcal -> 6 KJ.
+		if (   ($energy_kj < 3.7 * $energy_kcal - 2)
+			or ($energy_kj > 4.7 * $energy_kcal + 2))
+		{
+			push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-energy-value-in-kcal-does-not-match-value-in-kj";
+		}
+	}
+
+	my $per = deep_get($nutrition_set_ref, "per");
+	if ((defined $per) and (($per eq "100g") or ($per eq "100ml"))) {
+		if (    (defined $energy_kj)
+			and ($energy_kj > 3911))
+		{
+			push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-value-over-3911-energy";
+		}
+	}
+
+	return;
+}
+
+=head2 check_specific_nutrients_for_input_set ( $product_ref, $nutrition_set_ref, $set_id, $data_quality_tags )
+
+Checks related to specific nutrients for a given input set.
+
+=cut
+
+sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags) {
+
+	my $nutrients_ref = $nutrition_set_ref->{nutrients};
+
+	if (not defined $nutrients_ref) {
+		return;
+	}
+
+	my $carbohydrates = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "carbohydrates");
+	my $sugars = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "sugars") || 0;
+	my $starch = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "starch") || 0;
+	my $fiber = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "fiber") || 0;
+	my $sugars_modifier = deep_get($nutrients_ref, "sugars", "modifier");
+	my $starch_modifier = deep_get($nutrients_ref, "starch", "modifier");
+	my $fiber_modifier = deep_get($nutrients_ref, "fiber", "modifier");
+
+	# sugar + starch cannot be greater than carbohydrates
+	# do not raise error if sugar or starch contains "<" symbol (see issue #9267)
+	if (
+		(defined $carbohydrates)
+		and (
+			# without "<" symbol, check sum of sugar and starch is not greater than carbohydrates
+			(
+					(($sugars + $starch) > ($carbohydrates) + 0.001)
+				and not(defined $sugars_modifier)
+				and not(defined $starch_modifier)
+			)
+			or
+			# with "<" symbol, check only that sugar or starch are not greater than carbohydrates
+			(
+				(((defined $sugars_modifier) and ($sugars_modifier eq "<")) and ($sugars > ($carbohydrates) + 0.001))
+				or (    ((defined $starch_modifier) and ($starch_modifier eq "<"))
+					and ($starch > ($carbohydrates) + 0.001))
+			)
+		)
+		)
+	{
+
+		push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-sugars-plus-starch-greater-than-carbohydrates";
+	}
+
+	# sugar + starch + fiber cannot be greater than total carbohydrates
+	# do not raise error if sugar, starch or fiber contains "<" symbol (see issue #9267)
+	my $carbohydrates_total = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "carbohydrates-total");
+	if (
+		(defined $carbohydrates_total)
+		and (
+			# without "<" symbol, check sum of sugar, starch and fiber is not greater than carbohydrates
+			(
+					($sugars + $starch + $fiber > ($carbohydrates_total) + 0.001)
+				and not(defined $sugars_modifier)
+				and not(defined $starch_modifier)
+				and not(defined $fiber_modifier)
+			)
+			or
+			# with "<" symbol, check only that sugar, starch or fiber are not greater than carbohydrates
+			(
+				(
+						((defined $sugars_modifier) and ($sugars_modifier eq "<"))
+					and ($sugars > $carbohydrates_total + 0.001)
+				)
+				or (    ((defined $starch_modifier) and ($starch_modifier eq "<"))
+					and ($starch > $carbohydrates_total + 0.001))
+				or (    ((defined $fiber_modifier) and ($fiber_modifier eq "<"))
+					and ($fiber > $carbohydrates_total + 0.001))
+			)
+		)
+		)
+	{
+
+		push @{$product_ref->{$data_quality_tags}},
+			"en:${set_id}-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total";
+	}
+
+	# sum of nutrients that compose sugar can not be greater than sugar value
+
+	if (deep_exists($nutrients_ref, "sugars", "value")) {
+		my $fructose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "fructose") || 0;
+		my $glucose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "glucose") || 0;
+		my $galactose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "galactose") || 0;
+		my $maltose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "maltose") || 0;
+		my $lactose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "lactose") || 0;
+		my $sucrose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "sucrose") || 0;
+		my $lactose_modifier = deep_get($nutrients_ref, "lactose", "modifier");
+
+		# sometimes lactose < 0.01 is written below the nutrition table together whereas
+		# sugar is 0 in the nutrition table (#10715)
+		# ignore lactose when having "<" symbol
+		if ((defined $lactose_modifier) and (($lactose_modifier eq '<') or ($lactose_modifier eq '≤'))) {
+			$lactose = 0;
+		}
+
+		my $total_sugar = $fructose + $glucose + $galactose + $maltose + $lactose + $sucrose;
+
+		if ($total_sugar > $sugars + 0.001) {
+			# strictly speaking: also includes galactose, despite the label name
+			push @{$product_ref->{$data_quality_tags}},
+				"en:${set_id}-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
+		}
+	}
+
+	my $fat = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "fat");
+	my $saturated_fat = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "saturated-fat");
+
+	if (    (defined $saturated_fat)
+		and (defined $fat)
+		and ($saturated_fat > ($fat + 0.001)))
+	{
+
+		push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-saturated-fat-greater-than-fat";
+
+	}
+
+	# sum of nutrients that compose fiber can not be greater than the value of fiber
+	# ignore if there is "<" symbol (example: <1 + 5 = 5, issue #11075)
+	if (deep_exists($nutrients_ref, "fiber", "value")) {
+		my $soluble_fiber = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "soluble-fiber") || 0;
+		my $insoluble_fiber = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "insoluble-fiber") || 0;
+		my $soluble_fiber_modifier = deep_get($nutrients_ref, "soluble-fiber", "modifier");
+		my $insoluble_fiber_modifier = deep_get($nutrients_ref, "insoluble-fiber", "modifier");
+		# Do not count soluble or insoluble fiber if they have "<" modifier
+		if ((defined $soluble_fiber_modifier) and ($soluble_fiber_modifier eq '<')) {
+			$soluble_fiber = 0;
+		}
+		if ((defined $insoluble_fiber_modifier) and ($insoluble_fiber_modifier eq '<')) {
+			$insoluble_fiber = 0;
+		}
+
+		my $total_fiber = $soluble_fiber + $insoluble_fiber;
+
+		# increased threshold from 0.001 to 0.01 (see issue #10491)
+		# make sure that floats stop after 2 decimals
+		if (sprintf("%.2f", $total_fiber) > sprintf("%.2f", $fiber + 0.01)) {
+			push @{$product_ref->{$data_quality_tags}},
+				"en:${set_id}-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
+		}
+	}
+
+	# Too small salt value? (e.g. g entered in mg)
+	# warning for salt < 0.1 was removed because it was leading to too much false positives (see #9346)
+	my $per = deep_get($nutrition_set_ref, "per");
+	if (($per eq "100g") or ($per eq "100ml")) {
+
+		my $salt = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "salt");
+		if ((defined $salt) and ($salt > 0)) {
+
+			if ($salt < 0.001) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:${set_id}-value-under-0-001-g-salt";
+			}
+			elsif ($salt < 0.01) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:${set_id}-value-under-0-01-g-salt";
+			}
+		}
+	}
+
+	return;
+}
+
+sub check_nutrition_data_for_input_set ($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags) {
+
+	my $nutrients_ref = $nutrition_set_ref->{nutrients};
+
+	if (not defined $nutrients_ref) {
+		return;
+	}
+
+	check_energy_for_input_set($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags);
+	check_specific_nutrients_for_input_set($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags);
+
+	my $total = 0;
+	# variables to check if there are 3 or more duplicates in nutrients
+	my @major_nutrients_values = ();
+	my %nutrients_values_occurences = ();
+	my %nutrients_values = ();
+
+	my $source = deep_get($nutrition_set_ref, "source");
+	my $per = deep_get($nutrition_set_ref, "per");
+
+	foreach my $nid (sort keys %{$nutrients_ref}) {
+
+		my $value = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, $nid);
+		next if (not defined $value);
+
+		# Convert to 100g
+
+		if (($per eq "100g") or ($per eq "100ml")) {
+			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($value > 105)) {
+				# product opener / ingredients analysis issue (See issue #10064)
+				push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-value-over-105-$nid";
+			}
+
+			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($value > 1000)) {
+				# product opener / ingredients analysis issue (See issue #10064)
+				push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-value-over-1000-$nid";
+			}
+		}
+
+		if ($value < 0) {
+			# product opener / ingredients analysis issue (See issue #10064)
+			push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-value-negative-$nid";
+		}
+
+		if (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')) {
+			$total += $value;
+		}
+
+		# variables to check if there are many duplicates in nutrients
+		if (   ($nid eq 'energy-kj')
+			or ($nid eq 'energy-kcal')
+			or ($nid eq 'fat')
+			or ($nid eq 'saturated-fat')
+			or ($nid eq 'carbohydrates')
+			or ($nid eq 'sugars')
+			or ($nid eq 'fiber')
+			or ($nid eq 'proteins')
+			or ($nid eq 'salt')
+			or ($nid eq 'sodium'))
+		{
+			push(@major_nutrients_values, $value);
+			$nutrients_values{$nid} = $value;
+		}
+
+	}
+
+	if (($per eq "100g") or ($per eq "100ml")) {
+		if ($total > 105) {
+			push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-value-total-over-105";
+		}
+		if ($total > 1000) {
+			push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-value-total-over-1000";
+		}
+	}
+
+	# create a hash key: nutrient value, value: number of occurences
+	foreach my $nutrient_value (@major_nutrients_values) {
+		if (exists($nutrients_values_occurences{$nutrient_value})) {
+			$nutrients_values_occurences{$nutrient_value}++;
+		}
+		else {
+			$nutrients_values_occurences{$nutrient_value} = 1;
+		}
+	}
+	# retrieve max number of occurences
+	my $nutrients_values_occurences_max_value = -1;
+	# raise warning if there are 3 or more duplicates in nutrients and nutrient is above 1
+	foreach my $key (keys %nutrients_values_occurences) {
+		if (($nutrients_values_occurences{$key} > 2) and ($key > 1)) {
+			add_tag($product_ref, "data_quality_warnings", "en:${set_id}-3-or-more-values-are-identical");
+		}
+		if ($nutrients_values_occurences{$key} > $nutrients_values_occurences_max_value) {
+			$nutrients_values_occurences_max_value = $nutrients_values_occurences{$key};
+		}
+	}
+	# raise error if
+	# all values are identical
+	# and values (check first value only) are above 1 (see issue #9572)
+	#  OR
+	# all values but one - because sodium and salt can be automatically calculated one depending on the value of the other - are identical
+	# and values (check salt (should not check sodium which could be lower)) are above 1 (see issue #9572)
+	# and at least 4 values are input by contributors (see issue #9572)
+	if (
+		(
+			(
+				$nutrients_values_occurences_max_value == scalar @major_nutrients_values
+				and ($major_nutrients_values[0] > 1)
+			)
+			or (
+				($nutrients_values_occurences_max_value >= scalar @major_nutrients_values - 1)
+				and (   (defined $nutrients_values{'salt'})
+					and (defined $nutrients_values{'sodium'})
+					and ($nutrients_values{'salt'} != $nutrients_values{'sodium'})
+					and ($nutrients_values{'salt'} > 1))
+			)
+		)
+		and (scalar @major_nutrients_values > 3)
+		)
+	{
+		push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-values-are-all-identical";
+	}
+
+	return;
+}
+
+sub check_expected_nutriscore_grade_for_category ($product_ref) {
+
+	# some categories have expected nutriscore grade - push data quality error if calculated nutriscore grade differs from expected nutriscore grade or if it is not calculated
+	my ($expected_nutriscore_grade, $category_id)
+		= get_inherited_property_from_categories_tags($product_ref, "expected_nutriscore_grade:en");
+
+	if (
+		# exclude error if nutriscore cannot be calculated due to missing nutrients information (see issue #9297)
+		(
+				(defined $product_ref->{nutriscore}{2023}{nutrients_available})
+			and ($product_ref->{nutriscore}{2023}{nutrients_available} == 1)
+		)
+		# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
+		and (defined $expected_nutriscore_grade)
+		and (($expected_nutriscore_grade =~ /^([a-e]){1}$/i))
+		# nutriscore calculated but unexpected nutriscore grade
+		and (defined $product_ref->{nutriscore_grade})
+		and ($product_ref->{nutriscore_grade} ne $expected_nutriscore_grade)
+		)
+	{
+		push @{$product_ref->{data_quality_errors_tags}},
+			"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
 	}
 
 	return;
@@ -1404,19 +1376,19 @@ Compare with the most specific category that has enough products to compute stat
 
 sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 
-	my $categories_nutriments_ref = $categories_nutriments_per_country{"world"};
+	my $categories_stats_ref = $categories_stats_per_country{"world"};
 
 	$log->debug("compare_nutrition_facts_with_products_from_same_category - start") if $log->debug();
 
-	return if not defined $product_ref->{nutriments};
+	return if not defined $product_ref->{nutrition};
 	return if not defined $product_ref->{categories_tags};
 
 	my $i = @{$product_ref->{categories_tags}} - 1;
 
 	while (
 		($i >= 0)
-		and not((defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]})
-			and (defined $categories_nutriments_ref->{$product_ref->{categories_tags}[$i]}{nutriments}))
+		and not((defined $categories_stats_ref->{$product_ref->{categories_tags}[$i]})
+			and (defined $categories_stats_ref->{$product_ref->{categories_tags}[$i]}{values}))
 		)
 	{
 		$i--;
@@ -1437,9 +1409,10 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 
 		foreach my $nid (@nutrients) {
 
-			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
-				and ($product_ref->{nutriments}{$nid . "_100g"} ne "")
-				and (defined $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}))
+			my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+			if (    (defined $value)
+				and (defined $categories_stats_ref->{$specific_category}{values}{$nid}{std}))
 			{
 
 				# check if the value is in the range of the mean +- 3 * standard deviation
@@ -1452,16 +1425,16 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 					"compare_nutrition_facts_with_products_from_same_category",
 					{
 						nid => $nid,
-						product_100g => $product_ref->{nutriments}{$nid . "_100g"},
-						category_100g => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"},
-						category_std => $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
+						product_100g => $value,
+						category_100g => $categories_stats_ref->{$specific_category}{values}{$nid}{"100g"},
+						category_std => $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					}
 				) if $log->is_debug();
 
 				if (
-					$product_ref->{nutriments}{$nid . "_100g"} < (
-						$categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"}
-							- 4 * $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
+					$value < (
+						$categories_stats_ref->{$specific_category}{values}{$nid}{"100g"}
+							- 4 * $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					)
 					)
 				{
@@ -1470,9 +1443,9 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 						"en:nutrition-value-very-low-for-category-" . $nid;
 				}
 				elsif (
-					$product_ref->{nutriments}{$nid . "_100g"} > (
-						$categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_100g"}
-							+ 4 * $categories_nutriments_ref->{$specific_category}{nutriments}{$nid . "_std"}
+					$value > (
+						$categories_stats_ref->{$specific_category}{values}{$nid}{"100g"}
+							+ 4 * $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
 					)
 					)
 				{
@@ -1811,8 +1784,9 @@ Alcoholic beverages: check that there is an alcohol value in the nutrients.
 sub check_categories ($product_ref) {
 
 	# Check alcohol content
+	my $alcohol = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "alcohol");
 	if (has_tag($product_ref, "categories", "en:alcoholic-beverages")) {
-		if (!(defined $product_ref->{nutriments}{alcohol_value}) || $product_ref->{nutriments}{alcohol_value} == 0) {
+		if ((not defined $alcohol) or ($alcohol == 0)) {
 			push @{$product_ref->{data_quality_warnings_tags}}, 'en:alcoholic-beverages-category-without-alcohol-value';
 		}
 		if (has_tag($product_ref, "categories", "en:non-alcoholic-beverages")) {
@@ -1821,8 +1795,8 @@ sub check_categories ($product_ref) {
 		}
 	}
 
-	if (    defined $product_ref->{nutriments}{alcohol_value}
-		and $product_ref->{nutriments}{alcohol_value} > 0
+	if (    (defined $alcohol)
+		and ($alcohol > 0)
 		and not has_tag($product_ref, "categories", "en:alcoholic-beverages"))
 	{
 
@@ -1876,6 +1850,45 @@ sub check_categories ($product_ref) {
 	}
 
 	return;
+}
+
+=head1 FUNCTIONS
+
+=head2 is_european_product ( $product_ref )
+
+Checks if a product is from an EU country based on its tags.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+A hash reference to the product data.
+
+=head3 Return value
+
+1 if the product is from an EU country, 0 otherwise.
+
+=cut
+
+sub is_european_product {
+	my ($product_ref) = @_;
+
+	# In EU, compare label claim and nutrition
+	# https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+	# Now using the 'regional_entity:en: european-union' property in the countries taxonomy
+	my $eu_countries_ref = get_all_tags_having_property($product_ref, 'countries', 'regional_entity:en');
+
+	foreach my $country (keys %{$eu_countries_ref}) {
+		# Handle comma-separated regional entities
+		my @regional_entities = split(/\s*,\s*/, $eu_countries_ref->{$country});
+		foreach my $entity (@regional_entities) {
+			if ($entity eq 'european-union') {
+				return 1;
+			}
+		}
+	}
+
+	return 0;
 }
 
 =head2 check_labels( PRODUCT_REF )
@@ -1955,26 +1968,13 @@ sub check_labels ($product_ref) {
 		}
 	}
 
-	# In EU, compare label claim and nutrition
-	# https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
-	my @eu_countries = (
-		"en:austria", "en:belgium", "en:bulgaria", "en:croatia", "en:cyprus", "en:czech republic",
-		"en:denmark", "en:france", "en:estonia", "en:finland", "en:germany", "en:greece",
-		"en:hungary", "en:ireland", "en:italy", "en:latvia", "en:lithuania", "en:luxembourg",
-		"en:malta", "en:netherlands", "en:poland", "en:portugal", "en:romania", "en:slovakia",
-		"en:slovenia", "en:spain", "en:sweden"
-	);
-	my $european_product = 0;
-	foreach my $eu_country (@eu_countries) {
-		if (has_tag(($product_ref, "countries", $eu_country))) {
-			$european_product = 1;
-			last;
-		}
-	}
+	# # In EU, compare label claim and nutrition
+	# # https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+	my $european_product = is_european_product($product_ref);
 
-	if (    (defined $product_ref->{nutriments})
+	if (    (defined $product_ref->{nutrition})
 		and (defined $product_ref->{labels_tags})
-		and ($european_product == 1))
+		and $european_product)
 	{
 		# maximal values differs depending if the product is
 		# solid (higher maxmal values) or
@@ -1987,8 +1987,13 @@ sub check_labels ($product_ref) {
 			}
 		}
 
-		if (   (defined $product_ref->{nutriments}{"energy-kcal_100g"})
-			or (defined $product_ref->{nutriments}{"energy-kj_value"}))
+		my $energy_kcal
+			= get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "energy-kcal");
+		my $energy_kj
+			= get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "energy-kj");
+
+		if (   (defined $energy_kcal)
+			or (defined $energy_kj))
 		{
 			# In EU, a claim that a food is low in energy may only be made where the product
 			# does not contain more than 40 kcal (170 kJ)/100 g for solids or
@@ -2000,13 +2005,13 @@ sub check_labels ($product_ref) {
 				(has_tag($product_ref, "labels", "en:low-energy"))
 				and (
 					(
-						($solid == 1) and (($product_ref->{nutriments}{"energy-kcal_100g"} > 40)
-							or ($product_ref->{nutriments}{"energy-kj_100g"} > 170))
+						($solid == 1) and (($energy_kcal > 40)
+							or ($energy_kj > 170))
 					)
 					or (
 						($solid == 0)
-						and (  ($product_ref->{nutriments}{"energy-kcal_100g"} > 20)
-							or ($product_ref->{nutriments}{"energy-kj_100g"} > 80))
+						and (  ($energy_kcal > 20)
+							or ($energy_kj > 80))
 					)
 				)
 				)
@@ -2021,22 +2026,17 @@ sub check_labels ($product_ref) {
 			# (not handled) For table-top sweeteners the limit of 0,4 kcal (1,7 kJ)/portion,
 			#    with equivalent sweetening properties to 6 g of sucrose
 			#    (approximately 1 teaspoon of sucrose), applies.
-			if (
-				(has_tag($product_ref, "labels", "en:energy-free"))
-				and (
-					(
-						   ($product_ref->{nutriments}{"energy-kcal_100g"} > 4)
-						or ($product_ref->{nutriments}{"energy-kj_100g"} > 17)
-					)
-				)
-				)
+			if (    (has_tag($product_ref, "labels", "en:energy-free"))
+				and ((($energy_kcal > 4) or ($energy_kj > 17))))
 			{
 				add_tag($product_ref, "data_quality_warnings",
 					"en:energy-free-label-claim-but-energy-above-limitation");
 			}
 		}
 
-		if (defined $product_ref->{nutriments}{fat_100g}) {
+		my $fat = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "fat");
+
+		if (defined $fat) {
 			# In EU, a claim that a food is low fat may only be made where the product contains
 			# no more than 3 g of fat per 100 g for solids or
 			# 1,5 g of fat per 100 ml for liquids
@@ -2044,12 +2044,12 @@ sub check_labels ($product_ref) {
 			if (
 				(has_tag($product_ref, "labels", "en:low-fat"))
 				and (
-					(($solid == 1) and ($product_ref->{nutriments}{fat_100g} > 3))
+					(($solid == 1) and ($fat > 3))
 					or (    ($solid == 0)
-						and ($product_ref->{nutriments}{fat_100g} > 1.5)
+						and ($fat > 1.5)
 						and (!has_tag($product_ref, "categories", "en:semi-skimmed-milks")))
 					or (    ($solid == 0)
-						and ($product_ref->{nutriments}{fat_100g} > 1.8)
+						and ($fat > 1.8)
 						and (has_tag($product_ref, "categories", "en:semi-skimmed-milks")))
 				)
 				)
@@ -2059,33 +2059,26 @@ sub check_labels ($product_ref) {
 
 			# In EU, a claim that a food is fat free may only be made where
 			# the product contains no more than 0,5 g of fat per 100 g or 100 ml.
-			if ((has_tag($product_ref, "labels", "en:no-fat")) && ($product_ref->{nutriments}{fat_100g} > 0.5)) {
+			if ((has_tag($product_ref, "labels", "en:no-fat")) && ($fat > 0.5)) {
 				add_tag($product_ref, "data_quality_warnings", "en:no-fat-label-claim-but-fat-above-0.5");
 			}
 
 			# In EU, a claim that a food is high in monounsaturated fat may only be made where
 			# at least 45 % of the fatty acids present in the product derive from monounsaturated fat
 			# under the condition that monounsaturated fat provides more than 20 % of energy of the product.
+
+			my $monounsaturated_fat
+				= get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold",
+				"monounsaturated-fat");
+
 			if (
 					(has_tag($product_ref, "labels", "en:high-monounsaturated-fat"))
-				and (defined $product_ref->{nutriments}{"monounsaturated-fat_100g"})
+				and (defined $monounsaturated_fat)
 				and (
-					(
-						$product_ref->{nutriments}{"monounsaturated-fat_100g"}
-						< ($product_ref->{nutriments}{fat_100g} * 45 / 100)
-					)
-					or (
-						(
-							  $product_ref->{nutriments}{"monounsaturated-fat_100g"}
-							* $energy_from_nutrients{europe}{"fat"}{"kcal"}
-						) < (20 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100)
-					)
-					or (
-						(
-							  $product_ref->{nutriments}{"monounsaturated-fat_100g"}
-							* $energy_from_nutrients{europe}{"fat"}{"kj"}
-						) < (20 * $product_ref->{nutriments}{"energy-kj_value_computed"} / 100)
-					)
+					   ($monounsaturated_fat < ($fat * 45 / 100))
+					or
+					(($monounsaturated_fat * $energy_from_nutrients{europe}{"fat"}{"kcal"}) < (20 * $energy_kcal / 100))
+					or (($monounsaturated_fat * $energy_from_nutrients{europe}{"fat"}{"kj"}) < (20 * $energy_kj / 100))
 				)
 				)
 			{
@@ -2096,26 +2089,19 @@ sub check_labels ($product_ref) {
 			# In EU, a claim that a food is high in polyunsaturated fat may only be made where
 			# at least 45 % of the fatty acids present in the product derive from polyunsaturated fat
 			# under the condition that polyunsaturated fat provides more than 20 % of energy of the product.
+
+			my $polyunsaturated_fat
+				= get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold",
+				"polyunsaturated-fat");
+
 			if (
 					(has_tag($product_ref, "labels", "en:rich-in-polyunsaturated-fatty-acids"))
-				and (defined $product_ref->{nutriments}{"polyunsaturated-fat_100g"})
+				and (defined $polyunsaturated_fat)
 				and (
-					(
-						$product_ref->{nutriments}{"polyunsaturated-fat_100g"}
-						< ($product_ref->{nutriments}{fat_100g} * 45 / 100)
-					)
-					or (
-						(
-							  $product_ref->{nutriments}{"polyunsaturated-fat_100g"}
-							* $energy_from_nutrients{europe}{"fat"}{"kcal"}
-						) < (20 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100)
-					)
-					or (
-						(
-							  $product_ref->{nutriments}{"polyunsaturated-fat_100g"}
-							* $energy_from_nutrients{europe}{"fat"}{"kj"}
-						) < (20 * $product_ref->{nutriments}{"energy-kj_value_computed"} / 100)
-					)
+					   ($polyunsaturated_fat < ($fat * 45 / 100))
+					or
+					(($polyunsaturated_fat * $energy_from_nutrients{europe}{"fat"}{"kcal"}) < (20 * $energy_kcal / 100))
+					or (($polyunsaturated_fat * $energy_from_nutrients{europe}{"fat"}{"kj"}) < (20 * $energy_kj / 100))
 				)
 				)
 			{
@@ -2126,25 +2112,16 @@ sub check_labels ($product_ref) {
 			# In EU, a claim that a food is high in unsaturated fat may only be made where
 			# at least 70 % of the fatty acids present in the product derive from unsaturated fat
 			# under the condition that unsaturated fat provides more than 20 % of energy of the product.
+
+			my $unsaturated_fat = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold",
+				"unsaturated-fat");
+
 			if (
 					(has_tag($product_ref, "labels", "en:rich-in-unsaturated-fatty-acids"))
-				and (defined $product_ref->{nutriments}{"unsaturated-fat_100g"})
-				and (
-					(
-						$product_ref->{nutriments}{"unsaturated-fat_100g"}
-						< ($product_ref->{nutriments}{fat_100g} * 45 / 100)
-					)
-					or (
-						(
-							  $product_ref->{nutriments}{"unsaturated-fat_100g"}
-							* $energy_from_nutrients{europe}{"fat"}{"kcal"}
-						) < (20 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100)
-					)
-					or (
-						(     $product_ref->{nutriments}{"unsaturated-fat_100g"}
-							* $energy_from_nutrients{europe}{"fat"}{"kj"})
-						< (20 * $product_ref->{nutriments}{"energy-kj_value_computed"} / 100))
-				)
+				and (defined $unsaturated_fat)
+				and (  ($unsaturated_fat < ($fat * 45 / 100))
+					or (($unsaturated_fat * $energy_from_nutrients{europe}{"fat"}{"kcal"}) < (20 * $energy_kcal / 100))
+					or (($unsaturated_fat * $energy_from_nutrients{europe}{"fat"}{"kj"}) < (20 * $energy_kj / 100)))
 				)
 			{
 				add_tag($product_ref, "data_quality_warnings",
@@ -2153,7 +2130,12 @@ sub check_labels ($product_ref) {
 
 		}
 
-		if (defined $product_ref->{nutriments}{"saturated-fat_100g"}) {
+		my $saturated_fat
+			= get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "saturated-fat");
+		my $trans_fat
+			= get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "trans-fat");
+
+		if (defined $saturated_fat) {
 			# In EU, a claim that a food is fat free may only be made if
 			# the sum of saturated fatty acids and trans-fatty acids in the product does not exceed 1,5 g per 100 g for solids or
 			# 0,75 g/100 ml for liquids and in either case
@@ -2163,26 +2145,16 @@ sub check_labels ($product_ref) {
 			if (
 				(has_tag($product_ref, "labels", "en:low-content-of-saturated-fat"))
 				and (
-					(($solid == 1) and ($product_ref->{nutriments}{"saturated-fat_100g"} > 1.5))
+					(($solid == 1) and ($saturated_fat > 1.5))
 					or (    ($solid == 0)
-						and ($product_ref->{nutriments}{"saturated-fat_100g"} > 0.75))
+						and ($saturated_fat > 0.75))
 					or (
 						(
-							(
-								(
-									  $product_ref->{nutriments}{"saturated-fat_100g"}
-									+ $product_ref->{nutriments}{"trans-fat_100g"} || 0
-								) * $energy_from_nutrients{europe}{"fat"}{"kj"}
-							) > (10 * $product_ref->{nutriments}{"energy-kj_value_computed"} / 100)
+							(($saturated_fat + $trans_fat || 0) * $energy_from_nutrients{europe}{"fat"}{"kj"})
+							> (10 * $energy_kj / 100)
 						)
-						or (
-							(
-								(
-									  $product_ref->{nutriments}{"saturated-fat_100g"}
-									+ $product_ref->{nutriments}{"trans-fat_100g"} || 0
-								) * $energy_from_nutrients{europe}{"fat"}{"kcal"}
-							) > (10 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100)
-						)
+						or ((($saturated_fat + $trans_fat || 0) * $energy_from_nutrients{europe}{"fat"}{"kcal"})
+							> (10 * $energy_kcal / 100))
 					)
 				)
 				)
@@ -2194,22 +2166,24 @@ sub check_labels ($product_ref) {
 			# In EU, a claim that a food does not contain sturated fat may only be made where
 			# the sum of saturated fat and trans-fatty acids does not exceed 0,1 g of saturated fat per 100 g or 100 ml.
 			if (    (has_tag($product_ref, "labels", "en:saturated-fat-free"))
-				and (($product_ref->{nutriments}{"saturated-fat_100g"} > 0.1)))
+				and ($saturated_fat > 0.1))
 			{
 				add_tag($product_ref, "data_quality_warnings", "en:saturated-fat-free-label-claim-but-fat-above-0.1");
 			}
 		}
 
-		if (defined $product_ref->{nutriments}{sugars_100g}) {
+		my $sugars = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sugars");
+
+		if (defined $sugars) {
 			# In EU, a claim that a food is low sugar may only be made where the product contains
 			# no more than 5 g of sugars per 100 g for solids or
 			# 2,5 g of sugars per 100 ml for liquids.
 			if (
 				(has_tag($product_ref, "labels", "en:low-sugar"))
 				and (
-					(($solid == 1) and ($product_ref->{nutriments}{sugars_100g} > 5))
+					(($solid == 1) and ($sugars > 5))
 					or (    ($solid == 0)
-						and ($product_ref->{nutriments}{sugars_100g} > 2.5))
+						and ($sugars > 2.5))
 				)
 				)
 			{
@@ -2219,7 +2193,7 @@ sub check_labels ($product_ref) {
 			# In EU, a claim that a food is sugar-free may only be made where the product contains
 			# no more than 0,5 g of sugars per 100 g or 100 ml.
 			if (    (has_tag($product_ref, "labels", "en:no-sugar"))
-				and (($product_ref->{nutriments}{sugars_100g} > 0.5)))
+				and (($sugars > 0.5)))
 			{
 				add_tag($product_ref, "data_quality_warnings", "en:sugar-free-label-claim-but-sugar-above-limitation");
 			}
@@ -2240,10 +2214,12 @@ sub check_labels ($product_ref) {
 		# the product contains no more than 0,12 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml.
 		# (not handled) For waters, other than natural mineral waters falling within the scope of Directive 80/777/EEC,
 		#    this value should not exceed 2 mg of sodium per 100 ml.
+		my $sodium = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sodium");
+		my $salt = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "salt");
 		if (
 			(
-				((defined $product_ref->{nutriments}{sodium_100g}) and ($product_ref->{nutriments}{sodium_100g} > 0.12))
-				or ((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.3))
+				   ((defined $sodium) and ($sodium > 0.12))
+				or ((defined $salt) and ($salt > 0.3))
 			)
 			and (has_tag($product_ref, "labels", "en:low-sodium") or has_tag($product_ref, "labels", "en:low-salt"))
 			)
@@ -2257,8 +2233,8 @@ sub check_labels ($product_ref) {
 		# This claim shall not be used for natural mineral waters and other waters.
 		if (
 			(
-				((defined $product_ref->{nutriments}{sodium_100g}) and ($product_ref->{nutriments}{sodium_100g} > 0.04))
-				or ((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.1))
+				   ((defined $sodium) and ($sodium > 0.04))
+				or ((defined $salt) and ($salt > 0.1))
 			)
 			and (  has_tag($product_ref, "labels", "en:very-low-sodium")
 				or has_tag($product_ref, "labels", "en:very-low-salt"))
@@ -2273,10 +2249,9 @@ sub check_labels ($product_ref) {
 		# no more than 0,005 g of sodium, or the equivalent value for salt, per 100 g.
 		if (
 			(
-				(       (defined $product_ref->{nutriments}{sodium_100g})
-					and ($product_ref->{nutriments}{sodium_100g} > 0.005))
-				or (    (defined $product_ref->{nutriments}{salt_100g})
-					and ($product_ref->{nutriments}{salt_100g} > 0.0125))
+				((defined $sodium) and ($sodium > 0.005))
+				or (    (defined $salt)
+					and ($salt > 0.0125))
 			)
 			and (has_tag($product_ref, "labels", "en:no-sodium") or has_tag($product_ref, "labels", "en:no-salt"))
 			)
@@ -2290,8 +2265,8 @@ sub check_labels ($product_ref) {
 		# the product contains no more than 0,12 g sodium, or the equivalent value for salt, per 100 g or 100 ml.
 		if (
 			(
-				((defined $product_ref->{nutriments}{sodium_100g}) and ($product_ref->{nutriments}{sodium_100g} > 0.12))
-				or ((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.3))
+				   ((defined $sodium) and ($sodium > 0.12))
+				or ((defined $salt) and ($salt > 0.3))
 				or (has_tag($product_ref, "ingredients", "en:salt"))
 			)
 			and (  has_tag($product_ref, "labels", "en:no-added-sodium")
@@ -2302,15 +2277,16 @@ sub check_labels ($product_ref) {
 				"en:no-added-sodium-or-no-added-salt-label-claim-but-sodium-or-salt-above-limitation");
 		}
 
-		if (defined $product_ref->{nutriments}{fiber_100g}) {
+		my $fiber = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "fiber");
+
+		if (defined $fiber) {
 			# In EU, a claim that a food is a source of fibre may only be made where the product contains
 			# at least 3 g of fibre per 100 g or
 			# at least 1,5 g of fibre per 100 kcal.
 			if (
 				(has_tag($product_ref, "labels", "en:source-of-fibre"))
-				and (  (($solid == 1) and ($product_ref->{nutriments}{fiber_100g} < 3))
-					or ($product_ref->{nutriments}{fiber_100g} * $energy_from_nutrients{europe}{"fiber"}{"kcal"})
-					< (1.5 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100))
+				and (  (($solid == 1) and ($fiber < 3))
+					or ($fiber * $energy_from_nutrients{europe}{"fiber"}{"kcal"}) < (1.5 * $energy_kcal / 100))
 				)
 			{
 				add_tag($product_ref, "data_quality_warnings",
@@ -2321,21 +2297,22 @@ sub check_labels ($product_ref) {
 			# at least 3 g of fibre per 100 kcal.
 			if (
 				(has_tag($product_ref, "labels", "en:high-fibres"))
-				and (  (($solid == 1) and ($product_ref->{nutriments}{fiber_100g} < 6))
-					or ($product_ref->{nutriments}{fiber_100g} * $energy_from_nutrients{europe}{"fiber"}{"kcal"})
-					< (3 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100))
+				and (  (($solid == 1) and ($fiber < 6))
+					or ($fiber * $energy_from_nutrients{europe}{"fiber"}{"kcal"}) < (3 * $energy_kcal / 100))
 				)
 			{
 				add_tag($product_ref, "data_quality_warnings", "en:high-fibres-label-claim-but-fibre-below-limitation");
 			}
 		}
 
-		if (defined $product_ref->{nutriments}{proteins_100g}) {
+		my $proteins
+			= get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "proteins");
+
+		if (defined $proteins) {
 			# In EU, a claim that a food is a source of protein may only be made where
 			# at least 12 % of the energy value of the food is provided by protein.
 			if (    (has_tag($product_ref, "labels", "en:source-of-proteins"))
-				and ($product_ref->{nutriments}{proteins_100g} * $energy_from_nutrients{europe}{"proteins"}{"kcal"})
-				< (12 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100))
+				and ($proteins * $energy_from_nutrients{europe}{"proteins"}{"kcal"}) < (12 * $energy_kcal / 100))
 			{
 				add_tag($product_ref, "data_quality_warnings",
 					"en:source-of-proteins-label-claim-but-proteins-below-limitation");
@@ -2344,8 +2321,7 @@ sub check_labels ($product_ref) {
 			# In EU, a claim that a food is high in protein may only be made where
 			#at least 20 % of the energy value of the food is provided by protein.
 			if (    (has_tag($product_ref, "labels", "en:high-proteins"))
-				and ($product_ref->{nutriments}{proteins_100g} * $energy_from_nutrients{europe}{"proteins"}{"kcal"})
-				< (20 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100))
+				and ($proteins * $energy_from_nutrients{europe}{"proteins"}{"kcal"}) < (20 * $energy_kcal / 100))
 			{
 				add_tag($product_ref, "data_quality_warnings",
 					"en:high-proteins-label-claim-but-proteins-below-limitation");
@@ -2431,12 +2407,12 @@ sub check_labels ($product_ref) {
 		);
 		foreach my $vit_or_min (keys %{$vitamins_and_minerals_labelling{europe}}) {
 			foreach my $vit_or_min_label (keys %{$vitamins_and_minerals_labelling{europe}{$vit_or_min}}) {
-				if (
-						(defined $product_ref->{nutriments}{$vit_or_min . "_100g"})
+				# check if the vitamin or mineral is present in sufficient quantity
+				my $value = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold",
+					$vit_or_min);
+				if (    (defined $value)
 					and (has_tag($product_ref, "labels", $vit_or_min_label))
-					and ($product_ref->{nutriments}{$vit_or_min . "_100g"}
-						< $vitamins_and_minerals_labelling{europe}{$vit_or_min}{$vit_or_min_label})
-					)
+					and ($value < $vitamins_and_minerals_labelling{europe}{$vit_or_min}{$vit_or_min_label}))
 				{
 					add_tag($product_ref, "data_quality_warnings",
 							  "en:"
@@ -2452,23 +2428,21 @@ sub check_labels ($product_ref) {
 		#   not handled: and per 100 kcal, or
 		# at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g
 		#   not handled: and per 100 kcal.
+		my $alpha_linolenic_acid = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold",
+			"alpha-linolenic-acid");
+		my $eicosapentaenoic_acid
+			= get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold",
+			"eicosapentaenoic-acid");
+		my $docosahexaenoic_acid = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold",
+			"docosahexaenoic-acid");
+
 		if (
 			(has_tag($product_ref, "labels", "en:source-of-omega-3"))
 			and (
-				(
-						(defined $product_ref->{nutriments}{"alpha-linolenic-acid_100g"})
-					and ($product_ref->{nutriments}{"alpha-linolenic-acid_100g"} < 0.3)
-				)
-				or (
-						(defined $product_ref->{nutriments}{"eicosapentaenoic-acid_100g"})
-					and (defined $product_ref->{nutriments}{"docosahexaenoic-acid_100g"})
-					and (
-						(
-							  $product_ref->{nutriments}{"eicosapentaenoic-acid_100g"}
-							+ $product_ref->{nutriments}{"docosahexaenoic-acid_100g"}
-						) < 0.04
-					)
-				)
+				((defined $alpha_linolenic_acid) and ($alpha_linolenic_acid < 0.3))
+				or (    (defined $eicosapentaenoic_acid)
+					and (defined $docosahexaenoic_acid)
+					and (($eicosapentaenoic_acid + $docosahexaenoic_acid) < 0.04))
 			)
 			)
 		{
@@ -2482,20 +2456,10 @@ sub check_labels ($product_ref) {
 		if (
 			(has_tag($product_ref, "labels", "en:high-in-omega-3"))
 			and (
-				(
-						(defined $product_ref->{nutriments}{"alpha-linolenic-acid_100g"})
-					and ($product_ref->{nutriments}{"alpha-linolenic-acid_100g"} < 0.6)
-				)
-				or (
-						(defined $product_ref->{nutriments}{"eicosapentaenoic-acid_100g"})
-					and (defined $product_ref->{nutriments}{"docosahexaenoic-acid_100g"})
-					and (
-						(
-							  $product_ref->{nutriments}{"eicosapentaenoic-acid_100g"}
-							+ $product_ref->{nutriments}{"docosahexaenoic-acid_100g"}
-						) < 0.08
-					)
-				)
+				((defined $alpha_linolenic_acid) and ($alpha_linolenic_acid < 0.6))
+				or (    (defined $eicosapentaenoic_acid)
+					and (defined $docosahexaenoic_acid)
+					and (($eicosapentaenoic_acid + $docosahexaenoic_acid) < 0.08))
 			)
 			)
 		{
@@ -2713,24 +2677,6 @@ sub check_environmental_score_data ($product_ref) {
 		}
 	}
 
-	# Extended Environmental-Score data from impact estimator
-	if (defined $product_ref->{environmental_score_extended_data}) {
-
-		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-computed';
-
-		if (is_environmental_score_extended_data_more_precise_than_agribalyse($product_ref)) {
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:environmental-score-extended-data-more-precise-than-agribalyse';
-		}
-		else {
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:environmental-score-extended-data-less-precise-than-agribalyse';
-		}
-	}
-	else {
-		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-not-computed';
-	}
-
 	return;
 }
 
@@ -2761,8 +2707,8 @@ sub check_food_groups ($product_ref) {
 
 Checks if 2 incompatible tags are assigned to the product
 
-To include more tags to this check, 
-add the property "incompatible:en" 
+To include more tags to this check,
+add the property "incompatible:en"
 at the end of code block in the taxonomy
 
 Example:
@@ -2837,10 +2783,9 @@ sub check_quality_food ($product_ref) {
 	check_ingredients_percent_analysis($product_ref);
 	check_ingredients_with_specified_percent($product_ref);
 	check_nutrition_data($product_ref);
-	check_nutrition_data_energy_computation($product_ref);
 	compare_nutrition_facts_with_products_from_same_category($product_ref);
-	check_nutrition_grades($product_ref);
-	check_carbon_footprint($product_ref);
+	check_nutriscore_grades($product_ref);
+	check_expected_nutriscore_grade_for_category($product_ref);
 	check_quantity($product_ref);
 	detect_categories($product_ref);
 	check_categories($product_ref);

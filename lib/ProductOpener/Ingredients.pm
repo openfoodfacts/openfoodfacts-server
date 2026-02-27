@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -90,6 +90,9 @@ BEGIN {
 
 		&estimate_nutriscore_2021_milk_percent_from_ingredients
 		&estimate_nutriscore_2023_red_meat_percent_from_ingredients
+		&estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients
+		&estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients
+		&estimate_added_sugars_percent_from_ingredients
 
 		&has_specific_ingredient_property
 
@@ -100,6 +103,9 @@ BEGIN {
 		&assign_property_to_ingredients
 
 		&get_ingredients_with_property_value
+		&get_ingredients_with_parent
+
+		&detect_rare_crops
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -117,11 +123,12 @@ use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Units qw/normalize_quantity/;
 use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
+use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
+use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
 
 use Encode;
 use Clone qw(clone);
 
-use LWP::UserAgent;
 use Encode;
 use JSON::MaybeXS;
 use Log::Any qw($log);
@@ -184,42 +191,43 @@ my %may_contain_regexps = (
 
 	en =>
 		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present|Produced in a factory handling",
-	bg => "продуктът може да съдържа следи от|mоже да съдържа следи от|може да съдържа",
+	bg => "продуктът може да съдържа следи от|mоже да съдържа следи от|може да съдържа|може да съдържа следи от",
 	bs => "može da sadrži",
 	ca => "pot contenir",
 	cs => "může obsahovat|může obsahovat stopy",
-	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
+	da =>
+		"produktet kan indeholde|kan også indeholde bestanddele fra|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann|Enthält möglicherweise",
 	el => "Μπορεί να περιέχει ίχνη από",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
-	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
+	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda|osakesi",
 	fi =>
-		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
+		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää myös pieniä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace|Traces éventuelles de|Peut contenir des traces de",
 	hr =>
 		"mogući ostaci|mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
-	hu => "tartalmazhat",
+	hu => "nyomokban|tartalmazhat",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
-	lt => "sudėtyje gali būti|gali būti",
-	lv => "var saturēt|sastāva var but",
-	mk => "Производот може да содржи",
+	lt => "sudėtyje gali būti|Taip pat, gali būti|gali būti|dalių",
+	lv => "alergēni|kupātdesiņa var|pārpalikumi|produkts var|dalinas|sastāva var but|var saturé|var satur[ēé]t",
+	mk => "Производот може да содржи|може да содржи",
 	nl =>
-		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar",
+		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar|Kan ook",
 	nb =>
 		"kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl =>
 		"może zawierać śladowe ilości|produkt może zawierać|może zawierać alergeny|może zawierać ślady|może zawierać|możliwa obecność|możliwa obecność|w produkcie możliwa obecność|wyprodukowano w zakładzie przetwarzającym",
 	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in|produsul poate conţine urme de",
-	rs => "može sadržati tragove",
 	ru => "Могут содержаться следы",
 	sk => "výrobok môže obsahovat|môže obsahovať",
-	sl => "lahko vsebuje sledi",
+	sl => "lahko vsebuje sledi|lahko vsebuje sledove",
+	sr => "može sadržati tragove",
 	sv =>
-		"denna produkt kan innethalla spar av|kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
+		"denna produkt kan innet?h[åa]lla sp[åa]r av|kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
 );
 
 my %contains_regexps = (
@@ -227,6 +235,7 @@ my %contains_regexps = (
 	en => "contains",
 	bg => "съдържа",
 	ca => "conté",
+	cs => "obsahují",
 	da => "indeholder",
 	es => "contiene",
 	et => "sisaldab",
@@ -430,6 +439,7 @@ my %from = (
 	de => " aus ",
 	es => " de ",
 	fr => " de la | de | du | des | d'| de l'",
+	hr => " iz ",
 	it => " dal | della | dalla | dagli | dall'",
 	nl => " uit ",
 	pl => " z | ze ",
@@ -615,7 +625,10 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 			. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
 			. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
 			. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum
-			. $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';    # strings that can be ignored
+			. $ignore_strings_after_percent
+			. '|\s|\)|\]|\}|(?:'
+			. $symbols_regexp
+			. '))*';    # strings that can be ignored
 	}
 
 	return;
@@ -637,7 +650,7 @@ my @labels = (
 	"en:halal", "en:kosher",
 	"en:fed-without-gmos", "fr:crc",
 	"en:without-gluten", "en:sustainable-farming",
-	"en:krav",
+	"en:krav", "en:whole-grain",
 );
 my %labels_regexps = ();
 
@@ -793,22 +806,17 @@ sub init_additives_classes_regexps() {
 
 if ((keys %labels_regexps) > 0) {exit;}
 
-sub extract_ingredients_from_image ($product_ref, $id, $ocr_engine, $results_ref) {
+sub extract_ingredients_from_image ($product_ref, $image_type, $image_lc, $ocr_engine, $results_ref) {
 
-	my $lc = $product_ref->{lc};
-
-	if ($id =~ /_(\w\w)$/) {
-		$lc = $1;
-	}
-
-	extract_text_from_image($product_ref, $id, "ingredients_text_from_image", $ocr_engine, $results_ref);
+	extract_text_from_image($product_ref, $image_type, $image_lc, "ingredients_text_from_image", $ocr_engine,
+		$results_ref);
 
 	# remove nutrition facts etc.
 	if (($results_ref->{status} == 0) and (defined $results_ref->{ingredients_text_from_image})) {
 
 		$results_ref->{ingredients_text_from_image_orig} = $product_ref->{ingredients_text_from_image};
 		$results_ref->{ingredients_text_from_image}
-			= cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $lc);
+			= cut_ingredients_text_for_lang($results_ref->{ingredients_text_from_image}, $image_lc);
 	}
 
 	return;
@@ -926,13 +934,17 @@ Add a percent_max value for salt and sugar ingredients, based on the nutrition f
 
 sub add_percent_max_for_ingredients_from_nutrition_facts ($product_ref) {
 
-	# Check if we have values for salt and sugar in the nutrition facts
+	# If the preperation for the nutrition aggregated set is "as_sold",
+	# we check if we have values for salt and sugar in the nutrition facts (with a source different than "estimate")
+	# In that case we can set max values for any ingredient or sub-ingredient that is (or is a child of) sugar or salt.
+
 	my @ingredient_max_values = ();
-	my $sugars_100g = deep_get($product_ref, qw(nutriments sugars_100g));
+
+	my $sugars_100g = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "sugars");
 	if (defined $sugars_100g) {
 		push @ingredient_max_values, {ingredientid => "en:sugar", value => $sugars_100g};
 	}
-	my $salt_100g = deep_get($product_ref, qw(nutriments salt_100g));
+	my $salt_100g = get_non_estimated_nutrient_per_100g_or_100ml_for_preparation($product_ref, "as_sold", "salt");
 	if (defined $salt_100g) {
 		push @ingredient_max_values, {ingredientid => "en:salt", value => $salt_100g};
 	}
@@ -988,7 +1000,7 @@ This function extracts those mentions and adds them to the specific_ingredients 
 
 Array of specific ingredients.
 
-=head4 
+=head4
 
 =cut
 
@@ -1048,7 +1060,7 @@ Pass undef in order to skip % recognition. This is useful if we know the text is
 
 Array of specific ingredients.
 
-=head4 
+=head4
 
 =cut
 
@@ -1076,6 +1088,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		es => "contenido(?: (?:$minimum_or_total))",
 		fr => "(?:teneur|taux)(?: (?:$minimum_or_total))?(?: en)?",   # need to have " en" as it's not in the $of regexp
 		hr => "ukupni(?: udio)?|udio",
+		sl => "vsebuje",
 		sv => "(?:(?:$minimum_or_total) )?mängd",
 	);
 	my $content_of_ingredient = $content_of_ingredient{$ingredients_lc};
@@ -1213,9 +1226,17 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				if $log->is_debug();
 		}
 
-		if (($ingredients_lc eq "en") || ($ingredients_lc eq "fr")) {
+		# Keeping English and French first, since those are (by far) the most common languages OFF is used in/with
+		# Sorting alphabetically after those
+		if (   ($ingredients_lc eq "en")
+			|| ($ingredients_lc eq "fr")
+			|| ($ingredients_lc eq "da")
+			|| ($ingredients_lc eq "sv"))
+		{
 			# Origin of the milk: United Kingdom
 			# Origine du Cacao: Pérou
+			# Oprindelse jalapeño chili: Peru
+			# Ursprung fullkornsrågmjöl: Sverige och Danmark
 			if (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
 				$origins = $matched_ingredient_ref->{origins};
 				$ingredient = $matched_ingredient_ref->{ingredient};
@@ -1351,14 +1372,20 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		bg => "(?:страна на произход)",
 		cs => "(?:země původu)",
 		ca => "(?:origen)",
+		da => "(?:oprindelse)",
 		es => "(?:origen)",
+		fi => "(?:alkuperä)",
 		fr => "(?:origine (?:de |du |de la |des |de l'))",
-		hr => "(?:zemlja (?:porijekla|podrijetla|porekla))",
-		hu => "(?:származási hely)",
+		hr => "(?:zemlja (?:porijekla|podrijetla|podrijetlo|porekla)|uzgojeno u)",
+		hu => "(?:származási (?:hely|ország))",
 		it => "(?:paese di (?:molitura|coltivazione del grano))",
+		lv => "(?:izcelsmes valsts)",
+		mk => "(?:земја на потекло)",
 		pl => "(?:kraj pochodzenia)",
 		ro => "(?:tara de origine)",
 		rs => "(?:zemlja porekla)",
+		sl => "(?:(?:država|krajina) porekla|gojeno(?: v))",
+		sv => "(?:ursprung|odlade inom)",
 		uk => "(?:kраїна походження)",
 	);
 
@@ -1395,8 +1422,8 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 This function extract processing method from one ingredient.
 If processing methods are found and remaining ingredient text exists without the processing method,
 then, it returns:
-	- $processing (concatenate if more than one), 
-	- $ingredient (without processing) and 
+	- $processing (concatenate if more than one),
+	- $ingredient (without processing) and
 	- $ingredient_id (without processing)
 If it does not result in known ingredient, then it returns the same but unchanged.
 
@@ -1477,37 +1504,64 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 								($pass eq "start_and_end") and (
 									# match before or after the ingredient, require a space
 									(
-										#($ingredients_lc =~ /^(en|es|it|fr)$/)
 										(
 											   ($ingredients_lc eq 'ar')
+											or ($ingredients_lc eq 'az')
+											or ($ingredients_lc eq 'be')
 											or ($ingredients_lc eq 'bg')
 											or ($ingredients_lc eq 'bs')
 											or ($ingredients_lc eq 'ca')
 											or ($ingredients_lc eq 'cs')
 											or ($ingredients_lc eq 'el')
 											or ($ingredients_lc eq 'en')
+											or ($ingredients_lc eq 'eo')
 											or ($ingredients_lc eq 'es')
+											or ($ingredients_lc eq 'eu')
+											or ($ingredients_lc eq 'fi')
 											or ($ingredients_lc eq 'fr')
+											or ($ingredients_lc eq 'he')
 											or ($ingredients_lc eq 'hr')
 											or ($ingredients_lc eq 'it')
+											or ($ingredients_lc eq 'lt')
 											or ($ingredients_lc eq 'mk')
 											or ($ingredients_lc eq 'pl')
+											or ($ingredients_lc eq 'pt')
+											or ($ingredients_lc eq 'ro')
+											or ($ingredients_lc eq 'ru')
+											or ($ingredients_lc eq 'sk')
 											or ($ingredients_lc eq 'sl')
 											or ($ingredients_lc eq 'sr')
+											or ($ingredients_lc eq 'tl')
+											or ($ingredients_lc eq 'tr')
+											or ($ingredients_lc eq 'tt')
+											or ($ingredients_lc eq 'uk')
+											or ($ingredients_lc eq 'vi')
 										)
 										and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
 									)
 
-									#  match before or after the ingredient, does not require a space
+									#  match before or after the ingredient, does not require a space, for German (H- for UHT will remove all H letters) handle 'h' separately
 									or (
 										(
-											   ($ingredients_lc eq 'de')
+											   ($ingredients_lc eq 'af')
+											or (($ingredients_lc eq 'de') and ($regexp ne 'h'))
+											or ($ingredients_lc eq 'et')
+											or ($ingredients_lc eq 'fi')
 											or ($ingredients_lc eq 'hu')
+											or ($ingredients_lc eq 'is')
 											or ($ingredients_lc eq 'ja')
+											or ($ingredients_lc eq 'ko')
+											or ($ingredients_lc eq 'lv')
 											or ($ingredients_lc eq 'nl')
+											or ($ingredients_lc eq 'sv')
+											or ($ingredients_lc eq 'th')
+											or ($ingredients_lc eq 'zh')
 										)
 										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i)
 									)
+									or (    ($ingredients_lc eq 'de')
+										and ($regexp eq 'h')
+										and ($new_ingredient =~ /(^($regexp))/i))
 
 									# match after the ingredient, does not require a space
 									# match before the ingredient, require a space
@@ -1515,6 +1569,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 										(
 											   ($ingredients_lc eq 'da')
 											or ($ingredients_lc eq 'fi')
+											or ($ingredients_lc eq 'hu')
 											or ($ingredients_lc eq 'nb')
 											or ($ingredients_lc eq 'no')
 											or ($ingredients_lc eq 'nn')
@@ -1524,7 +1579,20 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 									)
 								)
 							)
-							or (($pass eq "inside") and ($new_ingredient =~ /\b$regexp\b/i))
+							# match inside the ingredient
+							or (
+								($pass eq "inside") and (
+									($new_ingredient =~ /\b$regexp\b/i)
+									# without space before, with space after
+									or (($ingredients_lc eq 'hu') and ($new_ingredient =~ /$regexp\b/i))
+									# without space before, without space after, set a minimal length (H- for UHT in German will remove all H letters)
+									or (    ($ingredients_lc eq 'de')
+										and (length($regexp) >= 3)
+										and ($new_ingredient =~ /-?$regexp-?/i))
+									# with space before, without space after
+									or (($ingredients_lc eq 'fi') and ($new_ingredient =~ /\b$regexp/i))
+								)
+							)
 							)
 						{
 							$new_ingredient = $` . $';
@@ -1541,7 +1609,10 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 
 							$removed_a_processing = 1;
 
-							push @new_processings, $ingredient_processing_regexp_ref->[0];
+							my $processing = $ingredient_processing_regexp_ref->[0];
+							unless (grep {$_ eq $processing} @new_processings) {
+								push @new_processings, $processing;
+							}
 
 							# remove starting or ending " and "
 							# viande traitée en salaison et cuite -> viande et
@@ -1656,7 +1727,7 @@ in which case we can have origins listed in the main language of the product.
 
 Array of specific ingredients.
 
-=head4 
+=head4
 
 =cut
 
@@ -1747,7 +1818,9 @@ sub select_ingredients_lc ($product_ref) {
 	my @ingredients_text_fields = sort grep {/^ingredients_text_(\w\w)$/} (keys %$product_ref);
 
 	# Put the main language first
-	unshift @ingredients_text_fields, "ingredients_text_" . $product_ref->{lc};
+	if (defined $product_ref->{lc}) {    # Should always be defined, except in old unit tests
+		unshift @ingredients_text_fields, "ingredients_text_" . $product_ref->{lc};
+	}
 
 	$log->debug("select_ingredients_lc - ingredients_text_fields",
 		{ingredients_text_fields => \@ingredients_text_fields})
@@ -2269,8 +2342,8 @@ Text to analyze
 
 								# d'origine végétale -> not a geographic origin, add en:vegan
 								if ($origin_string =~ /vegetal|végétal/i) {
-									$vegan = "en:yes";
-									$vegetarian = "en:yes";
+									$vegan = "yes";
+									$vegetarian = "yes";
 								}
 								else {
 
@@ -2576,8 +2649,8 @@ Text to analyze
 				}
 
 				# remove * and other chars before and after the name of ingredients
-				$ingredient =~ s/(\s|\*|\)|\]|\}|$stops|$dashes|')+$//;
-				$ingredient =~ s/^(\s|\*|\)|\]|\}|$stops|$dashes|')+//;
+				$ingredient =~ s/(\s|$symbols_regexp|\)|\]|\}|$stops|$dashes|')+$//;
+				$ingredient =~ s/^(\s|$symbols_regexp|\)|\]|\}|$stops|$dashes|')+//;
 
 				$ingredient =~ s/\s*(\d+((\,|\.)\d+)?)\s*\%\s*$//;
 
@@ -2587,8 +2660,8 @@ Text to analyze
 					my $origin_string = $';
 					# d'origine végétale -> not a geographic origin, add en:vegan
 					if ($origin_string =~ /vegetal|végétal/i) {
-						$vegan = "en:yes";
-						$vegetarian = "en:yes";
+						$vegan = "yes";
+						$vegetarian = "yes";
 					}
 					else {
 						$origin = join(",",
@@ -2801,6 +2874,9 @@ Text to analyze
 							'bs' => [
 								'u promjenljivom odnosu',    # in a variable ratio
 							],
+							'cs' => [
+								'v různém poměru',    # in variable proportions
+							],
 
 							'da' => [
 								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
@@ -2955,6 +3031,8 @@ Text to analyze
 								'lahko vsebuje',
 								'lahko vsebuje sledi',    # may contain traces
 							],
+
+							'sr' => ['klasa ii',],
 
 							'sv' => [
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
@@ -3117,11 +3195,11 @@ Text to analyze
 
 					# If we have a label for the ingredient that indicates if it is vegan or not, override the value
 					if ($labels =~ /\ben:vegan\b/) {
-						$ingredient{vegan} = "en:yes";
-						$ingredient{vegetarian} = "en:yes";
+						$ingredient{vegan} = "yes";
+						$ingredient{vegetarian} = "yes";
 					}
 					if ($labels =~ /\ben:vegetarian\b/) {
-						$ingredient{vegetarian} = "en:yes";
+						$ingredient{vegetarian} = "yes";
 					}
 				}
 
@@ -3266,7 +3344,7 @@ Compute the total % of "leaf" ingredients (without sub-ingredients) with a speci
 - ingredients_with_specified_percent_n : number of "leaf" ingredients with a specified %
 - ingredients_with_specified_percent_sum : % sum of "leaf" ingredients with a specified %
 - ingredients_with_unspecified_percent_n
-- ingredients_with_unspecified_percent_sum	
+- ingredients_with_unspecified_percent_sum
 
 =cut
 
@@ -3379,7 +3457,7 @@ and to compute the resulting value for the complete product
 
 =cut
 
-sub extract_ingredients_from_text ($product_ref) {
+sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 
 	delete $product_ref->{ingredients_percent_analysis};
 
@@ -3417,10 +3495,29 @@ sub extract_ingredients_from_text ($product_ref) {
 		extend_ingredients_service($product_ref, {}, []);
 
 		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
-		estimate_ingredients_percent_service($product_ref, {}, []);
 
-		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
-		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
+		# We can be passed an external percent estimate service to call in $services_ref
+		if (    (defined $services_ref->{estimate_ingredients_percent})
+			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_glop"))
+		{
+			# Use the recipe estimator service
+			my $services_url = $recipe_estimator_url;
+			my $services_ref = undef;
+			my $request_ref = {};
+			add_product_data_from_external_service({$request_ref}, $product_ref, $services_url, $services_ref, undef);
+		}
+		elsif ( (defined $services_ref->{estimate_ingredients_percent})
+			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_scipy"))
+		{
+			# Use the recipe estimator service
+			my $services_url = $recipe_estimator_scipy_url;
+			my $services_ref = undef;
+			my $request_ref = {};
+			add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref, undef);
+		}
+		else {
+			estimate_ingredients_percent_service($product_ref, {}, []);
+		}
 	}
 	else {
 		remove_fields(
@@ -3429,20 +3526,6 @@ sub extract_ingredients_from_text ($product_ref) {
 				# assign_property_to_ingredients - may have been introduced in previous version
 				"ingredients_without_ciqual_codes",
 				"ingredients_without_ciqual_codes_n",
-			]
-		);
-		remove_fields(
-			$product_ref->{nutriments},
-			[
-				# estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients - may have been introduced in previous version
-				"fruits-vegetables-nuts-estimate-from-ingredients_100g",
-				"fruits-vegetables-nuts-estimate-from-ingredients_serving",
-				"fruits-vegetables-legumes-estimate-from-ingredients_100g",
-				"fruits-vegetables-legumes-estimate-from-ingredients_serving",
-				"fruits-vegetables-nuts-estimate-from-ingredients-prepared_100g",
-				"fruits-vegetables-nuts-estimate-from-ingredients-prepared_serving",
-				"fruits-vegetables-legumes-estimate-from-ingredients-prepared_100g",
-				"fruits-vegetables-legumes-estimate-from-ingredients-prepared_serving",
 			]
 		);
 	}
@@ -3653,7 +3736,7 @@ Retrieve the geographical area for ecobalyse. (NOTE : this is a first version th
 
 =head4 $originid
 
-reference to the name of the country 
+reference to the name of the country
 
 =head3 Return values
 
@@ -3664,7 +3747,7 @@ reference to the name of the country
 sub get_geographical_area ($originid) {
 	# Getting information about the country
 	my $ecobalyse_area = "";
-	my $ecobalyse_is_part_of_eu_result = get_inherited_property("countries", $originid, "ecobalyse_is_part_of_eu");
+	my $ecobalyse_is_part_of_eu_result = get_inherited_property("countries", $originid, "ecobalyse_is_part_of_eu:en");
 	if (defined $ecobalyse_is_part_of_eu_result
 		&& $ecobalyse_is_part_of_eu_result eq "yes")
 	{
@@ -3697,7 +3780,7 @@ reference to a hash of product fields that have been created or updated
 
 reference to an array of error messages
 
-=cut 
+=cut
 
 sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
@@ -4487,6 +4570,7 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 			# Traverse the ingredients tree, breadth first
 
 			my @ingredients = @{$product_ref->{ingredients}};
+			my $ingredients_n = 0;
 
 			while (@ingredients) {
 
@@ -4526,11 +4610,10 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 					}
 				}
 
-				# if the property value is "maybe" and the ingredient has sub-ingredients,
+				# if the property value is undef or "maybe" and the ingredient has sub-ingredients,
 				# we ignore the ingredient and only look at its sub-ingredients (already added)
 				# e.g. "Vegetable oil (rapeseed oil, ...)""
-				if (    (defined $value)
-					and ($value eq "maybe")
+				if (    ((not defined $value) or ($value eq "maybe"))
 					and (defined $ingredient_ref->{ingredients}))
 				{
 					$value = "ignore";
@@ -4542,6 +4625,7 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 				push @{$values{$value}}, $ingredientid;
 
 				# print STDERR "ingredientid: $ingredientid - property: $property - value: $value\n";
+				$ingredients_n++;
 			}
 
 			# Compute the resulting property value for the product
@@ -4558,6 +4642,10 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 				# So all known ingredients without a value for the property are assumed to be negative
 
 				# value can can be "ignore"
+
+				my $unknown_but_not_ignore_ingredients_n
+					= (defined $values{unknown_ingredients} ? scalar(@{$values{unknown_ingredients}}) : 0)
+					- (defined $values{ignore} ? scalar(@{$values{ignore}}) : 0);
 
 				if (defined $values{yes}) {
 					# One yes ingredient -> yes for the whole product
@@ -4576,17 +4664,20 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 				# Exception: If there are lots of unrecognized ingredients though (e.g. more than 1 third), it may be that the ingredients list
 				# is bogus (e.g. OCR errors) and the likelyhood of missing a palm oil ingredient increases.
 				# --> In this case, we mark the product as palm oil content unknown
-				elsif (defined $values{unknown_ingredients}) {
+				# Note: we substract ignore ingredients from the total count
+				elsif ($unknown_but_not_ignore_ingredients_n > 0) {
 					# Some ingredients were not recognized
+					my $unknown_rate = $unknown_but_not_ignore_ingredients_n / $ingredients_n;
+
 					$log->debug(
 						"analyze_ingredients - unknown ingredients",
 						{
 							unknown_ingredients_n => (scalar @{$values{unknown_ingredients}}),
-							ingredients_n => (scalar(@{$product_ref->{ingredients}}))
+							unknown_but_not_ignore_ingredients_n => $unknown_but_not_ignore_ingredients_n,
+							ingredients_n => $ingredients_n,
+							unknown_rate => $unknown_rate,
 						}
 					) if $log->is_debug();
-					my $unknown_rate
-						= (scalar @{$values{unknown_ingredients}}) / (scalar @{$product_ref->{ingredients}});
 					# for palm-oil, as there are few products containing it, we consider status to be unknown only if there is more than 30% unknown ingredients (which may indicates bogus ingredient list, eg. OCR errors)
 					if (($from_what_with_dashes eq "palm-oil") and ($unknown_rate <= 0.3)) {
 						$property_value = "en:" . $from_what_with_dashes . "-free";    # en:palm-oil-free
@@ -4645,19 +4736,52 @@ sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref, $err
 	# Apply labels overrides
 	# also apply labels overrides if we don't have ingredients at all
 	if (has_tag($product_ref, "labels", "en:palm-oil-free")) {
-		$ingredients_analysis_properties_ref->{from_palm_oil} = "en:palm-oil-free";
+		# Labeled as palm oil free, but has a palm oil containing ingredient
+		# Set to may-contain as a heads up to double-check
+		if (    (defined $ingredients_analysis_properties_ref->{from_palm_oil})
+			and ($ingredients_analysis_properties_ref->{from_palm_oil} eq "en:palm-oil"))
+		{
+			$ingredients_analysis_properties_ref->{from_palm_oil} = "en:may-contain-palm-oil";
+		}
+		else {
+			$ingredients_analysis_properties_ref->{from_palm_oil} = "en:palm-oil-free";
+		}
 	}
 
 	if (has_tag($product_ref, "labels", "en:vegan")) {
-		$ingredients_analysis_properties_ref->{vegan} = "en:vegan";
-		$ingredients_analysis_properties_ref->{vegetarian} = "en:vegetarian";
+		# Labeled as vegan, but has non-vegan ingredients
+		# Set to maybe-vegan as a heads up to double-check
+		if (    (defined $ingredients_analysis_properties_ref->{vegetarian})
+			and ($ingredients_analysis_properties_ref->{vegetarian} eq "en:non-vegetarian"))
+		{
+			$ingredients_analysis_properties_ref->{vegan} = "en:maybe-vegan";
+			$ingredients_analysis_properties_ref->{vegetarian} = "en:maybe-vegetarian";
+		}
+		elsif ( (defined $ingredients_analysis_properties_ref->{vegan})
+			and ($ingredients_analysis_properties_ref->{vegan} eq "en:non-vegan"))
+		{
+			$ingredients_analysis_properties_ref->{vegan} = "en:maybe-vegan";
+		}
+		else {
+			$ingredients_analysis_properties_ref->{vegan} = "en:vegan";
+			$ingredients_analysis_properties_ref->{vegetarian} = "en:vegetarian";
+		}
 	}
 	elsif (has_tag($product_ref, "labels", "en:non-vegan")) {
 		$ingredients_analysis_properties_ref->{vegan} = "en:non-vegan";
 	}
 
 	if (has_tag($product_ref, "labels", "en:vegetarian")) {
-		$ingredients_analysis_properties_ref->{vegetarian} = "en:vegetarian";
+		# Labeled as vegetarian, but has non-vegetarian ingredients
+		# Set to maybe-vegetarian as a heads up to double-check
+		if (    (defined $ingredients_analysis_properties_ref->{vegetarian})
+			and ($ingredients_analysis_properties_ref->{vegetarian} eq "en:non-vegetarian"))
+		{
+			$ingredients_analysis_properties_ref->{vegetarian} = "en:maybe-vegetarian";
+		}
+		else {
+			$ingredients_analysis_properties_ref->{vegetarian} = "en:vegetarian";
+		}
 	}
 	elsif (has_tag($product_ref, "labels", "en:non-vegetarian")) {
 		$ingredients_analysis_properties_ref->{vegetarian} = "en:non-vegetarian";
@@ -4803,7 +4927,19 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 			$a_of_b = $a . " " . $b;
 		}
 	}
-	elsif (($ingredients_lc eq "de") or ($ingredients_lc eq "ru") or ($ingredients_lc eq "pl")) {
+	elsif (($ingredients_lc eq "bg")
+		or ($ingredients_lc eq "cs")
+		or ($ingredients_lc eq "da")
+		or ($ingredients_lc eq "de")
+		or ($ingredients_lc eq "hu")
+		or ($ingredients_lc eq "ru")
+		or ($ingredients_lc eq "pl")
+		or ($ingredients_lc eq "lt")
+		or ($ingredients_lc eq "rs")
+		or ($ingredients_lc eq "sk")
+		or ($ingredients_lc eq "sl")
+		or ($ingredients_lc eq "sv"))
+	{
 		$a_of_b = $a . " " . $b;
 	}
 	else {
@@ -4820,7 +4956,7 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 		# TODO: use the labels regexps instead
 		my $a_of_b_copy = remove_parsable_labels($ingredients_lc, $a_of_b);
 		canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $a_of_b_copy, \$name_exists);
-		print STDERR "a: $a - b: $b - $a_of_b: $a_of_b - a_of_b_copy: $a_of_b_copy: - $name_exists\n";
+		# print STDERR "a: $a - b: $b - $a_of_b: $a_of_b - a_of_b_copy: $a_of_b_copy: - $name_exists\n";
 
 		if (not $name_exists) {
 			foreach my $alternate_name (@{$alternate_names_ref}) {
@@ -4830,8 +4966,8 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 				my $alternate_name_exists;
 				canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $alternate_name_copy,
 					\$alternate_name_exists);
-				print STDERR
-					"alternate_name: $alternate_name - alternate_name_copy: $alternate_name_copy: - $alternate_name_exists\n";
+				# print STDERR
+				# 	"alternate_name: $alternate_name - alternate_name_copy: $alternate_name_copy: - $alternate_name_exists\n";
 				if ($alternate_name_exists) {
 					$a_of_b = $alternate_name_copy;
 					last;
@@ -4985,11 +5121,15 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 	my $split_vitamins_list;
 
 	if ($lc eq 'da' || $lc eq 'nb' || $lc eq 'sv') {$split_vitamins_list = "vitaminer"}
-	elsif ($lc eq 'de' || $lc eq 'it') {$split_vitamins_list = "vitamine"}
+	elsif ($lc eq 'bg') {$split_vitamins_list = "витамини"}
+	elsif ($lc eq 'de' || $lc eq 'it' || $lc eq 'ro') {$split_vitamins_list = "vitamine"}
 	elsif ($lc eq 'ca') {$split_vitamins_list = "vitamines"}
-	elsif ($lc eq 'es') {$split_vitamins_list = "vitaminas"}
+	elsif ($lc eq 'cs' || $lc eq 'sk') {$split_vitamins_list = "vitamíny"}
+	elsif ($lc eq 'es' || $lc eq 'pt') {$split_vitamins_list = "vitaminas"}
 	elsif ($lc eq 'fr') {$split_vitamins_list = "vitamines"}
 	elsif ($lc eq 'fi') {$split_vitamins_list = "vitamiinit"}
+	elsif ($lc eq 'hr' || $lc eq 'sl') {$split_vitamins_list = "vitamini"}
+	elsif ($lc eq 'hu') {$split_vitamins_list = "vitaminok"}
 	elsif ($lc eq 'nl') {$split_vitamins_list = "vitaminen"}
 	elsif ($lc eq 'is') {$split_vitamins_list = "vítamín"}
 	elsif ($lc eq 'pl') {$split_vitamins_list = "witaminy"}
@@ -5085,7 +5225,7 @@ my %phrases_before_ingredients_list = (
 
 	cs => ['složení',],
 
-	da => ['ingredienser', 'indeholder', 'Sammensætning',],
+	da => ['[Ii]ngrediens(?:er)?', '[Ii]ndhold', '[Ii]ndeholder', '[Ss]ammens(?:æ|ae)tning',],
 
 	de => ['Zusammensetzung', 'zutat(en)?',],
 
@@ -5096,6 +5236,8 @@ my %phrases_before_ingredients_list = (
 	es => ['composición', 'ingredientes',],
 
 	et => ['koostisosad', 'Koostis',],
+
+	eu => ['[Oo]sagaiak',],
 
 	fi => ['aine(?:kse|s?osa)t(?:\s*\/\s*ingredienser)?', 'ainesosia', 'valmistusaineet', 'Kokoonpano', 'koostumus',],
 
@@ -5118,6 +5260,8 @@ my %phrases_before_ingredients_list = (
 
 	ja => ['原材料名',],
 
+	ka => ['ინგრედიენტები',],
+
 	kk => ['курамы',],
 
 	ko => ['配料',],
@@ -5128,7 +5272,7 @@ my %phrases_before_ingredients_list = (
 
 	lv => ['sast[āäa]v(s|da[ļl]as)',],
 
-	mk => ['Состојки',],
+	mk => ['Состојки', 'Состојќи', 'состојка'],
 
 	md => ['(I|i)ngrediente',],
 
@@ -5136,7 +5280,7 @@ my %phrases_before_ingredients_list = (
 
 	nb => ['Ingredienser',],
 
-	no => ['Sammensetning',],
+	no => ['Sammensetning', 'ingredienser'],
 
 	pl => ['sk[łl]adniki', 'skład',],
 
@@ -5154,7 +5298,7 @@ my %phrases_before_ingredients_list = (
 
 	sr => ['Sastojci',],
 
-	sv => ['ingredienser', 'innehåll(er)?', 'Sammansättning',],
+	sv => ['[Ii]ngrediens(?:er)?', '[Ii]nneh[åa]ll(?:er)?', '[Ss]ammans[äa]ttning',],
 
 	tg => ['Таркиб',],
 
@@ -5180,7 +5324,7 @@ my %phrases_before_ingredients_list_uppercase = (
 
 	cs => ['SLOŽENÍ',],
 
-	da => ['INGREDIENSER', 'ZUSAMMENSETZUNG', 'SAMMENSÆTNING',],
+	da => ['INGREDIENS(?:ER)?', 'INDHOLD', 'INDEHOLDER', 'SAMMENS(?:Æ|AE)TNING',],
 
 	de => ['ZUTAT(EN)?', 'ZUSAMMENSETZUNG',],
 
@@ -5224,7 +5368,7 @@ my %phrases_before_ingredients_list_uppercase = (
 
 	sl => ['SESTAVINE', 'SESTAVA',],
 
-	sv => ['INGREDIENSER', 'INNEHÅLL(ER)?', 'SAMMANSÄTTNING',],
+	sv => ['INGREDIENSER', 'INNEH[ÅA]LL(?:ER)?', 'SAMMANS[ÄA]TTNING',],
 
 	tr => ['BİLEŞİM',],
 
@@ -5247,17 +5391,21 @@ my %phrases_after_ingredients_list = (
 	bg => [
 		'да се съхранява (в закрити|на сухо)',    # store in ...
 		'Аналитични съставки',    # pet food
-		'Неотворен',    # before opening ...
-		'След отваряне'    # after opening ...
+		'(heотворен|Неотворен)',    # before opening ...
+		'След отваряне',    # after opening ...
+		'Опаковани в защитна атмосфера',    # packaged in protective atmosphere
+		'най добър до',    # best before
 	],
 
 	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
 
 	cs => [
 		'analytické složky',    # pet food
-		'doporu)c|č)eny zp(u|ů)sob p(r|ř)(i|í)pravy',
+		'balené v ochrannej atmosfére',    # packaged in protective atmosphere
+		'doporu(c|č)eny zp(u|ů)sob p(r|ř)(i|í)pravy',
 		'minim(a|á)ln(i|í) trvanlivost do',    # Expiration date
 		'po otev(r|ř)en(i|í)',    # After opening
+		'(návod k )?přípravě',    # preparation
 		'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',
 		'skladujte v suchu',    # keep in dried place
 	],
@@ -5270,10 +5418,12 @@ my %phrases_after_ingredients_list = (
 		'holdbarhed efter åbning', 'mindst holdbar til',
 		'opbevar(?:ing|res)?', '(?:for )?allergener',
 		'produceret af', 'tilberedning(?:svejledning)?',
+		'blandingsforholdet kan variere',
 	],
 
 	de => [
 		'analytische bestandteile',    # pet food
+		'bei Raumtemperatur lagern',    # keep in dried place
 		'Ern(â|a|ä)hrungswerte',
 		'Mindestens altbar bis',
 		'Mindestens haltbar bis',
@@ -5284,6 +5434,7 @@ my %phrases_after_ingredients_list = (
 		'Durchschnittliche N(â|a|ä)hrwerte',
 		'DURCHSCHNITTLICHE NÄHRWERTE',
 		'Durchschnittliche N(â|a|ä)hrwert(angaben|angabe)',
+		'für Allergene',
 		# 'Kakao: \d\d\s?% mindestens.', # allergens can appear after.
 		'N(â|a|ä)hrwert(angaben|angabe|information|tabelle)',    #Nährwertangaben pro 100g
 		'N(â|a|ä)hrwerte je',
@@ -5291,34 +5442,41 @@ my %phrases_after_ingredients_list = (
 		'(Ungeöffnet )?mindestens',
 		'(k[uü]hl|bei Zimmertemperatur) und trocken lagern',
 		'Rinde nicht zum Verzehr geeignet.',
-		'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
+		'Trocken und vor Wärme',    # keep in dried place
 		'Unge(ö|o)ffnet (bei max.|unter)',
 		'Unter Schutzatmosphäre verpackt',
 		'verbrauchen bis',
 		'Vor und nach dem Öffnen',    # keep in dried place
 		'Vor Wärme geschützt (und trocken )?lagern',
+		'Vor W(â|a|ä)rme und Feuchtigkeit sch(u|ü)tzen',
 		'Vorbereitung Tipps',
 		'zu verbrauchen bis',
 		'100 (ml|g) enthalten durchschnittlich',
 		'\d\d\d\sg\s\w*\swerden aus\s\d\d\d\sg\s\w*\shergestellt'
 		,    # 100 g Salami werden aus 120 g Schweinefleisch hergestellt.
 		'Alle Zutaten sind aus biologischem Anbau',
-		'außer die mit * markierten Bestandteile'
+		'außer die mit * markierten Bestandteile',
+		'Die Mischung kann variieren',
 	],
 
 	el => [
 		'Αναλυτικές συστατικές',    # pet food
 		'ΔΙΑΘΡΕΠΤΙΚΗ ΕΠΙΣΗΜΑΝΣΗ',    #Nutritional labelling
 		'ΔΙΤΡΟΦΙΚΕΣ ΠΗΡΟΦΟΡΙΕΣ',
+		'Διατηρήστε το σε ξηρό μέρος',    # keep in dried place
+		'Για (τα )?αλλεργιογόνα',    # for allergens in bold
+		'Συντηρείται στο ψυγείο',    # stored in the fridge
 	],
 
 	en => [
 		'adds a trivial amount',    # e.g. adds a trivial amount of added sugars per serving
 		'after opening',
 		'analytical constituents',    # pet food
-									  #'Best before',
+		'best before',    #'Best before',
 		'keep cool and dry',
 		'Can be stored unopened at room temperature',
+		'cooking time',
+		'for allergens',
 		'instruction',
 		'nutrition(al)? (as sold|facts|information|typical|value[s]?)',
 		# "nutrition advice" seems to appear before ingredients rather than after.
@@ -5328,20 +5486,20 @@ my %phrases_after_ingredients_list = (
 		'of which saturated fat',
 		'((\d+)(\s?)kJ\s+)?(\d+)(\s?)kcal',
 		'once opened[,]? (consume|keep|refrigerate|store|use)',
+		'Milk Chocolate contains',
 		'packed in a modified atmosphere',
-		'(Storage( instructions| conditions)?[: ]+)?Store in a cool[,]? dry place',
+		'(Storage( instructions| conditions)?[: ]+)?Store in',
 		'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 		#'See bottom of tin',
 	],
 
 	es => [
+		'alérgenos: ver',
 		'componentes analíticos',    # pet food
-		'valores nutricionales',
-		'modo de preparacion',
-		'informaci(o|ó)n nutricional',
-		'valor energ(e|é)tico',
+		'conservaci(o|ó)n:',
+		'conser(y|v)ar entre',
+		'consumir? preferentemente antes del',
 		'condiciones de conservaci(o|ó)n',
-		#'pa(i|í)s de transformaci(o|ó)n',
 		'cons[eé]rv(ar|ese) en( un)? lug[ae]r (fresco y seco|seco y fresco)',
 		'contiene azúcares naturalmente presentes',
 		'distribuido por',    # distributed for
@@ -5349,18 +5507,21 @@ my %phrases_after_ingredients_list = (
 		'de las cuales saturadas',
 		'envasado',    # Packaging in protective atmosphere.
 		'Mantener en lugar fresco y seco',
+		'modo de preparacion',
+		'informaci(o|ó)n nutricional',
+		#'pa(i|í)s de transformaci(o|ó)n',
 		'obtenga más información',    # get more information
 		'protegido de la luz',
-		'conser(y|v)ar entre',
 		'una vez abierto',
-		'conservaci(o|ó)n:',
-		'consumir? preferentemente antes del',
+		'valor energ(e|é)tico',
+		'valores nutricionales',
 		#Envasado por:
 	],
 
 	et => [
 		'analüütilised komponendid',    # pet food
 		'parim enne',    # best before
+		'hoida kuivas ja jahedas',    # keep in dried place
 	],
 
 	fi => [
@@ -5459,6 +5620,7 @@ my %phrases_after_ingredients_list = (
 	hr => [
 		'(prije otvaranja )?((č|Č|c|C|ć|Ć)uvati|(č|Č|c|C|ć|Ć)uvajte)',    # store in...
 		'analitički sastav',    # pet food
+		'istaknuti sastojci',    # highlighted ingredients allergens
 		'izvaditi',    # remove from the refrigerator half an hour before consumption
 		'način pripreme',    # preparation
 		'(najbolje )upotrijebiti',    # best before
@@ -5491,12 +5653,16 @@ my %phrases_after_ingredients_list = (
 	],
 
 	hu => [
+		'A termék összetételének',    # proportion of the product might vary
 		'Atlagos tápérték 100g termékben',
 		'((száraz|hűvös|(közvetlen )?napfénytől védett)[, ]*)+helyen tárolandó',    # store in cool/dry/etc
 		'elemzési összetevők',    # pet food
+		'elkészítési',    # preparation
+		'felbontás után',    # after opening
 		'hűvös, száraz helyen, közvetlen napfénytől védve tárolja',    # store in cool dry place away from the sunlight
 		'bontatlan csomagolásban',    # keep in a closed/dark place
 		'tárolás',    # conservation
+		'szavatossági idő',    # keep until
 	],
 
 	is => ['n(æ|ae)ringargildi', 'geymi(st|ð) á', 'eftir opnum', 'aðferð',],
@@ -5510,7 +5676,7 @@ my %phrases_after_ingredients_list = (
 		'di cui zuccheri',
 		'MODALITA D\'USO',
 		'MODALITA DI CONSERVAZIONE',
-		'Preparazione:',
+		'Preparazione\:',
 		'Una volta aperto',    # once opened...
 		'Valori nutritivi',
 		'valori nutrizionali',
@@ -5528,19 +5694,26 @@ my %phrases_after_ingredients_list = (
 		'tinka vartoti iki',    # valid until
 		'data ant pakuotės',    #date on package
 		'laikyti sausoje vietoje',    #Keep in dry place
-		'',
 	],
 
 	lv => [
-		'uzglabāt sausā vēsā vietā',    # keep in dry place
+		'uzglabāt (sausā|vēsā)',    # keep in dry place
 		'analītiskā sastāva',    # pet food
+		'ieteicams līdz',    # recommended until
+		'pēc iepakojuma atvēršanas izlietot',    # use after opening the package
+		'Chocolate contains',    # chocolate contains
 	],
 
 	mk => [
 		'Да се чува на темно место и на температура до',    # Store in a dark place at a temperature of up to
+		'Употребливо до крајот на',    # Keep until
 	],
 
-	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',],
+	nb => [
+		'netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',
+		'minst holdbar',    # keep until
+		'blandingsforholdet kan variere',
+	],
 
 	nl => [
 		'analytische bestanddelen',    # pet food
@@ -5552,6 +5725,7 @@ my %phrases_after_ingredients_list = (
 		'E = door EU goedgekeurde hulpstof',
 		'E door EU goedgekeurde hulpstoffen',
 		'"E"-nummers zijn door de EU goedgekeurde hulpstoffen',
+		'gekoeld bewaren',    # keep in a cool place
 		'gemiddelde voedingswaarden',
 		'Gemiddeldevoedingswaardel',
 		'gemiddelde voedingswaarde per 100 g',
@@ -5565,10 +5739,10 @@ my %phrases_after_ingredients_list = (
 		'Verpakt onder beschermende atmosfeer',
 		'voedingswaarden',
 		'voedingswaarde',
-		'Voor allergenen: zie ingrediëntenlijst, in vet gemarkeerd',
+		'Voor allergenen',
 		'voorbereidingstips',
 		#'waarvan suikers',
-		'waarvan toegevoegde',
+		'(W|w)aarvan toegevoegde',
 		'Witte chocolade: ten minste',
 	],
 
@@ -5597,32 +5771,27 @@ my %phrases_after_ingredients_list = (
 	ro => [
 		'constituenți analitici',    # pet food
 		'declaratie nutritional(a|ă)',
+		'a se consuma de preferinţă înainte de',    # best before
 		'a si pastra la frigider dup(a|ă) deschidere',
 		'a se agita inainte de deschidere',
-		'a se păstra la loc uscat şi răcoros',    # Store in a dry and cool place
-		'a sè păstra la temperaturi până la',    # Store at temperatures up to
+		'a se păstra',    # Store in a dry and cool place / at temperature
 		'Valori nutritionale medii',
 		'a se p[ăa]stra la',    # store in...
-	],
-
-	rs => [
-		'(č|Č|c|C|ć|Ć)uvati na (hladnom|suvom|temperaturi od)',    # Store in a cool and dry place
-		'napomena za potrošače',    # note for consumers
-		'pakovano',    # packed in a protective atmosphere
-		'proizvodi i puni',    # Produced and filled
-		'upotrebljivo',    # keep until
-		'najbolje (upotrijebiti|upotrebiti) do',    # keep until
+		'nedeschis',    # unopened best before
 	],
 
 	ru => [
 		'Аналитические компоненты',    # pet food
-		'xранить в сухом',    # store in a dry place
+		'(x|Х)ранить в сухом',    # store in a dry place
 	],
 
 	sk => [
 		'analytické zložky',    # pet food
 		'skladovanie',    # store at
 		'spotrebujte do',    # keep until
+		'najlepšie spotrebovať pred',    # keep until
+		'minimálna trvanlivos(t|ť) do',    # keep until
+		'skladujte',    # store in
 	],
 
 	sl => [
@@ -5631,13 +5800,28 @@ my %phrases_after_ingredients_list = (
 		'opozorilo',    # warning
 		'pakirano v kontrolirani atmosferi',    # packed in a ... atmosphere
 		'porabiti',    # keep until
+		'pred uporabo pretresti',    # shake before use
 		'predlog za serviranje ',    # serving suggestion
 		'prosječne hranjive vrijednosti 100 g proizvoda',    # average nutritional value of 100 g of product
+		'številka serije',    # keep until
+		'uporabno (?:najmanj )do',    # keep until
 		'uvoznik',    # imported/distributed by
+	],
+
+	sr => [
+		'(č|Č|c|C|ć|Ć)uvati na (hladnom|suvom|temperaturi od)',    # Store in a cool and dry place
+		'napomena za potrošače',    # note for consumers
+		'pakovano',    # packed in a protective atmosphere
+		'priprema',    # preparation
+		'proizvodi i puni',    # Produced and filled
+		'upotrebljivo',    # keep until
+		'najbolje (upotrijebiti|upotrebiti)do',    # keep until
+		'чувати на',    # store in a cool and dry place
 	],
 
 	sv => [
 		'analytiska beståndsdelar',    # pet food
+		'bäst före',    # best before
 		'närings(?:deklaration|innehåll|värde)', '(?:bör )?förvar(?:ing|as?)',
 		'till(?:agning|redning)', 'produkten innehåller',
 		'serveringsförslag', 'produkterna bör',
@@ -5648,6 +5832,7 @@ my %phrases_after_ingredients_list = (
 		'upptining', 'o?öppnad',
 		'bevaras', 'kylvara',
 		'tappat',
+		'(?:proportionerna|blandningsförhållandet) kan variera(?: något mellan olika förpackningar)?',
 	],
 
 	tr => [
@@ -5667,6 +5852,12 @@ my %prefixes_before_dash = (fr => ['demi', 'saint',],);
 
 # phrases that can be removed
 my %ignore_phrases = (
+	bg => [
+		'Продукт с естествено ниско съдържание на лактоза',    # lactose content <0,1g/100 g
+	],
+	cs => [
+		's obsahem laktózy',    # lactose content <0,1g/100 g
+	],
 	de => [
 		'\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?',    # 45 % Fett i.Tr.
 		'inklusive',
@@ -5678,8 +5869,12 @@ my %ignore_phrases = (
 		'za više informacija posjetiti stranicu ra\.org',
 	],
 	hu => [
-		'Valamennyi százalékos adat a késztermékre vonatkozik',    # All percentages refer to the finished product.
-	]
+		'a késztermékben',    # in the finished product
+		'valamennyi százalékos adat a késztermékre vonatkozik',    # All percentages refer to the finished product.
+	],
+	sk => [
+		'obsah laktózy',    # lactose content <0,1g/100 g
+	],
 
 );
 
@@ -5850,7 +6045,7 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 	if (defined $phrases_after_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
-			if ($text =~ /\*?\s*\b$regexp\b(.*)$/is) {
+			if ($text =~ /(?:$symbols_regexp)?\s*\b$regexp\b(.*)$/is) {
 				$text = $`;
 				$log->debug("removed phrases_after_ingredients_list", {removed => $1, kept => $text, regexp => $regexp})
 					if $log->is_debug();
@@ -5899,13 +6094,6 @@ sub clean_ingredients_text ($product_ref) {
 				$text = clean_ingredients_text_for_lang($text, $language);
 
 				if ($text ne $product_ref->{"ingredients_text_" . $language}) {
-
-					my $time = time();
-
-					# Keep a copy of the original ingredients list just in case
-					$product_ref->{"ingredients_text_" . $language . "_ocr_" . $time}
-						= $product_ref->{"ingredients_text_" . $language};
-					$product_ref->{"ingredients_text_" . $language . "_ocr_" . $time . "_result"} = $text;
 					$product_ref->{"ingredients_text_" . $language} = $text;
 				}
 
@@ -5970,7 +6158,7 @@ sub separate_additive_class ($ingredients_lc, $additive_class, $spaces, $colon, 
 		)
 		and (
 			# we use the ingredients taxonomy here as some additives like "soy lecithin" are currently in the ingredients taxonomy
-			# but not in the additives taxonomy
+			# but not in the additives taxonomy
 			exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $after))
 			or ((defined $after2)
 				and
@@ -5991,7 +6179,7 @@ sub separate_additive_class ($ingredients_lc, $additive_class, $spaces, $colon, 
 
 This function is used inside regular expressions to turn additives to a normalized form.
 
-Using a function to concatenate the E-number, letter and variant makes it possible 
+Using a function to concatenate the E-number, letter and variant makes it possible
 to deal with undefined $letter or $variant without triggering an undefined warning.
 
 =head3 Synopsis
@@ -6025,7 +6213,7 @@ Some ingredients are specified by an ingredient "category" (e.g. "oil", "flavour
 Sometimes, the category is mentioned only once for several types:
 "strawberry and vanilla flavourings", "vegetable oil (palm, sunflower)".
 
-This function lists each individual ingredient: 
+This function lists each individual ingredient:
 "oil (sunflower, olive and palm)" becomes "sunflower oil, olive oil, palm oil"
 
 =head3 Arguments
@@ -6089,6 +6277,24 @@ my %ingredients_categories_and_types = (
 		},
 	],
 
+	bg => [
+		# oil and fat
+		{
+			categories => ["растителни масла"],
+			types => ["рапично", "слънчогледово",],
+			alternate_names => ["<type> масло"],
+		},
+	],
+
+	cs => [
+		# oil and fat
+		{
+			categories => ["rostlinné oleje, rostlinné tuky"],
+			types => ["bambucký", "kokosový", "olivový", "palmový", "palmojadrový", "řepkový", "slunečnicový",],
+			alternate_names => ["<type> olej"],
+		},
+	],
+
 	de => [
 		# oil and fat
 		{
@@ -6107,6 +6313,11 @@ my %ingredients_categories_and_types = (
 			],
 			# haferprotein
 			alternate_names => ["<type>protein", "<type>eiweiß"],
+		},
+		# starch
+		{
+			categories => ["Stärke"],
+			types => ["Mais", "Weizen"],
 		},
 	],
 
@@ -6218,11 +6429,18 @@ my %ingredients_categories_and_types = (
 		{categories => ["piment", "poivron"], types => ["vert", "jaune", "rouge",], of_bool => 0,},
 	],
 
-	lt => [
-		#oils
+	hu => [
+		# oils
 		{
-			categories => ["aliejai", "augaliniai aliejai",],
-			types => ["palmių", "rapsų", "saulėgrąžų",],
+			categories => ["növényi olajok"],
+			types => ["repce", "napraforgó",],
+			alternate_names => ["<type>olaj"],
+		},
+		# starch
+		{
+			categories => ["keményítő"],
+			types => ["kukorica", "búza",],
+			alternate_names => ["<type>keményítő"],
 		},
 	],
 
@@ -6293,8 +6511,16 @@ my %ingredients_categories_and_types = (
 		# starchs
 		{
 			categories => ["škrob",],
-			types => ["kukuruzni", "krumpirov",]
+			types => ["kukuruz", "kukuruzni", "krumpirov", "pšenica"]
 		}
+	],
+
+	lt => [
+		#oils
+		{
+			categories => ["aliejai", "augaliniai aliejai",],
+			types => ["palmių", "rapsų", "saulėgrąžų",],
+		},
 	],
 
 	pl => [
@@ -6353,6 +6579,50 @@ my %ingredients_categories_and_types = (
 				"Подсолнечное", "Пальмовое", "Рапсовое", "Кокосовое", "горчицы", "Соевое",
 				"Пальмоядровое", "Оливковое", "пальм",
 			],
+		},
+	],
+
+	rs => [
+		# starcgh
+		{
+			categories => ['škrob'],
+			types => ["kukuruzni", "pšenični",],
+		},
+	],
+
+	sk => [
+		# oils
+		{
+			categories => ['rastlinné oleje'],
+			types => ["repkový", "slnečnicový",],
+			alternate_names => ["<type> olej"],
+		},
+	],
+
+	sl => [
+		# oils
+		{
+			categories => ['rastlinska maščoba', 'rastlinska olja'],
+			types => ["palmina", "repična", "repično", "sončnično",],
+			alternate_names => ["<type>", "<type> olje"],
+		},
+		# starch
+		{
+			categories => ['škrob'],
+			types => ["koruza", "kukuruzni", "pšenica", "pšenični",],
+		},
+	],
+
+	sv => [
+		# concentrate from …
+		{
+			categories => ['koncentrat från'],
+			types => [
+				"fläderbär", "hallon", "hibiskus", "jordgubb", "lime", "morot",
+				"persika", "rädisa", "safflor", "spirulina", "svarta vinbär", "svart morot",
+				"äpple",
+			],
+			alternate_names => ["<type> från koncentrat"],
 		},
 	],
 
@@ -6435,6 +6705,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				or ($ingredients_lc eq "de")
 				or ($ingredients_lc eq "hr")
 				or ($ingredients_lc eq "ru")
+				or ($ingredients_lc eq "sv")
 				or ($ingredients_lc eq "pl"))
 			{
 				# vegetable oil (palm, sunflower and olive) -> palm vegetable oil, sunflower vegetable oil, olive vegetable oil
@@ -7109,401 +7380,329 @@ sub extract_additives_from_text ($product_ref) {
 
 	# Additives using new global taxonomy
 
-	foreach my $tagtype ('additives', 'additives_prev', 'additives_next') {
+	next if (not exists $loaded_taxonomies{'additives'});
 
-		next if (not exists $loaded_taxonomies{$tagtype});
+	$product_ref->{'additives_tags'} = [];
+	$product_ref->{'vitamins_tags'} = [];
+	$product_ref->{'minerals_tags'} = [];
+	$product_ref->{'amino_acids_tags'} = [];
+	$product_ref->{'nucleotides_tags'} = [];
+	$product_ref->{'other_nutritional_substances_tags'} = [];
 
-		$product_ref->{$tagtype . '_tags'} = [];
+	my %seen = ();
+	my %seen_tags = ();
 
-		my $tagtype_suffix = $tagtype;
-		$tagtype_suffix =~ s/[^_]+//;
+	# Keep track of mentions of the additive class (e.g. "coloring: X, Y, Z") so that we can correctly identify additives after
+	my $current_additive_class = "ingredient";
 
-		my $vitamins_tagtype = "vitamins" . $tagtype_suffix;
-		my $minerals_tagtype = "minerals" . $tagtype_suffix;
-		my $amino_acids_tagtype = "amino_acids" . $tagtype_suffix;
-		my $nucleotides_tagtype = "nucleotides" . $tagtype_suffix;
-		my $other_nutritional_substances_tagtype = "other_nutritional_substances" . $tagtype_suffix;
-		$product_ref->{$vitamins_tagtype . '_tags'} = [];
-		$product_ref->{$minerals_tagtype . '_tags'} = [];
-		$product_ref->{$amino_acids_tagtype . '_tags'} = [];
-		$product_ref->{$nucleotides_tagtype . '_tags'} = [];
-		$product_ref->{$other_nutritional_substances_tagtype . '_tags'} = [];
+	foreach my $ingredient_id (@ingredients_ids) {
 
-		my $class = $tagtype;
+		my $ingredient_id_copy = $ingredient_id
+			;    # can be modified later: soy-lecithin -> lecithin, but we don't change values of @ingredients_ids
 
-		my %seen = ();
-		my %seen_tags = ();
+		my $match = 0;
 
-		# Keep track of mentions of the additive class (e.g. "coloring: X, Y, Z") so that we can correctly identify additives after
-		my $current_additive_class = "ingredient";
+		while (not $match) {
 
-		foreach my $ingredient_id (@ingredients_ids) {
+			# additive class?
+			my $canon_ingredient_additive_class
+				= canonicalize_taxonomy_tag($ingredients_lc, "additives_classes", $ingredient_id_copy);
 
-			my $ingredient_id_copy = $ingredient_id
-				;    # can be modified later: soy-lecithin -> lecithin, but we don't change values of @ingredients_ids
+			if (exists_taxonomy_tag("additives_classes", $canon_ingredient_additive_class)) {
+				$current_additive_class = $canon_ingredient_additive_class;
+				$log->debug("current additive class", {current_additive_class => $canon_ingredient_additive_class})
+					if $log->is_debug();
+				$match = 1;
+			}
 
-			my $match = 0;
-			my $match_without_mandatory_class = 0;
+			# additive?
+			my $canon_ingredient = canonicalize_taxonomy_tag($ingredients_lc, 'additives', $ingredient_id_copy);
+			# in Hong Kong, the E- can be omitted in E-numbers
+			my $canon_e_ingredient = canonicalize_taxonomy_tag($ingredients_lc, 'additives', "e" . $ingredient_id_copy);
+			my $canon_ingredient_vitamins = canonicalize_taxonomy_tag($ingredients_lc, "vitamins", $ingredient_id_copy);
+			my $canon_ingredient_minerals = canonicalize_taxonomy_tag($ingredients_lc, "minerals", $ingredient_id_copy);
+			my $canon_ingredient_amino_acids
+				= canonicalize_taxonomy_tag($ingredients_lc, "amino_acids", $ingredient_id_copy);
+			my $canon_ingredient_nucleotides
+				= canonicalize_taxonomy_tag($ingredients_lc, "nucleotides", $ingredient_id_copy);
+			my $canon_ingredient_other_nutritional_substances
+				= canonicalize_taxonomy_tag($ingredients_lc, "other_nutritional_substances", $ingredient_id_copy);
 
-			while (not $match) {
+			$product_ref->{'additives'} .= " [ $ingredient_id_copy -> $canon_ingredient ";
 
-				# additive class?
-				my $canon_ingredient_additive_class
-					= canonicalize_taxonomy_tag($ingredients_lc, "additives_classes", $ingredient_id_copy);
+			# vitamins: we have en:vitamins as a parent tag for all vitamins, so that we can have en:vitamins a parent in the ingredients taxonomy
+			# but we do not want to list en:vitamins in the vitamins_tags
+			if ($canon_ingredient_vitamins eq "en:vitamins") {
+				$current_additive_class = "en:vitamins";
+				$match = 1;
+			}
 
-				if (exists_taxonomy_tag("additives_classes", $canon_ingredient_additive_class)) {
-					$current_additive_class = $canon_ingredient_additive_class;
-					$log->debug("current additive class", {current_additive_class => $canon_ingredient_additive_class})
-						if $log->is_debug();
+			elsif (defined $seen{$canon_ingredient}) {
+				$product_ref->{'additives'} .= " -- already seen ";
+				$match = 1;
+			}
+
+			# For additives, first check if the current class is vitamins or minerals and if the ingredient
+			# exists in the vitamins and minerals taxonomy
+
+			elsif (
+				(
+					   ($current_additive_class eq "en:vitamins")
+					or ($current_additive_class eq "en:minerals")
+					or ($current_additive_class eq "en:amino-acids")
+					or ($current_additive_class eq "en:nucleotides")
+					or ($current_additive_class eq "en:other-nutritional-substances")
+				)
+
+				and (exists_taxonomy_tag("vitamins", $canon_ingredient_vitamins))
+				)
+			{
+				$match = 1;
+				$seen{$canon_ingredient} = 1;
+				$product_ref->{'additives'}
+					.= " -> exists as a vitamin $canon_ingredient_vitamins and current class is $current_additive_class ";
+				if (not exists $seen_tags{'vitamins_tags' . $canon_ingredient_vitamins}) {
+					push @{$product_ref->{'vitamins_tags'}}, $canon_ingredient_vitamins;
+					$seen_tags{'vitamins_tags' . $canon_ingredient_vitamins} = 1;
 				}
+			}
 
-				# additive?
-				my $canon_ingredient = canonicalize_taxonomy_tag($ingredients_lc, $tagtype, $ingredient_id_copy);
-				# in Hong Kong, the E- can be omitted in E-numbers
-				my $canon_e_ingredient
-					= canonicalize_taxonomy_tag($ingredients_lc, $tagtype, "e" . $ingredient_id_copy);
-				my $canon_ingredient_vitamins
-					= canonicalize_taxonomy_tag($ingredients_lc, "vitamins", $ingredient_id_copy);
-				my $canon_ingredient_minerals
-					= canonicalize_taxonomy_tag($ingredients_lc, "minerals", $ingredient_id_copy);
-				my $canon_ingredient_amino_acids
-					= canonicalize_taxonomy_tag($ingredients_lc, "amino_acids", $ingredient_id_copy);
-				my $canon_ingredient_nucleotides
-					= canonicalize_taxonomy_tag($ingredients_lc, "nucleotides", $ingredient_id_copy);
-				my $canon_ingredient_other_nutritional_substances
-					= canonicalize_taxonomy_tag($ingredients_lc, "other_nutritional_substances", $ingredient_id_copy);
-
-				$product_ref->{$tagtype} .= " [ $ingredient_id_copy -> $canon_ingredient ";
-
-				if (defined $seen{$canon_ingredient}) {
-					$product_ref->{$tagtype} .= " -- already seen ";
-					$match = 1;
+			elsif ( ($current_additive_class eq "en:minerals")
+				and (exists_taxonomy_tag("minerals", $canon_ingredient_minerals))
+				and not($just_synonyms{"minerals"}{$canon_ingredient_minerals}))
+			{
+				$match = 1;
+				$seen{$canon_ingredient} = 1;
+				$product_ref->{'additives'}
+					.= " -> exists as a mineral $canon_ingredient_minerals and current class is $current_additive_class ";
+				if (not exists $seen_tags{'minerals_tags' . $canon_ingredient_minerals}) {
+					push @{$product_ref->{'minerals_tags'}}, $canon_ingredient_minerals;
+					$seen_tags{'minerals_tags' . $canon_ingredient_minerals} = 1;
 				}
+			}
 
-				# For additives, first check if the current class is vitamins or minerals and if the ingredient
-				# exists in the vitamins and minerals taxonomy
+			elsif (
+				(exists_taxonomy_tag('additives', $canon_ingredient))
+				# do not match synonyms
+				and ($canon_ingredient !~ /^en:(fd|no|colour)/)
+				)
+			{
 
-				elsif (
-					(
-						   ($current_additive_class eq "en:vitamins")
-						or ($current_additive_class eq "en:minerals")
-						or ($current_additive_class eq "en:amino-acids")
-						or ($current_additive_class eq "en:nucleotides")
-						or ($current_additive_class eq "en:other-nutritional-substances")
-					)
+				$seen{$canon_ingredient} = 1;
+				$product_ref->{'additives'} .= " -> exists ";
 
-					and (exists_taxonomy_tag("vitamins", $canon_ingredient_vitamins))
-					)
+				if (    (defined $properties{'additives'}{$canon_ingredient})
+					and (defined $properties{'additives'}{$canon_ingredient}{"mandatory_additive_class:en"}))
 				{
-					$match = 1;
-					$seen{$canon_ingredient} = 1;
-					$product_ref->{$tagtype}
-						.= " -> exists as a vitamin $canon_ingredient_vitamins and current class is $current_additive_class ";
-					if (not exists $seen_tags{$vitamins_tagtype . '_tags' . $canon_ingredient_vitamins}) {
-						push @{$product_ref->{$vitamins_tagtype . '_tags'}}, $canon_ingredient_vitamins;
-						$seen_tags{$vitamins_tagtype . '_tags' . $canon_ingredient_vitamins} = 1;
+
+					my $mandatory_additive_class
+						= $properties{'additives'}{$canon_ingredient}{"mandatory_additive_class:en"};
+					# make the comma separated list a regexp
+					$product_ref->{'additives'}
+						.= " -- mandatory_additive_class: $mandatory_additive_class (current: $current_additive_class) ";
+					$mandatory_additive_class =~ s/,/\|/g;
+					$mandatory_additive_class =~ s/\s//g;
+					if ($current_additive_class =~ /^$mandatory_additive_class$/) {
+						if (not exists $seen_tags{'additives_tags' . $canon_ingredient}) {
+							push @{$product_ref->{'additives_tags'}}, $canon_ingredient;
+							$seen_tags{'additives_tags' . $canon_ingredient} = 1;
+						}
+						# success!
+						$match = 1;
+						$product_ref->{'additives'} .= " -- ok ";
+					}
+					elsif ($ingredient_id_copy =~ /^e( |-)?\d/) {
+						# id the additive is mentioned with an E number, tag it even if we haven't detected a mandatory class
+						if (not exists $seen_tags{'additives_tags' . $canon_ingredient}) {
+							push @{$product_ref->{'additives_tags'}}, $canon_ingredient;
+							$seen_tags{'additives_tags' . $canon_ingredient} = 1;
+						}
+						# success!
+						$match = 1;
+						$product_ref->{'additives'} .= " -- e-number ";
+
 					}
 				}
+				else {
+					if (not exists $seen_tags{'additives_tags' . $canon_ingredient}) {
+						push @{$product_ref->{'additives_tags'}}, $canon_ingredient;
+						$seen_tags{'additives_tags' . $canon_ingredient} = 1;
+					}
+					# success!
+					$match = 1;
+					$product_ref->{'additives'} .= " -- ok ";
+				}
+			}
 
-				elsif ( ($current_additive_class eq "en:minerals")
-					and (exists_taxonomy_tag("minerals", $canon_ingredient_minerals))
+			# continue to try to match a known additive, mineral or vitamin
+			if (not $match) {
+
+				# check if it is mineral or vitamin, even if we haven't seen "minerals" or "vitamins" before
+				if ((exists_taxonomy_tag("vitamins", $canon_ingredient_vitamins))) {
+					$match = 1;
+					$seen{$canon_ingredient} = 1;
+					$product_ref->{'additives'} .= " -> exists as a vitamin $canon_ingredient_vitamins ";
+					if (not exists $seen_tags{'vitamins_tags' . $canon_ingredient_vitamins}) {
+						push @{$product_ref->{'vitamins_tags'}}, $canon_ingredient_vitamins;
+						$seen_tags{'vitamins_tags' . $canon_ingredient_vitamins} = 1;
+					}
+					# set current class to vitamins
+					$current_additive_class = "en:vitamins";
+				}
+
+				elsif ((exists_taxonomy_tag("minerals", $canon_ingredient_minerals))
 					and not($just_synonyms{"minerals"}{$canon_ingredient_minerals}))
 				{
 					$match = 1;
 					$seen{$canon_ingredient} = 1;
-					$product_ref->{$tagtype}
-						.= " -> exists as a mineral $canon_ingredient_minerals and current class is $current_additive_class ";
-					if (not exists $seen_tags{$minerals_tagtype . '_tags' . $canon_ingredient_minerals}) {
-						push @{$product_ref->{$minerals_tagtype . '_tags'}}, $canon_ingredient_minerals;
-						$seen_tags{$minerals_tagtype . '_tags' . $canon_ingredient_minerals} = 1;
+					$product_ref->{'additives'} .= " -> exists as a mineral $canon_ingredient_minerals ";
+					if (not exists $seen_tags{'minerals_tags' . $canon_ingredient_minerals}) {
+						push @{$product_ref->{'minerals_tags'}}, $canon_ingredient_minerals;
+						$seen_tags{'minerals_tags' . $canon_ingredient_minerals} = 1;
 					}
+					$current_additive_class = "en:minerals";
+				}
+
+				elsif ((exists_taxonomy_tag("amino_acids", $canon_ingredient_amino_acids))) {
+					$match = 1;
+					$seen{$canon_ingredient} = 1;
+					$product_ref->{'additives'} .= " -> exists as a amino_acid $canon_ingredient_amino_acids ";
+					if (not exists $seen_tags{'amino_acids_tags' . $canon_ingredient_amino_acids}) {
+						push @{$product_ref->{'amino_acids_tags'}}, $canon_ingredient_amino_acids;
+						$seen_tags{'amino_acids_tags' . $canon_ingredient_amino_acids} = 1;
+					}
+					$current_additive_class = "en:amino-acids";
+				}
+
+				elsif ((exists_taxonomy_tag("nucleotides", $canon_ingredient_nucleotides))) {
+					$match = 1;
+					$seen{$canon_ingredient} = 1;
+					$product_ref->{'additives'} .= " -> exists as a nucleotide $canon_ingredient_nucleotides ";
+					if (not exists $seen_tags{'nucleotides_tags' . $canon_ingredient_nucleotides}) {
+						push @{$product_ref->{'nucleotides_tags'}}, $canon_ingredient_nucleotides;
+						$seen_tags{'nucleotides_tags' . $canon_ingredient_nucleotides} = 1;
+					}
+					$current_additive_class = "en:nucleotides";
 				}
 
 				elsif (
-					(exists_taxonomy_tag($tagtype, $canon_ingredient))
-					# do not match synonyms
-					and ($canon_ingredient !~ /^en:(fd|no|colour)/)
+					(
+						exists_taxonomy_tag(
+							"other_nutritional_substances",
+							$canon_ingredient_other_nutritional_substances
+						)
+					)
 					)
 				{
-
+					$match = 1;
 					$seen{$canon_ingredient} = 1;
-					$product_ref->{$tagtype} .= " -> exists ";
-
-					if (    (defined $properties{$tagtype}{$canon_ingredient})
-						and (defined $properties{$tagtype}{$canon_ingredient}{"mandatory_additive_class:en"}))
-					{
-
-						my $mandatory_additive_class
-							= $properties{$tagtype}{$canon_ingredient}{"mandatory_additive_class:en"};
-						# make the comma separated list a regexp
-						$product_ref->{$tagtype}
-							.= " -- mandatory_additive_class: $mandatory_additive_class (current: $current_additive_class) ";
-						$mandatory_additive_class =~ s/,/\|/g;
-						$mandatory_additive_class =~ s/\s//g;
-						if ($current_additive_class =~ /^$mandatory_additive_class$/) {
-							if (not exists $seen_tags{$tagtype . '_tags' . $canon_ingredient}) {
-								push @{$product_ref->{$tagtype . '_tags'}}, $canon_ingredient;
-								$seen_tags{$tagtype . '_tags' . $canon_ingredient} = 1;
-							}
-							# success!
-							$match = 1;
-							$product_ref->{$tagtype} .= " -- ok ";
-						}
-						elsif ($ingredient_id_copy =~ /^e( |-)?\d/) {
-							# id the additive is mentioned with an E number, tag it even if we haven't detected a mandatory class
-							if (not exists $seen_tags{$tagtype . '_tags' . $canon_ingredient}) {
-								push @{$product_ref->{$tagtype . '_tags'}}, $canon_ingredient;
-								$seen_tags{$tagtype . '_tags' . $canon_ingredient} = 1;
-							}
-							# success!
-							$match = 1;
-							$product_ref->{$tagtype} .= " -- e-number ";
-
-						}
-						else {
-							$match_without_mandatory_class = 1;
-						}
-					}
-					else {
-						if (not exists $seen_tags{$tagtype . '_tags' . $canon_ingredient}) {
-							push @{$product_ref->{$tagtype . '_tags'}}, $canon_ingredient;
-							$seen_tags{$tagtype . '_tags' . $canon_ingredient} = 1;
-						}
-						# success!
-						$match = 1;
-						$product_ref->{$tagtype} .= " -- ok ";
-					}
-				}
-
-				# continue to try to match a known additive, mineral or vitamin
-				if (not $match) {
-
-					# check if it is mineral or vitamin, even if we haven't seen "minerals" or "vitamins" before
-					if ((exists_taxonomy_tag("vitamins", $canon_ingredient_vitamins))) {
-						$match = 1;
-						$seen{$canon_ingredient} = 1;
-						$product_ref->{$tagtype} .= " -> exists as a vitamin $canon_ingredient_vitamins ";
-						if (not exists $seen_tags{$vitamins_tagtype . '_tags' . $canon_ingredient_vitamins}) {
-							push @{$product_ref->{$vitamins_tagtype . '_tags'}}, $canon_ingredient_vitamins;
-							$seen_tags{$vitamins_tagtype . '_tags' . $canon_ingredient_vitamins} = 1;
-						}
-						# set current class to vitamins
-						$current_additive_class = "en:vitamins";
-					}
-
-					elsif ((exists_taxonomy_tag("minerals", $canon_ingredient_minerals))
-						and not($just_synonyms{"minerals"}{$canon_ingredient_minerals}))
-					{
-						$match = 1;
-						$seen{$canon_ingredient} = 1;
-						$product_ref->{$tagtype} .= " -> exists as a mineral $canon_ingredient_minerals ";
-						if (not exists $seen_tags{$minerals_tagtype . '_tags' . $canon_ingredient_minerals}) {
-							push @{$product_ref->{$minerals_tagtype . '_tags'}}, $canon_ingredient_minerals;
-							$seen_tags{$minerals_tagtype . '_tags' . $canon_ingredient_minerals} = 1;
-						}
-						$current_additive_class = "en:minerals";
-					}
-
-					if ((exists_taxonomy_tag("amino_acids", $canon_ingredient_amino_acids))) {
-						$match = 1;
-						$seen{$canon_ingredient} = 1;
-						$product_ref->{$tagtype} .= " -> exists as a amino_acid $canon_ingredient_amino_acids ";
-						if (not exists $seen_tags{$amino_acids_tagtype . '_tags' . $canon_ingredient_amino_acids}) {
-							push @{$product_ref->{$amino_acids_tagtype . '_tags'}}, $canon_ingredient_amino_acids;
-							$seen_tags{$amino_acids_tagtype . '_tags' . $canon_ingredient_amino_acids} = 1;
-						}
-						$current_additive_class = "en:amino-acids";
-					}
-
-					elsif ((exists_taxonomy_tag("nucleotides", $canon_ingredient_nucleotides))) {
-						$match = 1;
-						$seen{$canon_ingredient} = 1;
-						$product_ref->{$tagtype} .= " -> exists as a nucleotide $canon_ingredient_nucleotides ";
-						if (not exists $seen_tags{$nucleotides_tagtype . '_tags' . $canon_ingredient_nucleotides}) {
-							push @{$product_ref->{$nucleotides_tagtype . '_tags'}}, $canon_ingredient_nucleotides;
-							$seen_tags{$nucleotides_tagtype . '_tags' . $canon_ingredient_nucleotides} = 1;
-						}
-						$current_additive_class = "en:nucleotides";
-					}
-
-					elsif (
-						(
-							exists_taxonomy_tag(
-								"other_nutritional_substances",
-								$canon_ingredient_other_nutritional_substances
-							)
-						)
-						)
-					{
-						$match = 1;
-						$seen{$canon_ingredient} = 1;
-						$product_ref->{$tagtype}
-							.= " -> exists as a other_nutritional_substance $canon_ingredient_other_nutritional_substances ";
-						if (
-							not exists $seen_tags{
-									  $other_nutritional_substances_tagtype . '_tags'
-									. $canon_ingredient_other_nutritional_substances
-							}
-							)
-						{
-							push @{$product_ref->{$other_nutritional_substances_tagtype . '_tags'}},
-								$canon_ingredient_other_nutritional_substances;
-							$seen_tags{$other_nutritional_substances_tagtype . '_tags'
-									. $canon_ingredient_other_nutritional_substances} = 1;
-						}
-						$current_additive_class = "en:other-nutritional-substances";
-					}
-
-					# in Hong Kong, the E- can be omitted in E-numbers
-
-					elsif (
-						(
-							$canon_ingredient
-							=~ /^en:(\d+)( |-)?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?$/i
-						)
-						and (exists_taxonomy_tag($tagtype, $canon_e_ingredient))
-						and ($current_additive_class ne "ingredient")
-						)
-					{
-
-						$seen{$canon_e_ingredient} = 1;
-						$product_ref->{$tagtype} .= " -> e-ingredient exists  ";
-
-						if (not exists $seen_tags{$tagtype . '_tags' . $canon_e_ingredient}) {
-							push @{$product_ref->{$tagtype . '_tags'}}, $canon_e_ingredient;
-							$seen_tags{$tagtype . '_tags' . $canon_e_ingredient} = 1;
-						}
-						# success!
-						$match = 1;
-						$product_ref->{$tagtype} .= " -- ok ";
-					}
-				}
-
-				# spellcheck
-				my $spellcheck = 0;
-				# 2019/11/10 - disable spellcheck of additives, as it is much too slow and make way too many calls to functions
-				if (
-						0
-					and (not $match)
-					and ($tagtype eq 'additives')
-					and not $match_without_mandatory_class
-					# do not correct words that are existing ingredients in the taxonomy
-					and (
-						not exists_taxonomy_tag(
-							"ingredients",
-							canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient_id_copy)
-						)
-					)
-					)
-				{
-
-					my ($corrected_canon_tagid, $corrected_tagid, $corrected_tag)
-						= spellcheck_taxonomy_tag($ingredients_lc, $tagtype, $ingredient_id_copy);
+					$product_ref->{'additives'}
+						.= " -> exists as a other_nutritional_substance $canon_ingredient_other_nutritional_substances ";
 					if (
-							(defined $corrected_canon_tagid)
-						and ($corrected_tag ne $ingredient_id_copy)
-						and (exists_taxonomy_tag($tagtype, $corrected_canon_tagid))
-
-						# false positives
-						# proteinas -> proteinase
-						# vitamine z -> vitamine c
-						# coloré -> chlore
-						# chlorela -> chlore
-
-						and (not $corrected_tag =~ /^proteinase/)
-						and (not $corrected_tag =~ /^vitamin/)
-						and (not $corrected_tag =~ /^argent/)
-						and (not $corrected_tag =~ /^chlore/)
-
+						not exists $seen_tags{
+							'other_nutritional_substances_tags' . $canon_ingredient_other_nutritional_substances
+						}
 						)
 					{
-
-						$product_ref->{$tagtype}
-							.= " -- spell correction (lc: "
-							. $ingredients_lc
-							. "): $ingredient_id_copy -> $corrected_tag";
-						print STDERR "spell correction (lc: "
-							. $ingredients_lc
-							. "): $ingredient_id_copy -> $corrected_tag - code: $product_ref->{code}\n";
-
-						$ingredient_id_copy = $corrected_tag;
-						$spellcheck = 1;
+						push @{$product_ref->{'other_nutritional_substances_tags'}},
+							$canon_ingredient_other_nutritional_substances;
+						$seen_tags{'other_nutritional_substances_tags' . $canon_ingredient_other_nutritional_substances}
+							= 1;
 					}
+					$current_additive_class = "en:other-nutritional-substances";
 				}
 
-				if (    (not $match)
-					and (not $spellcheck))
+				# in Hong Kong, the E- can be omitted in E-numbers
+
+				elsif (
+					(
+						$canon_ingredient
+						=~ /^en:(\d+)( |-)?([a-z])??(i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv)?$/i
+					)
+					and (exists_taxonomy_tag('additives', $canon_e_ingredient))
+					and ($current_additive_class ne "ingredient")
+					)
 				{
 
-					# try to shorten the ingredient to make it less specific, to see if it matches then
-					# in last resort, try with the first (in French, Spanish) or last (in English) word only
+					$seen{$canon_e_ingredient} = 1;
+					$product_ref->{'additives'} .= " -> e-ingredient exists  ";
 
-					if (($ingredients_lc eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
-						# soy-lecithin -> lecithin
-						$ingredient_id_copy = $';
+					if (not exists $seen_tags{'additives_tags' . $canon_e_ingredient}) {
+						push @{$product_ref->{'additives_tags'}}, $canon_e_ingredient;
+						$seen_tags{'additives_tags' . $canon_e_ingredient} = 1;
 					}
-					elsif ( (($ingredients_lc eq 'es') or ($ingredients_lc eq 'fr'))
-						and ($ingredient_id_copy =~ /-([^-]+)$/))
-					{
-						# lecitina-de-girasol -> lecitina-de -> lecitina
-						# lecithine-de-soja -> lecithine-de -> lecithine
-						$ingredient_id_copy = $`;
-					}
-					else {
-						# give up
-						$match = 1;
-					}
+					# success!
+					$match = 1;
+					$product_ref->{'additives'} .= " -- ok ";
 				}
-
-				$product_ref->{$tagtype} .= " ] ";
 			}
+
+			if (not $match) {
+
+				# try to shorten the ingredient to make it less specific, to see if it matches then
+				# in last resort, try with the first (in French, Spanish) or last (in English) word only
+
+				if (($ingredients_lc eq 'en') and ($ingredient_id_copy =~ /^([^-]+)-/)) {
+					# soy-lecithin -> lecithin
+					$ingredient_id_copy = $';
+				}
+				elsif ( (($ingredients_lc eq 'es') or ($ingredients_lc eq 'fr'))
+					and ($ingredient_id_copy =~ /-([^-]+)$/))
+				{
+					# lecitina-de-girasol -> lecitina-de -> lecitina
+					# lecithine-de-soja -> lecithine-de -> lecithine
+					$ingredient_id_copy = $`;
+				}
+				else {
+					# give up
+					$match = 1;
+				}
+			}
+
+			$product_ref->{'additives'} .= " ] ";
 		}
+	}
 
-		# Also generate a list of additives with the parents (e.g. E500ii adds E500)
-		$product_ref->{$tagtype . '_original_tags'} = $product_ref->{$tagtype . '_tags'};
-		$product_ref->{$tagtype . '_tags'}
-			= [
-			sort(
-				gen_tags_hierarchy_taxonomy("en", $tagtype, join(', ', @{$product_ref->{$tagtype . '_original_tags'}})))
-			];
+	# Also generate a list of additives with the parents (e.g. E500ii adds E500)
+	$product_ref->{'additives_original_tags'} = $product_ref->{'additives_tags'};
+	$product_ref->{'additives_tags'}
+		= [
+		sort(gen_tags_hierarchy_taxonomy("en", 'additives', join(', ', @{$product_ref->{'additives_original_tags'}})))
+		];
 
-		# No ingredients?
-		if ($product_ref->{ingredients_text} eq '') {
-			delete $product_ref->{$tagtype . '_n'};
+	# No ingredients?
+	if ($product_ref->{ingredients_text} eq '') {
+		delete $product_ref->{'additives_n'};
+	}
+	else {
+		# count the original list of additives, don't count E500ii as both E500 and E500ii
+		if (defined $product_ref->{'additives_original_tags'}) {
+			$product_ref->{'additives_n'} = scalar @{$product_ref->{'additives_original_tags'}};
 		}
 		else {
-			# count the original list of additives, don't count E500ii as both E500 and E500ii
-			if (defined $product_ref->{$tagtype . '_original_tags'}) {
-				$product_ref->{$tagtype . '_n'} = scalar @{$product_ref->{$tagtype . '_original_tags'}};
-			}
-			else {
-				delete $product_ref->{$tagtype . '_n'};
-			}
+			delete $product_ref->{'additives_n'};
 		}
+	}
 
-		# Delete debug info
-		if (not has_tag($product_ref, "categories", 'en:debug')) {
-			delete $product_ref->{$tagtype};
-		}
+	# Delete debug info
+	if (not has_tag($product_ref, "categories", 'en:debug')) {
+		delete $product_ref->{'additives'};
+	}
 
-		# Delete empty arrays
-		# -> not active
-		# -> may be dangerous if some apps rely on them existing even if empty
+	# Delete empty arrays
+	# -> not active
+	# -> may be dangerous if some apps rely on them existing even if empty
 
-		if (0) {
-			foreach my $array (
-				$tagtype . '_tags',
-				$tagtype . '_original_tags',
-				$vitamins_tagtype . '_tags',
-				$minerals_tagtype . '_tags',
-				$amino_acids_tagtype . '_tags',
-				$nucleotides_tagtype . '_tags',
-				$other_nutritional_substances_tagtype . '_tags'
-				)
-			{
-				if ((defined $product_ref->{$array}) and ((scalar @{$product_ref->{$array}}) == 0)) {
-					delete $product_ref->{$array};
-				}
+	if (0) {
+		foreach my $array (
+			'additives_tags', 'additives_original_tags',
+			'vitamins_tags', 'minerals_tags',
+			'amino_acids_tags', 'nucleotides_tags',
+			'other_nutritional_substances_tags'
+			)
+		{
+			if ((defined $product_ref->{$array}) and ((scalar @{$product_ref->{$array}}) == 0)) {
+				delete $product_ref->{$array};
 			}
 		}
 	}
@@ -7616,7 +7815,7 @@ sub count_sweeteners_and_non_nutritive_sweeteners ($product_ref) {
 		$product_ref->{ingredients_sweeteners_n} = 0;
 		$product_ref->{ingredients_non_nutritive_sweeteners_n} = 0;
 
-		# Go through additives and check if the product contains sweeteners and non-nutritive sweeteners
+		# Go through additives and check if the product contains sweeteners and non-nutritive sweeteners
 		if (defined $product_ref->{additives_tags}) {
 			foreach my $additive (@{$product_ref->{additives_tags}}) {
 				my $sweetener_property = get_inherited_property("additives", $additive, "sweetener:en") // "";
@@ -7858,7 +8057,7 @@ sub get_allergens_taxonomyid($ingredients_lc, $ingredient_or_allergen) {
 		}
 	}
 
-	# If we did not recognize the allergen, return the taxonomy id for the original tag
+	# If we did not recognize the allergen, return the taxonomy id for the original tag
 	return get_taxonomyid($ingredients_lc, $ingredient_or_allergen);
 }
 
@@ -8115,7 +8314,7 @@ sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 	return ($percent, $water_percent);
 }
 
-=head2 estimate_ingredients_matching_function ( $product_ref, $match_function_ref, $nutrient_id = undef )
+=head2 estimate_ingredients_matching_function ( $product_ref, $match_function_ref)
 
 This function analyzes the ingredients to estimate the percentage of ingredients of a specific type
 (e.g. fruits/vegetables/legumes for the Nutri-Score).
@@ -8128,17 +8327,13 @@ This function analyzes the ingredients to estimate the percentage of ingredients
 
 Reference to a function that matches specific ingredients (e.g. fruits/vegetables/legumes)
 
-=head4 $nutrient_id (optional)
-
-If the $nutrient_id argument is defined, we also store the nutrient value in $product_ref->{nutriments}.
-
 =head3 Return value
 
 Estimated percentage of ingredients matching the function.
 
 =cut
 
-sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $nutrient_id = undef) {
+sub estimate_ingredients_matching_function ($product_ref, $match_function_ref) {
 
 	my ($percent, $water_percent);
 
@@ -8183,17 +8378,6 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $
 			and ((not defined $percent) or ($specific_ingredients_percent > $percent)))
 		{
 			$percent = $specific_ingredients_percent;
-		}
-	}
-
-	if (defined $nutrient_id) {
-		if (defined $percent) {
-			$product_ref->{nutriments}{$nutrient_id . "_100g"} = $percent;
-			$product_ref->{nutriments}{$nutrient_id . "_serving"} = $percent;
-		}
-		elsif (defined $product_ref->{nutriments}) {
-			delete $product_ref->{nutriments}{$nutrient_id . "_100g"};
-			delete $product_ref->{nutriments}{$nutrient_id . "_serving"};
 		}
 	}
 
@@ -8249,17 +8433,13 @@ fruits, vegetables, nuts, olive / walnut / rapeseed oil, so that we can compute
 the Nutri-Score fruit points if we don't have a value given by the manufacturer
 or estimated by users.
 
-Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} (and _serving)
+This function is called by ProductOpener::Nutrition::compute_estimated_nutrients ($product_ref)
 
 =cut
 
 sub estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ($product_ref) {
 
-	return estimate_ingredients_matching_function(
-		$product_ref,
-		\&is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils,
-		"fruits-vegetables-nuts-estimate-from-ingredients"
-	);
+	return estimate_ingredients_matching_function($product_ref, \&is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils);
 
 }
 
@@ -8387,7 +8567,7 @@ sub is_fruits_vegetables_legumes_for_fat_oil_nuts_seed ($ingredient_id, $process
 This function analyzes the ingredients to estimate the minimum percentage of
 fruits, vegetables, legumes, so that we can compute the Nutri-Score (2023) fruit points.
 
-Results are stored in $product_ref->{nutriments}{"fruits-vegetables-legumes-estimate-from-ingredients_100g"} (and _serving)
+This function is called by ProductOpener::Nutrition::compute_estimated_nutrients ($product_ref)
 
 =cut
 
@@ -8402,9 +8582,7 @@ sub estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients 
 		$matching_function_ref = \&is_fruits_vegetables_legumes;
 	}
 
-	return estimate_ingredients_matching_function($product_ref, $matching_function_ref,
-		"fruits-vegetables-legumes-estimate-from-ingredients",
-	);
+	return estimate_ingredients_matching_function($product_ref, $matching_function_ref);
 }
 
 =head2 is_milk ( $ingredient_id, $processing = undef )
@@ -8466,6 +8644,23 @@ Returns a list of ingredients that have a specific property value.
 
 =cut
 
+=head2 estimate_added_sugars_percent_from_ingredients ($product_ref)
+
+This function analyzes the ingredients to estimate the percentage of added sugars in a product.
+
+=cut
+
+sub estimate_added_sugars_percent_from_ingredients ($product_ref) {
+
+	return estimate_ingredients_matching_function(
+		$product_ref,
+		sub {
+			my ($ingredient_id, $processing) = @_;
+			return is_a("ingredients", $ingredient_id, "en:added-sugar");
+		},
+	);
+}
+
 sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
 
 	my @matching_ingredients = ();
@@ -8485,6 +8680,55 @@ sub get_ingredients_with_property_value ($ingredients_ref, $property, $value) {
 	}
 
 	return @matching_ingredients;
+}
+
+=head2 sub get_ingredients_with_parent ($ingredients_ref, $property, $value)
+
+Returns a list of ingredients that have a specific parent.
+
+=cut
+
+sub get_ingredients_with_parent ($ingredients_ref, $parent) {
+
+	my @matching_ingredients = ();
+
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+
+		if (is_a("ingredients", $ingredient_ref->{id}, $parent)) {
+			push @matching_ingredients, $ingredient_ref->{id};
+		}
+
+		if (defined $ingredient_ref->{ingredients}) {
+			push @matching_ingredients, get_ingredients_with_parent($ingredient_ref->{ingredients}, $parent);
+		}
+	}
+
+	return @matching_ingredients;
+}
+
+=head2 detect_rare_crops ( $product_ref )
+
+Detects if the product contains rare crops, and adds the tag
+en:ingredients-contain-rare-crops to the product.
+
+Rare crops are defined by the EU project DIVINFOOD (that OFF is participating in),
+which calls them NUCs (Neglected and Underutilized Crops).
+
+=cut
+
+sub detect_rare_crops($product_ref) {
+
+	remove_tag($product_ref, "misc", "en:ingredients-contain-rare-crops");
+
+	# Go through the ingredients structure, and check if they have the rare_crop:en:yes property
+	my @rare_crops_ingredients
+		= get_ingredients_with_property_value($product_ref->{ingredients}, "rare_crop:en", "yes");
+
+	if ($#rare_crops_ingredients >= 0) {
+		add_tag($product_ref, "misc", "en:ingredients-contain-rare-crops");
+	}
+
+	return;
 }
 
 1;

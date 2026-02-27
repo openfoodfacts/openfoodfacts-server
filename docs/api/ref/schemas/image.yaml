@@ -3,8 +3,8 @@ components:
     Sizes:
       type: object
       description: |
-        The available image sizes for the product (both reduced and full). 
-        The reduced images are the ones with numbers as the key( 100, 200 etc) 
+        The available image sizes for the product (both reduced and full).
+        The reduced images are the ones with numbers as the key( 100, 200 etc)
         while the full images have `full` as the key.
       properties:
         full:
@@ -26,6 +26,26 @@ components:
         This object represent an image that was uploaded to a product.
         "imgid" is an integer which is a sequential number unique to each picture.
       properties:
+        imgid:
+          type: integer
+          example: 123456789
+          description: |
+            If the image is selected as the front / ingredients / nutrition / packaging image,
+            this is the index to access the original image URL in the `images` field of the product.
+            If the image is not selected as one of these, this field is null.
+
+            So if the product has the following `images` field:
+
+            ```json
+            "images": {
+              1: { ... },
+              front_en: { imgid: 1, ... },
+              ...
+            }
+            ```
+
+            then the front image can be accessed by `images[1]`.
+
         sizes:
           $ref: "#/components/schemas/Sizes"
         uploaded_t:

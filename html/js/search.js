@@ -18,6 +18,8 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+/*global folksonomy_url */
+
 function modifySearchCriterion(element, criterion_number) {
 	//Type of criterion
 	const selects = element.find('select');
@@ -70,5 +72,39 @@ function addSearchCriterion(target, criteria_number) {
 			$(".criterion-row:last select:first").focus();
 		}
 	});
+
+	// On axis change, show/hide the corresponding folksonomy property value input for the axis
+	$(document).on("change", "#axis_x, #axis_y", function (e) {
+
+		const axis = e.target.id.split("_")[1];
+		const axisSelect = $("#" + e.target.id);
+		const folksonomyInput = $("#axis_" + axis + "_folksonomy_property_div");
+
+		if (axisSelect.val() === "folksonomy") {
+			folksonomyInput.show();
+		} else {
+			folksonomyInput.hide();
+		}
+	});
+
+	// Autocomplete for Folksonomy Engine properties
+
+    fetch(folksonomy_url + "/keys").
+        then(function(u){ return u.json(); }).
+        then(function(json){
+
+        /* [    { "k": "knockoff_brand", "count": 25, "values": 7 },
+                { "k": "packaging:has_character", "count": 18, "values": 1 }  ] */
+        const list = $.map(json, function (value) {
+                    return {
+                        label: value.k + " (" + value.count + ")",
+                        value: value.k
+                    };
+                });
+        // jquery UI autocomplete: https://jqueryui.com/autocomplete/
+		$("#axis_x_folksonomy_property, #axis_y_folksonomy_property").autocomplete({
+			source: list,
+		});
+    });
 
 })(jQuery);

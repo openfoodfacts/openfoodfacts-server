@@ -7,15 +7,13 @@ use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_user_form/;
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 my $test_ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($test_ua, \%create_user_args);
 
 my %product_form = (
@@ -41,7 +39,7 @@ my $response = $test_ua->post($url, Content => \%product_form, %$headers_in);
 # Stop logging
 my $logs = tail_log_read($tail);
 
-# Check that the push_to_redis_stream function was called and that Redis connection was successful
+# Check that the push_product_update_to_redis function was called and that Redis connection was successful
 ok($logs =~ /Pushing product update to Redis/, "pushing product update to Redis");
 # Check that the Redis call didn't trigger an error
 ok($logs =~ /Successfully pushed product update to Redis/, "successfully pushed product update to Redis");

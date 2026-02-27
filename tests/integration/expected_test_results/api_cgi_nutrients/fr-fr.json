@@ -337,6 +337,13 @@
                   },
                   {
                      "display_in_edit_form" : false,
+                     "id" : "galactose",
+                     "important" : false,
+                     "name" : "Galactose",
+                     "unit" : "g"
+                  },
+                  {
+                     "display_in_edit_form" : false,
                      "id" : "lactose",
                      "important" : false,
                      "name" : "Lactose",
@@ -361,6 +368,13 @@
             },
             {
                "display_in_edit_form" : false,
+               "id" : "psicose",
+               "important" : false,
+               "name" : "Psicose",
+               "unit" : "g"
+            },
+            {
+               "display_in_edit_form" : false,
                "id" : "starch",
                "important" : false,
                "name" : "Amidon",
@@ -377,6 +391,27 @@
                      "id" : "erythritol",
                      "important" : false,
                      "name" : "Érythritol",
+                     "unit" : "g"
+                  },
+                  {
+                     "display_in_edit_form" : false,
+                     "id" : "isomalt",
+                     "important" : false,
+                     "name" : "Isomalt",
+                     "unit" : "g"
+                  },
+                  {
+                     "display_in_edit_form" : false,
+                     "id" : "maltitol",
+                     "important" : false,
+                     "name" : "Maltitol",
+                     "unit" : "g"
+                  },
+                  {
+                     "display_in_edit_form" : false,
+                     "id" : "sorbitol",
+                     "important" : false,
+                     "name" : "Sorbitol",
                      "unit" : "g"
                   }
                ],
@@ -396,6 +431,15 @@
                "id" : "soluble-fiber",
                "important" : false,
                "name" : "Fibres solubles",
+               "nutrients" : [
+                  {
+                     "display_in_edit_form" : false,
+                     "id" : "polydextrose",
+                     "important" : false,
+                     "name" : "Polydextrose",
+                     "unit" : "g"
+                  }
+               ],
                "unit" : "g"
             },
             {
@@ -701,6 +745,13 @@
       },
       {
          "display_in_edit_form" : false,
+         "id" : "methylsulfonylmethane",
+         "important" : false,
+         "name" : "MSM",
+         "unit" : "mg"
+      },
+      {
+         "display_in_edit_form" : false,
          "id" : "ph",
          "important" : false,
          "name" : "PH",
@@ -708,23 +759,9 @@
       },
       {
          "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts",
-         "important" : false,
-         "name" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive",
-         "unit" : "%"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts-dried",
-         "important" : false,
-         "name" : "Fruits‚ légumes et noix - séchés",
-         "unit" : "%"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts-estimate",
-         "important" : false,
-         "name" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation manuelle avec la liste des ingrédients)",
+         "id" : "fruits-vegetables-legumes",
+         "important" : true,
+         "name" : "Fruits‚ légumes‚ légumes secs",
          "unit" : "%"
       },
       {
@@ -754,27 +791,6 @@
          "important" : false,
          "name" : "Empreinte carbone",
          "unit" : "g"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "carbon-footprint-from-meat-or-fish",
-         "important" : false,
-         "name" : "Empreinte carbone de la viande ou du poisson",
-         "unit" : "g"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "nutrition-score-fr",
-         "important" : false,
-         "name" : "Score nutritionnel - France",
-         "unit" : ""
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "nutrition-score-uk",
-         "important" : false,
-         "name" : "Nutrition score - UK",
-         "unit" : ""
       },
       {
          "display_in_edit_form" : false,
@@ -845,6 +861,13 @@
          "important" : false,
          "name" : "Acidité",
          "unit" : "% vol"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "carbohydrates-total",
+         "important" : false,
+         "name" : "Glucides totaux (inclut les fibres)",
+         "unit" : "g"
       }
    ]
 }

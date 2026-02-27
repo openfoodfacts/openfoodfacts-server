@@ -31,8 +31,8 @@ foreach my $test_ref (@lists) {
 	my $lc = $test_ref->[0];    # Language
 	my $ingredients_text_from_image = $test_ref->[1];
 	my $cut_ingredients_text_from_image = cut_ingredients_text_for_lang($ingredients_text_from_image, $lc);
-	print STDERR "input from the picture extraction (ingredients list ($lc)): $ingredients_text_from_image\n";
-	print STDERR "cut_ingredients_text_from_image (result from sub routine): $cut_ingredients_text_from_image\n";
+	# print STDERR "input from the picture extraction (ingredients list ($lc)): $ingredients_text_from_image\n";
+	# print STDERR "cut_ingredients_text_from_image (result from sub routine): $cut_ingredients_text_from_image\n";
 	my $expected = $test_ref->[2];
 	is(lc($cut_ingredients_text_from_image), lc($expected))
 		or print STDERR "Original ingredients: $ingredients_text_from_image ($lc)\n";

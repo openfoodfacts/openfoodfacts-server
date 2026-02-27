@@ -1,0 +1,86 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:concentrate",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "20009",
+               "ecobalyse_code" : "carrot-non-eu",
+               "id" : "en:carrot",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 75,
+               "percent_max" : 100,
+               "percent_min" : 50,
+               "processing" : "en:concentrated",
+               "text" : "morot",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "13007",
+               "id" : "en:blackcurrant",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 25,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "processing" : "en:concentrated",
+               "text" : "svarta vinbär",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "koncentrat från",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "sv",
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:concentrate",
+      "en:carrot",
+      "en:blackcurrant"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:concentrate",
+      "en:carrot",
+      "en:vegetable",
+      "en:root-vegetable",
+      "en:taproot-vegetable",
+      "en:blackcurrant",
+      "en:fruit",
+      "en:berries"
+   ],
+   "ingredients_text" : "koncentrat från (morot, svarta vinbär)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:concentrate"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:blackcurrant",
+      "en:concentrate"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 3,
+   "lc" : "sv",
+   "unknown_ingredients_n" : 0
+}

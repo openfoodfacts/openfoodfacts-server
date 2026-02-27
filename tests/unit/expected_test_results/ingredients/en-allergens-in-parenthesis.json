@@ -89,7 +89,9 @@
          "percent_estimate" : 9.375,
          "percent_max" : 25,
          "percent_min" : 0,
-         "text" : "dough"
+         "text" : "dough",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
@@ -99,12 +101,6 @@
       ],
       "en:non-vegetarian" : [
          "en:surimi"
-      ],
-      "en:vegan-status-unknown" : [
-         "en:dough"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:dough"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -163,11 +159,5 @@
    "ingredients_without_ecobalyse_ids_n" : 4,
    "known_ingredients_n" : 8,
    "lc" : "en",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "unknown_ingredients_n" : 0
 }

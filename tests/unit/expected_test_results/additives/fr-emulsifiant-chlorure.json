@@ -1,11 +1,9 @@
 {
-   "additives_n" : 2,
+   "additives_n" : 1,
    "additives_original_tags" : [
-      "en:e1001",
       "en:e920"
    ],
    "additives_tags" : [
-      "en:e1001",
       "en:e920"
    ],
    "amino_acids_tags" : [],
@@ -14,6 +12,8 @@
    "lc" : "fr",
    "minerals_tags" : [],
    "nucleotides_tags" : [],
-   "other_nutritional_substances_tags" : [],
+   "other_nutritional_substances_tags" : [
+      "en:choline-chloride"
+   ],
    "vitamins_tags" : []
 }

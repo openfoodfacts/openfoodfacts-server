@@ -1,0 +1,20 @@
+# service instance name "%i" is off, obf, opf, opff or off-pro
+[Unit]
+Description=%i redis listener
+# __ will be replaced by @ in email-failures@.service
+OnFailure=email-failures@redis_listener__%i.service
+
+[Service]
+Type=simple
+User=off
+Group=off
+WorkingDirectory=/srv/%i
+Environment="PERL5LIB=/srv/%i/lib"
+# Apache needs some environment variables like PRODUCT_OPENER_FLAVOR_SHORT
+EnvironmentFile=/srv/%i/env/env.%i
+ExecStart=/srv/%i/scripts/listen_to_redis_stream.pl
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+

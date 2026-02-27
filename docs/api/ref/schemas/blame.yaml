@@ -1,0 +1,118 @@
+title: Blame Information
+description: |
+  Information about who last modified each field of the product.
+  This is returned when the 'blame' parameter is included in the request.
+type: object
+properties:
+  fields:
+    type: object
+    description: Blame information for product fields
+    additionalProperties:
+      type: object
+      properties:
+        userid:
+          type: string
+          description: User ID of the person who last modified this field
+          example: "editortester"
+        t:
+          type: integer
+          description: Unix timestamp when the field was last modified
+          example: 1636466428
+        rev:
+          type: integer
+          description: Revision number when the field was last modified
+          example: 5
+        value:
+          type: string
+          description: Current value of the field
+          example: "Some Cookie"
+        previous_userid:
+          type: string
+          description: User ID of the person who previously modified this field
+          example: "previoustester"
+        previous_t:
+          type: integer
+          description: Unix timestamp when the field was previously modified
+          example: 1636366428
+        previous_rev:
+          type: integer
+          description: Previous revision number
+          example: 4
+        previous_value:
+          type: string
+          description: Previous value of the field
+          example: "Old Cookie Name"
+  uploaded_images:
+    type: object
+    description: Blame information for uploaded images
+    additionalProperties:
+      type: object
+      properties:
+        userid:
+          type: string
+          description: User ID of the person who uploaded this image
+        t:
+          type: integer
+          description: Unix timestamp when the image was uploaded
+        rev:
+          type: integer
+          description: Revision number when the image was uploaded
+        value:
+          type: string
+          description: Image filename or identifier
+  selected_images:
+    type: object
+    description: Blame information for selected images
+    additionalProperties:
+      type: object
+      properties:
+        userid:
+          type: string
+          description: User ID of the person who selected this image
+        t:
+          type: integer
+          description: Unix timestamp when the image was selected
+        rev:
+          type: integer
+          description: Revision number when the image was selected
+        value:
+          type: string
+          description: Selected image identifier
+  nutriments:
+    type: object
+    description: Blame information for nutrition facts
+    additionalProperties:
+      type: object
+      properties:
+        userid:
+          type: string
+          description: User ID of the person who last modified this nutriment
+        t:
+          type: integer
+          description: Unix timestamp when the nutriment was last modified
+        rev:
+          type: integer
+          description: Revision number when the nutriment was last modified
+        value:
+          oneOf:
+            - type: string
+            - type: number
+          description: Current value of the nutriment
+  packagings:
+    type: object
+    description: Blame information for packaging data
+    additionalProperties:
+      type: object
+      properties:
+        userid:
+          type: string
+          description: User ID of the person who last modified packaging info
+        t:
+          type: integer
+          description: Unix timestamp when packaging was last modified
+        rev:
+          type: integer
+          description: Revision number when packaging was last modified
+        value:
+          type: string
+          description: Current packaging data signature
