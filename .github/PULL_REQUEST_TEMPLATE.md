@@ -40,7 +40,7 @@ Following `type`s are allowed:
 
 ### Related issue(s) and discussion
 <!-- Please add the issue number this issue will close, that way, once your pull request is merged, the issue will be closed as well -->
-<!-- change by appropriate issues. -->
+<!-- Replace with the appropriate issue number(s) -->
 <!-- Please use a linking keyword https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword -->
 - Fixes: <!-- #1 Note: you can also use Closes: -->
 
