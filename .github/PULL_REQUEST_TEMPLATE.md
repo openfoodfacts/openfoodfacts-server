@@ -2,7 +2,7 @@
 ⚠️ Acceptance Requirements
 **This Pull Request will only be accepted if:**
 - ✅ It is linked to an issue (using linking keywords like `Fixes`, `Closes`, or `Resolves`)
-- ✅ There's an agreement by a maintener or core contributor in the linked issue to assign it to the author of this PR
+- ✅ There's an agreement by a maintainer or core contributor in the linked issue to assign it to the author of this PR
 -->
 
 <!-- 
