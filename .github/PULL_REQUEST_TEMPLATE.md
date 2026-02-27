@@ -33,7 +33,7 @@ Following `type`s are allowed:
 <!-- Describe why they were made instead of how they were made. -->
 
 ### Large Language Models usage disclosure
-<!-- ⚠️ If you used a LLM, please disclose which LLM you used (and its version) and how (agentic, autocomplete). Please confirm you have run sucessfully the code on your device. Also provide a screenshot or video as a proof -->
+<!-- ⚠️ If you used an LLM, please disclose which LLM you used (and its version) and how (agentic, autocomplete). Please confirm you have run successfully the code on your device. Also provide a screenshot or video as proof -->
 
 ### Screenshot or video
 <!-- Insert a screenshot or a video to provide visual record of your changes (if visible) -->
