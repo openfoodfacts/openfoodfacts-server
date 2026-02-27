@@ -244,7 +244,7 @@ while (<$LIST>) {
 		$csv_out->print($OUT, \@row);
 	}
 	$n++;
-	$n > 200 and last;    # for testing, limit to 100 lines
+	$n > 500 and last;    # for testing, limit to 100 lines
 }
 close $LIST;
 close $OUT;
