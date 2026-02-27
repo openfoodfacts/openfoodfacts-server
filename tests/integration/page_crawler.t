@@ -14,11 +14,9 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 my $ua = new_client();
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
@@ -83,12 +81,13 @@ my $tests_ref = [
 		response_content_must_match => '<h1>NOINDEX</h1>'
 	},
 	# Normal user should have access to nested facets
+	# 2025-06-02: unidentified users can no longer access 2 level facets
 	{
 		test_case => 'normal-user-access-nested-facet-page',
 		method => 'GET',
 		path => '/facets/categories/hazelnut-spreads/brands/nutella',
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
-		expected_status_code => 200,
+		expected_status_code => 401,
 		expected_type => 'html',
 		response_content_must_not_match => '<h1>NOINDEX</h1>'
 	},

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -47,6 +47,7 @@ BEGIN {
 		$admin_email
 		$producers_email
 
+		$tesseract_ocr_available
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
 
@@ -63,10 +64,14 @@ BEGIN {
 		$rate_limiter_blocking_enabled
 		$facets_kp_url
 		$redis_url
-
+		$folksonomy_url
+		$process_global_redis_events
 		$mongodb
 		$mongodb_host
 		$mongodb_timeout_ms
+
+		$recipe_estimator_url
+		$recipe_estimator_scipy_url
 
 		$memd_servers
 
@@ -80,6 +85,8 @@ BEGIN {
 
 		%options
 		%server_options
+		%oidc_options
+		%slack_hook_urls
 
 		@product_fields
 		@product_other_fields
@@ -97,6 +104,7 @@ BEGIN {
 		@edit_rules
 
 		$build_cache_repo
+		$serialize_to_json
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -176,11 +184,11 @@ $flavor = 'obf';
 %options = (
 	site_name => "Open Beauty Facts",
 	product_type => "beauty",
-	og_image_url => "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png",
-	android_apk_app_link => "https://world.openbeautyfacts.org/images/apps/obf.apk?utm_source=obf&utf_medium=web",
-	android_app_link =>
-		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=obf&utf_medium=web",
-	ios_app_link => "https://apps.apple.com/app/open-beauty-facts/id1122926380?utm_source=obf&utf_medium=web",
+	og_image_url => "https://static.openbeautyfacts.org/images/logos/obf-logo-vertical-white-social-media-preview.png",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases?utm_source=obf&utf_medium=web",
+android_app_link =>
+"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=obf&utf_medium=web",
+ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=obf&utf_medium=web",
 	facebook_page_url => "https://www.facebook.com/openfoodfacts?utm_source=obf&utf_medium=web",
 	x_account => "OpenFoodFacts",
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
@@ -231,6 +239,7 @@ $conf_root = $ProductOpener::Config2::conf_root;
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
+$tesseract_ocr_available = $ProductOpener::Config2::tesseract_ocr_available;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 $google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
@@ -242,21 +251,41 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $query_url = $ProductOpener::Config2::query_url;
 
+# recipe-estimator product service
+# To test a locally running recipe-estimator with product opener in a docker dev environment:
+# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+
+$recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
+$recipe_estimator_scipy_url = $ProductOpener::Config2::recipe_estimator_scipy_url;
+
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
 $events_url = $ProductOpener::Config2::events_url;
 $events_username = $ProductOpener::Config2::events_username;
 $events_password = $ProductOpener::Config2::events_password;
 
+# Redis is used to push updates to the search server
+$redis_url = $ProductOpener::Config2::redis_url;
+# Only the OFF instance processes the global events
+$process_global_redis_events = 0;
+
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
 $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ProductOpener::Config2::folksonomy_url;
 
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
 
 $build_cache_repo = $ProductOpener::Config2::build_cache_repo;
+
+#11901: Remove once production is migrated
+$serialize_to_json = $ProductOpener::Config2::serialize_to_json;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -498,10 +527,53 @@ HTML
 	last_image_t
 );
 
+# List of fields that can be imported on the producers platform
+# and that are also exported from the producers platform to the public platform
+$options{import_export_fields_groups} = [
+	[
+		"identification",
+		[
+			"code", "producer_product_id",
+			"producer_version_id", "lc",
+			"product_name", "abbreviated_product_name",
+			"generic_name",
+			"quantity_value_unit", "net_weight_value_unit",
+			"drained_weight_value_unit", "volume_value_unit",
+			"packaging",
+			"brands", "brand_owner",
+			"categories", "categories_specific",
+			"labels", "labels_specific",
+			"countries", "stores",
+			"obsolete", "obsolete_since_date",
+			"periods_after_opening"    # included for OBF imports via the producers platform
+		]
+	],
+	[
+		"origins",
+		["origins", "origin", "manufacturing_places", "producer"]
+	],
+	["ingredients", ["ingredients_text", "allergens", "traces"]],
+	["packaging"],
+	[
+		"other",
+		["link",]
+	],
+	[
+		"images",
+		["image_front_url", "image_ingredients_url", "image_packaging_url", "image_other_url", "image_other_type",]
+	],
+];
+
+# Secondary fields that are computed by OBF from primary data
+# Those fields are only exported, they are not imported.
+# TODO: populate when calculated indicators are available on OBF
+
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
-$options{attribute_groups}
-	= [["ingredients_analysis", ["vegan", "palm_oil_free",]], ["labels", ["labels_organic", "labels_fair_trade"]],];
+$options{attribute_groups} = [
+	["ingredients_analysis", ["vegan", "palm_oil_free", "unwanted_ingredients"]],
+	["labels", ["labels_organic", "labels_fair_trade"]],
+];
 
 # default preferences for attributes
 $options{attribute_default_preferences} = {
@@ -565,6 +637,9 @@ $options{display_tag_ingredients} = [
 $options{no_nutrition_table} = 1;
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates";
+$options{redis_stream_name_product_updates} = "product_updates";
+# Name of the Redis stream where we notify that OCR results
+# are ready
+$options{redis_stream_name_ocr_ready} = "ocr_ready";
 
 1;

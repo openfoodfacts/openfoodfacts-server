@@ -3785,7 +3785,7 @@ hu: Kagosima prefektúra
 hy: Կոգոշիմա
 id: Prefektur Kagoshima
 it: prefettura di Kagoshima
-ja: 鹿児島県, 鹿児島
+ja: 鹿児島県, 鹿児島, 鹿児島県産
 jv: Prefektur Kagoshima
 ka: კაგოსიმის პრეფექტურა
 km: ខេត្តខាហ្គុស៊ីម៉ា
@@ -4006,11 +4006,21 @@ sh: Sanriku
 zh: 三陸
 wikidata:en: Q1318603
 
-en: outside japan
+en: outside Japan
+da: udenfor Japan
+fr: hors Japon
 ja: 外国, 輸入
+sv: utanför Japan
 
 en: Outside France
+da: udenfor Frankrig
 fr: Hors France
+sv: utanför Frankrike
+
+en: outside Germany
+da: udenfor Tyskland
+fr: hors Allemagne
+sv: utanför Tyskland, icke-Tyskland, inte Tyskland, inte från Tyskland
 
 en: Europe
 xx: Europa
@@ -4143,7 +4153,7 @@ pt: Fora da União Europeia
 ru: Не входит в Европейский Союз, не является членом ЕС
 sq: Jo Bashkimi Evropian, Jo BE
 sr: Изван Европске Уније, није чланица ЕУ
-sv: Icke-Europeiska Unionen, Icke-EU
+sv: Icke-Europeiska Unionen, Icke-EU, Utanför EU
 tr: Avrupa Birliği üyesi olmayan, AB üyesi olmayan
 uk: Не є членом Європейського Союзу, не є членом ЄС
 zh: 非欧盟国家，非欧盟
@@ -4180,6 +4190,11 @@ sv: Europeiska unionen och icke-europeiska unionen, EU och icke-EU
 tr: Avrupa Birliği ve Avrupa Birliği üyesi olmayan ülkeler, AB ve AB üyesi olmayan ülkeler
 uk: Європейський Союз та країни, що не входять до Європейського Союзу, ЄС та не-ЄС
 zh: 欧盟和非欧盟国家，欧盟和非欧盟
+
+< en:Europe
+en: The Alps, Alps
+de: Die Alpen, Alpen
+wikidata:en: Q1286
 
 # ************************************************************
 
@@ -5522,6 +5537,7 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Languedoc
 < en: France
 < en: Spain
 fr: Pays-Basque
+es: País Vasco
 
 # still to digest
 
@@ -5545,17 +5561,14 @@ en: Réunion Island
 xx: Réunion Island
 fr: Île de la Réunion
 
-< en: France overseas
-< en: South America
-en: French Guyana
-xx: French Guyana
-
 < en: Central America
 < en: France overseas
 en: French Antilles
 xx: French Antilles
 fr: Antilles françaises
 
+< en: France overseas
+en: French Guyana
 
 # Canada provinces/territories
 
@@ -5674,6 +5687,7 @@ en: Brandenburg
 xx: Brandenburg
 bg: Бранденбург
 de: Brandenburg
+fr: Brandebourg
 pl: Brandenburgia
 
 < en:germany
@@ -5681,6 +5695,7 @@ en: Bremen
 xx: Bremen
 bg: Бремен
 de: Bremen
+fr: Brême
 pl: Brema
 
 < en:germany
@@ -5688,22 +5703,28 @@ en: Hamburg
 xx: Hamburg
 bg: Хамбург
 de: Hamburg
+fr: Hambourg
+pl: Hamburg
 
 < en:germany
 en: Hesse, Hessen
 xx: Hessen
 de: Hessen
+fr: Hesse
+pl: Hesja
 
 < en:germany
 en: Mecklenburg-Vorpommern
 xx: Mecklenburg-Vorpommern
 de: Mecklenburg-Vorpommern
+fr: Mecklembourg-Poméranie-Occidentale
 pl: Meklemburgia-Pomorze Przednie
 
 < en:germany
 en: Lower Saxony
 xx: Niedersachsen
 de: Niedersachsen
+fr: Basse-Saxe
 nl: Nedersaksen
 pl: Dolna Saksonia
 iso:en: DE-NI
@@ -5893,7 +5914,23 @@ es: Castilla y León
 
 
 
+# Denmark origins
+
+< en:denmark
+en: Samsø
+xx: Samsø
+da: Samsø
+wikidata:en: Q216422
+wikipedia:en: https://en.wikipedia.org/wiki/Sams%C3%B8
+
 # Sweden origins
+
+< en:sweden
+en: Bergslagen
+xx: Bergslagen
+sv: Bergslagen
+wikidata:en: Q820245
+wikipedia:en: https://en.wikipedia.org/wiki/Bergslagen
 
 < en:sweden
 en: Scania
@@ -5909,6 +5946,13 @@ xx: Eslöv
 sv: Eslöv
 wikidata:en: Q79237
 wikipedia:en: https://en.wikipedia.org/wiki/Esl%C3%B6v
+
+< en:scania
+en: Österlen
+xx: Österlen
+sv: Österlen
+wikidata:en: Q298465
+wikipedia:en: https://en.wikipedia.org/wiki/%C3%96sterlen
 
 < en:sweden
 xx: Tibro
@@ -5939,6 +5983,7 @@ pl: Anglia
 < en:great-britain
 en: Scotland
 bg: Шотландия
+es: Escocia
 fr: Écosse
 it: Scozia
 nl: Schotland
@@ -5959,9 +6004,12 @@ en: Wales
 bg: Уелс
 fr: Pays de Galles
 nl: Wales
+wikidata:en: Q25
 
 < en:great-britain
 en: Cornwall
+xx: Cornwall
+wikidata:en: Q23148
 
 < en:great-britain
 en: Yorkshire
@@ -5971,6 +6019,7 @@ en: Northern Ireland
 bg: Северна Ирландия
 fr: Irlande du Nord
 nl: Noord-Ierland
+wikidata:en: Q26
 
 # China states
 
@@ -5978,7 +6027,7 @@ nl: Noord-Ierland
 en: Jiangsu
 xx: Jiangsu
 zh: 江苏省
-wikipedia: https://en.wikipedia.org/wiki/Jiangsu
+wikipedia:en: https://en.wikipedia.org/wiki/Jiangsu
 
 < en: Jiangsu
 en: Yancheng
@@ -6117,6 +6166,7 @@ yi: אלאבאמא
 yo: Ìpínlẹ̀ Alabama
 za: Alabama
 zh: 亚拉巴马州
+wikidata:en: Q173
 
 < en:united-states
 en: California
@@ -6138,6 +6188,7 @@ pl: Kalifornia
 ru: Калифорния
 sv: Kalifornien
 tr: Kaliforniya
+wikidata:en: Q99
 
 < en:united-states
 en: Florida
@@ -6146,9 +6197,13 @@ fr: Floride
 hu: Florida
 nl: Florida
 pl: Floryda
+sv: Florida
+tr: Florida
+wikidata:en: Q812
 
 < en:united-states
 en: Georgia state, Georgia USA, Georgia in the usa, Georgia in the united states, US-GA
+fr: Géorgie (États-Unis)
 
 < en:united-states
 en: Louisiana, US-LA
@@ -6273,6 +6328,7 @@ xh: ILuwiziyana
 yi: לואיזיאנא
 yo: Louisiana
 zh: 路易斯安那州
+wikidata:en: Q1588
 
 < en:united-states
 en: Mississipi, US-MS
@@ -6396,11 +6452,16 @@ xh: IMisisiphi
 yi: מיסיסיפי
 yo: Ìpínlẹ̀ Mississippi
 zh: 密西西比州
+wikidata:en: Q1494
 
 < en:United States
 en: South Carolina, US-SC
 bg: Южна Каролина
 fr: Caroline du Sud
+it: Carolina del Sud
+nl: Zuid-Carolina
+pl: Karolina Południowa
+wikidata:en: Q1456
 
 < en:united-states
 en: Texas, US-TX
@@ -6528,6 +6589,7 @@ yi: טעקסאס
 yo: Texas
 zh: 德克萨斯州
 zu: Texas
+wikidata:en: Q1439
 
 # State of Palestine
 
@@ -6592,7 +6654,6 @@ vi: Hải phận quốc tế
 zh: 公海
 
 en: FAO fishing areas, FAO major fishing areas, FAO inland waters
-sv:FAO:s Fiskeregioner
 xx: FAO major fishing areas
 bg: Главните Риболовни Зони ФАО
 cs: Hlavních Rybolovných Oblastí FAO
@@ -6617,6 +6678,7 @@ ro: Principalele Zone de Pescuit FAO
 sk: FAO Hlavných Oblastí Rybolovu
 sl: Glavnih Ribolovnih Območij FAO
 description:en: European Union, FAO major fishing areas
+sv:FAO: s Fiskeregioner
 website:en: https://fish-commercial-names.ec.europa.eu/fish-names/fishing-areas_en#marine-areas
 wikidata:en: Q2783377
 wikipedia:en: https://en.wikipedia.org/wiki/FAO_Major_Fishing_Areas
@@ -7184,6 +7246,7 @@ xx: FAO 34
 fr: Océan Atlantique Centre-Est, FAO 34, FAO N°34
 hr: ribolovno područje FAO 34
 sl: FAO ribolovno območje 34
+wikidata:en: Q43181427
 
 < en:Atlantic Ocean
 en: Southwest Atlantic Ocean

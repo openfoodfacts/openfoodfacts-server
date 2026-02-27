@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -69,7 +69,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Tags qw/%country_languages country_to_cc/;
-use ProductOpener::Store qw/retrieve_json/;
+use ProductOpener::Store qw/retrieve_object/;
 use ProductOpener::Products qw/product_path/;
 
 =head1 FUNCTIONS
@@ -85,7 +85,7 @@ my $all_products_scans_ref;
 
 sub load_scans_data() {
 
-	$all_products_scans_ref = retrieve_json("$BASE_DIRS{PRODUCTS}/all_products_scans.json");
+	$all_products_scans_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/all_products_scans");
 	return;
 }
 
@@ -119,7 +119,7 @@ sub compute_main_countries ($product_ref) {
 
 	# Load the scan data
 	my $path = product_path($product_ref);
-	my $scans_ref = retrieve_json("$BASE_DIRS{PRODUCTS}/$path/scans.json");
+	my $scans_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/scans");
 
 	if ((defined $all_products_scans_ref) and (defined $scans_ref)) {
 

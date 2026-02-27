@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -43,10 +43,10 @@ database and file system.
 When a product is saved, a new revision of the product is created. All revisions are saved
 in the file system:
 
-products/[barcode path]/1.sto - first revision
-products/[barcode path]/2.sto - 2nd revision
+products/[barcode path]/1 - first revision
+products/[barcode path]/2 - 2nd revision
 ...
-products/[barcode path]/product.sto - link to latest revision
+products/[barcode path]/product - link to latest revision
 
 The latest revision is stored in the products collection of the MongoDB database.
 
@@ -88,6 +88,7 @@ BEGIN {
 		&normalize_search_terms
 		&compute_keywords
 		&log_change
+		&product_iter
 
 		&get_change_userid_or_uuid
 		&compute_codes
@@ -111,8 +112,6 @@ BEGIN {
 
 		&remove_fields
 
-		&add_images_urls_to_product
-
 		&analyze_and_enrich_product_data
 
 		&is_owner_field
@@ -124,7 +123,8 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
-use ProductOpener::Store qw/get_string_id_for_lang get_url_id_for_lang retrieve store/;
+use ProductOpener::Store
+	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_exists object_path_exists move_object remove_object link_object object_iter/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
@@ -137,10 +137,13 @@ use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data qw/execute_query get_products_collection get_recent_changes_collection/;
 use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
-use ProductOpener::HTTP qw/single_param/;
-use ProductOpener::Redis qw/push_to_redis_stream/;
-use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
+use ProductOpener::HTTP qw/single_param create_user_agent/;
+use ProductOpener::Redis qw/push_product_update_to_redis/;
+use ProductOpener::Food qw/%nutrients_lists %cc_nutrient_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Slack qw/send_slack_message/;
+use ProductOpener::Nutrition
+	qw/has_non_estimated_nutrition_data get_nutrition_data_as_key_values_pairs has_no_nutrition_data_on_packaging/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -157,9 +160,8 @@ use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON;
 use Log::Any qw($log);
-use Data::DeepAccess qw(deep_get);
+use Data::DeepAccess qw(deep_exists deep_get);
 
-use LWP::UserAgent;
 use Storable qw(dclone);
 use File::Copy::Recursive;
 use File::Basename qw/dirname/;
@@ -250,20 +252,19 @@ sub assign_new_code() {
 
 	my $code = 2000000000001;    # Codes beginning with 2 are for internal use
 
-	my $internal_code_ref = retrieve("$BASE_DIRS{PRODUCTS}/internal_code.sto");
+	my $internal_code_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/internal_code");
 	if ((defined $internal_code_ref) and (${$internal_code_ref} > $code)) {
 		$code = ${$internal_code_ref};
 	}
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
-	while (-e ("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($product_id))) {
-
+	while (object_path_exists("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($product_id))) {
 		$code++;
 		$product_id = product_id_for_owner($Owner_id, $code);
 	}
 
-	store("$BASE_DIRS{PRODUCTS}/internal_code.sto", \$code);
+	store_object("$BASE_DIRS{PRODUCTS}/internal_code", \$code);
 
 	$log->debug("assigning a new code", {code => $code, lc => $lc}) if $log->is_debug();
 
@@ -443,7 +444,7 @@ sub _try_normalize_code_gs1 ($code) {
 				$ai_data_str = $encoder->ai_data_str();
 			}
 		}
-		elsif ($code =~ /^http?s:\/\/.+/) {
+		elsif ($code =~ /^http?s:\/\/.+/i) {
 			# Code could be a GS1 unbracketed AI element string
 			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
 			if ($encoder->data_str($code)) {
@@ -480,6 +481,8 @@ sub _try_normalize_code_gs1 ($code) {
 
 C<is_valid_code()> checks if the given code is a valid product code.
 
+It checks if the code is defined, if it contains only digits, and if its length is between 4 and 40 digits, excluding leading zeroes.
+
 =head3 Arguments
 
 Product Code: $code
@@ -493,7 +496,10 @@ Boolean value indicating if the code is valid or not.
 sub is_valid_code ($code) {
 	# Return an empty string if $code is undef
 	return '' if !defined $code;
-	return $code =~ /^\d{4,40}$/;
+	my $code_without_leading_zeroes = $code;
+	# Remove leading zeroes
+	$code_without_leading_zeroes =~ s/^0+//;
+	return $code_without_leading_zeroes =~ /^\d{4,40}$/;
 }
 
 =head2 split_code()
@@ -704,12 +710,10 @@ There is no guarantee the result will be correct... but it's way faster than loa
 =cut
 
 sub product_id_from_path ($product_path) {
-	my $id = $product_path;
-	# only keep dir
-	if ($id =~ /\.sto$/) {
-		$id = dirname($id);
-	}
-	# eventually remove root path
+	# Assume we are always passed in an object within the path, e.g. ../product or ../scans
+	my $id = dirname($product_path);
+
+	# Remove root path
 	my $root = quotemeta("$BASE_DIRS{PRODUCTS}/");
 	$id =~ s/^$root//;
 	# transform to id by simply removing "/"
@@ -734,7 +738,7 @@ sub get_owner_id ($userid, $orgid, $ownerid) {
 	return $ownerid;
 }
 
-=head2 init_product ( $userid, $orgid, $code, $countryid )
+=head2 init_product ( $userid, $orgid, $code, $countryid, $client_id = undef )
 
 Initializes and return a $product_ref structure for a new product.
 If $countryid is defined and is not "en:world", then assign this country for the countries field.
@@ -746,7 +750,7 @@ Returns a $product_ref structure
 
 =cut
 
-sub init_product ($userid, $orgid, $code, $countryid) {
+sub init_product ($userid, $orgid, $code, $countryid, $client_id = undef) {
 
 	$log->debug("init_product", {userid => $userid, orgid => $orgid, code => $code, countryid => $countryid})
 		if $log->is_debug();
@@ -777,9 +781,8 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 		product_type => $options{product_type},
 	};
 
-	if (defined $server) {
-		$product_ref->{server} = $server;
-	}
+	$product_ref->{server} = $server if defined $server;
+	$product_ref->{created_by_client} = $client_id if defined $client_id;
 
 	if ($server_options{private_products}) {
 		my $ownerid = get_owner_id($userid, $orgid, $Owner_id);
@@ -884,10 +887,10 @@ sub retrieve_product ($product_id, $include_deleted = 0, $rev = undef) {
 		if ($rev !~ /^\d+$/) {
 			return;
 		}
-		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/$rev.sto";
+		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/$rev";
 	}
 	else {
-		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/product.sto";
+		$full_product_path = "$BASE_DIRS{PRODUCTS}/$path/product";
 	}
 
 	$log->debug(
@@ -899,7 +902,7 @@ sub retrieve_product ($product_id, $include_deleted = 0, $rev = undef) {
 		}
 	) if $log->is_debug();
 
-	my $product_ref = retrieve($full_product_path);
+	my $product_ref = retrieve_object($full_product_path);
 
 	if (not defined $product_ref) {
 		$log->debug("retrieve_product - product does not exist", {product_id => $product_id, path => $path})
@@ -977,7 +980,7 @@ sub change_product_code ($product_ref, $new_code) {
 	}
 	else {
 		# check that the new code is available
-		if (-e "$BASE_DIRS{PRODUCTS}/" . product_path_from_id($new_code) . "/product.sto") {
+		if (object_exists("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($new_code) . "/product")) {
 			$log->warn("cannot change product code, because the new code already exists",
 				{code => $code, new_code => $new_code})
 				if $log->is_warn();
@@ -1099,7 +1102,7 @@ sub compute_sort_keys ($product_ref) {
 	return;
 }
 
-=head2 store_product ($user_id, $product_ref, $comment)
+=head2 store_product ($user_id, $product_ref, $comment, $client_id = undef)
 
 Save changes of a product:
 - in a new .sto file on the disk
@@ -1109,7 +1112,7 @@ Before saving, some field values are computed, and product history and completen
 
 =cut
 
-sub store_product ($user_id, $product_ref, $comment) {
+sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 
 	my $code = $product_ref->{code};
 	my $product_id = $product_ref->{_id};
@@ -1170,7 +1173,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 		$log->info("changing product type",
 			{old_product_type => $product_ref->{old_product_type}, product_type => $product_ref->{product_type}})
 			if $log->is_info();
-		$delete_from_previous_products_collection = 1;
+		# We need to remove the product from its previous collection, unless we are on the pro platform
+		# where we have only one collection for all product types
+		if (not $server_options{private_products}) {
+			$delete_from_previous_products_collection = 1;
+		}
 		delete $product_ref->{old_product_type};
 	}
 
@@ -1229,7 +1236,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 		$log->debug("creating product directories", {path => $path, prefix_path => $prefix_path}) if $log->is_debug();
 		# Create the directories for the product
-		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS}/$prefix_path");
+		# Not needed for products as store_object does this. ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS}/$prefix_path");
 		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS_IMAGES}/$prefix_path");
 
 		# Check if we are updating the product in place:
@@ -1251,9 +1258,17 @@ sub store_product ($user_id, $product_ref, $comment) {
 			$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
 		}
 
-		if (    (!-e "$BASE_DIRS{PRODUCTS}/$path")
-			and (!-e "$BASE_DIRS{PRODUCTS_IMAGES}/$path"))
-		{
+		if (object_path_exists("$BASE_DIRS{PRODUCTS}/$path")) {
+			$log->error("cannot move product data, because the destination already exists",
+				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"});
+		}
+		elsif (-e "$BASE_DIRS{PRODUCTS_IMAGES}/$path") {
+			$log->error(
+				"cannot move product images data, because the destination already exists",
+				{source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path", destination => "$BASE_DIRS{PRODUCTS_IMAGES}/$path"}
+			);
+		}
+		else {
 			# File::Copy move() is intended to move files, not
 			# directories. It does work on directories if the
 			# source and target are on the same file system
@@ -1268,18 +1283,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 			File::Copy::Recursive->import(qw( dirmove ));
 
-			$log->debug("moving product data",
-				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"})
-				if $log->is_debug();
-			dirmove("$BASE_DIRS{PRODUCTS}/$old_path", "$BASE_DIRS{PRODUCTS}/$path")
-				or $log->error(
-				"could not move product data",
-				{
-					source => "$BASE_DIRS{PRODUCTS}/$old_path",
-					destination => "$BASE_DIRS{PRODUCTS}/$path",
-					error => $!
-				}
-				);
+			move_object("$BASE_DIRS{PRODUCTS}/$old_path", "$BASE_DIRS{PRODUCTS}/$path");
 
 			$log->debug(
 				"moving product images",
@@ -1310,31 +1314,17 @@ sub store_product ($user_id, $product_ref, $comment) {
 			$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
 
 		}
-		else {
-			(-e "$BASE_DIRS{PRODUCTS}/$path")
-				and $log->error("cannot move product data, because the destination already exists",
-				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"});
-			(-e "$BASE_DIRS{PRODUCTS_IMAGES}/$path")
-				and $log->error(
-				"cannot move product images data, because the destination already exists",
-				{
-					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
-					destination => "$BASE_DIRS{PRODUCTS_IMAGES}/$path"
-				}
-				);
-		}
 
 		$comment .= " - barcode changed from $old_code to $code by $user_id";
 	}
 
 	if ($rev < 1) {
-		# Create the directories for the product
-		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS}/$path");
+		# Create the directories for the product images
 		ensure_dir_created_or_die("$BASE_DIRS{PRODUCTS_IMAGES}/$path");
 	}
 
 	# Check lock and previous version
-	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}
@@ -1359,6 +1349,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	# last_modified_t is the date of the last change of the product raw data
 	# last_updated_t is the date of the last change of the product derived data (e.g. ingredient analysis, scores etc.)
 	$product_ref->{last_modified_by} = $user_id;
+	$product_ref->{last_modified_by_client} = $client_id if defined $client_id;
 	$product_ref->{last_modified_t} = time() + 0;
 	$product_ref->{last_updated_t} = $product_ref->{last_modified_t};
 	if (not exists $product_ref->{creator}) {
@@ -1378,6 +1369,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	my $change_ref = {
 		userid => $user_id,
+		clientid => $client_id,
 		ip => remote_addr(),
 		t => $product_ref->{last_modified_t},
 		comment => $comment,
@@ -1454,8 +1446,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 		#return 0;
 	}
 
-	# First store the product data in a .sto file on disk
-	store("$BASE_DIRS{PRODUCTS}/$path/$rev.sto", $product_ref);
+	# First store the product data in a .json file on disk
+	store_object("$BASE_DIRS{PRODUCTS}/$path/$rev", $product_ref);
 
 	# Also store the product in MongoDB, unless it was marked as deleted
 	if ($product_ref->{deleted}) {
@@ -1471,16 +1463,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# Update link
-	my $link = "$BASE_DIRS{PRODUCTS}/$path/product.sto";
-	if (-l $link) {
-		unlink($link) or $log->error("could not unlink old product.sto", {link => $link, error => $!});
-	}
+	my $link = "$BASE_DIRS{PRODUCTS}/$path/product";
+	remove_object($link);
+	link_object($rev, $link);
 
-	symlink("$rev.sto", $link)
-		or $log->error("could not symlink to new revision",
-		{source => "$BASE_DIRS{PRODUCTS}/$path/$rev.sto", link => $link, error => $!});
-
-	store("$BASE_DIRS{PRODUCTS}/$path/changes.sto", $changes_ref);
+	store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 	log_change($product_ref, $change_ref);
 
 	$log->debug("store_product - done", {code => $code, product_id => $product_id}) if $log->is_debug();
@@ -1493,10 +1480,10 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# Publish information about update on Redis stream
-	$log->debug("push_to_redis_stream",
+	$log->debug("push_product_update_to_redis",
 		{code => $code, product_id => $product_id, action => $action, comment => $comment, diffs => $diffs})
 		if $log->is_debug();
-	push_to_redis_stream($user_id, $product_ref, $action, $comment, $diffs);
+	push_product_update_to_redis($product_ref, $change_ref, $action);
 
 	return 1;
 }
@@ -1663,8 +1650,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 			}
 			else {
 				if (    ($imagetype eq "nutrition")
-					and (defined $product_ref->{no_nutrition_data})
-					and ($product_ref->{no_nutrition_data} eq 'on'))
+					and (has_no_nutrition_data_on_packaging($current_ref)))
 				{
 					$images_completeness += $image_step;
 				}
@@ -1741,16 +1727,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		$complete = 0;
 	}
 
-	if (
-		(
-			(
-					(defined $current_ref->{nutriments})
-				and (scalar grep {$_ !~ /^(nova|fruits-vegetables)/} keys %{$current_ref->{nutriments}}) > 0
-			)
-		)
-		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))
-		)
-	{
+	if ((has_no_nutrition_data_on_packaging($product_ref)) or (has_non_estimated_nutrition_data($product_ref))) {
 		push @states_tags, "en:nutrition-facts-completed";
 		$notempty++;
 		$completeness += $step;
@@ -1988,7 +1965,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 
 	# List of changes
 
-	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 	if (not defined $changes_ref) {
 		$log->warn("replace_user_id_in_products - no changes file found for " . $product_id);
 		return;
@@ -2011,7 +1988,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
+		my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/$rev");
 
 		if (defined $product_ref) {
 
@@ -2032,7 +2009,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 			foreach my $users_field (@users_fields) {
 				if (defined $product_ref->{$users_field}) {
 					for (my $i = 0; $i < scalar @{$product_ref->{$users_field}}; $i++) {
-						if ($product_ref->{$users_field}[$i] eq $user_id) {
+						if (($product_ref->{$users_field}[$i] // '') eq $user_id) {
 							$product_ref->{$users_field}[$i] = $new_user_id;
 							$changes++;
 						}
@@ -2042,12 +2019,12 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 
 			# Images uploaders
 
-			if (defined $product_ref->{images}) {
-				foreach my $id (sort keys %{$product_ref->{images}}) {
-					if (    (defined $product_ref->{images}{$id}{uploader})
-						and ($product_ref->{images}{$id}{uploader} eq $user_id))
+			if (deep_exists($product_ref, "images", "uploaded")) {
+				foreach my $id (sort keys %{$product_ref->{images}{uploaded}}) {
+					if (    (defined $product_ref->{images}{uploaded}{$id}{uploader})
+						and ($product_ref->{images}{uploaded}{$id}{uploader} eq $user_id))
 					{
-						$product_ref->{images}{$id}{uploader} = $new_user_id;
+						$product_ref->{images}{uploaded}{$id}{uploader} = $new_user_id;
 						$changes++;
 					}
 				}
@@ -2056,7 +2033,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 			# Save product
 
 			if ($changes) {
-				store("$BASE_DIRS{PRODUCTS}/$path/$rev.sto", $product_ref);
+				store_object("$BASE_DIRS{PRODUCTS}/$path/$rev", $product_ref);
 			}
 		}
 
@@ -2068,7 +2045,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 			$most_recent_product_ref, {upsert => 1});
 	}
 
-	store("$BASE_DIRS{PRODUCTS}/$path/changes.sto", $changes_ref);
+	store_object("$BASE_DIRS{PRODUCTS}/$path/changes", $changes_ref);
 
 	return;
 }
@@ -2208,16 +2185,13 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 	# Read all previous versions to see which fields have been added or edited
 
 	my @fields = (
-		'product_type', 'code',
-		'lang', 'product_name',
-		'generic_name', @ProductOpener::Config::product_fields,
-		@ProductOpener::Config::product_other_fields, 'no_nutrition_data',
-		'nutrition_data_per', 'nutrition_data_prepared_per',
-		'serving_size', 'allergens',
-		'traces', 'ingredients_text'
+		'product_type', 'code', 'lang', 'product_name', 'generic_name',
+		@ProductOpener::Config::product_fields,
+		@ProductOpener::Config::product_other_fields,
+		'serving_size', 'allergens', 'traces', 'ingredients_text'
 	);
 
-	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
+	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, packagings => {});
 	my %last = %previous;
 	my %current;
 
@@ -2242,7 +2216,8 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
+		# We use retrieve_product to get the product at a specific revision, upgrading the schema if needed
+		my $product_ref = retrieve_product($product_id, 1, $rev);
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
@@ -2271,7 +2246,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				uploaded_images => {},
 				selected_images => {},
 				fields => {},
-				nutriments => {},
 				packagings => {},
 			);
 
@@ -2284,19 +2258,24 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 			# $product_ref->{images}{$id} ($id = front / ingredients / nutrition)
 
 			if (defined $product_ref->{images}) {
-				foreach my $imgid (sort keys %{$product_ref->{images}}) {
-					if ($imgid =~ /^\d/) {
+
+				# Uploaded images
+				if (defined $product_ref->{images}{uploaded}) {
+					foreach my $imgid (sort keys %{$product_ref->{images}{uploaded}}) {
 						$current{uploaded_images}{$imgid} = 1;
 					}
-					else {
-						my $language_imgid = $imgid;
-						if ($imgid !~ /_\w\w$/) {
-							$language_imgid = $imgid . "_" . $product_ref->{lc};
+				}
+
+				# Selected images
+				if (defined $product_ref->{images}{selected}) {
+					foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
+						foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
+							$current{selected_images}{$image_type . '_' . $image_lc}
+								= ($product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} // '') . ' '
+								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{rev} // '') . ' '
+								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry}
+									// '');
 						}
-						$current{selected_images}{$language_imgid}
-							= $product_ref->{images}{$imgid}{imgid} . ' '
-							. $product_ref->{images}{$imgid}{rev} . ' '
-							. $product_ref->{images}{$imgid}{geometry};
 					}
 				}
 			}
@@ -2325,15 +2304,9 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				}
 			}
 
-			# Nutriments
-
-			if (defined $product_ref->{nutriments}) {
-				foreach my $nid (keys %{$product_ref->{nutriments}}) {
-					if ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne '')) {
-						$current{nutriments}{$nid} = $product_ref->{nutriments}{$nid};
-					}
-				}
-			}
+			# Nutrition data
+			# Record changes for all nutrition input sets
+			$current{nutrition} = get_nutrition_data_as_key_values_pairs($product_ref);
 
 			# Packagings components
 			if (defined $product_ref->{packagings}) {
@@ -2380,7 +2353,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 			record_user_edit_type($users_ref, "checkers", $product_ref->{last_checker});
 		}
 
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments', 'packagings') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packagings') {
 
 			defined $blame_ref->{$group} or $blame_ref->{$group} = {};
 
@@ -2414,9 +2387,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					}
 				}
 			}
-			elsif ($group eq 'nutriments') {
-				@ids = @{$nutriments_lists{off_europe}};
-			}
 			elsif ($group eq 'packagings') {
 				@ids = ("data", "weights_measured");
 			}
@@ -2425,7 +2395,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					my %seen;
 					grep {!$seen{$_}++} @_;
 				};
-				@ids = $uniq->(keys %{$current{$group}}, keys %{$previous{$group}});
+				@ids = sort $uniq->(keys %{$current{$group}}, keys %{$previous{$group}});
 			}
 
 			foreach my $id (@ids) {
@@ -2489,19 +2459,20 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					if (($diff eq 'add') and ($group eq 'uploaded_images')) {
 						# images uploader and uploaded_t where not set before 2015/08/04, set them using the change history
 						# ! only update the values if the image still exists in the current version of the product (wasn't moved or deleted)
-						if (exists $current_product_ref->{images}{$id}) {
-							if (not defined $current_product_ref->{images}{$id}{uploaded_t}) {
-								$current_product_ref->{images}{$id}{uploaded_t} = $product_ref->{last_modified_t} + 0;
+						if (deep_exists($current_product_ref, "images", "uploaded", $id)) {
+							if (not defined $current_product_ref->{images}{uploaded}{$id}{uploaded_t}) {
+								$current_product_ref->{images}{uploaded}{$id}{uploaded_t}
+									= $product_ref->{last_modified_t} + 0;
 							}
-							if (not defined $current_product_ref->{images}{$id}{uploader}) {
-								$current_product_ref->{images}{$id}{uploader} = $userid;
+							if (not defined $current_product_ref->{images}{uploaded}{$id}{uploader}) {
+								$current_product_ref->{images}{uploaded}{$id}{uploader} = $userid;
 							}
 
 							# when moving images, attribute the image to the user that uploaded the image
 
-							$userid = $current_product_ref->{images}{$id}{uploader};
+							$userid = $current_product_ref->{images}{uploaded}{$id}{uploader};
 							if ($userid eq 'unknown') {    # old unknown user
-								$current_product_ref->{images}{$id}{uploader}
+								$current_product_ref->{images}{uploaded}{$id}{uploader}
 									= "openfoodfacts-contributors";
 								$userid = "openfoodfacts-contributors";
 							}
@@ -2878,20 +2849,13 @@ sub compute_languages ($product_ref) {
 		}
 	}
 
-	if (defined $product_ref->{images}) {
-		foreach my $id (keys %{$product_ref->{images}}) {
-
-			if ($id =~ /^(front|ingredients|nutrition)_([a-z]{2})$/) {
-				my $language_code = $2;
-				my $language = undef;
-				if (defined $language_codes{$language_code}) {
-					$language = $language_codes{$language_code};
-				}
-				else {
-					$language = $language_code;
-				}
+	# check the languages of the images
+	if ((defined $product_ref->{images}) and (defined $product_ref->{images}{selected})) {
+		foreach my $image_type (keys %{$product_ref->{images}{selected}}) {
+			foreach my $image_lc (keys %{$product_ref->{images}{selected}{$image_type}}) {
+				my $language = $language_codes{$image_lc} || $image_lc;
 				$languages{$language}++;
-				$languages_codes{$language_code}++;
+				$languages_codes{$image_lc}++;
 			}
 		}
 	}
@@ -2971,12 +2935,17 @@ sub review_product_type ($product_ref) {
 
 Process the edit_rules (see C<@edit_rules> in in Config file).
 
+Note: edit 
+
 =head3 where it applies
 
 It applies in all API/form that edit the product.
 It applies to apply an image crop.
 
 It does not block image upload.
+
+Note: product edit rules were designed for API v0, v1 and v2.
+In v3, parameters are passed in a currently different way, so it is very likely that some rules will not apply correctly.
 
 =head3 edit_rules structure
 
@@ -3006,12 +2975,14 @@ C<ignore> alone, ignore every edits.
 You can also have rules of the form
 C<ignore_FIELD> and C<warn_FIELD> which will ignore (or notify) edits on the specific field.
 
+C<block_FIELD> will block any edit if the field is present or match a condition (see below).
+
 Note that ignore rules also create a notification.
 
 For nutriments use C<nutriments_NUTRIMENT_NAME> for C<FIELD>.
 
 You can guard the rule on the field with a condition:
-C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
+C<block_if_CONDITION_FIELD>, C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
 This time it's to check the value the user want's to add.
 
 C<CONDITION> is one of the following:
@@ -3136,6 +3107,7 @@ sub process_product_edit_rules ($product_ref) {
 
 		# If conditions match, process actions and notifications
 		if ($conditions) {
+			$log->info("edit_rule: conditions matched") if $log->is_info();
 
 			# 	actions => {
 			# 		["ignore_if_existing_ingredients_texts_fr"],
@@ -3164,7 +3136,8 @@ sub process_product_edit_rules ($product_ref) {
 						$proceed_with_edit = 0;
 					}
 					# rules with conditions
-					elsif ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/)
+					elsif ($action
+						=~ /^(ignore|warn|block)(_if_(existing|0|greater|lesser|equal|match|regexp_match))?_?(.*)$/)
 					{
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
@@ -3177,6 +3150,19 @@ sub process_product_edit_rules ($product_ref) {
 						local $log->context->{action} = $field;
 						local $log->context->{field} = $field;
 
+						if ($field =~ /_(\w\w)$/) {
+							# localized field ? remove language to get value in request
+							$default_field = $`;
+						}
+						if ($field =~ /_100g$/) {
+							# nutrient 100g ? remove 100g to get value in request
+							$default_field = $`;
+						}
+						elsif ($field =~ /nutriment_.*$/) {
+							# also consider nutriment_100g
+							$default_field = $field . "_100g";
+						}
+
 						if (defined $condition) {
 
 							my $param_field = undef;
@@ -3184,12 +3170,8 @@ sub process_product_edit_rules ($product_ref) {
 								# param_field is the new value defined by edit
 								$param_field = remove_tags_and_quote(decode utf8 => single_param($field));
 							}
-							if ($field =~ /_(\w\w)$/) {
-								# localized field ? remove language to get value in request
-								$default_field = $`;
-								if ((!defined $param_field) && (defined single_param($default_field))) {
-									$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
-								}
+							if ((!defined $param_field) && (defined single_param($default_field))) {
+								$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
 							}
 
 							# if field is not passed, skip rule
@@ -3270,7 +3252,7 @@ sub process_product_edit_rules ($product_ref) {
 						}
 						else {
 							$action_log
-								= "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
+								= "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: (none) \n";
 						}
 
 						if ($condition_ok) {
@@ -3282,9 +3264,15 @@ sub process_product_edit_rules ($product_ref) {
 
 							if ($type eq 'ignore') {
 								Delete($field);
+								$log->info("edit_rule: Removed $field") if $log->is_info();
 								if ($default_field ne $field) {
 									Delete($default_field);
+									$log->info("edit_rule: Removed $default_field") if $log->is_info();
 								}
+							}
+							elsif ($type eq 'block') {
+								$log->info("block action => do not proceed with edits") if $log->is_debug();
+								$proceed_with_edit = 0;
 							}
 						}
 
@@ -3325,47 +3313,13 @@ sub process_product_edit_rules ($product_ref) {
 										$emoji = ":pear:";
 									}
 
-									my $ua = LWP::UserAgent->new;
-									my $server_endpoint
-										= "https://hooks.slack.com/services/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";
-
-									my $msg = $action_log;
-
-									# set custom HTTP request header fields
-									my $req = HTTP::Request->new(POST => $server_endpoint);
-									$req->header('content-type' => 'application/json');
-
-									# add POST data to HTTP request body
-									my $post_data
-										= '{"channel": "#'
-										. $channel
-										. '", "username": "editrules", "text": "'
-										. $msg
-										. '", "icon_emoji": "'
-										. $emoji . '" }';
-									$req->content_type("text/plain; charset='utf8'");
-									$req->content(Encode::encode_utf8($post_data));
-
-									my $resp = $ua->request($req);
-									if ($resp->is_success) {
-										my $message = $resp->decoded_content;
-										$log->info("Notification sent to Slack successfully", {response => $message})
-											if $log->is_info();
-									}
-									else {
-										$log->warn(
-											"Notification could not be sent to Slack",
-											{code => $resp->code, response => $resp->message}
-										) if $log->is_warn();
-									}
-
+									send_slack_message($channel, 'editrules', $action_log, $emoji);
 								}
 							}
 						}
 					}
 				}
 			}
-
 		}
 	}
 
@@ -3404,7 +3358,7 @@ sub compute_changes_diff_text ($change_ref) {
 	my $diffs = '';
 	if (defined $change_ref->{diffs}) {
 		my %diffs = %{$change_ref->{diffs}};
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packaging') {
 			if (defined $diffs{$group}) {
 				$diffs .= lang("change_$group") . " ";
 
@@ -3519,121 +3473,6 @@ sub remove_fields ($product_ref, $fields_ref) {
 	return;
 }
 
-=head2 add_images_urls_to_product ($product_ref, $target_lc, $specific_imagetype = undef)
-
-Add fields like image_[front|ingredients|nutrition|packaging]_[url|small_url|thumb_url] to a product object.
-
-If it exists, the image for the target language will be returned, otherwise we will return the image
-in the main language of the product.
-
-=head3 Parameters
-
-=head4 $product_ref
-
-Reference to a complete product a subfield.
-
-=head4 $target_lc
-
-2 language code of the preferred language for the product images.
-
-=head4 $specific_imagetype
-
-Optional parameter to specify the type of image to add. Default is to add all types.
-
-=cut
-
-sub add_images_urls_to_product ($product_ref, $target_lc, $specific_imagetype = undef) {
-
-	my $images_subdomain = format_subdomain('images');
-
-	my $path = product_path($product_ref);
-
-	# If $imagetype is specified (e.g. "front" when we display a list of products), only compute the image for this type
-	my @imagetypes;
-	if (defined $specific_imagetype) {
-		@imagetypes = ($specific_imagetype);
-	}
-	else {
-		@imagetypes = ('front', 'ingredients', 'nutrition', 'packaging');
-	}
-
-	foreach my $imagetype (@imagetypes) {
-
-		my $size = $display_size;
-
-		# first try the requested language
-		my @display_ids = ($imagetype . "_" . $target_lc);
-
-		# next try the main language of the product
-		if (defined($product_ref->{lc}) && $product_ref->{lc} ne $target_lc) {
-			push @display_ids, $imagetype . "_" . $product_ref->{lc};
-		}
-
-		# last try the field without a language (for old products without updated images)
-		push @display_ids, $imagetype;
-
-		foreach my $id (@display_ids) {
-
-			if (    (defined $product_ref->{images})
-				and (defined $product_ref->{images}{$id})
-				and (defined $product_ref->{images}{$id}{sizes})
-				and (defined $product_ref->{images}{$id}{sizes}{$size}))
-			{
-
-				$product_ref->{"image_" . $imagetype . "_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $display_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_small_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $small_size . '.jpg';
-				$product_ref->{"image_" . $imagetype . "_thumb_url"}
-					= "$images_subdomain/images/products/$path/$id."
-					. $product_ref->{images}{$id}{rev} . '.'
-					. $thumb_size . '.jpg';
-
-				if ($imagetype eq 'front') {
-					# front image is product image
-					$product_ref->{image_url} = $product_ref->{"image_" . $imagetype . "_url"};
-					$product_ref->{image_small_url} = $product_ref->{"image_" . $imagetype . "_small_url"};
-					$product_ref->{image_thumb_url} = $product_ref->{"image_" . $imagetype . "_thumb_url"};
-				}
-
-				last;
-			}
-		}
-
-		if (defined $product_ref->{languages_codes}) {
-			# compute selected image for each product language
-			foreach my $key (keys %{$product_ref->{languages_codes}}) {
-				my $id = $imagetype . '_' . $key;
-				if (    (defined $product_ref->{images})
-					and (defined $product_ref->{images}{$id})
-					and (defined $product_ref->{images}{$id}{sizes})
-					and (defined $product_ref->{images}{$id}{sizes}{$size}))
-				{
-
-					$product_ref->{selected_images}{$imagetype}{display}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $display_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{small}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $small_size . '.jpg';
-					$product_ref->{selected_images}{$imagetype}{thumb}{$key}
-						= "$images_subdomain/images/products/$path/$id."
-						. $product_ref->{images}{$id}{rev} . '.'
-						. $thumb_size . '.jpg';
-				}
-			}
-		}
-	}
-
-	return;
-}
-
 =head2 analyze_and_enrich_product_data ($product_ref, $response_ref)
 
 This function processes product raw data to analyze it and enrich it.
@@ -3655,21 +3494,8 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	$log->debug("analyze_and_enrich_product_data - start") if $log->is_debug();
 
-	# Initialiaze the misc_tags, they will be populated by functions called by this function
+	# Initialize the misc_tags, they will be populated by functions called by this function
 	$product_ref->{misc_tags} = [];
-
-	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-	}
-
-	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
-		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
-	}
 
 	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
 
@@ -3746,4 +3572,22 @@ sub is_owner_field ($product_ref, $field) {
 		return 1;
 	}
 	return 0;
+}
+
+=head2 product_iter($base_path = $BASE_DIRS{PRODUCTS}, $name_pattern = qr/product$/i, $exclude_path_pattern = qr/^(conflicting|invalid)-codes$/)
+
+Iterate over all products in the specified path whose
+name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern.
+Provides default exclusions so people don't forget to apply them
+
+=cut
+
+sub product_iter(
+	$base_path = $BASE_DIRS{PRODUCTS},
+	$name_pattern = qr/product$/i,
+	$exclude_path_pattern = qr/^(conflicting|invalid)-codes$/,
+	$skip_until_path = undef,
+	)
+{
+	return object_iter($base_path, $name_pattern, $exclude_path_pattern, $skip_until_path);
 }

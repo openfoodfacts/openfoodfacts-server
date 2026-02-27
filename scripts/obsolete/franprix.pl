@@ -27,7 +27,7 @@ use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -192,7 +192,7 @@ HTML
 		
 # $value = sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit)) + 0.0;		
 
-		my @nids = @{$nutriments_tables{europe}};
+		my @nids = @{$nutrients_tables{europe}};
 		
 		foreach my $nid (@nids) {
 		

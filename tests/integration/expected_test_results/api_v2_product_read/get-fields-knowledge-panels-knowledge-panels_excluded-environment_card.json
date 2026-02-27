@@ -375,7 +375,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;13050 – percent_min:&nbsp;16.6666666666667 – percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;19051 – percent_min:&nbsp;0 – percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;22000 – percent_min:&nbsp;0 – percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil – vegan:&nbsp;yes – vegetarian:&nbsp;yes – from_palm_oil:&nbsp;yes – ciqual_food_code:&nbsp;16129 – percent_min:&nbsp;0 – percent_max:&nbsp;25</li>\n<li><span>coloring</span> -> en:colour – percent_min:&nbsp;0 – percent_max:&nbsp;20<ol id=\"ordered_ingredients_list\">\n<li><span>curcumin</span> -> en:e100 – vegan:&nbsp;yes – vegetarian:&nbsp;yes – percent_min:&nbsp;0 – percent_max:&nbsp;20</li>\n</ol>\n</li>\n<li><span>emulsifier</span> -> en:emulsifier – percent_min:&nbsp;0 – percent_max:&nbsp;16.6666666666667<ol id=\"ordered_ingredients_list\">\n<li><span>soy lecithin</span> -> en:soya-lecithin – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;42200 – percent_min:&nbsp;0 – percent_max:&nbsp;16.6666666666667</li>\n</ol>\n</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;13050 – percent_min:&nbsp;16.6666666666667 – percent_estimate:&nbsp;58.3333333333333 – percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;19051 – percent_min:&nbsp;0 – percent_estimate:&nbsp;20.8333333333333 – percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;22000 – percent_min:&nbsp;0 – percent_estimate:&nbsp;10.4166666666667 – percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil – vegan:&nbsp;yes – vegetarian:&nbsp;yes – from_palm_oil:&nbsp;yes – ciqual_food_code:&nbsp;16129 – percent_min:&nbsp;0 – percent_estimate:&nbsp;5.20833333333333 – percent_max:&nbsp;25</li>\n<li><span>coloring</span> -> en:colour – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;20<ol id=\"ordered_ingredients_list\">\n<li><span>curcumin</span> -> en:e100 – vegan:&nbsp;yes – vegetarian:&nbsp;yes – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;20</li>\n</ol>\n</li>\n<li><span>emulsifier</span> -> en:emulsifier – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;16.6666666666667<ol id=\"ordered_ingredients_list\">\n<li><span>soy lecithin</span> -> en:soya-lecithin – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;42200 – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;16.6666666666667</li>\n</ol>\n</li>\n</ol>\n"
                   }
                },
                {
@@ -518,7 +518,7 @@
                   }
                }
             ],
-            "expanded" : true,
+            "expanded" : false,
             "level" : "info",
             "title_element" : {
                "title" : "Ingredient information"
@@ -580,9 +580,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/moderate.svg",
                "name" : "Fat",
-               "title" : "Fat in moderate quantity (8.5%)",
-               "type" : "percentage",
-               "value" : 8.5
+               "title" : "Fat in moderate quantity (8.5%)"
             },
             "topics" : [
                "health"
@@ -626,9 +624,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/low.svg",
                "name" : "Salt",
-               "title" : "Salt in low quantity (0.0502%)",
-               "type" : "percentage",
-               "value" : 0.0502
+               "title" : "Salt in low quantity (0.0502%)"
             },
             "topics" : [
                "health"
@@ -662,9 +658,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
                "name" : "Saturated fat",
-               "title" : "Saturated fat in high quantity (5.6%)",
-               "type" : "percentage",
-               "value" : 5.6
+               "title" : "Saturated fat in high quantity (5.6%)"
             },
             "topics" : [
                "health"
@@ -698,9 +692,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/moderate.svg",
                "name" : "Sugars",
-               "title" : "Sugars in moderate quantity (12.5%)",
-               "type" : "percentage",
-               "value" : 12.5
+               "title" : "Sugars in moderate quantity (12.5%)"
             },
             "topics" : [
                "health"
@@ -1043,13 +1035,6 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "As sold<br>per serving (10 g)",
-                           "text_for_small_screens" : "per serving",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -1062,10 +1047,7 @@
                                  "text" : "Energy"
                               },
                               {
-                                 "text" : "400 kj<br>(96 kcal)"
-                              },
-                              {
-                                 "text" : "40 kj<br>(10 kcal)"
+                                 "text" : "400 kJ<br>(140 kcal)"
                               }
                            ]
                         },
@@ -1078,9 +1060,6 @@
                               },
                               {
                                  "text" : "8.5 g"
-                              },
-                              {
-                                 "text" : "0.85 g"
                               }
                            ]
                         },
@@ -1093,9 +1072,6 @@
                               },
                               {
                                  "text" : "5.6 g"
-                              },
-                              {
-                                 "text" : "0.56 g"
                               }
                            ]
                         },
@@ -1108,9 +1084,6 @@
                               },
                               {
                                  "text" : "10.5 g"
-                              },
-                              {
-                                 "text" : "1.05 g"
                               }
                            ]
                         },
@@ -1123,9 +1096,6 @@
                               },
                               {
                                  "text" : "12.5 g"
-                              },
-                              {
-                                 "text" : "1.25 g"
                               }
                            ]
                         },
@@ -1138,9 +1108,6 @@
                               },
                               {
                                  "text" : "2 g"
-                              },
-                              {
-                                 "text" : "0.2 g"
                               }
                            ]
                         },
@@ -1153,9 +1120,6 @@
                               },
                               {
                                  "text" : "4.5 g"
-                              },
-                              {
-                                 "text" : "0.45 g"
                               }
                            ]
                         },
@@ -1167,10 +1131,7 @@
                                  "text" : "Salt"
                               },
                               {
-                                 "text" : "0.05 g"
-                              },
-                              {
-                                 "text" : "0.005 g"
+                                 "text" : "0.0502 g"
                               }
                            ]
                         },
@@ -1179,18 +1140,33 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+                                 "text" : "Sodium"
                               },
                               {
-                                 "text" : "58.333 %"
+                                 "text" : "~ 0.02008 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fruits‚ vegetables‚ legumes"
                               },
                               {
-                                 "text" : "58.333 %"
+                                 "text" : "~ 58.3333333333333 %"
                               }
                            ]
                         }
                      ],
                      "title" : "Nutrition facts"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutrition_facts_table_with_input_sets"
                   }
                }
             ],
@@ -1205,6 +1181,267 @@
             },
             "topics" : [
                "health"
+            ]
+         },
+         "nutrition_facts_table_with_input_sets" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "style" : "max-width:15rem",
+                           "text" : "Nutrition facts",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "As sold<br>for 100 g / 100 ml",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "As sold for 100 g (packaging)",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "As sold for 100 g (estimate)",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "nutrition_facts_table_with_input_sets",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Energy"
+                              },
+                              {
+                                 "text" : "400 kJ<br>(140 kcal)"
+                              },
+                              {
+                                 "text" : "400 kJ<br>(96 kcal)"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fat"
+                              },
+                              {
+                                 "text" : "8.5 g"
+                              },
+                              {
+                                 "text" : "8.5 g"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Saturated fat"
+                              },
+                              {
+                                 "text" : "5.6 g"
+                              },
+                              {
+                                 "text" : "5.6 g"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Carbohydrates"
+                              },
+                              {
+                                 "text" : "10.5 g"
+                              },
+                              {
+                                 "text" : "10.5 g"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sugars"
+                              },
+                              {
+                                 "text" : "12.5 g"
+                              },
+                              {
+                                 "text" : "12.5 g"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fiber"
+                              },
+                              {
+                                 "text" : "2 g"
+                              },
+                              {
+                                 "text" : "2 g"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Proteins"
+                              },
+                              {
+                                 "text" : "4.5 g"
+                              },
+                              {
+                                 "text" : "4.5 g"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Salt"
+                              },
+                              {
+                                 "text" : "0.0502 g"
+                              },
+                              {
+                                 "text" : "50.2 mg"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sodium"
+                              },
+                              {
+                                 "text" : "~ 0.02008 g"
+                              },
+                              {
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fruits‚ vegetables‚ legumes"
+                              },
+                              {
+                                 "text" : "~ 58.3333333333333 %"
+                              },
+                              {
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "~ 58.3333333333333 %"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Nutrition facts"
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Nutrition facts (Detailed data)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "product_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "raw_labels"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Product information"
+            },
+            "topics" : [
+               "product"
+            ],
+            "type" : "card"
+         },
+         "raw_labels" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n        <ul>\n            \n                <li><a href=\"http://world.openfoodfacts.localhost/facets/labels/organic\">Organic</a></li>\n            \n        </ul>\n        "
+                  }
+               }
+            ],
+            "evaluation" : "neutral",
+            "expand_for" : "large",
+            "level" : "info",
+            "title_element" : {
+               "title" : "Labels, certifications, awards"
+            },
+            "topics" : [
+               "product"
             ]
          },
          "report_problem_card" : {
@@ -1238,6 +1475,12 @@
                   "panel_element" : {
                      "panel_id" : "report_problem_card"
                   }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "product_card"
+                  }
                }
             ],
             "expanded" : true,
@@ -1259,8 +1502,7 @@
             ],
             "type" : "inline"
          }
-      },
-      "schema_version" : 998
+      }
    },
    "status" : 1,
    "status_verbose" : "product found"

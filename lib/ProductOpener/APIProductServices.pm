@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -78,7 +78,9 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&add_product_data_from_external_service
 		&product_services_api
+		&external_sources_api
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -86,14 +88,147 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::HTTP qw/request_param/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::HTTP qw/request_param set_http_response_header/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::API qw/add_error customize_response_for_product/;
+use ProductOpener::API qw/add_error customize_response_for_product init_api_response/;
 use ProductOpener::EnvironmentalImpact;
+use ProductOpener::HTTP qw/create_user_agent/;
 
+use JSON qw(decode_json encode_json);
+use Storable qw/dclone/;
 use Encode;
+use Types::Serialiser;
+
+=head2 add_product_data_from_external_service ($request_ref, $product_ref, $url, $services_ref)
+
+Make a request to execute services on product on an external server using the product services API.
+
+The resulting fields are added to the product object.
+
+e.g. this function is used to run the percent estimation service on the recipe-estimator server.
+
+=cut
+
+sub add_product_data_from_external_service ($request_ref, $product_ref, $url, $services_ref, $fields_ref = undef) {
+
+	$log->debug("add_product_data_from_external_service - start",
+		{request => $request_ref, url => $url, services_ref => $services_ref})
+		if $log->is_debug();
+
+	defined $request_ref->{api_response} or init_api_response($request_ref);
+
+	my $response_ref = $request_ref->{api_response};
+
+	my $body_ref = {product => $product_ref,};
+
+	if (defined $services_ref) {
+		$body_ref->{services} = $services_ref;
+	}
+
+	# If the caller requested specific fields, we will return only those fields
+	if (defined $fields_ref) {
+		$body_ref->{fields} = $fields_ref;
+	}
+
+	# hack: recipe-estimator currently expects the product at the root of the body
+	if ($url =~ /estimate_recipe/) {
+		# We will send the product as the root object
+		$body_ref = $product_ref;
+	}
+
+	my $ua = create_user_agent(timeout => 10);
+
+	my $response = $ua->post(
+		$url,
+		Content => encode_json($body_ref),
+		"Content-Type" => "application/json; charset=utf-8",
+	);
+
+	if (not $response->is_success) {
+		$log->error("add_product_data_from_external_service - error response", {response => $response})
+			if $log->is_error();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "external_service_error"},
+				field => {
+					id => "services",
+					value => join(", ", @{$services_ref || []}),
+					url => $url,
+					error => $response->status_line
+				},
+				impact => {id => "failure"},
+			}
+		);
+		return;
+	}
+	else {
+
+		# Decode the response body
+		my $response_content = $response->decoded_content;
+
+		my $decoded_json;
+		my $json_decode_error;
+		eval {
+			$decoded_json = decode_json($response_content);
+			1;
+		} or do {
+			$json_decode_error = $@;
+			$log->error(
+				"add_product_data_from_external_service - error decoding JSON response",
+				{response_content => $response_content, error => $json_decode_error}
+			) if $log->is_error();
+			add_error(
+				$response_ref,
+				{
+					message => {id => "external_service_invalid_json_response"},
+					field => {id => "response", value => $response_content, error => $json_decode_error},
+					impact => {id => "failure"},
+				}
+			);
+			return;
+		};
+
+		# If the response is not an error, we expect it to be a valid product object
+
+		# hack: recipe-estimator currently returns the product at the root of the body
+		if ($url =~ /estimate_recipe/) {
+			if (not defined $decoded_json->{product}) {
+				$decoded_json = {product => $decoded_json};
+			}
+		}
+
+		my $response_product_ref = $decoded_json->{product};
+		if (not defined $response_product_ref) {
+			$log->error("add_product_data_from_external_service - response does not contain a product object",
+				{response => $decoded_json})
+				if $log->is_error();
+			add_error(
+				$response_ref,
+				{
+					message => {id => "external_service_invalid_response"},
+					field => {id => "response", value => $response_content, error => "missing product object"},
+					impact => {id => "failure"},
+				}
+			);
+			return;
+		}
+
+		# Copy the fields present in the response product object to the request product object
+		foreach my $field (keys %$response_product_ref) {
+
+			$product_ref->{$field} = $response_product_ref->{$field};
+		}
+
+	}
+
+	$log->debug("add_product_data_from_external_service - stop", {response => $response_ref}) if $log->is_debug();
+
+	return;
+}
 
 =head2 echo_service ($product_ref, $updated_product_fields_ref, $errors_ref)
 
@@ -248,6 +383,85 @@ sub product_services_api ($request_ref) {
 
 	$log->debug("product_services_api - stop", {request => $request_ref}) if $log->is_debug();
 
+	return;
+}
+
+sub _as_bool($value) {
+	if ($value) {
+		return $Types::Serialiser::true;
+	}
+	else {
+		return $Types::Serialiser::false;
+	}
+}
+
+# cache for external_sources method
+my %external_sources_cache = ();
+
+=head2 external_sources
+
+Get external sources but translated in target language
+
+=cut
+
+sub external_sources_api ($request_ref) {
+
+	my $target_lc = $request_ref->{lc};
+	my $response_ref = $request_ref->{api_response};
+
+	if (not defined $external_sources_cache{$target_lc}) {
+
+		# read external-sources.json and decode
+		open(my $in, "<", "$BASE_DIRS{PUBLIC_RESOURCES}/files/external-sources.json")
+			or die "cannot read external-sources.json : $! \n";
+		my $json_content = join("", (<$in>));
+		close $in;
+		my $ext_sources = decode_json($json_content);
+		my @translated_sources = ();
+		# iterate content
+		foreach my $ext_source (@$ext_sources) {
+			my $source_id = $ext_source->{id};
+			my $translated_source = dclone($ext_source);
+			# try to translate some fields
+			foreach my $field (qw/name description section_title/) {
+				my $translation_id = "external_sources_" . $source_id . "_" . $field;
+				if ($field eq "section_title") {
+					my $section_id = $ext_source->{section};
+					$translation_id = "section_" . $section_id . "_title";
+					# put a default in this case
+					$translated_source->{$field} = $section_id;
+				}
+				my $translation = lang($translation_id);
+				if ((defined $translation) and ($translation ne $translation_id) and ($translation ne "")) {
+					$translated_source->{$field} = $translation;
+				}
+				# add default permission field corresponding to anonymous users
+				$translated_source->{"user_in_scope"} = _as_bool($translated_source->{"scope"} eq "public");
+			}
+			push @translated_sources, $translated_source;
+		}
+		$external_sources_cache{$target_lc} = \@translated_sources;
+	}
+	# add information for current user
+	if ($request_ref->{user_id}) {
+		# duplicate cache
+		my @external_sources = @{dclone($external_sources_cache{$target_lc})};
+		foreach my $ext_source (@external_sources) {
+			if ($ext_source->{scope} eq "users") {
+				$ext_source->{user_in_scope} = _as_bool(1);
+			}
+			elsif ($ext_source->{scope} eq "moderators") {
+				$ext_source->{user_in_scope} = _as_bool($request_ref->{moderator} || $request_ref->{admin});
+			}
+		}
+		$response_ref->{external_sources} = \@external_sources;
+	}
+	else {
+		$response_ref->{external_sources} = $external_sources_cache{$target_lc};
+	}
+	$response_ref->{result} = {id => "ok", name => "External services found"};
+	# 1 hour cache
+	set_http_response_header($request_ref, "Cache-Control", "public, max-age=3600");
 	return;
 }
 

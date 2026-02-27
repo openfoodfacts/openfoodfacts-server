@@ -26,7 +26,7 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/init_request/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Tags qw/:all/;
@@ -50,12 +50,6 @@ my $id = single_param('id');
 my $ocr_engine = single_param('ocr_engine');
 my $annotations = single_param('annotations') | 0;
 
-if (not defined $ocr_engine) {
-	$ocr_engine = "tesseract";
-
-	# $ocr_engine = "google_cloud_vision";
-}
-
 $log->debug("start", {code => $code, id => $id}) if $log->is_debug();
 
 if (not defined $code) {
@@ -68,8 +62,8 @@ my $product_ref = retrieve_product($product_id);
 
 my $results_ref = {};
 
-if (($id =~ /^nutrition/) and (single_param('process_image'))) {
-	extract_nutrition_from_image($product_ref, $id, $ocr_engine, $results_ref);
+if (($id =~ /^nutrition_(\w\w)$/) and (single_param('process_image'))) {
+	extract_nutrition_from_image($product_ref, "nutrition", $1, $ocr_engine, $results_ref);
 	if ($results_ref->{status} == 0) {
 		if (not $annotations) {
 			delete $results_ref->{nutrition_text_from_image_annotations};

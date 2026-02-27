@@ -67,7 +67,6 @@ export_csv_file.pl --query field_name=field_value --query other_field_name=other
 TXT
 	;
 
-my %query_fields_values = ();
 my $fields = '';
 my $extra_fields = '';
 my $separator = "\t";
@@ -76,10 +75,12 @@ my $query_codes_from_file = '';
 my $export_computed_fields = 0;
 my $export_canonicalized_tags_fields = 0;
 
+my $query_params_ref = {};    # filters for mongodb query
+
 GetOptions(
 	"fields=s" => \$fields,
 	"extra_fields=s" => \$extra_fields,
-	"query=s%" => \%query_fields_values,
+	"query=s%" => $query_params_ref,
 	"separator=s" => \$separator,
 	"include-images-paths" => \$include_images_paths,
 	"query-codes-from-file=s" => \$query_codes_from_file,
@@ -95,17 +96,14 @@ print STDERR "export_csv_file.pl
 - query fields values:
 ";
 
-my $query_ref = {};
 my $request_ref = {};
-
-foreach my $field (sort keys %query_fields_values) {
-	print STDERR "-- $field: $query_fields_values{$field}\n";
-	param($field, $query_fields_values{$field});
-}
 
 # Construct the MongoDB query
 
-add_params_to_query($request_ref, $query_ref);
+# Build the mongodb query from the --query parameters
+my $query_ref = {};
+
+add_params_to_query($query_params_ref, $query_ref);
 
 use boolean;
 
@@ -157,6 +155,9 @@ if ($extra_fields) {
 if ($include_images_paths) {
 	$args_ref->{include_images_paths} = 1;
 }
+
+# go for a large timeout
+$args_ref->{mongo_timeout_ms} = 2 * 60000;
 
 export_csv($args_ref);
 

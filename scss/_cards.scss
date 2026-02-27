@@ -53,11 +53,11 @@ $card-margin-bottom: $panel-padding !default;
   $radius: $card-border-radius,
   $shadow: $card-shadow
 ) {
-  
+
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-  
+
 
   margin-bottom: $margin;
 
@@ -80,10 +80,10 @@ $card-margin-bottom: $panel-padding !default;
   $background: $card-divider-background,
   $padding: $card-padding
 ) {
-  
+
     display: flex;
     flex: 0 1 auto;
-  
+
 
   padding: $padding;
   background: $background;
@@ -97,9 +97,9 @@ $card-margin-bottom: $panel-padding !default;
 @mixin card-section(
   $padding: $card-padding
 ) {
-  
+
     flex: 1 0 auto;
-  
+
 
   padding: $padding;
 

@@ -1,0 +1,18 @@
+type: object
+title: product_image_crop
+properties:
+  status:
+    type: string
+    examples:
+      - "status ok"
+      - "status not ok - image not selected - imgid not in uploaded images"
+      - "status not ok - image not selected - image cannot be read"
+  imgid:
+    type: integer
+    description: identifier of the processed image
+    example: 2
+  imagefield:
+    type: string
+    description: |
+      identifier of the selected image field
+      (corresponding to the `id` parameter)

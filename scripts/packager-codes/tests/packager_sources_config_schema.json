@@ -1,0 +1,132 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Packager Sources Configuration",
+  "description": "Configuration for packager codes data sources and processing",
+  "type": "object",
+  "patternProperties": {
+    "^[a-z]{2}$": {
+      "type": "object",
+      "required": ["country_name", "sources"],
+      "properties": {
+        "country_name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Full name of the country"
+        },
+        "geocoding_strategies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "strategy_split_street_comma",
+              "strategy_split_street_last_space",
+              "strategy_remove_street",
+              "strategy_split_city_hyphen",
+              "strategy_remove_city",
+              "strategy_remove_postalcode",
+              "strategy_reset_without_city",
+              "strategy_reset_without_country"
+            ]
+          },
+          "description": "Ordered list of geocoding fallback strategies"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["url", "files"],
+            "properties": {
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "URL of the data source"
+              },
+              "files": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": ["type"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": ["excel", "html"],
+                      "description": "Type of file to process"
+                    },
+                    "last_filename": {
+                      "type": "string",
+                      "description": "Last known filename for change detection"
+                    },
+                    "keyword": {
+                      "type": "string",
+                      "description": "Keyword to identify the file on the page"
+                    },
+                    "sheets": {
+                      "type": "object",
+                      "properties": {
+                        "start": {"type": "integer", "minimum": 0},
+                        "end": {"type": "integer", "minimum": 0}
+                      },
+                      "description": "Sheet range to process in Excel files"
+                    },
+                    "header_keywords": {
+                      "type": "array",
+                      "items": {"type": "string"},
+                      "description": "Keywords to identify the header row"
+                    },
+                    "columns": {
+                      "type": "object",
+                      "properties": {
+                        "code": {"type": "integer", "minimum": 0},
+                        "name": {"type": "integer", "minimum": 0},
+                        "street": {"type": "integer", "minimum": 0},
+                        "city": {"type": "integer", "minimum": 0},
+                        "postalcode": {"type": "integer", "minimum": 0},
+                        "street_postalcode_city": {"type": "integer", "minimum": 0},
+                        "city_and_postalcode": {"type": "integer", "minimum": 0}
+                      },
+                      "description": "Column indices for data extraction"
+                    },
+                    "code_format": {
+                      "type": "object",
+                      "properties": {
+                        "strip_prefix": {"type": "string"},
+                        "suffix": {"type": "string"}
+                      },
+                      "description": "Approval code formatting rules"
+                    },
+                    "address_extractor": {
+                      "type": "string",
+                      "enum": ["street_postalcode_city", "city_and_postalcode"],
+                      "description": "Type of address extraction to use"
+                    },
+                    "normalize_fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": ["code", "name", "street", "city", "postalcode"]
+                      },
+                      "description": "Fields to normalize (trim/clean)"
+                    },
+                    "postalcode_format": {
+                      "type": "object",
+                      "properties": {
+                        "zfill": {"type": "integer", "minimum": 1}
+                      },
+                      "description": "Postal code formatting rules"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

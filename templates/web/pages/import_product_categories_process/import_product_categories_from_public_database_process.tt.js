@@ -6,7 +6,7 @@ var job_info_state;
   \$.ajax({
     url: '/cgi/import_products_categories_job_status.pl?import_id=[% import_id %]',
     success: function(data) {
-      \$('#result').html(data.job_info.state);
+      \$('#result').text(data.job_info.state);
 	  job_info_state = data.job_info.state;
     },
     complete: function() {
@@ -16,7 +16,7 @@ var job_info_state;
 		timeout += 1000;
 	}
 	  poll_n++;
-	  \$('#poll').html(poll_n);
+	  \$('#poll').text(poll_n);
     }
   });
 });

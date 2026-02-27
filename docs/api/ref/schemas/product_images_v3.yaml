@@ -39,53 +39,12 @@ components:
                   type: object
                   $ref: "./image_uploaded.yaml#/components/schemas/ImageUploaded"
             selected:
-              description: |-
+              description: |
                 List of all images selected by users or manufacturers.
                 Those images are typically displayed to users, and are used in edit mode to crop images with specific information
                 for specific languages. (See images.uploaded)
               type: object
-              title: images_selected
-              properties:
-                front:
-                  description: |
-                    Front images of the full product in languages shown on the packaging.
-                    In most cases we have a front image selected for only one language,
-                    unless the product has different packagings for different countries with the same barcode,
-                    or if the product has two front sides (e.g. in bilingual countries).
-                  patternProperties:
-                    '(?<language_code>\w\w)':
-                      type: object
-                      description: |
-                        Front image in the language given by the 2 letter 'language_code'.
-                      $ref: "./image_selected.yaml#/components/schemas/ImageSelected"
-                ingredients:
-                  description: |
-                    Cropped images of the ingredients list in languages shown on the packaging.
-                  patternProperties:
-                    '(?<language_code>\w\w)':
-                      type: object
-                      description: |
-                        Ingredient list image in the language given by the 2 letter 'language_code'.
-                      $ref: "./image_selected.yaml#/components/schemas/ImageSelected"
-                nutrition:
-                  description: |
-                    Cropped images of the nutrition facts table / list in languages shown on the packaging.
-                  patternProperties:
-                    '(?<language_code>\w\w)':
-                      type: object
-                      description: |
-                        Nutrition facts image in the language given by the 2 letter 'language_code'.
-                      $ref: "./image_selected.yaml#/components/schemas/ImageSelected"
-                packaging:
-                  description: |
-                    Cropped images of the packaging / recycling information in languages shown on the packaging.
-                  patternProperties:
-                    '(?<language_code>\w\w)':
-                      type: object
-                      description: |
-                        Packaging / recycling information image in the language given by the 2 letter 'language_code'.
-                      $ref: "./image_selected.yaml#/components/schemas/ImageSelected"
-          
+              $ref: "./image_selected.yaml#/components/schemas/ImagesSelected"
         selected_images:
           type: object
           title: Selected images URLs

@@ -1,4 +1,4 @@
-# Labels specific for Open Product Facts (generic products: not food, pet food or beauty)
+# Labels specific for Open Products Facts (generic products: not food, pet food or beauty)
 
 xx: CE
 en: CE, CE marking
@@ -6,22 +6,56 @@ fr: CE, Marquage CE
 image:en: ce.126x90.svg
 wikidata:en: Q467405
 
+# Textile labels
+
+en: OEKO Tex Standard 100
+xx: OEKO Tex Standard 100
+wikidata:en: Q591258
+
+en: Fair Wear Foundation
+xx: Fair Wear Foundation
+fr: Fair Wear Foundation
+wikidata:en: Q1590777
+
+en: Global Organic Textile Standard
+wikidata:en: Q1531646
+
+xx: Energy Star
 en: Energy Star
 fr: Energy Star
+wikidata:en: Q1054823
 
+xx: EPEAT
 en: EPEAT
 fr: EPEAT
+wikidata:en: Q3046046
+
+< en: EPEAT
+en: EPEAT Gold
+
+< en: EPEAT
+en: EPEAT Silver
+
+< en: EPEAT
+en: EPEAT Bronze
+
+en: EPEAT Climate+
 
 xx: FCC
 en: FCC, FCC certification
 fr: FCC, Certification FCC
+image:en: fcc.122x90.svg
+wikidata:en: Q16836423
 
 xx: RoHS
 en: RoHS, RoHS compliant
 fr: RoHS, Conforme RoHS
+wikidata:en: Q740504
 
+xx: WEEE
 en: WEEE
 fr: DEEE
+wikidata:en: Q327400
 
 xx: UKCA, UK Conformity Assessed
 en: UKCA, UKCA marking
@@ -34,35 +68,78 @@ xx: UKNI, UK(NI)
 en: UKNI, UKNI marking
 image:en: ukni.90x90.png
 web:en: https://www.gov.uk/guidance/using-the-ukni-marking
+# wikidata:en:
 
 xx: ICASA Approved
 en: ICASA Approved
 auth_url:en: https://www.icasa.org.za/
+# wikidata:en:
 
 en: Battery included
+ar: بطارية مشمولة
+de: Batterie enthalten
+es: Batería incluida
 fr: Pile incluse
+it: Batteria inclusa
+ja: バッテリー付属
+ko: 배터리 포함
+nl: Batterij inbegrepen
+pl: Bateria w zestawie
+pt: Bateria incluída
+ru: Батарея в комплекте
+zh: 包括电池
 
 en: Contains rechargeable battery
+ar: يحتوي على بطارية قابلة للشحن
+de: Enthält wiederaufladbare Batterie
+es: Contiene batería recargable
 fr: Contient une batterie rechargeable
+it: Contiene batteria ricaricabile
+ja: 充電式バッテリーが含まれています
+ko: 충전식 배터리 포함
+nl: Bevat oplaadbare batterij
+pl: Zawiera akumulator
+pt: Contém bateria recarregável
+ru: Содержит аккумуляторную батарею
+zh: 包含可充电电池
 
 en: Without perfume
 da: Uden parfume
+de: Ohne Parfüm
+es: Sin perfume
+fr: Sans parfum
+it: Senza profumo
 nb: Uten parfyme
+nl: Zonder parfum
+pl: Bez perfum
+pt: Sem perfume
 sv: Utan parfym
 
-en: Made in China
-ar: صنع في الصين
-de: Hergestellt in China
-es: Hecho en China
-fr: Fabriqué en Chine
-it: Fatto in Cina
-ja: 中国製
-ko: 중국산
-nl: Gemaakt in China
-pl: Wyprodukowano w Chinach
-pt: Feito na China
-ru: Сделано в Китае
-zh: 中国制造
+xx: IP 2X
+description:fr: protégé contre les corps solides supérieurs à 12,5 mm. Aucune protection contre les intrusions d'eau.
+
+xx: IP 23
+description:fr: première résistance à l'eau et à l'humidité mais non étanche (ne doit pas être placé au-dessus d'une douche par exemple).
+
+xx: IP 44
+description:fr: protégé contre les corps solides supérieurs à 1 mm. Protégé contre les projections d'eau de toutes directions.
+
+xx: IP 54
+description:fr: protégé contre les poussières et autres résidus microscopiques. Protégé contre les projections d'eau de toutes directions.
+
+xx: IP 65
+description:fr: totalement protégé contre les poussières. Protégé contre les jets d'eau de toutes directions à la lance (buse de 6,3 mm, distance 2,5 à 3 m, débit 12,5 l/min ±5 %).
+
+xx: IP 67
+description:fr: totalement étanche à la poussière. Protégé contre l'immersion pendant 30 min jusqu'à 1 m de profondeur[b].
+
+xx: IP 68
+description:fr: totalement étanche à la poussière. Protégé contre l'immersion selon les spécifications du fabricant. Par exemple, de nombreux smartphones IP68 sont étanches 30 min à 1,5 m[8] tandis que des spots de piscine peuvent être étanches à 10 m pour de très longues périodes[9].
+
+xx: IP 69K
+description:fr: protégé contre les effets des jets d'eau à haute pression et du nettoyage à la vapeur
+
+### Manufacturing and assembly places claims
 
 en: Assembled in Europe
 ar: جمع في أوروبا
@@ -107,36 +184,118 @@ zh: 法国组装
 
 # Video Games
 # https://en.wikipedia.org/wiki/PEGI
+# https://www.wikidata.org/wiki/Q192916
 
+xx: PEGI 3
 en: PEGI 3
 
+xx: PEGI 7
 en: PEGI 7
 
+xx: PEGI 12
 en: PEGI 12
 
+xx: PEGI 16
 en: PEGI 16
 
+xx: PEGI 18
 en: PEGI 18
+
+en: ESRB Everyone (E)
+fr: ESRB Pour Tous (E)
+
+en: ESRB Everyone 10+ (E10+)
+fr: ESRB Pour Tous 10+ (E10+)
+
+en: ESRB Teen (T)
+fr: ESRB Adolescents (T)
+
+en: ESRB Mature 17+ (M)
+fr: ESRB Adultes 17+ (M)
+
+en: ESRB Adults Only 18+ (AO)
+fr: ESRB Adultes Seulement 18+ (AO)
+
+en: CERO A
+ja: CERO A (全年齢対象)
+
+en: CERO B
+ja: CERO B (12才以上対象)
+
+en: CERO C
+ja: CERO C (15才以上対象)
+
+en: CERO D
+ja: CERO D (17才以上対象)
+
+en: CERO Z
+ja: CERO Z (18才以上のみ対象)
+
+en: USK 0
+de: USK ab 0 freigegeben
+
+en: USK 6
+de: USK ab 6 freigegeben
+
+en: USK 12
+de: USK ab 12 freigegeben
+
+en: USK 16
+de: USK ab 16 freigegeben
+
+en: USK 18
+de: USK ab 18 freigegeben
 
 # Smartphone specific labels, quality schemes and common claims
 
 en: Wireless Charging
+de: Kabelloses Laden
+es: Carga inalámbrica
 fr: Chargement sans fil
+it: Ricarica wireless
 
 en: Quick Charging
+de: Schnellladung
+es: Carga rápida
 fr: Charge rapide
+it: Ricarica rapida
 
 en: Water resistant
+de: Wasserresistent
+es: Resistente al agua
 fr: Résistant à l'eau
+it: Resistente all'acqua
 
 en: Dust resistant
+ar: مقاومة للغبار
+de: Staubresistent
+es: Resistente al polvo
 fr: Résistant à la poussière
+it: Resistente alla polvere
+ja: 防塵
+ko: 방진
+nl: Stofbestendig
+pl: Odporny na kurz
+pt: Resistente à poeira
+ru: Пылеустойчивый
+zh: 防尘
 
 en: Scratch resistant
 fr: Résistant aux rayures
 
 en: Made for iPhone
+ar: صنع لأجهزة iPhone
+de: Gemacht für iPhone
+es: Hecho para iPhone
 fr: Fabriqué pour iPhone
+it: Fatto per iPhone
+ja: iPhone向け
+ko: iPhone용으로 제작
+nl: Gemaakt voor iPhone
+pl: Stworzone dla iPhone'a
+pt: Feito para iPhone
+ru: Сделано для iPhone
+zh: 专为iPhone设计
 
 # French reparability index
 
@@ -144,8 +303,20 @@ fr: Fabriqué pour iPhone
 
 # French reparability index
 
+
 en: Repairability index 0 - France
+ar: مؤشر قابلية الإصلاح 0 - فرنسا
+de: Reparierbarkeitsindex 0 - Frankreich
+es: Índice de reparabilidad 0 - Francia
 fr: Indice de réparabilité 0
+it: Indice di riparabilità 0 - Francia
+ja: 修理可能性指標 0 - フランス
+ko: 수리 용이성 지수 0 - 프랑스
+nl: Repareerbaarheid index 0 - Frankrijk
+pl: Wskaźnik naprawialności 0 - Francja
+pt: Índice de reparabilidade 0 - França
+ru: Индекс ремонтопригодности 0 - Франция
+zh: 可修复性指数 0 - 法国
 repairability_index_france_value:en: 0
 
 en: Repairability index 0.1 - France
@@ -164,396 +335,1509 @@ zh: 可修复性指数 0.1 - 法国
 repairability_index_france_value:en: 0.1
 
 en: Repairability index 0.2 - France
+ar: مؤشر قابلية الإصلاح 0.2 - فرنسا
+de: Reparierbarkeitsindex 0.2 - Frankreich
+es: Índice de reparabilidad 0.2 - Francia
 fr: Indice de réparabilité 0.2
+it: Indice di riparabilità 0.2 - Francia
+ja: 修理可能性指標 0.2 - フランス
+ko: 수리 용이성 지수 0.2 - 프랑스
+nl: Repareerbaarheid index 0.2 - Frankrijk
+pl: Wskaźnik naprawialności 0.2 - Francja
+pt: Índice de reparabilidade 0.2 - França
+ru: Индекс ремонтопригодности 0.2 - Франция
+zh: 可修复性指数 0.2 - 法国
 repairability_index_france_value:en: 0.2
 
 en: Repairability index 0.3 - France
+ar: مؤشر قابلية الإصلاح 0.3 - فرنسا
+de: Reparierbarkeitsindex 0.3 - Frankreich
+es: Índice de reparabilidad 0.3 - Francia
 fr: Indice de réparabilité 0.3
+it: Indice di riparabilità 0.3 - Francia
+ja: 修理可能性指標 0.3 - フランス
+ko: 수리 용이성 지수 0.3 - 프랑스
+nl: Repareerbaarheid index 0.3 - Frankrijk
+pl: Wskaźnik naprawialności 0.3 - Francja
+pt: Índice de reparabilidade 0.3 - França
+ru: Индекс ремонтопригодности 0.3 - Франция
+zh: 可修复性指数 0.3 - 法国
 repairability_index_france_value:en: 0.3
 
 en: Repairability index 0.4 - France
+ar: مؤشر قابلية الإصلاح 0.4 - فرنسا
+de: Reparierbarkeitsindex 0.4 - Frankreich
+es: Índice de reparabilidad 0.4 - Francia
 fr: Indice de réparabilité 0.4
+it: Indice di riparabilità 0.4 - Francia
+ja: 修理可能性指標 0.4 - フランス
+ko: 수리 용이성 지수 0.4 - 프랑스
+nl: Repareerbaarheid index 0.4 - Frankrijk
+pl: Wskaźnik naprawialności 0.4 - Francja
+pt: Índice de reparabilidade 0.4 - França
+ru: Индекс ремонтопригодности 0.4 - Франция
+zh: 可修复性指数 0.4 - 法国
 repairability_index_france_value:en: 0.4
 
 en: Repairability index 0.5 - France
+ar: مؤشر قابلية الإصلاح 0.5 - فرنسا
+de: Reparierbarkeitsindex 0.5 - Frankreich
+es: Índice de reparabilidad 0.5 - Francia
 fr: Indice de réparabilité 0.5
+it: Indice di riparabilità 0.5 - Francia
+ja: 修理可能性指標 0.5 - フランス
+ko: 수리 용이성 지수 0.5 - 프랑스
+nl: Repareerbaarheid index 0.5 - Frankrijk
+pl: Wskaźnik naprawialności 0.5 - Francja
+pt: Índice de reparabilidade 0.5 - França
+ru: Индекс ремонтопригодности 0.5 - Франция
+zh: 可修复性指数 0.5 - 法国
 repairability_index_france_value:en: 0.5
 
 en: Repairability index 0.6 - France
+ar: مؤشر قابلية الإصلاح 0.6 - فرنسا
+de: Reparierbarkeitsindex 0.6 - Frankreich
+es: Índice de reparabilidad 0.6 - Francia
 fr: Indice de réparabilité 0.6
+it: Indice di riparabilità 0.6 - Francia
+ja: 修理可能性指標 0.6 - フランス
+ko: 수리 용이성 지수 0.6 - 프랑스
+nl: Repareerbaarheid index 0.6 - Frankrijk
+pl: Wskaźnik naprawialności 0.6 - Francja
+pt: Índice de reparabilidade 0.6 - França
+ru: Индекс ремонтопригодности 0.6 - Франция
+zh: 可修复性指数 0.6 - 法国
 repairability_index_france_value:en: 0.6
 
 en: Repairability index 0.7 - France
+ar: مؤشر قابلية الإصلاح 0.7 - فرنسا
+de: Reparierbarkeitsindex 0.7 - Frankreich
+es: Índice de reparabilidad 0.7 - Francia
 fr: Indice de réparabilité 0.7
+it: Indice di riparabilità 0.7 - Francia
+ja: 修理可能性指標 0.7 - フランス
+ko: 수리 용이성 지수 0.7 - 프랑스
+nl: Repareerbaarheid index 0.7 - Frankrijk
+pl: Wskaźnik naprawialności 0.7 - Francja
+pt: Índice de reparabilidade 0.7 - França
+ru: Индекс ремонтопригодности 0.7 - Франция
+zh: 可修复性指数 0.7 - 法国
 repairability_index_france_value:en: 0.7
 
 en: Repairability index 0.8 - France
+ar: مؤشر قابلية الإصلاح 0.8 - فرنسا
+de: Reparierbarkeitsindex 0.8 - Frankreich
+es: Índice de reparabilidad 0.8 - Francia
 fr: Indice de réparabilité 0.8
+it: Indice di riparabilità 0.8 - Francia
+ja: 修理可能性指標 0.8 - フランス
+ko: 수리 용이성 지수 0.8 - 프랑스
+nl: Repareerbaarheid index 0.8 - Frankrijk
+pl: Wskaźnik naprawialności 0.8 - Francja
+pt: Índice de reparabilidade 0.8 - França
+ru: Индекс ремонтопригодности 0.8 - Франция
+zh: 可修复性指数 0.8 - 法国
 repairability_index_france_value:en: 0.8
 
 en: Repairability index 0.9 - France
+ar: مؤشر قابلية الإصلاح 0.9 - فرنسا
+de: Reparierbarkeitsindex 0.9 - Frankreich
+es: Índice de reparabilidad 0.9 - Francia
 fr: Indice de réparabilité 0.9
+it: Indice di riparabilità 0.9 - Francia
+ja: 修理可能性指標 0.9 - フランス
+ko: 수리 용이성 지수 0.9 - 프랑스
+nl: Repareerbaarheid index 0.9 - Frankrijk
+pl: Wskaźnik naprawialności 0.9 - Francja
+pt: Índice de reparabilidade 0.9 - França
+ru: Индекс ремонтопригодности 0.9 - Франция
+zh: 可修复性指数 0.9 - 法国
 repairability_index_france_value:en: 0.9
 
 en: Repairability index 1.0 - France
+ar: مؤشر قابلية الإصلاح 1.0 - فرنسا
+de: Reparierbarkeitsindex 1.0 - Frankreich
+es: Índice de reparabilidad 1.0 - Francia
 fr: Indice de réparabilité 1.0
+it: Indice di riparabilità 1.0 - Francia
+ja: 修理可能性指標 1.0 - フランス
+ko: 수리 용이성 지수 1.0 - 프랑스
+nl: Repareerbaarheid index 1.0 - Frankrijk
+pl: Wskaźnik naprawialności 1.0 - Francja
+pt: Índice de reparabilidade 1.0 - França
+ru: Индекс ремонтопригодности 1.0 - Франция
+zh: 可修复性指数 1.0 - 法国
 repairability_index_france_value:en: 1.0
 
 en: Repairability index 1.1 - France
+ar: مؤشر قابلية الإصلاح 1.1 - فرنسا
+de: Reparierbarkeitsindex 1.1 - Frankreich
+es: Índice de reparabilidad 1.1 - Francia
 fr: Indice de réparabilité 1.1
+it: Indice di riparabilità 1.1 - Francia
+ja: 修理可能性指標 1.1 - フランス
+ko: 수리 용이성 지수 1.1 - 프랑스
+nl: Repareerbaarheid index 1.1 - Frankrijk
+pl: Wskaźnik naprawialności 1.1 - Francja
+pt: Índice de reparabilidade 1.1 - França
+ru: Индекс ремонтопригодности 1.1 - Франция
+zh: 可修复性指数 1.1 - 法国
 repairability_index_france_value:en: 1.1
 
 en: Repairability index 1.2 - France
+ar: مؤشر قابلية الإصلاح 1.2 - فرنسا
+de: Reparierbarkeitsindex 1.2 - Frankreich
+es: Índice de reparabilidad 1.2 - Francia
 fr: Indice de réparabilité 1.2
+it: Indice di riparabilità 1.2 - Francia
+ja: 修理可能性指標 1.2 - フランス
+ko: 수리 용이성 지수 1.2 - 프랑스
+nl: Repareerbaarheid index 1.2 - Frankrijk
+pl: Wskaźnik naprawialności 1.2 - Francja
+pt: Índice de reparabilidade 1.2 - França
+ru: Индекс ремонтопригодности 1.2 - Франция
+zh: 可修复性指数 1.2 - 法国
 repairability_index_france_value:en: 1.2
 
 en: Repairability index 1.3 - France
+ar: مؤشر قابلية الإصلاح 1.3 - فرنسا
+de: Reparierbarkeitsindex 1.3 - Frankreich
+es: Índice de reparabilidad 1.3 - Francia
 fr: Indice de réparabilité 1.3
+it: Indice di riparabilità 1.3 - Francia
+ja: 修理可能性指標 1.3 - フランス
+ko: 수리 용이성 지수 1.3 - 프랑스
+nl: Repareerbaarheid index 1.3 - Frankrijk
+pl: Wskaźnik naprawialności 1.3 - Francja
+pt: Índice de reparabilidade 1.3 - França
+ru: Индекс ремонтопригодности 1.3 - Франция
+zh: 可修复性指数 1.3 - 法国
 repairability_index_france_value:en: 1.3
 
 en: Repairability index 1.4 - France
+ar: مؤشر قابلية الإصلاح 1.4 - فرنسا
+de: Reparierbarkeitsindex 1.4 - Frankreich
+es: Índice de reparabilidad 1.4 - Francia
 fr: Indice de réparabilité 1.4
+it: Indice di riparabilità 1.4 - Francia
+ja: 修理可能性指標 1.4 - フランス
+ko: 수리 용이성 지수 1.4 - 프랑스
+nl: Repareerbaarheid index 1.4 - Frankrijk
+pl: Wskaźnik naprawialności 1.4 - Francja
+pt: Índice de reparabilidade 1.4 - França
+ru: Индекс ремонтопригодности 1.4 - Франция
+zh: 可修复性指数 1.4 - 法国
 repairability_index_france_value:en: 1.4
 
 en: Repairability index 1.5 - France
+ar: مؤشر قابلية الإصلاح 1.5 - فرنسا
+de: Reparierbarkeitsindex 1.5 - Frankreich
+es: Índice de reparabilidad 1.5 - Francia
 fr: Indice de réparabilité 1.5
+it: Indice di riparabilità 1.5 - Francia
+ja: 修理可能性指標 1.5 - フランス
+ko: 수리 용이성 지수 1.5 - 프랑스
+nl: Repareerbaarheid index 1.5 - Frankrijk
+pl: Wskaźnik naprawialności 1.5 - Francja
+pt: Índice de reparabilidade 1.5 - França
+ru: Индекс ремонтопригодности 1.5 - Франция
+zh: 可修复性指数 1.5 - 法国
 repairability_index_france_value:en: 1.5
 
 en: Repairability index 1.6 - France
+ar: مؤشر قابلية الإصلاح 1.6 - فرنسا
+de: Reparierbarkeitsindex 1.6 - Frankreich
+es: Índice de reparabilidad 1.6 - Francia
 fr: Indice de réparabilité 1.6
+it: Indice di riparabilità 1.6 - Francia
+ja: 修理可能性指標 1.6 - フランス
+ko: 수리 용이성 지수 1.6 - 프랑스
+nl: Repareerbaarheid index 1.6 - Frankrijk
+pl: Wskaźnik naprawialności 1.6 - Francja
+pt: Índice de reparabilidade 1.6 - França
+ru: Индекс ремонтопригодности 1.6 - Франция
+zh: 可修复性指数 1.6 - 法国
 repairability_index_france_value:en: 1.6
 
 en: Repairability index 1.7 - France
+ar: مؤشر قابلية الإصلاح 1.7 - فرنسا
+de: Reparierbarkeitsindex 1.7 - Frankreich
+es: Índice de reparabilidad 1.7 - Francia
 fr: Indice de réparabilité 1.7
+it: Indice di riparabilità 1.7 - Francia
+ja: 修理可能性指標 1.7 - フランス
+ko: 수리 용이성 지수 1.7 - 프랑스
+nl: Repareerbaarheid index 1.7 - Frankrijk
+pl: Wskaźnik naprawialności 1.7 - Francja
+pt: Índice de reparabilidade 1.7 - França
+ru: Индекс ремонтопригодности 1.7 - Франция
+zh: 可修复性指数 1.7 - 法国
 repairability_index_france_value:en: 1.7
 
 en: Repairability index 1.8 - France
+ar: مؤشر قابلية الإصلاح 1.8 - فرنسا
+de: Reparierbarkeitsindex 1.8 - Frankreich
+es: Índice de reparabilidad 1.8 - Francia
 fr: Indice de réparabilité 1.8
+it: Indice di riparabilità 1.8 - Francia
+ja: 修理可能性指標 1.8 - フランス
+ko: 수리 용이성 지수 1.8 - 프랑스
+nl: Repareerbaarheid index 1.8 - Frankrijk
+pl: Wskaźnik naprawialności 1.8 - Francja
+pt: Índice de reparabilidade 1.8 - França
+ru: Индекс ремонтопригодности 1.8 - Франция
+zh: 可修复性指数 1.8 - 法国
 repairability_index_france_value:en: 1.8
 
 en: Repairability index 1.9 - France
+ar: مؤشر قابلية الإصلاح 1.9 - فرنسا
+de: Reparierbarkeitsindex 1.9 - Frankreich
+es: Índice de reparabilidad 1.9 - Francia
 fr: Indice de réparabilité 1.9
+it: Indice di riparabilità 1.9 - Francia
+ja: 修理可能性指標 1.9 - フランス
+ko: 수리 용이성 지수 1.9 - 프랑스
+nl: Repareerbaarheid index 1.9 - Frankrijk
+pl: Wskaźnik naprawialności 1.9 - Francja
+pt: Índice de reparabilidade 1.9 - França
+ru: Индекс ремонтопригодности 1.9 - Франция
+zh: 可修复性指数 1.9 - 法国
 repairability_index_france_value:en: 1.9
 
 en: Repairability index 2.0 - France
+ar: مؤشر قابلية الإصلاح 2.0 - فرنسا
+de: Reparierbarkeitsindex 2.0 - Frankreich
+es: Índice de reparabilidad 2.0 - Francia
 fr: Indice de réparabilité 2.0
+it: Indice di riparabilità 2.0 - Francia
+ja: 修理可能性指標 2.0 - フランス
+ko: 수리 용이성 지수 2.0 - 프랑스
+nl: Repareerbaarheid index 2.0 - Frankrijk
+pl: Wskaźnik naprawialności 2.0 - Francja
+pt: Índice de reparabilidade 2.0 - França
+ru: Индекс ремонтопригодности 2.0 - Франция
+zh: 可修复性指数 2.0 - 法国
 repairability_index_france_value:en: 2.0
 
 en: Repairability index 2.1 - France
+ar: مؤشر قابلية الإصلاح 2.1 - فرنسا
+de: Reparierbarkeitsindex 2.1 - Frankreich
+es: Índice de reparabilidad 2.1 - Francia
 fr: Indice de réparabilité 2.1
+it: Indice di riparabilità 2.1 - Francia
+ja: 修理可能性指標 2.1 - フランス
+ko: 수리 용이성 지수 2.1 - 프랑스
+nl: Repareerbaarheid index 2.1 - Frankrijk
+pl: Wskaźnik naprawialności 2.1 - Francja
+pt: Índice de reparabilidade 2.1 - França
+ru: Индекс ремонтопригодности 2.1 - Франция
+zh: 可修复性指数 2.1 - 法国
 repairability_index_france_value:en: 2.1
 
 en: Repairability index 2.2 - France
+ar: مؤشر قابلية الإصلاح 2.2 - فرنسا
+de: Reparierbarkeitsindex 2.2 - Frankreich
+es: Índice de reparabilidad 2.2 - Francia
 fr: Indice de réparabilité 2.2
+it: Indice di riparabilità 2.2 - Francia
+ja: 修理可能性指標 2.2 - フランス
+ko: 수리 용이성 지수 2.2 - 프랑스
+nl: Repareerbaarheid index 2.2 - Frankrijk
+pl: Wskaźnik naprawialności 2.2 - Francja
+pt: Índice de reparabilidade 2.2 - França
+ru: Индекс ремонтопригодности 2.2 - Франция
+zh: 可修复性指数 2.2 - 法国
 repairability_index_france_value:en: 2.2
 
 en: Repairability index 2.3 - France
+ar: مؤشر قابلية الإصلاح 2.3 - فرنسا
+de: Reparierbarkeitsindex 2.3 - Frankreich
+es: Índice de reparabilidad 2.3 - Francia
 fr: Indice de réparabilité 2.3
+it: Indice di riparabilità 2.3 - Francia
+ja: 修理可能性指標 2.3 - フランス
+ko: 수리 용이성 지수 2.3 - 프랑스
+nl: Repareerbaarheid index 2.3 - Frankrijk
+pl: Wskaźnik naprawialności 2.3 - Francja
+pt: Índice de reparabilidade 2.3 - França
+ru: Индекс ремонтопригодности 2.3 - Франция
+zh: 可修复性指数 2.3 - 法国
 repairability_index_france_value:en: 2.3
 
 en: Repairability index 2.4 - France
+ar: مؤشر قابلية الإصلاح 2.4 - فرنسا
+de: Reparierbarkeitsindex 2.4 - Frankreich
+es: Índice de reparabilidad 2.4 - Francia
 fr: Indice de réparabilité 2.4
+it: Indice di riparabilità 2.4 - Francia
+ja: 修理可能性指標 2.4 - フランス
+ko: 수리 용이성 지수 2.4 - 프랑스
+nl: Repareerbaarheid index 2.4 - Frankrijk
+pl: Wskaźnik naprawialności 2.4 - Francja
+pt: Índice de reparabilidade 2.4 - França
+ru: Индекс ремонтопригодности 2.4 - Франция
+zh: 可修复性指数 2.4 - 法国
 repairability_index_france_value:en: 2.4
 
 en: Repairability index 2.5 - France
+ar: مؤشر قابلية الإصلاح 2.5 - فرنسا
+de: Reparierbarkeitsindex 2.5 - Frankreich
+es: Índice de reparabilidad 2.5 - Francia
 fr: Indice de réparabilité 2.5
+it: Indice di riparabilità 2.5 - Francia
+ja: 修理可能性指標 2.5 - フランス
+ko: 수리 용이성 지수 2.5 - 프랑스
+nl: Repareerbaarheid index 2.5 - Frankrijk
+pl: Wskaźnik naprawialności 2.5 - Francja
+pt: Índice de reparabilidade 2.5 - França
+ru: Индекс ремонтопригодности 2.5 - Франция
+zh: 可修复性指数 2.5 - 法国
 repairability_index_france_value:en: 2.5
 
 en: Repairability index 2.6 - France
+ar: مؤشر قابلية الإصلاح 2.6 - فرنسا
+de: Reparierbarkeitsindex 2.6 - Frankreich
+es: Índice de reparabilidad 2.6 - Francia
 fr: Indice de réparabilité 2.6
+it: Indice di riparabilità 2.6 - Francia
+ja: 修理可能性指標 2.6 - フランス
+ko: 수리 용이성 지수 2.6 - 프랑스
+nl: Repareerbaarheid index 2.6 - Frankrijk
+pl: Wskaźnik naprawialności 2.6 - Francja
+pt: Índice de reparabilidade 2.6 - França
+ru: Индекс ремонтопригодности 2.6 - Франция
+zh: 可修复性指数 2.6 - 法国
 repairability_index_france_value:en: 2.6
 
 en: Repairability index 2.7 - France
+ar: مؤشر قابلية الإصلاح 2.7 - فرنسا
+de: Reparierbarkeitsindex 2.7 - Frankreich
+es: Índice de reparabilidad 2.7 - Francia
 fr: Indice de réparabilité 2.7
+it: Indice di riparabilità 2.7 - Francia
+ja: 修理可能性指標 2.7 - フランス
+ko: 수리 용이성 지수 2.7 - 프랑스
+nl: Repareerbaarheid index 2.7 - Frankrijk
+pl: Wskaźnik naprawialności 2.7 - Francja
+pt: Índice de reparabilidade 2.7 - França
+ru: Индекс ремонтопригодности 2.7 - Франция
+zh: 可修复性指数 2.7 - 法国
 repairability_index_france_value:en: 2.7
 
 en: Repairability index 2.8 - France
+ar: مؤشر قابلية الإصلاح 2.8 - فرنسا
+de: Reparierbarkeitsindex 2.8 - Frankreich
+es: Índice de reparabilidad 2.8 - Francia
 fr: Indice de réparabilité 2.8
+it: Indice di riparabilità 2.8 - Francia
+ja: 修理可能性指標 2.8 - フランス
+ko: 수리 용이성 지수 2.8 - 프랑스
+nl: Repareerbaarheid index 2.8 - Frankrijk
+pl: Wskaźnik naprawialności 2.8 - Francja
+pt: Índice de reparabilidade 2.8 - França
+ru: Индекс ремонтопригодности 2.8 - Франция
+zh: 可修复性指数 2.8 - 法国
 repairability_index_france_value:en: 2.8
 
 en: Repairability index 2.9 - France
+ar: مؤشر قابلية الإصلاح 2.9 - فرنسا
+de: Reparierbarkeitsindex 2.9 - Frankreich
+es: Índice de reparabilidad 2.9 - Francia
 fr: Indice de réparabilité 2.9
+it: Indice di riparabilità 2.9 - Francia
+ja: 修理可能性指標 2.9 - フランス
+ko: 수리 용이성 지수 2.9 - 프랑스
+nl: Repareerbaarheid index 2.9 - Frankrijk
+pl: Wskaźnik naprawialności 2.9 - Francja
+pt: Índice de reparabilidade 2.9 - França
+ru: Индекс ремонтопригодности 2.9 - Франция
+zh: 可修复性指数 2.9 - 法国
 repairability_index_france_value:en: 2.9
 
 en: Repairability index 3.0 - France
+ar: مؤشر قابلية الإصلاح 3.0 - فرنسا
+de: Reparierbarkeitsindex 3.0 - Frankreich
+es: Índice de reparabilidad 3.0 - Francia
 fr: Indice de réparabilité 3.0
+it: Indice di riparabilità 3.0 - Francia
+ja: 修理可能性指標 3.0 - フランス
+ko: 수리 용이성 지수 3.0 - 프랑스
+nl: Repareerbaarheid index 3.0 - Frankrijk
+pl: Wskaźnik naprawialności 3.0 - Francja
+pt: Índice de reparabilidade 3.0 - França
+ru: Индекс ремонтопригодности 3.0 - Франция
+zh: 可修复性指数 3.0 - 法国
 repairability_index_france_value:en: 3.0
 
 en: Repairability index 3.1 - France
+ar: مؤشر قابلية الإصلاح 3.1 - فرنسا
+de: Reparierbarkeitsindex 3.1 - Frankreich
+es: Índice de reparabilidad 3.1 - Francia
 fr: Indice de réparabilité 3.1
+it: Indice di riparabilità 3.1 - Francia
+ja: 修理可能性指標 3.1 - フランス
+ko: 수리 용이성 지수 3.1 - 프랑스
+nl: Repareerbaarheid index 3.1 - Frankrijk
+pl: Wskaźnik naprawialności 3.1 - Francja
+pt: Índice de reparabilidade 3.1 - França
+ru: Индекс ремонтопригодности 3.1 - Франция
+zh: 可修复性指数 3.1 - 法国
 repairability_index_france_value:en: 3.1
 
 en: Repairability index 3.2 - France
+ar: مؤشر قابلية الإصلاح 3.2 - فرنسا
+de: Reparierbarkeitsindex 3.2 - Frankreich
+es: Índice de reparabilidad 3.2 - Francia
 fr: Indice de réparabilité 3.2
+it: Indice di riparabilità 3.2 - Francia
+ja: 修理可能性指標 3.2 - フランス
+ko: 수리 용이성 지수 3.2 - 프랑스
+nl: Repareerbaarheid index 3.2 - Frankrijk
+pl: Wskaźnik naprawialności 3.2 - Francja
+pt: Índice de reparabilidade 3.2 - França
+ru: Индекс ремонтопригодности 3.2 - Франция
+zh: 可修复性指数 3.2 - 法国
 repairability_index_france_value:en: 3.2
 
 en: Repairability index 3.3 - France
+ar: مؤشر قابلية الإصلاح 3.3 - فرنسا
+de: Reparierbarkeitsindex 3.3 - Frankreich
+es: Índice de reparabilidad 3.3 - Francia
 fr: Indice de réparabilité 3.3
+it: Indice di riparabilità 3.3 - Francia
+ja: 修理可能性指標 3.3 - フランス
+ko: 수리 용이성 지수 3.3 - 프랑스
+nl: Repareerbaarheid index 3.3 - Frankrijk
+pl: Wskaźnik naprawialności 3.3 - Francja
+pt: Índice de reparabilidade 3.3 - França
+ru: Индекс ремонтопригодности 3.3 - Франция
+zh: 可修复性指数 3.3 - 法国
 repairability_index_france_value:en: 3.3
 
 en: Repairability index 3.4 - France
+ar: مؤشر قابلية الإصلاح 3.4 - فرنسا
+de: Reparierbarkeitsindex 3.4 - Frankreich
+es: Índice de reparabilidad 3.4 - Francia
 fr: Indice de réparabilité 3.4
+it: Indice di riparabilità 3.4 - Francia
+ja: 修理可能性指標 3.4 - フランス
+ko: 수리 용이성 지수 3.4 - 프랑스
+nl: Repareerbaarheid index 3.4 - Frankrijk
+pl: Wskaźnik naprawialności 3.4 - Francja
+pt: Índice de reparabilidade 3.4 - França
+ru: Индекс ремонтопригодности 3.4 - Франция
+zh: 可修复性指数 3.4 - 法国
 repairability_index_france_value:en: 3.4
 
 en: Repairability index 3.5 - France
+ar: مؤشر قابلية الإصلاح 3.5 - فرنسا
+de: Reparierbarkeitsindex 3.5 - Frankreich
+es: Índice de reparabilidad 3.5 - Francia
 fr: Indice de réparabilité 3.5
+it: Indice di riparabilità 3.5 - Francia
+ja: 修理可能性指標 3.5 - フランス
+ko: 수리 용이성 지수 3.5 - 프랑스
+nl: Repareerbaarheid index 3.5 - Frankrijk
+pl: Wskaźnik naprawialności 3.5 - Francja
+pt: Índice de reparabilidade 3.5 - França
+ru: Индекс ремонтопригодности 3.5 - Франция
+zh: 可修复性指数 3.5 - 法国
 repairability_index_france_value:en: 3.5
 
 en: Repairability index 3.6 - France
+ar: مؤشر قابلية الإصلاح 3.6 - فرنسا
+de: Reparierbarkeitsindex 3.6 - Frankreich
+es: Índice de reparabilidad 3.6 - Francia
 fr: Indice de réparabilité 3.6
+it: Indice di riparabilità 3.6 - Francia
+ja: 修理可能性指標 3.6 - フランス
+ko: 수리 용이성 지수 3.6 - 프랑스
+nl: Repareerbaarheid index 3.6 - Frankrijk
+pl: Wskaźnik naprawialności 3.6 - Francja
+pt: Índice de reparabilidade 3.6 - França
+ru: Индекс ремонтопригодности 3.6 - Франция
+zh: 可修复性指数 3.6 - 法国
 repairability_index_france_value:en: 3.6
 
 en: Repairability index 3.7 - France
+ar: مؤشر قابلية الإصلاح 3.7 - فرنسا
+de: Reparierbarkeitsindex 3.7 - Frankreich
+es: Índice de reparabilidad 3.7 - Francia
 fr: Indice de réparabilité 3.7
+it: Indice di riparabilità 3.7 - Francia
+ja: 修理可能性指標 3.7 - フランス
+ko: 수리 용이성 지수 3.7 - 프랑스
+nl: Repareerbaarheid index 3.7 - Frankrijk
+pl: Wskaźnik naprawialności 3.7 - Francja
+pt: Índice de reparabilidade 3.7 - França
+ru: Индекс ремонтопригодности 3.7 - Франция
+zh: 可修复性指数 3.7 - 法国
 repairability_index_france_value:en: 3.7
 
 en: Repairability index 3.8 - France
+ar: مؤشر قابلية الإصلاح 3.8 - فرنسا
+de: Reparierbarkeitsindex 3.8 - Frankreich
+es: Índice de reparabilidad 3.8 - Francia
 fr: Indice de réparabilité 3.8
+it: Indice di riparabilità 3.8 - Francia
+ja: 修理可能性指標 3.8 - フランス
+ko: 수리 용이성 지수 3.8 - 프랑스
+nl: Repareerbaarheid index 3.8 - Frankrijk
+pl: Wskaźnik naprawialności 3.8 - Francja
+pt: Índice de reparabilidade 3.8 - França
+ru: Индекс ремонтопригодности 3.8 - Франция
+zh: 可修复性指数 3.8 - 法国
 repairability_index_france_value:en: 3.8
 
 en: Repairability index 3.9 - France
+ar: مؤشر قابلية الإصلاح 3.9 - فرنسا
+de: Reparierbarkeitsindex 3.9 - Frankreich
+es: Índice de reparabilidad 3.9 - Francia
 fr: Indice de réparabilité 3.9
+it: Indice di riparabilità 3.9 - Francia
+ja: 修理可能性指標 3.9 - フランス
+ko: 수리 용이성 지수 3.9 - 프랑스
+nl: Repareerbaarheid index 3.9 - Frankrijk
+pl: Wskaźnik naprawialności 3.9 - Francja
+pt: Índice de reparabilidade 3.9 - França
+ru: Индекс ремонтопригодности 3.9 - Франция
+zh: 可修复性指数 3.9 - 法国
 repairability_index_france_value:en: 3.9
 
 en: Repairability index 4.0 - France
+ar: مؤشر قابلية الإصلاح 4.0 - فرنسا
+de: Reparierbarkeitsindex 4.0 - Frankreich
+es: Índice de reparabilidad 4.0 - Francia
 fr: Indice de réparabilité 4.0
+it: Indice di riparabilità 4.0 - Francia
+ja: 修理可能性指標 4.0 - フランス
+ko: 수리 용이성 지수 4.0 - 프랑스
+nl: Repareerbaarheid index 4.0 - Frankrijk
+pl: Wskaźnik naprawialności 4.0 - Francja
+pt: Índice de reparabilidade 4.0 - França
+ru: Индекс ремонтопригодности 4.0 - Франция
+zh: 可修复性指数 4.0 - 法国
 repairability_index_france_value:en: 4.0
 
 en: Repairability index 4.1 - France
+ar: مؤشر قابلية الإصلاح 4.1 - فرنسا
+de: Reparierbarkeitsindex 4.1 - Frankreich
+es: Índice de reparabilidad 4.1 - Francia
 fr: Indice de réparabilité 4.1
+it: Indice di riparabilità 4.1 - Francia
+ja: 修理可能性指標 4.1 - フランス
+ko: 수리 용이성 지수 4.1 - 프랑스
+nl: Repareerbaarheid index 4.1 - Frankrijk
+pl: Wskaźnik naprawialności 4.1 - Francja
+pt: Índice de reparabilidade 4.1 - França
+ru: Индекс ремонтопригодности 4.1 - Франция
+zh: 可修复性指数 4.1 - 法国
 repairability_index_france_value:en: 4.1
 
 en: Repairability index 4.2 - France
+ar: مؤشر قابلية الإصلاح 4.2 - فرنسا
+de: Reparierbarkeitsindex 4.2 - Frankreich
+es: Índice de reparabilidad 4.2 - Francia
 fr: Indice de réparabilité 4.2
+it: Indice di riparabilità 4.2 - Francia
+ja: 修理可能性指標 4.2 - フランス
+ko: 수리 용이성 지수 4.2 - 프랑스
+nl: Repareerbaarheid index 4.2 - Frankrijk
+pl: Wskaźnik naprawialności 4.2 - Francja
+pt: Índice de reparabilidade 4.2 - França
+ru: Индекс ремонтопригодности 4.2 - Франция
+zh: 可修复性指数 4.2 - 法国
 repairability_index_france_value:en: 4.2
 
 en: Repairability index 4.3 - France
+ar: مؤشر قابلية الإصلاح 4.3 - فرنسا
+de: Reparierbarkeitsindex 4.3 - Frankreich
+es: Índice de reparabilidad 4.3 - Francia
 fr: Indice de réparabilité 4.3
+it: Indice di riparabilità 4.3 - Francia
+ja: 修理可能性指標 4.3 - フランス
+ko: 수리 용이성 지수 4.3 - 프랑스
+nl: Repareerbaarheid index 4.3 - Frankrijk
+pl: Wskaźnik naprawialności 4.3 - Francja
+pt: Índice de reparabilidade 4.3 - França
+ru: Индекс ремонтопригодности 4.3 - Франция
+zh: 可修复性指数 4.3 - 法国
 repairability_index_france_value:en: 4.3
 
 en: Repairability index 4.4 - France
+ar: مؤشر قابلية الإصلاح 4.4 - فرنسا
+de: Reparierbarkeitsindex 4.4 - Frankreich
+es: Índice de reparabilidad 4.4 - Francia
 fr: Indice de réparabilité 4.4
+it: Indice di riparabilità 4.4 - Francia
+ja: 修理可能性指標 4.4 - フランス
+ko: 수리 용이성 지수 4.4 - 프랑스
+nl: Repareerbaarheid index 4.4 - Frankrijk
+pl: Wskaźnik naprawialności 4.4 - Francja
+pt: Índice de reparabilidade 4.4 - França
+ru: Индекс ремонтопригодности 4.4 - Франция
+zh: 可修复性指数 4.4 - 法国
 repairability_index_france_value:en: 4.4
 
 en: Repairability index 4.5 - France
+ar: مؤشر قابلية الإصلاح 4.5 - فرنسا
+de: Reparierbarkeitsindex 4.5 - Frankreich
+es: Índice de reparabilidad 4.5 - Francia
 fr: Indice de réparabilité 4.5
+it: Indice di riparabilità 4.5 - Francia
+ja: 修理可能性指標 4.5 - フランス
+ko: 수리 용이성 지수 4.5 - 프랑스
+nl: Repareerbaarheid index 4.5 - Frankrijk
+pl: Wskaźnik naprawialności 4.5 - Francja
+pt: Índice de reparabilidade 4.5 - França
+ru: Индекс ремонтопригодности 4.5 - Франция
+zh: 可修复性指数 4.5 - 法国
 repairability_index_france_value:en: 4.5
 
 en: Repairability index 4.6 - France
+ar: مؤشر قابلية الإصلاح 4.6 - فرنسا
+de: Reparierbarkeitsindex 4.6 - Frankreich
+es: Índice de reparabilidad 4.6 - Francia
 fr: Indice de réparabilité 4.6
+it: Indice di riparabilità 4.6 - Francia
+ja: 修理可能性指標 4.6 - フランス
+ko: 수리 용이성 지수 4.6 - 프랑스
+nl: Repareerbaarheid index 4.6 - Frankrijk
+pl: Wskaźnik naprawialności 4.6 - Francja
+pt: Índice de reparabilidade 4.6 - França
+ru: Индекс ремонтопригодности 4.6 - Франция
+zh: 可修复性指数 4.6 - 法国
 repairability_index_france_value:en: 4.6
 
 en: Repairability index 4.7 - France
+ar: مؤشر قابلية الإصلاح 4.7 - فرنسا
+de: Reparierbarkeitsindex 4.7 - Frankreich
+es: Índice de reparabilidad 4.7 - Francia
 fr: Indice de réparabilité 4.7
+it: Indice di riparabilità 4.7 - Francia
+ja: 修理可能性指標 4.7 - フランス
+ko: 수리 용이성 지수 4.7 - 프랑스
+nl: Repareerbaarheid index 4.7 - Frankrijk
+pl: Wskaźnik naprawialności 4.7 - Francja
+pt: Índice de reparabilidade 4.7 - França
+ru: Индекс ремонтопригодности 4.7 - Франция
+zh: 可修复性指数 4.7 - 法国
 repairability_index_france_value:en: 4.7
 
 en: Repairability index 4.8 - France
+ar: مؤشر قابلية الإصلاح 4.8 - فرنسا
+de: Reparierbarkeitsindex 4.8 - Frankreich
+es: Índice de reparabilidad 4.8 - Francia
 fr: Indice de réparabilité 4.8
+it: Indice di riparabilità 4.8 - Francia
+ja: 修理可能性指標 4.8 - フランス
+ko: 수리 용이성 지수 4.8 - 프랑스
+nl: Repareerbaarheid index 4.8 - Frankrijk
+pl: Wskaźnik naprawialności 4.8 - Francja
+pt: Índice de reparabilidade 4.8 - França
+ru: Индекс ремонтопригодности 4.8 - Франция
+zh: 可修复性指数 4.8 - 法国
 repairability_index_france_value:en: 4.8
 
 en: Repairability index 4.9 - France
+ar: مؤشر قابلية الإصلاح 4.9 - فرنسا
+de: Reparierbarkeitsindex 4.9 - Frankreich
+es: Índice de reparabilidad 4.9 - Francia
 fr: Indice de réparabilité 4.9
+it: Indice di riparabilità 4.9 - Francia
+ja: 修理可能性指標 4.9 - フランス
+ko: 수리 용이성 지수 4.9 - 프랑스
+nl: Repareerbaarheid index 4.9 - Frankrijk
+pl: Wskaźnik naprawialności 4.9 - Francja
+pt: Índice de reparabilidade 4.9 - França
+ru: Индекс ремонтопригодности 4.9 - Франция
+zh: 可修复性指数 4.9 - 法国
 repairability_index_france_value:en: 4.9
 
 en: Repairability index 5.0 - France
+ar: مؤشر قابلية الإصلاح 5.0 - فرنسا
+de: Reparierbarkeitsindex 5.0 - Frankreich
+es: Índice de reparabilidad 5.0 - Francia
 fr: Indice de réparabilité 5.0
+it: Indice di riparabilità 5.0 - Francia
+ja: 修理可能性指標 5.0 - フランス
+ko: 수리 용이성 지수 5.0 - 프랑스
+nl: Repareerbaarheid index 5.0 - Frankrijk
+pl: Wskaźnik naprawialności 5.0 - Francja
+pt: Índice de reparabilidade 5.0 - França
+ru: Индекс ремонтопригодности 5.0 - Франция
+zh: 可修复性指数 5.0 - 法国
 repairability_index_france_value:en: 5.0
 
 en: Repairability index 5.1 - France
+ar: مؤشر قابلية الإصلاح 5.1 - فرنسا
+de: Reparierbarkeitsindex 5.1 - Frankreich
+es: Índice de reparabilidad 5.1 - Francia
 fr: Indice de réparabilité 5.1
+it: Indice di riparabilità 5.1 - Francia
+ja: 修理可能性指標 5.1 - フランス
+ko: 수리 용이성 지수 5.1 - 프랑스
+nl: Repareerbaarheid index 5.1 - Frankrijk
+pl: Wskaźnik naprawialności 5.1 - Francja
+pt: Índice de reparabilidade 5.1 - França
+ru: Индекс ремонтопригодности 5.1 - Франция
+zh: 可修复性指数 5.1 - 法国
 repairability_index_france_value:en: 5.1
 
 en: Repairability index 5.2 - France
+ar: مؤشر قابلية الإصلاح 5.2 - فرنسا
+de: Reparierbarkeitsindex 5.2 - Frankreich
+es: Índice de reparabilidad 5.2 - Francia
 fr: Indice de réparabilité 5.2
+it: Indice di riparabilità 5.2 - Francia
+ja: 修理可能性指標 5.2 - フランス
+ko: 수리 용이성 지수 5.2 - 프랑스
+nl: Repareerbaarheid index 5.2 - Frankrijk
+pl: Wskaźnik naprawialności 5.2 - Francja
+pt: Índice de reparabilidade 5.2 - França
+ru: Индекс ремонтопригодности 5.2 - Франция
+zh: 可修复性指数 5.2 - 法国
 repairability_index_france_value:en: 5.2
 
 en: Repairability index 5.3 - France
+ar: مؤشر قابلية الإصلاح 5.3 - فرنسا
+de: Reparierbarkeitsindex 5.3 - Frankreich
+es: Índice de reparabilidad 5.3 - Francia
 fr: Indice de réparabilité 5.3
+it: Indice di riparabilità 5.3 - Francia
+ja: 修理可能性指標 5.3 - フランス
+ko: 수리 용이성 지수 5.3 - 프랑스
+nl: Repareerbaarheid index 5.3 - Frankrijk
+pl: Wskaźnik naprawialności 5.3 - Francja
+pt: Índice de reparabilidade 5.3 - França
+ru: Индекс ремонтопригодности 5.3 - Франция
+zh: 可修复性指数 5.3 - 法国
 repairability_index_france_value:en: 5.3
 
 en: Repairability index 5.4 - France
+ar: مؤشر قابلية الإصلاح 5.4 - فرنسا
+de: Reparierbarkeitsindex 5.4 - Frankreich
+es: Índice de reparabilidad 5.4 - Francia
 fr: Indice de réparabilité 5.4
+it: Indice di riparabilità 5.4 - Francia
+ja: 修理可能性指標 5.4 - フランス
+ko: 수리 용이성 지수 5.4 - 프랑스
+nl: Repareerbaarheid index 5.4 - Frankrijk
+pl: Wskaźnik naprawialności 5.4 - Francja
+pt: Índice de reparabilidade 5.4 - França
+ru: Индекс ремонтопригодности 5.4 - Франция
+zh: 可修复性指数 5.4 - 法国
 repairability_index_france_value:en: 5.4
 
 en: Repairability index 5.5 - France
+ar: مؤشر قابلية الإصلاح 5.5 - فرنسا
+de: Reparierbarkeitsindex 5.5 - Frankreich
+es: Índice de reparabilidad 5.5 - Francia
 fr: Indice de réparabilité 5.5
+it: Indice di riparabilità 5.5 - Francia
+ja: 修理可能性指標 5.5 - フランス
+ko: 수리 용이성 지수 5.5 - 프랑스
+nl: Repareerbaarheid index 5.5 - Frankrijk
+pl: Wskaźnik naprawialności 5.5 - Francja
+pt: Índice de reparabilidade 5.5 - França
+ru: Индекс ремонтопригодности 5.5 - Франция
+zh: 可修复性指数 5.5 - 法国
 repairability_index_france_value:en: 5.5
 
 en: Repairability index 5.6 - France
+ar: مؤشر قابلية الإصلاح 5.6 - فرنسا
+de: Reparierbarkeitsindex 5.6 - Frankreich
+es: Índice de reparabilidad 5.6 - Francia
 fr: Indice de réparabilité 5.6
+it: Indice di riparabilità 5.6 - Francia
+ja: 修理可能性指標 5.6 - フランス
+ko: 수리 용이성 지수 5.6 - 프랑스
+nl: Repareerbaarheid index 5.6 - Frankrijk
+pl: Wskaźnik naprawialności 5.6 - Francja
+pt: Índice de reparabilidade 5.6 - França
+ru: Индекс ремонтопригодности 5.6 - Франция
+zh: 可修复性指数 5.6 - 法国
 repairability_index_france_value:en: 5.6
 
 en: Repairability index 5.7 - France
+ar: مؤشر قابلية الإصلاح 5.7 - فرنسا
+de: Reparierbarkeitsindex 5.7 - Frankreich
+es: Índice de reparabilidad 5.7 - Francia
 fr: Indice de réparabilité 5.7
+it: Indice di riparabilità 5.7 - Francia
+ja: 修理可能性指標 5.7 - フランス
+ko: 수리 용이성 지수 5.7 - 프랑스
+nl: Repareerbaarheid index 5.7 - Frankrijk
+pl: Wskaźnik naprawialności 5.7 - Francja
+pt: Índice de reparabilidade 5.7 - França
+ru: Индекс ремонтопригодности 5.7 - Франция
+zh: 可修复性指数 5.7 - 法国
 repairability_index_france_value:en: 5.7
 
 en: Repairability index 5.8 - France
+ar: مؤشر قابلية الإصلاح 5.8 - فرنسا
+de: Reparierbarkeitsindex 5.8 - Frankreich
+es: Índice de reparabilidad 5.8 - Francia
 fr: Indice de réparabilité 5.8
+it: Indice di riparabilità 5.8 - Francia
+ja: 修理可能性指標 5.8 - フランス
+ko: 수리 용이성 지수 5.8 - 프랑스
+nl: Repareerbaarheid index 5.8 - Frankrijk
+pl: Wskaźnik naprawialności 5.8 - Francja
+pt: Índice de reparabilidade 5.8 - França
+ru: Индекс ремонтопригодности 5.8 - Франция
+zh: 可修复性指数 5.8 - 法国
 repairability_index_france_value:en: 5.8
 
 en: Repairability index 5.9 - France
+ar: مؤشر قابلية الإصلاح 5.9 - فرنسا
+de: Reparierbarkeitsindex 5.9 - Frankreich
+es: Índice de reparabilidad 5.9 - Francia
 fr: Indice de réparabilité 5.9
+it: Indice di riparabilità 5.9 - Francia
+ja: 修理可能性指標 5.9 - フランス
+ko: 수리 용이성 지수 5.9 - 프랑스
+nl: Repareerbaarheid index 5.9 - Frankrijk
+pl: Wskaźnik naprawialności 5.9 - Francja
+pt: Índice de reparabilidade 5.9 - França
+ru: Индекс ремонтопригодности 5.9 - Франция
+zh: 可修复性指数 5.9 - 法国
 repairability_index_france_value:en: 5.9
 
 en: Repairability index 6.0 - France
+ar: مؤشر قابلية الإصلاح 6.0 - فرنسا
+de: Reparierbarkeitsindex 6.0 - Frankreich
+es: Índice de reparabilidad 6.0 - Francia
 fr: Indice de réparabilité 6.0
+it: Indice di riparabilità 6.0 - Francia
+ja: 修理可能性指標 6.0 - フランス
+ko: 수리 용이성 지수 6.0 - 프랑스
+nl: Repareerbaarheid index 6.0 - Frankrijk
+pl: Wskaźnik naprawialności 6.0 - Francja
+pt: Índice de reparabilidade 6.0 - França
+ru: Индекс ремонтопригодности 6.0 - Франция
+zh: 可修复性指数 6.0 - 法国
 repairability_index_france_value:en: 6.0
 
 en: Repairability index 6.1 - France
+ar: مؤشر قابلية الإصلاح 6.1 - فرنسا
+de: Reparierbarkeitsindex 6.1 - Frankreich
+es: Índice de reparabilidad 6.1 - Francia
 fr: Indice de réparabilité 6.1
+it: Indice di riparabilità 6.1 - Francia
+ja: 修理可能性指標 6.1 - フランス
+ko: 수리 용이성 지수 6.1 - 프랑스
+nl: Repareerbaarheid index 6.1 - Frankrijk
+pl: Wskaźnik naprawialności 6.1 - Francja
+pt: Índice de reparabilidade 6.1 - França
+ru: Индекс ремонтопригодности 6.1 - Франция
+zh: 可修复性指数 6.1 - 法国
 repairability_index_france_value:en: 6.1
 
 en: Repairability index 6.2 - France
+ar: مؤشر قابلية الإصلاح 6.2 - فرنسا
+de: Reparierbarkeitsindex 6.2 - Frankreich
+es: Índice de reparabilidad 6.2 - Francia
 fr: Indice de réparabilité 6.2
+it: Indice di riparabilità 6.2 - Francia
+ja: 修理可能性指標 6.2 - フランス
+ko: 수리 용이성 지수 6.2 - 프랑스
+nl: Repareerbaarheid index 6.2 - Frankrijk
+pl: Wskaźnik naprawialności 6.2 - Francja
+pt: Índice de reparabilidade 6.2 - França
+ru: Индекс ремонтопригодности 6.2 - Франция
+zh: 可修复性指数 6.2 - 法国
 repairability_index_france_value:en: 6.2
 
 en: Repairability index 6.3 - France
+ar: مؤشر قابلية الإصلاح 6.3 - فرنسا
+de: Reparierbarkeitsindex 6.3 - Frankreich
+es: Índice de reparabilidad 6.3 - Francia
 fr: Indice de réparabilité 6.3
+it: Indice di riparabilità 6.3 - Francia
+ja: 修理可能性指標 6.3 - フランス
+ko: 수리 용이성 지수 6.3 - 프랑스
+nl: Repareerbaarheid index 6.3 - Frankrijk
+pl: Wskaźnik naprawialności 6.3 - Francja
+pt: Índice de reparabilidade 6.3 - França
+ru: Индекс ремонтопригодности 6.3 - Франция
+zh: 可修复性指数 6.3 - 法国
 repairability_index_france_value:en: 6.3
 
 en: Repairability index 6.4 - France
+ar: مؤشر قابلية الإصلاح 6.4 - فرنسا
+de: Reparierbarkeitsindex 6.4 - Frankreich
+es: Índice de reparabilidad 6.4 - Francia
 fr: Indice de réparabilité 6.4
+it: Indice di riparabilità 6.4 - Francia
+ja: 修理可能性指標 6.4 - フランス
+ko: 수리 용이성 지수 6.4 - 프랑스
+nl: Repareerbaarheid index 6.4 - Frankrijk
+pl: Wskaźnik naprawialności 6.4 - Francja
+pt: Índice de reparabilidade 6.4 - França
+ru: Индекс ремонтопригодности 6.4 - Франция
+zh: 可修复性指数 6.4 - 法国
 repairability_index_france_value:en: 6.4
 
 en: Repairability index 6.5 - France
+ar: مؤشر قابلية الإصلاح 6.5 - فرنسا
+de: Reparierbarkeitsindex 6.5 - Frankreich
+es: Índice de reparabilidad 6.5 - Francia
 fr: Indice de réparabilité 6.5
+it: Indice di riparabilità 6.5 - Francia
+ja: 修理可能性指標 6.5 - フランス
+ko: 수리 용이성 지수 6.5 - 프랑스
+nl: Repareerbaarheid index 6.5 - Frankrijk
+pl: Wskaźnik naprawialności 6.5 - Francja
+pt: Índice de reparabilidade 6.5 - França
+ru: Индекс ремонтопригодности 6.5 - Франция
+zh: 可修复性指数 6.5 - 法国
 repairability_index_france_value:en: 6.5
 
 en: Repairability index 6.6 - France
+ar: مؤشر قابلية الإصلاح 6.6 - فرنسا
+de: Reparierbarkeitsindex 6.6 - Frankreich
+es: Índice de reparabilidad 6.6 - Francia
 fr: Indice de réparabilité 6.6
+it: Indice di riparabilità 6.6 - Francia
+ja: 修理可能性指標 6.6 - フランス
+ko: 수리 용이성 지수 6.6 - 프랑스
+nl: Repareerbaarheid index 6.6 - Frankrijk
+pl: Wskaźnik naprawialności 6.6 - Francja
+pt: Índice de reparabilidade 6.6 - França
+ru: Индекс ремонтопригодности 6.6 - Франция
+zh: 可修复性指数 6.6 - 法国
 repairability_index_france_value:en: 6.6
 
 en: Repairability index 6.7 - France
+ar: مؤشر قابلية الإصلاح 6.7 - فرنسا
+de: Reparierbarkeitsindex 6.7 - Frankreich
+es: Índice de reparabilidad 6.7 - Francia
 fr: Indice de réparabilité 6.7
+it: Indice di riparabilità 6.7 - Francia
+ja: 修理可能性指標 6.7 - フランス
+ko: 수리 용이성 지수 6.7 - 프랑스
+nl: Repareerbaarheid index 6.7 - Frankrijk
+pl: Wskaźnik naprawialności 6.7 - Francja
+pt: Índice de reparabilidade 6.7 - França
+ru: Индекс ремонтопригодности 6.7 - Франция
+zh: 可修复性指数 6.7 - 法国
 repairability_index_france_value:en: 6.7
 
 en: Repairability index 6.8 - France
+ar: مؤشر قابلية الإصلاح 6.8 - فرنسا
+de: Reparierbarkeitsindex 6.8 - Frankreich
+es: Índice de reparabilidad 6.8 - Francia
 fr: Indice de réparabilité 6.8
+it: Indice di riparabilità 6.8 - Francia
+ja: 修理可能性指標 6.8 - フランス
+ko: 수리 용이성 지수 6.8 - 프랑스
+nl: Repareerbaarheid index 6.8 - Frankrijk
+pl: Wskaźnik naprawialności 6.8 - Francja
+pt: Índice de reparabilidade 6.8 - França
+ru: Индекс ремонтопригодности 6.8 - Франция
+zh: 可修复性指数 6.8 - 法国
 repairability_index_france_value:en: 6.8
 
 en: Repairability index 6.9 - France
+ar: مؤشر قابلية الإصلاح 6.9 - فرنسا
+de: Reparierbarkeitsindex 6.9 - Frankreich
+es: Índice de reparabilidad 6.9 - Francia
 fr: Indice de réparabilité 6.9
+it: Indice di riparabilità 6.9 - Francia
+ja: 修理可能性指標 6.9 - フランス
+ko: 수리 용이성 지수 6.9 - 프랑스
+nl: Repareerbaarheid index 6.9 - Frankrijk
+pl: Wskaźnik naprawialności 6.9 - Francja
+pt: Índice de reparabilidade 6.9 - França
+ru: Индекс ремонтопригодности 6.9 - Франция
+zh: 可修复性指数 6.9 - 法国
 repairability_index_france_value:en: 6.9
 
 en: Repairability index 7.0 - France
+ar: مؤشر قابلية الإصلاح 7.0 - فرنسا
+de: Reparierbarkeitsindex 7.0 - Frankreich
+es: Índice de reparabilidad 7.0 - Francia
 fr: Indice de réparabilité 7.0
+it: Indice di riparabilità 7.0 - Francia
+ja: 修理可能性指標 7.0 - フランス
+ko: 수리 용이성 지수 7.0 - 프랑스
+nl: Repareerbaarheid index 7.0 - Frankrijk
+pl: Wskaźnik naprawialności 7.0 - Francja
+pt: Índice de reparabilidade 7.0 - França
+ru: Индекс ремонтопригодности 7.0 - Франция
+zh: 可修复性指数 7.0 - 法国
 repairability_index_france_value:en: 7.0
 
 en: Repairability index 7.1 - France
+ar: مؤشر قابلية الإصلاح 7.1 - فرنسا
+de: Reparierbarkeitsindex 7.1 - Frankreich
+es: Índice de reparabilidad 7.1 - Francia
 fr: Indice de réparabilité 7.1
+it: Indice di riparabilità 7.1 - Francia
+ja: 修理可能性指標 7.1 - フランス
+ko: 수리 용이성 지수 7.1 - 프랑스
+nl: Repareerbaarheid index 7.1 - Frankrijk
+pl: Wskaźnik naprawialności 7.1 - Francja
+pt: Índice de reparabilidade 7.1 - França
+ru: Индекс ремонтопригодности 7.1 - Франция
+zh: 可修复性指数 7.1 - 法国
 repairability_index_france_value:en: 7.1
 
 en: Repairability index 7.2 - France
+ar: مؤشر قابلية الإصلاح 7.2 - فرنسا
+de: Reparierbarkeitsindex 7.2 - Frankreich
+es: Índice de reparabilidad 7.2 - Francia
 fr: Indice de réparabilité 7.2
+it: Indice di riparabilità 7.2 - Francia
+ja: 修理可能性指標 7.2 - フランス
+ko: 수리 용이성 지수 7.2 - 프랑스
+nl: Repareerbaarheid index 7.2 - Frankrijk
+pl: Wskaźnik naprawialności 7.2 - Francja
+pt: Índice de reparabilidade 7.2 - França
+ru: Индекс ремонтопригодности 7.2 - Франция
+zh: 可修复性指数 7.2 - 法国
 repairability_index_france_value:en: 7.2
 
 en: Repairability index 7.3 - France
+ar: مؤشر قابلية الإصلاح 7.3 - فرنسا
+de: Reparierbarkeitsindex 7.3 - Frankreich
+es: Índice de reparabilidad 7.3 - Francia
 fr: Indice de réparabilité 7.3
+it: Indice di riparabilità 7.3 - Francia
+ja: 修理可能性指標 7.3 - フランス
+ko: 수리 용이성 지수 7.3 - 프랑스
+nl: Repareerbaarheid index 7.3 - Frankrijk
+pl: Wskaźnik naprawialności 7.3 - Francja
+pt: Índice de reparabilidade 7.3 - França
+ru: Индекс ремонтопригодности 7.3 - Франция
+zh: 可修复性指数 7.3 - 法国
 repairability_index_france_value:en: 7.3
 
 en: Repairability index 7.4 - France
+ar: مؤشر قابلية الإصلاح 7.4 - فرنسا
+de: Reparierbarkeitsindex 7.4 - Frankreich
+es: Índice de reparabilidad 7.4 - Francia
 fr: Indice de réparabilité 7.4
+it: Indice di riparabilità 7.4 - Francia
+ja: 修理可能性指標 7.4 - フランス
+ko: 수리 용이성 지수 7.4 - 프랑스
+nl: Repareerbaarheid index 7.4 - Frankrijk
+pl: Wskaźnik naprawialności 7.4 - Francja
+pt: Índice de reparabilidade 7.4 - França
+ru: Индекс ремонтопригодности 7.4 - Франция
+zh: 可修复性指数 7.4 - 法国
 repairability_index_france_value:en: 7.4
 
 en: Repairability index 7.5 - France
+ar: مؤشر قابلية الإصلاح 7.5 - فرنسا
+de: Reparierbarkeitsindex 7.5 - Frankreich
+es: Índice de reparabilidad 7.5 - Francia
 fr: Indice de réparabilité 7.5
+it: Indice di riparabilità 7.5 - Francia
+ja: 修理可能性指標 7.5 - フランス
+ko: 수리 용이성 지수 7.5 - 프랑스
+nl: Repareerbaarheid index 7.5 - Frankrijk
+pl: Wskaźnik naprawialności 7.5 - Francja
+pt: Índice de reparabilidade 7.5 - França
+ru: Индекс ремонтопригодности 7.5 - Франция
+zh: 可修复性指数 7.5 - 法国
 repairability_index_france_value:en: 7.5
 
 en: Repairability index 7.6 - France
+ar: مؤشر قابلية الإصلاح 7.6 - فرنسا
+de: Reparierbarkeitsindex 7.6 - Frankreich
+es: Índice de reparabilidad 7.6 - Francia
 fr: Indice de réparabilité 7.6
+it: Indice di riparabilità 7.6 - Francia
+ja: 修理可能性指標 7.6 - フランス
+ko: 수리 용이성 지수 7.6 - 프랑스
+nl: Repareerbaarheid index 7.6 - Frankrijk
+pl: Wskaźnik naprawialności 7.6 - Francja
+pt: Índice de reparabilidade 7.6 - França
+ru: Индекс ремонтопригодности 7.6 - Франция
+zh: 可修复性指数 7.6 - 法国
 repairability_index_france_value:en: 7.6
 
 en: Repairability index 7.7 - France
+ar: مؤشر قابلية الإصلاح 7.7 - فرنسا
+de: Reparierbarkeitsindex 7.7 - Frankreich
+es: Índice de reparabilidad 7.7 - Francia
 fr: Indice de réparabilité 7.7
+it: Indice di riparabilità 7.7 - Francia
+ja: 修理可能性指標 7.7 - フランス
+ko: 수리 용이성 지수 7.7 - 프랑스
+nl: Repareerbaarheid index 7.7 - Frankrijk
+pl: Wskaźnik naprawialności 7.7 - Francja
+pt: Índice de reparabilidade 7.7 - França
+ru: Индекс ремонтопригодности 7.7 - Франция
+zh: 可修复性指数 7.7 - 法国
 repairability_index_france_value:en: 7.7
 
 en: Repairability index 7.8 - France
+ar: مؤشر قابلية الإصلاح 7.8 - فرنسا
+de: Reparierbarkeitsindex 7.8 - Frankreich
+es: Índice de reparabilidad 7.8 - Francia
 fr: Indice de réparabilité 7.8
+it: Indice di riparabilità 7.8 - Francia
+ja: 修理可能性指標 7.8 - フランス
+ko: 수리 용이성 지수 7.8 - 프랑스
+nl: Repareerbaarheid index 7.8 - Frankrijk
+pl: Wskaźnik naprawialności 7.8 - Francja
+pt: Índice de reparabilidade 7.8 - França
+ru: Индекс ремонтопригодности 7.8 - Франция
+zh: 可修复性指数 7.8 - 法国
 repairability_index_france_value:en: 7.8
 
 en: Repairability index 7.9 - France
+ar: مؤشر قابلية الإصلاح 7.9 - فرنسا
+de: Reparierbarkeitsindex 7.9 - Frankreich
+es: Índice de reparabilidad 7.9 - Francia
 fr: Indice de réparabilité 7.9
+it: Indice di riparabilità 7.9 - Francia
+ja: 修理可能性指標 7.9 - フランス
+ko: 수리 용이성 지수 7.9 - 프랑스
+nl: Repareerbaarheid index 7.9 - Frankrijk
+pl: Wskaźnik naprawialności 7.9 - Francja
+pt: Índice de reparabilidade 7.9 - França
+ru: Индекс ремонтопригодности 7.9 - Франция
+zh: 可修复性指数 7.9 - 法国
 repairability_index_france_value:en: 7.9
 
 en: Repairability index 8.0 - France
+ar: مؤشر قابلية الإصلاح 8.0 - فرنسا
+de: Reparierbarkeitsindex 8.0 - Frankreich
+es: Índice de reparabilidad 8.0 - Francia
 fr: Indice de réparabilité 8.0
+it: Indice di riparabilità 8.0 - Francia
+ja: 修理可能性指標 8.0 - フランス
+ko: 수리 용이성 지수 8.0 - 프랑스
+nl: Repareerbaarheid index 8.0 - Frankrijk
+pl: Wskaźnik naprawialności 8.0 - Francja
+pt: Índice de reparabilidade 8.0 - França
+ru: Индекс ремонтопригодности 8.0 - Франция
+zh: 可修复性指数 8.0 - 法国
 repairability_index_france_value:en: 8.0
 
 en: Repairability index 8.1 - France
+ar: مؤشر قابلية الإصلاح 8.1 - فرنسا
+de: Reparierbarkeitsindex 8.1 - Frankreich
+es: Índice de reparabilidad 8.1 - Francia
 fr: Indice de réparabilité 8.1
+it: Indice di riparabilità 8.1 - Francia
+ja: 修理可能性指標 8.1 - フランス
+ko: 수리 용이성 지수 8.1 - 프랑스
+nl: Repareerbaarheid index 8.1 - Frankrijk
+pl: Wskaźnik naprawialności 8.1 - Francja
+pt: Índice de reparabilidade 8.1 - França
+ru: Индекс ремонтопригодности 8.1 - Франция
+zh: 可修复性指数 8.1 - 法国
 repairability_index_france_value:en: 8.1
 
 en: Repairability index 8.2 - France
+ar: مؤشر قابلية الإصلاح 8.2 - فرنسا
+de: Reparierbarkeitsindex 8.2 - Frankreich
+es: Índice de reparabilidad 8.2 - Francia
 fr: Indice de réparabilité 8.2
+it: Indice di riparabilità 8.2 - Francia
+ja: 修理可能性指標 8.2 - フランス
+ko: 수리 용이성 지수 8.2 - 프랑스
+nl: Repareerbaarheid index 8.2 - Frankrijk
+pl: Wskaźnik naprawialności 8.2 - Francja
+pt: Índice de reparabilidade 8.2 - França
+ru: Индекс ремонтопригодности 8.2 - Франция
+zh: 可修复性指数 8.2 - 法国
 repairability_index_france_value:en: 8.2
 
 en: Repairability index 8.3 - France
+ar: مؤشر قابلية الإصلاح 8.3 - فرنسا
+de: Reparierbarkeitsindex 8.3 - Frankreich
+es: Índice de reparabilidad 8.3 - Francia
 fr: Indice de réparabilité 8.3
+it: Indice di riparabilità 8.3 - Francia
+ja: 修理可能性指標 8.3 - フランス
+ko: 수리 용이성 지수 8.3 - 프랑스
+nl: Repareerbaarheid index 8.3 - Frankrijk
+pl: Wskaźnik naprawialności 8.3 - Francja
+pt: Índice de reparabilidade 8.3 - França
+ru: Индекс ремонтопригодности 8.3 - Франция
+zh: 可修复性指数 8.3 - 法国
 repairability_index_france_value:en: 8.3
 
 en: Repairability index 8.4 - France
+ar: مؤشر قابلية الإصلاح 8.4 - فرنسا
+de: Reparierbarkeitsindex 8.4 - Frankreich
+es: Índice de reparabilidad 8.4 - Francia
 fr: Indice de réparabilité 8.4
+it: Indice di riparabilità 8.4 - Francia
+ja: 修理可能性指標 8.4 - フランス
+ko: 수리 용이성 지수 8.4 - 프랑스
+nl: Repareerbaarheid index 8.4 - Frankrijk
+pl: Wskaźnik naprawialności 8.4 - Francja
+pt: Índice de reparabilidade 8.4 - França
+ru: Индекс ремонтопригодности 8.4 - Франция
+zh: 可修复性指数 8.4 - 法国
 repairability_index_france_value:en: 8.4
 
 en: Repairability index 8.5 - France
+ar: مؤشر قابلية الإصلاح 8.5 - فرنسا
+de: Reparierbarkeitsindex 8.5 - Frankreich
+es: Índice de reparabilidad 8.5 - Francia
 fr: Indice de réparabilité 8.5
+it: Indice di riparabilità 8.5 - Francia
+ja: 修理可能性指標 8.5 - フランス
+ko: 수리 용이성 지수 8.5 - 프랑스
+nl: Repareerbaarheid index 8.5 - Frankrijk
+pl: Wskaźnik naprawialności 8.5 - Francja
+pt: Índice de reparabilidade 8.5 - França
+ru: Индекс ремонтопригодности 8.5 - Франция
+zh: 可修复性指数 8.5 - 法国
 repairability_index_france_value:en: 8.5
 
 en: Repairability index 8.6 - France
+ar: مؤشر قابلية الإصلاح 8.6 - فرنسا
+de: Reparierbarkeitsindex 8.6 - Frankreich
+es: Índice de reparabilidad 8.6 - Francia
 fr: Indice de réparabilité 8.6
+it: Indice di riparabilità 8.6 - Francia
+ja: 修理可能性指標 8.6 - フランス
+ko: 수리 용이성 지수 8.6 - 프랑스
+nl: Repareerbaarheid index 8.6 - Frankrijk
+pl: Wskaźnik naprawialności 8.6 - Francja
+pt: Índice de reparabilidade 8.6 - França
+ru: Индекс ремонтопригодности 8.6 - Франция
+zh: 可修复性指数 8.6 - 法国
 repairability_index_france_value:en: 8.6
 
+en: Repairability index 8.7 - France
+ar: مؤشر قابلية الإصلاح 8.7 - فرنسا
+de: Reparierbarkeitsindex 8.7 - Frankreich
+es: Índice de reparabilidad 8.7 - Francia
+fr: Indice de réparabilité 8.7
+it: Indice di riparabilità 8.7 - Francia
+ja: 修理可能性指標 8.7 - フランス
+ko: 수리 용이성 지수 8.7 - 프랑스
+nl: Repareerbaarheid index 8.7 - Frankrijk
+pl: Wskaźnik naprawialności 8.7 - Francja
+pt: Índice de reparabilidade 8.7 - França
+ru: Индекс ремонтопригодности 8.7 - Франция
+zh: 可修复性指数 8.7 - 法国
 repairability_index_france_value:en: 8.7
 
 en: Repairability index 8.8 - France
+ar: مؤشر قابلية الإصلاح 8.8 - فرنسا
+de: Reparierbarkeitsindex 8.8 - Frankreich
+es: Índice de reparabilidad 8.8 - Francia
 fr: Indice de réparabilité 8.8
+it: Indice di riparabilità 8.8 - Francia
+ja: 修理可能性指標 8.8 - フランス
+ko: 수리 용이성 지수 8.8 - 프랑스
+nl: Repareerbaarheid index 8.8 - Frankrijk
+pl: Wskaźnik naprawialności 8.8 - Francja
+pt: Índice de reparabilidade 8.8 - França
+ru: Индекс ремонтопригодности 8.8 - Франция
+zh: 可修复性指数 8.8 - 法国
 repairability_index_france_value:en: 8.8
 
 en: Repairability index 8.9 - France
+ar: مؤشر قابلية الإصلاح 8.9 - فرنسا
+de: Reparierbarkeitsindex 8.9 - Frankreich
+es: Índice de reparabilidad 8.9 - Francia
 fr: Indice de réparabilité 8.9
+it: Indice di riparabilità 8.9 - Francia
+ja: 修理可能性指標 8.9 - フランス
+ko: 수리 용이성 지수 8.9 - 프랑스
+nl: Repareerbaarheid index 8.9 - Frankrijk
+pl: Wskaźnik naprawialności 8.9 - Francja
+pt: Índice de reparabilidade 8.9 - França
+ru: Индекс ремонтопригодности 8.9 - Франция
+zh: 可修复性指数 8.9 - 法国
 repairability_index_france_value:en: 8.9
 
 en: Repairability index 9.0 - France
+ar: مؤشر قابلية الإصلاح 9.0 - فرنسا
+de: Reparierbarkeitsindex 9.0 - Frankreich
+es: Índice de reparabilidad 9.0 - Francia
 fr: Indice de réparabilité 9.0
+it: Indice di riparabilità 9.0 - Francia
+ja: 修理可能性指標 9.0 - フランス
+ko: 수리 용이성 지수 9.0 - 프랑스
+nl: Repareerbaarheid index 9.0 - Frankrijk
+pl: Wskaźnik naprawialności 9.0 - Francja
+pt: Índice de reparabilidade 9.0 - França
+ru: Индекс ремонтопригодности 9.0 - Франция
+zh: 可修复性指数 9.0 - 法国
 repairability_index_france_value:en: 9.0
 
 en: Repairability index 9.1 - France
+ar: مؤشر قابلية الإصلاح 9.1 - فرنسا
+de: Reparierbarkeitsindex 9.1 - Frankreich
+es: Índice de reparabilidad 9.1 - Francia
 fr: Indice de réparabilité 9.1
+it: Indice di riparabilità 9.1 - Francia
+ja: 修理可能性指標 9.1 - フランス
+ko: 수리 용이성 지수 9.1 - 프랑스
+nl: Repareerbaarheid index 9.1 - Frankrijk
+pl: Wskaźnik naprawialności 9.1 - Francja
+pt: Índice de reparabilidade 9.1 - França
+ru: Индекс ремонтопригодности 9.1 - Франция
+zh: 可修复性指数 9.1 - 法国
 repairability_index_france_value:en: 9.1
 
 en: Repairability index 9.2 - France
+ar: مؤشر قابلية الإصلاح 9.2 - فرنسا
+de: Reparierbarkeitsindex 9.2 - Frankreich
+es: Índice de reparabilidad 9.2 - Francia
 fr: Indice de réparabilité 9.2
+it: Indice di riparabilità 9.2 - Francia
+ja: 修理可能性指標 9.2 - フランス
+ko: 수리 용이성 지수 9.2 - 프랑스
+nl: Repareerbaarheid index 9.2 - Frankrijk
+pl: Wskaźnik naprawialności 9.2 - Francja
+pt: Índice de reparabilidade 9.2 - França
+ru: Индекс ремонтопригодности 9.2 - Франция
+zh: 可修复性指数 9.2 - 法国
 repairability_index_france_value:en: 9.2
 
 en: Repairability index 9.3 - France
+ar: مؤشر قابلية الإصلاح 9.3 - فرنسا
+de: Reparierbarkeitsindex 9.3 - Frankreich
+es: Índice de reparabilidad 9.3 - Francia
 fr: Indice de réparabilité 9.3
+it: Indice di riparabilità 9.3 - Francia
+ja: 修理可能性指標 9.3 - フランス
+ko: 수리 용이성 지수 9.3 - 프랑스
+nl: Repareerbaarheid index 9.3 - Frankrijk
+pl: Wskaźnik naprawialności 9.3 - Francja
+pt: Índice de reparabilidade 9.3 - França
+ru: Индекс ремонтопригодности 9.3 - Франция
+zh: 可修复性指数 9.3 - 法国
 repairability_index_france_value:en: 9.3
 
 en: Repairability index 9.4 - France
+ar: مؤشر قابلية الإصلاح 9.4 - فرنسا
+de: Reparierbarkeitsindex 9.4 - Frankreich
+es: Índice de reparabilidad 9.4 - Francia
 fr: Indice de réparabilité 9.4
+it: Indice di riparabilità 9.4 - Francia
+ja: 修理可能性指標 9.4 - フランス
+ko: 수리 용이성 지수 9.4 - 프랑스
+nl: Repareerbaarheid index 9.4 - Frankrijk
+pl: Wskaźnik naprawialności 9.4 - Francja
+pt: Índice de reparabilidade 9.4 - França
+ru: Индекс ремонтопригодности 9.4 - Франция
+zh: 可修复性指数 9.4 - 法国
 repairability_index_france_value:en: 9.4
 
 en: Repairability index 9.5 - France
+ar: مؤشر قابلية الإصلاح 9.5 - فرنسا
+de: Reparierbarkeitsindex 9.5 - Frankreich
+es: Índice de reparabilidad 9.5 - Francia
 fr: Indice de réparabilité 9.5
+it: Indice di riparabilità 9.5 - Francia
+ja: 修理可能性指標 9.5 - フランス
+ko: 수리 용이성 지수 9.5 - 프랑스
+nl: Repareerbaarheid index 9.5 - Frankrijk
+pl: Wskaźnik naprawialności 9.5 - Francja
+pt: Índice de reparabilidade 9.5 - França
+ru: Индекс ремонтопригодности 9.5 - Франция
+zh: 可修复性指数 9.5 - 法国
 repairability_index_france_value:en: 9.5
 
 en: Repairability index 9.6 - France
+ar: مؤشر قابلية الإصلاح 9.6 - فرنسا
+de: Reparierbarkeitsindex 9.6 - Frankreich
+es: Índice de reparabilidad 9.6 - Francia
 fr: Indice de réparabilité 9.6
+it: Indice di riparabilità 9.6 - Francia
+ja: 修理可能性指標 9.6 - フランス
+ko: 수리 용이성 지수 9.6 - 프랑스
+nl: Repareerbaarheid index 9.6 - Frankrijk
+pl: Wskaźnik naprawialności 9.6 - Francja
+pt: Índice de reparabilidade 9.6 - França
+ru: Индекс ремонтопригодности 9.6 - Франция
+zh: 可修复性指数 9.6 - 法国
 repairability_index_france_value:en: 9.6
 
 en: Repairability index 9.7 - France
+ar: مؤشر قابلية الإصلاح 9.7 - فرنسا
+de: Reparierbarkeitsindex 9.7 - Frankreich
+es: Índice de reparabilidad 9.7 - Francia
 fr: Indice de réparabilité 9.7
+it: Indice di riparabilità 9.7 - Francia
+ja: 修理可能性指標 9.7 - フランス
+ko: 수리 용이성 지수 9.7 - 프랑스
+nl: Repareerbaarheid index 9.7 - Frankrijk
+pl: Wskaźnik naprawialności 9.7 - Francja
+pt: Índice de reparabilidade 9.7 - França
+ru: Индекс ремонтопригодности 9.7 - Франция
+zh: 可修复性指数 9.7 - 法国
 repairability_index_france_value:en: 9.7
 
 en: Repairability index 9.8 - France
+ar: مؤشر قابلية الإصلاح 9.8 - فرنسا
+de: Reparierbarkeitsindex 9.8 - Frankreich
+es: Índice de reparabilidad 9.8 - Francia
 fr: Indice de réparabilité 9.8
+it: Indice di riparabilità 9.8 - Francia
+ja: 修理可能性指標 9.8 - フランス
+ko: 수리 용이성 지수 9.8 - 프랑스
+nl: Repareerbaarheid index 9.8 - Frankrijk
+pl: Wskaźnik naprawialności 9.8 - Francja
+pt: Índice de reparabilidade 9.8 - França
+ru: Индекс ремонтопригодности 9.8 - Франция
+zh: 可修复性指数 9.8 - 法国
 repairability_index_france_value:en: 9.8
 
 en: Repairability index 9.9 - France
+ar: مؤشر قابلية الإصلاح 9.9 - فرنسا
+de: Reparierbarkeitsindex 9.9 - Frankreich
+es: Índice de reparabilidad 9.9 - Francia
 fr: Indice de réparabilité 9.9
+it: Indice di riparabilità 9.9 - Francia
+ja: 修理可能性指標 9.9 - フランス
+ko: 수리 용이성 지수 9.9 - 프랑스
+nl: Repareerbaarheid index 9.9 - Frankrijk
+pl: Wskaźnik naprawialności 9.9 - Francja
+pt: Índice de reparabilidade 9.9 - França
+ru: Индекс ремонтопригодности 9.9 - Франция
+zh: 可修复性指数 9.9 - 法国
 repairability_index_france_value:en: 9.9
 
-en: Repairability index 10 - France
-fr: Indice de réparabilité 10
-repairability_index_france_value:en: 10
+en: Repairability index 10.0 - France
+ar: مؤشر قابلية الإصلاح 10.0 - فرنسا
+de: Reparierbarkeitsindex 10.0 - Frankreich
+es: Índice de reparabilidad 10.0 - Francia
+fr: Indice de réparabilité 10.0
+it: Indice di riparabilità 10.0 - Francia
+ja: 修理可能性指標 10.0 - フランス
+ko: 수리 용이성 지수 10.0 - 프랑스
+nl: Repareerbaarheid index 10.0 - Frankrijk
+pl: Wskaźnik naprawialności 10.0 - Francja
+pt: Índice de reparabilidade 10.0 - França
+ru: Индекс ремонтопригодности 10.0 - Франция
+zh: 可修复性指数 10.0 - 法国
+repairability_index_france_value:en: 10.0
+
+de: Schädlich für Wasserorganismen, R52
+en: Harmful to aquatic organisms, R52
+cs: Škodlivý pro vodní organismy, R52
+da: Skadelig for organismer\, der lever i vand, R52
+el: Επιβλαβές για τους υδρόβιους οργανισµούς, R52
+es: Nocivo para los organismos acuáticos, R52
+et: Kahjulik veeorganismidele, R52
+fi: Haitallista vesieliöille, R52
+fr: Nocif pour les organismes aquatiques, R52
+hu: Ártalmas a vízi szervezetekre, R52
+it: Nocivo per gli organismi acquatici, R52
+lt: Kenksminga vandens organizmams, R52
+lv: Kaitīgs ūdens organismiem, R52
+mt: Jaħmel ħsara lil organiżmi akwatiċi, R52
+nl: Schadelijk voor in het water levende organismen, R52
+no: Skadelig for vannlevende organismer, R52
+pl: Działa szkodliwie na organizmy wodne, R52
+pt: Nocivo para os organismos aquáticos, R52
+sk: Škodlivý pre vodné organizmy, R52
+sl: Škodljivo za vodne organizme, R52
+sv: Skadligt för vattenlevande organismer, R52
 

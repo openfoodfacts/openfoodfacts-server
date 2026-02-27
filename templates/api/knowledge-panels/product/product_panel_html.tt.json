@@ -1,0 +1,12 @@
+{
+    "element_type": "text",
+    "text_element": {
+        "html": `
+        <ul>
+            [% FOREACH tag IN panel.tags %]
+                <li><a href="[% tag.url %]">[% tag.name %]</a></li>
+            [% END %]
+        </ul>
+        `
+    }
+}

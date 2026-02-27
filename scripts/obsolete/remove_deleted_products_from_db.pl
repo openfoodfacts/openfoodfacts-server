@@ -28,7 +28,7 @@ use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -65,7 +65,7 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 });;
 		
 		if (not defined $product_ref) {
 			print STDERR "cannot load product $code\n";
-			my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/product.sto");
+			my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/product");
 			if (defined $product_ref) {
 				print STDERR "deleted : $product_ref->{deleted} - _id : $product_ref->{_id}\n";
 				get_products_collection()->delete_one({"code" => $code});
@@ -80,7 +80,7 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 });;
 
 		# Store
 
-		# store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);		
+		# store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);		
 		# get_products_collection()->save($product_ref);
 	}
 

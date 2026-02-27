@@ -55,12 +55,8 @@
             "uploader" : "openfoodfacts-contributors"
          },
          "front_en" : {
-            "angle" : 0,
-            "coordinates_image_size" : "full",
-            "geometry" : "0x0--1--1",
-            "imgid" : "1",
-            "normalize" : null,
-            "rev" : "3",
+            "imgid" : 1,
+            "rev" : 3,
             "sizes" : {
                "100" : {
                   "h" : 92,
@@ -78,12 +74,7 @@
                   "h" : 183,
                   "w" : 200
                }
-            },
-            "white_magic" : null,
-            "x1" : -1,
-            "x2" : -1,
-            "y1" : -1,
-            "y2" : -1
+            }
          }
       },
       "informers_tags" : [
@@ -111,7 +102,7 @@
       "last_updated_t" : "--ignore--",
       "lc" : "en",
       "main_countries_tags" : [],
-      "max_imgid" : "1",
+      "max_imgid" : 1,
       "misc_tags" : [
          "en:main-countries-new-product"
       ],

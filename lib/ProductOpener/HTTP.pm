@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -54,7 +54,8 @@ BEGIN {
 		&single_param
 		&request_param
 		&get_http_request_header
-	);    #the fucntions which are called outside this file
+		&create_user_agent
+	);    #the functions which are called outside this file
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -63,11 +64,13 @@ use vars @EXPORT_OK;
 use Apache2::RequestIO();
 use Apache2::RequestRec();
 use Encode;
-use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
+use CGI qw(:cgi :cgi-lib :form escapeHTML charset cookie);
 use Data::DeepAccess qw(deep_get);
+use LWP::UserAgent;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::RequestStats qw(:all);
+use ProductOpener::Version qw/$version/;
 
 =head1 FUNCTIONS
 
@@ -273,6 +276,10 @@ sub redirect_to_url ($request_ref, $status_code, $redirect_url) {
 
 	my $r = Apache2::RequestUtil->request();
 
+	# we need CORS headers even on redirect
+	# Or some browser will prevent the redirect to happen
+	write_cors_headers();
+
 	$r->headers_out->set(Location => $redirect_url);
 
 	if (defined $request_ref->{cookie}) {
@@ -316,7 +323,8 @@ sub single_param ($param_name) {
 =head2 request_param ($request_ref, $param_name)
 
 Return a request parameter. The parameter can be passed in the query string,
-as a POST multipart form data parameter, or in a POST JSON body
+as a POST multipart form data parameter, in a POST JSON body, or in cookies
+for some parameters like product attribute parameters
 
 =head3 Arguments
 
@@ -326,6 +334,19 @@ as a POST multipart form data parameter, or in a POST JSON body
 
 A scalar value for the parameter, or undef if the parameter is not defined.
 
+Note that we really want to return undef, and not use an empty return statement,
+as otherwise code like
+
+	my $options_ref = {
+		limit => request_param($request_ref, 'limit'),
+		get_synonyms => request_param($request_ref, 'get_synonyms')
+	};
+
+will result in 'limit' being set to 'get_synonyms' value when the 'limit' parameter is not passed.
+
+This goes against https://metacpan.org/pod/Perl::Critic::Policy::Subroutines::ProhibitExplicitReturnUndef
+but we are not using return undef to indicate an error, but to indicate that the parameter is not defined.
+
 =cut
 
 sub request_param ($request_ref, $param_name) {
@@ -334,8 +355,57 @@ sub request_param ($request_ref, $param_name) {
 		return decode utf8 => $cgi_param;
 	}
 	else {
-		return deep_get($request_ref, "body_json", $param_name);
+		my $body_json_param = deep_get($request_ref, "body_json", $param_name);
+		if (defined $body_json_param) {
+			return $body_json_param;
+		}
+		else {
+			# For product attributes parameters, we allow cookies so that we do not have parameters
+			# included in the URL and in logs
+			# e.g. cookie("attribute_unwanted_ingredients_tags")
+			my $cookie_param = cookie($param_name);
+			return $cookie_param;    # returns undef if there's no cookie
+		}
 	}
+	# We should have returned before reaching this line
+}
+
+=head2 create_user_agent([$args])
+
+Creates a standardized LWP::UserAgent
+
+=head3 Parameters
+
+=over 4
+
+=item * C<[$args]> - (Optional) Optional constructor arguments for LWP::UserAgent->new()
+
+=back
+
+=head3 Behavior
+
+Creates a standardized HTTP client with correct user agent.
+
+=head3 Return value
+
+A new LWP::UserAgent instance
+
+=cut
+
+sub create_user_agent {
+	my (%cnf) = @_;
+
+	my $ua;
+	if (%cnf) {
+		$ua = LWP::UserAgent->new(%cnf);
+	}
+	else {
+		$ua = LWP::UserAgent->new();
+	}
+
+	$ua->agent("Mozilla/5.0 (compatible; Open Food Facts/$version; +https://world.$server_domain)");
+
+	return $ua;
 }
 
 1;

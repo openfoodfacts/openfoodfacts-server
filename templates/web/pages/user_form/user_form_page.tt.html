@@ -29,6 +29,7 @@
 
     inputfield.value = value;
     }
+    // #11866: Can remove after keycloak migration
     [% INCLUDE web/pages/user_form/togglepassword.tt.js %]
 </script>
 
@@ -175,7 +176,7 @@
             <p>[% lang("unsubscribe_info") %]</p>
         [% END %]
 
-        [% IF userid and (type != 'add') %]
+        [% IF oidc_implementation_level < 5 and userid and (type != 'add') %]
             <fieldset>
                 <legend class="text_warning">[% lang("danger_zone") %]</legend>
                 [% delete_confirm=esq(lang("delete_confirmation")) %]
@@ -203,6 +204,11 @@
 
         <!-- Show different messages depending on whether it is a pro account
         and whether we are on the public platform or the pro platform -->
+
+        <!-- loggedin-->
+        <!-- the loggedin comment above is parsed by Open Food Facts Dart plugin to check if a signup was successful-->
+        <!-- It should not be removed until apps (OFF app and 3rd party apps using the Dart plugin) have migrated to the upcoming Keycloak authentification -->
+        <!-- See https://github.com/openfoodfacts/openfoodfacts-dart/blob/v3.26.0/lib/src/model/sign_up_status.dart -->
 
         [% IF user_requested_org.defined %]
 
@@ -256,10 +262,7 @@
         <!-- Do not display donate link on producers platform -->
 
         [% IF !(server_options_producers_platform) %]
-            [% IF lc == "en" or lc == "fr" %]
-                <h3>[% lang("you_can_also_help_us") %]</h3>
-                <p>[% lang("bottom_content") %]</p>
-            [% END %]
+            [% INCLUDE 'web/common/includes/help_us_block.tt.html' %]
         [% END %]
 
     [% END %]

@@ -20,7 +20,7 @@
 		if (data.result.error) {
 			\$("#file_input_button_$id").show();
 			\$("#progressbar_$id").hide();
-			\$("#file_input_error_$id").html(data.result.error);
+			\$("#file_input_error_$id").text(data.result.error);
 			\$("#file_input_error_$id").show();
 		}
 	},
@@ -51,7 +51,7 @@
 	},
 	progress: function (e, data) {
 		\$("#progressmeter_$id").css('width', parseInt(data.loaded / data.total * 100, 10) + "%");
-		\$("#file_input_debug_$id").html(data.loaded + ' / ' + data.total);
+		\$("#file_input_debug_$id").text(data.loaded + ' / ' + data.total);
 	}
 });
 

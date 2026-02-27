@@ -89,16 +89,16 @@ my @suggest_tests = (
 );
 
 foreach my $test_ref (@suggest_tests) {
-	my @results = ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions($test_ref->{tagtype}, $test_ref->{lc},
-		$test_ref->{string}, {}, {});
+	my @results = ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions("en:world", $test_ref->{tagtype},
+		$test_ref->{lc}, $test_ref->{string}, {}, {});
 	if (not is(\@results, $test_ref->{expected})) {
 		diag Dumper($test_ref, \@results);
 	}
 }
 
-# Complete suggestion generation (with synnyms)
+# Complete suggestion generation (with synonyms)
 
-my @suggest_tests = (
+@suggest_tests = (
 	{
 		desc => 'Match at start',
 		tagtype => "test",
@@ -139,7 +139,8 @@ my @suggest_tests = (
 );
 
 foreach my $test_ref (@suggest_tests) {
-	my @results = ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions_with_synonyms($test_ref->{tagtype},
+	my @results
+		= ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions_with_synonyms("en:world", $test_ref->{tagtype},
 		$test_ref->{lc}, $test_ref->{string}, {}, {});
 	if (not is(\@results, $test_ref->{expected})) {
 		diag Dumper($test_ref, \@results);

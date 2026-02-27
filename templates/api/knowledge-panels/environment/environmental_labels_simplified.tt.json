@@ -1,0 +1,45 @@
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    "expanded": false,
+    "half_width_on_mobile": true,   
+    [% IF product.environmental_score_data.adjustments.production_system.value == 0 %]
+    "evaluation": "neutral",
+    "title_element": {
+        "name": "[% edq(lang('environmental_labels')) %]",
+        "value_string": "[% edq(lang('no_assessed_labels')) %]",
+        "type": "string",
+        "icon_color_from_evaluation": true,
+        "icon_url": "[% static_subdomain %]/images/icons/dist/agriculture.svg",
+        "icon_size": "small",
+    },    
+    [% ELSE %]
+    "evaluation": "good",
+    "title_element": {
+        "icon_color_from_evaluation": true,
+        "icon_url": "[% static_subdomain %]/images/icons/dist/agriculture.svg",
+        "icon_size": "small",
+        "name": "[% edq(lang('environmental_labels')) %]",
+        [% IF product.environmental_score_data.adjustments.production_system.value >= 20 %]
+            "value_string": "[% edq(lang('very_high_environmental_benefits')) %]",
+        [% ELSIF product.environmental_score_data.adjustments.production_system.value >= 15 %]
+            "value_string": "[% edq(lang('high_environmental_benefits')) %]",
+        [% ELSE %]
+            "value_string": "[% edq(lang('some_environmental_benefits')) %]",
+        [% END %]
+        "type": "string"
+        },
+        "elements": [
+            [% FOREACH label IN product.environmental_score_data.adjustments.production_system.labels %]
+            {
+                "element_type": "panel",
+                "panel_element": {
+                    "panel_id": "environment_label_[% label %]",
+                }
+            },            
+            [% END %]
+        ]
+    [% END %]
+}

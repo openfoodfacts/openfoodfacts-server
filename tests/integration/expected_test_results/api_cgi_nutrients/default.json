@@ -368,6 +368,13 @@
             },
             {
                "display_in_edit_form" : false,
+               "id" : "psicose",
+               "important" : false,
+               "name" : "Psicose (Allulose)",
+               "unit" : "g"
+            },
+            {
+               "display_in_edit_form" : false,
                "id" : "starch",
                "important" : false,
                "name" : "Starch",
@@ -384,6 +391,27 @@
                      "id" : "erythritol",
                      "important" : false,
                      "name" : "Erythritol",
+                     "unit" : "g"
+                  },
+                  {
+                     "display_in_edit_form" : false,
+                     "id" : "isomalt",
+                     "important" : false,
+                     "name" : "Isomalt",
+                     "unit" : "g"
+                  },
+                  {
+                     "display_in_edit_form" : false,
+                     "id" : "maltitol",
+                     "important" : false,
+                     "name" : "Maltitol",
+                     "unit" : "g"
+                  },
+                  {
+                     "display_in_edit_form" : false,
+                     "id" : "sorbitol",
+                     "important" : false,
+                     "name" : "Sorbitol",
                      "unit" : "g"
                   }
                ],
@@ -403,6 +431,15 @@
                "id" : "soluble-fiber",
                "important" : false,
                "name" : "Soluble fiber",
+               "nutrients" : [
+                  {
+                     "display_in_edit_form" : false,
+                     "id" : "polydextrose",
+                     "important" : false,
+                     "name" : "Polydextrose",
+                     "unit" : "g"
+                  }
+               ],
                "unit" : "g"
             },
             {
@@ -708,6 +745,13 @@
       },
       {
          "display_in_edit_form" : false,
+         "id" : "methylsulfonylmethane",
+         "important" : false,
+         "name" : "Methylsulfonylmethane",
+         "unit" : "mg"
+      },
+      {
+         "display_in_edit_form" : false,
          "id" : "ph",
          "important" : false,
          "name" : "PH",
@@ -715,23 +759,9 @@
       },
       {
          "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts",
-         "important" : false,
-         "name" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils",
-         "unit" : "%"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts-dried",
-         "important" : false,
-         "name" : "Fruits‚ vegetables and nuts - dried",
-         "unit" : "%"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts-estimate",
-         "important" : false,
-         "name" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (manual estimate from ingredients list)",
+         "id" : "fruits-vegetables-legumes",
+         "important" : true,
+         "name" : "Fruits‚ vegetables‚ legumes",
          "unit" : "%"
       },
       {
@@ -761,27 +791,6 @@
          "important" : false,
          "name" : "Carbon footprint",
          "unit" : "g"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "carbon-footprint-from-meat-or-fish",
-         "important" : false,
-         "name" : "Carbon footprint from meat or fish",
-         "unit" : "g"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "nutrition-score-fr",
-         "important" : false,
-         "name" : "Nutrition score - France",
-         "unit" : ""
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "nutrition-score-uk",
-         "important" : false,
-         "name" : "Nutrition score - UK",
-         "unit" : ""
       },
       {
          "display_in_edit_form" : false,

@@ -1,5 +1,5 @@
-Open Food Facts Local Caching: A Tutorial
------------------------------------------
+
+# Open Food Facts Local Caching: A Tutorial
 
 Open Food Facts (OFF) offers a rich dataset of food product information. Creating a local cache can enhance performance for your heavy-duty applications. This tutorial will guide you through the process, considerations, and best practices.
 
@@ -9,10 +9,10 @@ A local cache is a copy of OFF data stored directly on your system or server. Th
 
 ### Current Caching Options
 
--   **FoodVisor Contributed (Python/MongoDB) backend:** The FoodVisor startup contributed a few years ago <a href="https://github.com/openfoodfacts/openfoodfacts-apirestpython">a Python-based backend with a MongoDB export</a>, providing a solid starting point for caching in Python environments.
--   **Project-Specific Caches:** Several OFF projects like open-prices and robotoff have implemented local caches for their own needs. While not immediately reusable, they can serve as valuable references.
--   **SDKs** We have [a number of official SDKs](../api.md#sdks) that can be leveraged as part of a caching backend. Please leverage and contribute to those 🙏
--   **You can start a project within Open Food Facts to solve this**
+- **FoodVisor Contributed (Python/MongoDB) backend:** The FoodVisor startup contributed a few years ago <a href="https://github.com/openfoodfacts/openfoodfacts-apirestpython">a Python-based backend with a MongoDB export</a>, providing a solid starting point for caching in Python environments.
+- **Project-Specific Caches:** Several OFF projects like open-prices and robotoff have implemented local caches for their own needs. While not immediately reusable, they can serve as valuable references.
+- **SDKs** We have [a number of official SDKs](../api.md#sdks) that can be leveraged as part of a caching backend. Please leverage and contribute to those 🙏
+- **You can start a project within Open Food Facts to solve this**
 
 ### Need for Diverse Solutions
 
@@ -31,8 +31,8 @@ For more on legal issues [please read this page](./license-be-on-the-legal-side.
 
 Maintaining a cache can be complex due to the dynamic nature of OFF data.
 
--   **Immediate Updates:** Any writes to OFF data should first go through automatic moderation on your end (see our tutorial about this). After successful submission to OFF, your local cache should be immediately refreshed.
--   **Real-Time Notifications (Future):** Currently, there's no public API for real-time OFF updates stream. However, we have an internal system (REDIS) and are exploring options for a future 3rd party notification API. Express your interest by contacting <a href="mailto:reuse@openfoodfacts.org">reuse@openfoodfacts.org</a>.
+- **Immediate Updates:** Any writes to OFF data should first go through automatic moderation on your end (see our tutorial about this). After successful submission to OFF, your local cache should be immediately refreshed.
+- **Real-Time Notifications (Future):** Currently, there's no public API for real-time OFF updates stream. However, we have an internal system (REDIS) and are exploring options for a future 3rd party notification API. Express your interest by contacting <a href="mailto:reuse@openfoodfacts.org">reuse@openfoodfacts.org</a>.
 
 ### Building Your Own Cache
 

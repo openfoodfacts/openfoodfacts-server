@@ -7,13 +7,18 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use Encode;
 use JSON;
 
-use LWP::Simple;
+my $url = "https://world.openpetfoodfacts.org/categories.json";
+my $response = create_user_agent()->get($url);
+if (!$response->is_success) {
+	die "Could not fetch $url: " . $response->status_line;
+}
 
-my $json = get("https://world.openpetfoodfacts.org/categories.json");
+my $json = $response->decoded_content;
 
 my $categories_ref = from_json($json);
 

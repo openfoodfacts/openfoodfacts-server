@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -45,7 +45,6 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Display qw/$subdomain/;
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Lang qw/$lc/;
@@ -53,6 +52,8 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Ingredients qw/flatten_sub_ingredients/;
 use ProductOpener::API qw/add_error customize_response_for_product normalize_requested_code/;
 use ProductOpener::URL qw(format_subdomain);
+use ProductOpener::Images qw(add_images_urls_to_product);
+use ProductOpener::Store qw/retrieve_object/;
 
 my $cc;
 
@@ -124,6 +125,8 @@ sub read_product_api ($request_ref) {
 		}
 	}
 
+	my $requested_fields = request_param($request_ref, 'fields') || "all";
+
 	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
 
 		# Return an error if we could not find a product
@@ -139,9 +142,13 @@ sub read_product_api ($request_ref) {
 		);
 		$response_ref->{result} = {id => "product_not_found"};
 	}
+	# Product with a different product type
+	# If the requested fields is "raw", we return the product even if it has a different product type
+	# This is useful in particular for tests
 	elsif ( (not $server_options{private_products})
 		and (defined $product_ref->{product_type})
-		and ($product_ref->{product_type} ne $options{product_type}))
+		and ($product_ref->{product_type} ne $options{product_type})
+		and (not $requested_fields eq "raw"))
 	{
 
 		# If the product has a product_type and it is not the product_type of the server,
@@ -153,7 +160,7 @@ sub read_product_api ($request_ref) {
 			and (($requested_product_type eq "all") or ($requested_product_type eq $product_ref->{product_type})))
 		{
 			redirect_to_url($request_ref, 302,
-				format_subdomain($subdomain, $product_ref->{product_type}) . "/"
+				format_subdomain($request_ref->{subdomain}, $product_ref->{product_type}) . "/"
 					. $request_ref->{original_query_string});
 		}
 		else {
@@ -197,12 +204,12 @@ sub read_product_api ($request_ref) {
 		# Return blame information
 		if (single_param("blame")) {
 			my $path = product_path_from_id($product_id);
-			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+			my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
 			$response_ref->{blame} = {};
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $response_ref->{blame});
+			compute_product_history_and_completeness($product_ref, $changes_ref, $response_ref->{blame});
 		}
 
 	}

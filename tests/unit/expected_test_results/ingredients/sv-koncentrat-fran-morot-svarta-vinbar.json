@@ -1,7 +1,7 @@
 {
    "ingredients" : [
       {
-         "id" : "sv:koncentrat-från",
+         "id" : "en:concentrate",
          "ingredients" : [
             {
                "ciqual_food_code" : "20009",
@@ -29,28 +29,20 @@
                "vegetarian" : "yes"
             }
          ],
-         "is_in_taxonomy" : 0,
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "text" : "koncentrat från"
+         "text" : "koncentrat från",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       }
    ],
-   "ingredients_analysis" : {
-      "en:palm-oil-content-unknown" : [
-         "sv:koncentrat-från"
-      ],
-      "en:vegan-status-unknown" : [
-         "sv:koncentrat-från"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "sv:koncentrat-från"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_lc" : "sv",
    "ingredients_n" : 3,
@@ -59,13 +51,13 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "sv:koncentrat-från",
+      "en:concentrate",
       "en:carrot",
       "en:blackcurrant"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "sv:koncentrat-från",
+      "en:concentrate",
       "en:carrot",
       "en:vegetable",
       "en:root-vegetable",
@@ -80,21 +72,15 @@
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "sv:koncentrat-från"
+      "en:concentrate"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
       "en:blackcurrant",
-      "sv:koncentrat-från"
+      "en:concentrate"
    ],
    "ingredients_without_ecobalyse_ids_n" : 2,
-   "known_ingredients_n" : 2,
+   "known_ingredients_n" : 3,
    "lc" : "sv",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
-   },
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }

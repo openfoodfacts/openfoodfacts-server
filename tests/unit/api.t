@@ -22,4 +22,7 @@ is(
 	"ecoscore_grade 3.1"
 );
 
+is(customize_response_for_product({api_version => 1}, {product_name => "test", schema_version => 1002}, "all"),
+	{product_name => "test", schema_version => 997});
+
 done_testing();
