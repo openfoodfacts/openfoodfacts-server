@@ -30387,8 +30387,9 @@ carbon_footprint_fr_foodges_value:fr: 1.3
 ciqual_proxy_food_code:en: 31016
 ciqual_proxy_food_name:en: Sugar, white
 ciqual_proxy_food_name:fr: Sucre blanc
+comment:en: Generic sugar is vegan:maybe because some cane sugar is refined using bone char (charred cattle bones) as a decolorizing filter. This is primarily a North American practice. Beet sugar, organic sugar, and unrefined sugars never use bone char. Vegetarian status remains yes as bone char is a processing aid and the final product contains no animal-derived material.
 ecobalyse:en: 8f075c25-9ebf-430c-b41d-51d165c6e0d8
-vegan:en: yes
+vegan:en: maybe
 vegetarian:en: yes
 wikidata:en: Q11002
 wikipedia:en: https://en.wikipedia.org/wiki/Sugar
@@ -30413,6 +30414,8 @@ hu: bio cukor
 it: zucchero biologico
 nb: økologisk sukker
 sv: ekologiskt socker
+vegan:en: yes
+vegetarian:en: yes
 
 < en:sugar
 fr: sucres extraits de fruits
@@ -30494,6 +30497,8 @@ pl: Muscovado
 pt: açúcar mascavado
 sv: Muscovadosocker
 # pt:Açúcar mascavo
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q9280616
 wikipedia:en: https://en.wikipedia.org/wiki/Muscovado
 
@@ -30533,6 +30538,8 @@ pt: açúcar de cana invertido
 < en:cane sugar
 en: jaggery, gud, gur, cane jaggery
 it: jaggery
+vegan:en: yes
+vegetarian:en: yes
 
 < en:invert sugar
 en: invert sugar solution
@@ -30776,6 +30783,8 @@ hr: javorov šećer
 it: zucchero d'acero
 ja: メープルシュガー
 sv: lönnsocker
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q402587
 
 en: sugarcane, sugar cane
@@ -30954,6 +30963,8 @@ nl: ongeraffineerde suiker, ruwe suiker, oerzoet
 pl: Cukier nierafinowany
 pt: açúcar não refinado
 sv: råsocker
+vegan:en: yes
+vegetarian:en: yes
 
 < en:cane sugar
 < en:unrefined sugar
@@ -31051,6 +31062,8 @@ pt: açúcar de beterraba
 sv: betsocker
 carbon_footprint_fr_foodges_ingredient:fr: Sucre de betterave
 carbon_footprint_fr_foodges_value:fr: 0.7
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q9197055
 
 < en:sugar
@@ -31067,6 +31080,8 @@ nl: Palmsuiker
 nn: palmesukker
 pl: cukier palmowy
 sv: palmsocker
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q1549017
 
 < en:palm sugar
@@ -31098,6 +31113,8 @@ sv: kokossocker, kokospalmsocker
 ta: தென்னை சர்க்கரை
 # yue:椰糖
 description:en: COCONUT SUGAR is a palm sugar produced from the sap of the flower bud stem of the coconut palm. It is used in savory dishes, but mainly in local desserts and cakes of the Southeast Asian region. Coconut sugar is subtly sweet almost like brown sugar but with a slight hint of caramel. The flavor and sweetness is usually similar to table sugar or brown sugar. There is no scientific evidence that coconut sugar is more nutritious or healthier than any other sweetener.
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q5139861
 wikipedia:en: https://en.wikipedia.org/wiki/Coconut_sugar
 # 50in3@2019-06-09
