@@ -77,7 +77,7 @@
          "percent_max" : 4.5,
          "percent_min" : 1.2,
          "text" : "sucre",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       },
       {
@@ -168,7 +168,9 @@
                "percent_estimate" : 0.05,
                "percent_max" : 0.1,
                "percent_min" : 0,
-               "text" : "citrate trisodique"
+               "text" : "citrate trisodique",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -229,17 +231,18 @@
       }
    ],
    "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
-         "en:sodium-citrate"
+      "en:maybe-vegan" : [
+         "en:sugar",
+         "en:flavouring"
       ],
-      "en:vegetarian-status-unknown" : [
-         "en:sodium-citrate"
+      "en:maybe-vegetarian" : [
+         "en:flavouring"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 16,
