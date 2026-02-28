@@ -99358,7 +99358,7 @@ it: Panini polari, panino polare, panini fatti con pane polare
 nl: Poolse broodjes, poolse sandwich, broodjes op poolbrood
 
 < en:Sandwiches
-en: French bread sandwiches, Sandwiches on French bread, Sandwiches made with French bread, Baguette sandwiches
+en: Baguette sandwiches, French bread sandwiches, Sandwiches on French bread, Sandwiches made with French bread, Baguette sandwiches
 de: Baguette-Sandwiches, Sandwiches auf Baguette, Sandwiches mit Baguette
 es: Bocadillos de pan francés, Bocadillos en pan francés, Bocadillos hechos con pan francés
 fr: Sandwich baguette
@@ -99369,9 +99369,69 @@ ciqual_food_code:en: 25543
 ciqual_food_name:en: Sandwich on french bread (average)
 ciqual_food_name:fr: Sandwich baguette (aliment moyen)
 
-< en:French bread sandwiches
-en: Healthy french bread sandwiches
-nl: Broodje gezond
+< en:Baguette sandwiches
+en: Baguette sandwiches with salami and butter
+de: Baguette-Sandwiches mit Salami und Butter
+es: Bocadillos de baguette con salami y mantequilla
+fr: Sandwichs baguette salami beurre
+hr: Baguette sendviči sa salamom i maslacem
+it: Panini baguette con salame e burro
+nl: Stokbrood sandwiches met salami en boter
+agribalyse_food_code:en: 25536
+ciqual_food_code:en: 25536
+ciqual_food_name:en: Sandwich made with French bread, salami and butter
+
+< en:Baguette sandwiches
+< en:Sandwich with egg and vegetables and mayonnaise
+en: Baguette sandwiches with egg and vegetables and mayonnaise
+fr: Sandwich baguette oeuf crudités mayonnaise
+agribalyse_food_code:en: 25532
+ciqual_food_code:en: 25532
+ciqual_food_name:en: Sandwich made with French bread, egg, raw vegetables (tomato and lettuce) and mayonnaise
+ciqual_food_name:fr: Sandwich baguette, oeuf, crudités (tomate, salade), mayonnaise
+
+< en:Baguette sandwiches
+< en:Sandwiches with ham and emmental cheese
+en: Baguette sandwiches with ham and emmental cheese
+de: Baguette-Sandwiches mit Schinken und Emmentaler Käse
+es: Bocadillos de baguette con jamón y queso emmental
+fr: Sandwichs baguette jambon emmental
+hr: Baguette sendviči sa šunkom i ementalcem
+it: Panini con prosciutto e formaggio emmental
+nl: Broodjes met ham en emmentaler kaas
+agribalyse_food_code:en: 25485
+ciqual_food_code:en: 25485
+ciqual_food_name:en: Sandwich made with French bread, ham and emmental cheese
+
+< en:Baguette sandwiches
+< en:Sandwiches with ham and emmental cheese and butter
+en: Baguette sandwiches with ham emmental cheese and butter
+fr: Sandwich baguette jambon emmental beurre
+agribalyse_food_code:en: 25521
+ciqual_food_code:en: 25521
+ciqual_food_name:en: Sandwich made with French bread, ham, emmental cheese and butter
+
+< en:Baguette sandwiches
+en: Baguette sandwiches with hard-boiled egg and vegetables and butter
+fr: Sandwich baguette jambon crudités oeuf, Sandwich baguette jambon oeuf dur crudités beurre
+agribalyse_food_code:en: 25475
+ciqual_food_code:en: 25475
+ciqual_food_name:en: Sandwich made with French bread, hard-boiled egg, raw vegetables (tomato and lettuce) and butter
+ciqual_food_name:fr: Sandwich baguette, jambon, oeuf dur, crudités (tomate, salade), beurre
+
+< en:Baguette sandwiches
+< en:Sandwiches filled with cold cuts
+en: BLT sandwich, Baguette sandwiches with pork and vegetables and mayonnaise
+fr: Sandwich baguette porc crudités mayonnaise
+agribalyse_food_code:en: 25533
+ciqual_food_code:en: 25533
+ciqual_food_name:en: Sandwich made with French bread, pork, raw vegetables (lettuce & tomato) and mayonnaise
+ciqual_food_name:fr: Sandwich baguette, porc, crudités (tomate, salade), mayonnaise
+wikidata:en: Q796270
+
+< en:Sandwiches
+en: Bagel sandwiches
+fr: Sandwichs bagel
 
 < en:Sandwiches
 en: Falafel sandwiches
@@ -99636,6 +99696,38 @@ ciqual_food_code:en: 25403
 ciqual_food_name:en: Hot-dog
 wikidata:en: Q181055
 
+< en:Sandwiches
+en: Vegetarian hot dog sandwiches
+es: Perritos calientes vegetales, Perritos vegetales, Hot dog vegetales
+fr: Hot-dogs végétariens, hot-dog végétal, hots-dogs végétaux, Hot-dog végétarien
+hr: Vegetarijanski hot dog sendviči
+nl: Vegetarische hotdogs
+pl: Hot-dogi wegetariańskie, wegetariańskie hot-dogi
+
+< en:Sandwiches
+en: Ploughman's sandwich
+
+< en:Sandwiches
+en: Sandwiches with ham and emmental cheese
+de: Sandwiches mit Schinken und Emmentaler Käse
+es: Bocadillos con jamón y queso emmental
+fr: Sandwichs jambon-emmental
+hr: Sendviči sa šunkom i ementalcem
+it: Sandwiches con prosciutto e formaggio emmental
+nl: Sandwiches met ham en emmentaler kaas
+agribalyse_proxy_food_code:en: 25485
+
+
+< en:Sandwiches
+en: Sandwiches with ham and emmental cheese and butter
+de: Sandwiches mit Schinken, Emmentaler Käse und Butter
+es: Bocadillos con jamón, queso emmental y mantequilla
+fr: Sandwichs jambon-emmental-beurre
+hr: Sendviči sa šunkom i ementalcem i maslacem
+it: Panini con prosciutto, formaggio emmental e burro
+nl: Broodjes met ham, emmentaler kaas en boter
+agribalyse_proxy_food_code:en: 25521
+
 < en:French bread sandwiches
 < en:Sandwiches filled with cold cuts
 en: Baguette sandwich with merguez sausage
@@ -99651,78 +99743,6 @@ ciqual_food_name:en: Sandwich made with French bread, merguez sausage, ketchup a
 ciqual_food_name:fr: Sandwich baguette, merguez, ketchup moutarde
 
 < en:Sandwiches
-en: Vegetarian hot dog sandwiches
-es: Perritos calientes vegetales, Perritos vegetales, Hot dog vegetales
-fr: Hot-dogs végétariens, hot-dog végétal, hots-dogs végétaux, Hot-dog végétarien
-hr: Vegetarijanski hot dog sendviči
-nl: Vegetarische hotdogs
-pl: Hot-dogi wegetariańskie, wegetariańskie hot-dogi
-
-< en:Sandwiches
-en: Ploughman's sandwich
-
-< en:French bread sandwiches
-en: Baguette sandwiches with salami and butter
-de: Baguette-Sandwiches mit Salami und Butter
-es: Bocadillos de baguette con salami y mantequilla
-fr: Sandwichs baguette salami beurre
-hr: Baguette sendviči sa salamom i maslacem
-it: Panini baguette con salame e burro
-nl: Stokbrood sandwiches met salami en boter
-agribalyse_food_code:en: 25536
-ciqual_food_code:en: 25536
-ciqual_food_name:en: Sandwich made with French bread, salami and butter
-
-< en:Sandwiches
-en: Sandwiches with ham and emmental cheese
-de: Sandwiches mit Schinken und Emmentaler Käse
-es: Bocadillos con jamón y queso emmental
-fr: Sandwichs jambon-emmental
-hr: Sendviči sa šunkom i ementalcem
-it: Sandwiches con prosciutto e formaggio emmental
-nl: Sandwiches met ham en emmentaler kaas
-agribalyse_proxy_food_code:en: 25485
-
-< en:French bread sandwiches
-< en:Sandwiches with ham and emmental cheese
-en: Baguette sandwiches with ham and emmental cheese
-de: Baguette-Sandwiches mit Schinken und Emmentaler Käse
-es: Bocadillos de baguette con jamón y queso emmental
-fr: Sandwichs baguette jambon emmental
-hr: Baguette sendviči sa šunkom i ementalcem
-it: Panini con prosciutto e formaggio emmental
-nl: Broodjes met ham en emmentaler kaas
-agribalyse_food_code:en: 25485
-ciqual_food_code:en: 25485
-ciqual_food_name:en: Sandwich made with French bread, ham and emmental cheese
-
-< en:Sandwiches
-en: Sandwiches with ham and emmental cheese and butter
-de: Sandwiches mit Schinken, Emmentaler Käse und Butter
-es: Bocadillos con jamón, queso emmental y mantequilla
-fr: Sandwichs jambon-emmental-beurre
-hr: Sendviči sa šunkom i ementalcem i maslacem
-it: Panini con prosciutto, formaggio emmental e burro
-nl: Broodjes met ham, emmentaler kaas en boter
-agribalyse_proxy_food_code:en: 25521
-
-< en:French bread sandwiches
-< en:Sandwiches with ham and emmental cheese and butter
-en: Baguette sandwiches with ham emmental cheese and butter
-fr: Sandwich baguette jambon emmental beurre
-agribalyse_food_code:en: 25521
-ciqual_food_code:en: 25521
-ciqual_food_name:en: Sandwich made with French bread, ham, emmental cheese and butter
-
-< en:French bread sandwiches
-en: Baguette sandwiches with hard-boiled egg and vegetables and butter
-fr: Sandwich baguette jambon crudités oeuf, Sandwich baguette jambon oeuf dur crudités beurre
-agribalyse_food_code:en: 25475
-ciqual_food_code:en: 25475
-ciqual_food_name:en: Sandwich made with French bread, hard-boiled egg, raw vegetables (tomato and lettuce) and butter
-ciqual_food_name:fr: Sandwich baguette, jambon, oeuf dur, crudités (tomate, salade), beurre
-
-< en:Sandwiches
 en: Sandwich with egg and vegetables and mayonnaise
 de: Sandwich mit Ei und Gemüse und Mayonnaise
 es: Bocadillo de huevo y verduras con mayonesa
@@ -99730,25 +99750,6 @@ fr: Sandwich crudités-oeuf, Sandwich oeuf-crudités
 hr: Sendvič s jajetom i povrćem te majonezom
 it: Panino con uovo, verdure e maionese
 nl: Broodje met ei, groenten en mayonaise
-
-< en:French bread sandwiches
-< en:Sandwich with egg and vegetables and mayonnaise
-en: Baguette sandwiches with egg and vegetables and mayonnaise
-fr: Sandwich baguette oeuf crudités mayonnaise
-agribalyse_food_code:en: 25532
-ciqual_food_code:en: 25532
-ciqual_food_name:en: Sandwich made with French bread, egg, raw vegetables (tomato and lettuce) and mayonnaise
-ciqual_food_name:fr: Sandwich baguette, oeuf, crudités (tomate, salade), mayonnaise
-
-< en:French bread sandwiches
-< en:Sandwiches filled with cold cuts
-en: BLT sandwich, Baguette sandwiches with pork and vegetables and mayonnaise
-fr: Sandwich baguette porc crudités mayonnaise
-agribalyse_food_code:en: 25533
-ciqual_food_code:en: 25533
-ciqual_food_name:en: Sandwich made with French bread, pork, raw vegetables (lettuce & tomato) and mayonnaise
-ciqual_food_name:fr: Sandwich baguette, porc, crudités (tomate, salade), mayonnaise
-wikidata:en: Q796270
 
 < en:Sandwiches
 en: Reuben Sandwich
