@@ -141,6 +141,8 @@ Use `/api/v2/taxonomy` when you want selected taxonomy entries only (instead of 
 - `tags`: comma-separated list of taxonomy tags/ids
 - `fields`: comma-separated list of fields to return (for example: `name,description,children,parents,wikidata`)
 - `include_children=1`: include children entries in the response
+- `include_parents=1`: include parent entries in the response
+- `include_root_entries=1`: include root taxonomy entries in the response
 - `lc`: language(s), comma-separated (for example: `en,fr`)
 - `cc`: optional country context
 
