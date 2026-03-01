@@ -27,7 +27,7 @@ jobs:
     outputs:
       code_modified: ${{ steps.filter.outputs.code }}
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: actions/checkout@v6
       - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
         id: filter
         with:
@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - uses: actions/setup-node@v6
@@ -80,7 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           # needs depth to run git log below
           fetch-depth: 50
@@ -303,7 +303,7 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 1
 
@@ -362,7 +362,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - name: Setup Git and Restore Taxonomies
@@ -398,7 +398,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - name: Download backend image from artifacts
@@ -443,7 +443,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - name: Download backend image from artifacts
@@ -494,7 +494,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request')
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - name: Download frontend image from artifacts
@@ -545,7 +545,7 @@ jobs:
       unit_test_groups: ${{ steps.matrix.outputs.unit_test_groups }}
       integration_test_groups: ${{ steps.matrix.outputs.integration_test_groups }}
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     
@@ -593,7 +593,7 @@ jobs:
       matrix:
         test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.unit_test_groups) }}
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     
@@ -710,7 +710,7 @@ jobs:
       matrix:
         test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.integration_test_groups) }}
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     
@@ -835,7 +835,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - uses: actions/cache/restore@v5
@@ -870,7 +870,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - name: verify apache2 envvars is correct

@@ -32,7 +32,7 @@ jobs:
         PR_NO: ${{ github.event.issue.number }}
         GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         # we need to checkout the fork repository
         # see https://github.com/stefanzweifel/git-auto-commit-action?tab=readme-ov-file#workflow-should-run-in-base-repository
@@ -91,7 +91,7 @@ jobs:
         PR_NO: ${{ github.event.issue.number }}
         GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         # we need to checkout the fork repository
         # see https://github.com/stefanzweifel/git-auto-commit-action?tab=readme-ov-file#workflow-should-run-in-base-repository
