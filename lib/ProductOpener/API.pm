@@ -1036,9 +1036,15 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	my @temporarily_added_fields = ();
 
 	foreach my $needed_field (
-		"schema_version", "serving_size",
-		"serving_quantity", "serving_quantity_unit",
-		"nutrition_data", "nutrition_data_per",
+		"schema_version",
+		# Needed so that normalize_product_quantity_and_serving_size()
+		# can recompute product_quantity and product_quantity_unit
+		"quantity",
+		"serving_size",
+		"serving_quantity",
+		"serving_quantity_unit",
+		"nutrition_data",
+		"nutrition_data_per",
 		"nutrition_data_prepared_per"
 		)
 	{
