@@ -218,24 +218,27 @@ unit_us:en: kcal
 wikidata:en: Q11379
 wikipedia:en: https://en.wikipedia.org/wiki/Food_energy
 
-zz: energy-from-fat
-xx: Energy from fat
-en: Energy from fat
-cs: Energie z tuku
-de: Brennwert aus Fetten
-fi: Energia rasvasta
-fr: Énergie provenant des graisses
-hu: Energia zsírból
-it: Energia dai grassi
-ja: 脂質からのエネルギー
-nl: Energie van vetten
-pt: Energia proveniente de gorduras/lípidos, Energia das gorduras, Energia proveniente de lípidos
-ro: Valoarea energetică din grăsimi
-ru: Энергетическая ценность жиров
-zh: 来自脂肪的能量
-zh_CN: 来自脂肪的能量
-zh_HK: 來自脂肪的能量
-zh_TW: 來自脂肪的能量
+zz:energy-from-fat
+xx:Energy from fat
+en:Energy from fat
+cs:Energie z tuku
+de:Brennwert aus Fetten
+es:Energía proveniente de grasas
+fi:Energia rasvasta
+fr:Énergie provenant des graisses
+hu:Energia zsírból
+it:Energia proveniente dai grassi
+ja:脂質からのエネルギー
+nl:Energie van vetten
+pl:Energia z tłuszczu
+pt:Energia proveniente de gorduras/lípidos, Energia das gorduras, Energia proveniente de lípidos
+ro:Valoarea energetică din grăsimi
+ru:Энергетическая ценность жиров
+sv:Energi från fett
+zh:来自脂肪的能量
+zh_CN:来自脂肪的能量
+zh_HK:來自脂肪的能量
+zh_TW:來自脂肪的能量
 evaluation:en: bad
 unit:en: kj
 unit_ca:en: kcal
@@ -1053,62 +1056,98 @@ unit:en: g
 wikidata:en: Q420731
 wikipedia:en: https://en.wikipedia.org/wiki/Melissic_acid
 
-zz: unsaturated-fat
-xx: Unsaturated fat
-en: Unsaturated fat
-it: grassi insaturi, grassi non saturi
-nl: Onverzadigde vetzuren, Onverzadigd vet, onverzadigde vetten
+zz:unsaturated-fat
+xx:Unsaturated fat
+en:Unsaturated fat
+nl:Onverzadigde vetzuren, Onverzadigd vet, onverzadigde vetten
+ar:دهون غير مشبعة
+bg:Ненаситени мазнини
+ca:Greixos insaturats
+cs:Nenasycené mastné kyseliny
+da:Umættede fedtsyrer
+de:Ungesättigte Fettsäuren
+el:Ακόρεστα λιπαρά
+es:Grasas insaturadas
+et:Küllastumata rasvhapped
+eu:Azido saturatu gabekoak
+fa:چربی‌های غیر اشباع شده
+fi:Tyydyttymättömät rasvat
+fr:Acides gras insaturés, Acides gras non saturés, insaturés, non saturés
+ga:Saill neamhsáithithe
+he:שומן בלתי רווי
+hr:Nezasićene masne kiseline
+hu:Telítetlen zsírsavak, Telítetlen zsírsav
+id:Lemak tak jenuh
+it:Grassi insaturi
+ja:不飽和脂肪酸
+ko:불포화 지방
+lv:Nesātītas taukskābes
+nl_be:Onverzadigde vetzuren, Onverzadigd vet, onverzadigde vetten
+pl:Tłuszcze nienasycone
+pt:Gorduras insaturadas
+ro:Grăsimi nesaturate
+ru:Ненасыщенные жиры
+sh:Nezasićene masne kiseline
+sr:Незасићене масне киселине
+sv:Omättade fettsyror
+tr:Doymamış yağlar
+uk:Ненасичені жири
+vi:Chất béo không bão hòa
+zh:不饱和脂肪酸
+zh_CN:不饱和脂肪酸
+zh_HK:不飽和脂肪酸
+zh_TW:不飽和脂肪酸
 unit:en: g
 
-zz: monounsaturated-fat
-xx: Monounsaturated fat
-en: Monounsaturated fat, mono-unsaturated fat, monounsaturated, mono-unsaturated
-ar: دهون أحادية غير مشبعة
-be: Монаненасычаныя тлустыя кіслоты
-bg: Мононенаситени мастни киселини
-ca: Àcid gras monoinsaturat
-cs: Mononenasycené mastné kyseliny
-da: Enkeltumættede fedtsyrer
-de: einfach ungesättigte Fettsäuren
-dv: މޮނޮއަންސެޗުރޭޓެޑް ފެޓް
-el: Μονοακόρεστα λιπαρά
-es: Grasas monoinsaturadas
-et: Monoküllastumata rasvhapped
-eu: gantz-azido monoasegabe
-fa: چربی تک‌سیرنشده
-fi: Kertatyydyttymättömät rasvat, Kertatyydyttymättömät rasvahapot, Yksittäistyydyttymättömät rasvahapot
-fr: Acides gras monoinsaturés, Acides gras mono-insaturés, monoinsaturés, mono-insaturés
-ga: Monai-neamhsháitheáin saill
-he: שומן חד בלתי רווי
-hr: Jednostruko nezasićene masne kiseline
-hu: Egyszeresen telítetlen zsírsavak, Egyszeresen telítetlen zsírsav
-id: Lemak tak jenuh
-it: Acidi grassi monoinsaturi
-lt: Mononesočiosios riebalų rūgštys
-lv: Mononepiesātinātās taukskābes
-ms: Lemak monotaktepu
-mt: Mono-insaturati xaħmijiet
-nb: Enumettet fettsyre
-nl: Enkelvoudig onverzadigde vetzuren
-nl_be: Enkelvoudig onverzadigde vetzuren
-nn: einumetta feittsyre
-pl: Kwasy tłuszczowe jednonienasycone, jednonienasycony kwas tłuszczowy
-pt: Gorduras/límpidos monoinsaturados, Gordura monoinsaturada, Ácidos gordos monoinsaturados, Lípidos monoinsaturados, Gorduras monoinsaturadas
-pt_pt: Lípidos monoinsaturados
-ro: Acizi grași mononesaturați
-ru: Мононенасыщенные жиры
-sh: Mononezasićena mast
-sk: Mononenasýtené mastné kyseliny
-sl: Enkrat nenasičene maščobe
-sr: Мононезасићена маст
-sv: Enkelomättat fett
-ta: ஒற்றைநிறைவுறா கொழுப்பு
-th: กรดไขมันไม่อิ่มตัวมีพันธะคู่เดี่ยว
-uk: Мононенасичені жирні кислоти
-zh: 单不饱和脂肪
-zh_CN: 单不饱和脂肪
-zh_HK: 單元不飽和脂肪
-zh_TW: 單元不飽和脂肪
+zz:monounsaturated-fat
+xx:Monounsaturated fat
+en:Monounsaturated fat, mono-unsaturated fat, monounsaturated, mono-unsaturated
+ar:دهون أحادية غير مشبعة
+be:Монаненасычаныя тлустыя кіслоты
+bg:Мононенаситени мастни киселини
+ca:Àcid gras monoinsaturat
+cs:Mononenasycené mastné kyseliny
+da:Enkeltumættede fedtsyrer
+de:einfach ungesättigte Fettsäuren
+dv:މޮނޮއަންސެޗުރޭޓެޑް ފެޓް
+el:Μονοακόρεστα λιπαρά
+es:Grasas monoinsaturadas
+et:Monoküllastumata rasvhapped
+eu:gantz-azido monoasegabe
+fa:چربی تک‌سیرنشده
+fi:Kertatyydyttymättömät rasvat, Kertatyydyttymättömät rasvahapot, Yksittäistyydyttymättömät rasvahapot
+fr:Acides gras monoinsaturés, Acides gras mono-insaturés, monoinsaturés, mono-insaturés
+ga:Monai-neamhsháitheáin saill
+he:שומן חד בלתי רווי
+hr:Jednostruko nezasićene masne kiseline
+hu:Egyszeresen telítetlen zsírsavak, Egyszeresen telítetlen zsírsav
+id:Lemak tak tepu tunggal
+it:Acidi grassi monoinsaturi
+lt:Mononesočiosios riebalų rūgštys
+lv:Mononepiesātinātās taukskābes
+ms:Lemak monotaktepu
+mt:Mono-insaturati xaħmijiet
+nb:Enumettet fettsyre
+nl:Enkelvoudig onverzadigde vetzuren
+nl_be:Enkelvoudig onverzadigde vetzuren
+nn:einumetta feittsyre
+pl:Kwasy tłuszczowe jednonienasycone, jednonienasycony kwas tłuszczowy
+pt:Gorduras/límpidos monoinsaturados, Gordura monoinsaturada, Ácidos gordos monoinsaturados, Lípidos monoinsaturados, Gorduras monoinsaturadas
+pt_pt:Lípidos monoinsaturados
+ro:Acizi grași mononesaturați
+ru:Мононенасыщенные жиры
+sh:Mononezasićena mast
+sk:Mononenasýtené mastné kyseliny
+sl:Enkrat nenasičene maščobe
+sr:Мононезасићена маст
+sv:Enkelomättat fett
+ta:ஒற்றைநிறைவுறா கொழுப்பு
+th:กรดไขมันไม่อิ่มตัวมีพันธะคู่เดี่ยว
+uk:Мононенасичені жирні кислоти
+zh:单不饱和脂肪
+zh_CN:单不饱和脂肪
+zh_HK:單元不飽和脂肪
+zh_TW:單元不飽和脂肪
 unit:en: g
 wikidata:en: Q650973
 wikipedia:en: https://en.wikipedia.org/wiki/Monounsaturated_fat
@@ -1680,30 +1719,39 @@ unit:en: g
 wikidata:en: Q416618
 wikipedia:en: https://en.wikipedia.org/wiki/11-Eicosenoic_acid
 
-zz: mead-acid
-xx: Mead acid
-en: Mead acid
-ar: حمض ميد
-ca: Àcid de Mead
-de: Mead'sche Säure
-el: Οξύ Mead
-es: Ácido Mead
-fa: مید اسید
-fi: Meadin happo
-fr: Acide de Mead
-gl: Ácido de Mead
-hu: Mead-sav
-ja: ミード酸
-nl: Meadzuur
-nl_be: Meadzuur
-pt: Ácido de Mead
-ru: Мидовая кислота
-sh: Mead kiselina
-sr: меад киселина
-zh: 二十碳三烯酸, 蜜胺酸
-zh_CN: 二十碳三烯酸
-zh_HK: 二十碳三烯酸
-zh_TW: 二十碳三烯酸
+zz:mead-acid
+xx:Mead acid
+en:Mead acid
+ar:حمض ميد
+ca:Àcid de Mead
+de:Mead'sche Säure
+el:Οξύ Mead
+es:Ácido Mead
+fa:مید اسید
+fi:Meadin happo
+fr:Acide de Mead
+gl:Ácido de Mead
+hu:Mead-sav
+ja:ミード酸
+nl:Meadzuur
+nl_be:Meadzuur
+pt:Ácido de Mead
+ru:Мидовая кислота
+sh:Mead kiselina
+sr:меад киселина
+zh:二十碳三烯酸, 蜜胺酸
+zh_CN:二十碳三烯酸
+zh_HK:二十碳三烯酸
+zh_TW:二十碳三烯酸
+cs:Meadova kyselina
+da:Mead-syre
+id:Asam Mead
+it:acido Mead
+lv:Mīda skābe
+pl:Kwas Mead
+ro:Acid Mead
+sv:Meadsyra
+uk:Мідова кислота
 unit:en: g
 wikidata:en: Q416610
 wikipedia:en: https://en.wikipedia.org/wiki/Mead_acid
@@ -2159,17 +2207,22 @@ unit:en: g
 wikidata:en: Q11002
 wikipedia:en: https://en.wikipedia.org/wiki/Sugar
 
-zz: added-sugars
-xx: Added sugars, Added sugar
-en: Added sugars, Added sugar
-bg: Добавена захар
-de: Hinzugefügter Zucker
-es: Azucares añadidos
-fr: Sucres ajoutés, sucre ajouté
-it: Zuccheri aggiunti, Zucchero aggiunto
-nl: Toegevoegde suikers, Toegevoegd suiker
-pl: Cukry dodane, Dodany cukier
-pt: Açúcares adicionados, Açúcar adicionado
+zz:added-sugars
+xx:Added sugars, Added sugar
+en:Added sugars, Added sugar
+bg:Добавена захар
+de:Hinzugefügter Zucker
+es:Azucares añadidos
+fr:Sucres ajoutés, sucre ajouté
+it:Zuccheri aggiunti, Zucchero aggiunto
+nl:Toegevoegde suikers, Toegevoegd suiker
+pl:Cukry dodane, Dodany cukier
+pt:Açúcares adicionados, Açúcar adicionado
+ru:Добавленный сахар, Добавленный сахар
+ja:添加糖, 添加糖
+ko:첨가 설탕, 첨가 설탕
+zh_CN:添加糖, 添加糖
+zh_TW:添加糖, 添加糖
 evaluation:en: bad
 unit:en: g
 unit_se:en: %
@@ -2417,12 +2470,75 @@ unit:en: g
 wikidata:en: Q122043
 wikipedia:en: https://en.wikipedia.org/wiki/Fructose
 
-zz: oligosaccharide
-xx: Oligosaccharide, oligosaccharides
-en: Oligosaccharide, oligosaccharides
-ca: Oligosacàrids
-es: Oligosacáridos
-it: Oligosaccaride, oligosaccaridi
+zz:oligosaccharide
+xx:Oligosaccharide, oligosaccharides
+en:Oligosaccharide, oligosaccharides
+ar:أوليجوساكاريد, أوليجوساكاريدات
+be:Алігасахарыд, алігасахарыды
+bg:Олигосахарид, олигосахариди
+bn:অলিগোস্যাকারাইড, অলিগোস্যাকারাইডস
+bs:Oligosaharid, oligosaharidi
+ca:Oligosacàrids
+cs:Oligosacharid, oligosacharidy
+da:Oligosaccharid, oligosaccharider
+de:Oligosaccharid, Oligosaccharide
+el:Ολιγοσακχαρίτης, ολιγοσακχαρίτες
+eo:Oligosakarido, oligosakaridoj
+et:Oligosahhariid, oligosahhariidid
+eu:Oligosakarido, oligosakaridoak
+es:Oligosacáridos
+fa:اولیگوساکارید, اولیگوساکاریدها
+fi:Oligosakkaridi, oligosakkaridit
+fr:Oligosaccharide, oligosaccharides
+fy:Oligosacharide, oligosachariden
+gl:Oligosacárido, oligosacáridos
+he:אוליגוסכריד, אוליגוסכרידים
+hr:Oligosaharid, oligosaharidi
+hu:Oligoszacharid, oligoszacharidok
+hy:Օլիգոսախարիդ, Օլիգոսախարիդներ
+id:Oligosakarida, oligosakarida
+it:Oligosaccaride, oligosaccaridi
+ja:オリゴ糖, オリゴ糖類
+kk:Олигосахарид, олигосахаридтер
+ko:올리고당, 올리고당류
+ku:Oligosakarîd, oligosakarîdên
+la:Oligosaccharidum, oligosaccharida
+lb:Oligosaccharid, Oligosacchariden
+lo:ອອກລິໂກຊາຣາດ, ອອກລິໂກຊາຣາດນ້ຳມັນ
+lt:Oligosacharidas, oligosacharidai
+lv:Oligosaharīds, oligosaharīdi
+mg:Oligosakarida, oligosakarida
+mk:Олигосахарид, олигосахариди
+ms:Oligosakarida, oligosakarida
+nb:Oligosakkarid, oligosakkarider
+nl:Oligosacharide, oligosachariden
+nl_be:Oligosacharide, oligosachariden
+nn:Oligosakkarid, oligosakkarider
+oc:Oligosacarida, oligosacaridas
+pl:Oligosacharyd, oligosacharydy
+pt:Oligossacarídeo, oligossacarídeos
+qu:Oligosakaridu, oligosakaridukuna
+ro:Oligozaharid, oligozaharide
+rs:Oligosaharid, oligosaharidi
+ru:Олигосахарид, олигосахариды
+sh:Oligosaharid, oligosaharidi
+sl:Oligosaharid, oligosaharidi
+sq:Oligosakarid, oligosakaridet
+sr:Олигосахарид, олигосахариди
+sv:Oligosackarid, oligosackarider
+ta:ஒலிகோசாக்கரைடு, ஒலிகோசாக்கரைடுகள்
+tg:Олигосахарид, олигосахаридҳо
+th:โอลิโกซาคาริด, โอลิโกซาคาริด
+tl:Oligosaccharide, oligosaccharides
+tr:Oligosakkarit, oligosakkaritler
+tt:Олигосахарид, олигосахаридлар
+uk:Олігосахарид, олігосахариди
+ur:اولیگوسیکارائڈ, اولیگوسیکارائڈز
+vi:Oligosaccharide, oligosaccharides
+zh:寡糖, 寡糖类
+zh_CN:寡糖, 寡糖类
+zh_HK:寡糖, 寡糖類
+zh_TW:寡糖, 寡糖類
 description:en: a saccharide polymer containing a small number (typically two to ten) of simple sugars (monosaccharides)
 unit:en: g
 wikidata:en: Q320607
@@ -2500,11 +2616,13 @@ unit:en: g
 wikidata:en: Q127900
 wikipedia:en: https://en.wikipedia.org/wiki/Lactose
 
-zz: galactose
-xx: galactose
-en: galactose
-fr: galactose
-it: galattosio
+zz:galactose
+en:galactose
+fr:galactose
+es:galactosa
+de:Galaktose
+it:galattosio
+nl:galactose
 unit:en: g
 
 zz: maltose
@@ -2694,6 +2812,7 @@ gl: Polidextrosa
 it: polidestrosio
 ja: ポリデキストロース
 pt: Polidextrose
+ru:Полидекстроза
 description:en: Polydextrose is a synthetic polymer of glucose. It is a food ingredient classified as soluble fiber by the US FDA as well as Health Canada, as of April 2013. It is frequently used to increase the dietary fiber content of food, to replace sugar
 unit:en: g
 wikidata:en: Q424616
@@ -2743,6 +2862,8 @@ fr: Érythritol
 it: Eritritolo
 nl: Erythritol
 pt: Eritritol
+ru:Эритритол
+zh:赤藻糖醇
 unit:en: g
 wikidata:en: Q421873
 
@@ -3284,18 +3405,22 @@ unit_in:en: mg
 wikidata:en: Q11254
 wikipedia:en: https://en.wikipedia.org/wiki/Salt
 
-zz: added-salt
-xx: Added salt
-en: Added salt
-bg: Добавена сол
-de: Hinzugefügtes Salz
-es: Sal añadida
-fr: Sel ajouté
-it: Sale aggiunto
-nl: Toegevoegd zout
-pl: Dodana sól
-pt: Sal adicionado
-ru: Добавленная соль
+zz:added-salt
+xx:Added salt
+en:Added salt
+ar:ملح مضاف
+bg:Добавена сол
+de:Hinzugefügtes Salz
+es:Sal añadida
+fr:Sel ajouté
+it:Sale aggiunto
+ja:添加塩
+ko:첨가된 소금
+nl:Toegevoegd zout
+pl:Dodana sól
+pt:Sal adicionado
+ru:Добавленная соль
+zh:添加盐
 evaluation:en: bad
 unit:en: g
 
@@ -4526,124 +4651,185 @@ en: Hydrogencarbonate
 nl: Waterstofcarbonaat, Waterstofcarbonaten
 
 # NO2-
-zz: Nitrite
-xx: Nitrite
-en: Nitrite
-nl: Nitriet, Nitrieten
+zz:Nitrite
+xx:Nitrite
+en:Nitrite
+nl:Nitriet, Nitrieten
+af:Nitriet
+ar:نتريت
+az:Nitrit
+bg:Нитрит
+bn:নাইট্রাইট
+br:Nitrit
+bs:Nitrit
+ca:Nitrit
+cs:Nitrit
+cv:Нитрит
+da:Nitrit
+de:Nitrit
+eo:Nitrito
+es:Nitrito
+et:Nitrit
+eu:Nitrito
+fa:نیتریت
+fi:Nitriitti
+fr:Nitrite
+fy:Nitrit
+ga:Nitrit
+gl:Nitrito
+he:ניטריט
+hi:नाइट्राइट
+hr:Nitrit
+hu:Nitrit
+hy:Նիտրիտ
+id:Nitrit
+it:Nitrito
+ja:亜硝酸塩
+ka:ნიტრიტი
+kk:Нитрит
+ko:아질산염
+ky:Нитрит
+li:Nitriet
+lv:Nitriti
+mk:Нитрит
+ml:നൈറ്റ്രൈറ്റ്
+ms:Nitrit
+nn:Nitritt
+no:Nitritt
+oc:Nitrit
+pl:Nitryt
+pt:Nitrito
+ro:Nitrit
+ru:Нитрит
+sh:Nitrit
+sk:Nitrit
+sl:Nitrit
+sq:Nitrit
+sr:Нитрит
+sv:Nitrit
+ta:நைற்றிட்
+th:ไนไตรท์
+tl:Nitrito
+tr:Nitrit
+uk:Нітрит
+ur:نائٹرائٹ
+uz:Nitrit
+vi:Nitrit
+zh:亚硝酸盐
 
-zz: potassium
-xx: Potassium
-en: Potassium
-af: kalium
-am: ፖታሺየም
-an: Potasio
-ar: بوتاسيوم
-az: Kalium
-ba: Калий
-be: Калій
-bg: Калий
-bn: পটাশিয়াম
-bo: དུག་སེལ།
-br: Potasiom
-bs: kalij
-ca: potassi
-co: Potassiu
-cs: Draslík
-cv: Кали
-cy: Potasiwm
-da: Kalium
-de: Kalium
-dv: ޕޮޓޭސިއަމް
-el: Κάλιο
-eo: kalio
-es: Potasio
-et: Kaaliumv, Kaalium
-eu: potasio
-fa: پتاسیم
-fi: Kalium
-fo: Kalium
-fr: Potassium
-ga: Potaisiam
-gd: Potasium
-gl: Potasio
-gu: પોટેશિયમ
-gv: Potashum
-he: אשלגן
-hi: पोटैशियम
-hr: Kalij
-ht: Potasyòm
-hu: Kálium
-hy: կալիում
-ia: kalium
-id: Kalium
-io: kalio
-is: kalín
-it: Potassio
-ja: カリウム
-jv: Kalium
-ka: კალიუმი
-ki: Potasium
-kk: Калий
-ko: 칼륨
-ku: Qelye
-kv: Калий
-ky: Калий
-la: kalium
-lb: Kalium
-li: Kalium
-ln: Potasu
-lt: Kalis
-lv: Kālijs
-mi: konurehu
-mk: калиум
-ml: പൊട്ടാസ്യം
-mn: Кали
-mr: पलाश
-ms: Kalium
-mt: Potassju
-my: ပိုတက်ဆီယမ်
-nb: kalium
-ne: पोटासियम
-nl: Kalium
-nl_be: Kalium
-nn: kalium
-nv: Kalium
-oc: Potassi
-or: ପୋଟାସିଅମ
-pa: ਪੋਟਾਸ਼ਿਅਮ
-pl: Potas
-pt: Potássio
-qu: Kalyu
-ro: Potasiu
-ru: калий
-sa: पोटासियम्
-sh: Kalij
-si: පොටෑසියම්
-sk: Draslík
-sl: Kalij
-so: Botashiyaam
-sq: Kaliumi
-sr: калијум
-su: Kalium
-sv: Kalium
-sw: Kali
-ta: பொற்றாசியம்
-te: పొటాషియం
-tg: Калий
-th: โพแทสเซียม
-tl: Potasyo
-tr: Potasyum
-tt: калий
-ug: كالىي
-uk: калій
-ur: اُشنانصر
-uz: Kaliy
-vi: kali
-wa: Potassiom
-yi: קאליום
-yo: Potassium
-za: Gyaz
-zh: 钾
+zz:potassium
+xx:Potassium
+en:Potassium
+af:kalium
+am:ፖታሺየም
+an:Potasio
+ar:بوتاسيوم
+az:Kalium
+ba:Калий
+be:Калій
+bg:Калий
+bn:পটাশিয়াম
+bo:དུག་སེལ།
+br:Potasiom
+bs:kalij
+ca:potassi
+co:Potassiu
+cs:Draslík
+cv:Кали
+cy:Potasiwm
+da:Kalium
+de:Kalium
+dv:ޕޮޓޭސިއަމް
+el:Κάλιο
+eo:kalio
+es:Potasio
+et:Kaaliumv, Kaalium
+eu:potasio
+fa:پتاسیم
+fi:Kalium
+fo:Kalium
+fr:Potassium
+ga:Potaisiam
+gd:Potasium
+gl:Potasio
+gu:પોટેશિયમ
+gv:Potashum
+he:אשלגן
+hi:पोटैशियम
+hr:Kalij
+ht:Potasyòm
+hu:Kálium
+hy:կալիում
+ia:kalium
+id:Kalium
+io:kalio
+is:kalín
+it:Potassio
+ja:カリウム
+jv:Kalium
+ka:კალიუმი
+ki:Potasium
+kk:Калий
+ko:칼륨
+ku:Qelye
+kv:Калий
+ky:Калий
+la:kalium
+lb:Kalium
+li:Kalium
+ln:Potasu
+lt:Kalis
+lv:Kālijs
+mi:konurehu
+mk:калиум
+ml:പൊട്ടാസ്യം
+mn:Кали
+mr:पलाश
+ms:Kalium
+mt:Potassju
+my:ပိုတက်ဆီယမ်
+nb:kalium
+ne:पोटासियम
+nl:Kalium
+nl_be:Kalium
+nn:kalium
+nv:Kalium
+oc:Potassi
+or:ପୋଟାସିଅମ
+pa:ਪੋਟਾਸ਼ਿਅਮ
+pl:Potas
+pt:Potássio
+qu:Kalyu
+ro:Potasiu
+ru:калий
+sa:पोटासियम्
+sh:Kalij
+si:පොටෑසියම්
+sk:Draslík
+sl:Kalij
+so:Botashiyaam
+sq:Kaliumi
+sr:калијум
+su:Kalium
+sv:Kalium
+sw:Kali
+ta:பொற்றாசியம்
+te:పొటాషియం
+tg:Калий
+th:โพแทสเซียม
+tl:Potasyo
+tr:Potasyum
+tt:калий
+ug:كالىي
+uk:калій
+ur:اُشنانصر
+uz:Kaliy
+vi:kali
+wa:Potassiom
+yi:קאליום
+yo:Potassium
+za:Gyaz
+zh:钾
 dv_value:en: 4700
 unit:en: mg
 wikidata:en: Q703
@@ -6183,107 +6369,134 @@ wikipedia:en: https://en.wikipedia.org/wiki/Taurine
 zh_hans:en: 牛磺酸
 zh_hant:en: 牛磺酸
 
-zz: ph
-xx: pH
-en: pH
-af: pH
-bg: PH
-bs: pH
-ca: pH
-cs: pH
-cy: PH
-da: pH
-de: pH-Wert
-el: pH
-eo: pH
-es: pH
-et: PH
-eu: pH
-fa: پی‌اچ
-fi: pH
-fr: pH
-ga: PH
-gl: pH
-he: pH
-hi: PH
-hr: pH
-ht: pH
-hu: pH
-hy: Ջրածնային ցուցիչ
-ia: Potential de hydrogeno
-id: pH
-io: PH
-is: pH
-it: pH
-ja: pH
-ka: PH
-kk: PH
-kn: PH
-ko: 수소 이온 농도 지수
-ku: Nirxa pH
-la: Potentia Hydrogenii
-lt: Vandenilio potencialas
-lv: pH
-mk: Водороден показател
-ml: പി.എച്ച്. മൂല്യം
-mn: РН
-ms: पी.एच. मूल्य
-my: ပီအိတ်ချ် စကေး
-nb: pH
-nl: pH, pH-zuurtegraad
-nl_be: pH
-nn: pH
-oc: PH
-pa: ਪੀ.ਐੱਚ
-pl: skala pH
-pt: pH, Potencial hidrogeniônico, Potencial hidrogeniónico, pH (21 °C)
-ro: pH
-ru: Водородный показатель
-se: PH
-sh: PH
-sk: Kyslosť
-sl: pH
-sq: PH
-sr: pH вредност
-su: PH
-sv: pH
-sw: Thamani pH
-ta: காரகாடித்தன்மைச் சுட்டெண்
-te: PH
-th: พีเอช
-tl: pH
-tr: pH
-uk: pH
-uz: pH
-vi: pH
-zh: 氢离子浓度指数
-unit:en:
+zz:ph
+xx:pH
+en:pH
+af:pH
+bg:PH
+bs:pH
+ca:pH
+cs:pH
+cy:PH
+da:pH
+de:pH-Wert
+el:pH
+eo:pH
+es:pH
+et:PH
+eu:pH
+fa:پی‌اچ
+fi:pH
+fr:pH
+ga:PH
+gl:pH
+he:pH
+hi:pH
+hr:pH
+ht:pH
+hu:pH
+hy:Ջրածնային ցուցիչ
+ia:Potential de hydrogeno
+id:pH
+io:pH
+is:pH
+it:pH
+ja:pH
+ka:pH
+kk:pH
+kn:pH
+ko:수소 이온 농도 지수
+ku:Nirxa pH
+la:Potentia Hydrogenii
+lt:Vandenilio potencialas
+lv:pH
+mk:Водороден показател
+ml:പി.എച്ച്. മൂല്യം
+mn:pH
+ms:पी.एच. मूल्य
+my:ပီအိတ်ချ် စကေး
+nb:pH
+nl:pH, pH-zuurtegraad
+nl_be:pH
+nn:pH
+oc:pH
+pa:ਪੀ.ਐੱਚ
+pl:skala pH
+pt:pH, Potencial hidrogeniônico, Potencial hidrogeniónico, pH (21 °C)
+ro:pH
+ru:Водородный показатель
+se:pH
+sh:pH
+sk:pH
+sl:pH
+sq:PH
+sr:pH вредност
+su:PH
+sv:pH
+sw:Thamani pH
+ta:காரகாடித்தன்மைச் சுட்டெண்
+te:PH
+th:พีเอช
+tl:pH
+tr:pH
+uk:pH
+uz:pH
+vi:pH
+zh:氢离子浓度指数
+unit:en: 
 wikidata:en: Q40936
 wikipedia:en: https://en.wikipedia.org/wiki/PH
 
-zz: fruits-vegetables-nuts
-xx: Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils, Fruits and vegetables, Fruits\, vegetables and nuts, Fruits\, vegetables\, nuts, Fruits\, vegetables\, pulses\, nuts\, and rapeseed\, walnut and olive oils
-en: Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils, Fruits and vegetables, Fruits\, vegetables and nuts, Fruits\, vegetables\, nuts, Fruits\, vegetables\, pulses\, nuts\, and rapeseed\, walnut and olive oils
-bg: Плодове\, зеленчуци\, ядки и рапица
-de: Obst\, Gemüse und Nüsse
-el: Φρούτα\, λαχανικά\, καρποί
-es: Frutas\, verduras y nueces, Frutas\, verduras\, nueces, FRUTAS/VERDURAS/NUEZ, FRUTAS\, VERDURAS y NUEZ
-fi: Hedelmät\, kasvikset\, pähkinät ja rapsi-\, saksanpähkinä- ja oliiviöljyt, Hedelmät ja kasvikset, Hedelmät\, kasvikset ja pähkinät
-fr: Fruits\, légumes\, noix et huiles de colza\, noix et olive, Fruits et légumes, Fruits, légumes, F&L, Fruits\, légumes et noix, Fruits\, légumes\, noix, Fruits\, légumes\, légumineuses\, fruits à coques, Fruits et Légumes\, légumineuses et fruits à coque
-nl: Fruit\, groenten en noten
-nl_be: Fruit\, groenten en noten
-pt: Frutas\, vegetais e frutos secos
-ro: Fructe\, legume\, nuci
+zz:fruits-vegetables-nuts
+xx:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils, Fruits and vegetables, Fruits\, vegetables and nuts, Fruits\, vegetables\, nuts, Fruits\, vegetables\, pulses\, nuts\, and rapeseed\, walnut and olive oils
+en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils, Fruits and vegetables, Fruits\, vegetables and nuts, Fruits\, vegetables\, nuts, Fruits\, vegetables\, pulses\, nuts\, and rapeseed\, walnut and olive oils
+# bg:Плодове\, зеленчуци\, ядки и рапица
+de:Obst\, Gemüse und Nüsse
+el:Φρούτα\, λαχανικά\, καρποί
+es:Frutas\, verduras y nueces, Frutas\, verduras\, nueces, FRUTAS/VERDURAS/NUEZ, FRUTAS\, VERDURAS y NUEZ
+fi:Hedelmät\, kasvikset\, pähkinät ja rapsi-\, saksanpähkinä- ja oliiviöljyt, Hedelmät ja kasvikset, Hedelmät\, kasvikset ja pähkinät
+fr:Fruits\, légumes\, noix et huiles de colza\, noix et olive, Fruits et légumes, Fruits, légumes, F&L, Fruits\, légumes et noix, Fruits\, légumes\, noix, Fruits\, légumes\, légumineuses\, fruits à coques, Fruits et Légumes\, légumineuses et fruits à coque
+nl:Fruit\, groenten en noten
+nl_be:Fruit\, groenten en noten
+pt:Frutas\, vegetais e frutos secos
+ro:Fructe\, legume\, nuci
+bg:Плодове\, зеленчуци и ядки
+cs:Ovoce\, zelenina a ořechy
+da:Frugt\, grøntsager og nødder
+hu:Gyümölcsök\, zöldségek és diófélék
+it:Frutta\, verdura e noci
+ja:果物\, 野菜\, ナッツ
+ko:과일\, 채소\, 견과류
+pl:Owoce\, warzywa i orzechy
+ru:Фрукты\, овощи и орехи
+sv:Frukt\, grönsaker och nötter
+tr:Meyve\, sebze ve kuruyemişler
+uk:Фрукти\, овочі та горіхи
+zh:水果\, 蔬菜和坚果
+# xx:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils, Fruits and vegetables, Fruits\, vegetables and nuts, Fruits\, vegetables\, nuts, Fruits\, vegetables\, pulses\, nuts\, and rapeseed\, walnut and olive oils
 unit:en: %
 
-zz: fruits-vegetables-nuts-dried
-xx: Fruits\, vegetables and nuts - dried
-en: Fruits\, vegetables and nuts - dried
-bg: Плодове\, зеленчуци и ядки - сушени
-fi: Kuivatut hedelmät\, kasvikset ja pähkinät
-fr: Fruits\, légumes et noix - séchés
-pt: Frutas\, vegetais e frutos secos - secos
-ro: Fructe\, legume\, nuci uscate
+zz:fruits-vegetables-nuts-dried
+xx:Fruits\, vegetables and nuts - dried
+en:Fruits\, vegetables and nuts - dried
+bg:Плодове\, зеленчуци и ядки - сушени
+fi:Kuivatut hedelmät\, kasvikset ja pähkinät
+fr:Fruits\, légumes et noix - séchés
+pt:Frutas\, vegetais e frutos secos - secos
+ro:Fructe\, legume\, nuci uscate
+es:Frutas\, verduras y nueces - secas
+it:Frutta\, verdura e noci - essiccate
+nl:Fruit\, groenten en noten - gedroogd
+nl_be:Fruit\, groenten en noten - gedroogd
+ar:فواكه\، خضروات ومكسرات - مجففة
+cs:Ovoce\, zelenina a ořechy - sušené
+el:Φρούτα\, λαχανικά και καρύδια - αποξηραμένα
+he:פירות\, ירקות ואגוזים - יבשים
+ja:果物\、野菜とナッツ - 乾燥
+ko:과일\, 야채 및 견과류 - 건조
+ru:Фрукты\, овощи и орехи - сушеные
+pl:Owoce\, warzywa i orzechy - suszone
+th:ผลไม้\, ผักและเมล็ดพืช - แห้ง
 unit:en: %
 
 zz: fruits-vegetables-legumes
@@ -6321,40 +6534,76 @@ unit:en: %
 zz: collagen-meat-protein-ratio
 xx: Collagen/Meat protein ratio (maximum)
 en: Collagen/Meat protein ratio (maximum)
+ar:نسبة الكولاجين / بروتين اللحم (الحد الأقصى)
+cs:Poměr kolagenu/živočišného proteinu (maximum)
 de: Verhältnis Kollagen/Eiweiß
 el: Αναλογία κολλαγόνου/πρωτεΐνης κρέατος (μέγιστο)
 es: Relación tejido conjuntivo/proteínas de carne (máximo)
 fi: Kollageeni/liha-proteiinisuhde (maksimi)
 fr: Rapport collagène sur protéines de viande (maximum)
+it:Rapporto collagene/proteine della carne (massimo)
+ja:コラーゲン/肉タンパク質比（最大）
+ko:콜라겐/육류 단백질 비율 (최대)
 nl: Verhouding collageen/eiwitten uit vlees (maximum)
 nl_be: Verhouding collageen/eiwitten uit vlees (maximum)
+pl:Stosunek kolagenu do białka mięsnego (maksymalny)
 pt: Colágeno/rácio da proteína de carne (máximo), Colagénio/rácio da proteína de carne (máximo)
+ru:Соотношение коллагена/мясного белка (максимум)
+th:อัตราส่วนคอลลาเจน/โปรตีนเนื้อ (สูงสุด)
+vi:Tỷ lệ collagen/Protein thịt (tối đa)
+zh:胶原蛋白/肉蛋白比例（最大）
 unit:en: %
 
-zz: cocoa
-xx: Cocoa (minimum)
-en: Cocoa (minimum)
-bg: Какао (минимум)
-de: Kakao (Minimum)
-es: Cacao (mínimo)
-fi: Kaakao (minimi)
-fr: Cacao (minimum)
-it: cacao (minimo)
-nl: Cacao (minimum)
-pt: Cacau (mínimo)
-ro: Cacao (minim)
+zz:cocoa
+xx:Cocoa (minimum)
+en:Cocoa (minimum)
+bg:Какао (минимум)
+de:Kakao (Minimum)
+es:Cacao (mínimo)
+fi:Kaakao (minimi)
+fr:Cacao (minimum)
+nl:Cacao (minimum)
+pt:Cacau (mínimo)
+ro:Cacao (minim)
+ar:كاكاو (الحد الأدنى)
+cs:Kakao (minimální)
+el:Κακάο (ελάχιστο)
+he:קקאו (מינימום)
+it:Cacao (minimo)
+ja:ココア（最小）
+ko:코코아 (최소)
+nl_be:Cacao (minimum)
+pl:Kakao (minimum)
+ru:Какао (минимум)
+th:โกโก้ (ขั้นต่ำ)
+vi:Cacao (tối thiểu)
+zh:可可（最低）
 unit:en: %
 
-zz: chlorophyl
-xx: Chlorophyl
-en: Chlorophyl
-bg: Хлорофил
-de: Chlorophyll
-fi: Lehtivihreä, Klorofylli
-it: clorofilla
-nl: Chlorofyl
-nl_be: Chlorofyl
-ro: Clorofilă
+zz:chlorophyl
+xx:Chlorophyl
+en:Chlorophyl
+bg:Хлорофил
+de:Chlorophyll
+fi:Lehtivihreä, Klorofylli
+nl:Chlorofyl
+nl_be:Chlorofyl
+ro:Clorofilă
+es:Clorofila
+fr:Chlorophylle
+it:Clorofilla
+pt:Clorofila
+ar:كلوروفيل
+cs:Chlorofyl
+el:Χλωροφύλλη
+he:כלורופיל
+ja:クロロフィル
+ko:엽록소
+pl:Chlorofil
+ru:Хлорофилл
+th:คลอโรฟิลล์
+vi:Chlorophyll
+zh:叶绿素
 unit:en: g
 
 zz: carbon-footprint
@@ -6719,14 +6968,165 @@ wikipedia:en: https://en.wikipedia.org/wiki/Methylsulfonylmethane
 # NOVA group is not a nutrient, but we also store it in the nutrition facts table (as we do for the Nutri-Score)
 # to enable some features like statistics per category
 
-zz: nova-group
-xx: NOVA group
-en: NOVA group
-bg: Група NOVA
-fr: Groupe NOVA
-it: Gruppo NOVA
+zz:nova-group
+xx:NOVA group
+en:NOVA group
+ar:مجموعة نوفا
+bg:Група NOVA
+ca:Grup NOVA
+cs:Skupina NOVA
+de:NOVA-Gruppe
+es:Grupo NOVA
+fi:NOVA-ryhmä
+fr:Groupe NOVA
+it:Gruppo NOVA
+ja:NOVAグループ
+nl:NOVA-groep
+pl:Grupa NOVA
+pt:Grupo NOVA
+ru:Группа NOVA
+sv:NOVA-grupp
+zh:NOVA组
 automatically_computed:en: yes
 unit:en:
+
+zz:spermidine
+xx:Spermidine
+en:Spermidine
+ar:سبيرمدين
+bg:Спермидин
+ca:Espermidina
+cs:Spermidin
+de:Spermidin
+eo:Spermidino
+es:Espermidina
+fa:اسپرمیدین
+fi:Spermidiini
+fr:Spermidine
+gl:Espermidina
+it:Spermidina
+ja:スペルミジン
+nl:Spermidine
+pl:Spermidyna
+pt:Espermidina
+sh:Spermidin
+zh:亞精胺
+ru:Спермидин
+sh:Spermidin
+sv:Spermidin
+tr:Spermidin
+uk:Спермідин
+zh:亞精胺
+wikipedia:en: https://en.wikipedia.org/wiki/Spermidine
+description:en:Spermidine is a polyamine compound (C7H19N3) found in ribosomes and living tissues and having various metabolic functions within organisms.
+wikipedia:en: https://en.wikipedia.org/wiki/Spermidine
+
+zz:water
+en:Water
+ca:Aigua
+es:Agua
+fr:Eau
+it:Acqua
+de:Wasser
+nl:Water
+pt:Água
+ja:水
+ko:물
+ru:Вода
+zh:水
+unit:en: g
+
+zz:acidity
+en:Acidity
+ca:Acidesa
+cs:Kyselost
+de:Säuregrad
+es:Acideze
+fr:Acidité
+hu:Savasság
+is:Sýrustig
+nl:Zuurgraad
+pt:Acidez
+sv:Surhet
+it:Acidità
+ja:酸味
+ko:산도
+ru:Кислотность
+zh:酸度
+ar:حموضة
+bg:Киселинност
+da:Surhedsgrad
+el:Οξύτητα
+et:Happesus
+fi:Happamuus
+he:חומציות
+hr:Kiselost
+id:Keasaman
+lt:Rūgštingumas
+lv:Skābums
+ms:Kebasahan
+no:Surhetsgrad
+pl:Kwasowość
+ro:Aciditate
+sk:Kyslosť
+sl:Kislost
+sr:Kiselost
+th:ความเป็นกรด
+tl:Asididad
+tr:Asidite
+uk:Кислотність
+vi:Độ axit
+unit:en: % vol
+
+#zz:dry-residue
+en:Dry residue
+es:Residuo seco
+fr:Résidu sec
+nl:Droogrest
+it:Residuo secco
+de:Trockenrückstand
+pt:Resíduo seco
+ar:بقايا جافة
+ca:Residu sec
+cs:Suchý zbytek
+fi:Kuiva jäännös
+ja:乾燥残留物
+pl:Resztki suche
+ru:Сухой остаток
+sv:Torrsubstans
+zh:干残留物
+unit:en: mg
+
+zz:beta-alanine
+xx:Beta-Alanine
+en:Beta-Alanine
+es:Beta-Alanina
+fr:Bêta-Alanine
+it:Beta-Alanina
+ja:ベータアラニン
+nl:Bèta-Alanine
+pl:Beta-Alanina
+pt:Beta-Alanina
+ru:Бета-Аланин
+sv:Beta-Alanin
+zh:β-丙氨酸
+de:Beta-Alanin
+ca:Beta-Alanina
+cs:Beta-Alanin
+fi:Beeta-alaniini
+hu:Béta-alanin
+is:Beta-Alanín
+lt:Beta-Alaninas
+lv:Beta-Alanīns
+no:Beta-Alanin
+sk:Beta-Alanín
+sl:Beta-Alanin
+tr:Beta-Alanin
+uk:Бета-Аланін
+vi:Beta-Alanin
+unit:en: g
+wikidata:en: Q310919
+wikipedia:en: https://en.wikipedia.org/wiki/%CE%92-Alanine
 
 zz: spermidine
 xx: Spermidine
@@ -6783,57 +7183,84 @@ fr: Résidu sec
 nl: Droogrest
 unit:en: mg
 
-zz: beta-alanine
-xx: Beta-Alanine
-en: Beta-Alanine
-es: Beta-Alanina
-fr: Bêta-Alanine
-unit:en: g
-wikidata:en: Q310919
-wikipedia:en: https://en.wikipedia.org/wiki/%CE%92-Alanine
-
-zz: creatine
-xx: Creatine
-en: Creatine, Creatine Monohydrate
-ca: Creatina, Monohidrat de creatina, Monohidrat Creatina
-es: Creatina, Monohidrato de creatina, Monohidrato Creatina
-fr: Créatine, Monohydrate de Créatine
-it: Creatina
+zz:creatine
+xx:Creatine
+en:Creatine, Creatine Monohydrate
+ca:Creatina, Monohidrat de creatina, Monohidrat Creatina
+de:Kreatin, Kreatinmonohydrat
+es:Creatina, Monohidrato de creatina, Monohidrato Creatina
+fr:Créatine, Monohydrate de Créatine
+nl:Creatine, Creatine Monohydraat
+it:Creatina, Creatina Monoidrato
+pt:Criatina, Monoidrato de Creatina
+ja:クレアチン, クレアチンモノハイドレート
+ko:크레아틴, 크레아틴 모노수화물
+ru:Креатин, Моногидрат креатина
+zh:肌酸, 肌酸单水合物
 unit:en: g
 wikidata:en: Q223600
 wikipedia:en: https://en.wikipedia.org/wiki/Creatine
 
-zz: l-citrulline
-xx: L-citrulline, Citrulline
-en: L-citrulline, Citrulline
-ca: L-citrul·lina
-es: L-Citrulina, Citrulina
-fr: L-citruline
+zz:l-citrulline, Citrulline
+xx:L-citrulline, Citrulline
+en:L-citrulline, Citrulline
+ca:L-citrul·lina
+de:L-Citrullin, Citrullin
+es:L-Citrulina, Citrulina
+fr:L-citruline
+it:L-citrullina, Citrullina
+ja:L-シトルリン, シトルリン
+nl:L-citrulline, Citrulline
+pt:L-citrulina, Citrulina
+ru:L-цитруллин, Цитруллин
+zh:L-瓜氨酸, 瓜氨酸
 unit:en: mg
 wikidata:en: Q408641
 wikipedia:en: https://en.wikipedia.org/wiki/Citrulline
 
-zz: l-glutamine
-xx: L-Glutamine
-en: L-Glutamine, Glutamine, Gln
-ca: L-Glutamina, Glutamina
-es: L-Glutamina, Glutamina
+zz:l-glutamine
+xx:L-Glutamine
+en:L-Glutamine, Glutamine, Gln
+ar:جلوتامين, غلوتامين
+ca:L-Glutamina, Glutamina
+es:L-Glutamina, Glutamina
+fr:L-Glutamine, Glutamine
+nl:L-Glutamine, Glutamine
+it:L-Glutammina, Glutammina
+de:L-Glutamin, Glutamin
+pt:L-Glutamina, Glutamina
 unit:en: mg
 wikidata:en: Q181619
 wikipedia:en: https://en.wikipedia.org/wiki/Glutamine
 
-zz: bcaa
-xx: BCAA
-en: BCAA, BCAAs, Branched-Chain Amino Acid
+zz:bcaa
+xx:BCAA
+en:BCAA, BCAAs, Branched-Chain Amino Acid
+es:BCAA, AACR, Aminoácido de Cadena Ramificada
+fr:BCAA, AACR, Acide Aminé à Chaîne Ramifiée
+nl:BCAA, Vertakte Aminozuur
+it:BCAA, AACR, Amminoacido a Catena Ramificata
+de:BCAA, Verzweigtkettige Aminosäure
+pt:BCAA, AACR, Aminoácido de Cadeia Ramificada
+ca:BCAA, AACR, Aminoàcid de Cadena Ramificada
+ru:BCAA, Ветвисто-цепные аминокислоты
+zh:BCAA, 支链氨基酸
+ja:BCAA, 支鎖アミノ酸
+ko:BCAA, 가지분기 아미노산
 unit:en: g
 wikidata:en: Q420726
 wikipedia:en: https://en.wikipedia.org/wiki/Branched-chain_amino_acid
 
-zz: l-valine
-xx: L-Valine, Valine
-en: L-Valine, Valine
-ca: L-Valina, Valina
-es: L-Valina, Valina
+zz:l-valine
+xx:L-Valine, Valine
+en:L-Valine, Valine
+ca:L-Valina, Valina
+es:L-Valina, Valina
+fr:L-Valine, Valine
+nl:L-Valine, Valine
+it:L-Valina, Valina
+de:L-Valin, Valin
+pt:L-Valina, Valina
 unit:en: mg
 wikidata:en: Q483752
 wikipedia:en: https://en.wikipedia.org/wiki/Valine
@@ -6844,6 +7271,11 @@ en: L-Leucine, Leucine
 ca: L-Leucina, Leucina
 es: L-Leucina, Leucina
 sv: L-leucin
+fr:L-Leucine, Leucine
+nl:L-Leucine, Leucine
+it:L-Leucina, Leucina
+de:L-Leucin, Leucin
+pt:L-Leucina, Leucina
 unit:en: mg
 wikidata:en: Q483745
 wikipedia:en: https://en.wikipedia.org/wiki/Leucine
@@ -6853,34 +7285,57 @@ xx: L-Isoleucine, Isoleucine
 en: L-Isoleucine, Isoleucine
 ca: L-Isoleucina, Isoleucina
 es: L-Isoleucina, Isoleucina
+fr:L-Isoleucine, Isoleucine
+nl:L-Isoleucine, Isoleucine
+it:L-Isoleucina, Isoleucina
+de:L-Isoleucin, Isoleucin
+pt:L-Isoleucina, Isoleucina
+ja:L-イソロイシン, イソロイシン
 sv: L-isoleucin
+ru:L-изолейцин, Изолейцин
+zh:L-异亮氨酸, 异亮氨酸
 unit:en: mg
 wikidata:en: Q484940
 wikipedia:en: https://en.wikipedia.org/wiki/Isoleucine
 
-zz: l-arginine
-xx: L-Arginine, Arginine
-en: L-Arginine, Arginine
-ca: L-Arginina, Arginina
-es: L-Arginina, Arginina
+zz:l-arginine
+xx:L-Arginine, Arginine
+en:L-Arginine, Arginine
+ca:L-Arginina, Arginina
+es:L-Arginina, Arginina
+fr:L-Arginine, Arginine
+nl:L-Arginine, Arginine
+it:L-Arginina, Arginina
+de:L-Arginin, Arginin
+pt:L-Arginina, Arginina
 unit:en: mg
 wikidata:en: Q173670
 wikipedia:en: https://en.wikipedia.org/wiki/Arginine
 
-zz: l-cysteine
-xx: L-Cysteine, Cysteine, Cystein
-en: L-Cysteine, Cysteine, Cystein
-ca: L-Cisteïna, Cisteïna
-es: L-Cisteína, Cisteína
+#zz:l-cysteine
+en:L-Cysteine, Cysteine, Cystein
+ca:L-Cisteïna, Cisteïna
+es:L-Cisteína, Cisteína
+fr:L-Cystéine, Cystéine
+nl:L-Cysteïne, Cysteïne
+it:L-Cisteina, Cisteina
+de:L-Cystein, Cystein
+pt:L-Cisteína, Cisteína
+xx:L-Cysteine, Cysteine, Cystein
 unit:en: mg
 wikidata:en: Q186474
 wikipedia:en: https://en.wikipedia.org/wiki/Cysteine
 
-zz: l-Glutathione
-xx: L-Glutathione, Glutathione
-en: L-Glutathione, Glutathione
-ca: L-Glutatió, Glutatió
-es: L-Glutatión, Glutationa
+zz:l-Glutathione
+xx:L-Glutathione, Glutathione
+en:L-Glutathione, Glutathione
+ca:L-Glutatió, Glutatió
+es:L-Glutatión, Glutationa
+fr:L-Glutathion, Glutathion
+nl:L-Glutathion, Glutathion
+it:L-Glutathione, Glutathione
+de:L-Glutathion, Glutathion
+pt:L-Glutatião, Glutatião
 unit:en: mg
 wikidata:en: Q116907
 wikipedia:en: https://en.wikipedia.org/wiki/Glutathione
