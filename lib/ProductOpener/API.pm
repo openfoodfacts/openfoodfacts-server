@@ -1003,39 +1003,122 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 		# Sub fields using the dot notation (e.g. images.selected.front)
 		if ($field =~ /\./) {
-			my @components = split(/\./, $field);
-			my $field_value;
-			my $current_ref = $product_ref;
-			my $is_valid_path = 1;
-
-			foreach my $component (@components) {
-				if (ref($current_ref) eq "HASH") {
-					if (not exists $current_ref->{$component}) {
-						$is_valid_path = 0;
+			my @segments = split(/\./, $field);
+			my $source_ref = $product_ref;
+			my $source_found = 1;
+		
+			foreach my $segment (@segments) {
+				if ($segment =~ /^\d+$/) {
+					if ((ref $source_ref eq 'ARRAY') && defined $source_ref->[$segment]) {
+						$source_ref = $source_ref->[$segment];
+					}
+					else {
+						$source_found = 0;
 						last;
 					}
-					$current_ref = $current_ref->{$component};
 				}
-				elsif (ref($current_ref) eq "ARRAY") {
-					if (($component !~ /^\d+$/) or (not defined $current_ref->[$component])) {
-						$is_valid_path = 0;
+				elsif (ref $source_ref eq 'HASH') {
+					if (defined $source_ref->{$segment}) {
+						$source_ref = $source_ref->{$segment};
+					}
+					else {
+						$source_found = 0;
 						last;
 					}
-					$current_ref = $current_ref->[$component];
 				}
 				else {
-					$is_valid_path = 0;
+					$source_found = 0;
 					last;
 				}
 			}
-
-			if ($is_valid_path) {
-				$field_value = $current_ref;
+		
+			if ($source_found) {
+				my $target_ref = $customized_product_ref;
+				my $parent_ref;
+				my $parent_segment;
+		
+				for (my $i = 0; $i <= $#segments; $i++) {
+					my $segment = $segments[$i];
+					my $is_last = ($i == $#segments);
+					my $is_numeric = ($segment =~ /^\d+$/);
+		
+					if ($is_numeric) {
+		
+						if (ref $target_ref ne 'ARRAY') {
+							my $new_target_ref = [];
+		
+							if (defined $parent_ref) {
+								if ($parent_segment =~ /^\d+$/) {
+									$parent_ref->[$parent_segment] = $new_target_ref;
+								}
+								else {
+									$parent_ref->{$parent_segment} = $new_target_ref;
+								}
+							}
+		
+							$target_ref = $new_target_ref;
+						}
+		
+						if ($is_last) {
+							$target_ref->[$segment] = $source_ref;
+							last;
+						}
+		
+						my $next_segment = $segments[$i + 1];
+						my $next_is_numeric = ($next_segment =~ /^\d+$/);
+		
+						if (
+							(!defined $target_ref->[$segment])
+							|| ($next_is_numeric && ref $target_ref->[$segment] ne 'ARRAY')
+							|| ((!$next_is_numeric) && ref $target_ref->[$segment] ne 'HASH')
+						) {
+							$target_ref->[$segment] = $next_is_numeric ? [] : {};
+						}
+		
+						$parent_ref     = $target_ref;
+						$parent_segment = $segment;
+						$target_ref     = $target_ref->[$segment];
+					}
+					else {
+		
+						if (ref $target_ref ne 'HASH') {
+							my $new_target_ref = {};
+		
+							if (defined $parent_ref) {
+								if ($parent_segment =~ /^\d+$/) {
+									$parent_ref->[$parent_segment] = $new_target_ref;
+								}
+								else {
+									$parent_ref->{$parent_segment} = $new_target_ref;
+								}
+							}
+		
+							$target_ref = $new_target_ref;
+						}
+		
+						if ($is_last) {
+							$target_ref->{$segment} = $source_ref;
+							last;
+						}
+		
+						my $next_segment = $segments[$i + 1];
+						my $next_is_numeric = ($next_segment =~ /^\d+$/);
+		
+						if (
+							(!defined $target_ref->{$segment})
+							|| ($next_is_numeric && ref $target_ref->{$segment} ne 'ARRAY')
+							|| ((!$next_is_numeric) && ref $target_ref->{$segment} ne 'HASH')
+						) {
+							$target_ref->{$segment} = $next_is_numeric ? [] : {};
+						}
+		
+						$parent_ref     = $target_ref;
+						$parent_segment = $segment;
+						$target_ref     = $target_ref->{$segment};
+					}
+				}
 			}
-
-			if (defined $field_value) {
-				deep_set($customized_product_ref, @components, $field_value);
-			}
+		
 			next;
 		}
 
