@@ -430,7 +430,7 @@ jobs:
         retention-days: 90
     - name: Submit Perl SBOM to Dependency Graph
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: advanced-security/spdx-dependency-submission-action@v0.1.2
+      uses: advanced-security/spdx-dependency-submission-action@v0.2.0
       with:
         filePath: perl-sbom.json
 
