@@ -45518,6 +45518,7 @@ food_groups:en: en:cheese
 google_product_taxonomy_id:en: 429
 intake24_category_code:en: CHES
 nova:en: 3
+plant_alternative:en: en:cheese-substitutes
 pnns_group_2:en: Cheese
 who_id:en: 8
 wikidata:en: Q10943
@@ -51444,6 +51445,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Butter (Perishable)
 incompatible_with:en: categories:en:Goat butters, Sheep butters
 intake24_category_code:en: BUTR
+plant_alternative:en: en:plant-based-spreads
 wikidata:en: Q34172
 
 < en:Butters
@@ -52041,6 +52043,7 @@ agribalyse_proxy_food_name:fr: Lait demi-écrémé, UHT
 food_groups:en: en:milk-and-yogurt
 google_product_taxonomy_id:en: 418
 intake24_category_code:en: MDNK
+plant_alternative:en: en:plant-based-milk-alternatives
 pnns_group_2:en: Milk and yogurt
 wikidata:en: Q8495
 
@@ -59291,6 +59294,7 @@ food_of_animal_origin:en: yes
 gpc_category_code:en: 10006210
 gpc_category_description:en: Definition: Includes any products that can be described/observed as bird eggs in the shell that have been sorted to remove eggs of lower quality such as cracked and dirty eggs and are often sorted by size. Eggs may be unwashed, washed, washed and oiled, aged, and/or pasteurized in the shell. Definition Excludes: Specifically excludes nest-run eggs, checked and dirty eggs, and individually cooked eggs.
 gpc_category_name:en: In Shell Table Eggs
+plant_alternative:en: en:egg-substitutes
 pnns_group_2:en: Eggs
 wikidata:en: Q659503
 
@@ -85917,6 +85921,7 @@ tr: Et
 zh: 肉类, 肉
 food_groups:en: en:meat-other-than-poultry
 intake24_category_code:en: MEAT
+plant_alternative:en: en:meat-analogues
 # Products that are poultry hopefully have the en:Poultries category which will assign the en:Poultry food group
 pnns_group_2:en: Meat
 
@@ -101702,6 +101707,7 @@ sv: Fiskar, fisk
 tr: Balık
 zh: 鱼类
 intake24_category_code:en: RWFH
+plant_alternative:en: en:fish-analogues
 wikidata:en: Q600396
 
 < en:Fishes
