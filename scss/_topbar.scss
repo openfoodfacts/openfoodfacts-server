@@ -167,6 +167,23 @@
     }
     .top-bar {
       width: 100%;
+      .logo-container {
+        margin: 8px 0 8px 8px;
+        height: 48px;
+        width: auto;
+        position: relative;
+        img {
+          max-height: 100%;
+        }
+      }
+      // By default show large logo and hide the small one
+      .large-logo {
+        display: inline-block;
+      }
+      .small-logo {
+        display: none;
+      }
+
       @media #{$medium-up} {
         li:not(.has-form) a:not(.button):hover {
           background: transparent;
@@ -177,6 +194,16 @@
         height: 124px;
         @media #{$topbar-media-query} {
           height: 62px;
+        }
+        // Replace the logo by a small one when space is missing.
+        @media #{$medium-only} {
+          .large-logo {
+            display: none;
+          }
+
+          .small-logo {
+            display: inline-block;
+          }
         }
       }
       &.expanded {
@@ -306,7 +333,7 @@
       display: flex;
     }
     .title-area {
-      width: 380px;
+      max-width: 380px;
       display: flex;
       span {
         white-space: nowrap;
