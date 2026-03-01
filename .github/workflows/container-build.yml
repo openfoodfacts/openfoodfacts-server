@@ -78,7 +78,7 @@ jobs:
         artifact-name: ${{ matrix.image_name }}-sbom
         dependency-snapshot: ${{ github.ref == 'refs/heads/main' }}
     - name: Trivy scan for ${{ matrix.image_name }} image
-      uses: aquasecurity/trivy-action@0.33.1
+      uses: aquasecurity/trivy-action@0.34.1
       with:
         image-ref: ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:sha-${{ github.sha }}
         format: 'sarif'
