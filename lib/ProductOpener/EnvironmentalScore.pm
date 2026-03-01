@@ -455,7 +455,7 @@ sub load_environmental_score_data_packaging() {
 			}
 
 			# combine material + shape
-			if (defined $shape) {
+			if (defined $shape && $shape ne "en:unknown" ) { #fallback to deafault material if shape is unknown
 				$material_id = $material_id . "." . $shape;
 			}
 
