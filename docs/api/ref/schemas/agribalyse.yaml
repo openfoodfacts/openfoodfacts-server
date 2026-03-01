@@ -1,49 +1,113 @@
 type: object
+description: Represents the environmental impact data for a food product from the Agribalyse database.
 properties:
   agribalyse_proxy_food_code:
     type: string
+    description: The Agribalyse proxy food code, used for broader categories or representative products.
+    example: "13100"
   agribalyse_food_code:
     type: string
+    description: The specific Agribalyse food code (CIQUAL code) for the product.
+    example: "13100"
   co2_agriculture:
     type: number
+    format: double
+    description: CO2 equivalent emissions from the agricultural production stage, in kg CO2 eq / kg of product.
+    example: 0.5
   co2_consumption:
-    type: integer
+    type: integer # TODO: Change from integer to number for consistency, as CO2 can be fractional.
+    format: double
+    description: CO2 equivalent emissions from the consumption stage (e.g., cooking), in kg CO2 eq / kg of product.
+    example: 0.1
   co2_distribution:
     type: number
+    format: double
+    description: CO2 equivalent emissions from the distribution stage, in kg CO2 eq / kg of product.
+    example: 0.2
   co2_packaging:
     type: number
+    format: double
+    description: CO2 equivalent emissions from the packaging (production and disposal), in kg CO2 eq / kg of product.
+    example: 0.3
   co2_processing:
     type: number
+    format: double
+    description: CO2 equivalent emissions from the food processing stage, in kg CO2 eq / kg of product.
+    example: 0.4
   co2_total:
     type: number
+    format: double
+    description: Total CO2 equivalent emissions across all life cycle stages, in kg CO2 eq / kg of product. This should ideally be the sum of the other co2_* fields.
+    example: 1.5
   co2_transportation:
     type: number
+    format: double
+    description: CO2 equivalent emissions from the transportation stage (excluding distribution to consumer, which is in co2_distribution), in kg CO2 eq / kg of product.
+    example: 0.25
   code:
     type: string
+    description: A general code for the product, often the same as agribalyse_food_code or an internal identifier.
+    example: "13100"
   dqr:
     type: string
+    description: Data Quality Rating (DQR) for the dataset. It's a score reflecting the reliability and representativeness of the data (e.g., "1.5 (P:1; TiR:2; GR:1; TeR:2; D:N/A)"). A lower score generally indicates higher quality. Specific components like P (Precision), TiR (Time Representativeness), GR (Geographical Representativeness), TeR (Technological Representativeness) might be detailed.
+    example: "2.1 (P:2, TiR:3, GR:1.5, TeR:2)"
   ef_agriculture:
     type: number
+    format: double
+    description: Contribution of the agricultural production stage to the overall single environmental footprint score. Units depend on the EF method (e.g., mPt).
+    example: 150
   ef_consumption:
-    type: integer
+    type: integer # TODO: Change from integer to number for consistency.
+    format: double
+    description: Contribution of the consumption stage to the overall single environmental footprint score.
+    example: 30
   ef_distribution:
     type: number
+    format: double
+    description: Contribution of the distribution stage to the overall single environmental footprint score.
+    example: 60
   ef_packaging:
     type: number
+    format: double
+    description: Contribution of the packaging to the overall single environmental footprint score.
+    example: 90
   ef_processing:
     type: number
+    format: double
+    description: Contribution of the food processing stage to the overall single environmental footprint score.
+    example: 120
   ef_total:
     type: number
+    format: double
+    description: The overall single environmental footprint (EF) score for the product, aggregating multiple environmental impacts. This should ideally be the sum of the other ef_* fields. Units depend on the EF method (e.g., mPt - milliPoints).
+    example: 470
   ef_transportation:
     type: number
+    format: double
+    description: Contribution of the transportation stage to the overall single environmental footprint score.
+    example: 70
   is_beverage:
-    type: integer
+    type: integer 
+    description: Indicates if the product is a beverage (1 for true, 0 for false). This can be important for functional unit considerations (e.g., per kg vs. per L).
+    example: 0
+    enum:
+      - 0
+      - 1
   name_en:
     type: string
     description: |
+      The English name of the food product.
       This can be returned in many other languages
-      like name_fr (for french).
+      like name_fr (for french), etc.
+    example: "Cooked ham, superior quality, no rind, no nitrite salts"
+  name_fr: # Added an example for another language as hinted
+    type: string
+    description: The French name of the food product.
+    example: "Jambon cuit, qualité supérieure, découenné, sans sels nitrités"
   score:
     type: integer
   version:
     type: string
+    description: The version of the Agribalyse database from which the data originates.
+    example: "3.1.1"
