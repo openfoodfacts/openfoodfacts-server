@@ -82252,34 +82252,6 @@ agribalyse_food_code:en: 26267
 ciqual_food_code:en: 26267
 ciqual_food_name:en: Goat cheese and spinach tart
 
-< en:Salted pies
-en: Salted savoury cake
-fr: Cake salé
-agribalyse_food_code:en: 7814
-ciqual_food_code:en: 7814
-ciqual_food_name:en: Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
-
-< en:Salted savoury cake
-en: Savoury cake with cheese, Cheese savoury cake
-fr: Cake salé au fromage
-agribalyse_food_code:en: 7814
-ciqual_food_code:en: 7814
-ciqual_food_name:en: Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
-
-< en:Salted savoury cake
-en: Savoury cake with vegetables
-fr: Cake salé aux légumes
-agribalyse_food_code:en: 7814
-ciqual_food_code:en: 7814
-ciqual_food_name:en: Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
-
-< en:Salted savoury cake
-en: Savoury cake with meat
-fr: Cake salé à la viande
-agribalyse_food_code:en: 7814
-ciqual_food_code:en: 7814
-ciqual_food_name:en: Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
-
 #Belgian meal
 < en:Meals
 en: Waterzooi
@@ -118403,6 +118375,21 @@ sv: Aptitretare
 th: อาหารเรียกน้ำย่อย
 food_groups:en: en:appetizers
 pnns_group_2:en: Appetizers
+
+< en:Appetizers
+en: Savory cakes, Salted savoury cake
+fr: Cakes salés, cakes apéritifs, Cake salé
+agribalyse_food_code:en: 7814
+ciqual_food_code:en: 7814
+ciqual_food_name:en: Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
+
+< en:Savory cakes
+en: Vegetarian savory cakes, Savoury cake with vegetables
+fr: Cakes salés végétariens, Cake salé aux légumes
+
+< en:Savory cakes
+en: Savory cakes with meat, Savoury cake with meat
+fr: Cakes salés à la viande, Cake salé à la viande
 
 < en:Appetizers
 en: Surprise breads
