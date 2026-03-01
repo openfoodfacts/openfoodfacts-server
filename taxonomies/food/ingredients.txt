@@ -8833,10 +8833,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/American_cheese
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-
-# description:en:SALT - is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts
-# "sodium chloride" is defined in minerals.txt
-
 # nova
 en: salt, table salt, common salt, cooking salt, dry salt, edible salt, edible common salt, food salt
 af: tafelsout, Sout
@@ -8934,12 +8930,6 @@ xh: Ityiwa
 yi: זאלץ
 yo: Iyọ̀
 zh: 盐, 食盐, 鹽, 食鹽
-carbon_footprint_fr_foodges_ingredient:fr: Sel
-carbon_footprint_fr_foodges_value:fr: 0.5
-ciqual_food_code:en: 11058
-ciqual_food_name:fr: Sel blanc alimentaire, iodé, non fluoré (marin, ignigène ou gemme)
-vegan:en: yes
-vegetarian:en: yes
 # ace:Sira
 # als:Spiissalz, Chochsalz, Salz
 # arc:ܡܠܚܐ
@@ -8971,6 +8961,13 @@ vegetarian:en: yes
 # zh-classical:食鹽
 # zh-min-nan:Iâm
 # yue:食鹽
+carbon_footprint_fr_foodges_ingredient:fr: Sel
+carbon_footprint_fr_foodges_value:fr: 0.5
+ciqual_food_code:en: 11058
+ciqual_food_name:fr: Sel blanc alimentaire, iodé, non fluoré (marin, ignigène ou gemme)
+description:en: SALT - is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts "sodium chloride" is defined in minerals.txt
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q11254
 wikipedia:en: https://en.wikipedia.org/wiki/Salt
 
@@ -8997,6 +8994,15 @@ zh: 细盐
 < en:salt
 en: medium-coarse salt
 de: mittelgrobes Salz
+
+< en:salt
+en: coarse salt
+sv: grovsalt
+
+< en:salt
+en: flake salt, salt flakes
+sv: saltflingor
+wikidata:en: Q5457081
 
 < en:salt
 en: salt from the Alps
@@ -9140,10 +9146,7 @@ fr: sel non raffiné
 hr: nerafinirana sol
 it: Sale non raffinato
 
-
-# description:en:Kosher salt or kitchen salt[1] is edible salt with a larger grain size than typical table salt and without common additives such as iodine.
-
-< en:salt
+< en:coarse salt
 en: Kosher salt
 ar: ملح كوشير
 ca: sal kosher
@@ -9158,11 +9161,10 @@ id: Garam kosher
 it: Sale Kosher
 ms: Garam kosher
 pt: Sal grosso
-sv: Koshersalt
+sv: koshersalt
+description:en: Kosher salt or kitchen salt[1] is edible salt with a larger grain size than typical table salt and without common additives such as iodine.
+wikidata:en: Q4116639
 wikipedia:en: https://en.wikipedia.org/wiki/Kosher_salt
-
-
-# description:en:SEA SALT - is salt that is produced by the evaporation of seawater
 
 < en:salt
 en: sea salt, bay salt, solar salt, natural sea salt, pure sea salt, mineral sea salt
@@ -9207,15 +9209,15 @@ tr: deniz tuzu
 uk: Морська сіль
 ur: سمندری نمک
 zh: 海盐
+# yue:海鹽
+# zh-min-nan:Hái-iâm
 ciqual_food_code:en: 11082
 ciqual_food_name:en: Pure sea salt, no enrichment
 ciqual_food_name:fr: Fleur de sel, non iodée, non fluorée
-# yue:海鹽
-# zh-min-nan:Hái-iâm
+description:en: SEA SALT - is salt that is produced by the evaporation of seawater
+wikidata:en: Q282694
 wikipedia:en: https://en.wikipedia.org/wiki/Sea_salt
 
-# Celtic Sea Salt is a brand (https://www.celticseasalt.com/) but it is
-# also commonly used on ingredient list
 < en:sea salt
 en: Celtic sea salt
 bg: Келтска морска сол
@@ -9225,11 +9227,15 @@ es: sal marina celta
 fr: Sel de la Mer Celtique
 hr: keltska morska sol
 it: sale marino celtico
+comment:en: Celtic Sea Salt is a brand (https://www.celticseasalt.com/) but it is also commonly used on ingredient lists.
 
+< en:coarse salt
 < en:sea salt
+en: coarse sea salt
 fr: sel gros de mer
 
 < en:sea salt
+< en:unrefined salt
 en: unrefined sea salt
 bg: нерафинирана морска сол
 ca: sal de mar no refinada, sal de mar sense refinar, sal marina sense refinar, sal de taula sense refinar
@@ -9270,6 +9276,8 @@ es: Sal de la mar mediterránea, sal mediterránea, sal marina del mar mediterr�
 fr: Sel de la Méditerranée, Sel de la Mer Méditerranée
 hr: mediteranska sol
 it: sale del Mediterraneo
+sv: medelhavssalt
+origins:en: en:mediterranean-sea
 
 < en:sea salt
 en: Salt from Guérande
@@ -9336,9 +9344,6 @@ hr: siva sol iz guérande
 it: sale grigio di Guérande
 # ingredient/fr:sel-gris-de-guerande has 16 products in french @2020-04-03
 
-
-# description:en:FLEUR DE SEL - is a salt that forms as a thin, delicate crust on the surface of seawater as it evaporates.
-
 < en:sea salt
 en: Fleur de sel
 ca: Flor de sal
@@ -9353,6 +9358,8 @@ it: Fleur de sel
 ja: フルール・ド・セル
 nl: Fleur de sel
 pt: Flor de sal
+description:en: FLEUR DE SEL - is a salt that forms as a thin, delicate crust on the surface of seawater as it evaporates.
+wikidata:en: Q2167413
 wikipedia:en: https://en.wikipedia.org/wiki/Fleur_de_sel
 
 < en:fleur de sel
@@ -9366,17 +9373,15 @@ hr: fleur de sel od guérande
 it: fior di sale di Guérande
 nl: fleur de sel uit Guérande
 
-
+< en:flake salt
 < en:sea salt
 en: sea salt flakes
 de: Meersalzflocken, Meersalz-Flocken
 fr: Flocons de sel marin
 hr: pahuljice morske soli
 it: fiocchi di sale marino
-sv: saltflingor
+sv: havssaltflingor
 # ingredient/en:sea-salt-flakes has 4 products in 2 languages @2020-06-08
-
-# description:en:Sodium iodide (chemical formula NaI) is an ionic compound formed from the chemical reaction of sodium metal and iodine.
 
 < en:salt
 en: sodium iodide
@@ -9424,6 +9429,7 @@ zh: 碘化钠
 # zh-hant:碘化鈉
 # zh-hk:碘化鈉# zh-sg:碘化钠
 # zh-tw:碘化鈉
+description:en: Sodium iodide (chemical formula NaI) is an ionic compound formed from the chemical reaction of sodium metal and iodine.
 wikidata:en: Q390305
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_iodide
 # ingredient/fr:iodure-de-sodium has 35 products in french @2019-03-13
@@ -9432,6 +9438,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Sodium_iodide
 en: potassium iodide
 de: Kaliumiodid
 hr: kalijev jodid
+wikidata:en: Q121874
 
 < en:salt
 en: non-iodised salt
@@ -9442,6 +9449,7 @@ pl: sól niejodowana
 sl: nejodirana sol
 
 < en:non-iodised salt
+< en:sea salt
 en: non-iodised sea salt
 fr: sel de mer non iodé
 hr: nejodirana morska sol, nejodin morksa sol
@@ -9450,8 +9458,6 @@ hr: nejodirana morska sol, nejodin morksa sol
 < en:non-iodised sea salt
 en: finegrained non-iodized sea salt
 hr: sitna morska sol nejodirana
-
-# IODISED SALT - is #salt mixed with a minute amount of various salts of the element iodine.
 
 < en:salt
 # <en:compound
@@ -9487,9 +9493,9 @@ zh: 碘盐
 ciqual_food_code:en: 11058
 ciqual_food_name:en: Salt, white, for human consumption (sea, igneous or rock), iodine added, no other enrichment
 ciqual_food_name:fr: Sel blanc alimentaire, iodé, non fluoré (marin, ignigène ou gemme)
+description:en: IODISED SALT - is salt mixed with a minute amount of various salts of the element iodine.
+wikidata:en: Q902318
 wikipedia:en: https://en.wikipedia.org/wiki/Iodised_salt
-
-# description:en:CURING SALT is used in meat processing to generate a pinkish shade and to extend shelf life.
 
 # <en:compound
 en: curing salt, curing salts
@@ -9499,6 +9505,7 @@ hr: sol za liječenje
 it: sale per salatura
 pl: sól peklowa, sól peklująca
 ru: нитритно-посолочная смесь, посолочная смесь
+description:en: CURING SALT is used in meat processing to generate a pinkish shade and to extend shelf life.
 wikidata:en: Q5194756
 wikipedia:en: https://en.wikipedia.org/wiki/Curing_salt
 # usage:en:Curing Salt (Salt, Preservative: Sodium Nitrite)
