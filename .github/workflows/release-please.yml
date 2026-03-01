@@ -79,7 +79,7 @@ jobs:
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
         id: add-frontend-dist-to-release
-        uses: svenstaro/upload-release-action@2.11.3
+        uses: svenstaro/upload-release-action@2.11.4
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: /tmp/frontend-dist.tgz
