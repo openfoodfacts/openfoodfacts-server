@@ -18,10 +18,74 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - name: install gettext (i18n) tools
+        with:
+          fetch-depth: 0
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - name: Install gettext and translation tools
         run: |
           sudo apt-get update
           sudo apt-get install -y gettext
-      - name: Validate translation files
+          pip install translate-toolkit
+      
+      - name: Validate translation file format
         run: |
           scripts/check-translations.sh
+      
+      - name: Check translation quality
+        run: |
+          python3 scripts/check-translation-quality.py
+        continue-on-error: true
+        id: quality_check
+      
+      - name: Generate PR review comments for changed files
+        if: github.event_name == 'pull_request'
+        run: |
+          python3 scripts/generate-translation-pr-comments.py
+        continue-on-error: true
+        id: pr_comments
+      
+      - name: Run pofilter quality checks
+        run: |
+          echo "Running pofilter quality checks on translation files..."
+          RESULTS_DIR="${RUNNER_TEMP:-/tmp}/pofilter-results"
+          mkdir -p "$RESULTS_DIR"
+          
+          # Check if pofilter is available
+          if ! command -v pofilter &> /dev/null; then
+            echo "⚠️  pofilter not found, skipping advanced checks"
+            exit 0
+          fi
+          
+          for pofile in po/common/*.po po/tags/*.po; do
+            if [ -f "$pofile" ] && [ "$(basename $pofile)" != "en.po" ]; then
+              echo "Checking $pofile..."
+              # Run pofilter with common quality checks
+              # Check for: accelerators, escapes, newlines, tabs, urls, variables, xmltags
+              if pofilter -t accelerators -t escapes -t newlines -t tabs -t urls -t variables -t xmltags \
+                "$pofile" "$RESULTS_DIR/$(basename $pofile)" 2>&1 | tee /tmp/pofilter.log | head -20; then
+                # Check if output file has content (indicates issues found)
+                if [ -f "$RESULTS_DIR/$(basename $pofile)" ] && [ -s "$RESULTS_DIR/$(basename $pofile)" ]; then
+                  echo "⚠️  Quality issues found in $pofile"
+                fi
+              else
+                echo "⚠️  pofilter encountered an error checking $pofile"
+                cat /tmp/pofilter.log | head -10
+              fi
+            fi
+          done
+          
+          # Show summary of files with issues
+          if ls "$RESULTS_DIR"/*.po 2>/dev/null | grep -q .; then
+            echo ""
+            echo "Files with quality issues:"
+            ls -lh "$RESULTS_DIR/" 2>/dev/null | grep -v "^total" | awk '{print $9, $5}' || true
+          fi
+        continue-on-error: true
+        id: pofilter_check
