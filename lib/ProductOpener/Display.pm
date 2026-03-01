@@ -5950,7 +5950,9 @@ sub search_and_export_products ($request_ref, $query_ref, $sort_by) {
 		$html .= "<p>" . lang("error_database") . "</p>";
 	}
 	elsif ($count == 0) {
-		$html .= "<p>" . lang("no_products") . "</p>";
+		# No products found: export_csv already sent headers,
+		# so we must Not render an HTML page.
+		return;
 	}
 	elsif ($count > $max_count) {
 		$html .= "<p>" . sprintf(lang("error_too_many_products_to_export"), $count, $export_limit) . "</p>";
