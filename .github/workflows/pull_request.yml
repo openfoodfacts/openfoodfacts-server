@@ -423,7 +423,7 @@ jobs:
           --validate \
           --output /workspace/perl-sbom.json
     - name: Upload Perl SBOM as artifact
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: perl-sbom
         path: perl-sbom.json
