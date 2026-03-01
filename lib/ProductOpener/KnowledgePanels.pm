@@ -1418,7 +1418,7 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 	my $panel_data_ref = data_to_display_nutriscore($product_ref, $version);
 
 	# Nutri-Score panel
-	my $grade = deep_get($product_ref, "nutriscore", $version, "grade");
+	my $grade = deep_get($product_ref, "nutriscore", $version, "grade") // "unknown";
 
 	# Title
 	if ($grade eq "not-applicable") {
