@@ -41,7 +41,8 @@ Before you proceed with the release, ensure the following:
 
 1.  **Documentation**:
     -   If necessary, update relevant documentation (e.g., API docs, user guides) to reflect the changes in this release. This should be done in PR, rather that after-the-fact.
-    -   Create issues in the mobile app, SDK package… if some behaviour changes or new features require action or enable opportunities there.
+    -   **API Changes**: If the release includes API changes documented in `docs/api/ref-api-and-product-schema-change-log.md`, the [API Change Notifications workflow](https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/api-change-notifications.yml) will automatically create issues in SDK repositories asking for updates.
+    -   Create issues in the mobile app and other dependent packages if behavior changes or new features require action or enable opportunities there.
 2.  **Communication**:
     -   If applicable, announce the release on the Open Food Facts slack, blog, forum, and social media channels (@stephanegigandet typically does this)
     -   Highlight significant new features or changes that might be of interest to the community.
