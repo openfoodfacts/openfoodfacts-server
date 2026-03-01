@@ -9,6 +9,9 @@ required:
   - last_updated_t
   - rev
 
+required:
+  - created_t
+
 properties:
   created_t:
     type: integer

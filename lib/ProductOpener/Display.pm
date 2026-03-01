@@ -2457,9 +2457,17 @@ HTML
 				. $html;
 
 		}
+		
+		my %MAP_ENABLED_FACETS = map { $_ => 1 } qw(
+			countries
+			origins
+			manufacturing_places
+			emb_codes
+		);
+		my $current_facet = $tagtype;
 
-		# countries map?
-		if (keys %{$countries_map_data} > 0) {
+		if ($MAP_ENABLED_FACETS{$current_facet} && keys %{$countries_map_data} > 0) {
+
 			my $mapData = {
 				data => $countries_map_data,
 				links => $countries_map_links,
@@ -2472,6 +2480,7 @@ HTML
 			process_template('web/pages/countries_map/map_of_countries.tt.html',
 				$map_template_data_ref, \$map_html, $request_ref)
 				|| ($map_html .= 'template error: ' . $tt->error());
+
 			$html = $map_html . $html;
 		}
 
