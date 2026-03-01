@@ -1639,7 +1639,7 @@ function togglePasswordVisibility(FieldID) {
         <input type="hidden" name="action" value="process" />
         <input type="hidden" name="type" value="add" />
         
-            <input type="submit" name=".submit" class="button" value= "Register" />
+            <input type="submit" name=".submit" class="button" value= "Register" onclick="trackMatomoEvent('user', 'signup_submit');" />
         
     </form>
 
