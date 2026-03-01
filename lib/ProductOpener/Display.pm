@@ -4239,8 +4239,28 @@ HTML
 				$tag_template_data_ref->{canon_url} = $request_ref->{canon_url};
 				$tag_template_data_ref->{title} = $title;
 
+				my %product_counts;
+				my $tag_field = $tagtype . "_tags";
+				my $pipeline = [
+					{ '$match' => { $tag_field => $canon_tagid } },
+					{ '$unwind' => "\$$tag_field" },
+					{ '$match' => { $tag_field => { '$ne' => $canon_tagid } } },
+					{
+						'$group' => {
+							_id   => "\$$tag_field",
+							count => { '$sum' => 1 }
+						}
+					}
+				];
+
+				my $cursor = $products_collection->aggregate($pipeline);
+
+				while (my $doc = $cursor->next) {
+					$product_counts{$doc->{_id}} = $doc->{count};
+				}
+
 				$tag_template_data_ref->{parents_and_children}
-					= display_parents_and_children($lc, $tagtype, $canon_tagid);
+					= display_parents_and_children($lc, $tagtype, $canon_tagid, \%product_counts);
 
 				if ($weblinks_html ne "") {
 					$tag_template_data_ref->{weblinks} = $weblinks_html;
