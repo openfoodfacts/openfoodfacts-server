@@ -342,61 +342,54 @@
 
 
 
-<section id="donation-banner-top" class="donation-banner row">
+  
+<section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
+  <div class="row align-middle" style="margin-bottom:1rem;">
+    <div class="columns small-12 medium-9">
+      <h2>¡Ayúdanos a promover la biodiversidad en Open Food Facts!</h2>
+      <p>¿Podrías dedicar unos minutos a responder nuestra encuesta sobre una nueva función que estamos desarrollando como parte del proyecto europeo DIVINFOOD para promover la agrobiodiversidad en los alimentos que consumimos?</p>
+    </div>
+    <div class="columns small-12 medium-3 text-right">
+      <a class="button round success large homepage-greeter__button" href="//ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity">Responder a la encuesta</a>
+    </div>
+  </div>
 
-  <div class="donation-banner__left-aside">
-    <div class="donation-banner__hook-section">
-      <p>Ayúdanos a informar a millones de consumidores de todo el mundo sobre lo que comen.</p>
+  <div class="row" style="display:flex;align-items:center;flex-wrap:wrap;">
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/divinfood-horizontal.png" alt="Logo DIVINFOOD" />
     </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
-  </div>
-  <div>
-    <div class="donation-banner__aside">
-      <div class="donation-banner__main-section">
-        <img
-          width="50"
-          height="50"
-          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="Open Food Facts logo"
-        />
-        <h3 class="donation-banner__main-title">Por favor, contribuye a nuestra campaña de recaudación de fondos 2026</h3>
-      </div>
-      <div style="padding:1rem;">
-        <p>Sus donaciones financian las operaciones diarias de nuestra asociación sin fines de lucro:</p>
-        <ul>
-          <li>
-            Manteniendo nuestra base de datos abierta y disponible para todos,
-            <ul>
-              <li>Infraestructura técnica (sitio web/aplicación móvil) y un pequeño equipo permanente</li>
-            </ul>
-          </li>
-          <li>
-            <p>permanecer independiente de la industria alimentaria,</p>
-          </li>
-          <li>
-            <p>involucrar a una comunidad de ciudadanos comprometidos,</p>
-          </li>
-          <li>
-            <p>Apoyar el avance de la investigación en salud pública.</p>
-          </li>
-        </ul>
-      </div>
+    <div class="columns small-6 medium-3 text-center" style="display:flex;align-items:center;justify-content:center;height:100%;">
+      <img class="survey-logo" src="/images/panels/divinfood/eu-flag.300x200.jpg" alt="Bandera de la Unión Europea" />
     </div>
-    <div class="donation-banner__actions-section">
-      <div class="donation-banner__actions-section__financial">
-        <p>
-          
-          ¡Cada donación cuenta! Agradecemos su apoyo para lograr una mayor transparencia alimentaria en el mundo.
-          
-        </p>
-      </div>
-      <div class="donation-banner__actions-section__donate-button">
-        <a href="//world-es.openfoodfacts.org/dar-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
-          <button>YO APOYO</button>
-        </a>
-      </div>
+    <div class="columns small-12 medium-6" style="display:flex;align-items:center;">
+      <p>DIVINFOOD ha sido financiado por el programa de investigación e innovación Horizonte 2020 de la Unión Europea en el marco del Acuerdo de Subvención nº 101000383</p>
     </div>
   </div>
+</section>
+
+
+
+<style>
+  #donation-banner-top .survey-logo {
+      max-height: 80px;
+      width: auto;
+      display: block;
+      margin: auto;
+  }
+  #donation-banner-top {
+      display: flex;
+      flex-direction: column;
+  }
+  #donation-banner-top .homepage-greeter__button {
+      background-color: #28a745 !important;
+      border-color: #28a745 !important;
+      color: #fff !important;
+  }
+  #donation-banner-top .homepage-greeter__button:hover {
+      background-color: #218838 !important;
+      border-color: #1e7e34 !important;
+  }
+</style>
 
 
   <div class="donation-banner__close">
@@ -431,11 +424,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_days_2025', 1, 180);
+    setBannerCookie('divinfood_survey_2026', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_days_2025') !== '') {
+  if (getBannerCookie('divinfood_survey_2026') !== '') {
     bannerID.style.display = 'none';
   } else {
     bannerID.style.display = 'flex';
@@ -762,6 +755,7 @@ let oTable = $('#tagstable').DataTable({
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/matomo-events.js"></script>
 <script src="//static.openfoodfacts.localhost/js/datatables.min.js"></script>
 
 <script>
