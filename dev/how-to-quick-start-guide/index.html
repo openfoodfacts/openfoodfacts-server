@@ -1906,6 +1906,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-dev-error-unable-to-locate-package-libzxing-dev-apple-silicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        make dev error: Unable to locate package libzxing-dev (Apple Silicon)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#css-looks-broken-missing-main-stylesheet-app-css" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSS looks broken (missing main stylesheet / app-.css)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-dev-error-open-dockerbuildxcurrent-permission-denied" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2956,6 +2978,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-dev-error-unable-to-locate-package-libzxing-dev-apple-silicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        make dev error: Unable to locate package libzxing-dev (Apple Silicon)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#css-looks-broken-missing-main-stylesheet-app-css" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSS looks broken (missing main stylesheet / app-.css)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-dev-error-open-dockerbuildxcurrent-permission-denied" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3405,6 +3449,34 @@ To enable Developer Mode:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># replace my-user-id with your user id if you forked the repository, otherwise use openfoodfacts</span>
 git<span class="w"> </span>clone<span class="w"> </span>-c<span class="w"> </span>core.symlinks<span class="o">=</span><span class="nb">true</span><span class="w"> </span>git@github.com:my-user-id/openfoodfacts-server.git
 </code></pre></div>
+<h3 id="make-dev-error-unable-to-locate-package-libzxing-dev-apple-silicon">make dev error: Unable to locate package libzxing-dev (Apple Silicon)<a class="headerlink" href="#make-dev-error-unable-to-locate-package-libzxing-dev-apple-silicon" title="Permanent link">#</a></h3>
+<p>When running <code>make dev</code> on Apple Silicon (<code>arm64</code>), you may see:</p>
+<div class="highlight"><pre><span></span><code>E:<span class="w"> </span>Unable<span class="w"> </span>to<span class="w"> </span>locate<span class="w"> </span>package<span class="w"> </span>libzxing-dev
+</code></pre></div>
+<p><strong>Cause:</strong>
+Some dependencies used during image build are available for <code>amd64</code> but not for <code>arm64</code>.</p>
+<p><strong>Solution:</strong>
+Run Docker builds targeting <code>amd64</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">DOCKER_DEFAULT_PLATFORM</span><span class="o">=</span>linux/amd64<span class="w"> </span>make<span class="w"> </span>dev
+</code></pre></div>
+<p>To make it persistent for your shell session:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_DEFAULT_PLATFORM</span><span class="o">=</span>linux/amd64
+make<span class="w"> </span>dev
+</code></pre></div>
+<blockquote>
+<p><strong>Note:</strong>
+Running <code>amd64</code> images on Apple Silicon uses emulation and can be slower.</p>
+</blockquote>
+<h3 id="css-looks-broken-missing-main-stylesheet-app-css">CSS looks broken (missing main stylesheet / app-.css)<a class="headerlink" href="#css-looks-broken-missing-main-stylesheet-app-css" title="Permanent link">#</a></h3>
+<p>If the page loads but styles are missing, inspect the HTML and check whether the stylesheet URL is <code>app-.css</code> instead of <code>app-ltr.css</code> or <code>app-rtl.css</code>.</p>
+<p><strong>Cause:</strong>
+Language assets are missing or outdated, so <code>text_direction</code> is empty when building the stylesheet filename.</p>
+<p><strong>Solution:</strong>
+Rebuild language assets, then restart web containers:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>build_lang
+docker<span class="w"> </span>compose<span class="w"> </span>restart<span class="w"> </span>backend<span class="w"> </span>frontend<span class="w"> </span>dynamicfront
+</code></pre></div>
+<p>Then force-reload the page (or clear browser cache).</p>
 <h3 id="make-dev-error-open-dockerbuildxcurrent-permission-denied">make dev error: open /.docker/buildx/current: permission denied<a class="headerlink" href="#make-dev-error-open-dockerbuildxcurrent-permission-denied" title="Permanent link">#</a></h3>
 <p>On macOS
 When running <code>make dev</code>:
