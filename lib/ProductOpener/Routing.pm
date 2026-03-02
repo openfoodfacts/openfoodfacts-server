@@ -369,6 +369,13 @@ sub api_route($request_ref) {
 		param("tagid", $components[4]);
 		$request_ref->{tagid} = $components[4];
 	}
+	elsif ($api_action eq "users") {    # api/v3/users/[sub_action]
+		# Currently only 'me' is supported: GET /api/v3/users/me
+		# returns the authenticated user's info (moderator/admin flags)
+		my $user_sub_action = $components[3] // '';
+		$request_ref->{user_sub_action} = $user_sub_action;
+		$api_action = 'user';           # map to 'user' in the dispatch table
+	}
 	elsif ($api_action eq "geoip") {    # api/v3/geoip/
 		$request_ref->{geoip_ip} = remote_addr();
 	}
