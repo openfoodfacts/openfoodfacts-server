@@ -20,7 +20,7 @@ properties:
         allOf:
           - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
-      energy_kcal:
+      energy-kcal:
         description: |
           energy in kcal, if it is specified
 
@@ -28,7 +28,7 @@ properties:
         allOf:
           - $ref: "../schemas/nutrient_values_v3_base.yaml"
           - $ref: "../schemas/nutrients_source_v3.yaml"
-      energy_kj:
+      energy-kj:
         description: |
           energy in kj, if it is specified
 

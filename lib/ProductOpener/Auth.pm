@@ -418,7 +418,6 @@ None
 sub start_signout ($request_ref) {
 	# compute return_url, so that after sign out, user will be redirected to the home page
 	my $return_url = single_param('return_url');
-	die $return_url if defined $return_url;
 	my $subdomain = $request_ref->{subdomain};
 	if (   (not $return_url)
 		or (not($return_url =~ /^https?:\/\/$subdomain\.$server_domain/sxm)))
@@ -819,7 +818,7 @@ sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 	}
 
 	$jwks = decode_json($jwks_response->content);
-	$log->info('got JWKS', {jwks => $jwks}) if $log->is_info();
+
 	return;
 }
 

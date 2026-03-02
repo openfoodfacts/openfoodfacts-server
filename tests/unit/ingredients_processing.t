@@ -3077,6 +3077,38 @@ my @tests = (
 			}
 		],
 	],
+	# sv; two different note marks getting parsed the same
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/13024
+	[
+		{
+			lc => "sv",
+			ingredients_text => 'dadelsirap¹. ¹Från kontrollerat ekologiskt jordbruk.'
+		},
+		[
+			# This should match the below test exactly
+			{
+				'id' => 'en:date',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:syrup',
+				'text' => "dadel"
+			}
+		],
+	],
+	[
+		{
+			lc => "sv",
+			ingredients_text => 'dadelsirap*. *Från kontrollerat ekologiskt jordbruk.'
+		},
+		[
+			# This should match the above test exactly
+			{
+				'id' => 'en:date',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:syrup',
+				'text' => "dadel"
+			}
+		],
+	],
 
 );
 

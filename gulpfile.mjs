@@ -24,6 +24,7 @@ const jsSrc = [
   "./html/js/barcode-scanner*.js",
   "./html/js/rewind-browser.js",
   "./html/js/external-knowledge-panels.js",
+  "./html/js/matomo-events.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";

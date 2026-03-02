@@ -47,6 +47,7 @@ BEGIN {
 
 use ProductOpener::DataQualityFood qw(is_european_product);
 use ProductOpener::Tags qw(add_tag get_all_tags_having_property);
+use ProductOpener::Nutrition qw(has_non_estimated_nutrition_data has_no_nutrition_data_on_packaging);
 
 =head1 FUNCTIONS
 
@@ -153,9 +154,7 @@ sub compute_completeness_score($product_ref) {
 		add_tag($product_ref, "data_quality_completeness", "en:nutrition-photo-selected");
 		$completeness_nutrition_count++;
 	}
-	elsif ( (defined $product_ref->{no_nutrition_data})
-		and ($product_ref->{no_nutrition_data} eq 'on'))
-	{
+	elsif (has_no_nutrition_data_on_packaging($product_ref)) {
 		$completeness_nutrition_count++;
 	}
 	else {
@@ -171,23 +170,15 @@ sub compute_completeness_score($product_ref) {
 		add_tag($product_ref, "data_quality_completeness", "en:categories-to-be-completed");
 	}
 	$completeness_nutrition_total++;
-	# 2-3- nutriments
-	if (
-		(
-			(
-				(defined $product_ref->{nutriments})
-				# we have at least on valid nutrient (not counting nova and fruits-vegetables-*-estimates
-				and (scalar grep {$_ !~ /^(nova|fruits-vegetables)/} keys %{$product_ref->{nutriments}}) > 0
-			)
-		)
-		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))
-		)
+	# 2-3- nutrition data
+	if (   has_non_estimated_nutrition_data($product_ref)
+		or has_no_nutrition_data_on_packaging($product_ref))
 	{
-		add_tag($product_ref, "data_quality_completeness", "en:nutriments-completed");
+		add_tag($product_ref, "data_quality_completeness", "en:nutrition-completed");
 		$completeness_nutrition_count++;
 	}
 	else {
-		add_tag($product_ref, "data_quality_completeness", "en:nutriments-to-be-completed");
+		add_tag($product_ref, "data_quality_completeness", "en:nutrition-to-be-completed");
 	}
 	$completeness_nutrition_total++;
 

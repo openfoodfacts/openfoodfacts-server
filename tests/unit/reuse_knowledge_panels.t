@@ -9,6 +9,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::KnowledgePanels qw/create_reuse_card_panel/;
 use ProductOpener::Test qw/init_expected_results compare_to_expected_results/;
+use ProductOpener::Config qw/:all/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -48,20 +49,22 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 	# edge cases
 	# not for food
 	my $product_ref = {};
-	is(create_reuse_card_panel($product_ref, "fr", "fr", {product_type => 'food'}, {}), 0);
+	$options{product_type} = 'food';
+	is(create_reuse_card_panel($product_ref, "fr", "fr", {}, {}), 0);
 	is($product_ref, {});
 	# only for france
-	is(create_reuse_card_panel({}, "fr", "es", {product_type => 'product'}, {}), 0);
+	$options{product_type} = 'product';
+	is(create_reuse_card_panel({}, "fr", "es", {}, {}), 0);
 	is($product_ref, {});
 	# no property, no panel
 	$product_ref = {code => $no_qfdmo_code, knowledge_panels_fr => {}};
-	is(create_reuse_card_panel($product_ref, "fr", "es", {product_type => 'product'}, {}), 0);
+	is(create_reuse_card_panel($product_ref, "fr", "es", {}, {}), 0);
 	is([keys(%{$product_ref})], $only_code_and_kp_fr);
 	is($product_ref->{knowledge_panels_fr}, {});
 	# working tests
 	$lc = "fr";    # set global lc because templates use this…
 	$product_ref = {code => "2000000000052", knowledge_panels_fr => {}};
-	is(create_reuse_card_panel($product_ref, 'fr', 'fr', {product_type => 'product'}, {}), 1);
+	is(create_reuse_card_panel($product_ref, 'fr', 'fr', {}, {}), 1);
 	is([keys(%{$product_ref})], $only_code_and_kp_fr);
 	compare_to_expected_results(
 		$product_ref->{knowledge_panels_fr},
