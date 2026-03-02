@@ -151,7 +151,6 @@ open($exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not c
 $export_args_ref->{filehandle} = $exported_csv;
 $export_args_ref->{export_computed_fields} = 1;
 $export_args_ref->{export_canonicalized_tags_fields} = 1;
-$export_args_ref->{export_nutrition_aggregated_set} = 1;
 $export_args_ref->{include_images_paths} = 1;
 
 export_csv($export_args_ref);
@@ -164,7 +163,13 @@ ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file,
 
 # Nutrition aggregated set export
 
-$export_args_ref = {filehandle => $exported_csv, separator => $separator, query => $query_ref, cc => "en", export_nutrition_aggregated_set => 1};
+$export_args_ref = {
+	filehandle => $exported_csv,
+	separator => $separator,
+	query => $query_ref,
+	cc => "en",
+	export_nutrition_aggregated_set => 1
+};
 
 $exported_csv_file = "/tmp/export_nutrition_aggregated_set.csv";
 open($exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
@@ -173,8 +178,9 @@ export_csv($export_args_ref);
 
 close($exported_csv);
 
-ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file,
-	"${expected_result_dir}/export_nutrition_aggregated_set",
-	$update_expected_results, "csv-export-nutrition-aggregated-set");
+ProductOpener::Test::compare_csv_file_to_expected_results(
+	$exported_csv_file, "${expected_result_dir}/export_nutrition_aggregated_set",
+	$update_expected_results, "csv-export-nutrition-aggregated-set"
+);
 
 done_testing();
