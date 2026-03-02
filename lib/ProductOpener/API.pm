@@ -408,7 +408,7 @@ sub send_api_response ($request_ref) {
 	# can read the resulting response.
 	my $allow_credentials = 0;
 	if (   ($request_ref->{query_string} =~ "/auth.pl")
-		or ($request_ref->{api_action} // '' eq 'user'))
+		or (($request_ref->{api_action} // '') eq 'user'))
 	{
 		$allow_credentials = 1;
 	}
@@ -512,7 +512,7 @@ my $dispatch_table = {
 	},
 	# User info: GET /api/v3/users/me
 	user => {
-		GET     => \&read_user_api,
+		GET => \&read_user_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 	},
 };

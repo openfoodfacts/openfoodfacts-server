@@ -107,7 +107,7 @@ sub read_user_api ($request_ref) {
 			$response_ref,
 			{
 				message => {id => "authentication_required"},
-				impact  => {id => "failure"},
+				impact => {id => "failure"},
 			},
 			401
 		);
@@ -116,11 +116,11 @@ sub read_user_api ($request_ref) {
 
 	# Build the user info response using fields already set by init_user().
 	$response_ref->{result} = {id => "user_found"};
-	$response_ref->{user}   = {
-		userid    => $user_id,
-		name      => $User{name} // $user_id,
+	$response_ref->{user} = {
+		userid => $user_id,
+		name => $User{name} // $user_id,
 		moderator => ($request_ref->{moderator} ? 1 : 0),
-		admin     => ($request_ref->{admin}     ? 1 : 0),
+		admin => ($request_ref->{admin} ? 1 : 0),
 	};
 
 	$log->debug("read_user_api - stop", {user_id => $user_id}) if $log->is_debug();
