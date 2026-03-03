@@ -38,6 +38,9 @@ print("--- Loading taxonomies ---")
 # For local testing use http:/world.openfoodfacts.localhost
 base_url = os.getenv("STATIC_DOMAIN")
 ingredients = requests.get(f"{base_url}/data/taxonomies/ingredients.json").json()
+countries = ",".join(
+    requests.get(f"{base_url}/data/taxonomies/countries.json").json().keys()
+)
 categories = requests.get(f"{base_url}/data/taxonomies/categories.json").json()
 
 # Load ciqual ingredients. File comes from https://github.com/openfoodfacts/recipe-estimator/blob/main/recipe_estimator/assets/ciqual_ingredients.json
@@ -205,7 +208,7 @@ for id, ingredient in ingredients.items():
     # We set all countries so ingredients always show up. Might be nice to get all "world" products to show up on all country domains
     product = {
         "code": code,
-        "countries": "en:world",
+        "countries": countries,
         "categories": category,
         "packaging_text_en": "1 paper bag to recycle",
     }

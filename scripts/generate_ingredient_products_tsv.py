@@ -45,6 +45,9 @@ print("--- Loading taxonomies ---")
 # For local testing use http:/world.openfoodfacts.localhost
 base_url = os.getenv("STATIC_DOMAIN")
 ingredients = requests.get(f"{base_url}/data/taxonomies/ingredients.json").json()
+countries = ",".join(
+    requests.get(f"{base_url}/data/taxonomies/countries.json").json().keys()
+)
 categories = requests.get(f"{base_url}/data/taxonomies/categories.json").json()
 
 # Load ciqual ingredients. File comes from https://github.com/openfoodfacts/recipe-estimator/blob/main/recipe_estimator/assets/ciqual_ingredients.json
@@ -60,14 +63,18 @@ wikidata_headers = {
     "User-Agent": "OpenFoodFacts/1.0 (https://world.openfoodfacts.org) ingredient-uploader"
 }
 
+
 def po_response_is_ok(response: requests.Response):
     if response.status_code == 200:
         return True
     try:
-        print(f"*** Error: {', '.join(error.get('message', {}).get('name', '?') for error in response.json().get('errors', []))} ***")
+        print(
+            f"*** Error: {', '.join(error.get('message', {}).get('name', '?') for error in response.json().get('errors', []))} ***"
+        )
     except:
         print(response.content)
     return False
+
 
 # Get the existing ingredient products so we know which ones already have images
 # and which ones to delete (if they weren't found in the current ingredients taxonomy)
@@ -113,7 +120,8 @@ for id, ingredient in ingredients.items():
 
     # Find a category with a matching ciqual code
     category = next(
-        (category_id
+        (
+            category_id
             for category_id, category_data in categories.items()
             if category_data.get("ciqual_food_code", {}).get("en") == ciqual_code
         ),
@@ -155,7 +163,9 @@ for id, ingredient in ingredients.items():
                 # Get the actual image
                 image_name = image_name.replace(" ", "_")
                 # Hash is just used to generate a path, not for anything secure
-                image_hash = hashlib.md5(image_name.encode("utf-8")).hexdigest() # NOSONAR
+                image_hash = hashlib.md5(
+                    image_name.encode("utf-8")
+                ).hexdigest()  # NOSONAR
                 # If the image is bigger than 960px then use a thumbnail
                 if imageinfo["width"] >= 960:
                     image_url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{image_hash[0]}/{image_hash[0:2]}/{image_name}/960px-{image_name}"
@@ -169,10 +179,10 @@ for id, ingredient in ingredients.items():
     # We set all countries so ingredients always show up. Might be nice to get all "world" products to show up on all country domains
     product = {
         "code": code,
-        "countries": "en:world",
+        "countries": countries,
         "categories": category,
         "packaging_text_en": "1 paper bag to recycle",
-        "image_front_url": image_url
+        "image_front_url": image_url,
     }
 
     # Create a product name for each language
@@ -183,7 +193,9 @@ for id, ingredient in ingredients.items():
     # Add nutrients from ciqual
     for nutrient_id, nutrient in ciqual_data.items():
         if nutrient.get("confidence", "-") != "-":
-            product[f"{nutrient_id}"] = f"{nutrient.get('modifier', '')}{nutrient.get('percent_nom')}"
+            product[f"{nutrient_id}"] = (
+                f"{nutrient.get('modifier', '')}{nutrient.get('percent_nom')}"
+            )
 
     products.append(product)
     print(id, ciqual_code, wikidata_id, ingredient["name"].get("en", name), image_url)
@@ -193,6 +205,8 @@ for id, ingredient in ingredients.items():
         existing_codes.remove(code)
 
 print("--- Generating tsv file ---")
+
+
 def column_sort(column):
     if column == "code":
         return f"1{column}"
@@ -211,11 +225,13 @@ def column_sort(column):
 
     # Must be a nutrient
     return f"6{column}"
-    
-        
+
+
 keys = sorted(set().union(*(d.keys() for d in products)), key=column_sort)
-with open('generate_ingredient_products.tsv', 'w', newline='', encoding='utf-8') as output_file:
-    dict_writer = csv.DictWriter(output_file, keys, delimiter='\t')
+with open(
+    "generate_ingredient_products.tsv", "w", newline="", encoding="utf-8"
+) as output_file:
+    dict_writer = csv.DictWriter(output_file, keys, delimiter="\t")
     dict_writer.writeheader()
     dict_writer.writerows(products)
 
