@@ -49,13 +49,13 @@ while (my $path = $next->()) {
 	next if ($path =~ /.*scans$/);    # We expect scans to not have an STO file
 									  # print "$path\n";
 	store_object($path, retrieve_object($path));
-$count++;
-if ($count % 1000 == 0) {
-    print "Updated $count files.\n";
-}
+	$count++;
+	if ($count % 1000 == 0) {
+		print "Updated $count files.\n";
+	}
 
-# Update checkpoint only after successful processing
-$checkpoint->update($path);
+	# Update checkpoint only after successful processing
+	$checkpoint->update($path);
 
 }
 print "Updated $count files.\n";

@@ -8903,10 +8903,7 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate}) {
 				my $estimate_value = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"} // 0;
 				push @nutriscore_warnings,
-					sprintf(
-					lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
-					$estimate_value
-					);
+					sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"), $estimate_value);
 			}
 			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}) {
 				push @nutriscore_warnings,
