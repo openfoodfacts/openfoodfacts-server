@@ -266,9 +266,24 @@ my @tests = (
 			lc => "en",
 			ingredients_text => "water, sugar, salt",
 			nutrition_data_per => "100g",
-			nutriments => {
-				sugars_100g => 10,
-				salt_100g => 5,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							sugars => {unit => "g", value => 10},
+							salt => {unit => "g", value => 5},
+						},
+						source => "nutrition-facts",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+				aggregated_set => {
+					nutrients => {
+						sugars => {value => 10},
+						salt => {value => 5},
+					}
+				}
 			},
 		},
 	],

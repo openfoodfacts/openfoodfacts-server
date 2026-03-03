@@ -34,7 +34,7 @@ use ProductOpener::Lang qw/lang/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/generate_import_export_columns_groups_for_select2/;
 use ProductOpener::Tags qw/%language_fields %tags_fields display_taxonomy_tag/;
-use ProductOpener::Food qw/default_unit_for_nid/;
+use ProductOpener::Nutrition qw/default_unit_for_nid/;
 use ProductOpener::TaxonomySuggestions qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::CRM qw/update_template_download_date/;

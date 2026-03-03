@@ -408,8 +408,9 @@ sub push_product_update_to_redis ($product_ref, $change_ref, $action) {
 				'code', Encode::encode_utf8($product_ref->{code}),
 				'rev', Encode::encode_utf8($product_ref->{rev}),
 				# product_type should be used over flavor (kept for backward compatibility)
+				# And should reflect the actual product, not the server it was processed on
 				'product_type',
-				$options{product_type},
+				$product_ref->{product_type} // $options{product_type},
 				'flavor', $flavor,
 				'user_id',
 				Encode::encode_utf8($change_ref->{userid}),
@@ -419,8 +420,6 @@ sub push_product_update_to_redis ($product_ref, $change_ref, $action) {
 				Encode::encode_utf8($change_ref->{comment}),
 				'diffs',
 				encode_json($change_ref->{diffs} // {}),
-				'ip',
-				Encode::encode_utf8($change_ref->{ip}),
 				'client_id',
 				Encode::encode_utf8($change_ref->{clientid}),
 				sub {

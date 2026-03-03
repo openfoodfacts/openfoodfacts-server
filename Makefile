@@ -553,7 +553,7 @@ endif
 
 build_asyncapi:
 	npm list -g @asyncapi/cli || npm install -g @asyncapi/cli
-	cd docs/events && asyncapi generate fromTemplate openfoodfacts-server.yaml @asyncapi/html-template@3.0.0 --use-new-generator --param singleFile=true outFilename=openfoodfacts-server.html --force-write --output=.
+	cd docs/events && asyncapi generate fromTemplate openfoodfacts-server.yaml @asyncapi/html-template@3.5.4 --param singleFile=true outFilename=openfoodfacts-server.html --force-write --output=.
 
 #------------#
 # Production #

@@ -4,22 +4,30 @@
          "nutrients" : {
             "protein" : {
                "source" : "packaging",
-               "source_index" : 1,
+               "source_index" : 2,
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0
             },
+            "salt" : {
+               "modifier" : "<=",
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 5
+            },
             "sodium" : {
                "modifier" : "<=",
                "source" : "manufacturer",
-               "source_index" : 3,
+               "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
                "value" : 2
             },
             "sugars" : {
                "source" : "manufacturer",
-               "source_index" : 2,
+               "source_index" : 1,
                "source_per" : "serving",
                "unit" : "g",
                "value" : 7.6
@@ -31,17 +39,46 @@
       "input_sets" : [
          {
             "nutrients" : {
-               "protein" : {
+               "salt" : {
+                  "modifier" : "<=",
                   "unit" : "g",
-                  "value" : 8.2,
-                  "value_string" : "8.2"
+                  "value_computed" : 5
+               },
+               "sodium" : {
+                  "modifier" : "<=",
+                  "unit" : "g",
+                  "value" : 2,
+                  "value_string" : "2"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "manufacturer"
+         },
+         {
+            "nutrients" : {
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0
+               },
+               "sodium" : {
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : 7.6,
+                  "value_string" : "7.6"
                }
             },
             "per" : "serving",
             "per_quantity" : "100",
             "per_unit" : "g",
             "preparation" : "as_sold",
-            "source" : "packaging"
+            "source" : "manufacturer"
          },
          {
             "nutrients" : {
@@ -64,37 +101,17 @@
          },
          {
             "nutrients" : {
-               "sodium" : {
+               "protein" : {
                   "unit" : "g",
-                  "value" : 0,
-                  "value_string" : "0"
-               },
-               "sugars" : {
-                  "unit" : "g",
-                  "value" : 7.6,
-                  "value_string" : "7.6"
+                  "value" : 8.2,
+                  "value_string" : "8.2"
                }
             },
             "per" : "serving",
             "per_quantity" : "100",
             "per_unit" : "g",
             "preparation" : "as_sold",
-            "source" : "manufacturer"
-         },
-         {
-            "nutrients" : {
-               "sodium" : {
-                  "modifier" : "<=",
-                  "unit" : "g",
-                  "value" : 2,
-                  "value_string" : "2"
-               }
-            },
-            "per" : "100g",
-            "per_quantity" : "100",
-            "per_unit" : "g",
-            "preparation" : "as_sold",
-            "source" : "manufacturer"
+            "source" : "packaging"
          }
       ]
    }
