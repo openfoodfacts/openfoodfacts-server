@@ -134,6 +134,7 @@ count = 0
 # To then hard-delete the product files and images run the following from a backend shell:
 # rm -rf /mnt/podata/products/ingredient
 # rm /mnt/podata/new_images/*.ingredient-*
+# rm -rf html/images/products/ingredient
 max_count = 100
 print("--- Creating products ---")
 for id, ingredient in ingredients.items():

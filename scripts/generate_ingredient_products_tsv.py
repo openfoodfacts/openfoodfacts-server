@@ -229,7 +229,7 @@ def column_sort(column):
 
 keys = sorted(set().union(*(d.keys() for d in products)), key=column_sort)
 with open(
-    "generate_ingredient_products.tsv", "w", newline="", encoding="utf-8"
+    "tmp/generate_ingredient_products.tsv", "w", newline="", encoding="utf-8"
 ) as output_file:
     dict_writer = csv.DictWriter(output_file, keys, delimiter="\t")
     dict_writer.writeheader()
