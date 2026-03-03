@@ -871,6 +871,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get-partial-taxonomy-entries-v2-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get partial taxonomy entries (v2 API)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Get partial taxonomy entries (v2 API)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-requests_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example requests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2759,6 +2798,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get-partial-taxonomy-entries-v2-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get partial taxonomy entries (v2 API)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Get partial taxonomy entries (v2 API)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-requests_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example requests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2887,6 +2965,24 @@ Get suggestions for a specific category
 Get suggestions based on packaging shape
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=packaging_materials&amp;shape=box
 </code></pre></div></p>
+<h2 id="get-partial-taxonomy-entries-v2-api">Get partial taxonomy entries (v2 API)<a class="headerlink" href="#get-partial-taxonomy-entries-v2-api" title="Permanent link">#</a></h2>
+<p>Use <code>/api/v2/taxonomy</code> when you want selected taxonomy entries only (instead of downloading a full taxonomy).</p>
+<h3 id="common-parameters">Common parameters<a class="headerlink" href="#common-parameters" title="Permanent link">#</a></h3>
+<ul>
+<li><code>tagtype</code>: taxonomy to query (<code>categories</code>, <code>labels</code>, <code>ingredients</code>, etc.)</li>
+<li><code>tags</code>: comma-separated list of taxonomy tags/ids</li>
+<li><code>fields</code>: comma-separated list of fields to return (for example: <code>name,description,children,parents,wikidata</code>)</li>
+<li><code>include_children=1</code>: include children entries in the response</li>
+<li><code>include_parents=1</code>: include parent entries in the response</li>
+<li><code>include_root_entries=1</code>: include root taxonomy entries in the response</li>
+<li><code>lc</code>: language(s), comma-separated (for example: <code>en,fr</code>)</li>
+<li><code>cc</code>: optional country context</li>
+</ul>
+<h3 id="example-requests_1">Example requests<a class="headerlink" href="#example-requests_1" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/taxonomy?tagtype=labels&amp;tags=en:organic,en:fair-trade&amp;fields=name,description,children&amp;include_children=1&amp;lc=en,fr
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/taxonomy?tagtype=categories&amp;tags=en:carrot-juices&amp;fields=name,parents,children,wikidata,auth_url&amp;lc=en,fr&amp;cc=fr
+</code></pre></div>
 
 
 
