@@ -196,8 +196,6 @@ sub export_csv ($args_ref) {
 	my $export_nutrition_aggregated_set = $args_ref->{export_nutrition_aggregated_set};
 	my $export_computed_fields
 		= $args_ref->{export_computed_fields};    # Fields like the Nutri-Score score computed by OFF
-	my $export_computed_fields
-		= $args_ref->{export_computed_fields};    # Fields like the Nutri-Score score computed by OFF
 	my $export_canonicalized_tags_fields
 		= $args_ref->{export_canonicalized_tags_fields};    # e.g. include "categories_tags" and not only "categories"
 	my $export_cc = $args_ref->{cc} || "world";    # used to localize Environmental-Score fields
