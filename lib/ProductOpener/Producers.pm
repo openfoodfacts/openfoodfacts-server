@@ -1694,11 +1694,11 @@ JSON
 		# List of nutrients
 		if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
 
-			# Go through the nutriment table
-			foreach my $nutriment (@{$nutrients_tables{$nutrient_table}}) {
+			# Go through the nutrient table
+			foreach my $nutrient (@{$nutrients_tables{$nutrient_table}}) {
 
-				next if $nutriment =~ /^\#/;
-				my $nid = $nutriment;
+				next if $nutrient =~ /^\#/;
+				my $nid = $nutrient;
 
 				# %Food::nutrients_tables ids have an ending - for nutrients that are not displayed by default
 				# Keep the % of fruits/vegetables/nuts in the main nutrition group

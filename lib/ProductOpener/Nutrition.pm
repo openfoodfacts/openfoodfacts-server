@@ -2326,7 +2326,12 @@ The nutrition fields sort keys will be prefixed by this sort key.
 
 =cut
 
-sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populated_fields_ref, $sort_key) {
+sub add_nutrition_fields_from_product_to_populated_fields(
+	$product_ref, $populated_fields_ref, $sort_key,
+	$export_nutrition_estimate = 0,
+	$export_nutrition_aggregated_set = 0
+	)
+{
 
 	if (not defined $product_ref->{nutrition}) {
 		return;
@@ -2342,7 +2347,48 @@ sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populat
 	}
 
 	# Aggregated set: not needed at first for exporting and importing data as it is generated from the input sets
-	# TODO: export when $export_args_ref->{export_nutrition_aggregated_set} = 1;
+	# Only export when $export_args_ref->{export_nutrition_aggregated_set} = 1;
+	if ($export_nutrition_aggregated_set) {
+		foreach my $field ("per_quantity", "per_unit") {
+			if (defined deep_get($product_ref, "nutrition", "aggregated_set", $field)) {
+				$populated_fields_ref->{"nutrition.aggregated_set.${field}"}
+					= $sort_key . '_0-aggregated_set_' . sprintf("%02d", $item_number) . '-' . $field;
+			}
+		}
+
+		# Nutrients in the aggregated set
+		my $nutrients_ref = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients");
+		if ((defined $nutrients_ref) and ref($nutrients_ref) eq 'HASH') {
+			my $nutrient_number = 0;
+			foreach my $nutrient (@{$nutrients_tables{off_europe}}) {
+
+				next if $nutrient =~ /^\#/;
+				my $nid = $nutrient;
+
+				$nutrient_number++;
+
+				$nid =~ s/^(-|!)+//g;
+				$nid =~ s/-$//g;
+
+				next if $nid =~ /^nutrition-score/;
+
+				my $nutrient_ref = $nutrients_ref->{$nid};
+
+				if ((defined $nutrient_ref) and (ref($nutrient_ref) eq 'HASH')) {
+					foreach my $field ("modifier", "value_string", "value", "unit") {
+						if (defined $nutrient_ref->{$field}) {
+							$populated_fields_ref->{"nutrition.aggregated_set.nutrients.${nid}.${field}"}
+								= $sort_key
+								. '_2-aggregated_set_nutrients_'
+								. sprintf("%03d", $nutrient_number) . '-'
+								. $nid . '_'
+								. $field;
+						}
+					}
+				}
+			}
+		}
+	}
 
 	# Input sets
 
@@ -2350,6 +2396,12 @@ sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populat
 	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
 	if (defined $input_sets_hash_ref) {
 		foreach my $source (sort keys %{$input_sets_hash_ref}) {
+
+			# Skip the estimate input set if we don't want to export it
+			if (($source eq "estimate") and (not $export_nutrition_estimate)) {
+				next;
+			}
+
 			foreach my $preparation (sort keys %{$input_sets_hash_ref->{$source}}) {
 				foreach my $per (sort keys %{$input_sets_hash_ref->{$source}{$preparation}}) {
 
