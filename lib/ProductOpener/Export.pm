@@ -542,24 +542,6 @@ sub export_csv ($args_ref) {
 				}
 				else {
 
-					foreach my $suffix ("_value", "_unit", "_prepared_value", "_prepared_unit") {
-						if ($field =~ /$suffix$/) {
-							my $nid = $`;
-							if (defined $product_ref->{nutriments}) {
-								$value = $product_ref->{nutriments}{$nid . $suffix};
-								my $modifier = $product_ref->{nutriments}{$nid . "_modifier"};
-								if (($suffix eq "_value" or $suffix eq "_prepared_value")
-									and defined $modifier)
-								{
-									$value = $modifier . $value;
-								}
-							}
-							$nutriment_field = 1;
-							last;
-						}
-					}
-
-					if (not $nutriment_field) {
 					# If we export image fields, we first need to generate the paths to images
 
 					if (($field =~ /^image_(.*)_(url|json)/) and (not $added_images_urls)) {

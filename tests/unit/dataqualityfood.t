@@ -1891,10 +1891,18 @@ ok(
 
 ## with "<" symbol on sugars
 $product_ref = {
-	nutriments => {
-		"carbohydrates_100g" => 1,
-		"sugars_100g" => 2,
-		"sugars_modifier" => "<",
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 1, unit => "g"},
+					"sugars" => {value => 2, unit => "g", modifier => "<"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
