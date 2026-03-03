@@ -3,9 +3,13 @@ name: "CodeQL"
 on:
   push:
     branches: [main]
+    paths_ignore:
+      - 'taxonomy/**'  # No need to run for taxonomy-only changes
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [main]
+    paths_ignore:
+      - 'taxonomy/**'  # No need to run for taxonomy-only changes
   schedule:
     - cron: '0 23 * * 4'
 
