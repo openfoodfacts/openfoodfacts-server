@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.89.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.89.0...v2.89.1) (2026-03-03)
+
+
+### Bug Fixes
+
+* allow selecting and importing optional nutrients on pro platform ([#13212](https://github.com/openfoodfacts/openfoodfacts-server/issues/13212)) ([45ebcfa](https://github.com/openfoodfacts/openfoodfacts-server/commit/45ebcfa6b862a419bbbdec8567bf7cb7fe3b9acb))
+
 ## [2.89.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.88.1...v2.89.0) (2026-03-03)
 
 
