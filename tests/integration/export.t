@@ -163,6 +163,9 @@ ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file,
 
 # Nutrition aggregated set export
 
+$exported_csv_file = "/tmp/export_nutrition_aggregated_set.csv";
+open($exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
+
 $export_args_ref = {
 	filehandle => $exported_csv,
 	separator => $separator,
@@ -170,9 +173,6 @@ $export_args_ref = {
 	cc => "en",
 	export_nutrition_aggregated_set => 1
 };
-
-$exported_csv_file = "/tmp/export_nutrition_aggregated_set.csv";
-open($exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
 
 export_csv($export_args_ref);
 
