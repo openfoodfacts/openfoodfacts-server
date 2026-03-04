@@ -120,7 +120,7 @@ export function css() {
       sass({
         errLogToConsole: true,
         outputStyle: "expanded",
-        includePaths: ["./node_modules"],
+        loadPaths: ["./node_modules"],
       }).on("error", sassLogAndExit),
     )
     .pipe(minifyCSS())
