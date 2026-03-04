@@ -62,14 +62,18 @@
          "percent_max" : 5,
          "percent_min" : 5,
          "text" : "sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
    ],
    "ingredients_lc" : "en",
@@ -114,11 +118,5 @@
       "en:all-ingredients-with-specified-percent",
       "en:at-least-5-ingredients-with-specified-percent"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 90,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 90,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 90,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 90
-   },
    "unknown_ingredients_n" : 0
 }

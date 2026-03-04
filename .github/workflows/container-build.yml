@@ -34,7 +34,7 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
       with:
-        version: v0.6.0
+        version: v0.31.1
         buildkitd-flags: --debug
 
     - name: Login to DockerHub
@@ -78,7 +78,7 @@ jobs:
         artifact-name: ${{ matrix.image_name }}-sbom
         dependency-snapshot: ${{ github.ref == 'refs/heads/main' }}
     - name: Trivy scan for ${{ matrix.image_name }} image
-      uses: aquasecurity/trivy-action@0.33.1
+      uses: aquasecurity/trivy-action@0.34.2
       with:
         image-ref: ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:sha-${{ github.sha }}
         format: 'sarif'

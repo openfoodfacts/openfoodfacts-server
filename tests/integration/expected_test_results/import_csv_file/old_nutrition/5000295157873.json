@@ -46,7 +46,7 @@
       "en:ingredients-en-to-be-completed",
       "en:nutrition-photo-to-be-selected",
       "en:categories-to-be-completed",
-      "en:nutriments-completed",
+      "en:nutrition-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -81,7 +81,7 @@
       "en:ingredients-en-to-be-completed",
       "en:nutrition-photo-to-be-selected",
       "en:categories-to-be-completed",
-      "en:nutriments-completed",
+      "en:nutrition-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -404,10 +404,15 @@
       "en:environmental-score-not-computed",
       "en:nutrients-not-estimated-from-ingredients-no-ingredients",
       "en:nutriscore-missing-category",
+      "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
+      "en:nutriscore-missing-nutrition-data-fat",
+      "en:nutriscore-missing-nutrition-data-proteins",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
       "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-not-computed",
-      "en:nutrition-no-fiber",
+      "en:nutrition-data-per-100g",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -423,70 +428,33 @@
    ],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
-   "nutriments" : {
-      "carbohydrates" : 2,
-      "carbohydrates_100g" : 2,
-      "carbohydrates_unit" : "g",
-      "carbohydrates_value" : 2,
-      "energy" : 1715,
-      "energy-kcal" : 410,
-      "energy-kcal_100g" : 410,
-      "energy-kcal_prepared" : 555,
-      "energy-kcal_prepared_100g" : 555,
-      "energy-kcal_prepared_unit" : "kcal",
-      "energy-kcal_prepared_value" : 555,
-      "energy-kcal_unit" : "kcal",
-      "energy-kcal_value" : 410,
-      "energy-kcal_value_computed" : 413,
-      "energy_100g" : 1715,
-      "energy_prepared" : 2322,
-      "energy_prepared_100g" : 2322,
-      "energy_prepared_unit" : "kcal",
-      "energy_prepared_value" : 555,
-      "energy_unit" : "kcal",
-      "energy_value" : 410,
-      "fat" : 45,
-      "fat_100g" : 45,
-      "fat_unit" : "g",
-      "fat_value" : 45,
-      "proteins" : 0,
-      "proteins_100g" : 0,
-      "proteins_unit" : "g",
-      "proteins_value" : 0,
-      "saturated-fat" : 11,
-      "saturated-fat_100g" : 11,
-      "saturated-fat_unit" : "g",
-      "saturated-fat_value" : 11,
-      "sugars" : 0,
-      "sugars_100g" : 0,
-      "sugars_unit" : "g",
-      "sugars_value" : 0
-   },
    "nutriscore" : {
       "2021" : {
          "category_available" : 0,
          "data" : {
-            "energy" : 1715,
+            "energy" : null,
             "fiber" : 0,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "proteins" : 0,
-            "saturated_fat" : 11,
+            "proteins" : null,
+            "saturated_fat" : null,
             "sodium" : null,
-            "sugars" : 0
+            "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       },
       "2023" : {
          "category_available" : 0,
          "data" : {
-            "energy" : 1715,
+            "energy" : null,
             "fiber" : null,
             "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
@@ -494,15 +462,17 @@
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "proteins" : 0,
+            "proteins" : null,
             "salt" : null,
-            "saturated_fat" : 11,
-            "sugars" : 0
+            "saturated_fat" : null,
+            "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       }
    },
    "nutriscore_2021_tags" : [
@@ -516,6 +486,88 @@
       "unknown"
    ],
    "nutriscore_version" : "2023",
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "energy" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 2322
+            },
+            "energy-kcal" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kcal",
+               "value" : 555
+            }
+         },
+         "per" : "100g",
+         "preparation" : "prepared"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "energy-kcal" : {
+                  "unit" : "kcal",
+                  "value" : 555,
+                  "value_string" : "555"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : 100,
+            "per_unit" : "g",
+            "preparation" : "prepared",
+            "source" : "packaging"
+         },
+         {
+            "nutrients" : {
+               "carbohydrates" : {
+                  "unit" : "g",
+                  "value" : 2,
+                  "value_string" : "2"
+               },
+               "energy-kcal" : {
+                  "unit" : "kcal",
+                  "value" : 410,
+                  "value_computed" : 413,
+                  "value_string" : "410"
+               },
+               "energy-kj" : {
+                  "unit" : "kJ",
+                  "value_computed" : 1699
+               },
+               "fat" : {
+                  "unit" : "g",
+                  "value" : 45,
+                  "value_string" : "45"
+               },
+               "proteins" : {
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "saturated-fat" : {
+                  "unit" : "g",
+                  "value" : 11,
+                  "value_string" : "11"
+               },
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : 100,
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
+   },
    "nutrition_data" : "on",
    "nutrition_data_per" : "100g",
    "nutrition_data_per_imported" : "100g",
@@ -528,7 +580,7 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "no score when the product does not have a category - missing sodium_100g",
+   "nutrition_score_debug" : "no score when the product does not have a category - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
    "nutrition_score_warning_no_fiber" : 1,
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "owner" : "org-test-org",
@@ -557,7 +609,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
-   "schema_version" : 1002,
+   "schema_version" : 1003,
    "sources" : [
       {
          "fields" : [
@@ -565,16 +617,7 @@
             "data_sources",
             "nutrition_data_per",
             "nutrition_data_prepared_per",
-            "nutrients.carbohydrates_unit",
-            "nutrients.carbohydrates_value",
-            "nutrients.fat_unit",
-            "nutrients.fat_value",
-            "nutrients.proteins_unit",
-            "nutrients.proteins_value",
-            "nutrients.saturated-fat_unit",
-            "nutrients.saturated-fat_value",
-            "nutrients.sugars_unit",
-            "nutrients.sugars_value"
+            "nutrition"
          ],
          "id" : null,
          "images" : [],
@@ -620,6 +663,5 @@
    "traces_from_user" : "(en) ",
    "traces_hierarchy" : [],
    "traces_tags" : [],
-   "unknown_nutrients_tags" : [],
    "weighers_tags" : []
 }

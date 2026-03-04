@@ -3118,6 +3118,8 @@ sub display_tag_name ($tagtype, $tag) {
 
 sub display_tag_link ($tagtype, $tag) {
 
+	return "" if not defined $tag;
+
 	$tag = canonicalize_tag2($tagtype, $tag);
 
 	my $path = $tag_type_plural{$tagtype}{$lc};

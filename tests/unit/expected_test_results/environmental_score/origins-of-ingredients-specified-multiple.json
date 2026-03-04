@@ -444,7 +444,7 @@
          "percent_max" : 30,
          "percent_min" : 30,
          "text" : "cane sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       },
       {
@@ -459,10 +459,14 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:cane-sugar"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
    ],
    "ingredients_lc" : "en",
@@ -515,12 +519,6 @@
       "en:environmental-score-changed",
       "en:environmental-score-grade-changed"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 70,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 70,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 70
-   },
    "packaging_materials_tags" : [],
    "packaging_recycling_tags" : [],
    "packaging_shapes_tags" : [],

@@ -51,8 +51,6 @@ BEGIN {
 		&create_knowledge_panels
 		&create_panel_from_json_template
 		&add_taxonomy_properties_in_target_languages_to_object
-		&create_reuse_card_panel
-		&create_maintain_card_panel
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -66,7 +64,6 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Users qw/$User_id/;
-use ProductOpener::Food qw/%categories_nutriments_per_country/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
@@ -251,11 +248,6 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			= create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
-	my $has_reuse_card;
-	if ($panel_is_requested->('reuse_card')) {
-		$has_reuse_card = create_reuse_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
-	}
-
 	my $has_report_problem_card;
 	if (not $options_ref->{producers_platform} and $panel_is_requested->('report_problem_card')) {
 		$has_report_problem_card
@@ -274,12 +266,6 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			= create_secondhand_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
-	my $has_maintain_card;
-	if ($panel_is_requested->('maintain_card')) {
-		$has_maintain_card
-			= create_maintain_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
-	}
-
 	# Create the root panel that contains the panels we want to show directly on the product page
 	create_panel_from_json_template(
 		"root",
@@ -289,9 +275,7 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 			has_report_problem_card => $has_report_problem_card,
 			has_contribution_card => $has_contribution_card,
 			has_environment_card => $has_environment_card,
-			has_reuse_card => $has_reuse_card,
 			has_secondhand_card => $has_secondhand_card,
-			has_maintain_card => $has_maintain_card,
 			has_product_card => $has_product_card,
 		},
 		$product_ref,
@@ -898,48 +882,6 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	return 1;
 }
 
-=head2 create_reuse_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
-
-Creates a knowledge panel card that contains information about circular economy solutions for reuse
-
-It's a container for specific knowledge panels.
-
-=head3 Arguments
-
-=head4 product reference $product_ref
-
-Created knowledge panels will be added to product_ref
-
-=head4 language code $target_lc
-
-=head4 country code $target_cc
-
-=head4 options configuration reference $options_ref
-
-=head4 request reference $request_ref
-
-=cut
-
-sub create_reuse_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
-
-	$log->debug("create reuse card panel", {code => $product_ref->{code}}) if $log->is_debug();
-
-	my $sub_panels = 0;
-
-	$sub_panels += create_qfdmo_fr_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
-
-	if ($sub_panels == 0) {
-		return 0;
-	}
-
-	my $panel_data_ref = {};
-	# Create the reuse_card panel
-	create_panel_from_json_template("reuse_card", "api/knowledge-panels/reuse/reuse_card.tt.json",
-		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
-
-	return 1;
-}
-
 =head2 create_qfdmo_fr_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains information about circular economy solutions
@@ -974,7 +916,7 @@ sub create_qfdmo_fr_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 	my $panel_data_ref = {};
 
 	# Only available for the product_type "product" (Open Products Facts)
-	if ($options_ref->{product_type} ne "product") {
+	if ($options{product_type} ne "product") {
 		return 0;
 	}
 
@@ -984,7 +926,7 @@ sub create_qfdmo_fr_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 	}
 
 	# Check if any category in the hierarchy has a qfdmo_name_fr property
-	my ($qfdmo_name_fr, $category_id) = get_inherited_property_from_categories_tags($product_ref, "qfdmo_id:fr");
+	my ($qfdmo_name_fr, $category_id) = get_inherited_property_from_categories_tags($product_ref, "qfdmo_name:fr");
 
 	# Don't create the panel if no category has QFDMO info
 	if (not defined $qfdmo_name_fr) {
@@ -999,8 +941,11 @@ sub create_qfdmo_fr_panel ($product_ref, $target_lc, $target_cc, $options_ref, $
 	$panel_data_ref->{category_name_fr} = $category_name_fr;
 
 	# Create QFDMO solutions panel
-	create_panel_from_json_template("qfdmo_solutions", "api/knowledge-panels/reuse/qfdmo_solutions.tt.json",
-		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	create_panel_from_json_template(
+		"repair_reuse_recycle_fr_qfdmo",
+		"api/knowledge-panels/secondhand/repair_reuse_recycle_fr_qfdmo.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+	);
 
 	return 1;
 }
@@ -1048,6 +993,11 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 	my $category_id = $product_ref->{categories_hierarchy}[-1];
 	$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
 
+	# Create panels for repairing and maintaining products, as they are relevant for secondhand products
+	create_epargnonsnosressources_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	create_qfdmo_fr_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
 	# Create paneld for donations
 
 	create_panel_from_json_template("donated_products_fr_geev",
@@ -1071,53 +1021,6 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	return 1;
-}
-
-=head2 create_maintain_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
-
-Creates a knowledge panel card that contains maintenance and repair advice for products.
-
-Created for products in specific categories that have maintenance URLs, for users in specific countries.
-
-=head3 Arguments
-
-=head4 product reference $product_ref
-
-The panel is added in the product
-
-=head4 language code $target_lc
-
-=head4 country code $target_cc
-
-=head4 options reference $options_ref
-
-=head4 request reference $request_ref
-
-=head3 Return value
-
-1 if panel created, 0 otherwise
-
-=cut
-
-sub create_maintain_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
-
-	$log->debug("create maintain card panel", {code => $product_ref->{code}}) if $log->is_debug();
-
-	my $sub_panel_count = 0;
-
-	$sub_panel_count
-		+= create_epargnonsnosressources_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
-
-	my $panel_data_ref = {};
-
-	# Create the maintain_card panel only if we have created at least one sub-panel
-	if ($sub_panel_count > 0) {
-		create_panel_from_json_template("maintain_card", "api/knowledge-panels/maintain/maintain_card.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
-		return 1;
-	}
-
-	return 0;
 }
 
 =head2 create_epargnonsnosressources_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
@@ -1149,7 +1052,7 @@ sub create_epargnonsnosressources_panel ($product_ref, $target_lc, $target_cc, $
 	my $panel_data_ref = {};
 
 	# Only available for the product_type "product"
-	if ($options_ref->{product_type} ne "product") {
+	if ($options{product_type} ne "product") {
 		return 0;
 	}
 
@@ -1176,14 +1079,9 @@ sub create_epargnonsnosressources_panel ($product_ref, $target_lc, $target_cc, $
 		# Create panel for maintenance advice for France
 		if ($target_cc eq 'fr') {
 			create_panel_from_json_template(
-				"maintenance_advice_fr_epargnonsnosressources",
-				"api/knowledge-panels/maintain/maintenance_advice_fr_epargnonsnosressources.tt.json",
-				$panel_data_ref,
-				$product_ref,
-				$target_lc,
-				$target_cc,
-				$options_ref,
-				$request_ref
+				"repair_fr_epargnonsnosressources",
+				"api/knowledge-panels/secondhand/repair_fr_epargnonsnosressources.tt.json",
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
 			);
 			return 1;
 		}
@@ -1595,12 +1493,26 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 	{
 
 		# Compare the product nutrition facts to the most specific category
-		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_cc, 1);
-		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
+		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_lc, $target_cc, 1);
 
+		# Create a first panel with the aggregated set and comparison to category (if any)
+		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 		create_panel_from_json_template("nutrition_facts_table",
 			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+		# Create a second detailed panel with the aggregated set + all input sets
+		my $panel_data_detailed_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref, 1);
+		create_panel_from_json_template(
+			"nutrition_facts_table_with_input_sets",
+			"api/knowledge-panels/health/nutrition/nutrition_facts_table_with_input_sets.tt.json",
+			$panel_data_detailed_ref,
+			$product_ref,
+			$target_lc,
+			$target_cc,
+			$options_ref,
+			$request_ref
+		);
 	}
 	return;
 }
@@ -1694,12 +1606,12 @@ sub create_physical_activities_panel ($product_ref, $target_lc, $target_cc, $opt
 		if $log->is_debug();
 
 	# Generate a panel only for food products that have an energy per 100g value
-	if (    (defined $product_ref->{nutriments})
-		and (defined $product_ref->{nutriments}{energy_100g})
-		and ($product_ref->{nutriments}{energy_100g} > 0))
+	if (    (!$product_ref->{nutrition}{no_nutrition_data})
+		and (defined $product_ref->{nutrition}{aggregated_set}{nutrients}{energy})
+		and ($product_ref->{nutrition}{aggregated_set}{nutrients}{energy} > 0))
 	{
 
-		my $energy = $product_ref->{nutriments}{energy_100g};
+		my $energy = $product_ref->{nutrition}{aggregated_set}{nutrients}{energy};
 
 		# Compute energy density: low, moderate, high
 		# We might want to move it to the nutrients level at some point
