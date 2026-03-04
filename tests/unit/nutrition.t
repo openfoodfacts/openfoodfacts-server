@@ -1114,6 +1114,85 @@ my @tests = (
 				]
 			}
 		}
+	],
+
+	# pb on Japanese product: https://world.openfoodfacts.org/product/8718989958732/milk-chocolate-plus
+	[
+		"as_sold_per_serving_plus_estimated_per_100g",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "200",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sugars => {
+								value_string => "6.3",
+								value => 6.3,
+								unit => "g",
+							}
+						}
+					},
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "estimate",
+						nutrients => {
+							sugars => {
+								value => 3,
+								unit => "g",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+
+	[
+		# an unknown source should be considered less important than known sources
+		"unknown_source_less_important_than_known_sources",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "unknown_source",
+						nutrients => {
+							sodium => {
+								value_string => "2.0",
+								value => 2,
+								unit => "g",
+								modifier => "<="
+							}
+						}
+					},
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "10",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sodium => {
+								value_string => "0.1",
+								value => 0.1,
+								unit => "g",
+							},
+
+						}
+					}
+				]
+			}
+		}
 	]
 );
 

@@ -5,3 +5,5 @@ This folder contains the schema definitions for the Redis events that Product Op
 You can preview the schema in VSCode using the [asyncapi-preview](https://marketplace.visualstudio.com/items?itemName=asyncapi.asyncapi-preview) extension.
 
 A pre-build HTML version of the document can be found [here](./openfoodfacts-server.html)
+
+Use `make rebuild_asyncapi` to regenerate the HTML if the schema yaml is changed.

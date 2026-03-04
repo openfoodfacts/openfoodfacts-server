@@ -395,6 +395,52 @@ You need to remove the directory where you cloned the project, and clone the pro
 # replace my-user-id with your user id if you forked the repository, otherwise use openfoodfacts
 git clone -c core.symlinks=true git@github.com:my-user-id/openfoodfacts-server.git
 ```
+
+### make dev error: Unable to locate package libzxing-dev (Apple Silicon)
+
+When running `make dev` on Apple Silicon (`arm64`), you may see:
+
+```bash
+E: Unable to locate package libzxing-dev
+```
+
+**Cause:**
+Some dependencies used during image build are available for `amd64` but not for `arm64`.
+
+**Solution:**
+Run Docker builds targeting `amd64`:
+
+```bash
+DOCKER_DEFAULT_PLATFORM=linux/amd64 make dev
+```
+
+To make it persistent for your shell session:
+
+```bash
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+make dev
+```
+
+> **Note:**
+> Running `amd64` images on Apple Silicon uses emulation and can be slower.
+
+### CSS looks broken (missing main stylesheet / app-.css)
+
+If the page loads but styles are missing, inspect the HTML and check whether the stylesheet URL is `app-.css` instead of `app-ltr.css` or `app-rtl.css`.
+
+**Cause:**
+Language assets are missing or outdated, so `text_direction` is empty when building the stylesheet filename.
+
+**Solution:**
+Rebuild language assets, then restart web containers:
+
+```bash
+make build_lang
+docker compose restart backend frontend dynamicfront
+```
+
+Then force-reload the page (or clear browser cache).
+
 ### make dev error: open /.docker/buildx/current: permission denied
 On macOS
 When running `make dev`:

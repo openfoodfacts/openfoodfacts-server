@@ -20,7 +20,7 @@
 
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
-/*global lang admin initializeTagifyInput other_nutrients:writable*/ // we change other_nutrients to remove nutrients when they are added
+/*global lang admin initializeTagifyInput other_nutrients:writable trackMatomoEvent*/ // we change other_nutrients to remove nutrients when they are added
 /*exported upload_image update_image update_nutrition_image_copy*/
 
 //Polyfill, just in case
@@ -645,6 +645,7 @@ const maximumRecentEntriesPerTag = 10;
 
                                     $('#' + imagefield + '_' + data.result.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
                                     change_image(imagefield, data.result.image.imgid);
+                                    trackMatomoEvent('Product', 'Image Upload', imagefield);
                                 }
 
                                 if (data.result.error) {
