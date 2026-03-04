@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.89.2](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.89.1...v2.89.2) (2026-03-04)
+
+
+### Bug Fixes
+
+* bump trivy to 0.34.2 ([#13215](https://github.com/openfoodfacts/openfoodfacts-server/issues/13215)) ([96ece8f](https://github.com/openfoodfacts/openfoodfacts-server/commit/96ece8f4ae23c5d6e080ab5d46a60f4b93a15e9c))
+
 ## [2.89.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.89.0...v2.89.1) (2026-03-03)
 
 
