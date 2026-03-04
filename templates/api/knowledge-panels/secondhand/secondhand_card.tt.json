@@ -8,6 +8,22 @@
         "title": "[% edq(lang('secondhand')) %]",
     },    
     "elements": [
+        [% IF panels.repair_fr_epargnonsnosressources.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "repair_fr_epargnonsnosressources",
+            },
+        },
+        [% END %]
+        [% IF panels.repair_reuse_recycle_fr_qfdmo.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "repair_reuse_recycle_fr_qfdmo",
+            },
+        },
+        [% END %]
         [% IF panels.donated_products.defined %]
         {
             "element_type": "panel",
