@@ -44,6 +44,10 @@ jobs:
             - '**/*'         # Catch everything
             - '!taxonomy/**' # Except taxonomy files
           predicate-quantifier: 'every'
+      - name: "Some debug output"
+        run: |
+          echo 'code: '${{ steps.filter.outputs.code }}
+          echo 'any_non_taxonomy: '${{ steps.filter.outputs.any_non_taxonomy }}
 
   lint:
     name: 🕵️‍♀️ NPM lint
