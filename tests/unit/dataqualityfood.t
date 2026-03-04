@@ -2050,8 +2050,8 @@ $product_ref = {
 				per => "100g",
 				nutrients => {
 					"carbohydrates-total" => {value => 3, unit => "g"},
-					"sugars" => {value => 1, unit => "g"},
-					"starch" => {value => 5, unit => "g", modifier => "<"},
+					"sugars" => {value => 5, unit => "g"},
+					"starch" => {value => 1, unit => "g", modifier => "<"},
 				}
 			}
 		]
