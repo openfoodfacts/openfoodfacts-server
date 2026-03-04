@@ -16,11 +16,11 @@ const sass = gulpSass(sassLib);
 
 function sassLogAndExit(error) {
   sass.logError(error);
-  process.exit(1);
+  throw new Error(error.message);
 }
 function gulpLogAndExit(error) {
   gulp.log(error);
-  process.exit(1);
+  throw new Error(error.message);
 }
 
 const jsSrc = [
