@@ -42,7 +42,7 @@ jobs:
             - '!docs/**'   # Exclude docs/ folder
             any_non_taxonomy:
             - '**/*'         # Catch everything
-            - '!taxonomy/**' # Except taxonomy files
+            - '!taxonomy/**/*' # Except taxonomy files
           predicate-quantifier: 'every'
       - name: "Some debug output"
         run: |
