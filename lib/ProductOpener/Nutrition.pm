@@ -304,50 +304,53 @@ Reference to array of unsorted input nutrient sets
 
 =cut
 
+my %preparation_priority = (
+	prepared => 0,
+	as_sold => 1,
+	_default => 2,
+);
+
+my %source_priority = (
+	manufacturer => 0,
+	packaging => 1,
+	usda => 2,
+	estimate => 3,
+	_default => 4,
+);
+
+my %per_priority = (
+	"100g" => 0,
+	"100ml" => 1,
+	"1l" => 2,    # for water
+	"1kg" => 3,    # for pet food
+	serving => 4,
+	_default => 5,
+);
+
 sub sort_sets_by_priority ($input_sets_ref) {
-	my %source_priority = (
-		manufacturer => 0,
-		packaging => 1,
-		usda => 2,
-		estimate => 3,
-		_default => 4,
-	);
-
-	my %per_priority = (
-		"100g" => 0,
-		"100ml" => 1,
-		"1l" => 2,    # for water
-		"1kg" => 3,    # for pet food
-		serving => 4,
-		_default => 5,
-	);
-
-	my %preparation_priority = (
-		prepared => 0,
-		as_sold => 1,
-		_default => 2,
-	);
 
 	@$input_sets_ref =
 
 		sort {
-		my $source_key_a = defined $a->{source} ? $a->{source} : '_default';
-		my $source_key_b = defined $b->{source} ? $b->{source} : '_default';
-		my $source_a = $source_priority{$source_key_a};
-		my $source_b = $source_priority{$source_key_b};
+		my $source_a
+			= defined $source_priority{$a->{source}} ? $source_priority{$a->{source}} : $source_priority{_default};
+		my $source_b
+			= defined $source_priority{$b->{source}} ? $source_priority{$b->{source}} : $source_priority{_default};
 
-		my $per_key_a = defined $a->{per} ? $a->{per} : '_default';
-		my $per_key_b = defined $b->{per} ? $b->{per} : '_default';
-		my $per_a = $per_priority{$per_key_a};
-		my $per_b = $per_priority{$per_key_b};
+		my $per_a = defined $per_priority{$a->{per}} ? $per_priority{$a->{per}} : $per_priority{_default};
+		my $per_b = defined $per_priority{$b->{per}} ? $per_priority{$b->{per}} : $per_priority{_default};
 
-		my $preparation_key_a = defined $a->{preparation} ? $a->{preparation} : '_default';
-		my $preparation_key_b = defined $b->{preparation} ? $b->{preparation} : '_default';
-		my $preparation_a = $preparation_priority{$preparation_key_a};
-		my $preparation_b = $preparation_priority{$preparation_key_b};
+		my $preparation_a
+			= defined $preparation_priority{$a->{preparation}}
+			? $preparation_priority{$a->{preparation}}
+			: $preparation_priority{_default};
+		my $preparation_b
+			= defined $preparation_priority{$b->{preparation}}
+			? $preparation_priority{$b->{preparation}}
+			: $preparation_priority{_default};
 
-		# sort priority : source then per then preparation
-		return $preparation_a <=> $preparation_b || $per_a <=> $per_b || $source_a <=> $source_b;
+		# sort priority : preparation, source, per
+		return ($preparation_a <=> $preparation_b) || ($source_a <=> $source_b) || ($per_a <=> $per_b);
 		} @$input_sets_ref;
 
 	return @$input_sets_ref;
@@ -2323,7 +2326,12 @@ The nutrition fields sort keys will be prefixed by this sort key.
 
 =cut
 
-sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populated_fields_ref, $sort_key) {
+sub add_nutrition_fields_from_product_to_populated_fields(
+	$product_ref, $populated_fields_ref, $sort_key,
+	$export_nutrition_estimate = 0,
+	$export_nutrition_aggregated_set = 0
+	)
+{
 
 	if (not defined $product_ref->{nutrition}) {
 		return;
@@ -2339,7 +2347,48 @@ sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populat
 	}
 
 	# Aggregated set: not needed at first for exporting and importing data as it is generated from the input sets
-	# TODO: export when $export_args_ref->{export_nutrition_aggregated_set} = 1;
+	# Only export when $export_args_ref->{export_nutrition_aggregated_set} = 1;
+	if ($export_nutrition_aggregated_set) {
+		foreach my $field ("per_quantity", "per_unit") {
+			if (defined deep_get($product_ref, "nutrition", "aggregated_set", $field)) {
+				$populated_fields_ref->{"nutrition.aggregated_set.${field}"}
+					= $sort_key . '_0-aggregated_set_' . sprintf("%02d", $item_number) . '-' . $field;
+			}
+		}
+
+		# Nutrients in the aggregated set
+		my $nutrients_ref = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients");
+		if ((defined $nutrients_ref) and ref($nutrients_ref) eq 'HASH') {
+			my $nutrient_number = 0;
+			foreach my $nutrient (@{$nutrients_tables{off_europe}}) {
+
+				next if $nutrient =~ /^\#/;
+				my $nid = $nutrient;
+
+				$nutrient_number++;
+
+				$nid =~ s/^(-|!)+//g;
+				$nid =~ s/-$//g;
+
+				next if $nid =~ /^nutrition-score/;
+
+				my $nutrient_ref = $nutrients_ref->{$nid};
+
+				if ((defined $nutrient_ref) and (ref($nutrient_ref) eq 'HASH')) {
+					foreach my $field ("modifier", "value_string", "value", "unit") {
+						if (defined $nutrient_ref->{$field}) {
+							$populated_fields_ref->{"nutrition.aggregated_set.nutrients.${nid}.${field}"}
+								= $sort_key
+								. '_2-aggregated_set_nutrients_'
+								. sprintf("%03d", $nutrient_number) . '-'
+								. $nid . '_'
+								. $field;
+						}
+					}
+				}
+			}
+		}
+	}
 
 	# Input sets
 
@@ -2347,6 +2396,12 @@ sub add_nutrition_fields_from_product_to_populated_fields($product_ref, $populat
 	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
 	if (defined $input_sets_hash_ref) {
 		foreach my $source (sort keys %{$input_sets_hash_ref}) {
+
+			# Skip the estimate input set if we don't want to export it
+			if (($source eq "estimate") and (not $export_nutrition_estimate)) {
+				next;
+			}
+
 			foreach my $preparation (sort keys %{$input_sets_hash_ref->{$source}}) {
 				foreach my $per (sort keys %{$input_sets_hash_ref->{$source}{$preparation}}) {
 

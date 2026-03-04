@@ -352,7 +352,7 @@
          "percent_max" : 100,
          "percent_min" : 33.3333333333333,
          "text" : "Sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       },
       {
@@ -757,7 +757,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>Sugar</span> -> en:sugar – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;31016 – percent_min:&nbsp;33.3333333333333 – percent_estimate:&nbsp;66.6666666666667 – percent_max:&nbsp;100</li>\n<li><span>wheat flour</span> -> en:wheat-flour – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;9410 – percent_min:&nbsp;0 – percent_estimate:&nbsp;16.6666666666667 – percent_max:&nbsp;50</li>\n<li><span>butter</span> -> en:butter – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;16400 – percent_min:&nbsp;0 – percent_estimate:&nbsp;16.6666666666667 – percent_max:&nbsp;33.3333333333333</li>\n</ol>\n"
+                  "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>Sugar</span> -> en:sugar – vegan:&nbsp;maybe – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;31016 – percent_min:&nbsp;33.3333333333333 – percent_estimate:&nbsp;66.6666666666667 – percent_max:&nbsp;100</li>\n<li><span>wheat flour</span> -> en:wheat-flour – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;9410 – percent_min:&nbsp;0 – percent_estimate:&nbsp;16.6666666666667 – percent_max:&nbsp;50</li>\n<li><span>butter</span> -> en:butter – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;16400 – percent_min:&nbsp;0 – percent_estimate:&nbsp;16.6666666666667 – percent_max:&nbsp;33.3333333333333</li>\n</ol>\n"
                }
             },
             {
