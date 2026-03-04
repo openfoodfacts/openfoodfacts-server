@@ -1,0 +1,41 @@
+components:
+  schemas:
+    ProductTagsV3:
+      type: object
+      title: Product Tags
+      allOf:
+      - $ref: './product_base_tags.yaml'
+      - type: object
+        properties:
+          tags_sources:
+            type: object
+            description: |
+              All the relevant data on the sources of the different tags of the product.
+              The data is sorted by the sources from which the tags are obtained, e.g. packaging, producer, predicted.
+            patternProperties:
+              "^[a-z]+(_[a-z]+)*$":
+                type: object
+                properties:
+                  last_updated_t:
+                    type: string
+                    description: |
+                      Timestamp indicating when tags related to this source were last updated.
+                  tags:
+                    type: array
+                    description: |
+                      The specific tags related to this source.
+                    items:
+                      type: string
+                    example: ["en:organic"]
+            example:
+              packaging:
+                last_updated_t: "2026-02-22T10:00:00Z"
+                tags:
+                  - en:organic
+                  - en:vegetarian
+              producer:
+                tags:
+                  - en:fair_trade
+              predicted:
+                tags:
+                  - en:organic
