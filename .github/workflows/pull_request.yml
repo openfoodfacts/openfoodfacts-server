@@ -53,7 +53,7 @@ jobs:
     name: 🕵️‍♀️ NPM lint
     needs: filter
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true' && !needs.filter.outputs.taxonomy_only
+    if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true' && needs.filter.outputs.taxonomy_only == 'false'
     steps:
     - uses: actions/checkout@v5
       with:
@@ -407,7 +407,7 @@ jobs:
       contents: write
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true' && !needs.filter.outputs.taxonomy_only
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true' && needs.filter.outputs.taxonomy_only == 'false'
     steps:
     - uses: actions/checkout@v5
       with:
@@ -452,7 +452,7 @@ jobs:
       security-events: write
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true' && !needs.filter.outputs.taxonomy_only
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true' && needs.filter.outputs.taxonomy_only == 'false'
     steps:
     - uses: actions/checkout@v5
       with:
@@ -503,7 +503,7 @@ jobs:
       security-events: write
     needs: [build_frontend]
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && !needs.filter.outputs.taxonomy_only
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.taxonomy_only == 'false'
     steps:
     - uses: actions/checkout@v5
       with:
