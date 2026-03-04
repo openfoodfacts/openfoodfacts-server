@@ -1,5 +1,42 @@
 # Changelog
 
+## [2.89.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.89.0...v2.89.1) (2026-03-03)
+
+
+### Bug Fixes
+
+* allow selecting and importing optional nutrients on pro platform ([#13212](https://github.com/openfoodfacts/openfoodfacts-server/issues/13212)) ([45ebcfa](https://github.com/openfoodfacts/openfoodfacts-server/commit/45ebcfa6b862a419bbbdec8567bf7cb7fe3b9acb))
+
+## [2.89.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.88.1...v2.89.0) (2026-03-03)
+
+
+### Features
+
+* add Matomo event tracking utility module  ([#13163](https://github.com/openfoodfacts/openfoodfacts-server/issues/13163)) ([cbbe67a](https://github.com/openfoodfacts/openfoodfacts-server/commit/cbbe67af0d635010db72dc24face820219cdc84b))
+* track user signup and account deletion events  ([#13172](https://github.com/openfoodfacts/openfoodfacts-server/issues/13172)) ([d89e8d4](https://github.com/openfoodfacts/openfoodfacts-server/commit/d89e8d4a9c140b72bdd624d88a18ee5c09574d65))
+
+
+### Bug Fixes
+
+* add en:nutrition-data-per misc tags ([#13103](https://github.com/openfoodfacts/openfoodfacts-server/issues/13103)) ([a73acca](https://github.com/openfoodfacts/openfoodfacts-server/commit/a73acca7b90894ab3c5de0e2b6043729d0bf3c69))
+* add Matomo event tracking for successful signup ([#13166](https://github.com/openfoodfacts/openfoodfacts-server/issues/13166)) ([#13186](https://github.com/openfoodfacts/openfoodfacts-server/issues/13186)) ([ad3e7d5](https://github.com/openfoodfacts/openfoodfacts-server/commit/ad3e7d5f9370021660d5a2a990c42fd286254ab3))
+* allow filtering products without the last schema version in update_all_products.pl ([#13165](https://github.com/openfoodfacts/openfoodfacts-server/issues/13165)) ([5375c7c](https://github.com/openfoodfacts/openfoodfacts-server/commit/5375c7ceeea621e3591bd7650808a26075f3eaf6))
+* API crash on some products when asking for specific nutrients ([#13168](https://github.com/openfoodfacts/openfoodfacts-server/issues/13168)) ([406b86a](https://github.com/openfoodfacts/openfoodfacts-server/commit/406b86a9a6e7ba7eaf8083c43b559b54e628a077))
+* change nginx priority logic ([#13204](https://github.com/openfoodfacts/openfoodfacts-server/issues/13204)) ([c5d8bd5](https://github.com/openfoodfacts/openfoodfacts-server/commit/c5d8bd5dbd3008c374d7bd2d7c04616cbe20f19b))
+* decrease `id="donation-banner-top"`s ([#13200](https://github.com/openfoodfacts/openfoodfacts-server/issues/13200)) ([b341306](https://github.com/openfoodfacts/openfoodfacts-server/commit/b341306451547a7694e29701c75bb1da6bbd821a))
+* DIVINFOOD survey banner ([#13131](https://github.com/openfoodfacts/openfoodfacts-server/issues/13131)) ([41b1973](https://github.com/openfoodfacts/openfoodfacts-server/commit/41b1973aeb346bf17ab0ad7393c10d57b6d39e4e))
+* Don't bother fixing the product_type for deleted products ([#13150](https://github.com/openfoodfacts/openfoodfacts-server/issues/13150)) ([c4fbfb7](https://github.com/openfoodfacts/openfoodfacts-server/commit/c4fbfb7535143749280935cfdf394da9c9900ab3))
+* Ensure products are in the correct MongoDB colelction and fix product_update event ([#13144](https://github.com/openfoodfacts/openfoodfacts-server/issues/13144)) ([77c7ad6](https://github.com/openfoodfacts/openfoodfacts-server/commit/77c7ad606718d3eb2f180abb7246dd3452631c32))
+* Fixes and adjustments to the repair/reuse knowledge panels in Open Products Facts ([#13142](https://github.com/openfoodfacts/openfoodfacts-server/issues/13142)) ([f1a5474](https://github.com/openfoodfacts/openfoodfacts-server/commit/f1a54745ff6b3bf6bdfa40a575afa514a8560a97))
+* option to export nutrition aggregated set in CSV ([#13208](https://github.com/openfoodfacts/openfoodfacts-server/issues/13208)) ([13fce1c](https://github.com/openfoodfacts/openfoodfacts-server/commit/13fce1c3a2c6fdb8f68a6ea822fce3ba7a7821a9))
+* priority order for aggregate nutrition set sources ([#13151](https://github.com/openfoodfacts/openfoodfacts-server/issues/13151)) ([12d0b9f](https://github.com/openfoodfacts/openfoodfacts-server/commit/12d0b9f11e0f37733241706cb741657107b3f898))
+* remove debug die statement causing crash on signout ([#13035](https://github.com/openfoodfacts/openfoodfacts-server/issues/13035)) ([77cc94c](https://github.com/openfoodfacts/openfoodfacts-server/commit/77cc94c26d61381372e27a276037957c183d15c7))
+* remove most displayed warnings in prod ([#13091](https://github.com/openfoodfacts/openfoodfacts-server/issues/13091)) ([2f8e860](https://github.com/openfoodfacts/openfoodfacts-server/commit/2f8e860206cea1059f6f4e26c3052c45271d1a46))
+* skip already processed dirs in product iter in export scans ([#13099](https://github.com/openfoodfacts/openfoodfacts-server/issues/13099)) ([a704339](https://github.com/openfoodfacts/openfoodfacts-server/commit/a7043399683a3573e179381f1e8fa04ec4a0d7f2))
+* Still not coping with products with no type properly ([#13152](https://github.com/openfoodfacts/openfoodfacts-server/issues/13152)) ([eadd2f6](https://github.com/openfoodfacts/openfoodfacts-server/commit/eadd2f6a9c273b1f2e7a8cfd13e0a295f581bc4e))
+* track Nutri-Score, Eco-Score, and NOVA Matomo events on product ([#13174](https://github.com/openfoodfacts/openfoodfacts-server/issues/13174)) ([bb2f22a](https://github.com/openfoodfacts/openfoodfacts-server/commit/bb2f22a3e4cb0221c26d4b95c064b54de495a939))
+* Typo in gen_users_emails_list.pl ([#13132](https://github.com/openfoodfacts/openfoodfacts-server/issues/13132)) ([b66f7d0](https://github.com/openfoodfacts/openfoodfacts-server/commit/b66f7d0367147ff53810725fdeab9af1baa83143))
+
 ## [2.88.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.88.0...v2.88.1) (2026-02-18)
 
 
