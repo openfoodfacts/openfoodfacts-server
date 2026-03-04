@@ -890,29 +890,6 @@ sub check_nutrition_data_energy_computation ($product_ref, $nutrition_set_ref, $
 	return;
 }
 
-sub min_nutrient_value ($product_ref, $nid) {
-	if (($product_ref->{nutriments}{$nid . "_modifier"} // "") eq "<") {
-		return 0;
-	}
-	return $product_ref->{nutriments}{$nid . "_100g"} // 0;
-}
-
-sub nutrient_total_less_than_parts($product_ref, $total_nid, @parts_nids) {
-	my $total = $product_ref->{nutriments}{$total_nid . "_100g"};
-	if (not defined $total) {
-		return 0;
-	}
-	my $parts = 0;
-	foreach my $part (@parts_nids) {
-		$parts += min_nutrient_value($product_ref, $part);
-	}
-	# increased threshold from 0.001 to 0.01 (see issue #10491)
-	if (sprintf("%.2f", $parts) > sprintf("%.2f", $total + 0.01)) {
-		return 1;
-	}
-	return 0;
-}
-
 =head2 check_nutrition_data( PRODUCT_REF )
 
 Checks related to the nutrition facts values.
@@ -1073,6 +1050,29 @@ sub check_energy_for_input_set ($product_ref, $nutrition_set_ref, $set_id, $data
 	return;
 }
 
+sub min_nutrient_value ($nutrients_ref, $nid) {
+	if ((deep_get($nutrients_ref, $nid, "modifier") // "") eq "<") {
+		return 0;
+	}
+	return get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, $nid) // 0;
+}
+
+sub nutrient_total_less_than_parts($nutrients_ref, $total_nid, @parts_nids) {
+	my $total = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, $total_nid);
+	if (not defined $total) {
+		return 0;
+	}
+	my $parts = 0;
+	foreach my $part (@parts_nids) {
+		$parts += min_nutrient_value($nutrients_ref, $part);
+	}
+	# increased threshold from 0.001 to 0.01 (see issue #10491)
+	if (sprintf("%.2f", $parts) > sprintf("%.2f", $total + 0.01)) {
+		return 1;
+	}
+	return 0;
+}
+
 =head2 check_specific_nutrients_for_input_set ( $product_ref, $nutrition_set_ref, $set_id, $data_quality_tags )
 
 Checks related to specific nutrients for a given input set.
@@ -1097,26 +1097,8 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 
 	# sugar + starch cannot be greater than carbohydrates
 	# do not raise error if sugar or starch contains "<" symbol (see issue #9267)
-	if (
-		(defined $carbohydrates)
-		and (
-			# without "<" symbol, check sum of sugar and starch is not greater than carbohydrates
-			(
-					(($sugars + $starch) > ($carbohydrates) + 0.001)
-				and not(defined $sugars_modifier)
-				and not(defined $starch_modifier)
-			)
-			or
-			# with "<" symbol, check only that sugar or starch are not greater than carbohydrates
-			(
-				(((defined $sugars_modifier) and ($sugars_modifier eq "<")) and ($sugars > ($carbohydrates) + 0.001))
-				or (    ((defined $starch_modifier) and ($starch_modifier eq "<"))
-					and ($starch > ($carbohydrates) + 0.001))
-			)
-		)
-		)
+	if (nutrient_total_less_than_parts($nutrients_ref, "carbohydrates", "sugars", "starch"))
 	{
-
 		push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-sugars-plus-starch-greater-than-carbohydrates";
 	}
 

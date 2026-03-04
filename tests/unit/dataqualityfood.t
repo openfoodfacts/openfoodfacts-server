@@ -1847,7 +1847,7 @@ $product_ref = {
 				preparation => "as_sold",
 				per => "100g",
 				nutrients => {
-					"carbohydrates" => {value => 1, unit => "g"},
+					"carbohydrates" => {value => 4, unit => "g"},
 					"sugars" => {value => 2, unit => "g"},
 					"starch" => {value => 3, unit => "g"},
 				}
@@ -1906,7 +1906,7 @@ $product_ref = {
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
-ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'),
 	'sugars greater carbohydrates but presence of "<" symbol on sugars')
 	or diag Dumper $product_ref;
 
@@ -1920,8 +1920,8 @@ $product_ref = {
 				per => "100g",
 				nutrients => {
 					"carbohydrates" => {value => 3, unit => "g"},
-					"sugars" => {value => 1, unit => "g"},
-					"starch" => {value => 5, unit => "g", modifier => "<"},
+					"sugars" => {value => 1, unit => "g", modifier => "<"},
+					"starch" => {value => 5, unit => "g"},
 				}
 			}
 		]
