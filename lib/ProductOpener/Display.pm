@@ -5071,11 +5071,10 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	# 2026-03-04 - due to heavy load from bots, disabling 2nd level facets unless the user
 	#  is logged in
-	          if ((not defined $User_id) and ($request_ref->{page} > 10)) {
-	                          display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
-	                                          return;
-                                                  }
-	
+	if ((not defined $User_id) and ($request_ref->{page} > 10)) {
+		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
+		return;
+	}
 
 	add_params_and_filters_to_query($request_ref, $query_ref);
 
