@@ -1194,7 +1194,7 @@ $product_ref = {
 				preparation => "as_sold",
 				per => "100g",
 				nutrients => {
-					"sugars" => {value => 1, unit => "g"},
+					"sugars" => {value => 4.5, unit => "g"},
 					"fructose" => {value => 1, unit => "g"},
 					"glucose" => {value => 1, unit => "g"},
 					"maltose" => {value => 1, unit => "g"},
@@ -1267,6 +1267,33 @@ ok(
 	),
 	'Lactose and symbol lower than should be ignore'
 ) or diag Dumper $product_ref;
+
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"sugars" => {value => 3, unit => "g"},
+					"fructose" => {value => 4, unit => "g", modifier => '<'},
+					"glucose" => {value => 4, unit => "g", modifier => '<'},
+					"maltose" => {value => 4, unit => "g", modifier => '<'},
+					"lactose" => {value => 4, unit => "g", modifier => '<'},
+					"sucrose" => {value => 4, unit => "g", modifier => '<'},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'component sugars should not be included if they have a < modifier',
+	0
+);
 
 # salt_100g is very small warning (may be in mg)
 ## lower than 0.001

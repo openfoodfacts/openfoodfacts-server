@@ -1097,8 +1097,7 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 
 	# sugar + starch cannot be greater than carbohydrates
 	# do not raise error if sugar or starch contains "<" symbol (see issue #9267)
-	if (nutrient_total_less_than_parts($nutrients_ref, "carbohydrates", "sugars", "starch"))
-	{
+	if (nutrient_total_less_than_parts($nutrients_ref, "carbohydrates", "sugars", "starch")) {
 		push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-sugars-plus-starch-greater-than-carbohydrates";
 	}
 
@@ -1118,10 +1117,8 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 			or
 			# with "<" symbol, check only that sugar, starch or fiber are not greater than carbohydrates
 			(
-				(
-						((defined $sugars_modifier) and ($sugars_modifier eq "<"))
-					and ($sugars > $carbohydrates_total + 0.001)
-				)
+				(       ((defined $sugars_modifier) and ($sugars_modifier eq "<"))
+					and ($sugars > $carbohydrates_total + 0.001))
 				or (    ((defined $starch_modifier) and ($starch_modifier eq "<"))
 					and ($starch > $carbohydrates_total + 0.001))
 				or (    ((defined $fiber_modifier) and ($fiber_modifier eq "<"))
@@ -1136,30 +1133,15 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 	}
 
 	# sum of nutrients that compose sugar can not be greater than sugar value
-
-	if (deep_exists($nutrients_ref, "sugars", "value")) {
-		my $fructose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "fructose") || 0;
-		my $glucose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "glucose") || 0;
-		my $galactose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "galactose") || 0;
-		my $maltose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "maltose") || 0;
-		my $lactose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "lactose") || 0;
-		my $sucrose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "sucrose") || 0;
-		my $lactose_modifier = deep_get($nutrients_ref, "lactose", "modifier");
-
-		# sometimes lactose < 0.01 is written below the nutrition table together whereas
-		# sugar is 0 in the nutrition table (#10715)
-		# ignore lactose when having "<" symbol
-		if ((defined $lactose_modifier) and (($lactose_modifier eq '<') or ($lactose_modifier eq '≤'))) {
-			$lactose = 0;
-		}
-
-		my $total_sugar = $fructose + $glucose + $galactose + $maltose + $lactose + $sucrose;
-
-		if ($total_sugar > $sugars + 0.001) {
-			# strictly speaking: also includes galactose, despite the label name
-			push @{$product_ref->{$data_quality_tags}},
-				"en:${set_id}-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
-		}
+	# strictly speaking: also includes galactose, despite the label name
+	if (
+		nutrient_total_less_than_parts(
+			$nutrients_ref, "sugars", "fructose", "glucose", "galactose", "maltose", "lactose", "sucrose"
+		)
+		)
+	{
+		push @{$product_ref->{$data_quality_tags}},
+			"en:${set_id}-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
 	}
 
 	my $fat = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "fat");
