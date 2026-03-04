@@ -1093,6 +1093,12 @@ $(function () {
             // clear the values: inputs with class nutrient_value that are inside a cell with the input_set_class
             $('.' + input_set_class + ' input.nutrient_value').val('');
         }
+        
+        
+        // Recalculate nutrition image position after table resize
+        setTimeout(update_nutrition_image_copy, 50);
+        
+        
     });
 
     $('#no_nutrition_data').on('change', function() {
