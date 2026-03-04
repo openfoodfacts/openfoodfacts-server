@@ -71,7 +71,6 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 use Time::Local;
 
-
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -85,28 +84,27 @@ my $since_timestamp = 0;
 
 # Parse the --since argument if provided
 if ($since_date =~ /^--since=(.+)$/) {
-$since_date = $1;
+	$since_date = $1;
 }
 elsif ($arg =~ /^--since=(.+)$/) {
-    $since_date = $1;
+	$since_date = $1;
 }
 
 if ($since_date) {
-    if ($since_date =~ /^(\d{4})-(\d{2})-(\d{2})$/) {
-        my ($year, $month, $day) = ($1, $2, $3);
-        eval {
-            $since_timestamp = timelocal(0, 0, 0, $day, $month - 1, $year - 1900);
-        };
-        if ($@) {
-            die "Invalid date: $@";
-        }
-    } else {
-        die "Invalid date format. Please use ISO 8601 format (YYYY-MM-DD), e.g., 2024-01-15";
-    }
+	if ($since_date =~ /^(\d{4})-(\d{2})-(\d{2})$/) {
+		my ($year, $month, $day) = ($1, $2, $3);
+		eval {$since_timestamp = timelocal(0, 0, 0, $day, $month - 1, $year - 1900);};
+		if ($@) {
+			die "Invalid date: $@";
+		}
+	}
+	else {
+		die "Invalid date format. Please use ISO 8601 format (YYYY-MM-DD), e.g., 2024-01-15";
+	}
 }
 
 if (scalar $#userids < 0) {
-    @userids = retrieve_user_preference_ids();
+	@userids = retrieve_user_preference_ids();
 }
 
 my $counter = 0;
@@ -132,7 +130,7 @@ foreach my $userid (@userids) {
 
 		# Skip users registered before the since_timestamp
 		if ($since_timestamp > 0 && $t < $since_timestamp) {
-				next;
+			next;
 		}
 
 		require ProductOpener::GeoIP;
@@ -160,5 +158,4 @@ print STDERR "Total processed: $counter users\n";
 print STDERR "Total exported: $exported_counter users\n";
 
 exit(0);
-
 
