@@ -137,10 +137,11 @@ count = 0
 # rm -rf html/images/products/ingredient
 max_count = 100
 print("--- Creating products ---")
-for id, ingredient in ingredients.items():
+for id in sorted(ingredients):
     if count >= max_count:
         break
 
+    ingredient = ingredients[id]
     # Only import ingredients that have a Ciqual food code (could maybe include proxy)
     ciqual_code = ingredient.get("ciqual_food_code", {}).get("en")
     if not ciqual_code:

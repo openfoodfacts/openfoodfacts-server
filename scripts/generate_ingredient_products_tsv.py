@@ -33,6 +33,7 @@ TODO:
 import csv
 import sys
 import requests
+from requests.auth import HTTPBasicAuth
 import os
 from dotenv import load_dotenv
 import hashlib
@@ -63,7 +64,6 @@ wikidata_headers = {
     "User-Agent": "OpenFoodFacts/1.0 (https://world.openfoodfacts.org) ingredient-uploader"
 }
 
-
 def po_response_is_ok(response: requests.Response):
     if response.status_code == 200:
         return True
@@ -75,6 +75,27 @@ def po_response_is_ok(response: requests.Response):
         print(response.content)
     return False
 
+print("--- Logging in ---")
+# Uses the outward facing url for local development
+oidc_discovery_url = os.getenv("OIDC_DISCOVERY_URL").replace(
+    "//keycloak:8080/", "//auth.openfoodfacts.localhost:5600/"
+)
+openid_configuration = requests.get(oidc_discovery_url).json()
+token_endpoint = openid_configuration["token_endpoint"]
+
+response = requests.post(
+    token_endpoint,
+    data={
+        "grant_type": "password",
+        # Set the following in .envrc to you OFF credentials. Must be a Producer
+        "username": os.getenv("OIDC_USERNAME"),
+        "password": os.getenv("OIDC_PASSWORD"),
+    },
+    auth=HTTPBasicAuth(os.getenv("OIDC_CLIENT_ID"), os.getenv("OIDC_CLIENT_SECRET")),
+).json()
+
+access_token = response["access_token"]
+off_headers = {"Authorization": f"Bearer {access_token}"}
 
 # Get the existing ingredient products so we know which ones already have images
 # and which ones to delete (if they weren't found in the current ingredients taxonomy)
@@ -84,7 +105,8 @@ existing_codes = []
 products_with_images = []
 while True:
     response = requests.get(
-        f"{base_url}/api/v2/search?fields=code,selected_images&owners_tags=org-openfoodfacts&page_size=1000&page={page}"
+        f"{base_url}/api/v2/search?fields=code,selected_images&owners_tags=org-openfoodfacts&page_size=1000&page={page}",
+        headers=off_headers
     )
     if not po_response_is_ok(response):
         sys.exit(1)
@@ -106,9 +128,11 @@ count = 0
 max_count = 100
 print("--- Creating products ---")
 products = []
-for id, ingredient in ingredients.items():
+for id in sorted(ingredients):
     if count >= max_count:
         break
+
+    ingredient = ingredients[id]
 
     # Only import ingredients that have a Ciqual food code (could maybe include proxy)
     ciqual_code = ingredient.get("ciqual_food_code", {}).get("en")
@@ -216,15 +240,15 @@ def column_sort(column):
         return f"3{column}"
     elif column.startswith("packaging"):
         return f"4{column}"
-    elif column.startswith("countries"):
-        return f"5{column}"
     elif column.startswith("product_name"):
-        return f"7{column}"
+        return f"6{column}"
     elif column.startswith("ingredients_text"):
+        return f"7{column}"
+    elif column == "countries":
         return f"8{column}"
 
     # Must be a nutrient
-    return f"6{column}"
+    return f"5{column}"
 
 
 keys = sorted(set().union(*(d.keys() for d in products)), key=column_sort)
