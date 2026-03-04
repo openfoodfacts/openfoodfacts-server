@@ -1081,7 +1081,10 @@ sub compare_old_and_new_objects (
 {
 
 	# See if the objects have changed by comparing their JSON representation (with sorted keys)
-	my $json = JSON->new->allow_nonref->canonical;
+	# We need convert_blessed here, otherwise we get this error:
+	# encountered object '1', but neither allow_blessed, convert_blessed nor allow_tags settings are enabled (or TO_JSON/FREEZE method missing) at /srv/off/lib/ProductOpener/Import.pm line 1086.
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/13221
+	my $json = JSON->new->allow_nonref->convert_blessed->canonical;
 
 	if ($json->encode($old_object_ref) ne $json->encode($new_object_ref)) {
 		$$differing_ref++;
