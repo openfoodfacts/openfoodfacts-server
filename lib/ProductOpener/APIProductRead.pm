@@ -75,7 +75,7 @@ sub read_product_api ($request_ref) {
 	$log->debug("read_product_api - start", {request => $request_ref}) if $log->is_debug();
 
 	my $response_ref = $request_ref->{api_response};
-	my $cc = $request_ref->{cc}
+	my $cc = $request_ref->{cc};
 
 	# Is a sample product requested?
 	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
