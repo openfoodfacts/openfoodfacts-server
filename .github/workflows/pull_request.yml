@@ -41,13 +41,9 @@ jobs:
             - '!**/*.md'   # Exclude all Markdown files
             - '!docs/**'   # Exclude docs/ folder
             any_non_taxonomy:
-            - '**/*'         # Catch everything else
-            - '!taxonomies/**' # Skip taxonomy files
+            - '**/*'           # Catch everything
+            - '!taxonomies/**' # Except taxonomy files
           predicate-quantifier: 'every'
-      - name: "Some debug output"
-        run: |
-          echo 'code: '${{ steps.filter.outputs.code }}
-          echo 'taxonomy_only: '${{ steps.filter.outputs.any_non_taxonomy == 'false' }}
 
   lint:
     name: 🕵️‍♀️ NPM lint
