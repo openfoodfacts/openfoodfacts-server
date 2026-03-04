@@ -41,8 +41,8 @@ jobs:
             - '!**/*.md'   # Exclude all Markdown files
             - '!docs/**'   # Exclude docs/ folder
             any_non_taxonomy:
-            - '**/*'         # Catch everything
-            - '!taxonomy/**/*' # Except taxonomy files
+            - '!taxonomy/**' # Skip taxonomy files
+            - '**/*'         # Catch everything else
           predicate-quantifier: 'every'
       - name: "Some debug output"
         run: |
