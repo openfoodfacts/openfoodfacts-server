@@ -3774,8 +3774,8 @@ sub display_tag ($request_ref) {
 	my $new_tagid2path = deep_get($request_ref, qw(tags 1 new_tagid_path));
 	my $canon_tagid2 = deep_get($request_ref, qw(tags 1 canon_tagid));
 
-	# 2025-06-01 - due to heavy load from bots, disabling 2nd level facets unless the user is logged in
-	if ((not defined $User_id) and (defined $tagid2)) {
+	# 2025-06-01 - due to heavy load from bots, disabling 2nd level facets unless the user is logged in
+	if ((not defined $User_id) and ((defined $tagid2) or ($request_ref->{page} > 10))) {
 		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
 		return;
 	}
@@ -5068,6 +5068,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	$log->debug("search_and_display_products",
 		{request_ref => sanitize($request_ref), query_ref => $query_ref, sort_by => $sort_by})
 		if $log->is_debug();
+
+	# 2026-03-04 - due to heavy load from bots, disabling 2nd level facets unless the user
+	#  is logged in
+	if ((not defined $User_id) and ($request_ref->{page} > 10)) {
+		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
+		return;
+	}
 
 	add_params_and_filters_to_query($request_ref, $query_ref);
 
