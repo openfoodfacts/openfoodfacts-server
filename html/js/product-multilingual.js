@@ -489,7 +489,7 @@ const maximumRecentEntriesPerTag = 10;
             settings = $.extend(settings, options);
             img_path = settings.img_path;
             code = $("#code").val();
-            code = code.replace(/\W/g, '');
+            code = code.replace(/\s/g, '');
 
             return this.each(function () {
 
