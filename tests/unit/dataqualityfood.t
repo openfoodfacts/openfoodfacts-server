@@ -1933,9 +1933,13 @@ $product_ref = {
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
-ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'),
-	'sugars greater carbohydrates but presence of "<" symbol on sugars')
-	or diag Dumper $product_ref;
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'sugars greater carbohydrates but presence of "<" symbol on sugars'
+) or diag Dumper $product_ref;
 
 ## sugar or starch is greater than carbohydrates, with "<" symbol
 $product_ref = {
