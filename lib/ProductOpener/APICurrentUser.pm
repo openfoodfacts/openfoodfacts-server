@@ -20,13 +20,13 @@
 
 =head1 NAME
 
-ProductOpener::APIUserRead - implementation of READ API for accessing user data
+ProductOpener::APICurrentUser - API for accessing current user data
 
 =head1 DESCRIPTION
 
-This module implements GET /api/v3/users/me
+This module implements GET /api/v3/current-user/permissions
 
-It returns the current user's information (including moderator/admin flags)
+It returns the current user's permissions (including moderator/admin flags)
 from the Open Food Facts server database.
 
 Authentication is via a Keycloak Bearer token passed in the Authorization header.
@@ -35,7 +35,7 @@ which sets $request_ref->{oidc_user_id} to the authenticated user's ID.
 
 =cut
 
-package ProductOpener::APIUserRead;
+package ProductOpener::APICurrentUser;
 
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
@@ -45,7 +45,7 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&read_user_api
+		&read_current_user_permissions_api
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -55,11 +55,11 @@ use vars @EXPORT_OK;
 use ProductOpener::Users qw/%User/;
 use ProductOpener::API qw/add_error/;
 
-=head2 read_user_api ( $request_ref )
+=head2 read_current_user_permissions_api ( $request_ref )
 
-Process API V3 GET /api/v3/users/me requests.
+Process API V3 GET /api/v3/current-user/permissions requests.
 
-Returns the authenticated user's information including moderator and admin flags.
+Returns the authenticated user's permissions including moderator and admin flags.
 Requires a valid Keycloak Bearer token in the Authorization header.
 
 =head3 Parameters
@@ -83,14 +83,31 @@ On success:
   }
 
 On error (not authenticated): HTTP 401 with error details
+On error (invalid sub-action): HTTP 404 with error details
 
 =cut
 
-sub read_user_api ($request_ref) {
+sub read_current_user_permissions_api ($request_ref) {
 
-	$log->debug("read_user_api - start", {request => $request_ref}) if $log->is_debug();
+	$log->debug("read_current_user_permissions_api - start", {request => $request_ref}) if $log->is_debug();
 
 	my $response_ref = $request_ref->{api_response};
+
+	# Validate the sub-action: only "permissions" is currently supported.
+	my $sub_action = $request_ref->{current_user_sub_action} // '';
+	if ($sub_action ne 'permissions') {
+		$log->info("read_current_user_permissions_api - invalid sub-action", {sub_action => $sub_action})
+			if $log->is_info();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "invalid_api_action"},
+				impact => {id => "failure"},
+			},
+			404
+		);
+		return;
+	}
 
 	# By the time this handler runs, init_user() in Display.pm has already:
 	# 1. Picked up oidc_user_id (set by process_auth_header() from the Bearer token)
@@ -102,7 +119,7 @@ sub read_user_api ($request_ref) {
 	my $user_id = $request_ref->{user_id};
 
 	unless (defined $user_id) {
-		$log->info("read_user_api - no authenticated user", {}) if $log->is_info();
+		$log->info("read_current_user_permissions_api - no authenticated user", {}) if $log->is_info();
 		add_error(
 			$response_ref,
 			{
@@ -114,7 +131,7 @@ sub read_user_api ($request_ref) {
 		return;
 	}
 
-	# Build the user info response using fields already set by init_user().
+	# Build the user permissions response using fields already set by init_user().
 	$response_ref->{result} = {id => "user_found"};
 	$response_ref->{user} = {
 		userid => $user_id,
@@ -123,7 +140,7 @@ sub read_user_api ($request_ref) {
 		admin => ($request_ref->{admin} ? 1 : 0),
 	};
 
-	$log->debug("read_user_api - stop", {user_id => $user_id}) if $log->is_debug();
+	$log->debug("read_current_user_permissions_api - stop", {user_id => $user_id}) if $log->is_debug();
 
 	return;
 }
