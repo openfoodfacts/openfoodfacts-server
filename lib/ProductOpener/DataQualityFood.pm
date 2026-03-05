@@ -1051,13 +1051,20 @@ sub check_energy_for_input_set ($product_ref, $nutrition_set_ref, $set_id, $data
 }
 
 sub min_nutrient_value ($nutrients_ref, $nid) {
-	if ((deep_get($nutrients_ref, $nid, "modifier") // "") eq "<") {
+	# Treat component nutrient as having zero value f it is estimated or has a < modifier
+	my $modifier = deep_get($nutrients_ref, $nid, "modifier") // "";
+	if ($modifier eq "~" or $modifier eq "<") {
 		return 0;
 	}
 	return get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, $nid) // 0;
 }
 
 sub nutrient_total_less_than_parts($nutrients_ref, $total_nid, @parts_nids) {
+	# Do not perform check if total has a < or ~ modifier
+	my $modifier = deep_get($nutrients_ref, $total_nid, "modifier") // "";
+	if ($modifier eq "~" or $modifier eq "<") {
+		return 0;
+	}
 	my $total = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, $total_nid);
 	if (not defined $total) {
 		return 0;
