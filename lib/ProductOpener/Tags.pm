@@ -172,8 +172,6 @@ BEGIN {
 
 		&get_taxonomy_tag_path
 
-		&get_minimal_tags_subset
-
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -5199,46 +5197,6 @@ sub get_taxonomy_tag_path ($tagtype, $tagid) {
 	$log->debug("get_taxonomy_tag_path", {tagtype => $tagtype, tagid => $tagid, path => \@path}) if $log->is_debug();
 
 	return \@path;
-}
-
-=head2 get_minimal_tags_subset ($tagtype, $tagids)
-
-Given a list of tagids, return the minimal subset of tagids that are not parents of any other tagid in the list.
-
-=head3 Arguments
-
-=head4 $tagtype
-
-The type of the tag (e.g. categories, labels, allergens)
-
-=head4 $tags_ref
-
-A reference to a list of tagids.
-
-=head3 Return value
-
-A list of tagids that are not parents of any other tagid in the input list.
-
-=cut
-
-sub get_minimal_tags_subset ($tagtype, $tags_ref) {
-
-	# Generate a list of all parents (direct and indirect) of the tags in the input list
-	my %parents = ();
-
-	foreach my $tagid (@$tags_ref) {
-
-		if (defined $all_parents{$tagtype}{$tagid}) {
-			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
-				$parents{$parentid} = 1;
-			}
-		}
-	}
-
-	# Return the minimal subset of tagids that are not parents of any other tagid in the input list
-	my @minimal_subset = grep {!$parents{$_}} @$tags_ref;
-
-	return @minimal_subset;
 }
 
 # Init the taxonomies, as most modules / scripts that load Tags.pm expect the taxonomies to be loaded

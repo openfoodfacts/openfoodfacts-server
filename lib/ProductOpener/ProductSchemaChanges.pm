@@ -899,16 +899,3 @@ sub _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($
 
 	return;
 }
-
-=head2 1003 to 1004 - Refactor the tags schema
-
-=cut
-
-sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
-
-	# we put the content of fields like categories_hierarchy inside categories_tags
-
-	# we create a tags_source.categories with the minimal tags subset to generate categories_tags
-
-	return;
-}
