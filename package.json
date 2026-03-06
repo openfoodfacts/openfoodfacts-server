@@ -58,10 +58,10 @@
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.22.0",
-    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
     "@typescript-eslint/parser": "^8.32.0",
     "dotenv": "^17.2.3",
-    "eslint": "^8.57.1",
+    "eslint": "^10.0.2",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
@@ -74,8 +74,8 @@
     "sass": "^1.97.3",
     "stylelint": "^16.2.1",
     "stylelint-config-recommended": "^14.0.0",
-    "stylelint-config-recommended-scss": "^15.0.1",
-    "stylelint-scss": "^6.12.1"
+    "stylelint-config-recommended-scss": "^17.0.0",
+    "stylelint-scss": "^7.0.0"
   },
   "funding": {
     "type": "opencollective",
