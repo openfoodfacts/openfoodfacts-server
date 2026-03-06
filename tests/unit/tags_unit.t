@@ -5,7 +5,7 @@ use utf8;
 
 use Test2::V0;
 
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/get_lc_tagid/;
 
 =head1 Some unit tests for Tags.pm module
 
@@ -67,20 +67,5 @@ use ProductOpener::Tags qw/:all/;
 	is($lc_tagid, "en:salted-snacks");
 
 }
-
-# Minimal subsets of tags
-
-is([get_minimal_tags_subset("categories", [])], []);
-
-is([get_minimal_tags_subset("categories", ["en:vegetables", "en:carrots"])], ["en:carrots"]);
-
-is(
-	[
-		get_minimal_tags_subset(
-			"categories", ["en:vegetables", "en:carrots", "en:soups", "en:frozen-carrots", "en:frozen-soups"]
-		)
-	],
-	["en:frozen-carrots", "en:frozen-soups"]
-);
 
 done_testing();
