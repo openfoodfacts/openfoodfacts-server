@@ -1,10 +1,11 @@
 name: 🚀 Adding the commit to the next release
 on:
+  pull_request:
+      # FIXME: temporary test
+      - build-release-please-early-fail
   push:
     branches:
       - main
-      # FIXME: temporary test
-      - build-release-please-early-fail
 jobs:
   release-please:
     runs-on: ubuntu-latest
