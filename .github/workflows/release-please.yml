@@ -1,13 +1,60 @@
 name: 🚀 Adding the commit to the next release
 on:
+  # FIXME: temporary test
+  pull_request:
   push:
     branches:
       - main
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    env:
+      # we try to know if it's a release before triggering RELEASE_PLEASE
+      # To wait container build and eventually be able to fail early
+      IS_RELEASE: "${{ startsWith(github.event.head_commit.message, 'chore(main): release') }}"
+      # FIXME: temporary, remove also all occurrence before merge
+      IS_RELEASE_TEST: true
     steps:
-      - id: release
+
+      - name: Wait for frontend container build workflow
+        # only if a new release was created
+        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }}
+        id: wait-build
+        uses: tomchv/wait-my-workflow@v1.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: build (frontend)
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          intervalSeconds: 10
+          timeoutSeconds: 600 # 10m
+
+      - name: Wait for backend container build workflow
+        # only if a new release was created
+        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }}
+        uses: tomchv/wait-my-workflow@v1.1.0
+        id: wait-build2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: build (backend)
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          intervalSeconds: 10
+          timeoutSeconds: 600 # 10m
+
+      - name: Do something if build isn't launch
+        if: ${{ (env.IS_RELEASE || env.IS_RELEASE_TEST) && (steps.wait-build.outputs.conclusion == 'does not exist' || steps.wait-build2.outputs.conclusion == 'does not exist') }}
+        run: echo job does not exist && false # fail if build doesn't exist
+
+      - name: Do something if build fail
+        if: ${{ (env.IS_RELEASE || env.IS_RELEASE_TEST) && (steps.wait-build.outputs.conclusion == 'failure' || steps.wait-build2.outputs.conclusion == 'failure') }}
+        run: echo fail && false # fail if build fail
+
+      - name: Do something if build timeout
+        if: ${{ (env.IS_RELEASE || env.IS_RELEASE_TEST) && (steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build2.outputs.conclusion == 'timed_out') }}
+        run: echo Timeout && false # fail if build time out
+
+      - name: Add commit to release or release !
+        if: ${{ ! env.IS_RELEASE_TEST }}
+        id: release
         uses: googleapis/release-please-action@v4.4.0
         with:
           # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
@@ -26,17 +73,6 @@ jobs:
               {"type":"docs","section":"Technical","hidden":false},
               {"type":"test","section":"Technical","hidden":false}
             ]
-      - name: Wait for frontend container build workflow
-        # only if a new release was created
-        if: ${{ steps.release.outputs.release_created }}
-        id: wait-build
-        uses: tomchv/wait-my-workflow@v1.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: build (frontend)
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          intervalSeconds: 10
-          timeoutSeconds: 600 # 10m
       - name: Get a stripped version of tag_name
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
@@ -45,9 +81,19 @@ jobs:
           # remove eventual initial v
           STRIPPED_TAG_NAME=${TAG_NAME/v/}
           echo "TAG_NAME=$STRIPPED_TAG_NAME" >> $GITHUB_ENV
+      # FIXME: to remove
+      - name: Simulate tag
+        if: ${{ env.IS_RELEASE_TEST }}
+        run: |
+          echo "TAG_NAME=2.89.2" >> $GITHUB_ENV
+      - name: Prepare folder for assets to upload to release
+        if: ${{ steps.release.outputs.release_created || env.IS_RELEASE_TEST }}
+        run: |
+          rm -rf /tmp/release-assets
+          mkdir -p /tmp/release-assets
       - name: Get JS dist files to add to the release
         # only if a new release was created
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.release_created || env.IS_RELEASE_TEST }}
         id: create-frontend-dist-tar
         run : |
           # directory to put files in
@@ -63,7 +109,7 @@ jobs:
             if [[ $waited -gt 360 ]]; then
               echo "Timeout waiting for image $image_name"
               # Abort the job
-              exit 1
+              exit 1      - name: Get JS dist files to add to the release
             fi
           done
           # extract the dist files, we create a temporary docker container and use docker cp
@@ -74,15 +120,41 @@ jobs:
           docker cp -a $id:/opt/product-opener/html/js/dist/ /tmp/frontend-dist/js/
           docker rm -v $id
           # make a tar
-          tar czf /tmp/frontend-dist.tgz -C /tmp/frontend-dist .
-      - name: Add the dist tar to the release
+          tar czf /tmp/release-assets/frontend-dist.tgz -C /tmp/frontend-dist .
+
+      - name: Checkout the project in case of release
+        if: ${{ steps.release.outputs.release_created  || env.IS_RELEASE_TEST }}
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          ref: v${{  env.TAG_NAME }}
+      - name: build taxonomies and lang for food in case of release, and pack them in archives
+        if: ${{ steps.release.outputs.release_created  || env.IS_RELEASE_TEST }}
+        run: |
+          make build_taxonomies
+          make build_lang
+          # spin up a docker so that we can get data that is in volumes
+          # but does nothing (tail -f /dev/null)
+          docker compose run --rm --no-deps -d backend tail -f /dev/null
+          mkdir /tmp/release_data/
+          # get taxonomies jsons
+          docker cp -a po_off-backend-1:/opt/product-opener/html/data/taxonomies /tmp/release_data/food-taxonomies-json
+          # get taxonomies results
+          docker cp -a po_off-backend-1:/mnt/podata/build-cache/taxonomies-result/ /tmp/release_data/food-taxonomies-result
+          # get compiled languages
+          docker cp po_off-backend-1:/mnt/podata/data/Lang.openfoodfacts.localhost.sto /tmp/release_data/lang/Lang.openfoodfacts.org.sto
+          docker cp po_off-backend-1:/mnt/podata/data/Lang_tags.openfoodfacts.localhost.sto /tmp/release_data/lang/Lang_tags.openfoodfacts.org.sto
+          # make archives
+          tar czf /tmp/release-assets/food-taxonomies-json.tgz -C /tmp/release_data/food-taxonomies-json .
+          tar czf /tmp/release-assets/food-taxonomies-results.tgz -C /tmp/release_data/food-taxonomies-results .
+          tar czf /tmp/release-assets/openfoodfacts-org-lang.tgz -C /tmp/release_data/lang .
+      - name: Add the assets to the release
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
-        id: add-frontend-dist-to-release
+        id: add-assests-to-release
         uses: svenstaro/upload-release-action@2.11.4
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: /tmp/frontend-dist.tgz
-          asset_name: frontend-dist.tgz
+          file_glob: /tmp/release-assets/*.tgz
           tag: ${{ steps.release.outputs.tag_name }}
           overwrite: true
