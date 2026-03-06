@@ -1,0 +1,19 @@
+{
+  "title_element": {
+    "title": "Website"
+  },
+  "elements": [
+    {
+      "element_type": "text",
+      "text_element": {
+        "html": ``<a href="[% panel.website | html %]">[% panel.website | html %]</a>``
+      }
+    }
+  ],
+  "level": "info",
+  "topics": ["product"],
+  "expand_for": "large",
+  "evaluation": "neutral",
+  "parent_panel_id": "product_card",
+  "type": "raw"
+}
