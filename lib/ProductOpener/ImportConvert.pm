@@ -716,10 +716,6 @@ sub clean_weights ($product_ref) {
 	);
 
 	if (defined $product_ref->{total_weight}) {
-
-		$log->debug("clean_weights", {lc => $product_ref->{lc}, total_weight => $product_ref->{total_weight}})
-			if $log->is_debug();
-
 		if ((defined $product_ref->{lc}) and (defined $regexps{$product_ref->{lc}})) {
 			foreach my $field ("net_weight", "drained_weight", "volume") {
 				if (    (not defined $product_ref->{$field})
@@ -732,8 +728,6 @@ sub clean_weights ($product_ref) {
 
 						my $after = $';
 						# match number with unit
-
-						$log->debug("clean_weights - matched", {field => $field, after => $after}) if $log->is_debug();
 
 						if ($after =~ /\s?:?\s?(\d[0-9\.\,]+\s*(\w+))/i) {
 							assign_value($product_ref, $field, $1);
@@ -846,9 +840,6 @@ my %unspecified = (
 );
 
 sub clean_fields ($product_ref) {
-
-	$log->debug("clean_fields - start", {}) if $log->is_debug();
-
 	# Quantity in the product name?
 	assign_quantity_from_field($product_ref, "product_name_" . $product_ref->{lc});
 
@@ -887,8 +878,6 @@ sub clean_fields ($product_ref) {
 	}
 
 	foreach my $field (sort keys %{$product_ref}) {
-
-		$log->debug("clean_fields", {field => $field, value => $product_ref->{$field}}) if $log->is_debug();
 
 		if (not defined $product_ref->{$field}) {
 			# print STDERR "undefined value for field $field\n";
@@ -1016,8 +1005,6 @@ sub clean_fields ($product_ref) {
 				else {
 					$product_ref->{$field} = ucfirst(lc($product_ref->{$field}));
 				}
-				$log->debug("clean_fields - after lowercase", {field => $field, value => $product_ref->{$field}})
-					if $log->is_debug();
 			}
 
 			# Remove fields with "0"
@@ -1070,14 +1057,8 @@ sub clean_fields ($product_ref) {
 			# extrait de malt d'<b>orge - </b>sel
 			$product_ref->{$field} =~ s/ -( |)<\/b>/<\/b> -$1/ig;
 
-			$log->debug("clean_fields - ingredients_text - 1", {field => $field, value => $product_ref->{$field}})
-				if $log->is_debug();
-
 			$product_ref->{$field} =~ s/<b>(.*?)<\/b>/split_allergens($1)/iesg;
 			$product_ref->{$field} =~ s/<b>|<\/b>//ig;
-
-			$log->debug("clean_fields - ingredients_text - 2", {field => $field, value => $product_ref->{$field}})
-				if $log->is_debug();
 
 			# Ingredients without separators
 			# e.g. found in some CodeOnline data: "Ingrédients : Pur cacao de MadagascarŒufs fraisHuiles végétalesGélifiant végétalSucre"
@@ -1093,15 +1074,9 @@ sub clean_fields ($product_ref) {
 					=~ s/(Les |l')?(information|ingrédient|indication)(s?) ([^\.,]*) (personnes )?((allergiques( (ou|et) intolérant(e|)s)?)|(intolérant(e|)s( (ou|et) allergiques)?))(\.)?//i;
 				$product_ref->{$field} = ucfirst($product_ref->{$field});
 
-				$log->debug("clean_fields - ingredients_text - 3", {field => $field, value => $product_ref->{$field}})
-					if $log->is_debug();
-
 				# Missing spaces
 				# Poire Williams - sucre de canne - sucre - gélifiant : pectines de fruits - acidifiant : acide citrique.Préparée avec 55 g de fruits pour 100 g de produit fini.Teneur totale en sucres 56 g pour 100 g de produit fini.Traces de _fruits à coque_ et de _lait_..
 				$product_ref->{$field} =~ s/\.([A-Z][a-z])/\. $1/g;
-
-				$log->debug("clean_fields - ingredients_text - 4", {field => $field, value => $product_ref->{$field}})
-					if $log->is_debug();
 
 			}
 
@@ -1123,16 +1098,7 @@ sub clean_fields ($product_ref) {
 
 		if ($field =~ /^ingredients_text_(\w\w)/) {
 			my $ingredients_lc = $1;
-			$log->debug(
-				"clean_fields - before clean_ingredients_text_for_lang ",
-				{field => $field, value => $product_ref->{$field}}
-			) if $log->is_debug();
 			$product_ref->{$field} = clean_ingredients_text_for_lang($product_ref->{$field}, $ingredients_lc);
-			$log->debug(
-				"clean_fields - after clean_ingredients_text_for_lang ",
-				{field => $field, value => $product_ref->{$field}}
-			) if $log->is_debug();
-
 		}
 
 		if ($field =~ /^nutriscore_grade_/) {
