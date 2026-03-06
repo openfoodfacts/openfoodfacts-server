@@ -25,7 +25,7 @@ permissions:
 jobs:
   analyze_and_optimize:
     name: 🔍 Analyze Test Performance & Optimize Groups
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     
     steps:
     - uses: actions/checkout@v5
