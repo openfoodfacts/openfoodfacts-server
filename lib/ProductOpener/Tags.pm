@@ -5201,7 +5201,6 @@ sub get_taxonomy_tag_path ($tagtype, $tagid) {
 	return \@path;
 }
 
-
 =head2 get_minimal_tags_subset ($tagtype, $tagids)
 
 Given a list of tagids, return the minimal subset of tagids that are not parents of any other tagid in the list.
@@ -5241,7 +5240,6 @@ sub get_minimal_tags_subset ($tagtype, $tags_ref) {
 
 	return @minimal_subset;
 }
-
 
 # Init the taxonomies, as most modules / scripts that load Tags.pm expect the taxonomies to be loaded
 # only available taxonomies will be loaded, and missing taxonomies will not trigger an error.

@@ -42,7 +42,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Data qw/can_use_cache_results/;
 
 use Cache::Memcached::Fast;
-use JSON;
+use JSON::MaybeXS;
 use Digest::MD5 qw(md5_hex);
 use Log::Any qw($log);
 use Devel::Size qw(total_size);
@@ -64,7 +64,7 @@ $memd = Cache::Memcached::Fast->new(
 # Maximum object size that we can store in memcached
 $max_memcached_object_size = 1048576;
 
-my $json = JSON->new->utf8->allow_nonref->canonical;
+my $json_utf8 = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
 
 =head1 FUNCTIONS
 

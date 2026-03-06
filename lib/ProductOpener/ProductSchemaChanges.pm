@@ -909,6 +909,6 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 	# we put the content of fields like categories_hierarchy inside categories_tags
 
 	# we create a tags_source.categories with the minimal tags subset to generate categories_tags
-	
+
 	return;
 }
