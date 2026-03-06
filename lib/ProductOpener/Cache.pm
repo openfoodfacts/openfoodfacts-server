@@ -64,7 +64,7 @@ $memd = Cache::Memcached::Fast->new(
 # Maximum object size that we can store in memcached
 $max_memcached_object_size = 1048576;
 
-my $json_utf8 = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
+my $json = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
 
 =head1 FUNCTIONS
 
