@@ -1,8 +1,7 @@
 name: 🚀 Adding the commit to the next release
 on:
+  # FIXME: temporary test
   pull_request:
-      # FIXME: temporary test
-      - build-release-please-early-fail
   push:
     branches:
       - main
