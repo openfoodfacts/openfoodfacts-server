@@ -76,6 +76,11 @@ jobs:
           # remove eventual initial v
           STRIPPED_TAG_NAME=${TAG_NAME/v/}
           echo "TAG_NAME=$STRIPPED_TAG_NAME" >> $GITHUB_ENV
+      - name: Prepare folder for assets to upload to release
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          rm -rf /tmp/release-assets
+          mkdir -p /tmp/release-assets
       - name: Get JS dist files to add to the release
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
@@ -94,7 +99,7 @@ jobs:
             if [[ $waited -gt 360 ]]; then
               echo "Timeout waiting for image $image_name"
               # Abort the job
-              exit 1
+              exit 1      - name: Get JS dist files to add to the release
             fi
           done
           # extract the dist files, we create a temporary docker container and use docker cp
@@ -105,15 +110,40 @@ jobs:
           docker cp -a $id:/opt/product-opener/html/js/dist/ /tmp/frontend-dist/js/
           docker rm -v $id
           # make a tar
-          tar czf /tmp/frontend-dist.tgz -C /tmp/frontend-dist .
-      - name: Add the dist tar to the release
+          tar czf /tmp/release-assets/frontend-dist.tgz -C /tmp/frontend-dist .
+
+      - name: Checkout the project in case of release
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+      - name: build taxonomies and lang for food in case of release, and pack them in archives
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          make build_taxonomies
+          make build_lang
+          # spin up a docker so that we can get data that is in volumes
+          # but does nothing (tail -f /dev/null)
+          docker compose run --rm --no-deps -d backend tail -f /dev/null
+          mkdir /tmp/release_data/
+          # get taxonomies jsons
+          docker cp -a po_off-backend-1:/opt/product-opener/html/data/taxonomies /tmp/release_data/food-taxonomies-json
+          # get taxonomies results
+          docker cp -a po_off-backend-1:/mnt/podata/build-cache/taxonomies-result/ /tmp/release_data/food-taxonomies-result
+          # get compiled languages
+          docker cp po_off-backend-1:/mnt/podata/data/Lang.openfoodfacts.localhost.sto /tmp/release_data/lang/Lang.openfoodfacts.org.sto
+          docker cp po_off-backend-1:/mnt/podata/data/Lang_tags.openfoodfacts.localhost.sto /tmp/release_data/lang/Lang_tags.openfoodfacts.org.sto
+          # make archives
+          tar czf /tmp/release-assets/food-taxonomies-json.tgz -C /tmp/release_data/food-taxonomies-json .
+          tar czf /tmp/release-assets/food-taxonomies-results.tgz -C /tmp/release_data/food-taxonomies-results .
+          tar czf /tmp/release-assets/openfoodfacts-org-lang.tgz -C /tmp/release_data/lang .
+      - name: Add the assets to the release
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
-        id: add-frontend-dist-to-release
+        id: add-assests-to-release
         uses: svenstaro/upload-release-action@2.11.4
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: /tmp/frontend-dist.tgz
-          asset_name: frontend-dist.tgz
+          file_glob: /tmp/release-assets/*.tgz
           tag: ${{ steps.release.outputs.tag_name }}
           overwrite: true
