@@ -332,21 +332,12 @@ sub add_footprint ($product_ref, $ingredient_ref, $footprints_ref, $ingredients_
 	# Check which type has matching conditions for the product
 
 	foreach my $type_ref (@{$ingredients_category_ref->{types}}) {
-
-		$log->debug("compute_footprints_of_ingredients - checking type", {type => $type_ref}) if $log->is_debug();
-
 		my $match = 1;    # The type will match if there are no conditions
 		my @conditions_tags = ();    # We will return the tags that match the conditions
 
 		# Check all conditions
 
 		foreach my $condition_tags_ref (@{$type_ref->{conditions}}) {
-
-			$log->debug(
-				"compute_footprints_of_ingredients - checking condition for type",
-				{conditions => $type_ref->{conditions}, ingredient_ref => $ingredient_ref}
-			) if $log->is_debug();
-
 			$match = 0;
 
 			# Check if we have a matching tag for the condition
@@ -356,11 +347,6 @@ sub add_footprint ($product_ref, $ingredient_ref, $footprints_ref, $ingredients_
 				my ($tagtype, $tagid) = @$tag_ref;
 
 				if (has_tag($product_ref, $tagtype, $tagid)) {
-
-					$log->debug("compute_footprints_of_ingredients - matching product tag for condition",
-						{tag => $tag_ref, conditions => $type_ref->{conditions}})
-						if $log->is_debug();
-
 					$match = 1;
 					push @conditions_tags, $tag_ref;
 					last;
@@ -370,11 +356,6 @@ sub add_footprint ($product_ref, $ingredient_ref, $footprints_ref, $ingredients_
 					and (defined $ingredient_ref->{$tagtype})
 					and ($ingredient_ref->{$tagtype} =~ /(?:^|,)$tagid(?:,|$)/))
 				{
-
-					$log->debug("compute_footprints_of_ingredients - matching ingredient tag for condition",
-						{tag => $tag_ref, conditions => $type_ref->{conditions}})
-						if $log->is_debug();
-
 					$match = 1;
 					push @conditions_tags, $tag_ref;
 					last;
@@ -386,9 +367,6 @@ sub add_footprint ($product_ref, $ingredient_ref, $footprints_ref, $ingredients_
 
 			my $cloned_type_ref = dclone($type_ref);
 			delete $cloned_type_ref->{conditions};    # No need to return all the conditions
-
-			$log->debug("compute_footprints_of_ingredients - matching type", {cloned_type => $cloned_type_ref})
-				if $log->is_debug();
 
 			$footprint_ref->{type} = $cloned_type_ref;
 			$footprint_ref->{conditions_tags} = \@conditions_tags;
@@ -460,10 +438,6 @@ sub compute_footprints_of_ingredients ($product_ref, $footprints_ref, $ingredien
 
 		# Check if the ingredient belongs to one of the ingredients categories for which their is a forest footprint
 
-		$log->debug("compute_footprints_of_ingredients - checking ingredient match",
-			{ingredient_id => $ingredient_ref->{id}})
-			if $log->is_debug();
-
 		my $current_ingredient_category;
 
 		# If the ingredient has sub-ingredients, compute the forest footprint of sub-ingredients
@@ -471,9 +445,6 @@ sub compute_footprints_of_ingredients ($product_ref, $footprints_ref, $ingredien
 		# If we don't have a footprint for sub-ingredients, we will try on the ingredient
 
 		if (defined $ingredient_ref->{ingredients}) {
-			$log->debug("compute_footprints_of_ingredients - ingredient has subingredients",
-				{ingredient_id => $ingredient_ref->{id}})
-				if $log->is_debug();
 			my $sub_ingredients_with_footprint
 				= compute_footprints_of_ingredients($product_ref, $footprints_ref, $ingredient_ref->{ingredients});
 			if ($sub_ingredients_with_footprint > 0) {
@@ -484,26 +455,11 @@ sub compute_footprints_of_ingredients ($product_ref, $footprints_ref, $ingredien
 		}
 
 		foreach my $ingredients_category_ref (@{$forest_footprint_data{ingredients_categories}}) {
-
-			$log->debug(
-				"compute_footprints_of_ingredients - checking ingredient match - category",
-				{ingredient_id => $ingredient_ref->{id}, category => $ingredients_category_ref->{category}}
-			) if $log->is_debug();
-
 			foreach my $category_ingredient_ref (@{$ingredients_category_ref->{ingredients}}) {
 
 				my ($category_ingredient_id, $processing_factor) = @$category_ingredient_ref;
 
-				$log->debug(
-					"compute_footprints_of_ingredients - checking ingredient match - category - category_ingredient",
-					{ingredient_id => $ingredient_ref->{id}, category_ingredient_id => $category_ingredient_id}
-				) if $log->is_debug();
-
 				if (is_a("ingredients", $ingredient_ref->{id}, $category_ingredient_id)) {
-					$log->debug("compute_footprints_of_ingredients - ingredient match",
-						{ingredient_id => $ingredient_ref->{id}, category_ingredient_id => $category_ingredient_id})
-						if $log->is_debug();
-
 					my $footprint_ref = {
 						tag_type => "ingredients",
 						tag_id => $ingredient_ref->{id},
@@ -563,33 +519,14 @@ The footprints are stored in $footprints_ref
 sub compute_footprint_of_category ($product_ref, $footprints_ref) {
 
 	# Check if the ingredient belongs to one of the categories for which their is a forest footprint
-
-	$log->debug(
-		"compute_footprint_of_category - checking category match",
-		{categories_tags => $product_ref->{categories_tags}}
-	) if $log->is_debug();
-
 	my $current_ingredient_category;
 
 	foreach my $ingredients_category_ref (@{$forest_footprint_data{ingredients_categories}}) {
-
-		$log->debug(
-			"compute_footprint_of_category - checking category match - category",
-			{ingredients_category => $ingredients_category_ref->{category}}
-		) if $log->is_debug();
-
 		foreach my $category_ref (@{$ingredients_category_ref->{categories}}) {
 
 			my ($category_id, $processing_factor) = @$category_ref;
 
-			$log->debug("compute_footprint_of_category - checking category match - category - category_ingredient",
-				{category_id => $category_id})
-				if $log->is_debug();
-
 			if (has_tag($product_ref, "categories", $category_id)) {
-				$log->debug("compute_footprint_of_category - category match", {category_id => $category_id})
-					if $log->is_debug();
-
 				add_footprint(
 					$product_ref,
 					undef,

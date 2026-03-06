@@ -739,10 +739,6 @@ sub get_nutrition_input_sets_in_a_hash($product_ref) {
 		}
 	}
 
-	$log->debug("get_nutrition_input_sets_in_a_hash: result",
-		{input_sets_ref => $input_sets_ref, input_sets_hash_ref => $input_sets_hash_ref})
-		if $log->is_debug();
-
 	return $input_sets_hash_ref;
 }
 
@@ -775,9 +771,6 @@ Reference to array of input sets
 =cut
 
 sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_ref) {
-
-	$log->debug("convert_nutrition_input_sets_hash_to_array: start", {input_sets_hash_ref => $input_sets_hash_ref})
-		if $log->is_debug();
 
 	my $input_sets_ref = [];
 	if (defined $input_sets_hash_ref and ref $input_sets_hash_ref eq 'HASH') {
@@ -816,9 +809,6 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_re
 	}
 
 	sort_sets_by_priority($input_sets_ref);
-
-	$log->debug("convert_nutrition_input_sets_hash_to_array: end", {input_sets_ref => $input_sets_ref})
-		if $log->is_debug();
 
 	return $input_sets_ref;
 }
@@ -1192,19 +1182,6 @@ Nutrient id
 sub assign_nutrient_modifier_value_string_and_unit ($input_sets_hash_ref, $source, $preparation, $per, $nid, $modifier,
 	$value_string, $unit)
 {
-	$log->debug(
-		"assign_nutrient_modifier_value_string_and_unit: start",
-		{
-			source => $source,
-			preparation => $preparation,
-			per => $per,
-			nid => $nid,
-			modifier => $modifier,
-			value_string => $value_string,
-			unit => $unit
-		}
-	) if $log->is_debug();
-
 	# Get the nutrient id in the nutrients taxonomy from the nid (without a prefix)
 	my $nutrient_id = "zz:" . $nid;
 	if (not exists_taxonomy_tag("nutrients", $nutrient_id)) {
@@ -1345,9 +1322,6 @@ The source of the nutrition data. e.g. "packaging" or "manufacturer"
 sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_ref, $nutrient_table, $source) {
 
 	# Nutrition data
-
-	$log->debug("Nutrition data") if $log->is_debug();
-
 	assign_no_nutrition_data_from_request_parameters($request_ref, $product_ref);
 
 	# We use a temporary input sets hash to ease setting values
@@ -1390,14 +1364,6 @@ sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_
 
 				if (defined $product_ref->{serving_quantity}) {
 					# set the per_quantity and per_unit fields of the input set
-					$log->debug(
-						"serving size for per serving",
-						{
-							serving_size => $product_ref->{serving_size},
-							serving_quantity => $product_ref->{serving_quantity},
-							serving_unit => $product_ref->{serving_unit}
-						}
-					) if $log->is_debug();
 					deep_set($input_sets_hash_ref, $source, $preparation, $per, "per_quantity",
 						$product_ref->{serving_quantity});
 					deep_set($input_sets_hash_ref, $source, $preparation, $per, "per_unit",
@@ -1495,11 +1461,6 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 
 	my @preparations = get_preparations_for_product_type($product_ref->{product_type});
 	my @pers = get_pers_for_product_type($product_ref->{product_type});
-
-	$log->debug(
-		"assign_nutrition_values_from_request_parameters - start",
-		{source => $source, preparations => \@preparations, pers => \@pers}
-	) if $log->is_debug();
 
 	assign_no_nutrition_data_from_request_parameters($request_ref, $product_ref);
 
@@ -1628,21 +1589,7 @@ sub assign_nutrition_values_from_imported_csv_product ($imported_csv_product_ref
 
 					my $value_string = $imported_csv_product_ref->{"${input_set_nutrient_id}.value_string"};
 
-					($nid eq 'salt') and $log->debug(
-						"imported csv product nutrient value",
-						{
-							input_set_nutrient_id => $input_set_nutrient_id,
-							value_string => $value_string,
-							key => "${input_set_nutrient_id}.value_string"
-						}
-					) if $log->is_debug();
-
 					if (defined $value_string) {
-
-						$log->debug("imported csv product nutrient value found",
-							{input_set_nutrient_id => $input_set_nutrient_id, value_string => $value_string})
-							if $log->is_debug();
-
 						my $unit = $imported_csv_product_ref->{"${input_set_nutrient_id}.unit"};
 						my $modifier = $imported_csv_product_ref->{"${input_set_nutrient_id}.modifier"};
 						assign_nutrient_modifier_value_string_and_unit($input_sets_hash_ref, $source, $preparation,
@@ -1656,9 +1603,6 @@ sub assign_nutrition_values_from_imported_csv_product ($imported_csv_product_ref
 	# Convert back the input sets hash to array
 	deep_set($product_ref, "nutrition", "input_sets",
 		convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_ref));
-
-	$log->debug("assign_nutrition_values_from_imported_csv_product - done", {product_ref => $product_ref->{nutrition}})
-		if $log->is_debug();
 
 	# FIXME / TODO: indicate if there are modifications
 
@@ -1801,10 +1745,6 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 				}
 
 				if ((defined $value) and ($value ne '')) {
-
-					$log->debug("nutrient with defined and non empty value",
-						{nid => $nid, type => $type, value => $value, unit => $unit})
-						if $log->is_debug();
 					$stats_ref->{"products_with_nutrition" . $type}{$code} = 1;
 
 					# if the nid is "energy" and we have a unit, set "energy-kj" or "energy-kcal"
