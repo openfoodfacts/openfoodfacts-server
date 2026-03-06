@@ -87,7 +87,7 @@ jobs:
         run: |
           echo "TAG_NAME=2.89.2" >> $GITHUB_ENV
       - name: Prepare folder for assets to upload to release
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.release_created || env.IS_RELEASE_TEST }}
         run: |
           rm -rf /tmp/release-assets
           mkdir -p /tmp/release-assets
