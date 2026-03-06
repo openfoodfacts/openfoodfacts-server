@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+      # FIXME: temporary test
+      - build-release-please-early-fail
 jobs:
   release-please:
     runs-on: ubuntu-latest
@@ -10,11 +12,13 @@ jobs:
       # we try to know if it's a release before triggering RELEASE_PLEASE
       # To wait container build and eventually be able to fail early
       IS_RELEASE: "${{ startsWith(github.event.head_commit.message, 'chore(main): release') }}"
+      # FIXME: temporary, remove also all occurrence before merge
+      IS_RELEASE_TEST: true
     steps:
 
       - name: Wait for frontend container build workflow
         # only if a new release was created
-        if: ${{ env.IS_RELEASE }}
+        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }}
         id: wait-build
         uses: tomchv/wait-my-workflow@v1.1.0
         with:
@@ -26,7 +30,7 @@ jobs:
 
       - name: Wait for backend container build workflow
         # only if a new release was created
-        if: ${{ env.IS_RELEASE }}
+        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }}
         uses: tomchv/wait-my-workflow@v1.1.0
         id: wait-build2
         with:
@@ -37,18 +41,19 @@ jobs:
           timeoutSeconds: 600 # 10m
 
       - name: Do something if build isn't launch
-        if: ${{ env.IS_RELEASE }} && (steps.wait-build.outputs.conclusion == 'does not exist' || steps.wait-build2.outputs.conclusion == 'does not exist')
+        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }} && (steps.wait-build.outputs.conclusion == 'does not exist' || steps.wait-build2.outputs.conclusion == 'does not exist')
         run: echo job does not exist && false # fail if build doesn't exist
 
       - name: Do something if build fail
-        if: ${{ env.IS_RELEASE }} && (steps.wait-build.outputs.conclusion == 'failure' || steps.wait-build2.outputs.conclusion == 'failure') 
+        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }} && (steps.wait-build.outputs.conclusion == 'failure' || steps.wait-build2.outputs.conclusion == 'failure') 
         run: echo fail && false # fail if build fail
 
       - name: Do something if build timeout
-        if: ${{ env.IS_RELEASE }} && (steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build2.outputs.conclusion == 'timed_out')
+        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }} && (steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build2.outputs.conclusion == 'timed_out')
         run: echo Timeout && false # fail if build time out
 
       - name: Add commit to release or release !
+        if: ${{ ! env.IS_RELEASE_TEST }}
         id: release
         uses: googleapis/release-please-action@v4.4.0
         with:
@@ -76,6 +81,11 @@ jobs:
           # remove eventual initial v
           STRIPPED_TAG_NAME=${TAG_NAME/v/}
           echo "TAG_NAME=$STRIPPED_TAG_NAME" >> $GITHUB_ENV
+      # FIXME: to remove
+      - name: Simulate tag
+        if: ${{ env.IS_RELEASE_TEST }}
+        run: |
+          echo "TAG_NAME=2.89.2" >> $GITHUB_ENV
       - name: Prepare folder for assets to upload to release
         if: ${{ steps.release.outputs.release_created }}
         run: |
@@ -83,7 +93,7 @@ jobs:
           mkdir -p /tmp/release-assets
       - name: Get JS dist files to add to the release
         # only if a new release was created
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.release_created || env.IS_RELEASE_TEST }}
         id: create-frontend-dist-tar
         run : |
           # directory to put files in
@@ -113,12 +123,13 @@ jobs:
           tar czf /tmp/release-assets/frontend-dist.tgz -C /tmp/frontend-dist .
 
       - name: Checkout the project in case of release
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.release_created  || env.IS_RELEASE_TEST }}
         uses: actions/checkout@v5
         with:
           fetch-depth: 1
+          ref: ${{ "v" + env.TAG_NAME }}
       - name: build taxonomies and lang for food in case of release, and pack them in archives
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.release_created  || env.IS_RELEASE_TEST }}
         run: |
           make build_taxonomies
           make build_lang
