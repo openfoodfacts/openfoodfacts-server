@@ -2629,7 +2629,8 @@ sub import_csv_file ($args_ref) {
 									}
 								}
 								else {
-									$log->debug("could not download image file", {file => $file, response => $response})
+									$log->debug("could not download image file",
+										{file => $file, content => $response->content})
 										if $log->is_debug();
 								}
 							}
