@@ -21,3 +21,16 @@ The `dynamicfront` container runs in the background and shares the built files w
 - The backend picks them up automatically from those shared volumes
 
 So if you're working on styles or scripts, just edit the source files in `scss/` or `html/js/`, and the changes will be picked up automatically while Docker is running.
+
+
+**Tips for new contributors:**
+
+If you are new to the project and using Docker, most frontend build steps run automatically in the background.  
+You usually do not need to run npm commands manually unless you are debugging or working outside Docker.
+
+If frontend assets are not updating as expected:
+- Make sure Docker containers are running properly  
+- Try restarting with `make down` and then `make up`  
+- Check container logs to see if build errors occurred  
+
+These quick checks can help resolve common frontend build issues during development.
