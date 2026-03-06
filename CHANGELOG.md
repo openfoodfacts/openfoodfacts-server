@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.90.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.89.2...v2.90.0) (2026-03-06)
+
+
+### Features
+
+* Add --since param ([#13224](https://github.com/openfoodfacts/openfoodfacts-server/issues/13224)) ([40720d6](https://github.com/openfoodfacts/openfoodfacts-server/commit/40720d61be9aea62db406f3bbec6b474c8239598))
+
+
+### Bug Fixes
+
+* Add null guards for remaining high-priority warnings ([#13039](https://github.com/openfoodfacts/openfoodfacts-server/issues/13039)) ([#13092](https://github.com/openfoodfacts/openfoodfacts-server/issues/13092)) ([dccfe73](https://github.com/openfoodfacts/openfoodfacts-server/commit/dccfe737ba30fc0a5675c7c8d3c1280e6dfc5440))
+* fix scss error ([#13223](https://github.com/openfoodfacts/openfoodfacts-server/issues/13223)) ([4700a1d](https://github.com/openfoodfacts/openfoodfacts-server/commit/4700a1dc832eab2e68238133fc20d221db29d766))
+* JSON encoding crash when importing some products ([#13225](https://github.com/openfoodfacts/openfoodfacts-server/issues/13225)) ([947af26](https://github.com/openfoodfacts/openfoodfacts-server/commit/947af261d0cab27a6049369dfe0029bfe602822c))
+* nginx rate limiting + unlogged user limits ([#13228](https://github.com/openfoodfacts/openfoodfacts-server/issues/13228)) ([9c6235a](https://github.com/openfoodfacts/openfoodfacts-server/commit/9c6235aead94fb6804b1838340fbf6328312cd93))
+* Safari nutrition image layout rounding issue ([#13214](https://github.com/openfoodfacts/openfoodfacts-server/issues/13214)) ([a9aa348](https://github.com/openfoodfacts/openfoodfacts-server/commit/a9aa3481f9d7f011bea8af077bb01d7b1bc4accc))
+
 ## [2.89.2](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.89.1...v2.89.2) (2026-03-04)
 
 
