@@ -277,19 +277,26 @@ function displayFolksonomyPropertyValues() {
                     ]
                 */
                 const list = findOcc(json, "v");
+                if (list.length === 0) {
+                    console.log("No value suggestions available for", $("#fe_form_new_property").val());
+                }
                 console.log("list: ", list);
+                const totalOccurrences = list.reduce(function(sum, item) {
+                    return sum + (item.occurrence || 0);
+                }, 0);
 
                 list.sort(function(a, b) {
-                    return a.occurence < b.occurence;
+                    return b.occurrence - a.occurrence;
                 });
 
                 const value_list = list.map(function (value) {
-                    // { "label": "yes(2)", "value": "yes" }
-                    const rObj = {};
-                    rObj.label = value.v + "(" + value.occurrence + ")";
-                    rObj.value = value.v;
-                    
-                    return rObj; // { "label": "yes(2)", "value": "yes" }
+                    const percent = totalOccurrences > 0 ? Math.round((value.occurrence / totalOccurrences) * 100) : 0;
+                    const item = {
+                        label: value.v + ' (' + percent + '%)',
+                        value: value.v,
+                    };
+
+                    return item;
                 });
                 console.log("value_list: ", value_list);
 
