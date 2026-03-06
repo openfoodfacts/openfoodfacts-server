@@ -63,10 +63,10 @@ The Search API supports numerous filter parameters to narrow down results. Most 
 |-----------|-------------|---------|
 | \dditives_tags\ | Filter by food additives | \en:e150a\ |
 | \llergens_tags\ | Filter by allergens | \en:gluten,en:peanuts\ |
-| \rands_tags\ | Filter by product brand | \errero,nestle\ |
+| \rands_tags\ | Filter by product brand | \errero,nestle\ |
 | \categories_tags\ | Filter by product category | \reakfast-cereals,dairy\ |
 | \countries_tags\ | Filter by countries of origin | \en:france,en:spain\ |
-| \emb_codes_tags\ | Filter by EMB codes | \r-75\ |
+| \emb_codes_tags\ | Filter by EMB codes | \r-75\ |
 | \labels_tags\ | Filter by labels/certifications | \en:organic,en:fair-trade\ |
 | \
 utrition_grades_tags\ | Filter by Nutri-Score | \,b,c\ |
@@ -130,11 +130,11 @@ energy-kcal_serving<100
 |-----------|-------------|
 | \energy-kj_100g\ | Energy in kilojoules |
 | \energy-kcal_100g\ | Energy in kilocalories |
-| \at_100g\ | Total fat |
+| \at_100g\ | Total fat |
 | \sugars_100g\ | Sugars |
 | \salt_100g\ | Salt |
 | \protein_100g\ | Protein |
-| \iber_100g\ | Dietary fiber |
+| \iber_100g\ | Dietary fiber |
 
 ### Comparison Operators
 
@@ -155,7 +155,7 @@ sort_by=scans_n
 
 ## Field Selection
 
-Use the \ields\ parameter to limit which attributes are returned:
+Use the \ields\ parameter to limit which attributes are returned:
 
 \\\
 fields=code,product_name,nutrition_grades
@@ -207,7 +207,7 @@ The Search API is rate-limited to **10 requests per minute** per IP address. Do 
 
 ## Best Practices
 
-1. Use the \ields\ parameter to specify only needed attributes
+1. Use the \ields\ parameter to specify only needed attributes
 2. Implement pagination with appropriate \page_size\ values
 3. Combine multiple filters to reduce result size
 4. Respect the 10 requests per minute rate limit
@@ -226,3 +226,4 @@ The Search API is rate-limited to **10 requests per minute** per IP address. Do 
 - **Questions?** Join our [Slack Community](https://slack.openfoodfacts.org/) (#api channel)
 - **Found a bug?** [Report on GitHub](https://github.com/openfoodfacts/openfoodfacts-server/issues/new)
 - **Feature request?** [Submit an issue](https://github.com/openfoodfacts/openfoodfacts-server/issues/new)
+
