@@ -2092,6 +2092,16 @@ Text to analyze
 
 			if ($sep =~ /(:|\[|\{|\(|\N{U+FF08})/i) {
 
+				# If the separator is a colon but is immediately
+				# followed by an opening bracket, treat the
+				# bracket as the separator so the parenthesis
+				# matching logic below will run on the group.
+				# Example: "meat: (beef, pork)"
+				if ($sep eq ':' and $after =~ /^\s*(\(|\[|\{|\N{U+FF08})/i) {
+					$sep = $1;
+					$after =~ s/^\s*(?:\(|\[|\{|\N{U+FF08})\s*//;
+				}
+
 				# Single separators like commas and dashes
 				my $match = '.*?';    # non greedy match
 				my $ending = $last_separator;
