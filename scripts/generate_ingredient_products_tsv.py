@@ -206,7 +206,7 @@ for id in sorted(ingredients):
         "countries": countries,
         "categories": category,
         "packaging_text_en": "1 paper bag to recycle",
-        "image_front_url": image_url,
+        "image_front_url": image_url.replace(',','%2c'), # Escape commas so PO doesn't think there are multiple files
     }
 
     # Create a product name for each language
