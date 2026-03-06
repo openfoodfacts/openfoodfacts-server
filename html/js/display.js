@@ -20,6 +20,7 @@
 
 /* eslint-disable no-undefined */
 /*exported lang countries*/
+/* global _paq */
 
 
 function doWebShare(e) {
@@ -27,6 +28,7 @@ function doWebShare(e) {
 
     if (!window.isSecureContext || navigator.share === undefined) {
         console.error('Error: Unsupported feature: navigator.share');
+        
         return;
     }
 
