@@ -540,9 +540,9 @@ sub split_code ($code) {
 		return "invalid";
 	}
 
-	if ($code =~ /^ingredient/) {
-		# Replace dashes with slashes
-		return $code =~ s/:|-/\//gr;
+	if ($code =~ /^ingredient-(.*)/) {
+		# All ingredients go into a single directory
+		return 'ingredient/' . $1;
 	}
 
 	# Remove leading zeroes
