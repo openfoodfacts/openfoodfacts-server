@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       code_modified: ${{ steps.filter.outputs.code }}
-      taxonomy_only: ${{ ! steps.filter.outputs.any_non_taxonomy }}
+      taxonomy_only: ${{ steps.filter.outputs.any_non_taxonomy == 'false' }}
     steps:
       - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
       - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
@@ -41,8 +41,8 @@ jobs:
             - '!**/*.md'   # Exclude all Markdown files
             - '!docs/**'   # Exclude docs/ folder
             any_non_taxonomy:
-            - '**/*'         # Catch everything
-            - '!taxonomy/**' # Except taxonomy files
+            - '**/*'           # Catch everything
+            - '!taxonomies/**' # Except taxonomy files
           predicate-quantifier: 'every'
 
   lint:
@@ -473,7 +473,7 @@ jobs:
         artifact-name: backend-sbom
         dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     - name: Trivy scan for backend image
-      uses: aquasecurity/trivy-action@0.34.1
+      uses: aquasecurity/trivy-action@0.34.2
       with:
         image-ref: openfoodfacts-server/backend:dev
         format: 'sarif'
@@ -524,7 +524,7 @@ jobs:
         artifact-name: frontend-sbom
         dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     - name: Trivy scan for frontend image
-      uses: aquasecurity/trivy-action@0.34.1
+      uses: aquasecurity/trivy-action@0.34.2
       with:
         image-ref: openfoodfacts-server/frontend:dev
         format: 'sarif'
