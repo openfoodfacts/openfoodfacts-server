@@ -153,6 +153,7 @@ use ProductOpener::TaxonomiesEnhancer qw/check_ingredients_between_languages/;
 
 # Specific to the product type
 use ProductOpener::FoodProducts qw/specific_processes_for_food_product/;
+use ProductOpener::FoodSupplementProducts qw/specific_processes_for_food_supplement_product/;
 use ProductOpener::PetFoodProducts qw/specific_processes_for_pet_food_product/;
 use ProductOpener::BeautyProducts qw/specific_processes_for_beauty_product/;
 
@@ -3525,6 +3526,9 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	if (($options{product_type} eq "food")) {
 		specific_processes_for_food_product($product_ref);
+	}
+	elsif (($options{product_type} eq "foodsupplement")) {
+		specific_processes_for_food_supplement_product($product_ref);
 	}
 	elsif (($options{product_type} eq "petfood")) {
 		specific_processes_for_pet_food_product($product_ref);
