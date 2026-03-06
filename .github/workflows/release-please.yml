@@ -41,15 +41,15 @@ jobs:
           timeoutSeconds: 600 # 10m
 
       - name: Do something if build isn't launch
-        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }} && (steps.wait-build.outputs.conclusion == 'does not exist' || steps.wait-build2.outputs.conclusion == 'does not exist')
+        if: ${{ (env.IS_RELEASE || env.IS_RELEASE_TEST) && (steps.wait-build.outputs.conclusion == 'does not exist' || steps.wait-build2.outputs.conclusion == 'does not exist') }}
         run: echo job does not exist && false # fail if build doesn't exist
 
       - name: Do something if build fail
-        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }} && (steps.wait-build.outputs.conclusion == 'failure' || steps.wait-build2.outputs.conclusion == 'failure') 
+        if: ${{ (env.IS_RELEASE || env.IS_RELEASE_TEST) && (steps.wait-build.outputs.conclusion == 'failure' || steps.wait-build2.outputs.conclusion == 'failure') }}
         run: echo fail && false # fail if build fail
 
       - name: Do something if build timeout
-        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }} && (steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build2.outputs.conclusion == 'timed_out')
+        if: ${{ )env.IS_RELEASE || env.IS_RELEASE_TEST) && (steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build2.outputs.conclusion == 'timed_out') }}
         run: echo Timeout && false # fail if build time out
 
       - name: Add commit to release or release !
