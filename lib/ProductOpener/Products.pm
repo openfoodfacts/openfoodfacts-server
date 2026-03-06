@@ -114,6 +114,9 @@ BEGIN {
 
 		&analyze_and_enrich_product_data
 
+		&prepare_product_for_fingerprint
+		&compute_product_fingerprint
+
 		&is_owner_field
 
 	);    # symbols to export on request
@@ -159,8 +162,10 @@ use ProductOpener::BeautyProducts qw/specific_processes_for_beauty_product/;
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON;
+use JSON::MaybeXS ();
 use Log::Any qw($log);
 use Data::DeepAccess qw(deep_exists deep_get);
+use Digest::SHA qw(sha256_hex);
 
 use Storable qw(dclone);
 use File::Copy::Recursive;
@@ -220,6 +225,118 @@ sub make_sure_numbers_are_stored_as_numbers ($product_ref) {
 	$product_ref->{code} = "$product_ref->{code}";
 
 	return;
+}
+
+# Add here all fields that should not be considered when comparing two product revisions.
+# Listed fields do not affect the fingerprint, so changes to them can be skipped as "no-op" saves.
+# This list is not exhaustive and can be extended over time to make no-op saves converge to zero in the long run.
+# Do not add real product content fields for which contributors expect to create revisions.
+my @product_fingerprint_ignored_top_level_fields = (
+	"checkers_tags",
+	"correctors_tags",
+	"created_by_client",
+	"editors_tags",
+	"entry_dates_tags",
+	"informers_tags",
+	"interface_version_created",
+	"interface_version_modified",
+	"last_check_dates_tags",
+	"last_edit_dates_tags",
+	"last_editor",
+	"last_modified_by",
+	"last_modified_by_client",
+	"last_modified_t",
+	"last_updated_t",
+	"photographers_tags",
+	"rev",
+	"schema_version",
+	"teams",
+	"teams_tags",
+	"weighers_tags",
+);
+
+my $product_fingerprint_json = JSON::MaybeXS->new->allow_nonref->canonical->utf8(1);
+
+# Normalize values recursively and trim scalar whitespace for fingerprint preparation.
+sub _normalize_product_for_fingerprint_value ($value) {
+
+	if (ref($value) eq 'HASH') {
+		my %normalized_hash = ();
+		foreach my $key (keys %{$value}) {
+			$normalized_hash{$key} = _normalize_product_for_fingerprint_value($value->{$key});
+		}
+		return \%normalized_hash;
+	}
+	elsif (ref($value) eq 'ARRAY') {
+		my @normalized_array = map { _normalize_product_for_fingerprint_value($_) } @{$value};
+		return \@normalized_array;
+	}
+
+	if ((defined $value) and (not ref($value))) {
+		# Normalize all scalar values as strings to avoid drift between JSON representation as strings and Perl scalars.
+		# This keeps lexical differences (e.g. "03" vs "3") while making "3" and 3 equivalent.
+		my $normalized_scalar = "$value";
+		$normalized_scalar =~ s/^\s+//;
+		$normalized_scalar =~ s/\s+$//;
+		return $normalized_scalar;
+	}
+
+	return $value;
+}
+
+=head2 prepare_product_for_fingerprint ( $product_ref )
+
+Build a deterministic, normalized clone of a product used to compute fingerprints.
+
+=cut
+
+sub prepare_product_for_fingerprint ($product_ref) {
+
+	if ((not defined $product_ref) or (ref($product_ref) ne 'HASH')) {
+		return {};
+	}
+
+	my $prepared_product_ref = dclone($product_ref);
+
+	foreach my $field (@product_fingerprint_ignored_top_level_fields) {
+		delete $prepared_product_ref->{$field};
+	}
+
+	return _normalize_product_for_fingerprint_value($prepared_product_ref);
+}
+
+# Compute the hash of a prepared product structure as the fingerprint.
+sub _compute_prepared_product_fingerprint ($prepared_product_ref) {
+
+	my $fingerprint_json = $product_fingerprint_json->encode($prepared_product_ref);
+	return sha256_hex($fingerprint_json);
+}
+
+# Return true when two products have the same non-degenerate fingerprint.
+sub _products_have_same_fingerprint ($current_product_ref, $latest_product_ref) {
+
+	my $current_prepared_ref = prepare_product_for_fingerprint($current_product_ref);
+	my $latest_prepared_ref = prepare_product_for_fingerprint($latest_product_ref);
+
+	# Don't skip the revision if either prepared payload collapses to an empty structure.
+	return 0 if ((not keys %{$current_prepared_ref}) or (not keys %{$latest_prepared_ref}));
+
+	return (
+		_compute_prepared_product_fingerprint($current_prepared_ref)
+			eq _compute_prepared_product_fingerprint($latest_prepared_ref)
+	);
+}
+
+=head2 compute_product_fingerprint ( $product_ref )
+
+Compute a deterministic fingerprint of a product.
+
+=cut
+
+sub compute_product_fingerprint ($product_ref) {
+
+	my $prepared_product_ref = prepare_product_for_fingerprint($product_ref);
+	return _compute_prepared_product_fingerprint($prepared_product_ref);
 }
 
 =head2 assign_new_code ( )
@@ -1120,6 +1237,13 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	my $rev = $product_ref->{rev};
 	my $action = "updated";
 
+	# A move is considered "structural" if it does migration work, not just edit content:
+	# - old_code: can move the product/images directories and can delete the old Mongo document as part of the move.
+	# - server or old_product_type: can require removing the product from the previous Mongo collection.
+	my $has_structural_move = defined $product_ref->{old_code}
+		|| defined $product_ref->{old_product_type}
+		|| defined $product_ref->{server};
+
 	# Update product schema version
 	$product_ref->{schema_version} = $current_schema_version;
 
@@ -1436,14 +1560,27 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	make_sure_numbers_are_stored_as_numbers($product_ref);
 
 	$change_ref = $changes_ref->[-1];
-	my $diffs = $change_ref->{diffs};
-	my %diffs = %{$diffs};
-	if ((!$diffs) or (!keys %diffs)) {
-		$log->info("changes not stored because of empty diff", {change_ref => $change_ref}) if $log->is_info();
-		# 2019/09/12 - this was deployed today, but it causes changes not to be saved
-		# compute_product_history_and_completeness() was not written to make sure that it sees all changes
-		# keeping the log and disabling the "return 0" so that all changes are saved
-		#return 0;
+	my $diffs = $change_ref->{diffs} // {};
+
+	# We compare the fingerprints of the two revisions to assess if a change is meaningful or not.
+	# We do not return early for creations or structural moves.
+	if (
+		($rev > 1)
+		and (not $has_structural_move)
+		)
+	{
+		my $latest_product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/product");
+		if (
+			(defined $latest_product_ref)
+			and (ref($latest_product_ref) eq 'HASH')
+			and _products_have_same_fingerprint($product_ref, $latest_product_ref)
+			)
+		{
+			$log->info("store_product - skipped no-op save based on fingerprint",
+				{code => $code, product_id => $product_id})
+				if $log->is_info();
+			return 0;
+		}
 	}
 
 	# First store the product data in a .json file on disk
