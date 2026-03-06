@@ -55,8 +55,6 @@ use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::Images qw(add_images_urls_to_product);
 use ProductOpener::Store qw/retrieve_object/;
 
-my $cc;
-
 =head2 read_product_api ( $request_ref )
 
 Process API V3 READ product requests.
@@ -77,6 +75,7 @@ sub read_product_api ($request_ref) {
 	$log->debug("read_product_api - start", {request => $request_ref}) if $log->is_debug();
 
 	my $response_ref = $request_ref->{api_response};
+	my $cc = $request_ref->{cc};
 
 	# Is a sample product requested?
 	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
