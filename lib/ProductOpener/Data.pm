@@ -248,7 +248,7 @@ sub execute_product_query ($parameters_ref, $query_ref, $fields_ref, $sort_ref, 
 }
 
 # $json_utf8 has utf8 enabled: it decodes UTF8 bytes
-my $json_utf8 = JSON::MaybeXS->new->utf8(1)->allow_nonref->canonical;
+my $json_utf8 = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
 
 sub execute_tags_query ($type, $query) {
 	if ((defined $query_url) and (length($query_url) > 0)) {
