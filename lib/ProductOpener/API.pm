@@ -1012,6 +1012,17 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		}
 
 		# straight fields
+		if (($field eq "nutrition_data_per") and (not defined $product_ref->{$field})) {
+			my $aggregated_set_ref = deep_get($product_ref, "nutrition", "aggregated_set");
+			if (   (defined $aggregated_set_ref)
+				and (($aggregated_set_ref->{preparation} // "") eq "as_sold")
+				and (defined $aggregated_set_ref->{per}))
+			{
+				$customized_product_ref->{$field} = $aggregated_set_ref->{per};
+				next;
+			}
+		}
+		
 		if ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
 			$customized_product_ref->{$field} = $product_ref->{$field};
 			next;
