@@ -127,7 +127,7 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 1
-          ref: ${{ "v" + env.TAG_NAME }}
+          ref: v${{  env.TAG_NAME }}
       - name: build taxonomies and lang for food in case of release, and pack them in archives
         if: ${{ steps.release.outputs.release_created  || env.IS_RELEASE_TEST }}
         run: |
