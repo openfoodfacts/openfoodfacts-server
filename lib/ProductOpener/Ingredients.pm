@@ -1984,7 +1984,9 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	}
 
 	my $text = $product_ref->{ingredients_text};
-
+	
+	$text =~ s/\*?\s*ingr[ée]dient d'origine fran[çc]aise\.?//ig;
+	
 	$log->debug("extracting ingredients from text", {text => $text}) if $log->is_debug();
 
 	$text = preparse_ingredients_text($ingredients_lc, $text);
