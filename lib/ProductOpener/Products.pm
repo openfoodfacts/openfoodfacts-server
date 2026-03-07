@@ -228,7 +228,7 @@ sub make_sure_numbers_are_stored_as_numbers ($product_ref) {
 # Listed fields do not affect the normalized comparison, so changes to them can be skipped as "no-op" saves.
 # This list is not exhaustive and can be extended over time when additional fields are confirmed to be safe to ignore for meaningful revision checks.
 # Do not add real product content fields for which contributors expect to create revisions.
-my @product_comparison_ignored_top_level_fields = (
+my @ignored_top_level_fields_for_comparison = (
 	"created_by_client", "entry_dates_tags",
 	"interface_version_created", "interface_version_modified",
 	"last_check_dates_tags", "last_edit_dates_tags",
@@ -237,20 +237,21 @@ my @product_comparison_ignored_top_level_fields = (
 	"rev",
 );
 
-my $product_comparison_json = JSON::MaybeXS->new->allow_nonref->canonical->utf8(1);
+my $comparison_json_encoder = JSON::MaybeXS->new->allow_nonref->canonical->utf8(1);
 
 # Normalize values recursively and trim scalar whitespace for comparison preparation.
-sub _normalize_product_for_comparison_value ($value, $is_supported_ref = undef) {
+sub _normalize_product_for_comparison_value ($value, $normalization_failed_ref = undef) {
 
 	if (ref($value) eq 'HASH') {
 		my %normalized_hash = ();
 		foreach my $key (keys %{$value}) {
-			$normalized_hash{$key} = _normalize_product_for_comparison_value($value->{$key}, $is_supported_ref);
+			$normalized_hash{$key}
+				= _normalize_product_for_comparison_value($value->{$key}, $normalization_failed_ref);
 		}
 		return \%normalized_hash;
 	}
 	elsif (ref($value) eq 'ARRAY') {
-		my @normalized_array = map {_normalize_product_for_comparison_value($_, $is_supported_ref)} @{$value};
+		my @normalized_array = map {_normalize_product_for_comparison_value($_, $normalization_failed_ref)} @{$value};
 		return \@normalized_array;
 	}
 	elsif (blessed($value)) {
@@ -259,11 +260,11 @@ sub _normalize_product_for_comparison_value ($value, $is_supported_ref = undef) 
 			return $value ? "1" : "0";
 		}
 
-		${$is_supported_ref} = 0 if defined $is_supported_ref;
+		${$normalization_failed_ref} = 1 if defined $normalization_failed_ref;
 		return;
 	}
 	elsif (ref($value)) {
-		${$is_supported_ref} = 0 if defined $is_supported_ref;
+		${$normalization_failed_ref} = 1 if defined $normalization_failed_ref;
 		return;
 	}
 
@@ -291,17 +292,15 @@ sub prepare_product_for_comparison ($product_ref) {
 		return {};
 	}
 
-	my $prepared_product_ref = eval {dclone($product_ref)};
-	return {} if ($@ or (not defined $prepared_product_ref) or (ref($prepared_product_ref) ne 'HASH'));
-
-	foreach my $field (@product_comparison_ignored_top_level_fields) {
-		delete $prepared_product_ref->{$field};
+	my %prepared_product = %{$product_ref};
+	foreach my $field (@ignored_top_level_fields_for_comparison) {
+		delete $prepared_product{$field};
 	}
 
-	my $is_supported = 1;
-	my $normalized_product_ref = _normalize_product_for_comparison_value($prepared_product_ref, \$is_supported);
+	my $normalization_failed = 0;
+	my $normalized_product_ref = _normalize_product_for_comparison_value(\%prepared_product, \$normalization_failed);
 
-	return {} if ((not $is_supported) or (ref($normalized_product_ref) ne 'HASH'));
+	return {} if ($normalization_failed or (ref($normalized_product_ref) ne 'HASH'));
 
 	return $normalized_product_ref;
 }
@@ -314,7 +313,7 @@ sub _serialize_prepared_product_for_comparison ($prepared_product_ref) {
 		or (ref($prepared_product_ref) ne 'HASH')
 		or (not keys %{$prepared_product_ref}));
 
-	my $comparison_json = eval {$product_comparison_json->encode($prepared_product_ref)};
+	my $comparison_json = eval {$comparison_json_encoder->encode($prepared_product_ref)};
 	return if ($@ or (not defined $comparison_json));
 
 	return $comparison_json;
@@ -1576,7 +1575,6 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	make_sure_numbers_are_stored_as_numbers($product_ref);
 
 	$change_ref = $changes_ref->[-1];
-	my $diffs = $change_ref->{diffs} // {};
 
 	# We compare normalized payloads after compute steps so we compare the final persisted state.
 	# Structural moves still need filesystem or Mongo cleanup and must never return early.
@@ -1638,9 +1636,17 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	}
 
 	# Publish information about update on Redis stream
-	$log->debug("push_product_update_to_redis",
-		{code => $code, product_id => $product_id, action => $action, comment => $comment, diffs => $diffs})
-		if $log->is_debug();
+	my $diffs = $change_ref->{diffs} // {};
+	$log->debug(
+		"push_product_update_to_redis",
+		{
+			code => $code,
+			product_id => $product_id,
+			action => $action,
+			comment => $comment,
+			diffs => $diffs
+		}
+	) if $log->is_debug();
 	push_product_update_to_redis($product_ref, $change_ref, $action);
 
 	return 1;
