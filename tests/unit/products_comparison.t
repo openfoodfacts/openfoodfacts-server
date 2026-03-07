@@ -81,6 +81,27 @@ is(
 	"JSON booleans do not change the comparison payload"
 );
 
+# Normalize false booleans so the false branch stays equivalent to plain Perl false values.
+my $false_boolean_field = {
+	code => "113",
+	nutrition => {
+		no_nutrition_data_on_packaging => false,
+	},
+};
+
+my $false_scalar_field = {
+	code => "113",
+	nutrition => {
+		no_nutrition_data_on_packaging => 0,
+	},
+};
+
+is(
+	ProductOpener::Products::serialize_product_for_comparison($false_boolean_field),
+	ProductOpener::Products::serialize_product_for_comparison($false_scalar_field),
+	"false booleans do not change the comparison payload"
+);
+
 # Keep array order significant because reordered arrays can be meaningful changes.
 my $ordered_array_a = {
 	code => "333",

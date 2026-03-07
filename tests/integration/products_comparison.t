@@ -5,6 +5,7 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use HTTP::Request::Common qw(PATCH);
 use JSON::MaybeXS ();
+use Storable qw(dclone);
 use boolean qw/:all/;
 
 use ProductOpener::APITest qw/construct_test_url create_user edit_product new_client wait_application_ready/;
@@ -151,6 +152,53 @@ subtest 'Store product handles blessed booleans without crashing.' => sub {
 	ok(store_product($user_id, $noop_product_ref, 'integration boolean noop'), 'Store boolean no-op succeeds');
 	my $after_noop = read_persisted_state($code);
 	assert_skipped_revision($before_noop, $after_noop, 'store boolean no-op');
+};
+
+subtest 'Store product saves when persisted state cannot be compared safely.' => sub {
+	my $code = '2999999999105';
+	my $user_id = $default_user_form{userid};
+
+	my $create_product_ref = init_product($user_id, undef, $code, undef);
+	$create_product_ref->{product_name} = 'Comparison Fail Open Product';
+	my $before_create = read_persisted_state($code);
+	ok(store_product($user_id, $create_product_ref, 'integration fail-open create'),
+		'Store create for fail-open scenario succeeds');
+	my $after_create = read_persisted_state($code);
+	assert_saved_revision($before_create, $after_create, 'store fail-open create');
+
+	my $real_change_ref = retrieve_product($code);
+	$real_change_ref->{product_name} = 'Comparison Fail Open Product Updated';
+	my $before_real_change = read_persisted_state($code);
+	my $persisted_product_path = "$BASE_DIRS{PRODUCTS}/$before_real_change->{path}/product";
+	my $original_retrieve_object = \&ProductOpener::Products::retrieve_object;
+
+	{
+		my $products_module = mock 'ProductOpener::Products' => (
+			override => [
+				retrieve_object => sub ($path) {
+					my $persisted_product_ref = $original_retrieve_object->($path);
+					return $persisted_product_ref
+						if (($path ne $persisted_product_path) or not defined $persisted_product_ref);
+
+					my $persisted_product_clone = dclone($persisted_product_ref);
+					my $unsupported_scalar = 'unsupported';
+					$persisted_product_clone->{comparison_unsupported} = \$unsupported_scalar;
+					return $persisted_product_clone;
+				}
+			]
+		);
+
+		ok(store_product($user_id, $real_change_ref, 'integration fail-open real change'),
+			'Store save succeeds when comparison fails open');
+	}
+
+	my $after_real_change = read_persisted_state($code);
+	assert_saved_revision($before_real_change, $after_real_change, 'store fail-open real change');
+	is(
+		$after_real_change->{product_name},
+		'Comparison Fail Open Product Updated',
+		'Store fail-open path still persists the real change'
+	);
 };
 
 subtest 'Legacy API v2 keeps success semantics for no-op writes.' => sub {
