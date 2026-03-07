@@ -165,6 +165,18 @@ ok($comparison_json ne '', "serialize_product_for_comparison returns a compariso
 is(decode_json($comparison_json),
 	$prepared, "serialize_product_for_comparison returns the prepared payload as canonical JSON");
 
+# Undefined scalar values must stay representable in the comparison payload.
+my $undef_scalar_input = {
+	code => "777",
+	optional_field => undef,
+};
+
+is(
+	decode_json(ProductOpener::Products::serialize_product_for_comparison($undef_scalar_input)),
+	ProductOpener::Products::prepare_product_for_comparison($undef_scalar_input),
+	"undefined scalar values stay representable in the comparison payload"
+);
+
 # Fail open on unsupported refs so callers do not skip a real change by mistake.
 my $scalar_value = 'test';
 my $unsupported_input = {
@@ -176,5 +188,20 @@ my $unsupported_prepared = ProductOpener::Products::prepare_product_for_comparis
 is($unsupported_prepared, {}, "unsupported refs collapse the prepared payload");
 is(ProductOpener::Products::serialize_product_for_comparison($unsupported_input),
 	'', "unsupported refs return an empty comparison payload");
+
+# Unsupported blessed values must also fail open instead of producing a comparable payload.
+my $unsupported_blessed_input = {
+	code => "889",
+	unsupported => bless({}, 'Local::UnsupportedBlessed'),
+};
+
+is(ProductOpener::Products::prepare_product_for_comparison($unsupported_blessed_input),
+	{}, "unsupported blessed values collapse the prepared payload");
+is(ProductOpener::Products::serialize_product_for_comparison($unsupported_blessed_input),
+	'', "unsupported blessed values return an empty comparison payload");
+
+# Invalid top-level input must fail open so callers stay on the save path.
+is(ProductOpener::Products::prepare_product_for_comparison(undef),
+	{}, "invalid top-level input collapses the prepared payload");
 
 done_testing();
