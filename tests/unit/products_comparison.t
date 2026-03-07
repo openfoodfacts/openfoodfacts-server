@@ -10,7 +10,7 @@ use boolean qw/:all/;
 
 use ProductOpener::Products ();
 
-# Equivalent products must compare the same way regardless of key order.
+# Compare equivalent products with different key orders so canonical JSON stays deterministic.
 my $product_a = {
 	code => "1234567890123",
 	name => {default => "Example", localized => {fr => "Exemple", en => "Example"}},
@@ -29,7 +29,7 @@ is(
 	"equivalent products have the same comparison payload"
 );
 
-# Ignored audit fields must not affect the comparison payload.
+# Ignore audit-only fields so no-op metadata does not change the comparison payload.
 my $ignored_field_a = {
 	code => "111",
 	product_name => "Example",
@@ -47,7 +47,7 @@ is(
 	"ignored audit fields do not affect the comparison payload"
 );
 
-# Blessed booleans must compare like plain scalar values.
+# Normalize blessed booleans so equivalent boolean values compare the same way.
 my $boolean_field_a = {
 	code => "112",
 	nutrition => {
@@ -67,7 +67,7 @@ is(
 	"blessed booleans do not change the comparison payload"
 );
 
-# JSON booleans must compare like plain scalar values.
+# Normalize JSON booleans so API booleans compare the same way as Perl scalars.
 my $json_boolean_field = {
 	code => "112",
 	nutrition => {
@@ -81,7 +81,7 @@ is(
 	"JSON booleans do not change the comparison payload"
 );
 
-# Array order must remain significant.
+# Keep array order significant because reordered arrays can be meaningful changes.
 my $ordered_array_a = {
 	code => "333",
 	foo => ["a", "b"],
@@ -97,7 +97,7 @@ isnt(
 	"array order affects the comparison payload"
 );
 
-# Numeric scalars and numeric strings with the same lexical value must compare the same way.
+# Normalize numeric scalars and numeric strings so Perl scalar flags do not create churn.
 my $typed_scalar_a = {
 	code => "444",
 	nutriments => {
@@ -117,7 +117,7 @@ is(
 	"numeric scalars and numeric strings with the same lexical value have the same comparison payload"
 );
 
-# Leading and trailing whitespace must not create a new comparison payload.
+# Trim surrounding whitespace so whitespace-only edits do not create a new payload.
 my $trimmed_a = {
 	code => "445",
 	foo => "  hello world\t",
@@ -133,7 +133,7 @@ is(
 	"leading and trailing whitespace does not affect the comparison payload"
 );
 
-# Meaningful content changes must change the comparison payload.
+# Keep meaningful content changes distinct so real edits still produce a new payload.
 my $content_a = {
 	code => "555",
 	product_name => "Alpha",
@@ -149,7 +149,7 @@ isnt(
 	"meaningful content changes affect the comparison payload"
 );
 
-# Comparison helpers must not mutate their input.
+# Keep comparison helpers non-mutating so callers can safely reuse their product refs.
 my $prepare_input = {
 	code => "666",
 	foo => ["x", "y"],
@@ -165,7 +165,7 @@ ok($comparison_json ne '', "serialize_product_for_comparison returns a compariso
 is(decode_json($comparison_json),
 	$prepared, "serialize_product_for_comparison returns the prepared payload as canonical JSON");
 
-# Unsupported refs must fail open instead of producing a comparable payload.
+# Fail open on unsupported refs so callers do not skip a real change by mistake.
 my $scalar_value = 'test';
 my $unsupported_input = {
 	code => "888",

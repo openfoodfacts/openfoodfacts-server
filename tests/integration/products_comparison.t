@@ -26,12 +26,14 @@ my $ua = new_client();
 my %create_user_args = (%default_user_form, (email => 'products-comparison@example.com'));
 create_user($ua, \%create_user_args);
 
+# Serialize persisted product state so no-op checks can compare exact storage output.
 sub serialize_product_state ($product_ref) {
 	return if not defined $product_ref;
 	return if ref($product_ref) ne 'HASH';
 	return $json->encode($product_ref);
 }
 
+# Read the stored product snapshot so before/after assertions stay compact.
 sub read_persisted_state ($product_id) {
 	my $path = product_path_from_id($product_id);
 	my $latest_product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/product");
@@ -61,6 +63,7 @@ sub read_persisted_state ($product_id) {
 	};
 }
 
+# Assert saved writes create both a new revision and a new change entry.
 sub assert_saved_revision ($before_ref, $after_ref, $label) {
 	is($after_ref->{rev}, $before_ref->{rev} + 1, "$label increments rev");
 	is($after_ref->{changes_count}, $before_ref->{changes_count} + 1, "$label appends one change entry");
@@ -69,6 +72,7 @@ sub assert_saved_revision ($before_ref, $after_ref, $label) {
 	return;
 }
 
+# Assert skipped writes leave revision history and persisted state untouched.
 sub assert_skipped_revision ($before_ref, $after_ref, $label) {
 	is($after_ref->{rev}, $before_ref->{rev}, "$label keeps rev unchanged");
 	is($after_ref->{changes_count}, $before_ref->{changes_count}, "$label keeps changes history unchanged");
@@ -80,6 +84,7 @@ sub assert_skipped_revision ($before_ref, $after_ref, $label) {
 	return;
 }
 
+# Send JSON PATCH requests through the test client so API assertions stay focused.
 sub patch_json ($ua, $path, $body_ref) {
 	my $response = $ua->request(
 		PATCH(
@@ -111,6 +116,7 @@ subtest 'Store product skips no-ops and keeps caller-visible state aligned.' => 
 	ok(store_product($user_id, $noop_product_ref, 'integration noop'), 'Store no-op stays on the success path');
 	my $after_noop = read_persisted_state($code);
 	assert_skipped_revision($before_noop, $after_noop, 'store no-op');
+	# Check caller-visible fields too so skipped saves do not leave a synthetic in-memory state behind.
 	is($noop_product_ref->{rev}, $after_noop->{rev}, 'Store no-op restores the in-memory rev');
 	is($noop_product_ref->{last_modified_t}, $after_noop->{last_modified_t}, 'Store no-op restores last_modified_t');
 	is(
