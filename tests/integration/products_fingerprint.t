@@ -28,8 +28,8 @@ my %create_user_args = (%default_user_form, (email => 'products-fingerprint@exam
 create_user($ua, \%create_user_args);
 
 sub digest_product_ref ($product_ref) {
-	return undef if not defined $product_ref;
-	return undef if ref($product_ref) ne 'HASH';
+	return if not defined $product_ref;
+	return if ref($product_ref) ne 'HASH';
 	return sha256_hex($json->encode($product_ref));
 }
 

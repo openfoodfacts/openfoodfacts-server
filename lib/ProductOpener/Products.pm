@@ -227,7 +227,7 @@ sub make_sure_numbers_are_stored_as_numbers ($product_ref) {
 
 # Add here all fields that should not be considered when comparing two product revisions.
 # Listed fields do not affect the fingerprint, so changes to them can be skipped as "no-op" saves.
-# This list is not exhaustive and can be extended over time to make no-op saves converge to zero in the long run.
+# This list is not exhaustive and can be extended over time when additional fields are confirmed to be safe to ignore for meaningful revision checks.
 # Do not add real product content fields for which contributors expect to create revisions.
 my @product_fingerprint_ignored_top_level_fields = (
 	"created_by_client", "entry_dates_tags",
@@ -261,11 +261,11 @@ sub _normalize_product_for_fingerprint_value ($value, $is_supported_ref = undef)
 		}
 
 		${$is_supported_ref} = 0 if defined $is_supported_ref;
-		return undef;
+		return;
 	}
 	elsif (ref($value)) {
 		${$is_supported_ref} = 0 if defined $is_supported_ref;
-		return undef;
+		return;
 	}
 
 	if ((defined $value) and (not ref($value))) {
