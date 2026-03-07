@@ -159,6 +159,8 @@ use ProductOpener::BeautyProducts qw/specific_processes_for_beauty_product/;
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON;
+use JSON::PP ();
+use JSON::MaybeXS ();
 use Log::Any qw($log);
 use Data::DeepAccess qw(deep_exists deep_get);
 
@@ -170,7 +172,7 @@ use ProductOpener::GeoIP;
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
 
-use Scalar::Util qw(looks_like_number);
+use Scalar::Util qw(blessed looks_like_number);
 
 use GS1::SyntaxEngine::FFI::GS1Encoder;
 
@@ -220,6 +222,145 @@ sub make_sure_numbers_are_stored_as_numbers ($product_ref) {
 	$product_ref->{code} = "$product_ref->{code}";
 
 	return;
+}
+
+# Add here all fields that should not be considered when comparing two product revisions.
+# Listed fields do not affect the normalized comparison, so changes to them can be skipped as "no-op" saves.
+# This list is not exhaustive and can be extended over time when additional fields are confirmed to be safe to ignore for meaningful revision checks.
+# Do not add real product content fields for which contributors expect to create revisions.
+my @ignored_top_level_fields_for_comparison = (
+	"created_by_client", "entry_dates_tags",
+	"interface_version_created", "interface_version_modified",
+	"last_check_dates_tags", "last_edit_dates_tags",
+	"last_modified_by", "last_modified_by_client",
+	"last_modified_t", "last_updated_t",
+	"rev",
+);
+
+# Reuse one canonical encoder so every comparison serializes the same way.
+my $comparison_json_encoder = JSON::MaybeXS->new->allow_nonref->canonical->utf8(1);
+
+# Normalize values recursively and trim scalar whitespace for comparison preparation.
+sub _normalize_product_for_comparison_value ($value, $normalization_failed_ref = undef) {
+
+	if (ref($value) eq 'HASH') {
+		# Recurse into nested hashes so comparison sees the same normalized structure at every level.
+		my %normalized_hash = ();
+		foreach my $key (keys %{$value}) {
+			$normalized_hash{$key}
+				= _normalize_product_for_comparison_value($value->{$key}, $normalization_failed_ref);
+		}
+		return \%normalized_hash;
+	}
+	elsif (ref($value) eq 'ARRAY') {
+		# Keep array order and normalize each element because array order remains meaningful.
+		my @normalized_array = map {_normalize_product_for_comparison_value($_, $normalization_failed_ref)} @{$value};
+		return \@normalized_array;
+	}
+	elsif (blessed($value)) {
+		# Normalize booleans to avoid comparison mismatches for equivalent boolean values.
+		if (JSON::PP::is_bool($value) or (ref($value) eq 'boolean')) {
+			return $value ? "1" : "0";
+		}
+
+		# Fail open on other blessed values because their serialization can be application-specific.
+		${$normalization_failed_ref} = 1 if defined $normalization_failed_ref;
+		return;
+	}
+	elsif (ref($value)) {
+		# Fail open on unsupported refs because saving is safer than dropping a real change.
+		${$normalization_failed_ref} = 1 if defined $normalization_failed_ref;
+		return;
+	}
+
+	if ((defined $value) and (not ref($value))) {
+		# Normalize scalar values as strings so Perl scalar flags do not create comparison mismatches.
+		# Keep lexical differences (e.g. "03" vs "3") while making "3" and 3 equivalent.
+		my $normalized_scalar = "$value";
+		$normalized_scalar =~ s/^\s+//;
+		$normalized_scalar =~ s/\s+$//;
+		return $normalized_scalar;
+	}
+
+	return $value;
+}
+
+=head2 prepare_product_for_comparison ( $product_ref )
+
+Build a deterministic, normalized clone of a product used for equality checks.
+
+=cut
+
+sub prepare_product_for_comparison ($product_ref) {
+
+	if ((not defined $product_ref) or (ref($product_ref) ne 'HASH')) {
+		# Collapse unsupported top-level input so callers stay on the save path.
+		return {};
+	}
+
+	# Drop ignored top-level metadata before normalizing so audit-only changes do not create revisions.
+	my %prepared_product = %{$product_ref};
+	foreach my $field (@ignored_top_level_fields_for_comparison) {
+		delete $prepared_product{$field};
+	}
+
+	my $normalization_failed = 0;
+	my $normalized_product_ref = _normalize_product_for_comparison_value(\%prepared_product, \$normalization_failed);
+
+	# Fail open when normalization collapses because saving is safer than dropping a real change.
+	return {} if ($normalization_failed or (ref($normalized_product_ref) ne 'HASH'));
+
+	return $normalized_product_ref;
+}
+
+# Serialize prepared products canonically so equality checks can compare deterministic payloads.
+sub _serialize_prepared_product_for_comparison ($prepared_product_ref) {
+
+	# Reject empty or invalid prepared payloads so callers stay on the save path.
+	return
+		if ((not defined $prepared_product_ref)
+		or (ref($prepared_product_ref) ne 'HASH')
+		or (not keys %{$prepared_product_ref}));
+
+	my $comparison_json = eval {$comparison_json_encoder->encode($prepared_product_ref)};
+	# Fail open when canonical serialization is unsafe because saving is safer than dropping a real change.
+	return if ($@ or (not defined $comparison_json));
+
+	return $comparison_json;
+}
+
+# Compare canonical payloads here so revision checks stay deterministic.
+sub _products_are_equivalent_for_revision ($current_product_ref, $latest_product_ref) {
+
+	my $current_prepared_ref = prepare_product_for_comparison($current_product_ref);
+	my $latest_prepared_ref = prepare_product_for_comparison($latest_product_ref);
+
+	# Fail open when preparation collapses because saving is safer than dropping a real change.
+	return 0 if ((not keys %{$current_prepared_ref}) or (not keys %{$latest_prepared_ref}));
+
+	my $current_comparison_json = _serialize_prepared_product_for_comparison($current_prepared_ref);
+	my $latest_comparison_json = _serialize_prepared_product_for_comparison($latest_prepared_ref);
+
+	# Fail open when serialization is unsafe because saving is safer than dropping a real change.
+	return 0 if ((not defined $current_comparison_json) or (not defined $latest_comparison_json));
+
+	return ($current_comparison_json eq $latest_comparison_json);
+}
+
+=head2 serialize_product_for_comparison ( $product_ref )
+
+Serialize a deterministic normalized representation of a product for comparison.
+Returns an empty string if the product cannot be prepared or serialized safely.
+
+=cut
+
+sub serialize_product_for_comparison ($product_ref) {
+
+	my $prepared_product_ref = prepare_product_for_comparison($product_ref);
+	my $comparison_json = _serialize_prepared_product_for_comparison($prepared_product_ref);
+	return '' if (not defined $comparison_json);
+
+	return $comparison_json;
 }
 
 =head2 assign_new_code ( )
@@ -1120,6 +1261,14 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	my $rev = $product_ref->{rev};
 	my $action = "updated";
 
+	# A move is considered "structural" if it does migration work, not just edit content:
+	# - old_code: can move the product/images directories and can delete the old Mongo document as part of the move.
+	# - server or old_product_type: can require removing the product from the previous Mongo collection.
+	my $has_structural_move
+		= defined $product_ref->{old_code}
+		|| defined $product_ref->{old_product_type}
+		|| defined $product_ref->{server};
+
 	# Update product schema version
 	$product_ref->{schema_version} = $current_schema_version;
 
@@ -1436,14 +1585,31 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	make_sure_numbers_are_stored_as_numbers($product_ref);
 
 	$change_ref = $changes_ref->[-1];
-	my $diffs = $change_ref->{diffs};
-	my %diffs = %{$diffs};
-	if ((!$diffs) or (!keys %diffs)) {
-		$log->info("changes not stored because of empty diff", {change_ref => $change_ref}) if $log->is_info();
-		# 2019/09/12 - this was deployed today, but it causes changes not to be saved
-		# compute_product_history_and_completeness() was not written to make sure that it sees all changes
-		# keeping the log and disabling the "return 0" so that all changes are saved
-		#return 0;
+
+	# Compare normalized payloads after compute steps so the final persisted state is compared.
+	# Structural moves still need filesystem or Mongo cleanup and must never return early.
+	my $should_skip_save = 0;
+	if (    ($rev > 1)
+		and (not $has_structural_move))
+	{
+		my $latest_product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/product");
+		if (    (defined $latest_product_ref)
+			and (ref($latest_product_ref) eq 'HASH')
+			and _products_are_equivalent_for_revision($product_ref, $latest_product_ref))
+		{
+			my $latest_product_clone = eval {dclone($latest_product_ref)};
+			if ((not $@) and defined $latest_product_clone and (ref($latest_product_clone) eq 'HASH')) {
+				%{$product_ref} = %{$latest_product_clone};
+				$should_skip_save = 1;
+			}
+		}
+	}
+
+	if ($should_skip_save) {
+		$log->info("store_product - skipped no-op save based on normalized comparison",
+			{code => $code, product_id => $product_id})
+			if $log->is_info();
+		return 1;    # Return truthy here because legacy callers use store_product() as a success-path check.
 	}
 
 	# First store the product data in a .json file on disk
@@ -1480,6 +1646,7 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	}
 
 	# Publish information about update on Redis stream
+	my $diffs = $change_ref->{diffs} // {};
 	$log->debug("push_product_update_to_redis",
 		{code => $code, product_id => $product_id, action => $action, comment => $comment, diffs => $diffs})
 		if $log->is_debug();
