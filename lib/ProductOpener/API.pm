@@ -512,7 +512,7 @@ my $dispatch_table = {
 	},
 	# Current user: GET /api/v3/current-user/permissions
 	current_user => {
-		GET     => \&read_current_user_permissions_api,
+		GET => \&read_current_user_permissions_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 	},
 };
