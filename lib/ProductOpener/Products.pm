@@ -163,7 +163,6 @@ use JSON::PP ();
 use JSON::MaybeXS ();
 use Log::Any qw($log);
 use Data::DeepAccess qw(deep_exists deep_get);
-use Digest::SHA qw(sha256_hex);
 
 use Storable qw(dclone);
 use File::Copy::Recursive;
@@ -226,10 +225,10 @@ sub make_sure_numbers_are_stored_as_numbers ($product_ref) {
 }
 
 # Add here all fields that should not be considered when comparing two product revisions.
-# Listed fields do not affect the fingerprint, so changes to them can be skipped as "no-op" saves.
+# Listed fields do not affect the normalized comparison, so changes to them can be skipped as "no-op" saves.
 # This list is not exhaustive and can be extended over time when additional fields are confirmed to be safe to ignore for meaningful revision checks.
 # Do not add real product content fields for which contributors expect to create revisions.
-my @product_fingerprint_ignored_top_level_fields = (
+my @product_comparison_ignored_top_level_fields = (
 	"created_by_client", "entry_dates_tags",
 	"interface_version_created", "interface_version_modified",
 	"last_check_dates_tags", "last_edit_dates_tags",
@@ -238,24 +237,24 @@ my @product_fingerprint_ignored_top_level_fields = (
 	"rev",
 );
 
-my $product_fingerprint_json = JSON::MaybeXS->new->allow_nonref->canonical->utf8(1);
+my $product_comparison_json = JSON::MaybeXS->new->allow_nonref->canonical->utf8(1);
 
-# Normalize values recursively and trim scalar whitespace for fingerprint preparation.
-sub _normalize_product_for_fingerprint_value ($value, $is_supported_ref = undef) {
+# Normalize values recursively and trim scalar whitespace for comparison preparation.
+sub _normalize_product_for_comparison_value ($value, $is_supported_ref = undef) {
 
 	if (ref($value) eq 'HASH') {
 		my %normalized_hash = ();
 		foreach my $key (keys %{$value}) {
-			$normalized_hash{$key} = _normalize_product_for_fingerprint_value($value->{$key}, $is_supported_ref);
+			$normalized_hash{$key} = _normalize_product_for_comparison_value($value->{$key}, $is_supported_ref);
 		}
 		return \%normalized_hash;
 	}
 	elsif (ref($value) eq 'ARRAY') {
-		my @normalized_array = map {_normalize_product_for_fingerprint_value($_, $is_supported_ref)} @{$value};
+		my @normalized_array = map {_normalize_product_for_comparison_value($_, $is_supported_ref)} @{$value};
 		return \@normalized_array;
 	}
 	elsif (blessed($value)) {
-		# We normalize JSON and boolean.pm booleans here to avoid fingerprint mismatches for equivalent boolean values.
+		# We normalize JSON and boolean.pm booleans here to avoid comparison mismatches for equivalent boolean values.
 		if (JSON::PP::is_bool($value) or (ref($value) eq 'boolean')) {
 			return $value ? "1" : "0";
 		}
@@ -280,13 +279,13 @@ sub _normalize_product_for_fingerprint_value ($value, $is_supported_ref = undef)
 	return $value;
 }
 
-=head2 prepare_product_for_fingerprint ( $product_ref )
+=head2 prepare_product_for_comparison ( $product_ref )
 
-Build a deterministic, normalized clone of a product used to compute fingerprints.
+Build a deterministic, normalized clone of a product used for equality checks.
 
 =cut
 
-sub prepare_product_for_fingerprint ($product_ref) {
+sub prepare_product_for_comparison ($product_ref) {
 
 	if ((not defined $product_ref) or (ref($product_ref) ne 'HASH')) {
 		return {};
@@ -295,61 +294,64 @@ sub prepare_product_for_fingerprint ($product_ref) {
 	my $prepared_product_ref = eval {dclone($product_ref)};
 	return {} if ($@ or (not defined $prepared_product_ref) or (ref($prepared_product_ref) ne 'HASH'));
 
-	foreach my $field (@product_fingerprint_ignored_top_level_fields) {
+	foreach my $field (@product_comparison_ignored_top_level_fields) {
 		delete $prepared_product_ref->{$field};
 	}
 
 	my $is_supported = 1;
-	my $normalized_product_ref = _normalize_product_for_fingerprint_value($prepared_product_ref, \$is_supported);
+	my $normalized_product_ref = _normalize_product_for_comparison_value($prepared_product_ref, \$is_supported);
 
 	return {} if ((not $is_supported) or (ref($normalized_product_ref) ne 'HASH'));
 
 	return $normalized_product_ref;
 }
 
-# Compute the hash of a prepared product structure as the fingerprint.
-sub _compute_prepared_product_fingerprint ($prepared_product_ref) {
+# Serialize the prepared product canonically so equality checks can compare deterministic payloads.
+sub _serialize_prepared_product_for_comparison ($prepared_product_ref) {
 
-	return ''
+	return
 		if ((not defined $prepared_product_ref)
 		or (ref($prepared_product_ref) ne 'HASH')
 		or (not keys %{$prepared_product_ref}));
 
-	my $fingerprint_json = eval {$product_fingerprint_json->encode($prepared_product_ref)};
-	return '' if ($@ or (not defined $fingerprint_json));
+	my $comparison_json = eval {$product_comparison_json->encode($prepared_product_ref)};
+	return if ($@ or (not defined $comparison_json));
 
-	return sha256_hex($fingerprint_json);
+	return $comparison_json;
 }
 
-# Return true when two products have the same non-degenerate fingerprint.
-sub _products_have_same_fingerprint ($current_product_ref, $latest_product_ref) {
+# Return true when two products are equivalent for revision purposes.
+sub _products_are_equivalent_for_revision ($current_product_ref, $latest_product_ref) {
 
-	my $current_prepared_ref = prepare_product_for_fingerprint($current_product_ref);
-	my $latest_prepared_ref = prepare_product_for_fingerprint($latest_product_ref);
+	my $current_prepared_ref = prepare_product_for_comparison($current_product_ref);
+	my $latest_prepared_ref = prepare_product_for_comparison($latest_product_ref);
 
 	# We fail open when preparation collapses because saving is safer than dropping a real change.
 	return 0 if ((not keys %{$current_prepared_ref}) or (not keys %{$latest_prepared_ref}));
 
-	my $current_fingerprint = _compute_prepared_product_fingerprint($current_prepared_ref);
-	my $latest_fingerprint = _compute_prepared_product_fingerprint($latest_prepared_ref);
+	my $current_comparison_json = _serialize_prepared_product_for_comparison($current_prepared_ref);
+	my $latest_comparison_json = _serialize_prepared_product_for_comparison($latest_prepared_ref);
 
-	# We fail open when hashing is unsafe because saving is safer than dropping a real change.
-	return 0 if (($current_fingerprint eq '') or ($latest_fingerprint eq ''));
+	# We fail open when serialization is unsafe because saving is safer than dropping a real change.
+	return 0 if ((not defined $current_comparison_json) or (not defined $latest_comparison_json));
 
-	return ($current_fingerprint eq $latest_fingerprint);
+	return ($current_comparison_json eq $latest_comparison_json);
 }
 
-=head2 compute_product_fingerprint ( $product_ref )
+=head2 serialize_product_for_comparison ( $product_ref )
 
-Compute a deterministic fingerprint of a product.
-Returns an empty string if the product cannot be fingerprinted safely.
+Serialize a deterministic normalized representation of a product for comparison.
+Returns an empty string if the product cannot be prepared or serialized safely.
 
 =cut
 
-sub compute_product_fingerprint ($product_ref) {
+sub serialize_product_for_comparison ($product_ref) {
 
-	my $prepared_product_ref = prepare_product_for_fingerprint($product_ref);
-	return _compute_prepared_product_fingerprint($prepared_product_ref);
+	my $prepared_product_ref = prepare_product_for_comparison($product_ref);
+	my $comparison_json = _serialize_prepared_product_for_comparison($prepared_product_ref);
+	return '' if (not defined $comparison_json);
+
+	return $comparison_json;
 }
 
 =head2 assign_new_code ( )
@@ -1576,7 +1578,7 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	$change_ref = $changes_ref->[-1];
 	my $diffs = $change_ref->{diffs} // {};
 
-	# We compare fingerprints after compute steps so we compare the final persisted state.
+	# We compare normalized payloads after compute steps so we compare the final persisted state.
 	# Structural moves still need filesystem or Mongo cleanup and must never return early.
 	my $should_skip_save = 0;
 	if (    ($rev > 1)
@@ -1585,7 +1587,7 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 		my $latest_product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/product");
 		if (    (defined $latest_product_ref)
 			and (ref($latest_product_ref) eq 'HASH')
-			and _products_have_same_fingerprint($product_ref, $latest_product_ref))
+			and _products_are_equivalent_for_revision($product_ref, $latest_product_ref))
 		{
 			my $latest_product_clone = eval {dclone($latest_product_ref)};
 			if ((not $@) and defined $latest_product_clone and (ref($latest_product_clone) eq 'HASH')) {
@@ -1596,7 +1598,7 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	}
 
 	if ($should_skip_save) {
-		$log->info("store_product - skipped no-op save based on fingerprint",
+		$log->info("store_product - skipped no-op save based on normalized comparison",
 			{code => $code, product_id => $product_id})
 			if $log->is_info();
 		return 1;    # We return truthy here because legacy callers use store_product() as a success-path check.

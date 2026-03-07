@@ -3,7 +3,6 @@
 use ProductOpener::PerlStandards;
 
 use Test2::V0;
-use Digest::SHA qw(sha256_hex);
 use HTTP::Request::Common qw(PATCH);
 use JSON::MaybeXS ();
 use boolean qw/:all/;
@@ -24,30 +23,41 @@ remove_all_products();
 remove_all_users();
 
 my $ua = new_client();
-my %create_user_args = (%default_user_form, (email => 'products-fingerprint@example.com'));
+my %create_user_args = (%default_user_form, (email => 'products-comparison@example.com'));
 create_user($ua, \%create_user_args);
 
-sub digest_product_ref ($product_ref) {
+sub serialize_product_state ($product_ref) {
 	return if not defined $product_ref;
 	return if ref($product_ref) ne 'HASH';
-	return sha256_hex($json->encode($product_ref));
+	return $json->encode($product_ref);
 }
 
 sub read_persisted_state ($product_id) {
 	my $path = product_path_from_id($product_id);
 	my $latest_product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/product");
 	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes") // [];
+	my $last_modified_t;
+	my $latest_product_state_json;
+	my $product_name;
+	my $product_name_en;
+	my $rev = 0;
+
+	if (defined $latest_product_ref) {
+		$last_modified_t = $latest_product_ref->{last_modified_t};
+		$latest_product_state_json = serialize_product_state($latest_product_ref);
+		$product_name = $latest_product_ref->{product_name};
+		$product_name_en = $latest_product_ref->{product_name_en};
+		$rev = int($latest_product_ref->{rev}) if defined $latest_product_ref->{rev};
+	}
 
 	return {
 		changes_count => scalar @{$changes_ref},
-		last_modified_t => defined $latest_product_ref ? $latest_product_ref->{last_modified_t} : undef,
-		latest_product_digest => digest_product_ref($latest_product_ref),
+		last_modified_t => $last_modified_t,
+		latest_product_state_json => $latest_product_state_json,
 		path => $path,
-		product_name => defined $latest_product_ref ? $latest_product_ref->{product_name} : undef,
-		product_name_en => defined $latest_product_ref ? $latest_product_ref->{product_name_en} : undef,
-		rev => ((defined $latest_product_ref) and defined $latest_product_ref->{rev})
-		? int($latest_product_ref->{rev})
-		: 0,
+		product_name => $product_name,
+		product_name_en => $product_name_en,
+		rev => $rev,
 	};
 }
 
@@ -63,8 +73,8 @@ sub assert_skipped_revision ($before_ref, $after_ref, $label) {
 	is($after_ref->{rev}, $before_ref->{rev}, "$label keeps rev unchanged");
 	is($after_ref->{changes_count}, $before_ref->{changes_count}, "$label keeps changes history unchanged");
 	is(
-		$after_ref->{latest_product_digest},
-		$before_ref->{latest_product_digest},
+		$after_ref->{latest_product_state_json},
+		$before_ref->{latest_product_state_json},
 		"$label keeps latest product state unchanged"
 	);
 	return;
@@ -89,14 +99,14 @@ subtest 'Store product skips no-ops and keeps caller-visible state aligned.' => 
 	my $user_id = $default_user_form{userid};
 
 	my $create_product_ref = init_product($user_id, undef, $code, undef);
-	$create_product_ref->{product_name} = 'Fingerprint Store Product';
+	$create_product_ref->{product_name} = 'Comparison Store Product';
 	my $before_create = read_persisted_state($code);
 	ok(store_product($user_id, $create_product_ref, 'integration create'), 'Store create succeeds');
 	my $after_create = read_persisted_state($code);
 	assert_saved_revision($before_create, $after_create, 'store create');
 
 	my $noop_product_ref = retrieve_product($code);
-	$noop_product_ref->{product_name} = '  Fingerprint Store Product  ';
+	$noop_product_ref->{product_name} = '  Comparison Store Product  ';
 	my $before_noop = read_persisted_state($code);
 	ok(store_product($user_id, $noop_product_ref, 'integration noop'), 'Store no-op stays on the success path');
 	my $after_noop = read_persisted_state($code);
@@ -104,13 +114,13 @@ subtest 'Store product skips no-ops and keeps caller-visible state aligned.' => 
 	is($noop_product_ref->{rev}, $after_noop->{rev}, 'Store no-op restores the in-memory rev');
 	is($noop_product_ref->{last_modified_t}, $after_noop->{last_modified_t}, 'Store no-op restores last_modified_t');
 	is(
-		digest_product_ref($noop_product_ref),
-		$after_noop->{latest_product_digest},
+		serialize_product_state($noop_product_ref),
+		$after_noop->{latest_product_state_json},
 		'Store no-op restores the in-memory product state'
 	);
 
 	my $real_change_ref = retrieve_product($code);
-	$real_change_ref->{product_name} = 'Fingerprint Store Product Updated';
+	$real_change_ref->{product_name} = 'Comparison Store Product Updated';
 	my $before_real_change = read_persisted_state($code);
 	ok(store_product($user_id, $real_change_ref, 'integration real change'), 'Store real change succeeds');
 	my $after_real_change = read_persisted_state($code);
@@ -122,7 +132,7 @@ subtest 'Store product handles blessed booleans without crashing.' => sub {
 	my $user_id = $default_user_form{userid};
 
 	my $create_product_ref = init_product($user_id, undef, $code, undef);
-	$create_product_ref->{product_name} = 'Fingerprint Boolean Product';
+	$create_product_ref->{product_name} = 'Comparison Boolean Product';
 	$create_product_ref->{nutrition}{no_nutrition_data_on_packaging} = true;
 	my $before_create = read_persisted_state($code);
 	ok(store_product($user_id, $create_product_ref, 'integration boolean create'),
@@ -143,7 +153,7 @@ subtest 'Legacy API v2 keeps success semantics for no-op writes.' => sub {
 		cc => 'fr',
 		code => $code,
 		lc => 'en',
-		product_name => 'Legacy Fingerprint Product',
+		product_name => 'Legacy Comparison Product',
 	);
 
 	edit_product($ua, \%edit_fields);
@@ -166,7 +176,7 @@ subtest 'API v3 returns the persisted state after a skipped save.' => sub {
 		{
 			fields => 'rev,last_modified_t,product_name_en',
 			product => {
-				product_name_en => 'API v3 Fingerprint Product',
+				product_name_en => 'API v3 Comparison Product',
 			},
 			tags_lc => 'en',
 		}
@@ -179,7 +189,7 @@ subtest 'API v3 returns the persisted state after a skipped save.' => sub {
 		{
 			fields => 'rev,last_modified_t,product_name_en',
 			product => {
-				product_name_en => '  API v3 Fingerprint Product  ',
+				product_name_en => '  API v3 Comparison Product  ',
 			},
 			tags_lc => 'en',
 		}
