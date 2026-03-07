@@ -24043,7 +24043,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Wheat_gluten_(food)
 #                        Semolina
 #
 ##################################################################################
-# description:en:Semolina is the coarse, purified wheat middlings of durum wheat mainly used in making pasta and couscous.
 # Be careful that in some languages semolina is also used for coarse grinded rice, maize, etc. Wikipedia is not very consistent.
 
 < en:wheat
@@ -24070,7 +24069,8 @@ oc: Semola
 pl: semolina, semoliny
 pt: Sêmola
 ru: манная крупа, крупа манная
-sv: semolinagryn
+sv: mannagryn, semolinagryn
+description:en: Semolina is the coarse, purified wheat middlings of durum wheat mainly used in making pasta and couscous.
 vegan:en: yes
 vegetarian:en: yes
 
@@ -24105,7 +24105,7 @@ lt: kviečių manų kruopos, kvietiniai manų kruopos, kvietinės manų kruopos,
 nl: tarwegries, tarwegriesmeel
 pt: sêmola de trigo
 sl: pšenični zdrob
-sv: vetegryn
+sv: mannagryn av vete, vetegryn
 carbon_footprint_fr_foodges_ingredient:fr: Semoule de blé dur
 carbon_footprint_fr_foodges_value:fr: 0.6
 ciqual_proxy_food_code:en: 9610
@@ -24652,6 +24652,7 @@ wikidata:en: Q2743860
 # 94 @2021-10-22
 
 < en:barley
+< en:wort
 en: barley wort
 sv: kornvört, vört av korn
 
@@ -24788,6 +24789,7 @@ hu: szárított malátakivonat
 it: estratto di malto in polvere
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/dried-malt-extract/
 
+< en:wort
 en: kvass wort
 hr: kvasna sladovina
 it: mosto di kvas
@@ -82042,15 +82044,11 @@ wikipedia:nl: https://nl.wikipedia.org/wiki/Pandalus_jordani
 la: Solenocera Crassicornis
 wikipedia:nl: https://nl.wikipedia.org/wiki/Solenocera_crassicornis
 
-# en:description:Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage.
-
-# en:description:psyllium can be used for the fibres or as infusion
-
 < en:vegetable fiber
 en: Psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
 ar: بزر قطونة
 cs: psyllium
-da: Psyllium, psyllium skræl
+da: psyllium, psyllium skræl
 de: Psyllium, Flohsamenschalen, Plantago Psyllium
 es: Psilio, plantago, cáscara de semilla de psyllium
 fa: بارهنگ کتانی
@@ -82065,14 +82063,22 @@ pl: Babka, łuski płesznika, błonnik psylium, babka płesznik, babki płesznik
 ro: Psyllium
 ru: Подорожник
 sd: اسپنگر
-sv: Loppfrö, psylliumfiber, psylliumfröskal
+sv: psylliumfiber, psylliumfröskal
 ta: Isabgol
 uk: Подорожник
 ur: اسپغول
 # pam:Apang psyllium
+description:en: Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage. It can be used for the fibres or as infusion.
 wikidata:en: Q15258700
 wikipedia:en: https://en.wikipedia.org/wiki/Psyllium
 # ingredient/fr:psyllium has 89 products in 4 languages @2018-12-17
+
+en: psyllium seed
+da: loppefrø
+sv: loppfrö, psylliumfrö, psylliumfrön
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q138602386
 
 < en:psyllium
 en: blond psyllium
@@ -86871,8 +86877,6 @@ it: uova di lompo, uova (lompo), uova lompo
 # description:en:The part describes a piece of a vegetable or animal once it has been cut up in pieces (parts) or otherwise processed. In brackets there can be a further specification. Note that it is not a compound ingredient.
 # comment:en:There might be a better word for this.
 
-# description:en:An extract is a substance made by extracting a part of a raw material, often by using a solvent such as ethanol or water. Extracts may be sold as tinctures, absolutes or in powder form.
-
 # en:part
 en: extract
 be: Экстракт
@@ -86903,6 +86907,7 @@ sl: ekstrat
 sq: Ekstrakti
 uk: Екстракт
 # scn:Strattu
+description:en: An extract is a substance made by extracting a part of a raw material, often by using a solvent such as ethanol or water. Extracts may be sold as tinctures, absolutes or in powder form.
 wikidata:en: Q1259977
 wikipedia:en: https://en.wikipedia.org/wiki/Extract
 
@@ -87488,6 +87493,21 @@ wikipedia:en: https://en.wikipedia.org/wiki/Food_browning
 # ingredient/fr:dorure has 269 products in 7 languages @2019-04-22
 # usage:en:browning:skimmed milk
 
+en: wort
+fi: vierre
+is: virt
+ja: 麦汁
+sv: vört
+zh: 麥芽汁, 麦汁
+description:en: Liquid extracted from the mashing process during brewing.
+vegan:en: maybe
+vegetarian:en: yes
+wikidata:en: Q14404476
+
+< en:extract
+< en:wort
+en: wort extract
+sv: vörtextrakt
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
