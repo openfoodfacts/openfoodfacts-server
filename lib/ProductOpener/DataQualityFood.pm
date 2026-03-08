@@ -1097,7 +1097,11 @@ sub nutrient_total_less_than_parts($nutrients_ref, $total_nid, @parts_nids) {
 		$parts += min_nutrient_value($nutrients_ref, $part);
 	}
 	# increased threshold from 0.001 to 0.01 (see issue #10491)
-	if (sprintf("%.2f", $parts) > sprintf("%.2f", $total + 0.01)) {
+	my $tolerance = 0.01;
+	if ($total >= 10) {
+		$tolerance = 0.1;
+	}
+	if (sprintf("%.2f", $parts) > sprintf("%.2f", $total + $tolerance)) {
 		return 1;
 	}
 	return 0;
