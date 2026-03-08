@@ -1050,18 +1050,48 @@ sub check_energy_for_input_set ($product_ref, $nutrition_set_ref, $set_id, $data
 	return;
 }
 
+sub modifier_is_ignored ($nutrients_ref, $nid) {
+	# If the nutrient is estimated or quoted as less than or less than or equal to a value
+	# then we don't include it in checks
+	my $modifier = deep_get($nutrients_ref, $nid, "modifier") // "";
+	if ($modifier =~ /[<~≤]/) {
+		return 1;
+	}
+	return 0;
+}
+
 sub min_nutrient_value ($nutrients_ref, $nid) {
-	if ((deep_get($nutrients_ref, $nid, "modifier") // "") eq "<") {
+	if (modifier_is_ignored($nutrients_ref, $nid)) {
 		return 0;
 	}
 	return get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, $nid) // 0;
 }
 
+# Following trace amounts were obtained from https://www.nutricalc.co.uk/expert-papers/declaring-low-values-of-nutrients-on-food-labels/
+my %trace_amounts = (
+	"fat" => 0.5,
+	"carbohydrates" => 0.5,
+	"carbohydrates-total" => 0.5,
+	"sugars" => 0.5,
+	"proteins" => 0.5,
+	"saturated-fat" => 0.1,
+	"salt" => 0.0125
+);
+
 sub nutrient_total_less_than_parts($nutrients_ref, $total_nid, @parts_nids) {
+	if (modifier_is_ignored($nutrients_ref, $total_nid)) {
+		return 0;
+	}
 	my $total = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, $total_nid);
 	if (not defined $total) {
 		return 0;
 	}
+
+	# Total may be quoted as zero even if there is a trace amount
+	if ($total == 0) {
+		$total = $trace_amounts{$total_nid} // 0;
+	}
+
 	my $parts = 0;
 	foreach my $part (@parts_nids) {
 		$parts += min_nutrient_value($nutrients_ref, $part);
