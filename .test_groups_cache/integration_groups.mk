@@ -9,15 +9,3 @@ INTEGRATION_GROUP_6_TESTS := api_v2_product_read.t api_v3_product_write_nutritio
 INTEGRATION_GROUP_7_TESTS := api_v2_product_write.t api_v3_taxonomy.t create_pro_user.t import_csv_file.t protected_images.t
 INTEGRATION_GROUP_8_TESTS := api_v3_product_images_selected.t api_v3_taxonomy_suggestions.t create_product.t import_systemeu.t protected_product.t
 INTEGRATION_GROUP_9_TESTS := api_v3_product_images_upload.t auth-keycloak.t create_user.t madenearme.t recipes_stats.t
-
-# Group Statistics:
-# Group 1: 6 tests, 3m 0s
-# Group 2: 6 tests, 3m 0s
-# Group 3: 6 tests, 3m 0s
-# Group 4: 6 tests, 3m 0s
-# Group 5: 6 tests, 3m 0s
-# Group 6: 6 tests, 3m 0s
-# Group 7: 5 tests, 2m 30s
-# Group 8: 5 tests, 2m 30s
-# Group 9: 5 tests, 2m 30s
-# Max group time: 3m, Min: 2m, Avg: 3m

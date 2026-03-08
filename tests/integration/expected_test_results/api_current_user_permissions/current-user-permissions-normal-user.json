@@ -1,16 +1,16 @@
 {
-    "errors": [],
-    "result": {
-        "id": "user_found",
-        "lc_name": "",
-        "name": ""
-    },
-    "status": "success",
-    "user": {
-        "admin": 0,
-        "moderator": 0,
-        "name": "Test",
-        "userid": "tests"
-    },
-    "warnings": []
+   "errors" : [],
+   "result" : {
+      "id" : "user_found",
+      "lc_name" : "User found",
+      "name" : "User found"
+   },
+   "status" : "success",
+   "user" : {
+      "admin" : 0,
+      "moderator" : 0,
+      "name" : "Test",
+      "userid" : "tests"
+   },
+   "warnings" : []
 }
