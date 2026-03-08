@@ -594,7 +594,8 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 
 	else {
 		my $nutrient_set_ref = $product_ref->{nutrition}{aggregated_set};
-		my $preparation_state = $nutrient_set_ref->{preparation} eq "prepared" ? "_prepared" : "";
+		my $preparation_state = ($nutrient_set_ref->{preparation} eq "prepared"
+			or $nutrient_set_ref->{preparation} eq "_prepared") ? "_prepared" : "";
 		# if per is 100ml then 1002 product version nutrient per field is 100g
 		my $per = $nutrient_set_ref->{per} eq "100ml" ? "_100g" : "_" . $nutrient_set_ref->{per};
 
