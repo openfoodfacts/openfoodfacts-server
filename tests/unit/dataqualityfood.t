@@ -1993,6 +1993,32 @@ ok(
 	'sum of sugars and starch greater carbohydrates'
 ) or diag Dumper $product_ref;
 
+## Carbohydrates may be quoted as 0 or traces if there are less than 0.5g
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 0, unit => "g"},
+					"sugars" => {value => 0.4, unit => "g"},
+					"starch" => {value => 0.05, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'sum of sugars and starch less than minimal traces of carbohydrates'
+) or diag Dumper $product_ref;
+
 ## should not check if totalling nutrient is an estimate
 $product_ref = {
 	nutrition => {
