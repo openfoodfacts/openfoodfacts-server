@@ -61,6 +61,7 @@ wikidata_headers = {
     "User-Agent": "OpenFoodFacts/1.0 (https://world.openfoodfacts.org) ingredient-uploader"
 }
 
+
 def po_response_is_ok(response: requests.Response):
     if response.status_code == 200:
         return True
@@ -71,6 +72,7 @@ def po_response_is_ok(response: requests.Response):
     except:
         print(response.content)
     return False
+
 
 print("--- Logging in ---")
 # Uses the outward facing url for local development
@@ -103,7 +105,7 @@ products_with_images = []
 while True:
     response = requests.get(
         f"{base_url}/api/v2/search?fields=code,selected_images&owners_tags=org-openfoodfacts&page_size=1000&page={page}",
-        headers=off_headers
+        headers=off_headers,
     )
     if not po_response_is_ok(response):
         sys.exit(1)
@@ -142,21 +144,30 @@ for id in sorted(ingredients):
     # Find a suitable category. First see if there is only one category with this as the expected ingredient
     # If there are more than one, then try to match on CIQUAL code as well.
     # If there is still more than one just use the first.
-    matching_categories = [category_id for category_id, category_data in categories.items()
-            if category_data.get("expected_ingredients", {}).get("en") == id]
+    matching_categories = {
+        k: v
+        for (k, v) in categories.items()
+        if v.get("expected_ingredients", {}).get("en") == id
+    }
     if len(matching_categories) > 1:
         # More than one match. Try to match on CIQUAL as well
-        ciqual_categories = [category_id for category_id, category_data in matching_categories.items()
-            if category_data.get("ciqual_food_code", {}).get("en") == ciqual_code]
+        ciqual_categories = {
+            k: v
+            for (k, v) in matching_categories.items()
+            if v.get("ciqual_food_code", {}).get("en") == ciqual_code
+        }
         # If we have one or more with both matching we will take the first
         if len(ciqual_categories) > 0:
             matching_categories = ciqual_categories
     else:
         # No match by expected ingredients: Just match by ciqual code
-        matching_categories = [category_id for category_id, category_data in categories.items()
-            if category_data.get("ciqual_food_code", {}).get("en") == ciqual_code]
+        matching_categories = {
+            k: v
+            for (k, v) in categories.items()
+            if v.get("ciqual_food_code", {}).get("en") == ciqual_code
+        }
 
-    category = matching_categories[0]
+    category = next(iter(matching_categories), None)
     if not category:
         continue
 
@@ -212,7 +223,9 @@ for id in sorted(ingredients):
         "countries": countries,
         "categories": category,
         "packaging_text_en": "1 paper bag to recycle",
-        "image_front_url": image_url.replace(',','%2c'), # Escape commas so PO doesn't think there are multiple files
+        "image_front_url": image_url.replace(
+            ",", "%2c"
+        ),  # Escape commas so PO doesn't think there are multiple files
     }
 
     # Create a product name for each language
