@@ -15,11 +15,8 @@ scripts/export_and_import_to_public_database.pl --owner org-openfoodfacts
 
 TODO:
 * Find a way to show there is no packaging
-* Make sure sugars adds up to at least all other parts
 * en:nutrition-sugars-plus-starch-greater-than-carbohydrates
-* en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients e.g. pumpkin <> squash. QA category should have same CIQUAL code as its expected_ingredient
 * en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients. e.g. radish
-* en:ingredients-count-lower-than-expected-for-the-category e.g. mozzarella. Probably need an explicit exclusion
 
 """
 
@@ -142,15 +139,24 @@ for id in sorted(ingredients):
     if not ciqual_data:
         continue
 
-    # Find a category with a matching ciqual code
-    category = next(
-        (
-            category_id
-            for category_id, category_data in categories.items()
-            if category_data.get("ciqual_food_code", {}).get("en") == ciqual_code
-        ),
-        None,
-    )
+    # Find a suitable category. First see if there is only one category with this as the expected ingredient
+    # If there are more than one, then try to match on CIQUAL code as well.
+    # If there is still more than one just use the first.
+    matching_categories = [category_id for category_id, category_data in categories.items()
+            if category_data.get("expected_ingredients", {}).get("en") == id]
+    if len(matching_categories) > 1:
+        # More than one match. Try to match on CIQUAL as well
+        ciqual_categories = [category_id for category_id, category_data in matching_categories.items()
+            if category_data.get("ciqual_food_code", {}).get("en") == ciqual_code]
+        # If we have one or more with both matching we will take the first
+        if len(ciqual_categories) > 0:
+            matching_categories = ciqual_categories
+    else:
+        # No match by expected ingredients: Just match by ciqual code
+        matching_categories = [category_id for category_id, category_data in categories.items()
+            if category_data.get("ciqual_food_code", {}).get("en") == ciqual_code]
+
+    category = matching_categories[0]
     if not category:
         continue
 

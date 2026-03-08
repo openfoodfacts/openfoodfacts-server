@@ -1753,8 +1753,11 @@ sub check_categories ($product_ref) {
 		# category might be provided but not ingredients
 		# consider only when some ingredients are provided
 		if ($number_of_ingredients > 0 && $number_of_ingredients < $minimum_number_of_ingredients) {
-			push @{$product_ref->{data_quality_errors_tags}},
-				"en:ingredients-count-lower-than-expected-for-the-category";
+			# Only flag the error if the only ingredient isn't the category itself, i.e a compound ingredient
+			if ($number_of_ingredients > 1 or ($product_ref->{ingredients}[0]{id} ne $category_id3)) {
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:ingredients-count-lower-than-expected-for-the-category";
+			}
 		}
 	}
 
