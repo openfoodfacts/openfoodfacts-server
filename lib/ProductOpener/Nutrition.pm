@@ -74,6 +74,7 @@ BEGIN {
 		&get_nutrient_from_nutrient_set_in_default_unit
 		&default_unit_for_nid
 		&add_misc_tags_for_input_nutrition_data_pers
+		&sort_sets_by_priority
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);

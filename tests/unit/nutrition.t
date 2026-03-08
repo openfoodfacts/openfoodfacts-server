@@ -2101,18 +2101,18 @@ compare_to_expected_results(
 		"get_nutrition_input_sets_in_a_hash normalizes _prepared to prepared in the hash key");
 	ok(!defined $input_sets_hash_ref->{packaging}{_prepared},
 		"get_nutrition_input_sets_in_a_hash does not keep _prepared as a key");
-	is($input_sets_hash_ref->{packaging}{prepared}{"100g"}{nutrients}{sugars}{value}, 5.0,
-		"get_nutrition_input_sets_in_a_hash normalizes _prepared: nutrient value is preserved");
+	is($input_sets_hash_ref->{packaging}{prepared}{"100g"}{nutrients}{sugars}{value},
+		5.0, "get_nutrition_input_sets_in_a_hash normalizes _prepared: nutrient value is preserved");
 
 	# The preparation field inside the set should also be normalized
-	is($input_sets_hash_ref->{packaging}{prepared}{"100g"}{preparation}, "prepared",
-		"get_nutrition_input_sets_in_a_hash normalizes _prepared in the set's preparation field");
+	is($input_sets_hash_ref->{packaging}{prepared}{"100g"}{preparation},
+		"prepared", "get_nutrition_input_sets_in_a_hash normalizes _prepared in the set's preparation field");
 
 	# The as_sold set should be unaffected
 	ok(defined $input_sets_hash_ref->{packaging}{as_sold},
 		"get_nutrition_input_sets_in_a_hash keeps as_sold unchanged");
-	is($input_sets_hash_ref->{packaging}{as_sold}{"100g"}{nutrients}{sugars}{value}, 10.0,
-		"get_nutrition_input_sets_in_a_hash: as_sold nutrient value is preserved");
+	is($input_sets_hash_ref->{packaging}{as_sold}{"100g"}{nutrients}{sugars}{value},
+		10.0, "get_nutrition_input_sets_in_a_hash: as_sold nutrient value is preserved");
 }
 
 # Test that sort_sets_by_priority correctly handles both "prepared" and previously stored "_prepared"
@@ -2131,8 +2131,8 @@ compare_to_expected_results(
 		},
 	);
 	my @sorted = sort_sets_by_priority(\@input_sets);
-	is($sorted[0]->{preparation}, "prepared",
-		"sort_sets_by_priority: prepared (priority 0) sorts before as_sold (priority 1)");
+	is($sorted[0]->{preparation},
+		"prepared", "sort_sets_by_priority: prepared (priority 0) sorts before as_sold (priority 1)");
 }
 
 done_testing();
