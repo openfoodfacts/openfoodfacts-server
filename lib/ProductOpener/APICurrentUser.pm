@@ -102,9 +102,9 @@ sub read_current_user_permissions_api ($request_ref) {
 			$response_ref,
 			{
 				message => {id => "invalid_api_action"},
+				field => {id => "api_action", value => $sub_action},
 				impact => {id => "failure"},
-			},
-			404
+			}
 		);
 		return;
 	}
