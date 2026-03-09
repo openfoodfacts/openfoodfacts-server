@@ -459,11 +459,19 @@
 
   function DonationButton() {
     setBannerCookie('divinfood_survey_2026', 1, 180);
+    // bannerID.style.display = 'none';
+    // Remove from DOM entirely instead of hiding, so no ghost close button remains
+    
     bannerID.remove();
+
   }
 
   if (getBannerCookie('divinfood_survey_2026') !== '') {
+    // bannerID.style.display = 'none';
+    // Remove from DOM entirely instead of hiding, so no ghost close button remains
+    
     bannerID.remove();
+
   } else {
     bannerID.style.display = 'flex';
   }

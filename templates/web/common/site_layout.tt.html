@@ -318,8 +318,9 @@
 						</div>
 					</div>
 					</a>
-					<!-- Close button for mobile app banner -->
-					<button id="hide-mobile-app-banner" class="material-icons modest" aria-label="Close app download banner" type="button">close</button>
+					<button id="hide-mobile-app-banner" class="material-icons modest" aria-label="Close" type="button"
+						style="position:absolute;top:0.3rem;right:0.3rem;background:transparent;border:none;color:white;cursor:pointer;z-index:3;"
+						>close</button>
 					</div>
 					<script>
 					(function() {
@@ -352,7 +353,7 @@
 						closeButton.addEventListener('touchstart', closeMobileAppBanner, { passive: false });
 						closeButton.addEventListener('keypress', function(event) {
 							if (event.key === 'Enter' || event.key === ' ') {
-								closeMobileAppBanner(event);
+								closeMobileAppBanner();
 							}
 						});
 						if (getMobileBannerCookie() !== '') {
