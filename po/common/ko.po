@@ -6747,6 +6747,10 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "제품이 업데이트되었습니다."
 
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr ""
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "잘못된 API 작업입니다."
@@ -6878,6 +6882,14 @@ msgstr "제품 포장에 사용되는 모든 구성품이 나열되어 있습니
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "잘못된 사용자 ID와 비밀번호입니다."
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
