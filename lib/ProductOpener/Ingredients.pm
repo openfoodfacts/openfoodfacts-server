@@ -5672,6 +5672,7 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 			# if we have multiple times "Ingredients:" (e.g. for products with 2 sub-products)
 			if ($text =~ /^(.*?)\b$regexp(\s*)(-|:|\r|\n)+(\s*)/is) {
 				$text = ucfirst($');
+				$cut = 1;
 				last;
 			}
 		}
