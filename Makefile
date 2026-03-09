@@ -130,7 +130,9 @@ dev_no_build: hello init_backend _up import_sample_data create_mongodb_indexes r
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
 
-create_folders:
+# we also need to clone_deps to ensure all cited docker compose files are available
+# so, in some way, it's part of creating folders
+create_folders: clone_deps
 # create some folders to avoid having them owned by root (when created by docker compose)
 	@echo "🥫 Creating folders before docker compose use them."
 	mkdir -p logs/apache2 logs/nginx debug html/data sftp || ( whoami; ls -l . ; false )
