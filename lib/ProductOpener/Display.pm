@@ -211,12 +211,12 @@ my $uri_finder = URI::Find->new(
 	}
 );
 
+# Make sure we include convert_blessed to cater for blessed objects, like booleans
 # Sort keys of JSON output
 # $json has utf8 disabled: it encodes to Perl Unicode strings
-my $json = JSON::MaybeXS->new->utf8(0)->allow_nonref->canonical;
-my $json_indent = JSON::MaybeXS->new->indent(1)->utf8(0)->allow_nonref->canonical;
+my $json = JSON::MaybeXS->new->convert_blessed->utf8(0)->allow_nonref->canonical;
+my $json_indent = JSON::MaybeXS->new->convert_blessed->indent(1)->utf8(0)->allow_nonref->canonical;
 # $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
-# Make sure we include convert_blessed to cater for blessed objects, like booleans
 my $json_utf8 = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
 
 =head1 VARIABLES
@@ -3774,8 +3774,8 @@ sub display_tag ($request_ref) {
 	my $new_tagid2path = deep_get($request_ref, qw(tags 1 new_tagid_path));
 	my $canon_tagid2 = deep_get($request_ref, qw(tags 1 canon_tagid));
 
-	# 2025-06-01 - due to heavy load from bots, disabling 2nd level facets unless the user is logged in
-	if ((not defined $User_id) and (defined $tagid2)) {
+	# 2025-06-01 - due to heavy load from bots, disabling 2nd level facets unless the user is logged in
+	if ((not defined $User_id) and ((defined $tagid2) or ($request_ref->{page} > 10))) {
 		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
 		return;
 	}
@@ -5069,6 +5069,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		{request_ref => sanitize($request_ref), query_ref => $query_ref, sort_by => $sort_by})
 		if $log->is_debug();
 
+	# 2026-03-04 - due to heavy load from bots, disabling 2nd level facets unless the user
+	#  is logged in
+	if ((not defined $User_id) and ($request_ref->{page} > 10)) {
+		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
+		return;
+	}
+
 	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
@@ -6270,7 +6277,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 		# create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
-		$series{$seriesid} .= JSON::MaybeXS->new->canonical->encode(\%data) . ',';
+		$series{$seriesid} .= $json_utf8->encode(\%data) . ',';
 		# count entries / series
 		defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 		$series_n{$seriesid}++;
@@ -8501,14 +8508,16 @@ JS
 	}
 	$other_editors =~ s/, $//;
 
+	my $creator_value = $product_ref->{creator} // "";
 	my $creator
 		= "<a href=\"/facets"
-		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{creator})) . "\">"
-		. $product_ref->{creator} . "</a>";
+		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $creator_value)) . "\">"
+		. $creator_value . "</a>";
+	my $last_editor_value = $product_ref->{last_editor} // "";
 	my $last_editor
 		= "<a href=\"/facets"
-		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $product_ref->{last_editor})) . "\">"
-		. $product_ref->{last_editor} . "</a>";
+		. canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $last_editor_value)) . "\">"
+		. $last_editor_value . "</a>";
 
 	if ($other_editors ne "") {
 		$other_editors = "<br>\n" . lang_in_other_lc($request_lc, "also_edited_by") . " ${other_editors}.";
@@ -8909,11 +8918,9 @@ sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 			}
 
 			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate}) {
+				my $estimate_value = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"} // 0;
 				push @nutriscore_warnings,
-					sprintf(
-					lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"),
-					$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate_100g"}
-					);
+					sprintf(lang("nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"), $estimate_value);
 			}
 			if ($product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category}) {
 				push @nutriscore_warnings,
@@ -10412,7 +10419,7 @@ sub data_to_display_ingredients_analysis_details ($product_ref) {
 
 	my $result_data_ref = {};
 
-	my $ingredients_text_lc = $product_ref->{ingredients_lc};
+	my $ingredients_text_lc = $product_ref->{ingredients_lc} // "";
 	my $ingredients_text = "$ingredients_text_lc: ";
 	my $ingredients_list = "";
 

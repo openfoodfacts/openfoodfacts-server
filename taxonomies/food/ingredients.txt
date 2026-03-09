@@ -23361,6 +23361,10 @@ hr: zrno pšenice
 sv: vetekorn
 # 81 in 6 @2021-10-22
 
+< en:wheat
+en: wheat grit
+sv: vetegrits
+
 # see ingredients_processing.txt
 < en:wheat
 en: puffed wheat
@@ -26406,7 +26410,14 @@ sv: rågfiber
 # ingredient/fi:ruiskuitu has 1 product in 1 language @2020-12-20
 
 #processing:en: en:scalding
+en: scalding
+sv: skållning
+vegan:en: maybe
+vegetarian:en: maybe
+
+#processing:en: en:scalding
 < en:rye
+< en:scalding
 en: rye scalding
 da: rugskoldning
 sv: rågskållning
@@ -74365,6 +74376,7 @@ la: cantharellus lutescens
 pl: Pieprznik żyłkowany, pieprznik żółtawy
 wikipedia:es: https://es.wikipedia.org/wiki/Cantharellus_lutescens
 
+# <en:fungus
 en: mycoprotein
 es: micoproteína
 fi: mycoprotein
@@ -74372,6 +74384,8 @@ fr: mycoprotéine
 hr: mikoprotein
 it: micoproteina
 sv: mycoprotein
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q3122802
 
 < en:mycoprotein

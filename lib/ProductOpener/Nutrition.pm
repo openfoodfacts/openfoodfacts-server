@@ -74,6 +74,7 @@ BEGIN {
 		&get_nutrient_from_nutrient_set_in_default_unit
 		&default_unit_for_nid
 		&add_misc_tags_for_input_nutrition_data_pers
+		&sort_sets_by_priority
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -734,6 +735,11 @@ sub get_nutrition_input_sets_in_a_hash($product_ref) {
 	if ((defined $input_sets_ref) and (ref $input_sets_ref eq 'ARRAY')) {
 		foreach my $set_ref (@{$input_sets_ref}) {
 			if (exists $set_ref->{source} and exists $set_ref->{preparation} and exists $set_ref->{per}) {
+				# Normalize "_prepared" to "prepared" for backwards compatibility
+				# with products stored via old-style API params before the fix
+				if ($set_ref->{preparation} eq "_prepared") {
+					$set_ref->{preparation} = "prepared";
+				}
 				$input_sets_hash_ref->{$set_ref->{source}}{$set_ref->{preparation}}{$set_ref->{per}} = $set_ref;
 			}
 		}
@@ -1337,7 +1343,7 @@ sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_
 		# Assign all the nutrient values
 
 		# We can have nutrient values for the product as sold, or prepared
-		foreach my $preparation ("as_sold", "_prepared") {
+		foreach my $preparation ("as_sold", "prepared") {
 
 			my $preparation_suffix = ($preparation eq "as_sold") ? "" : "_prepared";
 

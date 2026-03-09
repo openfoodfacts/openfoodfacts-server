@@ -20,6 +20,8 @@ map $uri $apache_port {
 	# Everything is priority but:
 	# facets
 	"~*^/facets/" 8001;
+	# pages > 1 on home page
+	"~*^/[0-9]+$" 8001;
 	# search (api or cgi)
 	"~*^/cgi/search\.pl" 8001;
 	"~*^/api/v[^/]*/search" 8001;

@@ -89,6 +89,7 @@ use ProductOpener::APIProductServices qw/product_services_api external_sources_a
 use ProductOpener::APITagRead qw/read_tag_api/;
 use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
 use ProductOpener::APITaxonomy qw/taxonomy_canonicalize_tags_api taxonomy_display_tags_api/;
+use ProductOpener::APICurrentUser qw/read_current_user_permissions_api/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Apache2::RequestIO();
@@ -275,12 +276,13 @@ sub decode_json_request_body ($request_ref) {
 	else {
 		eval {$request_ref->{body_json} = decode_json($request_ref->{body});};
 		if ($@) {
-			$log->error("JSON decoding error", {error => $@}) if $log->is_error();
+			my $error = $@;
+			$log->error("JSON decoding error", {error => $error}) if $log->is_error();
 			add_error(
 				$request_ref->{api_response},
 				{
 					message => {id => "invalid_json_in_request_body"},
-					field => {id => "body", value => $request_ref->{body}, error => $@},
+					field => {id => "body", value => $request_ref->{body}, error => $error},
 					impact => {id => "failure"},
 				}
 			);
@@ -406,7 +408,9 @@ sub send_api_response ($request_ref) {
 	# such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl
 	# can read the resulting response.
 	my $allow_credentials = 0;
-	if ($request_ref->{query_string} =~ "/auth.pl") {
+	if (   ($request_ref->{query_string} =~ "/auth.pl")
+		or (($request_ref->{api_action} // '') eq 'current_user'))
+	{
 		$allow_credentials = 1;
 	}
 	write_cors_headers($allow_credentials);
@@ -505,6 +509,11 @@ my $dispatch_table = {
 	external_sources => {
 		GET => \&external_sources_api,
 		HEAD => \&external_sources_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	# Current user: GET /api/v3/current-user/permissions
+	current_user => {
+		GET => \&read_current_user_permissions_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 	},
 };

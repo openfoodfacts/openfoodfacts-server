@@ -1951,9 +1951,13 @@ $product_ref = {
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
-ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'),
-	'sugars greater carbohydrates but presence of "<" symbol on sugars')
-	or diag Dumper $product_ref;
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'sugars greater carbohydrates but presence of "<" symbol on sugars'
+) or diag Dumper $product_ref;
 
 ## sugar or starch is greater than carbohydrates, with "<" symbol
 $product_ref = {
@@ -1979,6 +1983,7 @@ ok(
 		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
 	),
 	'sum of sugars and starch greater carbohydrates, presence of "<" symbol, and sugars or starch is greater than carbohydrates'
+
 ) or diag Dumper $product_ref;
 ## should not be triggered
 $product_ref = {
@@ -2006,7 +2011,137 @@ ok(
 	'sum of sugars and starch greater carbohydrates'
 ) or diag Dumper $product_ref;
 
-# Nutrition errors - sugar + starch + fiber > totral-carbohydrates
+## Carbohydrates may be quoted as 0 or traces if there are less than 0.5g
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 0, unit => "g"},
+					"sugars" => {value => 0.4, unit => "g"},
+					"starch" => {value => 0.05, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'sum of sugars and starch less than minimal traces of carbohydrates'
+) or diag Dumper $product_ref;
+
+## Don't go more than 3 significant figures for larger values
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 10, unit => "g"},
+					"sugars" => {value => 9, unit => "g"},
+					"starch" => {value => 1.09, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'check no more than 3 significant figures'
+) or diag Dumper $product_ref;
+
+## should not check if totalling nutrient is an estimate
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 3, unit => "g", modifier => "~"},
+					"sugars" => {value => 2, unit => "g"},
+					"starch" => {value => 2, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'check should not be triggered if carbohydrates is an estimate'
+) or diag Dumper $product_ref;
+
+## Less than or equal values should also be ignored
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 3, unit => "g"},
+					"sugars" => {value => 2, unit => "g", modifier => "≤"},
+					"starch" => {value => 2, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'Less than or equal values should also be ignored'
+) or diag Dumper $product_ref;
+
+## should ignore component nutrients that are estimates
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 3, unit => "g"},
+					"sugars" => {value => 2, unit => "g", modifier => "~"},
+					"starch" => {value => 2, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'estimated nutrient should be ignored'
+) or diag Dumper $product_ref;
+
+# Nutrition errors - sugar + starch + fiber > total-carbohydrates
 ## without "<" symbol
 $product_ref = {
 	nutrition => {

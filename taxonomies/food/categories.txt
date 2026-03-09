@@ -36742,6 +36742,7 @@ it: Pane ai cereali a fette
 lt: Daugiagrūdės duonos, pjaustytos duonos su grūdais, Daugiagrūdės sumuštinių duonos
 nl: Gesneden Meergranenbroden
 pt: Pães de forma multicereais
+sv: Skivade flerkornsbröd
 agribalyse_food_code:en: 7113
 ciqual_food_code:en: 7113
 ciqual_food_name:en: Sandwich loaf, multigrain
@@ -75055,23 +75056,94 @@ xx: Garam masala
 ja: ガラムマサラ
 
 < en:Flavour enhancers
-en: Glutamate, Monosodium glutamate
-fr: Glutamate, Glutamate monosodique
+en: Monosodium glutamate, Glutamate
+xx: MSG, E621
+ar: غلوتامات أحادية الصوديوم
+be: Глутамат натрыю, глутамат натру
+bg: Мононатриев глутамат
+bn: মনোসোডিয়াম গ্লুটামেট
+ca: Glutamat monosòdic
+da: Mononatriumglutamat, Det tredje krydderi, Tredje krydderi, Det 3. krydderi, 3. krydderi
+de: Mononatriumglutamat
+el: Άλας γλουταμινικού μονονατρίου
+eo: Ununatria glutamatoj
+es: Glutamato monosódico
+et: Naatriumvesinikglutamaat
+eu: Monosodio glutamato
+fa: مونوسدیم گلوتامات
+fi: Natriumglutamaatti
+fr: Glutamate monosodique, Glutamate
+ga: Glútamáit aonsóidiam
+gl: Glutamato monosódico
+hi: मोनोसोडियम ग्लूटामेट
+hr: Mononatrijev glutaminat
+hu: Nátrium-glutamát
+id: Mononatrium glutamat
+it: Glutammato monosodico
+ja: グルタミン酸ナトリウム
+ko: 글루탐산 나트륨
+lt: Mononatrio glutamatas
+lv: Mononātrija glutamāts
+ml: അജിനോമോട്ടോ
+mr: मोनोसोडियम ग्लुटामेट
+ms: Monosodium glutamat
+my: အချိုမှုန့်
+nb: Natriumglutamat
+nl: Mononatriumglutamaat
+nn: Natriumglutamat
+pl: Glutaminian sodu
+pt: Glutamato monossódico
+ro: Glutamat monosodic
+ru: Глутамат натрия
+sh: Mononatrijum glutamat
+si: මොනොසෝඩියම් ග්ලූටමේට්
+sk: Glutaman sodný
+sl: Mononatrijevgluamat
+sr: Mononatrijum glutamat
+su: Monosodium glutamat
+sv: Natriumglutamat
+ta: மோனோ சோடியம் குளூட்டாமேட்
+te: మోనో సోడియం గ్లూటామేట్‌
+th: โมโนโซเดียมกลูตาเมต
+tl: Betsin
+tr: Monosodyum glutamat
+ug: تېتىتقۇ
+uk: Глутамат натрію
+ur: چینی نمک
+uz: Monosodium glyutamat
+vi: Bột ngọt
+yi: מאָנאָנאַטריומגלוטאַמאַט
+zh: 味精
+wikidata:en: Q179678
 
 < en:Spices
-en: Cumin, Cummin
+en: Cumin, Cummin, Jeera
+ar: كمون
 bg: Кимион
+ca: Comí, Comí castellà
+da: Spidskommen
 de: Kümmel, Kreuzkümmel
+eo: Oficina kuminoj
 es: Comino
 fi: juustokumina
 fr: Cumin, Jeera
+ga: Cuimín
 hr: Kim
+io: Kumino
 ja: クミン
+ku: Reşke
 la: Cuminum cyminum
 lt: Kuminas
+nb: Spisskummer
 nl: Komijn
 nl_be: Komijn
+nn: Spisskummar
+ro: Chimionul
+sv: Spiskummin
+sw: Jira
 tr: Kimyon, Boyotu
+ur: زیرہ
+zh: 孜然
 agribalyse_proxy_food_code:en: 11042
 agribalyse_proxy_food_name:en: Cumin, seed
 agribalyse_proxy_food_name:fr: Cumin, graine
@@ -75079,24 +75151,36 @@ wikidata:en: Q132624
 
 < en:Cumin
 en: Ground cumin seeds
-es: Comino molido, Comino en polvo
-fr: Cumin en poudre, Cumin moulu
+da: Malet spidskommen
+es: Comino molido
+fr: Cumin moulu
 hr: Mljevene sjemenke kimaskumin
 lt: Maltos kuminų sėklos
 nl: Gemalen komijn, Djinten
+sv: Mald spiskummin
+
+< en:Ground cumin seeds
+en: Cumin powders, Jeera powder
+da: Spidskommenpulvere
+es: Comino en polvo
+fr: Cumin en poudre
+sv: Spiskumminpulver
 
 < en:Cumin
 en: Whole cumin seeds, Cumin seeds
+da: Hele spidskommenfrø
 de: Ganze Kreuzkümmelsamen
 es: Comino en grano
 fr: Graines de cumin
 hr: Cijele sjemenke kumina
 lt: Kuminų sėklos
 nl: Komijnzaden, Grove komijn
+sv: Hela spiskumminfrön
 agribalyse_food_code:en: 11042
 ciqual_food_code:en: 11042
 ciqual_food_name:en: Cumin, seed
 ciqual_food_name:fr: Cumin, graine
+wikidata:en: Q57328174
 
 < en:Aromatic herbs
 en: Caraway seeds
