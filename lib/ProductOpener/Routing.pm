@@ -369,6 +369,11 @@ sub api_route($request_ref) {
 		param("tagid", $components[4]);
 		$request_ref->{tagid} = $components[4];
 	}
+	elsif ($api_action eq "current-user") {    # api/v3/current-user/[sub_action]
+		my $sub_action = $components[3] // '';
+		$request_ref->{current_user_sub_action} = $sub_action;
+		$api_action = 'current_user';    # map to 'current_user' in the dispatch table
+	}
 	elsif ($api_action eq "geoip") {    # api/v3/geoip/
 		$request_ref->{geoip_ip} = remote_addr();
 	}

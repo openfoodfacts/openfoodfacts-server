@@ -7,9 +7,9 @@
             "name" : "Failure"
          },
          "message" : {
-            "id" : "invalid_token",
-            "lc_name" : "Invalid access_token",
-            "name" : "Invalid access_token"
+            "id" : "authentication_required",
+            "lc_name" : "Authentication required",
+            "name" : "Authentication required"
          }
       }
    ],
