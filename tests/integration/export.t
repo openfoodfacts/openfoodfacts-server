@@ -29,6 +29,7 @@ use Getopt::Long;
 use JSON;
 
 use File::Basename "dirname";
+use File::Path qw/remove_tree/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -116,7 +117,7 @@ my $separator = "\t";
 # Note: the test update seems to fail if the expected results files already exist.
 # remove tests/integration/expected_test_results/export_database/ before updating expected results.
 if ($update_expected_results) {
-	#remove_tree($expected_result_dir . "/export_database");
+	remove_tree($expected_result_dir . "/export_database");
 }
 
 # unlink CSV export if it exists, and launch script
