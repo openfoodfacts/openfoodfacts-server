@@ -1,4 +1,4 @@
-<html><head><title>ProductOpener::Permissions</title>
+<html><head><title>ProductOpener::APICurrentUser</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="simple.min" type="text/css" href="../simple.min.css" media="all" >
 
@@ -26,17 +26,13 @@
   <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
   <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
   <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#is_logged_in_(%24request_ref)'>is_logged_in ($request_ref)</a>
-    <li class='indexItem indexItem2'><a href='#is_admin_or_moderator_(%24request_ref)'>is_admin_or_moderator ($request_ref)</a>
-    <li class='indexItem indexItem2'><a href='#has_permission_product_revert_(%24request_ref)'>has_permission_product_revert ($request_ref)</a>
-    <li class='indexItem indexItem2'><a href='#has_permission_(%24request_ref%2C_%24permission)'>has_permission ($request_ref, $permission)</a>
+    <li class='indexItem indexItem2'><a href='#read_current_user_permissions_api_(_%24request_ref_)'>read_current_user_permissions_api ( $request_ref )</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Parameters'>Parameters</a>
       <ul   class='indexList indexList4'>
         <li class='indexItem indexItem4'><a href='#%24request_ref_(input)'>$request_ref (input)</a>
-        <li class='indexItem indexItem4'><a href='#%24permission_(input)'>$permission (input)</a>
       </ul>
-      <li class='indexItem indexItem3'><a href='#Return_value'>Return value</a>
+      <li class='indexItem indexItem3'><a href='#Response'>Response</a>
     </ul>
   </ul>
 </ul>
@@ -46,40 +42,28 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>ProductOpener::Permissions - defines user permissions and provide a has_permission function to check them</p>
+<p>ProductOpener::APICurrentUser - API for accessing current user data</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="DESCRIPTION"
 >DESCRIPTION</a></h1>
 
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="is_logged_in_($request_ref)"
->is_logged_in ($request_ref)</a></h2>
+<p>This module implements GET /api/v3/current-user/permissions</p>
 
-<p>Check if the user is logged in.</p>
+<p>It returns the current user&#39;s permissions (including moderator/admin flags) from the Open Food Facts server database.</p>
 
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="is_admin_or_moderator_($request_ref)"
->is_admin_or_moderator ($request_ref)</a></h2>
-
-<p>Check if the user is an admin or moderator.</p>
+<p>Authentication is via a Keycloak Bearer token passed in the Authorization header.
+The token is validated by process_auth_header() before this function is called,
+which sets $request_ref-&#62;{oidc_user_id} to the authenticated user&#39;s ID.</p>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="has_permission_product_revert_($request_ref)"
->has_permission_product_revert ($request_ref)</a></h2>
+name="read_current_user_permissions_api_(_$request_ref_)"
+>read_current_user_permissions_api ( $request_ref )</a></h2>
 
-<p>Check if the user has permission to revert a product.</p>
+<p>Process API V3 GET /api/v3/current-user/permissions requests.</p>
 
-<p>True for moderators,
-admins,
-and logged in users of the pro platform.</p>
-
-<h2><a class='u' href='#___top' title='click to go to top of document'
-name="has_permission_($request_ref,_$permission)"
->has_permission ($request_ref,
-$permission)</a></h2>
-
-<p>Check if the user has a specific permission.</p>
+<p>Returns the authenticated user&#39;s permissions including moderator and admin flags.
+Requires a valid Keycloak Bearer token in the Authorization header.</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Parameters"
@@ -89,20 +73,20 @@ name="Parameters"
 name="$request_ref_(input)"
 >$request_ref (input)</a></h4>
 
-<p>Reference to the request object.</p>
-
-<h4><a class='u' href='#___top' title='click to go to top of document'
-name="$permission_(input)"
->$permission (input)</a></h4>
-
-<p>Permission to check.</p>
+<p>Reference to the request object.
+Must have $request_ref-&#62;{oidc_user_id} set by process_auth_header() prior to this call.</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
-name="Return_value"
->Return value</a></h3>
+name="Response"
+>Response</a></h3>
 
-<p>1 if the user has the permission,
-0 otherwise.</p>
+<p>On success: { &#34;status&#34;: &#34;success&#34;,
+&#34;user&#34;: { &#34;userid&#34;: &#34;swastik&#34;,
+&#34;name&#34;: &#34;Swastik Panigrahi&#34;,
+&#34;moderator&#34;: 0,
+&#34;admin&#34;: 0 } }</p>
+
+<p>On error (not authenticated): HTTP 401 with error details On error (invalid sub-action): HTTP 404 with error details</p>
 <p class="backlinkbottom"><b><a name="___bottom" href="../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
