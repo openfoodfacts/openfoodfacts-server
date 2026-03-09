@@ -2,6 +2,17 @@
   {
     "tests": [
       "tests/integration/add_update_to_redis.t",
+      "tests/integration/api_v3_product_read.t",
+      "tests/integration/auth.t",
+      "tests/integration/data_quality_knowledge_panel.t",
+      "tests/integration/modify_user.t",
+      "tests/integration/remove_documents_by_ids.t"
+    ],
+    "total_time": 180.0
+  },
+  {
+    "tests": [
+      "tests/integration/api_attribute_groups.t",
       "tests/integration/api_v3_product_revert.t",
       "tests/integration/auth_user_from_keycloak.t",
       "tests/integration/delete_user.t",
@@ -12,7 +23,7 @@
   },
   {
     "tests": [
-      "tests/integration/api_attribute_groups.t",
+      "tests/integration/api_cgi_nutrients.t",
       "tests/integration/api_v3_product_services.t",
       "tests/integration/change_product_code_and_product_type.t",
       "tests/integration/export.t",
@@ -23,7 +34,7 @@
   },
   {
     "tests": [
-      "tests/integration/api_cgi_nutrients.t",
+      "tests/integration/api_cgi_suggest.t",
       "tests/integration/api_v3_product_services_external.t",
       "tests/integration/convert_and_import_excel_file.t",
       "tests/integration/external_sources.t",
@@ -34,7 +45,7 @@
   },
   {
     "tests": [
-      "tests/integration/api_cgi_suggest.t",
+      "tests/integration/api_current_user_permissions.t",
       "tests/integration/api_v3_product_write.t",
       "tests/integration/cors.t",
       "tests/integration/facets.t",
@@ -81,16 +92,6 @@
       "tests/integration/create_user.t",
       "tests/integration/madenearme.t",
       "tests/integration/recipes_stats.t"
-    ],
-    "total_time": 150.0
-  },
-  {
-    "tests": [
-      "tests/integration/api_v3_product_read.t",
-      "tests/integration/auth.t",
-      "tests/integration/data_quality_knowledge_panel.t",
-      "tests/integration/modify_user.t",
-      "tests/integration/remove_documents_by_ids.t"
     ],
     "total_time": 150.0
   }
