@@ -6747,6 +6747,10 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr ""
 
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr ""
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr ""
@@ -6877,6 +6881,14 @@ msgstr ""
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
+msgstr ""
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
 msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
