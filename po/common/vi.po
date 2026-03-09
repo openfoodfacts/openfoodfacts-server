@@ -6748,6 +6748,10 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Đã cập nhật sản phẩm"
 
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr ""
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "Thao tác API không hợp lệ"
@@ -6879,6 +6883,14 @@ msgstr "Tất cả các thành phần bao bì của sản phẩm đều được
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "Tên người dùng và mật khẩu không hợp lệ"
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
