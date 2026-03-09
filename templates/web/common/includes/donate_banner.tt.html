@@ -305,7 +305,6 @@
     </div>
   </div>
   [% END %]
-</section>
 
 <style>
   #donation-banner-top .survey-logo {
@@ -327,6 +326,19 @@
       background-color: #218838 !important;
       border-color: #1e7e34 !important;
   }
+    #donation-banner-top .donation-banner__close {
+      position: absolute;
+      top: 0.3rem;
+      right: 0.3rem;
+      z-index: 3;
+    }
+    #donation-banner-top .donation-banner__close button {
+      background: transparent;
+      border: none;
+      color: #000;
+      cursor: pointer;
+      line-height: 1;
+    }
 </style>
 [% ELSIF "off_days_2025" == "off_days_2025_deactivated" %]
 <section id="donation-banner-top" class="row" style="position:relative">
@@ -447,11 +459,11 @@
 
   function DonationButton() {
     setBannerCookie('divinfood_survey_2026', 1, 180);
-    bannerID.style.display = 'none';
+    bannerID.remove();
   }
 
   if (getBannerCookie('divinfood_survey_2026') !== '') {
-    bannerID.style.display = 'none';
+    bannerID.remove();
   } else {
     bannerID.style.display = 'flex';
   }

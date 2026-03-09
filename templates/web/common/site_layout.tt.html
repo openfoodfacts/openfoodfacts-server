@@ -297,6 +297,9 @@
 
 				[% IF mobile %]
         <!-- For reference: mobile.link = https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner -->
+						<!-- Mobile app download banner with dismiss button -->
+						<div id="mobile-app-top-banner-container" style="position:relative;">
+
 					<a href="[% mobile.link %]&utm_campaign=mobile-app-top-banner-[% language %]" id="mobile-app-top-banner" class="button large expand success">
 					<div class="row collapse">
 						<div class="small-6 columns">
@@ -315,6 +318,49 @@
 						</div>
 					</div>
 					</a>
+					<!-- Close button for mobile app banner -->
+					<button id="hide-mobile-app-banner" class="material-icons modest" aria-label="Close app download banner" type="button">close</button>
+					</div>
+					<script>
+					(function() {
+						var container = document.getElementById('mobile-app-top-banner-container');
+						var closeButton = document.getElementById('hide-mobile-app-banner');
+						if (!container || !closeButton) {
+							return;
+						}
+						var cookieName = 'off-mobile-app-banner';
+						var getDomain = window.location.origin.split('.');
+						function setMobileBannerCookie(val, days) {
+							var d = new Date();
+							d.setTime(d.getTime() + (days * 86400000));
+							var domain = 'domain=.' + getDomain.slice(1).join('.');
+							document.cookie = cookieName + '=' + val + ';expires=' + d.toUTCString() + ';' + domain + ';SameSite=None;Secure;path=/';
+						}
+						function getMobileBannerCookie() {
+							var match = document.cookie.match(new RegExp('(^| )' + cookieName + '=([^;]+)'));
+							return match ? match[2] : '';
+						}
+						function closeMobileAppBanner(event) {
+							if (event) {
+								event.preventDefault();
+								event.stopPropagation();
+							}
+							setMobileBannerCookie('1', 180);
+							container.remove();
+ 						}
+						closeButton.addEventListener('click', closeMobileAppBanner);
+						closeButton.addEventListener('touchstart', closeMobileAppBanner, { passive: false });
+						closeButton.addEventListener('keypress', function(event) {
+							if (event.key === 'Enter' || event.key === ' ') {
+								closeMobileAppBanner(event);
+							}
+						});
+						if (getMobileBannerCookie() !== '') {
+							container.remove();
+						}
+					})();
+					</script>
+
 				[% END %]
 
 				[% END %]
