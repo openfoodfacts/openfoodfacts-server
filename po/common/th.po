@@ -6747,6 +6747,10 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "ผลิตภัณฑ์ได้รับการอัปเดตแล้ว"
 
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr ""
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "การดำเนินการ API ไม่ถูกต้อง"
@@ -6878,6 +6882,14 @@ msgstr "ส่วนประกอบบรรจุภัณฑ์ทั้ง
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "รหัสผู้ใช้และรหัสผ่านไม่ถูกต้อง"
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
