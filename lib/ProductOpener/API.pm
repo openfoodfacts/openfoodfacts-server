@@ -276,12 +276,13 @@ sub decode_json_request_body ($request_ref) {
 	else {
 		eval {$request_ref->{body_json} = decode_json($request_ref->{body});};
 		if ($@) {
-			$log->error("JSON decoding error", {error => $@}) if $log->is_error();
+			my $error = $@;
+			$log->error("JSON decoding error", {error => $error}) if $log->is_error();
 			add_error(
 				$request_ref->{api_response},
 				{
 					message => {id => "invalid_json_in_request_body"},
-					field => {id => "body", value => $request_ref->{body}, error => $@},
+					field => {id => "body", value => $request_ref->{body}, error => $error},
 					impact => {id => "failure"},
 				}
 			);
