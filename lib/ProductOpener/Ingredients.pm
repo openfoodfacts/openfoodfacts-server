@@ -6908,6 +6908,52 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# turn & to and
 	$text =~ s/ \& /$and/g;
 
+	# Handle subingredients specified after their main ingredient #13234
+	# e.g. "skållning, surdeg (skållning och surdeg består av VETEmjöl)" -> "skållning (VETEmjöl), surdeg (VETEmjöl)"
+	my %consists_of = (
+		'en' => 'consists? of',
+		'sv' => 'består (?:av|utav)',
+		'da' => 'består af',
+		'nb' => 'består av',
+		'nn' => 'består av',
+		'de' => 'besteh(?:en|t) aus',
+		'nl' => 'bestaa[nt] uit',
+	);
+
+	if (defined $consists_of{$ingredients_lc} && $text =~ /$consists_of{$ingredients_lc}/i) {
+		my $consists = $consists_of{$ingredients_lc};
+		my $and_q = quotemeta($and_without_spaces);
+		
+		# loop to process distributive statements incrementally across nested or scattered scopes
+		while ($text =~ /(.*?)\(\s*(.+?)\s+($consists)\s+((?:[^()]+|\([^()]+\))+)\s*\)(.*)/is) {
+			my $before = $1;
+			my $subject = $2;
+			my $consists_matched = $3;
+			my $subingredients = $4;
+			my $after = $5;
+			
+			# Split on commas or "and"
+			my @subject_parts = split(/\s*,\s*|\s+$and_q\s+/i, $subject);
+			my $regex_parts = join('\s*(?:,|\s*' . $and_q . '\s*)\s*', map { quotemeta($_) } @subject_parts);
+			
+			if ($before =~ s/($regex_parts(?:(?:,|\s*$and_q\s*)\s*)?)\s*$//i) {
+				my $matched_parts = $1;
+				# Clean up the trailing comma/and from matched parts if present
+				$matched_parts =~ s/(?:,|\s*$and_q\s*)\s*$//i;
+				
+				my @actual_parts = split(/\s*,\s*|\s+$and_q\s+/i, $matched_parts);
+				my $rewritten = join(", ", map { "$_ ($subingredients)" } @actual_parts);
+				
+				# attach distributed properties back securely formatted 
+				$text = $before . $rewritten . $after;
+			} else {
+				# Could not rigidly match preceding component scope, break to avoid looping
+				$text = $before . "(" . $subject . " " . $consists_matched . " " . $subingredients . ")" . $after;
+				last;
+			}
+		}
+	}
+
 	# number + gr / grams -> g
 	$text =~ s/(\d\s*)(gr|gram|grams)\b/$1g/ig;
 	if ($ingredients_lc eq 'fr') {
