@@ -211,12 +211,12 @@ my $uri_finder = URI::Find->new(
 	}
 );
 
+# Make sure we include convert_blessed to cater for blessed objects, like booleans
 # Sort keys of JSON output
 # $json has utf8 disabled: it encodes to Perl Unicode strings
-my $json = JSON::MaybeXS->new->utf8(0)->allow_nonref->canonical;
-my $json_indent = JSON::MaybeXS->new->indent(1)->utf8(0)->allow_nonref->canonical;
+my $json = JSON::MaybeXS->new->convert_blessed->utf8(0)->allow_nonref->canonical;
+my $json_indent = JSON::MaybeXS->new->convert_blessed->indent(1)->utf8(0)->allow_nonref->canonical;
 # $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
-# Make sure we include convert_blessed to cater for blessed objects, like booleans
 my $json_utf8 = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
 
 =head1 VARIABLES
@@ -6277,7 +6277,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 		# create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
-		$series{$seriesid} .= JSON::MaybeXS->new->canonical->encode(\%data) . ',';
+		$series{$seriesid} .= $json_utf8->encode(\%data) . ',';
 		# count entries / series
 		defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 		$series_n{$seriesid}++;
