@@ -119,133 +119,178 @@ while True:
     print(f"Fetched: {len(existing_codes)}")
     page += 1
 
-count = 0
-# Set the following to zero to delete all ingredient products
-# To then hard-delete the product files and images run the following from a backend shell:
-# rm -rf /mnt/podata/products/ingredient
-# rm /mnt/podata/new_images/*.ingredient-*
-max_count = 10000
-print("--- Creating products ---")
-products = []
-for id in sorted(ingredients):
-    if count >= max_count:
-        break
+with open(
+    "tmp/generate_ingredient_products_status.tsv", "w", newline="", encoding="utf-8"
+) as status_file:
+    status_file_writer = csv.writer(status_file, delimiter="\t")
+    status_file_writer.writerow(
+        [
+            "ingredient_id",
+            "ciqual_code",
+            "has_ciqual_data",
+            "category",
+            "has_image",
+            "wikidata_id",
+            "wikidata_found",
+            "wikidata_image_count",
+            "wikidata_image",
+        ]
+    )
 
-    ingredient = ingredients[id]
+    count = 0
+    # Set the following to zero to delete all ingredient products
+    # To then hard-delete the product files and images run the following from a backend shell:
+    # rm -rf /mnt/podata/products/ingredient
+    # rm /mnt/podata/new_images/*.ingredient-*
+    max_count = 10000
+    print("--- Creating products ---")
+    products = []
+    for id in sorted(ingredients):
+        if count >= max_count:
+            break
 
-    # Only import ingredients that have a Ciqual food code (could maybe include proxy)
-    ciqual_code = ingredient.get("ciqual_food_code", {}).get("en")
-    if not ciqual_code:
-        continue
-    ciqual_data = ciqual_ingredients.get(ciqual_code, {}).get("nutrients")
-    if not ciqual_data:
-        continue
+        ingredient = ingredients[id]
 
-    # Find a suitable category. First see if there is only one category with this as the expected ingredient
-    # If there are more than one, then try to match on CIQUAL code as well.
-    # If there is still more than one just use the first.
-    matching_categories = {
-        k: v
-        for (k, v) in categories.items()
-        if v.get("expected_ingredients", {}).get("en") == id
-    }
-    if len(matching_categories) > 1:
-        # More than one match. Try to match on CIQUAL as well
-        ciqual_categories = {
-            k: v
-            for (k, v) in matching_categories.items()
-            if v.get("ciqual_food_code", {}).get("en") == ciqual_code
-        }
-        # If we have one or more with both matching we will take the first
-        if len(ciqual_categories) > 0:
-            matching_categories = ciqual_categories
-    else:
-        # No match by expected ingredients: Just match by ciqual code
+        # Only import ingredients that have a Ciqual food code (could maybe include proxy)
+        ciqual_code = ingredient.get("ciqual_food_code", {}).get("en")
+        ciqual_data = None
+        if ciqual_code:
+            ciqual_data = ciqual_ingredients.get(ciqual_code, {}).get("nutrients")
+
+        # Find a suitable category. First see if there is only one category with this as the expected ingredient
+        # If there are more than one, then try to match on CIQUAL code as well.
+        # If there is still more than one just use the first.
         matching_categories = {
             k: v
             for (k, v) in categories.items()
-            if v.get("ciqual_food_code", {}).get("en") == ciqual_code
+            if v.get("expected_ingredients", {}).get("en") == id
         }
+        if ciqual_code:
+            if len(matching_categories) > 1:
+                # More than one match. Try to match on CIQUAL as well
+                ciqual_categories = {
+                    k: v
+                    for (k, v) in matching_categories.items()
+                    if v.get("ciqual_food_code", {}).get("en") == ciqual_code
+                }
+                # If we have one or more with both matching we will take the first
+                if len(ciqual_categories) > 0:
+                    matching_categories = ciqual_categories
+            else:
+                # No match by expected ingredients: Just match by ciqual code
+                matching_categories = {
+                    k: v
+                    for (k, v) in categories.items()
+                    if v.get("ciqual_food_code", {}).get("en") == ciqual_code
+                }
 
-    category = next(iter(matching_categories), None)
-    if not category:
-        continue
+        category = next(iter(matching_categories), None)
 
-    code = f"ingredient-{id.replace(':', '-')}"
-    got_image = code in products_with_images
-    # We only include ingredients that have a Wikidata link with an image bigger than the minimum of 640 x 160
-    wikidata_id = ingredient.get("wikidata", {}).get("en")
-    if not wikidata_id:
-        continue
+        code = f"ingredient-{id.replace(':', '-')}"
+        got_image = code in products_with_images
+        image_url = ""
 
-    image_url = ""
-    if not got_image:
-        # Fetch the images property
-        wikidata_url = f"https://www.wikidata.org/w/api.php?action=wbgetclaims&entity={wikidata_id}&property=P18&format=json"
-        wikidata_claim = requests.get(wikidata_url, headers=wikidata_headers).json()
-        images = wikidata_claim.get("claims", {}).get("P18", [])
-        if len(images) < 1:
-            continue
+        # We only include ingredients that have a Wikidata link with an image bigger than the minimum of 640 x 160
+        wikidata_id = ingredient.get("wikidata", {}).get("en")
+        wikidata_claim = None
+        wikidata_images = []
+        if wikidata_id and not got_image:
+            # Fetch the images property
+            wikidata_url = f"https://www.wikidata.org/w/api.php?action=wbgetclaims&entity={wikidata_id}&property=P18&format=json"
+            wikidata_response = requests.get(wikidata_url, headers=wikidata_headers)
+            try:
+                wikidata_claim = requests.get(wikidata_url, headers=wikidata_headers).json()
+            except:
+                pass
 
-        for image in images:
-            image_name = image.get("mainsnak", {}).get("datavalue", {}).get("value")
-            if not image_name:
-                continue
+            if wikidata_claim:
+                wikidata_images = wikidata_claim.get("claims", {}).get("P18", [])
+                if len(wikidata_images) < 1:
+                    continue
 
-            # Get the image metadata. Minimum size is 640 by 160
-            image_metadata = requests.get(
-                f"https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&format=json&iiprop=size&titles=File:{image_name}",
-                headers=wikidata_headers,
-            ).json()
-            pages = image_metadata.get("query", {}).get("pages", {})
-            page = next(iter(pages.values()))
-            imageinfo = page.get("imageinfo", [])[0]
-            if imageinfo and (imageinfo["width"] >= 640 or imageinfo["height"] >= 160):
-                # Get the actual image
-                image_name = image_name.replace(" ", "_")
-                # Hash is just used to generate a path, not for anything secure
-                image_hash = hashlib.md5(
-                    image_name.encode("utf-8")
-                ).hexdigest()  # NOSONAR
-                # If the image is bigger than 960px then use a thumbnail
-                if imageinfo["width"] >= 960:
-                    image_url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{image_hash[0]}/{image_hash[0:2]}/{image_name}/960px-{image_name}"
-                else:
-                    image_url = f"https://upload.wikimedia.org/wikipedia/commons/{image_hash[0]}/{image_hash[0:2]}/{image_name}"
-                break
+                for image in wikidata_images:
+                    image_name = (
+                        image.get("mainsnak", {}).get("datavalue", {}).get("value")
+                    )
+                    if not image_name:
+                        continue
 
-        if not image_url:
-            continue
+                    # Get the image metadata. Minimum size is 640 by 160
+                    image_metadata = requests.get(
+                        f"https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&format=json&iiprop=size&titles=File:{image_name}",
+                        headers=wikidata_headers,
+                    ).json()
+                    pages = image_metadata.get("query", {}).get("pages", {})
+                    page = next(iter(pages.values()))
+                    imageinfo = next(iter(page.get("imageinfo", [])), None)
+                    if imageinfo and (
+                        imageinfo["width"] >= 640 or imageinfo["height"] >= 160
+                    ):
+                        # Get the actual image
+                        image_name = image_name.replace(" ", "_")
+                        # Hash is just used to generate a path, not for anything secure
+                        image_hash = hashlib.md5(
+                            image_name.encode("utf-8")
+                        ).hexdigest()  # NOSONAR
+                        # If the image is bigger than 960px then use a thumbnail
+                        if imageinfo["width"] >= 960:
+                            image_url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{image_hash[0]}/{image_hash[0:2]}/{image_name}/960px-{image_name}"
+                        else:
+                            image_url = f"https://upload.wikimedia.org/wikipedia/commons/{image_hash[0]}/{image_hash[0:2]}/{image_name}"
+                        break
 
-    # We set all countries so ingredients always show up. Might be nice to get all "world" products to show up on all country domains
-    product = {
-        "code": code,
-        "countries": countries,
-        "categories": category,
-        "packaging_text_en": "1 paper bag to recycle",
-        "image_front_url": image_url.replace(
-            ",", "%2c"
-        ),  # Escape commas so PO doesn't think there are multiple files
-    }
+        # We only create an ingredient product if we have a ciqual_code, ciqual_data, can find a category
+        # and have a wikidata link with a valid image, or already have an image on an existing product
+        status_file_writer.writerow(
+            [
+                id,
+                ciqual_code,
+                ciqual_data is not None,
+                category,
+                got_image,
+                wikidata_id,
+                wikidata_claim is not None,
+                len(wikidata_images),
+                image_url,
+            ]
+        )
+        if ciqual_data and category and (got_image or image_url):
 
-    # Create a product name for each language
-    for lang, name in ingredient["name"].items():
-        product[f"product_name_{lang}"] = name
-        product[f"ingredients_text_{lang}"] = f"{name} 100%"
+            # We set all countries so ingredients always show up. Might be nice to get all "world" products to show up on all country domains
+            product = {
+                "code": code,
+                "countries": countries,
+                "categories": category,
+                "packaging_text_en": "1 paper bag to recycle",
+                "image_front_url": image_url.replace(
+                    ",", "%2c"
+                ),  # Escape commas so PO doesn't think there are multiple files
+            }
 
-    # Add nutrients from ciqual
-    for nutrient_id, nutrient in ciqual_data.items():
-        if nutrient.get("confidence", "-") != "-":
-            product[f"{nutrient_id}"] = (
-                f"{nutrient.get('modifier', '')}{nutrient.get('percent_nom')}"
+            # Create a product name for each language
+            for lang, name in ingredient["name"].items():
+                product[f"product_name_{lang}"] = name
+                product[f"ingredients_text_{lang}"] = f"{name} 100%"
+
+            # Add nutrients from ciqual
+            for nutrient_id, nutrient in ciqual_data.items():
+                if nutrient.get("confidence", "-") != "-":
+                    product[f"{nutrient_id}"] = (
+                        f"{nutrient.get('modifier', '')}{nutrient.get('percent_nom')}"
+                    )
+
+            products.append(product)
+            print(
+                id,
+                ciqual_code,
+                wikidata_id,
+                ingredient["name"].get("en", name),
+                image_url,
             )
 
-    products.append(product)
-    print(id, ciqual_code, wikidata_id, ingredient["name"].get("en", name), image_url)
-
-    count += 1
-    if code in existing_codes:
-        existing_codes.remove(code)
+            count += 1
+            if code in existing_codes:
+                existing_codes.remove(code)
 
 print("--- Generating tsv file ---")
 
