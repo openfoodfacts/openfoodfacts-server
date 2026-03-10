@@ -3602,7 +3602,7 @@ Data entered on the site will have this source.
 
 =head4 $org_id
 
-Organization id
+Organization id, if not provided, we try to get it from the global variable $Org_id
 
 =head3 Return values
 
@@ -3616,6 +3616,16 @@ sub get_source_for_site_and_org ($org_id = undef) {
 	my $source = "packaging";
 	if ($server_options{producers_platform}) {
 		$source = "manufacturer";
+
+		# on the pro platform, we need to know the org to set the correct source for schema upgrades
+		# ideally we would not use the global $Org_id variable in the ProductSchemaChanges module,
+		# but we would need to change many functions like retrieve_product() to pass the org_id as a parameter,
+		# so for now we will just use the global variable if the org_id is not provided as a parameter
+
+		if (not defined $org_id) {
+			$org_id = $Org_id;
+		}
+
 		if (defined $org_id) {
 			# e.g. org-database-usda
 			if ($org_id =~ /^org-database-(.+)$/) {

@@ -16,7 +16,7 @@ use ProductOpener::Tags qw/init_taxonomies/;
 # on the pro platform, we need to know the org to set the correct source for schema upgrades
 # ideally we would not use the global $Org_id variable in the ProductSchemaChanges module,
 # but we would need to change many functions like retrieve_product() to pass the org_id as a parameter,
-# so for now we will just set the global variable
+# so for now we will just use the global variable
 use ProductOpener::Users qw/$Org_id/;
 
 my $json = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical->pretty(1);
@@ -1592,7 +1592,7 @@ my @producers_platform_tests = (
 				"energy-kcal_100g" => 386,
 			},
 		}
-	],	
+	],
 );
 
 foreach my $test_ref (@producers_platform_tests) {

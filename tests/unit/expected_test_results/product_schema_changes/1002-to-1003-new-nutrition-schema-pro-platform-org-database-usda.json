@@ -3,14 +3,14 @@
       "aggregated_set" : {
          "nutrients" : {
             "energy" : {
-               "source" : "packaging",
+               "source" : "database-usda",
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
                "value" : 1615
             },
             "energy-kcal" : {
-               "source" : "packaging",
+               "source" : "database-usda",
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kcal",
@@ -34,7 +34,7 @@
             "per_quantity" : "100",
             "per_unit" : "g",
             "preparation" : "as_sold",
-            "source" : "packaging"
+            "source" : "database-usda"
          }
       ]
    },

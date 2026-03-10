@@ -453,10 +453,11 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 		my @nutrients = keys %hash_nutrients;
 
 		# Generates the nutrition sets,
-		# which, for old data, are all from source "packaging" if we are on the public platform,
-		# and "manufacturer" if we are on the pro platform and the product has an 'owner' field
-		my $source
-			= ($server_options{private_products} && defined $product_ref->{owner}) ? "manufacturer" : "packaging";
+		# If we are on the producers platform, we set the data source to "manufacturer" for all organizations with ids that start with org-
+		# except organizations with ids that start with org-database- or org-label- (e.g. "org-database-usda")
+		# otherwise, we set the source to "packaging" (for organizations that start with user-
+		# when the pro platform is used by individual users to load data in bulk, e.g. from scan parties)
+		my $source = get_source_for_site_and_org();
 		foreach my $set_type (keys %$new_nutrition_sets_ref) {
 			$new_nutrition_sets_ref->{$set_type}{preparation} = $nutrition_preparations_ref->{$set_type}{state};
 			$new_nutrition_sets_ref->{$set_type}{source} = $source;
@@ -920,12 +921,11 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 
 	$product_ref->{tags_sources} = {};
 
-	# If we are on the producers platform, we set the source of tags to "manufacturer" if the product has an owner,
-	# and to "packaging" otherwise
-	my $source
-		= ($server_options{private_products} && defined $product_ref->{owner})
-		? "manufacturer"
-		: "packaging";
+	# If we are on the producers platform, we set the data source to "manufacturer" for all organizations with ids that start with org-
+	# except organizations with ids that start with org-database- or org-label- (e.g. "org-database-usda")
+	# otherwise, we set the source to "packaging" (for organizations that start with user-
+	# when the pro platform is used by individual users to load data in bulk, e.g. from scan parties)
+	my $source = get_source_for_site_and_org();
 
 	# TODO: special case for ingredients_tags
 

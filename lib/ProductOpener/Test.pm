@@ -868,6 +868,7 @@ sub normalize_product_for_test_comparison ($product_ref) {
 				last_image_t last_image_datetime last_image_dates_tags images.*.uploaded_t images.uploaded.*.uploaded_t sources.*.import_t
 				created_datetime last_modified_datetime last_updated_datetime
 				blame.*.*.previous_t blame.*.*.t nutrition.input_sets.*.last_updated_t
+				tags_sources.*.*.last_updated_t
 			)
 		],
 		fields_sort => ["_keywords"],
