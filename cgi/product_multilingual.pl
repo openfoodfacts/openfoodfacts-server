@@ -209,7 +209,10 @@ local $log->context->{action} = $action;
 
 my $template_data_ref = {};
 
-# Nutrition source: packaging on public platform, manufacturer on producers platform
+# If we are on the producers platform, we set the data source to "manufacturer" for all organizations with ids that start with org-
+# except organizations with ids that start with org-database- or org-label- (e.g. "org-database-usda")
+# otherwise, we set the source to "packaging" (for organizations that start with user-
+# when the pro platform is used by individual users to load data in bulk, e.g. from scan parties)
 my $source = get_source_for_site_and_org($request_ref->{org_id});
 
 $log->debug("product_multilingual - start", {code => $code, type => $type, action => $action}) if $log->is_debug();
@@ -739,7 +742,19 @@ sub display_input_field ($product_ref, $field, $language, $request_ref) {
 		}
 	}
 
-	my $value = $product_ref->{$field};
+	my $value;
+
+	# For fields other than taxonomized tags fields, we use the value of the field directly
+	if (not defined $writable_tags_fields{$field}) {
+		$value = $product_ref->{$field};
+	}
+	else {
+		# For taxonomized tags fields, we display only the input tags for the source
+		my $input_tags_ref = deep_get($product_ref, "tags_source", $field, $source, "tags");
+		if (defined $input_tags_ref) {
+			$value = display_comma_separated_tags_list_in_lc($lc, $field, $input_tags_ref);
+		}
+	}
 
 	if (
 			(defined $value)

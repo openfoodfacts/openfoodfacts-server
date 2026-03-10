@@ -108,6 +108,7 @@ BEGIN {
 		&display_tag_name
 		&display_tag_link
 		&display_tags_list
+		&display_comma_separated_tags_list_in_lc
 		&display_parents_and_children
 		&display_tags_hierarchy
 		&export_tags_hierarchy
@@ -3301,6 +3302,40 @@ sub get_taxonomy_tag_and_link_for_lang ($target_lc, $tagtype, $tagid) {
 	};
 
 	return $tag_ref;
+}
+
+=head2 display_comma_separated_tags_list_in_lc ($target_lc, $tagtype, $tags_ref)
+
+Returns a comma-separated list of links for the tags in the input list,
+with the display text in the target language.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+The desired language for the display text.
+
+=head4 $tagtype
+
+The tag type of the tags in the input list.
+
+=head4 $tags_ref
+
+A reference to a list of tagids.
+
+=head3 Return value
+
+A comma-separated list of links for the tags in the input list, with the display text in the target language.
+
+=cut
+
+sub display_comma_separated_tags_list_in_lc ($target_lc, $tagtype, $tags_ref) {
+
+	if (not defined $tags_ref) {
+		return '';
+	}
+
+	return join(", ", map {display_taxonomy_tag_name($target_lc, $tagtype, $_)} @$tags_ref);
 }
 
 sub display_tags_list ($tagtype, $tags_list) {

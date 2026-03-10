@@ -83,4 +83,19 @@ is(
 	["en:frozen-carrots", "en:frozen-soups"]
 );
 
+# display_comma_separated_tags_list_in_lc()
+
+is(display_comma_separated_tags_list_in_lc("fr", "categories", undef), "");
+is(display_comma_separated_tags_list_in_lc("fr", "categories", []), "");
+is(display_comma_separated_tags_list_in_lc("en", "categories", ["en:vegetables", "en:carrots"]), "Vegetables, Carrots");
+is(
+	display_comma_separated_tags_list_in_lc(
+		"en", "categories", ["en:vegetables", "en:carrots", "en:Some unknown carrot species"]
+	),
+	"Vegetables, Carrots, Some unknown carrot species"
+);
+is(display_comma_separated_tags_list_in_lc("fr", "categories", ["en:vegetables", "en:carrots"]), "Légumes, Carottes");
+is(display_comma_separated_tags_list_in_lc("fr", "brands", ["xx:aldi", "xx:marks-spencers", "xx:Marque Inconnue"]),
+	"Aldi, Marks & Spencers, Marque Inconnue");
+
 done_testing();
