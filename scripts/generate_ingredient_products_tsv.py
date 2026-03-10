@@ -199,7 +199,9 @@ with open(
             wikidata_url = f"https://www.wikidata.org/w/api.php?action=wbgetclaims&entity={wikidata_id}&property=P18&format=json"
             wikidata_response = requests.get(wikidata_url, headers=wikidata_headers)
             try:
-                wikidata_claim = requests.get(wikidata_url, headers=wikidata_headers).json()
+                wikidata_claim = requests.get(
+                    wikidata_url, headers=wikidata_headers
+                ).json()
             except json.JSONDecodeError:
                 pass
 
@@ -229,9 +231,9 @@ with open(
                         # Get the actual image
                         image_name = image_name.replace(" ", "_")
                         # Hash is just used to generate a path, not for anything secure
-                        image_hash = hashlib.md5(
+                        image_hash = hashlib.md5(  # NOSONAR
                             image_name.encode("utf-8")
-                        ).hexdigest()  # NOSONAR
+                        ).hexdigest()
                         # If the image is bigger than 960px then use a thumbnail
                         if imageinfo["width"] >= 960:
                             image_url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{image_hash[0]}/{image_hash[0:2]}/{image_name}/960px-{image_name}"
