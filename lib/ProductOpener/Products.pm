@@ -115,6 +115,7 @@ BEGIN {
 		&analyze_and_enrich_product_data
 
 		&is_owner_field
+		&get_source_for_site_and_org
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -3590,4 +3591,45 @@ sub product_iter(
 	)
 {
 	return object_iter($base_path, $name_pattern, $exclude_path_pattern, $skip_until_path);
+}
+
+=head2 get_source_for_site_and_org ( $org_id = undef )
+
+Returns the default source of data (e.g. nutrition, tags) for the current site and organization.
+Data entered on the site will have this source.
+
+=head3 Arguments
+
+=head4 $org_id
+
+Organization id
+
+=head3 Return values
+
+- "packaging" for the public platform
+- "manufacturer" for the pro platform
+
+=cut
+
+sub get_source_for_site_and_org ($org_id = undef) {
+
+	my $source = "packaging";
+	if ($server_options{producers_platform}) {
+		$source = "manufacturer";
+		if (defined $org_id) {
+			# e.g. org-database-usda
+			if ($org_id =~ /^org-database-(.+)$/) {
+				$source = "database-" . $1;
+			}
+			# e.g. org-label-gmo-project (in practice labels should not send nutrition data)
+			if ($org_id =~ /^org-label-(.+)$/) {
+				$source = "label-" . $1;
+			}
+			# At some point we used the pro platform to allow users to bulk enter data (e.g. for scan parties)
+			elsif ($org_id =~ /^user-(.+)$/) {
+				$source = "packaging";
+			}
+		}
+	}
+	return $source;
 }

@@ -1,0 +1,94 @@
+{
+   "added_countries_tags" : [],
+   "additives_n" : 0,
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "allergens_from_ingredients" : "en:peanuts, CACAHUETES , CACAHUETES",
+   "allergens_from_user" : "(fr) en:peanuts",
+   "allergens_tags" : [
+      "en:peanuts"
+   ],
+   "amino_acids_prev_tags" : [],
+   "amino_acids_tags" : [],
+   "brands_tags" : [
+      "xx:jardin-bio-etic"
+   ],
+   "categories_tags" : [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:legumes-and-their-products",
+      "en:breakfasts",
+      "en:spreads",
+      "en:nuts-and-their-products",
+      "en:plant-based-spreads",
+      "en:sweet-spreads",
+      "en:oilseed-purees",
+      "en:legume-butters",
+      "fr:pates-a-tartiner",
+      "en:nut-butters",
+      "en:peanut-butters"
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:maybe-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_tags" : [],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
+   "ingredients_original_tags" : [
+      "en:lactic-ferments",
+      "en:rennet",
+      "en:salt"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
+   "ingredients_tags" : [
+      "en:lactic-ferments",
+      "en:ferment",
+      "en:microbial-culture",
+      "en:rennet",
+      "en:enzyme",
+      "en:coagulating-enzyme",
+      "en:salt"
+   ],
+   "ingredients_text" : "Ferments lactiques, Présure, Sel.",
+   "lc" : "fr",
+   "schema" : 1003,
+   "schema_version" : 1004,
+   "tags_sources" : {
+      "allergens" : {
+         "packaging" : {
+            "last_updated_t" : 1773152366,
+            "tags" : [
+               "en:peanuts"
+            ]
+         }
+      },
+      "brands" : {
+         "packaging" : {
+            "last_updated_t" : 1773152366,
+            "tags" : [
+               "xx:jardin-bio-etic"
+            ]
+         }
+      },
+      "categories" : {
+         "packaging" : {
+            "last_updated_t" : 1773152366,
+            "tags" : [
+               "fr:pates-a-tartiner",
+               "en:nut-butters",
+               "en:peanut-butters"
+            ]
+         }
+      }
+   }
+}

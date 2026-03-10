@@ -74,7 +74,13 @@ is([get_minimal_tags_subset("categories", [])], []);
 
 is([get_minimal_tags_subset("categories", ["en:vegetables", "en:carrots"])], ["en:carrots"]);
 
-is([get_minimal_tags_subset("categories", ["en:vegetables", "en:carrots", "en:soups", "en:frozen-carrots", "en:frozen-soups"])], ["en:frozen-carrots", "en:frozen-soups"]);
-
+is(
+	[
+		get_minimal_tags_subset(
+			"categories", ["en:vegetables", "en:carrots", "en:soups", "en:frozen-carrots", "en:frozen-soups"]
+		)
+	],
+	["en:frozen-carrots", "en:frozen-soups"]
+);
 
 done_testing();

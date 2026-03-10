@@ -124,6 +124,7 @@ BEGIN {
 
 		%tags_fields
 		%writable_tags_fields
+		@writable_tags_fields_list
 		%users_tags_fields
 		%taxonomy_fields
 		@drilldown_fields
@@ -267,6 +268,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	stores => 1,
 	countries => 1,
 );
+@writable_tags_fields_list = sort keys %writable_tags_fields;
 
 # Fields that are tags related to users
 %users_tags_fields = (
@@ -5201,7 +5203,6 @@ sub get_taxonomy_tag_path ($tagtype, $tagid) {
 	return \@path;
 }
 
-
 =head2 get_minimal_tags_subset ($tagtype, $tagids)
 
 Given a list of tagids, return the minimal subset of tagids that are not parents of any other tagid in the list.
@@ -5241,7 +5242,6 @@ sub get_minimal_tags_subset ($tagtype, $tags_ref) {
 
 	return @minimal_subset;
 }
-
 
 # Init the taxonomies, as most modules / scripts that load Tags.pm expect the taxonomies to be loaded
 # only available taxonomies will be loaded, and missing taxonomies will not trigger an error.

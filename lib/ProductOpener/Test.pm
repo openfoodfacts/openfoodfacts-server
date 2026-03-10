@@ -92,6 +92,10 @@ use Log::Any qw($log);
 
 no warnings qw(experimental::signatures);
 
+$Data::Dumper::Terse = 1;
+$Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
+
 # Make sure we include convert_blessed to cater for blessed objects, like booleans
 my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical;
 
