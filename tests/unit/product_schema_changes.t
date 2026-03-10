@@ -1554,6 +1554,45 @@ my @producers_platform_tests = (
 			},
 		}
 	],
+	[
+		'1002-to-1003-new-nutrition-schema-pro-platform-org-database-usda',
+		'org-database-usda',
+		1003,
+		{
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+			},
+		}
+	],
+	[
+		'1002-to-1003-new-nutrition-schema-pro-platform-org-label-some-label',
+		'org-label-some-label',
+		1003,
+		{
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+			},
+		}
+	],
+	[
+		'1002-to-1003-new-nutrition-schema-pro-platform-user-some-user',
+		'user-some-user',
+		1003,
+		{
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+			},
+		}
+	],	
 );
 
 foreach my $test_ref (@producers_platform_tests) {
