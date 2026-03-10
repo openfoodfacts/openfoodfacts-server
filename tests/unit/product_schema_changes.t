@@ -1470,27 +1470,34 @@ my @tests = (
 		{
 			schema => 1003,
 			lc => "fr",
+			# not a writable field, should be kept
 			added_countries_tags => [],
-			additives_n => 0,
+			# we will keep the additives_original_tags / ingredients_original_tags for now
 			additives_original_tags => [],
 			additives_tags => [],
+			# allergens are writable fields, they should be converted to the new tags schema
+			# and old fields like "allergens", "allergens_imported", "allergens_lc" etc. should be removed.
 			allergens => "en:peanuts",
+			# allergens_from_ingredients and allergens_from_user should be refactored at some point to be more consistent with the new tags schema,
+			# but for now we will keep them as they are
 			allergens_from_ingredients => "en:peanuts, CACAHUETES , CACAHUETES",
 			allergens_from_user => "(fr) en:peanuts",
 			allergens_hierarchy => ["en:peanuts"],
 			allergens_imported => "Arachides",
 			allergens_lc => "fr",
 			allergens_tags => ["en:peanuts"],
-			amino_acids_prev_tags => [],
-			amino_acids_tags => [],
+			# We might want to keep "brands" as it's easy for apps to use and display, and brands are not translated anyway
 			brands => "Jardin Bio étic",
 			brands_hierarchy => ["xx:Jardin Bio étic"],
 			brands_imported => "Jardin bio",
 			brands_lc => "xx",
 			brands_old => "Jardin Bio,Léa Nature",
 			brands_tags => ["xx:jardin-bio-etic"],
+			# Categories will be removed, as it could be in any language, so not useful for apps
 			categories =>
-				"Aliments et boissons à base de végétaux,Aliments d'origine végétale,Légumineuses et dérivés,Petit-déjeuners,Produits à tartiner,Fruits à coques et dérivés,Pâtes à tartiner végétales,Produits à tartiner sucrés,Purées d'oléagineux,Beurres de légumineuses,Pâtes à tartiner,Beurres de fruits à coques,Beurres de cacahuètes",
+				"Aliments et boissons à base de végétaux,Aliments d'origine végétale,Légumineuses et dérivés,Petit-déjeuners,Produits à tartiner,Fruits à coques et dérivés,Pâtes à tartiner végétales,Produits à tartiner sucrés,Purées d'oléagineux,Beurres de légumineuses,Pâtes à tartiner,Beurres de fruits à coques,Beurres de cacahuètes,Catégorie inconnue en français",
+			# categories_hierarchy will become categories_tags in the new schema
+			# we include a category with accents that is not in the taxonomy
 			categories_hierarchy => [
 				"en:plant-based-foods-and-beverages", "en:plant-based-foods",
 				"en:legumes-and-their-products", "en:breakfasts",
@@ -1498,28 +1505,28 @@ my @tests = (
 				"en:plant-based-spreads", "en:sweet-spreads",
 				"en:oilseed-purees", "en:legume-butters",
 				"fr:pates-a-tartiner", "en:nut-butters",
-				"en:peanut-butters"
+				"en:peanut-butters", "fr:Catégorie inconnue en français"
+			],
+			# Categories tags are normalized (including unrecognized entries that are lowercased / unaccented)
+			categories_tags => [
+				"en:plant-based-foods-and-beverages", "en:plant-based-foods",
+				"en:legumes-and-their-products", "en:breakfasts",
+				"en:spreads", "en:nuts-and-their-products",
+				"en:plant-based-spreads", "en:sweet-spreads",
+				"en:oilseed-purees", "en:legume-butters",
+				"fr:pates-a-tartiner", "en:nut-butters",
+				"en:peanut-butters", "fr:categorie-inconnue-en-francais"
 			],
 			categories_imported => "Petit-déjeuners, Produits à tartiner, Produits à tartiner sucrés, Pâtes à tartiner",
 			categories_lc => "fr",
 			categories_old =>
 				"Plant-based foods and beverages,Plant-based foods,Legumes and their products,Breakfasts,Spreads,Nuts and their products,Plant-based spreads,Sweet spreads,Oilseed purees,Legume butters,fr:Pâtes à tartiner,Nut butters,Peanut butters",
+			# not directly writable, should be kept as is
 			ingredients_analysis_tags => ["en:palm-oil-free", "en:maybe-vegan", "en:vegetarian"],
-			ingredients_from_or_that_may_be_from_palm_oil_n => 0,
-			ingredients_from_palm_oil_n => 0,
-			ingredients_from_palm_oil_tags => [],
-			ingredients_lc => "fr",
-			ingredients_n => 3,
-			ingredients_n_tags => ["3", "1-10"],
-			ingredients_non_nutritive_sweeteners_n => 0,
-			ingredients_original_tags => ["en:lactic-ferments", "en:rennet", "en:salt"],
-			ingredients_percent_analysis => 1,
-			ingredients_sweeteners_n => 0,
 			ingredients_tags => [
 				"en:lactic-ferments", "en:ferment", "en:microbial-culture", "en:rennet",
 				"en:enzyme", "en:coagulating-enzyme", "en:salt"
 			],
-			ingredients_text => "Ferments lactiques, Présure, Sel.",
 		},
 	]
 );

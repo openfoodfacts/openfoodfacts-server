@@ -1,6 +1,5 @@
 {
    "added_countries_tags" : [],
-   "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
    "allergens_from_ingredients" : "en:peanuts, CACAHUETES , CACAHUETES",
@@ -8,8 +7,6 @@
    "allergens_tags" : [
       "en:peanuts"
    ],
-   "amino_acids_prev_tags" : [],
-   "amino_acids_tags" : [],
    "brands_tags" : [
       "xx:jardin-bio-etic"
    ],
@@ -26,30 +23,14 @@
       "en:legume-butters",
       "fr:pates-a-tartiner",
       "en:nut-butters",
-      "en:peanut-butters"
+      "en:peanut-butters",
+      "fr:Catégorie inconnue en français"
    ],
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:maybe-vegan",
       "en:vegetarian"
    ],
-   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_n" : 0,
-   "ingredients_from_palm_oil_tags" : [],
-   "ingredients_lc" : "fr",
-   "ingredients_n" : 3,
-   "ingredients_n_tags" : [
-      "3",
-      "1-10"
-   ],
-   "ingredients_non_nutritive_sweeteners_n" : 0,
-   "ingredients_original_tags" : [
-      "en:lactic-ferments",
-      "en:rennet",
-      "en:salt"
-   ],
-   "ingredients_percent_analysis" : 1,
-   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:lactic-ferments",
       "en:ferment",
@@ -59,7 +40,6 @@
       "en:coagulating-enzyme",
       "en:salt"
    ],
-   "ingredients_text" : "Ferments lactiques, Présure, Sel.",
    "lc" : "fr",
    "schema" : 1003,
    "schema_version" : 1004,
@@ -86,7 +66,8 @@
             "tags" : [
                "fr:pates-a-tartiner",
                "en:nut-butters",
-               "en:peanut-butters"
+               "en:peanut-butters",
+               "fr:Catégorie inconnue en français"
             ]
          }
       }
