@@ -99,7 +99,7 @@ jobs:
         run: |
           # we don't need to be in dev mode, this avoid a complete rebuild
           sed -e "s/COMPOSE_FILE=.*$/COMPOSE_FILE=docker-compose.yml/" \
-            -e "s/COMPOSE_FILE=.*$/COMPOSE_FILE_BUILD=docker-compose.yml/" \
+            -e "s/COMPOSE_FILE_BUILD=.*$/COMPOSE_FILE_BUILD=docker-compose.yml/" \
             -e "s/TAG=.*$/TAG=sha-${{ env.RELEASE_SHA }}/" \
             -i .env
           make build_taxonomies
