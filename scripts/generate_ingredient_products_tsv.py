@@ -69,8 +69,8 @@ def po_response_is_ok(response: requests.Response):
         print(
             f"*** Error: {', '.join(error.get('message', {}).get('name', '?') for error in response.json().get('errors', []))} ***"
         )
-    except:
-        print(response.content)
+    except json.JSONDecodeError:
+        print(f"*** Error: {response.content} ***")
     return False
 
 
@@ -200,7 +200,7 @@ with open(
             wikidata_response = requests.get(wikidata_url, headers=wikidata_headers)
             try:
                 wikidata_claim = requests.get(wikidata_url, headers=wikidata_headers).json()
-            except:
+            except json.JSONDecodeError:
                 pass
 
             if wikidata_claim:

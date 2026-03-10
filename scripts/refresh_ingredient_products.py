@@ -61,8 +61,8 @@ def po_response_is_ok(response: requests.Response):
         return True
     try:
         print(f"*** Error: {', '.join(error.get('message', {}).get('name', '?') for error in response.json().get('errors', []))} ***")
-    except:
-        print(response.content)
+    except json.JSONDecodeError:
+        print(f"*** Error: {response.content} ***")
     return False
 
 # Get the existing ingredient products so we know which ones already have images
