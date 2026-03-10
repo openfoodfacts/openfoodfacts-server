@@ -64649,7 +64649,6 @@ nl: cayennepeper gedroogd
 #                                Curry
 #
 ###################################################################################################
-# The wikidata item specifies the dish and not the spice mix
 
 < en:spice
 en: curry
@@ -64675,7 +64674,9 @@ it: curry
 ja: カレー
 lt: karis
 mr: कोरड्यास
+nb: karri
 nl: kerrie, curry
+nn: karri
 pa: ਰੱਸਾ
 pl: curry, mieszanka przypraw curry, curry w proszku, przyprawa curry
 pt: caril
@@ -64693,7 +64694,6 @@ ciqual_food_name:fr: Curry, poudre
 wikidata:en: Q1144935
 # 972 in 10 @2021-09-17
 
-# description:en:CURRY POWDER is a spice mix originating from the Indian subcontinent.
 # Probably curry powder is a synonym of curry
 # With the translations be careful that they refer to the powder and not plain curry
 
@@ -64730,15 +64730,15 @@ wikidata:en: Q1144935
 # en-ca:curry powder
 # en-gb:curry powder
 # yue:咖喱粉
-#wikidata:en:Q1144935
-#wikipedia:en:https://en.wikipedia.org/wiki/Curry_powder
+#description:en: CURRY POWDER is a spice mix originating from the Indian subcontinent.
+#wikidata:en: Q1144935
+#wikipedia:en: https://en.wikipedia.org/wiki/Curry_powder
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/curry-powder
 # 231 products in 8 languages @2018-10-11
 
-# description:en:CURRY PASTE usually refers to a paste used as a cooking ingredient in the preparation of a curry.
-
 < en:spice
 en: curry paste
+da: karrypasta
 de: currypaste
 es: pasta de curry
 fi: currytahna
@@ -64747,19 +64747,24 @@ hr: curry pasta
 it: pasta di curry
 ko: 커리 페이스트
 nb: karripasta
+nn: karripasta
 pl: pasta curry
 sv: currypasta, curry pasta
+description:en: CURRY PASTE usually refers to a paste used as a cooking ingredient in the preparation of a curry.
 wikidata:en: Q5195232
 wikipedia:en: https://en.wikipedia.org/wiki/Curry_paste
 # ingredient/en:curry-paste has 39 products in 1 language @2020-06-08
 
 < en:curry paste
 en: red curry paste
+da: rød karrypasta
 de: rote currypaste
 fi: punainen currytahna
 fr: pâte de curry rouge
 hr: crvena curry pasta
 it: pasta di curry rosso
+nb: rød karripasta
+nn: raud karripasta
 pl: czerwona pasta curry
 sv: röd currypasta
 wikidata:en: Q67201118
@@ -91986,7 +91991,7 @@ bs: sos
 ca: salsa
 cs: omáčka
 cy: Saws
-da: sovs
+da: sovs, sauce
 de: Sauce, Soße
 el: σάλτσα
 eo: saŭco
@@ -92109,15 +92114,20 @@ fr: sauce au vinaigre balsamique
 fr: sauce aux fruits rouges
 
 < en:sauce
-en: Curry sauce
+en: curry sauce
 ca: salsa de curry
+da: karrysovs, karrysauce
 es: salsa de curry
-fr: Sauce au curry
+fr: sauce au curry
 hr: curry umak
 it: salsa al curry
+nb: karrisaus
+nn: karrisaus
+sv: currysås
 ciqual_food_code:en: 11132
 ciqual_food_name:en: Curry sauce, prepacked
 ciqual_food_name:fr: Sauce au curry, préemballée
+wikidata:en: Q115618401
 
 < en:sauce
 fr: sauce au café
