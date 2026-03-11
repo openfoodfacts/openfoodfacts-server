@@ -931,6 +931,13 @@ sub clean_fields ($product_ref) {
 			$product_ref->{$field} = "";
 		}
 
+    # Ignore the placeholder "Produit inconnu" in the French product name
+    if ($field eq "product_name_fr"
+        and $product_ref->{$field} =~ /^\s*produit inconnu\s*$/i)
+    {
+        $product_ref->{$field} = '-';
+    }
+
 		# Remove "unspecified" values
 		my @unspecified_lcs = ("en");
 		if (    (defined $product_ref->{lc})
