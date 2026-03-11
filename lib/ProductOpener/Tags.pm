@@ -2964,7 +2964,28 @@ sub gen_tags_hierarchy_taxonomy ($tag_lc, $tagtype, $tags_list) {
 
 	my $and = $and{$tag_lc} || " and ";
 
-	foreach my $tag2 (split(/\s*,\s*/, $tags_list)) {
+	return gen_tags_list_with_parents($tagtype, [split(/\s*,\s*/, $tags_list)]);
+}
+
+=head2 gen_tags_list_with_parents($tagtype, $tags_ref)
+
+Generate a list of tags including the parents of the tags in the input list.
+
+=head3 Parameters
+
+=head4 tag type $tagtype
+
+=head4 reference to a list of tags $tags_ref
+
+=cut
+
+sub gen_tags_list_with_parents($tagtype, $tags_ref) {
+
+	if (not defined $tags_ref) {
+		return ();
+	}
+
+	foreach my $tag (@$tags_ref) {
 		my $tag = $tag2;
 		my $l = $tag_lc;
 		if ($tag =~ /^(\w\w):/) {
@@ -4701,6 +4722,80 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 
 	return;
 }
+
+=head2 set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags)
+
+New function to set the input tags for a field and a source. (e.g. categories for the manufacturer source)
+
+=cut
+
+sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags) {
+
+	# brands are a language less taxonomy, the input tag_lc is not used, we use xx instead
+	if ($field eq "brands") {
+		$tag_lc = "xx";
+	}
+
+	my @normalized_input_tags = ();
+	foreach my $tag (split(/,/, $input_tags)) {
+
+		$tag =~ s/^\s+//;
+		$tag =~ s/\s+$//;
+
+		my $normalized_tag;
+
+		if (defined $taxonomy_fields{$field}) {
+			$normalized_tag = canonicalize_taxonomy_tag($tag_lc, $field, $tag);
+		}
+		else {
+			$normalized_tag = $tag;
+		}
+		push @normalized_input_tags, $normalized_tag;
+	}
+
+	deep_set($product_ref, "tags_sources", $field, $source, "tags", \@normalized_input_tags);
+	deep_set($product_ref, "tags_sources", $field, $source, "last_updated_t", time());
+
+	generate_field_tags_from_all_sources($product_ref, $field);
+
+	return;
+}
+
+=head2 generate_field_tags_from_all_sources ($product_ref, $field)
+
+This function gathers all the input tags for a field from all sources, and generates the final tags for the field,
+including parents for taxonomy fields.
+
+=cut
+
+sub generate_field_tags_from_all_sources ($product_ref, $field) {
+
+	my %all_input_tags = ();
+
+	if (defined $product_ref->{tags_sources}{$field}) {
+		foreach my $source (keys %{$product_ref->{tags_sources}{$field}}) {
+			if (defined $product_ref->{tags_sources}{$field}{$source}{tags}) {
+				foreach my $tag (@{$product_ref->{tags_sources}{$field}{$source}{tags}}) {
+					$all_input_tags{$tag} = 1;
+				}
+			}
+		}
+	}
+
+	my @all_input_tags_list = sort keys %all_input_tags;
+
+	gen_tags_list_with_parents($field, \@all_input_tags, $product_ref);
+
+	return;
+}
+
+=head2 compute_field_tags ($product_ref, $tag_lc, $field)
+
+Generate the tags hierarchy from the comma separated list of $field with default language $tag_lc
+
+This function was used primarily before we refactored tags with tags_sources (schema version < 1005).
+
+=cut
 
 sub compute_field_tags ($product_ref, $tag_lc, $field) {
 	# generate the tags hierarchy from the comma separated list of $field with default language $tag_lc

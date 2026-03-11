@@ -615,14 +615,19 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 		if (defined single_param($field)) {
 
+			my $value = preprocess_product_field($field, decode utf8 => single_param($field));
+
 			# Only moderators can update values for fields sent by the producer
 			if (skip_protected_field($product_ref, $field, $User{moderator})) {
 				next;
 			}
 
-			if ($field eq "lang") {
-				my $value = remove_tags_and_quote(decode utf8 => single_param($field));
+			# Writable tags fields (e.g. categories_tags) are processed in a specific way, in order to update the tags_sources structure and generate the field_tags structure
+			if (defined $writable_tags_fields{$field}) {
+				set_field_input_tags_for_source($product_ref, $lc, $field, $source, $value) next;
+			}
 
+			if ($field eq "lang") {
 				# strip variants fr-BE fr_BE
 				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
 				$value = lc($value);
@@ -635,14 +640,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 			}
 			else {
-				# infocards set by admins can contain HTML
-				if (($request_ref->{admin}) and ($field =~ /infocard/)) {
-					$product_ref->{$field} = decode utf8 => single_param($field);
-				}
-				else {
-					# Preprocesses fields to remove email values as entries
-					$product_ref->{$field} = preprocess_product_field($field, decode utf8 => single_param($field));
-				}
+				$product_ref->{$field} = $value;
 			}
 
 			$log->debug("before compute field_tags",
@@ -655,8 +653,11 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 				delete $product_ref->{$ingredients_text_with_allergens};
 			}
 
-			compute_field_tags($product_ref, $lc, $field);
-
+			# For some tags fields that are not taxonomized (e.g. emb_codes),
+			# we still need to call the old compute_field_tags() function
+			if (defined $tags_fields{$field} and not defined $taxonomy_fields{$field}) {
+				compute_field_tags($product_ref, $lc, $field);
+			}
 		}
 		else {
 			$log->debug("could not find field in params", {field => $field}) if $log->is_debug();
@@ -750,23 +751,12 @@ sub display_input_field ($product_ref, $field, $language, $request_ref) {
 	}
 	else {
 		# For taxonomized tags fields, we display only the input tags for the source
-		my $input_tags_ref = deep_get($product_ref, "tags_source", $field, $source, "tags");
+		my $input_tags_ref = deep_get($product_ref, "tags_sources", $field, $source, "tags");
 		if (defined $input_tags_ref) {
 			$value = display_comma_separated_tags_list_in_lc($lc, $field, $input_tags_ref);
 		}
 	}
 
-	if (
-			(defined $value)
-		and (defined $taxonomy_fields{$field})
-		# if the field was previously not taxonomized, the $field_hierarchy field does not exist
-		and (defined $product_ref->{$field . "_hierarchy"})
-		)
-	{
-		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
-		# Remove tags
-		$value =~ s/<(([^>]|\n)*)>//g;
-	}
 	if (not defined $value) {
 		$value = "";
 	}
