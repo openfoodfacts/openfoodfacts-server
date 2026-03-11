@@ -32853,8 +32853,6 @@ it: estratto di frutto del monaco
 #
 ##################################################################################
 
-# description:en:PROTEINES - are large biomolecules, or macromolecules, consisting of one or more long chains of amino acid residues
-
 en: protein, proteins
 af: Proteïen
 an: Proteína
@@ -32871,7 +32869,7 @@ ca: proteïna
 cs: Bílkoviny
 cv: Шуррисем
 cy: protein
-da: Protein
+da: protein, proteiner
 de: Protein, Eiweiß, Eiweißstoff, Eiweiss
 dv: ޕްރޮޓީން
 el: Πρωτεΐνη
@@ -32917,10 +32915,10 @@ mr: प्रथिने
 ms: Protein
 mt: Proteini
 my: ပရိုတိန်း
-nb: Protein
+nb: protein, proteiner
 ne: प्रोटिन
 nl: eiwitten, proteïnen, eiwit
-nn: Protein
+nn: protein
 oc: proteïna
 om: Pirootiinii
 or: ପୁଷ୍ଟିସାର
@@ -32938,7 +32936,7 @@ so: Borotiin
 sq: Proteina
 sr: Протеин, Proteini
 su: Protéin
-sv: Protein
+sv: protein, proteiner
 sw: Protini
 ta: புரதம்
 te: మాంసకృత్తులు
@@ -32953,46 +32951,49 @@ uz: Proteinlar
 wa: Proteyene
 yi: פראטעאין
 zh: 蛋白质
-# als:Protein, Äiwiss, Äiwissstoff
-# arz:بروتين
-# ast:Proteína
-# azb:پروتئین
-# bat-smg:Baltīms
-# be-tarask:Бялкі
-# bjn:Parotéin
-# bxr:Уураг
-# cdo:Lâung-băh-cék
-# chr:ᎠᏓᎵᏥᏍᏗᏍᎩ
-# ckb:پرۆتین
-# dty:प्रोटिन
-# frr:Protein, aiwitj
-# hak:Thàn-pha̍k-chṳt
-# hif:Protein
-# ilo:Protina
-# lez:Ладзар
-# lmo:Pruteina
-# myv:Ашовт
-# nds:Proteine, Eiwitte, Eiwittstoffe
-# new:प्रोटिन
-# nov:proteine
-# pam:Protina
-# pnb:پروٹین
-# rue:Протеін
-# sah:Протеин
-# sco:Protein
-# stq:Oaiwiete
-# tyv:Белок
-# vec:Proteine
-# vls:proteïne, eiwit
-# war:Protina
-# wuu:蛋白质
-# xal:Ууруг
-#xmf:ცილეფი
-# zh-classical:朊
-# zh-min-nan:Nn̄g-pe̍h-chit
-# yue:蛋白質
+#als: Protein, Äiwiss, Äiwissstoff
+#arz: بروتين
+#ast: Proteína
+#azb: پروتئین
+#bat-smg: Baltīms
+#be-tarask: Бялкі
+#bjn: Parotéin
+#bxr: Уураг
+#cdo: Lâung-băh-cék
+#chr: ᎠᏓᎵᏥᏍᏗᏍᎩ
+#ckb: پرۆتین
+#dty: प्रोटिन
+#frr: Protein, aiwitj
+#hak: Thàn-pha̍k-chṳt
+#hif: Protein
+#ilo: Protina
+#lez: Ладзар
+#lmo: Pruteina
+#myv: Ашовт
+#nds: Proteine, Eiwitte, Eiwittstoffe
+#new: प्रोटिन
+#nov: proteine
+#pam: Protina
+#pnb: پروٹین
+#rue: Протеін
+#sah: Протеин
+#sco: Protein
+#stq: Oaiwiete
+#tyv: Белок
+#vec: Proteine
+#vls: proteïne, eiwit
+#war: Protina
+#wuu: 蛋白质
+#xal: Ууруг
+#xmf: ცილეფი
+#zh-classical: 朊
+#zh-min-nan: Nn̄g-pe̍h-chit
+#yue: 蛋白質
+description:en: PROTEINS are large biomolecules, or macromolecules, consisting of one or more long chains of amino acid residues.
 vegan:en: maybe
 vegetarian:en: maybe
+wikidata:en: Q8054
+#wikidata:en: Q21296145 - is specifically for proteins-as-human-nutrients
 
 # nova:en:hydrolysed-proteins
 < en:protein
@@ -33789,6 +33790,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Calcium_caseinate
 < en:plant protein
 en: rapeseed protein
 bg: рапичен протеин
+da: rapsprotein
 de: Rapseiweiß
 fi: rapsiproteiini
 fr: protéine de colza, protéines de colza
@@ -33806,13 +33808,19 @@ it: proteina di colza idrolizzata
 nl: gehydrolyseerd koolzaadeiwit
 pl: hydrolizat białka rzepakowego, hydrolizat białek rzepakowych
 
+en: protein crisp
+sv: proteincrisp
+vegan:en: maybe
+vegetarian:en: maybe
+
 en: proteins mix
 de: Proteinmischung
 es: mezcla de proteínas
 fr: mélange de protéines
 hr: proteinska mješavina
 it: Mix di proteine
-
+vegan:en: maybe
+vegetarian:en: maybe
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -61558,7 +61566,7 @@ ru: лесной орех, лесньым орехом, фундук
 sk: lieskové oriešky
 sl: lešniki
 sq: lajthi
-sv: hasselnöt, hasselnötter
+sv: hasselnöt, hasselnötter, hasselnöts
 th: เฮเซลนัต
 tr: fındık
 uk: ліщинні горіхи
@@ -61730,7 +61738,7 @@ pl: pasta z orzechów laskowych
 pt: pasta de avelã, pasta de avelãs
 ro: pastă de alune de pădure
 sk: oriešková pasta
-sv: hasselnötsmassa, hasselnötspasta
+sv: hasselnötspasta, hasselnötpasta, hasselnötsmassa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/hazelnut-paste
 # 965 products in 14 languages @2018-10-06
 
