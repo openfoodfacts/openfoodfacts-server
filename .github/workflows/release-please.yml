@@ -152,7 +152,7 @@ jobs:
       - name: Add the assets to the release
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
-        id: add-assests-to-release
+        id: add-assets-to-release
         uses: svenstaro/upload-release-action@2.11.4
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
