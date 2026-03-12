@@ -2,8 +2,19 @@
    "code" : "1234567890100",
    "errors" : [],
    "product" : {
+      "brands_hierarchy" : [
+         "xx:test-brand"
+      ],
       "brands_tags" : [
          "xx:test-brand"
+      ],
+      "categories_hierarchy" : [
+         "en:beverages-and-beverages-preparations",
+         "en:plant-based-foods-and-beverages",
+         "en:beverages",
+         "en:hot-beverages",
+         "en:plant-based-beverages",
+         "en:teas"
       ],
       "categories_tags" : [
          "en:beverages-and-beverages-preparations",

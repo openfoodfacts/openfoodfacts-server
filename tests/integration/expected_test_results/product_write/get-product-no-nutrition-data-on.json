@@ -4,12 +4,8 @@
    "product" : {
       "_id" : "1234567890012",
       "_keywords" : [
-         "breakfast",
-         "cereal",
          "english",
-         "gluten-free",
          "name",
-         "organic",
          "product"
       ],
       "added_countries_tags" : [],
@@ -18,23 +14,13 @@
       "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [],
       "allergens_tags" : [],
-      "categories" : "Breakfast cereals",
-      "categories_hierarchy" : [
-         "en:plant-based-foods-and-beverages",
-         "en:plant-based-foods",
-         "en:breakfasts",
-         "en:cereals-and-potatoes",
-         "en:cereals-and-their-products",
-         "en:breakfast-cereals"
-      ],
-      "categories_lc" : "en",
       "categories_properties" : {
          "agribalyse_proxy_food_code:en" : "32135",
          "ciqual_food_code:en" : "32003"
       },
       "categories_properties_tags" : [
          "all-products",
-         "categories-known",
+         "categories-unknown",
          "agribalyse-food-code-unknown",
          "agribalyse-proxy-food-code-32135",
          "agribalyse-proxy-food-code-known",
@@ -67,7 +53,7 @@
          "1xxxxxxxxxxxx"
       ],
       "complete" : 0,
-      "completeness" : 0.3,
+      "completeness" : 0.2,
       "correctors_tags" : [],
       "created_t" : "--ignore--",
       "creator" : "tests",
@@ -76,7 +62,7 @@
          "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
          "en:ingredients-en-photo-to-be-selected",
          "en:ingredients-en-to-be-completed",
-         "en:categories-completed",
+         "en:categories-to-be-completed",
          "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
@@ -93,8 +79,8 @@
          "completeness" : {
             "general_information" : "0.20",
             "ingredients" : "0.00",
-            "nutrition" : "1.00",
-            "overall" : "0.42",
+            "nutrition" : "0.67",
+            "overall" : "0.33",
             "packaging" : "0.50"
          }
       },
@@ -110,7 +96,7 @@
          "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
          "en:ingredients-en-photo-to-be-selected",
          "en:ingredients-en-to-be-completed",
-         "en:categories-completed",
+         "en:categories-to-be-completed",
          "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
@@ -565,12 +551,6 @@
       ],
       "interface_version_created" : "20190830",
       "interface_version_modified" : "20190830",
-      "labels" : "Organic, Gluten-Free",
-      "labels_hierarchy" : [
-         "en:no-gluten",
-         "en:organic"
-      ],
-      "labels_lc" : "en",
       "labels_tags" : [
          "en:no-gluten",
          "en:organic"
@@ -606,6 +586,7 @@
          "en:environmental-score-missing-data-packagings",
          "en:environmental-score-missing-data-warning",
          "en:nutrients-not-estimated-from-ingredients-no-ingredients",
+         "en:nutriscore-missing-category",
          "en:nutriscore-missing-fiber",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-energy",
@@ -632,7 +613,7 @@
       "nutrient_levels_tags" : [],
       "nutriscore" : {
          "2021" : {
-            "category_available" : 1,
+            "category_available" : 0,
             "data" : {
                "energy" : null,
                "fiber" : 0,
@@ -649,12 +630,12 @@
             "estimated" : 0,
             "grade" : "unknown",
             "nutrients_available" : 0,
-            "nutriscore_applicable" : 1,
+            "nutriscore_applicable" : 0,
             "nutriscore_computed" : 0,
             "preparation" : "as_sold"
          },
          "2023" : {
-            "category_available" : 1,
+            "category_available" : 0,
             "data" : {
                "energy" : null,
                "fiber" : null,
@@ -672,7 +653,7 @@
             "estimated" : 0,
             "grade" : "unknown",
             "nutrients_available" : 0,
-            "nutriscore_applicable" : 1,
+            "nutriscore_applicable" : 0,
             "nutriscore_computed" : 0,
             "preparation" : "as_sold"
          }
@@ -697,7 +678,7 @@
          "unknown"
       ],
       "nutrition_score_beverage" : 0,
-      "nutrition_score_debug" : "missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
+      "nutrition_score_debug" : "no score when the product does not have a category - missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
       "nutrition_score_warning_no_fiber" : 1,
       "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
       "packaging_materials_tags" : [],
@@ -722,8 +703,8 @@
       "product_type" : "food",
       "removed_countries_tags" : [],
       "rev" : 2,
-      "schema_version" : 1003,
-      "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+      "schema_version" : 1004,
+      "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -732,7 +713,7 @@
          "en:packaging-code-to-be-completed",
          "en:characteristics-to-be-completed",
          "en:origins-to-be-completed",
-         "en:categories-completed",
+         "en:categories-to-be-completed",
          "en:brands-to-be-completed",
          "en:packaging-to-be-completed",
          "en:quantity-to-be-completed",
@@ -747,13 +728,32 @@
          "en:packaging-code-to-be-completed",
          "en:characteristics-to-be-completed",
          "en:origins-to-be-completed",
-         "en:categories-completed",
+         "en:categories-to-be-completed",
          "en:brands-to-be-completed",
          "en:packaging-to-be-completed",
          "en:quantity-to-be-completed",
          "en:product-name-completed",
          "en:photos-to-be-uploaded"
       ],
+      "tags_sources" : {
+         "categories" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:breakfast-cereals"
+               ]
+            }
+         },
+         "labels" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:organic",
+                  "en:no-gluten"
+               ]
+            }
+         }
+      },
       "traces" : "",
       "traces_from_ingredients" : "",
       "traces_from_user" : "(en) ",
