@@ -49,7 +49,7 @@
       "labels" : "végétarien,Something unrecognized in French",
       "labels_hierarchy" : [
          "en:vegetarian",
-         "fr:Something unrecognized in French"
+         "fr:something-unrecognized-in-french"
       ],
       "labels_tags" : [
          "en:vegetarian",
@@ -60,6 +60,10 @@
          "Something-unrecognized-in-french"
       ],
       "stores" : "Carrefour, Mon Ptit magasin",
+      "stores_hierarchy" : [
+         "carrefour",
+         "mon-ptit-magasin"
+      ],
       "stores_tags" : [
          "carrefour",
          "mon-ptit-magasin"
