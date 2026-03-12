@@ -98,4 +98,16 @@ is(display_comma_separated_tags_list_in_lc("fr", "categories", ["en:vegetables",
 is(display_comma_separated_tags_list_in_lc("fr", "brands", ["xx:aldi", "xx:marks-spencers", "xx:Marque Inconnue"]),
 	"Aldi, Marks & Spencers, Marque Inconnue");
 
+# gen_tags_list_with_parents
+
+retrieve_tags_taxonomy("test");
+
+is([gen_tags_list_with_parents("en", "test", [])], []);
+is([gen_tags_list_with_parents("en", "test", ["test"])], ["en:test"]);
+is([gen_tags_list_with_parents("en", "test", ["en:test"])], ["en:test"]);
+is([gen_tags_list_with_parents("en", "test", ["en:test", "en:test"])], ["en:test"]);
+is([gen_tags_list_with_parents("en", "test", ["yaourts à la banane"])], ["en:yaourts à la banane"]);
+is([gen_tags_list_with_parents("fr", "test", ["yaourts à la banane"])], ["en:yogurts", "en:banana-yogurts"]);
+is([gen_tags_list_with_parents("fr", "test", ["yaourts au schtroumpf"])], ["fr:yaourts au schtroumpf"]);
+
 done_testing();

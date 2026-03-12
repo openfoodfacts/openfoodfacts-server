@@ -624,7 +624,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 			# Writable tags fields (e.g. categories_tags) are processed in a specific way, in order to update the tags_sources structure and generate the field_tags structure
 			if (defined $writable_tags_fields{$field}) {
-				set_field_input_tags_for_source($product_ref, $lc, $field, $source, $value) next;
+				set_field_input_tags_for_source($product_ref, $lc, $field, $source, $value);
+				next;
 			}
 
 			if ($field eq "lang") {

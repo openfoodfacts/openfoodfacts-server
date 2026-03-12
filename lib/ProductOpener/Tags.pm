@@ -175,6 +175,8 @@ BEGIN {
 		&get_taxonomy_tag_path
 
 		&get_minimal_tags_subset
+		&gen_tags_list_with_parents
+		&set_field_input_tags_for_source
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -2955,19 +2957,10 @@ sub gen_tags_hierarchy_taxonomy ($tag_lc, $tagtype, $tags_list) {
 		return ();
 	}
 
-	if (not exists $all_parents{$tagtype}) {
-		$log->error("all_parents{\$tagtype} does not exists", {tagtype => $tagtype}) if $log->is_warning();
-		return (split(/\s*,\s*/, $tags_list));
-	}
-
-	my %tags = ();
-
-	my $and = $and{$tag_lc} || " and ";
-
-	return gen_tags_list_with_parents($tagtype, [split(/\s*,\s*/, $tags_list)]);
+	return gen_tags_list_with_parents($tag_lc, $tagtype, [split(/\s*,\s*/, $tags_list)]);
 }
 
-=head2 gen_tags_list_with_parents($tagtype, $tags_ref)
+=head2 gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref)
 
 Generate a list of tags including the parents of the tags in the input list.
 
@@ -2979,14 +2972,23 @@ Generate a list of tags including the parents of the tags in the input list.
 
 =cut
 
-sub gen_tags_list_with_parents($tagtype, $tags_ref) {
+sub gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref) {
+
+	# If the tagtype is not a taxonomy, we just unique the tags and return them in the same order
+	if (not defined $all_parents{$tagtype}) {
+		my %seen = ();
+		return grep {$_ ne ''} grep {!$seen{$_}++} @$tags_ref;
+	}
+
+	my %tags = ();
+
+	my $and = $and{$tag_lc} || " and ";
 
 	if (not defined $tags_ref) {
 		return ();
 	}
 
 	foreach my $tag (@$tags_ref) {
-		my $tag = $tag2;
 		my $l = $tag_lc;
 		if ($tag =~ /^(\w\w):/) {
 			$l = $1;
@@ -4761,21 +4763,21 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 	return;
 }
 
-=head2 generate_field_tags_from_all_sources ($product_ref, $field)
+=head2 generate_field_tags_from_all_sources ($product_ref, $tagtype)
 
 This function gathers all the input tags for a field from all sources, and generates the final tags for the field,
 including parents for taxonomy fields.
 
 =cut
 
-sub generate_field_tags_from_all_sources ($product_ref, $field) {
+sub generate_field_tags_from_all_sources ($product_ref, $tagtype) {
 
 	my %all_input_tags = ();
 
-	if (defined $product_ref->{tags_sources}{$field}) {
-		foreach my $source (keys %{$product_ref->{tags_sources}{$field}}) {
-			if (defined $product_ref->{tags_sources}{$field}{$source}{tags}) {
-				foreach my $tag (@{$product_ref->{tags_sources}{$field}{$source}{tags}}) {
+	if (defined $product_ref->{tags_sources}{$tagtype}) {
+		foreach my $source (keys %{$product_ref->{tags_sources}{$tagtype}}) {
+			if (defined $product_ref->{tags_sources}{$tagtype}{$source}{tags}) {
+				foreach my $tag (@{$product_ref->{tags_sources}{$tagtype}{$source}{tags}}) {
 					$all_input_tags{$tag} = 1;
 				}
 			}
@@ -4784,7 +4786,7 @@ sub generate_field_tags_from_all_sources ($product_ref, $field) {
 
 	my @all_input_tags_list = sort keys %all_input_tags;
 
-	gen_tags_list_with_parents($field, \@all_input_tags, $product_ref);
+	$product_ref->{$tagtype . "_tags"} = [gen_tags_list_with_parents("en", $tagtype, \@all_input_tags_list)];
 
 	return;
 }
@@ -4794,6 +4796,8 @@ sub generate_field_tags_from_all_sources ($product_ref, $field) {
 Generate the tags hierarchy from the comma separated list of $field with default language $tag_lc
 
 This function was used primarily before we refactored tags with tags_sources (schema version < 1005).
+
+It is still used to upgrade old products to newer schema (see ProductSchemaChanges.pm)
 
 =cut
 
