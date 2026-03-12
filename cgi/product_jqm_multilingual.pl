@@ -59,7 +59,7 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::API qw/get_initialized_response check_user_permission/;
 use ProductOpener::APIProductWrite
-	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one skip_protected_field/;
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one skip_protected_field update_product_field_api_v2_and_cgi/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -409,7 +409,7 @@ else {
 			next;
 		}
 
-		update_product_field_api_v2_and_cgi($product_ref, $field, single_param($field));
+		update_product_field_api_v2_and_cgi($product_ref, $field, single_param($field), $source);
 
 		if (defined $language_fields{$field}) {
 

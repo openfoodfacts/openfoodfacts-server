@@ -41,6 +41,7 @@ BEGIN {
 		&process_change_product_type_request_if_we_have_one
 		&skip_protected_field
 		&update_images_selected
+		&update_product_field_api_v2_and_cgi
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -48,7 +49,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Users qw/$Org_id $Owner_id/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Lang qw/$lc %Langs/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::API
@@ -56,12 +57,14 @@ use ProductOpener::API
 use ProductOpener::Packaging
 	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
-use ProductOpener::Tags qw/%language_fields %writable_tags_fields add_tags_to_field compute_field_tags/;
+use ProductOpener::Tags
+	qw/%language_fields %writable_tags_fields add_tags_to_field compute_field_tags %tags_fields %taxonomy_fields set_field_input_tags_for_source/;
 use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::Auth qw/get_azp/;
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Nutrition qw/assign_nutrition_values_from_request_object/;
+use ProductOpener::Lang qw/%lang_lc/;
 
 use Encode;
 
@@ -772,7 +775,31 @@ sub write_product_api ($request_ref) {
 	return;
 }
 
-sub update_product_field_api_v2_and_cgi($product_ref, $field, $value) {
+=head2 update_product_field_api_v2_and_cgi($product_ref, $field, $value, $source)
+
+This function is used to update a product field based on input from API v2 and CGI requests.
+
+=head3 Parameters
+
+=head4 $product_ref (input)
+
+Reference to the product object.
+
+=head4 $field (input)
+
+Field name.
+
+=head4 $value (input)
+
+Field value.
+
+=head4 $source (input)
+
+Source of the field value: "packaging" on the public platform, "manufacturer" on the producer platform.
+
+=cut
+
+sub update_product_field_api_v2_and_cgi($product_ref, $field, $value, $source) {
 
 	if (not defined $value) {
 		$log->debug("no value for field", {field => $field}) if $log->is_debug();
@@ -800,14 +827,10 @@ sub update_product_field_api_v2_and_cgi($product_ref, $field, $value) {
 			$product_ref->{lang} = $value;
 			$product_ref->{lc} = $value;
 		}
-
 	}
 	else {
 		$product_ref->{$field} = $value;
 
-		$log->debug("before compute field_tags",
-			{code => $code, field_name => $field, field_value => $product_ref->{$field}})
-			if $log->is_debug();
 		if ($field =~ /ingredients_text/) {
 			# the ingredients_text_with_allergens[_$lc] will be recomputed after
 			my $ingredients_text_with_allergens = $field;

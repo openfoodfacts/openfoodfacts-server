@@ -59,7 +59,7 @@ use ProductOpener::APIProductWrite qw/skip_protected_field/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use ProductOpener::Orgs qw/update_import_date update_last_import_type/;
 use ProductOpener::APIProductWrite
-	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one/;
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one update_product_field_api_v2_and_cgi/;
 use ProductOpener::Nutrition qw/:all/;
 
 use Apache2::RequestRec ();
@@ -613,7 +613,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	foreach my $field (@param_fields) {
 
-		update_product_field_api_v2_and_cgi($product_ref, $field, single_param($field));
+		update_product_field_api_v2_and_cgi($product_ref, $field, single_param($field), $source);
 	}
 
 	# Obsolete products

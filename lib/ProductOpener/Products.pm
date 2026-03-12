@@ -858,10 +858,10 @@ sub init_product ($userid, $orgid, $code, $countryid, $client_id = undef) {
 			$product_ref->{countries} = "en:" . $country;
 			my $field = 'countries';
 			if (defined $taxonomy_fields{$field}) {
-				$product_ref->{$field . "_hierarchy"}
+				$product_ref->{$field . "_tags"}
 					= [gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field})];
 				$product_ref->{$field . "_tags"} = [];
-				foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
+				foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
 					push @{$product_ref->{$field . "_tags"}}, get_taxonomyid("en", $tag);
 				}
 			}
@@ -1795,19 +1795,9 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		delete $current_ref->{completed_t};
 	}
 
-	$product_ref->{states} = join(', ', reverse @states_tags);
-	$product_ref->{"states_hierarchy"} = [reverse @states_tags];
 	$product_ref->{"states_tags"} = [reverse @states_tags];
+	$product_ref->{states} = join(', ', @states_tags);
 
-	#my $field = "states";
-	#
-	#$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
-	#$product_ref->{$field . "_tags" } = [];
-	#foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-	#		push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
-	#}
-
-	# old name
 	delete $product_ref->{status};
 	delete $product_ref->{status_tags};
 
