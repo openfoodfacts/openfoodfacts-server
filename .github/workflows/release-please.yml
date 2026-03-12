@@ -101,6 +101,7 @@ jobs:
           sed -e "s/COMPOSE_FILE=.*$/COMPOSE_FILE=docker-compose.yml/" \
             -e "s/COMPOSE_FILE_BUILD=.*$/COMPOSE_FILE_BUILD=docker-compose.yml/" \
             -e "s/TAG=.*$/TAG=sha-${{ env.RELEASE_SHA }}/" \
+            -e "s/COMPOSE_PROJECT_NAME=.*$/COMPOSE_PROJECT_NAME=po_release/" \
             -i .env
           make build_taxonomies
           make build_lang
