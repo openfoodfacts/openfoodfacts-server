@@ -34228,6 +34228,7 @@ ru: Растворимые напитки
 < en:Dried products to be rehydrated
 < en:Mashed potatoes
 en: Instant mashed potatoes, dehydrated mashed potatoes
+da: Kartoffelmospulvere
 de: Kartoffelpulver
 fi: perunamuusijauheet
 fr: Purées de pommes de terre en flocons, purées de pommes de terre instantanées, Purées en flocons, purées instantanées
@@ -34236,6 +34237,7 @@ it: Puré di patate istantaneo
 ja: インスタントマッシュポテト
 lt: Greito pagaminimo bulvės, Greito pagaminimo bulvių košės
 nl: Aardappelpureeën in gedroogde vorm, Aardappelpuree in gedroogde vorm, Aardappelpoeder
+sv: Potatismospulver, Kartoffelmospulver
 agribalyse_proxy_food_code:en: 4019
 ciqual_proxy_food_code:en: 4019
 ciqual_proxy_food_name:en: Potato puree, made from flakes, reconstituted with semi-skimmed milk and water, unsalted
@@ -42631,6 +42633,7 @@ ciqual_food_name:fr: Igname, épluchée, bouillie/cuite à l'eau
 < en:Gnocchi
 < en:Potatoes and their products
 en: Potato gnocchi, Gnocchi from potato
+da: Kartoffelgnocchier
 de: Kartoffelgnocchi
 es: Gnocchi de patata
 fi: perunagnocchi
@@ -42638,6 +42641,7 @@ fr: Gnocchi de pommes de terre, Gnocchi à la pomme de terre
 hr: Njoke od krumpira
 it: gnocchi di patate
 nl: Aardappelgnocchi
+sv: Potatisgnocchi
 agribalyse_food_code:en: 26264
 ciqual_food_code:en: 26264
 ciqual_food_name:en: Gnocchi, from potato, raw
@@ -42649,9 +42653,11 @@ wikidata:en: Q14906720
 < en:Cooked gnocchis
 < en:Potato gnocchi
 en: Cooked gnocchis from potato
+da: Kogte kartoffelgnocchier
 fr: Gnocchi de pommes de terre cuits, Gnocchis à la pomme de terre cuits
 hr: Kuhani njoki od krumpira
 nl: Gekookte aardappelgnocchis
+sv: Kokta potatisgnocchi
 agribalyse_food_code:en: 25510
 ciqual_food_code:en: 25510
 ciqual_food_name:en: Gnocchi, from potato, cooked
@@ -44644,6 +44650,7 @@ nl: Linzenchips
 en: Potato crisps, potato chips
 bg: Картофен чипс
 ca: Xips de patata
+da: Kartoffelchips
 de: Kartoffelchips
 es: Chips de patatas fritas
 fi: perunalastut
@@ -44687,11 +44694,13 @@ es: Chips de patatas fritas lisas
 
 < en:Potato crisps
 en: Wavy potato crisps, Wavy potato chips
+da: Bølgekartoffelchips, Kartoffelbølgechips
 es: Chips de patatas fritas onduladas
 fr: Chips de pommes de terre ondulées
 hr: Valoviti čips od krumpira
 lt: Banguoti bulvių traškučiai
 nl: Ribbelchips
+sv: Räfflade potatischips
 
 < en:Potato crisps
 en: Light potato crisps, Potato crisps with reduced fat
@@ -44708,13 +44717,16 @@ ciqual_food_name:fr: Chips de pommes de terre et assimilés, allégées en mati�
 
 < en:Potato crisps
 en: Potato crisps with salt
+da: Saltede kartoffelchips, Kartoffelchips med salt
 nl: Aardappelchips met zout
+sv: Saltade potatischips
 opposite:en: en:flavoured-potato-crisps
 
 < en:Potato crisps
 en: Potato crisps in sunflower oil
 bg: Картофен чипс със слънчогледово олио
 ca: Xips de patata amb oli de gira-sol
+da: Kartoffelchips med solsikkeolie
 de: Kartoffelchips mit Sonnenblumenöl
 es: Chips de patatas fritas en aceite de girasol
 fi: Perunalastut auringonkukkaöljyllä
@@ -44725,6 +44737,7 @@ lt: Bulvių traškučiai saulėgrąžų aliejuje
 nl: Aardappelchips gebakken in zonnebloemolie
 pt: Batatas fritas em óleo de girassol
 ru: Картофельные чипсы на подсолнечном масле
+sv: Potatischips med solrosolja
 
 < en:Potato crisps
 en: Potato crisps in olive oil
@@ -44841,7 +44854,7 @@ lt: Barbekiu traškučiai
 nl: Barbecuesmaak chips
 pl: Chipsy barbecue, Czipsy barbecue
 
-< en:Potato crisps
+< en:Flavoured potato crisps
 en: Salt and vinegar crisps
 de: Salz und Essig Chips
 fi: Suola-etikka-perunalastut
@@ -44896,7 +44909,9 @@ en: Crisps made from reconstituted potato
 fr: Chips de pomme de terre reconstituée
 
 < en:Crisps
+< en:Potatoes and their products
 en: Salty snacks made from potato
+da: Salte snacks lavet af kartoffel
 de: Salzige Snacks aus Kartoffeln
 es: Aperitivos salados elaborados con patata, Aperitivos salados de patata, Snacks salados de patata, Snacks salados elaborados con patata
 fi: Perunasta valmistetut suolaiset naposteltavat
@@ -44905,6 +44920,7 @@ he: חטיפים מלוחים מתפוח אדמה
 hr: Slane grickalice od krumpira
 it: snack salati a base di patate
 lt: Sūrūs užkandžiai iš bulvių
+sv: Salta snacks gjorda på potatis
 agribalyse_food_code:en: 38405
 ciqual_food_code:en: 38405
 ciqual_food_name:en: Salty snacks, made from potato
@@ -44955,6 +44971,7 @@ ciqual_food_name:fr: Patate douce, purée, cuisinée à la crème
 < en:Chips and fries
 en: Fries
 bg: Пържени картофи
+da: Pomfritter, Pommes frites
 de: Pommes Frites
 es: Patatas fritas
 fi: Ranskanperunat, Ranskalaiset perunat, Ranskalaiset
@@ -44963,6 +44980,7 @@ hr: Pomfrit
 it: Patatine fritte, Patatine a bastoncino
 lt: Bulvytės
 nl: Friet
+sv: Pommes frites
 zh: 薯条
 google_product_taxonomy_id:en: 2392
 intake24_category_code:en: CHIP
@@ -45014,6 +45032,8 @@ ciqual_food_name:fr: Pomme de terre duchesse, surgelée, cuite
 
 < en:Fries
 en: Takeaway fries
+da: Takeaway-pomfritter
+sv: Takeaway-pommes frites
 intake24_category_code:en: TCHI
 
 # TODO Validate proxy
@@ -53283,16 +53303,19 @@ hr: Pića na bazi pira
 it: Bevanda di farro
 nl: Speltdranken
 pt: Bebidas de espelta
-#wikidata:en:
+wikidata:en: Q117239275
 
 < en:Plant-based milk alternatives
 < en:Potatoes and their products
 en: Potato-based drinks, Potato milks
-sv: Potatisbaserade dryckor
+da: Kartoffeldrikke
+sv: Potatisdryckor, Potatisbaserade dryckor
 
 < en:Plant-based barista milk alternatives
 < en:Potato-based drinks
 en: Barista potato drinks, Barista potato milks
+da: Barista-kartoffeldrikke
+sv: Barista-potatisdryckor
 
 < en:Plant-based milk alternatives
 en: Coconut-based drinks, Coconut drinks, Coconut-based drink plain prepacked
@@ -65771,14 +65794,17 @@ ciqual_food_code:en: 9080
 ciqual_food_name:en: Wheat, whole, pre-cooked, raw
 ciqual_food_name:fr: Blé dur précuit, entier, cru
 
+< en:Potatoes and their products
 < en:Starches
 en: Potato starches
 bg: Картофено нишесте
+da: Kartoffelstivelser
 fr: Fécules de pomme de terre, Fécule de pomme de terre
 hr: Škrobovi krumpira
 ja: 馬鈴薯デンプン
 lt: Bulvių krakmolas
 nl: Aardappelzetmelen
+sv: Potatisstärkelser
 ciqual_food_code:en: 4090
 ciqual_food_name:en: Potato starch
 ciqual_food_name:fr: Fécule de pomme de terre
@@ -66017,14 +66043,18 @@ google_product_taxonomy_id:en: 5808
 wikidata:en: Q943935
 
 < en:Flours
+< en:Potatoes and their products
 en: Potato flours, Flour of potatoes
 bg: Картофено брашно
+da: Kartoffelmel
 fi: Perunajauhot
 fr: Farines de pommes de terre
 hr: Krumpirovo brašno
 it: Farine di patate
 lt: Bulvių miltai
 nl: Aardappelmelen
+sv: Potatismjöl
+wikidata:en: Q3066930
 
 < en:Flours
 en: Urad flour
@@ -66490,6 +66520,7 @@ nl: Plantaardige gevriesdroogde producten
 
 #generic frozen fried potatoes
 < en:Frozen foods
+< en:Potatoes and their products
 en: Frozen fried potatoes
 de: Gefrorene Pommes
 es: Papas fritas congeladas
@@ -81196,6 +81227,7 @@ hr: Jela od bulgura
 lt: Bulgur patiekalai
 
 < en:Meals
+< en:Potatoes and their products
 en: Potato dishes
 da: Kartoffelretter
 de: Kartoffelgerichte
@@ -84279,6 +84311,7 @@ ciqual_food_name:fr: Gratin de pâtes
 #wikidata:en:
 
 < en:Gratins
+< en:Potatoes and their products
 en: Potato gratin
 de: Kartoffelgratin
 fi: perunagratiini
@@ -108629,6 +108662,7 @@ nl: Pepers in blik/pot
 < en:Prepared potatoes
 en: Canned potatoes, Canned potatoes
 bg: Картофи от консерва
+da: Dåsekartofler
 es: Patatas en conserva
 fr: Pommes de terre en conserve, Pommes de terre appertisées
 hr: Konzervirani krumpir
@@ -111833,6 +111867,8 @@ wikidata:en: Q28843386
 
 < en:Cereals and potatoes
 en: Potatoes and their products
+da: Kartofler og kartoffelprodukter
+sv: Potatis och potatisprodukter
 food_groups:en: en:potatoes
 pnns_group_2:en: Potatoes
 
@@ -111852,7 +111888,7 @@ nl: Aardappelen
 nl_be: Aardappelen
 pt: Batatas
 ru: Картофель
-sv: Potatisar, potatis
+sv: Potatisar, potatis, kartoffel
 tr: Patates
 agribalyse_proxy_food_code:en: 4008
 agribalyse_proxy_food_name:en: Potato, peeled, raw
@@ -111866,6 +111902,7 @@ sales_format:en: weight, package
 
 < en:Potatoes
 en: New potatoes
+da: Nye kartofler
 fi: Tuoreet perunat
 fr: Pommes de terre nouvelles, Pommes de terre fraîches, Pommes de terre primeurs, Pommes de terre de primeur
 hr: Mladi krumpir
@@ -111880,6 +111917,7 @@ sales_format:en: weight, package
 
 < en:Potatoes
 en: Peeled potatoes
+da: Skrællede kartofler
 fr: Pommes de terre sans peau
 agribalyse_food_code:en: 4008
 ciqual_food_code:en: 4008
@@ -112018,10 +112056,12 @@ de: Speisekartoffeln
 
 < en:Potatoes
 en: Potatoes from Italy, Italian potatoes
+da: Kartofler fra Italien, Italienske kartofler
 de: Kartoffeln aus Italien
 fr: Pommes de terre d'Italie
 hr: Krompir iz italije
 nl: Aardappelen uit Italië
+sv: Potatis från Italien
 origins:en: en:italy
 #wikidata:en:
 
@@ -112076,10 +112116,12 @@ wikidata:en: Q3368640
 
 < en:Potatoes
 en: Potatoes from Spain, Spanish potatoes
+da: Kartofler fra Spanien
 de: Kartoffeln aus Spanien
 fr: Pommes de terre d'Espagne
 hr: Krumpir iz Španjolske
 nl: Aardappelen uit Spanje
+sv: Potatis från Spanien
 origins:en: en:spain
 #wikidata:en:
 
@@ -112113,10 +112155,12 @@ nl: Aardappelen uit Val de Picones
 
 < en:Potatoes
 en: Potatoes from France, French potatoes
+da: Kartofler fra Frankrig
 de: Kartoffeln aus Frankreich
 fr: Pommes de terre françaises
 hr: Krumpir iz Francuske
 nl: Aardappelen uit Frankrijk, Franse aardappelen
+sv: Potatis från Frankrike
 origins:en: en:france
 sales_format:en: weight, package
 #wikidata:en:
@@ -121316,6 +121360,7 @@ fr: Röstis de pommes de terre surgelés
 < fr:Purées
 en: Mashed potatoes
 bg: Картофено пюре
+da: Kartoffelmos
 de: Kartoffelpüree, Kartoffelpürees, Kartoffelbreie, Stampfkartoffeln, Quetschkartoffeln
 fi: perunamuusit
 fr: Purées de pommes de terre, Purée de pommes de terre
@@ -121325,13 +121370,14 @@ ja: マッシュポテト
 nl: Aardappelpureeën
 nl_be: Aardappelpuree
 ru: Пюре картофельное, Картофельное пюре
-sv: Potatismos
+sv: Potatismos, Kartoffelmos
 ciqual_food_code:en: 4047
 ciqual_food_name:en: Mashed potatoes (average)
 ciqual_food_name:fr: Pomme de terre, purée (aliment moyen)
 food_groups:en: en:potatoes
 intake24_category_code:en: MASH
 pnns_group_2:en: Potatoes
+wikidata:en: Q322787
 
 # without milk, cream, butter
 < en:Mashed potatoes
