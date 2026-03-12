@@ -76,7 +76,7 @@ jobs:
             if [[ $waited -gt 360 ]]; then
               echo "Timeout waiting for image $image_name"
               # Abort the job
-              exit 1      - name: Get JS dist files to add to the release
+              exit 1
             fi
           done
           # extract the dist files, we create a temporary docker container and use docker cp
