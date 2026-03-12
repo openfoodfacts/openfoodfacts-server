@@ -231,7 +231,8 @@ my @ignored_fields_for_revision_check = (
 	"last_check_dates_tags", "last_edit_dates_tags",
 	"last_modified_by", "last_modified_by_client",
 	"last_modified_t", "last_updated_t",
-	"rev",
+	"rev", "editors_tags",
+	"last_editor"
 );
 
 # Make a clean copy before comparing products.
