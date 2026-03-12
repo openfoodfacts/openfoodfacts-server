@@ -232,7 +232,14 @@ my @ignored_fields_for_revision_check = (
 	"last_modified_by", "last_modified_by_client",
 	"last_modified_t", "last_updated_t",
 	"rev", "editors_tags",
-	"last_editor"
+	"last_editor", "_keywords",
+	"allergens_from_user", "allergens_lc",
+	"categories", "categories_lc",
+	"countries", "countries_lc",
+	"labels", "labels_lc",
+	"origins", "origins_lc",
+	"traces", "traces_from_user",
+	"traces_lc"
 );
 
 # Make a clean copy before comparing products.
