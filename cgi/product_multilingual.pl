@@ -613,56 +613,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	foreach my $field (@param_fields) {
 
-		if (defined single_param($field)) {
-
-			my $value = preprocess_product_field($field, decode utf8 => single_param($field));
-
-			# Only moderators can update values for fields sent by the producer
-			if (skip_protected_field($product_ref, $field, $User{moderator})) {
-				next;
-			}
-
-			# Writable tags fields (e.g. categories_tags) are processed in a specific way, in order to update the tags_sources structure and generate the field_tags structure
-			if (defined $writable_tags_fields{$field}) {
-				set_field_input_tags_for_source($product_ref, $lc, $field, $source, $value);
-				next;
-			}
-
-			if ($field eq "lang") {
-				# strip variants fr-BE fr_BE
-				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
-				$value = lc($value);
-
-				# skip unrecognized languages (keep the existing lang & lc value)
-				if (defined $lang_lc{$value}) {
-					$product_ref->{lang} = $value;
-					$product_ref->{lc} = $value;
-				}
-
-			}
-			else {
-				$product_ref->{$field} = $value;
-			}
-
-			$log->debug("before compute field_tags",
-				{code => $code, field_name => $field, field_value => $product_ref->{$field}})
-				if $log->is_debug();
-			if ($field =~ /ingredients_text/) {
-				# the ingredients_text_with_allergens[_$lc] will be recomputed after
-				my $ingredients_text_with_allergens = $field;
-				$ingredients_text_with_allergens =~ s/ingredients_text/ingredients_text_with_allergens/;
-				delete $product_ref->{$ingredients_text_with_allergens};
-			}
-
-			# For some tags fields that are not taxonomized (e.g. emb_codes),
-			# we still need to call the old compute_field_tags() function
-			if (defined $tags_fields{$field} and not defined $taxonomy_fields{$field}) {
-				compute_field_tags($product_ref, $lc, $field);
-			}
-		}
-		else {
-			$log->debug("could not find field in params", {field => $field}) if $log->is_debug();
-		}
+		update_product_field_api_v2_and_cgi($product_ref, $field, single_param($field));
 	}
 
 	# Obsolete products

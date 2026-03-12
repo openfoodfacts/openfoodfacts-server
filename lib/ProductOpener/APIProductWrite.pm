@@ -772,4 +772,57 @@ sub write_product_api ($request_ref) {
 	return;
 }
 
+sub update_product_field_api_v2_and_cgi($product_ref, $field, $value) {
+
+	if (not defined $value) {
+		$log->debug("no value for field", {field => $field}) if $log->is_debug();
+		return;
+	}
+
+	$value = preprocess_product_field($field, decode utf8 => $value);
+
+	# Only moderators can update values for fields sent by the producer
+	if (skip_protected_field($product_ref, $field, $User{moderator})) {
+		return;
+	}
+
+	# Writable tags fields (e.g. categories_tags) are processed in a specific way, in order to update the tags_sources structure and generate the field_tags structure
+	elsif (defined $writable_tags_fields{$field}) {
+		set_field_input_tags_for_source($product_ref, $lc, $field, $source, $value);
+	}
+	elsif ($field eq "lang") {
+		# strip variants fr-BE fr_BE
+		$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
+		$value = lc($value);
+
+		# skip unrecognized languages (keep the existing lang & lc value)
+		if (defined $lang_lc{$value}) {
+			$product_ref->{lang} = $value;
+			$product_ref->{lc} = $value;
+		}
+
+	}
+	else {
+		$product_ref->{$field} = $value;
+
+		$log->debug("before compute field_tags",
+			{code => $code, field_name => $field, field_value => $product_ref->{$field}})
+			if $log->is_debug();
+		if ($field =~ /ingredients_text/) {
+			# the ingredients_text_with_allergens[_$lc] will be recomputed after
+			my $ingredients_text_with_allergens = $field;
+			$ingredients_text_with_allergens =~ s/ingredients_text/ingredients_text_with_allergens/;
+			delete $product_ref->{$ingredients_text_with_allergens};
+		}
+
+		# For some tags fields that are not taxonomized (e.g. emb_codes),
+		# we still need to call the old compute_field_tags() function
+		if (defined $tags_fields{$field} and not defined $taxonomy_fields{$field}) {
+			compute_field_tags($product_ref, $lc, $field);
+		}
+	}
+
+	return;
+}
+
 1;
