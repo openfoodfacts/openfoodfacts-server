@@ -1773,7 +1773,7 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 					$stats_ref->{"products_with_nutrition" . $type}{$code} = 1;
 
 					# if the nid is "energy" and we have a unit, set "energy-kj" or "energy-kcal"
-					if (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+					if (($nid eq "energy") and (defined $unit) and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
 						$nid = "energy-" . lc($unit);
 					}
 

@@ -67,7 +67,7 @@ use ProductOpener::HTTP qw/write_cors_headers request_param/;
 use ProductOpener::Auth qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc lang_in_other_lc/;
-use ProductOpener::Products qw/normalize_code_with_gs1_ai product_name_brand_quantity/;
+use ProductOpener::Products qw/normalize_code product_name_brand_quantity/;
 use ProductOpener::Export qw/:all/;
 use ProductOpener::Tags qw/%language_fields display_taxonomy_tag/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
@@ -276,12 +276,13 @@ sub decode_json_request_body ($request_ref) {
 	else {
 		eval {$request_ref->{body_json} = decode_json($request_ref->{body});};
 		if ($@) {
-			$log->error("JSON decoding error", {error => $@}) if $log->is_error();
+			my $error = $@;
+			$log->error("JSON decoding error", {error => $error}) if $log->is_error();
 			add_error(
 				$request_ref->{api_response},
 				{
 					message => {id => "invalid_json_in_request_body"},
-					field => {id => "body", value => $request_ref->{body}, error => $@},
+					field => {id => "body", value => $request_ref->{body}, error => $error},
 					impact => {id => "failure"},
 				}
 			);
@@ -583,7 +584,7 @@ Normalized code and, if available, GS1 AI data string.
 
 sub normalize_requested_code ($requested_code, $response_ref) {
 
-	my ($code, $ai_data_str) = &normalize_code_with_gs1_ai($requested_code);
+	my ($code, $ai_data_str) = &normalize_code($requested_code);
 	$response_ref->{code} = $code;
 
 	# Add a warning if the normalized code is different from the requested code
