@@ -124,6 +124,7 @@ We however ask that you send the [`app_name`, `app_version` and `app_uuid` param
 
 We are building a complete OpenAPI reference. Here is a list of the current API documentation available:
 
+- [Search API Documentation](../api/ref-search-api.md) - Comprehensive guide to filtering, pagination, and search examples
 - [OpenAPI documentation (v2)](../api/ref-v2.md)
 - [OpenAPI documentation for v3](../api/ref-v3.md) (under active development, may change frequently)
 - A [cheatsheet](../api/ref-cheatsheet.md) listing some common patterns.
