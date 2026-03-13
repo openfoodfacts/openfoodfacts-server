@@ -122,7 +122,7 @@ jobs:
           tar czf /tmp/release-assets/openfoodfacts-org-lang.tgz -C /tmp/release_data/lang .
           docker stop backend_container
 
-      - name: Add commit to release or release !
+      - name: Add commit to release or release!
         if: ${{ ! env.IS_RELEASE_TEST }}
         id: release
         uses: googleapis/release-please-action@v4.4.0
