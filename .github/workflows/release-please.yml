@@ -112,7 +112,7 @@ jobs:
           # get taxonomies jsons
           docker cp -a backend_container:/opt/product-opener/html/data/taxonomies /tmp/release_data/food-taxonomies-json
           # get taxonomies results
-          docker cp -a backend_container:/mnt/podata/build-cache/taxonomies-result/ /tmp/release_data/food-taxonomies-result
+          docker cp -a backend_container:/mnt/podata/build-cache/taxonomies-result/ /tmp/release_data/food-taxonomies-results
           # get compiled languages
           mkdir -p /tmp/release_data/lang
           docker cp backend_container:/mnt/podata/data/Lang.openfoodfacts.localhost.sto /tmp/release_data/lang/Lang.openfoodfacts.org.sto
