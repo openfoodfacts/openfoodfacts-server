@@ -270,6 +270,13 @@ my $tests_ref = [
 		expected_status_code => 200,
 	},
 	{
+		test_case => 'get-fields-product-quantity-and-energy-kcal-100g',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=product_quantity,product_quantity_unit,energy-kcal_100g',
+		expected_status_code => 200,
+	},
+	{
 		test_case => 'get-existing-product-with-estimated-nutrients',
 		method => 'GET',
 		path => '/api/v2/product/200000000035',
