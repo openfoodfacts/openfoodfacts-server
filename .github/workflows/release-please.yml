@@ -1,7 +1,5 @@
 name: 🚀 Adding the commit to the next release
 on:
-  # FIXME: temporary test
-  pull_request:
   push:
     branches:
       - main
@@ -12,14 +10,12 @@ jobs:
       # we try to know if it's a release before triggering RELEASE_PLEASE
       # To wait container build and eventually be able to fail early
       IS_RELEASE: "${{ startsWith(github.event.head_commit.message, 'chore(main): release') }}"
-      # FIXME: temporary, remove also all occurrence before merge
-      IS_RELEASE_TEST: true
       RELEASE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
 
       - name: Wait for frontend container build workflow
         # only if a new release was created
-        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }}
+        if: ${{ env.IS_RELEASE }}
         id: wait-build
         uses: tomchv/wait-my-workflow@v1.1.0
         with:
@@ -31,7 +27,7 @@ jobs:
 
       - name: Wait for backend container build workflow
         # only if a new release was created
-        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }}
+        if: ${{ env.IS_RELEASE }}
         uses: tomchv/wait-my-workflow@v1.1.0
         id: wait-build2
         with:
@@ -42,25 +38,25 @@ jobs:
           timeoutSeconds: 600 # 10m
 
       - name: Do something if build isn't launch
-        if: ${{ (env.IS_RELEASE || env.IS_RELEASE_TEST) && (steps.wait-build.outputs.conclusion == 'does not exist' || steps.wait-build2.outputs.conclusion == 'does not exist') }}
+        if: ${{ env.IS_RELEASE && (steps.wait-build.outputs.conclusion == 'does not exist' || steps.wait-build2.outputs.conclusion == 'does not exist') }}
         run: echo job does not exist && false # fail if build doesn't exist
 
       - name: Do something if build fail
-        if: ${{ (env.IS_RELEASE || env.IS_RELEASE_TEST) && (steps.wait-build.outputs.conclusion == 'failure' || steps.wait-build2.outputs.conclusion == 'failure') }}
+        if: ${{ env.IS_RELEASE && (steps.wait-build.outputs.conclusion == 'failure' || steps.wait-build2.outputs.conclusion == 'failure') }}
         run: echo fail && false # fail if build fail
 
       - name: Do something if build timeout
-        if: ${{ (env.IS_RELEASE || env.IS_RELEASE_TEST) && (steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build2.outputs.conclusion == 'timed_out') }}
+        if: ${{ env.IS_RELEASE && (steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build2.outputs.conclusion == 'timed_out') }}
         run: echo Timeout && false # fail if build time out
 
       - name: Prepare folder for assets to upload to release
-        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }}
+        if: ${{ env.IS_RELEASE }}
         run: |
           rm -rf /tmp/release-assets
           mkdir -p /tmp/release-assets
       - name: Get JS dist files to add to the release
         # only if a new release was created
-        if: ${{ env.IS_RELEASE || env.IS_RELEASE_TEST }}
+        if: ${{ env.IS_RELEASE }}
         id: create-frontend-dist-tar
         run : |
           # directory to put files in
@@ -89,13 +85,13 @@ jobs:
           # make a tar
           tar czf /tmp/release-assets/frontend-dist.tgz -C /tmp/frontend-dist .
       - name: Checkout the project in case of release
-        if: ${{ env.IS_RELEASE  || env.IS_RELEASE_TEST }}
+        if: ${{ env.IS_RELEASE }}
         uses: actions/checkout@v5
         with:
           fetch-depth: 1
           ref: ${{ env.RELEASE_SHA }}
       - name: build taxonomies and lang for food in case of release, and pack them in archives
-        if: ${{ env.IS_RELEASE  || env.IS_RELEASE_TEST }}
+        if: ${{ env.IS_RELEASE }}
         run: |
           # we don't need to be in dev mode, this avoid a complete rebuild
           sed -e "s/COMPOSE_FILE=.*$/COMPOSE_FILE=docker-compose.yml/" \
@@ -124,7 +120,6 @@ jobs:
           docker stop backend_container
 
       - name: Add commit to release or release!
-        if: ${{ ! env.IS_RELEASE_TEST }}
         id: release
         uses: googleapis/release-please-action@v4.4.0
         with:
@@ -144,14 +139,6 @@ jobs:
               {"type":"docs","section":"Technical","hidden":false},
               {"type":"test","section":"Technical","hidden":false}
             ]
-#      - name: Get a stripped version of tag_name
-#        # only if a new release was created
-#        if: ${{ steps.release.outputs.release_created }}
-#        run: |
-#          TAG_NAME="${{ steps.release.outputs.tag_name }}"
-#          # remove eventual initial v
-#          STRIPPED_TAG_NAME=${TAG_NAME/v/}
-#          echo "TAG_NAME=$STRIPPED_TAG_NAME" >> $GITHUB_ENV
       - name: Add the assets to the release
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
