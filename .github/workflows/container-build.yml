@@ -5,6 +5,8 @@ on:
     branches:
       - main
       - deploy-*
+      # FIXME temporary
+      - build-release-please-early-fail
     tags:
       - v*.*.*
 
