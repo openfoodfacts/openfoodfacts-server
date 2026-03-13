@@ -1,0 +1,204 @@
+name: 🚨 API Change Notifications to SDKs
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  notify-sdks-api-changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Check for API changes
+        id: check_api_changes
+        run: |
+          # Get the tag from the release
+          TAG="${{ github.event.release.tag_name }}"
+          echo "Checking for API changes in release: $TAG"
+
+          # Get the previous release tag (skip the current one)
+          PREV_TAG=$(git tag --sort=-version:refname | \
+            grep -v "^$TAG$" | head -1)
+          echo "Previous release tag: $PREV_TAG"
+
+          # If no previous tag exists, compare with HEAD~20 for recent changes
+          if [ -z "$PREV_TAG" ]; then
+            echo "No previous release tag found, checking recent commits"
+            COMPARISON_REF="HEAD~20"
+          else
+            COMPARISON_REF="$PREV_TAG"
+          fi
+
+          echo "Comparing $COMPARISON_REF..$TAG"
+
+          # Check if the API changelog has been modified
+          if git diff "$COMPARISON_REF..$TAG" --name-only | \
+             grep -q "docs/api/ref-api-and-product-schema-change-log.md"; then
+            echo "API changelog has been modified"
+            echo "api_changed=true" >> $GITHUB_OUTPUT
+
+            # Extract changes from the API changelog
+            # Look for lines added that contain API indicators
+            API_CHANGES=$(git diff "$COMPARISON_REF..$TAG" -- \
+              docs/api/ref-api-and-product-schema-change-log.md | \
+              grep "^+" | \
+              grep -E "(API version|Product version|Breaking changes|" \
+                "###.*API|###.*Product)" | \
+              sed 's/^+//' | head -10)
+
+            # Also check for any new version entries in the changelog
+            VERSION_CHANGES=$(git diff "$COMPARISON_REF..$TAG" -- \
+              docs/api/ref-api-and-product-schema-change-log.md | \
+              grep "^+" | \
+              grep -E "^+### [0-9]" | \
+              sed 's/^+//' | head -5)
+
+            ALL_CHANGES="$API_CHANGES"$'\n'"$VERSION_CHANGES"
+
+            {
+              echo "API_CHANGES<<EOF"
+              echo "$ALL_CHANGES"
+              echo "EOF"
+            } >> $GITHUB_OUTPUT
+
+            echo "Detected API changes:"
+            echo "$ALL_CHANGES"
+          else
+            echo "No API changelog modifications detected"
+            echo "api_changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create issues in SDK repositories
+        if: steps.check_api_changes.outputs.api_changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Define SDK repositories
+          SDK_REPOS=(
+            "openfoodfacts/openfoodfacts-php"
+            "openfoodfacts/openfoodfacts-js"
+            "openfoodfacts/openfoodfacts-laravel"
+            "openfoodfacts/openfoodfacts-python"
+            "openfoodfacts/openfoodfacts-ruby"
+            "openfoodfacts/openfoodfacts-java"
+            "openfoodfacts/openfoodfacts-elixir"
+            "openfoodfacts/openfoodfacts-dart"
+            "openfoodfacts/openfoodfacts-go"
+          )
+
+          # Issue template
+          ISSUE_TITLE="🚨 API Changes in Open Food Facts Server \
+            ${{ github.event.release.tag_name }} - SDK Update Required"
+
+          # Escape any special characters in the API changes output
+          API_CHANGES_ESCAPED=$(echo \
+            '${{ steps.check_api_changes.outputs.API_CHANGES }}' | \
+            sed 's/`/\\`/g' | sed 's/"/\\"/g')
+
+          ISSUE_BODY="## API Changes Detected
+
+            Open Food Facts Server has released version \
+            **${{ github.event.release.tag_name }}** with API changes that may \
+            affect this SDK.
+
+          ### Release Information
+          - **Release**: [${{ github.event.release.tag_name }}](\
+          ${{ github.event.release.html_url }})
+          - **Release Date**: ${{ github.event.release.published_at }}
+
+          ### API Changes Summary
+          \`\`\`
+          $API_CHANGES_ESCAPED
+          \`\`\`
+
+          ### Action Required
+          Please review the [API and Product Schema Change Log](\
+          https://github.com/openfoodfacts/openfoodfacts-server/blob/\
+          main/docs/api/ref-api-and-product-schema-change-log.md) \
+          and update this SDK accordingly.
+
+          ### Resources
+          - 📋 [Full API Change Log](\
+          https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/api/ref-api-and-product-schema-change-log.md)
+          - 📚 [API Documentation](\
+          https://openfoodfacts.github.io/openfoodfacts-server/api/)
+          - 💬 [API Slack Channel](https://slack.openfoodfacts.org/)
+
+          ### Next Steps
+          1. Review the API changes in the changelog
+          2. Identify impacts on this SDK
+          3. Update SDK implementation as needed
+          4. Update tests and documentation
+          5. Release a new SDK version
+
+          ---
+          *This issue was automatically created by the \
+          [API Change Notifications workflow](\
+          https://github.com/openfoodfacts/openfoodfacts-server/actions/\
+          workflows/api-change-notifications.yml) \
+          when API changes were detected in the Open Food Facts \
+          Server release.*"
+
+          # Track success/failure
+          SUCCESS_COUNT=0
+          FAILURE_COUNT=0
+          FAILED_REPOS=()
+
+          # Create issues in each SDK repository
+          for repo in "${SDK_REPOS[@]}"; do
+            echo "Creating issue in $repo..."
+
+            # Check if repository exists first
+            if gh repo view "$repo" >/dev/null 2>&1; then
+              # Use GitHub CLI to create the issue
+              if gh issue create \
+                --repo "$repo" \
+                --title "$ISSUE_TITLE" \
+                --body "$ISSUE_BODY" \
+                --label "api-change,needs-update"; then
+                echo "✅ Successfully created issue in $repo"
+                SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
+              else
+                echo "❌ Failed to create issue in $repo"
+                FAILURE_COUNT=$((FAILURE_COUNT + 1))
+                FAILED_REPOS+=("$repo")
+              fi
+            else
+              echo "⚠️  Repository $repo not found or not accessible"
+              FAILURE_COUNT=$((FAILURE_COUNT + 1))
+              FAILED_REPOS+=("$repo")
+            fi
+          done
+
+          # Summary
+          echo ""
+          echo "=== Summary ==="
+          echo "✅ Successfully created issues: $SUCCESS_COUNT"
+          echo "❌ Failed to create issues: $FAILURE_COUNT"
+
+          if [ $FAILURE_COUNT -gt 0 ]; then
+            echo "Failed repositories:"
+            for repo in "${FAILED_REPOS[@]}"; do
+              echo "  - $repo"
+            done
+          fi
+
+          # Don't fail the workflow if some repositories are inaccessible
+          # This allows the workflow to continue even if some SDK repos have
+          # permissions issues
+          echo "Workflow completed with $SUCCESS_COUNT successful \
+            notifications out of ${#SDK_REPOS[@]} total repositories."
