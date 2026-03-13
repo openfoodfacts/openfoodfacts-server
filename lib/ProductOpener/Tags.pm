@@ -2376,10 +2376,10 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable die for the packaging taxonomy as some legit material and shape might have same name
 
-			# ignore errors for ingredients for beauty, pet food, products
-			# TODO: reenable when we have cleaned the ingredients taxonomy for beauty, pet food, products
+			# ignore errors for ingredients for pet food, products
+			# TODO: reenable when we have cleaned the ingredients taxonomy for pet food, products
 			my $taxonomy_with_duplicate_tolerated;
-			if ($options{product_type} eq "food") {
+			if (($options{product_type} eq "food") or ($options{product_type} eq "beauty")) {
 				$taxonomy_with_duplicate_tolerated
 					= (($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
 			}
@@ -5106,7 +5106,7 @@ The user country as a 2-letters code (fr, it, ch) or `world`
 =head3 Return value
 
 If a content exists for the tag type, tag value, language code and country code, return the HTML text,
-return undef otherwise. 
+return undef otherwise.
 
 =cut
 
