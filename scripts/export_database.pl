@@ -272,11 +272,11 @@ XML
 	$csv =~ s/\t$/\n/;
 	print $OUT $csv;
 
-	# Get products from the products collection, plus the products_obsolete collection
-	my @collections = (
-		get_products_collection({timeout => 3 * 60 * 60 * 1000}),
-		get_products_collection({obsolete => 1, timeout => 3 * 60 * 60 * 1000})
-	);
+	# Get products only from the active products collection
+	# Note: we intentionally do NOT include the products_obsolete collection here,
+	# as obsolete products (e.g. products moved to Open Products Facts) should not
+	# appear in the public CSV/RDF exports.
+	my @collections = (get_products_collection({timeout => 3 * 60 * 60 * 1000}),);
 
 	my $count = 0;
 	my %ingredients = ();
