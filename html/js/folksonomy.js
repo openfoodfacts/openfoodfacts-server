@@ -418,8 +418,8 @@ function delPropertyValue(_this) {
  * @param {string} _k  The property to add
  * @param {string} _v  The value to add
  * @param {string} _owner The owner or "" if it's a public declaration
- * @returns {string} Returns values from http POST
- * @todo returns {string} Returns if yes (0) or no (1) the new declaration has been created ?
+ * @returns {undefined}
+ * @todo Return whether the new declaration has been created (yes/no).
  */
 function addKV(_code, _k, _v, _owner) {
 
