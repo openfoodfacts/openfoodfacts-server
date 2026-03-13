@@ -97,16 +97,20 @@ sub read_product_api ($request_ref) {
 	if (not is_valid_code($code)) {
 
 		$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
+
 		add_error(
 			$response_ref,
 			{
-				message => {id => "invalid_code"},
-				field => {id => "code", value => $request_ref->{code}},
-				impact => {id => "failure"},
-			}
+				message => { id => "invalid_code" },
+				field   => { id => "code", value => $request_ref->{code} },
+				impact  => { id => "failure" },
+			},
+			400
 		);
-		$response_ref->{result} = {id => "product_not_found"};
+
+		return;  
 	}
+
 	else {
 		# Check that the product exist, is published, is not deleted, and has not moved to a new url
 
