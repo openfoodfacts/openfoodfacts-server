@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.90.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.89.2...v2.90.0) (2026-03-13)
+
+
+### Features
+
+* Add --since param ([#13224](https://github.com/openfoodfacts/openfoodfacts-server/issues/13224)) ([40720d6](https://github.com/openfoodfacts/openfoodfacts-server/commit/40720d61be9aea62db406f3bbec6b474c8239598))
+* Add GET /api/v3/current-user/permissions endpoint for user role ([#13205](https://github.com/openfoodfacts/openfoodfacts-server/issues/13205)) ([18730ee](https://github.com/openfoodfacts/openfoodfacts-server/commit/18730ee5063863d4b11e70f8f0d192c0f8407e8d))
+* **analytics:** add Matomo event tracking for product share ([#13249](https://github.com/openfoodfacts/openfoodfacts-server/issues/13249)) ([b8f576a](https://github.com/openfoodfacts/openfoodfacts-server/commit/b8f576a4d2110a0ce370cd59c9c3e74b5159288b))
+
+
+### Bug Fixes
+
+* Add null guards for remaining high-priority warnings ([#13039](https://github.com/openfoodfacts/openfoodfacts-server/issues/13039)) ([#13092](https://github.com/openfoodfacts/openfoodfacts-server/issues/13092)) ([dccfe73](https://github.com/openfoodfacts/openfoodfacts-server/commit/dccfe737ba30fc0a5675c7c8d3c1280e6dfc5440))
+* fix scss error ([#13223](https://github.com/openfoodfacts/openfoodfacts-server/issues/13223)) ([4700a1d](https://github.com/openfoodfacts/openfoodfacts-server/commit/4700a1dc832eab2e68238133fc20d221db29d766))
+* JSON encode of booleans needs convert_blessed ([#13242](https://github.com/openfoodfacts/openfoodfacts-server/issues/13242)) ([5c054d0](https://github.com/openfoodfacts/openfoodfacts-server/commit/5c054d0cbbf5372399637740b285eb538c4f0e38))
+* JSON encoding crash when importing some products ([#13225](https://github.com/openfoodfacts/openfoodfacts-server/issues/13225)) ([947af26](https://github.com/openfoodfacts/openfoodfacts-server/commit/947af261d0cab27a6049369dfe0029bfe602822c))
+* Miscellaneous fixes in preparation for importing Ingredient Products ([#13240](https://github.com/openfoodfacts/openfoodfacts-server/issues/13240)) ([cb4b84d](https://github.com/openfoodfacts/openfoodfacts-server/commit/cb4b84dce60763a5398b742d99c99c543b2521da))
+* nginx rate limiting + unlogged user limits ([#13228](https://github.com/openfoodfacts/openfoodfacts-server/issues/13228)) ([9c6235a](https://github.com/openfoodfacts/openfoodfacts-server/commit/9c6235aead94fb6804b1838340fbf6328312cd93))
+* Safari nutrition image layout rounding issue ([#13214](https://github.com/openfoodfacts/openfoodfacts-server/issues/13214)) ([a9aa348](https://github.com/openfoodfacts/openfoodfacts-server/commit/a9aa3481f9d7f011bea8af077bb01d7b1bc4accc))
+* use canonical "prepared" instead of "_prepared" in old-style nutrition API handler ([#13260](https://github.com/openfoodfacts/openfoodfacts-server/issues/13260)) ([70ef3e0](https://github.com/openfoodfacts/openfoodfacts-server/commit/70ef3e01cd1365e7e78a8669ec51772cbb0aa473))
+
 ## [2.89.2](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.89.1...v2.89.2) (2026-03-04)
 
 
