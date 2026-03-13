@@ -62,7 +62,7 @@ use vars @EXPORT_OK;
 
 use Log::Any qw($log);
 
-use ProductOpener::Tags qw/compute_field_tags/;
+use ProductOpener::Tags qw/compute_field_tags get_minimal_tags_subset get_property @writable_tags_fields_list/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
@@ -70,13 +70,20 @@ use ProductOpener::Images qw/normalize_generation_ref/;
 use ProductOpener::Nutrition
 	qw/default_unit_for_nid generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy remove_empty_nutrition_data/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
-use ProductOpener::Tags qw/get_property/;
+use ProductOpener::Products qw/get_source_for_site_and_org/;
+
+# on the pro platform, we need to know the org to set the correct source for schema upgrades
+# (e.g. manufacturer or a label organization or database)
+# ideally we would not use the global $Org_id variable in the ProductSchemaChanges module,
+# but we would need to change many functions like retrieve_product() to pass the org_id as a parameter,
+# so for now we will just set the global variable
+use ProductOpener::Users qw/$Org_id/;
 
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
 use List::Util qw/any/;
 
-$current_schema_version = 1003;
+$current_schema_version = 1004;
 
 my (%upgrade_functions, %downgrade_functions);
 
@@ -130,6 +137,7 @@ sub convert_product_schema ($product_ref, $to_version) {
 	1000 => \&convert_schema_1000_to_1001_remove_ingredients_hierarchy_taxonomize_brands,
 	1001 => \&convert_schema_1001_to_1002_refactor_images_object,
 	1002 => \&convert_schema_1002_to_1003_refactor_product_nutrition_schema,
+	1003 => \&convert_schema_1003_to_1004_refactor_tags,
 );
 
 %downgrade_functions = (
@@ -137,6 +145,7 @@ sub convert_product_schema ($product_ref, $to_version) {
 	1001 => \&convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands,
 	1002 => \&convert_schema_1002_to_1001_refactor_images_object,
 	1003 => \&convert_schema_1003_to_1002_refactor_product_nutrition_schema,
+	1004 => \&convert_schema_1004_to_1003_refactor_tags,
 );
 
 =head2 998 to 999 - Change in barcode normalization
@@ -444,10 +453,11 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 		my @nutrients = keys %hash_nutrients;
 
 		# Generates the nutrition sets,
-		# which, for old data, are all from source "packaging" if we are on the public platform,
-		# and "manufacturer" if we are on the pro platform and the product has an 'owner' field
-		my $source
-			= ($server_options{private_products} && defined $product_ref->{owner}) ? "manufacturer" : "packaging";
+		# If we are on the producers platform, we set the data source to "manufacturer" for all organizations with ids that start with org-
+		# except organizations with ids that start with org-database- or org-label- (e.g. "org-database-usda")
+		# otherwise, we set the source to "packaging" (for organizations that start with user-
+		# when the pro platform is used by individual users to load data in bulk, e.g. from scan parties)
+		my $source = get_source_for_site_and_org();
 		foreach my $set_type (keys %$new_nutrition_sets_ref) {
 			$new_nutrition_sets_ref->{$set_type}{preparation} = $nutrition_preparations_ref->{$set_type}{state};
 			$new_nutrition_sets_ref->{$set_type}{source} = $source;
@@ -898,6 +908,89 @@ sub _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($
 	# If we have nutrient data for as sold or prepared, make sure the checkbox are ticked
 	foreach my $product_type (sort keys %nutrition_data) {
 		$product_ref->{"nutrition_data" . $product_type} = 'on';
+	}
+
+	return;
+}
+
+=head2 1003 to 1004 - Refactor the tags schema
+
+=cut
+
+sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
+
+	$product_ref->{tags_sources} = {};
+
+	# If we are on the producers platform, we set the data source to "manufacturer" for all organizations with ids that start with org-
+	# except organizations with ids that start with org-database- or org-label- (e.g. "org-database-usda")
+	# otherwise, we set the source to "packaging" (for organizations that start with user-
+	# when the pro platform is used by individual users to load data in bulk, e.g. from scan parties)
+	my $source = get_source_for_site_and_org();
+
+	# TODO: special case for ingredients_tags
+
+	# We go through the input tags fields (e.g. categories, labels) that can be written directly
+	# and that are not derived from other fields (e.g. states_tags, ingredients_tags)
+
+	foreach my $tagtype (@writable_tags_fields_list) {
+
+		# we put the content of fields like categories_hierarchy inside categories_tags
+		# for some very old revisions we may not have the _hierarchy field, but only the _tags field, so we use it as a fallback
+		my $tags_hierarchy_or_tags_field = $product_ref->{$tagtype . "_hierarchy"}
+			// $product_ref->{$tagtype . "_tags"};
+
+		if (defined $tags_hierarchy_or_tags_field) {
+
+			if (scalar @{$tags_hierarchy_or_tags_field} > 0) {
+
+				$product_ref->{$tagtype . "_tags"} = $tags_hierarchy_or_tags_field;
+
+				# we create a tags_source.categories with the minimal tags subset to generate categories_tags
+
+				my $source_ref = {
+					last_updated_t => time() + 0,
+					tags => [get_minimal_tags_subset($tagtype, $tags_hierarchy_or_tags_field)],
+				};
+
+				$product_ref->{tags_sources}->{$tagtype} = {$source => $source_ref};
+			}
+
+			# Delete old fields
+			my @fields_to_delete
+				= ($tagtype . "_hierarchy", $tagtype, $tagtype . "_old", $tagtype . "_debug", $tagtype . "_imported");
+
+			if ($tagtype ne "ingredients") {
+				# We want to keep ingredients_lc to know which ingredients_text_[lc] field has been used to compute ingredients_tags
+				push @fields_to_delete, $tagtype . "_lc";
+			}
+
+			foreach my $field (@fields_to_delete) {
+				if (exists $product_ref->{$field}) {
+					$log->debug("Deleting field $field (value: "
+							. $product_ref->{$field}
+							. ") from product "
+							. $product_ref->{code}
+							. " for schema upgrade 1003 to 1004")
+						if $log->is_debug;
+					delete $product_ref->{$field};
+				}
+			}
+		}
+	}
+
+	return;
+}
+
+sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
+
+	# we copy the content of fields like categories_tags back inside categories_hierarchy
+	foreach my $tagtype (@writable_tags_fields_list) {
+		if (defined $product_ref->{$tagtype . "_tags"}) {
+			$product_ref->{$tagtype . "_hierarchy"} = $product_ref->{$tagtype . "_tags"};
+			# We keep tags as is
+			# (before the tags that were not recognized in the taxonomy were not unaccented,
+			# so we could have "fr:entrée non reconnue" instead of "fr:entree-non-reconnue")
+		}
 	}
 
 	return;

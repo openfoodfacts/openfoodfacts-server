@@ -115,6 +115,7 @@ BEGIN {
 		&analyze_and_enrich_product_data
 
 		&is_owner_field
+		&get_source_for_site_and_org
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -857,10 +858,10 @@ sub init_product ($userid, $orgid, $code, $countryid, $client_id = undef) {
 			$product_ref->{countries} = "en:" . $country;
 			my $field = 'countries';
 			if (defined $taxonomy_fields{$field}) {
-				$product_ref->{$field . "_hierarchy"}
+				$product_ref->{$field . "_tags"}
 					= [gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field})];
 				$product_ref->{$field . "_tags"} = [];
-				foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
+				foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
 					push @{$product_ref->{$field . "_tags"}}, get_taxonomyid("en", $tag);
 				}
 			}
@@ -1794,19 +1795,9 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		delete $current_ref->{completed_t};
 	}
 
-	$product_ref->{states} = join(', ', reverse @states_tags);
-	$product_ref->{"states_hierarchy"} = [reverse @states_tags];
 	$product_ref->{"states_tags"} = [reverse @states_tags];
+	$product_ref->{states} = join(', ', @states_tags);
 
-	#my $field = "states";
-	#
-	#$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
-	#$product_ref->{$field . "_tags" } = [];
-	#foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-	#		push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
-	#}
-
-	# old name
 	delete $product_ref->{status};
 	delete $product_ref->{status_tags};
 
@@ -3590,4 +3581,55 @@ sub product_iter(
 	)
 {
 	return object_iter($base_path, $name_pattern, $exclude_path_pattern, $skip_until_path);
+}
+
+=head2 get_source_for_site_and_org ( $org_id = undef )
+
+Returns the default source of data (e.g. nutrition, tags) for the current site and organization.
+Data entered on the site will have this source.
+
+=head3 Arguments
+
+=head4 $org_id
+
+Organization id, if not provided, we try to get it from the global variable $Org_id
+
+=head3 Return values
+
+- "packaging" for the public platform
+- "manufacturer" for the pro platform
+
+=cut
+
+sub get_source_for_site_and_org ($org_id = undef) {
+
+	my $source = "packaging";
+	if ($server_options{producers_platform}) {
+		$source = "manufacturer";
+
+		# on the pro platform, we need to know the org to set the correct source for schema upgrades
+		# ideally we would not use the global $Org_id variable in the ProductSchemaChanges module,
+		# but we would need to change many functions like retrieve_product() to pass the org_id as a parameter,
+		# so for now we will just use the global variable if the org_id is not provided as a parameter
+
+		if (not defined $org_id) {
+			$org_id = $Org_id;
+		}
+
+		if (defined $org_id) {
+			# e.g. org-database-usda
+			if ($org_id =~ /^org-database-(.+)$/) {
+				$source = "database-" . $1;
+			}
+			# e.g. org-label-gmo-project (in practice labels should not send nutrition data)
+			if ($org_id =~ /^org-label-(.+)$/) {
+				$source = "label-" . $1;
+			}
+			# At some point we used the pro platform to allow users to bulk enter data (e.g. for scan parties)
+			elsif ($org_id =~ /^user-(.+)$/) {
+				$source = "packaging";
+			}
+		}
+	}
+	return $source;
 }

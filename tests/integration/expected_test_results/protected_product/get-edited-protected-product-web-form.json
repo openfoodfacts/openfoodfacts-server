@@ -3,17 +3,16 @@
    "product" : {
       "_id" : "0200000000135",
       "_keywords" : [
-         "bio",
          "brand",
          "category",
-         "changed",
          "generic",
-         "havelaar",
-         "max",
          "name",
+         "organic",
          "product",
          "protected",
-         "test"
+         "some",
+         "test",
+         "unknown"
       ],
       "added_countries_tags" : [],
       "additives_n" : 0,
@@ -37,11 +36,11 @@
       "brands_tags" : [
          "test-brand"
       ],
-      "categories" : "Changed category",
+      "categories" : "some unknown category",
       "categories_hierarchy" : [
          "fr:Changed category"
       ],
-      "categories_lc" : "fr",
+      "categories_lc" : "en",
       "categories_properties" : {},
       "categories_properties_tags" : [
          "all-products",
@@ -52,7 +51,7 @@
          "agribalyse-unknown"
       ],
       "categories_tags" : [
-         "fr:changed-category"
+         "fr:Changed category"
       ],
       "checkers_tags" : [],
       "code" : "0200000000135",
@@ -605,14 +604,14 @@
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20190830",
       "known_ingredients_n" : 4,
-      "labels" : "Bio, Max Havelaar",
+      "labels" : "organic",
       "labels_hierarchy" : [
          "en:fair-trade",
          "en:organic",
          "en:fairtrade-international",
          "en:max-havelaar"
       ],
-      "labels_lc" : "fr",
+      "labels_lc" : "en",
       "labels_tags" : [
          "en:fair-trade",
          "en:organic",
@@ -958,6 +957,25 @@
          "en:product-name-completed",
          "en:photos-to-be-uploaded"
       ],
+      "tags_sources" : {
+         "categories" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "fr:Changed category"
+               ]
+            }
+         },
+         "labels" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:organic",
+                  "en:max-havelaar"
+               ]
+            }
+         }
+      },
       "traces" : "",
       "traces_from_ingredients" : "",
       "traces_from_user" : "(en) ",

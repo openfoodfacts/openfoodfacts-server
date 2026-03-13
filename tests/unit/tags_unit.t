@@ -5,7 +5,7 @@ use utf8;
 
 use Test2::V0;
 
-use ProductOpener::Tags qw/get_lc_tagid/;
+use ProductOpener::Tags qw/:all/;
 
 =head1 Some unit tests for Tags.pm module
 
@@ -67,5 +67,47 @@ use ProductOpener::Tags qw/get_lc_tagid/;
 	is($lc_tagid, "en:salted-snacks");
 
 }
+
+# Minimal subsets of tags
+
+is([get_minimal_tags_subset("categories", [])], []);
+
+is([get_minimal_tags_subset("categories", ["en:vegetables", "en:carrots"])], ["en:carrots"]);
+
+is(
+	[
+		get_minimal_tags_subset(
+			"categories", ["en:vegetables", "en:carrots", "en:soups", "en:frozen-carrots", "en:frozen-soups"]
+		)
+	],
+	["en:frozen-carrots", "en:frozen-soups"]
+);
+
+# display_comma_separated_tags_list_in_lc()
+
+is(display_comma_separated_tags_list_in_lc("fr", "categories", undef), "");
+is(display_comma_separated_tags_list_in_lc("fr", "categories", []), "");
+is(display_comma_separated_tags_list_in_lc("en", "categories", ["en:vegetables", "en:carrots"]), "Vegetables, Carrots");
+is(
+	display_comma_separated_tags_list_in_lc(
+		"en", "categories", ["en:vegetables", "en:carrots", "en:Some unknown carrot species"]
+	),
+	"Vegetables, Carrots, Some unknown carrot species"
+);
+is(display_comma_separated_tags_list_in_lc("fr", "categories", ["en:vegetables", "en:carrots"]), "Légumes, Carottes");
+is(display_comma_separated_tags_list_in_lc("fr", "brands", ["xx:aldi", "xx:marks-spencers", "xx:Marque Inconnue"]),
+	"Aldi, Marks & Spencers, Marque Inconnue");
+
+# gen_tags_list_with_parents
+
+retrieve_tags_taxonomy("test");
+
+is([gen_tags_list_with_parents("en", "test", [])], []);
+is([gen_tags_list_with_parents("en", "test", ["test"])], ["en:test"]);
+is([gen_tags_list_with_parents("en", "test", ["en:test"])], ["en:test"]);
+is([gen_tags_list_with_parents("en", "test", ["en:test", "en:test"])], ["en:test"]);
+is([gen_tags_list_with_parents("en", "test", ["yaourts à la banane"])], ["en:yaourts à la banane"]);
+is([gen_tags_list_with_parents("fr", "test", ["yaourts à la banane"])], ["en:yogurts", "en:banana-yogurts"]);
+is([gen_tags_list_with_parents("fr", "test", ["yaourts au schtroumpf"])], ["fr:yaourts au schtroumpf"]);
 
 done_testing();

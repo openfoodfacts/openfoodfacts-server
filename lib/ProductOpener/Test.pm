@@ -92,6 +92,10 @@ use Log::Any qw($log);
 
 no warnings qw(experimental::signatures);
 
+$Data::Dumper::Terse = 1;
+$Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
+
 # Make sure we include convert_blessed to cater for blessed objects, like booleans
 my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical;
 
@@ -864,6 +868,7 @@ sub normalize_product_for_test_comparison ($product_ref) {
 				last_image_t last_image_datetime last_image_dates_tags images.*.uploaded_t images.uploaded.*.uploaded_t sources.*.import_t
 				created_datetime last_modified_datetime last_updated_datetime
 				blame.*.*.previous_t blame.*.*.t nutrition.input_sets.*.last_updated_t
+				tags_sources.*.*.last_updated_t
 			)
 		],
 		fields_sort => ["_keywords"],

@@ -108,6 +108,7 @@ BEGIN {
 		&display_tag_name
 		&display_tag_link
 		&display_tags_list
+		&display_comma_separated_tags_list_in_lc
 		&display_parents_and_children
 		&display_tags_hierarchy
 		&export_tags_hierarchy
@@ -124,6 +125,7 @@ BEGIN {
 
 		%tags_fields
 		%writable_tags_fields
+		@writable_tags_fields_list
 		%users_tags_fields
 		%taxonomy_fields
 		@drilldown_fields
@@ -171,6 +173,10 @@ BEGIN {
 		&create_property_to_tag_mapping_table
 
 		&get_taxonomy_tag_path
+
+		&get_minimal_tags_subset
+		&gen_tags_list_with_parents
+		&set_field_input_tags_for_source
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -265,6 +271,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	stores => 1,
 	countries => 1,
 );
+@writable_tags_fields_list = sort keys %writable_tags_fields;
 
 # Fields that are tags related to users
 %users_tags_fields = (
@@ -2950,17 +2957,38 @@ sub gen_tags_hierarchy_taxonomy ($tag_lc, $tagtype, $tags_list) {
 		return ();
 	}
 
-	if (not exists $all_parents{$tagtype}) {
-		$log->error("all_parents{\$tagtype} does not exists", {tagtype => $tagtype}) if $log->is_warning();
-		return (split(/\s*,\s*/, $tags_list));
+	return gen_tags_list_with_parents($tag_lc, $tagtype, [split(/\s*,\s*/, $tags_list)]);
+}
+
+=head2 gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref)
+
+Generate a list of tags including the parents of the tags in the input list.
+
+=head3 Parameters
+
+=head4 tag type $tagtype
+
+=head4 reference to a list of tags $tags_ref
+
+=cut
+
+sub gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref) {
+
+	# If the tagtype is not a taxonomy, we just unique the tags and return them in the same order
+	if (not defined $all_parents{$tagtype}) {
+		my %seen = ();
+		return grep {$_ ne ''} grep {!$seen{$_}++} @$tags_ref;
 	}
 
 	my %tags = ();
 
 	my $and = $and{$tag_lc} || " and ";
 
-	foreach my $tag2 (split(/\s*,\s*/, $tags_list)) {
-		my $tag = $tag2;
+	if (not defined $tags_ref) {
+		return ();
+	}
+
+	foreach my $tag (@$tags_ref) {
 		my $l = $tag_lc;
 		if ($tag =~ /^(\w\w):/) {
 			$l = $1;
@@ -3299,14 +3327,66 @@ sub get_taxonomy_tag_and_link_for_lang ($target_lc, $tagtype, $tagid) {
 	return $tag_ref;
 }
 
-sub display_tags_list ($tagtype, $tags_list) {
+=head2 display_comma_separated_tags_list_in_lc ($target_lc, $tagtype, $tags_ref)
+
+Returns a comma-separated list of links for the tags in the input list,
+with the display text in the target language.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+The desired language for the display text.
+
+=head4 $tagtype
+
+The tag type of the tags in the input list.
+
+=head4 $tags_ref
+
+A reference to a list of tagids.
+
+=head3 Return value
+
+A comma-separated list of links for the tags in the input list, with the display text in the target language.
+
+=cut
+
+sub display_comma_separated_tags_list_in_lc ($target_lc, $tagtype, $tags_ref) {
+
+	if (not defined $tags_ref) {
+		return '';
+	}
+
+	return join(", ", map {display_taxonomy_tag_name($target_lc, $tagtype, $_)} @$tags_ref);
+}
+
+=head2 display_tags_list ($tagtype, $tags_list_ref)
+
+Returns a comma-separated list of links for the tags in the input list.
+
+This function is only for non taxonomized tags, like stores.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+The tag type of the tags in the input list.
+
+=head4 $tags_list_ref
+
+A reference to a list of tags (not tag ids).
+
+=cut
+
+sub display_tags_list ($tagtype, $tags_list_ref) {
 
 	my $html = '';
 	my $images = '';
-	if (not defined $tags_list) {
+	if (not defined $tags_list_ref) {
 		return '';
 	}
-	foreach my $tag (split(/,/, $tags_list)) {
+	foreach my $tag (@{$tags_list_ref}) {
 		$html .= display_tag_link($tagtype, $tag) . ", ";
 
 		my $tagid = get_string_id_for_lang($lc, $tag);
@@ -4663,6 +4743,82 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 	return;
 }
 
+=head2 set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags)
+
+New function to set the input tags for a field and a source. (e.g. categories for the manufacturer source)
+
+=cut
+
+sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags) {
+
+	# brands are a language less taxonomy, the input tag_lc is not used, we use xx instead
+	if ($field eq "brands") {
+		$tag_lc = "xx";
+	}
+
+	my @normalized_input_tags = ();
+	foreach my $tag (split(/,/, $input_tags)) {
+
+		$tag =~ s/^\s+//;
+		$tag =~ s/\s+$//;
+
+		my $normalized_tag;
+
+		if (defined $taxonomy_fields{$field}) {
+			$normalized_tag = canonicalize_taxonomy_tag($tag_lc, $field, $tag);
+		}
+		else {
+			$normalized_tag = $tag;
+		}
+		push @normalized_input_tags, $normalized_tag;
+	}
+
+	deep_set($product_ref, "tags_sources", $field, $source, "tags", \@normalized_input_tags);
+	deep_set($product_ref, "tags_sources", $field, $source, "last_updated_t", time());
+
+	generate_field_tags_from_all_sources($product_ref, $field);
+
+	return;
+}
+
+=head2 generate_field_tags_from_all_sources ($product_ref, $tagtype)
+
+This function gathers all the input tags for a field from all sources, and generates the final tags for the field,
+including parents for taxonomy fields.
+
+=cut
+
+sub generate_field_tags_from_all_sources ($product_ref, $tagtype) {
+
+	my %all_input_tags = ();
+
+	if (defined $product_ref->{tags_sources}{$tagtype}) {
+		foreach my $source (keys %{$product_ref->{tags_sources}{$tagtype}}) {
+			if (defined $product_ref->{tags_sources}{$tagtype}{$source}{tags}) {
+				foreach my $tag (@{$product_ref->{tags_sources}{$tagtype}{$source}{tags}}) {
+					$all_input_tags{$tag} = 1;
+				}
+			}
+		}
+	}
+
+	my @all_input_tags_list = sort keys %all_input_tags;
+
+	$product_ref->{$tagtype . "_tags"} = [gen_tags_list_with_parents("en", $tagtype, \@all_input_tags_list)];
+
+	return;
+}
+
+=head2 compute_field_tags ($product_ref, $tag_lc, $field)
+
+Generate the tags hierarchy from the comma separated list of $field with default language $tag_lc
+
+This function was used primarily before we refactored tags with tags_sources (schema version < 1005).
+
+It is still used to upgrade old products to newer schema (see ProductSchemaChanges.pm)
+
+=cut
+
 sub compute_field_tags ($product_ref, $tag_lc, $field) {
 	# generate the tags hierarchy from the comma separated list of $field with default language $tag_lc
 
@@ -5197,6 +5353,46 @@ sub get_taxonomy_tag_path ($tagtype, $tagid) {
 	$log->debug("get_taxonomy_tag_path", {tagtype => $tagtype, tagid => $tagid, path => \@path}) if $log->is_debug();
 
 	return \@path;
+}
+
+=head2 get_minimal_tags_subset ($tagtype, $tagids)
+
+Given a list of tagids, return the minimal subset of tagids that are not parents of any other tagid in the list.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tags_ref
+
+A reference to a list of tagids.
+
+=head3 Return value
+
+A list of tagids that are not parents of any other tagid in the input list.
+
+=cut
+
+sub get_minimal_tags_subset ($tagtype, $tags_ref) {
+
+	# Generate a list of all parents (direct and indirect) of the tags in the input list
+	my %parents = ();
+
+	foreach my $tagid (@$tags_ref) {
+
+		if (defined $all_parents{$tagtype}{$tagid}) {
+			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
+				$parents{$parentid} = 1;
+			}
+		}
+	}
+
+	# Return the minimal subset of tagids that are not parents of any other tagid in the input list
+	my @minimal_subset = grep {!$parents{$_}} @$tags_ref;
+
+	return @minimal_subset;
 }
 
 # Init the taxonomies, as most modules / scripts that load Tags.pm expect the taxonomies to be loaded
