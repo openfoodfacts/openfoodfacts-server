@@ -114,6 +114,7 @@ jobs:
           # get taxonomies results
           docker cp -a backend_container:/mnt/podata/build-cache/taxonomies-result/ /tmp/release_data/food-taxonomies-result
           # get compiled languages
+          mkdir -p /tmp/release_data/lang
           docker cp backend_container:/mnt/podata/data/Lang.openfoodfacts.localhost.sto /tmp/release_data/lang/Lang.openfoodfacts.org.sto
           docker cp backend_container:/mnt/podata/data/Lang_tags.openfoodfacts.localhost.sto /tmp/release_data/lang/Lang_tags.openfoodfacts.org.sto
           # make archives
