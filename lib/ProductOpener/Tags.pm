@@ -3207,12 +3207,14 @@ sub display_taxonomy_tag_link ($target_lc, $tagtype, $tag) {
 
 	my $css_class = get_tag_css_class($target_lc, $tagtype, $tag);
 
+	my $cache_param = ($tagtype eq 'brands') ? '?no_cache=1' : '';
+
 	my $html;
 	if ((defined $tag_lc) and ($tag_lc ne $target_lc)) {
-		$html = "<a href=\"/facets/$path/$tagurl\" class=\"$css_class\" lang=\"$tag_lc\">$tag_lc:$tag</a>";
+		$html = "<a href=\"/facets/$path/$tagurl$cache_param\" class=\"$css_class\" lang=\"$tag_lc\">$tag_lc:$tag</a>";
 	}
 	else {
-		$html = "<a href=\"/facets/$path/$tagurl\" class=\"$css_class\">$tag</a>";
+		$html = "<a href=\"/facets/$path/$tagurl$cache_param\" class=\"$css_class\">$tag</a>";
 	}
 
 	if ($tagtype eq 'emb_codes') {
