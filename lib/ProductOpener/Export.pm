@@ -193,6 +193,7 @@ sub export_csv ($args_ref) {
 	my $query_ref = $args_ref->{query};
 	my $fields_ref = $args_ref->{fields};
 	my $extra_fields_ref = $args_ref->{extra_fields};
+	my $export_nutrition_aggregated_set = $args_ref->{export_nutrition_aggregated_set};
 	my $export_computed_fields
 		= $args_ref->{export_computed_fields};    # Fields like the Nutri-Score score computed by OFF
 	my $export_canonicalized_tags_fields
@@ -275,8 +276,13 @@ sub export_csv ($args_ref) {
 
 					if ($group_id eq "nutrition") {
 
-						add_nutrition_fields_from_product_to_populated_fields($product_ref, \%populated_fields,
-							sprintf("%08d", $group_number * 1000));
+						add_nutrition_fields_from_product_to_populated_fields(
+							$product_ref, \%populated_fields,
+							sprintf("%08d", $group_number * 1000),
+							$export_computed_fields
+							,    # Skip estimated nutrients unless export_computed_fields is set to true
+							$export_nutrition_aggregated_set
+						);
 					}
 					elsif ($group_id eq "packaging") {
 						# packaging data will be exported in the CSV file in columns named like packaging_1_number_of_units

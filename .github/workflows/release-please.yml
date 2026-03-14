@@ -6,54 +6,63 @@ on:
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    env:
+      # we try to know if it's a release before triggering RELEASE_PLEASE
+      # To wait container build and eventually be able to fail early
+      IS_RELEASE: "${{ startsWith(github.event.head_commit.message, 'chore(main): release') }}"
+      RELEASE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
-      - id: release
-        uses: googleapis/release-please-action@v4.4.0
-        with:
-          # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
-          # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
-          # So this is a personal access token
-          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
-          release-type: simple
-          pull-request-title-pattern: "chore${scope}: 🚀 Open Food Facts Backend - Product Opener - Release${component} ${version}."
-          changelog-types: |
-            [
-              {"type":"feat","section":"Features","hidden":false},
-              {"type":"fix","section":"Bug Fixes","hidden":false},
-              {"type":"taxonomy","section":"Taxonomy","hidden":false},
-              {"type":"l10n","section":"Translations","hidden":false},
-              {"type":"style","section":"Technical","hidden":false},
-              {"type":"docs","section":"Technical","hidden":false},
-              {"type":"test","section":"Technical","hidden":false}
-            ]
+
       - name: Wait for frontend container build workflow
         # only if a new release was created
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ env.IS_RELEASE }}
         id: wait-build
         uses: tomchv/wait-my-workflow@v1.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           checkName: build (frontend)
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ env.RELEASE_SHA }}
           intervalSeconds: 10
           timeoutSeconds: 600 # 10m
-      - name: Get a stripped version of tag_name
+
+      - name: Wait for backend container build workflow
         # only if a new release was created
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ env.IS_RELEASE }}
+        uses: tomchv/wait-my-workflow@v1.1.0
+        id: wait-build2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: build (backend)
+          ref: ${{ env.RELEASE_SHA }}
+          intervalSeconds: 10
+          timeoutSeconds: 600 # 10m
+
+      - name: Do something if build isn't launch
+        if: ${{ env.IS_RELEASE && (steps.wait-build.outputs.conclusion == 'does not exist' || steps.wait-build2.outputs.conclusion == 'does not exist') }}
+        run: echo job does not exist && false # fail if build doesn't exist
+
+      - name: Do something if build fail
+        if: ${{ env.IS_RELEASE && (steps.wait-build.outputs.conclusion == 'failure' || steps.wait-build2.outputs.conclusion == 'failure') }}
+        run: echo fail && false # fail if build fail
+
+      - name: Do something if build timeout
+        if: ${{ env.IS_RELEASE && (steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build2.outputs.conclusion == 'timed_out') }}
+        run: echo Timeout && false # fail if build time out
+
+      - name: Prepare folder for assets to upload to release
+        if: ${{ env.IS_RELEASE }}
         run: |
-          TAG_NAME="${{ steps.release.outputs.tag_name }}"
-          # remove eventual initial v
-          STRIPPED_TAG_NAME=${TAG_NAME/v/}
-          echo "TAG_NAME=$STRIPPED_TAG_NAME" >> $GITHUB_ENV
+          rm -rf /tmp/release-assets
+          mkdir -p /tmp/release-assets
       - name: Get JS dist files to add to the release
         # only if a new release was created
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ env.IS_RELEASE }}
         id: create-frontend-dist-tar
         run : |
           # directory to put files in
           mkdir -p /tmp/frontend-dist
           # download docker image corresponding to the tag
-          image_name=ghcr.io/${{ github.repository }}/frontend:${{ env.TAG_NAME }}
+          image_name=ghcr.io/${{ github.repository }}/frontend:sha-${{ env.RELEASE_SHA }}
           # pull image, eventually waiting for it to be available in ghcr.io
           waited=0
           while ! (docker pull $image_name); do
@@ -74,15 +83,69 @@ jobs:
           docker cp -a $id:/opt/product-opener/html/js/dist/ /tmp/frontend-dist/js/
           docker rm -v $id
           # make a tar
-          tar czf /tmp/frontend-dist.tgz -C /tmp/frontend-dist .
-      - name: Add the dist tar to the release
+          tar czf /tmp/release-assets/frontend-dist.tgz -C /tmp/frontend-dist .
+      - name: Checkout the project in case of release
+        if: ${{ env.IS_RELEASE }}
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          ref: ${{ env.RELEASE_SHA }}
+      - name: build taxonomies and lang for food in case of release, and pack them in archives
+        if: ${{ env.IS_RELEASE }}
+        run: |
+          # we don't need to be in dev mode, this avoid a complete rebuild
+          sed -e "s/COMPOSE_FILE=.*$/COMPOSE_FILE=docker-compose.yml/" \
+            -e "s/COMPOSE_FILE_BUILD=.*$/COMPOSE_FILE_BUILD=docker-compose.yml/" \
+            -e "s/TAG=.*$/TAG=sha-${{ env.RELEASE_SHA }}/" \
+            -e "s/COMPOSE_PROJECT_NAME=.*$/COMPOSE_PROJECT_NAME=po_release/" \
+            -i .env
+          make build_taxonomies
+          make build_lang
+          # spin up a docker so that we can get data that is in volumes
+          # but does nothing (tail -f /dev/null)
+          docker compose run --name backend_container --rm --no-deps -d backend tail -f /dev/null
+          mkdir /tmp/release_data/
+          # get taxonomies jsons
+          docker cp -a backend_container:/opt/product-opener/html/data/taxonomies /tmp/release_data/food-taxonomies-json
+          # get taxonomies results
+          docker cp -a backend_container:/mnt/podata/build-cache/taxonomies-result/ /tmp/release_data/food-taxonomies-results
+          # get compiled languages
+          mkdir -p /tmp/release_data/lang
+          docker cp backend_container:/mnt/podata/data/Lang.openfoodfacts.localhost.sto /tmp/release_data/lang/Lang.openfoodfacts.org.sto
+          docker cp backend_container:/mnt/podata/data/Lang_tags.openfoodfacts.localhost.sto /tmp/release_data/lang/Lang_tags.openfoodfacts.org.sto
+          # make archives
+          tar czf /tmp/release-assets/food-taxonomies-json.tgz -C /tmp/release_data/food-taxonomies-json .
+          tar czf /tmp/release-assets/food-taxonomies-results.tgz -C /tmp/release_data/food-taxonomies-results .
+          tar czf /tmp/release-assets/openfoodfacts-org-lang.tgz -C /tmp/release_data/lang .
+          docker stop backend_container
+
+      - name: Add commit to release or release!
+        id: release
+        uses: googleapis/release-please-action@v4.4.0
+        with:
+          # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
+          # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
+          # So this is a personal access token
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          release-type: simple
+          pull-request-title-pattern: "chore${scope}: 🚀 Open Food Facts Backend - Product Opener - Release${component} ${version}."
+          changelog-types: |
+            [
+              {"type":"feat","section":"Features","hidden":false},
+              {"type":"fix","section":"Bug Fixes","hidden":false},
+              {"type":"taxonomy","section":"Taxonomy","hidden":false},
+              {"type":"l10n","section":"Translations","hidden":false},
+              {"type":"style","section":"Technical","hidden":false},
+              {"type":"docs","section":"Technical","hidden":false},
+              {"type":"test","section":"Technical","hidden":false}
+            ]
+      - name: Add the assets to the release
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
-        id: add-frontend-dist-to-release
-        uses: svenstaro/upload-release-action@2.11.3
+        id: add-assets-to-release
+        uses: svenstaro/upload-release-action@2.11.4
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: /tmp/frontend-dist.tgz
-          asset_name: frontend-dist.tgz
+          file_glob: /tmp/release-assets/*.tgz
           tag: ${{ steps.release.outputs.tag_name }}
           overwrite: true

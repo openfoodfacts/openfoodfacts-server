@@ -3574,7 +3574,7 @@ sub is_owner_field ($product_ref, $field) {
 	return 0;
 }
 
-=head2 product_iter($initial_path = $BASE_DIRS{PRODUCTS}, $name_pattern = qr/product$/i, $exclude_path_pattern = qr/^(conflicting|invalid)-codes$/)
+=head2 product_iter($base_path = $BASE_DIRS{PRODUCTS}, $name_pattern = qr/product$/i, $exclude_path_pattern = qr/^(conflicting|invalid)-codes$/)
 
 Iterate over all products in the specified path whose
 name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern.
@@ -3583,10 +3583,11 @@ Provides default exclusions so people don't forget to apply them
 =cut
 
 sub product_iter(
-	$initial_path = $BASE_DIRS{PRODUCTS},
+	$base_path = $BASE_DIRS{PRODUCTS},
 	$name_pattern = qr/product$/i,
-	$exclude_path_pattern = qr/^(conflicting|invalid)-codes$/
+	$exclude_path_pattern = qr/^(conflicting|invalid)-codes$/,
+	$skip_until_path = undef,
 	)
 {
-	return object_iter($initial_path, $name_pattern, $exclude_path_pattern);
+	return object_iter($base_path, $name_pattern, $exclude_path_pattern, $skip_until_path);
 }

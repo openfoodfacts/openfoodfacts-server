@@ -103,7 +103,7 @@ stopwords:de: und, mit, von
 # default_nutrition_as_sold_per:en: 100g (possible values: 100g, 100ml, 1kg)
 # default_nutrition_prepared_per:en: 100ml (e.g. for dehydrated beverages)
 
-# In European Union food of animal origin must be tagged by a packaging code (a number in a circle). 
+# In European Union food of animal origin must be tagged by a packaging code (a number in a circle).
 # The followig tag is added to food of animal origin:
 # food_of_animal_origin:en: yes
 
@@ -6625,7 +6625,7 @@ hr: Zaslađena gazirana pića
 hu: Üdítőitalok, Szénsavas üdítőitalok
 it: Bibite gassate, soft drink
 lt: Gazuoti gaivieji gėrimai
-nl: Frisdranken
+nl: Frisdranken, Frisdrank
 pt: Sodas, bebidas refrescantes, bebidas refrescantes com gazozo
 ro: Băuturi carbogazoase, Bauturi carbogazoase, bauturi racoritoare carbogazoase, băuturi răcoritoare carbogazoase
 ru: Газированные безалкагольные напитки
@@ -7570,7 +7570,7 @@ nl: Smoothie kiwi appel ananas
 < en:Non-alcoholic beverages
 < en:Plant-based beverages
 en: Fruit and vegetable shots
-da: Frugt- og grønsagsshots
+da: Frugt- og grøntsagsshots
 sv: Frukt- och grönsaksshots
 description:en: Beverages of (usually perceived-to-be healthy) juices meant to be drunk in small doses, e.g. like a shot.
 
@@ -9171,7 +9171,7 @@ pl: Napoje na bazie warzyw
 < en:Vegetable-based beverages
 en: Vegetable juices
 bg: Зеленчукови сокове
-da: Grønsagsjuicer
+da: Grøntsagsjuicer
 de: Gemüsesäfte
 es: Zumos de verduras y hortalizas
 fi: kasvismehut
@@ -9208,8 +9208,8 @@ gpc_category_name:en: Vegetable Juice - Ready to Drink (Perishable)
 < en:Frozen fruit and vegetable juices
 < en:Vegetable juices
 en: Frozen vegetable juices
-da: Frosne grønsagsjuicer
-sv: Frussna grönsaksjuicer
+da: Frosne grøntsagsjuicer
+sv: Frysta grönsaksjuicer
 
 < en:Vegetable juices
 en: Carrot juices
@@ -10342,6 +10342,7 @@ zh: 无咖啡因茶
 < en:Fermented drinks
 < en:Teas
 en: Fermented teas
+da: Fermenterede teer
 de: Fermentierte Tees
 es: Tés fermentados
 fr: Thés sombres, Thé sombre
@@ -10349,6 +10350,7 @@ hr: Fermentirani čajevi
 hu: Fermentált teák
 lt: Fermentuotos arbatos, Raugintos arbatos
 nl: Gefermenteerde theeën, Gefermenteerde thee
+sv: Fermenterade teer
 wikidata:en: Q16241634
 
 < en:Teas
@@ -36740,6 +36742,7 @@ it: Pane ai cereali a fette
 lt: Daugiagrūdės duonos, pjaustytos duonos su grūdais, Daugiagrūdės sumuštinių duonos
 nl: Gesneden Meergranenbroden
 pt: Pães de forma multicereais
+sv: Skivade flerkornsbröd
 agribalyse_food_code:en: 7113
 ciqual_food_code:en: 7113
 ciqual_food_name:en: Sandwich loaf, multigrain
@@ -53623,7 +53626,7 @@ ciqual_food_code:en: 20215
 ciqual_food_name:en: Garden peas and carrots, frozen, cooked
 ciqual_food_name:fr: Petits pois et carottes, surgelés, cuits
 
-< en:Frozen vegetables
+< en:Frozen mixed vegetables
 en: Frozen mixed vegetables for ratatouille
 da: frosne blandede grøntsager til ratatouille
 fr: Légumes pour ratatouille surgelés
@@ -53632,7 +53635,7 @@ ciqual_food_code:en: 20266
 ciqual_food_name:en: Mixed vegetables for ratatouille, frozen
 ciqual_food_name:fr: Légumes pour ratatouille, surgelés
 
-< en:Frozen vegetables
+< en:Frozen mixed vegetables
 en: Frozen mixed vegetables for couscous
 da: frosne blandede grøntsager til couscous
 fr: Légumes pour couscous surgelés
@@ -58009,7 +58012,7 @@ fr: Farines de châtaignes, Farines de châtaigne
 hr: Brašna od kestena
 it: Farine di castagne
 lt: Kaštonų miltai
-nl: Gemalen kastanjes
+nl: Kastanjemelen, Gemalen kastanjes
 agribalyse_food_code:en: 9570
 ciqual_food_code:en: 9570
 ciqual_food_name:en: Chestnut flour
@@ -60602,11 +60605,13 @@ hr: Voće i ulja od sjemenki voća
 it: Olio di frutta e di semi di frutta
 lt: Vaisių ir jų sėklų aliejai
 nl: Oliën van vruchten en vruchtzaden
+sv: Oljor från frukter och fruktfrön
 zh: 水果和水果籽油
 
 < en:Fruit and fruit seed oils
 en: Avocado oils
 bg: Авокадово масло
+da: Avocadoolier
 de: Avocadoöle
 es: Aceites de aguacate
 fi: Avokadoöljyt
@@ -60615,7 +60620,9 @@ hr: Ulja avokada
 it: Olio di avocado
 ja: アボカドオイル
 lt: Avokado aliejai
+nb: Avokadooljer
 nl: Avocado-oliën, Avocado-olie
+sv: Avokadooljor
 zh: 鳄梨油
 agribalyse_food_code:en: 17100
 ciqual_food_code:en: 17100
@@ -67352,6 +67359,7 @@ sv: Jordgubbsorbeter
 
 < en:Sorbets
 en: Raspberry sorbets
+da: Hindbærsorbeter
 de: Himbeer Sorbets
 es: Sorbetes de frambuesa
 fi: vadelmasorbetit
@@ -67360,6 +67368,7 @@ hr: Sorbeti od malina
 it: Sorbetto al lampone
 lt: Avietiniai šerbetai
 nl: Frambozensorbets
+sv: Hallonsorbeter
 
 < en:Sorbets
 en: Blueberry sorbets
@@ -67389,6 +67398,7 @@ nl: Bramensorbets
 
 < en:Sorbets
 en: Mango sorbets
+da: Mangosorbeter
 de: Mango Sorbets
 es: Sorbetes de mango
 fr: Sorbets à la mangue
@@ -67396,6 +67406,7 @@ hr: Sorbeti od manga
 it: Sorbetto al mango
 lt: Mangų šerbetai
 nl: Mangosorbets
+sv: Mangosorbeter
 
 < en:Sorbets
 en: Pineapple sorbets, Ananas sorbets
@@ -67489,6 +67500,7 @@ nl: Limoensorbets
 
 < en:Sorbets
 en: Passion fruit sorbets
+da: Passionsfrugtsorbeter
 de: Passionsfrucht Sorbets
 es: Sorbetes de maracuyá, Sorbetes de fruta de la pasión
 fr: Sorbets au fruit de la passion, sorbets aux fruits de la passion, sorbets passion, sorbets maracuja
@@ -67496,6 +67508,7 @@ hr: Sorbeti od marakuje
 it: Sorbetto al frutto della passione
 lt: Pasiflorų šerbetai
 nl: Passievruchtsorbets
+sv: Passionfruktsorbeter
 
 < en:Sorbets
 en: Peach sorbets
@@ -67554,11 +67567,18 @@ sv: Vattenmelonsorbetbyttor
 
 < en:Sorbets
 en: Multifruit sorbets
+da: Multifrugtsorbeter
 es: Sorbetes multifruta
 fr: Sorbets multifruits
 hr: Sorbeti od više voća
 lt: Įvairių vaisių šerbetai
 nl: Multifruit sorbets
+sv: Sorbeter med flera frukter
+
+< en:Multifruit sorbets
+en: Mango and passion fruit sorbets
+da: Mango- og passionsfrugtsorbeter
+sv: Mango- och passionfruktsorbeter
 
 < en:Sorbets
 en: Artificially sweetened sorbets
@@ -71638,6 +71658,7 @@ ciqual_food_name:fr: Myrtille, surgelée, crue
 < en:Frozen berries
 < en:Raspberries
 en: Frozen raspberries, Frozen red raspberries
+da: Frosne hindbær
 de: Gefrorene Himbeeren
 es: Frambuesas congeladas
 fi: Pakastevadelmat
@@ -71646,6 +71667,7 @@ hr: Smrznute maline
 it: Lamponi congelati
 lt: Šaldytos avietės
 nl: Frambozen (diepvries), Bevroren frambozen
+sv: Frysta hallon
 agribalyse_food_code:en: 13136
 ciqual_food_code:en: 13136
 ciqual_food_name:en: Raspberry, frozen, raw
@@ -71663,6 +71685,7 @@ nl: Aalbessen (diepvries), Bevroren aalbessen
 < en:Frozen berries
 < en:Strawberries
 en: Frozen strawberries
+da: Frosne jordbær
 de: Gefrorene Erdbeeren
 es: Fresas congeladas
 fr: Fraises surgelées
@@ -71670,6 +71693,7 @@ hr: Smrznute jagode
 it: Fragole surgelate
 lt: Šaldytos braškės
 nl: Aardbeien (diepvries), Bevroren aardbeien
+sv: Frysta jordgubbar
 
 < en:Frozen berries
 < en:Lingonberries
@@ -71717,15 +71741,23 @@ nl: Tropisch fruit (diepvries), Bevroren tropische vruchten
 < en:Avocados
 < en:Frozen tropical fruits
 en: Frozen avocados
+da: Frosne avokadoer
 es: Aguacates congelados
 fr: Avocats surgelés
 hr: Smrznuti avokado
 lt: Šaldyti avokadai
 nl: Avocados (diepvries), Bevroren avocados, Diepvries avocados
+sv: Frysta avokador
+
+< en:Frozen avocados
+en: Frozen diced avocados
+da: Frosne ternede avokadoer
+sv: Frysta tärnade avokador, Frysta avokador i tärningar
 
 < en:Frozen tropical fruits
 < en:Pineapple
 en: Frozen pineapples
+da: Frosne ananasser
 de: Gefrorene Ananas
 es: Piñas congeladas
 fr: Ananas surgelés
@@ -73737,6 +73769,7 @@ nl: Oreganoplanten in pot
 < en:Aromatic herbs
 en: Parsley
 bg: Магданоз
+da: Persille
 de: Petersilie
 es: Perejil
 fi: persilja
@@ -73748,18 +73781,21 @@ la: Petroselinum crispum
 lt: Petražolės
 nl: Peterselie
 pl: Pietruszka
+sv: Persilja
 tr: Maydanoz
-#wikidata:en:Q65522500
 agribalyse_proxy_food_code:en: 11014
 agribalyse_proxy_food_name:en: Parsley, fresh
 agribalyse_proxy_food_name:fr: Persil, frais
+comment:en: Wikidata item Q25284 is the biological taxon where Q65522500 is for “parsley-as-a-herb”.
 sales_format:en: weight, package, unit
 wikidata:en: Q25284
+#wikidata:en: Q65522500
 
 < en:Fresh aromatic plants
 < en:Parsley
 en: Fresh parsley
 bg: Пресен магданоз
+da: Frisk persille
 de: Frische Petersilie
 es: Perejil fresco
 fr: Persil frais
@@ -73767,6 +73803,7 @@ hr: Svježi peršin
 lt: Šviežios petražolės
 nl: Verse peterselie
 pl: Pietruszka świeża
+sv: Färsk persilja
 agribalyse_food_code:en: 11014
 ciqual_food_code:en: 11014
 ciqual_food_name:en: Parsley, fresh
@@ -73775,6 +73812,7 @@ ciqual_food_name:fr: Persil, frais
 < en:Frozen aromatic plants
 < en:Parsley
 en: Frozen parsley
+da: Frossen persille
 de: Petersilie gefroren
 es: Perejil congelado
 fr: Persil surgelé
@@ -73782,14 +73820,22 @@ hr: Smrznuti peršin
 lt: Šaldytos petražolės
 nl: Bevroren peterselie
 pl: Pietruszka mrożona
+sv: Fryst persilja
+
+< en:Frozen parsley
+en: Frozen chopped parsley
+da: Frossen hakket persille
+sv: Fryst hackad persilja
 
 < en:Dried aromatic plants
 < en:Parsley
 en: Dried parsley
+da: Tørret persille
 fr: Persil séché
 hr: Sušeni peršin
 lt: Džiovintos petražolės
 pl: Pietruszka suszona
+sv: Torkad persilja
 agribalyse_food_code:en: 11024
 ciqual_food_code:en: 11024
 ciqual_food_name:en: Parsley, dried
@@ -73802,6 +73848,7 @@ expected_ingredients:en: en:flatleaf parsley
 < en:Ground dried aromatic plants
 < en:Parsley
 en: Ground dried parsley, Parsley flakes
+da: Malet tørret persille
 de: Petersilie gerebelt
 es: Perejil seco molido
 fr: Persil séché moulu
@@ -73809,10 +73856,16 @@ hr: Samljeveni suhi peršin
 lt: Džiovintis maltos petražolės
 nl: Gemalen gedroogde peterselie
 pl: Pietruszka suszona mielona
+sv: Malad torkad persilja
+agribalyse_proxy_food_code:en: 11024
+ciqual_proxy_food_code:en: 11024
+ciqual_proxy_food_name:en: Parsley, dried
+ciqual_proxy_food_name:fr: Persil, séché
 
 < en:Lyophilized aromatic plants
 < en:Parsley
 en: Lyophilized parsley, Freeze-dried parsley
+da: Frysetørret persille
 de: Gefriergetrocknete Petersilie
 es: Perejil liofilizado
 fr: Persil lyophilisée
@@ -73820,16 +73873,19 @@ hr: Liofilizirani peršin
 lt: Šalčiu džiovintos petražolės
 nl: Gevriesdroogde peterselie
 pl: Pietruszka liofilizowana
+sv: Frystorkad persilja
 
 < en:Parsley
 < en:Potted aromatic plants
 en: Potted parsley
+da: Persille i krukke
 es: Macetas de perejil, Perejil en maceta
 fr: Persil en pot
 hr: Peršin u posudi
 lt: Petražolės vazonėlyje
 nl: Peterselieplanten in pot
 pl: Pietruszka w doniczce
+sv: Persilja i kruka
 
 < en:Aromatic herbs
 en: Rosemary
@@ -75024,19 +75080,24 @@ nl: Hele kruidnagels
 expected_ingredients:en: en:clove
 
 < en:Spices
-en: Curry powder
+en: Curry powders, Curry powder
 bg: Къри на прах
+da: Karrypulvere
 de: Curry Pulver, Curry
 es: Curry en polvo
 fr: Curry en poudre, Poudre de curry, Curry, kari
 hr: Curry prah
 ja: カレー粉
 lt: Kario milteliai
+nb: Karipulver, Karipulvere
 nl: Kerriepoeders, Kerriepoeder, Curry, Kerrie
+nn: Karipulver
+sv: Currypulver
 agribalyse_food_code:en: 11005
 ciqual_food_code:en: 11005
 ciqual_food_name:en: Curry, powder
 ciqual_food_name:fr: Curry, poudre
+wikidata:en: Q1144935
 
 < en:Spices
 en: Garam masala
@@ -75044,23 +75105,94 @@ xx: Garam masala
 ja: ガラムマサラ
 
 < en:Flavour enhancers
-en: Glutamate, Monosodium glutamate
-fr: Glutamate, Glutamate monosodique
+en: Monosodium glutamate, Glutamate
+xx: MSG, E621
+ar: غلوتامات أحادية الصوديوم
+be: Глутамат натрыю, глутамат натру
+bg: Мононатриев глутамат
+bn: মনোসোডিয়াম গ্লুটামেট
+ca: Glutamat monosòdic
+da: Mononatriumglutamat, Det tredje krydderi, Tredje krydderi, Det 3. krydderi, 3. krydderi
+de: Mononatriumglutamat
+el: Άλας γλουταμινικού μονονατρίου
+eo: Ununatria glutamatoj
+es: Glutamato monosódico
+et: Naatriumvesinikglutamaat
+eu: Monosodio glutamato
+fa: مونوسدیم گلوتامات
+fi: Natriumglutamaatti
+fr: Glutamate monosodique, Glutamate
+ga: Glútamáit aonsóidiam
+gl: Glutamato monosódico
+hi: मोनोसोडियम ग्लूटामेट
+hr: Mononatrijev glutaminat
+hu: Nátrium-glutamát
+id: Mononatrium glutamat
+it: Glutammato monosodico
+ja: グルタミン酸ナトリウム
+ko: 글루탐산 나트륨
+lt: Mononatrio glutamatas
+lv: Mononātrija glutamāts
+ml: അജിനോമോട്ടോ
+mr: मोनोसोडियम ग्लुटामेट
+ms: Monosodium glutamat
+my: အချိုမှုန့်
+nb: Natriumglutamat
+nl: Mononatriumglutamaat
+nn: Natriumglutamat
+pl: Glutaminian sodu
+pt: Glutamato monossódico
+ro: Glutamat monosodic
+ru: Глутамат натрия
+sh: Mononatrijum glutamat
+si: මොනොසෝඩියම් ග්ලූටමේට්
+sk: Glutaman sodný
+sl: Mononatrijevgluamat
+sr: Mononatrijum glutamat
+su: Monosodium glutamat
+sv: Natriumglutamat
+ta: மோனோ சோடியம் குளூட்டாமேட்
+te: మోనో సోడియం గ్లూటామేట్‌
+th: โมโนโซเดียมกลูตาเมต
+tl: Betsin
+tr: Monosodyum glutamat
+ug: تېتىتقۇ
+uk: Глутамат натрію
+ur: چینی نمک
+uz: Monosodium glyutamat
+vi: Bột ngọt
+yi: מאָנאָנאַטריומגלוטאַמאַט
+zh: 味精
+wikidata:en: Q179678
 
 < en:Spices
-en: Cumin, Cummin
+en: Cumin, Cummin, Jeera
+ar: كمون
 bg: Кимион
+ca: Comí, Comí castellà
+da: Spidskommen
 de: Kümmel, Kreuzkümmel
+eo: Oficina kuminoj
 es: Comino
 fi: juustokumina
 fr: Cumin, Jeera
+ga: Cuimín
 hr: Kim
+io: Kumino
 ja: クミン
+ku: Reşke
 la: Cuminum cyminum
 lt: Kuminas
+nb: Spisskummer
 nl: Komijn
 nl_be: Komijn
+nn: Spisskummar
+ro: Chimionul
+sv: Spiskummin
+sw: Jira
 tr: Kimyon, Boyotu
+ur: زیرہ
+zh: 孜然
 agribalyse_proxy_food_code:en: 11042
 agribalyse_proxy_food_name:en: Cumin, seed
 agribalyse_proxy_food_name:fr: Cumin, graine
@@ -75068,24 +75200,36 @@ wikidata:en: Q132624
 
 < en:Cumin
 en: Ground cumin seeds
-es: Comino molido, Comino en polvo
-fr: Cumin en poudre, Cumin moulu
+da: Malet spidskommen
+es: Comino molido
+fr: Cumin moulu
 hr: Mljevene sjemenke kimaskumin
 lt: Maltos kuminų sėklos
 nl: Gemalen komijn, Djinten
+sv: Mald spiskummin
+
+< en:Ground cumin seeds
+en: Cumin powders, Jeera powder
+da: Spidskommenpulvere
+es: Comino en polvo
+fr: Cumin en poudre
+sv: Spiskumminpulver
 
 < en:Cumin
 en: Whole cumin seeds, Cumin seeds
+da: Hele spidskommenfrø
 de: Ganze Kreuzkümmelsamen
 es: Comino en grano
 fr: Graines de cumin
 hr: Cijele sjemenke kumina
 lt: Kuminų sėklos
 nl: Komijnzaden, Grove komijn
+sv: Hela spiskumminfrön
 agribalyse_food_code:en: 11042
 ciqual_food_code:en: 11042
 ciqual_food_name:en: Cumin, seed
 ciqual_food_name:fr: Cumin, graine
+wikidata:en: Q57328174
 
 < en:Aromatic herbs
 en: Caraway seeds
@@ -77001,6 +77145,7 @@ wikidata:en: Q17082116
 
 < en:Sauces
 en: Curry sauces
+da: Karrysovser, Karrysovse, Karrysaucer
 de: Currysaucen
 es: Salsas de curry
 fi: currykastikkeet
@@ -77010,13 +77155,16 @@ hu: Curry mártások
 it: Salse al curry
 ja: カレーソース
 lt: Kario padažai
+nb: Karisauser
 nl: Kerriesauzen, Kerriesaus, Currysauzen
+nn: Karisausar
+sv: Currysåser
 agribalyse_food_code:en: 11132
 ciqual_food_code:en: 11132
 ciqual_food_name:en: Curry sauce, prepacked
 ciqual_food_name:fr: Sauce au curry, préemballée
 intake24_category_code:en: CURS
-wikidata:en: Q610794
+wikidata:en: Q115618401
 
 < en:Curry sauces
 en: Madras curry sauce
@@ -77225,8 +77373,19 @@ ciqual_food_name:en: Bearnaise sauce, prepacked
 wikidata:en: Q58265
 
 < en:Sauces
-nl: Patatje Joppiesaussmaaksauzen
-#sauce joppie (Q610794) - sauce à base de mayonnaise, oignons et poudre de curry
+en: Joppie sauces
+da: Joppiesovser, Joppiesovse, Joppiesaucer
+de: Joppie-Saucen
+eo: Jopisaŭcoj
+fa: سس یوپی
+fr: Sauce joppie
+nb: Joppiesauser
+nl: Joppiesaus
+nn: Joppiesausar
+pt: Molho Joppie
+sv: Joppiesåser
+description:fr: sauce à base de mayonnaise, oignons et poudre de curry
+wikidata:en: Q610794
 
 < en:Sauces
 en: Burger sauces, Sauce burger
@@ -77631,9 +77790,13 @@ nl: Cassismosterds
 
 < en:Mustards
 en: Curry mustards
+da: Karrysennepper
 fr: Moutardes au curry
 hr: Curry senfovi
 lt: Kario garstyčios
+nb: Karisenneper
+nn: Karisennepar
+sv: Currysenap
 
 < en:Mustards
 fr: Moutardes au noix
@@ -79908,7 +80071,7 @@ fr: Sauces tomates pimentées
 < en:Tomato sauces
 < en:Vegetable sauces
 en: Tomato sauces with vegetables
-da: Tomatsovser med grønsager
+da: Tomatsovser med grøntsager
 de: Tomatensaucen mit Gemüse
 fr: Sauces tomate aux petits légumes, Sauces tomates aux légumes
 hr: Umaci od rajčice s povrćem
@@ -80017,6 +80180,25 @@ ru: Томатный кетчуп
 sv: Tomatketchup
 tr: Domates Ketçabı
 
+< en:Ketchup
+en: Curry ketchups
+ar: كَتشب الكاري
+ca: Quètxup al curri
+da: Karryketchup
+de: Curryketchup
+eo: Karekeĉupoj
+fa: کچاپ کاری
+fr: Ketchup au curry
+jv: Kari saos tomat
+ko: 커리 케첩
+nb: Kariketsjuper, Kariketchuper
+nl: Curryketchup
+nn: Kariketsjupar, Kariketchupar
+ru: Карри-кетчуп
+sv: Curryketchup
+zh: 咖哩番茄醬
+wikidata:en: Q2148721
+
 < en:Tomato sauces
 en: Neapolitan sauces
 de: Neapolitanische Saucen
@@ -80072,7 +80254,6 @@ ciqual_food_code:en: 20260
 ciqual_food_name:en: Tomato coulis, canned (tomato puree semi-reduced 11%)
 ciqual_food_name:fr: Tomate, coulis, appertisé (purée de tomates mi-réduite à 11%)
 
-< en:Mashed vegetables
 < en:Tomato sauces
 en: Tomato purées, Tomato purees, Pureed tomato
 bg: Доматено пюре
@@ -80237,6 +80418,7 @@ wikidata:en: Q68437707
 
 < en:Meal sauces
 en: Curry pastes, Curry paste
+da: Karrypastaer
 de: Currypasten, Currypaste
 es: Pasta de curry
 fi: currytahnat
@@ -80244,28 +80426,39 @@ fr: Pâtes de curry, Curry paste
 hr: Curry paste
 it: Pasta di curry
 lt: Kario pasta
+nb: Karripastaer
 nl: Curry pastas
+nn: Karripastaer, Karripastaar
 pl: Pasty curry
+sv: Currypastor
 wikidata:en: Q5195232
 
 < en:Curry pastes
 en: Red curry pastes, Red curry paste
+da: Røde karrypastaer
 de: Rote Currypasten, Rote Currypaste
 fr: Pâtes de curry rouges
 hr: Crvene curry paste
 lt: Raudonojo kario pasta
+nb: Røde karripastaer
 nl: Rode currypastas
+nn: Raude karripastaer
 pl: Czerwone pasty curry
+sv: Röda currypastor
 wikidata:en: Q67201118
 
 < en:Curry pastes
 en: Green curry pastes, Green curry paste
+da: Grønne karrypastaer
 de: Grüne Currypasten, Grüne Currypaste
 fr: Pâtes de curry verte, Pâtes de curry vert
 hr: Zelene curry paste
 lt: Žaliojo kario pasta
+nb: Grønne karripastaer
 nl: Groene Currypastas
+nn: Grøne karripastaer
 pl: Zielone pasty curry
+sv: Gröna currypastor
 wikidata:en: Q67201120
 
 < en:Curry pastes
@@ -80285,14 +80478,17 @@ wikidata:en: Q67206116
 
 < en:Curry pastes
 en: Yellow curry pastes, Yellow curry paste
+da: Gule karrypastaer
 de: Gelbe Currypasten, Gelbe Currypaste
 fr: Pâtes de curry jaunes
 hr: Žute curry paste
 lt: Geltonojo kario pasta
+nb: Gule karripastaer
 nl: Gele Currypastas
+nn: Gule karripastaer
 pl: Żółte pasty curry
+sv: Gulor currypastor
 wikidata:en: Q67201117
-
 
 en: Meals, Prepared meals, Prepared dishes
 bg: Готови ястия
@@ -81899,12 +82095,20 @@ en: Chicken curry with side dishes
 fr: Poulets au curry avec accompagnements
 
 < en:Meals with chicken
-en: Chicken Basque style
+en: Basque-style chicken, Chicken Basque style
 fr: Poulets basquaise, Poulet basquaise, Poulets basquaises
 agribalyse_food_code:en: 25190
 ciqual_food_code:en: 25190
 ciqual_food_name:en: Chicken, Basque style
 wikidata:en: Q16670835
+
+< en:Basque-style chicken
+en: Basque-style chicken with side dishes
+fr: Poulets basquaise avec accompagnements
+
+< en:Basque-style chicken
+en: Basque-style chicken without side dishes
+fr: Poulets basquaise sans accompagnements
 
 < en:Meals with chicken
 en: Coronation chicken
@@ -82242,34 +82446,6 @@ agribalyse_food_code:en: 26267
 ciqual_food_code:en: 26267
 ciqual_food_name:en: Goat cheese and spinach tart
 
-< en:Salted pies
-en: Salted savoury cake
-fr: Cake salé
-agribalyse_food_code:en: 7814
-ciqual_food_code:en: 7814
-ciqual_food_name:en: Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
-
-< en:Salted savoury cake
-en: Savoury cake with cheese, Cheese savoury cake
-fr: Cake salé au fromage
-agribalyse_food_code:en: 7814
-ciqual_food_code:en: 7814
-ciqual_food_name:en: Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
-
-< en:Salted savoury cake
-en: Savoury cake with vegetables
-fr: Cake salé aux légumes
-agribalyse_food_code:en: 7814
-ciqual_food_code:en: 7814
-ciqual_food_name:en: Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
-
-< en:Salted savoury cake
-en: Savoury cake with meat
-fr: Cake salé à la viande
-agribalyse_food_code:en: 7814
-ciqual_food_code:en: 7814
-ciqual_food_name:en: Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
-
 #Belgian meal
 < en:Meals
 en: Waterzooi
@@ -82508,7 +82684,7 @@ ciqual_food_name:en: Soup, fish and/or crustacean, dehydrated and reconstituted
 en: Vegetable soups
 bg: Зеленчукова супа
 ca: Sopes vegetals
-da: Grøntssagssuppe
+da: Grøntsagssuppe
 de: Gemüsesuppen
 es: Sopas de verduras y hortalizas, Sopas de verduras, Sopas de hortalizas
 fi: kasviskeitot
@@ -85367,6 +85543,11 @@ lt: Paruoštos salotos
 nl: Opgemaakte salades
 pl: Gotowe sałatki
 ru: Готовые салаты
+
+< en:Prepared salads
+< en:Seaweeds and their products
+en: Prepared wakame salads
+fr: Salades préparées de wakame
 
 < en:Prepared salads
 es: Ensalada rusa
@@ -97447,7 +97628,7 @@ protected_name_file_number:en: PGI-CN-0623
 protected_name_type:en: pgi
 
 < en:Chinese pasta
-nl: Mie
+nl: Mie, Mienestjes, Mie nestjes
 
 < en:Pastas
 en: Bucatini
@@ -97656,7 +97837,7 @@ sv: Linguine bolognese
 < en:Bolognese linguine
 < en:Frozen pasta dishes
 en: Frozen bolognese linguine
-sv: Frussen linguine bolognese
+sv: Frysta linguine bologneser
 
 < en:Pasta dishes
 en: Pasta with fish
@@ -98079,7 +98260,7 @@ wikidata:en: Q18679685
 < en:Frozen meals
 < en:Pasta dishes
 en: Frozen pasta dishes, Frozen meals with pasta
-sv: Frusna pastarätter
+sv: Frysta pastarätter
 
 < en:Pasta dishes
 en: Pot noodles
@@ -99343,7 +99524,7 @@ it: Panini polari, panino polare, panini fatti con pane polare
 nl: Poolse broodjes, poolse sandwich, broodjes op poolbrood
 
 < en:Sandwiches
-en: French bread sandwiches, Sandwiches on French bread, Sandwiches made with French bread, Baguette sandwiches
+en: Baguette sandwiches, French bread sandwiches, Sandwiches on French bread, Sandwiches made with French bread, Baguette sandwiches
 de: Baguette-Sandwiches, Sandwiches auf Baguette, Sandwiches mit Baguette
 es: Bocadillos de pan francés, Bocadillos en pan francés, Bocadillos hechos con pan francés
 fr: Sandwich baguette
@@ -99354,9 +99535,69 @@ ciqual_food_code:en: 25543
 ciqual_food_name:en: Sandwich on french bread (average)
 ciqual_food_name:fr: Sandwich baguette (aliment moyen)
 
-< en:French bread sandwiches
-en: Healthy french bread sandwiches
-nl: Broodje gezond
+< en:Baguette sandwiches
+en: Baguette sandwiches with salami and butter
+de: Baguette-Sandwiches mit Salami und Butter
+es: Bocadillos de baguette con salami y mantequilla
+fr: Sandwichs baguette salami beurre
+hr: Baguette sendviči sa salamom i maslacem
+it: Panini baguette con salame e burro
+nl: Stokbrood sandwiches met salami en boter
+agribalyse_food_code:en: 25536
+ciqual_food_code:en: 25536
+ciqual_food_name:en: Sandwich made with French bread, salami and butter
+
+< en:Baguette sandwiches
+< en:Sandwich with egg and vegetables and mayonnaise
+en: Baguette sandwiches with egg and vegetables and mayonnaise
+fr: Sandwich baguette oeuf crudités mayonnaise
+agribalyse_food_code:en: 25532
+ciqual_food_code:en: 25532
+ciqual_food_name:en: Sandwich made with French bread, egg, raw vegetables (tomato and lettuce) and mayonnaise
+ciqual_food_name:fr: Sandwich baguette, oeuf, crudités (tomate, salade), mayonnaise
+
+< en:Baguette sandwiches
+< en:Sandwiches with ham and emmental cheese
+en: Baguette sandwiches with ham and emmental cheese
+de: Baguette-Sandwiches mit Schinken und Emmentaler Käse
+es: Bocadillos de baguette con jamón y queso emmental
+fr: Sandwichs baguette jambon emmental
+hr: Baguette sendviči sa šunkom i ementalcem
+it: Panini con prosciutto e formaggio emmental
+nl: Broodjes met ham en emmentaler kaas
+agribalyse_food_code:en: 25485
+ciqual_food_code:en: 25485
+ciqual_food_name:en: Sandwich made with French bread, ham and emmental cheese
+
+< en:Baguette sandwiches
+< en:Sandwiches with ham and emmental cheese and butter
+en: Baguette sandwiches with ham emmental cheese and butter
+fr: Sandwich baguette jambon emmental beurre
+agribalyse_food_code:en: 25521
+ciqual_food_code:en: 25521
+ciqual_food_name:en: Sandwich made with French bread, ham, emmental cheese and butter
+
+< en:Baguette sandwiches
+en: Baguette sandwiches with hard-boiled egg and vegetables and butter
+fr: Sandwich baguette jambon crudités oeuf, Sandwich baguette jambon oeuf dur crudités beurre
+agribalyse_food_code:en: 25475
+ciqual_food_code:en: 25475
+ciqual_food_name:en: Sandwich made with French bread, hard-boiled egg, raw vegetables (tomato and lettuce) and butter
+ciqual_food_name:fr: Sandwich baguette, jambon, oeuf dur, crudités (tomate, salade), beurre
+
+< en:Baguette sandwiches
+< en:Sandwiches filled with cold cuts
+en: BLT sandwich, Baguette sandwiches with pork and vegetables and mayonnaise
+fr: Sandwich baguette porc crudités mayonnaise
+agribalyse_food_code:en: 25533
+ciqual_food_code:en: 25533
+ciqual_food_name:en: Sandwich made with French bread, pork, raw vegetables (lettuce & tomato) and mayonnaise
+ciqual_food_name:fr: Sandwich baguette, porc, crudités (tomate, salade), mayonnaise
+wikidata:en: Q796270
+
+< en:Sandwiches
+en: Bagel sandwiches
+fr: Sandwichs bagel
 
 < en:Sandwiches
 en: Falafel sandwiches
@@ -99621,6 +99862,38 @@ ciqual_food_code:en: 25403
 ciqual_food_name:en: Hot-dog
 wikidata:en: Q181055
 
+< en:Sandwiches
+en: Vegetarian hot dog sandwiches
+es: Perritos calientes vegetales, Perritos vegetales, Hot dog vegetales
+fr: Hot-dogs végétariens, hot-dog végétal, hots-dogs végétaux, Hot-dog végétarien
+hr: Vegetarijanski hot dog sendviči
+nl: Vegetarische hotdogs
+pl: Hot-dogi wegetariańskie, wegetariańskie hot-dogi
+
+< en:Sandwiches
+en: Ploughman's sandwich
+
+< en:Sandwiches
+en: Sandwiches with ham and emmental cheese
+de: Sandwiches mit Schinken und Emmentaler Käse
+es: Bocadillos con jamón y queso emmental
+fr: Sandwichs jambon-emmental
+hr: Sendviči sa šunkom i ementalcem
+it: Sandwiches con prosciutto e formaggio emmental
+nl: Sandwiches met ham en emmentaler kaas
+agribalyse_proxy_food_code:en: 25485
+
+
+< en:Sandwiches
+en: Sandwiches with ham and emmental cheese and butter
+de: Sandwiches mit Schinken, Emmentaler Käse und Butter
+es: Bocadillos con jamón, queso emmental y mantequilla
+fr: Sandwichs jambon-emmental-beurre
+hr: Sendviči sa šunkom i ementalcem i maslacem
+it: Panini con prosciutto, formaggio emmental e burro
+nl: Broodjes met ham, emmentaler kaas en boter
+agribalyse_proxy_food_code:en: 25521
+
 < en:French bread sandwiches
 < en:Sandwiches filled with cold cuts
 en: Baguette sandwich with merguez sausage
@@ -99636,78 +99909,6 @@ ciqual_food_name:en: Sandwich made with French bread, merguez sausage, ketchup a
 ciqual_food_name:fr: Sandwich baguette, merguez, ketchup moutarde
 
 < en:Sandwiches
-en: Vegetarian hot dog sandwiches
-es: Perritos calientes vegetales, Perritos vegetales, Hot dog vegetales
-fr: Hot-dogs végétariens, hot-dog végétal, hots-dogs végétaux, Hot-dog végétarien
-hr: Vegetarijanski hot dog sendviči
-nl: Vegetarische hotdogs
-pl: Hot-dogi wegetariańskie, wegetariańskie hot-dogi
-
-< en:Sandwiches
-en: Ploughman's sandwich
-
-< en:French bread sandwiches
-en: Baguette sandwiches with salami and butter
-de: Baguette-Sandwiches mit Salami und Butter
-es: Bocadillos de baguette con salami y mantequilla
-fr: Sandwichs baguette salami beurre
-hr: Baguette sendviči sa salamom i maslacem
-it: Panini baguette con salame e burro
-nl: Stokbrood sandwiches met salami en boter
-agribalyse_food_code:en: 25536
-ciqual_food_code:en: 25536
-ciqual_food_name:en: Sandwich made with French bread, salami and butter
-
-< en:Sandwiches
-en: Sandwiches with ham and emmental cheese
-de: Sandwiches mit Schinken und Emmentaler Käse
-es: Bocadillos con jamón y queso emmental
-fr: Sandwichs jambon-emmental
-hr: Sendviči sa šunkom i ementalcem
-it: Sandwiches con prosciutto e formaggio emmental
-nl: Sandwiches met ham en emmentaler kaas
-agribalyse_proxy_food_code:en: 25485
-
-< en:French bread sandwiches
-< en:Sandwiches with ham and emmental cheese
-en: Baguette sandwiches with ham and emmental cheese
-de: Baguette-Sandwiches mit Schinken und Emmentaler Käse
-es: Bocadillos de baguette con jamón y queso emmental
-fr: Sandwichs baguette jambon emmental
-hr: Baguette sendviči sa šunkom i ementalcem
-it: Panini con prosciutto e formaggio emmental
-nl: Broodjes met ham en emmentaler kaas
-agribalyse_food_code:en: 25485
-ciqual_food_code:en: 25485
-ciqual_food_name:en: Sandwich made with French bread, ham and emmental cheese
-
-< en:Sandwiches
-en: Sandwiches with ham and emmental cheese and butter
-de: Sandwiches mit Schinken, Emmentaler Käse und Butter
-es: Bocadillos con jamón, queso emmental y mantequilla
-fr: Sandwichs jambon-emmental-beurre
-hr: Sendviči sa šunkom i ementalcem i maslacem
-it: Panini con prosciutto, formaggio emmental e burro
-nl: Broodjes met ham, emmentaler kaas en boter
-agribalyse_proxy_food_code:en: 25521
-
-< en:French bread sandwiches
-< en:Sandwiches with ham and emmental cheese and butter
-en: Baguette sandwiches with ham emmental cheese and butter
-fr: Sandwich baguette jambon emmental beurre
-agribalyse_food_code:en: 25521
-ciqual_food_code:en: 25521
-ciqual_food_name:en: Sandwich made with French bread, ham, emmental cheese and butter
-
-< en:French bread sandwiches
-en: Baguette sandwiches with hard-boiled egg and vegetables and butter
-fr: Sandwich baguette jambon crudités oeuf, Sandwich baguette jambon oeuf dur crudités beurre
-agribalyse_food_code:en: 25475
-ciqual_food_code:en: 25475
-ciqual_food_name:en: Sandwich made with French bread, hard-boiled egg, raw vegetables (tomato and lettuce) and butter
-ciqual_food_name:fr: Sandwich baguette, jambon, oeuf dur, crudités (tomate, salade), beurre
-
-< en:Sandwiches
 en: Sandwich with egg and vegetables and mayonnaise
 de: Sandwich mit Ei und Gemüse und Mayonnaise
 es: Bocadillo de huevo y verduras con mayonesa
@@ -99715,25 +99916,6 @@ fr: Sandwich crudités-oeuf, Sandwich oeuf-crudités
 hr: Sendvič s jajetom i povrćem te majonezom
 it: Panino con uovo, verdure e maionese
 nl: Broodje met ei, groenten en mayonaise
-
-< en:French bread sandwiches
-< en:Sandwich with egg and vegetables and mayonnaise
-en: Baguette sandwiches with egg and vegetables and mayonnaise
-fr: Sandwich baguette oeuf crudités mayonnaise
-agribalyse_food_code:en: 25532
-ciqual_food_code:en: 25532
-ciqual_food_name:en: Sandwich made with French bread, egg, raw vegetables (tomato and lettuce) and mayonnaise
-ciqual_food_name:fr: Sandwich baguette, oeuf, crudités (tomate, salade), mayonnaise
-
-< en:French bread sandwiches
-< en:Sandwiches filled with cold cuts
-en: BLT sandwich, Baguette sandwiches with pork and vegetables and mayonnaise
-fr: Sandwich baguette porc crudités mayonnaise
-agribalyse_food_code:en: 25533
-ciqual_food_code:en: 25533
-ciqual_food_name:en: Sandwich made with French bread, pork, raw vegetables (lettuce & tomato) and mayonnaise
-ciqual_food_name:fr: Sandwich baguette, porc, crudités (tomate, salade), mayonnaise
-wikidata:en: Q796270
 
 < en:Sandwiches
 en: Reuben Sandwich
@@ -108099,12 +108281,23 @@ incompatible_with:en: categories:en:fruits
 intake24_category_code:en: VTGB
 
 < en:Vegetables
+en: Thinly-shredded vegetables
+fr: Julienne de légumes
+
+< en:Vegetables
+en: Diced vegetables
+da: Ternede grøntsager
+fr: Brunoise de légumes
+
+< en:Vegetables
 en: Root vegetables, root vegetable
+da: Rodfrugter
 fr: Légumes-racines, légume-racine
 wikidata:en: Q20136
 
 < en:Vegetables
 en: Vegetables from Germany, German vegetables
+da: Tyske grøntsager, Grøntsager fra Tyskland
 fr: Légumes allemands
 hr: Povrće iz Njemačke
 lt: Vokiškos daržovės
@@ -108155,15 +108348,22 @@ wikidata:en: Q23400
 < en:Culinary plants
 < en:Vegetables based foods
 en: Wild garlic, Ramsons
+da: Ramsløg
 de: Bärlauch
 fr: Ail des ours
 hr: Divlji češnjak
+la: Allium ursinum
+nb: Ramsløk
+nn: Ramslauk
 pl: Czosnek niedźwiedzi
+sv: Ramslök
 wikidata:en: Q130882
 
 < en:Wild garlic
 en: Dried wild garlic
+da: Tørret ramsløg
 pl: Czosnek niedźwiedzi suszony
+sv: Torkad ramslök
 
 < en:Garlic and their products
 ga: Ajos aliñados en vinagre
@@ -108186,6 +108386,7 @@ wikidata:en: Q23485
 
 < en:Onions and their products
 en: Fried onions
+da: Ristede løg
 de: Röstzwiebeln
 es: Cebollas fritas
 fi: paistetut sipulit
@@ -108327,7 +108528,6 @@ ciqual_food_name:fr: Artichaut, fond, appertisé, égoutté
 en: Marinated canned artichokes
 nl: Gemarineerde artisjokken in blik/pot
 
-
 < en:Brussels sprouts
 < en:Canned vegetables
 en: Canned Brussels sprouts
@@ -108390,6 +108590,8 @@ hr: Konzervirane blitve
 nl: Snijbiet in blik/pot
 
 < en:Canned vegetables
+< en:Diced vegetables
+< en:Mixed vegetables
 en: Canned diced mixed vegetables
 fr: Macédoines de légumes en conserve, macédoines de légume en conserve, macédoine de légumes en conserve, macédoine de légume en conserve, Macédoines de légumes appertisées, Macédoines de légumes appertisées
 agribalyse_food_code:en: 20051
@@ -108506,7 +108708,7 @@ intake24_category_code:en: PION
 < en:Canned vegetables
 < en:Plant-based pickles
 en: Pickled vegetables, Vegetable pickles
-da: Syltede grønsager
+da: Syltede grøntsager
 de: Eingelegtes Gemüse
 es: Verduras y hortalizas encurtidas, Encurtidos de verduras y hortalizas
 fi: kasvissäilykkeet
@@ -111199,7 +111401,7 @@ bn: পিঁয়াজ
 ca: ceba
 cs: cibule
 cy: Nionyn
-da: løg
+da: Løg
 de: Zwiebeln, Zwiebel
 el: κρεμμύδι
 eo: cepo
@@ -111220,7 +111422,7 @@ nv: tłʼohchin
 pl: cebula
 pt: cebola
 ru: лук
-sv: lök
+sv: Lökar, Lök
 tr: soğan
 vi: hành tây
 zh: 洋葱
@@ -111258,12 +111460,14 @@ protected_name_type:en: pgi
 < en:Fresh vegetables
 < en:Onions
 en: Fresh onions
+da: Friske løg
 de: Frische Zwiebeln
 es: Cebollas frescas
 fr: Oignons frais
 he: בצלים טריים
 hr: Svježi luk
 nl: Verse uien
+sv: Färska lökar
 season_in_country_fr:en: 1,2,3,4,9,10,11,12
 
 < en:Onions
@@ -111312,6 +111516,7 @@ fr: Oignons rouges, oignon rouge
 hr: Crveni luk
 ja: 赤たまねぎ, 紫たまねぎ
 nl: Rode uien
+sv: Rödlökar
 expected_ingredients:en: en:red onion
 sales_format:en: weight, package
 wikidata:en: Q622350
@@ -111323,14 +111528,17 @@ en: Fresh red onions
 fr: Oignons rouges frais
 hr: Svježi crveni luk
 nl: Verse rode uien
+sv: Färska rödlökar
 expected_ingredients:en: en:red onion
 
 < en:Cooked vegetables
 < en:Onions
 en: Cooked onions
+da: Kokte løg
 fr: Oignons cuits
 hr: Kuhani luk
 nl: Gekookte uien
+sv: Kokade lökar
 agribalyse_food_code:en: 20035
 ciqual_food_code:en: 20035
 ciqual_food_name:en: Onion, cooked
@@ -111338,6 +111546,7 @@ ciqual_food_name:fr: Oignon, cuit
 
 < en:Onions
 en: Shallots
+da: Skalotteløg
 de: Schalotten
 es: Echalotes, Chalotas, Escalonias
 fi: Salottisipulit
@@ -111346,6 +111555,7 @@ hr: Ljutika
 ja: エシャロット
 la: Allium cepa var. aggregatum, Allium ascalonicum
 nl: Sjalotjes
+sv: Schalottenlökar, Schallottenlök
 agribalyse_food_code:en: 20097
 ciqual_food_code:en: 20097
 ciqual_food_name:en: Shallot, raw
@@ -111354,21 +111564,25 @@ expected_ingredients:en: en:shallots
 sales_format:en: weight, package
 wikidata:en: Q193498
 
-< en:Fresh vegetables
+< en:Fresh onions
 < en:Shallots
 en: Fresh shallots
+da: Friske skalotteløg
 fr: Échalotes fraîches
 hr: Svježa ljutika
 nl: Verse sjalotjes
+sv: Färska schalottenlökar
 expected_ingredients:en: en:shallots
 season_in_country_fr:en: 10,11,12
 
-< en:Cooked vegetables
+< en:Cooked onions
 < en:Shallots
 en: Cooked shallots
+da: Kokte skalotteløg
 fr: Échalotes cuites
 hr: Kuhana ljutika
 nl: Gekookte sjalotjes
+sv: Kokade schalottenlökar
 agribalyse_food_code:en: 20255
 ciqual_food_code:en: 20255
 ciqual_food_name:en: Shallot, cooked
@@ -111537,7 +111751,6 @@ agribalyse_food_code:en: 20275
 ciqual_food_code:en: 20275
 ciqual_food_name:en: Sweet pepper, red, canned, drained
 ciqual_food_name:fr: Poivron rouge, appertisé, égoutté
-
 
 < en:Sweet Peppers
 fr: Doux California Wonder
@@ -113207,10 +113420,12 @@ pl: Włoszczyzna, Mieszanka warzyw na bulion
 es: Mezclas de verduras y hortalizas para cocido, Mezclas de vegetales para cocido
 
 < en:Mixed vegetables
+en: Mixed vegetables for soups
 es: Mezclas de verduras y hortalizas para sopa, Mezclas de vegetales para sopa
 fr: Mélanges de légumes pour soupes
 
 < en:Frozen mixed vegetables
+< en:Mixed vegetables for soups
 en: Frozen mixed vegetables for soups
 fr: Légumes surgelés pour potage
 agribalyse_food_code:en: 20263
@@ -113598,7 +113813,7 @@ pl: Naturalne pomidory suszone
 < en:Dried tomatoes
 en: Dried tomato in oil, Dried tomatoes in oil, Sun-dried tomato in oil, Sun-dried tomatoes in oil, Rehydrated dried tomatoes in oil
 bg: Сушени домати в олио
-da: soltørrede tomater i olie
+da: Soltørrede tomater i olie
 de: getrocknete Tomaten in Öl
 es: Tomates secos en aceite, Tomates secos rehidratados en aceite
 fi: kuivattuja tomaatteja öljyssä
@@ -113607,7 +113822,7 @@ hr: Sušene rajčice u ulju
 it: Pomodoro essiccato sott'olio
 nl: Gedroogde tomaten op olie
 pl: Pomidory suszone w oleju
-sv: soltorkade tomater i olja
+sv: Soltorkade tomater i olja
 agribalyse_food_code:en: 20256
 ciqual_food_code:en: 20256
 ciqual_food_name:en: Tomato, dried, in oil
@@ -113634,7 +113849,6 @@ fr: Poudre de tomate séchée
 hr: Sušene rajčice u prahu
 nl: Tomatenpoeders
 pl: Pomidory suszone w proszku, Proszek z suszonych pomidorów
-
 
 < en:Garlic and their products
 < en:Ground dried vegetables
@@ -113663,7 +113877,7 @@ ciqual_food_name:fr: Ail séché, poudre
 # <en:onion
 en: onion powder, Granulated onion, Dried minced onion
 bg: Лук на прах
-da: løgpulver
+da: Løgpulver
 de: Zwiebelpulver
 el: κρεμμύδια σε σκόνη, κρεμμύδι σκόνη
 eo: pulvorigita cepo
@@ -113680,7 +113894,7 @@ pl: Cebula granulowana, Cebula w proszku
 pt: cebola em pó
 sk: sušená cibuľa
 sl: čebula v prahu
-sv: lökpulver
+sv: Lökpulver
 wikidata:en: Q7093931
 # ingredient/fr:oignon-en-poudre has 1131 products in 15 languages @2018-11-06
 # category/onion-powder has 11 products @2019-05-12
@@ -113688,11 +113902,13 @@ wikidata:en: Q7093931
 < en:Freeze-dried plant-based foods
 < en:Vegetables based foods
 en: Freeze-dried vegetables, Lyophilized vegetables
+da: Frysetørrede grøntsager
 de: Gefriergetrocknetes Gemüse
 es: Verduras y hortalizas liofilizadas
 fr: Légumes lyophilisées
 hr: Liofilizirano povrće
 nl: Vriesgedroogde groenten
+sv: Frystorkade grönsaker
 
 < en:Plant-based foods
 en: Legumes and their products
@@ -113738,7 +113954,7 @@ nl: Bonen
 pl: Strączkowe
 pt: Legumes
 ru: Бобовые
-sv: ärtväxter, baljväxter
+sv: Ärtväxter, Baljväxter, Legymer
 th: ถั่วเมล็ดแห้ง
 tr: Bakliyat, Baklagiller
 intake24_category_code:en: BBNS
@@ -116048,19 +116264,25 @@ agribalyse_proxy_food_name:en: Soft waffle (Brussels-style), plain or with sugar
 agribalyse_proxy_food_name:fr: Gaufre moelleuse (type bruxelloise ou liégeoise), nature ou sucrée, préemballée
 
 < en:Waffles
-fr: Gaufres liégeoises, gaufres liegeoises, gaufres de Liège, gaufre liégeoise, gaufre de Liège, Gaufre moelleuse nature liégeoise préemballée, Gaufre moelleuse sucrée liégeoise, Gaufre moelleuse nature bruxelloise, Gaufre moelleuse sucrée bruxelloise
-en: Plain Brussels-style soft waffle, Brussels-style soft waffle with sugar
+en: Plain waffles
+fr: Gaufres nature
 hr: Obični mekani vafli u briselskom stilu
-nl: Luikse wafels
-ro: Vafe din Liège
 agribalyse_food_code:en: 23851
 ciqual_food_code:en: 23851
 ciqual_food_name:en: Soft waffle (Brussels-style), plain or with sugar, prepacked
 ciqual_food_name:fr: Gaufre moelleuse (type bruxelloise ou liégeoise), nature ou sucrée, préemballée
 
+< en:Plain waffles
+en: Liège-style plain waffles
+fr: Gaufres de Liège nature, Gaufres liégeoises, gaufres liegeoises, gaufres de Liège, gaufre liégeoise, gaufre de Liège, Gaufre moelleuse nature liégeoise préemballée, Gaufre moelleuse sucrée liégeoise
+
+< en:Plain waffles
+en: Bruxelles-style plain waffles, Plain Brussels-style soft waffle, Brussels-style soft waffle with sugar
+fr: Gaufres de Bruxelles nature, Gaufre moelleuse nature bruxelloise, Gaufre moelleuse sucrée bruxelloise
+
 < en:Waffles
 en: Chocolate coated waffles, Chocolate waffles, Soft waffle with chocolate, Brussels waffle with chocolate
-fr: Gaufre chocolatée, Gaufres nappées de chocolat, Gaufres au chocolat, Gaufres au cacao, Gauffre bruxelloise au chocolat, Gauffre de Bruxelles au chocolat
+fr: Gaufres nappées de chocolat, gaufre chocolatée, Gaufres au chocolat, Gauffre bruxelloise au chocolat, Gauffre de Bruxelles au chocolat
 hr: Vafli obloženi čokoladom
 nl: Wafels met chocola
 pl: Gofry czekoladowe, gofry w czekoladzie
@@ -116068,6 +116290,11 @@ ro: Vafe cu ciocolată
 agribalyse_food_code:en: 23852
 ciqual_food_code:en: 23852
 ciqual_food_name:en: Soft waffle (Brussels-style), with chocolate, prepacked
+
+# Cocoa glaze is a cheapest alternative to chocolate. It contain vegetable fat and a low percentage of cocoa
+< en:Waffles
+en: Cocoa glaze coated waffles
+fr: Gaufres nappées d'un glaçage au cacao, Gaufres au cacao
 
 < en:Waffles
 en: Stuffed waffles, Stroopwafels
@@ -117372,7 +117599,8 @@ ciqual_food_code:en: 20271
 ciqual_food_name:en: Mixed diced vegetables, frozen
 ciqual_food_name:fr: Macédoine de légumes, surgelée
 
-< en:Frozen mixed vegetables
+< en:Frozen vegetables
+< en:Thinly-shredded vegetables
 en: Frozen thinly-shredded vegetables
 fr: Julienne de légumes surgelée
 agribalyse_food_code:en: 20265
@@ -117380,6 +117608,7 @@ ciqual_food_code:en: 20265
 ciqual_food_name:en: Thinly-shredded or diced vegetables, frozen, raw
 ciqual_food_name:fr: Julienne ou brunoise de légumes, surgelée, crue
 
+< en:Diced vegetables
 < en:Frozen vegetables
 en: Frozen diced vegetables
 fr: Brunoise de légumes surgelée
@@ -117391,10 +117620,6 @@ ciqual_food_name:fr: Julienne ou brunoise de légumes, surgelée, crue
 < en:Frozen mixed vegetables
 en: Frozen mixed vegetables for wok, Frozen mixed wok vegetables
 sv: Djupfrysta blandade grönsager för wok, Djupfryst wokgrönsagsblandning, Djupfryst wokgrönsagsmix
-
-< en:Vegetables
-en: thinly-shredded vegetables, diced vegetables
-fr: Julienne de légumes, Brunoise de légumes
 
 < en:Vegetables
 en: Mustard greens
@@ -117841,8 +118066,10 @@ ciqual_food_name:fr: Navet, surgelé, cru
 < en:Onions
 en: Frozen onions
 bg: Замразен лук
+da: Frosne løg
 fr: Oignons surgelés
 hr: Smrznuti luk
+sv: Frysta lökar
 agribalyse_food_code:en: 20235
 ciqual_food_code:en: 20235
 ciqual_food_name:en: Onion, frozen, raw
@@ -117850,11 +118077,19 @@ ciqual_food_name:fr: Oignon, surgelé, cru
 
 < en:Frozen onions
 en: Frozen chopped onions
+da: Frosne hakkede løg
 de: Tiefgefrorene gehackte Zwiebeln
 es: Cebollas troceadas congeladas, Cebollas congeladas troceadas
 fr: Oignons hachés surgelés, Oignons émincés surgelés
 hr: Smrznuti nasjeckani luk
 nl: Diepvries gehakte uien
+sv: Frysta hackade lökar
+
+< en:Frozen chopped onions
+< en:Shallots
+en: Frozen chopped shallots
+da: Frosne hakkede skalotteløg
+sv: Frysta hackade schalottenlökar
 
 < en:Frozen vegetables
 < en:Garlic
@@ -118348,6 +118583,21 @@ food_groups:en: en:appetizers
 pnns_group_2:en: Appetizers
 
 < en:Appetizers
+en: Savory cakes, Salted savoury cake
+fr: Cakes salés, cakes apéritifs, Cake salé
+agribalyse_food_code:en: 7814
+ciqual_food_code:en: 7814
+ciqual_food_name:en: Savoury cake (with cheese, vegetables, meat, fish, poultry,etc.)
+
+< en:Savory cakes
+en: Vegetarian savory cakes, Savoury cake with vegetables
+fr: Cakes salés végétariens, Cake salé aux légumes
+
+< en:Savory cakes
+en: Savory cakes with meat, Savoury cake with meat
+fr: Cakes salés à la viande, Cake salé à la viande
+
+< en:Appetizers
 en: Surprise breads
 fr: Pains surprise
 hr: Kruh iznenađenja
@@ -118424,6 +118674,27 @@ ciqual_food_code:en: 25437
 ciqual_food_name:en: Small cheese chou-pastry puff
 ciqual_food_name:fr: Gougère
 wikidata:en: Q655973
+
+en: Verrines
+xx: Verrines, Verrine
+ja: ヴェリーヌ
+ru: Веррины
+sv: Verriner
+wikidata:en: Q7848863
+
+< en:Appetizers
+< en:Verrines
+en: Savory verrines
+da: Forretter i glas
+fr: Verrines salées, verrines apéritives
+sv: Salta verriner
+
+< en:Desserts
+< en:Verrines
+en: Sweet verrines
+da: Desserter i glas
+fr: Verrines sucrées
+sv: Söta verriner
 
 < en:Sweet snacks
 en: Bars
@@ -119995,6 +120266,12 @@ en: Fish analogues, Plantbased fish
 hr: Analozi ribe
 nl: Plantaardige vissen
 pl: Zastępniki ryb
+
+< en:Fish analogues
+en: Salmon analogues
+
+< en:Fish analogues
+en: Tuna analogues
 
 < en:Dairy substitutes
 < en:Plant-based foods
@@ -121850,19 +122127,6 @@ nl: Sushki
 ru: Сушки, Баранки
 wikidata:en: Q509835
 
-< en:Fermented drinks
-en: Kvass
-bg: Квас
-de: Kwas, Kwass
-es: Kvas
-fr: Kvass
-hr: Kvas
-lt: Gira
-nl: Kvas
-pl: Kwas chlebowy
-ru: Квас
-wikidata:en: Q173773
-
 < en:Gingerbreads
 en: Pryaniki
 de: Prjaniki
@@ -122253,13 +122517,13 @@ ciqual_food_name:fr: Spécialité chinoise ou bouchées à la vapeur, cuite
 < en:Frozen foods
 en: Frozen dumplings
 da: Frosne dumplings
-sv: Frusna dumplingar
+sv: Frysta dumplingar
 
 < en:Dumplings with vegetables
 < en:Frozen dumplings
 en: Frozen dumplings with vegetables
 da: Frosne dumplings med grøntsager
-sv: Frusna dumplingar med grönsaker
+sv: Frysta dumplingar med grönsaker
 
 < en:Chinese dumplings
 < en:Frozen dumplings
@@ -122430,15 +122694,93 @@ fr: Saucisses sèches de jambon
 < en:Fermented drinks
 < en:Tea-based beverages
 en: Kombuchas
-de: Kombucha
-es: Té kombucha, Kombucha
+xx: Kombucha
+ar: كومبوتشا
+be: Чайны квас
+bg: Комбуча
+ca: Kombutxa
+el: Κομπούχα
+eo: Kombuĉoj
+es: Té kombucha
+et: Teeseenejook
+eu: Konbutxa
+fa: کامبوچا
 fi: Kombutsat, Kombuchat
 fr: Kombuchas, combuchas
-hr: Kombucha
-it: Kombucha
+hi: कोम्बुचा
+hy: Կոմբուչա
+io: Kombucho
+is: Sveppate
 ja: 紅茶キノコ, コンブチャ
-nl: Kombucha
+ka: Ჩაის სოკო
+ko: 콤부차
+lt: Kombuča
+lv: Kombuča
+mk: Комбуча
+nl: Komboecha
+pl: Kombucza
+ru: Чайный квас
+sk: Kombuča
+sl: Kombuča
+sr: Kombusa
+tg: Замбурӯғчой
+th: คมบูชะ
+tr: Kombu Çayı
+uk: Чайний квас
+vi: Nấm thuỷ sâm
+zh: 红茶菌, 紅茶菌
 wikidata:en: Q657032
+
+< en:Fermented drinks
+< en:Plant-based beverages
+en: Kvass
+xx: Kvas, Kvass, Kwas
+ar: كفاس
+be: Квас
+bg: Квас
+ca: Kvass
+cu: Квасъ
+cv: Кăвас
+da: Kvass
+de: Kwas
+el: Κβας
+eo: Kvasoj
+et: Kali
+fa: کواس
+fi: Kvassi
+fr: Kvass
+hu: Kvasz
+hy: Կվաս
+io: Kvaso
+ja: クワス
+ka: Ბურახი
+ko: 크바스
+kv: Ырӧш
+ky: Квас
+lt: Gira
+nb: Kvass
+nn: Kvass
+os: Къуымæл
+pl: Kwas chlebowy
+ru: Квас
+sr: Квас
+sv: Kvass
+ta: குவாசு
+ug: كاۋاس
+zh: 格瓦斯, 克瓦斯
+wikidata:en: Q173773
+
+< en:Fermented drinks
+< en:Vegetable-based beverages
+en: Şalgam suyu, Turnip juices, Shalgam juices
+xx: Şalgam suyu, Şalgam, Salgam suyu, Salgam
+az: Şalğam suyu
+ja: シャルガム
+mk: Шалгам
+ru: Шалгам
+sr: Шалгам
+uk: Шалгам
+wikidata:en: Q388152
 
 < en:Dairy desserts
 fr: Oeufs au lait
