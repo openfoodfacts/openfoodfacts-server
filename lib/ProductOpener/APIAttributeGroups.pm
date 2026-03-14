@@ -47,14 +47,37 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Cache qw/$memd generate_cache_key/;
 use ProductOpener::HTTP qw/set_http_response_header/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::API qw/add_error/;
 use ProductOpener::Display qw/display_structured_response/;
 use ProductOpener::Attributes qw/list_attributes/;
+use Storable qw/dclone/;
 use Tie::IxHash;
 
 use Encode;
+
+my $api_metadata_cache_ttl = 600;
+
+sub _set_metadata_cache_headers ($request_ref) {
+	set_http_response_header($request_ref, "Cache-Control", "public, max-age=$api_metadata_cache_ttl");
+	set_http_response_header($request_ref, "Vary", "Accept-Language");
+	return;
+}
+
+sub _get_cached_api_metadata ($cache_name, $context_ref) {
+	my $cache_key = generate_cache_key($cache_name, $context_ref);
+	my $cached_value_ref = $memd->get($cache_key);
+
+	# Clone cached values before returning so request-specific code cannot mutate cached data.
+	return (defined $cached_value_ref ? dclone($cached_value_ref) : undef, $cache_key);
+}
+
+sub _set_cached_api_metadata ($cache_key, $value_ref) {
+	$memd->set($cache_key, dclone($value_ref), $api_metadata_cache_ttl);
+	return;
+}
 
 =head2 display_preferences_api ( $target_lc )
 
@@ -116,6 +139,20 @@ sub preferences_api ($request_ref) {
 	my $response_ref = $request_ref->{api_response};
 
 	my $target_lc = $request_ref->{lc};
+	my ($cached_preferences_ref, $cache_key) = _get_cached_api_metadata(
+		"api_preferences",
+		{
+			endpoint => "preferences",
+			lc => $target_lc,
+			api_version => $request_ref->{api_version},
+		}
+	);
+
+	if (defined $cached_preferences_ref) {
+		$response_ref->{preferences} = $cached_preferences_ref;
+		_set_metadata_cache_headers($request_ref);
+		return;
+	}
 
 	$response_ref->{preferences} = [];
 
@@ -140,7 +177,8 @@ sub preferences_api ($request_ref) {
 		push @{$response_ref->{preferences}}, $preference_ref;
 	}
 
-	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
+	_set_cached_api_metadata($cache_key, $response_ref->{preferences});
+	_set_metadata_cache_headers($request_ref);
 
 	return;
 }
@@ -177,11 +215,23 @@ sub display_attribute_groups_api ($request_ref, $target_lc) {
 		$target_lc = $lc;
 	}
 
-	my $attribute_groups_ref = list_attributes($target_lc, $request_ref->{api_version});
+	my ($attribute_groups_ref, $cache_key) = _get_cached_api_metadata(
+		"api_attribute_groups",
+		{
+			endpoint => "attribute_groups",
+			lc => $target_lc,
+			api_version => $request_ref->{api_version},
+		}
+	);
+
+	if (not defined $attribute_groups_ref) {
+		$attribute_groups_ref = list_attributes($target_lc, $request_ref->{api_version});
+		_set_cached_api_metadata($cache_key, $attribute_groups_ref);
+	}
 
 	$request_ref->{structured_response} = $attribute_groups_ref;
 
-	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
+	_set_metadata_cache_headers($request_ref);
 
 	display_structured_response($request_ref);
 
@@ -216,10 +266,25 @@ sub attribute_groups_api ($request_ref) {
 	my $response_ref = $request_ref->{api_response};
 
 	my $target_lc = $request_ref->{lc};
+	my ($cached_attribute_groups_ref, $cache_key) = _get_cached_api_metadata(
+		"api_attribute_groups",
+		{
+			endpoint => "attribute_groups",
+			lc => $target_lc,
+			api_version => $request_ref->{api_version},
+		}
+	);
+
+	if (defined $cached_attribute_groups_ref) {
+		$response_ref->{attribute_groups} = $cached_attribute_groups_ref;
+		_set_metadata_cache_headers($request_ref);
+		return;
+	}
 
 	$response_ref->{attribute_groups} = list_attributes($target_lc, $request_ref->{api_version});
+	_set_cached_api_metadata($cache_key, $response_ref->{attribute_groups});
 
-	set_http_response_header($request_ref, "Cache-Control", "public, max-age=86400");
+	_set_metadata_cache_headers($request_ref);
 
 	return;
 }
