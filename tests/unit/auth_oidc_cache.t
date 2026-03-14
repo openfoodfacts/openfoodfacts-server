@@ -20,13 +20,6 @@ sub _reload_auth_module {
 	return;
 }
 
-{
-	package Local::FailingMemd;
-	sub new { return bless {}, shift; }
-	sub get { die "mock cache get failure"; }
-	sub set { die "mock cache set failure"; }
-}
-
 sub _mock_oidc_requests {
 	my ($request_state_ref, $discovery_endpoint) = @_;
 	my $mock = mock 'LWP::UserAgent::Plugin' => (
@@ -85,12 +78,12 @@ subtest 'cache hit avoids network and returns cached OIDC config' => sub {
 	my $request_state_ref = {request_calls => 0};
 	my $cache_mock = mock 'ProductOpener::Auth' => (
 		override => [
-			'_safe_cache_get' => sub {
+			'safe_cache_get' => sub {
 				my ($key) = @_;
 				$cache_mode_ref->{get_calls}++;
 				return $cache_store_ref->{$key};
 			},
-			'_safe_cache_set' => sub {
+			'safe_cache_set' => sub {
 				my ($key, $value, $ttl) = @_;
 				$cache_mode_ref->{set_calls}++;
 				$cache_mode_ref->{set_ttls}{$key} = $ttl;
@@ -121,12 +114,12 @@ subtest 'cache miss fetches data and stores both keys with 2h TTL' => sub {
 	my $request_state_ref = {request_calls => 0};
 	my $cache_mock = mock 'ProductOpener::Auth' => (
 		override => [
-			'_safe_cache_get' => sub {
+			'safe_cache_get' => sub {
 				my ($key) = @_;
 				$cache_mode_ref->{get_calls}++;
 				return $cache_store_ref->{$key};
 			},
-			'_safe_cache_set' => sub {
+			'safe_cache_set' => sub {
 				my ($key, $value, $ttl) = @_;
 				$cache_mode_ref->{set_calls}++;
 				$cache_mode_ref->{set_ttls}{$key} = $ttl;
@@ -150,15 +143,6 @@ subtest 'cache miss fetches data and stores both keys with 2h TTL' => sub {
 	$request_mock = undef;
 };
 
-	subtest 'safe cache wrappers handle memcached exceptions' => sub {
-	_reload_auth_module();
-	local $ProductOpener::Auth::memd = Local::FailingMemd->new();
-
-	is(ProductOpener::Auth::_safe_cache_get('any-key'), undef, 'safe cache get returns undef on memcached error');
-	is(dies { ProductOpener::Auth::_safe_cache_set('k', {x => 1}, 10); }, undef,
-		'safe cache set does not die on memcached error');
-};
-
 subtest 'cache miss still falls back to direct fetch' => sub {
 	_reload_auth_module();
 	my $discovery_endpoint = 'https://issuer.example/.well-known/openid-configuration';
@@ -168,12 +152,12 @@ subtest 'cache miss still falls back to direct fetch' => sub {
 	my $request_state_ref = {request_calls => 0};
 	my $cache_mock = mock 'ProductOpener::Auth' => (
 		override => [
-			'_safe_cache_get' => sub {
+			'safe_cache_get' => sub {
 				my ($key) = @_;
 				$cache_mode_ref->{get_calls}++;
 				return undef;
 			},
-			'_safe_cache_set' => sub {
+			'safe_cache_set' => sub {
 				my ($key, $value, $ttl) = @_;
 				$cache_mode_ref->{set_calls}++;
 				$cache_mode_ref->{set_ttls}{$key} = $ttl;

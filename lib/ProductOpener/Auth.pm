@@ -61,7 +61,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Cache qw/$memd generate_cache_key/;
+use ProductOpener::Cache qw/generate_cache_key safe_cache_get safe_cache_set/;
 use ProductOpener::Display qw/display_error_and_exit/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::URL qw/get_cookie_domain format_subdomain/;
@@ -98,32 +98,6 @@ my $client = undef;
 my $oidc_configuration = undef;
 my $jwks = undef;
 my $oidc_metadata_cache_ttl = 2 * 60 * 60;
-
-sub _safe_cache_get ($key) {
-	my $value;
-	eval {
-		$value = $memd->get($key);
-		1;
-	} or do {
-		my $error = $@ || 'unknown cache get error';
-		$log->warn('Memcached get failed', {key => $key, error => $error}) if $log->is_warn();
-		return;
-	};
-
-	return $value;
-}
-
-sub _safe_cache_set ($key, $value, $ttl) {
-	eval {
-		$memd->set($key, $value, $ttl);
-		1;
-	} or do {
-		my $error = $@ || 'unknown cache set error';
-		$log->warn('Memcached set failed', {key => $key, error => $error}) if $log->is_warn();
-	};
-
-	return;
-}
 
 =head2 start_authorize($request_ref)
 
@@ -808,7 +782,7 @@ sub get_oidc_configuration () {
 		= generate_cache_key("oidc_configuration", {discovery_endpoint => $discovery_endpoint});
 
 	if (!$oidc_configuration) {
-		$oidc_configuration = _safe_cache_get($oidc_cache_key);
+		$oidc_configuration = safe_cache_get($oidc_cache_key);
 	}
 
 	if (!$oidc_configuration) {
@@ -816,7 +790,7 @@ sub get_oidc_configuration () {
 		my $discovery_response = LWP::UserAgent::Plugin->new->request($discovery_request);
 		if ($discovery_response->is_success) {
 			$oidc_configuration = decode_json($discovery_response->content);
-			_safe_cache_set($oidc_cache_key, $oidc_configuration, $oidc_metadata_cache_ttl);
+			safe_cache_set($oidc_cache_key, $oidc_configuration, $oidc_metadata_cache_ttl);
 		}
 		else {
 			$log->error('Unable to load OIDC data from IdP',
@@ -853,7 +827,7 @@ None.
 sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 	my $jwks_cache_key = generate_cache_key("oidc_jwks", {jwks_uri => $jwks_uri});
 
-	$jwks = _safe_cache_get($jwks_cache_key);
+	$jwks = safe_cache_get($jwks_cache_key);
 	if ($jwks) {
 		return;
 	}
@@ -866,7 +840,7 @@ sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 	}
 
 	$jwks = decode_json($jwks_response->content);
-	_safe_cache_set($jwks_cache_key, $jwks, $oidc_metadata_cache_ttl);
+	safe_cache_set($jwks_cache_key, $jwks, $oidc_metadata_cache_ttl);
 
 	return;
 }
