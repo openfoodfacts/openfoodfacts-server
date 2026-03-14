@@ -2443,7 +2443,19 @@ sub add_nutrition_fields_from_product_to_populated_fields(
 						and ref($input_set_ref->{nutrients}) eq 'HASH')
 					{
 						my $nutrients_ref = $input_set_ref->{nutrients};
+						# Ensure energy-kj exists if energy-kcal is present
+						if (exists $nutrients_ref->{"energy-kcal"}
+							&& ref($nutrients_ref->{"energy-kcal"}) eq 'HASH'
+							&& !exists $nutrients_ref->{"energy-kj"}) {
+							my $kcal = $nutrients_ref->{"energy-kcal"}{"value"};
 
+							if (defined $kcal) {
+								$nutrients_ref->{"energy-kj"} = {
+									value => $kcal * 4.184,
+									unit  => "kJ"
+								};
+							}
+						}
 						# We go through nutrients in the order of the off_europe nutrients table
 						# Go through the nutriment table
 						my $nutrient_number = 0;
