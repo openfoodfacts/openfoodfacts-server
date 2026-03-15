@@ -778,8 +778,7 @@ sub get_oidc_configuration () {
 
 	$log->info('Original OIDC configuration', {discovery_endpoint => $discovery_endpoint}) if $log->is_info();
 
-	my $oidc_cache_key
-		= generate_cache_key("oidc_configuration", {discovery_endpoint => $discovery_endpoint});
+	my $oidc_cache_key = generate_cache_key("oidc_configuration", {discovery_endpoint => $discovery_endpoint});
 
 	if (!$oidc_configuration) {
 		$oidc_configuration = safe_cache_get($oidc_cache_key);
