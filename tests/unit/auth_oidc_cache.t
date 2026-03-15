@@ -155,7 +155,7 @@ subtest 'cache miss still falls back to direct fetch' => sub {
 			'safe_cache_get' => sub {
 				my ($key) = @_;
 				$cache_mode_ref->{get_calls}++;
-					return;
+				return;
 			},
 			'safe_cache_set' => sub {
 				my ($key, $value, $ttl) = @_;

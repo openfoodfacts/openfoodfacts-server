@@ -17,10 +17,12 @@ use ProductOpener::Cache qw/safe_cache_get safe_cache_set/;
 	## no critic (Modules::RequireFilenameMatchesPackage)
 	package Local::InMemoryMemd;
 	sub new {return bless {store => {}}, shift;}
+
 	sub get {
 		my ($self, $key) = @_;
 		return $self->{store}{$key};
-}
+	}
+
 	sub set {
 		my ($self, $key, $value) = @_;
 		$self->{store}{$key} = $value;
