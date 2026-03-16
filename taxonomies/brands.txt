@@ -92,6 +92,9 @@ wikidata:en: Q136928844
 xx: AH to go
 wikidata:en: Q137104297
 
+xx: Albert Heijn Bio, AH Bio
+wikidata:en: Q138412979
+
 xx: Albert Heijn Terra
 wikidata:en: Q136837987
 
@@ -192,6 +195,7 @@ xx: Andros
 wikidata:en: Q137477221
 
 xx: apoteket
+wikidata:en: Q1785637
 
 xx: Arla
 wikidata:en: Q674575
@@ -379,6 +383,14 @@ wikidata:en: Q4936074
 
 xx: Bocadin
 wikidata:en: Q65068159
+
+#< xx:Orkla
+xx: BOB
+#web:sv: https://www.bob.se/
+
+# This seems to be different from “BSc” made by Australian(/Swedish?)
+# “Body Science International”, owned by “Humble Group Australia”,
+# which is what https://www.wikidata.org/wiki/Q18208172 is about.
 
 xx: Body Science
 
@@ -788,6 +800,9 @@ xx: Chalo
 xx: Chef Select
 # only sold in Lidl, also subbrand of Lidl
 
+xx: Hansens, Hansens Flødeis
+wikidata:en: Q16323681
+
 xx: HappyVore
 wikidata:en: Q137477235
 
@@ -804,6 +819,10 @@ wikidata:en: Q5092285
 
 xx: Cherry Mash
 wikidata:en: Q5092430
+
+xx: Hela
+#web:en: https://www.hela.eu/unsere-marken/hela/
+wikidata:en: Q1601652
 
 xx: HEMA
 wikidata:en: Q137799387
@@ -2851,6 +2870,11 @@ wikidata:en: Q7285134
 xx: Rally
 wikidata:en: Q104867091
 
+xx: RA
+#en_us: Ra
+comment:en: There seems to be at least three different brands called “RA” or “Ra”; one Indian, one Italian, and one based in the USA.
+#web:en_us: https://www.drinkra.com/
+
 xx: Rawfoodshop
 
 xx: Real Crisps
@@ -2965,16 +2989,24 @@ xx: Royal
 xx: Royal Mediterranean
 wikidata:en: Q136984611
 
+xx: Rügenwalder Mühle
+#web:de: https://www.ruegenwalder.de/
+wikidata:en: Q2203886
+
+xx: RÅ
+#web:sv: https://drickrå.se/
+
 xx: Saffola
 
 xx: Saga Nishiki
 wikidata:en: Q11267635
 
-xx: Sainsbury's, Sainsburys
+xx: Sainsbury's, Sainsburys, By Sainsbury's, By Sainsburys
 wikidata:en: Q152096
 
 xx: Sakura cheese
 wikidata:en: Q3296415
+
 
 xx: Salling
 wikidata:en: Q137992460
@@ -3313,6 +3345,8 @@ wikidata:en: Q137513415
 
 xx: The Hummus House, Hummus House
 #web:es: https://thehummushouse.com/
+
+xx: The Worldwide Mint
 
 xx: Thise
 #web:da: https://thise.dk/
@@ -3746,6 +3780,9 @@ wikidata:en: Q137104443
 
 xx: Änglamark, Anglemark
 wikidata:en: Q65229572
+
+xx: Östras, Östras Stenugnsbageriet
+#web:sv: https://ostras.se/
 
 xx: ØGO
 

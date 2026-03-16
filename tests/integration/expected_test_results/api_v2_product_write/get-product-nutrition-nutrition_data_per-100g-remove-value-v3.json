@@ -421,6 +421,7 @@
          "en:nutriscore-missing-nutrition-data-fat",
          "en:nutriscore-missing-nutrition-data-sugars",
          "en:nutriscore-not-computed",
+         "en:nutrition-data-per-100g",
          "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
          "en:nutrition-no-fruits-vegetables-nuts",
          "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -563,6 +564,13 @@
                   "unit" : "g",
                   "value" : 0.472,
                   "value_computed" : 0.48
+               },
+               "water" : {
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "g",
+                  "value" : 10
                }
             },
             "per" : "100g",
@@ -611,6 +619,11 @@
                      "value" : 0.472,
                      "value_computed" : 0.48,
                      "value_string" : "0.472"
+                  },
+                  "water" : {
+                     "unit" : "g",
+                     "value" : 10,
+                     "value_string" : "10"
                   }
                },
                "per" : "100g",

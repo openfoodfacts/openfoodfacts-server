@@ -131,3 +131,26 @@ Get suggestions based on packaging shape
 ```text
 https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=packaging_materials&shape=box
 ```
+
+## Get partial taxonomy entries (v2 API)
+
+Use `/api/v2/taxonomy` when you want selected taxonomy entries only (instead of downloading a full taxonomy).
+
+### Common parameters
+- `tagtype`: taxonomy to query (`categories`, `labels`, `ingredients`, etc.)
+- `tags`: comma-separated list of taxonomy tags/ids
+- `fields`: comma-separated list of fields to return (for example: `name,description,children,parents,wikidata`)
+- `include_children=1`: include children entries in the response
+- `include_parents=1`: include parent entries in the response
+- `include_root_entries=1`: include root taxonomy entries in the response
+- `lc`: language(s), comma-separated (for example: `en,fr`)
+- `cc`: optional country context
+
+### Example requests
+```text
+https://world.openfoodfacts.org/api/v2/taxonomy?tagtype=labels&tags=en:organic,en:fair-trade&fields=name,description,children&include_children=1&lc=en,fr
+```
+
+```text
+https://world.openfoodfacts.org/api/v2/taxonomy?tagtype=categories&tags=en:carrot-juices&fields=name,parents,children,wikidata,auth_url&lc=en,fr&cc=fr
+```

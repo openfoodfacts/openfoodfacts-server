@@ -261,17 +261,7 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 				# Otherwise skip the line until we see a header
 			}
 			else {
-				# Skip empty lines or lines without a barcode (at least 8 digits)
-				my $line = join(",", @new_row);
-				# some barcodes may have spaces or dots (e.g. 3 770 0131 300 38)
-				$line =~ s/ |_|-|\.//g;
-				if ($line !~ /[0-9]{8}/) {
-					$log->debug("skipping row without barcode", {new_row => \@new_row, line => $line})
-						if $log->is_debug();
-				}
-				else {
-					push @{$rows_ref}, \@new_row;
-				}
+				push @{$rows_ref}, \@new_row;
 			}
 		}
 	}
@@ -1704,11 +1694,11 @@ JSON
 		# List of nutrients
 		if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
 
-			# Go through the nutriment table
-			foreach my $nutriment (@{$nutrients_tables{$nutrient_table}}) {
+			# Go through the nutrient table
+			foreach my $nutrient (@{$nutrients_tables{$nutrient_table}}) {
 
-				next if $nutriment =~ /^\#/;
-				my $nid = $nutriment;
+				next if $nutrient =~ /^\#/;
+				my $nid = $nutrient;
 
 				# %Food::nutrients_tables ids have an ending - for nutrients that are not displayed by default
 				# Keep the % of fruits/vegetables/nuts in the main nutrition group
