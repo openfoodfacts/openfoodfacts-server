@@ -230,7 +230,9 @@ sub analyze_request($request_ref) {
 		$request_ref->{no_index} = 1;
 	}
 
-	check_and_update_rate_limits($request_ref);
+	# Rate limiting has been removed from Product Opener (issue #13299)
+	# Rate limiting should be handled at the infrastructure level (nginx, CDN, etc.)
+	# check_and_update_rate_limits($request_ref);
 
 	$log->debug("request analyzed", {lc => $request_ref->{lc}, request_ref => sanitize($request_ref)})
 		if $log->is_debug();
