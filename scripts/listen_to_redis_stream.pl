@@ -31,18 +31,6 @@ use ProductOpener::Auth qw/get_oidc_implementation_level/;
 use Log::Any qw($log);
 use Log::Any::Adapter ('Stderr', log_level => 'debug');
 
-use AnyEvent;
-use EV;
-
-sub run ($cv) {
-	subscribe_to_redis_streams();
-
-	# call event loop
-	$cv->recv;    # Wait for the event loop to finish
-	EV::run();
-	return;
-}
-
 sub main() {
 	$log->info("Starting listen_to_redis_stream.pl") if $log->is_info();
 
@@ -57,18 +45,9 @@ sub main() {
 		return;
 	}
 
-	my $cv = AE::cv;
+	# The following will block until there is an error
+	subscribe_to_redis_streams();
 
-	# signal handler for TERM, KILL, QUIT
-	foreach my $sig (qw/TERM KILL QUIT/) {
-		EV::signal $sig, sub {
-			$log->info("Exiting after receiving", {signal => $sig}) if $log->is_info();
-			$cv->send;
-			exit(0);
-		};
-	}
-
-	run($cv);
 	return;
 }
 

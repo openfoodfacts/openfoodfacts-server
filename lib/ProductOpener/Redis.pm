@@ -123,76 +123,85 @@ sub init_redis() {
 
 =head2 subscribe_to_redis_streams ()
 
-Subscribe to redis stream to be informed about user deletions.
-
+Connects to Redis and processes any events received. Blocks until there is an error or the application terminates.
+Returns 0 if there is a severe error, or 1 if it is retryable
 =cut
 
 sub subscribe_to_redis_streams () {
 
-	while (1) {
-
-		if (!defined $redis_client) {
-			# we where deconnected, try again
-			$log->info("Trying to reconnect to Redis") if $log->is_info();
-			init_redis();
-		}
-
-		if (!defined $redis_client) {
-			$log->warn("Can't connect to Redis") if $log->is_warn();
-			sleep(5);
-		}
-		else {
-			# Read Keycloak events to process actions following user creation / deletion
-			_read_user_streams('$');
-		}
+	if (!defined $redis_client) {
+		# we where disconnected, try again
+		$log->info("Trying to reconnect to Redis") if $log->is_info();
+		init_redis();
 	}
 
-	return;
+	if (!defined $redis_client) {
+		$log->warn("Can't connect to Redis") if $log->is_warn();
+		return 0;
+	}
+
+	# Read Keycloak events to process actions following user creation / deletion
+	# TODO: We should store the last message_id
+	return _read_user_streams('0');
 }
 
 sub _read_user_streams($search_from) {
-	# Listen for user-deleted events so that we can redact product contributions for this flavor
-	# This will block for up to 5 seconds waiting for messages and return a maximum of 1000
-	my @streams = (
-		'COUNT', 1000, 'BLOCK', 5000, 'STREAMS', 'user-deleted',
-		'user-registered', 'user-updated', $search_from, $search_from, $search_from
-	);
-
-	$log->info("Reading from Redis", {streams => \@streams}) if $log->is_info();
-
-	$redis_client->xread(
-		@streams,
-		sub {
-			my ($reply_ref, $err) = @_;
-			$log->info("Received reply from Redis", {reply => $reply_ref, error => $err}) if $log->is_info();
-
-			if ($err) {
-				$log->info("Error reading from Redis", {error => $err}) if $log->is_info();
-				return;
-			}
-
-			if ($reply_ref) {
-				$log->info("Received data from Redis stream", {reply => $reply_ref}) if $log->is_info();
-				# Process any received messages
-				my $last_processed_message_id = process_xread_stream_reply($reply_ref);
-				if ($last_processed_message_id) {
-					$search_from = $last_processed_message_id;
-				}
-			}
-			else {
-				$log->info("No new messages in Redis stream") if $log->is_info();
-			}
-
-			return;
+	my $ok = 1;
+	do {
+		# This is an AnyEvent Condition Variable. The xread method below does not block, so we
+		# call $cv->recv to wait for it to finish
+		my $cv = AE::cv;
+		foreach my $sig (qw/TERM KILL QUIT/) {
+			AE::signal $sig, sub {
+				$log->info("Exiting after receiving", {signal => $sig}) if $log->is_info();
+				$cv->send(0);
+			};
 		}
-		)
-		or do {
-		$log->error("Error calling xread on Redis", {error => $@}) if $log->is_error();
-		return;
-		};
-	$log->info("Done reading from Redis", {streams => \@streams}) if $log->is_info();
 
-	return;
+		# Listen for user-deleted events so that we can redact product contributions for this flavor
+		# This will block for up to 5 seconds waiting for messages and return a maximum of 1000
+		my @streams = (
+			'COUNT', 10, 'BLOCK', 5000, 'STREAMS', 'user-deleted',
+			'user-registered', 'user-updated', $search_from, $search_from, $search_from
+		);
+
+		$log->info("Reading from Redis", {streams => \@streams}) if $log->is_info();
+
+		$redis_client->xread(
+			@streams,
+			sub {
+				my ($reply_ref, $err) = @_;
+				$log->info("Received reply from Redis", {reply => $reply_ref, error => $err}) if $log->is_info();
+
+				if ($err) {
+					$log->info("Error reading from Redis", {error => $err}) if $log->is_info();
+					$cv->send(0);
+					return;
+				}
+
+				if ($reply_ref) {
+					$log->info("Received data from Redis stream", {reply => $reply_ref}) if $log->is_info();
+					# Process any received messages
+					# TODO: Should eval here
+					my $last_processed_message_id = process_xread_stream_reply($reply_ref);
+					if ($last_processed_message_id) {
+						$search_from = $last_processed_message_id;
+					}
+				}
+				else {
+					$log->info("No new messages in Redis stream") if $log->is_info();
+				}
+				$cv->send(1);
+			}
+		);
+
+		# Block until we receive messages, the block timeout expires or an error occurs
+		$ok = $cv->recv;
+		$log->info("Done reading from Redis", {streams => \@streams}) if $log->is_info();
+		sleep(10);
+	} while ($ok);
+
+	return $ok;
 }
 
 sub process_xread_stream_reply($reply_ref) {
@@ -201,16 +210,19 @@ sub process_xread_stream_reply($reply_ref) {
 	my @streams = @{$reply_ref};
 	foreach my $stream_ref (@streams) {
 		my @stream = @{$stream_ref};
+		my $message_id;
 		if ($stream[0] eq 'user-registered') {
-			$last_processed_message_id = _process_registered_users_stream($stream[1]);
+			$message_id = _process_registered_users_stream($stream[1]);
 		}
 		elsif ($stream[0] eq 'user-deleted') {
-			$last_processed_message_id = _process_deleted_users_stream($stream[1]);
+			$message_id = _process_deleted_users_stream($stream[1]);
 		}
 		elsif ($stream[0] eq 'user-updated') {
-			$last_processed_message_id = _process_updated_users_stream($stream[1]);
+			$message_id = _process_updated_users_stream($stream[1]);
 		}
-
+		if ($message_id and (not $last_processed_message_id or $message_id gt $last_processed_message_id)) {
+			$last_processed_message_id = $message_id;
+		}
 	}
 
 	return $last_processed_message_id,;
