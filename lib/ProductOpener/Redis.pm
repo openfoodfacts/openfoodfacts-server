@@ -128,29 +128,23 @@ Subscribe to redis stream to be informed about user deletions.
 =cut
 
 sub subscribe_to_redis_streams () {
-	if (!$redis_url) {
-		# No Redis URL provided, we can't push to Redis
-		if (!$sent_warning_about_missing_redis_url) {
-			$log->warn("Redis URL not provided for streaming") if $log->is_warn();
-			$sent_warning_about_missing_redis_url = 1;
+
+	while (1) {
+
+		if (!defined $redis_client) {
+			# we where deconnected, try again
+			$log->info("Trying to reconnect to Redis") if $log->is_info();
+			init_redis();
 		}
-		return;
-	}
 
-	if (!defined $redis_client) {
-		# we where deconnected, try again
-		$log->info("Trying to reconnect to Redis") if $log->is_info();
-		init_redis();
-	}
-
-	if (!defined $redis_client) {
-		$log->warn("Can't connect to Redis") if $log->is_warn();
-		return;
-	}
-
-	if (get_oidc_implementation_level() >= 2) {
-		# Read Keycloak events to process actions following user creation / deletion
-		_read_user_streams('$');
+		if (!defined $redis_client) {
+			$log->warn("Can't connect to Redis") if $log->is_warn();
+			sleep(5);
+		}
+		else {
+			# Read Keycloak events to process actions following user creation / deletion
+			_read_user_streams('$');
+		}
 	}
 
 	return;
@@ -165,28 +159,38 @@ sub _read_user_streams($search_from) {
 	);
 
 	$log->info("Reading from Redis", {streams => \@streams}) if $log->is_info();
+
 	$redis_client->xread(
 		@streams,
 		sub {
 			my ($reply_ref, $err) = @_;
+			$log->info("Received reply from Redis", {reply => $reply_ref, error => $err}) if $log->is_info();
+
 			if ($err) {
-				$log->warn("Error reading from Redis", {error => $err}) if $log->is_warn();
+				$log->info("Error reading from Redis", {error => $err}) if $log->is_info();
 				return;
 			}
 
 			if ($reply_ref) {
+				$log->info("Received data from Redis stream", {reply => $reply_ref}) if $log->is_info();
 				# Process any received messages
 				my $last_processed_message_id = process_xread_stream_reply($reply_ref);
 				if ($last_processed_message_id) {
 					$search_from = $last_processed_message_id;
 				}
 			}
+			else {
+				$log->info("No new messages in Redis stream") if $log->is_info();
+			}
 
-			# Start listening for the next batch of messages
-			_read_user_streams($search_from);
 			return;
 		}
-	);
+		)
+		or do {
+		$log->error("Error calling xread on Redis", {error => $@}) if $log->is_error();
+		return;
+		};
+	$log->info("Done reading from Redis", {streams => \@streams}) if $log->is_info();
 
 	return;
 }
