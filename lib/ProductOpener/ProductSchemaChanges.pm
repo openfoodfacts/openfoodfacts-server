@@ -62,7 +62,7 @@ use vars @EXPORT_OK;
 
 use Log::Any qw($log);
 
-use ProductOpener::Tags qw/compute_field_tags get_minimal_tags_subset get_property @writable_tags_fields_list/;
+use ProductOpener::Tags qw/compute_field_tags get_minimal_tags_subset get_property @writable_tags_fields_list display_comma_separated_tags_list_in_lc/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
@@ -990,6 +990,13 @@ sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 			# We keep tags as is
 			# (before the tags that were not recognized in the taxonomy were not unaccented,
 			# so we could have "fr:entrée non reconnue" instead of "fr:entree-non-reconnue")
+
+			# We also set the [tagtype]_lc to the value of the lang field (main language of product)
+			# and generate the [tagtype] field with comma separated values
+			my $target_lc = $product_ref->{lang} // "en";
+			$product_ref->{$tagtype . "_lc"} = $target_lc;
+			$product_ref->{$tagtype}
+				= display_comma_separated_tags_list_in_lc($target_lc, $tagtype, $product_ref->{$tagtype . "_tags"});
 		}
 	}
 

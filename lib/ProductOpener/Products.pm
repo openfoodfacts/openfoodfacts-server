@@ -1677,7 +1677,17 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 	my @needed_fields = qw(product_name quantity packaging brands categories origins);
 	my $all_fields = 1;
 	foreach my $field (@needed_fields) {
-		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')) {
+		if (
+			(
+					($tags_fields{$field})
+				and
+				((not defined $product_ref->{$field . "_tags"}) or (scalar @{$product_ref->{$field . "_tags"}} == 0))
+			)
+
+			or (    (not $tags_fields{$field})
+				and ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')))
+			)
+		{
 			$all_fields = 0;
 			push @states_tags, "en:" . get_string_id_for_lang("en", $field) . "-to-be-completed";
 		}

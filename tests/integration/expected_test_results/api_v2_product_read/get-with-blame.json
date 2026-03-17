@@ -208,7 +208,7 @@
          "en:e322",
          "en:e322i"
       ],
-      "allergens" : "",
+      "allergens" : "Eggs, Milk, Soybeans",
       "allergens_from_ingredients" : "en:soybeans, en:eggs, en:milk",
       "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [
@@ -216,12 +216,14 @@
          "en:milk",
          "en:soybeans"
       ],
+      "allergens_lc" : "en",
       "allergens_tags" : [
          "en:eggs",
          "en:milk",
          "en:soybeans"
       ],
       "amino_acids_tags" : [],
+      "categories" : "Snacks, Sweet snacks, Biscuits and cakes, Biscuits and crackers, Biscuits",
       "categories_hierarchy" : [
          "en:snacks",
          "en:sweet-snacks",
@@ -229,6 +231,7 @@
          "en:biscuits-and-crackers",
          "en:biscuits"
       ],
+      "categories_lc" : "en",
       "categories_properties" : {
          "agribalyse_proxy_food_code:en" : "24000"
       },
@@ -265,7 +268,7 @@
          "0xxxxxxxxxxxx"
       ],
       "complete" : 0,
-      "completeness" : 0.4,
+      "completeness" : 0.5,
       "correctors_tags" : [],
       "created_t" : "--ignore--",
       "creator" : "tests",
@@ -1010,9 +1013,11 @@
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "known_ingredients_n" : 8,
+      "labels" : "Organic",
       "labels_hierarchy" : [
          "en:organic"
       ],
+      "labels_lc" : "en",
       "labels_tags" : [
          "en:organic"
       ],
@@ -1485,7 +1490,7 @@
       "serving_quantity" : 10,
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",
-      "states" : "en:photos-to-be-uploaded, en:product-name-completed, en:quantity-completed, en:packaging-to-be-completed, en:brands-to-be-completed, en:categories-to-be-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-completed, en:nutrition-facts-completed, en:to-be-completed",
+      "states" : "en:photos-to-be-uploaded, en:product-name-completed, en:quantity-completed, en:packaging-to-be-completed, en:brands-to-be-completed, en:categories-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-completed, en:nutrition-facts-completed, en:to-be-completed",
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -1494,7 +1499,7 @@
          "en:packaging-code-to-be-completed",
          "en:characteristics-to-be-completed",
          "en:origins-to-be-completed",
-         "en:categories-to-be-completed",
+         "en:categories-completed",
          "en:brands-to-be-completed",
          "en:packaging-to-be-completed",
          "en:quantity-completed",
@@ -1523,6 +1528,7 @@
       "traces_from_ingredients" : "",
       "traces_from_user" : "(en) ",
       "traces_hierarchy" : [],
+      "traces_lc" : "en",
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
       "vitamins_tags" : [],
