@@ -443,7 +443,7 @@
 							<div class="row">
 								<div class="small-12 column">
 									<h1 class="if-empty-dnone">Results graph</h1>
-									&rarr; <a href="/cgi/search.pl?action=display&search_terms=apple&sort_by=unique_scans_n&page_size=50&axis_x=sugars&graph=1&action=display">Change search criteria</a><br><p>5 products match the search criteria, of which 5 products have defined values for the graph's axis.</p>
+									&rarr; <a href="/cgi/search.pl?action=display&search_terms=apple&sort_by=unique_scans_n&page_size=50&axis_x=sugars&graph=1&action=display">Change search criteria</a><br><p>3 products match the search criteria, of which 3 products have defined values for the graph's axis.</p>
 <div id="container" style="height: 400px"></div>
 <p>&nbsp;</p>
 &rarr; <a href="/cgi/search.pl?action=process&search_terms=apple&sort_by=unique_scans_n&page_size=50&axis_x=sugars&graph=1">Permanent link to this graph, shareable by e-mail and on social networks</a><br><p>Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph.</p><p>→ learn more about Open Food Facts graphs: <a href="/graphs-in-3-clicks">Graphs in 3 clicks</a> (blog).</p><div class="share_button right" style="float:right;margin-top:-10px;display:none;">
@@ -660,7 +660,7 @@ $(function() {
                     text: 'Sugars (g for 100 g / 100 ml)'
                 },
 				categories: [
-					">10 <11.5", ">11.5 <13", ">13 <14.5", ">14.5 <16", ">16 <17.5", ">17.5 <19", ">19 <20.5", ">20.5 <22", ">22 <23.5", ">23.5 <25"
+					">10 <11", ">11 <12", ">12 <13", ">13 <14", ">14 <15", ">15 <16", ">16 <17", ">17 <18", ">18 <19", ">19 <20"
 				]
             },
             yAxis: {
@@ -722,12 +722,12 @@ $(function() {
 			series: [
 							{
                 name: 'Other products',
-				total: 5,
+				total: 3,
 				shortname: 'Other products',
                 color: 'rgba(0, 0, 255, .9)',
 				turboThreshold : 0,
                 data: [
-1,1,0,0,0,0,1,0,0,2				]
+1,1,0,0,0,0,0,0,0,1				]
             }
 			]
         });
