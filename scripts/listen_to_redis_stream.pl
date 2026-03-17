@@ -30,6 +30,10 @@ use ProductOpener::Auth qw/get_oidc_implementation_level/;
 
 use Log::Any qw($log);
 use Log::Any::Adapter ('Stderr', log_level => 'debug');
+use IO::Handle;
+
+# Set to autoflush so that docker logs are sent immediately
+STDERR->autoflush(1);
 
 sub main() {
 	$log->info("Starting listen_to_redis_stream.pl") if $log->is_info();
