@@ -298,6 +298,7 @@ web:en: https://beterleven.dierenbescherming.nl/zakelijk/en/what-is-the-better-l
 
 en: RSPCA Assured
 label_categories:en: en:Animal welfare
+wikidata:en: Q130711887
 
 en: Bord Bia Quality Assurance
 
@@ -539,7 +540,8 @@ web:en: https://www.climatepartner.com/en
 
 en: Carbon Trust
 xx: Carbon Trust
-# https://www.carbontrust.com/what-we-do/assurance-and-certification/product-carbon-footprint-label
+web:en: https://www.carbontrust.com/what-we-do/assurance-and-certification/product-carbon-footprint-label
+wikidata:en: Q3658279
 
 < en:Carbon Trust
 < en:Carbon compensated product
@@ -928,6 +930,7 @@ xx: Råd & Rön, Rad & Ron
 sv: Råd & Rön
 country:en: en:Sweden
 web:sv: https://www.radron.se/
+wikidata:en: Q10658633
 
 < xx:Råd & Rön
 xx: Råd & Rön: Bäst i test, Rad & Ron Bast i test
@@ -976,7 +979,8 @@ xx: ISO 3632
 
 en: ISO 9000
 xx: ISO 9000
-# The ISO 9000 family is a set of five quality management systems standards by the International Organization for Standardization that help organizations ensure they meet customer and other stakeholder needs within statutory and regulatory requirements related to a product or service.
+description:en: The ISO 9000 family is a set of five quality management systems standards by the International Organization for Standardization that help organizations ensure they meet customer and other stakeholder needs within statutory and regulatory requirements related to a product or service.
+wikidata:en: Q206008
 
 < en:ISO 9000
 en: ISO 9000-2005
@@ -997,11 +1001,12 @@ wikidata:en: Q1060682
 en: ISO 9001-2000
 xx: ISO 9001-2000
 ru: ИСО 9001-2000, ГОСТ Р ИСО 9001
-wikidata:en: Q4130719
+wikidata:en: Q1636081
 
 < en:ISO 9001
 en: ISO-9001-2008, ISO 9001 2008 certified qms
 xx: ISO 9001-2008
+wikidata:en: Q55928263
 
 < en:ISO 9001
 < ru:ГОСТ
@@ -1013,18 +1018,22 @@ xx: ISO 9001-2011
 en: ISO 9001-2015
 xx: ISO 9001-2015
 ru: ГОСТ Р ИСО 9001-2015
+wikidata:en: Q17563405
 
 en: ISO 9002
 xx: ISO 9002
 # ISO 9002 : Pour la production, l'installation et l'assistance après vente
-# wikipedia:en: https://en.wikipedia.org/wiki/ISO_9002
+# wikipedia:fr: https://fr.wikipedia.org/wiki/ISO_9002
+wikidata:en: Q3146946
 
 en: ISO 13485
 xx: ISO 13485
-# ISO for traceability of medical devices (supplements) - https://www.iso.org/standard/59752.html
+description:en: ISO for traceability of medical devices (supplements) - https://www.iso.org/standard/59752.html
+wikidata:en: Q1654689
 
 en: ISO 14001
 xx: ISO 14001
+wikidata:en: Q1428107
 
 < en:ISO 14001
 en: ISO 14001-2008
@@ -1042,6 +1051,7 @@ en: ISO 14067:2018
 xx: ISO 14067:2018
 # ISO 14067:2018 - Greenhouse gases — Carbon footprint
 # This document specifies principles, requirements and guidelines for the quantification and reporting of the carbon footprint of a product (CFP)
+wikidata:en: Q100251155
 
 en: ISO 22000
 xx: ISO 22000
@@ -1229,6 +1239,7 @@ nb: Fairtrade Max Havelaar Norge
 en: Fairtrade Sweden
 it: Fairtrade Svezia
 sv: Fairtrade Sverige
+wikidata:en: Q31884036
 
 < en:Fairtrade International
 en: The Fairtrade Foundation
@@ -1551,12 +1562,15 @@ es: Apto para celiacos
 
 < en: Suitable for celiacs
 en: Celiac Disease Foundation
+wikidata:en: Q106919373
 
 < en: Suitable for celiacs
 en: Beyond Celiac Gluten-Free, Beyond Celiac
+wikidata:en: Q54814699
 
 < en: Suitable for celiacs
 en: Coeliac UK, Certified by Coeliac UK
+wikidata:en: Q5140611
 
 < en: Suitable for celiacs
 en: Coeliac Australia New Zealand, Coeliac Australia NZ
@@ -1565,6 +1579,7 @@ en: Coeliac Australia New Zealand, Coeliac Australia NZ
 < en: Suitable for celiacs
 en: Canadian Celiac Association - Gluten Free
 fr: Association canadienne de la maladie cœliaque - Sans gluten
+wikidata:en: Q30271057
 
 en: Grain Free
 fr: Sans grains, sans graines
@@ -1679,6 +1694,7 @@ en: Halal Monitoring Committee, HMC
 
 < en:Halal
 en: Junta Islamica
+wikidata:en: Q9016708
 
 < en:Halal
 fr: Société Française de Contrôle de Viande Halal, SFCVH, S-f-c-v-h
@@ -2361,19 +2377,24 @@ pt: Keto, Certificado Keto, Amigável Keto
 ru: Кето, Кето-сертифицированный, Подходящий для Кето, кето-дружественный
 th: คีโต, ได้รับการรับรองคีโต, มิตรกับคีโต
 tr: Keto, Keto sertifikalı, Keto dostu
+wikidata:en: Q1070684
 
 # GS1: A dietary practice of eating food that is uncooked and unprocessed. Also known as Raw foodism, rawism.
 en: raw food diet, suitable for a raw food diet
+wikidata:en: Q115160304
 
 # GS1: Paleo diet is a fad diet type requiring the sole or predominant eating of foods presumed to have been available to humans during the Paleolithic era.
 en: Paleo, suitable for a paleo diet
 xx: Paleo
+wikidata:en: Q533945
 
 # GS1: A pescatarian diet excludes meat and poultry but includes fish or seafood (and may include dairy products and eggs).
 en: Pescatarian
+wikidata:en: Q1500138
 
 # GS1: A pollotarian diet, also known as a pollo-vegetarian diet, incorporates poultry, including turkey and duck, as the only source of meat in an otherwise vegetarian diet.
 en: Pollotarian
+wikidata:en: Q30969566
 
 en: Without beef, no beef, beef free, free from beef
 fr: Sans boeuf
@@ -3496,6 +3517,7 @@ pt: Feito na China
 ru: Сделано в Китае
 zh: 中国制造
 label_categories:en: en:Geographic label
+wikidata:en: Q1324638
 
 en: Made in Greece
 bg: Произведено в Гърция
@@ -4057,6 +4079,7 @@ image:en: fran-sverige.90x90.svg
 label_categories:en: en:Geographic label
 origins:en: en:sweden
 web:sv: https://fransverige.se/
+wikidata:en: Q56303949
 
 xx: Kött från Sverige
 sv: Kött från Sverige
@@ -4634,7 +4657,8 @@ country:en: en:Sweden
 description:en: No E (additives) numbers (except baking powder and fruit pectin), No flavoring agents except extracts, No industrial ingredients that are not traditionally included in the food. Examples: modified starch, yeast extract, bamboo fibres, No added vitamins or other added nutrients.
 image:sv: a-market.141x90.png
 label_categories:en: en:Health, en:Additives
-web:sv: https://miljomarkningar.se/a-market/
+web:sv: https://www.aktavara.org/4360/markningen
+wikidata:en: Q10725584
 
 #instruction:en:Do NOT change the english key.
 en: No alcohol, alcohol-free, without alcohol
@@ -18642,6 +18666,7 @@ wikidata:en: Q3336915
 en: CCOF certified organic, certified CCOF organic, California Certified Organic Farmers
 fi: CCOF-sertifioitu luomu
 pl: CCOF certified organic
+wikidata:en: Q5020306
 
 < en:Organic
 en: Canada Organic, Biologique Canada Organic, Biologique Canada Canada Organic, Canada Organic Biologique Canada
@@ -18701,6 +18726,7 @@ fi: Tanskan Ø-luomumerkki
 sv: Danskt Ø-märkt
 country:en: en:Denmark
 image:en: danish-state-conrolled-organic.98x90.svg
+wikidata:en: Q12341939
 
 < en:Organic
 en: Luomu - controlled organic production
@@ -18715,6 +18741,7 @@ fi: Leppäkerttumerkki, Luomuliitto
 sv: Nyckelpigamärket
 country:en: en:Finland
 image:fi: leppäkerttumerkki.90x90.svg
+wikidata:en: Q11879828
 
 < en:Organic
 en: Tún certified organic
@@ -18747,6 +18774,7 @@ sv: KRAV, KRAV-certifierad ekologisk ingrediens
 xx: KRAV
 country:en: en:Sweden
 image:en: krav.136x90.svg
+wikidata:en: Q6336505
 
 < en:Organic
 es: Orgánico Argentina
@@ -18763,6 +18791,7 @@ country:en: en:Brazil
 
 de: ÖKO-TEST
 xx: ÖKO-TEST
+wikidata:en: Q294820
 
 < de:ÖKO-TEST
 de: ÖKO-TEST sehr gut
@@ -18790,6 +18819,7 @@ en: too good to go
 xx: too good to go
 image:en: too-good-to-go.108x90.png
 label_categories:en: en:environment
+wikidata:en: Q85810097
 wikipedia:en: https://en.wikipedia.org/wiki/Too_Good_To_Go
 
 en: Class I, class 1
@@ -20256,6 +20286,7 @@ xx: certified plant based, plant based certified
 description:en: The Certified Plant Based certification and label - delivered by the National Science Foundation, USA - make it easy for consumers to choose sustainable alternatives to meat, egg and dairy products by providing assurance that the food contains no animal-derived ingredients.
 image:en: certified-plant-based.90x90.png
 website:en: https://www.nsf.org/food-beverage/plant-based-certification
+wikidata:en: Q138685616
 
 < en:Vegetarian
 en: Vegetarian Society
@@ -20365,6 +20396,7 @@ en: V-Label International, V-LABEL.COM
 xx: V-Label International, V-LABEL.COM
 image:en: v-label-nocategory.90x90.svg
 website:en: https://www.v-label.com/
+wikidata:en: Q2505128
 
 < en:V-Label International
 en: V-Label International Vegetarian
@@ -22016,6 +22048,7 @@ fr: Bio Suisse
 it: Bio Suisse, BioSuisse
 nl: Bio Zwitserland
 country:en: en:Switzerland
+wikidata:en: Q864186
 
 < en:Organic
 en: Migros Bio
@@ -22332,6 +22365,7 @@ nl: Gebitsgezondheidslabels
 < en:Tooth-health related labels
 en: UFSBD
 fr: Union française pour la santé bucco-dentaire, UFSBD
+wikidata:en: Q28869311
 
 en: European Fruit Juice Control System, EQCS, European Quality Control System for Juice, European Quality Control System for Juice and Nectars from Fruits and Vegetables
 
@@ -23188,6 +23222,7 @@ wikidata:en: Q3128557
 # French quality label: https://fr.wikipedia.org/wiki/Certification_de_conformit%C3%A9_produit
 fr: Produit certifié, CQ Produit Certifié
 en: Certified product
+wikidata:en: Q2946912
 
 # Note: "es:Calidad Certificada" is a specific Spanish label, added as "Calidad Certificada de Andalucía"
 # example product: https://es.openfoodfacts.org/producto/8437002590468/aceite-de-oliva-virgen-extra-iznaoliva
