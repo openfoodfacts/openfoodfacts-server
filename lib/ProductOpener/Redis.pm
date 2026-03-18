@@ -169,7 +169,7 @@ sub _read_user_streams() {
 	# Get the index that we last read from
 	my $search_from = retrieve_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id");
 	if (defined $search_from) {
-		# Turn the search from backj into a scalar
+		# Turn the search from back into a scalar
 		$search_from = ${$search_from};
 	}
 	else {
