@@ -18,7 +18,7 @@
       "additives_original_tags" : [],
       "additives_tags" : [],
       "allergens" : "Eggs, Milk",
-      "allergens_from_ingredients" : "en:eggs, en:milk",
+      "allergens_from_ingredients" : "en:eggs, en:milk, milk, eggs",
       "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [
          "en:eggs",
@@ -82,6 +82,9 @@
       "data_quality_bugs_tags" : [],
       "data_quality_completeness_tags" : [
          "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+         "en:ingredients-en-photo-to-be-selected",
+         "en:ingredients-en-completed",
+         "en:ingredients-completed-at-least-for-one-language",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
          "en:nutrition-completed",
@@ -99,9 +102,9 @@
          },
          "completeness" : {
             "general_information" : "0.40",
-            "ingredients" : "0.00",
+            "ingredients" : "0.50",
             "nutrition" : "0.33",
-            "overall" : "0.40",
+            "overall" : "0.42",
             "packaging" : "0.50"
          }
       },
@@ -118,6 +121,9 @@
       ],
       "data_quality_tags" : [
          "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+         "en:ingredients-en-photo-to-be-selected",
+         "en:ingredients-en-completed",
+         "en:ingredients-completed-at-least-for-one-language",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
          "en:nutrition-completed",
@@ -586,6 +592,7 @@
          ]
       },
       "generic_name" : "Tester 2",
+      "generic_name_en" : "Tester 2",
       "id" : "0200000000035",
       "images" : {},
       "informers_tags" : [
@@ -671,6 +678,9 @@
          "en:disaccharide"
       ],
       "ingredients_text" : "milk, eggs, sugar",
+      "ingredients_text_en" : "milk, eggs, sugar",
+      "ingredients_text_with_allergens" : "<span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, sugar",
+      "ingredients_text_with_allergens_en" : "<span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, sugar",
       "ingredients_with_specified_percent_n" : 0,
       "ingredients_with_specified_percent_sum" : 0,
       "ingredients_with_unspecified_percent_n" : 3,
@@ -683,11 +693,18 @@
       "interface_version_modified" : "20150316.jqm2",
       "known_ingredients_n" : 3,
       "lang" : "en",
-      "languages" : {},
-      "languages_codes" : {},
-      "languages_hierarchy" : [],
+      "languages" : {
+         "en:english" : 4
+      },
+      "languages_codes" : {
+         "en" : 4
+      },
+      "languages_hierarchy" : [
+         "en:english"
+      ],
       "languages_tags" : [
-         "en:0"
+         "en:english",
+         "en:1"
       ],
       "last_edit_dates_tags" : "--ignore--",
       "last_editor" : "tests",
@@ -1083,6 +1100,7 @@
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
       "origin" : "Germany",
+      "origin_en" : "Germany",
       "other_nutritional_substances_tags" : [],
       "packaging_materials_tags" : [],
       "packaging_recycling_tags" : [],
@@ -1102,6 +1120,7 @@
       ],
       "popularity_key" : 0,
       "product_name" : "Some product 2 with all ingredients having nutrition data",
+      "product_name_en" : "Some product 2 with all ingredients having nutrition data",
       "product_quantity" : 100,
       "product_quantity_unit" : "g",
       "product_type" : "food",

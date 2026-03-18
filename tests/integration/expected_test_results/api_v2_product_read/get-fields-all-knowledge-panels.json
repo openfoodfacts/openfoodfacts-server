@@ -18,16 +18,18 @@
          "en:e322",
          "en:e322i"
       ],
-      "allergens" : "Eggs, Milk, Soybeans",
-      "allergens_from_ingredients" : "en:soybeans, en:eggs, en:milk",
+      "allergens" : "Apple, Eggs, Milk, Soybeans",
+      "allergens_from_ingredients" : "en:soybeans, en:eggs, en:milk, apple, milk, eggs",
       "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [
+         "en:apple",
          "en:eggs",
          "en:milk",
          "en:soybeans"
       ],
       "allergens_lc" : "en",
       "allergens_tags" : [
+         "en:apple",
          "en:eggs",
          "en:milk",
          "en:soybeans"
@@ -86,7 +88,8 @@
       "data_quality_completeness_tags" : [
          "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
          "en:ingredients-en-photo-to-be-selected",
-         "en:ingredients-en-to-be-completed",
+         "en:ingredients-en-completed",
+         "en:ingredients-completed-at-least-for-one-language",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
          "en:nutrition-completed",
@@ -104,9 +107,9 @@
          },
          "completeness" : {
             "general_information" : "0.40",
-            "ingredients" : "0.00",
+            "ingredients" : "0.50",
             "nutrition" : "0.33",
-            "overall" : "0.33",
+            "overall" : "0.42",
             "packaging" : "0.50"
          }
       },
@@ -124,7 +127,8 @@
       "data_quality_tags" : [
          "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
          "en:ingredients-en-photo-to-be-selected",
-         "en:ingredients-en-to-be-completed",
+         "en:ingredients-en-completed",
+         "en:ingredients-completed-at-least-for-one-language",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
          "en:nutrition-completed",
@@ -636,6 +640,7 @@
          ]
       },
       "generic_name" : "Tester",
+      "generic_name_en" : "Tester",
       "id" : "0200000000034",
       "images" : {},
       "informers_tags" : [
@@ -803,6 +808,9 @@
          "en:e322i"
       ],
       "ingredients_text" : "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
+      "ingredients_text_en" : "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
+      "ingredients_text_with_allergens" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil, coloring: curcumin, emulsifier: soy lecithin",
+      "ingredients_text_with_allergens_en" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil, coloring: curcumin, emulsifier: soy lecithin",
       "ingredients_with_specified_percent_n" : 0,
       "ingredients_with_specified_percent_sum" : 0,
       "ingredients_with_unspecified_percent_n" : 6,
@@ -1811,7 +1819,7 @@
                      "edit_field_id" : "ingredients_text_en",
                      "edit_field_type" : "ingredients_text",
                      "edit_field_value" : "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
-                     "html" : "",
+                     "html" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil, coloring: curcumin, emulsifier: soy lecithin",
                      "language" : "English",
                      "lc" : "en"
                   }
@@ -1819,7 +1827,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<strong>Allergens:</strong> \n                    Eggs, Milk, Soybeans\n                "
+                     "html" : "<strong>Allergens:</strong> \n                    Apple, Eggs, Milk, Soybeans\n                "
                   }
                },
                {
@@ -3295,10 +3303,10 @@
       ],
       "lang" : "en",
       "languages" : {
-         "en:english" : 1
+         "en:english" : 5
       },
       "languages_codes" : {
-         "en" : 1
+         "en" : 5
       },
       "languages_hierarchy" : [
          "en:english"
@@ -3678,6 +3686,7 @@
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 58.3333333333333,
       "origin" : "france",
+      "origin_en" : "france",
       "other_nutritional_substances_tags" : [],
       "packaging_materials_tags" : [
          "en:glass",
@@ -3752,6 +3761,7 @@
       ],
       "popularity_key" : 0,
       "product_name" : "Some product",
+      "product_name_en" : "Some product",
       "product_quantity" : 100,
       "product_quantity_unit" : "g",
       "product_type" : "food",

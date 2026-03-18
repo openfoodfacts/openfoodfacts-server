@@ -997,7 +997,7 @@
                      "edit_field_id" : "ingredients_text_en",
                      "edit_field_type" : "ingredients_text",
                      "edit_field_value" : "apple, milk, eggs, palm oil, coloring: curcumin, emulsifier: soy lecithin",
-                     "html" : "",
+                     "html" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil, coloring: curcumin, emulsifier: soy lecithin",
                      "language" : "Anglais",
                      "lc" : "en"
                   }
@@ -1005,7 +1005,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<strong>Allergènes :</strong> \n                    Œufs, Lait, Soja\n                "
+                     "html" : "<strong>Allergènes :</strong> \n                    en:Apple, Œufs, Lait, Soja\n                "
                   }
                },
                {

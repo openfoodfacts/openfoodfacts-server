@@ -808,6 +808,12 @@ sub update_product_field_api_v2_and_cgi($product_ref, $field, $value, $source) {
 
 	$value = preprocess_product_field($field, decode utf8 => $value);
 
+	# If we have a language specific field like "ingredients_text" without a language code suffix
+	# we assume it is in the language of the interface
+	if (defined $language_fields{$field}) {
+		$field .= "_" . $lc;
+	}
+
 	# Only moderators can update values for fields sent by the producer
 	if (skip_protected_field($product_ref, $field, $User{moderator})) {
 		return;
@@ -831,16 +837,15 @@ sub update_product_field_api_v2_and_cgi($product_ref, $field, $value, $source) {
 	else {
 		$product_ref->{$field} = $value;
 
-		if ($field =~ /ingredients_text/) {
+		if ($field =~ /^ingredients_text/) {
 			# the ingredients_text_with_allergens[_$lc] will be recomputed after
 			my $ingredients_text_with_allergens = $field;
 			$ingredients_text_with_allergens =~ s/ingredients_text/ingredients_text_with_allergens/;
 			delete $product_ref->{$ingredients_text_with_allergens};
 		}
-
 		# For some tags fields that are not taxonomized (e.g. emb_codes),
 		# we still need to call the old compute_field_tags() function
-		if (defined $tags_fields{$field} and not defined $taxonomy_fields{$field}) {
+		elsif (defined $tags_fields{$field} and not defined $taxonomy_fields{$field}) {
 			compute_field_tags($product_ref, $lc, $field);
 		}
 	}
