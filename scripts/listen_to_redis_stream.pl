@@ -24,9 +24,7 @@
 
 use ProductOpener::PerlStandards;
 
-use ProductOpener::Config qw/:all/;
-use ProductOpener::Redis qw/:all/;
-use ProductOpener::Auth qw/get_oidc_implementation_level/;
+use ProductOpener::Redis qw/subscribe_to_redis_streams/;
 
 use Log::Any qw($log);
 use Log::Any::Adapter ('Stderr', log_level => 'debug');
@@ -37,17 +35,6 @@ STDERR->autoflush(1);
 
 sub main() {
 	$log->info("Starting listen_to_redis_stream.pl") if $log->is_info();
-
-	if (get_oidc_implementation_level() < 2) {
-		$log->info("OIDC implementation level is less than 2, not listening to Redis stream") if $log->is_info();
-		return;
-	}
-
-	if (!$redis_url) {
-		# No Redis URL provided, we can't push to Redis
-		$log->error("Redis URL not provided for streaming") if $log->is_error();
-		return;
-	}
 
 	# The following will block until there is an error
 	subscribe_to_redis_streams();

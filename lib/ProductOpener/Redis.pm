@@ -124,10 +124,20 @@ sub init_redis() {
 =head2 subscribe_to_redis_streams ()
 
 Connects to Redis and processes any events received. Blocks until there is an error or the application terminates.
-Returns 0 if there is a severe error, or 1 if it is retryable
+Returns on error or when receiving a terminate signal from the OS
 =cut
 
 sub subscribe_to_redis_streams () {
+	if (get_oidc_implementation_level() < 2) {
+		$log->info("OIDC implementation level is less than 2, not listening to Redis stream") if $log->is_info();
+		return;
+	}
+
+	if (!$redis_url) {
+		# No Redis URL provided, we can't push to Redis
+		$log->error("Redis URL not provided for streaming") if $log->is_error();
+		return;
+	}
 
 	if (!defined $redis_client) {
 		# we where disconnected, try again
@@ -137,19 +147,31 @@ sub subscribe_to_redis_streams () {
 
 	if (!defined $redis_client) {
 		$log->warn("Can't connect to Redis") if $log->is_warn();
-		return 0;
+		return;
 	}
 
 	# Read Keycloak events to process actions following user creation / deletion
 	# TODO: We should store the last message_id
-	return _read_user_streams('$');
+	_read_user_streams('$');
+
+	return;
 }
+
+=head2 _read_user_streams ()
+
+Keeps reading from Redis until there is an error.
+Returns on a fatal error or if the OS signals to quit
+
+=cut
 
 sub _read_user_streams($search_from) {
 	my $ok = 1;
+	my $retry_count = 0;
 	do {
 		# This is an AnyEvent Condition Variable. The xread method below does not block, so we
-		# call $cv->recv to wait for it to finish
+		# call $cv->recv to wait for it to finish.
+		# The response will be 1 if all is OK, 0 on a fatal error or -1 for a potentially retryable error
+
 		my $cv = AE::cv;
 		foreach my $sig (qw/TERM KILL QUIT/) {
 			AE::signal $sig, sub {
@@ -174,7 +196,7 @@ sub _read_user_streams($search_from) {
 
 				if ($err) {
 					$log->info("[" . localtime() . "] Error reading from Redis", {error => $err}) if $log->is_info();
-					$cv->send(0);
+					$cv->send(-1);
 					return;
 				}
 
@@ -197,9 +219,26 @@ sub _read_user_streams($search_from) {
 
 		# Block until we receive messages, the block timeout expires or an error occurs
 		$ok = $cv->recv;
+
+		# If it is a non-fatal error then we will retry 10 times
+		if ($ok == -1) {
+			$retry_count += 1;
+			if ($retry_count < 10) {
+				$log->warn("[" . localtime() . "] Redis error. Retrying in 10s") if $log->is_warn();
+				sleep(10);
+				$ok = 1;
+			}
+			else {
+				$log->error("[" . localtime() . "] Redis error. Giving up after 10 retries") if $log->is_error();
+				$ok = 0;
+			}
+		}
+		else {
+			$retry_count = 0;
+		}
 	} while ($ok);
 
-	return $ok;
+	return;
 }
 
 sub process_xread_stream_reply($reply_ref) {
