@@ -55,10 +55,11 @@ use vars @EXPORT_OK;
 
 use Log::Any qw/$log/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Minion qw/queue_job/;
 use ProductOpener::Users qw/retrieve_user store_user_preferences retrieve_user_preferences/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
-use ProductOpener::Store qw/get_string_id_for_lang/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve_object store_object/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
 use ProductOpener::Cache qw/$memd/;
 use ProductOpener::Tags qw/cc_to_country/;
@@ -152,7 +153,7 @@ sub subscribe_to_redis_streams () {
 
 	# Read Keycloak events to process actions following user creation / deletion
 	# TODO: We should store the last message_id
-	_read_user_streams('$');
+	_read_user_streams();
 
 	return;
 }
@@ -164,7 +165,17 @@ Returns on a fatal error or if the OS signals to quit
 
 =cut
 
-sub _read_user_streams($search_from) {
+sub _read_user_streams() {
+	# Get the index that we last read from
+	my $search_from = retrieve_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id");
+	if (defined $search_from) {
+		# Turn the search from backj into a scalar
+		$search_from = ${$search_from};
+	}
+	else {
+		$search_from = '$';
+	}
+
 	my $ok = 1;
 	my $retry_count = 0;
 	do {
@@ -208,6 +219,7 @@ sub _read_user_streams($search_from) {
 					my $last_processed_message_id = process_xread_stream_reply($reply_ref);
 					if ($last_processed_message_id) {
 						$search_from = $last_processed_message_id;
+						store_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id", $search_from);
 					}
 				}
 				else {
