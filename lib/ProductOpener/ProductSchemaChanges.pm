@@ -1000,5 +1000,7 @@ sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 		}
 	}
 
+	delete $product_ref->{tags_sources};
+
 	return;
 }
