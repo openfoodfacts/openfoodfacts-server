@@ -165,7 +165,7 @@ sub _read_user_streams($search_from) {
 			'user-registered', 'user-updated', $search_from, $search_from, $search_from
 		);
 
-		$log->info("[" . localtime() ."] Reading from Redis", {streams => \@streams}) if $log->is_info();
+		$log->info("[" . localtime() . "] Reading from Redis", {streams => \@streams}) if $log->is_info();
 
 		$redis_client->xread(
 			@streams,
@@ -173,13 +173,14 @@ sub _read_user_streams($search_from) {
 				my ($reply_ref, $err) = @_;
 
 				if ($err) {
-					$log->info("[" . localtime() ."] Error reading from Redis", {error => $err}) if $log->is_info();
+					$log->info("[" . localtime() . "] Error reading from Redis", {error => $err}) if $log->is_info();
 					$cv->send(0);
 					return;
 				}
 
 				if ($reply_ref) {
-					$log->info("[" . localtime() ."] Received data from Redis stream", {reply => $reply_ref}) if $log->is_info();
+					$log->info("[" . localtime() . "] Received data from Redis stream", {reply => $reply_ref})
+						if $log->is_info();
 					# Process any received messages
 					# TODO: Should eval here
 					my $last_processed_message_id = process_xread_stream_reply($reply_ref);
@@ -188,7 +189,7 @@ sub _read_user_streams($search_from) {
 					}
 				}
 				else {
-					$log->info("[" . localtime() ."] No new messages in Redis stream") if $log->is_info();
+					$log->info("[" . localtime() . "] No new messages in Redis stream") if $log->is_info();
 				}
 				$cv->send(1);
 			}
