@@ -126,6 +126,7 @@ sub init_redis() {
 
 Connects to Redis and processes any events received. Blocks until there is an error or the application terminates.
 Returns on error or when receiving a terminate signal from the OS
+
 =cut
 
 sub subscribe_to_redis_streams () {
