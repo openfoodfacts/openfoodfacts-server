@@ -891,7 +891,8 @@ components:
         $ref: "./schemas/external_knowledge_panel.yaml"
 
 security:
-  - userAgentAuth: [] # No authentication required by default (for read requests), but we recommend sending a User-Agent header in all requests.
+  - BearerAuth: []
+  - userAgentAuth: []
   
 tags:
   - name: Products
