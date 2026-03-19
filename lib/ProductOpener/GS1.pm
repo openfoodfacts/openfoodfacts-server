@@ -1172,7 +1172,7 @@ sub assign_field ($results_ref, $target_field, $target_value) {
 
 sub extract_nutrient_quantity_contained ($preparation, $per, $results_ref, $nid, $nutrient_detail_ref) {
 
-	my $nutrient_field = "nutrition.input_sets.manufacturer.$preparation.$per.$nid";
+	my $nutrient_field = "nutrition.input_sets.manufacturer.$preparation.$per.nutrients.$nid";
 
 	my $nutrient_value;
 	my $nutrient_unit;
