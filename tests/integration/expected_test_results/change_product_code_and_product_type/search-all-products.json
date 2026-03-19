@@ -16,6 +16,7 @@
          "allergens_from_ingredients" : "",
          "allergens_from_user" : "(en) ",
          "allergens_hierarchy" : [],
+         "allergens_lc" : "en",
          "allergens_tags" : [],
          "categories_properties" : {},
          "categories_properties_tags" : [
@@ -44,7 +45,7 @@
          "complete" : 0,
          "completeness" : 0.1,
          "correctors_tags" : [],
-         "countries" : "en:france",
+         "countries" : "France",
          "countries_hierarchy" : [
             "en:france"
          ],
@@ -540,6 +541,7 @@
          "traces_from_ingredients" : "",
          "traces_from_user" : "(en) ",
          "traces_hierarchy" : [],
+         "traces_lc" : "en",
          "traces_tags" : [],
          "url" : "http://world.openfoodfacts.localhost/product/1234567891234/test-product-1b",
          "weighers_tags" : []

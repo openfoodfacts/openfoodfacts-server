@@ -2,12 +2,15 @@
    "code" : "1234567890100",
    "errors" : [],
    "product" : {
+      "brands" : "test-brand",
       "brands_hierarchy" : [
          "xx:test-brand"
       ],
+      "brands_lc" : "en",
       "brands_tags" : [
          "xx:test-brand"
       ],
+      "categories" : "Beverages and beverages preparations, Plant-based foods and beverages, Beverages, Hot beverages, Plant-based beverages, Teas",
       "categories_hierarchy" : [
          "en:beverages-and-beverages-preparations",
          "en:plant-based-foods-and-beverages",
@@ -16,6 +19,7 @@
          "en:plant-based-beverages",
          "en:teas"
       ],
+      "categories_lc" : "en",
       "categories_tags" : [
          "en:beverages-and-beverages-preparations",
          "en:plant-based-foods-and-beverages",

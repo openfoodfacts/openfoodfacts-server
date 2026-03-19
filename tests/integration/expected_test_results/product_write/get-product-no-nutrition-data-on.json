@@ -20,7 +20,7 @@
       },
       "categories_properties_tags" : [
          "all-products",
-         "categories-unknown",
+         "categories-known",
          "agribalyse-food-code-unknown",
          "agribalyse-proxy-food-code-32135",
          "agribalyse-proxy-food-code-known",
@@ -53,7 +53,7 @@
          "1xxxxxxxxxxxx"
       ],
       "complete" : 0,
-      "completeness" : 0.2,
+      "completeness" : 0.3,
       "correctors_tags" : [],
       "created_t" : "--ignore--",
       "creator" : "tests",
@@ -586,7 +586,6 @@
          "en:environmental-score-missing-data-packagings",
          "en:environmental-score-missing-data-warning",
          "en:nutrients-not-estimated-from-ingredients-no-ingredients",
-         "en:nutriscore-missing-category",
          "en:nutriscore-missing-fiber",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-energy",
@@ -613,7 +612,7 @@
       "nutrient_levels_tags" : [],
       "nutriscore" : {
          "2021" : {
-            "category_available" : 0,
+            "category_available" : 1,
             "data" : {
                "energy" : null,
                "fiber" : 0,
@@ -630,12 +629,12 @@
             "estimated" : 0,
             "grade" : "unknown",
             "nutrients_available" : 0,
-            "nutriscore_applicable" : 0,
+            "nutriscore_applicable" : 1,
             "nutriscore_computed" : 0,
             "preparation" : "as_sold"
          },
          "2023" : {
-            "category_available" : 0,
+            "category_available" : 1,
             "data" : {
                "energy" : null,
                "fiber" : null,
@@ -653,7 +652,7 @@
             "estimated" : 0,
             "grade" : "unknown",
             "nutrients_available" : 0,
-            "nutriscore_applicable" : 0,
+            "nutriscore_applicable" : 1,
             "nutriscore_computed" : 0,
             "preparation" : "as_sold"
          }
@@ -678,7 +677,7 @@
          "unknown"
       ],
       "nutrition_score_beverage" : 0,
-      "nutrition_score_debug" : "no score when the product does not have a category - missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
+      "nutrition_score_debug" : "missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
       "nutrition_score_warning_no_fiber" : 1,
       "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
       "packaging_materials_tags" : [],
@@ -704,7 +703,7 @@
       "removed_countries_tags" : [],
       "rev" : 2,
       "schema_version" : 1004,
-      "states" : "en:photos-to-be-uploaded, en:product-name-completed, en:quantity-to-be-completed, en:packaging-to-be-completed, en:brands-to-be-completed, en:categories-to-be-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-to-be-completed, en:nutrition-facts-completed, en:to-be-completed",
+      "states" : "en:photos-to-be-uploaded, en:product-name-completed, en:quantity-to-be-completed, en:packaging-to-be-completed, en:brands-to-be-completed, en:categories-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-to-be-completed, en:nutrition-facts-completed, en:to-be-completed",
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -713,7 +712,7 @@
          "en:packaging-code-to-be-completed",
          "en:characteristics-to-be-completed",
          "en:origins-to-be-completed",
-         "en:categories-to-be-completed",
+         "en:categories-completed",
          "en:brands-to-be-completed",
          "en:packaging-to-be-completed",
          "en:quantity-to-be-completed",

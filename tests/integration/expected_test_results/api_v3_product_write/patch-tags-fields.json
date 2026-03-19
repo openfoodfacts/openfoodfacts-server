@@ -18,19 +18,20 @@
       }
    ],
    "product" : {
-      "brands" : "Some brand",
+      "brands" : "some-brand",
       "brands_tags" : [
          "some-brand"
       ],
       "brands_tags_en" : [
          "some-brand"
       ],
-      "categories" : "coffee",
+      "categories" : "Plant-based foods and beverages, Plant-based foods, Coffees",
       "categories_hierarchy" : [
          "en:plant-based-foods-and-beverages",
          "en:plant-based-foods",
          "en:coffees"
       ],
+      "categories_lc" : "en",
       "categories_tags" : [
          "en:plant-based-foods-and-beverages",
          "en:plant-based-foods",
@@ -41,7 +42,7 @@
          "Plant-based foods",
          "Coffees"
       ],
-      "labels" : "en:organic,fr:max havelaar,vegan,Something unrecognized",
+      "labels" : "Vegetarian, Fair trade, Organic, Fairtrade International, Vegan, Max Havelaar, Something-unrecognized",
       "labels_hierarchy" : [
          "en:vegetarian",
          "en:fair-trade",
@@ -51,6 +52,7 @@
          "en:max-havelaar",
          "en:something-unrecognized"
       ],
+      "labels_lc" : "en",
       "labels_tags" : [
          "en:vegetarian",
          "en:fair-trade",

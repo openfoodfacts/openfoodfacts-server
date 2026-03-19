@@ -2,7 +2,7 @@
    "code" : "1234567890100",
    "errors" : [],
    "product" : {
-      "categories" : "Plant-based foods and beverages, Plant-based foods, Coffees, en:tea",
+      "categories" : "Beverages and beverages preparations, Plant-based foods and beverages, Beverages, Plant-based foods, Hot beverages, Plant-based beverages, Teas, Coffees",
       "categories_hierarchy" : [
          "en:beverages-and-beverages-preparations",
          "en:plant-based-foods-and-beverages",
@@ -13,6 +13,7 @@
          "en:teas",
          "en:coffees"
       ],
+      "categories_lc" : "en",
       "categories_tags" : [
          "en:beverages-and-beverages-preparations",
          "en:plant-based-foods-and-beverages",
@@ -33,11 +34,12 @@
          "Teas",
          "Coffees"
       ],
-      "countries" : "Italie, en:spain",
+      "countries" : "Italy, Spain",
       "countries_hierarchy" : [
          "en:italy",
          "en:spain"
       ],
+      "countries_lc" : "en",
       "countries_tags" : [
          "en:italy",
          "en:spain"
@@ -46,11 +48,12 @@
          "Italie",
          "Espagne"
       ],
-      "labels" : "végétarien,Something unrecognized in French",
+      "labels" : "Vegetarian, something-unrecognized-in-french",
       "labels_hierarchy" : [
          "en:vegetarian",
          "fr:something-unrecognized-in-french"
       ],
+      "labels_lc" : "en",
       "labels_tags" : [
          "en:vegetarian",
          "fr:something-unrecognized-in-french"
@@ -59,11 +62,12 @@
          "Végétarien",
          "Something-unrecognized-in-french"
       ],
-      "stores" : "Carrefour, Mon Ptit magasin",
+      "stores" : "Carrefour, Mon-ptit-magasin",
       "stores_hierarchy" : [
          "carrefour",
          "mon-ptit-magasin"
       ],
+      "stores_lc" : "en",
       "stores_tags" : [
          "carrefour",
          "mon-ptit-magasin"
