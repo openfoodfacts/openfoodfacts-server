@@ -150,7 +150,7 @@ paths:
                   cc: fr
                   fields: "product_name,packagings"
                   tags_lc: fr
-                  userid: string
+                  user_id: string
                   password: string
                   code: string
                   product:
@@ -174,8 +174,6 @@ paths:
                           id: "en:recycle"
                         quantity_per_unit: 25 cl
                         weight_measured: 10
-                    product:
-                      $ref: ./schemas/product_update_api_v3.yaml
           application/xml:
             schema:
               type: object
@@ -673,10 +671,10 @@ paths:
                       description: Revision number to revert to
         description: |
           The code and rev fields are mandatory.
-      parameters: []
+      # parameters: []  # Duplicate, removed
       security:
+        - BearerAuth: []
         - cookieAuth: []
-          userAgentAuth: []
   /api/v3/external_sources:
     get:
       operationId: get-api-v3-external-sources
@@ -715,7 +713,7 @@ paths:
       description: |
         These parameters are used to compute the product preferences score.
 
-        for an overview see [Explanation on Product Attributes](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/explain-product-attributes/)"
+        for an overview see [Explanation on Product Attributes](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/explain-product-attributes/)
       tags:
         - Product Attributes
       operationId: get-api-v3-preferences
@@ -755,7 +753,7 @@ paths:
     get:
       summary: Get List of Attribute Groups and Attributes
       description: |
-        for an overview see [Explanation on Product Attributes](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/explain-product-attributes/)"
+        for an overview see [Explanation on Product Attributes](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/explain-product-attributes/)
       tags:
         - Product Attributes
       operationId: get-api-v3-4-attribute-groups
@@ -877,7 +875,14 @@ components:
       type: apiKey
       in: header
       name: User-Agent
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        Use a Bearer token for authentication.
 
+        Format: Authorization: Bearer <your_token>
   schemas:
     ExternalKnowledgePanelList:
       type: array
@@ -887,11 +892,11 @@ components:
 
 security:
   - userAgentAuth: [] # No authentication required by default (for read requests), but we recommend sending a User-Agent header in all requests.
-
+  
 tags:
   - name: Products
     description: Endpoints for managing product data, creating, updating, and reverting products.
-  - name : Product Attributes
+  - name: Product Attributes
     description: Endpoints for retrieving product attribute groups and user preference importance values.
   - name: Images
     description: Endpoints for uploading, managing, and deleting product images.
