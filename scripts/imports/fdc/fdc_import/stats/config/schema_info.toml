@@ -1,0 +1,6 @@
+[paths]
+nutrients_map = "data_provider/data/nutrient_map.csv"
+output_nutrient_counts_json = "data_provider/stats/output/fdc_nutrient_appearance_counts.json"
+output_nutrient_counts_json_by_product = "data_provider/stats/output/fdc_nutrient_appearance_counts_by_product.json"
+output_schema_json = "data_provider/stats/output/fdc_schema.json"
+output_missing_nutrients_csv = "data_provider/stats/output/fdc_nutrients_missing_in_map.csv"
