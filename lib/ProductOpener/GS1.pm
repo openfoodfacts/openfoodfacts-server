@@ -1212,12 +1212,15 @@ sub extract_nutrient_quantity_contained ($preparation, $per, $results_ref, $nid,
 
 		# energy: based on the nutrient unit, assign the energy-kj or energy-kcal field
 		if ($nid eq "energy") {
+			print STDERR "code: $results_ref->{code}, preparation: $preparation, per: $per, nutrient_field: $nutrient_field, nutrient value: $nutrient_value, nutrient unit: $nutrient_unit\n";
+			print STDERR "energy - nutrient_field: $nutrient_field, nutrient value: $nutrient_value, nutrient unit: $nutrient_unit\n";
 			if ($nutrient_unit eq "kcal") {
-				$nutrient_field =~ s/\.energy$/\.energy-kcal/;
+				$nutrient_field =~ s/\.energy.*$/\.energy-kcal/;
 			}
 			else {
-				$nutrient_field =~ s/\.energy$/\.energy-kj/;
+				$nutrient_field =~ s/\.energy.*$/\.energy-kj/;
 			}
+			print STDERR "energy - nutrient_field: $nutrient_field, nutrient value: $nutrient_value, nutrient unit: $nutrient_unit - after match\n";
 		}
 
 		assign_field($results_ref, $nutrient_field . ".value_string", $nutrient_value);
