@@ -868,6 +868,13 @@
          "important" : false,
          "name" : "Total carbohydrates (includes fiber)",
          "unit" : "g"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "water",
+         "important" : false,
+         "name" : "Water",
+         "unit" : "g"
       }
    ]
 }

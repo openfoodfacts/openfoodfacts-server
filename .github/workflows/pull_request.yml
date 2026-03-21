@@ -473,7 +473,7 @@ jobs:
         artifact-name: backend-sbom
         dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     - name: Trivy scan for backend image
-      uses: aquasecurity/trivy-action@0.34.2
+      uses: aquasecurity/trivy-action@v0.35.0
       with:
         image-ref: openfoodfacts-server/backend:dev
         format: 'sarif'
@@ -524,7 +524,7 @@ jobs:
         artifact-name: frontend-sbom
         dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     - name: Trivy scan for frontend image
-      uses: aquasecurity/trivy-action@0.34.2
+      uses: aquasecurity/trivy-action@v0.35.0
       with:
         image-ref: openfoodfacts-server/frontend:dev
         format: 'sarif'

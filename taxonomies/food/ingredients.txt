@@ -15565,19 +15565,39 @@ it: olio di anacardi
 
 < en:vegetable oil
 en: pumpkin seed oil
+ar: زيت بذور اليقطين
 bg: олио от тиквени семки
+ca: oli de carbassó
+cs: dýňový olej
 da: græskarkerneolie
 de: Kürbiskern-Öl, Kürbiskernöl
+eo: peponoleo
+es: aceite de semillas de calabaza
+eu: kuia-hazien olio
+fa: تخمه کدو
 fi: kurpitsansiemenöljy
-fr: Huile de pépins de courge
+fr: huile de pépins de courge
 hr: bučino ulje
 hu: tökmagolaj
+hy: դդմի յուղ
 it: olio di semi di zucca
+ja: パンプキン・シード・オイル
+jv: lenga wiji waluh
+ko: 호박씨유
+lt: moliūgų sėklų aliejus
 pl: olej z pestek dyni
+pt: óleo de semente de abóbora
+ru: тыквенное масло
+sl: bučno olje
+sv: pumpafröolja
+uk: гарбузова олія
+zh: 施泰尔南瓜籽油
 from_palm_oil:en: no
+wikidata:en: Q770335
 
 < en:pumpkin seed oil
 en: organic pumpkin seed oil
+da: økologisk græskarkerneolie
 de: Bio-Kürbiskernöl
 fi: luomu kurpitsansiemenöljy
 fr: huile de pépin de courge biologique
@@ -15585,6 +15605,7 @@ hr: organsko bučino ulje
 hu: bio tökmagolaj
 it: olio di semi di zucca biologico
 nl: olie van biologische pompoenpitten
+sv: ekologisk pumpafröolja
 # ingredient/nl:olie-van-biologische-pompoenpitten has 1 product @2019-05-24
 
 # description:en:COCONUT OIL, or copra oil, is an edible oil extracted from the kernel or meat of mature coconuts harvested from the coconut palm (Cocos nucifera).
@@ -23361,6 +23382,10 @@ hr: zrno pšenice
 sv: vetekorn
 # 81 in 6 @2021-10-22
 
+< en:wheat
+en: wheat grit
+sv: vetegrits
+
 # see ingredients_processing.txt
 < en:wheat
 en: puffed wheat
@@ -24043,7 +24068,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Wheat_gluten_(food)
 #                        Semolina
 #
 ##################################################################################
-# description:en:Semolina is the coarse, purified wheat middlings of durum wheat mainly used in making pasta and couscous.
 # Be careful that in some languages semolina is also used for coarse grinded rice, maize, etc. Wikipedia is not very consistent.
 
 < en:wheat
@@ -24070,7 +24094,8 @@ oc: Semola
 pl: semolina, semoliny
 pt: Sêmola
 ru: манная крупа, крупа манная
-sv: semolinagryn
+sv: mannagryn, semolinagryn
+description:en: Semolina is the coarse, purified wheat middlings of durum wheat mainly used in making pasta and couscous.
 vegan:en: yes
 vegetarian:en: yes
 
@@ -24105,7 +24130,7 @@ lt: kviečių manų kruopos, kvietiniai manų kruopos, kvietinės manų kruopos,
 nl: tarwegries, tarwegriesmeel
 pt: sêmola de trigo
 sl: pšenični zdrob
-sv: vetegryn
+sv: mannagryn av vete, vetegryn
 carbon_footprint_fr_foodges_ingredient:fr: Semoule de blé dur
 carbon_footprint_fr_foodges_value:fr: 0.6
 ciqual_proxy_food_code:en: 9610
@@ -24652,6 +24677,7 @@ wikidata:en: Q2743860
 # 94 @2021-10-22
 
 < en:barley
+< en:wort
 en: barley wort
 sv: kornvört, vört av korn
 
@@ -24788,6 +24814,7 @@ hu: szárított malátakivonat
 it: estratto di malto in polvere
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/dried-malt-extract/
 
+< en:wort
 en: kvass wort
 hr: kvasna sladovina
 it: mosto di kvas
@@ -26406,7 +26433,14 @@ sv: rågfiber
 # ingredient/fi:ruiskuitu has 1 product in 1 language @2020-12-20
 
 #processing:en: en:scalding
+en: scalding
+sv: skållning
+vegan:en: maybe
+vegetarian:en: maybe
+
+#processing:en: en:scalding
 < en:rye
+< en:scalding
 en: rye scalding
 da: rugskoldning
 sv: rågskållning
@@ -30853,6 +30887,7 @@ uk: тростинний цукор
 # sr-el:šećer od šećerne trske
 carbon_footprint_fr_foodges_ingredient:fr: Sucre de canne
 carbon_footprint_fr_foodges_value:fr: 1.3
+comment:en: Cane sugar inherits vegan:maybe from sugar because some cane sugar is refined using bone char. See comment on en:sugar for more details.
 description:en: Since the 6th century BC, cane sugar producers have crushed the harvested vegetable material from sugarcane in order to collect and filter the juice. They then treat the liquid (often with lime (calcium oxide)) to remove impurities and then neutralize it. Boiling the juice then allows the sediment to settle to the bottom for dredging out, while the scum rises to the surface for skimming off.
 wikidata:en: Q165267
 wikipedia:en: https://en.wikipedia.org/wiki/Sucrose#Cane
@@ -32819,8 +32854,6 @@ it: estratto di frutto del monaco
 #
 ##################################################################################
 
-# description:en:PROTEINES - are large biomolecules, or macromolecules, consisting of one or more long chains of amino acid residues
-
 en: protein, proteins
 af: Proteïen
 an: Proteína
@@ -32837,7 +32870,7 @@ ca: proteïna
 cs: Bílkoviny
 cv: Шуррисем
 cy: protein
-da: Protein
+da: protein, proteiner
 de: Protein, Eiweiß, Eiweißstoff, Eiweiss
 dv: ޕްރޮޓީން
 el: Πρωτεΐνη
@@ -32883,10 +32916,10 @@ mr: प्रथिने
 ms: Protein
 mt: Proteini
 my: ပရိုတိန်း
-nb: Protein
+nb: protein, proteiner
 ne: प्रोटिन
 nl: eiwitten, proteïnen, eiwit
-nn: Protein
+nn: protein
 oc: proteïna
 om: Pirootiinii
 or: ପୁଷ୍ଟିସାର
@@ -32904,7 +32937,7 @@ so: Borotiin
 sq: Proteina
 sr: Протеин, Proteini
 su: Protéin
-sv: Protein
+sv: protein, proteiner
 sw: Protini
 ta: புரதம்
 te: మాంసకృత్తులు
@@ -32919,46 +32952,49 @@ uz: Proteinlar
 wa: Proteyene
 yi: פראטעאין
 zh: 蛋白质
-# als:Protein, Äiwiss, Äiwissstoff
-# arz:بروتين
-# ast:Proteína
-# azb:پروتئین
-# bat-smg:Baltīms
-# be-tarask:Бялкі
-# bjn:Parotéin
-# bxr:Уураг
-# cdo:Lâung-băh-cék
-# chr:ᎠᏓᎵᏥᏍᏗᏍᎩ
-# ckb:پرۆتین
-# dty:प्रोटिन
-# frr:Protein, aiwitj
-# hak:Thàn-pha̍k-chṳt
-# hif:Protein
-# ilo:Protina
-# lez:Ладзар
-# lmo:Pruteina
-# myv:Ашовт
-# nds:Proteine, Eiwitte, Eiwittstoffe
-# new:प्रोटिन
-# nov:proteine
-# pam:Protina
-# pnb:پروٹین
-# rue:Протеін
-# sah:Протеин
-# sco:Protein
-# stq:Oaiwiete
-# tyv:Белок
-# vec:Proteine
-# vls:proteïne, eiwit
-# war:Protina
-# wuu:蛋白质
-# xal:Ууруг
-#xmf:ცილეფი
-# zh-classical:朊
-# zh-min-nan:Nn̄g-pe̍h-chit
-# yue:蛋白質
+#als: Protein, Äiwiss, Äiwissstoff
+#arz: بروتين
+#ast: Proteína
+#azb: پروتئین
+#bat-smg: Baltīms
+#be-tarask: Бялкі
+#bjn: Parotéin
+#bxr: Уураг
+#cdo: Lâung-băh-cék
+#chr: ᎠᏓᎵᏥᏍᏗᏍᎩ
+#ckb: پرۆتین
+#dty: प्रोटिन
+#frr: Protein, aiwitj
+#hak: Thàn-pha̍k-chṳt
+#hif: Protein
+#ilo: Protina
+#lez: Ладзар
+#lmo: Pruteina
+#myv: Ашовт
+#nds: Proteine, Eiwitte, Eiwittstoffe
+#new: प्रोटिन
+#nov: proteine
+#pam: Protina
+#pnb: پروٹین
+#rue: Протеін
+#sah: Протеин
+#sco: Protein
+#stq: Oaiwiete
+#tyv: Белок
+#vec: Proteine
+#vls: proteïne, eiwit
+#war: Protina
+#wuu: 蛋白质
+#xal: Ууруг
+#xmf: ცილეფი
+#zh-classical: 朊
+#zh-min-nan: Nn̄g-pe̍h-chit
+#yue: 蛋白質
+description:en: PROTEINS are large biomolecules, or macromolecules, consisting of one or more long chains of amino acid residues.
 vegan:en: maybe
 vegetarian:en: maybe
+wikidata:en: Q8054
+#wikidata:en: Q21296145 - is specifically for proteins-as-human-nutrients
 
 # nova:en:hydrolysed-proteins
 < en:protein
@@ -33755,6 +33791,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Calcium_caseinate
 < en:plant protein
 en: rapeseed protein
 bg: рапичен протеин
+da: rapsprotein
 de: Rapseiweiß
 fi: rapsiproteiini
 fr: protéine de colza, protéines de colza
@@ -33772,13 +33809,19 @@ it: proteina di colza idrolizzata
 nl: gehydrolyseerd koolzaadeiwit
 pl: hydrolizat białka rzepakowego, hydrolizat białek rzepakowych
 
+en: protein crisp
+sv: proteincrisp
+vegan:en: maybe
+vegetarian:en: maybe
+
 en: proteins mix
 de: Proteinmischung
 es: mezcla de proteínas
 fr: mélange de protéines
 hr: proteinska mješavina
 it: Mix di proteine
-
+vegan:en: maybe
+vegetarian:en: maybe
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -37280,6 +37323,10 @@ it: Concentrati vegetali
 nl: plantconcentraat, plantconcentraten
 pl: koncentraty roślinne
 sv: växtkoncentrat, plantkoncentrat
+
+< en:plant concentrate
+en: colouring plant concentrate
+sv: färgande växtkoncentrat
 
 fr: specialité de fruits pomme poire
 
@@ -53609,6 +53656,7 @@ sv: morotkoncentrat, morotskoncentrat
 # fr:concentré-de-carotte has 221 products in 4 languages @2018-10-10
 
 < en:carrot concentrate
+< en:colouring plant concentrate
 en: colouring carrot concentrate
 sv: färgande morotkoncentrat
 
@@ -53722,7 +53770,7 @@ lv: melnais burkāns
 nb: sort gulrot
 nl: zwarte wortel
 pl: czarna marchew, czarnej marchwi
-sv: svart morot
+sv: svart morot, svart morots
 wikidata:en: Q11767451
 # fr:carotte-noire has 122 products in 4 languages @2018-10-20
 
@@ -61519,7 +61567,7 @@ ru: лесной орех, лесньым орехом, фундук
 sk: lieskové oriešky
 sl: lešniki
 sq: lajthi
-sv: hasselnöt, hasselnötter
+sv: hasselnöt, hasselnötter, hasselnöts
 th: เฮเซลนัต
 tr: fındık
 uk: ліщинні горіхи
@@ -61691,7 +61739,7 @@ pl: pasta z orzechów laskowych
 pt: pasta de avelã, pasta de avelãs
 ro: pastă de alune de pădure
 sk: oriešková pasta
-sv: hasselnötsmassa, hasselnötspasta
+sv: hasselnötspasta, hasselnötpasta, hasselnötsmassa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/hazelnut-paste
 # 965 products in 14 languages @2018-10-06
 
@@ -62990,23 +63038,39 @@ it: pasta di semi di canapa
 < en:pumpkin
 < en:seed
 en: pumpkin seed
+ar: لب
+be: насенне гарбуза
 bg: тиквено семе, тиквени семена
-ca: Llavor de carbassa, llavors de carbassa
-da: Græskarkerner
-de: Kürbiskerne
+ca: llavor de carbassa, llavors de carbassa
+da: græskarkerne, græskarkerner
+de: Kürbiskern, Kürbiskerne
+el: πασατέμπος
 es: semillas de calabaza
+eu: kuia-pipita
 fi: kurpitsansiemen, kurpitsansiemenet
 fr: graine de courge, graines de courge, graines de potiron, graines de citrouille
 hr: bučine koštice, bučine sjemenke, sjemenke buče, bučine golice, sjemenke bundeve, Koštice bundeve
 hu: tökmag
 it: semi di zucca
 ja: かぼちゃの種
+jv: wiji waluh
+ko: 호박씨
+la: Cucurbitae semen
+ln: mbíka
 nl: pompoenpitten
 pl: nasiona dyni, ziarna dyni, pestki dyni
-pt: Sementes de abóbora
+pt: sementes de abóbora
 ro: seminţe de dovleac
+ru: семя тыквы
 sl: bučna semena
-sv: pumpafrön, pumpakärnor
+sv: pumpafrö, pumpafrön, pumpakärnor
+ta: பூசணி விதை
+tr: kabak çekirdeği
+tt: кабак төше
+uk: насіння гарбуза
+vi: hạt bí
+zh: 南瓜籽, 南瓜子
+wikidata:en: Q3056521
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine-de-courge
 # 234 products in 5 languages @2018-10-07
 
@@ -63019,7 +63083,9 @@ it: farina di semi di zucca
 
 < en:pumpkin seed
 en: organic pumpkin seed
+da: økologisk græskarkerne, økologiske græskarkerner
 fi: luomu kurpitsansiemen
+sv: ekologisk pumpafrö, ekologiska pumpafrön
 
 #<en:pumpkin seed
 #en:chopped pumpkin seed
@@ -64592,7 +64658,6 @@ nl: cayennepeper gedroogd
 #                                Curry
 #
 ###################################################################################################
-# The wikidata item specifies the dish and not the spice mix
 
 < en:spice
 en: curry
@@ -64618,7 +64683,9 @@ it: curry
 ja: カレー
 lt: karis
 mr: कोरड्यास
+nb: karri
 nl: kerrie, curry
+nn: karri
 pa: ਰੱਸਾ
 pl: curry, mieszanka przypraw curry, curry w proszku, przyprawa curry
 pt: caril
@@ -64636,7 +64703,6 @@ ciqual_food_name:fr: Curry, poudre
 wikidata:en: Q1144935
 # 972 in 10 @2021-09-17
 
-# description:en:CURRY POWDER is a spice mix originating from the Indian subcontinent.
 # Probably curry powder is a synonym of curry
 # With the translations be careful that they refer to the powder and not plain curry
 
@@ -64673,15 +64739,15 @@ wikidata:en: Q1144935
 # en-ca:curry powder
 # en-gb:curry powder
 # yue:咖喱粉
-#wikidata:en:Q1144935
-#wikipedia:en:https://en.wikipedia.org/wiki/Curry_powder
+#description:en: CURRY POWDER is a spice mix originating from the Indian subcontinent.
+#wikidata:en: Q1144935
+#wikipedia:en: https://en.wikipedia.org/wiki/Curry_powder
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/curry-powder
 # 231 products in 8 languages @2018-10-11
 
-# description:en:CURRY PASTE usually refers to a paste used as a cooking ingredient in the preparation of a curry.
-
 < en:spice
 en: curry paste
+da: karrypasta
 de: currypaste
 es: pasta de curry
 fi: currytahna
@@ -64690,19 +64756,24 @@ hr: curry pasta
 it: pasta di curry
 ko: 커리 페이스트
 nb: karripasta
+nn: karripasta
 pl: pasta curry
 sv: currypasta, curry pasta
+description:en: CURRY PASTE usually refers to a paste used as a cooking ingredient in the preparation of a curry.
 wikidata:en: Q5195232
 wikipedia:en: https://en.wikipedia.org/wiki/Curry_paste
 # ingredient/en:curry-paste has 39 products in 1 language @2020-06-08
 
 < en:curry paste
 en: red curry paste
+da: rød karrypasta
 de: rote currypaste
 fi: punainen currytahna
 fr: pâte de curry rouge
 hr: crvena curry pasta
 it: pasta di curry rosso
+nb: rød karripasta
+nn: raud karripasta
 pl: czerwona pasta curry
 sv: röd currypasta
 wikidata:en: Q67201118
@@ -82042,15 +82113,11 @@ wikipedia:nl: https://nl.wikipedia.org/wiki/Pandalus_jordani
 la: Solenocera Crassicornis
 wikipedia:nl: https://nl.wikipedia.org/wiki/Solenocera_crassicornis
 
-# en:description:Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage.
-
-# en:description:psyllium can be used for the fibres or as infusion
-
 < en:vegetable fiber
 en: Psyllium, plantago, psyllium fibre, psyllium husk, psyllium seed husk
 ar: بزر قطونة
 cs: psyllium
-da: Psyllium, psyllium skræl
+da: psyllium, psyllium skræl
 de: Psyllium, Flohsamenschalen, Plantago Psyllium
 es: Psilio, plantago, cáscara de semilla de psyllium
 fa: بارهنگ کتانی
@@ -82065,14 +82132,22 @@ pl: Babka, łuski płesznika, błonnik psylium, babka płesznik, babki płesznik
 ro: Psyllium
 ru: Подорожник
 sd: اسپنگر
-sv: Loppfrö, psylliumfiber, psylliumfröskal
+sv: psylliumfiber, psylliumfröskal
 ta: Isabgol
 uk: Подорожник
 ur: اسپغول
 # pam:Apang psyllium
+description:en: Psyllium, or ispaghula, is the common name used for several members of the plant genus Plantago whose seeds are used commercially for the production of mucilage. It can be used for the fibres or as infusion.
 wikidata:en: Q15258700
 wikipedia:en: https://en.wikipedia.org/wiki/Psyllium
 # ingredient/fr:psyllium has 89 products in 4 languages @2018-12-17
+
+en: psyllium seed
+da: loppefrø
+sv: loppfrö, psylliumfrö, psylliumfrön
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q138602386
 
 < en:psyllium
 en: blond psyllium
@@ -86871,8 +86946,6 @@ it: uova di lompo, uova (lompo), uova lompo
 # description:en:The part describes a piece of a vegetable or animal once it has been cut up in pieces (parts) or otherwise processed. In brackets there can be a further specification. Note that it is not a compound ingredient.
 # comment:en:There might be a better word for this.
 
-# description:en:An extract is a substance made by extracting a part of a raw material, often by using a solvent such as ethanol or water. Extracts may be sold as tinctures, absolutes or in powder form.
-
 # en:part
 en: extract
 be: Экстракт
@@ -86903,6 +86976,7 @@ sl: ekstrat
 sq: Ekstrakti
 uk: Екстракт
 # scn:Strattu
+description:en: An extract is a substance made by extracting a part of a raw material, often by using a solvent such as ethanol or water. Extracts may be sold as tinctures, absolutes or in powder form.
 wikidata:en: Q1259977
 wikipedia:en: https://en.wikipedia.org/wiki/Extract
 
@@ -87488,6 +87562,21 @@ wikipedia:en: https://en.wikipedia.org/wiki/Food_browning
 # ingredient/fr:dorure has 269 products in 7 languages @2019-04-22
 # usage:en:browning:skimmed milk
 
+en: wort
+fi: vierre
+is: virt
+ja: 麦汁
+sv: vört
+zh: 麥芽汁, 麦汁
+description:en: Liquid extracted from the mashing process during brewing.
+vegan:en: maybe
+vegetarian:en: yes
+wikidata:en: Q14404476
+
+< en:extract
+< en:wort
+en: wort extract
+sv: vörtextrakt
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -91911,7 +92000,7 @@ bs: sos
 ca: salsa
 cs: omáčka
 cy: Saws
-da: sovs
+da: sovs, sauce
 de: Sauce, Soße
 el: σάλτσα
 eo: saŭco
@@ -92034,15 +92123,20 @@ fr: sauce au vinaigre balsamique
 fr: sauce aux fruits rouges
 
 < en:sauce
-en: Curry sauce
+en: curry sauce
 ca: salsa de curry
+da: karrysovs, karrysauce
 es: salsa de curry
-fr: Sauce au curry
+fr: sauce au curry
 hr: curry umak
 it: salsa al curry
+nb: karrisaus
+nn: karrisaus
+sv: currysås
 ciqual_food_code:en: 11132
 ciqual_food_name:en: Curry sauce, prepacked
 ciqual_food_name:fr: Sauce au curry, préemballée
+wikidata:en: Q115618401
 
 < en:sauce
 fr: sauce au café

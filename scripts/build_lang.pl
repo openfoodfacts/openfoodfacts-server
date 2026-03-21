@@ -45,6 +45,7 @@ init_languages();
 ProductOpener::Lang::build_lang(\%Languages);
 my $tags_ref = ProductOpener::Lang::build_lang_tags();
 
+print STDERR "Build \%Lang - done, saving sto files \n";
 # use $server_domain in part of the name so that we have different files
 # when 2 instances of Product Opener share the same $data_root
 # as is the case with world.openfoodfacts.org and world.preprod.openfoodfacts.org
@@ -52,8 +53,10 @@ ensure_dir_created_or_die($BASE_DIRS{PRIVATE_DATA});
 store("$BASE_DIRS{PRIVATE_DATA}/Lang.${server_domain}.sto", \%Lang);
 store("$data_root/data/Lang_tags.${server_domain}.sto", $tags_ref);
 
+print STDERR "Build \%Lang - saving json file \n";
 # Generate JSON files for JavaScript I18N
 ProductOpener::Lang::build_json();
 
+print STDERR "Build \%Lang - done";
 exit(0);
 
