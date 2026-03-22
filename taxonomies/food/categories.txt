@@ -72330,7 +72330,7 @@ sv: Sultanrussin
 en: Canned fruits
 bg: Консервирани плодове
 ca: Fruita en conserva
-da: Frugt på dåse, dåsefrugt
+da: Frugter på dåse, Dåsefrugter, Frugt på dåse, Dåsefrugt
 de: Dosenfrüchte
 es: Frutas en conserva, Conservas de frutas
 fi: purkitetut hedelmät
@@ -72342,6 +72342,7 @@ lt: Konservuoti vaisiai
 nl: Fruit in blik/pot
 pt: Frutos enlatados
 ru: Консервированные фрукты
+sv: Frukter på burk, Burkfrukter
 tr: Konserve meyve
 intake24_category_code:en: CAND
 who_id:en: 16
@@ -72360,6 +72361,11 @@ hr: Konzervirani ananas
 it: Ananas in scatola
 lt: Konservuoti ananasai
 nl: Ananas in blik/pot
+
+< en:Canned fruits
+en: Canned mixed fruits, Canned fruit cocktails
+da: Blandede frugter på dåse
+sv: Blandade frukter på burk
 
 < en:Fruits in syrup
 < en:Lemons
@@ -72504,8 +72510,9 @@ en: Bananas in syrup
 fr: Bananes au sirop
 nl: Bananen op siroop
 
+< en:Canned mixed fruits
 < en:Fruits in syrup
-en: Canned mixed fruit in syrup, Canned fruit cocktail in syrup
+en: Canned mixed fruits in syrup, Canned mixed fruit in syrup, Canned fruit cocktail in syrup
 de: Dosenfruchtcocktail in Sirup
 es: Mezclas de frutas en almíbar, Macedonias de frutas en almíbar, Cocktail de frutas en almíbar
 fi: Hedelmäsekoitus sokeriliemessä, Hedelmäcocktail sokeriliemessä
@@ -72551,8 +72558,9 @@ it: Mango sciroppati
 lt: Mangai sirupe
 nl: Mangos op siroop
 
+< en:Canned pineapples
 < en:Fruits in syrup
-en: Pineapple in syrup
+en: Canned pineapples in syrup, Pineapple in syrup
 bg: Ананас в сироп
 de: Ananas in Sirup
 es: Piña en almíbar, Piña en almíbar ligero
@@ -72581,6 +72589,7 @@ ciqual_food_code:en: 13718
 ciqual_food_name:en: Pineapple, in light syrup, canned, drained
 ciqual_food_name:fr: Ananas au sirop léger, appertisé, égoutté
 
+< en:Canned pineapples
 < en:Pineapple in syrup
 en: Canned pineapple in pineapple juice and syrup not drained
 fr: Ananas au sirop et jus d'ananas appertisé non égoutté
@@ -72589,6 +72598,7 @@ ciqual_food_code:en: 13717
 ciqual_food_name:en: Pineapple, in pineapple juice and syrup, canned, not drained
 ciqual_food_name:fr: Ananas au sirop et jus d'ananas, appertisé, non égoutté
 
+< en:Canned pineapples
 < en:Pineapple in syrup
 en: Canned pineapple in light syrup not drained
 fr: Ananas au sirop léger appertisé non égoutté
@@ -72664,6 +72674,7 @@ nl: Grapefruit op siroop
 
 < en:Canned fruits
 en: Canned fruits in juice
+da: Frugter i frugtsaft på dåse
 de: Dosenfrüchte im Saft
 es: Conservas de frutas en zumo
 fi: Purkitetut hedelmät omassa mehussaan
@@ -72672,9 +72683,11 @@ hr: Konzervirano voće u soku
 lt: Konservuoti vaisiai savose sultyse
 nl: Fruit in blik/pot op sap
 pt: Conservas de frutas em suco
+sv: Frukter i fruktsaft på burk
 
 < en:Canned fruits in juice
-en: Pineapple in juice
+< en:Canned pineapples
+en: Canned pineapples in juice, Pineapple in juice
 de: Ananas im Saft
 es: Piña en conserva en zumo, Conservas de piña en zumo, Conservas de piña en su zumo
 fi: ananasta omassa mehussaan
@@ -72682,6 +72695,12 @@ fr: Ananas au jus
 hr: Ananas u soku
 lt: Ananasai savose sultyse
 nl: Ananas op sap
+
+< en:Canned fruits in juice
+< en:Canned mixed fruits
+en: Canned mixed fruits in juice, Canned fruit cocktails in juice
+da: Blandede frugter i frugtsaft på dåse
+sv: Blandade frukter i fruktsaft på burk
 
 < en:Fruits in syrup
 en: Syrup for canned fruits
