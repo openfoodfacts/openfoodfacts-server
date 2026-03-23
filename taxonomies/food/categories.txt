@@ -9,6 +9,8 @@ synonyms:en: pasteurised, pasteurized, pasterized
 
 synonyms:en: unpasteurised, unpasteurized, unpasterized
 
+synonyms:en: plant-based, plant based, plantbased
+
 synonyms:hu: pasztőrözött, pasztörizált
 
 synonyms:da: grøntsagsbaserede, grønsagsbaserede, grøntsagsbaseret, grønsagsbaseret, grøntsags, grønsags
@@ -44970,19 +44972,48 @@ wikidata:en: Q152088
 
 < en:Chips and fries
 < en:Potato preparations
+en: Potato wedges
+ar: بطاطا ودجز
+cs: Americké brambory
+de: Kartoffelspalten, Kartoffelecken
+fi: Lohkoperunat
+id: Baji kentang
+is: Bátakartöflur
+ja: ポテトウェッジズ
+jv: Kenthang rajang
+ka: მექსიკური კარტოფელი
+ko: 웨지감자
+ms: Bebaji kentang
+ru: Картофель по-деревеiнски
+sk: Americké zemiaky
+sv: Potatisklyftor, Klyftpotatis
+zh: 薯角
+wikidata:en: Q3482613
+
+< en:Chips and fries
+< en:Potato preparations
 xx: Pommes noisettes
 bg: Картофени ноазети
-fr: Pommes noisettes
+de: Schlosskartoffeln
+fr: Pommes noisettes, Pommes de terre noisettes
+ja: ポメ・ヌワゼット
+nl: Krielaardappel, Pommes parisiennes
+sv: Pommes château, Châteaupotatisar, Slottspotatisar
+agribalyse_proxy_food_code:en: 4013
+ciqual_proxy_food_code:en: 4013
+ciqual_proxy_food_name:en: Noisette potato, frozen, raw
+ciqual_proxy_food_name:fr: Pomme de terre noisette, surgelée, à cuire
 wikidata:en: Q2244571
 
 < en:Frozen fried potatoes
 < xx:Pommes noisettes
 en: Frozen pommes noisettes, Frozen pre-fried mashed potato balls
 fr: Pommes noisettes surgelées, Pommes de terre noisette surgelées
+sv: Frysta pommes château
 agribalyse_food_code:en: 4013
 ciqual_food_code:en: 4013
-ciqual_food_name:en: Mashed potato balls pre-fried, frozen, raw
-ciqual_food_name:fr: Pomme de terre noisette, surgelée, crue
+ciqual_food_name:en: Noisette potato, frozen, raw
+ciqual_food_name:fr: Pomme de terre noisette, surgelée, à cuire
 
 < en:Chips and fries
 < en:Potato preparations
@@ -66382,7 +66413,7 @@ ciqual_food_name:en: Gelatine, dried
 ciqual_food_name:fr: Gélatine, sèche
 
 < en:Thickeners
-en: Plantbased gelatin
+en: Plant-based gelatin, Plantbased gelatin
 fr: Gélifiants végétaux, gélifiant végétal
 hr: Želatina na biljnoj bazi
 lt: Augalinė želatina
@@ -98299,12 +98330,6 @@ ciqual_food_name:fr: Pâtisserie (aliment moyen)
 wikidata:en: Q477248
 
 < en:Pastries
-en: Cinnamon rolls
-da: Kanelsnegle
-sv: Kanelbullar
-wikidata:en: Q254979
-
-< en:Pastries
 en: Strudels
 de: Strudel
 fr: Strudels
@@ -109059,7 +109084,7 @@ pt: Vegetais frescos
 ru: Свежие овощи
 sv: Färska grönsaker
 zh: 新鲜蔬菜
-comment:en: Fresh vegetable are products that are only plantbased. These products are fresh from the land and underwent a little processing (cleaning, peeling, chopping). Products can have added ingredients for preservation purposes (water, salt preservatives) if they are sold canned. Many of these products require extra processing before they can be eaten.
+comment:en: Fresh vegetable are products that are only plant-based. These products are fresh from the land and underwent a little processing (cleaning, peeling, chopping). Products can have added ingredients for preservation purposes (water, salt preservatives) if they are sold canned. Many of these products require extra processing before they can be eaten.
 gpc_category_code:en: 10000006
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of vegetables, combination of vegetables or fruit vegetables, which may be whole, chopped, cleaned and trimmed, but has not gone through any further manufacturing processes, such as reformed, cooked, dried, salted or smoked, however these products can be coated, in sauce, stuffed or filled. Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. These products have been treated or packaged in such a way as to extend their consumable life. Excludes products such as Vegetables with additional dough or grains, Frozen and Fresh Unprepared and Unprocessed Vegetables, all Prepared and Processed Vegetables.
 gpc_category_name:en: Vegetables - Unprepared/Unprocessed (Shelf Stable)
@@ -111902,17 +111927,62 @@ en: Allians potatoes
 fr: Pommes de terre Allians
 
 < en:Potatoes
+en: Almond potatoes, Mandel potatoes
+fi: Puikulaperuna
+la: Solanum tuberosum ‘Almond’
+nb: Mandelpoteter
+nn: Mandelpotetar, Mandelpoteter
+sv: Mandelpotatisar
+sales_format:en: weight, package
+wikidata:en: Q3183151
+
+< en:Almond potatoes
+en: Lapin Puikula
+xx: Lapin puikula
+fi: Lapin puikula
+origins:en: en:lapland-finland
+protected_name_file_number:en: PDO-FI-1390
+protected_name_type:en: pdo
+
+< en:Potatoes
 en: Amandine potatoes, Potatoes(Amandine)
 fr: Pommes de terre amandine
 nl: Amandine aardappelen, Aardappelen(Amandine)
+ru: Картофель Амандин
+sv: Amandinepotatisar, Potatisar (Amandine)
+sales_format:en: weight, package
+wikidata:en: Q2841064
 
 < en:Potatoes
 en: Béa potatoes
-de: Béa Kortoffeln
+de: Béa Kartoffeln
 fr: Pommes de terre Béa
 hr: Béa krumpir
 nl: Béa aardappelen
 wikidata:en: Q2929373
+
+< en:Potatoes
+en: Beate potatoes
+da: Beate-kartofler
+de: Beate Kartoffeln
+hr: Beate krumpir
+nb: Beate-poteter
+nn: Beate-potetar, Beate-poteter
+sv: Beate-potatisar, Potatisar (Beate)
+comment:en: National potato of Norway, according to Norwegian Wikipedia.
+sales_format:en: weight, package
+wikidata:en: Q10427525
+
+< en:Potatoes
+en: Carolus potatoes
+da: Carolus-kartofler
+de: Carolus Kartoffeln
+hr: Carolus krumpir
+nb: Carolus-poteter
+nn: Carolus-potetar, Carolus-poteter
+sv: Carolus-potatisar, Potatisar (Carolus)
+comment:en: https://www.potatopro.com/potato-varieties/carolus
+sales_format:en: weight, package
 
 < en:Potatoes
 en: Charlotte potatoes
@@ -111923,12 +111993,31 @@ sales_format:en: weight, package
 wikidata:en: Q1067085
 
 < en:Potatoes
+en: Gala potatoes
+da: Gala-kartofler
+de: Gala Kartoffeln
+fi: Gala (peruna)
+hr: Gala krumpir
+la: Solanum tuberosum ‘Gala’
+nb: Gala-poteter
+nn: Gala-potetar, Gala-poteter
+sv: Gala-potatisar, Potatisar (Gala)
+sales_format:en: weight, package
+wikidata:en: Q1491619
+
+< en:Potatoes
 en: Bintje potatoes
+da: Bintje-kartofler
 de: Bintje Kartoffeln
 fr: Pomme de terre Bintje
 hr: Bintje krumpir
+la: Solanum tuberosum ‘Bintje’
+nb: Bintje-poteter
 nl: Aardappelen (Bintje), Bintje aardappelen
+nn: Bintje-potetar, Bintje-poteter
+sv: Bintje-potatisar, Potatisar (Bintje)
 sales_format:en: package, weight
+wikidata:en: Q864084
 
 < en:Potatoes
 en: Ostara potatoes
@@ -118296,6 +118385,11 @@ it: Patate surgelate
 nl: Diepvriesaardappelen
 
 < en:Frozen potatoes
+< en:Potato wedges
+en: Frozen potato wedges
+sv: Frysta potatisklyftor, Djupfryst klyftpotatis
+
+< en:Frozen potatoes
 en: Frozen cooked spiced potato chips, Frozen cooked spiced potato wedges, Frozen cooked spiced potato quarters
 fr: Potatoes épicées cuites surgelées, Potatoes wedges épicées cuites surgelées, Quartiers de pommes de terre épicés cuits surgelés
 ciqual_food_code:en: 4025
@@ -118952,6 +119046,12 @@ ciqual_food_name:en: Pastry, average food
 ciqual_food_name:fr: Viennoiserie (aliment moyen)
 food_groups:en: en:pastries
 pnns_group_2:en: Pastries
+
+< en:Viennoiseries
+en: Cinnamon rolls
+da: Kanelsnegle
+sv: Kanelbullar
+wikidata:en: Q254979
 
 < en:Viennoiseries
 en: Breads with raisins, Raisin puff pastry, Viennese pastries, Viennese pastry
@@ -120061,7 +120161,7 @@ ciqual_food_name:fr: Nuggets soja et blé (convient aux véganes ou végétalien
 
 < en:Vegan products
 < en:Vegetarian nuggets
-en: Vegan nuggets, plant based nuggets
+en: Vegan nuggets, plant-based nuggets, plant based nuggets
 da: Veganske nuggets
 fr: Nuggets végans, Nuggets végétaux
 hr: Veganski nuggets
@@ -120262,7 +120362,7 @@ ciqual_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou vég�
 
 #Meat and fish categories are separated while Fish analogues is under meat analogue. This difference is intended, since fishes are animals and therefore considered as meat by vegetarians
 < en:Meat analogues
-en: Fish analogues, Plantbased fish
+en: Fish analogues, Plant-based fish, Plantbased fish
 hr: Analozi ribe
 nl: Plantaardige vissen
 pl: Zastępniki ryb
@@ -122292,6 +122392,12 @@ fr: Aliments et boissons d'Halloween
 hr: Hrana i piće za noć vještica
 it: Alimenti e bevande per Halloween
 nl: Halloween-levensmiddelen, Halloween-levensmiddel
+
+< en:Festive foods
+en: St. Patrick's Day foods and drinks
+da: Skt. Patricks dag mad- og drikkevarer
+sv: Sankt Patriks dag mat och dryckor
+#wikidata:en: Q181817  # about the day, not specifically foods/drinks/etc.
 
 < en:Meals
 en: Cheese soufflés, Cheese soufflé
