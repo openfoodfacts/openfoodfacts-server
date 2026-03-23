@@ -59,6 +59,10 @@ my @tests = (
 		test_case => "new_nutrition",
 		csv_files => ["new_nutrition.csv"],
 	},
+	{
+		test_case => "agena",
+		csv_files => ["agena.csv"],
+	},
 );
 
 # Testing import of a csv file
@@ -91,6 +95,7 @@ foreach my $test_ref (@tests) {
 		# import file
 		my $datestring = localtime();
 		my $args = {
+			"lc" => "fr",
 			"user_id" => "test-user",
 			"org_id" => "test-org",
 			"owner_id" => "org-test-org",
