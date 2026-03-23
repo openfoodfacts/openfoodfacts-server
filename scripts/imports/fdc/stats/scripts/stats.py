@@ -1,3 +1,10 @@
+# /// script
+# requires-python = ">=3.14"
+# dependencies = [
+#   "ijson>=3.5.0",
+# ]
+# ///
+
 import argparse
 import csv
 import json
@@ -157,7 +164,7 @@ def main():
 	parser.add_argument(
 		"--input",
 		type=Path,
-		default=Path("data_provider/data/fdc.json"),
+		default=Path("data/fdc.json"),
 		help="Path to fdc.json",
 	)
 	args = parser.parse_args()

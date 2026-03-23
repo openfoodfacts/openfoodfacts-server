@@ -1,7 +1,7 @@
 import re
 from collections import defaultdict
 
-from ..utils import convert_to_seconds
+from utils import convert_to_seconds
 
 
 def normalize_empty_string(value):

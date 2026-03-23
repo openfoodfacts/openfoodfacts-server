@@ -1,11 +1,17 @@
+# /// script
+# requires-python = ">=3.14"
+# dependencies = [
+#   "ijson>=3.5.0",
+# ]
+# ///
 import logging
 import os
 import tomllib
 from pathlib import Path
 
-from .script.providers import build_csv, download_fdc_json_export
+from script.providers import build_csv, download_fdc_json_export
 
-from .script.csv_schema import CSV_BASE_COLUMNS, FDC_NUTRIENTS
+from script.csv_schema import CSV_BASE_COLUMNS, FDC_NUTRIENTS
 
 
 def set_up_config():

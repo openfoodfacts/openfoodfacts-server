@@ -5,7 +5,7 @@ from pathlib import Path
 
 import ijson
 import logging
-from ..script.mappers import parse_product
+from script.mappers import parse_product
 
 
 def download_fdc_json_export(
