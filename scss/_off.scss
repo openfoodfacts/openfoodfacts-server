@@ -1380,6 +1380,20 @@ $border-pink: #ff6e78;
 #mobile-app-top-banner {
   margin: 0;
   border-radius: 0;
+  padding-right: 2.25rem;
+}
+
+#hide-mobile-app-banner {
+  position: absolute;
+  top: 50%;
+  right: 0.35rem;
+  transform: translateY(-50%);
+  z-index: 3;
+  background: transparent;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  line-height: 1;
 }
 
 .footer_social_icon {
