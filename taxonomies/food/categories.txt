@@ -9,6 +9,8 @@ synonyms:en: pasteurised, pasteurized, pasterized
 
 synonyms:en: unpasteurised, unpasteurized, unpasterized
 
+synonyms:en: plant-based, plant based, plantbased
+
 synonyms:hu: pasztőrözött, pasztörizált
 
 synonyms:da: grøntsagsbaserede, grønsagsbaserede, grøntsagsbaseret, grønsagsbaseret, grøntsags, grønsags
@@ -985,6 +987,7 @@ ciqual_food_name:fr: Soupe pour bébé légumes, céréales et lait
 
 < en:Main meals for babies
 en: Soup for baby with vegetables and potatoes
+da: Babysuppe med grøntsager og kartofler
 de: Suppe für Baby mit Gemüse und Kartoffeln
 es: Sopa para bebé con verduras y papas
 fr: Soupe pour bébé aux légumes et aux pommes de terre
@@ -34228,6 +34231,7 @@ ru: Растворимые напитки
 < en:Dried products to be rehydrated
 < en:Mashed potatoes
 en: Instant mashed potatoes, dehydrated mashed potatoes
+da: Kartoffelmospulvere
 de: Kartoffelpulver
 fi: perunamuusijauheet
 fr: Purées de pommes de terre en flocons, purées de pommes de terre instantanées, Purées en flocons, purées instantanées
@@ -34236,6 +34240,7 @@ it: Puré di patate istantaneo
 ja: インスタントマッシュポテト
 lt: Greito pagaminimo bulvės, Greito pagaminimo bulvių košės
 nl: Aardappelpureeën in gedroogde vorm, Aardappelpuree in gedroogde vorm, Aardappelpoeder
+sv: Potatismospulver, Kartoffelmospulver
 agribalyse_proxy_food_code:en: 4019
 ciqual_proxy_food_code:en: 4019
 ciqual_proxy_food_name:en: Potato puree, made from flakes, reconstituted with semi-skimmed milk and water, unsalted
@@ -34269,6 +34274,7 @@ ciqual_food_name:fr: Pomme de terre, purée à base de flocons, reconstituée av
 < en:Dried products to be rehydrated
 < en:Mashed potatoes
 en: Potato flakes
+da: Kartoffelflager
 fr: Flocons de pommes de terre
 agribalyse_food_code:en: 4022
 ciqual_food_code:en: 4022
@@ -34601,6 +34607,7 @@ hr: Keksi s grožđicama
 lt: Sausainiai su razinomis
 nl: Rozijnenkoekjes, Rozijnenkoekje, Rozijnekoekjes, Rozijnekoekje
 ro: Biscuiți cu stafide, Fursecuri cu stafide
+sv: Småkakor med russin
 
 < en:Biscuits
 en: Almond cookies, Thin biscuits with almonds
@@ -37934,6 +37941,10 @@ en: Plum cakes, Plum cake
 it: Plum cakes, Plum cake
 wikidata:en: Q3906768
 
+< en:Cakes
+en: Filled sponge cake rolls
+fr: Génoises roulées fourrées
+
 #Napolitains and similar cakes
 < en:Cakes
 en: Filled sponge cake slices
@@ -38823,10 +38834,12 @@ oqali_family:en: fr:Biscuits et gateaux industriels - Madeleines nature
 
 < en:Madeleines
 en: Madeleines with raisin, Raisin madeleines
+da: Madeleinekager med rosiner
 de: Madeleines mit Rosinen
 fr: Madeleines aux raisins, Madeleines au raisin, Madeleine aux raisins, Madeleine au raisin
 hr: Madeleine s grožđicama
 nl: Madeleines met rozijnen
+sv: Madeleinekakor med russin
 
 < en:Madeleines
 en: Long madeleines
@@ -39395,10 +39408,12 @@ tr: Fındıklı çikolata
 < en:Chocolates
 en: Chocolates with raisins
 bg: Шоколад със стафиди
+da: Chokolader med rosiner
 fr: Chocolats aux raisins
 hr: Čokolade s grožđicama
 ja: レーズンチョコレート
 lt: Šokoladai su razinomis
+sv: Choklader med russin
 #wikidata:en:
 
 < en:Chocolates
@@ -39749,8 +39764,10 @@ ciqual_food_name:fr: Chocolat au lait aux fruits secs (noisettes, amandes, raisi
 < en:Milk chocolates
 en: Milk chocolates with raisins
 bg: Млечен шоколад със стафиди
+da: Mælkechokolader med rosiner
 hr: Mliječne čokolade s grožđicama
 lt: Pieniški šokoladai su razinomis
+sv: Mjölkchoklader med russin
 agribalyse_food_code:en: 31018
 ciqual_food_code:en: 31018
 ciqual_food_name:en: Milk chocolate bar, with dried fruits (nuts, almonds, raisins, praline)
@@ -39885,9 +39902,11 @@ agribalyse_proxy_food_name:fr: Chocolat noir aux fruits secs (noisettes, amandes
 < en:Chocolates with raisins
 < en:Dark chocolates
 en: Dark chocolates with raisins
+da: Mørke chokolader med rosiner
 fr: Chocolats noirs aux raisins
 hr: Tamne čokolade s grožđicama
 lt: Juodi šokoladai su razinomis
+sv: Mörka choklader med russin
 agribalyse_proxy_food_code:en: 31070
 agribalyse_proxy_food_name:en: Dark chocolate bar, with dried fruits (nuts, almonds, raisin, praline)
 agribalyse_proxy_food_name:fr: Chocolat noir aux fruits secs (noisettes, amandes, raisins, praline), tablette
@@ -40558,6 +40577,7 @@ wikidata:en: Q16826630
 
 < en:Chocolate covered fruits
 en: Chocolate-covered raisins
+da: Rosiner med chokoladeovertræk
 de: Schokoladenrosinen
 es: Pasas recubiertas de chocolate
 fi: Suklaarusinat
@@ -40565,6 +40585,7 @@ fr: Raisins secs enrobés de chocolat, Raisins secs au chocolat
 hr: Grožđice prelivene čokoladom
 lt: Razinos šokolade
 nl: Chocoladerozijnen
+sv: Chokladöverdragna russin, Russin med chokladöverdrag
 wikidata:en: Q5103586
 
 < en:Chocolate covered fruits
@@ -42631,6 +42652,7 @@ ciqual_food_name:fr: Igname, épluchée, bouillie/cuite à l'eau
 < en:Gnocchi
 < en:Potatoes and their products
 en: Potato gnocchi, Gnocchi from potato
+da: Kartoffelgnocchier
 de: Kartoffelgnocchi
 es: Gnocchi de patata
 fi: perunagnocchi
@@ -42638,6 +42660,7 @@ fr: Gnocchi de pommes de terre, Gnocchi à la pomme de terre
 hr: Njoke od krumpira
 it: gnocchi di patate
 nl: Aardappelgnocchi
+sv: Potatisgnocchi
 agribalyse_food_code:en: 26264
 ciqual_food_code:en: 26264
 ciqual_food_name:en: Gnocchi, from potato, raw
@@ -42649,9 +42672,11 @@ wikidata:en: Q14906720
 < en:Cooked gnocchis
 < en:Potato gnocchi
 en: Cooked gnocchis from potato
+da: Kogte kartoffelgnocchier
 fr: Gnocchi de pommes de terre cuits, Gnocchis à la pomme de terre cuits
 hr: Kuhani njoki od krumpira
 nl: Gekookte aardappelgnocchis
+sv: Kokta potatisgnocchi
 agribalyse_food_code:en: 25510
 ciqual_food_code:en: 25510
 ciqual_food_name:en: Gnocchi, from potato, cooked
@@ -44640,10 +44665,11 @@ fr: Chips de lentilles
 nl: Linzenchips
 
 < en:Crisps
-< en:Potatoes and their products
+< en:Salty snacks made from potato
 en: Potato crisps, potato chips
 bg: Картофен чипс
 ca: Xips de patata
+da: Kartoffelchips
 de: Kartoffelchips
 es: Chips de patatas fritas
 fi: perunalastut
@@ -44678,20 +44704,18 @@ ciqual_food_name:en: Potato crisps, à l'ancienne (old-fashioned style)
 ciqual_food_name:fr: Chips de pommes de terre, à l'ancienne
 
 < en:Potato crisps
-fr: Chips de pommes de terre classiques
-es: Chips de patatas fritas clasicas
-
-< en:Potato crisps
 fr: Chips de pommes de terre lisses
 es: Chips de patatas fritas lisas
 
 < en:Potato crisps
 en: Wavy potato crisps, Wavy potato chips
+da: Bølgekartoffelchips, Kartoffelbølgechips
 es: Chips de patatas fritas onduladas
 fr: Chips de pommes de terre ondulées
 hr: Valoviti čips od krumpira
 lt: Banguoti bulvių traškučiai
 nl: Ribbelchips
+sv: Räfflade potatischips
 
 < en:Potato crisps
 en: Light potato crisps, Potato crisps with reduced fat
@@ -44708,13 +44732,17 @@ ciqual_food_name:fr: Chips de pommes de terre et assimilés, allégées en mati�
 
 < en:Potato crisps
 en: Potato crisps with salt
+da: Saltede kartoffelchips, Kartoffelchips med salt
+fr: Chips de pommes de terre salés
 nl: Aardappelchips met zout
+sv: Saltade potatischips
 opposite:en: en:flavoured-potato-crisps
 
 < en:Potato crisps
 en: Potato crisps in sunflower oil
 bg: Картофен чипс със слънчогледово олио
 ca: Xips de patata amb oli de gira-sol
+da: Kartoffelchips med solsikkeolie
 de: Kartoffelchips mit Sonnenblumenöl
 es: Chips de patatas fritas en aceite de girasol
 fi: Perunalastut auringonkukkaöljyllä
@@ -44725,6 +44753,7 @@ lt: Bulvių traškučiai saulėgrąžų aliejuje
 nl: Aardappelchips gebakken in zonnebloemolie
 pt: Batatas fritas em óleo de girassol
 ru: Картофельные чипсы на подсолнечном масле
+sv: Potatischips med solrosolja
 
 < en:Potato crisps
 en: Potato crisps in olive oil
@@ -44759,9 +44788,13 @@ pt: Batatas fritas aromatizadas
 opposite:en: en:potato-crisps-with-salt
 
 < en:Flavoured potato crisps
+en: Truffle crisps
+fr: Chips saveur truffe
+
+< en:Flavoured potato crisps
 en: Ketchup crisps
 de: Ketchup Chips
-fr: Chips au ketchup
+fr: Chips saveur ketchup, Chips au ketchup
 hr: Kečap čips
 lt: Kečupo traškučiai
 nl: Ketchup chips
@@ -44775,13 +44808,13 @@ lt: Druskos ir pipirų traškučiai
 nl: Zout en peperchips
 
 < en:Flavoured potato crisps
-en: Roasted chicken and thyme crisps
+en: Roasted chicken crisps, Roasted chicken and thyme crisps
 de: Brathuhn-Thymnian Chips
 fi: Kana-timjami-perunalastut
-fr: Chips au poulet, Chips au poulet rôti et thym
+fr: Chips saveur poulet rôti, Chips au poulet rôti et thym
 hr: Pečenu piletinu i čips od majčine dušice
 lt: Keptos vištienos ir čiobrelių traškučiai
-nl: Geroosterde kip met tijm chips
+nl: Geroosterde kip chips, Geroosterde kip met tijm chips
 
 < en:Flavoured potato crisps
 en: Paprika crisps
@@ -44797,15 +44830,16 @@ nl: Paprikachips
 < en:Flavoured potato crisps
 en: Bolognese crisps
 de: Bolognese Chips
-fr: Chips bolognaise
+fr: Chips saveur bolognaise, Chips bolognaise
 hr: Bolognese čips
 lt: Bolonijos traškučiai
 nl: Bolognese chips
 
 < en:Flavoured potato crisps
-fr: Chips à la moutarde, Chips moutarde
+en: Mustard crisps
 de: Senf Chips
 es: Patatas fritas con mostaza
+fr: Chips à la moutarde, Chips moutarde
 it: Patatine al senape
 lt: Garstyčių traškučiai
 nl: Mosterdchips
@@ -44822,7 +44856,6 @@ lt: Sūrio ir svogūnų traškučiai
 nl: Kaas en ui chips
 
 < en:Cheese and onion crisps
-< en:Flavoured potato crisps
 en: Cheddar and onion crisps
 de: Cheddar-Zwiebel Chips
 fr: Chips cheddar et oignon, Chips cheddar et onion
@@ -44834,14 +44867,14 @@ nl: Cheddar en ui chips
 en: Barbecue crisps
 de: Barbecue Chips
 fi: Grillimaustetut perunalastut, Barbeque-perunalastut
-fr: Chips barbecue
+fr: Chips saveur barbecue, Chips barbecue
 hr: Čips za roštilj
 it: Patatine barbecue
 lt: Barbekiu traškučiai
 nl: Barbecuesmaak chips
 pl: Chipsy barbecue, Czipsy barbecue
 
-< en:Potato crisps
+< en:Flavoured potato crisps
 en: Salt and vinegar crisps
 de: Salz und Essig Chips
 fi: Suola-etikka-perunalastut
@@ -44877,34 +44910,37 @@ lt: Senoviniai traškučiai
 nl: Traditionele chips
 
 < en:Potato crisps
-en: Farmer's crisps
-fr: Chips paysannes
-hr: Seljački čips
-lt: Ūkininko traškučiai
-nl: Boerenchips
-
-< en:Potato crisps
 en: Crisps of red potatoes, red potato crisps, red potatoes crisps
+da: Røde kartoffelchips, Chips af røde kartofler
 de: Rote Kartoffelchips, Chips aus roten Kartoffeln
 fr: Chips de pommes de terre rouge
 hr: Čips od crvenog krumpira
 lt: Raudonųjų bulvių traškučiai
 nl: Rode aardappelchips
 
-< en:Crisps
-en: Crisps made from reconstituted potato
-fr: Chips de pomme de terre reconstituée
-
-< en:Crisps
+< en:Appetizers
+< en:Potatoes and their products
 en: Salty snacks made from potato
+da: Salte snacks lavet af kartoffel
 de: Salzige Snacks aus Kartoffeln
 es: Aperitivos salados elaborados con patata, Aperitivos salados de patata, Snacks salados de patata, Snacks salados elaborados con patata
 fi: Perunasta valmistetut suolaiset naposteltavat
-fr: Tuiles salées, tuile salée, Biscuit apéritif à base de pomme de terre, Tuile salée à base de pomme de terre
+fr: Snacks salés à base de pommes de terre
 he: חטיפים מלוחים מתפוח אדמה
 hr: Slane grickalice od krumpira
 it: snack salati a base di patate
 lt: Sūrūs užkandžiai iš bulvių
+sv: Salta snacks gjorda på potatis
+
+< en:Crisps
+< en:Salty snacks made from potato
+en: Crisps made from reconstituted potato
+fr: Chips de pomme de terre reconstituée
+
+< en:Crisps
+< en:Salty snacks made from potato
+en: Stacked extruded potato crisps
+fr: Tuiles de pommes de terre extrudées salées, Tuiles salées, tuile salée, Biscuit apéritif à base de pomme de terre, Tuile salée à base de pomme de terre
 agribalyse_food_code:en: 38405
 ciqual_food_code:en: 38405
 ciqual_food_name:en: Salty snacks, made from potato
@@ -44955,6 +44991,7 @@ ciqual_food_name:fr: Patate douce, purée, cuisinée à la crème
 < en:Chips and fries
 en: Fries
 bg: Пържени картофи
+da: Pomfritter, Pommes frites
 de: Pommes Frites
 es: Patatas fritas
 fi: Ranskanperunat, Ranskalaiset perunat, Ranskalaiset
@@ -44963,6 +45000,7 @@ hr: Pomfrit
 it: Patatine fritte, Patatine a bastoncino
 lt: Bulvytės
 nl: Friet
+sv: Pommes frites
 zh: 薯条
 google_product_taxonomy_id:en: 2392
 intake24_category_code:en: CHIP
@@ -44970,19 +45008,51 @@ wikidata:en: Q152088
 
 < en:Chips and fries
 < en:Potato preparations
+en: Potato wedges
+ar: بطاطا ودجز
+cs: Americké brambory
+da: Kartoffelbåde
+de: Kartoffelspalten, Kartoffelecken
+fi: Lohkoperunat
+id: Baji kentang
+is: Bátakartöflur
+ja: ポテトウェッジズ
+jv: Kenthang rajang
+ka: მექსიკური კარტოფელი
+ko: 웨지감자
+ms: Bebaji kentang
+ru: Картофель по-деревеiнски
+sk: Americké zemiaky
+sv: Potatisklyftor, Klyftpotatis
+zh: 薯角
+wikidata:en: Q3482613
+
+< en:Chips and fries
+< en:Potato preparations
 xx: Pommes noisettes
 bg: Картофени ноазети
-fr: Pommes noisettes
+da: Pommes château, Pommes noisette
+de: Schlosskartoffeln
+fr: Pommes noisettes, Pommes de terre noisettes
+ja: ポメ・ヌワゼット
+nl: Krielaardappel, Pommes parisiennes
+sv: Pommes château, Châteaupotatisar, Slottspotatisar
+agribalyse_proxy_food_code:en: 4013
+ciqual_proxy_food_code:en: 4013
+ciqual_proxy_food_name:en: Noisette potato, frozen, raw
+ciqual_proxy_food_name:fr: Pomme de terre noisette, surgelée, à cuire
 wikidata:en: Q2244571
 
 < en:Frozen fried potatoes
 < xx:Pommes noisettes
 en: Frozen pommes noisettes, Frozen pre-fried mashed potato balls
+da: Frosne pommes château
 fr: Pommes noisettes surgelées, Pommes de terre noisette surgelées
+sv: Frysta pommes château
 agribalyse_food_code:en: 4013
 ciqual_food_code:en: 4013
-ciqual_food_name:en: Mashed potato balls pre-fried, frozen, raw
-ciqual_food_name:fr: Pomme de terre noisette, surgelée, crue
+ciqual_food_name:en: Noisette potato, frozen, raw
+ciqual_food_name:fr: Pomme de terre noisette, surgelée, à cuire
 
 < en:Chips and fries
 < en:Potato preparations
@@ -44996,6 +45066,7 @@ wikidata:en: Q3396004
 < en:Frozen fried potatoes
 < xx:Pommes dauphines
 en: Frozen pommes dauphines, Frozen dauphine potatoes, Frozen cooked dauphine potato
+da: Frosne pommes dauphine
 fr: Pommes dauphines surgelées, Pomme de terre dauphine surgelée, Pomme de terre dauphine cuite surgelée
 hr: Smrznuti dauphine krumpir
 lt: Šaldytos dauphine bulvės
@@ -45006,6 +45077,7 @@ ciqual_food_name:fr: Pomme de terre dauphine, surgelée, cuite
 
 < en:Frozen fried potatoes
 en: Frozen duchesse potatoes, Frozen cooked duchesse potato
+da: Frosne duchesse-kartofler
 fr: Pommes duchesses surgelées, Pomme de terre duchesse surgelée, Pomme de terre duchesse cuite surgelée
 agribalyse_food_code:en: 4034
 ciqual_food_code:en: 4034
@@ -45014,6 +45086,8 @@ ciqual_food_name:fr: Pomme de terre duchesse, surgelée, cuite
 
 < en:Fries
 en: Takeaway fries
+da: Takeaway-pomfritter
+sv: Takeaway-pommes frites
 intake24_category_code:en: TCHI
 
 # TODO Validate proxy
@@ -53283,16 +53357,19 @@ hr: Pića na bazi pira
 it: Bevanda di farro
 nl: Speltdranken
 pt: Bebidas de espelta
-#wikidata:en:
+wikidata:en: Q117239275
 
 < en:Plant-based milk alternatives
 < en:Potatoes and their products
 en: Potato-based drinks, Potato milks
-sv: Potatisbaserade dryckor
+da: Kartoffeldrikke, Kartoffelbaserede drikke
+sv: Potatisdryckor, Potatisbaserade dryckor
 
 < en:Plant-based barista milk alternatives
 < en:Potato-based drinks
 en: Barista potato drinks, Barista potato milks
+da: Barista-kartoffeldrikke
+sv: Barista-potatisdryckor
 
 < en:Plant-based milk alternatives
 en: Coconut-based drinks, Coconut drinks, Coconut-based drink plain prepacked
@@ -65771,14 +65848,17 @@ ciqual_food_code:en: 9080
 ciqual_food_name:en: Wheat, whole, pre-cooked, raw
 ciqual_food_name:fr: Blé dur précuit, entier, cru
 
+< en:Potatoes and their products
 < en:Starches
 en: Potato starches
 bg: Картофено нишесте
+da: Kartoffelstivelser
 fr: Fécules de pomme de terre, Fécule de pomme de terre
 hr: Škrobovi krumpira
 ja: 馬鈴薯デンプン
 lt: Bulvių krakmolas
 nl: Aardappelzetmelen
+sv: Potatisstärkelser
 ciqual_food_code:en: 4090
 ciqual_food_name:en: Potato starch
 ciqual_food_name:fr: Fécule de pomme de terre
@@ -66017,14 +66097,18 @@ google_product_taxonomy_id:en: 5808
 wikidata:en: Q943935
 
 < en:Flours
+< en:Potatoes and their products
 en: Potato flours, Flour of potatoes
 bg: Картофено брашно
+da: Kartoffelmel
 fi: Perunajauhot
 fr: Farines de pommes de terre
 hr: Krumpirovo brašno
 it: Farine di patate
 lt: Bulvių miltai
 nl: Aardappelmelen
+sv: Potatismjöl
+wikidata:en: Q3066930
 
 < en:Flours
 en: Urad flour
@@ -66275,8 +66359,120 @@ fr: Arômes pâtisserie, Arôme pâtisserie
 nl: Gebaksaromas
 
 < en:Food additives
-en: Citric acid
+en: Ascorbic acids, Ascorbates
+ar: حمض الأسكوربيك
+be: Аскарбінавая кіслата
+bg: Аскорбинова киселина
+bn: অ্যাস্করবিক অ্যাসিড
+bs: Askorbinska kiselina
+ca: Àcid ascòrbic
+da: Ascorbinsyrer
+de: Ascorbinsäuren
+el: Ασκορβικό οξύ
+es: Antiescorbútica
+et: Askorbiinhape
+fi: Askorbiinihappo
+ga: Aigéad ascorbach
+hr: Askorbinska kiselina
+hu: Aszkorbinsav
+ka: ასკორბინის მჟავა
+ko: 아스코르빈산
+lt: Askorbo rūgštis
+lv: Askorbīnskābe
+ms: Asid askorbik
+mt: Aċidu askorbiku
+nb: Askorbinsyrer
+nn: Askorbinsyrer
+or: ଆସକର୍ବିକ ଏସିଡ଼
+pl: Kwas askorbinowy
+pt: Ácido ascórbico
+ro: Acid ascorbic
+ru: Аскорбиновая кислота
+sk: Kyselina askorbová
+sl: Askorbinska kislina
+sv: Askorbinsyror
+ta: அசுக்கோபிக் அமிலம்
+tt: Аскорбин әчелеге
+uk: Аскорбінова кислота, Аскорбат
+uz: Askorbin kislota
+vi: Axít ascorbic
+yi: אַסקאָרביק זויערן
+zh: 抗壞血酸鹽
+wikidata:en: Q199678
+
+< en:Food additives
+en: Citric acids, Citric acid
+af: Sitroensuur
+ar: حمض الليمون
+az: Limon turşusu
+be: Лімонная кіслата
+bg: Лимонена киселина
+bn: সাইট্রিক অ্যাসিড
+bs: Limunska kiselina
+ca: Àcid cítric
+cs: Kyselina citronová
+cy: Asid sitrig
+da: Citronsyrer
+de: Citronensäuren
+el: Κιτρικό οξύ
+eo: Citrata acidoj
+es: Ácido cítrico
+et: Sidrunhape
+eu: Azido zitriko
+fa: سیتریک اسید
+fi: Sitruunahappo
 fr: Acide citrique
+ga: Aigéad citreach
+gl: Ácido cítrico
+hi: सिट्रिक अम्ल
+hr: Limunska kiselina
+hu: Citromsav
+hy: Կիտրոնաթթու
+id: Asam sitrat
+is: Sítrónusýra
+it: Acido citrico
+ja: クエン酸
+jv: Asem sitrat
+ka: ლიმონმჟავა
+kk: Лимон қышқылы
+kn: ಸಿಟ್ರಿಕ್ ಆಮ್ಲ
+ko: 시트르산
+ky: Лимон кислотасы
+la: Acidum citricum
+lb: Zitrounesaier
+lt: Citrinų rūgštis
+lv: Citronskābe
+mi: Waikawa rēmana
+mk: Лимонска киселина
+ml: സിട്രിക് ആസിഡ്
+ms: Asid sitrik
+mt: Aċidu ċitriku
+nb: Sitronsyrer
+nl: Citroenzuur
+nn: Sitronsyrer
+os: Лимоны туагад
+pa: ਸਿਟਰਿਕ ਤੇਜ਼ਾਬ
+pl: Kwas cytrynowy
+pt: Ácido cítrico
+ro: Acid citric
+ru: Лимонная кислота
+sh: Limunska kiselina
+sk: Kyselina citrónová
+sl: Citronska kislina
+sr: Лимунска киселина, Limunska kiselina
+sv: Citronsyror
+ta: சிட்ரிக் அமிலம்
+te: సిట్రిక్ ఆమ్లం
+tr: Sitrik asit
+tt: Лимун әчелеге
+uk: Лимонна кислота
+ur: سٹرک تیزاب
+uz: Limon kislota
+vi: Axít citric
+wa: Seur di citron
+yi: סיטריק זויער
+zh: 柠檬酸, 檸檬酸
+wikidata:en: Q159683
 
 < en:Food additives
 en: Food colorings, Food dyes, Color additives, Food colourings, Food coloring, Food colouring
@@ -66382,7 +66578,7 @@ ciqual_food_name:en: Gelatine, dried
 ciqual_food_name:fr: Gélatine, sèche
 
 < en:Thickeners
-en: Plantbased gelatin
+en: Plant-based gelatin, Plantbased gelatin
 fr: Gélifiants végétaux, gélifiant végétal
 hr: Želatina na biljnoj bazi
 lt: Augalinė želatina
@@ -66490,7 +66686,9 @@ nl: Plantaardige gevriesdroogde producten
 
 #generic frozen fried potatoes
 < en:Frozen foods
+< en:Potatoes and their products
 en: Frozen fried potatoes
+da: Frosne stegte kartofler
 de: Gefrorene Pommes
 es: Papas fritas congeladas
 fi: Esipaistetut perunapakasteet
@@ -66511,6 +66709,7 @@ pnns_group_2:en: Potatoes
 < en:Frozen plant-based foods
 < en:Mashed potatoes
 en: Frozen mashed potatoes
+da: Frosne kartoffelmos
 fr: Purées de pommes de terre surgelée, Purée de pommes de terre surgelée
 hr: Smrznuti pire krumpir
 lt: Šaldyta bulvių košė
@@ -66523,6 +66722,7 @@ agribalyse_proxy_food_name:fr: Pomme de terre rissolée, surgelée, crue
 < en:Frozen fried potatoes
 en: Frozen fries, Frozen chips, Frozen french fries
 bg: Замразени пържени картофи
+da: Frosne pomfritter
 de: Tiefkühl-Pommes
 es: Patatas fritas congeladas
 fi: Ranskanperunapakasteet, Pakasteranskalaiset
@@ -66536,6 +66736,7 @@ who_id:en: 16
 
 < en:Frozen fries
 en: Frozen roasted French fries, Frozen baked French fries, Frozen roasted French chips
+da: Frosne ristede pomfritter
 fr: Frites de pommes de terre surgelées cuites au four, Frites de pommes de terre surgelées rôties
 agribalyse_food_code:en: 4030
 ciqual_food_code:en: 4030
@@ -66544,6 +66745,7 @@ ciqual_food_name:fr: Frites de pommes de terre, surgelées, rôties/cuites au fo
 
 < en:Frozen fries
 en: Frozen French fries to roast, Frozen French fries to bake, Frozen French chips to roast, Frozen French chips to bake
+da: Frosne pomfritter til ristning, Frosne pomfritter til bagning
 fr: Frites surgelées à cuire au four, Frites de pommes de terre surgelées à rôtir, Frites de pommes de terre surgelées à cuire au four
 agribalyse_food_code:en: 4044
 ciqual_food_code:en: 4044
@@ -66552,6 +66754,7 @@ ciqual_food_name:fr: Frites de pommes de terre, surgelées, pour cuisson rôtie/
 
 < en:Fries
 en: Microwave fries
+da: Mikrobølgeovnspomfritter
 de: Mikrowellen-Pommes
 es: Papas fritas para microondas
 fi: Mikroaaltouunissa valmistettavat ranskalaiset perunat
@@ -66569,6 +66772,7 @@ agribalyse_proxy_food_name:fr: Frites de pommes de terre, surgelées, pour cuiss
 < en:Frozen fries
 < en:Microwave fries
 en: Frozen microwave fries, Frozen French fries intended to be microwaved, Frozen French chips intended to be microwaved
+da: Frosne mikrobølgeovnspomfritter
 fr: Frites surgelées micro-ondables, Frites de pommes de terre surgelées pour cuisson au micro-ondes
 agribalyse_food_code:en: 4045
 ciqual_food_code:en: 4045
@@ -66577,6 +66781,7 @@ ciqual_food_name:fr: Frites de pommes de terre, surgelées, pour cuisson micro-o
 
 < en:Frozen fries
 en: Frozen deep-fried French fries, Frozen deep-fried French chips
+da: Frosne friturestegte pomfritter
 fr: Frites de pommes de terre surgelées cuites en friteuse
 agribalyse_food_code:en: 4032
 ciqual_food_code:en: 4032
@@ -66585,6 +66790,7 @@ ciqual_food_name:fr: Frites de pommes de terre, surgelées, cuites en friteuse
 
 < en:Frozen fries
 en: Frozen French fries to deep-fry, Frozen chips to deep-fry
+da: Frosne pomfritter til friturestegning
 fr: Frites surgelées pour friteuse, Frites de pommes de terre pour cuisson en friteuse
 agribalyse_food_code:en: 4046
 ciqual_food_code:en: 4046
@@ -66594,6 +66800,7 @@ ciqual_food_name:fr: Frites de pommes de terre, surgelées, pour cuisson en frit
 < en:Fried potato cubes
 < en:Frozen fried potatoes
 en: Frozen fried potato cubes
+da: Frosne stegte kartoffeltern
 fr: Pommes de terre rissolées surgelées
 agribalyse_food_code:en: 4043
 ciqual_food_code:en: 4043
@@ -66602,6 +66809,7 @@ ciqual_food_name:fr: Pomme de terre rissolée, surgelée, crue
 
 < en:Frozen fried potato cubes
 en: Frozen cooked pre-fried potato cubes
+da: Frosne kogte forstegte kartoffeltern
 fr: Pommes rissolées surgelées cuites, Pommes de terre rissolées surgelées cuites
 agribalyse_food_code:en: 4027
 ciqual_food_code:en: 4027
@@ -66609,9 +66817,9 @@ ciqual_food_name:en: Potato, pre-fried into cubes, frozen, cooked
 ciqual_food_name:fr: Pomme de terre rissolée, surgelée, cuite
 
 < en:Frozen fried potatoes
+da: Frosne kartoffelkroketter
 fr: Croquettes de pommes de terre surgelées
 hr: Smrznuti kroketi od krumpira
-
 
 < en:Frozen fried potatoes
 fr: Quartiers de pommes de terre surgelés
@@ -70003,6 +70211,7 @@ protected_name_type:en: pdo
 < en:Fruits
 en: Grapes
 bg: Грозде
+da: Vindruer
 de: Weintrauben
 es: Uvas
 fi: viinirypäleet
@@ -70011,9 +70220,12 @@ hr: Grožđe
 it: Uva
 ja: ブドウ, ぶどう, 葡萄
 lt: Vynuogės
+nb: Vindruer
 nl: Druiven
+nn: Vindruer
 pl: Winogrona
 ru: Виноград
+sv: Vindruvor
 agribalyse_food_code:en: 13112
 ciqual_food_code:en: 13112
 ciqual_food_name:en: Grape, raw
@@ -70045,13 +70257,17 @@ protected_name_type:en: pgi
 
 < en:Grapes
 en: Green grapes, White grapes
+da: Grønne vindruer
 de: Weiße Weintrauben, Grüne Weintrauben, Gelbe Weintrauben
 es: Uvas blancas
 fr: Raisins blancs, Raisins verts
 hr: Zeleno grožđe
 lt: Žalios vynuogės, Baltos vynuogės
+nb: Grønne vindruer
 nl: Witte druiven
+nn: Grøna vindruer
 ru: Белый виноград, зелёный виноград, зеленый виноград
+sv: Gröna vindruvor
 agribalyse_food_code:en: 13044
 ciqual_food_code:en: 13044
 ciqual_food_name:en: Grape, white, raw
@@ -70064,11 +70280,13 @@ sales_format:en: weight, package
 < en:Fresh fruits
 < en:Grapes
 en: Fresh grapes
+da: Friske vindruer
 de: Frische Trauben, Frische Weintrauben
 es: Uvas frescas
 fr: Raisins frais, Raisin frais
 hr: Svježe grožđe
 lt: Šviežios vynuogės
+sv: Färska vindruvor
 
 < en:Fresh grapes
 fr: Chasselas de Moissac
@@ -70079,12 +70297,14 @@ protected_name_type:en: pdo
 
 < en:Grapes
 en: Black grapes, Red grapes
+da: Røde vindruer
 de: Rote Weintrauben
 es: Uvas negras
 fr: Raisins noirs
 hr: Crno grožđe
 lt: JUodos vynuogės, Raudonos vynuogės
 nl: Rode druiven
+sv: Röta vindruvor
 agribalyse_food_code:en: 13045
 ciqual_food_code:en: 13045
 ciqual_food_name:en: Grape, red, raw
@@ -72265,7 +72485,9 @@ hr: Grožđice
 it: Uve secche
 ja: レーズン, 干しぶどう, 干しブドウ, 干し葡萄
 lt: Razinos, Džiovintos vynuogės
+nb: Rosiner
 nl: Gedroogde rozijnen
+nn: Rosiner
 pl: Rodzynki, suszone winogrona
 ru: Изюм, виноград сушёный, виноград сушеный, сушеный виноград, сушёный виноград
 sv: Russin
@@ -72275,16 +72497,20 @@ ciqual_food_name:en: Raisin
 wikidata:en: Q13186
 
 < en:Raisins
-en: Raisins of Corinth
+en: Zante currants, Raisins of Corinth
+da: Korender
 de: Korinthen
 es: Uvas pasas de Corinto, Pasas de Corinto
 fr: Raisins secs de Corinthe
 hr: Grožđice iz korinta
 lt: Corinth razinos
 nl: Krenten
+sv: Korinter
+wikidata:en: Q1382423
 
 < en:Raisins
 en: Sultana raisins
+da: Sultanarosiner
 de: Sultaninen
 es: Uvas pasas sultanas, Pasas sultanas
 fi: Sulttaanirusinat
@@ -72294,12 +72520,18 @@ it: Uvetta, Uvetta sultanina
 lt: Sultana razinos
 nl: Sultanas
 sv: Sultanrussin
+wikidata:en: Q19883728
+
+< en:Raisins
+en: Green raisins
+da: Grønne rosiner
+sv: Gröna russin
 
 < en:Canned plant-based foods
 en: Canned fruits
 bg: Консервирани плодове
 ca: Fruita en conserva
-da: Frugt på dåse, dåsefrugt
+da: Frugter på dåse, Dåsefrugter, Frugt på dåse, Dåsefrugt
 de: Dosenfrüchte
 es: Frutas en conserva, Conservas de frutas
 fi: purkitetut hedelmät
@@ -72311,6 +72543,7 @@ lt: Konservuoti vaisiai
 nl: Fruit in blik/pot
 pt: Frutos enlatados
 ru: Консервированные фрукты
+sv: Frukter på burk, Burkfrukter
 tr: Konserve meyve
 intake24_category_code:en: CAND
 who_id:en: 16
@@ -72329,6 +72562,11 @@ hr: Konzervirani ananas
 it: Ananas in scatola
 lt: Konservuoti ananasai
 nl: Ananas in blik/pot
+
+< en:Canned fruits
+en: Canned mixed fruits, Canned fruit cocktails
+da: Blandede frugter på dåse
+sv: Blandade frukter på burk
 
 < en:Fruits in syrup
 < en:Lemons
@@ -72473,8 +72711,9 @@ en: Bananas in syrup
 fr: Bananes au sirop
 nl: Bananen op siroop
 
+< en:Canned mixed fruits
 < en:Fruits in syrup
-en: Canned mixed fruit in syrup, Canned fruit cocktail in syrup
+en: Canned mixed fruits in syrup, Canned mixed fruit in syrup, Canned fruit cocktail in syrup
 de: Dosenfruchtcocktail in Sirup
 es: Mezclas de frutas en almíbar, Macedonias de frutas en almíbar, Cocktail de frutas en almíbar
 fi: Hedelmäsekoitus sokeriliemessä, Hedelmäcocktail sokeriliemessä
@@ -72520,8 +72759,9 @@ it: Mango sciroppati
 lt: Mangai sirupe
 nl: Mangos op siroop
 
+< en:Canned pineapples
 < en:Fruits in syrup
-en: Pineapple in syrup
+en: Canned pineapples in syrup, Pineapple in syrup
 bg: Ананас в сироп
 de: Ananas in Sirup
 es: Piña en almíbar, Piña en almíbar ligero
@@ -72550,6 +72790,7 @@ ciqual_food_code:en: 13718
 ciqual_food_name:en: Pineapple, in light syrup, canned, drained
 ciqual_food_name:fr: Ananas au sirop léger, appertisé, égoutté
 
+< en:Canned pineapples
 < en:Pineapple in syrup
 en: Canned pineapple in pineapple juice and syrup not drained
 fr: Ananas au sirop et jus d'ananas appertisé non égoutté
@@ -72558,6 +72799,7 @@ ciqual_food_code:en: 13717
 ciqual_food_name:en: Pineapple, in pineapple juice and syrup, canned, not drained
 ciqual_food_name:fr: Ananas au sirop et jus d'ananas, appertisé, non égoutté
 
+< en:Canned pineapples
 < en:Pineapple in syrup
 en: Canned pineapple in light syrup not drained
 fr: Ananas au sirop léger appertisé non égoutté
@@ -72633,6 +72875,7 @@ nl: Grapefruit op siroop
 
 < en:Canned fruits
 en: Canned fruits in juice
+da: Frugter i frugtsaft på dåse
 de: Dosenfrüchte im Saft
 es: Conservas de frutas en zumo
 fi: Purkitetut hedelmät omassa mehussaan
@@ -72641,9 +72884,11 @@ hr: Konzervirano voće u soku
 lt: Konservuoti vaisiai savose sultyse
 nl: Fruit in blik/pot op sap
 pt: Conservas de frutas em suco
+sv: Frukter i fruktsaft på burk
 
 < en:Canned fruits in juice
-en: Pineapple in juice
+< en:Canned pineapples
+en: Canned pineapples in juice, Pineapple in juice
 de: Ananas im Saft
 es: Piña en conserva en zumo, Conservas de piña en zumo, Conservas de piña en su zumo
 fi: ananasta omassa mehussaan
@@ -72651,6 +72896,12 @@ fr: Ananas au jus
 hr: Ananas u soku
 lt: Ananasai savose sultyse
 nl: Ananas op sap
+
+< en:Canned fruits in juice
+< en:Canned mixed fruits
+en: Canned mixed fruits in juice, Canned fruit cocktails in juice
+da: Blandede frugter i frugtsaft på dåse
+sv: Blandade frukter i fruktsaft på burk
 
 < en:Fruits in syrup
 en: Syrup for canned fruits
@@ -73199,6 +73450,7 @@ nl: Biesloken in pot
 
 < en:Plant-based foods
 en: Coriander products, Coriander, Cilantro, Chinese parsley, Dhania
+da: Korianderprodukter, Koriander
 de: Koriander
 es: Productos del cilantro, Cilantro, Coriandro
 fi: Korianterituotteet, Korianteri
@@ -73207,28 +73459,37 @@ hr: Proizvodi od korijandera
 ja: コリアンダー
 la: Coriandrum sativum
 lt: Kalendros produktai, kalendra
+nb: Korianderprodukt, Korianderprodukter, Koriander
 nl: Korianders
+nn: Korianderprodukt, Koriander
+sv: Korianderprodukter, Koriander
 wikidata:en: Q41611
 
 < en:Aromatic herbs
 < en:Coriander products
 en: Coriander leaves, Cilantro leaves
+da: Korianderblade
 de: Korianderblätter
 es: Hojas de cilantro, Hojas de coriandro
 fi: Korianterin lehdet
 fr: Feuilles de coriandre
 hr: Listovi korijandera
 lt: Kalendros lapai
+nb: Korianderblad
 nl: Korianderbladeren
+nn: Korianderblad
 pl: Liście kolendry
+sv: Korianderblad
 agribalyse_proxy_food_code:en: 11094
 agribalyse_proxy_food_name:en: Coriander, fresh
 agribalyse_proxy_food_name:fr: Coriandre, fraiche
 sales_format:en: weight, package
+wikidata:en: Q65523167
 
 < en:Coriander leaves
 < en:Fresh aromatic plants
 en: Fresh coriander leaves, Fresh coriander
+da: Friske korianderblade
 de: frische Korianderblätter
 es: Hojas de cilantro fresco
 fi: Tuoreet korianterin lehdet, Tuore korianteri
@@ -73236,6 +73497,7 @@ fr: Feuilles de coriandre fraîche, Coriandre fraiche
 hr: Svježe lišće korijandera
 lt: Švieži kalendros lapai
 nl: Verse korianderbladeren
+sv: Färska korianderblad
 agribalyse_food_code:en: 11094
 ciqual_food_code:en: 11094
 ciqual_food_name:en: Coriander, fresh
@@ -73244,28 +73506,33 @@ ciqual_food_name:fr: Coriandre, fraiche
 < en:Coriander leaves
 < en:Ground dried aromatic plants
 en: Ground coriander leaves, Ground dried coriander leaves
+da: Tørrede malede karianderblade
 de: trocken gemahlene Korianderblätter
 es: Hojas de cilantro seco molido
 fr: Coriandre en poudre, Coriandre moulue, Feuilles de coriandre sèche moulue
 hr: Mljeveno lišće korijandra
 lt: Džiovinti malti kalendros lapai
 nl: Gemalen gedroogde korianderbladeren
+sv: Torkade malna korianderblad
 
-< en:Coriander leaves
+< en:Coriander products
 < en:Potted aromatic plants
 en: Potted coriander
+da: Koriander i krukke
 de: Koriander im Topf
 es: Macetas de cilantro, Cilantro en maceta
 fr: Coriandre en pot
 hr: Korijander u loncima
 lt: Kalendra vazonėlyje
 nl: Korianders in pot
+sv: Koriander i kruka
 
 < en:Coriander products
 < en:Herbal teas
 < en:Spices
 en: Coriander seeds
 bg: Семена от кориандър
+da: Korianderfrø
 de: Koriandersamen
 es: Semillas de cilantro
 fr: Graines de coriandre
@@ -73273,10 +73540,12 @@ hr: Sjemenke korijandera
 lt: Kalendros sėklos
 nl: Korianderzaden
 pl: Nasiona kolendry, Owoce kolendry
+sv: Korianderfrö
 agribalyse_food_code:en: 11026
 ciqual_food_code:en: 11026
 ciqual_food_name:en: Coriander, seed
 ciqual_food_name:fr: Coriandre, graine
+wikidata:en: Q20856764
 
 < en:Aromatic herbs
 en: Dill
@@ -82996,6 +83265,7 @@ ciqual_food_name:fr: Soupe aux pois cassés, préemballée à réchauffer
 
 < en:Vegetable soups
 en: Leek and potato soups, Leek and potato soup
+da: Porre- og kartoffelsupper
 fr: Soupe aux poireaux et aux pommes de terre
 hr: Juha od poriluka i krumpira
 lt: Porų ir bulvių sriubos
@@ -84153,8 +84423,9 @@ ciqual_food_name:fr: Palet ou galette de légumes, préfrit, surgelé
 
 < en:Frozen foods
 < en:Rostis
-en: Frozen Rostis, Frozen Potatoes cakes, Frozen Potato cakes
-fr: Rostis surgelés, Galette de pomme de terre surgelée, Galette de pommes de terre surgelées
+en: Frozen potato rostis, Frozen Rostis, Frozen Potatoes cakes, Frozen Potato cakes
+da: Frosne røsti
+fr: Röstis de pommes de terre surgelés, Rostis surgelés, Galette de pomme de terre surgelée, Galette de pommes de terre surgelées
 
 < en:Frozen plant-based foods
 < en:Prepared vegetables
@@ -84279,6 +84550,7 @@ ciqual_food_name:fr: Gratin de pâtes
 #wikidata:en:
 
 < en:Gratins
+< en:Potato dishes
 en: Potato gratin
 de: Kartoffelgratin
 fi: perunagratiini
@@ -98299,12 +98571,6 @@ ciqual_food_name:fr: Pâtisserie (aliment moyen)
 wikidata:en: Q477248
 
 < en:Pastries
-en: Cinnamon rolls
-da: Kanelsnegle
-sv: Kanelbullar
-wikidata:en: Q254979
-
-< en:Pastries
 en: Strudels
 de: Strudel
 fr: Strudels
@@ -108629,6 +108895,7 @@ nl: Pepers in blik/pot
 < en:Prepared potatoes
 en: Canned potatoes, Canned potatoes
 bg: Картофи от консерва
+da: Dåsekartofler
 es: Patatas en conserva
 fr: Pommes de terre en conserve, Pommes de terre appertisées
 hr: Konzervirani krumpir
@@ -109059,7 +109326,7 @@ pt: Vegetais frescos
 ru: Свежие овощи
 sv: Färska grönsaker
 zh: 新鲜蔬菜
-comment:en: Fresh vegetable are products that are only plantbased. These products are fresh from the land and underwent a little processing (cleaning, peeling, chopping). Products can have added ingredients for preservation purposes (water, salt preservatives) if they are sold canned. Many of these products require extra processing before they can be eaten.
+comment:en: Fresh vegetable are products that are only plant-based. These products are fresh from the land and underwent a little processing (cleaning, peeling, chopping). Products can have added ingredients for preservation purposes (water, salt preservatives) if they are sold canned. Many of these products require extra processing before they can be eaten.
 gpc_category_code:en: 10000006
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of vegetables, combination of vegetables or fruit vegetables, which may be whole, chopped, cleaned and trimmed, but has not gone through any further manufacturing processes, such as reformed, cooked, dried, salted or smoked, however these products can be coated, in sauce, stuffed or filled. Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. These products have been treated or packaged in such a way as to extend their consumable life. Excludes products such as Vegetables with additional dough or grains, Frozen and Fresh Unprepared and Unprocessed Vegetables, all Prepared and Processed Vegetables.
 gpc_category_name:en: Vegetables - Unprepared/Unprocessed (Shelf Stable)
@@ -111833,6 +112100,8 @@ wikidata:en: Q28843386
 
 < en:Cereals and potatoes
 en: Potatoes and their products
+da: Kartofler og kartoffelprodukter
+sv: Potatis och potatisprodukter
 food_groups:en: en:potatoes
 pnns_group_2:en: Potatoes
 
@@ -111852,7 +112121,7 @@ nl: Aardappelen
 nl_be: Aardappelen
 pt: Batatas
 ru: Картофель
-sv: Potatisar, potatis
+sv: Potatisar, potatis, kartoffel
 tr: Patates
 agribalyse_proxy_food_code:en: 4008
 agribalyse_proxy_food_name:en: Potato, peeled, raw
@@ -111862,10 +112131,31 @@ intake24_category_code:en: POTS
 pnns_group_2:en: Potatoes
 sales_format:en: weight, package
 
+#################### Potato consistency/starchiness ####################
+
+< en:Potatoes
+en: Floury potatoes, Mealy potatoes, Starchy potatoes
+da: Melede kartofler
+de: Mehligkochende Kartoffeln
+sv: Mjöliga potatisar
+comment:en: Generally ca. 20-22% starch. Commonly used for baking or mashing.
+sales_format:en: weight, package
+wikidata:en: Q96603248
+
+< en:Potatoes
+en: Waxy potatoes
+da: Fastkogende kartofler
+de: Festkochende Kartoffeln
+sv: Fasta potatisar
+comment:en: Generally ca. 16-18% starch. Commonly used for boiling.
+sales_format:en: weight, package
+wikidata:en: Q96603169
+
 #################### Potato harvest ####################
 
 < en:Potatoes
 en: New potatoes
+da: Nye kartofler
 fi: Tuoreet perunat
 fr: Pommes de terre nouvelles, Pommes de terre fraîches, Pommes de terre primeurs, Pommes de terre de primeur
 hr: Mladi krumpir
@@ -111880,6 +112170,7 @@ sales_format:en: weight, package
 
 < en:Potatoes
 en: Peeled potatoes
+da: Skrællede kartofler
 fr: Pommes de terre sans peau
 agribalyse_food_code:en: 4008
 ciqual_food_code:en: 4008
@@ -111890,6 +112181,7 @@ ciqual_food_name:fr: Pomme de terre, sans peau, crue
 
 < en:Potatoes
 en: Agata potatoes
+da: Agata-kartofler
 de: Agata Kartoffeln
 fr: Pommes de terre Agata
 hr: Agata krumpir
@@ -111899,23 +112191,72 @@ wikidata:en: Q373973
 
 < en:Potatoes
 en: Allians potatoes
+da: Allians-kartofler
 fr: Pommes de terre Allians
 
 < en:Potatoes
+en: Almond potatoes, Mandel potatoes
+fi: Puikulaperuna
+la: Solanum tuberosum ‘Almond’
+nb: Mandelpoteter
+nn: Mandelpotetar, Mandelpoteter
+sv: Mandelpotatisar
+sales_format:en: weight, package
+wikidata:en: Q3183151
+
+< en:Almond potatoes
+en: Lapin Puikula
+xx: Lapin puikula
+fi: Lapin puikula
+origins:en: en:lapland-finland
+protected_name_file_number:en: PDO-FI-1390
+protected_name_type:en: pdo
+
+< en:Potatoes
 en: Amandine potatoes, Potatoes(Amandine)
+da: Amandine-kartofler
 fr: Pommes de terre amandine
 nl: Amandine aardappelen, Aardappelen(Amandine)
+ru: Картофель Амандин
+sv: Amandinepotatisar, Potatisar (Amandine)
+sales_format:en: weight, package
+wikidata:en: Q2841064
 
 < en:Potatoes
 en: Béa potatoes
-de: Béa Kortoffeln
+da: Béa-kartofler
+de: Béa Kartoffeln
 fr: Pommes de terre Béa
 hr: Béa krumpir
 nl: Béa aardappelen
 wikidata:en: Q2929373
 
 < en:Potatoes
+en: Beate potatoes
+da: Beate-kartofler
+de: Beate Kartoffeln
+hr: Beate krumpir
+nb: Beate-poteter
+nn: Beate-potetar, Beate-poteter
+sv: Beate-potatisar, Potatisar (Beate)
+comment:en: National potato of Norway, according to Norwegian Wikipedia.
+sales_format:en: weight, package
+wikidata:en: Q10427525
+
+< en:Potatoes
+en: Carolus potatoes
+da: Carolus-kartofler
+de: Carolus Kartoffeln
+hr: Carolus krumpir
+nb: Carolus-poteter
+nn: Carolus-potetar, Carolus-poteter
+sv: Carolus-potatisar, Potatisar (Carolus)
+comment:en: https://www.potatopro.com/potato-varieties/carolus
+sales_format:en: weight, package
+
+< en:Potatoes
 en: Charlotte potatoes
+da: Charlotte-kartofler
 fr: Pommes de terre Charlotte
 hr: Charlotte krumpir
 nl: Charlotte aardappel
@@ -111923,19 +112264,54 @@ sales_format:en: weight, package
 wikidata:en: Q1067085
 
 < en:Potatoes
+en: Gala potatoes
+da: Gala-kartofler
+de: Gala Kartoffeln
+fi: Gala (peruna)
+hr: Gala krumpir
+la: Solanum tuberosum ‘Gala’
+nb: Gala-poteter
+nn: Gala-potetar, Gala-poteter
+sv: Gala-potatisar, Potatisar (Gala)
+sales_format:en: weight, package
+wikidata:en: Q1491619
+
+< en:Potatoes
+en: Ratte potatoes
+da: Aspargeskartofler
+de: Ratte Kartoffeln
+fi: Ratte (peruna)
+hr: Ratte krumpir
+ko: 라트감자
+la: Solanum tuberosum ‘Ratte’
+nb: Ratte-poteter
+nn: Ratte-potetar, Ratte-poteter
+sv: Sparrispotatisar, Ratte-potatisar, Potatisar (Ratte)
+sales_format:en: weight, package
+wikidata:en: Q1422830
+
+< en:Potatoes
 en: Bintje potatoes
+da: Bintje-kartofler
 de: Bintje Kartoffeln
 fr: Pomme de terre Bintje
 hr: Bintje krumpir
+la: Solanum tuberosum ‘Bintje’
+nb: Bintje-poteter
 nl: Aardappelen (Bintje), Bintje aardappelen
+nn: Bintje-potetar, Bintje-poteter
+sv: Bintje-potatisar, Potatisar (Bintje)
 sales_format:en: package, weight
+wikidata:en: Q864084
 
 < en:Potatoes
 en: Ostara potatoes
+da: Ostara-kartofler
 fr: Pomme de terre Ostara
 
 < en:Potatoes
 en: Grenaille potatoes, Potatoes (Grenaille)
+da: Grenaille-kartofler
 de: Grenaille Kartoffeln
 fr: Pomme de terre Grenaille
 hr: Grenaille krumpir
@@ -111944,6 +112320,7 @@ sales_format:en: weight, package
 
 < en:Potatoes
 en: Jersey Royal potatoes
+da: Jersey Royal-kartofler
 origins:en: en:united-kingdom
 protected_name_file_number:en: PDO-GB-0027
 protected_name_type:en: pdo
@@ -111951,6 +112328,7 @@ wikidata:en: Q3177530
 
 < en:Potatoes
 en: Lady Christl potatoes
+da: Lady Christl-kartofler
 de: Lady Christl Kartoffeln
 fr: Pomme de terre Lady Christl
 hr: Lady christl krumpir
@@ -111958,14 +112336,17 @@ nl: Lady Christl aardappelen
 
 < en:Potatoes
 en: Louisiana potatoes
+da: Louisiana-kartofler
 fr: Pommes de terre Louisiana
 
 < en:Potatoes
 en: Nazca potatoes
+da: Nazca-kartofler
 fr: Pommes de terre Nazca
 
 < en:Potatoes
 en: Red potatoes
+da: Røde kartofler
 fr: Pommes de terres rouges
 nl: Rode aardappelen
 sales_format:en: package, weight
@@ -111974,12 +112355,14 @@ sales_format:en: package, weight
 
 < en:Potatoes
 en: Potatoes for steaming
+da: Kartofler til dampning
 es: Patatas para cocinar al vapor
 fr: Pommes de terre vapeur, Pommes de terre spéciales vapeur
 hr: Krumpir za kuhanje na pari
 
 < en:Potatoes
 en: Potatoes for gratin
+da: Kartofler til gratin
 fr: Pomme de terre gratin
 sales_format:en: weight, package
 
@@ -112018,15 +112401,18 @@ de: Speisekartoffeln
 
 < en:Potatoes
 en: Potatoes from Italy, Italian potatoes
+da: Kartofler fra Italien, Italienske kartofler
 de: Kartoffeln aus Italien
 fr: Pommes de terre d'Italie
 hr: Krompir iz italije
 nl: Aardappelen uit Italië
+sv: Potatis från Italien
 origins:en: en:italy
 #wikidata:en:
 
 < en:Potatoes from Italy
 en: Potatoes from Fucino
+da: Kartofler fra Fucino
 it: Patata del Fucino
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-01217-AM01, en: PGI-IT-01217
@@ -112060,6 +112446,7 @@ wikidata:en: Q3368654
 
 < en:Potatoes from Italy
 en: Potatoes from Sila
+da: Kartofler fra Sila
 it: Patata della Sila
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0643
@@ -112068,6 +112455,7 @@ wikidata:en: Q647212
 
 < en:Potatoes from Italy
 en: Potatoes from Alto Viterbese
+da: Kartofler fra Alto Viterbese
 it: Patata dell'Alto Viterbese
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-1038
@@ -112076,15 +112464,18 @@ wikidata:en: Q3368640
 
 < en:Potatoes
 en: Potatoes from Spain, Spanish potatoes
+da: Kartofler fra Spanien, Spanske kartofler
 de: Kartoffeln aus Spanien
 fr: Pommes de terre d'Espagne
 hr: Krumpir iz Španjolske
 nl: Aardappelen uit Spanje
+sv: Potatis från Spanien
 origins:en: en:spain
 #wikidata:en:
 
 < en:Potatoes from Spain
 en: Potatoes from Val de Picones
+da: Kartofler fra Val de Picones
 de: Kartoffeln aus Val de Picones
 fr: Pommes de terre de Val de Picones
 hr: Krumpir iz val de picones
@@ -112113,10 +112504,12 @@ nl: Aardappelen uit Val de Picones
 
 < en:Potatoes
 en: Potatoes from France, French potatoes
+da: Kartofler fra Frankrig, Franske kartofler
 de: Kartoffeln aus Frankreich
 fr: Pommes de terre françaises
 hr: Krumpir iz Francuske
 nl: Aardappelen uit Frankrijk, Franse aardappelen
+sv: Potatis från Frankrike
 origins:en: en:france
 sales_format:en: weight, package
 #wikidata:en:
@@ -112124,6 +112517,7 @@ sales_format:en: weight, package
 
 < en:Potatoes from France
 en: Potatoes from Île de Ré
+da: Kartofler fra Île de Ré
 fr: Pommes de terre de l'île de Ré, Pomme de terre de l'île de Ré
 origins:en: en:france, en:ile-de-re
 protected_name_file_number:en: PDO-FR-0065
@@ -112132,6 +112526,7 @@ wikidata:en: Q3395977
 
 < en:Potatoes from France
 en: Potatoes from Noirmoutier
+da: Kartofler fra Noirmoutier
 fr: Pomme de terre de Noirmoutier
 origins:en: en:noirmoutier
 protected_name_file_number:en: PGI-FR-02434
@@ -112139,6 +112534,7 @@ protected_name_type:en: pgi
 
 < en:Potatoes from France
 en: Potatoes from Merville
+da: Kartofler fra Merville
 fr: Pommes de terre de Merville
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-0197
@@ -117747,6 +118143,7 @@ es: Parrilladas de verduras congelada, Parrillada de verduras congelada
 < en:Frozen potatoes
 < en:Roasted potatoes
 en: Frozen baked potatoes
+da: Frosne bagte kartofler
 es: Patatas panadera congeladas
 fr: Pommes de terre cuites surgelées, pommes de terre cuites congelées
 hr: Smrznuti pečeni krumpir
@@ -118294,6 +118691,12 @@ fr: Pommes de terre surgelées, Pommes de terre surgelés
 hr: Smrznuti krumpir
 it: Patate surgelate
 nl: Diepvriesaardappelen
+
+< en:Frozen potatoes
+< en:Potato wedges
+en: Frozen potato wedges
+da: Frosne kartoffelbåde
+sv: Frysta potatisklyftor, Djupfryst klyftpotatis
 
 < en:Frozen potatoes
 en: Frozen cooked spiced potato chips, Frozen cooked spiced potato wedges, Frozen cooked spiced potato quarters
@@ -118954,7 +119357,14 @@ food_groups:en: en:pastries
 pnns_group_2:en: Pastries
 
 < en:Viennoiseries
+en: Cinnamon rolls
+da: Kanelsnegle
+sv: Kanelbullar
+wikidata:en: Q254979
+
+< en:Viennoiseries
 en: Breads with raisins, Raisin puff pastry, Viennese pastries, Viennese pastry
+da: Brød med rosiner, Rosinbrød
 de: Rosinenbrote, Rosinenbrot
 fi: rusinaleivät
 fr: Pains aux raisins, escargots aux raisins, escargot aux raisins, pain aux raisins
@@ -118963,6 +119373,7 @@ it: Pane con uvetta, Pane all'uvetta
 lt: Duona su razinomis, Razinų sluoksniuota tešla, Vienos pyragaičiai, Vienos tešla
 nl: Rozijnenbroden, Rozijnenbrood
 ro: Pâini cu stafide, Pâine cu stafide
+sv: Bröd med russin, Russinbröd
 agribalyse_food_code:en: 7720
 ciqual_food_code:en: 7720
 ciqual_food_name:en: Raisin puff pastry (Viennese pastries)
@@ -120061,7 +120472,7 @@ ciqual_food_name:fr: Nuggets soja et blé (convient aux véganes ou végétalien
 
 < en:Vegan products
 < en:Vegetarian nuggets
-en: Vegan nuggets, plant based nuggets
+en: Vegan nuggets, plant-based nuggets, plant based nuggets
 da: Veganske nuggets
 fr: Nuggets végans, Nuggets végétaux
 hr: Veganski nuggets
@@ -120262,7 +120673,7 @@ ciqual_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou vég�
 
 #Meat and fish categories are separated while Fish analogues is under meat analogue. This difference is intended, since fishes are animals and therefore considered as meat by vegetarians
 < en:Meat analogues
-en: Fish analogues, Plantbased fish
+en: Fish analogues, Plant-based fish, Plantbased fish
 hr: Analozi ribe
 nl: Plantaardige vissen
 pl: Zastępniki ryb
@@ -120718,6 +121129,7 @@ ciqual_food_name:en: Puffed salty snacks, made from maize/corn, with peanuts
 ciqual_food_name:fr: Biscuit apéritif soufflé, à base de maïs, à la cacahuète
 
 < en:Puffed salty snacks
+< en:Salty snacks made from potato
 en: Puffed salty snacks made from potato
 fr: Snacks apéritifs soufflés à base de pomme de terre, Biscuits apéritifs soufflés à base de pomme de terre, Biscuits apéritifs soufflés à base de pomme de terre type Monster Munch, Monster Munch
 agribalyse_food_code:en: 38106
@@ -120726,6 +121138,7 @@ ciqual_food_name:en: Puffed salty snacks, made from potato
 ciqual_food_name:fr: Biscuit apéritif soufflé, à base de pomme de terre
 
 < en:Puffed salty snacks
+< en:Salty snacks made from potato
 en: Puffed salty snacks made from potato and soy, Puffed salty snacks (potato/soy based)
 de: Gepuffte salzige Snacks (Kartoffel/Soja)
 fr: Snacks apéritifs soufflés à base de pomme de terre et de soja, Biscuit apéritif soufflé à base de pomme de terre et de soja, Biscuits apéritifs soufflés (à base de pomme de terre/soja)
@@ -121167,18 +121580,21 @@ wikidata:en: Q636056
 
 < en:Potatoes and their products
 en: Prepared potatoes
+da: Tilberedte kartofler
 fr: Pommes de terre préparées
 hr: Pripremljeni krumpir
 nl: Geprepareerde aardappelen
 
 < en:Prepared potatoes
 en: Precooked potatoes
+da: Forkogte karofler
 fr: Pommes de terres précuites
 hr: Prethodno kuhani krumpir
 nl: Voorgekookte aardappelen
 
 < en:Prepared potatoes
 en: Cooked potatoes, Boiled potatoes
+da: Kogte kartofler
 fr: Pommes de terre cuites
 hr: Kuhani krumpir
 nl: Gekookte aardappelen
@@ -121189,6 +121605,7 @@ intake24_category_code:en: BOLP
 
 < en:Prepared potatoes
 en: Boiled or steamed potatoes, Potatoes cooked in water or steam
+da: Kogte eller dampede kartofler
 fr: Pommes de terre bouillies ou à la vapeur, Pommes de terre cuites à l'eau ou à la vapeur
 agribalyse_proxy_food_code:en: 4014
 ciqual_proxy_food_code:en: 4014
@@ -121204,6 +121621,7 @@ ciqual_food_name:fr: Pomme de terre, bouillie/cuite à l'eau
 
 < en:Boiled or steamed potatoes
 en: Steamed potatoes, steamed cooked potatoes
+da: Dampkogte kartofler
 fr: Pommes de terre cuites à la vapeur, Pommes de terre à la vapeur
 agribalyse_proxy_food_code:en: 4014
 ciqual_proxy_food_code:en: 4014
@@ -121229,6 +121647,7 @@ ciqual_food_name:fr: Pomme de terre de conservation, sans peau, bouillie/cuite �
 
 < en:Prepared potatoes
 en: Baked peeled potatoes
+da: Bagte skrællede kartofler
 fr: Pommes de terre sans peau cuites au four
 agribalyse_food_code:en: 4002
 ciqual_food_code:en: 4002
@@ -121237,6 +121656,7 @@ ciqual_food_name:fr: Pomme de terre, sans peau, cuite au four
 
 < en:Prepared potatoes
 en: Roasted potatoes, Baked potatoes
+da: Stegte kartofler, Bagte kartofler
 fr: Pommes de terre rôties, Pommes de terre cuites au four
 agribalyse_food_code:en: 4026
 ciqual_food_code:en: 4026
@@ -121246,6 +121666,7 @@ intake24_category_code:en: BKDP
 
 < en:Prepared potatoes
 en: Sautéed Potatoes, Pan-fried potatoes
+da: Sauterede kartofler, Pandestegte kartofler
 fr: Pommes de terre sautées, Pommes de terre poêlées
 agribalyse_food_code:en: 4015
 ciqual_food_code:en: 4015
@@ -121255,6 +121676,7 @@ intake24_category_code:en: ROPOT
 
 < en:Prepared potatoes
 en: Fried potato cubes
+da: Ristede kartoffeltern
 fr: Pommes de terre rissolées
 agribalyse_proxy_food_code:en: 4043
 agribalyse_proxy_food_name:en: Potato, pre-fried into cubes, frozen, raw
@@ -121271,6 +121693,7 @@ ciqual_food_name:fr: Pomme de terre sautée/poêlée à la graisse de canard
 < en:Prepared potatoes
 < en:Steamed potatoes
 en: Vacuum-packed steamed potatoes
+da: Vakuumpakkede dampede kartofler
 fr: Pommes de terre vapeur sous vide
 agribalyse_food_code:en: 4014
 ciqual_food_code:en: 4014
@@ -121279,6 +121702,7 @@ ciqual_food_name:fr: Pomme de terre vapeur, sous vide
 
 < en:Potatoes and their products
 en: Potato preparations
+da: Kartoffeltilberedninger
 de: Kartoffelzubereitungen
 fi: Perunavalmisteet
 fr: Préparations à base de pommes de terre
@@ -121290,6 +121714,7 @@ intake24_category_code:en: WFFL
 
 < en:Potato preparations
 en: Rostis, Potatoes cakes, Potato cakes
+da: Røsti, Rösti
 de: Röstis
 fr: Rostis, Galette de pomme de terre, Galette de pommes de terre
 hr: Rostis
@@ -121297,6 +121722,7 @@ agribalyse_food_code:en: 4039
 ciqual_food_code:en: 4039
 ciqual_food_name:en: Rostis or Potatoes cake
 ciqual_food_name:fr: Rostis ou Galette de pomme de terre
+wikidata:en: Q627331
 
 < en:Potato preparations
 en: Bubble and squeak
@@ -121307,15 +121733,11 @@ en: Hash Browns, hashed browns
 ja: ハッシュポテト
 wikidata:en: Q152981
 
-< en:Frozen foods
-< en:Rostis
-en: Frozen potato rostis
-fr: Röstis de pommes de terre surgelés
-
 < en:Potato preparations
 < fr:Purées
 en: Mashed potatoes
 bg: Картофено пюре
+da: Kartoffelmos
 de: Kartoffelpüree, Kartoffelpürees, Kartoffelbreie, Stampfkartoffeln, Quetschkartoffeln
 fi: perunamuusit
 fr: Purées de pommes de terre, Purée de pommes de terre
@@ -121325,17 +121747,19 @@ ja: マッシュポテト
 nl: Aardappelpureeën
 nl_be: Aardappelpuree
 ru: Пюре картофельное, Картофельное пюре
-sv: Potatismos
+sv: Potatismos, Kartoffelmos
 ciqual_food_code:en: 4047
 ciqual_food_name:en: Mashed potatoes (average)
 ciqual_food_name:fr: Pomme de terre, purée (aliment moyen)
 food_groups:en: en:potatoes
 intake24_category_code:en: MASH
 pnns_group_2:en: Potatoes
+wikidata:en: Q322787
 
 # without milk, cream, butter
 < en:Mashed potatoes
 en: Pure mashed potatoes, Mashed potatoes 100%
+da: Ren kartoffelmos
 fr: Purées de pommes de terres pures, Purées de pommes de terre 100%, purée de pommes de terre 100%
 agribalyse_proxy_food_code:en: 4003
 ciqual_proxy_food_code:en: 4003
@@ -122292,6 +122716,12 @@ fr: Aliments et boissons d'Halloween
 hr: Hrana i piće za noć vještica
 it: Alimenti e bevande per Halloween
 nl: Halloween-levensmiddelen, Halloween-levensmiddel
+
+< en:Festive foods
+en: St. Patrick's Day foods and drinks
+da: Skt. Patricks dag mad- og drikkevarer
+sv: Sankt Patriks dag mat och dryckor
+#wikidata:en: Q181817  # about the day, not specifically foods/drinks/etc.
 
 < en:Meals
 en: Cheese soufflés, Cheese soufflé

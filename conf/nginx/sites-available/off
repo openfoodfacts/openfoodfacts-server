@@ -25,6 +25,7 @@ map $uri $apache_port {
 	# search (api or cgi)
 	"~*^/cgi/search\.pl" 8001;
 	"~*^/api/v[^/]*/search" 8001;
+	"~*^/cgi/opensearch\.pl" 8001;
 }
 
 # variables definitions for expiry headers are loaded from /etc/nginx/conf.d/expires-no-json-xml.conf
