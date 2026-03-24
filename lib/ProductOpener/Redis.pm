@@ -236,15 +236,9 @@ sub _read_user_streams() {
 		# If it is a non-fatal error then we will retry 10 times
 		if ($ok == -1) {
 			$retry_count += 1;
-			if ($retry_count < 10) {
-				$log->warn("[" . localtime() . "] Redis error. Retrying in 10s") if $log->is_warn();
-				sleep(10);
-				$ok = 1;
-			}
-			else {
-				$log->error("[" . localtime() . "] Redis error. Giving up after 10 retries") if $log->is_error();
-				$ok = 0;
-			}
+			$log->error("[" . localtime() . "] Redis error after $retry_count retries. Retrying in 1 minute")
+				if $log->is_error();
+			sleep(60);
 		}
 		else {
 			$retry_count = 0;
