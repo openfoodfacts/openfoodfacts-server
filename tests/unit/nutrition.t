@@ -2135,4 +2135,17 @@ compare_to_expected_results(
 		"prepared", "sort_sets_by_priority: prepared (priority 0) sorts before as_sold (priority 1)");
 }
 
+# test get_default_per_for_product function
+
+ProductOpener::Tags::retrieve_tags_taxonomy("categories");
+
+is(get_default_per_for_product({categories_tags => []}),
+	"100g", "get_default_per_for_product returns 100g for products with no category");
+is(get_default_per_for_product({categories_tags => ["en:beverages"]}),
+	"100ml", "get_default_per_for_product returns 100ml for beverages category");
+is(get_default_per_for_product({categories_tags => ["en:snacks"]}),
+	"100g", "get_default_per_for_product returns 100g for snacks category");
+is(get_default_per_for_product({categories_tags => ["en:rapeseed-oils"]}),
+	"100ml", "get_default_per_for_product returns 100ml for rapeseed oils category (inherited from oils)");
+
 done_testing();

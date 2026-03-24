@@ -1216,9 +1216,6 @@ CSS
 
 				my $input_set_ref = deep_get($input_sets_hash_ref, $source, $preparation, $per);
 
-				$log->debug("checking input set for nutrient", {source => $source, preparation => $preparation, per => $per, nid => $nid, input_set_ref => $input_set_ref}, defined => (defined $input_set_ref))
-					if $log->is_debug();
-
 				if (defined $input_set_ref) {
 
 					my $input_set_nutrient_ref = deep_get($input_set_ref, "nutrients", $nid);
@@ -1243,8 +1240,6 @@ CSS
 						# Record that we have nutrition data for this input set and this nutrient
 						# so that we can display the corresponding input set column and nutrient row
 						deep_set($input_sets{$preparation}, $per, 'shown', 1);
-						$nutrient_shown = 1;
-
 					}
 					# The - minus sign indicates that there is no value specified on the product
 					# Check if the nutrient is in the unspecified_nutrients array for this input set
@@ -1289,6 +1284,14 @@ CSS
 	if (not deep_exists(\%input_sets, 'prepared')) {
 		my $default_per = get_default_per_for_product($product_ref);
 		$input_sets{'as_sold'}{$default_per}{'shown'} = 1;
+		$log->debug(
+			"showing default per for as_sold as we don't have prepared nutrition data",
+			{
+				source => $source,
+				default_per => $default_per,
+				input_sets => \%input_sets
+			}
+		) if $log->is_debug();
 
 		# if the product is in a category that should have prepared nutrition data, we will check the checkbox for prepared nutrition data
 		if (has_category_that_should_have_prepared_nutrition_data($product_ref)) {

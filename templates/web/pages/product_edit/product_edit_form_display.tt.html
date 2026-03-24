@@ -231,7 +231,7 @@
                                  [% FOREACH preparation IN preparations %]
                                     [% FOREACH per IN pers %]
                                         <th id="col_[% preparation %]_[% per %]_value" class="nutrient_col nutrition_input_sets_${preparation}_${per}" [% IF NOT input_sets.$preparation.$per.shown %]style="display:none"[% END %]>
-                                            [% lang('preparation_' _ preparation) %] [% lang('per_' _ per) %]<br/>
+                                            [% lang('preparation_' _ preparation) %] [% lang('per_' _ per) %]
                                         </th>                                                                         
                                     [% END %]
                                 [% END %]

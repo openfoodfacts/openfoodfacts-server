@@ -944,7 +944,7 @@ sub get_default_per_for_product ($product_ref, $preparation = "as_sold") {
 	}
 
 	# beverage, sauces etc. default per is 100ml
-	my $category_default_per
+	my ($category_default_per, $matching_category)
 		= get_inherited_property_from_categories_tags($product_ref, "default_nutrition_${preparation}_per:en");
 	if (defined $category_default_per) {
 		$category_default_per = lc($category_default_per);

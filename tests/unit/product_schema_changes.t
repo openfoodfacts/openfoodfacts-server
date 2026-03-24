@@ -38,7 +38,7 @@ my @tests = (
 				"nova-group_100g" => 4,
 				"nova-group_serving" => 4,
 				"nova-group_unit" => "",
-				"nova-group_value" => 3,	
+				"nova-group_value" => 3,
 			},
 		}
 	],
