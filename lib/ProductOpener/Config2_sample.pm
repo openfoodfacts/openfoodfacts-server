@@ -56,6 +56,7 @@ BEGIN {
 		$oidc_client_id
 		$oidc_client_secret
 		%slack_hook_urls
+		$rate_limiter_enabled
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -132,5 +133,9 @@ $oidc_discovery_url = 'http://10.1.0.104:5600/realms/openfoodfacts/.well-known/o
 
 # associate each channel (by name) with its url (containing auth)
 %slack_hook_urls = ();
+
+# Rate limiter: set to 0 to disable application-level rate limiting
+# Rate limiting should preferably be done at infrastructure level (nginx, CDN, etc.)
+$rate_limiter_enabled = 1;
 
 1;

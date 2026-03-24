@@ -112,18 +112,20 @@ if (user_agent() =~ /apps-spreadsheets/) {
 
 $request_ref->{search} = 1;
 # rate_limiter_bucket is required for `check_and_update_rate_limits`
-# Rate limiting bucket assignment kept for potential infrastructure-level rate limiting
 $request_ref->{rate_limiter_bucket} = 'search';
 
-# Rate limiting has been removed from Product Opener (issue #13299)
-# check_and_update_rate_limits($request_ref);
+# Check and update rate limits if enabled (can be disabled via config flag)
+if ($rate_limiter_enabled) {
+	check_and_update_rate_limits($request_ref);
+}
 
-# if ($request_ref->{rate_limiter_blocking}) {
-#	# The request is blocked by the rate limiter:
-#	# return directly a "too many requests" empty HTML page
-#	display_too_many_requests_page_and_exit();
-#	return Apache2::Const::OK;
-# }
+# Block request if rate limit exceeded (only if rate limiter is enabled)
+if ($rate_limiter_enabled && $request_ref->{rate_limiter_blocking}) {
+	# The request is blocked by the rate limiter:
+	# return directly a "too many requests" empty HTML page
+	display_too_many_requests_page_and_exit();
+	return Apache2::Const::OK;
+}
 
 my $action = single_param('action') || 'display';
 

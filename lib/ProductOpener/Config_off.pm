@@ -61,6 +61,7 @@ BEGIN {
 		$events_password
 
 		$rate_limiter_blocking_enabled
+		$rate_limiter_enabled
 
 		$facets_kp_url
 		$redis_url
@@ -497,6 +498,10 @@ $folksonomy_url = $ProductOpener::Config2::folksonomy_url;
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
 $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
+# If $rate_limiter_enabled is set to 0, the rate limiter is completely disabled
+# Default is 1 (enabled) for backward compatibility
+$rate_limiter_enabled = $ProductOpener::Config2::rate_limiter_enabled;
 
 # server options
 
