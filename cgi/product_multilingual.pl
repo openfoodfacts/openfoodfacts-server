@@ -1215,6 +1215,10 @@ CSS
 				my $value_string = '';
 
 				my $input_set_ref = deep_get($input_sets_hash_ref, $source, $preparation, $per);
+
+				$log->debug("checking input set for nutrient", {source => $source, preparation => $preparation, per => $per, nid => $nid, input_set_ref => $input_set_ref}, defined => (defined $input_set_ref))
+					if $log->is_debug();
+
 				if (defined $input_set_ref) {
 
 					my $input_set_nutrient_ref = deep_get($input_set_ref, "nutrients", $nid);

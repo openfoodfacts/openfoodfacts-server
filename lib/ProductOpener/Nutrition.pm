@@ -2217,6 +2217,8 @@ Reference to the input set hash
 sub remove_empty_nutrient_values_and_set_unspecified_nutrients ($input_set_ref) {
 
 	if (exists $input_set_ref->{nutrients} and ref $input_set_ref->{nutrients} eq 'HASH') {
+		# nova-group was removed from the list of nutrients, but some products still have it in their input sets. We remove it if it's there.
+		delete $input_set_ref->{nutrients}{"nova-group"};
 		foreach my $nid (sort keys %{$input_set_ref->{nutrients}}) {
 			my $nutrient_ref = $input_set_ref->{nutrients}{$nid};
 			# If we have a modifier equal to a dash - , it means no value is specified on the packaging

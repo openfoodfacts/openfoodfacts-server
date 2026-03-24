@@ -25,6 +25,24 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 
 my @tests = (
 
+	# Nova group should be stripped
+	[
+		'1002-to-1003-new-nutrition-schema-nova-group',
+		1003,
+		{
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"nova-group" => 4,
+				"nova-group_100g" => 4,
+				"nova-group_serving" => 4,
+				"nova-group_unit" => "",
+				"nova-group_value" => 3,	
+			},
+		}
+	],
+
 	# Very old schema, some missing fields like nutrition_data_per
 	[
 		'998-to-1003-new-nutrition-schema-bug',
