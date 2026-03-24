@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.90.2](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.90.1...v2.90.2) (2026-03-24)
+
+
+### Bug Fixes
+
+* don't send open-search to priority apache ([#13318](https://github.com/openfoodfacts/openfoodfacts-server/issues/13318)) ([362a372](https://github.com/openfoodfacts/openfoodfacts-server/commit/362a37261f8ebb7350cc7c9bab47d3db0215b64b))
+
 ## [2.90.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.90.0...v2.90.1) (2026-03-24)
 
 
