@@ -65,7 +65,7 @@ BEGIN {
 		%server_options
 		$build_cache_repo
 		$rate_limiter_blocking_enabled
-		$rate_limiter_enabled
+		$rate_limiter_disabled
 		$crm_url
 		$crm_api_url
 		$crm_username
@@ -187,9 +187,9 @@ $build_cache_repo = $ENV{BUILD_CACHE_REPO};
 
 $rate_limiter_blocking_enabled = $ENV{RATE_LIMITER_BLOCKING_ENABLED} // "0";
 
-# Rate limiter enabled flag - set to 0 to disable application-level rate limiting
-# Default is 1 (enabled) for backward compatibility
-$rate_limiter_enabled = $ENV{RATE_LIMITER_ENABLED} // "1";
+# Rate limiter disabled flag - set to 1 to disable application-level rate limiting
+# Default is 0/undefined (rate limiting ENABLED) for production safety
+$rate_limiter_disabled = $ENV{RATE_LIMITER_DISABLED} // "0";
 
 # Odoo CRM
 $crm_url = $ENV{ODOO_CRM_URL};

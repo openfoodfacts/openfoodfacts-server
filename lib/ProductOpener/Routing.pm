@@ -230,8 +230,8 @@ sub analyze_request($request_ref) {
 		$request_ref->{no_index} = 1;
 	}
 
-	# Check and update rate limits if enabled (can be disabled via config flag)
-	if ($rate_limiter_enabled) {
+	# Check and update rate limits if not disabled (default is ENABLED for production safety)
+	if (not $rate_limiter_disabled) {
 		check_and_update_rate_limits($request_ref);
 	}
 
