@@ -1,7 +1,8 @@
 import csv
 import json
+from decimal import Decimal
 
-from data_provider.script.providers import build_csv
+from script.providers import build_csv
 
 
 BASE_COLUMNS = [
@@ -90,10 +91,10 @@ def test_build_csv_integration_writes_expected_rows(tmp_path):
     assert row["serving_size"] == "46 g"
     assert row["brands"] == "A BRAND INC."
     assert row["brand_owner"] == "OWNER"
-    assert row["preparationStateCode"] == "UNPREPARED"
+    assert row["preparationStateCode"] == "as_sold"
     assert row["quantity"] == "16 oz/454 g"
-    assert float(row["proteins per 100g/100ml in g"]) == 10.7
-    assert float(row["energy-kcal per 100g/100ml in kcal"]) == 109.0
+    assert Decimal(row["proteins per 100g/100ml in g"]) == Decimal("10.7")
+    assert Decimal(row["energy-kcal per 100g/100ml in kcal"]) == Decimal("109.0")
 
 
 def test_build_csv_integration_empty_values_are_written_as_empty_cells(tmp_path):
@@ -148,8 +149,8 @@ def test_build_csv_integration_empty_values_are_written_as_empty_cells(tmp_path)
 
     assert row["brands"] == ""
     assert row["brand_owner"] == ""
-    assert row["preparationStateCode"] == ""
+    assert row["preparationStateCode"] == "as_sold"
     assert row["quantity"] == ""
     assert row["ingredients"] == ""
     assert row["serving_size"] == ""
-    assert float(row["proteins per 100g/100ml in g"]) == 10.7
+    assert Decimal(row["proteins per 100g/100ml in g"]) == Decimal("10.7")

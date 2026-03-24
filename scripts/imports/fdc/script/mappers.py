@@ -56,7 +56,7 @@ def parse_product_brand_data(brand_value: str) -> str:
 
 def parse_product_code(code: str) -> str | None:
     parsed_code = code.replace("-", "").replace(" ", "")
-    code_pattern = re.compile(r"^[0-9]+$")
+    code_pattern = re.compile(r"^\d+$")
 
     if not code_pattern.match(parsed_code):
         parsed_code = None

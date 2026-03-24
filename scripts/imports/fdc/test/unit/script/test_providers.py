@@ -4,7 +4,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from data_provider.script.providers import (
+from script.providers import (
     build_csv,
     build_csv_columns,
     build_nutrients_mapping,
@@ -100,8 +100,8 @@ def test_build_csv_columns():
     assert wanted_columns == set(res[len(BASE_COLUMNS) :])
 
 
-@patch("data_provider.script.providers.parse_product")
-@patch("data_provider.script.providers.ijson.items")
+@patch("script.providers.parse_product")
+@patch("script.providers.ijson.items")
 def test_build_csv(
     mock_ijson_items, mock_parse_product, tmp_path, mapping_file, category_mapping_file
 ):
@@ -131,8 +131,8 @@ def test_build_csv(
     )
 
 
-@patch("data_provider.script.providers.zipfile.ZipFile")
-@patch("data_provider.script.providers.urllib.request.urlretrieve")
+@patch("script.providers.zipfile.ZipFile")
+@patch("script.providers.urllib.request.urlretrieve")
 def test_download_fdc_json_export(zip_mock_urlretrieve, mock_zipfile, zip_setup):
     extract_path, unzip_dir, extracted_name, downloaded_name = zip_setup
     mock_zipfile.return_value = _make_mock_zip(extracted_name)
@@ -147,8 +147,8 @@ def test_download_fdc_json_export(zip_mock_urlretrieve, mock_zipfile, zip_setup)
     )
 
 
-@patch("data_provider.script.providers.zipfile.ZipFile")
-@patch("data_provider.script.providers.urllib.request.urlretrieve")
+@patch("script.providers.zipfile.ZipFile")
+@patch("script.providers.urllib.request.urlretrieve")
 def test_download_fdc_json_export_raises_when_zip_has_no_json(
     _, mock_zipfile, zip_setup
 ):

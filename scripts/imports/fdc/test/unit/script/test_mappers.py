@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch
 
-from data_provider.script.mappers import (
+from script.mappers import (
     parse_product_base_data,
     parse_product_nutrients,
     find_preferred_entry,
@@ -132,7 +132,7 @@ def product_same_match():
 
 
 def test_parse_product_base_data(base_product):
-    with patch("data_provider.script.mappers.convert_to_seconds") as mock_api:
+    with patch("script.mappers.convert_to_seconds") as mock_api:
         mock_api.return_value = CONVERTED_PRODUCT_TIMESTAMP
         res = parse_product_base_data(base_product)
 
@@ -167,7 +167,7 @@ def test_parse_product_base_data(base_product):
 
 
 def test_parse_product_base_data_normalise_fields(base_product_values_to_handle):
-    with patch("data_provider.script.mappers.convert_to_seconds") as mock_api:
+    with patch("script.mappers.convert_to_seconds") as mock_api:
         mock_api.return_value = CONVERTED_PRODUCT_TIMESTAMP
         res = parse_product_base_data(base_product_values_to_handle)
 
@@ -182,17 +182,17 @@ def test_parse_product_nutrients(nutrients_product):
     res = parse_product_nutrients(nutrients_product, NUTRIENTS_MAPPING)
 
     wanted_protein_field = f"proteins per 100g/100ml in {PROTEIN_UNIT}"
-    wanted_energyKcal_field = f"energy-kcal per 100g/100ml in {ENERGY_UNIT}"
+    wanted_energy_kcal_field = f"energy-kcal per 100g/100ml in {ENERGY_UNIT}"
     wanted_vitamin_c_field = (
         f"Vitamin C, total ascorbic acid per 100g/100ml in {VITAMIN_C_UNIT}"
     )
     assert {
         wanted_protein_field,
-        wanted_energyKcal_field,
+        wanted_energy_kcal_field,
         wanted_vitamin_c_field,
     } == set(res.keys())
     assert res.get(wanted_protein_field) == PROTEIN_AMOUNT
-    assert res.get(wanted_energyKcal_field) == ENERGY_AMOUNT
+    assert res.get(wanted_energy_kcal_field) == ENERGY_AMOUNT
     assert res.get(wanted_vitamin_c_field) == VITAMIN_C_AMOUNT
 
 
@@ -212,7 +212,7 @@ def test_parse_product_base_data_preparation_state_code_not_prepared_defaults_to
         "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
         "preparationStateCode": "READY_TO_EAT",
     }
-    with patch("data_provider.script.mappers.convert_to_seconds"):
+    with patch("script.mappers.convert_to_seconds"):
         res = parse_product_base_data(product)
 
     assert res.get("preparationStateCode") == "as_sold"  # Non prepared values default to as_sold
@@ -226,7 +226,7 @@ def test_parse_product_base_data_preparation_state_code_empty_defaults_to_as_sol
         "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
         "preparationStateCode": "",
     }
-    with patch("data_provider.script.mappers.convert_to_seconds"):
+    with patch("script.mappers.convert_to_seconds"):
         res = parse_product_base_data(product)
 
     assert res.get("preparationStateCode") == "as_sold"  
@@ -240,7 +240,7 @@ def test_parse_product_base_data_preparation_state_code_whitespace_defaults_to_a
         "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
         "preparationStateCode": "   ",
     }
-    with patch("data_provider.script.mappers.convert_to_seconds"):
+    with patch("script.mappers.convert_to_seconds"):
         res = parse_product_base_data(product)
 
     assert res.get("preparationStateCode") == "as_sold" 
@@ -254,7 +254,7 @@ def test_parse_product_base_data_preparation_state_code_prepared_is_kept():
         "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
         "preparationStateCode": "prepared",
     }
-    with patch("data_provider.script.mappers.convert_to_seconds"):
+    with patch("script.mappers.convert_to_seconds"):
         res = parse_product_base_data(product)
 
     assert res.get("preparationStateCode") == "prepared"  
@@ -268,7 +268,7 @@ def test_parse_product_base_data_quantity_empty_returns_none():
         "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
         "packageWeight": "",
     }
-    with patch("data_provider.script.mappers.convert_to_seconds"):
+    with patch("script.mappers.convert_to_seconds"):
         res = parse_product_base_data(product)
 
     assert res.get("quantity") is None
@@ -282,7 +282,7 @@ def test_parse_product_base_data_quantity_whitespace_returns_none():
         "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
         "packageWeight": "   ",
     }
-    with patch("data_provider.script.mappers.convert_to_seconds"):
+    with patch("script.mappers.convert_to_seconds"):
         res = parse_product_base_data(product)
 
     assert res.get("quantity") is None
@@ -296,7 +296,7 @@ def test_parse_product_base_data_brand_owner_empty_returns_none():
         "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
         "brandOwner": "",
     }
-    with patch("data_provider.script.mappers.convert_to_seconds"):
+    with patch("script.mappers.convert_to_seconds"):
         res = parse_product_base_data(product)
 
     assert res.get("brand_owner") is None
@@ -310,7 +310,7 @@ def test_parse_product_base_data_brand_owner_whitespace_returns_none():
         "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
         "brandOwner": "   ",
     }
-    with patch("data_provider.script.mappers.convert_to_seconds"):
+    with patch("script.mappers.convert_to_seconds"):
         res = parse_product_base_data(product)
 
     assert res.get("brand_owner") is None

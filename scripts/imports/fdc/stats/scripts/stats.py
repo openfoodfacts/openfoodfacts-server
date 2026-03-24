@@ -15,6 +15,8 @@ from pathlib import Path
 
 import ijson
 
+BRANDED_FOODS_PATH = "BrandedFoods.item"
+
 
 def set_up_config():
 	current_folder = Path(__file__).parent
@@ -28,7 +30,7 @@ def create_nutrient_appearance_json(input_json: Path, output_json: Path) -> None
 	nutrient_counts = Counter()
 
 	with input_json.open("rb") as f:
-		for product in ijson.items(f, "BrandedFoods.item"):
+		for product in ijson.items(f, BRANDED_FOODS_PATH):
 			for nutrient_entry in product.get("foodNutrients", []):
 				nutrient_name = nutrient_entry.get("nutrient", {}).get("name", "").strip() 
 				if nutrient_name:
@@ -51,7 +53,7 @@ def create_nutrient_appearance_json_by_product(input_json: Path, output_json: Pa
     nutrient_counts = Counter()
 
     with input_json.open("rb") as f:
-        for product in ijson.items(f, "BrandedFoods.item"):
+        for product in ijson.items(f, BRANDED_FOODS_PATH):
             product_nutrients = set()
             for nutrient_entry in product.get("foodNutrients", []):
                 nutrient_name = nutrient_entry.get("nutrient", {}).get("name", "").strip()
@@ -79,7 +81,7 @@ def create_schema_json(input_json: Path, output_json: Path) -> None:
 	nutrient_key_presence_count = Counter()
 
 	with input_json.open("rb") as f:
-		for product in ijson.items(f, "BrandedFoods.item"):
+		for product in ijson.items(f, BRANDED_FOODS_PATH):
 			for key in product.keys():
 				product_key_presence_count[key] += 1
 
@@ -124,7 +126,7 @@ def create_missing_nutrients_csv(
 	sample_product_name = {}
 
 	with input_json.open("rb") as f:
-		for product in ijson.items(f, "BrandedFoods.item"):
+		for product in ijson.items(f, BRANDED_FOODS_PATH):
 			product_name = product.get("description", "").replace("\n", " ").replace("\r", " ")
 
 			for nutrient_entry in product.get("foodNutrients", []):
