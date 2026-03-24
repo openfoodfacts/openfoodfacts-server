@@ -433,7 +433,7 @@
                "modifier" : "~",
                "source" : "estimate",
                "source_index" : 1,
-               "source_per" : "100g",
+               "source_per" : "100ml",
                "unit" : "g",
                "value" : 2.25
             },
@@ -462,7 +462,7 @@
                "modifier" : "~",
                "source" : "estimate",
                "source_index" : 1,
-               "source_per" : "100g",
+               "source_per" : "100ml",
                "unit" : "%",
                "value" : 70.5
             },
@@ -470,7 +470,7 @@
                "modifier" : "~",
                "source" : "estimate",
                "source_index" : 1,
-               "source_per" : "100g",
+               "source_per" : "100ml",
                "unit" : "%",
                "value" : 70.5
             },
@@ -573,9 +573,9 @@
                   "value_string" : "70.5"
                }
             },
-            "per" : "100g",
+            "per" : "100ml",
             "per_quantity" : "100",
-            "per_unit" : "g",
+            "per_unit" : "ml",
             "preparation" : "as_sold",
             "source" : "estimate",
             "source_description" : "Estimate from ingredients"
