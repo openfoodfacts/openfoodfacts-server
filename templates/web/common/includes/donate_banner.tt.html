@@ -2,7 +2,7 @@
 
 [% banner_main = BLOCK %]
 
-[% IF product_type == "food" %]
+[% IF "divinfood_2026" == "divinfood_deactivated" && product_type == "food" %]
 
 <section id="donation-banner-top" class="row" style="position:relative;background-color:#eeffee;padding:2rem;flex-direction:column;">
   [% IF lc == "fr" %]
@@ -446,11 +446,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('divinfood_survey_2026', 1, 180);
+    setBannerCookie('donation_march_2026', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('divinfood_survey_2026') !== '') {
+  if (getBannerCookie('donation_march_2026') !== '') {
     bannerID.style.display = 'none';
   } else {
     bannerID.style.display = 'flex';
