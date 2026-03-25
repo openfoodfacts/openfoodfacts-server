@@ -470,7 +470,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
 
-	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per',
+	foreach my $field ('product_name', 'generic_name', @fields,'nutrition_data_prepared_per',
 		'serving_size', 'allergens', 'traces', 'ingredients_text', 'origin', 'packaging_text', 'lang')
 	{
 
@@ -483,6 +483,20 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			push @param_fields, $field;
 		}
 	}
+	# Handle nutrition_data_per checkboxes properly
+	# HTML unchecked checkboxes submit nothing, so we use hidden sentinel fields
+	foreach my $preparation ('100g', 'serving') {
+    	if (defined single_param('nutrition_data_per_' . $preparation . '_displayed')) {
+        	if (defined single_param('nutrition_data_per_' . $preparation)) {
+            	$product_ref->{'nutrition_data_per'} = $preparation;
+        	}
+     	}
+	}
+# If neither checkbox was checked, set to undef
+if (!defined single_param('nutrition_data_per_100g') 
+    && !defined single_param('nutrition_data_per_serving')) {
+    delete $product_ref->{'nutrition_data_per'};
+}
 
 	# Move all data and photos from one language to another?
 	if ($User{moderator}) {
