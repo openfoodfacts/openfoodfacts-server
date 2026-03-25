@@ -63,7 +63,7 @@ use vars @EXPORT_OK;
 use Log::Any qw($log);
 
 use ProductOpener::Tags
-	qw/compute_field_tags get_minimal_tags_subset get_property @writable_tags_fields_list display_comma_separated_tags_list_in_lc/;
+	qw/compute_field_tags get_minimal_tags_subset get_property @writable_tags_fields_list display_comma_separated_tags_list_in_lc display_taxonomy_tag/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
@@ -975,6 +975,11 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 						if $log->is_debug;
 					delete $product_ref->{$field};
 				}
+			}
+
+			# Generate brands field
+			if ($tagtype eq "brands") {
+				$product_ref->{$tagtype} = join(", ", map { display_taxonomy_tag("en", $tagtype, $_) } @{$product_ref->{$tagtype . "_tags"}});
 			}
 		}
 	}
