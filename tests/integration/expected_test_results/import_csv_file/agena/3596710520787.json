@@ -1,0 +1,1377 @@
+{
+   "_id" : "3596710520787",
+   "_keywords" : [
+      "auchan",
+      "egg"
+   ],
+   "abbreviated_product_name_fr" : "Auchan oeufs dates du jour de ponte",
+   "abbreviated_product_name_fr_imported" : "Auchan oeufs dates du jour de ponte",
+   "added_countries_tags" : [],
+   "additives_n" : 0,
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "allergens" : "en:eggs",
+   "allergens_from_ingredients" : "ŒUFS , ŒUFS",
+   "allergens_from_user" : "(lc) en:eggs",
+   "allergens_hierarchy" : [
+      "en:eggs"
+   ],
+   "allergens_imported" : "en:eggs",
+   "allergens_lc" : "lc",
+   "allergens_tags" : [
+      "en:eggs"
+   ],
+   "amino_acids_tags" : [],
+   "brands" : "Auchan",
+   "brands_hierarchy" : [
+      "xx:Auchan"
+   ],
+   "brands_imported" : "Auchan",
+   "brands_lc" : "xx",
+   "brands_tags" : [
+      "xx:auchan"
+   ],
+   "categories" : "en:eggs",
+   "categories_hierarchy" : [
+      "en:eggs-and-their-products",
+      "en:farming-products",
+      "en:eggs"
+   ],
+   "categories_imported" : "en:eggs",
+   "categories_lc" : "lc",
+   "categories_properties" : {
+      "agribalyse_proxy_food_code:en" : "22000"
+   },
+   "categories_properties_tags" : [
+      "all-products",
+      "categories-known",
+      "agribalyse-food-code-unknown",
+      "agribalyse-proxy-food-code-22000",
+      "agribalyse-proxy-food-code-known",
+      "ciqual-food-code-unknown",
+      "agribalyse-known",
+      "agribalyse-22000"
+   ],
+   "categories_tags" : [
+      "en:eggs-and-their-products",
+      "en:farming-products",
+      "en:eggs"
+   ],
+   "checkers_tags" : [],
+   "code" : "3596710520787",
+   "codes_tags" : [
+      "code-13",
+      "3596710520xxx",
+      "359671052xxxx",
+      "35967105xxxxx",
+      "3596710xxxxxx",
+      "359671xxxxxxx",
+      "35967xxxxxxxx",
+      "3596xxxxxxxxx",
+      "359xxxxxxxxxx",
+      "35xxxxxxxxxxx",
+      "3xxxxxxxxxxxx"
+   ],
+   "complete" : 0,
+   "completeness" : 0.5,
+   "correctors_tags" : [],
+   "countries" : "en:france",
+   "countries_hierarchy" : [
+      "en:france"
+   ],
+   "countries_imported" : "en:france",
+   "countries_lc" : "lc",
+   "countries_tags" : [
+      "en:france"
+   ],
+   "created_t" : "--ignore--",
+   "creator" : "test-user",
+   "data_quality_bugs_tags" : [],
+   "data_quality_completeness_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:ingredients-fr-photo-to-be-selected",
+      "en:ingredients-fr-completed",
+      "en:ingredients-completed-at-least-for-one-language",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutrition-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:traceability-codes-to-be-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-completed",
+      "en:brands-completed",
+      "en:expiration-date-to-be-completed"
+   ],
+   "data_quality_dimensions" : {
+      "accuracy" : {
+         "overall" : "0.00"
+      },
+      "completeness" : {
+         "general_information" : "0.40",
+         "ingredients" : "0.50",
+         "nutrition" : "0.67",
+         "overall" : "0.46",
+         "packaging" : "0.33"
+      }
+   },
+   "data_quality_errors_tags" : [],
+   "data_quality_info_tags" : [
+      "en:no-packaging-data",
+      "en:ingredients-percent-analysis-ok",
+      "en:nutriscore-grade-producer-same-ok",
+      "en:food-groups-1-known",
+      "en:food-groups-2-known",
+      "en:food-groups-3-unknown"
+   ],
+   "data_quality_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:ingredients-fr-photo-to-be-selected",
+      "en:ingredients-fr-completed",
+      "en:ingredients-completed-at-least-for-one-language",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-completed",
+      "en:nutrition-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:traceability-codes-to-be-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-completed",
+      "en:brands-completed",
+      "en:expiration-date-to-be-completed",
+      "en:no-packaging-data",
+      "en:ingredients-percent-analysis-ok",
+      "en:nutriscore-grade-producer-same-ok",
+      "en:food-groups-1-known",
+      "en:food-groups-2-known",
+      "en:food-groups-3-unknown",
+      "en:ingredients-unknown-score-above-5",
+      "en:ingredients-100-percent-unknown",
+      "en:ingredients-ingredient-tag-length-greater-than-50",
+      "en:ingredients-ingredient-tag-length-greater-than-100",
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
+   ],
+   "data_quality_warnings_tags" : [
+      "en:ingredients-unknown-score-above-5",
+      "en:ingredients-100-percent-unknown",
+      "en:ingredients-ingredient-tag-length-greater-than-50",
+      "en:ingredients-ingredient-tag-length-greater-than-100",
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
+   ],
+   "data_sources" : "Producers, Producer - auchan-apaw",
+   "data_sources_imported" : "Producers, Producer - auchan-apaw",
+   "data_sources_tags" : [
+      "producers",
+      "producer-auchan-apaw"
+   ],
+   "ecoscore_tags" : [
+      "b"
+   ],
+   "editors_tags" : [
+      "test-user"
+   ],
+   "entry_dates_tags" : "--ignore--",
+   "environmental_score_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               {
+                  "origin" : "en:unknown",
+                  "percent" : 100.0
+               }
+            ],
+            "epi_score" : 0,
+            "epi_value" : -5,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_scores" : {
+               "ad" : 0.0,
+               "al" : 0.0,
+               "at" : 0.0,
+               "ax" : 0.0,
+               "ba" : 0.0,
+               "be" : 0.0,
+               "bg" : 0.0,
+               "ch" : 0.0,
+               "cy" : 0.0,
+               "cz" : 0.0,
+               "de" : 0.0,
+               "dk" : 0.0,
+               "dz" : 0.0,
+               "ee" : 0.0,
+               "eg" : 0.0,
+               "es" : 0.0,
+               "fi" : 0.0,
+               "fo" : 0.0,
+               "fr" : 0.0,
+               "gg" : 0.0,
+               "gi" : 0.0,
+               "gr" : 0.0,
+               "hr" : 0.0,
+               "hu" : 0.0,
+               "ie" : 0.0,
+               "il" : 0.0,
+               "im" : 0.0,
+               "is" : 0.0,
+               "it" : 0.0,
+               "je" : 0.0,
+               "lb" : 0.0,
+               "li" : 0.0,
+               "lt" : 0.0,
+               "lu" : 0.0,
+               "lv" : 0.0,
+               "ly" : 0.0,
+               "ma" : 0.0,
+               "mc" : 0.0,
+               "md" : 0.0,
+               "me" : 0.0,
+               "mk" : 0.0,
+               "mt" : 0.0,
+               "nl" : 0.0,
+               "no" : 0.0,
+               "pl" : 0.0,
+               "ps" : 0.0,
+               "pt" : 0.0,
+               "ro" : 0.0,
+               "rs" : 0.0,
+               "se" : 0.0,
+               "si" : 0.0,
+               "sj" : 0.0,
+               "sk" : 0.0,
+               "sm" : 0.0,
+               "sy" : 0.0,
+               "tn" : 0.0,
+               "tr" : 0.0,
+               "ua" : 0.0,
+               "uk" : 0.0,
+               "us" : 0.0,
+               "va" : 0.0,
+               "world" : 0.0,
+               "xk" : 0.0
+            },
+            "transportation_values" : {
+               "ad" : 0,
+               "al" : 0,
+               "at" : 0,
+               "ax" : 0,
+               "ba" : 0,
+               "be" : 0,
+               "bg" : 0,
+               "ch" : 0,
+               "cy" : 0,
+               "cz" : 0,
+               "de" : 0,
+               "dk" : 0,
+               "dz" : 0,
+               "ee" : 0,
+               "eg" : 0,
+               "es" : 0,
+               "fi" : 0,
+               "fo" : 0,
+               "fr" : 0,
+               "gg" : 0,
+               "gi" : 0,
+               "gr" : 0,
+               "hr" : 0,
+               "hu" : 0,
+               "ie" : 0,
+               "il" : 0,
+               "im" : 0,
+               "is" : 0,
+               "it" : 0,
+               "je" : 0,
+               "lb" : 0,
+               "li" : 0,
+               "lt" : 0,
+               "lu" : 0,
+               "lv" : 0,
+               "ly" : 0,
+               "ma" : 0,
+               "mc" : 0,
+               "md" : 0,
+               "me" : 0,
+               "mk" : 0,
+               "mt" : 0,
+               "nl" : 0,
+               "no" : 0,
+               "pl" : 0,
+               "ps" : 0,
+               "pt" : 0,
+               "ro" : 0,
+               "rs" : 0,
+               "se" : 0,
+               "si" : 0,
+               "sj" : 0,
+               "sk" : 0,
+               "sm" : 0,
+               "sy" : 0,
+               "tn" : 0,
+               "tr" : 0,
+               "ua" : 0,
+               "uk" : 0,
+               "us" : 0,
+               "va" : 0,
+               "world" : 0,
+               "xk" : 0
+            },
+            "values" : {
+               "ad" : -5,
+               "al" : -5,
+               "at" : -5,
+               "ax" : -5,
+               "ba" : -5,
+               "be" : -5,
+               "bg" : -5,
+               "ch" : -5,
+               "cy" : -5,
+               "cz" : -5,
+               "de" : -5,
+               "dk" : -5,
+               "dz" : -5,
+               "ee" : -5,
+               "eg" : -5,
+               "es" : -5,
+               "fi" : -5,
+               "fo" : -5,
+               "fr" : -5,
+               "gg" : -5,
+               "gi" : -5,
+               "gr" : -5,
+               "hr" : -5,
+               "hu" : -5,
+               "ie" : -5,
+               "il" : -5,
+               "im" : -5,
+               "is" : -5,
+               "it" : -5,
+               "je" : -5,
+               "lb" : -5,
+               "li" : -5,
+               "lt" : -5,
+               "lu" : -5,
+               "lv" : -5,
+               "ly" : -5,
+               "ma" : -5,
+               "mc" : -5,
+               "md" : -5,
+               "me" : -5,
+               "mk" : -5,
+               "mt" : -5,
+               "nl" : -5,
+               "no" : -5,
+               "pl" : -5,
+               "ps" : -5,
+               "pt" : -5,
+               "ro" : -5,
+               "rs" : -5,
+               "se" : -5,
+               "si" : -5,
+               "sj" : -5,
+               "sk" : -5,
+               "sm" : -5,
+               "sy" : -5,
+               "tn" : -5,
+               "tr" : -5,
+               "ua" : -5,
+               "uk" : -5,
+               "us" : -5,
+               "va" : -5,
+               "world" : -5,
+               "xk" : -5
+            },
+            "warning" : "origins_are_100_percent_unknown"
+         },
+         "packaging" : {
+            "value" : -15,
+            "warning" : "packaging_data_missing"
+         },
+         "production_system" : {
+            "labels" : [],
+            "value" : 0,
+            "warning" : "no_label"
+         },
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_proxy_food_code" : "22000",
+         "co2_agriculture" : 1.49,
+         "co2_consumption" : 0.0806,
+         "co2_distribution" : 0.00933,
+         "co2_packaging" : 0.109,
+         "co2_processing" : 8.03e-05,
+         "co2_total" : 1.88,
+         "co2_transportation" : 0.189,
+         "code" : "22000",
+         "dqr" : "2.4382721582238007",
+         "ef_agriculture" : 0.23,
+         "ef_consumption" : 0.00329,
+         "ef_distribution" : 0.00243,
+         "ef_packaging" : 0.0105,
+         "ef_processing" : 2.43e-05,
+         "ef_total" : 0.26,
+         "ef_transportation" : 0.0146,
+         "is_beverage" : 0,
+         "name_en" : "Egg, raw",
+         "name_fr" : "Oeuf, cru",
+         "score" : 82,
+         "version" : "3.2"
+      },
+      "grade" : "b",
+      "grades" : {
+         "ad" : "b",
+         "al" : "b",
+         "at" : "b",
+         "ax" : "b",
+         "ba" : "b",
+         "be" : "b",
+         "bg" : "b",
+         "ch" : "b",
+         "cy" : "b",
+         "cz" : "b",
+         "de" : "b",
+         "dk" : "b",
+         "dz" : "b",
+         "ee" : "b",
+         "eg" : "b",
+         "es" : "b",
+         "fi" : "b",
+         "fo" : "b",
+         "fr" : "b",
+         "gg" : "b",
+         "gi" : "b",
+         "gr" : "b",
+         "hr" : "b",
+         "hu" : "b",
+         "ie" : "b",
+         "il" : "b",
+         "im" : "b",
+         "is" : "b",
+         "it" : "b",
+         "je" : "b",
+         "lb" : "b",
+         "li" : "b",
+         "lt" : "b",
+         "lu" : "b",
+         "lv" : "b",
+         "ly" : "b",
+         "ma" : "b",
+         "mc" : "b",
+         "md" : "b",
+         "me" : "b",
+         "mk" : "b",
+         "mt" : "b",
+         "nl" : "b",
+         "no" : "b",
+         "pl" : "b",
+         "ps" : "b",
+         "pt" : "b",
+         "ro" : "b",
+         "rs" : "b",
+         "se" : "b",
+         "si" : "b",
+         "sj" : "b",
+         "sk" : "b",
+         "sm" : "b",
+         "sy" : "b",
+         "tn" : "b",
+         "tr" : "b",
+         "ua" : "b",
+         "uk" : "b",
+         "us" : "b",
+         "va" : "b",
+         "world" : "b",
+         "xk" : "b"
+      },
+      "missing" : {
+         "labels" : 1,
+         "origins" : 1,
+         "packagings" : 1
+      },
+      "missing_data_warning" : 1,
+      "missing_key_data" : 1,
+      "score" : 62,
+      "scores" : {
+         "ad" : 62,
+         "al" : 62,
+         "at" : 62,
+         "ax" : 62,
+         "ba" : 62,
+         "be" : 62,
+         "bg" : 62,
+         "ch" : 62,
+         "cy" : 62,
+         "cz" : 62,
+         "de" : 62,
+         "dk" : 62,
+         "dz" : 62,
+         "ee" : 62,
+         "eg" : 62,
+         "es" : 62,
+         "fi" : 62,
+         "fo" : 62,
+         "fr" : 62,
+         "gg" : 62,
+         "gi" : 62,
+         "gr" : 62,
+         "hr" : 62,
+         "hu" : 62,
+         "ie" : 62,
+         "il" : 62,
+         "im" : 62,
+         "is" : 62,
+         "it" : 62,
+         "je" : 62,
+         "lb" : 62,
+         "li" : 62,
+         "lt" : 62,
+         "lu" : 62,
+         "lv" : 62,
+         "ly" : 62,
+         "ma" : 62,
+         "mc" : 62,
+         "md" : 62,
+         "me" : 62,
+         "mk" : 62,
+         "mt" : 62,
+         "nl" : 62,
+         "no" : 62,
+         "pl" : 62,
+         "ps" : 62,
+         "pt" : 62,
+         "ro" : 62,
+         "rs" : 62,
+         "se" : 62,
+         "si" : 62,
+         "sj" : 62,
+         "sk" : 62,
+         "sm" : 62,
+         "sy" : 62,
+         "tn" : 62,
+         "tr" : 62,
+         "ua" : 62,
+         "uk" : 62,
+         "us" : 62,
+         "va" : 62,
+         "world" : 62,
+         "xk" : 62
+      },
+      "status" : "known"
+   },
+   "environmental_score_grade" : "b",
+   "environmental_score_score" : 62,
+   "environmental_score_tags" : [
+      "b"
+   ],
+   "food_groups" : "en:eggs",
+   "food_groups_tags" : [
+      "en:fish-meat-eggs",
+      "en:eggs"
+   ],
+   "generic_name_fr" : "6 œufs de catégorie A de poules élevées au sol (code commençant par 2 sur l'œuf), datés du jour de ponte. Calibre Moyen ou Gros (mention indiquée sur le couvercle de la boite).",
+   "generic_name_fr_imported" : "6 œufs de catégorie A de poules élevées au sol (code commençant par 2 sur l'œuf), datés du jour de ponte. Calibre Moyen ou Gros (mention indiquée sur le couvercle de la boite).",
+   "id" : "3596710520787",
+   "images" : {
+      "selected" : {
+         "ingredients" : {}
+      }
+   },
+   "informers_tags" : [
+      "test-user"
+   ],
+   "ingredients" : [
+      {
+         "id" : "fr:6-oeufs-de-categorie-a-de-poules-elevees-au-sol",
+         "ingredients" : [
+            {
+               "id" : "fr:code-commencant-par-2-sur-l-oeuf",
+               "is_in_taxonomy" : 0,
+               "percent_estimate" : 58.3333333333333,
+               "percent_max" : 100.0,
+               "percent_min" : 16.6666666666667,
+               "text" : "code commençant par 2 sur l'œuf"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 58.3333333333333,
+         "percent_max" : 100.0,
+         "percent_min" : 16.6666666666667,
+         "text" : "6 ŒUFS de catégorie A de poules élevées au sol"
+      },
+      {
+         "id" : "fr:dates-du-jour-de-ponte",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 20.8333333333333,
+         "percent_max" : 50.0,
+         "percent_min" : 0.0,
+         "text" : "datés du jour de ponte"
+      },
+      {
+         "id" : "fr:calibre-moyen-et-gros",
+         "ingredients" : [
+            {
+               "id" : "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+               "is_in_taxonomy" : 0,
+               "percent_estimate" : 10.4166666666667,
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0.0,
+               "text" : "mention indiquée sur le couvercle de la boite"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 10.4166666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0.0,
+         "text" : "Calibre Moyen et Gros"
+      },
+      {
+         "id" : "fr:pour-accompagner-la-conversion-des-elevages",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 5.20833333333333,
+         "percent_max" : 25.0,
+         "percent_min" : 0.0,
+         "text" : "Pour accompagner la conversion des élevages"
+      },
+      {
+         "id" : "fr:les-oeufs-contenus-dans-cette-boite-peuvent-etre-issus-de-poules-elevees-en-plein-air",
+         "ingredients" : [
+            {
+               "id" : "fr:code-producteur-commencant-par-1",
+               "is_in_taxonomy" : 0,
+               "percent_estimate" : 2.60416666666666,
+               "percent_max" : 20.0,
+               "percent_min" : 0.0,
+               "text" : "code producteur commençant par 1"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 20.0,
+         "percent_min" : 0.0,
+         "text" : "les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air"
+      },
+      {
+         "id" : "fr:la-signification-du-code-du-producteur-imprime-sur-l-oeuf-est",
+         "ingredients" : [
+            {
+               "id" : "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment",
+               "is_in_taxonomy" : 0,
+               "percent_estimate" : 2.60416666666666,
+               "percent_max" : 16.6666666666667,
+               "percent_min" : 0.0,
+               "text" : "1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0.0,
+         "text" : "La signification du code du producteur imprimé sur l'oeuf est"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "fr:6-oeufs-de-categorie-a-de-poules-elevees-au-sol",
+         "fr:code-commencant-par-2-sur-l-oeuf",
+         "fr:dates-du-jour-de-ponte",
+         "fr:calibre-moyen-et-gros",
+         "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+         "fr:pour-accompagner-la-conversion-des-elevages",
+         "fr:les-oeufs-contenus-dans-cette-boite-peuvent-etre-issus-de-poules-elevees-en-plein-air",
+         "fr:code-producteur-commencant-par-1",
+         "fr:la-signification-du-code-du-producteur-imprime-sur-l-oeuf-est",
+         "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:code-commencant-par-2-sur-l-oeuf",
+         "fr:dates-du-jour-de-ponte",
+         "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+         "fr:pour-accompagner-la-conversion-des-elevages",
+         "fr:code-producteur-commencant-par-1",
+         "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:code-commencant-par-2-sur-l-oeuf",
+         "fr:dates-du-jour-de-ponte",
+         "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+         "fr:pour-accompagner-la-conversion-des-elevages",
+         "fr:code-producteur-commencant-par-1",
+         "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 10.0,
+   "ingredients_n_tags" : [
+      "10",
+      "1-10"
+   ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
+   "ingredients_original_tags" : [
+      "fr:6-oeufs-de-categorie-a-de-poules-elevees-au-sol",
+      "fr:dates-du-jour-de-ponte",
+      "fr:calibre-moyen-et-gros",
+      "fr:pour-accompagner-la-conversion-des-elevages",
+      "fr:les-oeufs-contenus-dans-cette-boite-peuvent-etre-issus-de-poules-elevees-en-plein-air",
+      "fr:la-signification-du-code-du-producteur-imprime-sur-l-oeuf-est",
+      "fr:code-commencant-par-2-sur-l-oeuf",
+      "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+      "fr:code-producteur-commencant-par-1",
+      "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
+   "ingredients_tags" : [
+      "fr:6-oeufs-de-categorie-a-de-poules-elevees-au-sol",
+      "fr:dates-du-jour-de-ponte",
+      "fr:calibre-moyen-et-gros",
+      "fr:pour-accompagner-la-conversion-des-elevages",
+      "fr:les-oeufs-contenus-dans-cette-boite-peuvent-etre-issus-de-poules-elevees-en-plein-air",
+      "fr:la-signification-du-code-du-producteur-imprime-sur-l-oeuf-est",
+      "fr:code-commencant-par-2-sur-l-oeuf",
+      "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+      "fr:code-producteur-commencant-par-1",
+      "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment"
+   ],
+   "ingredients_text" : "6 ŒUFS de catégorie A de poules élevées au sol (code commençant par 2 sur l'œuf), datés du jour de ponte. Calibre Moyen ou Gros (mention indiquée sur le couvercle de la boite). Pour accompagner la conversion des élevages, les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air (code producteur commençant par 1). La signification du code du producteur imprimé sur l'oeuf est : 1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment.",
+   "ingredients_text_fr" : "6 ŒUFS de catégorie A de poules élevées au sol (code commençant par 2 sur l'œuf), datés du jour de ponte. Calibre Moyen ou Gros (mention indiquée sur le couvercle de la boite). Pour accompagner la conversion des élevages, les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air (code producteur commençant par 1). La signification du code du producteur imprimé sur l'oeuf est : 1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment.",
+   "ingredients_text_fr_imported" : "6 ŒUFS de catégorie A de poules élevées au sol (code commençant par 2 sur l'œuf), datés du jour de ponte. Calibre Moyen ou Gros (mention indiquée sur le couvercle de la boite). Pour accompagner la conversion des élevages, les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air (code producteur commençant par 1). La signification du code du producteur imprimé sur l'oeuf est : 1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment.",
+   "ingredients_text_with_allergens" : "6 <span class=\"allergen\">ŒUFS</span> </span>de catégorie A de poules élevées au sol (code commençant par 2 sur l'œuf), datés du jour de ponte. Calibre Moyen ou Gros (mention indiquée sur le couvercle de la boite). Pour accompagner la conversion des élevages, les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air (code producteur commençant par 1). La signification du code du producteur imprimé sur l'oeuf est : 1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment.",
+   "ingredients_text_with_allergens_fr" : "6 <span class=\"allergen\">ŒUFS</span> </span>de catégorie A de poules élevées au sol (code commençant par 2 sur l'œuf), datés du jour de ponte. Calibre Moyen ou Gros (mention indiquée sur le couvercle de la boite). Pour accompagner la conversion des élevages, les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air (code producteur commençant par 1). La signification du code du producteur imprimé sur l'oeuf est : 1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment.",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment",
+      "fr:6-oeufs-de-categorie-a-de-poules-elevees-au-sol",
+      "fr:calibre-moyen-et-gros",
+      "fr:code-commencant-par-2-sur-l-oeuf",
+      "fr:code-producteur-commencant-par-1",
+      "fr:dates-du-jour-de-ponte",
+      "fr:la-signification-du-code-du-producteur-imprime-sur-l-oeuf-est",
+      "fr:les-oeufs-contenus-dans-cette-boite-peuvent-etre-issus-de-poules-elevees-en-plein-air",
+      "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+      "fr:pour-accompagner-la-conversion-des-elevages"
+   ],
+   "ingredients_without_ciqual_codes_n" : 10,
+   "ingredients_without_ecobalyse_ids" : [
+      "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment",
+      "fr:6-oeufs-de-categorie-a-de-poules-elevees-au-sol",
+      "fr:calibre-moyen-et-gros",
+      "fr:code-commencant-par-2-sur-l-oeuf",
+      "fr:code-producteur-commencant-par-1",
+      "fr:dates-du-jour-de-ponte",
+      "fr:la-signification-du-code-du-producteur-imprime-sur-l-oeuf-est",
+      "fr:les-oeufs-contenus-dans-cette-boite-peuvent-etre-issus-de-poules-elevees-en-plein-air",
+      "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+      "fr:pour-accompagner-la-conversion-des-elevages"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 10,
+   "interface_version_created" : "import_csv_file - version 2019/09/17",
+   "known_ingredients_n" : 0,
+   "lang" : "lc",
+   "lang_imported" : "lc",
+   "languages" : {
+      "en:french" : 4
+   },
+   "languages_codes" : {
+      "fr" : 4
+   },
+   "languages_hierarchy" : [
+      "en:french"
+   ],
+   "languages_tags" : [
+      "en:french",
+      "en:1"
+   ],
+   "last_edit_dates_tags" : "--ignore--",
+   "last_editor" : "test-user",
+   "last_modified_by" : "test-user",
+   "last_modified_t" : "--ignore--",
+   "last_updated_t" : "--ignore--",
+   "lc" : "lc",
+   "lc_imported" : "lc",
+   "main_countries_tags" : [],
+   "minerals_tags" : [],
+   "misc_tags" : [
+      "en:environmental-score-changed",
+      "en:environmental-score-computed",
+      "en:environmental-score-grade-changed",
+      "en:environmental-score-missing-data-labels",
+      "en:environmental-score-missing-data-no-packagings",
+      "en:environmental-score-missing-data-origins",
+      "en:environmental-score-missing-data-packagings",
+      "en:environmental-score-missing-data-warning",
+      "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
+      "en:nutriscore-2021-a-2023-a",
+      "en:nutriscore-2021-same-as-2023",
+      "en:nutriscore-computed",
+      "en:nutrition-all-nutriscore-values-known",
+      "en:nutrition-data-per-100g",
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:packagings-empty",
+      "en:packagings-not-complete",
+      "en:packagings-number-of-components-0",
+      "en:main-countries-new-product"
+   ],
+   "nova_group_debug" : "no nova group if too many ingredients are unknown: 10 out of 10",
+   "nova_group_error" : "too_many_unknown_ingredients",
+   "nova_groups_tags" : [
+      "unknown"
+   ],
+   "nucleotides_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "moderate",
+      "salt" : "moderate",
+      "saturated-fat" : "moderate",
+      "sugars" : "low"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-moderate-quantity",
+      "en:saturated-fat-in-moderate-quantity",
+      "en:sugars-in-low-quantity",
+      "en:salt-in-moderate-quantity"
+   ],
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : 596.1,
+            "energy_points" : 1,
+            "energy_value" : 596.1,
+            "fiber" : 0.5,
+            "fiber_points" : 0,
+            "fiber_value" : 0.5,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "negative_points" : 4,
+            "positive_points" : 5,
+            "proteins" : 13,
+            "proteins_points" : 5,
+            "proteins_value" : 13.0,
+            "saturated_fat" : 2.6,
+            "saturated_fat_points" : 2,
+            "saturated_fat_value" : 2.6,
+            "sodium" : 124.0,
+            "sodium_points" : 1,
+            "sodium_value" : 124,
+            "sugars" : 0.5,
+            "sugars_points" : 0,
+            "sugars_value" : 0.5
+         },
+         "estimated" : 0,
+         "grade" : "a",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "preparation" : "as_sold",
+         "score" : -1
+      },
+      "2023" : {
+         "category_available" : 1,
+         "data" : {
+            "components" : {
+               "negative" : [
+                  {
+                     "id" : "energy",
+                     "points" : 1,
+                     "points_max" : 10,
+                     "unit" : "kJ",
+                     "value" : 596.1
+                  },
+                  {
+                     "id" : "sugars",
+                     "points" : 0,
+                     "points_max" : 15,
+                     "unit" : "g",
+                     "value" : 0.5
+                  },
+                  {
+                     "id" : "saturated_fat",
+                     "points" : 2,
+                     "points_max" : 10,
+                     "unit" : "g",
+                     "value" : 2.6
+                  },
+                  {
+                     "id" : "salt",
+                     "points" : 1,
+                     "points_max" : 20,
+                     "unit" : "g",
+                     "value" : 0.31
+                  }
+               ],
+               "positive" : [
+                  {
+                     "id" : "proteins",
+                     "points" : 5,
+                     "points_max" : 7,
+                     "unit" : "g",
+                     "value" : 13
+                  },
+                  {
+                     "id" : "fiber",
+                     "points" : 0,
+                     "points_max" : 5,
+                     "unit" : "g",
+                     "value" : 0.5
+                  },
+                  {
+                     "id" : "fruits_vegetables_legumes",
+                     "points" : 0,
+                     "points_max" : 5,
+                     "unit" : "%",
+                     "value" : 0
+                  }
+               ]
+            },
+            "count_proteins" : 1,
+            "count_proteins_reason" : "negative_points_less_than_11",
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
+            "is_water" : 0,
+            "negative_points" : 4,
+            "negative_points_max" : 55,
+            "positive_nutrients" : [
+               "proteins",
+               "fiber",
+               "fruits_vegetables_legumes"
+            ],
+            "positive_points" : 5,
+            "positive_points_max" : 17
+         },
+         "estimated" : 0,
+         "grade" : "a",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "preparation" : "as_sold",
+         "score" : -1
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "a"
+   ],
+   "nutriscore_2023_tags" : [
+      "a"
+   ],
+   "nutriscore_data" : {
+      "components" : {
+         "negative" : [
+            {
+               "id" : "energy",
+               "points" : 1,
+               "points_max" : 10,
+               "unit" : "kJ",
+               "value" : 596.1
+            },
+            {
+               "id" : "sugars",
+               "points" : 0,
+               "points_max" : 15,
+               "unit" : "g",
+               "value" : 0.5
+            },
+            {
+               "id" : "saturated_fat",
+               "points" : 2,
+               "points_max" : 10,
+               "unit" : "g",
+               "value" : 2.6
+            },
+            {
+               "id" : "salt",
+               "points" : 1,
+               "points_max" : 20,
+               "unit" : "g",
+               "value" : 0.31
+            }
+         ],
+         "positive" : [
+            {
+               "id" : "proteins",
+               "points" : 5,
+               "points_max" : 7,
+               "unit" : "g",
+               "value" : 13
+            },
+            {
+               "id" : "fiber",
+               "points" : 0,
+               "points_max" : 5,
+               "unit" : "g",
+               "value" : 0.5
+            },
+            {
+               "id" : "fruits_vegetables_legumes",
+               "points" : 0,
+               "points_max" : 5,
+               "unit" : "%",
+               "value" : 0
+            }
+         ]
+      },
+      "count_proteins" : 1,
+      "count_proteins_reason" : "negative_points_less_than_11",
+      "grade" : "a",
+      "is_beverage" : 0,
+      "is_cheese" : 0,
+      "is_fat_oil_nuts_seeds" : 0,
+      "is_red_meat_product" : 0,
+      "is_water" : 0,
+      "negative_points" : 4,
+      "negative_points_max" : 55,
+      "positive_nutrients" : [
+         "proteins",
+         "fiber",
+         "fruits_vegetables_legumes"
+      ],
+      "positive_points" : 5,
+      "positive_points_max" : 17,
+      "score" : -1
+   },
+   "nutriscore_grade" : "a",
+   "nutriscore_grade_producer" : "a",
+   "nutriscore_grade_producer_imported" : "a",
+   "nutriscore_score" : -1,
+   "nutriscore_score_opposite" : 1,
+   "nutriscore_tags" : [
+      "a"
+   ],
+   "nutriscore_version" : "2023",
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "added-sugars" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "carbohydrates" : {
+               "modifier" : "<",
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.5
+            },
+            "energy" : {
+               "modifier" : "~",
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 596.1
+            },
+            "energy-kcal" : {
+               "modifier" : "~",
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kcal",
+               "value" : 143.2
+            },
+            "energy-kj" : {
+               "modifier" : "~",
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 596.1
+            },
+            "fat" : {
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 9.8
+            },
+            "fiber" : {
+               "modifier" : "<",
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.5
+            },
+            "fruits-vegetables-legumes" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 0
+            },
+            "fruits-vegetables-nuts" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 0
+            },
+            "proteins" : {
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 13
+            },
+            "salt" : {
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.31
+            },
+            "saturated-fat" : {
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 2.6
+            },
+            "sodium" : {
+               "modifier" : "~",
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.124
+            },
+            "sugars" : {
+               "modifier" : "<",
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.5
+            }
+         },
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "carbohydrates" : {
+                  "modifier" : "<",
+                  "unit" : "g",
+                  "value" : 0.5,
+                  "value_string" : "0.5"
+               },
+               "energy-kcal" : {
+                  "unit" : "kcal",
+                  "value_computed" : 143.2
+               },
+               "energy-kj" : {
+                  "unit" : "kJ",
+                  "value_computed" : 596.1
+               },
+               "fat" : {
+                  "unit" : "g",
+                  "value" : 9.8,
+                  "value_string" : "9.8"
+               },
+               "fiber" : {
+                  "modifier" : "<",
+                  "unit" : "g",
+                  "value" : 0.5,
+                  "value_string" : "0.5"
+               },
+               "proteins" : {
+                  "unit" : "g",
+                  "value" : 13,
+                  "value_string" : "13"
+               },
+               "salt" : {
+                  "unit" : "g",
+                  "value" : 0.31,
+                  "value_string" : "0.31"
+               },
+               "saturated-fat" : {
+                  "unit" : "g",
+                  "value" : 2.6,
+                  "value_string" : "2.6"
+               },
+               "sodium" : {
+                  "unit" : "g",
+                  "value_computed" : 0.124
+               },
+               "sugars" : {
+                  "modifier" : "<",
+                  "unit" : "g",
+                  "value" : 0.5,
+                  "value_string" : "0.5"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : 100,
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "manufacturer"
+         },
+         {
+            "nutrients" : {
+               "added-sugars" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "fruits-vegetables-legumes" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "fruits-vegetables-nuts" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 0,
+                  "value_string" : "0"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : 100,
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "estimate",
+            "source_description" : "Estimate from ingredients"
+         }
+      ]
+   },
+   "nutrition_grade_fr" : "a",
+   "nutrition_grades" : "a",
+   "nutrition_grades_tags" : [
+      "a"
+   ],
+   "nutrition_score_beverage" : 0,
+   "nutrition_score_debug" : "",
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 0,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
+   "other_nutritional_substances_tags" : [],
+   "owner" : "org-test-org",
+   "owner_fields" : "--ignore--",
+   "owners_tags" : "org-test-org",
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
+   "packagings" : [],
+   "packagings_materials" : {},
+   "photographers_tags" : [],
+   "pnns_groups_1" : "Fish Meat Eggs",
+   "pnns_groups_1_tags" : [
+      "fish-meat-eggs",
+      "known"
+   ],
+   "pnns_groups_2" : "Eggs",
+   "pnns_groups_2_tags" : [
+      "eggs",
+      "known"
+   ],
+   "popularity_key" : 0,
+   "product_name_fr" : "Oeufs de poules elevees au soldates du jour de pontex6",
+   "product_name_fr_imported" : "Oeufs de poules elevees au soldates du jour de pontex6",
+   "product_quantity" : 380.0,
+   "product_quantity_unit" : "g",
+   "product_type" : "food",
+   "quantity" : "6 pièces (0.38 kg)",
+   "quantity_imported" : "6 pièces (0.38 kg)",
+   "quantity_unit" : "pièces",
+   "quantity_unit_imported" : "pièces",
+   "quantity_value" : "6",
+   "quantity_value_imported" : "6",
+   "removed_countries_tags" : [],
+   "rev" : 1,
+   "schema_version" : 1004,
+   "sources" : [
+      {
+         "fields" : [
+            "product_name_fr",
+            "abbreviated_product_name_fr",
+            "generic_name_fr",
+            "quantity",
+            "brands",
+            "categories",
+            "countries",
+            "quantity_value",
+            "quantity_unit",
+            "nutriscore_grade_producer",
+            "data_sources",
+            "allergens",
+            "ingredients_text_fr",
+            "nutrition",
+            "nutrition"
+         ],
+         "id" : null,
+         "images" : [],
+         "import_t" : "--ignore--",
+         "manufacturer" : null,
+         "name" : null,
+         "url" : null
+      }
+   ],
+   "sources_fields" : {
+      "org-gs1" : {
+         "gln" : "3665257010010",
+         "gpcCategoryCode" : "10006210",
+         "gpcCategoryName" : "Oeufs Coquille Triés",
+         "isAllergenRelevantDataProvided" : "true",
+         "lastChangeDateTime" : "2026-03-18T13:15:47.613",
+         "partyName" : "AUCHAN APAW",
+         "publicationDateTime" : "2026-03-18T13:15:47.907"
+      }
+   },
+   "states" : "en:photos-to-be-uploaded, en:product-name-to-be-completed, en:quantity-completed, en:packaging-to-be-completed, en:brands-completed, en:categories-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-completed, en:nutrition-facts-completed, en:to-be-completed",
+   "states_tags" : [
+      "en:to-be-completed",
+      "en:nutrition-facts-completed",
+      "en:ingredients-completed",
+      "en:expiration-date-to-be-completed",
+      "en:packaging-code-to-be-completed",
+      "en:characteristics-to-be-completed",
+      "en:origins-to-be-completed",
+      "en:categories-completed",
+      "en:brands-completed",
+      "en:packaging-to-be-completed",
+      "en:quantity-completed",
+      "en:product-name-to-be-completed",
+      "en:photos-to-be-uploaded"
+   ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(lc) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
+   "unknown_ingredients_n" : 10.0,
+   "vitamins_tags" : [],
+   "weighers_tags" : []
+}

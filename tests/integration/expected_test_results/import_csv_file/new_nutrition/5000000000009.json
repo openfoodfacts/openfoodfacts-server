@@ -40,7 +40,7 @@
       "5xxxxxxxxxxxx"
    ],
    "complete" : 0,
-   "completeness" : 0.1,
+   "completeness" : 0.2,
    "correctors_tags" : [],
    "created_t" : "--ignore--",
    "creator" : "test-user",
@@ -51,7 +51,7 @@
       "en:ingredients-en-to-be-completed",
       "en:nutrition-photo-to-be-selected",
       "en:categories-to-be-completed",
-      "en:nutrition-to-be-completed",
+      "en:nutrition-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -67,15 +67,15 @@
       "completeness" : {
          "general_information" : "0.20",
          "ingredients" : "0.00",
-         "nutrition" : "0.00",
-         "overall" : "0.17",
+         "nutrition" : "0.33",
+         "overall" : "0.25",
          "packaging" : "0.50"
       }
    },
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
-      "en:no-nutrition-data",
+      "en:nutrition-data-prepared",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -86,7 +86,7 @@
       "en:ingredients-en-to-be-completed",
       "en:nutrition-photo-to-be-selected",
       "en:categories-to-be-completed",
-      "en:nutrition-to-be-completed",
+      "en:nutrition-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -95,16 +95,18 @@
       "en:brands-to-be-completed",
       "en:expiration-date-to-be-completed",
       "en:no-packaging-data",
-      "en:no-nutrition-data",
+      "en:nutrition-data-prepared",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
+      "en:nutrition-data-prepared-without-category-dried-products-to-be-rehydrated",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label",
       "en:environmental-score-threatened-species-ingredients-missing"
    ],
    "data_quality_warnings_tags" : [
+      "en:nutrition-data-prepared-without-category-dried-products-to-be-rehydrated",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label",
@@ -409,13 +411,13 @@
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
-      "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutriscore-missing-nutrition-data-saturated-fat",
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-not-computed",
+      "en:nutrition-data-per-100ml",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -489,14 +491,51 @@
       "unknown"
    ],
    "nutriscore_version" : "2023",
-   "nutrition" : {},
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "energy" : {
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100ml",
+               "unit" : "kJ",
+               "value" : 836
+            },
+            "energy-kcal" : {
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100ml",
+               "unit" : "kcal",
+               "value" : 200
+            }
+         },
+         "per" : "100ml",
+         "preparation" : "prepared"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "energy-kcal" : {
+                  "unit" : "kcal",
+                  "value" : 200,
+                  "value_string" : "200"
+               }
+            },
+            "per" : "100ml",
+            "per_quantity" : 100,
+            "per_unit" : "ml",
+            "preparation" : "prepared",
+            "source" : "manufacturer"
+         }
+      ]
+   },
    "nutrition_grade_fr" : "unknown",
    "nutrition_grades" : "unknown",
    "nutrition_grades_tags" : [
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "no score when the product does not have a category - missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
+   "nutrition_score_debug" : "no score when the product does not have a category - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
    "nutrition_score_warning_no_fiber" : 1,
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "owner" : "org-test-org",
@@ -531,6 +570,7 @@
          "fields" : [
             "product_name_en",
             "data_sources",
+            "nutrition",
             "nutrition"
          ],
          "id" : null,
@@ -541,10 +581,10 @@
          "url" : null
       }
    ],
-   "states" : "en:photos-to-be-uploaded, en:product-name-completed, en:quantity-to-be-completed, en:packaging-to-be-completed, en:brands-to-be-completed, en:categories-to-be-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-to-be-completed, en:nutrition-facts-to-be-completed, en:to-be-completed",
+   "states" : "en:photos-to-be-uploaded, en:product-name-completed, en:quantity-to-be-completed, en:packaging-to-be-completed, en:brands-to-be-completed, en:categories-to-be-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-to-be-completed, en:nutrition-facts-completed, en:to-be-completed",
    "states_tags" : [
       "en:to-be-completed",
-      "en:nutrition-facts-to-be-completed",
+      "en:nutrition-facts-completed",
       "en:ingredients-to-be-completed",
       "en:expiration-date-to-be-completed",
       "en:packaging-code-to-be-completed",

@@ -29,6 +29,8 @@ BEGIN {
 		$memd
 		$max_memcached_object_size
 		&generate_cache_key
+		&safe_cache_get
+		&safe_cache_set
 		&get_cache_results
 		&set_cache_results
 	);    # symbols to export on request
@@ -95,6 +97,44 @@ sub generate_cache_key ($name, $context_ref) {
 	$log->debug("generate_cache_key", {context_ref => $context_ref, context_json => $context_json, key => $key})
 		if $log->is_debug();
 	return $key;
+}
+
+=head2 safe_cache_get ($key)
+
+Safely gets a value from memcached. Returns undef on cache errors.
+
+=cut
+
+sub safe_cache_get ($key) {
+	my $value;
+	eval {
+		$value = $memd->get($key);
+		1;
+	} or do {
+		my $error = $@ || 'unknown cache get error';
+		$log->warn('Memcached get failed', {key => $key, error => $error}) if $log->is_warn();
+		return;
+	};
+
+	return $value;
+}
+
+=head2 safe_cache_set ($key, $value, $ttl)
+
+Safely sets a value in memcached. Never throws on cache errors.
+
+=cut
+
+sub safe_cache_set ($key, $value, $ttl) {
+	eval {
+		$memd->set($key, $value, $ttl);
+		1;
+	} or do {
+		my $error = $@ || 'unknown cache set error';
+		$log->warn('Memcached set failed', {key => $key, error => $error}) if $log->is_warn();
+	};
+
+	return;
 }
 
 =head2 get_cache_results ($key, $data_debug_ref)
