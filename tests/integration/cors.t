@@ -132,8 +132,8 @@ my $tests_ref = [
 		headers => {
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
-			"Access-Control-Allow-Headers"
-				=> "DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
+			"Access-Control-Allow-Headers" =>
+				"DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	},
