@@ -61,7 +61,7 @@ BEGIN {
 		$events_password
 
 		$rate_limiter_blocking_enabled
-		$rate_limiter_enabled
+		$rate_limiter_disabled
 		$facets_kp_url
 		$redis_url
 		$folksonomy_url
