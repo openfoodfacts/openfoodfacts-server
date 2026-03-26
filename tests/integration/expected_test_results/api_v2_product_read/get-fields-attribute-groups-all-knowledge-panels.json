@@ -34,7 +34,6 @@
          "en:milk",
          "en:soybeans"
       ],
-      "allergens_lc" : "en",
       "allergens_tags" : [
          "en:apple",
          "en:eggs",
@@ -4446,6 +4445,21 @@
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",
       "states" : "en:photos-to-be-uploaded, en:product-name-completed, en:quantity-completed, en:packaging-to-be-completed, en:brands-to-be-completed, en:categories-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-completed, en:nutrition-facts-completed, en:to-be-completed",
+      "states_hierarchy" : [
+         "en:to-be-completed",
+         "en:nutrition-facts-completed",
+         "en:ingredients-completed",
+         "en:expiration-date-to-be-completed",
+         "en:packaging-code-to-be-completed",
+         "en:characteristics-to-be-completed",
+         "en:origins-to-be-completed",
+         "en:categories-completed",
+         "en:brands-to-be-completed",
+         "en:packaging-to-be-completed",
+         "en:quantity-completed",
+         "en:product-name-completed",
+         "en:photos-to-be-uploaded"
+      ],
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -4465,7 +4479,6 @@
       "traces_from_ingredients" : "",
       "traces_from_user" : "(en) ",
       "traces_hierarchy" : [],
-      "traces_lc" : "en",
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
       "vitamins_tags" : [],
