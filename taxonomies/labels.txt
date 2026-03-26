@@ -3417,6 +3417,8 @@ th: ไม่มีน้ำตาล
 tr: Şekersiz
 description:en: In EU, a claim that a food is sugar-free may only be made where the product contains no more than 0,5 g of sugars per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
+en: No carbohydrates, No carbs
+sv: Inga kolhydrater
 
 en: Lowers cholesterol
 bg: Намалява холестерола
@@ -3741,6 +3743,14 @@ country:en: en:Sweden
 description:en: deposit in Sweden.
 description:fr: consignée en Suède.
 image:sv: pant-1kr.61x90.png
+label_categories:en: en:Environment, en:Packaging
+
+sv: pant 2kr
+xx: pant 2kr
+country:en: en:Sweden
+description:en: deposit in Sweden.
+description:fr: consignée en Suède.
+#image:sv: pant-2kr.61x90.png
 label_categories:en: en:Environment, en:Packaging
 
 en: metal recycles forever
@@ -4695,6 +4705,9 @@ ru: Содержит алкоголь
 incompatible_with:en: labels:en:no-alcohol
 opposite:en: en:no-alcohol
 
+en: Don't consume with alcohol
+sv: Använd ej tilsammans med alkohol
+
 en: without allergens
 bg: без алергени
 ca: sense al·lèrgens
@@ -4947,7 +4960,6 @@ si: brez kofeina
 th: ไม่มีคาเฟอีน
 label_categories:en: en:Health
 
-
 #instruction:en:Do NOT change the english key.
 en: with caffeine
 bg: С кофеин
@@ -4964,6 +4976,9 @@ pl: z kofeiną
 pt: com cafeína
 ru: с кофеином
 th: มีคาเฟอีน
+
+en: high caffeine content
+sv: hög koffeinhalt
 
 en: 100% arabica
 xx: 100% arabica
@@ -5795,6 +5810,10 @@ pt: Não recomendado para crianças e mulheres grávidas, não recomendado a cri
 ru: Не рекомендовано для детей и беременных женщин
 se: Rekommenderas ej till barn samt gravida
 sv: Rekommenderas ej till barn samt gravida
+
+< en:Not advised for specific people
+en: Not advised for children and pregnant or breastfeeding people, Not recommended for children and pregnant or breastfeeding women
+sv: Rekommenderas ej för barn och gravida eller ammande personer, Rekommenderas ej för barn och gravida eller ammande kvinnor
 
 < en:Not advised for specific people
 en: Not recommended for children under 3 years
