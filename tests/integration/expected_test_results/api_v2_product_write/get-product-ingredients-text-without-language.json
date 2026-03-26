@@ -2,7 +2,13 @@
    "code" : "1234567890004",
    "product" : {
       "_id" : "1234567890004",
-      "_keywords" : [],
+      "_keywords" : [
+         "charcuterie",
+         "derive",
+         "et",
+         "saucisse",
+         "viande"
+      ],
       "added_countries_tags" : [],
       "additives_n" : 0,
       "additives_original_tags" : [],
@@ -69,7 +75,7 @@
          "en:ingredients-en-completed",
          "en:ingredients-completed-at-least-for-one-language",
          "en:nutrition-photo-to-be-selected",
-         "en:categories-to-be-completed",
+         "en:categories-completed",
          "en:nutrition-to-be-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
@@ -86,8 +92,8 @@
          "completeness" : {
             "general_information" : "0.20",
             "ingredients" : "0.50",
-            "nutrition" : "0.00",
-            "overall" : "0.25",
+            "nutrition" : "0.33",
+            "overall" : "0.33",
             "packaging" : "0.50"
          }
       },
@@ -106,7 +112,7 @@
          "en:ingredients-en-completed",
          "en:ingredients-completed-at-least-for-one-language",
          "en:nutrition-photo-to-be-selected",
-         "en:categories-to-be-completed",
+         "en:categories-completed",
          "en:nutrition-to-be-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",

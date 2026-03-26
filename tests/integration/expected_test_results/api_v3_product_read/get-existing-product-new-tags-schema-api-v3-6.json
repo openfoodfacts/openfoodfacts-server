@@ -57,7 +57,7 @@
          "en:ingredients-en-completed",
          "en:ingredients-completed-at-least-for-one-language",
          "en:nutrition-photo-to-be-selected",
-         "en:categories-to-be-completed",
+         "en:categories-completed",
          "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
@@ -74,8 +74,8 @@
          "completeness" : {
             "general_information" : "0.40",
             "ingredients" : "0.50",
-            "nutrition" : "0.33",
-            "overall" : "0.42",
+            "nutrition" : "0.67",
+            "overall" : "0.50",
             "packaging" : "0.50"
          }
       },
@@ -96,7 +96,7 @@
          "en:ingredients-en-completed",
          "en:ingredients-completed-at-least-for-one-language",
          "en:nutrition-photo-to-be-selected",
-         "en:categories-to-be-completed",
+         "en:categories-completed",
          "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
