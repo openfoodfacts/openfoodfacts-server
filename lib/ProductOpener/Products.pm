@@ -2741,6 +2741,16 @@ sub product_action_url ($code, $action = "edit_product") {
 	return $url // "";
 }
 
+=head2 compute_keywords ( $product_ref )
+
+Computes the keywords for a product, based on the product name, generic name, brands, categories, origins and labels.
+Keywords are used for search in API v1 and v2.
+Only the main language of the product is indexed.
+
+This should be replaced with the Search-a-licious project using ElasticSearch.
+
+=cut
+
 sub compute_keywords ($product_ref) {
 
 	my @string_fields = qw(product_name generic_name);
@@ -2750,17 +2760,25 @@ sub compute_keywords ($product_ref) {
 
 	my $product_lc = $product_ref->{lc} || $lc;
 
-	foreach my $field (@string_fields, @tag_fields) {
+	my @text_values= ();
+	foreach my $field (@string_fields) {
 		if (defined $product_ref->{$field}) {
-			foreach my $tag (split(/,|'|’|\s/, $product_ref->{$field})) {
-				if (($field eq 'categories') or ($field eq 'labels') or ($field eq 'origins')) {
-					$tag =~ s/^\w\w://;
-				}
+			push @text_values, $product_ref->{$field};
+		}
+	}
 
-				my $tagid = get_string_id_for_lang($product_lc, $tag);
-				if (length($tagid) >= 2) {
-					$keywords{normalize_search_terms($tagid)} = 1;
-				}
+	foreach my $field (@tag_fields) {
+		if (defined $product_ref->{$field . "_tags"}) {
+			push @text_values, join(",", map {display_taxonomy_tag($product_lc, $field, $_)} @{$product_ref->{$field . "_tags"}});
+		}
+	}
+		
+	foreach my $value (@text_values) {
+		
+		foreach my $word (split(/,|'|’|\s/, $value)) {
+			my $wordid = get_string_id_for_lang($product_lc, $word);
+			if (length($wordid) >= 2) {
+				$keywords{normalize_search_terms($wordid)} = 1;
 			}
 		}
 	}
