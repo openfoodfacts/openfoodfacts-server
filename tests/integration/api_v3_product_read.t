@@ -342,7 +342,7 @@ my $tests_ref = [
 	{
 		test_case => 'get-existing-product-new-tags-schema-api-v3-6',
 		method => 'GET',
-		path => '/api/v3.6/product/426039255010',
+		path => '/api/v3.6/product/4260392550101',
 		expected_status_code => 200,
 	},
 ];
