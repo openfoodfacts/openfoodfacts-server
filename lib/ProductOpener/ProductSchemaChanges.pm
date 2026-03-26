@@ -979,7 +979,8 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 
 			# Generate brands field
 			if ($tagtype eq "brands") {
-				$product_ref->{$tagtype} = join(", ", map { display_taxonomy_tag("en", $tagtype, $_) } @{$product_ref->{$tagtype . "_tags"}});
+				$product_ref->{$tagtype}
+					= join(", ", map {display_taxonomy_tag("en", $tagtype, $_)} @{$product_ref->{$tagtype . "_tags"}});
 			}
 		}
 	}

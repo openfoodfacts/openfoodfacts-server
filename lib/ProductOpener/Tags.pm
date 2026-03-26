@@ -4808,7 +4808,8 @@ sub generate_field_tags_from_all_sources ($product_ref, $tagtype) {
 
 	# For brands, also generate the "brands" field that is used for display
 	if ($tagtype eq "brands") {
-		$product_ref->{$tagtype} = join(", ", map { display_taxonomy_tag("en", $tagtype, $_) } @{$product_ref->{$tagtype . "_tags"}});
+		$product_ref->{$tagtype}
+			= join(", ", map {display_taxonomy_tag("en", $tagtype, $_)} @{$product_ref->{$tagtype . "_tags"}});
 	}
 
 	return;
