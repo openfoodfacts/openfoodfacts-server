@@ -8212,10 +8212,11 @@ sub detect_allergens_from_text ($product_ref) {
 
 		my $tag_lc = $product_ref->{$field . "_lc"} || $product_ref->{lc};
 
-		$product_ref->{$field . "_from_ingredients"} =~ s/,\s$//;	# remove last comma
+		$product_ref->{$field . "_from_ingredients"} =~ s/,\s$//;    # remove last comma
 
 		# Set the tags_source "ingredients" for allergens and traces detected from ingredients
-		set_field_input_tags_for_source ($product_ref, $tag_lc, $field, "ingredients",  $product_ref->{$field . "_from_ingredients"});
+		set_field_input_tags_for_source($product_ref, $tag_lc, $field, "ingredients",
+			$product_ref->{$field . "_from_ingredients"});
 	}
 
 	$log->debug("detect_allergens_from_text - done", {}) if $log->is_debug();

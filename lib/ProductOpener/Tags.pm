@@ -5367,7 +5367,7 @@ sub get_taxonomy_tag_path ($tagtype, $tagid) {
 	return \@path;
 }
 
-=head2 get_minimal_tags_subset ($tagtype, $tagids)
+=head2 get_minimal_tags_subset ($tagtype, $tags_ref)
 
 Given a list of tagids, return the minimal subset of tagids that are not parents of any other tagid in the list.
 
@@ -5388,6 +5388,11 @@ A list of tagids that are not parents of any other tagid in the input list.
 =cut
 
 sub get_minimal_tags_subset ($tagtype, $tags_ref) {
+
+	# If $tags_ref is undefined, return an empty list
+	if (not defined $tags_ref) {
+		return ();
+	}
 
 	# Generate a list of all parents (direct and indirect) of the tags in the input list
 	my %parents = ();

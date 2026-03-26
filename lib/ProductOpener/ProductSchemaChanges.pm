@@ -1003,12 +1003,17 @@ sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 				# We also set the [tagtype]_lc to the value of the lang field (main language of product)
 				# and generate the [tagtype] field with comma separated values, but only for the minimal tags subset that is used to generate the [tagtype]_tags field, to avoid generating tags
 				my $target_lc = $product_ref->{lang} // "en";
-				if (($tagtype ne "traces") and ($tagtype ne "allergens")) {
-					$product_ref->{$tagtype . "_lc"} = $target_lc;
+				$product_ref->{$tagtype . "_lc"} = $target_lc;
+				my $tags_ref = $product_ref->{$tagtype . "_tags"};
+				if (($tagtype eq "traces") or ($tagtype eq "allergens")) {
+					# For allergens and traces, we generate a field that corresponds the packaging source only, not the allergens from ingredients
+					# so that apps do not write back allergens from ingredients as allergens from packaging.
+					$tags_ref = deep_get($product_ref, "tags_sources", $tagtype, "packaging", "tags");
 				}
+
 				$product_ref->{$tagtype}
 					= display_comma_separated_tags_list_in_lc($target_lc, $tagtype,
-					[get_minimal_tags_subset($tagtype, $product_ref->{$tagtype . "_tags"})]);
+					[get_minimal_tags_subset($tagtype, $tags_ref)]);
 			}
 		}
 	}
