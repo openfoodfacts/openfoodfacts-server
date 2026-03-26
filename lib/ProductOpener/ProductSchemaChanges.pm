@@ -991,20 +991,25 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 
 	# we copy the content of fields like categories_tags back inside categories_hierarchy
-	foreach my $tagtype (@writable_tags_fields_list) {
+	foreach my $tagtype (@writable_tags_fields_list, "states") {
 		if (defined $product_ref->{$tagtype . "_tags"}) {
 			$product_ref->{$tagtype . "_hierarchy"} = $product_ref->{$tagtype . "_tags"};
 			# We keep tags as is
 			# (before the tags that were not recognized in the taxonomy were not unaccented,
 			# so we could have "fr:entrée non reconnue" instead of "fr:entree-non-reconnue")
 
-			# We also set the [tagtype]_lc to the value of the lang field (main language of product)
-			# and generate the [tagtype] field with comma separated values, but only for the minimal tags subset that is used to generate the [tagtype]_tags field, to avoid generating tags
-			my $target_lc = $product_ref->{lang} // "en";
-			$product_ref->{$tagtype . "_lc"} = $target_lc;
-			$product_ref->{$tagtype}
-				= display_comma_separated_tags_list_in_lc($target_lc, $tagtype,
-				[get_minimal_tags_subset($tagtype, $product_ref->{$tagtype . "_tags"})]);
+			if ($tagtype ne "states") {
+
+				# We also set the [tagtype]_lc to the value of the lang field (main language of product)
+				# and generate the [tagtype] field with comma separated values, but only for the minimal tags subset that is used to generate the [tagtype]_tags field, to avoid generating tags
+				my $target_lc = $product_ref->{lang} // "en";
+				if (($tagtype ne "traces") and ($tagtype ne "allergens")) {
+					$product_ref->{$tagtype . "_lc"} = $target_lc;
+				}
+				$product_ref->{$tagtype}
+					= display_comma_separated_tags_list_in_lc($target_lc, $tagtype,
+					[get_minimal_tags_subset($tagtype, $product_ref->{$tagtype . "_tags"})]);
+			}
 		}
 	}
 
