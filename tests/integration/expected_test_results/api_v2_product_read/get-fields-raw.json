@@ -25,15 +25,7 @@
          "en:e322",
          "en:e322i"
       ],
-      "allergens" : "",
-      "allergens_from_ingredients" : "en:soybeans, en:eggs, en:milk, apple, milk, eggs",
-      "allergens_from_user" : "(en) ",
-      "allergens_hierarchy" : [
-         "en:apple",
-         "en:eggs",
-         "en:milk",
-         "en:soybeans"
-      ],
+      "allergens_from_ingredients" : "en:soybeans, en:eggs, en:milk, apple, milk, eggs, ",
       "allergens_tags" : [
          "en:apple",
          "en:eggs",
@@ -1434,6 +1426,17 @@
          "en:photos-to-be-uploaded"
       ],
       "tags_sources" : {
+         "allergens" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:soybeans",
+                  "en:eggs",
+                  "en:milk",
+                  "en:apple"
+               ]
+            }
+         },
          "categories" : {
             "packaging" : {
                "last_updated_t" : "--ignore--",
@@ -1449,12 +1452,15 @@
                   "en:organic"
                ]
             }
+         },
+         "traces" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            }
          }
       },
-      "traces" : "",
       "traces_from_ingredients" : "",
-      "traces_from_user" : "(en) ",
-      "traces_hierarchy" : [],
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
       "vitamins_tags" : [],

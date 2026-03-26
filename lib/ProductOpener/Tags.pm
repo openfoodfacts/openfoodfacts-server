@@ -4757,10 +4757,13 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 	}
 
 	my @normalized_input_tags = ();
+	my %seen = ();
 	foreach my $tag (split(/,/, $input_tags)) {
 
 		$tag =~ s/^\s+//;
 		$tag =~ s/\s+$//;
+
+		next if $tag eq "";
 
 		my $normalized_tag;
 
@@ -4770,7 +4773,10 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 		else {
 			$normalized_tag = $tag;
 		}
-		push @normalized_input_tags, $normalized_tag;
+		if (not exists $seen{$normalized_tag}) {
+			$seen{$normalized_tag} = 1;
+			push @normalized_input_tags, $normalized_tag;
+		}
 	}
 
 	deep_set($product_ref, "tags_sources", $field, $source, "tags", \@normalized_input_tags);

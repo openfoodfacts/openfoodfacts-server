@@ -151,8 +151,9 @@ my $tests_ref = [
 			categories => "Sausages",
 			quantity => "250 g",
 			serving_size => '20 g',
-			ingredients_text => "Pork meat, salt",
+			ingredients_text => "Pork meat, wheat, salt",
 			traces => "Moutarde, milk, abcd",
+			allergens => "Eggs"
 		}
 	},
 	{

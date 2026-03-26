@@ -8210,35 +8210,10 @@ sub detect_allergens_from_text ($product_ref) {
 
 	foreach my $field ("allergens", "traces") {
 
-		# regenerate allergens and traces from the allergens_tags field so that it is prefixed with the values in the
-		# main language of the product (which may be different than the $tag_lc language of the interface)
+		my $tag_lc = $product_ref->{$field . "_lc"} || $product_ref->{lc};
 
-		my $tag_lc = $product_ref->{$field . "_lc"} || $product_ref->{lc} || "?";
-		$product_ref->{$field . "_from_user"} = "($tag_lc) " . ($product_ref->{$field} // "");
-		$product_ref->{$field . "_hierarchy"} = [gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field})];
-		$product_ref->{$field} = join(',', @{$product_ref->{$field . "_hierarchy"}});
-
-		# concatenate allergens and traces fields from ingredients and entered by users
-
-		$product_ref->{$field . "_from_ingredients"} =~ s/, $//;
-
-		my $allergens = $product_ref->{$field . "_from_ingredients"};
-
-		if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
-
-			$allergens .= ", " . $product_ref->{$field};
-		}
-
-		$product_ref->{$field . "_hierarchy"}
-			= [gen_tags_hierarchy_taxonomy($ingredients_lc || $product_ref->{lc}, $field, $allergens)];
-		$product_ref->{$field . "_tags"} = [];
-		# print STDERR "result for $field : ";
-		foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
-			push @{$product_ref->{$field . "_tags"}},
-				get_allergens_taxonomyid($ingredients_lc || $product_ref->{lc}, $tag);
-			# print STDERR " - $tag";
-		}
-		# print STDERR "\n";
+		# Set the tags_source "ingredients" for allergens and traces detected from ingredients
+		set_field_input_tags_for_source ($product_ref, $tag_lc, $field, "ingredients",  $product_ref->{$field . "_from_ingredients"});
 	}
 
 	$log->debug("detect_allergens_from_text - done", {}) if $log->is_debug();

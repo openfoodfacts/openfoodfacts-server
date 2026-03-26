@@ -26,8 +26,7 @@
          "en:e322i"
       ],
       "allergens" : "Apple, Eggs, Milk, Soybeans",
-      "allergens_from_ingredients" : "en:soybeans, en:eggs, en:milk, apple, milk, eggs",
-      "allergens_from_user" : "(en) ",
+      "allergens_from_ingredients" : "en:soybeans, en:eggs, en:milk, apple, milk, eggs, ",
       "allergens_hierarchy" : [
          "en:apple",
          "en:eggs",
@@ -1349,7 +1348,6 @@
       ],
       "traces" : "",
       "traces_from_ingredients" : "",
-      "traces_from_user" : "(en) ",
       "traces_hierarchy" : [],
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
