@@ -2760,7 +2760,7 @@ sub compute_keywords ($product_ref) {
 
 	my $product_lc = $product_ref->{lc} || $lc;
 
-	my @text_values= ();
+	my @text_values = ();
 	foreach my $field (@string_fields) {
 		if (defined $product_ref->{$field}) {
 			push @text_values, $product_ref->{$field};
@@ -2769,12 +2769,13 @@ sub compute_keywords ($product_ref) {
 
 	foreach my $field (@tag_fields) {
 		if (defined $product_ref->{$field . "_tags"}) {
-			push @text_values, join(",", map {display_taxonomy_tag($product_lc, $field, $_)} @{$product_ref->{$field . "_tags"}});
+			push @text_values,
+				join(",", map {display_taxonomy_tag($product_lc, $field, $_)} @{$product_ref->{$field . "_tags"}});
 		}
 	}
-		
+
 	foreach my $value (@text_values) {
-		
+
 		foreach my $word (split(/,|'|’|\s/, $value)) {
 			my $wordid = get_string_id_for_lang($product_lc, $word);
 			if (length($wordid) >= 2) {
