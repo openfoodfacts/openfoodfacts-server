@@ -348,6 +348,63 @@ my @tests = (
 			rate_limiter_user_requests => undef
 		},
 	},
+	{
+		id => 'facet-value-page-number',
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'facets/categories/breads/4',
+			no_index => '0',
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
+	{
+		id => 'facet-aggregation-page-number',
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'facets/categories/breads/ingredients/4',
+			no_index => '0',
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
+	{
+		id => 'facet-value-is-a-number-1664',
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'facets/brands/1664',
+			no_index => '0',
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
+	# 365 is in fact a brand, but there's no way to tell if the user wants page 365 of the list of brands
+	{
+		id => 'facet-value-is-a-small-number-365',
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'facets/brands/365',
+			no_index => '0',
+			is_crawl_bot => '1',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		},
+	},
 
 );
 
