@@ -43,13 +43,18 @@ def main():
 
     NUTRIENTS_MATCH = DATA_FOLDER / paths["nutrients_mapping_file"]
 
-    if not os.path.exists(JSON_PATH):
-        download_fdc_json_export(
-            url=FDC_JSON_URL,
-            extract_path=EXTRACT_PATH,
-            unzip_dir=DATA_FOLDER,
-            downloaded_filename=DOWNLOADED_JSON,
-        )
+    if JSON_PATH.exists():
+        JSON_PATH.unlink(missing_ok=True)
+
+    if OUTPUT_PATH.exists():
+        OUTPUT_PATH.unlink(missing_ok=True)
+
+    download_fdc_json_export(
+        url=FDC_JSON_URL,
+        extract_path=EXTRACT_PATH,
+        unzip_dir=DATA_FOLDER,
+        downloaded_filename=DOWNLOADED_JSON,
+    )
 
     try:
         build_csv(
