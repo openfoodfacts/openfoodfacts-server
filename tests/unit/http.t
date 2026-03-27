@@ -31,7 +31,7 @@ use ProductOpener::HTTP qw/get_cors_headers/;
 	my $expected_base_ref = {
 		"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		"Access-Control-Allow-Headers" =>
-			"DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
+			"DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
 		"Access-Control-Expose-Headers" => "Content-Length,Content-Range",
 	};
 
@@ -79,8 +79,9 @@ use ProductOpener::HTTP qw/get_cors_headers/;
 	# restrict to subdomain -> deny alien domain
 	$HEADERS_IN = {"Origin" => "https://fr.example.com"};
 	$headers_ref = get_cors_headers(0, 1);
-	$expected_ref = {%$expected_base_ref,
-		("Access-Control-Allow-Origin" => "https://openfoodfacts.localhost", "Vary" => "Origin")};
+	$expected_ref = {
+		%$expected_base_ref, ("Access-Control-Allow-Origin" => "https://openfoodfacts.localhost", "Vary" => "Origin")
+	};
 	is($headers_ref, $expected_ref);
 	$headers_ref = get_cors_headers(1, 1);
 	is($headers_ref, $expected_ref);
