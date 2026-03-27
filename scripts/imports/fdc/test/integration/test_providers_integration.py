@@ -86,7 +86,7 @@ def test_build_csv_integration_writes_expected_rows(tmp_path):
     assert row["code"] == "0000123456789"
     assert row["name"] == "TEST PRODUCT"
     assert row["categories"] == "Egg Based Products Frozen"
-    assert row["countries"] == "['United States']"
+    assert row["countries"] == "United States"
     assert row["ingredients"] == "Eggs, milk"
     assert row["serving_size"] == "46 g"
     assert row["brands"] == "A BRAND INC."

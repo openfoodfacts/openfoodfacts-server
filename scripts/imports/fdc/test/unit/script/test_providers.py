@@ -42,7 +42,7 @@ PARSED_PRODUCT = {
     "name": "TEST PRODUCT",
     "last_updated_t": 1520380800,
     "categories": ["Breads - FDC", "bread", "bakery"],
-    "countries": ["United States"],
+    "countries": "United States",
     "brand_owner": "TEST BRAND OWNER",
     "preparationStateCode": "UNPREPARED",
     "quantity": "16 oz/454 g",

@@ -89,7 +89,7 @@ def parse_product_base_data(product: dict) -> dict:
             normalize_empty_string(product.get("modifiedDate"))
         ),
         "categories": normalize_empty_string(fdc_category_without_commas),
-        "countries": ["United States"],
+        "countries": "United States",
         "ingredients": normalize_empty_string(product.get("ingredients")),
         "serving_size": serving_size,
         "brands": brand,

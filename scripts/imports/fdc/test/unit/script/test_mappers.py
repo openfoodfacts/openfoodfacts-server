@@ -153,7 +153,7 @@ def test_parse_product_base_data(base_product):
     assert res.get("code") == PRODUCT_BARCODE
     assert res.get("name") == PRODUCT_DESCRIPTION
     assert res.get("categories") == PRODUCT_FDC_CATEGORY
-    assert res.get("countries") == [FDC_COUNTRY]
+    assert res.get("countries") == FDC_COUNTRY
     assert res.get("last_updated_t") == CONVERTED_PRODUCT_TIMESTAMP
     assert res.get("brands") == PRODUCT_BRAND
     assert res.get("brand_owner") == PRODUCT_BRAND_OWNER
