@@ -1,16 +1,7 @@
 {
-   "allergens" : "en:gluten,en:milk,en:nuts",
+   "allergens" : "Lait de vache, autres fruits à coque, autres céréales contenant du gluten",
    "allergens_from_ingredients" : "",
-   "allergens_hierarchy" : [
-      "en:gluten",
-      "en:milk",
-      "en:nuts"
-   ],
-   "allergens_tags" : [
-      "en:gluten",
-      "en:milk",
-      "en:nuts"
-   ],
+   "allergens_tags" : [],
    "lang" : "fr",
    "languages" : {},
    "languages_codes" : {},
@@ -19,8 +10,20 @@
       "en:0"
    ],
    "lc" : "fr",
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_hierarchy" : [],
    "traces_tags" : []
 }

@@ -6,17 +6,14 @@
       "virgule"
    ],
    "added_countries_tags" : [],
-   "allergens" : "en:molluscs",
+   "allergens" : "Molluscs",
    "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) Molluscs",
    "allergens_hierarchy" : [
       "en:molluscs"
    ],
    "allergens_imported" : "Molluscs",
    "allergens_lc" : "fr",
-   "allergens_tags" : [
-      "en:molluscs"
-   ],
+   "allergens_tags" : [],
    "categories_properties" : {},
    "categories_properties_tags" : [
       "all-products",
@@ -620,16 +617,27 @@
       "en:product-name-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "en:milk",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
+   "traces" : "Milk",
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) Milk",
    "traces_hierarchy" : [
       "en:milk"
    ],
    "traces_imported" : "Milk",
    "traces_lc" : "fr",
-   "traces_tags" : [
-      "en:milk"
-   ],
+   "traces_tags" : [],
    "weighers_tags" : []
 }

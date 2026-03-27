@@ -2,10 +2,7 @@
    "_id" : "3003004006006",
    "_keywords" : [],
    "added_countries_tags" : [],
-   "allergens" : "",
    "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "categories_properties" : {},
    "categories_properties_tags" : [
@@ -630,16 +627,27 @@
       "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "en:lupin",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
+   "traces" : "Lupin",
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) Lupin",
    "traces_hierarchy" : [
       "en:lupin"
    ],
    "traces_imported" : "Lupin",
    "traces_lc" : "en",
-   "traces_tags" : [
-      "en:lupin"
-   ],
+   "traces_tags" : [],
    "weighers_tags" : []
 }

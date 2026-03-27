@@ -1,13 +1,12 @@
 {
    "_id" : "2003004006004",
    "_keywords" : [
-      "mustard"
+      "condiment",
+      "mustard",
+      "sauce"
    ],
    "added_countries_tags" : [],
-   "allergens" : "",
    "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "categories" : "mustards",
    "categories_hierarchy" : [
@@ -782,10 +781,21 @@
       "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
    "traces_tags" : [],
    "weighers_tags" : [
       "test-user"

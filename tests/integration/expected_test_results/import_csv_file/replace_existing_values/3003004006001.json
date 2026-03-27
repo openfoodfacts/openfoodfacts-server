@@ -2,23 +2,24 @@
    "_id" : "3003004006001",
    "_keywords" : [
       "au",
+      "biscuit",
       "chocolat",
+      "et",
       "fr",
       "gateaux",
-      "packaging"
+      "packaging",
+      "snack",
+      "sucre"
    ],
    "added_countries_tags" : [],
-   "allergens" : "en:celery",
+   "allergens" : "Celery",
    "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) Celery",
    "allergens_hierarchy" : [
       "en:celery"
    ],
    "allergens_imported" : "Celery",
    "allergens_lc" : "fr",
-   "allergens_tags" : [
-      "en:celery"
-   ],
+   "allergens_tags" : [],
    "categories" : "Gâteaux au chocolat",
    "categories_hierarchy" : [
       "en:snacks",
@@ -810,16 +811,27 @@
       "en:product-name-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "en:sesame-seeds",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
+   "traces" : "Sesame",
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) Sesame",
    "traces_hierarchy" : [
       "en:sesame-seeds"
    ],
    "traces_imported" : "Sesame",
    "traces_lc" : "fr",
-   "traces_tags" : [
-      "en:sesame-seeds"
-   ],
+   "traces_tags" : [],
    "weighers_tags" : []
 }

@@ -1,17 +1,5 @@
 {
-   "allergens" : "",
    "allergens_from_ingredients" : "oeufs, crustacés, céleri, LAIT, BLE, POISSON, LAIT, BLE, POISSON, moutarde, fruits à coque, mollusques",
-   "allergens_hierarchy" : [
-      "en:celery",
-      "en:crustaceans",
-      "en:eggs",
-      "en:fish",
-      "en:gluten",
-      "en:milk",
-      "en:molluscs",
-      "en:mustard",
-      "en:nuts"
-   ],
    "allergens_tags" : [
       "en:celery",
       "en:crustaceans",
@@ -43,14 +31,36 @@
       "en:1"
    ],
    "lc" : "fr",
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:eggs",
+               "en:crustaceans",
+               "en:celery",
+               "en:milk",
+               "en:gluten",
+               "en:fish",
+               "en:mustard",
+               "en:nuts",
+               "en:molluscs"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:soybeans",
+               "en:lupin",
+               "en:peanuts",
+               "en:sesame-seeds"
+            ]
+         }
+      }
+   },
    "traces_from_ingredients" : "soja, LUPIN, LUPIN, arachide, sésame",
-   "traces_hierarchy" : [
-      "en:lupin",
-      "en:peanuts",
-      "en:sesame-seeds",
-      "en:soybeans"
-   ],
    "traces_tags" : [
       "en:lupin",
       "en:peanuts",

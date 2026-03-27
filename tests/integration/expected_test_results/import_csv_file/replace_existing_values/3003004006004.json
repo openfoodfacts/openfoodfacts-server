@@ -1,20 +1,19 @@
 {
    "_id" : "3003004006004",
    "_keywords" : [
-      "mustard"
+      "condiment",
+      "mustard",
+      "sauce"
    ],
    "added_countries_tags" : [],
-   "allergens" : "en:mustard",
+   "allergens" : "Mustard",
    "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) Mustard",
    "allergens_hierarchy" : [
       "en:mustard"
    ],
    "allergens_imported" : "Mustard",
    "allergens_lc" : "en",
-   "allergens_tags" : [
-      "en:mustard"
-   ],
+   "allergens_tags" : [],
    "categories" : "mustards",
    "categories_hierarchy" : [
       "en:condiments",
@@ -831,17 +830,28 @@
       "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "en:soybeans",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
+   "traces" : "Soybeans",
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) en:soybeans",
    "traces_hierarchy" : [
       "en:soybeans"
    ],
    "traces_imported" : "Soybeans",
    "traces_lc" : "en",
-   "traces_tags" : [
-      "en:soybeans"
-   ],
+   "traces_tags" : [],
    "weighers_tags" : [
       "test-user"
    ]

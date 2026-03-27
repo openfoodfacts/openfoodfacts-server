@@ -1,10 +1,5 @@
 {
-   "allergens" : "",
    "allergens_from_ingredients" : "sinappijauhe, VEHNÄsuurimo",
-   "allergens_hierarchy" : [
-      "en:gluten",
-      "en:mustard"
-   ],
    "allergens_tags" : [
       "en:gluten",
       "en:mustard"
@@ -29,11 +24,26 @@
       "en:1"
    ],
    "lc" : "fi",
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:mustard",
+               "en:gluten"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:eggs"
+            ]
+         }
+      }
+   },
    "traces_from_ingredients" : "kananmunaa",
-   "traces_hierarchy" : [
-      "en:eggs"
-   ],
    "traces_tags" : [
       "en:eggs"
    ]

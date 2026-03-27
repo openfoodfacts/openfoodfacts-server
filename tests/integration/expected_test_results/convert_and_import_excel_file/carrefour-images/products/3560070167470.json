@@ -2,10 +2,7 @@
    "_id" : "3560070167470",
    "_keywords" : [],
    "added_countries_tags" : [],
-   "allergens" : "",
    "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "categories_properties" : {},
    "categories_properties_tags" : [
@@ -641,10 +638,21 @@
       "en:front-photo-selected",
       "en:photos-uploaded"
    ],
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) ",
-   "traces_hierarchy" : [],
    "traces_tags" : [],
    "weighers_tags" : []
 }

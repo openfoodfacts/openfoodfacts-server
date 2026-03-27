@@ -1,17 +1,10 @@
 {
-   "allergens" : "en:mustard",
+   "allergens" : "Moutarde.",
    "allergens_from_ingredients" : "Saumon, oeufs, blé",
-   "allergens_hierarchy" : [
-      "en:eggs",
-      "en:fish",
-      "en:gluten",
-      "en:mustard"
-   ],
    "allergens_tags" : [
       "en:eggs",
       "en:fish",
-      "en:gluten",
-      "en:mustard"
+      "en:gluten"
    ],
    "ingredients_lc" : "fr",
    "ingredients_text" : "Saumon, oeufs, blé, chocolat",
@@ -32,12 +25,25 @@
       "en:1"
    ],
    "lc" : "fr",
-   "traces" : "en:lupin",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:fish",
+               "en:eggs",
+               "en:gluten"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : []
+         }
+      }
+   },
+   "traces" : "de lupin",
    "traces_from_ingredients" : "",
-   "traces_hierarchy" : [
-      "en:lupin"
-   ],
-   "traces_tags" : [
-      "en:lupin"
-   ]
+   "traces_tags" : []
 }

@@ -8,15 +8,7 @@
       "en:e102",
       "en:e120"
    ],
-   "allergens" : "",
    "allergens_from_ingredients" : "en:milk, en:nuts, en:eggs, en:gluten",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [
-      "en:eggs",
-      "en:gluten",
-      "en:milk",
-      "en:nuts"
-   ],
    "allergens_tags" : [
       "en:eggs",
       "en:gluten",
@@ -2189,10 +2181,26 @@
       "unknown",
       "missing-association"
    ],
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547870,
+            "tags" : [
+               "en:milk",
+               "en:nuts",
+               "en:eggs",
+               "en:gluten"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547870,
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

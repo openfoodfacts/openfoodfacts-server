@@ -7,6 +7,7 @@
       {
          "_id" : "2000000000343",
          "_keywords" : [
+            "snack",
             "test-1",
             "tester"
          ],
@@ -14,9 +15,8 @@
          "additives_n" : 0,
          "additives_original_tags" : [],
          "additives_tags" : [],
-         "allergens" : "Apple, Eggs, Milk",
+         "allergens" : "",
          "allergens_from_ingredients" : "en:eggs, en:milk, apple, milk, eggs",
-         "allergens_from_user" : "(en) ",
          "allergens_hierarchy" : [
             "en:apple",
             "en:eggs",
@@ -73,7 +73,7 @@
             "en:ingredients-en-completed",
             "en:ingredients-completed-at-least-for-one-language",
             "en:nutrition-photo-to-be-selected",
-            "en:categories-to-be-completed",
+            "en:categories-completed",
             "en:nutrition-to-be-completed",
             "en:packaging-photo-to-be-selected",
             "en:packagings-completed",
@@ -90,8 +90,8 @@
             "completeness" : {
                "general_information" : "0.40",
                "ingredients" : "0.50",
-               "nutrition" : "0.00",
-               "overall" : "0.33",
+               "nutrition" : "0.33",
+               "overall" : "0.42",
                "packaging" : "0.50"
             }
          },
@@ -110,7 +110,7 @@
             "en:ingredients-en-completed",
             "en:ingredients-completed-at-least-for-one-language",
             "en:nutrition-photo-to-be-selected",
-            "en:categories-to-be-completed",
+            "en:categories-completed",
             "en:nutrition-to-be-completed",
             "en:packaging-photo-to-be-selected",
             "en:packagings-completed",
@@ -994,6 +994,21 @@
          "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:photos-to-be-uploaded, en:product-name-completed, en:quantity-completed, en:packaging-to-be-completed, en:brands-to-be-completed, en:categories-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-completed, en:nutrition-facts-to-be-completed, en:to-be-completed",
+         "states_hierarchy" : [
+            "en:to-be-completed",
+            "en:nutrition-facts-to-be-completed",
+            "en:ingredients-completed",
+            "en:expiration-date-to-be-completed",
+            "en:packaging-code-to-be-completed",
+            "en:characteristics-to-be-completed",
+            "en:origins-to-be-completed",
+            "en:categories-completed",
+            "en:brands-to-be-completed",
+            "en:packaging-to-be-completed",
+            "en:quantity-completed",
+            "en:product-name-completed",
+            "en:photos-to-be-uploaded"
+         ],
          "states_tags" : [
             "en:to-be-completed",
             "en:nutrition-facts-to-be-completed",
@@ -1011,7 +1026,6 @@
          ],
          "traces" : "",
          "traces_from_ingredients" : "",
-         "traces_from_user" : "(en) ",
          "traces_hierarchy" : [],
          "traces_lc" : "en",
          "traces_tags" : [],
@@ -1026,6 +1040,7 @@
             "free",
             "oil",
             "palm",
+            "snack",
             "tester",
             "vegan"
          ],
@@ -1035,7 +1050,6 @@
          "additives_tags" : [],
          "allergens" : "",
          "allergens_from_ingredients" : "",
-         "allergens_from_user" : "(en) ",
          "allergens_hierarchy" : [],
          "allergens_lc" : "en",
          "allergens_tags" : [],
@@ -1084,7 +1098,7 @@
             "en:ingredients-en-completed",
             "en:ingredients-completed-at-least-for-one-language",
             "en:nutrition-photo-to-be-selected",
-            "en:categories-to-be-completed",
+            "en:categories-completed",
             "en:nutrition-to-be-completed",
             "en:packaging-photo-to-be-selected",
             "en:packagings-completed",
@@ -1101,8 +1115,8 @@
             "completeness" : {
                "general_information" : "0.40",
                "ingredients" : "0.50",
-               "nutrition" : "0.00",
-               "overall" : "0.33",
+               "nutrition" : "0.33",
+               "overall" : "0.42",
                "packaging" : "0.50"
             }
          },
@@ -1121,7 +1135,7 @@
             "en:ingredients-en-completed",
             "en:ingredients-completed-at-least-for-one-language",
             "en:nutrition-photo-to-be-selected",
-            "en:categories-to-be-completed",
+            "en:categories-completed",
             "en:nutrition-to-be-completed",
             "en:packaging-photo-to-be-selected",
             "en:packagings-completed",
@@ -1650,6 +1664,21 @@
          "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:photos-to-be-uploaded, en:product-name-completed, en:quantity-completed, en:packaging-to-be-completed, en:brands-to-be-completed, en:categories-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-completed, en:nutrition-facts-to-be-completed, en:to-be-completed",
+         "states_hierarchy" : [
+            "en:to-be-completed",
+            "en:nutrition-facts-to-be-completed",
+            "en:ingredients-completed",
+            "en:expiration-date-to-be-completed",
+            "en:packaging-code-to-be-completed",
+            "en:characteristics-to-be-completed",
+            "en:origins-to-be-completed",
+            "en:categories-completed",
+            "en:brands-to-be-completed",
+            "en:packaging-to-be-completed",
+            "en:quantity-completed",
+            "en:product-name-completed",
+            "en:photos-to-be-uploaded"
+         ],
          "states_tags" : [
             "en:to-be-completed",
             "en:nutrition-facts-to-be-completed",
@@ -1667,7 +1696,6 @@
          ],
          "traces" : "",
          "traces_from_ingredients" : "",
-         "traces_from_user" : "(en) ",
          "traces_hierarchy" : [],
          "traces_lc" : "en",
          "traces_tags" : [],
@@ -1683,6 +1711,7 @@
             "non",
             "oil",
             "palm",
+            "snack",
             "tester",
             "vegan"
          ],
@@ -1690,9 +1719,8 @@
          "additives_n" : 0,
          "additives_original_tags" : [],
          "additives_tags" : [],
-         "allergens" : "Apple, Eggs, Milk",
+         "allergens" : "",
          "allergens_from_ingredients" : "en:eggs, en:milk, apple, milk, eggs",
-         "allergens_from_user" : "(en) ",
          "allergens_hierarchy" : [
             "en:apple",
             "en:eggs",
@@ -1749,7 +1777,7 @@
             "en:ingredients-en-completed",
             "en:ingredients-completed-at-least-for-one-language",
             "en:nutrition-photo-to-be-selected",
-            "en:categories-to-be-completed",
+            "en:categories-completed",
             "en:nutrition-to-be-completed",
             "en:packaging-photo-to-be-selected",
             "en:packagings-completed",
@@ -1766,8 +1794,8 @@
             "completeness" : {
                "general_information" : "0.40",
                "ingredients" : "0.50",
-               "nutrition" : "0.00",
-               "overall" : "0.33",
+               "nutrition" : "0.33",
+               "overall" : "0.42",
                "packaging" : "0.50"
             }
          },
@@ -1786,7 +1814,7 @@
             "en:ingredients-en-completed",
             "en:ingredients-completed-at-least-for-one-language",
             "en:nutrition-photo-to-be-selected",
-            "en:categories-to-be-completed",
+            "en:categories-completed",
             "en:nutrition-to-be-completed",
             "en:packaging-photo-to-be-selected",
             "en:packagings-completed",
@@ -2574,6 +2602,21 @@
          "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:photos-to-be-uploaded, en:product-name-completed, en:quantity-completed, en:packaging-to-be-completed, en:brands-to-be-completed, en:categories-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-completed, en:nutrition-facts-to-be-completed, en:to-be-completed",
+         "states_hierarchy" : [
+            "en:to-be-completed",
+            "en:nutrition-facts-to-be-completed",
+            "en:ingredients-completed",
+            "en:expiration-date-to-be-completed",
+            "en:packaging-code-to-be-completed",
+            "en:characteristics-to-be-completed",
+            "en:origins-to-be-completed",
+            "en:categories-completed",
+            "en:brands-to-be-completed",
+            "en:packaging-to-be-completed",
+            "en:quantity-completed",
+            "en:product-name-completed",
+            "en:photos-to-be-uploaded"
+         ],
          "states_tags" : [
             "en:to-be-completed",
             "en:nutrition-facts-to-be-completed",
@@ -2591,7 +2634,6 @@
          ],
          "traces" : "",
          "traces_from_ingredients" : "",
-         "traces_from_user" : "(en) ",
          "traces_hierarchy" : [],
          "traces_lc" : "en",
          "traces_tags" : [],
@@ -2602,14 +2644,15 @@
       },
       {
          "_id" : "2000000000398",
-         "_keywords" : [],
+         "_keywords" : [
+            "botana"
+         ],
          "added_countries_tags" : [],
          "additives_n" : 0,
          "additives_original_tags" : [],
          "additives_tags" : [],
-         "allergens" : "Apple",
+         "allergens" : "",
          "allergens_from_ingredients" : "apple",
-         "allergens_from_user" : "(es) ",
          "allergens_hierarchy" : [
             "en:apple"
          ],
@@ -2662,7 +2705,7 @@
             "en:ingredients-en-completed",
             "en:ingredients-completed-at-least-for-one-language",
             "en:nutrition-photo-to-be-selected",
-            "en:categories-to-be-completed",
+            "en:categories-completed",
             "en:nutrition-to-be-completed",
             "en:packaging-photo-to-be-selected",
             "en:packagings-completed",
@@ -2679,8 +2722,8 @@
             "completeness" : {
                "general_information" : "0.20",
                "ingredients" : "0.50",
-               "nutrition" : "0.00",
-               "overall" : "0.25",
+               "nutrition" : "0.33",
+               "overall" : "0.33",
                "packaging" : "0.50"
             }
          },
@@ -2699,7 +2742,7 @@
             "en:ingredients-en-completed",
             "en:ingredients-completed-at-least-for-one-language",
             "en:nutrition-photo-to-be-selected",
-            "en:categories-to-be-completed",
+            "en:categories-completed",
             "en:nutrition-to-be-completed",
             "en:packaging-photo-to-be-selected",
             "en:packagings-completed",
@@ -3453,6 +3496,21 @@
          "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:photos-to-be-uploaded, en:product-name-to-be-completed, en:quantity-completed, en:packaging-to-be-completed, en:brands-to-be-completed, en:categories-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-completed, en:nutrition-facts-to-be-completed, en:to-be-completed",
+         "states_hierarchy" : [
+            "en:to-be-completed",
+            "en:nutrition-facts-to-be-completed",
+            "en:ingredients-completed",
+            "en:expiration-date-to-be-completed",
+            "en:packaging-code-to-be-completed",
+            "en:characteristics-to-be-completed",
+            "en:origins-to-be-completed",
+            "en:categories-completed",
+            "en:brands-to-be-completed",
+            "en:packaging-to-be-completed",
+            "en:quantity-completed",
+            "en:product-name-to-be-completed",
+            "en:photos-to-be-uploaded"
+         ],
          "states_tags" : [
             "en:to-be-completed",
             "en:nutrition-facts-to-be-completed",
@@ -3470,7 +3528,6 @@
          ],
          "traces" : "",
          "traces_from_ingredients" : "",
-         "traces_from_user" : "(es) ",
          "traces_hierarchy" : [],
          "traces_lc" : "es",
          "traces_tags" : [],
@@ -3481,14 +3538,25 @@
       },
       {
          "_id" : "2000000000459",
-         "_keywords" : [],
+         "_keywords" : [
+            "alimento",
+            "bebida",
+            "cereale",
+            "de",
+            "derivado",
+            "desayuno",
+            "el",
+            "origen",
+            "para",
+            "patata",
+            "vegetal"
+         ],
          "added_countries_tags" : [],
          "additives_n" : 0,
          "additives_original_tags" : [],
          "additives_tags" : [],
-         "allergens" : "Apple",
+         "allergens" : "",
          "allergens_from_ingredients" : "apple",
-         "allergens_from_user" : "(es) ",
          "allergens_hierarchy" : [
             "en:apple"
          ],
@@ -3557,7 +3625,7 @@
             "en:ingredients-en-completed",
             "en:ingredients-completed-at-least-for-one-language",
             "en:nutrition-photo-to-be-selected",
-            "en:categories-to-be-completed",
+            "en:categories-completed",
             "en:nutrition-to-be-completed",
             "en:packaging-photo-to-be-selected",
             "en:packagings-completed",
@@ -3574,8 +3642,8 @@
             "completeness" : {
                "general_information" : "0.20",
                "ingredients" : "0.50",
-               "nutrition" : "0.00",
-               "overall" : "0.25",
+               "nutrition" : "0.33",
+               "overall" : "0.33",
                "packaging" : "0.50"
             }
          },
@@ -3594,7 +3662,7 @@
             "en:ingredients-en-completed",
             "en:ingredients-completed-at-least-for-one-language",
             "en:nutrition-photo-to-be-selected",
-            "en:categories-to-be-completed",
+            "en:categories-completed",
             "en:nutrition-to-be-completed",
             "en:packaging-photo-to-be-selected",
             "en:packagings-completed",
@@ -4497,6 +4565,21 @@
          "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:photos-to-be-uploaded, en:product-name-to-be-completed, en:quantity-completed, en:packaging-to-be-completed, en:brands-to-be-completed, en:categories-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-completed, en:nutrition-facts-to-be-completed, en:to-be-completed",
+         "states_hierarchy" : [
+            "en:to-be-completed",
+            "en:nutrition-facts-to-be-completed",
+            "en:ingredients-completed",
+            "en:expiration-date-to-be-completed",
+            "en:packaging-code-to-be-completed",
+            "en:characteristics-to-be-completed",
+            "en:origins-to-be-completed",
+            "en:categories-completed",
+            "en:brands-to-be-completed",
+            "en:packaging-to-be-completed",
+            "en:quantity-completed",
+            "en:product-name-to-be-completed",
+            "en:photos-to-be-uploaded"
+         ],
          "states_tags" : [
             "en:to-be-completed",
             "en:nutrition-facts-to-be-completed",
@@ -4514,7 +4597,6 @@
          ],
          "traces" : "",
          "traces_from_ingredients" : "",
-         "traces_from_user" : "(es) ",
          "traces_hierarchy" : [],
          "traces_lc" : "es",
          "traces_tags" : [],
@@ -4526,12 +4608,19 @@
       {
          "_id" : "2000000000466",
          "_keywords" : [
+            "and",
+            "beverage",
             "breakfast",
             "cereal",
             "default-name",
+            "food",
             "more",
             "oil",
             "palm",
+            "plant-based",
+            "potatoe",
+            "product",
+            "their",
             "vegan",
             "without"
          ],
@@ -4539,9 +4628,8 @@
          "additives_n" : 0,
          "additives_original_tags" : [],
          "additives_tags" : [],
-         "allergens" : "Apple",
+         "allergens" : "",
          "allergens_from_ingredients" : "apple",
-         "allergens_from_user" : "(en) ",
          "allergens_hierarchy" : [
             "en:apple"
          ],
@@ -4620,7 +4708,7 @@
             "en:ingredients-en-completed",
             "en:ingredients-completed-at-least-for-one-language",
             "en:nutrition-photo-to-be-selected",
-            "en:categories-to-be-completed",
+            "en:categories-completed",
             "en:nutrition-to-be-completed",
             "en:packaging-photo-to-be-selected",
             "en:packagings-completed",
@@ -4637,8 +4725,8 @@
             "completeness" : {
                "general_information" : "0.40",
                "ingredients" : "0.50",
-               "nutrition" : "0.00",
-               "overall" : "0.33",
+               "nutrition" : "0.33",
+               "overall" : "0.42",
                "packaging" : "0.50"
             }
          },
@@ -4657,7 +4745,7 @@
             "en:ingredients-en-completed",
             "en:ingredients-completed-at-least-for-one-language",
             "en:nutrition-photo-to-be-selected",
-            "en:categories-to-be-completed",
+            "en:categories-completed",
             "en:nutrition-to-be-completed",
             "en:packaging-photo-to-be-selected",
             "en:packagings-completed",
@@ -5595,6 +5683,21 @@
          "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:photos-to-be-uploaded, en:product-name-completed, en:quantity-completed, en:packaging-to-be-completed, en:brands-to-be-completed, en:categories-completed, en:origins-to-be-completed, en:characteristics-to-be-completed, en:packaging-code-to-be-completed, en:expiration-date-to-be-completed, en:ingredients-completed, en:nutrition-facts-to-be-completed, en:to-be-completed",
+         "states_hierarchy" : [
+            "en:to-be-completed",
+            "en:nutrition-facts-to-be-completed",
+            "en:ingredients-completed",
+            "en:expiration-date-to-be-completed",
+            "en:packaging-code-to-be-completed",
+            "en:characteristics-to-be-completed",
+            "en:origins-to-be-completed",
+            "en:categories-completed",
+            "en:brands-to-be-completed",
+            "en:packaging-to-be-completed",
+            "en:quantity-completed",
+            "en:product-name-completed",
+            "en:photos-to-be-uploaded"
+         ],
          "states_tags" : [
             "en:to-be-completed",
             "en:nutrition-facts-to-be-completed",
@@ -5612,7 +5715,6 @@
          ],
          "traces" : "",
          "traces_from_ingredients" : "",
-         "traces_from_user" : "(en) ",
          "traces_hierarchy" : [],
          "traces_lc" : "en",
          "traces_tags" : [],

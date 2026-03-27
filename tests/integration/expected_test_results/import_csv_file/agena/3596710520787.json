@@ -1,8 +1,12 @@
 {
    "_id" : "3596710520787",
    "_keywords" : [
+      "and",
       "auchan",
-      "egg"
+      "en-egg",
+      "en-farming",
+      "product",
+      "their"
    ],
    "abbreviated_product_name_fr" : "Auchan oeufs dates du jour de ponte",
    "abbreviated_product_name_fr_imported" : "Auchan oeufs dates du jour de ponte",
@@ -12,14 +16,13 @@
    "additives_tags" : [],
    "allergens" : "en:eggs",
    "allergens_from_ingredients" : "ŒUFS , ŒUFS",
-   "allergens_from_user" : "(lc) en:eggs",
    "allergens_hierarchy" : [
       "en:eggs"
    ],
    "allergens_imported" : "en:eggs",
    "allergens_lc" : "lc",
    "allergens_tags" : [
-      "en:eggs"
+      "lc:ŒUFS"
    ],
    "amino_acids_tags" : [],
    "brands" : "Auchan",
@@ -1366,10 +1369,23 @@
       "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "lc:ŒUFS"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(lc) ",
-   "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 10.0,
    "vitamins_tags" : [],

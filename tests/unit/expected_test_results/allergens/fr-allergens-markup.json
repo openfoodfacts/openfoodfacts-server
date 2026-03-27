@@ -1,14 +1,5 @@
 {
-   "allergens" : "",
    "allergens_from_ingredients" : "GLUTEN, CELERI, poisson, banane, mollusque, BLE, CELERI, GLUTEN, BLE, CELERI, GLUTEN, lupin",
-   "allergens_hierarchy" : [
-      "en:celery",
-      "en:fish",
-      "en:gluten",
-      "en:lupin",
-      "en:molluscs",
-      "fr:banane"
-   ],
    "allergens_tags" : [
       "en:celery",
       "en:fish",
@@ -36,8 +27,27 @@
       "en:1"
    ],
    "lc" : "fr",
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:gluten",
+               "en:celery",
+               "en:fish",
+               "fr:banane",
+               "en:molluscs",
+               "en:lupin"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_hierarchy" : [],
    "traces_tags" : []
 }

@@ -3,30 +3,31 @@
    "_keywords" : [
       "ab",
       "agriculture",
-      "and",
-      "based",
-      "beverage",
+      "aliment",
+      "base",
       "bio",
       "biologique",
+      "boisson",
       "carrefour",
-      "cereal",
-      "eu",
-      "food",
+      "cereale",
+      "de",
+      "derive",
+      "et",
+      "europeen",
       "fr-bio-01",
       "france",
       "fruit",
-      "green",
+      "graine",
       "legume",
-      "lentil",
+      "legumineuse",
       "lentille",
-      "organic",
-      "plant-based",
-      "potatoe",
-      "product",
-      "pulse",
-      "seed",
-      "their",
-      "vegetable",
+      "origine",
+      "pomme",
+      "seche",
+      "terre",
+      "ue",
+      "vegetale",
+      "vegetaux",
       "verte"
    ],
    "abbreviated_product_name" : "Lentilles bio",
@@ -36,10 +37,7 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
    "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "brand_owner" : "Carrefour",
@@ -1773,17 +1771,28 @@
    "stores_tags" : [
       "carrefour"
    ],
-   "traces" : "en:gluten",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
+   "traces" : "Gluten",
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) Gluten",
    "traces_hierarchy" : [
       "en:gluten"
    ],
    "traces_imported" : "Gluten",
    "traces_lc" : "fr",
-   "traces_tags" : [
-      "en:gluten"
-   ],
+   "traces_tags" : [],
    "unknown_ingredients_n" : 0.0,
    "vitamins_tags" : [],
    "weighers_tags" : []

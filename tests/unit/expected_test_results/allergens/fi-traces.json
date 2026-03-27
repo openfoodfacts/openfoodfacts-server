@@ -1,7 +1,5 @@
 {
-   "allergens" : "",
    "allergens_from_ingredients" : "",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "ingredients_lc" : "fi",
    "ingredients_text" : "Saattaa sisältää muita gluteenia sisältäviä viljoja, pähkinöitä, maapähkinöitä, soijaa ja kananmunia.",
@@ -23,15 +21,27 @@
       "en:1"
    ],
    "lc" : "fi",
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:gluten",
+               "en:nuts",
+               "en:peanuts",
+               "en:soybeans",
+               "en:eggs"
+            ]
+         }
+      }
+   },
    "traces_from_ingredients" : "gluteenia sisältäviä viljoja, pähkinöitä, maapähkinöitä, soijaa, kananmunia",
-   "traces_hierarchy" : [
-      "en:eggs",
-      "en:gluten",
-      "en:nuts",
-      "en:peanuts",
-      "en:soybeans"
-   ],
    "traces_tags" : [
       "en:eggs",
       "en:gluten",

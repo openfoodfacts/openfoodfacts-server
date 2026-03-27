@@ -1,13 +1,5 @@
 {
-   "allergens" : "",
    "allergens_from_ingredients" : "blé, lupin, soja, moutarde, céleri",
-   "allergens_hierarchy" : [
-      "en:celery",
-      "en:gluten",
-      "en:lupin",
-      "en:mustard",
-      "en:soybeans"
-   ],
    "allergens_tags" : [
       "en:celery",
       "en:gluten",
@@ -35,13 +27,31 @@
       "en:1"
    ],
    "lc" : "fr",
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:gluten",
+               "en:lupin",
+               "en:soybeans",
+               "en:mustard",
+               "en:celery"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:nuts",
+               "en:peanuts",
+               "en:fish"
+            ]
+         }
+      }
+   },
    "traces_from_ingredients" : "fruits à coques, arachide, poisson",
-   "traces_hierarchy" : [
-      "en:fish",
-      "en:nuts",
-      "en:peanuts"
-   ],
    "traces_tags" : [
       "en:fish",
       "en:nuts",

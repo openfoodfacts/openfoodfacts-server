@@ -4,15 +4,23 @@
    "product" : {
       "_id" : "1234567890012",
       "_keywords" : [
+         "and",
+         "beverage",
+         "breakfast",
+         "cereal",
          "english",
+         "food",
+         "gluten",
          "name",
-         "product"
+         "no",
+         "organic",
+         "plant-based",
+         "potatoe",
+         "product",
+         "their"
       ],
       "added_countries_tags" : [],
-      "allergens" : "",
       "allergens_from_ingredients" : "",
-      "allergens_from_user" : "(en) ",
-      "allergens_hierarchy" : [],
       "allergens_tags" : [],
       "categories_properties" : {
          "agribalyse_proxy_food_code:en" : "32135",
@@ -62,7 +70,7 @@
          "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
          "en:ingredients-en-photo-to-be-selected",
          "en:ingredients-en-to-be-completed",
-         "en:categories-to-be-completed",
+         "en:categories-completed",
          "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
@@ -79,8 +87,8 @@
          "completeness" : {
             "general_information" : "0.20",
             "ingredients" : "0.00",
-            "nutrition" : "0.67",
-            "overall" : "0.33",
+            "nutrition" : "1.00",
+            "overall" : "0.42",
             "packaging" : "0.50"
          }
       },
@@ -96,7 +104,7 @@
          "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
          "en:ingredients-en-photo-to-be-selected",
          "en:ingredients-en-to-be-completed",
-         "en:categories-to-be-completed",
+         "en:categories-completed",
          "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
@@ -720,6 +728,12 @@
          "en:photos-to-be-uploaded"
       ],
       "tags_sources" : {
+         "allergens" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            }
+         },
          "categories" : {
             "packaging" : {
                "last_updated_t" : "--ignore--",
@@ -736,12 +750,15 @@
                   "en:no-gluten"
                ]
             }
+         },
+         "traces" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            }
          }
       },
-      "traces" : "",
       "traces_from_ingredients" : "",
-      "traces_from_user" : "(en) ",
-      "traces_hierarchy" : [],
       "traces_tags" : [],
       "weighers_tags" : []
    },

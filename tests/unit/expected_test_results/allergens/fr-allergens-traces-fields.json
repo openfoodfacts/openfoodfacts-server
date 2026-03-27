@@ -1,16 +1,7 @@
 {
-   "allergens" : "en:celery,en:crustaceans,en:lupin",
+   "allergens" : "Céleri, crustacés et lupin.",
    "allergens_from_ingredients" : "",
-   "allergens_hierarchy" : [
-      "en:celery",
-      "en:crustaceans",
-      "en:lupin"
-   ],
-   "allergens_tags" : [
-      "en:celery",
-      "en:crustaceans",
-      "en:lupin"
-   ],
+   "allergens_tags" : [],
    "ingredients_lc" : "fr",
    "ingredients_text" : "Filet de saumon sauvage",
    "ingredients_text_fr" : "Filet de saumon sauvage",
@@ -30,18 +21,21 @@
       "en:1"
    ],
    "lc" : "fr",
-   "traces" : "en:eggs,en:mustard,en:soybeans,en:sulphur-dioxide-and-sulphites",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : []
+         }
+      }
+   },
+   "traces" : "Oeufs, du soja, des sulfites et de la moutarde.",
    "traces_from_ingredients" : "",
-   "traces_hierarchy" : [
-      "en:eggs",
-      "en:mustard",
-      "en:soybeans",
-      "en:sulphur-dioxide-and-sulphites"
-   ],
-   "traces_tags" : [
-      "en:eggs",
-      "en:mustard",
-      "en:soybeans",
-      "en:sulphur-dioxide-and-sulphites"
-   ]
+   "traces_tags" : []
 }

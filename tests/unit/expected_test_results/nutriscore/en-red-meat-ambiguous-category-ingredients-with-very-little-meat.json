@@ -2,13 +2,7 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
    "allergens_from_ingredients" : "en:gluten, en:eggs",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [
-      "en:eggs",
-      "en:gluten"
-   ],
    "allergens_tags" : [
       "en:eggs",
       "en:gluten"
@@ -1188,10 +1182,24 @@
       "processed-meat",
       "known"
    ],
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547997,
+            "tags" : [
+               "en:gluten",
+               "en:eggs"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547997,
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

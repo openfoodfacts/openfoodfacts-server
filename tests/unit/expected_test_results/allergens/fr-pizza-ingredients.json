@@ -1,10 +1,5 @@
 {
-   "allergens" : "",
    "allergens_from_ingredients" : "blé, mozzarella, lactose",
-   "allergens_hierarchy" : [
-      "en:gluten",
-      "en:milk"
-   ],
    "allergens_tags" : [
       "en:gluten",
       "en:milk"
@@ -29,8 +24,23 @@
       "en:1"
    ],
    "lc" : "fr",
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:gluten",
+               "en:milk"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_hierarchy" : [],
    "traces_tags" : []
 }

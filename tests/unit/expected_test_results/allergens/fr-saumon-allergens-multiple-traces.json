@@ -1,12 +1,7 @@
 {
-   "allergens" : "en:fish",
+   "allergens" : "poisson",
    "allergens_from_ingredients" : "",
-   "allergens_hierarchy" : [
-      "en:fish"
-   ],
-   "allergens_tags" : [
-      "en:fish"
-   ],
+   "allergens_tags" : [],
    "ingredients_lc" : "fr",
    "ingredients_text" : "Filet de saumon* 93%, jus de citron* 5%, sel marin, poivre*. *Ingrédients issus de l'agriculture biologique. Traces possibles de crustacés, mollusques, lait et gluten.",
    "ingredients_text_fr" : "Filet de saumon* 93%, jus de citron* 5%, sel marin, poivre*. *Ingrédients issus de l'agriculture biologique. Traces possibles de crustacés, mollusques, lait et gluten.",
@@ -26,14 +21,27 @@
       "en:1"
    ],
    "lc" : "fr",
-   "traces" : "en:crustaceans,en:gluten,en:milk,en:molluscs",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:crustaceans",
+               "en:molluscs",
+               "en:milk",
+               "en:gluten"
+            ]
+         }
+      }
+   },
+   "traces" : "crustacés, mollusques, lait, gluten",
    "traces_from_ingredients" : "crustacés, mollusques, lait, gluten",
-   "traces_hierarchy" : [
-      "en:crustaceans",
-      "en:gluten",
-      "en:milk",
-      "en:molluscs"
-   ],
    "traces_tags" : [
       "en:crustaceans",
       "en:gluten",

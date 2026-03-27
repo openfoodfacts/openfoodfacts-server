@@ -1,13 +1,8 @@
 {
-   "allergens" : "en:sulphur-dioxide-and-sulphites",
+   "allergens" : "Sulfiitteja",
    "allergens_from_ingredients" : "vehnäjauho",
-   "allergens_hierarchy" : [
-      "en:gluten",
-      "en:sulphur-dioxide-and-sulphites"
-   ],
    "allergens_tags" : [
-      "en:gluten",
-      "en:sulphur-dioxide-and-sulphites"
+      "en:gluten"
    ],
    "ingredients_lc" : "fi",
    "ingredients_text" : "vehnäjauho 97%",
@@ -29,8 +24,22 @@
       "en:1"
    ],
    "lc" : "fi",
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:gluten"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_hierarchy" : [],
    "traces_tags" : []
 }

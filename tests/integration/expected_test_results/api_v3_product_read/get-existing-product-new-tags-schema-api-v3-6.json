@@ -12,10 +12,7 @@
       "additives_n" : 0,
       "additives_original_tags" : [],
       "additives_tags" : [],
-      "allergens" : "",
       "allergens_from_ingredients" : "",
-      "allergens_from_user" : "(en) ",
-      "allergens_hierarchy" : [],
       "allergens_tags" : [],
       "amino_acids_tags" : [],
       "categories_properties" : {},
@@ -1121,6 +1118,12 @@
          "en:photos-to-be-uploaded"
       ],
       "tags_sources" : {
+         "allergens" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            }
+         },
          "categories" : {
             "packaging" : {
                "last_updated_t" : "--ignore--",
@@ -1128,12 +1131,15 @@
                   "en:snacks"
                ]
             }
+         },
+         "traces" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            }
          }
       },
-      "traces" : "",
       "traces_from_ingredients" : "",
-      "traces_from_user" : "(en) ",
-      "traces_hierarchy" : [],
       "traces_tags" : [],
       "unknown_ingredients_n" : 1,
       "vitamins_tags" : [],

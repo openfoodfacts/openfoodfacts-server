@@ -2,12 +2,7 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
    "allergens_from_ingredients" : "en:soybeans, en:soybeans, en:soybeans, en:soybeans, en:soybeans",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [
-      "en:soybeans"
-   ],
    "allergens_tags" : [
       "en:soybeans"
    ],
@@ -899,10 +894,23 @@
       "one-dish-meals",
       "known"
    ],
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547997,
+            "tags" : [
+               "en:soybeans"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547997,
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

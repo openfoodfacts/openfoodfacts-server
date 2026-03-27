@@ -1,8 +1,5 @@
 {
-   "allergens" : "",
    "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "categories_properties" : {},
    "categories_properties_tags" : [
@@ -501,9 +498,20 @@
       "unknown",
       "missing-category"
    ],
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547859,
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547859,
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
    "traces_tags" : []
 }

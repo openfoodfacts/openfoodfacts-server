@@ -2,16 +2,17 @@
    "_id" : "2003004006001",
    "_keywords" : [
       "au",
+      "biscuit",
       "chocolat",
+      "et",
       "fr",
       "gateaux",
-      "packaging"
+      "packaging",
+      "snack",
+      "sucre"
    ],
    "added_countries_tags" : [],
-   "allergens" : "",
    "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "categories" : "Gâteaux au chocolat",
    "categories_hierarchy" : [
@@ -789,10 +790,21 @@
       "en:product-name-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) ",
-   "traces_hierarchy" : [],
    "traces_tags" : [],
    "weighers_tags" : []
 }

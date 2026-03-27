@@ -1,7 +1,5 @@
 {
-   "allergens" : "",
    "allergens_from_ingredients" : "",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "ingredients_lc" : "en",
    "ingredients_text" : "Whole Grain Oat Flakes (65.0%)",
@@ -23,8 +21,20 @@
       "en:1"
    ],
    "lc" : "en",
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_hierarchy" : [],
    "traces_tags" : []
 }

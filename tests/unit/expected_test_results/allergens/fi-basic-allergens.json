@@ -1,17 +1,5 @@
 {
-   "allergens" : "",
    "allergens_from_ingredients" : "kananmunat, äyriäiset, selleri, nilviäisiä, MAITO, KALA, MAITO, KALA, VEHNÄjauho, sinappi, pähkinöitä",
-   "allergens_hierarchy" : [
-      "en:celery",
-      "en:crustaceans",
-      "en:eggs",
-      "en:fish",
-      "en:gluten",
-      "en:milk",
-      "en:molluscs",
-      "en:mustard",
-      "en:nuts"
-   ],
    "allergens_tags" : [
       "en:celery",
       "en:crustaceans",
@@ -43,14 +31,36 @@
       "en:1"
    ],
    "lc" : "fi",
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:eggs",
+               "en:crustaceans",
+               "en:celery",
+               "en:molluscs",
+               "en:milk",
+               "en:fish",
+               "en:gluten",
+               "en:mustard",
+               "en:nuts"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547850,
+            "tags" : [
+               "en:soybeans",
+               "en:lupin",
+               "en:peanuts",
+               "en:sesame-seeds"
+            ]
+         }
+      }
+   },
    "traces_from_ingredients" : "soijaa, LUPIINEJA, LUPIINEJA, maapähkinöitä, seesamia",
-   "traces_hierarchy" : [
-      "en:lupin",
-      "en:peanuts",
-      "en:sesame-seeds",
-      "en:soybeans"
-   ],
    "traces_tags" : [
       "en:lupin",
       "en:peanuts",

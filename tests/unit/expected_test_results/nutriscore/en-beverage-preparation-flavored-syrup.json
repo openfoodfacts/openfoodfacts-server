@@ -6,10 +6,7 @@
    "additives_tags" : [
       "en:e951"
    ],
-   "allergens" : "",
    "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "flavored syrup",
@@ -571,10 +568,21 @@
       "artificially-sweetened-beverages",
       "known"
    ],
-   "traces" : "",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547997,
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : 1774547997,
+            "tags" : []
+         }
+      }
+   },
    "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []
