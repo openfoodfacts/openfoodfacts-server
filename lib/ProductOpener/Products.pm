@@ -1806,7 +1806,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 	}
 
 	$product_ref->{"states_tags"} = [reverse @states_tags];
-	$product_ref->{states} = join(', ', @states_tags);
+	$product_ref->{states} = join(', ', @{$product_ref->{"states_tags"}});
 
 	delete $product_ref->{status};
 	delete $product_ref->{status_tags};
