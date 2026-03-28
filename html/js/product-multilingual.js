@@ -334,14 +334,19 @@ $.fn.isVisible = function () {
 };
 
 function update_nutrition_image_copy() {
+    const nutrition_table_width = Math.ceil($('#nutrition_data_table')[0].getBoundingClientRect().width);
+    const nutrition_width = Math.floor($('#nutrition')[0].getBoundingClientRect().width);
+
     // width big enough to display a copy next to nutrition table?
-    if ($("#nutrition_data_table").isVisible() && $('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+    
+    if ($("#nutrition_data_table").isVisible() && nutrition_width - nutrition_table_width > 405) {
         const position = $('html[dir=rtl]').length ? 'right' : 'left';
-        $('#nutrition_image_copy').css(position, $('#nutrition_data_table').width() + 10).show();
+        $('#nutrition_image_copy').css(position, nutrition_table_width + 10).show();
     } else {
         $('#nutrition_image_copy').hide();
     }
-}
+}        
+
 
 function update_display(imagefield, first_display, protected_product) {
 
@@ -358,11 +363,15 @@ function update_display(imagefield, first_display, protected_product) {
         }
 
         if (stringStartsWith(imagefield, 'nutrition')) {
+            const nutrition_table_width = Math.ceil($('#nutrition_data_table')[0].getBoundingClientRect().width);
+            const nutrition_width = Math.floor($('#nutrition')[0].getBoundingClientRect().width);
+
             // width big enough to display a copy next to nutrition table?
-            if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+            if (nutrition_width - nutrition_table_width > 405) {
+
 
                 if ((!first_display) || ($('#nutrition_image_copy').html() === '')) {
-                    $('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
+                    $('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", nutrition_table_width + 10);
                 }
             }
         }
@@ -489,7 +498,7 @@ const maximumRecentEntriesPerTag = 10;
             settings = $.extend(settings, options);
             img_path = settings.img_path;
             code = $("#code").val();
-            code = code.replace(/\W/g, '');
+            code = code.replace(/\s/g, '');
 
             return this.each(function () {
 
@@ -1084,6 +1093,12 @@ $(function () {
             // clear the values: inputs with class nutrient_value that are inside a cell with the input_set_class
             $('.' + input_set_class + ' input.nutrient_value').val('');
         }
+        
+        
+        // Recalculate nutrition image position after table resize
+        setTimeout(update_nutrition_image_copy, 50);
+        
+        
     });
 
     $('#no_nutrition_data').on('change', function() {
