@@ -1784,15 +1784,28 @@ sub check_categories ($product_ref) {
 			push @{$product_ref->{data_quality_warnings_tags}},
 				"en:ingredients-single-ingredient-from-category-missing";
 		}
-		elsif (
-			# more than 1 ingredient
-			($number_of_ingredients > 1)
-			# ingredient different than expected ingredient
-			or not(is_a("ingredients", $product_ref->{ingredients}[0]{id}, $expected_ingredients))
-			)
-		{
-			push @{$product_ref->{data_quality_errors_tags}},
-				"en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients";
+		else {
+			# Check if expected ingredient is present among all ingredients, O(M) where M = number of ingredients
+			my $found_expected = 0;
+			if (defined $product_ref->{ingredients}) {
+				foreach my $ingredient (@{$product_ref->{ingredients}}) {
+					if (is_a("ingredients", $ingredient->{id}, $expected_ingredients)) {
+						$found_expected = 1;
+						last;
+					}
+				}
+			}
+
+			if (not $found_expected) {
+				# No ingredient matches expected ingredient - genuine mismatch
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients";
+			}
+			elsif ($number_of_ingredients > 1) {
+				# Expected ingredient found, but product has extra unknown ingredients (parser artifacts)
+				push @{$product_ref->{data_quality_warnings_tags}},
+					"en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients";
+			}
 		}
 	}
 
