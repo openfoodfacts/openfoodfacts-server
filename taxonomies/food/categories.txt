@@ -71032,10 +71032,10 @@ protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Fruits
-en: Pomegranates
+en: Pomegranates, Pomegranate pulp and pips
 da: Granatæbler
 es: Granadas
-fr: Grenades
+fr: Grenades, Pulpe et pépins de grenade
 hr: Pitomi šipak
 ja: ザクロ
 lt: Granatų vaisiai, Granatos
@@ -71043,6 +71043,10 @@ nb: Granatepler
 nl: Granaatappels
 sv: Granatäpplen
 sales_format:en: weight, package
+agribalyse_proxy_food_code:en: 13018
+ciqual_proxy_food_code:en: 13018
+ciqual_proxy_food_name:en: Pomegranate, pulp and pips, raw
+ciqual_proxy_food_name:fr: Grenade, pulpe et pépins, crue
 
 < en:Fresh fruits
 < en:Pomegranates
@@ -71053,13 +71057,13 @@ hr: Svježi šipak
 lt: Švieži granatų vaisiai
 sv: Ferska granatäpplen
 
-< en:Fruits
-en: Pomegranate pulp and pips
-fr: Pulpe et pépins de grenade
-agribalyse_food_code:en: 13018
-ciqual_food_code:en: 13018
-ciqual_food_name:en: Pomegranate, pulp and pips, raw
-ciqual_food_name:fr: Grenade, pulpe et pépins, crue
+< en:Pomegranates
+en: Pomegranate seeds
+da: Granatæblekerner
+fi: Granaattiomenan siemen
+fr: graines de grenade
+nb: Granateplekjerner
+sv: Granatäppelkärnor
 
 < en:Fruits
 en: Quinces
@@ -114554,14 +114558,6 @@ pt: Pulsos
 ru: Зернобобовые
 intake24_category_code:en: PEAS
 wikidata:en: Q2727662
-
-< en:Seeds
-en: Pomegranate seeds
-da: Granatæblekerner
-fi: Granaattiomenan siemen
-fr: graines de grenade
-nb: Granateplekjerner
-sv: Granatäppelkärnor
 
 < en:Pulses
 en: Cooked pulses
