@@ -15,7 +15,6 @@ BASE_COLUMNS = [
     "serving_size",
     "brands",
     "brand_owner",
-    "preparationStateCode",
     "quantity",
 ]
 
@@ -91,10 +90,9 @@ def test_build_csv_integration_writes_expected_rows(tmp_path):
     assert row["serving_size"] == "46 g"
     assert row["brands"] == "A BRAND INC."
     assert row["brand_owner"] == "OWNER"
-    assert row["preparationStateCode"] == "as_sold"
     assert row["quantity"] == "16 oz/454 g"
-    assert Decimal(row["proteins per 100g/100ml in g"]) == Decimal("10.7")
-    assert Decimal(row["energy-kcal per 100g/100ml in kcal"]) == Decimal("109.0")
+    assert Decimal(row["proteins - as sold for 100g/100ml in g"]) == Decimal("10.7")
+    assert Decimal(row["energy-kcal - as sold for 100g/100ml in kcal"]) == Decimal("109.0")
 
 
 def test_build_csv_integration_empty_values_are_written_as_empty_cells(tmp_path):
@@ -119,7 +117,7 @@ def test_build_csv_integration_empty_values_are_written_as_empty_cells(tmp_path)
                 "householdServingFullText": "",
                 "ingredients": "",
                 "packageWeight": "",
-                "preparationStateCode": "",
+                "preparationStateCode": "PREPARED",
                 "foodNutrients": [
                     {
                         "nutrient": {"name": "Protein", "unitName": "g"},
@@ -149,8 +147,7 @@ def test_build_csv_integration_empty_values_are_written_as_empty_cells(tmp_path)
 
     assert row["brands"] == ""
     assert row["brand_owner"] == ""
-    assert row["preparationStateCode"] == "as_sold"
     assert row["quantity"] == ""
     assert row["ingredients"] == ""
     assert row["serving_size"] == ""
-    assert Decimal(row["proteins per 100g/100ml in g"]) == Decimal("10.7")
+    assert Decimal(row["proteins - prepared for 100g/100ml in g"]) == Decimal("10.7")

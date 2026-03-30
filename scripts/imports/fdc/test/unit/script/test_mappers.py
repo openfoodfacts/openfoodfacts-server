@@ -61,7 +61,7 @@ NUTRIENT_LCGA = {"foodNutrientDerivation": {"code": "LCGA"}, "amount": 36.7}
 
 
 @pytest.fixture
-def base_product():
+def base_product() -> dict:
     return {
         "gtinUpc": PRODUCT_BARCODE,
         "description": PRODUCT_DESCRIPTION,
@@ -79,7 +79,7 @@ def base_product():
 
 
 @pytest.fixture
-def base_product_values_to_handle():
+def base_product_values_to_handle() -> dict:
     return {
         "gtinUpc": PRODUCT_BARCODE_WITH_HYPHENS,
         "description": PRODUCT_DESCRIPTION,
@@ -93,8 +93,9 @@ def base_product_values_to_handle():
 
 
 @pytest.fixture
-def nutrients_product():
+def nutrients_product() -> dict:
     return {
+        "preparationStateCode": "AS SOLD",
         "foodNutrients": [
             {
                 "nutrient": {"name": "Protein", "unitName": PROTEIN_UNIT},
@@ -111,12 +112,42 @@ def nutrients_product():
                 },
                 "amount": VITAMIN_C_AMOUNT,
             },
+        ],
+    }
+
+
+@pytest.fixture
+def product_without_preparation() -> dict:
+    return {
+        "foodNutrients": [
+            {
+                "nutrient": {"name": "Protein", "unitName": PROTEIN_UNIT},
+                "amount": PROTEIN_AMOUNT,
+            }
         ]
     }
 
 
 @pytest.fixture
-def product_same_match():
+def product_without_base_preparation(product_without_preparation) -> dict:
+    product_without_preparation["preparationStateCode"] = "READY_TO_EAT"
+    return product_without_preparation
+
+
+@pytest.fixture
+def product_whitespace_preparation(product_without_preparation) -> dict:
+    product_without_preparation["preparationStateCode"] = "   "
+    return product_without_preparation
+
+
+@pytest.fixture
+def product_prepared_preparation(product_without_preparation) -> dict:
+    product_without_preparation["preparationStateCode"] = "PREPARED"
+    return product_without_preparation
+
+
+@pytest.fixture
+def product_same_match() -> dict:
     return {
         "foodNutrients": [
             {
@@ -146,7 +177,6 @@ def test_parse_product_base_data(base_product):
         "serving_size",
         "brands",
         "brand_owner",
-        "preparationStateCode",
         "quantity",
     }
     assert set(res.keys()) == wanted_fields
@@ -162,7 +192,6 @@ def test_parse_product_base_data(base_product):
         == f"{HOUSEHOLD_SERVING_FULL_TEXT_DIFFERENT_AS_SERVING_FIELDS} ({SERVING_SIZE} {SERVING_SIZE_UNIT})"
     )
     assert res.get("ingredients") == PRODUCT_INGREDIENTS
-    assert res.get("preparationStateCode") == "as_sold"  
     assert res.get("quantity") == PRODUCT_PACKAGE_WEIGHT
 
 
@@ -174,18 +203,17 @@ def test_parse_product_base_data_normalise_fields(base_product_values_to_handle)
     assert res.get("code") == PRODUCT_BARCODE
     assert res.get("brands") is None
     assert res.get("serving_size") == HOUSEHOLD_SERVING_FULL_TEXT_SAME_AS_SERVING_FIELDS
-    assert res.get("preparationStateCode") == "as_sold" 
     assert res.get("quantity") is None
 
 
 def test_parse_product_nutrients(nutrients_product):
     res = parse_product_nutrients(nutrients_product, NUTRIENTS_MAPPING)
 
-    wanted_protein_field = f"proteins per 100g/100ml in {PROTEIN_UNIT}"
-    wanted_energy_kcal_field = f"energy-kcal per 100g/100ml in {ENERGY_UNIT}"
+    wanted_protein_field = f"proteins - as sold for 100g/100ml in {PROTEIN_UNIT}"
+    wanted_energy_kcal_field = f"energy-kcal - as sold for 100g/100ml in {ENERGY_UNIT}"
     wanted_vitamin_c_field = (
-        f"Vitamin C, total ascorbic acid per 100g/100ml in {VITAMIN_C_UNIT}"
-    )
+        f"Vitamin C, total ascorbic acid - as sold for 100g/100ml in {VITAMIN_C_UNIT}"    )
+    
     assert {
         wanted_protein_field,
         wanted_energy_kcal_field,
@@ -201,63 +229,41 @@ def test_parse_product_nutrients_same_nutrient_off_match_populate_same_column(
 ):
     res = parse_product_nutrients(product_same_match, NUTRIENTS_MAPPING_SAME_MATCH)
 
-    assert set(res.keys()) == {f"{SUGARS_OFF_MATCH} per 100g/100ml in {SUGARS_UNIT}"}
-
-
-def test_parse_product_base_data_preparation_state_code_not_prepared_defaults_to_as_sold():
-    product = {
-        "gtinUpc": PRODUCT_BARCODE,
-        "description": PRODUCT_DESCRIPTION,
-        "modifiedDate": PRODUCT_MODIFIED_DATE,
-        "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
-        "preparationStateCode": "READY_TO_EAT",
+    assert set(res.keys()) == {
+        f"{SUGARS_OFF_MATCH} - as sold for 100g/100ml in {SUGARS_UNIT}"
     }
-    with patch("script.mappers.convert_to_seconds"):
-        res = parse_product_base_data(product)
-
-    assert res.get("preparationStateCode") == "as_sold"  # Non prepared values default to as_sold
 
 
-def test_parse_product_base_data_preparation_state_code_empty_defaults_to_as_sold():
-    product = {
-        "gtinUpc": PRODUCT_BARCODE,
-        "description": PRODUCT_DESCRIPTION,
-        "modifiedDate": PRODUCT_MODIFIED_DATE,
-        "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
-        "preparationStateCode": "",
-    }
-    with patch("script.mappers.convert_to_seconds"):
-        res = parse_product_base_data(product)
+def test_parse_product_base_data_preparation_state_code_not_prepared_defaults_to_as_sold(
+    product_without_base_preparation,
+):
+    res = parse_product_nutrients(product_without_base_preparation, {})
 
-    assert res.get("preparationStateCode") == "as_sold"  
+    assert set(res.keys()) == {f"Protein - as sold for 100g/100ml in {PROTEIN_UNIT}"}
+    
 
+def test_parse_product_base_data_preparation_state_code_empty_defaults_to_as_sold(
+    product_without_preparation,
+):
+    res = parse_product_nutrients(product_without_preparation, {})
 
-def test_parse_product_base_data_preparation_state_code_whitespace_defaults_to_as_sold():
-    product = {
-        "gtinUpc": PRODUCT_BARCODE,
-        "description": PRODUCT_DESCRIPTION,
-        "modifiedDate": PRODUCT_MODIFIED_DATE,
-        "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
-        "preparationStateCode": "   ",
-    }
-    with patch("script.mappers.convert_to_seconds"):
-        res = parse_product_base_data(product)
-
-    assert res.get("preparationStateCode") == "as_sold" 
+    assert set(res.keys()) == {f"Protein - as sold for 100g/100ml in {PROTEIN_UNIT}"}
 
 
-def test_parse_product_base_data_preparation_state_code_prepared_is_kept():
-    product = {
-        "gtinUpc": PRODUCT_BARCODE,
-        "description": PRODUCT_DESCRIPTION,
-        "modifiedDate": PRODUCT_MODIFIED_DATE,
-        "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
-        "preparationStateCode": "prepared",
-    }
-    with patch("script.mappers.convert_to_seconds"):
-        res = parse_product_base_data(product)
+def test_parse_product_base_data_preparation_state_code_whitespace_defaults_to_as_sold(
+    product_whitespace_preparation,
+):
+    res = parse_product_nutrients(product_whitespace_preparation, {})
 
-    assert res.get("preparationStateCode") == "prepared"  
+    assert set(res.keys()) == {f"Protein - as sold for 100g/100ml in {PROTEIN_UNIT}"}
+
+
+def test_parse_product_base_data_preparation_state_code_prepared_is_kept(
+    product_prepared_preparation,
+):
+    res = parse_product_nutrients(product_prepared_preparation, {})
+
+    assert set(res.keys()) == {f"Protein - prepared for 100g/100ml in {PROTEIN_UNIT}"}
 
 
 def test_parse_product_base_data_quantity_empty_returns_none():

@@ -51,22 +51,26 @@ def build_nutrients_mapping(mapping_path: str) -> dict:
     return mapping_dict
 
 
+def add_nutrient_column(nutrient_name: str, nutrient_unit: str, preparation_states: list, columns: list) -> None:
+    for preparation in preparation_states:
+        columns.append(f"{nutrient_name} - {preparation} for 100g/100ml in {nutrient_unit}")
+
+
 def build_csv_columns(
     mapping_dict: dict, fdc_nutrients: dict, base_columns: list
 ) -> list:
     """Creates a list of all the columns of the import CSV"""
     nutrient_cols = []
+    preparation_states = ["as sold", "prepared"]
 
     for nutrient in fdc_nutrients.keys():
         for nutrient_unit in fdc_nutrients.get(nutrient):
             if nutrient.lower() == "energy" and nutrient_unit.lower() in ["kj", "kcal"]:
-                nutrient_cols.append(
-                    f"{mapping_dict.get(nutrient, nutrient)}-{nutrient_unit.lower()} per 100g/100ml in {nutrient_unit}"
-                )
+                nutrient_name = mapping_dict.get(nutrient, nutrient)
+                add_nutrient_column(f"{nutrient_name}-{nutrient_unit.lower()}", nutrient_unit, preparation_states, nutrient_cols)
             else:
-                nutrient_cols.append(
-                    f"{mapping_dict.get(nutrient, nutrient)} per 100g/100ml in {nutrient_unit}"
-                )
+                add_nutrient_column(f"{mapping_dict.get(nutrient, nutrient)}", nutrient_unit, preparation_states, nutrient_cols)
+
     all_columns = base_columns + list(dict.fromkeys(nutrient_cols))
 
     return all_columns
@@ -81,7 +85,6 @@ def build_csv(
 ):
     """Builds the import CSV from the FDC export data."""
     nutrients_mapping = build_nutrients_mapping(mapping_path)
-    # TODO handle when two nutrient keys have the same value (e.g. total sugars and sugars, total)
     all_columns = build_csv_columns(nutrients_mapping, fdc_nutrients, base_columns)
 
     # write in final file

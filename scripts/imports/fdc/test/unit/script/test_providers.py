@@ -93,8 +93,10 @@ def test_build_csv_columns():
     res = build_csv_columns(NUTRIENTS_MAPPING, FDC_NUTRIENTS, BASE_COLUMNS)
 
     wanted_columns = {
-        "proteins per 100g/100ml in g",
-        "energy-kcal per 100g/100ml in kcal",
+        "proteins - as sold for 100g/100ml in g",
+        "proteins - prepared for 100g/100ml in g",
+        "energy-kcal - as sold for 100g/100ml in kcal",
+        "energy-kcal - prepared for 100g/100ml in kcal",
     }
     assert BASE_COLUMNS == res[: len(BASE_COLUMNS)]
     assert wanted_columns == set(res[len(BASE_COLUMNS) :])

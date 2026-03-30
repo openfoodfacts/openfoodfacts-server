@@ -76,10 +76,6 @@ def parse_product_base_data(product: dict) -> dict:
         product.get("servingSizeUnit", ""),
     )
 
-    preparation_state_code = normalize_empty_string(product.get("preparationStateCode"))
-    if preparation_state_code != "prepared":
-        preparation_state_code = "as_sold"
-
     quantity = normalize_empty_string(product.get("packageWeight"))
 
     row = {
@@ -94,7 +90,6 @@ def parse_product_base_data(product: dict) -> dict:
         "serving_size": serving_size,
         "brands": brand,
         "brand_owner": normalize_empty_string(product.get("brandOwner")),
-        "preparationStateCode": preparation_state_code,
         "quantity": quantity,
     }
 
@@ -121,6 +116,12 @@ def find_preferred_entry(entries: list, code_priority: dict) -> dict | None:
 def parse_product_nutrients(product: dict, nutrients_mapping: dict) -> dict:
     row = {}
     food_nutrients = product.get("foodNutrients", [])
+
+    preparation = normalize_empty_string(product.get("preparationStateCode"))
+    if preparation is None or preparation.lower() != "prepared":
+        preparation = "as sold"
+    else:
+        preparation = "prepared"
 
     # one same nutrient can have several entries
     # store every entry for each nutrient while preserving the original appearing order
@@ -165,7 +166,7 @@ def parse_product_nutrients(product: dict, nutrients_mapping: dict) -> dict:
         amount = nutrient_entry.get("amount")
         unit = nutrient_info.get("unitName")
 
-        target_col = f"{nutrient_name_off} per 100g/100ml in {unit}"
+        target_col = f"{nutrient_name_off} - {preparation} for 100g/100ml in {unit}"
 
         if target_col:
             row[target_col] = amount
