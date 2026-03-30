@@ -14,6 +14,10 @@ PRODUCT_BARCODE_WITH_HYPHENS = (
 PRODUCT_DESCRIPTION = "AWESOME SUPER CHIPS"
 PRODUCT_FDC_CATEGORY = "Breads"
 PRODUCT_MODIFIED_DATE = "3/7/2018"
+PRODUCT_AVAILABLE_DATE = "2019-09-28T00:00:00Z"
+PRODUCT_PUBLICATION_DATE = "2019-12-06T00:00:00Z"
+PRODUCT_DATA_SOURCE = "LI"
+PRODUCT_FDC_ID = "672854"
 CONVERTED_PRODUCT_TIMESTAMP = 1111111111
 PRODUCT_BRAND = "A REGULAR BRAND INC."
 PRODUCT_BRAND_OWNER = "SUPER BRAND"
@@ -66,6 +70,10 @@ def base_product() -> dict:
         "gtinUpc": PRODUCT_BARCODE,
         "description": PRODUCT_DESCRIPTION,
         "modifiedDate": PRODUCT_MODIFIED_DATE,
+        "availableDate": PRODUCT_AVAILABLE_DATE,
+        "publicationDate": PRODUCT_PUBLICATION_DATE,
+        "dataSource": PRODUCT_DATA_SOURCE,
+        "fdcId": PRODUCT_FDC_ID,
         "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
         "brandName": PRODUCT_BRAND,
         "brandOwner": PRODUCT_BRAND_OWNER,
@@ -84,6 +92,10 @@ def base_product_values_to_handle() -> dict:
         "gtinUpc": PRODUCT_BARCODE_WITH_HYPHENS,
         "description": PRODUCT_DESCRIPTION,
         "modifiedDate": PRODUCT_MODIFIED_DATE,
+        "availableDate": PRODUCT_AVAILABLE_DATE,
+        "publicationDate": PRODUCT_PUBLICATION_DATE,
+        "dataSource": PRODUCT_DATA_SOURCE,
+        "fdcId": PRODUCT_FDC_ID,
         "brandedFoodCategory": PRODUCT_FDC_CATEGORY,
         "brandName": NOT_A_BRANDED_ITEM,
         "servingSize": SERVING_SIZE,
@@ -172,6 +184,13 @@ def test_parse_product_base_data(base_product):
         "name",
         "categories",
         "countries",
+        "sources_fields:org-database-usda:available_date",
+        "sources_fields:org-database-usda:fdc_branded_category",
+        "sources_fields:org-database-usda:fdc_data_source",
+        "sources_fields:org-database-usda:fdc_id",
+        "sources_fields:org-database-usda:modified_date",
+        "sources_fields:org-database-usda:publication_date",
+        "sources_fields:org-database-usda:preparation_state_code",
         "last_updated_t",
         "ingredients",
         "serving_size",
@@ -193,7 +212,31 @@ def test_parse_product_base_data(base_product):
     )
     assert res.get("ingredients") == PRODUCT_INGREDIENTS
     assert res.get("quantity") == PRODUCT_PACKAGE_WEIGHT
-
+    assert (
+        res.get("sources_fields:org-database-usda:available_date")
+        == PRODUCT_AVAILABLE_DATE
+    )
+    assert (
+        res.get("sources_fields:org-database-usda:fdc_branded_category")
+        == f"FDC-Category {PRODUCT_FDC_CATEGORY}"
+    )
+    assert (
+        res.get("sources_fields:org-database-usda:fdc_data_source")
+        == PRODUCT_DATA_SOURCE
+    )
+    assert res.get("sources_fields:org-database-usda:fdc_id") == PRODUCT_FDC_ID
+    assert (
+        res.get("sources_fields:org-database-usda:modified_date")
+        == PRODUCT_MODIFIED_DATE
+    )
+    assert (
+        res.get("sources_fields:org-database-usda:publication_date")
+        == PRODUCT_PUBLICATION_DATE
+    )
+    assert (
+        res.get("sources_fields:org-database-usda:preparation_state_code")
+        == PRODUCT_PREPARATION_STATE_CODE
+    )
 
 def test_parse_product_base_data_normalise_fields(base_product_values_to_handle):
     with patch("script.mappers.convert_to_seconds") as mock_api:

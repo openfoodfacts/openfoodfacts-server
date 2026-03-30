@@ -68,6 +68,12 @@ def parse_product_base_data(product: dict) -> dict:
     fdc_category = product.get("brandedFoodCategory", "")
     fdc_category_without_commas = fdc_category.replace(",", "")
 
+    fdc_category_source_value = normalize_empty_string(
+        product.get("brandedFoodCategory")
+    )
+    if fdc_category_source_value is not None:
+        fdc_category_source_value = f"FDC-Category {fdc_category_source_value}"
+
     brand = parse_product_brand_data(product.get("brandName"))
     code = parse_product_code(product.get("gtinUpc", ""))
     serving_size = parse_product_serving_size(
@@ -91,6 +97,25 @@ def parse_product_base_data(product: dict) -> dict:
         "brands": brand,
         "brand_owner": normalize_empty_string(product.get("brandOwner")),
         "quantity": quantity,
+        "sources_fields:org-database-usda:available_date": normalize_empty_string(
+            product.get("availableDate")
+        ),
+        "sources_fields:org-database-usda:fdc_branded_category": fdc_category_source_value,
+        "sources_fields:org-database-usda:fdc_data_source": normalize_empty_string(
+            product.get("dataSource")
+        ),
+        "sources_fields:org-database-usda:fdc_id": normalize_empty_string(
+            product.get("fdcId")
+        ),
+        "sources_fields:org-database-usda:modified_date": normalize_empty_string(
+            product.get("modifiedDate")
+        ),
+        "sources_fields:org-database-usda:publication_date": normalize_empty_string(
+            product.get("publicationDate")
+        ),
+        "sources_fields:org-database-usda:preparation_state_code": normalize_empty_string(
+            product.get("preparationStateCode")
+        ),
     }
 
     return row

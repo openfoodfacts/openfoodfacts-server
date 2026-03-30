@@ -10,6 +10,13 @@ CSV_BASE_COLUMNS = [
     "brand_owner",
     "preparationStateCode",
     "quantity",
+    "sources_fields:org-database-usda:available_date",
+    "sources_fields:org-database-usda:fdc_branded_category",
+    "sources_fields:org-database-usda:fdc_data_source",
+    "sources_fields:org-database-usda:fdc_id",
+    "sources_fields:org-database-usda:modified_date",
+    "sources_fields:org-database-usda:publication_date",
+    "sources_fields:org-database-usda:preparation_state_code"
 ]
 
 FDC_NUTRIENTS = {

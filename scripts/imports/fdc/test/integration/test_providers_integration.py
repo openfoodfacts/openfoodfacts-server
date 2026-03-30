@@ -16,6 +16,13 @@ BASE_COLUMNS = [
     "brands",
     "brand_owner",
     "quantity",
+    "sources_fields:org-database-usda:available_date",
+    "sources_fields:org-database-usda:fdc_branded_category",
+    "sources_fields:org-database-usda:fdc_data_source",
+    "sources_fields:org-database-usda:fdc_id",
+    "sources_fields:org-database-usda:modified_date",
+    "sources_fields:org-database-usda:publication_date",
+    "sources_fields:org-database-usda:preparation_state_code",
 ]
 
 FDC_NUTRIENTS = {"Protein": ["g"], "Energy": ["kcal"]}
@@ -35,6 +42,10 @@ def test_build_csv_integration_writes_expected_rows(tmp_path):
                 "gtinUpc": "0000123456789",
                 "description": "TEST PRODUCT",
                 "modifiedDate": "3/7/2018",
+                "availableDate": "2019-09-28T00:00:00Z",
+                "publicationDate": "2019-12-06T00:00:00Z",
+                "dataSource": "LI",
+                "fdcId": "672854",
                 "brandedFoodCategory": "Egg Based Products, Frozen",
                 "brandName": "A BRAND, INC.",
                 "brandOwner": "OWNER",
@@ -93,7 +104,26 @@ def test_build_csv_integration_writes_expected_rows(tmp_path):
     assert row["quantity"] == "16 oz/454 g"
     assert Decimal(row["proteins - as sold for 100g/100ml in g"]) == Decimal("10.7")
     assert Decimal(row["energy-kcal - as sold for 100g/100ml in kcal"]) == Decimal("109.0")
-
+    assert (
+        row["sources_fields:org-database-usda:preparation_state_code"] == "UNPREPARED"
+    )
+    assert (
+        row["sources_fields:org-database-usda:available_date"] == "2019-09-28T00:00:00Z"
+    )
+    assert (
+        row["sources_fields:org-database-usda:fdc_branded_category"]
+        == "FDC-Category Egg Based Products, Frozen"
+    )
+    assert row["sources_fields:org-database-usda:fdc_data_source"] == "LI"
+    assert row["sources_fields:org-database-usda:fdc_id"] == "672854"
+    assert row["sources_fields:org-database-usda:modified_date"] == "3/7/2018"
+    assert (
+        row["sources_fields:org-database-usda:publication_date"]
+        == "2019-12-06T00:00:00Z"
+    )
+    assert (
+        row["sources_fields:org-database-usda:preparation_state_code"] == "UNPREPARED"
+    )
 
 def test_build_csv_integration_empty_values_are_written_as_empty_cells(tmp_path):
     mapping_file = tmp_path / "nutrient_map.csv"
@@ -109,6 +139,10 @@ def test_build_csv_integration_empty_values_are_written_as_empty_cells(tmp_path)
                 "gtinUpc": "0000123456789",
                 "description": "TEST PRODUCT",
                 "modifiedDate": "3/7/2018",
+                "availableDate": "",
+                "publicationDate": "",
+                "dataSource": "",
+                "fdcId": "",
                 "brandedFoodCategory": "Breads",
                 "brandName": "NOT A BRANDED ITEM",
                 "brandOwner": "   ",
@@ -151,3 +185,13 @@ def test_build_csv_integration_empty_values_are_written_as_empty_cells(tmp_path)
     assert row["ingredients"] == ""
     assert row["serving_size"] == ""
     assert Decimal(row["proteins - prepared for 100g/100ml in g"]) == Decimal("10.7")
+    assert row["sources_fields:org-database-usda:available_date"] == ""
+    assert (
+        row["sources_fields:org-database-usda:fdc_branded_category"]
+        == "FDC-Category Breads"
+    )
+    assert row["sources_fields:org-database-usda:fdc_data_source"] == ""
+    assert row["sources_fields:org-database-usda:fdc_id"] == ""
+    assert row["sources_fields:org-database-usda:modified_date"] == "3/7/2018"
+    assert row["sources_fields:org-database-usda:publication_date"] == ""
+    assert row["sources_fields:org-database-usda:preparation_state_code"] == "PREPARED"
