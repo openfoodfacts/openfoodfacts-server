@@ -130,11 +130,10 @@ foreach my $field (@export_fields) {
 }
 
 $fields_ref->{empty} = 1;
-$fields_ref->{nutrition} = 1;
+$fields_ref->{"nutrition.aggregated_set"} = 1;
 $fields_ref->{ingredients} = 1;
-$fields_ref->{images} = 1;
+$fields_ref->{"images.selected"} = 1;
 $fields_ref->{lc} = 1;
-$fields_ref->{environmental_score_data} = 1;
 
 # Current date, used for RDF dcterms:modified: 2019-02-07
 my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime();
@@ -155,6 +154,9 @@ foreach my $l ("en", "fr") {
 	print STDERR "Write file: $csv_filename.temp\n";
 	print STDERR "Write file: $rdf_filename.temp\n";
 
+	# We output the CSV header separately, to be able to sort the CSV file by code and add the header line at the top of the sorted file.
+	open(my $OUT_HEADER, ">:encoding(UTF-8)", "$csv_filename.temp.header")
+		or die("Cannot write $csv_filename.temp.header: $!\n");
 	open(my $OUT, ">:encoding(UTF-8)", "$csv_filename.temp") or die("Cannot write $csv_filename.temp: $!\n");
 	open(my $RDF, ">:encoding(UTF-8)", "$rdf_filename.temp");
 	open(my $BAD, ">:encoding(UTF-8)", "$log_filename");
@@ -270,7 +272,7 @@ XML
 	}
 
 	$csv =~ s/\t$/\n/;
-	print $OUT $csv;
+	print $OUT_HEADER $csv;
 
 	# Get products from the products collection, plus the products_obsolete collection
 	my @collections = (
@@ -337,13 +339,6 @@ XML
 					and ($product_ref->{$field . "_" . $l} ne ''))
 				{
 					$field_value = $product_ref->{$field . "_" . $l};
-				}
-
-				# Environmental-Score data is stored in environmental_score_data.(grades|scores).(language code)
-				if (    ($field =~ /^environmental_score_(score|grade)_(\w\w)/)
-					and (defined $product_ref->{environmental_score_data}))
-				{
-					$field_value = ($product_ref->{environmental_score_data}{$1 . "s"}{$2} // "");
 				}
 
 				if ($field_value ne '') {
@@ -534,9 +529,11 @@ XML
 	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
 	my $csv_size_old = (-s $csv_filename) // 0;
 
-	print "Sort lines by code, except header line: $csv_filename.temp to $csv_filename.temp2\n";
-	system("(head -1 $csv_filename.temp && (tail -n +2 $csv_filename.temp | sort)) > $csv_filename.temp2");
+	print
+		"Sort lines by code, and add header line: add $csv_filename.temp.header + $csv_filename.temp to $csv_filename.temp2\n";
+	system("(cat $csv_filename.temp.header && (sort $csv_filename.temp)) > $csv_filename.temp2");
 	unlink "$csv_filename.temp";
+	unlink "$csv_filename.temp.header";
 	my $csv_size_new = (-s "$csv_filename.temp2") // 0;
 	# guard: we replace target file only if it's big enough (to avoid replacing valid export by a broken one)
 	if ($csv_size_new >= $csv_size_old * 0.99) {
