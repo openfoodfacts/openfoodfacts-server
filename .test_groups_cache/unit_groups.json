@@ -3,6 +3,44 @@
     "tests": [
       "tests/unit/additives.t",
       "tests/unit/api.t",
+      "tests/unit/contribution_knowledge_panels.t",
+      "tests/unit/dataqualityfood.t",
+      "tests/unit/food_groups.t",
+      "tests/unit/import_convert_carrefour_france.t",
+      "tests/unit/ingredients_extract.t",
+      "tests/unit/ingredients_processing.t",
+      "tests/unit/match_ingredient_origin.t",
+      "tests/unit/nutrition_ciqual.t",
+      "tests/unit/parse_origins_from_text.t",
+      "tests/unit/recipes.t",
+      "tests/unit/store.t",
+      "tests/unit/templates.t"
+    ],
+    "total_time": 420.0
+  },
+  {
+    "tests": [
+      "tests/unit/additives_tags.t",
+      "tests/unit/attributes.t",
+      "tests/unit/convert_gs1_xml_to_json.t",
+      "tests/unit/dataqualityfood_labels.t",
+      "tests/unit/forest_footprint.t",
+      "tests/unit/import_gs1.t",
+      "tests/unit/ingredients_nesting.t",
+      "tests/unit/ingredients_tags.t",
+      "tests/unit/nova.t",
+      "tests/unit/nutrition_estimation.t",
+      "tests/unit/paths.t",
+      "tests/unit/redis.t",
+      "tests/unit/tags.t",
+      "tests/unit/test.t"
+    ],
+    "total_time": 420.0
+  },
+  {
+    "tests": [
+      "tests/unit/all_pod_correct.t",
+      "tests/unit/auth_oidc_cache.t",
       "tests/unit/cursor.t",
       "tests/unit/display.t",
       "tests/unit/http.t",
@@ -20,8 +58,8 @@
   },
   {
     "tests": [
-      "tests/unit/additives_tags.t",
-      "tests/unit/attributes.t",
+      "tests/unit/allergens.t",
+      "tests/unit/booleans.t",
       "tests/unit/data_quality_tags_panel.t",
       "tests/unit/environmental_impact.t",
       "tests/unit/i18n.t",
@@ -39,8 +77,8 @@
   },
   {
     "tests": [
-      "tests/unit/all_pod_correct.t",
-      "tests/unit/booleans.t",
+      "tests/unit/allergens_tags.t",
+      "tests/unit/brevo.t",
       "tests/unit/dataquality.t",
       "tests/unit/environmental_score.t",
       "tests/unit/images.t",
@@ -58,8 +96,8 @@
   },
   {
     "tests": [
-      "tests/unit/allergens.t",
-      "tests/unit/brevo.t",
+      "tests/unit/analyze_and_enrich_product_data.t",
+      "tests/unit/cache_safe_cache_ops.t",
       "tests/unit/dataqualitydimensions.t",
       "tests/unit/food.t",
       "tests/unit/import.t",
@@ -74,41 +112,5 @@
       "tests/unit/vitamins.t"
     ],
     "total_time": 420.0
-  },
-  {
-    "tests": [
-      "tests/unit/allergens_tags.t",
-      "tests/unit/contribution_knowledge_panels.t",
-      "tests/unit/dataqualityfood.t",
-      "tests/unit/food_groups.t",
-      "tests/unit/import_convert_carrefour_france.t",
-      "tests/unit/ingredients_extract.t",
-      "tests/unit/ingredients_processing.t",
-      "tests/unit/match_ingredient_origin.t",
-      "tests/unit/nutrition_ciqual.t",
-      "tests/unit/parse_origins_from_text.t",
-      "tests/unit/recipes.t",
-      "tests/unit/store.t",
-      "tests/unit/templates.t"
-    ],
-    "total_time": 390.0
-  },
-  {
-    "tests": [
-      "tests/unit/analyze_and_enrich_product_data.t",
-      "tests/unit/convert_gs1_xml_to_json.t",
-      "tests/unit/dataqualityfood_labels.t",
-      "tests/unit/forest_footprint.t",
-      "tests/unit/import_gs1.t",
-      "tests/unit/ingredients_nesting.t",
-      "tests/unit/ingredients_tags.t",
-      "tests/unit/nova.t",
-      "tests/unit/nutrition_estimation.t",
-      "tests/unit/paths.t",
-      "tests/unit/redis.t",
-      "tests/unit/tags.t",
-      "tests/unit/test.t"
-    ],
-    "total_time": 390.0
   }
 ]
