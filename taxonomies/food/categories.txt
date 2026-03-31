@@ -258,7 +258,7 @@ pt: Produtos não pasteurizados
 sv: Opastöriserade produkter
 incompatible_with:en: categories:en:pasteurised-products
 
-en: Baby foods, Baby/infant foods/beverages
+en: Baby foods
 bg: Бебешки храни
 ca: Alimentació per a nadons
 da: Babymad
@@ -289,6 +289,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Baby/Infant - Specialised Foods (Shelf Stable)
 pnns_group_2:en: Baby foods
 wikidata:en: Q797971
+fdc_name:en: Baby/infant foods/beverages
 
 < en:Baby foods
 en: Cereals for babies
@@ -7012,7 +7013,7 @@ lt: Topinių vaisių gaivieji gėrimai, Gazuotas tropinių vaisių gaivusis gėr
 nl: Exotische vruchtenfrisdranken
 
 < en:Beverages
-en: Energy drinks, Drinks - Energy Drinks
+en: Energy drinks
 bg: Енергийни напитки
 de: Energy-Drinks
 es: Bebidas energéticas, Bebidas hipertónicas, Bebidas energizantes
@@ -7041,6 +7042,7 @@ gpc_category_name:en: Stimulants/Energy Drinks - Ready to Drink
 intake24_category_code:en: ENDK
 wikidata:en: Q215754
 wikidata_category:en: Q7214078
+fdc_name:en: Drinks - Energy Drinks
 
 < en:Energy drinks
 en: Energy drink with sugar
@@ -12689,7 +12691,7 @@ pt: Vinhos aromatizados
 ru: Ароматизированные вина
 
 < en:Beverages
-en: Non-alcoholic beverages, Drinks - soft drinks
+en: Non-alcoholic beverages
 bg: Безалкохолни напитки
 ca: Begudes sense alcohol
 cs: Nealkoholické nápoje
@@ -12716,6 +12718,7 @@ ciqual_food_code:en: 18029
 ciqual_food_name:en: Non-alcoholic beverage (average)
 ciqual_food_name:fr: Boisson rafraîchissante sans alcool (aliment moyen)
 incompatible_with:en: categories:en:alcoholic-beverages
+fdc_name:en: Drinks - soft drinks
 
 < en:Instant beverages
 < en:Variety packs
@@ -34217,7 +34220,7 @@ gpc_category_name:en: Grain Based Products / Meals - Not Ready to Eat - Savoury 
 
 < en:Beverages
 < en:Dried products to be rehydrated
-en: Dehydrated beverages, dehydrated drinks, Drinks - powdered, Powdered drinks
+en: Dehydrated beverages, dehydrated drinks, Powdered drinks
 de: Getrocknete Getränke, Getränkepulver
 es: Bebidas deshidratadas
 fi: kuivatetut juomat
@@ -34228,6 +34231,7 @@ lt: Gėrimai miltelių pagrindu
 nl: Gedroogde drankpoeders
 pt: Bebidas desidratadas
 ru: Растворимые напитки
+fdc_name:en: Drinks - powdered
 
 < en:Dried products to be rehydrated
 < en:Mashed potatoes
@@ -34295,7 +34299,7 @@ ciqual_food_name:fr: Pomme de terre, flocons déshydratés, au lait ou à la cr�
 # Biscuits and cakes
 
 < en:Sweet snacks
-en: Biscuits and cakes, Cakes/slices/biscuits
+en: Biscuits and cakes
 bg: Бисквити и сладкиши
 ca: Galetes i pastissos
 da: Kiks og kage
@@ -34320,6 +34324,7 @@ zh: 饼干和蛋糕
 description:en: A biscuit is a flour-based baked food product, which is typically hard, flat and unleavened.
 food_groups:en: en:biscuits-and-cakes
 pnns_group_2:en: Biscuits and cakes
+fdc_name:en: Cakes/slices/biscuits
 
 # for English, we make cookies a synonym of biscuits
 # for other languages, cookies a separate entry corresponding to "Drop cookies" in English
@@ -37546,7 +37551,7 @@ ciqual_food_name:fr: Poudre maltée, cacaotée ou au chocolat pour boisson, sucr
 
 < en:Biscuits and cakes
 # <en:compound
-en: Cakes, Cakes and slices
+en: Cakes
 ar: كعك
 az: Tort
 be: пірожнае
@@ -37656,6 +37661,7 @@ intake24_category_code:en: CAKE
 # yue:蛋糕
 wikidata:en: Q13276
 wikipedia:en: https://en.wikipedia.org/wiki/Cake
+fdc_name:en: Cakes and slices
 
 < en:Cakes
 en: Fresh cakes, Refrigerated cakes
@@ -37773,7 +37779,7 @@ nl: Appeltaartmixes
 < en:Baking Mixes
 < en:Dessert mixes
 < en:Pastry helpers
-en: Cake mixes, Cake Mix, Preparations for cakes, Cake cookie & cupcake mixes
+en: Cake mixes, Cake Mix, Preparations for cakes
 de: Backmischungen für Kuchen, Kuchenbackmischungen
 es: Mezcla para tartas
 fi: kakkujauhosekoitukset
@@ -37785,6 +37791,7 @@ ja: ケーキミックス
 lt: Pyragų mišiniai, Mišiniai pyragams, Tortų mišiniai, Mišiniai tortams
 nl: Cakemixes
 pl: Mieszanka do ciasta, Mieszanka do ciast
+fdc_name:en: Cake cookie & cupcake mixes
 
 < en:Cake mixes
 en: Muffins mix
@@ -45135,7 +45142,7 @@ intake24_category_code:en: TCHI
 fr: Sardines frites
 nl: Minifriet
 
-en: Dairies, Dairy, Milk products, Dairy products, Dairy foods/yoghurts
+en: Dairies, Dairy, Milk products, Dairy products
 af: Suiwelproduk
 ar: منتجات`الألبان
 az: Süd məhsulları
@@ -45201,6 +45208,7 @@ food_of_animal_origin:en: yes
 google_product_taxonomy_id:en: 428
 incompatible_with:en: categories:en:dairy-substitutes
 wikidata:en: Q185217
+fdc_name:en: Dairy foods/yoghurts
 
 < en:Dairies
 en: Dairy by-products
@@ -54971,7 +54979,7 @@ fr: Yaourts natures au lait thermisé
 en: Plain yogurts with UHT milk
 fr: Yaourts natures au lait UHT
 
-en: Desserts, Desserts & custard
+en: Desserts
 bg: Десерти
 ca: Postres
 da: Desserter
@@ -54993,6 +55001,7 @@ sv: Efterrätter, Desserter
 tr: Tatlılar
 zh: 甜品, 甜点
 wikidata:en: Q182940
+fdc_name:en: Desserts & custard
 
 < en:Desserts
 en: Refrigerated desserts
@@ -59736,7 +59745,7 @@ agribalyse_proxy_food_code:en: 22060
 
 ############################################## F A T S #######################
 
-en: Fats, Fats edible
+en: Fats
 bg: Мазнини
 ca: Greixos
 cs: Tuky
@@ -59763,6 +59772,7 @@ food_groups:en: en:fats
 intake24_category_code:en: BTTR
 pnns_group_2:en: Fats
 who_id:en: 10
+fdc_name:en: Fats edible
 
 < en:Fats
 en: Animal fats
@@ -68012,7 +68022,7 @@ nl: Diepvriesijsjes
 
 < en:Biscuits and cakes
 < en:Frozen foods
-en: Frozen cakes and pastries, frozen cakes, frozen pastries, Cakes - sweet (frozen)
+en: Frozen cakes and pastries, frozen cakes, frozen pastries
 de: Tiefkühlgebäck
 fi: Pakastekakut ja -leivonnaiset
 fr: Gâteaux et pâtisseries surgelés, gâteaux surgelés, pâtisseries surgelées, desserts pâtissiers surgelés, Gâteaux et pâtisseries surgelées
@@ -68020,6 +68030,7 @@ hr: Smrznuti kolači i kolači
 it: Torte e pasticcini congelati
 lt: Šaldyti tortai ir pyragaičiai, šaldyti pyragaičiai
 nl: Diepvriesgebak
+fdc_name:en: Cakes - sweet (frozen)
 
 < en:Frozen desserts
 en: Mochi ice cream
@@ -84577,8 +84588,9 @@ en: Stuffed vegetables in oil
 fr: Légumes farcis dans l'huile, légumes farcis à l'huile
 
 < en:Meals
-en: Vegetarian meals, Vegetarian
+en: Vegetarian meals
 description:en: Should be distinguished from vegetable meals, that might contain meat
+fdc_name:en: Vegetarian
 
 < en:Vegetarian meals
 en: Vegan meals
@@ -99842,7 +99854,7 @@ pt: Misturas para pão sem glúten
 ru: Смеси для выпечки хлеба без глютена
 zh: 无麸质面包混合物
 
-en: Sandwiches, Sandwich, Prepared subs & sandwiches
+en: Sandwiches, Sandwich
 bg: Сандвичи
 ca: Sanvitxos, entrepans
 da: Sandwich
@@ -99871,6 +99883,7 @@ intake24_category_code:en: SAND
 nova:en: 3
 pnns_group_2:en: Sandwiches
 wikidata:en: Q28803
+fdc_name:en: Prepared subs & sandwiches
 
 < en:Frozen foods
 < en:Sandwiches
@@ -105546,7 +105559,7 @@ en: Marinated seafood
 fr: Fruits de mer marinés
 
 < en:Sauces
-en: Dips, Dipping sauces, Dips & salsa, Dips/hummus/pate
+en: Dips, Dipping sauces, Dips & salsa
 bg: Дипове
 de: Dips, Dip
 es: Salsas para mojar
@@ -105558,6 +105571,7 @@ nl: Dipsauzen
 ru: провалы
 intake24_category_code:en: DIPS
 wikidata:en: Q2046560
+fdc_name:en: Dips/hummus/pate
 
 < en:Sauces
 en: Hoisin sauces
