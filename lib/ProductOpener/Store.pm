@@ -40,6 +40,7 @@ BEGIN {
 		&object_path_exists
 		&store_config
 		&retrieve_config
+		&encode_canonical_json
 		&link_object
 		&move_object
 		&remove_object
@@ -287,6 +288,12 @@ Write a JSON file with exclusive file locking
 
 =cut
 
+# Remove nul characters from JSON text.
+sub _strip_nul_characters_from_json($json) {
+	$json =~ s/\000//g;
+	return $json;
+}
+
 sub write_json($file_path, $ref) {
 	# If $ref is to a scalar then dereference it first
 	if (ref $ref eq 'SCALAR') {
@@ -305,7 +312,7 @@ sub write_json($file_path, $ref) {
 	my $json = $json_for_objects->encode($ref);
 	# Strip out any nul characters as many parsers can't cope with these
 	# This doesn't seem to add too much overhead
-	$json =~ s/\000//g;
+	$json = _strip_nul_characters_from_json($json);
 	print $OUT $json;
 
 	# Release the lock. Some docs say this isn't needed but tests show otherwise
@@ -313,6 +320,21 @@ sub write_json($file_path, $ref) {
 	close($OUT);
 
 	return;
+}
+
+=head2 encode_canonical_json($ref, $strip_nuls = 0)
+
+Return a canonical JSON string for a reference.
+Set $strip_nuls to a true value to remove nul characters from the JSON text.
+
+=cut
+
+sub encode_canonical_json($ref, $strip_nuls = 0) {
+	my $json = $json_for_config->encode($ref);
+	if ($strip_nuls) {
+		$json = _strip_nul_characters_from_json($json);
+	}
+	return $json;
 }
 
 =head2 write_canonical_json($file_path, $ref)
@@ -323,7 +345,7 @@ Write a JSON file in canonical, indented format without any file locking
 
 sub write_canonical_json($file_path, $ref) {
 	open(my $OUT, ">", $file_path) or die "Can't write to $file_path";
-	print $OUT $json_for_config->encode($ref);
+	print $OUT encode_canonical_json($ref);
 	close($OUT);
 	return;
 }
