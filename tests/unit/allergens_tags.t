@@ -230,7 +230,7 @@ my @tests = (
 			traces => "white lupin, strange ingredient, grey shrimp",
 		},
 		['en:eggs', 'en:gluten', 'en:milk', 'en:fish'],
-		['en:crustaceans', 'en:strange-ingredient', "en:lupin"],
+		['en:crustaceans', "en:lupin", 'en:strange ingredient', ],
 	],
 
 );
@@ -242,6 +242,15 @@ foreach my $test_ref (@tests) {
 	my $expected_traces_tags = $test_ref->[2];
 
 	$product_ref->{"ingredients_text_" . $product_ref->{lc}} = $product_ref->{ingredients_text};
+
+	# If we have "allergens" or "traces" values, write them to the corresponding tags
+	foreach my $field ("allergens", "traces") {
+		my $value = $product_ref->{$field};
+		if (defined $value) {
+			set_field_input_tags_for_source($product_ref, $product_ref->{lc}, $field, "packaging", $value);
+		}
+	}
+	
 
 	compute_languages($product_ref);
 	extract_ingredients_from_text($product_ref);

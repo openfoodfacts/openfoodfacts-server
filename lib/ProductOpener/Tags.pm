@@ -75,6 +75,7 @@ BEGIN {
 		&get_inherited_properties
 		&get_tags_grouped_by_property
 		&get_all_tags_having_property
+		&canonicalize_allergens_taxonomy_tag
 
 		%tags_images
 		%tags_texts
@@ -4743,6 +4744,62 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 	return;
 }
 
+=head2 canonicalize_allergens_taxonomy_tag ( $ingredients_lc, $ingredient_or_allergen )
+
+In the allergens provided by users, we may get ingredients that are not in the allergens taxonomy,
+but that are in the ingredients taxonomy and have an inherited allergens:en property.
+(e.g. the allergens taxonomy has an en:fish entry, but users may indicate specific fish species)
+
+This function tries to match the ingredient with an allergen in the allergens taxonomy,
+and otherwise return the taxonomy id for the original ingredient.
+
+=head3 Parameters
+
+=head4 $ingredients_lc
+
+The language code of $ingredient_or_allergen.
+
+=head4 $ingredient_or_allergen
+
+The ingredient or allergen to match. Can also be an ingredient id or allergens id prefixed with a language code.
+
+=head3 Return value
+
+The taxonomy id for the allergen, or the original ingredient if no allergen was found.
+
+=cut
+
+sub canonicalize_allergens_taxonomy_tag($ingredients_lc, $ingredient_or_allergen) {
+
+	# Check if $ingredient_or_allergen is in the allergen taxonomy
+	my $allergenid = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $ingredient_or_allergen);
+	if (exists_taxonomy_tag("allergens", $allergenid)) {
+		return $allergenid;
+	}
+	else {
+		# Check if $ingredient_or_allergen is in the ingredients taxonomy and has an inherited allergens:en: property
+		my $ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient_or_allergen);
+		my $allergens = get_inherited_property("ingredients", $ingredient_id, "allergens:en");
+		if (defined $allergens) {
+			if ($allergens =~ /,/) {
+				# Currently we support only 1 allergen for a single ingredient
+				$log->warn(
+					"canonicalize_allergens_taxonomy_tag - multiple allergens for ingredient",
+					{ingredient_or_allergen => $ingredient_or_allergen, allergens => $allergens}
+				);
+				$allergens = $`;
+			}
+			$allergenid = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $allergens);
+			if (exists_taxonomy_tag("allergens", $allergenid)) {
+				return $allergenid;
+			}
+		}
+	}
+
+	# If we did not recognize the allergen, return the allergen id
+	return $allergenid;
+}
+
 =head2 set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags)
 
 New function to set the input tags for a field and a source. (e.g. categories for the manufacturer source)
@@ -4767,7 +4824,11 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 
 		my $normalized_tag;
 
-		if (defined $taxonomy_fields{$field}) {
+		# Special case for allergens and traces: we also use the ingredients taxonomy to check if it has an allergen property
+		if (($field eq "allergens") or ($field eq "traces")) {
+			$normalized_tag = canonicalize_allergens_taxonomy_tag($tag_lc, $tag);
+		}
+		elsif (defined $taxonomy_fields{$field}) {
 			$normalized_tag = canonicalize_taxonomy_tag($tag_lc, $field, $tag);
 		}
 		else {
