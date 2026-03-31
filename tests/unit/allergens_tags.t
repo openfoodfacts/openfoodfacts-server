@@ -13,6 +13,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/detect_allergens_from_text extract_ingredients_from_text/;
 use ProductOpener::Products qw/compute_languages/;
+use ProductOpener::APIProductWrite qw/update_product_field_api_v2_and_cgi/;
 
 # dummy product for testing
 
@@ -244,10 +245,14 @@ foreach my $test_ref (@tests) {
 	$product_ref->{"ingredients_text_" . $product_ref->{lc}} = $product_ref->{ingredients_text};
 
 	# If we have "allergens" or "traces" values, write them to the corresponding tags
-	foreach my $field ("allergens", "traces") {
+	# traces need to be first, as allergens might add traces
+	foreach my $field ("traces", "allergens") {
 		my $value = $product_ref->{$field};
 		if (defined $value) {
-			set_field_input_tags_for_source($product_ref, $product_ref->{lc}, $field, "packaging", $value);
+			# Note: we use update_product_field_api_v2_and_cgi($product_ref, $field, $value, $source)
+			# as it splits traces from allergens (e.g. when allergens contain "May contain: ...")
+			# set_field_input_tags_for_source($product_ref, $product_ref->{lc}, $field, "packaging", $value);
+			update_product_field_api_v2_and_cgi($product_ref, $field, $value, "packaging");
 		}
 	}
 

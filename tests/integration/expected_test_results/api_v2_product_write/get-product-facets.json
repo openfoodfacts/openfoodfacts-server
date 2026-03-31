@@ -16,11 +16,17 @@
          "viande"
       ],
       "added_countries_tags" : [],
-      "allergens" : "",
+      "allergens" : "Œufs, xyz",
       "allergens_from_ingredients" : "",
-      "allergens_hierarchy" : [],
+      "allergens_hierarchy" : [
+         "en:eggs",
+         "es:xyz"
+      ],
       "allergens_lc" : "fr",
-      "allergens_tags" : [],
+      "allergens_tags" : [
+         "en:eggs",
+         "es:xyz"
+      ],
       "brands" : "Aldi, ACME, ACME Incorporated",
       "brands_tags" : [
          "aldi",

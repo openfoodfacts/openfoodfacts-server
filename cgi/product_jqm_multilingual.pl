@@ -374,8 +374,9 @@ else {
 		}
 	}
 
-	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'origin',
+	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'allergens', 'ingredients_text', 'origin',
 		'packaging_text', 'lang')
+	# Note: allergens need to be after traces, as we detect traces inside allergens and add them to the traces	
 	{
 
 		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
