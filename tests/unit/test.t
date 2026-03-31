@@ -7,7 +7,7 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Test qw/normalize_object_for_test_comparison/;
+use ProductOpener::Test qw/normalize_object_for_test_comparison normalize_product_for_test_comparison/;
 
 sub get_obj() {
 	return {
@@ -127,5 +127,52 @@ is(
 		"x" => {"y" => {"c" => [{"e" => 9, "f" => 10}]}, "z" => 11}
 	}
 );
+
+# {tags_sources}{allergens}{ingredients}{last_updated_t}
+$obj = {
+	tags_sources => {
+		allergens => {
+			ingredients => {
+				last_updated_t => 1234567890
+			}
+		}
+	}
+};
+normalize_object_for_test_comparison($obj, {fields_ignore_content => ["tags_sources.*.*.last_updated_t"]});
+is(
+	$obj,
+	{
+		tags_sources => {
+			allergens => {
+				ingredients => {
+					last_updated_t => "--ignore--"
+				}
+			}
+		}
+	}
+);	
+
+$obj = {
+	tags_sources => {
+		allergens => {
+			ingredients => {
+				last_updated_t => 1234567890
+			}
+		}
+	}
+};
+normalize_product_for_test_comparison($obj);
+is(
+	$obj,
+	{
+		tags_sources => {
+			allergens => {
+				ingredients => {
+					last_updated_t => "--ignore--"
+				}
+			}
+		}
+	}
+);		
 
 done_testing();
