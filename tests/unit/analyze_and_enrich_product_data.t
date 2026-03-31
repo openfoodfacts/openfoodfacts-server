@@ -82,7 +82,7 @@ foreach my $test_ref (@tests) {
 	my $response_ref = get_initialized_response();
 
 	analyze_and_enrich_product_data($product_ref, $response_ref);
-	
+
 	normalize_product_for_test_comparison($product_ref);
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }

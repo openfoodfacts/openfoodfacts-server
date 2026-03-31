@@ -150,7 +150,7 @@ is(
 			}
 		}
 	}
-);	
+);
 
 $obj = {
 	tags_sources => {
@@ -173,6 +173,6 @@ is(
 			}
 		}
 	}
-);		
+);
 
 done_testing();
