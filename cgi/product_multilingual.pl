@@ -614,7 +614,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	foreach my $field (@param_fields) {
 
-		update_product_field_api_v2_and_cgi($product_ref, $field, single_param($field), $source);
+		update_product_field_api_v2_and_cgi($product_ref, $lc, $field, single_param($field), $source);
 	}
 
 	# Obsolete products

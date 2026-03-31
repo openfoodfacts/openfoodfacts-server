@@ -1,7 +1,11 @@
 {
    "allergens" : "Lehmänmaito, pähkinöitä, gluteenia sisältäviä viljoja.",
    "allergens_from_ingredients" : "",
-   "allergens_tags" : [],
+   "allergens_tags" : [
+      "fi:Lehm�nmaito",
+      "fi:gluteenia sis�lt�vi� viljoja.",
+      "fi:p�hkin�it�"
+   ],
    "lang" : "fi",
    "languages" : {},
    "languages_codes" : {},
@@ -15,6 +19,14 @@
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "fi:Lehm�nmaito",
+               "fi:p�hkin�it�",
+               "fi:gluteenia sis�lt�vi� viljoja."
+            ]
          }
       },
       "traces" : {

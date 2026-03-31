@@ -1,14 +1,575 @@
 {
-   "allergens_from_ingredients" : "blé, mozzarella, lactose",
+   "allergens_from_ingredients" : "en:gluten, en:gluten, en:milk, en:gluten, blé, mozzarella, lactose",
    "allergens_tags" : [
       "en:gluten",
       "en:milk"
    ],
+   "ingredients" : [
+      {
+         "id" : "en:filling",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "11107",
+               "id" : "en:tomato-sauce",
+               "is_in_taxonomy" : 1,
+               "percent" : 32,
+               "percent_estimate" : 32,
+               "text" : "sauce tomate",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            },
+            {
+               "ciqual_food_code" : "20170",
+               "ecobalyse_code" : "tomato-heated-greenhouse-eu",
+               "id" : "en:tomato-puree",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 29,
+               "text" : "purée de tomate",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 61,
+         "percent_estimate" : 61,
+         "text" : "Garniture",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 19.5,
+         "text" : "eau",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:wheat-flour",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 9.75,
+         "text" : "farine de blé",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 4.875,
+         "text" : "sel",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "9510",
+         "id" : "en:corn-starch",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.4375,
+         "text" : "amidon de maïs",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "19590",
+         "ecobalyse_code" : "faa513ae-9c32-4e6c-874e-58c13309339e",
+         "id" : "en:mozzarella",
+         "is_in_taxonomy" : 1,
+         "percent" : 26,
+         "percent_estimate" : 2.4375,
+         "text" : "mozzarella",
+         "vegan" : "no",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "fr:chiffonnade-de-jambon-cuit-standard",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "28205",
+               "id" : "en:ham",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "jambon de porc",
+               "vegan" : "no",
+               "vegetarian" : "no"
+            },
+            {
+               "ciqual_food_code" : "18066",
+               "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "id" : "en:water",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "eau",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "11058",
+               "id" : "en:salt",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "sel",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "31016",
+               "id" : "en:dextrose",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "dextrose",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "31016",
+               "id" : "en:glucose-syrup",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "sirop de glucose",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:stabiliser",
+               "ingredients" : [
+                  {
+                     "id" : "en:e451",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0,
+                     "text" : "e451",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "stabilisant"
+            },
+            {
+               "id" : "en:natural-flavouring",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "arômes naturels",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            },
+            {
+               "id" : "en:gelling-agent",
+               "ingredients" : [
+                  {
+                     "id" : "en:e407",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0,
+                     "text" : "e407",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "gélifiant"
+            },
+            {
+               "id" : "en:lactose",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "lactose",
+               "vegan" : "no",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:pork-stock",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "bouillon de porc",
+               "vegan" : "no",
+               "vegetarian" : "no"
+            },
+            {
+               "id" : "en:antioxidant",
+               "ingredients" : [
+                  {
+                     "id" : "en:e316",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0,
+                     "text" : "e316",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "antioxydant"
+            },
+            {
+               "id" : "en:preservative",
+               "ingredients" : [
+                  {
+                     "id" : "en:e250",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0,
+                     "text" : "e250",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "conservateur"
+            },
+            {
+               "id" : "en:ferment",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "ferments",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent" : 21,
+         "percent_estimate" : 0,
+         "text" : "chiffonnade de jambon cuit standard"
+      },
+      {
+         "ciqual_food_code" : "20010",
+         "ecobalyse_code" : "mushroom-eu",
+         "id" : "en:cultivated-mushroom",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "20010",
+               "ecobalyse_code" : "mushroom-eu",
+               "id" : "en:mushroom",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "champignons",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "20010",
+               "ecobalyse_code" : "mushroom-eu",
+               "id" : "en:mushroom",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "processing" : "bg:натурален-екстракт-от,en:concentrated",
+               "text" : "champignon",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 15,
+         "percent_estimate" : 0,
+         "text" : "champignons de Paris",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13186",
+         "ecobalyse_code" : "olive-eu",
+         "id" : "fr:olives-noires-avec-noyau",
+         "ingredients" : [
+            {
+               "id" : "en:stabiliser",
+               "ingredients" : [
+                  {
+                     "id" : "en:e579",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 0,
+                     "text" : "e579",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "stabilisant"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0,
+         "text" : "olives noires avec noyau",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20217",
+         "id" : "en:rocket",
+         "is_in_taxonomy" : 1,
+         "percent" : 0.6,
+         "percent_estimate" : 0,
+         "text" : "roquette",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11033",
+         "id" : "en:basil",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0,
+         "text" : "basilic",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "11035",
+         "id" : "en:oregano",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0,
+         "text" : "origan",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:dough",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "9410",
+               "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "id" : "en:wheat-flour",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0,
+               "text" : "farine de blé",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 39,
+         "percent_estimate" : 0,
+         "text" : "Pâte",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0,
+         "text" : "eau",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11045",
+         "id" : "en:baker-s-yeast",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0,
+         "text" : "levure boulangère",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0,
+         "text" : "sel",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:malted-wheat-flour",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0,
+         "text" : "farine de blé malté",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:mozzarella",
+         "en:ham",
+         "en:lactose",
+         "en:pork-stock"
+      ],
+      "en:non-vegetarian" : [
+         "en:ham",
+         "en:pork-stock"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
    "ingredients_lc" : "fr",
+   "ingredients_n" : 41,
+   "ingredients_n_tags" : [
+      "41",
+      "41-50"
+   ],
+   "ingredients_original_tags" : [
+      "en:filling",
+      "en:water",
+      "en:wheat-flour",
+      "en:salt",
+      "en:corn-starch",
+      "en:mozzarella",
+      "fr:chiffonnade-de-jambon-cuit-standard",
+      "en:cultivated-mushroom",
+      "fr:olives-noires-avec-noyau",
+      "en:rocket",
+      "en:basil",
+      "en:oregano",
+      "en:dough",
+      "en:water",
+      "en:baker-s-yeast",
+      "en:salt",
+      "en:malted-wheat-flour",
+      "en:tomato-sauce",
+      "en:tomato-puree",
+      "en:ham",
+      "en:water",
+      "en:salt",
+      "en:dextrose",
+      "en:glucose-syrup",
+      "en:stabiliser",
+      "en:natural-flavouring",
+      "en:gelling-agent",
+      "en:lactose",
+      "en:pork-stock",
+      "en:antioxidant",
+      "en:preservative",
+      "en:ferment",
+      "en:mushroom",
+      "en:mushroom",
+      "en:stabiliser",
+      "en:wheat-flour",
+      "en:e451",
+      "en:e407",
+      "en:e316",
+      "en:e250",
+      "en:e579"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:filling",
+      "en:water",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:salt",
+      "en:corn-starch",
+      "en:starch",
+      "en:mozzarella",
+      "en:dairy",
+      "en:cheese",
+      "fr:chiffonnade-de-jambon-cuit-standard",
+      "en:cultivated-mushroom",
+      "en:mushroom",
+      "fr:olives-noires-avec-noyau",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:olive",
+      "en:black-olive",
+      "en:rocket",
+      "en:salad",
+      "en:basil",
+      "en:herb",
+      "en:oregano",
+      "en:dough",
+      "en:baker-s-yeast",
+      "en:yeast",
+      "en:malted-wheat-flour",
+      "en:tomato-sauce",
+      "en:sauce",
+      "en:tomato-puree",
+      "en:tomato",
+      "en:ham",
+      "en:animal",
+      "en:meat",
+      "en:pork",
+      "en:pork-meat",
+      "en:dextrose",
+      "en:added-sugar",
+      "en:monosaccharide",
+      "en:glucose",
+      "en:glucose-syrup",
+      "en:stabiliser",
+      "en:natural-flavouring",
+      "en:flavouring",
+      "en:gelling-agent",
+      "en:lactose",
+      "en:pork-stock",
+      "en:antioxidant",
+      "en:preservative",
+      "en:ferment",
+      "en:e451",
+      "en:e407",
+      "en:e316",
+      "en:e250",
+      "en:e579"
+   ],
    "ingredients_text" : "Garniture 61% : sauce tomate 32% (purée de tomate, eau, farine de blé, sel, amidon de maïs), mozzarella 26%, chiffonnade de jambon cuit standard 21% (jambon de porc, eau, sel, dextrose, sirop de glucose, stabilisant : E451, arômes naturels, gélifiant : E407, lactose, bouillon de porc, antioxydant : E316, conservateur : E250, ferments), champignons de Paris 15% (champignons, extrait naturel de champignon concentré), olives noires avec noyau (stabilisant : E579), roquette 0,6%, basilic et origan. Pourcentages exprimés sur la garniture. Pâte 39% : farine de blé, eau, levure boulangère, sel, farine de blé malté.",
    "ingredients_text_fr" : "Garniture 61% : sauce tomate 32% (purée de tomate, eau, farine de blé, sel, amidon de maïs), mozzarella 26%, chiffonnade de jambon cuit standard 21% (jambon de porc, eau, sel, dextrose, sirop de glucose, stabilisant : E451, arômes naturels, gélifiant : E407, lactose, bouillon de porc, antioxydant : E316, conservateur : E250, ferments), champignons de Paris 15% (champignons, extrait naturel de champignon concentré), olives noires avec noyau (stabilisant : E579), roquette 0,6%, basilic et origan. Pourcentages exprimés sur la garniture. Pâte 39% : farine de blé, eau, levure boulangère, sel, farine de blé malté.",
    "ingredients_text_with_allergens" : "Garniture 61% : sauce tomate 32% (purée de tomate, eau, farine de <span class=\"allergen\">blé</span>, sel, amidon de maïs), <span class=\"allergen\">mozzarella</span> 26%, chiffonnade de jambon cuit standard 21% (jambon de porc, eau, sel, dextrose, sirop de glucose, stabilisant : E451, arômes naturels, gélifiant : E407, <span class=\"allergen\">lactose</span>, bouillon de porc, antioxydant : E316, conservateur : E250, ferments), champignons de Paris 15% (champignons, extrait naturel de champignon concentré), olives noires avec noyau (stabilisant : E579), roquette 0,6%, basilic et origan. Pourcentages exprimés sur la garniture. Pâte 39% : farine de blé, eau, levure boulangère, sel, farine de blé malté.",
    "ingredients_text_with_allergens_fr" : "Garniture 61% : sauce tomate 32% (purée de tomate, eau, farine de <span class=\"allergen\">blé</span>, sel, amidon de maïs), <span class=\"allergen\">mozzarella</span> 26%, chiffonnade de jambon cuit standard 21% (jambon de porc, eau, sel, dextrose, sirop de glucose, stabilisant : E451, arômes naturels, gélifiant : E407, <span class=\"allergen\">lactose</span>, bouillon de porc, antioxydant : E316, conservateur : E250, ferments), champignons de Paris 15% (champignons, extrait naturel de champignon concentré), olives noires avec noyau (stabilisant : E579), roquette 0,6%, basilic et origan. Pourcentages exprimés sur la garniture. Pâte 39% : farine de blé, eau, levure boulangère, sel, farine de blé malté.",
+   "ingredients_with_specified_percent_n" : 3,
+   "ingredients_with_specified_percent_sum" : 58.6,
+   "ingredients_with_unspecified_percent_n" : 28,
+   "ingredients_with_unspecified_percent_sum" : 65.5625,
+   "ingredients_without_ciqual_codes" : [
+      "en:antioxidant",
+      "en:dough",
+      "en:e250",
+      "en:e316",
+      "en:e407",
+      "en:e451",
+      "en:e579",
+      "en:ferment",
+      "en:filling",
+      "en:gelling-agent",
+      "en:lactose",
+      "en:natural-flavouring",
+      "en:pork-stock",
+      "en:preservative",
+      "en:stabiliser",
+      "fr:chiffonnade-de-jambon-cuit-standard"
+   ],
+   "ingredients_without_ciqual_codes_n" : 16,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:antioxidant",
+      "en:baker-s-yeast",
+      "en:basil",
+      "en:corn-starch",
+      "en:dextrose",
+      "en:dough",
+      "en:e250",
+      "en:e316",
+      "en:e407",
+      "en:e451",
+      "en:e579",
+      "en:ferment",
+      "en:filling",
+      "en:gelling-agent",
+      "en:glucose-syrup",
+      "en:ham",
+      "en:lactose",
+      "en:natural-flavouring",
+      "en:oregano",
+      "en:pork-stock",
+      "en:preservative",
+      "en:rocket",
+      "en:salt",
+      "en:stabiliser",
+      "en:tomato-sauce",
+      "fr:chiffonnade-de-jambon-cuit-standard"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 26,
+   "known_ingredients_n" : 40,
    "lang" : "fr",
    "languages" : {
       "en:french" : 1
@@ -24,6 +585,10 @@
       "en:1"
    ],
    "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:at-least-5-ingredients-with-specified-percent"
+   ],
    "tags_sources" : {
       "allergens" : {
          "ingredients" : {
@@ -42,5 +607,6 @@
       }
    },
    "traces_from_ingredients" : "",
-   "traces_tags" : []
+   "traces_tags" : [],
+   "unknown_ingredients_n" : 1
 }

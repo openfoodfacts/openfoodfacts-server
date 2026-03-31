@@ -1,14 +1,76 @@
 {
-   "allergens_from_ingredients" : "BLE , BLE, moutarde",
+   "allergens_from_ingredients" : "en:gluten, en:mustard, BLE , BLE, moutarde",
    "allergens_tags" : [
       "en:gluten",
       "en:mustard"
    ],
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "11013",
+         "id" : "en:mustard-seed",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 50,
+         "processing" : "en:flour",
+         "text" : "graines de moutarde",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "9610",
+         "ecobalyse_code" : "b02ea3a9-f5f1-4673-b043-1d6d72894964",
+         "id" : "en:superior-quality-durum-wheat-semolina",
+         "is_in_taxonomy" : 1,
+         "percent" : 100,
+         "percent_estimate" : 50,
+         "text" : "semoule de BLE dur de qualité supérieure",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
    "ingredients_lc" : "fr",
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:mustard-seed",
+      "en:superior-quality-durum-wheat-semolina"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:mustard-seed",
+      "en:condiment",
+      "en:mustard",
+      "en:spice",
+      "en:superior-quality-durum-wheat-semolina",
+      "en:cereal",
+      "en:wheat",
+      "en:durum-wheat",
+      "en:semolina",
+      "en:durum-wheat-semolina"
+   ],
    "ingredients_text" : "farine de graines de moutarde, 100 % semoule de BLE dur de qualité supérieure Traces éventuelles d'oeufs",
    "ingredients_text_fr" : "farine de graines de moutarde, 100 % semoule de BLE dur de qualité supérieure Traces éventuelles d'oeufs",
    "ingredients_text_with_allergens" : "farine de graines de <span class=\"allergen\">moutarde</span>, 100 % semoule de <span class=\"allergen\">BLE</span> </span>dur de qualité supérieure Traces éventuelles d'<span class=\"allergen\">oeufs</span>",
    "ingredients_text_with_allergens_fr" : "farine de graines de <span class=\"allergen\">moutarde</span>, 100 % semoule de <span class=\"allergen\">BLE</span> </span>dur de qualité supérieure Traces éventuelles d'<span class=\"allergen\">oeufs</span>",
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 50,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:mustard-seed"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 2,
    "lang" : "fr",
    "languages" : {
       "en:french" : 1
@@ -24,6 +86,9 @@
       "en:1"
    ],
    "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent"
+   ],
    "tags_sources" : {
       "allergens" : {
          "ingredients" : {
@@ -46,5 +111,6 @@
    "traces_from_ingredients" : "oeufs",
    "traces_tags" : [
       "en:eggs"
-   ]
+   ],
+   "unknown_ingredients_n" : 0
 }

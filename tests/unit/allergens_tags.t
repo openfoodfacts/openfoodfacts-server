@@ -252,7 +252,7 @@ foreach my $test_ref (@tests) {
 			# Note: we use update_product_field_api_v2_and_cgi($product_ref, $field, $value, $source)
 			# as it splits traces from allergens (e.g. when allergens contain "May contain: ...")
 			# set_field_input_tags_for_source($product_ref, $product_ref->{lc}, $field, "packaging", $value);
-			update_product_field_api_v2_and_cgi($product_ref, $field, $value, "packaging");
+			update_product_field_api_v2_and_cgi($product_ref, $product_ref->{lc}, $field, $value, "packaging");
 		}
 	}
 

@@ -64,6 +64,7 @@ use ProductOpener::Auth qw/get_azp/;
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Nutrition qw/assign_nutrition_values_from_request_object/;
+use ProductOpener::Ingredients qw/%may_contain_regexps/;
 use ProductOpener::Lang qw/%lang_lc/;
 
 use Encode;
@@ -775,7 +776,7 @@ sub write_product_api ($request_ref) {
 	return;
 }
 
-=head2 update_product_field_api_v2_and_cgi($product_ref, $field, $value, $source)
+=head2 update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value, $source)
 
 This function is used to update a product field based on input from API v2 and CGI requests.
 
@@ -784,6 +785,8 @@ This function is used to update a product field based on input from API v2 and C
 =head4 $product_ref (input)
 
 Reference to the product object.
+
+=head4 $target_lc
 
 =head4 $field (input)
 
@@ -799,7 +802,7 @@ Source of the field value: "packaging" on the public platform, "manufacturer" on
 
 =cut
 
-sub update_product_field_api_v2_and_cgi($product_ref, $field, $value, $source) {
+sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value, $source) {
 
 	if (not defined $value) {
 		$log->debug("no value for field", {field => $field}) if $log->is_debug();
@@ -811,7 +814,7 @@ sub update_product_field_api_v2_and_cgi($product_ref, $field, $value, $source) {
 	# If we have a language specific field like "ingredients_text" without a language code suffix
 	# we assume it is in the language of the interface
 	if (defined $language_fields{$field}) {
-		$field .= "_" . $lc;
+		$field .= "_" . $target_lc;
 	}
 
 	# Only moderators can update values for fields sent by the producer
@@ -833,21 +836,26 @@ sub update_product_field_api_v2_and_cgi($product_ref, $field, $value, $source) {
 				$traces_regexp = $may_contain_regexps{$traces_lc};
 			}
 
+			print STDERR "traces_regexp: $traces_regexp\n";
+
 			if (    (defined $traces_regexp)
 				and ($value =~ /\b($traces_regexp)\b\s*:?\s*/i))
 			{
-				my $traces_value = $1;
+				my $traces_value = $';
 				$traces_value =~ s/\s+$//;
 				# We add the traces to the existing traces field
+
+				print STDERR "traces_value: $traces_value\n";
+
 				set_field_input_tags_for_source($product_ref, $traces_lc, "traces", $source, $traces_value, 1);
 
 				# Remove traces from allergens
 				$value = $`;
 				$value =~ s/\s+$//;
-			}	
+			}
 		}
 
-		set_field_input_tags_for_source($product_ref, $lc, $field, $source, $value);
+		set_field_input_tags_for_source($product_ref, $target_lc, $field, $source, $value);
 	}
 	elsif ($field eq "lang") {
 		# strip variants fr-BE fr_BE

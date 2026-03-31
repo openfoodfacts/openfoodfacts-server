@@ -1,11 +1,107 @@
 {
    "allergens_from_ingredients" : "",
    "allergens_tags" : [],
+   "ingredients" : [
+      {
+         "id" : "fi:saattaa-sisältää-muita-gluteenia-sisältäviä-viljoja",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 62.5,
+         "percent_max" : 100,
+         "percent_min" : 25,
+         "text" : "Saattaa sisältää muita gluteenia sisältäviä viljoja"
+      },
+      {
+         "id" : "fi:pähkinöitä",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "pähkinöitä"
+      },
+      {
+         "id" : "fi:maapähkinöitä",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "maapähkinöitä"
+      },
+      {
+         "id" : "fi:soijaa-ja-kananmunia",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "soijaa ja kananmunia"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "fi:saattaa-sisältää-muita-gluteenia-sisältäviä-viljoja",
+         "fi:pähkinöitä",
+         "fi:maapähkinöitä",
+         "fi:soijaa-ja-kananmunia"
+      ],
+      "en:vegan-status-unknown" : [
+         "fi:saattaa-sisältää-muita-gluteenia-sisältäviä-viljoja",
+         "fi:pähkinöitä",
+         "fi:maapähkinöitä",
+         "fi:soijaa-ja-kananmunia"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fi:saattaa-sisältää-muita-gluteenia-sisältäviä-viljoja",
+         "fi:pähkinöitä",
+         "fi:maapähkinöitä",
+         "fi:soijaa-ja-kananmunia"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
    "ingredients_lc" : "fi",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "fi:saattaa-sisältää-muita-gluteenia-sisältäviä-viljoja",
+      "fi:pähkinöitä",
+      "fi:maapähkinöitä",
+      "fi:soijaa-ja-kananmunia"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fi:saattaa-sisältää-muita-gluteenia-sisältäviä-viljoja",
+      "fi:pähkinöitä",
+      "fi:maapähkinöitä",
+      "fi:soijaa-ja-kananmunia"
+   ],
    "ingredients_text" : "Saattaa sisältää muita gluteenia sisältäviä viljoja, pähkinöitä, maapähkinöitä, soijaa ja kananmunia.",
    "ingredients_text_fi" : "Saattaa sisältää muita gluteenia sisältäviä viljoja, pähkinöitä, maapähkinöitä, soijaa ja kananmunia.",
    "ingredients_text_with_allergens" : "Saattaa sisältää muita <span class=\"allergen\">gluteenia sisältäviä viljoja</span>, <span class=\"allergen\">pähkinöitä</span>, <span class=\"allergen\">maapähkinöitä</span>, <span class=\"allergen\">soijaa</span> ja <span class=\"allergen\">kananmunia</span>.",
    "ingredients_text_with_allergens_fi" : "Saattaa sisältää muita <span class=\"allergen\">gluteenia sisältäviä viljoja</span>, <span class=\"allergen\">pähkinöitä</span>, <span class=\"allergen\">maapähkinöitä</span>, <span class=\"allergen\">soijaa</span> ja <span class=\"allergen\">kananmunia</span>.",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "fi:maapähkinöitä",
+      "fi:pähkinöitä",
+      "fi:saattaa-sisältää-muita-gluteenia-sisältäviä-viljoja",
+      "fi:soijaa-ja-kananmunia"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ecobalyse_ids" : [
+      "fi:maapähkinöitä",
+      "fi:pähkinöitä",
+      "fi:saattaa-sisältää-muita-gluteenia-sisältäviä-viljoja",
+      "fi:soijaa-ja-kananmunia"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 0,
    "lang" : "fi",
    "languages" : {
       "en:finnish" : 1
@@ -48,5 +144,6 @@
       "en:nuts",
       "en:peanuts",
       "en:soybeans"
-   ]
+   ],
+   "unknown_ingredients_n" : 4
 }

@@ -4841,6 +4841,8 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 
 	my @normalized_input_tags = ();
 	my %seen = ();
+	my $and = $and{$tag_lc} || " and ";
+	
 	foreach my $tag (split(/,/, $input_tags)) {
 
 		$tag =~ s/^\s+//;
@@ -4860,9 +4862,30 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 		else {
 			$normalized_tag = $tag;
 		}
-		if (not exists $seen{$normalized_tag}) {
-			$seen{$normalized_tag} = 1;
-			push @normalized_input_tags, $normalized_tag;
+
+		my @canon_tags = ($normalized_tag);
+
+		# For taxonomies, try to split unrecognized tags (e.g. "known tag and other known tag" -> "known tag, other known tag"
+		if ((defined $taxonomy_fields{$field}) and ($tag =~ /^(.*)$and(.*)$/i) and (not exists_taxonomy_tag($field, $normalized_tag))) {
+
+			my $tag1 = $1;
+			my $tag2 = $2;
+
+			my $canon_tag1 = canonicalize_taxonomy_tag($tag_lc, $field, $tag1);
+			my $canon_tag2 = canonicalize_taxonomy_tag($tag_lc, $field, $tag2);
+
+			if (    (exists_taxonomy_tag($field, $canon_tag1))
+				and (exists_taxonomy_tag($field, $canon_tag2)))
+			{
+				@canon_tags = ($canon_tag1, $canon_tag2);
+			}
+		}
+
+		foreach $normalized_tag (@canon_tags) {
+			if (not exists $seen{$normalized_tag}) {
+				$seen{$normalized_tag} = 1;
+				push @normalized_input_tags, $normalized_tag;
+			}
 		}
 	}
 

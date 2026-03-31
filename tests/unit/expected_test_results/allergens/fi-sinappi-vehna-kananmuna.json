@@ -1,14 +1,79 @@
 {
-   "allergens_from_ingredients" : "sinappijauhe, VEHNÄsuurimo",
+   "allergens_from_ingredients" : "en:gluten, en:mustard, sinappijauhe, VEHNÄsuurimo",
    "allergens_tags" : [
       "en:gluten",
       "en:mustard"
    ],
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "11013",
+         "id" : "en:mustard",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "processing" : "en:powder",
+         "text" : "sinappi"
+      },
+      {
+         "ciqual_proxy_food_code" : "9610",
+         "id" : "en:wheat-semolina",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "VEHNÄsuurimo",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:vegan-status-unknown" : [
+         "en:mustard"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:mustard"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
    "ingredients_lc" : "fi",
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:mustard",
+      "en:wheat-semolina"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:mustard",
+      "en:wheat-semolina",
+      "en:cereal",
+      "en:wheat",
+      "en:semolina"
+   ],
    "ingredients_text" : "sinappijauhe, VEHNÄsuurimo. Saattaa sisältää kananmunaa",
    "ingredients_text_fi" : "sinappijauhe, VEHNÄsuurimo. Saattaa sisältää kananmunaa",
    "ingredients_text_with_allergens" : "<span class=\"allergen\">sinappijauhe</span>, <span class=\"allergen\">VEHNÄsuurimo</span>. Saattaa sisältää <span class=\"allergen\">kananmunaa</span>",
    "ingredients_text_with_allergens_fi" : "<span class=\"allergen\">sinappijauhe</span>, <span class=\"allergen\">VEHNÄsuurimo</span>. Saattaa sisältää <span class=\"allergen\">kananmunaa</span>",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:mustard",
+      "en:wheat-semolina"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 2,
    "lang" : "fi",
    "languages" : {
       "en:finnish" : 1
@@ -29,8 +94,8 @@
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : [
-               "en:mustard",
-               "en:gluten"
+               "en:gluten",
+               "en:mustard"
             ]
          }
       },
@@ -46,5 +111,6 @@
    "traces_from_ingredients" : "kananmunaa",
    "traces_tags" : [
       "en:eggs"
-   ]
+   ],
+   "unknown_ingredients_n" : 0
 }

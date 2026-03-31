@@ -105,6 +105,8 @@ BEGIN {
 		&get_ingredients_with_parent
 
 		&detect_rare_crops
+
+		%may_contain_regexps
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -186,7 +188,7 @@ my $symbols_regexp = join('|', @symbols);
 
 # do not add sub ( ) in the regexps below as it would change which parts gets matched in $1, $2 etc. in other regexps that use those regexps
 # put the longest strings first, so that we can match "possible traces" before "traces"
-my %may_contain_regexps = (
+%may_contain_regexps = (
 
 	en =>
 		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present|Produced in a factory handling",
@@ -2376,10 +2378,10 @@ Text to analyze
 								if (    (defined $product_ref->{"allergens_from_ingredients"})
 									and ($product_ref->{"allergens_from_ingredients"} ne ""))
 								{
-									$product_ref->{"allergens_from_ingredients"} .= ", " . $allergens;
+									$product_ref->{"allergens_from_ingredients"} .= $allergens . ", ";
 								}
 								else {
-									$product_ref->{"allergens_from_ingredients"} = $allergens;
+									$product_ref->{"allergens_from_ingredients"} = $allergens . ", ";
 								}
 
 								$log->debug("parse_ingredients_text - sub-ingredients: allergens. $allergens")

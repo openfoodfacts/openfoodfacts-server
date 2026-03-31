@@ -1,7 +1,11 @@
 {
    "allergens" : "Lait de vache, autres fruits à coque, autres céréales contenant du gluten",
    "allergens_from_ingredients" : "",
-   "allergens_tags" : [],
+   "allergens_tags" : [
+      "en:milk",
+      "fr:autres c�r�ales contenant du gluten",
+      "fr:autres fruits � coque"
+   ],
    "lang" : "fr",
    "languages" : {},
    "languages_codes" : {},
@@ -15,6 +19,14 @@
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:milk",
+               "fr:autres fruits � coque",
+               "fr:autres c�r�ales contenant du gluten"
+            ]
          }
       },
       "traces" : {

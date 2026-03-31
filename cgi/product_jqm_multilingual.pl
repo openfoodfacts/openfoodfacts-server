@@ -374,9 +374,12 @@ else {
 		}
 	}
 
-	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'allergens', 'ingredients_text', 'origin',
-		'packaging_text', 'lang')
-	# Note: allergens need to be after traces, as we detect traces inside allergens and add them to the traces	
+	foreach my $field (
+		@app_fields, 'nutrition_data_per', 'serving_size', 'traces',
+		'allergens', 'ingredients_text', 'origin', 'packaging_text',
+		'lang'
+		)
+		# Note: allergens need to be after traces, as we detect traces inside allergens and add them to the traces
 	{
 
 		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
@@ -410,7 +413,7 @@ else {
 			next;
 		}
 
-		update_product_field_api_v2_and_cgi($product_ref, $field, single_param($field), $source);
+		update_product_field_api_v2_and_cgi($product_ref, $lc, $field, single_param($field), $source);
 
 		if (defined $language_fields{$field}) {
 

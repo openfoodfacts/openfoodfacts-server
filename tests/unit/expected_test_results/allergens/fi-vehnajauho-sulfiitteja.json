@@ -1,14 +1,61 @@
 {
    "allergens" : "Sulfiitteja",
-   "allergens_from_ingredients" : "vehnäjauho",
+   "allergens_from_ingredients" : "en:gluten, vehnäjauho",
    "allergens_tags" : [
-      "en:gluten"
+      "en:gluten",
+      "en:sulphur-dioxide-and-sulphites"
+   ],
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:wheat-flour",
+         "is_in_taxonomy" : 1,
+         "percent" : 100,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "vehnäjauho",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_lc" : "fi",
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:wheat-flour"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour"
+   ],
    "ingredients_text" : "vehnäjauho 97%",
    "ingredients_text_fi" : "vehnäjauho 97%",
    "ingredients_text_with_allergens" : "<span class=\"allergen\">vehnäjauho</span> 97%",
    "ingredients_text_with_allergens_fi" : "<span class=\"allergen\">vehnäjauho</span> 97%",
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 1,
    "lang" : "fi",
    "languages" : {
       "en:finnish" : 1
@@ -24,12 +71,22 @@
       "en:1"
    ],
    "lc" : "fi",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:all-ingredients-with-specified-percent"
+   ],
    "tags_sources" : {
       "allergens" : {
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : [
                "en:gluten"
+            ]
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:sulphur-dioxide-and-sulphites"
             ]
          }
       },
@@ -41,5 +98,6 @@
       }
    },
    "traces_from_ingredients" : "",
-   "traces_tags" : []
+   "traces_tags" : [],
+   "unknown_ingredients_n" : 0
 }

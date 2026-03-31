@@ -1,12 +1,66 @@
 {
-   "allergens" : "Céleri, crustacés et lupin.",
+   "allergens" : "Céleri, crustacés et lupin. Peut contenir du soja, des sulfites et de la moutarde.",
    "allergens_from_ingredients" : "",
-   "allergens_tags" : [],
+   "allergens_tags" : [
+      "fr:C�leri",
+      "fr:crustac�s et lupin."
+   ],
+   "ingredients" : [
+      {
+         "id" : "fr:filet-de-saumon-sauvage",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "Filet de saumon sauvage"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "fr:filet-de-saumon-sauvage"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:filet-de-saumon-sauvage"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:filet-de-saumon-sauvage"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
    "ingredients_lc" : "fr",
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "fr:filet-de-saumon-sauvage"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fr:filet-de-saumon-sauvage"
+   ],
    "ingredients_text" : "Filet de saumon sauvage",
    "ingredients_text_fr" : "Filet de saumon sauvage",
    "ingredients_text_with_allergens" : "Filet de saumon sauvage",
    "ingredients_text_with_allergens_fr" : "Filet de saumon sauvage",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "fr:filet-de-saumon-sauvage"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "fr:filet-de-saumon-sauvage"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 0,
    "languages" : {
       "en:french" : 1
    },
@@ -26,16 +80,38 @@
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "fr:C�leri",
+               "fr:crustac�s et lupin."
+            ]
          }
       },
       "traces" : {
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:eggs",
+               "en:soybeans",
+               "en:sulphur-dioxide-and-sulphites",
+               "en:mustard"
+            ]
          }
       }
    },
-   "traces" : "Oeufs, du soja, des sulfites et de la moutarde.",
+   "traces" : "Oeufs",
    "traces_from_ingredients" : "",
-   "traces_tags" : []
+   "traces_tags" : [
+      "en:eggs",
+      "en:mustard",
+      "en:soybeans",
+      "en:sulphur-dioxide-and-sulphites"
+   ],
+   "unknown_ingredients_n" : 1
 }
