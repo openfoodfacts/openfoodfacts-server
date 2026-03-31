@@ -375,36 +375,6 @@ foreach my $test_ref (@tests) {
 
 	compute_attributes($product_ref, $product_ref->{lc}, "world", $options_ref);
 
-	# Travis and docker has a different $server_domain, so we need to change the resulting URLs
-	#          $got->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.off.travis-ci.org/images/attributes/nutriscore-unknown.svg'
-	#     $expected->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.openfoodfacts.dev/images/attributes/nutriscore-unknown.svg'
-
-	# code below from https://www.perlmonks.org/?node_id=1031287
-
-	use Scalar::Util qw/reftype/;
-
-	sub walk {
-		my ($entry, $code) = @_;
-		my $type = reftype($entry);
-		$type //= "SCALAR";
-
-		if ($type eq "HASH") {
-			walk($_, $code) for values %$entry;
-		}
-		elsif ($type eq "ARRAY") {
-			walk($_, $code) for @$entry;
-		}
-		elsif ($type eq "SCALAR") {
-			$code->($_[0]);    # alias of entry
-		}
-		else {
-			warn "unknown type $type";
-		}
-		return;
-	}
-
-	walk $product_ref, sub {return unless defined $_[0]; $_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//;};
-
 	normalize_product_for_test_comparison($product_ref);
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }

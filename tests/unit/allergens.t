@@ -13,7 +13,7 @@ use JSON;
 use ProductOpener::Products qw/compute_languages/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/detect_allergens_from_text get_allergens_taxonomyid/;
-use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -349,6 +349,7 @@ foreach my $test_ref (@tests) {
 	}
 
 	# Compare with expected results
+	normalize_product_for_test_comparison($product_ref);
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
