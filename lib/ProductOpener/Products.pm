@@ -125,7 +125,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store
-	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_exists object_path_exists move_object remove_object link_object object_iter/;
+	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_exists object_path_exists move_object remove_object link_object object_iter encode_canonical_json/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
@@ -160,6 +160,7 @@ use ProductOpener::BeautyProducts qw/specific_processes_for_beauty_product/;
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON;
+use Cpanel::JSON::XS ();
 use Log::Any qw($log);
 use Data::DeepAccess qw(deep_exists deep_get);
 
@@ -171,7 +172,7 @@ use ProductOpener::GeoIP;
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
 
-use Scalar::Util qw(looks_like_number);
+use Scalar::Util qw(blessed looks_like_number);
 
 use GS1::SyntaxEngine::FFI::GS1Encoder;
 
@@ -221,6 +222,176 @@ sub make_sure_numbers_are_stored_as_numbers ($product_ref) {
 	$product_ref->{code} = "$product_ref->{code}";
 
 	return;
+}
+
+# Changes to these fields should not trigger a new revision.
+# Add new fields here if they turn out to be safe to ignore for this check.
+my @ignored_fields_for_revision_check = (
+	"created_by_client", "entry_dates_tags",
+	"interface_version_created", "interface_version_modified",
+	"last_check_dates_tags", "last_edit_dates_tags",
+	"last_modified_by", "last_modified_by_client",
+	"last_modified_t", "last_updated_t",
+	"rev", "editors_tags",
+	"last_editor", "_keywords",
+	"allergens_from_user", "allergens_lc",
+	"categories", "categories_lc",
+	"countries", "countries_lc",
+	"labels", "labels_lc",
+	"origins", "origins_lc",
+	"traces", "traces_from_user",
+	"traces_lc"
+);
+
+# Make a clean copy before comparing products.
+sub _normalize_product_for_comparison ($value, $normalization_failed_ref) {
+
+	if (ref($value) eq 'HASH') {
+		# Walk through nested hashes so the same clean up happens everywhere.
+		my %normalized_hash = ();
+		foreach my $key (keys %{$value}) {
+			$normalized_hash{$key}
+				= _normalize_product_for_comparison($value->{$key}, $normalization_failed_ref);
+		}
+		return \%normalized_hash;
+	}
+	elsif (ref($value) eq 'ARRAY') {
+		# Changing the order can still change the meaning.
+		my @normalized_array = ();
+		foreach my $element (@{$value}) {
+			push @normalized_array, _normalize_product_for_comparison($element, $normalization_failed_ref);
+		}
+		return \@normalized_array;
+	}
+	elsif (blessed($value)) {
+		# Turn booleans into plain 1 and 0.
+		if (Cpanel::JSON::XS::is_bool($value) or (ref($value) eq 'boolean')) {
+			return $value ? "1" : "0";
+		}
+
+		# For other objects, keep the value. If JSON cannot encode it, the save will not be skipped.
+		return $value;
+	}
+	elsif (ref($value)) {
+		# If we do not know how to compare this value, keep the save.
+		${$normalization_failed_ref} = 1;
+		return;
+	}
+
+	if (defined $value) {
+		# Turn values into text so type flags do not look like product changes.
+		# Keep real text differences like "03" vs "3".
+		my $normalized_scalar = "$value";
+		$normalized_scalar =~ s/^\s+//;
+		$normalized_scalar =~ s/\s+$//;
+		return $normalized_scalar;
+	}
+
+	return $value;
+}
+
+=head2 prepare_product_for_comparison ( $product_ref )
+
+Build a product copy used for equality checks.
+
+=cut
+
+sub prepare_product_for_comparison ($product_ref) {
+
+	if ((not defined $product_ref) or (ref($product_ref) ne 'HASH')) {
+		# If we cannot compare this product safely, return an empty payload and keep the save.
+		return {};
+	}
+
+	# Drop fields that should not create a revision.
+	my %prepared_product = %{$product_ref};
+	foreach my $field (@ignored_fields_for_revision_check) {
+		delete $prepared_product{$field};
+	}
+
+	my $normalization_failed = 0;
+	my $normalized_product_ref = _normalize_product_for_comparison(\%prepared_product, \$normalization_failed);
+
+	# If normalization fails, keep the save.
+	if ($normalization_failed) {
+		return {};
+	}
+
+	return $normalized_product_ref;
+}
+
+# Turn the prepared product into JSON before comparing it.
+sub _serialize_prepared_product_for_comparison ($prepared_product_ref) {
+
+	# If nothing is left to compare, keep the save.
+	if (not keys %{$prepared_product_ref}) {
+		return;
+	}
+
+	# This encoder includes indentation, which is not really needed here, but checks showed the overhead is negligible.
+	my $comparison_json = eval {encode_canonical_json($prepared_product_ref, 1)};
+	my $serialization_failed = ($@ or (not defined $comparison_json));
+
+	# If JSON encoding fails, keep the save.
+	if ($serialization_failed) {
+		return;
+	}
+
+	return $comparison_json;
+}
+
+# Check if two products should count as the same revision.
+sub _products_are_equivalent_for_revision ($current_product_ref, $latest_product_ref) {
+
+	my $current_prepared_ref = prepare_product_for_comparison($current_product_ref);
+	my $latest_prepared_ref = prepare_product_for_comparison($latest_product_ref);
+
+	# If either side cannot be prepared, keep the save.
+	if ((not keys %{$current_prepared_ref}) or (not keys %{$latest_prepared_ref})) {
+		return 0;
+	}
+
+	my $current_comparison_json = _serialize_prepared_product_for_comparison($current_prepared_ref);
+	my $latest_comparison_json = _serialize_prepared_product_for_comparison($latest_prepared_ref);
+
+	# If either side cannot be turned into JSON, keep the save.
+	if ((not defined $current_comparison_json) or (not defined $latest_comparison_json)) {
+		return 0;
+	}
+
+	return ($current_comparison_json eq $latest_comparison_json);
+}
+
+# After a skipped save, put the stored product back into the product ref.
+sub _restore_product_state_from_latest_product ($product_ref, $latest_product_ref) {
+
+	my $restore_failed = (ref($latest_product_ref) ne 'HASH');
+
+	# If we cannot reuse the stored product safely, keep the save.
+	if ($restore_failed) {
+		return 0;
+	}
+
+	%{$product_ref} = %{$latest_product_ref};
+	return 1;
+}
+
+=head2 serialize_product_for_comparison ( $product_ref )
+
+Serialize a predictable representation of a product for comparison.
+Returns an empty string if the product cannot be prepared or serialized safely.
+
+=cut
+
+sub serialize_product_for_comparison ($product_ref) {
+
+	my $prepared_product_ref = prepare_product_for_comparison($product_ref);
+	my $comparison_json = _serialize_prepared_product_for_comparison($prepared_product_ref);
+	if (not defined $comparison_json) {
+		return '';
+	}
+
+	return $comparison_json;
 }
 
 =head2 assign_new_code ( )
@@ -1121,6 +1292,15 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	my $rev = $product_ref->{rev};
 	my $action = "updated";
 
+	# Structural moves still need persistence side effects:
+	# - old_code: can move product directories and delete the old Mongo document.
+	# - server or old_product_type: can remove the product from its previous collection.
+	# Do not skip the save in those cases.
+	my $has_structural_move
+		= defined $product_ref->{old_code}
+		|| defined $product_ref->{old_product_type}
+		|| defined $product_ref->{server};
+
 	# Update product schema version
 	$product_ref->{schema_version} = $current_schema_version;
 
@@ -1437,14 +1617,33 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	make_sure_numbers_are_stored_as_numbers($product_ref);
 
 	$change_ref = $changes_ref->[-1];
-	my $diffs = $change_ref->{diffs};
-	my %diffs = %{$diffs};
-	if ((!$diffs) or (!keys %diffs)) {
-		$log->info("changes not stored because of empty diff", {change_ref => $change_ref}) if $log->is_info();
-		# 2019/09/12 - this was deployed today, but it causes changes not to be saved
-		# compute_product_history_and_completeness() was not written to make sure that it sees all changes
-		# keeping the log and disabling the "return 0" so that all changes are saved
-		#return 0;
+
+	# First writes and structural moves always use a regular save.
+	my $is_existing_product = ($rev > 1);
+	my $can_skip_save = ($is_existing_product and (not $has_structural_move));
+	my $should_skip_save = 0;
+
+	if ($can_skip_save) {
+		my $latest_product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/product");
+		my $has_latest_stored_product = (ref($latest_product_ref) eq 'HASH');
+		my $matches_latest_stored_product = 0;
+
+		if ($has_latest_stored_product) {
+			# Compare against the persisted product before deciding to skip.
+			$matches_latest_stored_product = _products_are_equivalent_for_revision($product_ref, $latest_product_ref);
+		}
+
+		if ($matches_latest_stored_product) {
+			# Put the persisted state back before returning from a skipped save.
+			$should_skip_save = _restore_product_state_from_latest_product($product_ref, $latest_product_ref);
+		}
+	}
+
+	if ($should_skip_save) {
+		$log->info("store_product - skipped no-op save after product comparison",
+			{code => $code, product_id => $product_id})
+			if $log->is_info();
+		return 1;    # Legacy callers treat store_product() as a success check.
 	}
 
 	# First store the product data in a .json file on disk
@@ -1481,6 +1680,7 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	}
 
 	# Publish information about update on Redis stream
+	my $diffs = $change_ref->{diffs} // {};
 	$log->debug("push_product_update_to_redis",
 		{code => $code, product_id => $product_id, action => $action, comment => $comment, diffs => $diffs})
 		if $log->is_debug();

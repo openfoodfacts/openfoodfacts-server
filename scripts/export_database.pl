@@ -59,6 +59,9 @@ use Encode;
 use POSIX qw(strftime);
 use Data::DeepAccess qw(deep_get);
 
+# 2023/03/30: we temporarily remove RDF exports as they take a lot of time to generate and do not seem to be in current use.
+my $export_rdf = 0;
+
 init_emb_codes();
 
 sub xml_escape_NFC($) {
@@ -130,11 +133,10 @@ foreach my $field (@export_fields) {
 }
 
 $fields_ref->{empty} = 1;
-$fields_ref->{nutrition} = 1;
+$fields_ref->{"nutrition.aggregated_set"} = 1;
 $fields_ref->{ingredients} = 1;
-$fields_ref->{images} = 1;
+$fields_ref->{"images"} = 1;
 $fields_ref->{lc} = 1;
-$fields_ref->{environmental_score_data} = 1;
 
 # Current date, used for RDF dcterms:modified: 2019-02-07
 my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime();
@@ -155,14 +157,21 @@ foreach my $l ("en", "fr") {
 	print STDERR "Write file: $csv_filename.temp\n";
 	print STDERR "Write file: $rdf_filename.temp\n";
 
+	# We output the CSV header separately, to be able to sort the CSV file by code and add the header line at the top of the sorted file.
+	open(my $OUT_HEADER, ">:encoding(UTF-8)", "$csv_filename.temp.header")
+		or die("Cannot write $csv_filename.temp.header: $!\n");
 	open(my $OUT, ">:encoding(UTF-8)", "$csv_filename.temp") or die("Cannot write $csv_filename.temp: $!\n");
-	open(my $RDF, ">:encoding(UTF-8)", "$rdf_filename.temp");
+	my $RDF;
+	if ($export_rdf) {
+		open($RDF, ">:encoding(UTF-8)", "$rdf_filename.temp") or die("Cannot write $rdf_filename.temp: $!\n");
+	}
 	open(my $BAD, ">:encoding(UTF-8)", "$log_filename");
 
 	# Headers
 
 	# RDF header
-	print $RDF <<XML
+	if ($export_rdf) {
+		print $RDF <<XML
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 		xmlns:food="http://data.lirmm.fr/ontologies/food#"
@@ -195,7 +204,8 @@ The database is available under Open Database Licence 1.0 (ODbL) https://opendat
 -->
 
 XML
-		;
+			;
+	}
 
 	# CSV header
 	my $csv = '';
@@ -270,7 +280,7 @@ XML
 	}
 
 	$csv =~ s/\t$/\n/;
-	print $OUT $csv;
+	print $OUT_HEADER $csv;
 
 	# Get products from the products collection, plus the products_obsolete collection
 	my @collections = (
@@ -337,13 +347,6 @@ XML
 					and ($product_ref->{$field . "_" . $l} ne ''))
 				{
 					$field_value = $product_ref->{$field . "_" . $l};
-				}
-
-				# Environmental-Score data is stored in environmental_score_data.(grades|scores).(language code)
-				if (    ($field =~ /^environmental_score_(score|grade)_(\w\w)/)
-					and (defined $product_ref->{environmental_score_data}))
-				{
-					$field_value = ($product_ref->{environmental_score_data}{$1 . "s"}{$2} // "");
 				}
 
 				if ($field_value ne '') {
@@ -465,63 +468,67 @@ XML
 				substr $csv, -1, 1, "\n";
 			}
 
-			my $name = xml_escape_NFC($product_ref->{product_name});
-			my $ingredients_text = xml_escape_NFC($product_ref->{ingredients_text});
+			print $OUT $csv;
 
-			my $rdf = <<XML
+			if ($export_rdf) {
+
+				my $name = xml_escape_NFC($product_ref->{product_name});
+				my $ingredients_text = xml_escape_NFC($product_ref->{ingredients_text});
+
+				my $rdf = <<XML
 <rdf:Description rdf:about="$url" rdf:type="http://data.lirmm.fr/ontologies/food#FoodProduct">
 	<food:code>$code</food:code>
 	<food:name>$name</food:name>
 	<food:IngredientListAsText>${ingredients_text}</food:IngredientListAsText>
 XML
-				;
+					;
 
-			if (defined $product_ref->{ingredients}) {
+				if (defined $product_ref->{ingredients}) {
 
-				foreach my $i (@{$product_ref->{ingredients}}) {
+					foreach my $i (@{$product_ref->{ingredients}}) {
 
-					# Encode URI
-					my $ing_encoded = URI::Escape::XS::encodeURIComponent($i->{id});
-					$rdf
-						.= "\t<food:containsIngredient>\n"
-						. "\t\t<food:Ingredient>\n"
-						. "\t\t\t<food:food rdf:resource=\"http://fr.$server_domain/ingredient/"
-						. $ing_encoded
-						. "\" />\n";
-					not defined $ingredients{$i->{id}} and $ingredients{$i->{id}} = {};
-					$ingredients{$i->{id}}{ucfirst($i->{text})}++;
-					if (defined $i->{rank}) {
-						$rdf .= "\t\t\t<food:rank>" . $i->{rank} . "</food:rank>\n";
+						# Encode URI
+						my $ing_encoded = URI::Escape::XS::encodeURIComponent($i->{id});
+						$rdf
+							.= "\t<food:containsIngredient>\n"
+							. "\t\t<food:Ingredient>\n"
+							. "\t\t\t<food:food rdf:resource=\"http://fr.$server_domain/ingredient/"
+							. $ing_encoded
+							. "\" />\n";
+						not defined $ingredients{$i->{id}} and $ingredients{$i->{id}} = {};
+						$ingredients{$i->{id}}{ucfirst($i->{text})}++;
+						if (defined $i->{rank}) {
+							$rdf .= "\t\t\t<food:rank>" . $i->{rank} . "</food:rank>\n";
+						}
+						if (defined $i->{percent}) {
+							$rdf .= "\t\t\t<food:percent>" . $i->{percent} . "</food:percent>\n";
+						}
+						$rdf .= "\t\t</food:Ingredient>\n";
+						$rdf .= "\t</food:containsIngredient>\n";
+
 					}
-					if (defined $i->{percent}) {
-						$rdf .= "\t\t\t<food:percent>" . $i->{percent} . "</food:percent>\n";
-					}
-					$rdf .= "\t\t</food:Ingredient>\n";
-					$rdf .= "\t</food:containsIngredient>\n";
-
 				}
+
+				foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
+
+					my $nid = $nutrient_tagid;
+					$nid =~ s/^zz://g;
+
+					my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+					if (defined $value) {
+						my $property = $nid;
+						$property =~ s/-([a-z])/ucfirst($1)/eg;
+						$property .= "Per100g";
+
+						$rdf .= "\t<food:$property>" . $value . "</food:$property>\n";
+					}
+				}
+
+				$rdf .= "</rdf:Description>\n\n";
+				print $RDF $rdf;
 			}
 
-			foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
-
-				my $nid = $nutrient_tagid;
-				$nid =~ s/^zz://g;
-
-				my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
-
-				if (defined $value) {
-					my $property = $nid;
-					$property =~ s/-([a-z])/ucfirst($1)/eg;
-					$property .= "Per100g";
-
-					$rdf .= "\t<food:$property>" . $value . "</food:$property>\n";
-				}
-			}
-
-			$rdf .= "</rdf:Description>\n\n";
-
-			print $OUT $csv;
-			print $RDF $rdf;
 		}
 	}
 
@@ -534,9 +541,11 @@ XML
 	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
 	my $csv_size_old = (-s $csv_filename) // 0;
 
-	print "Sort lines by code, except header line: $csv_filename.temp to $csv_filename.temp2\n";
-	system("(head -1 $csv_filename.temp && (tail -n +2 $csv_filename.temp | sort)) > $csv_filename.temp2");
+	print
+		"Sort lines by code, and add header line: add $csv_filename.temp.header + $csv_filename.temp to $csv_filename.temp2\n";
+	system("(cat $csv_filename.temp.header && (sort $csv_filename.temp)) > $csv_filename.temp2");
 	unlink "$csv_filename.temp";
+	unlink "$csv_filename.temp.header";
 	my $csv_size_new = (-s "$csv_filename.temp2") // 0;
 	# guard: we replace target file only if it's big enough (to avoid replacing valid export by a broken one)
 	if ($csv_size_new >= $csv_size_old * 0.99) {
@@ -549,64 +558,70 @@ XML
 		$errors++;
 	}
 
-	my %links = ();
-	if (-e "$data_root/rdf/${lc}_links") {
+	if ($export_rdf) {
 
-		# <http://fr.$server_domain/ingredient/xylitol>  <http://www.w3.org/2002/07/owl#sameAs>  <http://fr.dbpedia.org/resource/Xylitol>
+		print $RDF "</rdf:RDF>\n";
 
-		open my $IN, q{<}, "$data_root/rdf/${lc}_links";
-		while (<$IN>) {
-			my $l = $_;
-			if ($l =~ /<.*ingredient\/(.*)>\s*<.*>\s*<(.*)>/) {
-				my $ingredient = $1;
-				my $sameas = $2;
-				$links{$ingredient} = $sameas;
+		close $RDF;
+
+		my %links = ();
+		if (-e "$data_root/rdf/${lc}_links") {
+
+			# <http://fr.$server_domain/ingredient/xylitol>  <http://www.w3.org/2002/07/owl#sameAs>  <http://fr.dbpedia.org/resource/Xylitol>
+
+			open my $IN, q{<}, "$data_root/rdf/${lc}_links";
+			while (<$IN>) {
+				my $l = $_;
+				if ($l =~ /<.*ingredient\/(.*)>\s*<.*>\s*<(.*)>/) {
+					my $ingredient = $1;
+					my $sameas = $2;
+					$links{$ingredient} = $sameas;
+				}
 			}
 		}
-	}
 
-	foreach my $i (sort keys %ingredients) {
+		foreach my $i (sort keys %ingredients) {
 
-		my @names = sort ({$ingredients{$i}{$b} <=> $ingredients{$i}{$a}} keys %{$ingredients{$i}});
-		my $name = xml_escape_NFC($names[0]);
+			my @names = sort ({$ingredients{$i}{$b} <=> $ingredients{$i}{$a}} keys %{$ingredients{$i}});
+			my $name = xml_escape_NFC($names[0]);
 
-		# sameAs
-		# <owl:sameAs rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#xlogP"/>
+			# sameAs
+			# <owl:sameAs rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#xlogP"/>
 
-		my $sameas = '';
-		if (defined $links{$i}) {
-			$sameas = "\n\t<owl:sameAs rdf:resource=\"$links{$i}\"/>";
-		}
+			my $sameas = '';
+			if (defined $links{$i}) {
+				$sameas = "\n\t<owl:sameAs rdf:resource=\"$links{$i}\"/>";
+			}
 
-		# Encode URI
-		$i = URI::Escape::XS::encodeURIComponent($i);
+			# Encode URI
+			$i = URI::Escape::XS::encodeURIComponent($i);
 
-		print $RDF <<XML
+			print $RDF <<XML
 <rdf:Description rdf:about="http://$lc.$server_domain/ingredient/$i" rdf:type="http://data.lirmm.fr/ontologies/food#Food">
 	<food:name>$name</food:name>$sameas
 </rdf:Description>
 
 XML
-			;
+				;
+		}
+
+		print $RDF "</rdf:RDF>\n";
+
+		close $RDF;
+
+		# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
+		my $rdf_size_old = (-s $rdf_filename) // 0;
+		my $rdf_size_new = (-s "$rdf_filename.temp") // 0;
+		if ($rdf_size_new >= $rdf_size_old * 0.99) {
+			unlink $rdf_filename;
+			rename "$rdf_filename.temp", $rdf_filename;
+		}
+		else {
+			print STDERR "Not overwriting previous RDF. Old size = $rdf_size_old, new size = $rdf_size_new.\n";
+			unlink "$rdf_filename.temp";
+			$errors++;
+		}
 	}
-
-	print $RDF "</rdf:RDF>\n";
-
-	close $RDF;
-
-	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
-	my $rdf_size_old = (-s $rdf_filename) // 0;
-	my $rdf_size_new = (-s "$rdf_filename.temp") // 0;
-	if ($rdf_size_new >= $rdf_size_old * 0.99) {
-		unlink $rdf_filename;
-		rename "$rdf_filename.temp", $rdf_filename;
-	}
-	else {
-		print STDERR "Not overwriting previous RDF. Old size = $rdf_size_old, new size = $rdf_size_new.\n";
-		unlink "$rdf_filename.temp";
-		$errors++;
-	}
-
 }
 
 print "--- End of $0\n";

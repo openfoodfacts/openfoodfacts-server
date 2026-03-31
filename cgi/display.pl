@@ -128,7 +128,8 @@ if ($request_ref->{no_index} eq 1) {
 	return Apache2::Const::OK;
 }
 
-if ($request_ref->{rate_limiter_blocking}) {
+# Block request if rate limit exceeded (only if rate limiter is not disabled)
+if ((not $rate_limiter_disabled) && $request_ref->{rate_limiter_blocking}) {
 	# The request is blocked by the rate limiter:
 	# return directly a "too many requests" empty HTML page
 	display_too_many_requests_page_and_exit();

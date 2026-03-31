@@ -230,7 +230,10 @@ sub analyze_request($request_ref) {
 		$request_ref->{no_index} = 1;
 	}
 
-	check_and_update_rate_limits($request_ref);
+	# Check and update rate limits if not disabled (default is ENABLED for production safety)
+	if (not $rate_limiter_disabled) {
+		check_and_update_rate_limits($request_ref);
+	}
 
 	$log->debug("request analyzed", {lc => $request_ref->{lc}, request_ref => sanitize($request_ref)})
 		if $log->is_debug();
