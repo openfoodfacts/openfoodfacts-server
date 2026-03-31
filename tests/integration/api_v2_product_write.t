@@ -519,6 +519,57 @@ my $tests_ref = [
 		path => '/api/v3.5/product/2234567890002?fields=raw'
 		,    # we need to specify fields=raw so that we are not redirected to the petfood site
 	},
+	# Facets
+	{
+		test_case => 'post-product-facets',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			cc => "uk",
+			lc => "es",    # lc is the language of the interface
+			lang => "fr",    # lang is the main language of the product
+			code => "1234567890341",
+			categories => "Sausages",
+			traces => "Moutarde, milk, abcd",
+			allergens => "Eggs, xyz",
+			brands => "ACME, ACME Incorporated, ALDI",
+			emb_codes => "FR 56081 CE",
+			labels => "Bio, Fair trade"
+		}
+	},
+	{
+		test_case => 'get-product-facets',
+		method => 'GET',
+		path => '/api/v2/product/1234567890341',
+	},
+	# Add facets with add_categories etc.
+	{
+		test_case => 'post-product-add-facets',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			cc => "uk",
+			lc => "es",    # lc is the language of the interface
+			lang => "fr",    # lang is the main language of the product
+			code => "1234567890341",
+			categories => "Milk, Café",
+			traces => "Gluten",
+			allergens => "Crustaceans",
+			brands => "Another brand 1, Another brand 2",
+			emb_codes => "FR 56082 CE",
+			labels => "Gold meal"
+		}
+	},
+	{
+		test_case => 'get-product-add-facets',
+		method => 'GET',
+		path => '/api/v2/product/1234567890341',
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref, undef, 0);

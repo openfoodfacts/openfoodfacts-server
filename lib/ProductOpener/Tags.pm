@@ -4804,9 +4804,35 @@ sub canonicalize_allergens_taxonomy_tag($ingredients_lc, $ingredient_or_allergen
 
 New function to set the input tags for a field and a source. (e.g. categories for the manufacturer source)
 
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to the product hash
+
+=head4 $tag_lc
+
+The language code of the input tags
+
+=head4 $field
+
+The field for which we want to set the input tags (e.g. categories, labels, allergens, etc.)
+
+=head4 $source
+
+The source of the input tags (e.g. manufacturer, user, etc.)
+
+=head4 $input_tags
+
+The input tags to set for the field and source
+
+=head4 $add
+
+Optional flag to indicate whether to add the input tags to existing tags (default is 0, which replaces existing tags)
+
 =cut
 
-sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags) {
+sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags, $add = 0) {
 
 	# brands are a language less taxonomy, the input tag_lc is not used, we use xx instead
 	if ($field eq "brands") {
@@ -4840,7 +4866,22 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 		}
 	}
 
-	deep_set($product_ref, "tags_sources", $field, $source, "tags", \@normalized_input_tags);
+	if (    ($add)
+		and (defined $product_ref->{tags_sources}{$field}{$source}{tags})
+		and (scalar @{$product_ref->{tags_sources}{$field}{$source}{tags}} > 0))
+	{
+		my %existing = map {$_ => 1} @{$product_ref->{tags_sources}{$field}{$source}{tags}};
+		foreach my $tag (@normalized_input_tags) {
+			if (not exists $existing{$tag}) {
+				push @{$product_ref->{tags_sources}{$field}{$source}{tags}}, $tag;
+			}
+		}
+	}
+
+	else {
+		deep_set($product_ref, "tags_sources", $field, $source, "tags", \@normalized_input_tags);
+	}
+
 	deep_set($product_ref, "tags_sources", $field, $source, "last_updated_t", time());
 
 	generate_field_tags_from_all_sources($product_ref, $field);

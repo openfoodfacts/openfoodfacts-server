@@ -229,8 +229,8 @@ my @tests = (
 			allergens => "gluten, monkfish",
 			traces => "white lupin, strange ingredient, grey shrimp",
 		},
-		['en:eggs', 'en:gluten', 'en:milk', 'en:fish'],
-		['en:crustaceans', "en:lupin", 'en:strange ingredient', ],
+		['en:eggs', 'en:fish', 'en:gluten', 'en:milk'],
+		['en:crustaceans', "en:lupin", 'en:strange ingredient',],
 	],
 
 );
@@ -250,7 +250,6 @@ foreach my $test_ref (@tests) {
 			set_field_input_tags_for_source($product_ref, $product_ref->{lc}, $field, "packaging", $value);
 		}
 	}
-	
 
 	compute_languages($product_ref);
 	extract_ingredients_from_text($product_ref);

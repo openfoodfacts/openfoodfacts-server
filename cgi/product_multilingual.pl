@@ -474,7 +474,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
 
 	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per',
-		'serving_size', 'allergens', 'traces', 'ingredients_text', 'origin', 'packaging_text', 'lang')
+		'serving_size', 'traces', 'allergens', 'ingredients_text', 'origin', 'packaging_text', 'lang')
+		# Note: allergens need to be after traces, as we detect traces inside allergens and add them to the traces
 	{
 
 		if (defined $language_fields{$field}) {

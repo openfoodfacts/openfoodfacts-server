@@ -2176,7 +2176,7 @@ Text to analyze
 
 					# allergens or traces
 					# single allergen in parenthesis, for example: Krupica od durum pšenice (gluten) -> durum wheat semolina (gluten)
-					# more than a single allergen is handle just after
+					# more than a single allergen is handled just after
 					# in Japanese, 豚肉を含む (contains (を含む) pork (豚肉))
 					# 一部に卵・小麦・乳成分・大豆を含む (contains (を含む) parts of (一部に), eggs, wheat, milk, soybeans (卵・小麦・乳成分・大豆)
 					# 香料(乳由来) (Spices (from milk origin))
@@ -2373,11 +2373,13 @@ Text to analyze
 									map {canonicalize_taxonomy_tag($ingredients_lc, "allergens", $_)}
 										split(/$commas|$and|\N{U+30FB}/, $allergen_string));
 
-								if ((defined $product_ref->{"allergens"}) and ($product_ref->{"allergens"} ne "")) {
-									$product_ref->{"allergens"} = $product_ref->{"allergens"} . ", " . $allergens;
+								if (    (defined $product_ref->{"allergens_from_ingredients"})
+									and ($product_ref->{"allergens_from_ingredients"} ne ""))
+								{
+									$product_ref->{"allergens_from_ingredients"} .= ", " . $allergens;
 								}
 								else {
-									$product_ref->{"allergens"} = $allergens;
+									$product_ref->{"allergens_from_ingredients"} = $allergens;
 								}
 
 								$log->debug("parse_ingredients_text - sub-ingredients: allergens. $allergens")
@@ -3460,6 +3462,12 @@ and to compute the resulting value for the complete product
 sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 
 	delete $product_ref->{ingredients_percent_analysis};
+
+	foreach my $field ("allergens", "traces") {
+
+		# new fields for allergens detected from ingredient list
+		$product_ref->{$field . "_from_ingredients"} = "";
+	}
 
 	# The specific ingredients array will contain indications regarding the percentage,
 	# origins, labels etc. of specific ingredients. Those information may come from:
@@ -8015,6 +8023,8 @@ HTML <span class="allergen"> tags
 
 Allergens are recognized in the following ways:
 
+0. from ingredient analysis (e.g. "cheese (milk)") in extract_ingredients_from_text()
+
 1. using the list of ingredients that have been recognized through
 ingredients analysis, by looking at the allergens:en property in the
 ingredients taxonomy.
@@ -8022,7 +8032,7 @@ This is done with the function detect_allergens_from_ingredients()
 
 2. when entered in ALL CAPS, or between underscores
 
-3. when matching exact entries o synonyms of the allergens taxonomy
+3. when matching exact entries or synonyms of the allergens taxonomy
 
 Allergens detected using 2. or 3. are marked with <span class="allergen">
 
@@ -8037,15 +8047,6 @@ sub detect_allergens_from_text ($product_ref) {
 	}
 
 	my $ingredients_lc = get_or_select_ingredients_lc($product_ref);
-
-	# Keep allergens entered by users in the allergens and traces field
-
-	foreach my $field ("allergens", "traces") {
-
-		# new fields for allergens detected from ingredient list
-
-		$product_ref->{$field . "_from_ingredients"} = "";
-	}
 
 	# Add allergens from the ingredients analysis
 	detect_allergens_from_ingredients($product_ref);
@@ -8126,29 +8127,6 @@ sub detect_allergens_from_text ($product_ref) {
 			}
 
 		}
-	}
-
-	# If traces were entered in the allergens field, split them
-	# Use the language the tag have been entered in
-
-	my $traces_regexp;
-	my $traces_lc = $product_ref->{traces_lc} || $product_ref->{lc};
-	if ((defined $traces_lc) and (defined $may_contain_regexps{$traces_lc})) {
-		$traces_regexp = $may_contain_regexps{$traces_lc};
-	}
-
-	if (    (defined $traces_regexp)
-		and (defined $product_ref->{allergens})
-		and ($product_ref->{allergens} =~ /\b($traces_regexp)\b\s*:?\s*/i))
-	{
-		if (defined $product_ref->{traces}) {
-			$product_ref->{traces} .= ", " . $';
-		}
-		else {
-			$product_ref->{traces} = $';
-		}
-		$product_ref->{allergens} = $`;
-		$product_ref->{allergens} =~ s/\s+$//;
 	}
 
 	foreach my $field ("allergens", "traces") {
