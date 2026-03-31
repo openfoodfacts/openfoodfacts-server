@@ -17,7 +17,7 @@ You can paginate results using `page` and `page_size`.
 
 Example:
 
-https://world.openfoodfacts.org/cgi/search.pl?search_terms=milk&page=2&page_size=20&jason=1
+https://world.openfoodfacts.org/cgi/search.pl?search_terms=milk&page=2&page_size=20&json=1
 
 ## Filter by Country
 Example:
