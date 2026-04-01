@@ -14,7 +14,6 @@ use ProductOpener::Products qw/compute_languages/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/detect_allergens_from_text extract_ingredients_from_text/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
-use ProductOpener::APIProductWrite qw/update_product_field_api_v2_and_cgi/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -342,11 +341,11 @@ foreach my $test_ref (@tests) {
 	foreach my $field ("traces", "allergens") {
 		my $value = $product_ref->{$field};
 		if (defined $value) {
-			# Note: we use update_product_field_api_v2_and_cgi($product_ref, $field, $value, $source)
-			# as it splits traces from allergens (e.g. when allergens contain "May contain: ...")
-			# set_field_input_tags_for_source($product_ref, $product_ref->{lc}, $field, "packaging", $value);
-			update_product_field_api_v2_and_cgi($product_ref, $product_ref->{lc}, $field, $value, "packaging");
+			set_field_input_tags_for_source($product_ref, $product_ref->{lc}, $field, "packaging", $value);
 		}
+		# We delete the field as it's used as an input (only for testing), not as an output of the product object
+		# What matters is the allergens_tags and traces_tags fields, as well as tags_sources
+		delete $product_ref->{$field};
 	}
 
 	# Run the test

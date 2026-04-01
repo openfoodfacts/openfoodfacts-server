@@ -1,7 +1,8 @@
 {
-   "allergens" : "GLUTEN.",
    "allergens_from_ingredients" : "",
-   "allergens_tags" : [],
+   "allergens_tags" : [
+      "en:gluten"
+   ],
    "languages" : {},
    "languages_codes" : {},
    "languages_hierarchy" : [],
@@ -14,16 +15,45 @@
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:gluten"
+            ]
          }
       },
       "traces" : {
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:crustaceans",
+               "en:eggs",
+               "en:fish",
+               "en:soybeans",
+               "en:milk",
+               "en:nuts",
+               "en:celery",
+               "en:mustard",
+               "en:sulphur-dioxide-and-sulphites"
+            ]
          }
       }
    },
-   "traces" : "CRUSTACÉS, ŒUFS, POISSONS, SOJA, LAIT, FRUITS À COQUES, CÉLERI, MOUTARDE ET SULFITES.",
    "traces_from_ingredients" : "",
-   "traces_tags" : []
+   "traces_tags" : [
+      "en:celery",
+      "en:crustaceans",
+      "en:eggs",
+      "en:fish",
+      "en:milk",
+      "en:mustard",
+      "en:nuts",
+      "en:soybeans",
+      "en:sulphur-dioxide-and-sulphites"
+   ]
 }

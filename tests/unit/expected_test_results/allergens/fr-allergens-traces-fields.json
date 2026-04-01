@@ -1,9 +1,9 @@
 {
-   "allergens" : "Céleri, crustacés et lupin. Peut contenir du soja, des sulfites et de la moutarde.",
    "allergens_from_ingredients" : "",
    "allergens_tags" : [
-      "fr:C�leri",
-      "fr:crustac�s et lupin."
+      "en:celery",
+      "en:crustaceans",
+      "en:lupin"
    ],
    "ingredients" : [
       {
@@ -84,8 +84,9 @@
          "packaging" : {
             "last_updated_t" : "--ignore--",
             "tags" : [
-               "fr:C�leri",
-               "fr:crustac�s et lupin."
+               "en:celery",
+               "en:crustaceans",
+               "en:lupin"
             ]
          }
       },
@@ -105,7 +106,6 @@
          }
       }
    },
-   "traces" : "Oeufs",
    "traces_from_ingredients" : "",
    "traces_tags" : [
       "en:eggs",

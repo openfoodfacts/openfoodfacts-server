@@ -821,7 +821,6 @@ sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value
 	if (skip_protected_field($product_ref, $field, $User{moderator})) {
 		return;
 	}
-
 	# Writable tags fields (e.g. categories_tags) are processed in a specific way, in order to update the tags_sources structure and generate the field_tags structure
 	elsif (defined $writable_tags_fields{$field}) {
 

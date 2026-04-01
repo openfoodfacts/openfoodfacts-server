@@ -1,14 +1,305 @@
 {
-   "allergens_from_ingredients" : "Weizen, Dinkel, Weizen, Soja, Soja, Weizen",
+   "allergens_from_ingredients" : "en:soybeans, en:gluten, en:soybeans, en:gluten, en:gluten, en:gluten, Weizen, Dinkel, Weizen, Soja, Soja, Weizen",
    "allergens_tags" : [
       "en:gluten",
       "en:soybeans"
    ],
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "id" : "en:seitan",
+         "ingredients" : [
+            {
+               "id" : "en:wheat-protein",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 48.75,
+               "percent_max" : 65,
+               "percent_min" : 32.5,
+               "text" : "_Weizen_eiweiß",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "18066",
+               "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "id" : "en:water",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 16.25,
+               "percent_max" : 32.5,
+               "percent_min" : 0,
+               "text" : "Wasser",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent" : 65,
+         "percent_estimate" : 65,
+         "percent_max" : 65,
+         "percent_min" : 65,
+         "text" : "Seitan",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "17130",
+         "ecobalyse_code" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "from_palm_oil" : "no",
+         "id" : "en:rapeseed-oil",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 19.4444444444444,
+         "percent_max" : 35,
+         "percent_min" : 3.88888888888889,
+         "text" : "Rapsöl",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:red-bean",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 7.77777777777778,
+         "percent_max" : 31.1111111111111,
+         "percent_min" : 0,
+         "text" : "Kidneybohnen",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "9480",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:wholemeal-spelt-flour",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "9410",
+               "id" : "en:wheat",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 3.88888888888889,
+               "percent_max" : 15.5555555555556,
+               "percent_min" : 0,
+               "text" : "_Weizen_art",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 3.88888888888889,
+         "percent_max" : 15.5555555555556,
+         "percent_min" : 0,
+         "text" : "_Dinkel_vollkornmehl",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11018",
+         "id" : "en:apple-vinegar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.94444444444444,
+         "percent_max" : 10.3703703703704,
+         "percent_min" : 0,
+         "text" : "Apfelessig",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:spice",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.972222222222221,
+         "percent_max" : 7.77777777777778,
+         "percent_min" : 0,
+         "text" : "Gewürze",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20170",
+         "ecobalyse_code" : "tomato-heated-greenhouse-eu",
+         "id" : "en:tomato-puree",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.486111111111114,
+         "percent_max" : 6.22222222222222,
+         "percent_min" : 0,
+         "text" : "Tomatenmark",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11104",
+         "id" : "en:soy-sauce",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "18066",
+               "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "id" : "en:water",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.121527777777779,
+               "percent_max" : 5.18518518518519,
+               "percent_min" : 0,
+               "text" : "Wasser",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "20901",
+               "id" : "en:soya-bean",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.0607638888888893,
+               "percent_max" : 2.59259259259259,
+               "percent_min" : 0,
+               "text" : "_Soja_bohnen",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "11058",
+               "id" : "en:salt",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.0303819444444446,
+               "percent_max" : 1.7283950617284,
+               "percent_min" : 0,
+               "text" : "Salz",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "9410",
+               "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "id" : "en:wheat-flour",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.0303819444444446,
+               "percent_max" : 1.2962962962963,
+               "percent_min" : 0,
+               "text" : "_Weizen_mehl",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.243055555555557,
+         "percent_max" : 5.18518518518519,
+         "percent_min" : 0,
+         "text" : "_Soja_soße",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "ciqual_proxy_food_code" : "9510",
+         "ecobalyse_code" : "f87309f5-bfbf-49a5-ae57-1a0319a7b7d3",
+         "id" : "en:potato-starch",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.121527777777779,
+         "percent_max" : 4.44444444444444,
+         "percent_min" : 0,
+         "text" : "Kartoffelstärke",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.121527777777771,
+         "percent_max" : 3.88888888888889,
+         "percent_min" : 0,
+         "text" : "Salz",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
    "ingredients_lc" : "de",
+   "ingredients_n" : 17,
+   "ingredients_n_tags" : [
+      "17",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:seitan",
+      "en:rapeseed-oil",
+      "en:red-bean",
+      "en:wholemeal-spelt-flour",
+      "en:apple-vinegar",
+      "en:spice",
+      "en:tomato-puree",
+      "en:soy-sauce",
+      "en:potato-starch",
+      "en:salt",
+      "en:wheat-protein",
+      "en:water",
+      "en:wheat",
+      "en:water",
+      "en:soya-bean",
+      "en:salt",
+      "en:wheat-flour"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:seitan",
+      "en:cereal",
+      "en:wheat",
+      "en:rapeseed-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:red-bean",
+      "en:vegetable",
+      "en:legume",
+      "en:pulse",
+      "en:wholemeal-spelt-flour",
+      "en:flour",
+      "en:cereal-flour",
+      "en:wholemeal-flour",
+      "en:spelt-flour",
+      "en:apple-vinegar",
+      "en:vinegar",
+      "en:spice",
+      "en:condiment",
+      "en:tomato-puree",
+      "en:fruit-vegetable",
+      "en:tomato",
+      "en:soy-sauce",
+      "en:sauce",
+      "en:potato-starch",
+      "en:starch",
+      "en:salt",
+      "en:wheat-protein",
+      "en:protein",
+      "en:plant-protein",
+      "en:water",
+      "en:soya-bean",
+      "en:soya",
+      "en:wheat-flour"
+   ],
    "ingredients_text" : "Seitan 65% (_Weizen_eiweiß, Wasser), Rapsöl, Kidneybohnen, _Dinkel_vollkornmehl (_Weizen_art), Apfelessig, Gewürze, Tomatenmark, _Soja_soße (Wasser, _Soja_bohnen, Salz, _Weizen_mehl), Kartoffelstärke, Salz.",
    "ingredients_text_de" : "Seitan 65% (_Weizen_eiweiß, Wasser), Rapsöl, Kidneybohnen, _Dinkel_vollkornmehl (_Weizen_art), Apfelessig, Gewürze, Tomatenmark, _Soja_soße (Wasser, _Soja_bohnen, Salz, _Weizen_mehl), Kartoffelstärke, Salz.",
    "ingredients_text_with_allergens" : "Seitan 65% (<span class=\"allergen\">Weizen</span>eiweiß, Wasser), Rapsöl, Kidneybohnen, <span class=\"allergen\">Dinkel</span>vollkornmehl (<span class=\"allergen\">Weizen</span>art), Apfelessig, Gewürze, Tomatenmark, <span class=\"allergen\">Soja</span>soße (Wasser, <span class=\"allergen\">Soja</span>bohnen, Salz, <span class=\"allergen\">Weizen</span>mehl), Kartoffelstärke, Salz.",
    "ingredients_text_with_allergens_de" : "Seitan 65% (<span class=\"allergen\">Weizen</span>eiweiß, Wasser), Rapsöl, Kidneybohnen, <span class=\"allergen\">Dinkel</span>vollkornmehl (<span class=\"allergen\">Weizen</span>art), Apfelessig, Gewürze, Tomatenmark, <span class=\"allergen\">Soja</span>soße (Wasser, <span class=\"allergen\">Soja</span>bohnen, Salz, <span class=\"allergen\">Weizen</span>mehl), Kartoffelstärke, Salz.",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 14,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:red-bean",
+      "en:spice",
+      "en:wheat-protein"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:apple-vinegar",
+      "en:red-bean",
+      "en:salt",
+      "en:seitan",
+      "en:soy-sauce",
+      "en:soya-bean",
+      "en:spice",
+      "en:wheat",
+      "en:wheat-protein"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 9,
+   "known_ingredients_n" : 17,
    "lang" : "de",
    "languages" : {
       "en:german" : 1
@@ -24,13 +315,16 @@
       "en:1"
    ],
    "lc" : "de",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent"
+   ],
    "tags_sources" : {
       "allergens" : {
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : [
-               "en:gluten",
-               "en:soybeans"
+               "en:soybeans",
+               "en:gluten"
             ]
          }
       },
@@ -42,5 +336,6 @@
       }
    },
    "traces_from_ingredients" : "",
-   "traces_tags" : []
+   "traces_tags" : [],
+   "unknown_ingredients_n" : 0
 }
