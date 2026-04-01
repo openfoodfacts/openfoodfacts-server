@@ -924,8 +924,6 @@ is(cc_to_country(undef), '');
 
 is(get_taxonomy_tag_path("test", "en:lemon-yogurts"), ["en:yogurts", "en:lemon-yogurts"]);
 
-done_testing();
-
 
 # Tests for set_field_input_tags_for_source
 
@@ -978,6 +976,13 @@ my @tests = (
 		'allergens',
 		'Céleri, crustacés et lupin.'
 	],
+
+	[
+		'fr-allergens-celeri-crustaces-et-lupin-peut-contenir-oeuf-et-moutarde',
+		'fr',
+		'allergens',
+		'Céleri, crustacés et lupin. Peut contenir oeuf et moutarde.'
+	],	
 );
 
 foreach my $test_ref (@tests) {
@@ -995,4 +1000,4 @@ foreach my $test_ref (@tests) {
 		$update_expected_results, {id => $testid});
 }
 
-
+done_testing();

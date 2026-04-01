@@ -825,36 +825,6 @@ sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value
 	# Writable tags fields (e.g. categories_tags) are processed in a specific way, in order to update the tags_sources structure and generate the field_tags structure
 	elsif (defined $writable_tags_fields{$field}) {
 
-		if ($field eq "allergens") {
-
-			# If traces were entered in the allergens field, split them
-			# Use the language the tag have been entered in
-
-			my $traces_regexp;
-			my $traces_lc = $product_ref->{traces_lc} || $product_ref->{lc};
-			if ((defined $traces_lc) and (defined $may_contain_regexps{$traces_lc})) {
-				$traces_regexp = $may_contain_regexps{$traces_lc};
-			}
-
-			print STDERR "traces_regexp: $traces_regexp\n";
-
-			if (    (defined $traces_regexp)
-				and ($value =~ /\b($traces_regexp)\b\s*:?\s*/i))
-			{
-				my $traces_value = $';
-				$traces_value =~ s/\s+$//;
-				# We add the traces to the existing traces field
-
-				print STDERR "traces_value: $traces_value\n";
-
-				set_field_input_tags_for_source($product_ref, $traces_lc, "traces", $source, $traces_value, 1);
-
-				# Remove traces from allergens
-				$value = $`;
-				$value =~ s/\s+$//;
-			}
-		}
-
 		set_field_input_tags_for_source($product_ref, $target_lc, $field, $source, $value);
 	}
 	elsif ($field eq "lang") {

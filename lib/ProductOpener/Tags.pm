@@ -193,6 +193,7 @@ use ProductOpener::Text qw/normalize_percentages regexp_escape/;
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
 use ProductOpener::Texts qw/$lang_dir/;
 use ProductOpener::HTTP qw/create_user_agent/;
+use ProductOpener::IngredientsStrings qw/%may_contain_regexps/;
 
 use Clone qw(clone);
 use List::MoreUtils qw(uniq);
@@ -4804,6 +4805,9 @@ sub canonicalize_allergens_taxonomy_tag($ingredients_lc, $ingredient_or_allergen
 
 New function to set the input tags for a field and a source. (e.g. categories for the manufacturer source)
 
+Note that there is special logic for the allergens field, to split traces from allergens if the user entered them together in the allergens field.
+Those traces might be overridden by the client if it also calls set_field_input_tags_for_source with empty traces after setting allergens.
+
 =head3 Parameters
 
 =head4 $product_ref
@@ -4834,6 +4838,33 @@ Optional flag to indicate whether to add the input tags to existing tags (defaul
 
 sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags, $add = 0) {
 
+
+		if ($field eq "allergens") {
+
+			# If traces were entered in the allergens field, split them
+			# Use the language the tag have been entered in
+
+			my $traces_regexp;
+			if ((defined $tag_lc) and (defined $may_contain_regexps{$tag_lc})) {
+				$traces_regexp = $may_contain_regexps{$tag_lc};
+			}
+
+			$log->debug("set_field_input_tags_for_source", { field => $field, input_tags => $input_tags, traces_regexp => $traces_regexp}) if $log->is_debug();
+
+			if (    (defined $traces_regexp)
+				and ($input_tags =~ /\b($traces_regexp)\b\s*:?\s*/i))
+			{
+				# Remove traces from allergens
+				$input_tags = $`;
+				my $traces_value = $';
+
+				$input_tags =~ s/\s+$//;
+				$traces_value =~ s/\s+$//;
+				# We add the traces to the existing traces field
+				set_field_input_tags_for_source($product_ref, $tag_lc, "traces", $source, $traces_value, 1);
+			}
+		}
+
 	# brands are a language less taxonomy, the input tag_lc is not used, we use xx instead
 	if ($field eq "brands") {
 		$tag_lc = "xx";
@@ -4842,7 +4873,7 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 	my @normalized_input_tags = ();
 	my %seen = ();
 	my $and = $and{$tag_lc} || " and ";
-	
+
 	foreach my $tag (split(/,/, $input_tags)) {
 
 		$tag =~ s/^\s+//;
