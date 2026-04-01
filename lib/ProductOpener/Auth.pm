@@ -187,8 +187,8 @@ sub signin_callback ($request_ref) {
 	my %cookie_ref = cookie($cookie_name);
 	# verify we are in the right sign-in process, thanks to the randomly generated token
 	my $nonce = $cookie_ref{'nonce'};
-	my ($state_is_valid, $error_message, $error_status)
-		= _validate_oidc_state_and_nonce($state, $nonce, 'login');
+	my ($state_is_valid, $error_message, $error_status) =
+		_validate_oidc_state_and_nonce($state, $nonce, 'login');
 	if (not $state_is_valid) {
 		$log->info('invalid OIDC callback state', {nonce => $nonce, expected_nonce => $state, context => 'login'})
 			if $log->is_info();
@@ -506,8 +506,8 @@ sub signout_callback ($request_ref) {
 	my $state = single_param('state');
 	my %cookie_ref = cookie($cookie_name);
 	my $nonce = $cookie_ref{'nonce'};
-	my ($state_is_valid, $error_message, $error_status)
-		= _validate_oidc_state_and_nonce($state, $nonce, 'logout');
+	my ($state_is_valid, $error_message, $error_status) =
+		_validate_oidc_state_and_nonce($state, $nonce, 'logout');
 	if (not $state_is_valid) {
 		$log->info('invalid OIDC callback state', {nonce => $nonce, expected_nonce => $state, context => 'logout'})
 			if $log->is_info();
