@@ -1026,16 +1026,10 @@ sub init_product ($userid, $orgid, $code, $countryid, $client_id = undef) {
 
 	if ((defined $country) and ($country !~ /^world$/i)) {
 		if ($country !~ /a1|a2|o1/i) {
-			$product_ref->{countries} = "en:" . $country;
-			my $field = 'countries';
-			if (defined $taxonomy_fields{$field}) {
-				$product_ref->{$field . "_tags"}
-					= [gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field})];
-				$product_ref->{$field . "_tags"} = [];
-				foreach my $tag (@{$product_ref->{$field . "_tags"}}) {
-					push @{$product_ref->{$field . "_tags"}}, get_taxonomyid("en", $tag);
-				}
-			}
+
+			my $source = get_source_for_site_and_org($orgid);
+			set_field_input_tags_for_source ($product_ref, "en", "countries", $source, $country);
+
 			# if lc is not defined or is set to en, set lc to main language of country
 			if (    ($lc eq 'en')
 				and (defined $country_languages{lc($country)})
