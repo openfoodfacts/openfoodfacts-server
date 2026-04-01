@@ -6,12 +6,3 @@ UNIT_GROUP_3_TESTS := all_pod_correct.t auth_oidc_cache.t cursor.t display.t htt
 UNIT_GROUP_4_TESTS := allergens.t booleans.t data_quality_tags_panel.t environmental_impact.t i18n.t ingredients_analysis.t ingredients_parsing_todo.t lang.t nutrient_levels.t packaging.t producers.t reuse_knowledge_panels.t tags_unit.t text.t
 UNIT_GROUP_5_TESTS := allergens_tags.t brevo.t dataquality.t environmental_score.t images.t ingredients_clean.t ingredients_percent.t load_csv_or_excel_file.t nutriscore.t packaging_food_contact.t product_schema_changes.t routing.t taxonomies.t texts.t
 UNIT_GROUP_6_TESTS := analyze_and_enrich_product_data.t cache_safe_cache_ops.t dataqualitydimensions.t food.t import.t ingredients_contents.t ingredients_preparsing.t maintain_knowledge_panels.t nutrition.t packaging_stats.t products.t send_image_to_cloud_vision.t taxonomies_enhancer.t units.t
-
-# Group Statistics:
-# Group 1: 15 tests, 7m 30s
-# Group 2: 14 tests, 7m 0s
-# Group 3: 14 tests, 7m 0s
-# Group 4: 14 tests, 7m 0s
-# Group 5: 14 tests, 7m 0s
-# Group 6: 14 tests, 7m 0s
-# Max group time: 8m, Min: 7m, Avg: 7m
