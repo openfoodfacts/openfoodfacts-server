@@ -691,7 +691,7 @@ jobs:
         make codecov
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v5
+      uses: codecov/codecov-action@v6
       if: needs.filter.outputs.taxonomy_only == 'false'
       with:
         files: cover_db/codecov.json
@@ -801,7 +801,7 @@ jobs:
         make codecov
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v5
+      uses: codecov/codecov-action@v6
       if: needs.filter.outputs.taxonomy_only == 'false'
       with:
         files: cover_db/codecov.json
