@@ -4122,6 +4122,14 @@ ingredients:en: en:potato
 label_categories:en: en:Geographic label
 origins:en: en:sweden
 
+# "* Svensk råvara" is used as a footnote on Swedish products
+# to indicate that starred ingredients are of Swedish origin.
+# See https://github.com/openfoodfacts/openfoodfacts-server/issues/13258
+en: Swedish raw material
+sv: Svensk råvara, Svenska råvaror
+label_categories:en: en:Geographic label
+origins:en: en:sweden
+
 en: Made in Sweden, Manufactured in Sweden
 sv: Tillverkad i Sverige, Tillagat i Sverige, Producerad i Sverige
 label_categories:en: en:Geographic label

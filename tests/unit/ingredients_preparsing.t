@@ -1240,6 +1240,13 @@ my @tests = (
 		ingredients_text =>
 			'émulsifiant e471, émulsifiant lécithine de soja, acidifiant acide citrique, acidifiant e330, emulsifiant lecithine de tournesol, émulsifiant lécithine',
 	},
+	# issue #13258 - sv: "* Svensk råvara" footnote for Swedish origin
+	{
+		id => '231',
+		lc => 'sv',
+		ingredients_text =>
+			'Vetemjöl*, vatten, surdeg av råg* (18%), vetegluten, durumvetemjöl (4%), rågskållning, rågmjöl* (3,5%), salt, jäst, mältat korn. * Svensk råvara'
+	},
 );
 
 foreach my $test_ref (@tests) {
