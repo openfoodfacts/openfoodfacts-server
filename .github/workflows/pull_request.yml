@@ -419,9 +419,7 @@ jobs:
       run: rm $FILE
     - name: Generate Perl SBOM with cpan-sbom
       run: |
-        # Some CPAN metadata entries can intermittently fail strict validation on MetaCPAN.
-        # Try strict mode first, then gracefully fall back to non-validate mode.
-        if ! docker run --rm -v $(pwd):/workspace openfoodfacts-server/backend:dev \
+        docker run --rm -v $(pwd):/workspace openfoodfacts-server/backend:dev \
           cpan-sbom \
           --project-directory /workspace \
           --project-name "Product Opener" \
@@ -430,18 +428,7 @@ jobs:
           --project-author "Open Food Facts <contact@openfoodfacts.org>" \
           --vulnerabilities \
           --validate \
-          --output /workspace/perl-sbom.json; then
-          echo "Strict cpan-sbom validation failed; retrying without --validate"
-          docker run --rm -v $(pwd):/workspace openfoodfacts-server/backend:dev \
-            cpan-sbom \
-            --project-directory /workspace \
-            --project-name "Product Opener" \
-            --project-type application \
-            --project-license AGPL-3.0 \
-            --project-author "Open Food Facts <contact@openfoodfacts.org>" \
-            --vulnerabilities \
-            --output /workspace/perl-sbom.json
-        fi
+          --output /workspace/perl-sbom.json
     - name: Upload Perl SBOM as artifact
       uses: actions/upload-artifact@v7
       with:
