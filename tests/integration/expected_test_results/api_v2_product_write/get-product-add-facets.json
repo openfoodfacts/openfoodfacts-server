@@ -68,6 +68,9 @@
          "en:coffees"
       ],
       "checkers_tags" : [],
+      "cities_tags" : [
+         "hellean-morbihan-france"
+      ],
       "code" : "1234567890341",
       "codes_tags" : [
          "code-13",
@@ -83,7 +86,7 @@
          "1xxxxxxxxxxxx"
       ],
       "complete" : 0,
-      "completeness" : 0.2,
+      "completeness" : 0.3,
       "correctors_tags" : [
          "tests"
       ],
@@ -570,11 +573,11 @@
       ],
       "emb_codes" : "FR 56.082 CE",
       "emb_codes_hierarchy" : [
-         "FR 56082 CE"
+         "fr-56-082-ec"
       ],
       "emb_codes_lc" : "fr",
       "emb_codes_tags" : [
-         "FR 56082 CE"
+         "fr-56-082-ec"
       ],
       "entry_dates_tags" : "--ignore--",
       "food_groups" : "en:teas-and-herbal-teas-and-coffees",
@@ -734,13 +737,13 @@
       "removed_countries_tags" : [],
       "rev" : 2,
       "schema_version" : 998,
-      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
+      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
          "en:nutrition-facts-to-be-completed",
          "en:ingredients-to-be-completed",
          "en:expiration-date-to-be-completed",
-         "en:packaging-code-to-be-completed",
+         "en:packaging-code-completed",
          "en:characteristics-to-be-completed",
          "en:origins-to-be-completed",
          "en:categories-completed",
@@ -755,7 +758,7 @@
          "en:nutrition-facts-to-be-completed",
          "en:ingredients-to-be-completed",
          "en:expiration-date-to-be-completed",
-         "en:packaging-code-to-be-completed",
+         "en:packaging-code-completed",
          "en:characteristics-to-be-completed",
          "en:origins-to-be-completed",
          "en:categories-completed",
