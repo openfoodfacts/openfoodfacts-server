@@ -4916,10 +4916,10 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 			}
 		}
 
-		foreach $normalized_tag (@canon_tags) {
-			if (not exists $seen{$normalized_tag}) {
-				$seen{$normalized_tag} = 1;
-				push @normalized_input_tags, $normalized_tag;
+		foreach my $canon_tag (@canon_tags) {
+			if (not exists $seen{$canon_tag}) {
+				$seen{$canon_tag} = 1;
+				push @normalized_input_tags, $canon_tag;
 			}
 		}
 	}

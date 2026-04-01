@@ -804,6 +804,9 @@ Source of the field value: "packaging" on the public platform, "manufacturer" on
 
 sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value, $source) {
 
+	$log->debug("update_product_field_api_v2_and_cgi", {field => $field, value => $value, source => $source})
+		if $log->is_debug();
+
 	if (not defined $value) {
 		$log->debug("no value for field", {field => $field}) if $log->is_debug();
 		return;
@@ -822,7 +825,8 @@ sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value
 		return;
 	}
 	# Writable tags fields (e.g. categories_tags) are processed in a specific way, in order to update the tags_sources structure and generate the field_tags structure
-	elsif (defined $writable_tags_fields{$field}) {
+	# tags_sources currently only works for taxonomized fields
+	elsif ((defined $writable_tags_fields{$field}) and (defined $taxonomy_fields{$field})) {
 
 		set_field_input_tags_for_source($product_ref, $target_lc, $field, $source, $value);
 	}
