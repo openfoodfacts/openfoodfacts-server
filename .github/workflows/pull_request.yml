@@ -122,7 +122,7 @@ jobs:
           echo registry_ref=ghcr.io/${{ github.repository }}/backend-buildx-cache:${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }} >> $GITHUB_OUTPUT
 
       - name: Build backend image with cache
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: ./Dockerfile
@@ -336,7 +336,7 @@ jobs:
           echo registry_ref=ghcr.io/${{ github.repository }}/frontend-buildx-cache:${{ hashFiles('Dockerfile.frontend', 'package*.json', 'gulpfile.mjs', 'html/**', 'icons/**', 'scss/**') }} >> $GITHUB_OUTPUT
 
       - name: Build frontend image with cache
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: ./Dockerfile.frontend
