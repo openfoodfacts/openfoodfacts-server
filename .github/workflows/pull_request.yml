@@ -110,7 +110,7 @@ jobs:
           echo "gid=$(id -g)" >> $GITHUB_OUTPUT
 
       - name: Login to DockerHub to enable pushing buildx cache
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -324,7 +324,7 @@ jobs:
           echo "gid=$(id -g)" >> $GITHUB_OUTPUT
 
       - name: Login to DockerHub to enable pushing buildx cache
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
