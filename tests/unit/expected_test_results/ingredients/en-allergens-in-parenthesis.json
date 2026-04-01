@@ -1,5 +1,5 @@
 {
-   "allergens" : "en:milk, en:fish, en:gluten",
+   "allergens_from_ingredients" : "en:milk, en:fish, en:gluten, ",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "16400",
@@ -159,5 +159,6 @@
    "ingredients_without_ecobalyse_ids_n" : 4,
    "known_ingredients_n" : 8,
    "lc" : "en",
+   "traces_from_ingredients" : "",
    "unknown_ingredients_n" : 0
 }

@@ -4838,32 +4838,33 @@ Optional flag to indicate whether to add the input tags to existing tags (defaul
 
 sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags, $add = 0) {
 
+	if ($field eq "allergens") {
 
-		if ($field eq "allergens") {
+		# If traces were entered in the allergens field, split them
+		# Use the language the tag have been entered in
 
-			# If traces were entered in the allergens field, split them
-			# Use the language the tag have been entered in
-
-			my $traces_regexp;
-			if ((defined $tag_lc) and (defined $may_contain_regexps{$tag_lc})) {
-				$traces_regexp = $may_contain_regexps{$tag_lc};
-			}
-
-			$log->debug("set_field_input_tags_for_source", { field => $field, input_tags => $input_tags, traces_regexp => $traces_regexp}) if $log->is_debug();
-
-			if (    (defined $traces_regexp)
-				and ($input_tags =~ /\b($traces_regexp)\b\s*:?\s*/i))
-			{
-				# Remove traces from allergens
-				$input_tags = $`;
-				my $traces_value = $';
-
-				$input_tags =~ s/\s+$//;
-				$traces_value =~ s/\s+$//;
-				# We add the traces to the existing traces field
-				set_field_input_tags_for_source($product_ref, $tag_lc, "traces", $source, $traces_value, 1);
-			}
+		my $traces_regexp;
+		if ((defined $tag_lc) and (defined $may_contain_regexps{$tag_lc})) {
+			$traces_regexp = $may_contain_regexps{$tag_lc};
 		}
+
+		$log->debug("set_field_input_tags_for_source",
+			{field => $field, input_tags => $input_tags, traces_regexp => $traces_regexp})
+			if $log->is_debug();
+
+		if (    (defined $traces_regexp)
+			and ($input_tags =~ /\b($traces_regexp)\b\s*:?\s*/i))
+		{
+			# Remove traces from allergens
+			$input_tags = $`;
+			my $traces_value = $';
+
+			$input_tags =~ s/\s+$//;
+			$traces_value =~ s/\s+$//;
+			# We add the traces to the existing traces field
+			set_field_input_tags_for_source($product_ref, $tag_lc, "traces", $source, $traces_value, 1);
+		}
+	}
 
 	# brands are a language less taxonomy, the input tag_lc is not used, we use xx instead
 	if ($field eq "brands") {
@@ -4897,7 +4898,10 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 		my @canon_tags = ($normalized_tag);
 
 		# For taxonomies, try to split unrecognized tags (e.g. "known tag and other known tag" -> "known tag, other known tag"
-		if ((defined $taxonomy_fields{$field}) and ($tag =~ /^(.*)$and(.*)$/i) and (not exists_taxonomy_tag($field, $normalized_tag))) {
+		if (    (defined $taxonomy_fields{$field})
+			and ($tag =~ /^(.*)$and(.*)$/i)
+			and (not exists_taxonomy_tag($field, $normalized_tag)))
+		{
 
 			my $tag1 = $1;
 			my $tag2 = $2;

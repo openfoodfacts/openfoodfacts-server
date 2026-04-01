@@ -137,8 +137,6 @@ use Log::Any qw($log);
 use List::MoreUtils qw(uniq);
 use Data::DeepAccess qw(deep_get deep_exists);
 
-
-
 my %allergens_stopwords = ();
 
 my %allergens_regexps = ();
@@ -211,7 +209,6 @@ sub init_allergens_regexps() {
 
 	return;
 }
-
 
 =head1 FUNCTIONS
 
@@ -3047,7 +3044,7 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 
 	foreach my $field ("allergens", "traces") {
 
-		# new fields for allergens detected from ingredient list
+		# temporary fields for allergens detected from ingredient list
 		$product_ref->{$field . "_from_ingredients"} = "";
 	}
 
@@ -7720,6 +7717,9 @@ sub detect_allergens_from_text ($product_ref) {
 		# Set the tags_source "ingredients" for allergens and traces detected from ingredients
 		set_field_input_tags_for_source($product_ref, $tag_lc, $field, "ingredients",
 			$product_ref->{$field . "_from_ingredients"});
+
+		# Delete the temporary field: we have tags_sources to indicate if allergens are from ingredients
+		delete $product_ref->{$field . "_from_ingredients"};
 	}
 
 	$log->debug("detect_allergens_from_text - done", {}) if $log->is_debug();
