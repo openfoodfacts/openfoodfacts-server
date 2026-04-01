@@ -122,6 +122,21 @@ my $tests_ref = [
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
 	},
+	# Test sending X-User-Agent: should be accepted
+	{
+		test_case => 'options-api-v2-x-user-agent',
+		method => 'OPTIONS',
+		path => '/api/v2/product/1234567890123',
+		expected_status_code => 404,
+		headers_in => {"X-User-Agent" => "test"},
+		headers => {
+			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+			"Access-Control-Allow-Headers" =>
+				"DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
+		},
+		expected_type => "none",    # no body for OPTIONS requests
+	},
 ];
 execute_api_tests(__FILE__, $tests_ref);
 
