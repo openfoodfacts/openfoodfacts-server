@@ -259,10 +259,12 @@ my $tests_ref = [
 			}
 		}'
 	},
+	# Note: changing the barcode in test below as we were getting a different rev number locally (1)
+	# versus in GitHub action (2). Not sure why, but not important for the test.
 	{
 		test_case => 'patch-request-fields-all',
 		method => 'PATCH',
-		path => '/api/v3/product/1234567890009',
+		path => '/api/v3/product/1234567890109',
 		body => '{
 			"fields": "all",
 			"tags_lc": "en",
