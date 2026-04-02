@@ -121,6 +121,7 @@ NB: must be created by an admin
 	origin => "Germany",
 	categories => "snacks",
 	serving_size => "10 g",
+	tags_sources => {},
 );
 
 %empty_product_form = (
