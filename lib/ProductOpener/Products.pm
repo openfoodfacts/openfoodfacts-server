@@ -1028,7 +1028,7 @@ sub init_product ($userid, $orgid, $code, $countryid, $client_id = undef) {
 		if ($country !~ /a1|a2|o1/i) {
 
 			my $source = get_source_for_site_and_org($orgid);
-			set_field_input_tags_for_source ($product_ref, "en", "countries", $source, $country);
+			set_field_input_tags_for_source($product_ref, "en", "countries", $source, $country);
 
 			# if lc is not defined or is set to en, set lc to main language of country
 			if (    ($lc eq 'en')

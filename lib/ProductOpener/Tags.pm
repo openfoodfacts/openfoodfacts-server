@@ -178,6 +178,7 @@ BEGIN {
 		&get_minimal_tags_subset
 		&gen_tags_list_with_parents
 		&set_field_input_tags_for_source
+		&generate_field_tags_from_all_sources
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -4942,7 +4943,9 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 
 	deep_set($product_ref, "tags_sources", $field, $source, "last_updated_t", time());
 
-	generate_field_tags_from_all_sources($product_ref, $field);
+	# We generate the [field]_tags field from all sources, passing 1 to normalize the tags
+	# (lowercase / unaccent based on the tag language)
+	generate_field_tags_from_all_sources($product_ref, $field, 1);
 
 	return;
 }
@@ -4954,7 +4957,7 @@ including parents for taxonomy fields.
 
 =cut
 
-sub generate_field_tags_from_all_sources ($product_ref, $tagtype) {
+sub generate_field_tags_from_all_sources ($product_ref, $tagtype, $normalize = 0) {
 
 	my %all_input_tags = ();
 
@@ -4962,7 +4965,20 @@ sub generate_field_tags_from_all_sources ($product_ref, $tagtype) {
 		foreach my $source (keys %{$product_ref->{tags_sources}{$tagtype}}) {
 			if (defined $product_ref->{tags_sources}{$tagtype}{$source}{tags}) {
 				foreach my $tag (@{$product_ref->{tags_sources}{$tagtype}{$source}{tags}}) {
-					$all_input_tags{$tag} = 1;
+					# Copy the tag so that we don't modify the original tag in the source when we normalize it
+					my $tag_copy = $tag;
+					# We normalize tags that are not known taxonomy entries
+					if ($normalize) {
+						if ($taxonomy_fields{$tagtype}) {
+							# For taxonomy fields, we call get_taxonomyid to normalize entries (unaccent, lowercase based on the tag language prefix)
+							# we use "en" as the default language, but all tags will have a language prefix, so the default won't be used
+							$tag_copy = get_taxonomyid("en", $tag_copy);
+						}
+						else {
+							$tag_copy = get_string_id_for_lang("no_language", $tag_copy);
+						}
+					}
+					$all_input_tags{$tag_copy} = 1;
 				}
 			}
 		}
