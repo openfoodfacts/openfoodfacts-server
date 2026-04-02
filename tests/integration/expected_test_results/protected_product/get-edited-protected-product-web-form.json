@@ -3,11 +3,9 @@
    "product" : {
       "_id" : "0200000000135",
       "_keywords" : [
-         "brand",
-         "category",
          "fair",
          "fairtrade",
-         "fr-changed",
+         "fr-changed-category",
          "generic",
          "havelaar",
          "international",
@@ -16,7 +14,7 @@
          "organic",
          "product",
          "protected",
-         "test",
+         "test-brand",
          "trade"
       ],
       "added_countries_tags" : [],
@@ -36,13 +34,13 @@
          "en:milk"
       ],
       "amino_acids_tags" : [],
-      "brands" : "Test brand",
+      "brands" : "test-brand",
       "brands_tags" : [
-         "Test brand"
+         "test-brand"
       ],
-      "categories" : "Changed category",
+      "categories" : "changed-category",
       "categories_hierarchy" : [
-         "fr:Changed category"
+         "fr:changed-category"
       ],
       "categories_lc" : "en",
       "categories_properties" : {},
@@ -55,7 +53,7 @@
          "agribalyse-unknown"
       ],
       "categories_tags" : [
-         "fr:Changed category"
+         "fr:changed-category"
       ],
       "checkers_tags" : [],
       "code" : "0200000000135",

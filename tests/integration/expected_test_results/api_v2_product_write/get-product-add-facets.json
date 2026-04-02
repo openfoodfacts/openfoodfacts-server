@@ -4,18 +4,17 @@
       "_id" : "1234567890341",
       "_keywords" : [
          "aliment",
-         "another",
+         "another-brand-1",
+         "another-brand-2",
          "base",
          "boisson",
-         "brand",
          "cafe",
          "de",
-         "es-gold",
+         "es-gold-meal",
          "et",
          "fluide",
          "lait",
          "laitier",
-         "meal",
          "origine",
          "poudre",
          "produit",
@@ -31,10 +30,10 @@
       "allergens_tags" : [
          "en:crustaceans"
       ],
-      "brands" : "Another brand 1, Another brand 2",
+      "brands" : "another-brand-1, another-brand-2",
       "brands_tags" : [
-         "Another brand 1",
-         "Another brand 2"
+         "another-brand-1",
+         "another-brand-2"
       ],
       "categories" : "Laits, Cafés",
       "categories_hierarchy" : [
@@ -596,13 +595,13 @@
       ],
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
-      "labels" : "Gold meal",
+      "labels" : "gold-meal",
       "labels_hierarchy" : [
-         "es:Gold meal"
+         "es:gold-meal"
       ],
       "labels_lc" : "fr",
       "labels_tags" : [
-         "es:Gold meal"
+         "es:gold-meal"
       ],
       "lang" : "fr",
       "languages" : {},
