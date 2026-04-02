@@ -230,7 +230,7 @@ my @tests = (
 			traces => "white lupin, strange ingredient, grey shrimp",
 		},
 		['en:eggs', 'en:fish', 'en:gluten', 'en:milk'],
-		['en:crustaceans', "en:lupin", 'en:strange ingredient',],
+		['en:crustaceans', "en:lupin", 'en:strange-ingredient',],
 	],
 
 );

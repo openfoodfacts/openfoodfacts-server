@@ -3132,6 +3132,15 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 		delete $product_ref->{specific_ingredients};
 	}
 
+	# Delete allergens_from_ingredients and traces_from_ingredients if empty
+	foreach my $field ("allergens", "traces") {
+		if (    (exists $product_ref->{$field . "_from_ingredients"})
+			and ($product_ref->{$field . "_from_ingredients"} eq ""))
+		{
+			delete $product_ref->{$field . "_from_ingredients"};
+		}
+	}
+
 	return;
 }
 
@@ -7710,13 +7719,15 @@ sub detect_allergens_from_text ($product_ref) {
 
 	foreach my $field ("allergens", "traces") {
 
+		# Even if we don't have allergens / traces detected from the ingredients,
+		# we call set_field_input_tags_for_source with an empty string to set the tags_source "ingredients" for allergens and traces
+		my $allergens_from_ingredients = $product_ref->{$field . "_from_ingredients"} // "";
+		$allergens_from_ingredients =~ s/,\s$//;    # remove last comma
+
 		my $tag_lc = $product_ref->{$field . "_lc"} || $product_ref->{lc};
 
-		$product_ref->{$field . "_from_ingredients"} =~ s/,\s$//;    # remove last comma
-
 		# Set the tags_source "ingredients" for allergens and traces detected from ingredients
-		set_field_input_tags_for_source($product_ref, $tag_lc, $field, "ingredients",
-			$product_ref->{$field . "_from_ingredients"});
+		set_field_input_tags_for_source($product_ref, $tag_lc, $field, "ingredients", $allergens_from_ingredients);
 
 		# Delete the temporary field: we have tags_sources to indicate if allergens are from ingredients
 		delete $product_ref->{$field . "_from_ingredients"};
