@@ -150,6 +150,7 @@ xx: Open Pet Food Facts, OPFF, pet food
 < en:Non food products
 en: Open Products Facts, OPF
 xx: Open Products Facts, OPF
+fdc_name:en: Health Care
 
 < en:Open Products Facts
 en: kitchenware
@@ -1367,6 +1368,8 @@ default_nutrition_as_sold_per:en: 100ml
 google_product_taxonomy_id:en: 413
 intake24_category_code:en: DRNK
 wikidata:en: Q40050
+fdc_name_1:en: Breakfast drinks
+fdc_name_2:en: Other Drinks
 
 < en:Beverages
 < en:Variety packs
@@ -1673,6 +1676,7 @@ nl: Smaakdranken
 gpc_category_code:en: 10000201
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a sweet, ready to drink, carbonated or non-carbonated beverage that includes no dairy/dairy-substitute ingredients. These products are usually artificially flavoured and coloured. Products include carbonated drinks which contain caffeine and those sweetened with sugar or artificial sweeteners. Also includes fruit based carbonated drinks. Definition Excludes: Specifically excludes all non carbonated juice based drinks and 100% juices. Excludes products such as Not Ready to Drink Flavoured Drinks, all Juice Drinks and Dairy and Dairy Substitute Drinks.
 gpc_category_name:en: Drinks Flavoured - Ready to Drink
+fdc_namr:rn: Drinks Flavoured - Ready to Drink
 
 < en:Alcoholic beverages
 en: Premixed alcoholic beverages
@@ -7351,6 +7355,9 @@ sv: Växtbaserade drycker
 th: เครื่องดื่มจากพืช
 tr: Bitkisel içecekler, Bitki kaynaklı içecekler, Bitki içecekleri
 zh: 植物性饮料
+fdc_name_1:en: Coffee/tea/substitutes
+fdc_name_2:en: Fruit & Vegetable Juice, Nectars & Fruit Drinks
+fdc_name_3:en: Plant Based Water
 
 < en:Plant-based beverages
 en: Coconut waters, coconut water
@@ -7396,6 +7403,7 @@ pl: Soki i nektary
 pt: Sucos e néctares
 ro: Sucuri și nectaruri, Sucuri si nectaruri
 ru: Соки и нектары
+fdc_name:en: Drinks - Juices Drinks and Cordials
 
 < en:Juices and nectars
 en: Fruit and vegetable juices
@@ -10188,6 +10196,8 @@ hr: Listići čaja
 hu: Tealevél
 it: Foglie di tè
 nl: Theeblaadjes
+fdc_name_1:en: Tea - Bags, Loose Leaf, Speciality
+fdc_name_2:en: Tea and Infusions/Tisanes
 
 < en:Hot beverages
 < en:Plant-based beverages
@@ -10831,6 +10841,7 @@ hu: Tejtermékek helyettesítői, Tejtermékhelyettesítők
 nl: Zuivelvervangers
 pl: Zastępniki nabiału, Substytuty nabiału
 incompatible_with:en: categories:en:dairies
+fdc_name:en: Milk/Milk Substitutes
 
 < en:Dairy substitutes
 en: Mascarpone substitutes
@@ -10907,6 +10918,7 @@ food_groups:en: en:teas-and-herbal-teas-and-coffees
 google_product_taxonomy_id:en: 1868
 pnns_group_2:en: Teas and herbal teas and coffees
 wikidata:en: Q8486
+fdc_name:en: Coffee - instant, roast and ground
 
 < en:Coffees
 en: Coffees from the Dominican Republic
@@ -12718,7 +12730,12 @@ ciqual_food_code:en: 18029
 ciqual_food_name:en: Non-alcoholic beverage (average)
 ciqual_food_name:fr: Boisson rafraîchissante sans alcool (aliment moyen)
 incompatible_with:en: categories:en:alcoholic-beverages
-fdc_name:en: Drinks - soft drinks
+fdc_name_1:en: Drinks - soft drinks
+fdc_name_2:en: Non Alcoholic Beverages  Not Ready to Drink
+fdc_name_3:en: Non Alcoholic Beverages  Ready to drink
+fdc_name_4:en: Non Alcoholic Beverages - Not Ready to Drink
+fdc_name_5:en: Non Alcoholic Beverages - Ready to Drink
+
 
 < en:Instant beverages
 < en:Variety packs
@@ -34231,7 +34248,8 @@ lt: Gėrimai miltelių pagrindu
 nl: Gedroogde drankpoeders
 pt: Bebidas desidratadas
 ru: Растворимые напитки
-fdc_name:en: Drinks - powdered
+fdc_name_1:en: Drinks - powdered
+fdc_name_2:en: Liquid Water Enhancer
 
 < en:Dried products to be rehydrated
 < en:Mashed potatoes
@@ -34337,10 +34355,10 @@ fr: Gäteau fourré goût amande
 hr: Kolač s nadjevom s okusom badema
 nl: Gevulde Koeken
 
-en: Biscuits and crackers
+en: Biscuits and crackers, Biscuits cracker
 fr: Biscuits sucrés & biscuits apéritifs
 nl: Biscuits en crackers
-intake24_category_code:en: BSCT
+intake24_category_code:en: BSCT`
 
 < en:Biscuits and cakes
 < en:Biscuits and crackers
@@ -34419,6 +34437,8 @@ ciqual_proxy_food_name:fr: Biscuit sec, sans précision
 # zh-tw:餅乾:
 wikidata:en: Q13270
 wikipedia:en: https://en.wikipedia.org/wiki/Biscuit
+fdc_name_1:en: Biscuits plain/sweet
+fdc_name_2:en: Biscuits/cookies (shelf stable)
 
 < en:Biscuits
 en: Biscuits/Cookies (Shelf Stable)
@@ -36446,6 +36466,7 @@ en: Dried breads
 gpc_category_code:en: 10000166
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a leavened or unleavened, flour-based baked, fried, dried or extruded product, typically designed to be used as an ingredient or accompaniment in another dish. These products have been treated or packaged in such a way as to extend their consumable life. Includes such products as Breadsticks, Croutons and Crispbreads. Definition Excludes: Excludes products such as Frozen Dried Breads, all types of Shelf Stable Baking Mixes and Baking Supplies, Sweet Products, Crackers and Oatcakes.
 gpc_category_name:en: Dried Breads (Shelf Stable)
+fdc_name:en: Dried Breads (Shelf Stable)
 
 < en:Breads
 en: Crispbreads
@@ -37661,7 +37682,9 @@ intake24_category_code:en: CAKE
 # yue:蛋糕
 wikidata:en: Q13276
 wikipedia:en: https://en.wikipedia.org/wiki/Cake
-fdc_name:en: Cakes and slices
+fdc_name_1:en: Cakes and slices
+fdc_name_2:en: Cakes - sweet (shelf stable)
+fdc_name_3:en: Cakes cupcakes snack cakes
 
 < en:Cakes
 en: Fresh cakes, Refrigerated cakes
@@ -38934,6 +38957,9 @@ tr: Atıştırmalıklar
 zh: 零食
 google_product_taxonomy_id:en: 423
 wikidata:en: Q749316
+fdc_name_1:en: Other Snacks
+fdc_name_2:en: Popcorn, Peanuts, Seeds & Related Snacks
+fdc_name_3:en: Snack Foods - Other
 
 < en:Snacks
 < en:Variety packs
@@ -39016,6 +39042,7 @@ th: ขนมหวาน
 food_groups:en: en:sweets
 intake24_category_code:en: CONF
 pnns_group_2:en: Sweets
+fdc_name:en: Chewing gum & mints
 
 < en:Confectioneries
 fr: Bonbons dragéifiés
@@ -42051,6 +42078,7 @@ th: อาหารกระป๋อง
 tr: Konserve gıda, Konserve besin, Konserve yiyecek, Konserve ürünler, Konserve mamüller, Kavanozlu gıda, Kavanozlu besin, Kavanozlu yiyecek
 zh: 罐头食品, 罐装食品, 罐頭食品, 醃製品
 wikidata:en: Q18396746
+fdc_name:en: Canned fish and meat
 
 < en:Canned foods
 < en:Fresh foods
@@ -42758,6 +42786,8 @@ gpc_category_code:en: 10000211
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury grain not ready to eat product, such as Rice, Polenta, Couscous. These products must not include any additional ingredients and are not part of a recipe prior to sale. These products are not ready to eat and require cooking prior to consumption. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Specifically excludes all grain based prepared products such as Risotto and Cereal Products. Excludes products such as Perishable and Frozen Not Ready to Eat and Ready to Eat Grain and all Grain Based Prepared Recipe Products.
 gpc_category_name:en: Grains/Cereal - Not Ready to Eat - (Shelf Stable)
 pnns_group_2:en: Cereals
+fdc_name_1:en: Cereals products - not ready to eat (shelf stable)
+fdc_name_2:en: Cereals products - ready to eat (shelf stable)
 
 < en:Cereals and their products
 < en:Frozen plant-based foods
@@ -44523,6 +44553,8 @@ nl: Chips en patat, Chips en friet
 pl: Chipsy i frytki, Czipsy i frytki
 ru: Чипсы и картофель фри
 zh: 薯片和薯条
+fdc_name_1:en: Snack Foods - Chips
+fdc_name_2:en: Snack Foods - Corn Chips
 
 < en:Appetizers
 < en:Chips and fries
@@ -45208,7 +45240,9 @@ food_of_animal_origin:en: yes
 google_product_taxonomy_id:en: 428
 incompatible_with:en: categories:en:dairy-substitutes
 wikidata:en: Q185217
-fdc_name:en: Dairy foods/yoghurts
+fdc_name_1:en: Dairy foods/yoghurts
+fdc_name_2:en: Milk/Cream
+fdc_name_3:en: Milk/Cream - Shelf Stable
 
 < en:Dairies
 en: Dairy by-products
@@ -45645,6 +45679,9 @@ pnns_group_2:en: Cheese
 who_id:en: 8
 wikidata:en: Q10943
 # Most cheeses have the same Agribalyse scores, except specific cheeses for which we added the specific values
+fdc_name_1:en: Cheese - block
+fdc_name_2:en: Cheese - speciality
+fdc_name_3:en: Processed Cheese & Cheese Novelties
 
 < en:Canned foods
 < en:Cheeses
@@ -55001,7 +55038,10 @@ sv: Efterrätter, Desserter
 tr: Tatlılar
 zh: 甜品, 甜点
 wikidata:en: Q182940
-fdc_name:en: Desserts & custard
+fdc_name_1:en: Desserts & custard
+fdc_name_2:en: Pancakes, Waffles, French Toast & Crepes
+fdc_name_3:en: Puddings & Custards
+fdc_name_4:en: Puddings and desserts
 
 < en:Desserts
 en: Refrigerated desserts
@@ -56752,6 +56792,7 @@ tr: Tuzlu atıştırmalıklar
 zh: 咸味零食
 incompatible_with:en: categories:en:sweet-snacks
 nova:en: 3
+fdc_name:en: antipasto
 
 < en:Salty snacks
 en: Wasabi coated peas
@@ -59772,7 +59813,10 @@ food_groups:en: en:fats
 intake24_category_code:en: BTTR
 pnns_group_2:en: Fats
 who_id:en: 10
-fdc_name:en: Fats edible
+fdc_name_1:en: Fats edible
+fdc_name_2:en: Butter & spread
+fdc_name_3:en: Butter/butter substitutes
+fdc_name_4:en: Cooking oils and fats
 
 < en:Fats
 en: Animal fats
@@ -60198,6 +60242,7 @@ th: ไขมันจากพืช
 tr: Bitkisel yağ
 zh: 蔬菜脂肪
 wikidata:en: Q11870297
+fdc_name:en: Nut & Seed Butters
 
 < en:Vegetable fats
 en: Shelf-stable vegetable fats
@@ -60517,6 +60562,8 @@ gpc_category_code:en: 10000040
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any edible liquid oil derived from the following: grains, nuts, olives, palms, palm kernels, seeds, corn, maize, fruit pulp, beans or combination of these, that can be poured or dispensed as a spray, intended for cooking or for use as a dressing for salads. Products can include added flavouring, such as chilli and herbs. Definition Excludes: Specifically excludes products defined in the brick Oils Edible - Vegetable or Plant (Perishable). Excludes products such as health supplement based oils, such as Cod Liver, and non edible oils, such as non-food grade Linseed Oil.
 gpc_category_name:en: Oils Edible - Vegetable or Plant (Shelf Stable)
 wikidata:en: Q4739805
+fdc_name_1:en: Oils Edible
+fdc_name_2:en: Vegetable & Cooking Oils
 
 < en:Vegetable oils
 en: Flavoured oils
@@ -63430,6 +63477,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Flour - Cereal/Pulse (Shelf Stable)
 intake24_category_code:en: FLOR
 nutriscore_category_override_for_fruits_vegetables_legumes:en: 0
+fdc_name:en: Flour - Cereal/Pulse (Shelf Stable)
 
 < en:Flours
 fr: Farines de souchet
@@ -63611,6 +63659,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Cereals Products - Ready to Eat (Shelf Stable)
 pnns_group_2:en: Breakfast cereals
 who_id:en: 6
+fdc_name:en: Breakfast cereals - hot and cold
 
 < en:Breakfast cereals
 en: Extruded cereals
@@ -64649,6 +64698,7 @@ intake24_category_code:en: POPC
 nutriscore_category_override_for_fruits_vegetables_legumes:en: 0
 oqali_family:en: fr:Aperitifs a croquer - Pop corn
 wikidata:en: Q165112
+fdc_name:en: Popcorn (Shelf Stable)
 
 < en:Popcorn
 en: Shelf-stable popcorn
@@ -66710,6 +66760,9 @@ sv: Frysta matvaror
 th: อาหารแช่แข็ง
 tr: Dondurulmuş yiyecek, Dondurulmuş yemek, Dondurulmuş gıda
 zh: 冷冻食物
+fdc_name_1:en: Frozen Appetizers & Hors D'oeuvres
+fdc_name_2:en: Frozen Dinners & Entrees
+fdc_name_3:en: Frozen Prepared Sides
 
 en: Refrigerated foods, Refrigerated
 ca: Aliments refrigerats
@@ -66922,6 +66975,9 @@ gpc_category_code:en: 10000196
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a prepared food normally consumed as the last course of a meal. These products must be frozen to extend their consumable life. Products include desserts that are biscuit based, bread based, cake/sponge based, dairy based, pastry based and rice based. Definition Excludes: Excludes products such as Perishable and Shelf Stable Desserts, Ice Cream, Pastries and Cakes, Yogurt.
 gpc_category_name:en: Desserts (Frozen)
 intake24_category_code:en: ICED
+fdc_name_1:en: Frozen Pancakes, Waffles, French Toast & Crepes
+fdc_name_2:en: Ice Cream & Frozen Yogurt
+fdc_name_3:en: Other Frozen Desserts
 
 < en:Frozen desserts
 en: Baked Alaska
@@ -66998,6 +67054,9 @@ gpc_category_name:en: Ice Cream/Ice Novelties (Frozen)
 intake24_category_code:en: ICEC
 pnns_group_2:en: Ice cream
 who_id:en: 5
+fdc_name_1:en: Ice-Cream Take Home
+fdc_name_2:en: Ice-Cream/Block Single
+fdc_name_3:en: Ice-Cream/Ice-Block Multi Pack
 
 < en:Frozen desserts
 en: Frozen dessert puff pastry, Frozen dessert puff pastry to share
@@ -68096,6 +68155,7 @@ nl: Diepvriespizzas en -taarten
 pl: Pizza i ciasta mrożone
 pt: Pizzas e tortas congeladas
 sv: Frysta pizzor och pajer, Fryst pizza och paj
+fdc_name:en: Frozen Pies/Savouries
 
 < en:Frozen pizzas and pies
 < en:Pizzas
@@ -68156,6 +68216,7 @@ ru: Замороженные готовые обеды
 gpc_category_code:en: 10006751
 gpc_category_description:en: Definition: Ready-made combination meal or microwave meal is a pre-packaged perishable full meal.  The meal requires no preparation, but may be warmed,  and contains all the elements typically contained in a single-serving meal.  A ready-made meal (also known as a TV Dinner) must have a main component and at least one additional component such as a side item, a dessert and/or beverage. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Non-Combination Meals, Shelf Stable Ready to Eat Combination Meals, Not Ready to Eat Combination Meals, Ready-Made Combination Meal Variety Packs, Prepared/Processed Products, and Unprepared Meals.
 gpc_category_name:en: Ready-Made Combination Meals - Ready to Eat (Perishable)
+fdc_name:en: Egg Based Products / Meals - Not Ready to Eat (Frozen)
 
 < en:Frozen ready-made meals
 en: Vegetable based frozen ready-made meals
@@ -68246,6 +68307,8 @@ ru: Замороженное мясо
 sv: Fryst kött
 tr: Dondurulmuş et
 zh: 冷冻肉类
+fdc_name_1:en: Frozen Bacon, Sausages & Ribs
+fdc_name_2:en: Other Frozen Meats
 
 < en:Plant-based foods
 en: Fruits and vegetables based foods
@@ -68273,6 +68336,7 @@ tr: Meyve ve sebze kaynaklı gıdalar, Meyve ve sebze kaynaklı yiyecekler, Meyv
 zh: 以水果和蔬菜为基础的食品
 food_groups:en: en:fruits-and-vegetables
 pnns_group_1:en: Fruits and vegetables
+fdc_name:en: Fresh Fruit and Vegetables
 
 < en:Fruits and vegetables based foods
 < en:Variety packs
@@ -68344,6 +68408,9 @@ zh: 水果
 incompatible_with:en: categories:en:vegetables
 intake24_category_code:en: FRTS
 wikidata:en: Q1364
+fdc_name_1:en: Fruit  Prepared/Processed
+fdc_name_2:en: Fruit - Prepared/Processed
+fdc_name_3:en: Fruits - Unprepared/Unprocessed (Shelf Stable)
 
 < en:Fruits
 en: Fruits (shelf stable)
@@ -68425,6 +68492,7 @@ en: Prepared fresh fruits
 gpc_category_code:en: 10000205
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of fruit or combination of fruits, which may be whole or stoned, pitted, chopped, cored and/or peeled, and which have gone through further manufacturing processes, such as reformed, cooked or dried, however these products can also be coated, in sauce, stuffed or filled. These products can be/must be refrigerated to extend their consumable life. Definition Excludes: Specifically excludes tomatoes. Excludes products such as Unprepared and Unprocessed Fruit and Prepared and Processed Shelf Stable and Frozen Fruit.
 gpc_category_name:en: Fruit - Prepared/Processed (Perishable)
+fdc_name:en: Fruit - Prepared/Processed (Shelf Stable)
 
 < en:Fruits
 en: French fruits
@@ -71889,6 +71957,7 @@ food_groups:en: en:fruits
 intake24_category_code:en: FFRU
 pnns_group_2:en: Fruits
 who_id:en: 15
+fdc_name:en: Fruits - Unprepared/Unprocessed (Frozen)
 
 < en:Frozen fruits
 en: Unprepared frozen fruits
@@ -72125,6 +72194,7 @@ food_groups:en: en:dried-fruits
 intake24_category_code:en: DRIF
 pnns_group_2:en: Dried fruits
 who_id:en: 16
+fdc_name:en: Snack Foods - Dried Fruit
 
 < en:Fruits
 # <en:category:en:Dried fruits
@@ -73024,6 +73094,7 @@ gpc_category_name:en: Extracts/Seasonings/Flavour Enhancers (Shelf Stable)
 intake24_category_code:en: COND
 #ru:Вкусовые добавки, Приправы, Пряности
 wikidata:en: Q773108
+fdc_name:en: Other Condiments
 
 < en:Condiments
 en: Gravy
@@ -76770,6 +76841,15 @@ food_groups:en: en:dressings-and-sauces
 pnns_group_2:en: Dressings and sauces
 who_id:en: 17
 wikidata:en: Q178359
+fdc_name_1:en: Dressings/Dips (Shelf Stable)
+fdc_name_2:en: Ketchup, Mustard, BBQ & Cheese Sauce
+fdc_name_3:en: Oriental, Mexican & Ethnic Sauces
+fdc_name_4:en: Other Cooking Sauces
+fdc_name_5:en: Prepared Pasta & Pizza Sauces
+fdc_name_6:en: Salad Dressing & Mayonnaise
+fdc_name_7:en: Sauces - Cooking (Shelf Stable)
+fdc_name_8:en: Sauces- Cooking
+fdc_name_9: Sauces/Spreads/Dips/Condiments
 
 < en:Frozen foods
 < en:Sauces
@@ -77382,6 +77462,7 @@ ciqual_food_name:fr: Sauce crudités ou Sauce salade, préemballée
 google_product_taxonomy_id:en: 1969
 intake24_category_code:en: SDRS
 wikidata:en: Q1572278
+fdc_name:en: Salad Dressings
 
 < en:Salad dressings
 en: Salad creams
@@ -80893,12 +80974,16 @@ incompatible_with:en: categories:en:beverages
 nova:en: 3
 pnns_group_2:en: One-dish meals
 wikidata:en: Q3391775
+fdc_name_1:en: Dairy/egg based products / meals
+fdc_name_2:en: Entrees, Sides & Small Meals
+fdc_name_3:en: Potato - Instant Meals
 
 < en:Meals
 en: Non-frozen dough based meals (to prepare)
 gpc_category_code:en: 10000302
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury dough-based not ready to eat, prepared/processed product, such as Pasta, Gnocchi, Noodles or Batter with other ingredients, such as meat, dairy, eggs, fish, vegetables and/or seasoning. An optional seasoning/flavour packet may be present.  These ingredients form a valuable part of the product, such as the meat/tomato sauce in Spaghetti Bolognaise or cheese sauce in Macaroni and Cheese. They may or may not contain a sauce. These products may have a main component which is considered a meal without any additional components. These products are not ready to eat and require cooking prior to consumption.   These products have been specially treated or packaged to extend their consumable life. Includes not ready to eat shelf stable Ready-Made Meals where a Dough Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes pizza, savoury pies, quiches, pastries and bread products.Excludes products such as Frozen and Perishable Not Ready to Eat and Ready to Eat Dough-Based Prepared/Processed Products, Unprepared Pasta and Noodles.
 gpc_category_name:en: Dough Based Products / Meals - Not Ready to Eat - Savoury (Shelf Stable)
+fdc_name:en: Dough based products / meals - not ready to eat - savoury (shelf stable)
 
 < en:Frozen foods
 < en:Meals
@@ -80906,6 +80991,7 @@ en: Frozen dough based meals (to prepare)
 gpc_category_code:en: 10000300
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury dough-based not ready to eat, prepared/processed product, such as Pasta, Gnocchi, Noodles or Batter with other ingredients, such as meat, dairy, eggs, fish, vegetables and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as the meat/tomato sauce in Spaghetti Bolognaise, or cheese sauce in Macaroni and Cheese. They may or may not contain a sauce. These products may have a main component which is considered a meal without any additional components. These products are not ready to eat and require cooking prior to consumption. These products must be refrigerated to extend their consumable life. Includes not ready to eat perishable Ready-Made Meals where a Dough Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes pizza, savoury pies, quiches, pastries and bread products.Excludes products such as Shelf Stable and Frozen Not Ready to Eat and Ready to Eat Dough-Based Prepared/Processed Products, Pasta and Noodles Unprepared.
 gpc_category_name:en: Dough Based Products / Meals - Not Ready to Eat - Savoury (Perishable)
+fdc_name:en: Dough based products / meals - not ready to eat - savoury (frozen)
 
 < en:Meals
 < en:Refrigerated foods
@@ -80913,6 +80999,7 @@ en: Refrigerated dough based meals (ready)
 gpc_category_code:en: 10000298
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury dough-based ready to eat, prepared/processed product, such as Pasta, Gnocchi or Noodles with other ingredients, such as meat, dairy, eggs, fish, vegetables and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Pasta with a Roasted Vegetable Salad. They may or may not contain a sauce. These products may have a main component which is considered a meal without any additional components. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products must be refrigerated to extend their consumable life. Includes ready to eat perishable Ready-Made Meals where a Dough Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes pizza, savoury pies, quiches, pastries and bread products.Excludes products such as Shelf Stable Ready to Eat and Not Ready to Eat Dough-Based Prepared/Processed Product, Unprepared Pasta and Noodles.
 gpc_category_name:en: Dough Based Products / Meals - Ready to Eat - Savoury (Perishable)
+fdc_name_en: Dough based products / meals
 
 < en:Meals
 en: Dough based meals (ready)
@@ -82863,6 +82950,8 @@ ciqual_food_code:en: 25969
 ciqual_food_name:en: Soup (average)
 ciqual_food_name:fr: Soupe (aliment moyen)
 intake24_category_code:en: SOUP
+fdc_name_1:en: Other Soups
+fdc_name_2:en: Soups - Prepared (Shelf Stable)
 
 
 < en:Soups
@@ -82903,6 +82992,7 @@ pt: Sopas em lata
 ro: Conserve cu supă
 ru: Консервированные супы
 zh: 汤罐头
+fdc_name:en: Canned condensed soup
 
 < en:Dried meals
 < en:Dried products to be rehydrated
@@ -84974,6 +85064,10 @@ nl: Kant-en-klaar groenten
 pt: Legumes preparados
 ru: Приготовленные овощи
 #wikidata:en:
+fdc_name_1:en: Vegetables  Prepared/Processed
+fdc_name_2:en: Vegetables - Prepared/Processed
+fdc_name_3:en: Vegetables - Prepared/Processed (Frozen)
+fdc_name_4:en: Vegetables - Prepared/Processed (Shelf Stable)
 
 < en:Prepared vegetables
 en: Cooked vegetables
@@ -85940,6 +86034,8 @@ lt: Paruoštos salotos
 nl: Opgemaakte salades
 pl: Gotowe sałatki
 ru: Готовые салаты
+fdc_name_1:en: Deli salads
+fdc_name_2:en: Salads
 
 < en:Prepared salads
 < en:Seaweeds and their products
@@ -86483,6 +86579,9 @@ intake24_category_code:en: MEAT
 plant_alternative:en: en:meat-analogues
 # Products that are poultry hopefully have the en:Poultries category which will assign the en:Poultry food group
 pnns_group_2:en: Meat
+fdc_name_1:en: Bacon, Sausages & Ribs
+fdc_name_2:en: Fresh Meat
+fdc_name_3:en: Other Meats
 
 #Products containing at least 99% meat according to French regulations. Products with lower meat percentage goes in "Ground meat preparations"
 < en:Meats
@@ -88806,6 +88905,8 @@ sv: griskött, fläskkött, gris, fläsk
 tr: Domuz eti
 zh: 猪肉
 wco_hs_heading:en: 02.03
+fdc_name_1:en: Pork - Prepared/Processed
+fdc_name_2:en: Pork - Unprepared/Unprocessed
 
 # TODO map properly
 #<en:meats
@@ -89492,7 +89593,7 @@ fr: Viande de kangourou surgelée
 
 < en:Frozen foods
 < en:Poultries
-en: Frozen poultry
+en: Frozen poultry, Frozen Poultry Chicken & Turkey
 de: Gefrorenes Geflügel
 fi: Siipikarjapakasteet
 fr: Volailles surgelées, Volaille surgelée
@@ -90387,6 +90488,7 @@ zh: 火鸡, 鲜火鸡肉, 鲜火鸡
 agribalyse_food_code:en: 36300
 ciqual_food_code:en: 36300
 ciqual_food_name:en: Turkey, meat and skin, raw
+fdc_name:en: Turkey - Unprepared/Unprocessed
 
 < en:Turkeys
 en: Turkey skewers
@@ -92354,6 +92456,7 @@ agribalyse_proxy_food_name:fr: Chair à saucisse, pur porc, crue
 gpc_category_code:en: 10005840
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a food made from ground pork, which may be prepared using a specific, regionally based process. The ground meat is mixed with other ingredients such as animal fat, salt, spices, herbs, vegetables or fruit and then typically packed in a casing, which may be link shaped or form a rope or ring, or sold without a casing such as bologna and some frankfurters. Some sausages are cooked during processing and may be preserved by curing, drying in cool air, or smoking. Definition Excludes: Excludes products such as vegetarian sausages made from meat substitutes as well as pate.
 gpc_category_name:en: Pork Sausages - Prepared/Processed
+fdc_name:en: Pork Sausages - Prepared/Processed
 
 < en:Pork sausages
 < en:Sausage meat
@@ -93605,6 +93708,8 @@ en: cut, cold cuts, cold meat
 de: Aufschnitt
 hr: Izrezati
 zh: 冷肉
+fdc_name_1:en: Ham/Cold Meats
+fdc_name_2:en: Pepperoni, Salami & Cold Cuts
 
 < en:Artisan products
 < en:Cured sausages
@@ -96486,6 +96591,7 @@ intake24_category_code:en: PTNS
 pnns_group_2:en: Cereals
 wikidata:en: Q178
 wikipedia:en: https://en.wikipedia.org/wiki/Pasta
+fdc_name:en: Pasta by Shape & Type
 
 < en:pastas
 en: Semiya
@@ -98654,6 +98760,7 @@ ru: Блюда из макарон
 sv: Pastarätter
 intake24_category_code:en: PTDH
 wikidata:en: Q18679685
+fdc_name:en: Pasta - Instant Meals
 
 < en:Frozen meals
 < en:Pasta dishes
@@ -98695,6 +98802,7 @@ ciqual_food_code:en: 23900
 ciqual_food_name:en: Pastry (average)
 ciqual_food_name:fr: Pâtisserie (aliment moyen)
 wikidata:en: Q477248
+fdc_name:en: Croissants sweet rolls muffins & other pastries
 
 < en:Pastries
 en: Strudels
@@ -99883,7 +99991,8 @@ intake24_category_code:en: SAND
 nova:en: 3
 pnns_group_2:en: Sandwiches
 wikidata:en: Q28803
-fdc_name:en: Prepared subs & sandwiches
+fdc_name_1:en: Prepared subs & sandwiches
+fdc_name_2:en: Sandwiches/Filled Rolls/Wraps
 
 < en:Frozen foods
 < en:Sandwiches
@@ -101019,6 +101128,9 @@ google_product_taxonomy_id:en: 4629
 intake24_category_code:en: C002
 pnns_group_2:en: Fish and seafood
 wikidata:en: Q192935
+fdc_name_1:en: Aquatic Invertebrates/Fish/Shellfish/Seafood Combination
+fdc_name_2:en: Fish & Seafood
+fdc_name_3:en: Seafood Miscellaneous
 
 < en:Seafood
 en: Shelf-stable prepared aquatic invertebrates
@@ -101031,6 +101143,8 @@ en: Shellfish
 gpc_category_code:en: 10000021
 gpc_category_description:en: Definition: Includes any products that can be described/observed as an aquatic animal whose external covering consists of a shell, as in oysters, clams, lobsters and crabs, that has not gone through any further manufacturing processes, such as reformed, cooked, dried and salted, however these products can be coated, in sauce, stuffed or filled. Products include sea snails and molluscs but specifically exclude products that have added ingredients included such as rice, couscous and pasta. However products may contain a small quantity of vegetables such as those in a sauce or stuffing/filling. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Shellfish with additional vegetables, dough or grains, Frozen and Perishable Unprepared and Unprocessed Shellfish, all Prepared and Processed Shellfish.
 gpc_category_name:en: Shellfish - Unprepared/Unprocessed (Shelf Stable)
+fdc_name_1:en: Shellfish Prepared/Processed
+fdc_name_2:en: Shellfish Unprepared/Unprocessed
 
 < en:Shellfish
 en: Shelf-stable prepared shellfish
@@ -102263,6 +102377,8 @@ zh: 鱼类
 intake24_category_code:en: RWFH
 plant_alternative:en: en:fish-analogues
 wikidata:en: Q600396
+fdc_name_1:en: Fish  Prepared/Processed
+fdc_name_2:en: Fish  Unprepared/Unprocessed
 
 < en:Fishes
 en: Shelf-stable unprepared fishes
@@ -102292,6 +102408,8 @@ it: Frutti di mare surgelati
 nl: Diepvrieszeevruchten
 pt: Frutos do mar congelados
 ru: Замороженые морепродукты
+fdc_name_1:en: Frozen Fish & Seafood
+fdc_name_2:en: Frozen Fish/Seafood
 
 < en:Frozen seafood
 en: Frozen cooked seafood
@@ -105571,7 +105689,8 @@ nl: Dipsauzen
 ru: провалы
 intake24_category_code:en: DIPS
 wikidata:en: Q2046560
-fdc_name:en: Dips/hummus/pate
+fdc_name_1:en: Dips/hummus/pate
+fdc_name_2:en: Dips - shelf stable
 
 < en:Sauces
 en: Hoisin sauces
@@ -105877,6 +105996,7 @@ nl: Confituren en marmelades
 pl: Przetwory owocowe
 pt: Conservas de fruta
 th: ผลไม้แปรรูป
+fdc_name:en: Jam, Jelly & Fruit Spreads
 
 < en:Fruit and vegetable preserves
 en: Refrigerated fruit and vegetable preserves
@@ -107747,6 +107867,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Sugar/Sugar Substitutes (Shelf Stable)
 ignore_energy_calculated_error:en: yes
 wikidata:en: Q4368298
+fdc_name:en: Sugars/Sugar Substitute Products
 
 < en:Sweeteners
 < en:Variety packs
@@ -107795,6 +107916,7 @@ intake24_category_code:en: SUGA
 nova:en: 2
 pnns_group_2:en: Sweets
 wikidata:en: Q11002
+fdc_name:en: Granulated, Brown & Powdered Sugar
 
 < en:Sugars
 en: Brown sugars, Brown sugar
@@ -117063,6 +117185,7 @@ th: ผลิตภัณฑ์จากพืชทั้งหมด
 tr: Bitkisel yiyecekler, Bitki kaynaklı yiyecekler, Bitki yiyecekleri
 uk: Їжа на рослинній основі
 zh: 植物性食物
+fdc_name:en: Fruits/Vegetables/Nuts/Seeds Variety Packs
 
 < en:Plant-based foods and beverages
 en: Vegetable-based foods and beverages
@@ -118387,6 +118510,8 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Vegetables - Prepared/Processed (Frozen)
 pnns_group_2:en: Vegetables
 who_id:en: 15
+fdc_name_1:en: Vegetables  Unprepared/Unprocessed (Frozen)
+fdc_name_2:en: Vegetables - Unprepared/Unprocessed (Frozen)
 
 < en: Frozen vegetables
 en: Frozen vegetables (unprepared / unprocessed), Frozen vegetables (unprepared), Frozen vegetables (unprocessed)
@@ -118818,7 +118943,7 @@ agribalyse_proxy_food_name:fr: Poivron vert, cuit
 
 < en:Frozen plant-based foods
 < en:Potatoes
-en: Frozen potatoes
+en: Frozen potatoes, Frozen Potato
 da: Frosne kartofler
 de: Gefrohrene Kartoffeln
 es: Patatas congeladas
@@ -119264,7 +119389,7 @@ lt: Varškės sūreliai
 wikidata:en: Q2622681
 
 < en:Bars
-en: Cereal bars, Granola bars, Chewy Granola Bars, muesli bars
+en: Cereal bars, Granola bars, Chewy Granola Bars, muesli bars, Cereal/muesli bars
 ca: Barres de cereals, Barres de granola, Barres de musli
 de: Getreideriegel, Müsliriegel
 es: Barritas de cereales
@@ -120484,6 +120609,7 @@ incompatible_with:en: categories:en:meat
 intake24_category_code:en: MTST
 intake24_category_code:fr: MTST
 wikidata:en: Q1343997
+fdc_name:en: Vegetarian Frozen Meats
 
 < en:Meat analogues
 en: Meat analogues from soy or wheat proteins
@@ -121088,6 +121214,7 @@ ciqual_proxy_food_code:en: 38402
 ciqual_proxy_food_name:en: Salty snacks, crackers, plain
 ciqual_proxy_food_name:fr: Biscuit apéritif, crackers, nature
 comment:en: Crackers are used a thin hard bread that need to be covered with something sweet or savoury
+fdc_name:en: Flavored Snack Crackers
 
 #small crackers (max 5 cm) for appetizers
 < en:Crackers(Appetizers)
@@ -122441,6 +122568,16 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Nutritional Supplements
 intake24_category_code:en: SUPP
 wikidata:en: Q645858
+fdc_name_1:en: Amino acid supplements
+fdc_name_2:en: Antioxydant supplements
+fdc_name_3:en: Children's nutritional supplements
+fdc_name_4:en: Digestive & fiber supplements
+fdc_name_5:en: Green Supplements
+fdc_name_6:en: Health Supplements and Vitamins
+fdc_name_7:en: Herbal Supplements
+fdc_name_8:en: Meal Replacement Supplements
+fdc_name_9:en: Specialty Formula Supplements
+fdc_name_10:en: Vitamins/Minerals/Nutritional Supplements
 
 < en:Dietary supplements
 en: Flavoured dietary supplements
@@ -124257,6 +124394,7 @@ tr: Hazır gıda çeşitlilik paketi
 gpc_category_code:en: 10000613
 gpc_category_description:en: Definition: Includes any products that can be described/observed as two or more distinct Prepared and Preserved Foods sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Prepared and Preserved Foods Family. Includes products such as Chicken Korma and Ice Cream variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Jam and Chocolate Spread variety packs and Chips and Dips variety packs.
 gpc_category_name:en: Prepared/Preserved Foods Variety Packs
+fdc_name:en: Prepared/Preserved Foods Variety Packs
 
 en: Whole durum wheat spirals
 fr: Spirales de blé dur complet
