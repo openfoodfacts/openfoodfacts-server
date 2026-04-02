@@ -419,12 +419,9 @@ jobs:
       run: rm $FILE
     - name: Generate Perl SBOM with cpan-sbom
       run: |
-        mkdir -p .sbom-temp
-        grep -v "Test2::Harness::Renderer::JUnit" cpanfile > .sbom-temp/cpanfile
-
         docker run --rm -v $(pwd):/workspace openfoodfacts-server/backend:dev \
           cpan-sbom \
-          --project-directory /workspace/.sbom-temp \
+          --project-directory /workspace \
           --project-name "Product Opener" \
           --project-type application \
           --project-license AGPL-3.0 \
