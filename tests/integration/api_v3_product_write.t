@@ -721,7 +721,7 @@ my $tests_ref = [
 	# tags fields with new tags structure (API v3.6)
 	# stores_tags is not an array, it will be ignored
 	{
-		test_case => 'patch-tags-fields',
+		test_case => 'patch-tags-fields-v3-6',
 		method => 'PATCH',
 		path => '/api/v3.6/product/3234567890100',
 		body => '{
@@ -742,6 +742,22 @@ my $tests_ref = [
 		test_case => 'patch-tags-fields-add',
 		method => 'PATCH',
 		path => '/api/v3.6/product/1234567890100',
+		body => '{
+			"fields" : "updated",
+			"product": { 
+				"categories_tags_add": ["en:tea"],
+				"stores_tags_add": ["Carrefour", "Mon Ptit magasin"],
+				"countries_tags_fr_add": ["Italie", "en:spain"],
+				"labels_tags_fr": ["végétarien", "Something unrecognized in French"],
+				"traces_tags_add": ["en:molluscs", "en:sesame"]
+			}
+		}',
+	},
+	# add to categories (existing) and stores (empty), replace labels - v3.6
+	{
+		test_case => 'patch-tags-fields-add-v3-6',
+		method => 'PATCH',
+		path => '/api/v3.6/product/3234567890100',
 		body => '{
 			"fields" : "updated",
 			"product": { 

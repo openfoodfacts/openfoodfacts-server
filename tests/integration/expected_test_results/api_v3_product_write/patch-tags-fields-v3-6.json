@@ -1,5 +1,5 @@
 {
-   "code" : "1234567890100",
+   "code" : "3234567890100",
    "errors" : [
       {
          "field" : {
@@ -18,21 +18,7 @@
       }
    ],
    "product" : {
-      "allergens" : "Milk, Eggs, Peanuts, Nuts, Fish, Shellfish, Gluten, Soybeans, Mango, Kiwi, Unrecognized Allergen",
-      "allergens_hierarchy" : [
-         "en:eggs",
-         "en:fish",
-         "en:gluten",
-         "en:kiwi",
-         "en:milk",
-         "en:nuts",
-         "en:peanuts",
-         "en:soybeans",
-         "en:Unrecognized Allergen",
-         "en:mango",
-         "en:shellfish"
-      ],
-      "allergens_lc" : "en",
+      "allergens" : "en:milk,en:eggs,en:peanuts,en:tree-nuts,en:fish,en:shellfish,en:wheat,en:soy,en:mango,kiwi,Unrecognized Allergen",
       "allergens_tags" : [
          "en:eggs",
          "en:fish",
@@ -59,22 +45,16 @@
          "Shellfish",
          "Unrecognized-allergen"
       ],
-      "brands" : "Aldi, Some brand",
+      "brands" : "Aldi, some-brand",
       "brands_tags" : [
-         "aldi",
-         "some-brand"
+         "xx:aldi",
+         "xx:some-brand"
       ],
       "brands_tags_en" : [
          "Aldi",
          "some-brand"
       ],
-      "categories" : "Coffees",
-      "categories_hierarchy" : [
-         "en:plant-based-foods-and-beverages",
-         "en:plant-based-foods",
-         "en:coffees"
-      ],
-      "categories_lc" : "en",
+      "categories" : "coffee",
       "categories_tags" : [
          "en:plant-based-foods-and-beverages",
          "en:plant-based-foods",
@@ -85,17 +65,7 @@
          "Plant-based foods",
          "Coffees"
       ],
-      "labels" : "Organic, Vegan, Max Havelaar, Something unrecognized",
-      "labels_hierarchy" : [
-         "en:vegetarian",
-         "en:fair-trade",
-         "en:organic",
-         "en:fairtrade-international",
-         "en:vegan",
-         "en:max-havelaar",
-         "en:Something unrecognized"
-      ],
-      "labels_lc" : "en",
+      "labels" : "en:organic,fr:max havelaar,vegan,Something unrecognized",
       "labels_tags" : [
          "en:vegetarian",
          "en:fair-trade",
@@ -114,11 +84,71 @@
          "Max Havelaar",
          "Something-unrecognized"
       ],
-      "traces" : "Gluten",
-      "traces_hierarchy" : [
-         "en:gluten"
-      ],
-      "traces_lc" : "en",
+      "tags_sources" : {
+         "allergens" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            },
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:milk",
+                  "en:eggs",
+                  "en:peanuts",
+                  "en:nuts",
+                  "en:fish",
+                  "en:shellfish",
+                  "en:gluten",
+                  "en:soybeans",
+                  "en:mango",
+                  "en:kiwi",
+                  "en:Unrecognized Allergen"
+               ]
+            }
+         },
+         "brands" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "xx:Some brand",
+                  "xx:aldi"
+               ]
+            }
+         },
+         "categories" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:coffees"
+               ]
+            }
+         },
+         "labels" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:organic",
+                  "en:max-havelaar",
+                  "en:vegan",
+                  "en:Something unrecognized"
+               ]
+            }
+         },
+         "traces" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            },
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:gluten"
+               ]
+            }
+         }
+      },
+      "traces" : "en:wheat",
       "traces_tags" : [
          "en:gluten"
       ],
