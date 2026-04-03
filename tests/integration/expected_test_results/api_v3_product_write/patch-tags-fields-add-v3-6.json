@@ -2,35 +2,36 @@
    "code" : "3234567890100",
    "errors" : [],
    "product" : {
-      "categories" : "en:tea",
-      "categories_hierarchy" : [
-         "en:beverages-and-beverages-preparations",
-         "en:plant-based-foods-and-beverages",
-         "en:beverages",
-         "en:hot-beverages",
-         "en:plant-based-beverages",
-         "en:teas"
+      "brands" : "Aldi, another-brand, some-brand",
+      "brands_tags" : [
+         "xx:aldi",
+         "xx:another-brand",
+         "xx:some-brand"
+      ],
+      "brands_tags_en" : [
+         "Aldi",
+         "another-brand",
+         "some-brand"
       ],
       "categories_tags" : [
          "en:beverages-and-beverages-preparations",
          "en:plant-based-foods-and-beverages",
          "en:beverages",
+         "en:plant-based-foods",
          "en:hot-beverages",
          "en:plant-based-beverages",
-         "en:teas"
+         "en:teas",
+         "en:coffees"
       ],
       "categories_tags_en" : [
          "Beverages and beverages preparations",
          "Plant-based foods and beverages",
          "Beverages",
+         "Plant-based foods",
          "Hot beverages",
          "Plant-based beverages",
-         "Teas"
-      ],
-      "countries" : "Italie, en:spain",
-      "countries_hierarchy" : [
-         "en:italy",
-         "en:spain"
+         "Teas",
+         "Coffees"
       ],
       "countries_tags" : [
          "en:italy",
@@ -40,7 +41,6 @@
          "Italie",
          "Espagne"
       ],
-      "labels" : "végétarien,Something unrecognized in French",
       "labels_tags" : [
          "en:vegetarian",
          "fr:something-unrecognized-in-french"
@@ -49,15 +49,14 @@
          "Végétarien",
          "Something-unrecognized-in-french"
       ],
-      "stores" : [
-         "Carrefour",
-         "Mon Ptit magasin"
-      ],
+      "stores" : "Carrefour, Mon Ptit magasin",
       "stores_tags" : [
-         "array-0x57a9e6ae5de0"
+         "carrefour",
+         "mon-ptit-magasin"
       ],
       "stores_tags_en" : [
-         "Array-0x57a9e6ae5de0"
+         "Carrefour",
+         "Mon-ptit-magasin"
       ],
       "tags_sources" : {
          "allergens" : {
@@ -87,7 +86,8 @@
                "last_updated_t" : "--ignore--",
                "tags" : [
                   "xx:Some brand",
-                  "xx:aldi"
+                  "xx:aldi",
+                  "xx:Another brand"
                ]
             }
          },
@@ -95,6 +95,7 @@
             "packaging" : {
                "last_updated_t" : "--ignore--",
                "tags" : [
+                  "en:coffees",
                   "en:teas"
                ]
             }
@@ -125,22 +126,20 @@
             "packaging" : {
                "last_updated_t" : "--ignore--",
                "tags" : [
+                  "en:gluten",
                   "en:molluscs",
                   "en:sesame-seeds"
                ]
             }
          }
       },
-      "traces" : "en:molluscs, en:sesame",
-      "traces_hierarchy" : [
-         "en:molluscs",
-         "en:sesame-seeds"
-      ],
       "traces_tags" : [
+         "en:gluten",
          "en:molluscs",
          "en:sesame-seeds"
       ],
       "traces_tags_en" : [
+         "Gluten",
          "Molluscs",
          "Sesame seeds"
       ]

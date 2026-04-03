@@ -945,17 +945,31 @@ my @tests = (
 		'fr-allergens-celeri-crustaces-et-lupin-peut-contenir-oeuf-et-moutarde',
 		'fr', 'allergens', 'Céleri, crustacés et lupin. Peut contenir oeuf et moutarde.'
 	],
+
+	[
+		'en-add-categories-coffee',
+		'en',
+		'categories',
+		'coffee, tea',
+		1,
+		{
+			categories_tags => ['en:meals'],
+			tags_sources => {categories => {packaging => {tags => ["en:coffee", "en:meals"]}}}
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
 
 	my $testid = "set_field_input_tags_for_source-" . $test_ref->[0];
-	my $product_ref = {};
+
 	my $tag_lc = $test_ref->[1];
 	my $field = $test_ref->[2];
 	my $input_tags = $test_ref->[3];
+	my $add_tags = $test_ref->[4] // 0;
+	my $product_ref = $test_ref->[5] // {};
 
-	set_field_input_tags_for_source($product_ref, $tag_lc, $field, "packaging", $input_tags);
+	set_field_input_tags_for_source($product_ref, $tag_lc, $field, "packaging", $input_tags, $add_tags);
 
 	normalize_product_for_test_comparison($product_ref);
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",
