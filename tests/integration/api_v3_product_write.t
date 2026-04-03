@@ -700,6 +700,7 @@ my $tests_ref = [
 		}',
 	},
 	# tags fields
+	# stores_tags is not an array, it will be ignored
 	{
 		test_case => 'patch-tags-fields',
 		method => 'PATCH',
@@ -709,9 +710,30 @@ my $tests_ref = [
 			"product": { 
 				"categories_tags": ["coffee"],
 				"labels_tags": ["en:organic", "fr:max havelaar", "vegan", "Something unrecognized"],
-				"brands_tags": ["Some brand"],
+				"brands_tags": ["Some brand", "Aldi"],
 				"unknown_tags": ["some value"],
-				"stores_tags": "comma,separated,list"
+				"stores_tags": "comma,separated,list",
+				"allergens_tags": ["en:milk", "en:eggs", "en:peanuts", "en:tree-nuts", "en:fish", "en:shellfish", "en:wheat", "en:soy", "en:mango", "kiwi", "Unrecognized Allergen"],
+				"traces_tags": ["en:wheat"]
+			}
+		}',
+	},
+	# tags fields with new tags structure (API v3.6)
+	# stores_tags is not an array, it will be ignored
+	{
+		test_case => 'patch-tags-fields',
+		method => 'PATCH',
+		path => '/api/v3.6/product/3234567890100',
+		body => '{
+			"fields" : "updated",
+			"product": { 
+				"categories_tags": ["coffee"],
+				"labels_tags": ["en:organic", "fr:max havelaar", "vegan", "Something unrecognized"],
+				"brands_tags": ["Some brand", "Aldi"],
+				"unknown_tags": ["some value"],
+				"stores_tags": "comma,separated,list",
+				"allergens_tags": ["en:milk", "en:eggs", "en:peanuts", "en:tree-nuts", "en:fish", "en:shellfish", "en:wheat", "en:soy", "en:mango", "kiwi", "Unrecognized Allergen"],
+				"traces_tags": ["en:wheat"]
 			}
 		}',
 	},
@@ -719,14 +741,15 @@ my $tests_ref = [
 	{
 		test_case => 'patch-tags-fields-add',
 		method => 'PATCH',
-		path => '/api/v3/product/1234567890100',
+		path => '/api/v3.6/product/1234567890100',
 		body => '{
 			"fields" : "updated",
 			"product": { 
 				"categories_tags_add": ["en:tea"],
 				"stores_tags_add": ["Carrefour", "Mon Ptit magasin"],
 				"countries_tags_fr_add": ["Italie", "en:spain"],
-				"labels_tags_fr": ["végétarien", "Something unrecognized in French"]
+				"labels_tags_fr": ["végétarien", "Something unrecognized in French"],
+				"traces_tags_add": ["en:molluscs", "en:sesame"]
 			}
 		}',
 	},

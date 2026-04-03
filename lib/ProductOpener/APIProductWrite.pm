@@ -212,6 +212,7 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tag
 
 	my $request_body_ref = $request_ref->{body_json};
 	my $response_ref = $request_ref->{api_response};
+	my $source = get_source_for_site_and_org($request_ref->{org_id});
 
 	if (ref($value) ne 'ARRAY') {
 		add_error(
@@ -235,8 +236,23 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tag
 			$product_ref->{$field} = $tags_list;
 		}
 
-		compute_field_tags($product_ref, $tags_lc, $field);
+		# Writable tags fields (e.g. categories_tags) are processed in a specific way, in order to update the tags_sources structure and generate the field_tags structure
+		# tags_sources currently only works for taxonomized fields
+		if ((defined $writable_tags_fields{$field}) and (defined $taxonomy_fields{$field})) {
 
+			set_field_input_tags_for_source($product_ref, $tags_lc, $field, $source, $tags_list);
+		}
+		else {
+			$product_ref->{$field} = $value;
+
+			# For some tags fields that are not taxonomized (e.g. emb_codes),
+			# we still need to call the old compute_field_tags() function
+			if (defined $tags_fields{$field} and not defined $taxonomy_fields{$field}) {
+				compute_field_tags($product_ref, $tags_lc, $field);
+			}
+		}
+
+		$request_ref->{updated_product_fields}{tags_sources}{$field} = 1;
 		$request_ref->{updated_product_fields}{$field} = 1;    # joined inputs, can be in any language
 		$request_ref->{updated_product_fields}{$field . '_hierarchy'}
 			= 1;  # tags, with entries that are not in the taxonomy in original format (with accents, caps, spaces etc.)
@@ -853,7 +869,7 @@ sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value
 		# For some tags fields that are not taxonomized (e.g. emb_codes),
 		# we still need to call the old compute_field_tags() function
 		elsif (defined $tags_fields{$field} and not defined $taxonomy_fields{$field}) {
-			compute_field_tags($product_ref, $lc, $field);
+			compute_field_tags($product_ref, $target_lc, $field);
 		}
 	}
 

@@ -30,7 +30,7 @@
       "allergens_tags" : [
          "en:crustaceans"
       ],
-      "brands" : "another-brand-1, another-brand-2",
+      "brands" : "Another brand 1, Another brand 2",
       "brands_tags" : [
          "another-brand-1",
          "another-brand-2"
@@ -574,10 +574,8 @@
       "editors_tags" : [
          "tests"
       ],
-      "emb_codes" : "FR 56.082 CE",
-      "emb_codes_hierarchy" : [
-         "fr-56-082-ec"
-      ],
+      "emb_codes" : "",
+      "emb_codes_hierarchy" : [],
       "emb_codes_lc" : "fr",
       "emb_codes_tags" : [
          "fr-56-082-ec"
@@ -595,9 +593,9 @@
       ],
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
-      "labels" : "gold-meal",
+      "labels" : "es:Gold meal",
       "labels_hierarchy" : [
-         "es:gold-meal"
+         "es:Gold meal"
       ],
       "labels_lc" : "fr",
       "labels_tags" : [
@@ -741,21 +739,7 @@
       "rev" : 2,
       "schema_version" : 998,
       "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
-      "states_hierarchy" : [
-         "en:to-be-completed",
-         "en:nutrition-facts-to-be-completed",
-         "en:ingredients-to-be-completed",
-         "en:expiration-date-to-be-completed",
-         "en:packaging-code-completed",
-         "en:characteristics-to-be-completed",
-         "en:origins-to-be-completed",
-         "en:categories-completed",
-         "en:brands-completed",
-         "en:packaging-to-be-completed",
-         "en:quantity-to-be-completed",
-         "en:product-name-to-be-completed",
-         "en:photos-to-be-uploaded"
-      ],
+      "states_hierarchy" : [],
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-to-be-completed",

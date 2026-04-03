@@ -16,7 +16,7 @@
          "viande"
       ],
       "added_countries_tags" : [],
-      "allergens" : "Œufs, xyz",
+      "allergens" : "Œufs, es:xyz",
       "allergens_hierarchy" : [
          "en:eggs",
          "es:xyz"
@@ -26,7 +26,7 @@
          "en:eggs",
          "es:xyz"
       ],
-      "brands" : "Aldi, acme, acme-incorporated",
+      "brands" : "Aldi, ACME, ACME Incorporated",
       "brands_tags" : [
          "aldi",
          "acme",
@@ -404,10 +404,8 @@
       "editors_tags" : [
          "tests"
       ],
-      "emb_codes" : "FR 56.081 CE",
-      "emb_codes_hierarchy" : [
-         "fr-56-081-ec"
-      ],
+      "emb_codes" : "",
+      "emb_codes_hierarchy" : [],
       "emb_codes_lc" : "fr",
       "emb_codes_tags" : [
          "fr-56-081-ec"
@@ -565,21 +563,7 @@
       "rev" : 1,
       "schema_version" : 998,
       "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
-      "states_hierarchy" : [
-         "en:to-be-completed",
-         "en:nutrition-facts-to-be-completed",
-         "en:ingredients-to-be-completed",
-         "en:expiration-date-to-be-completed",
-         "en:packaging-code-completed",
-         "en:characteristics-to-be-completed",
-         "en:origins-to-be-completed",
-         "en:categories-completed",
-         "en:brands-completed",
-         "en:packaging-to-be-completed",
-         "en:quantity-to-be-completed",
-         "en:product-name-to-be-completed",
-         "en:photos-to-be-uploaded"
-      ],
+      "states_hierarchy" : [],
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-to-be-completed",
@@ -595,11 +579,11 @@
          "en:product-name-to-be-completed",
          "en:photos-to-be-uploaded"
       ],
-      "traces" : "Moutarde, Lait, abcd",
+      "traces" : "es:Moutarde, Lait, es:abcd",
       "traces_hierarchy" : [
          "en:milk",
-         "es:abcd",
-         "es:moutarde"
+         "es:Moutarde",
+         "es:abcd"
       ],
       "traces_lc" : "fr",
       "traces_tags" : [

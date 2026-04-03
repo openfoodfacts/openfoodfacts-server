@@ -3335,6 +3335,8 @@ sub get_taxonomy_tag_and_link_for_lang ($target_lc, $tagtype, $tagid) {
 Returns a comma-separated list of links for the tags in the input list,
 with the display text in the target language.
 
+Note: if a tag is not available in the target language, it is prefixed with the language.
+
 =head3 Arguments
 
 =head4 $target_lc
@@ -3361,7 +3363,7 @@ sub display_comma_separated_tags_list_in_lc ($target_lc, $tagtype, $tags_ref) {
 		return '';
 	}
 
-	return join(", ", map {display_taxonomy_tag_name($target_lc, $tagtype, $_)} @$tags_ref);
+	return join(", ", map {display_taxonomy_tag($target_lc, $tagtype, $_)} @$tags_ref);
 }
 
 =head2 display_tags_list ($tagtype, $tags_list_ref)
@@ -4963,6 +4965,16 @@ sub generate_field_tags_from_all_sources ($product_ref, $tagtype, $normalize = 0
 
 	if (defined $product_ref->{tags_sources}{$tagtype}) {
 		foreach my $source (keys %{$product_ref->{tags_sources}{$tagtype}}) {
+
+			$log->debug(
+				"generate_field_tags_from_all_sources - source",
+				{
+					tagtype => $tagtype,
+					source => $source,
+					source_data => $product_ref->{tags_sources}{$tagtype}{$source}
+				}
+			) if $log->is_debug();
+
 			if (defined $product_ref->{tags_sources}{$tagtype}{$source}{tags}) {
 				foreach my $tag (@{$product_ref->{tags_sources}{$tagtype}{$source}{tags}}) {
 					# Copy the tag so that we don't modify the original tag in the source when we normalize it
@@ -4985,6 +4997,9 @@ sub generate_field_tags_from_all_sources ($product_ref, $tagtype, $normalize = 0
 	}
 
 	my @all_input_tags_list = sort keys %all_input_tags;
+
+	$log->debug("generate_field_tags_from_all_sources - all input tags", {all_input_tags_list => \@all_input_tags_list})
+		if $log->is_debug();
 
 	$product_ref->{$tagtype . "_tags"} = [gen_tags_list_with_parents("en", $tagtype, \@all_input_tags_list)];
 

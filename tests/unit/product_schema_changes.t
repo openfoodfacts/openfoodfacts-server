@@ -1468,7 +1468,7 @@ my @tests = (
 		'1003-to-1004-new-tags-schema',
 		1004,
 		{
-			schema => 1003,
+			schema_version => 1003,
 			lc => "fr",
 			# not a writable field, should be kept
 			added_countries_tags => [],
@@ -1528,6 +1528,77 @@ my @tests = (
 				"en:enzyme", "en:coagulating-enzyme", "en:salt"
 			],
 		},
+	],
+
+	[
+		'1004-to-1003-new-tags-schema',
+		1003,
+		{
+			schema_version => 1004,
+			categories_tags => ["en:coffees", "de:toutafe", "de:alonbon"],
+			tags_sources => {
+				categories => {
+					packaging => {
+						last_updated_t => 1775063799,
+						tags => ["de:Toutafé", "de:alonbon"]
+					},
+					manufacturer => {
+						last_updated_t => 1775063800,
+						tags => ["en:coffees"]
+					}
+				},
+			}
+		}
+	],
+
+	[
+		'1004-to-1003-categories',
+		1003,
+		{
+			schema_version => 1004,
+			brands => "Some brand",
+			brands_hierarchy => ["xx:Some brand"],
+			brands_tags => ["xx:some-brand"],
+			brands_tags_en => ["some-brand"],
+			categories => "coffee",
+			categories_hierarchy => ["en:plant-based-foods-and-beverages", "en:plant-based-foods", "en:coffees"],
+			categories_tags => ["en:plant-based-foods-and-beverages", "en:plant-based-foods", "en:coffees"],
+			categories_tags_en => ["Plant-based foods and beverages", "Plant-based foods", "Coffees"],
+			labels => "en:organic,fr:max havelaar,vegan,Something unrecognized",
+			labels_hierarchy => [
+				"en:vegetarian", "en:fair-trade",
+				"en:organic", "en:fairtrade-international",
+				"en:vegan", "en:max-havelaar",
+				"en:Something unrecognized"
+			],
+			labels_tags => [
+				"en:vegetarian", "en:fair-trade",
+				"en:organic", "en:fairtrade-international",
+				"en:vegan", "en:max-havelaar",
+				"en:something-unrecognized"
+			],
+			labels_tags_en => [
+				"Vegetarian", "Fair trade",
+				"Organic", "Fairtrade International",
+				"Vegan", "Max Havelaar",
+				"Something-unrecognized"
+			],
+			tags_sources => {
+				allergens => {
+					ingredients => {
+						last_updated_t => 1775147439,
+						tags => []
+					}
+				},
+				traces => {
+					ingredients => {
+						last_updated_t => 1775147439,
+						tags => []
+					}
+				}
+			},
+
+		}
 	]
 );
 

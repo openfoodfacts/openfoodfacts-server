@@ -2,44 +2,36 @@
    "code" : "1234567890100",
    "errors" : [],
    "product" : {
-      "categories" : "Teas, Coffees",
+      "categories" : "en:tea",
       "categories_hierarchy" : [
          "en:beverages-and-beverages-preparations",
          "en:plant-based-foods-and-beverages",
          "en:beverages",
-         "en:plant-based-foods",
          "en:hot-beverages",
          "en:plant-based-beverages",
-         "en:teas",
-         "en:coffees"
+         "en:teas"
       ],
-      "categories_lc" : "en",
       "categories_tags" : [
          "en:beverages-and-beverages-preparations",
          "en:plant-based-foods-and-beverages",
          "en:beverages",
-         "en:plant-based-foods",
          "en:hot-beverages",
          "en:plant-based-beverages",
-         "en:teas",
-         "en:coffees"
+         "en:teas"
       ],
       "categories_tags_en" : [
          "Beverages and beverages preparations",
          "Plant-based foods and beverages",
          "Beverages",
-         "Plant-based foods",
          "Hot beverages",
          "Plant-based beverages",
-         "Teas",
-         "Coffees"
+         "Teas"
       ],
-      "countries" : "Italy, Spain",
+      "countries" : "Italie, en:spain",
       "countries_hierarchy" : [
          "en:italy",
          "en:spain"
       ],
-      "countries_lc" : "en",
       "countries_tags" : [
          "en:italy",
          "en:spain"
@@ -48,12 +40,7 @@
          "Italie",
          "Espagne"
       ],
-      "labels" : "Vegetarian, something-unrecognized-in-french",
-      "labels_hierarchy" : [
-         "en:vegetarian",
-         "fr:something-unrecognized-in-french"
-      ],
-      "labels_lc" : "en",
+      "labels" : "végétarien,Something unrecognized in French",
       "labels_tags" : [
          "en:vegetarian",
          "fr:something-unrecognized-in-french"
@@ -62,19 +49,100 @@
          "Végétarien",
          "Something-unrecognized-in-french"
       ],
-      "stores" : "Carrefour, Mon-ptit-magasin",
-      "stores_hierarchy" : [
-         "carrefour",
-         "mon-ptit-magasin"
+      "stores" : [
+         "Carrefour",
+         "Mon Ptit magasin"
       ],
-      "stores_lc" : "en",
       "stores_tags" : [
-         "carrefour",
-         "mon-ptit-magasin"
+         "array-0x5ebb0e1586f0"
       ],
       "stores_tags_en" : [
-         "Carrefour",
-         "Mon-ptit-magasin"
+         "Array-0x5ebb0e1586f0"
+      ],
+      "tags_sources" : {
+         "allergens" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            },
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:milk",
+                  "en:eggs",
+                  "en:peanuts",
+                  "en:nuts",
+                  "en:fish",
+                  "en:shellfish",
+                  "en:gluten",
+                  "en:soybeans",
+                  "en:mango",
+                  "en:kiwi",
+                  "en:Unrecognized Allergen"
+               ]
+            }
+         },
+         "brands" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "xx:Some brand",
+                  "xx:aldi"
+               ]
+            }
+         },
+         "categories" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:teas"
+               ]
+            }
+         },
+         "countries" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:italy",
+                  "en:spain"
+               ]
+            }
+         },
+         "labels" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:vegetarian",
+                  "fr:Something unrecognized in French"
+               ]
+            }
+         },
+         "traces" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            },
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:molluscs",
+                  "en:sesame-seeds"
+               ]
+            }
+         }
+      },
+      "traces" : "en:molluscs, en:sesame",
+      "traces_hierarchy" : [
+         "en:molluscs",
+         "en:sesame-seeds"
+      ],
+      "traces_tags" : [
+         "en:molluscs",
+         "en:sesame-seeds"
+      ],
+      "traces_tags_en" : [
+         "Molluscs",
+         "Sesame seeds"
       ]
    },
    "status" : "success",

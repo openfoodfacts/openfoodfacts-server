@@ -993,13 +993,26 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 
 sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 
-	# we copy the content of fields like categories_tags back inside categories_hierarchy
+	$log->debug("convert_product_schema_1004_to_1003", {product_ref => $product_ref}) if $log->is_debug();
+
 	foreach my $tagtype (@writable_tags_fields_list, "states") {
 		if (defined $product_ref->{$tagtype . "_tags"}) {
+			# Save the normalized tags as we will call generate_field_tags_from_all_sources which will overwrite them
+			$product_ref->{$tagtype . "_tags_copy"} = $product_ref->{$tagtype . "_tags"};
+
+			# We generate the _hierarchy field from input tags, with normalized set to 0 to keep unnormalized tags for unrecognized tags (e.g. with accents and case)
+			generate_field_tags_from_all_sources($product_ref, $tagtype, 0);
+
+			$log->debug("Generated field $tagtype\_tags with value ",
+				{value => join(", ", @{$product_ref->{$tagtype . "_tags"}})})
+				if $log->is_debug;
+
 			$product_ref->{$tagtype . "_hierarchy"} = $product_ref->{$tagtype . "_tags"};
-			# We keep tags as is
-			# (before the tags that were not recognized in the taxonomy were not unaccented,
-			# so we could have "fr:entrée non reconnue" instead of "fr:entree-non-reconnue")
+
+			$product_ref->{$tagtype . "_tags"} = $product_ref->{$tagtype . "_tags_copy"};
+			delete $product_ref->{$tagtype . "_tags_copy"};
+
+			# We keep [$tagtype_]tags as is: it contains normalized tags
 
 			if ($tagtype ne "states") {
 
@@ -1007,13 +1020,15 @@ sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 				# and generate the [tagtype] field with comma separated values, but only for the minimal tags subset that is used to generate the [tagtype]_tags field, to avoid generating tags
 				my $target_lc = $product_ref->{lang} // "en";
 				$product_ref->{$tagtype . "_lc"} = $target_lc;
-				my $tags_ref = $product_ref->{$tagtype . "_tags"};
+				my $tags_ref = $product_ref->{$tagtype . "_hierarchy"};
 				if (($tagtype eq "traces") or ($tagtype eq "allergens")) {
 					# For allergens and traces, we generate a field that corresponds the packaging source only, not the allergens from ingredients
 					# so that apps do not write back allergens from ingredients as allergens from packaging.
 					$tags_ref = deep_get($product_ref, "tags_sources", $tagtype, "packaging", "tags");
 				}
 
+				# We generate fields like "labels" and "categories" with the _hierarchy tags that contain unnormalized entries for unrecognized tags
+				# (e.g. with accents and case)
 				$product_ref->{$tagtype}
 					= display_comma_separated_tags_list_in_lc($target_lc, $tagtype,
 					[get_minimal_tags_subset($tagtype, $tags_ref)]);

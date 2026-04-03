@@ -98,6 +98,13 @@ is(display_comma_separated_tags_list_in_lc("fr", "categories", ["en:vegetables",
 is(display_comma_separated_tags_list_in_lc("fr", "brands", ["xx:aldi", "xx:marks-spencers", "xx:Marque Inconnue"]),
 	"Aldi, Marks & Spencers, Marque Inconnue");
 
+is(
+	display_comma_separated_tags_list_in_lc(
+		"en", "categories", ["en:vegetables", "de:Toutafé", "fr:Catégorie tout à fait inconnue"]
+	),
+	"Vegetables, de:Toutafé, fr:Catégorie tout à fait inconnue"
+);
+
 # gen_tags_list_with_parents
 
 retrieve_tags_taxonomy("test");
