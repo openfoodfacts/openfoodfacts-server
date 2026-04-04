@@ -7021,8 +7021,8 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|\)|\]|$)/replace_additive($3,$6,$9) . $12/ieg;
 
 	# E100 et E120 -> E100, E120
-	$text =~ s/\be($additivesregexp)$and/e$1, /ig;
-	$text =~ s/${and}e($additivesregexp)/, e$1/ig;
+	$text =~ s/\be($additivesregexp)$and/'e' . ($1 // '') . ', '/ige;
+	$text =~ s/${and}e($additivesregexp)/', e' . ($1 // '')/ige;
 
 	# E100 E122 -> E100, E122
 	$text =~ s/\be($additivesregexp)\s+e(?=\d)/e$1, e/ig;

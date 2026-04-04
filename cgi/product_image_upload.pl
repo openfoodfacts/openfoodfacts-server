@@ -155,7 +155,7 @@ if (not defined $code) {
 my $response_ref = {
 	files => [
 		{
-			filename => $filename . "",    # Make filename a scalar
+			filename => ($filename // '') . "",    # Make filename a scalar
 		}
 	],
 };

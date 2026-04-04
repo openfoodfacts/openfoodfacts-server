@@ -7701,10 +7701,10 @@ sub display_page ($request_ref) {
 				$osubdomain = $request_ref->{cc};
 			}
 			if (($olc eq $lc)) {
-				$selected_lang = "<a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a>\n";
+				$selected_lang = "<a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a>\n";
 			}
 			else {
-				$langs .= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a></li>";
+				$langs .= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a></li>";
 			}
 		}
 	}
@@ -10742,7 +10742,7 @@ sub display_properties ($request_ref) {
 
 	my $html;
 	process_template('web/common/includes/folksonomy_script.tt.html', {}, \$html, $request_ref)
-		|| return "template error: " . $tt->error();
+		|| return "template error: " . ($tt->error() // 'unknown error');
 
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{page_type} = "properties";
