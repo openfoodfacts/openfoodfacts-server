@@ -134,23 +134,24 @@ but "environmental_score_data.adjustments.packaging.value" is valid.
 sub is_valid_field_path ($field_path) {
 	# Split by dots and filter out empty strings
 	my @path_parts = grep {defined && length} split(/\./, $field_path);
-	
+
 	# Empty path is invalid
 	return 0 if scalar @path_parts == 0;
-	
+
 	# Check if any part tries to access an array field with a non-numeric key
 	for (my $i = 0; $i < scalar @path_parts - 1; $i++) {
 		my $current_part = $path_parts[$i];
 		my $next_part = $path_parts[$i + 1];
-		
+
 		# If current part is a known array field, next part must be numeric
 		if (exists $array_fields{$current_part} && $next_part !~ /^\d+$/) {
-			$log->debug("Invalid field path: $field_path - trying to access array field '$current_part' with non-numeric index '$next_part'")
-				if $log->is_debug();
+			$log->debug(
+				"Invalid field path: $field_path - trying to access array field '$current_part' with non-numeric index '$next_part'"
+			) if $log->is_debug();
 			return 0;
 		}
 	}
-	
+
 	return 1;
 }
 
@@ -410,7 +411,9 @@ sub export_csv ($args_ref) {
 								# Allow returning fields that are not at the root of the product structure
 								# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
 								# Validate the field path before calling deep_exists to avoid warnings
-								if (is_valid_field_path($key) && deep_exists($product_ref, grep {defined && length} split(/\./, $key))) {
+								if (   is_valid_field_path($key)
+									&& deep_exists($product_ref, grep {defined && length} split(/\./, $key)))
+								{
 									$populated_fields{$group_prefix . $field} = $field_sort_key;
 								}
 							}
@@ -579,7 +582,8 @@ sub export_csv ($args_ref) {
 				# Nutrition: other fields
 				elsif ($field =~ /^nutrition\./) {
 					my @path_parts = grep {defined && length} split(/\./, $field);
-					$value = deep_get($product_ref, @path_parts) if is_valid_field_path($field) && scalar @path_parts > 0;
+					$value = deep_get($product_ref, @path_parts)
+						if is_valid_field_path($field) && scalar @path_parts > 0;
 				}
 				# Source specific fields
 				elsif ($field =~ /^sources_fields:([a-z0-9-]+):/) {
@@ -673,7 +677,8 @@ sub export_csv ($args_ref) {
 					# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
 					elsif ($field =~ /\./) {
 						my @path_parts = grep {defined && length} split(/\./, $field);
-						$value = deep_get($product_ref, @path_parts) if is_valid_field_path($field) && scalar @path_parts > 0;
+						$value = deep_get($product_ref, @path_parts)
+							if is_valid_field_path($field) && scalar @path_parts > 0;
 					}
 					# Fields like "obsolete" : output 1 for true values or 0
 					elsif ($field eq "obsolete") {

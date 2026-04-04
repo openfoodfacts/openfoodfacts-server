@@ -7701,10 +7701,12 @@ sub display_page ($request_ref) {
 				$osubdomain = $request_ref->{cc};
 			}
 			if (($olc eq $lc)) {
-				$selected_lang = "<a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a>\n";
+				$selected_lang
+					= "<a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a>\n";
 			}
 			else {
-				$langs .= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a></li>";
+				$langs
+					.= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a></li>";
 			}
 		}
 	}

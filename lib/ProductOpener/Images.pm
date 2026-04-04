@@ -886,7 +886,8 @@ sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, 
 
 	# debug message passed back to apps in case of an error
 
-	$$debug_string_ref = "product_id: $product_ref->{id} - user_id: " . ($user_id // '(none)') . " - imagefield: $imagefield";
+	$$debug_string_ref
+		= "product_id: $product_ref->{id} - user_id: " . ($user_id // '(none)') . " - imagefield: $imagefield";
 
 	my $filehandle;
 

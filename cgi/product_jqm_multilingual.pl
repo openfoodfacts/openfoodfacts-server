@@ -76,7 +76,11 @@ use Log::Any qw($log);
 # "POSTDATA":"{\"code\":\"3270160874071\",\"lc\":\"fr\",\"cc\":\"FR\",\"user_id\":\"kiliweb\" [..]
 # This needs to be done before init_request() as the body contains user_id and password for authentication
 my $user_agent = user_agent();
-if ((defined $user_agent) and ($user_agent =~ /Symfony HttpClient/) and (request_method() eq 'GET') and (not param("code"))) {
+if (    (defined $user_agent)
+	and ($user_agent =~ /Symfony HttpClient/)
+	and (request_method() eq 'GET')
+	and (not param("code")))
+{
 
 	my $r = Apache2::RequestUtil->request();
 
