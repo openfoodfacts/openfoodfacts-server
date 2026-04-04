@@ -98,13 +98,13 @@
                             },
                             {
                                 [% IF score >= 15 %]
-                                    "text": "[% edq(lang('low')) FILTER ucfirst %]",
+                                    "text": "[% edq(lang('low')) %]",
                                     "evaluation": "good",
                                 [% ELSIF score <= 0 %]
-                                    "text": "[% edq(lang('high')) FILTER ucfirst %]",
+                                    "text": "[% edq(lang('high')) %]",
                                     "evaluation": "bad",
                                 [% ELSE %]
-                                    "text": "[% edq(lang('medium')) FILTER ucfirst %]",
+                                    "text": "[% edq(lang('medium')) %]",
                                     "evaluation": "neutral",
                                 [% END %]
                             }
