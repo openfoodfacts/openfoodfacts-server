@@ -141,7 +141,7 @@ sub compute_main_countries ($product_ref) {
 					# with the average ratio across all products
 
 					my $average_cc_to_world_scans_ratio
-						= $all_products_scans_ref->{$year}{unique_scans_n_by_country}{$cc}
+					= ($all_products_scans_ref->{$year}{unique_scans_n_by_country}{$cc} || 0)
 						/ ($all_products_scans_ref->{$year}{unique_scans_n_by_country}{"world"} || 1);
 					my $cc_to_world_scans_ratio = ($scans_ref->{$year}{unique_scans_n_by_country}{$cc} || 0)
 						/ ($scans_ref->{$year}{unique_scans_n_by_country}{"world"} || 1);

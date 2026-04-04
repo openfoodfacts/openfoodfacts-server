@@ -8178,7 +8178,8 @@ sub detect_allergens_from_text ($product_ref) {
 
 			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
 
-			if ($language eq $ingredients_lc) {
+			my $ingredients_language = (defined $ingredients_lc) ? $ingredients_lc : '';
+			if ($language eq $ingredients_language) {
 				$product_ref->{"ingredients_text_with_allergens"} = $text;
 			}
 

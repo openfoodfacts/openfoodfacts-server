@@ -336,6 +336,13 @@ sub api_route($request_ref) {
 	my $api_version = $api =~ /v(\d+(\.\d+)?)/ ? $1 : 0;
 	my $api_action = $components[2];    # product
 
+	# API action is required
+	if (not defined $api_action) {
+		$request_ref->{status_code} = 404;
+		$request_ref->{error_message} = lang("error_invalid_address");
+		return;
+	}
+
 	# If the api_action is different than "search", check if it is the local path for "product"
 	# so that urls like https://fr.openfoodfacts.org/api/v3/produit/4324232423 work (produit instead of product)
 	# this is so that we can quickly add /api/v3/ to get the API

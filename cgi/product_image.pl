@@ -113,7 +113,7 @@ if (not(defined $image_ref)) {
 }
 
 my $imagetext;
-if ($id =~ /^(.*)_(.*)$/) {
+if ((defined $id) and ($id =~ /^(.*)_(.*)$/)) {
 	$imagetext = lang($1 . '_alt');
 }
 else {
