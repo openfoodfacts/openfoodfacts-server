@@ -262,15 +262,16 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'chromium-', 'molybdenum-',
 			'iodine-', 'caffeine-',
 			'taurine-', 'methylsulfonylmethane-',
-			'ph-', '!fruits-vegetables-legumes-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'glycemic-index-', 'water-hardness-',
-			'choline-', 'phylloquinone-',
-			'beta-glucan-', 'inositol-',
-			'carnitine-', 'sulphate-',
-			'nitrate-', 'acidity-',
-			'carbohydrates-total-', 'water-',
+			'hydroxymethylbutyrate-', 'ph-',
+			'!fruits-vegetables-legumes-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
+			'water-hardness-', 'choline-',
+			'phylloquinone-', 'beta-glucan-',
+			'inositol-', 'carnitine-',
+			'sulphate-', 'nitrate-',
+			'acidity-', 'carbohydrates-total-',
+			'water-',
 		)
 	],
 	off_ca => [
@@ -326,15 +327,16 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'fluoride-', 'selenium-',
 			'chromium-', 'molybdenum-',
 			'iodine-', 'caffeine-',
-			'taurine-', 'ph-',
-			'!fruits-vegetables-legumes-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-',
-			'acidity-', 'carbohydrates-',
+			'taurine-', 'hydroxymethylbutyrate-',
+			'ph-', '!fruits-vegetables-legumes-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+			'carbohydrates-',
 		)
 	],
 	off_ru => [
@@ -455,13 +457,13 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'selenium-', 'chromium-',
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
-			'ph-', '!fruits-vegetables-legumes-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'glycemic-index-', 'water-hardness-',
-			'sulfate-', 'nitrate-',
-			'acidity-', 'carbohydrates-',
-			'melatonin-',
+			'hydroxymethylbutyrate-', 'ph-',
+			'!fruits-vegetables-legumes-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
+			'water-hardness-', 'sulfate-',
+			'nitrate-', 'acidity-',
+			'carbohydrates-', 'melatonin-',
 		)
 	],
 	off_us_before_2017 => [
@@ -1605,7 +1607,7 @@ sub has_category_that_should_have_prepared_nutrition_data ($product_ref) {
 
 Check that we know or can estimate the nutrients needed to compute the Nutri-Score of the product.
 
-To compute the Nutri-Score, we use the nutrition.aggregated_set 
+To compute the Nutri-Score, we use the nutrition.aggregated_set
 
 =head3 Arguments
 
