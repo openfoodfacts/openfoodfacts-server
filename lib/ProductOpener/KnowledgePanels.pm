@@ -186,7 +186,7 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 
 	# Test panel to test the start of the API
 	# Disabled, kept as reference when we create a "Do you know" panel
-	if ($product_ref->{code} eq "3017620422003--disabled") {
+	if ((defined $product_ref->{code}) and ($product_ref->{code} eq "3017620422003--disabled")) {
 
 		my $test_panel_ref = {
 			parent_panel_id => "root",
@@ -478,8 +478,10 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 		$panel_json =~ s/^(\s*)\/\/(.*)$//mg;
 
 		# Turn relative links to absolute links using the requested country / language subdomain
-		my $formatted_subdomain = $request_ref->{formatted_subdomain};
-		$panel_json =~ s/href="\//href="$formatted_subdomain\//g;
+		my $formatted_subdomain = $request_ref->{formatted_subdomain} // '';
+		if ($formatted_subdomain) {
+			$panel_json =~ s/href="\//href="$formatted_subdomain\//g;
+		}
 
 		# Convert multilines strings between backticks `` into single line strings
 		# We use two backticks `` to remove line breaks and extra spaces
@@ -586,7 +588,7 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 		my $grade = $product_ref->{environmental_score_data}{grade};
 		my $transportation_warning = undef;
 
-		if (defined $product_ref->{environmental_score_data}{scores}{$cc}) {
+		if ((defined $cc) and (defined $product_ref->{environmental_score_data}{scores}{$cc})) {
 			$score = $product_ref->{environmental_score_data}{scores}{$cc};
 			$grade = $product_ref->{environmental_score_data}{grades}{$cc};
 			if ($cc eq "world") {

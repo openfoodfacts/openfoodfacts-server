@@ -30,7 +30,7 @@
                 "title": "[% edq(lang("ingredients_requiring_soy")) %]",
                 "columns": [
                     {
-                        "text": "[% edq(lang("ingredients_s")) %]",
+                        "text": "[% edq(lang("ingredients_s").ucfirst) %]",
                         "type": "text"
                     },
                     {

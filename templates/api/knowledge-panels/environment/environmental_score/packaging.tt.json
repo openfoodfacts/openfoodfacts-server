@@ -86,13 +86,13 @@
                             },
                             {
                             [% IF score >= 75 %]
-                                "text": "[% edq(lang('low')) %]",
+                                "text": "[% edq(lang('low').ucfirst) %]",
                                 "evaluation": "good",
                             [% ELSIF score <= 25 %]
-                                "text": "[% edq(lang('high')) %]",
+                                "text": "[% edq(lang('high').ucfirst) %]",
                                 "evaluation": "bad",
                             [% ELSE %]
-                                "text": "[% edq(lang('medium')) %]",
+                                "text": "[% edq(lang('medium').ucfirst) %]",
                                 "evaluation": "neutral",
                             [% END %]
                             }

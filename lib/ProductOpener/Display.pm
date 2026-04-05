@@ -291,6 +291,17 @@ $tt = Template->new(
 		COMPILE_EXT => '.ttc',    # compile templates to Perl code for much faster reload
 		COMPILE_DIR => $data_root . "/tmp/templates",
 		ENCODING => 'UTF-8',
+		FILTERS => {
+			# UTF-8-safe ucfirst filter to avoid "Wide character in ucfirst" warnings
+			# Standard Perl ucfirst doesn't handle multi-byte UTF-8 characters properly
+			ucfirst => sub {
+				my $text = shift;
+				return '' unless defined $text;
+				# Use uc() on first character which works correctly with UTF-8
+				# when utf8 flag is set (Template Toolkit handles this with ENCODING => 'UTF-8')
+				return uc(substr($text, 0, 1)) . substr($text, 1);
+			},
+		},
 	}
 );
 
