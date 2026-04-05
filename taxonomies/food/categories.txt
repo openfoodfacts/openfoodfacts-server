@@ -40613,6 +40613,7 @@ en: Chocolate covered nuts and fruits mixes
 nl: Gemengde noten en fruit bedekt met chocolade
 
 < en:Chocolate covered nuts and fruits
+< en:Nut confectioneries
 en: Chocolate covered nuts, Chocolate confectionery filled with nuts
 de: Mit Schokolade überzogene Nüsse
 es: Frutos de cáscara recubiertos de chocolate, Frutos secos recubiertos de chocolate
@@ -40669,7 +40670,6 @@ fr: Grains de café enrobés de chocolat
 en: Chocolate coated pistachios, Chocolate covered pistachios
 
 < en:Chocolate covered nuts
-< en:Nut confectioneries
 en: Chocolate covered hazelnuts, Chocolate-coated hazelnuts
 fr: Noisettes enrobées de chocolat
 hr: Lješnjaci preliveni čokoladom
@@ -40937,7 +40937,6 @@ ciqual_food_name:en: Hard candy and lollipop
 ciqual_food_name:fr: Bonbon dur et sucette
 wikidata:en: Q217446
 
-
 < en:Nut confectioneries
 en: French pralines
 de: Französciche pralinen
@@ -40947,6 +40946,22 @@ it: Praline francesi
 nl: Franse praliné
 wikidata:en: Q851428
 #wikidata:en:
+
+# Almonds coated with a thick layer of sugar, often colored
+< en:Nut confectioneries
+en: Dragées, Sugar-coated almond
+de: Dragées, Dragees
+es: Grageados
+fi: drageet
+fr: Dragées
+hr: Dražeje
+lt: Dražė
+nl: Dragees
+agribalyse_food_code:en: 31036
+ciqual_food_code:en: 31036
+ciqual_food_name:en: Sugar-coated almond
+ciqual_food_name:fr: Dragée amande
+wikidata:en: Q1255306
 
 < en:Nut confectioneries
 en: Gozinaki, gozinaqi
@@ -41542,21 +41557,6 @@ de: Kokosnussbälle mit Schokoladenüberzug
 es: Bolitas de coco recubiertas de chocolate
 fr: Boules de noix de coco enrobées de chocolat
 hr: Kokos kuglice prelivene čokoladom
-
-< en:Confectioneries
-en: Dragées, Sugar-coated almond
-de: Dragées, Dragees
-es: Grageados
-fi: drageet
-fr: Dragées
-hr: Dražeje
-lt: Dražė
-nl: Dragees
-agribalyse_food_code:en: 31036
-ciqual_food_code:en: 31036
-ciqual_food_name:en: Sugar-coated almond
-ciqual_food_name:fr: Dragée amande
-wikidata:en: Q1255306
 
 < en:Christmas sweets
 < en:Dried plant-based foods
@@ -58343,25 +58343,6 @@ en: Caramelized sesame seeds
 nl: Gekarameliseerde sesam
 
 < en:Nut confectioneries
-en: Caramelized mixed nuts
-es: Mezclas de frutos de cáscara caramelizados, Mezclas de frutos secos caramelizados
-fr: Noix mélangées caramélisées
-hr: Karameliziranih miješanih orašastih plodova
-lt: Karamelizuoti įvairūs riešutai
-nl: Gemengde suikernoten
-
-< en:Nut confectioneries
-en: Caramelized peanuts
-es: Cacahuetes garrapiñados, Garrapiñadas de cacahuete, Cacahuetes confitados, Garrapiñadas de maní, Maní confitado, Cacahuetes caramelizados
-fr: Cacahuètes caramélisées, arachides caramélisées, chouchous
-hr: Karamelizirani kikiriki
-hu: Karamellizált földimogyoró, Karamellizált mogyoró
-lt: Karamelizuoti žemės reišutai
-nl: Suikerpinda's, gesuikerde pinda's
-oqali_family:en: fr:Aperitifs a croquer - Cacahuetes sucrees
-wikidata:en: Q5875513
-
-< en:Nut confectioneries
 en: Marrons glacés, Marrón glacé, Candied chesnuts, Iced chestnuts
 xx: Marrons glacés
 es: Castañas confitadas, Castañas glaseadas, Marrón glacé, Marrons glacés
@@ -58374,9 +58355,21 @@ ciqual_food_name:en: Iced chestnut
 ciqual_food_name:fr: Marron glacé
 wikidata:en: Q2334489
 
-< en:Dragées
 < en:Nut confectioneries
-en: Sugar coated almonds, Caramelized almonds
+en: Caramelized nuts
+de: Karamellisierte Nüsse
+fr: Fruits à coques caramélisées
+nl: Suikernoten, Gekarameliseerde noten
+
+< en:Caramelized nuts
+en: Caramelized pine nuts, Sugar coated pinenuts
+es: Piñones cubiertos de azúcar
+fr: Pignons de pin enrobés de sucre
+hr: Pinjole obložene šećerom
+nl: Suikerpijnboompitten
+
+< en:Caramelized nuts
+en: Caramelized almonds, Sugar coated almonds
 de: Mandeln mit Zuckerüberzug
 es: Peladillas, Almendras caramelizadas
 fr: Amandes caramélisées, Amandes enrobées de sucre
@@ -58386,23 +58379,9 @@ lt: Cukruoti migdolai, cukrumi padengti migdolai, Karamelizuoti migdolai
 nl: Suikeramandelen, Gecarameliseerde amandelen
 pt: Amêndoas caramelizadas
 
-< en:Dragées
-< en:Nut confectioneries
-en: Caramelized pine nuts, Sugar coated pinenuts
-es: Piñones cubiertos de azúcar
-fr: Pignons de pin enrobés de sucre
-hr: Pinjole obložene šećerom
-nl: Suikerpijnboompitten
-
-< en: Sugar coated almonds
+< en: Caramelized almonds
 es: Almendras garrapiñadas
 wikidata:en: Q1187678
-
-< en:Nut confectioneries
-en: Caramelized nuts
-de: Karamellisierte Nüsse
-fr: Fruits à coques caramélisées
-nl: Suikernoten, Gekarameliseerde noten
 
 < en:Caramelized nuts
 en: Caramelized hazelnuts, Caramelised hazelnuts
@@ -58416,6 +58395,29 @@ nl: Suikerhazelnoten, Gekarameliseerde hazelnoten
 < en:Caramelized nuts
 en: Caramelized pecan nuts
 nl: Gekarameliseerde pecannoten
+
+< en:Caramelized nuts
+en: Caramelized mixed nuts
+es: Mezclas de frutos de cáscara caramelizados, Mezclas de frutos secos caramelizados
+fr: Noix mélangées caramélisées
+hr: Karameliziranih miješanih orašastih plodova
+lt: Karamelizuoti įvairūs riešutai
+nl: Gemengde suikernoten
+
+< en:Caramelized nuts
+en: Caramelized peanuts
+es: Cacahuetes garrapiñados, Garrapiñadas de cacahuete, Cacahuetes confitados, Garrapiñadas de maní, Maní confitado, Cacahuetes caramelizados
+fr: Cacahuètes caramélisées, arachides caramélisées, chouchous
+hr: Karamelizirani kikiriki
+hu: Karamellizált földimogyoró, Karamellizált mogyoró
+lt: Karamelizuoti žemės reišutai
+nl: Suikerpinda's, gesuikerde pinda's
+oqali_family:en: fr:Aperitifs a croquer - Cacahuetes sucrees
+wikidata:en: Q5875513
+
+< en:Caramelized nuts
+en: Caramelized cashew nuts
+fr: Noix de cajou caramélisées
 
 en: Farming products, farm products
 bg: Селскостопански продукти
