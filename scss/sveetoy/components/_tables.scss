@@ -4,12 +4,34 @@
 $include-sveetoy-tables: $include-sveetoy-classes !default;
 
 @if $include-sveetoy-tables {
-    table{
-        ///
-        /// Enable table to take full width
-        ///
-        &.expand{
-            width: 100%;
-        }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+
+    &.expand {
+      width: 100%;
     }
+  }
+
+  th,
+  td {
+    padding: 0.75rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    font-weight: 600;
+    border-bottom: 2px solid #e5e5e5;
+  }
+
+  td {
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
 }
