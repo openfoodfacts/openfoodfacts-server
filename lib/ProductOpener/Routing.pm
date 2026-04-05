@@ -593,10 +593,23 @@ sub facets_route($request_ref) {
 
 	# We may have a page number
 	if (scalar @{$request_ref->{components}} > 0) {
-		# The last component can be a page number
+		# If the last component is a number, it can be a page number
+		# but it could also be a value of a facet (e.g /last-entry-dates/2024)
 		if ($request_ref->{components}[-1] =~ /^\d+$/) {
 			$request_ref->{page} = pop @{$request_ref->{components}};
-			$log->debug("got a page number", {$request_ref->{page}}) if $log->is_debug();
+			# Check if the last component is a facet type if the page number is greater than 1000
+			# If it's less than 1000, it could be a page number for the facet aggregation, e.g /ingredients/100
+			if ($request_ref->{page} > 1000) {
+				my ($tagtype, $lc, $is_singular) = _get_facet_tagtype($request_ref->{components}[-1], $target_lc);
+				if (defined $tagtype) {
+					# if the last component is a facet type, then the page number is probably a value of this facet and not a page number
+					push @{$request_ref->{components}}, $request_ref->{page};
+					$request_ref->{page} = undef;
+				}
+			}
+			if (defined $request_ref->{page}) {
+				$log->debug("got a page number", {$request_ref->{page}}) if $log->is_debug();
+			}
 		}
 	}
 
