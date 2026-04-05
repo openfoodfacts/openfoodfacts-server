@@ -16,6 +16,21 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 is(convert_salt_to_sodium(2.5), 1);
 is(convert_sodium_to_salt(1), 2.5);
 
+# Test normalize_and_validate_per function
+is(normalize_and_validate_per('100g'), '100g', 'Valid per value: 100g');
+is(normalize_and_validate_per('100ml'), '100ml', 'Valid per value: 100ml');
+is(normalize_and_validate_per('serving'), 'serving', 'Valid per value: serving');
+is(normalize_and_validate_per('1kg'), '1kg', 'Valid per value: 1kg');
+is(normalize_and_validate_per('1l'), '1l', 'Valid per value: 1l');
+is(normalize_and_validate_per('  100g  '), '100g', 'Valid per value with spaces');
+is(normalize_and_validate_per('100G'), '100g', 'Valid per value uppercase');
+is(normalize_and_validate_per('SERVING'), 'serving', 'Valid per value uppercase');
+is(normalize_and_validate_per('100kj'), undef, 'Invalid per value: 100kj');
+is(normalize_and_validate_per('100kcal'), undef, 'Invalid per value: 100kcal');
+is(normalize_and_validate_per('invalid'), undef, 'Invalid per value: invalid');
+is(normalize_and_validate_per(''), undef, 'Empty per value');
+is(normalize_and_validate_per(undef), undef, 'Undefined per value');
+
 # Test the generation of the aggregated set from input sets
 
 my @tests = (

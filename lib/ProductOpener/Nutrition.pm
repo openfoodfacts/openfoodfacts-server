@@ -51,6 +51,7 @@ BEGIN {
 		&get_preparations_for_product_type
 		&get_pers_for_product_type
 		&get_default_per_for_product
+		&normalize_and_validate_per
 		&get_unit_options_for_nutrient
 		&normalize_nutrient_value_string_and_modifier
 		&assign_nutrient_modifier_value_string_and_unit
@@ -904,6 +905,34 @@ my %valid_pers = (
 	'1l' => 1,
 	'serving' => 1,
 );
+
+=head2 normalize_and_validate_per ($per)
+
+Normalizes and validates a "per" value against the allowed values in %valid_pers.
+
+=head3 Arguments
+
+=head4 $per
+
+A per value to normalize and validate (e.g., "100g", "serving", "100kj")
+
+=head3 Return values
+
+Returns the normalized per value if it's valid, undef otherwise.
+
+=cut
+
+sub normalize_and_validate_per ($per) {
+	return unless defined $per;
+	
+	# Normalize: lowercase and trim whitespace
+	$per = lc($per);
+	$per =~ s/^\s+|\s+$//g;
+	
+	# Return normalized value if valid, undef otherwise
+	return $per if exists $valid_pers{$per};
+	return;
+}
 
 =head2 get_pers_for_product_type
 
@@ -1836,6 +1865,8 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 					else {
 						$new_per = $per;
 						$new_per =~ s/^_//g;
+						# Validate the per value extracted from field name
+						$new_per = normalize_and_validate_per($new_per);
 					}
 					if (not defined $new_per) {
 						$new_per = get_default_per_for_product($product_ref, $preparation);
@@ -1960,6 +1991,25 @@ sub assign_nutrition_values_from_request_object ($request_ref, $product_ref) {
 						200
 					);
 					$ignore_set = 1;
+				}
+				else {
+					# Validate the per value
+					my $normalized_per = normalize_and_validate_per($per);
+					if (not defined $normalized_per) {
+						add_error(
+							$response_ref,
+							{
+								message => {id => "invalid_field"},
+								field => {id => "nutrition.inputs_sets[$input_set_index].per", value => $per},
+								impact => {id => "input_set_ignored"},
+							},
+							200
+						);
+						$ignore_set = 1;
+					}
+					else {
+						$per = $normalized_per;
+					}
 				}
 
 				if ($ignore_set) {
