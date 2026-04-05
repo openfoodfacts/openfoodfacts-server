@@ -651,6 +651,7 @@ my @labels = (
 	"en:fed-without-gmos", "fr:crc",
 	"en:without-gluten", "en:sustainable-farming",
 	"en:krav", "en:whole-grain",
+	"en:swedish-raw-material",
 );
 my %labels_regexps = ();
 
