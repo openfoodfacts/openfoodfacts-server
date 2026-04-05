@@ -81,6 +81,8 @@ use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_produ
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use ProductOpener::APIAttributeGroups qw/attribute_groups_api preferences_api/;
+use ProductOpener::APICurrentUser qw/read_current_user_permissions_api/;
+use ProductOpener::APIHealth qw/read_health_api/;
 use ProductOpener::APIProductRead qw/read_product_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
 use ProductOpener::APIProductImagesUpload qw/upload_product_image_api delete_product_image_api/;
@@ -89,7 +91,6 @@ use ProductOpener::APIProductServices qw/product_services_api external_sources_a
 use ProductOpener::APITagRead qw/read_tag_api/;
 use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
 use ProductOpener::APITaxonomy qw/taxonomy_canonicalize_tags_api taxonomy_display_tags_api/;
-use ProductOpener::APICurrentUser qw/read_current_user_permissions_api/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Apache2::RequestIO();
@@ -514,6 +515,10 @@ my $dispatch_table = {
 	# Current user: GET /api/v3/current-user/permissions
 	current_user => {
 		GET => \&read_current_user_permissions_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
+	},
+	health => {
+		GET => \&read_health_api,
 		OPTIONS => sub {return;},    # Just return CORS headers
 	},
 };

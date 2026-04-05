@@ -45,6 +45,8 @@ BEGIN {
 		&queue_job
 		&write_minion_log
 
+		&get_health_check
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -54,6 +56,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 
+use HealthCheck;
 use Minion;
 
 # Minion backend
@@ -105,4 +108,21 @@ sub write_minion_log($message) {
 
 	return;
 }
+
+sub get_health_check() {
+	my $health_check = HealthCheck->new();
+	$health_check->add_check(
+		"minion_db",
+		sub {
+			my $ok = eval {
+				my $db = ProductOpener::Minion::get_minion()->backend->pg->db;
+				$db->query('SELECT 1');
+				1;
+			};
+			return $ok ? 'OK' : 'WARNING';
+		},
+	);
+	return $health_check;
+}
+
 1;
