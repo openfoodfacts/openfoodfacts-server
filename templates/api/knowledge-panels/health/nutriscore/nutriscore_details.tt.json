@@ -50,7 +50,7 @@
   <strong>[% lang('nutriscore_score') %][% sep %]: [% product.nutriscore.2023.score %]</strong>
   ([% product.nutriscore.2023.data.negative_points %] - [% product.nutriscore.2023.data.positive_points %])
 </p>
-<p><strong>[% lang('nutriscore_grade') %][% sep %]: [% product.nutriscore.2023.grade.ucfirst %]</strong></p>                
+<p><strong>[% lang('nutriscore_grade') %][% sep %]: [% product.nutriscore.2023.grade FILTER ucfirst %]</strong></p>                
                 `,
             }
         },        

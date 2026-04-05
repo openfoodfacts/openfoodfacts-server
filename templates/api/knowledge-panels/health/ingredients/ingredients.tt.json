@@ -40,7 +40,7 @@
         {
             "element_type": "text",
             "text_element": {
-                "html": `<strong>[% lang("allergens_p").ucfirst %][% sep %]:</strong> 
+                "html": `<strong>[% lang("allergens_p") FILTER ucfirst %][% sep %]:</strong> 
                     [% display_taxonomy_tags_list("allergens", product.allergens_tags) %]
                 `,
             },
@@ -50,7 +50,7 @@
         {
             "element_type": "text",
             "text_element": {
-                "html": `<strong>[% lang("traces_p").ucfirst %][% sep %]:</strong> 
+                "html": `<strong>[% lang("traces_p") FILTER ucfirst %][% sep %]:</strong> 
                     [% display_taxonomy_tags_list("traces", product.traces_tags) %]
                 `,
             },
