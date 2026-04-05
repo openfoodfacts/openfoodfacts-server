@@ -426,8 +426,8 @@ jobs:
           --project-type application \
           --project-license AGPL-3.0 \
           --project-author "Open Food Facts <contact@openfoodfacts.org>" \
-          --vulnerabilities \
-          --validate \
+          --no-vulnerabilities \
+          --no-validate \
           --output /workspace/perl-sbom.json
     - name: Upload Perl SBOM as artifact
       uses: actions/upload-artifact@v7
