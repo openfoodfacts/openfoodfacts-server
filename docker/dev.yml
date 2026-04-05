@@ -128,6 +128,9 @@ volumes:
   html_data:
   other_servers:
   products:
+  icons_dist:
+  js_dist:
+  css_dist:
   # those one are volumes shared between off and pro, so we assign hard-coded names
   # see docs/dev/explain-pro-dev-setup.md
   # PO_COMMON_PREFIX is there to separate envs, eg. for tests
