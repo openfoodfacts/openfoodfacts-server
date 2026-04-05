@@ -1,0 +1,33 @@
+name: Link rot
+on:
+  - push
+
+jobs:
+  check:
+    name: Link rot check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get files that need to be checked
+        id: get_files
+        run: |
+          html_files=$(find html/donate -type f -name '*.html' -exec basename {} \;)
+          html_files=$(echo "$html_files" | xargs | sed -e 's/ /,/g')
+          file_list="CONTRIBUTING.md,README.md,${html_files[@]}"
+          echo "::set-output name=all_files::$file_list"
+          echo $file_list
+
+      - name: Check URLs
+        uses: paramt/url-checker@master
+        with:
+          files: "${{ steps.get_files.outputs.all_files }}"
+
+      - uses: LouisBrunner/checks-action@v0.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Check
+          status: completed
+          conclusion: ${{ steps.check.outputs.conclusion }}
+          output: ${{ steps.check.outputs.output }}
