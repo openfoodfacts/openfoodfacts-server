@@ -62,6 +62,7 @@ use Log::Any qw($log);
 use Storable qw(dclone);
 use Text::Fuzzy;
 use Data::DeepAccess qw(deep_get deep_exists);
+use Encode qw(encode_utf8);
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -1193,7 +1194,7 @@ sub set_nutrition_data_per_fields ($args_ref, $imported_product_ref, $product_re
 					{
 						code => $code,
 						nutrition_data_per_field => $nutrition_data_per_field,
-						$imported_nutrition_data_per_value => $imported_nutrition_data_per_value
+						imported_nutrition_data_per_value => $imported_nutrition_data_per_value
 					}
 				) if $log->is_debug();
 				$imported_nutrition_data_per_value = "100g";
@@ -1885,8 +1886,8 @@ sub import_csv_file ($args_ref) {
 			next;
 		}
 
-		if ($code !~ /^\d\d\d\d\d\d\d\d(\d*)$/) {
-			$log->error("Error - code not a number with 8 or more digits",
+		if (not is_valid_code($code)) {
+			$log->error("Error - code is not valid",
 				{i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref})
 				if $log->is_error();
 			next;
@@ -2492,7 +2493,8 @@ sub import_csv_file ($args_ref) {
 					}
 
 					# Add a hash of the URL
-					my $md5 = md5_hex($image_url);
+					# Note md5_hex croaks if supplied with unicode characters above 255
+					my $md5 = md5_hex(encode_utf8($image_url));
 					$filename = $md5 . "_" . $filename;
 
 					my $images_download_dir = $args_ref->{images_download_dir};
@@ -2820,8 +2822,8 @@ sub update_export_status_for_csv_file ($args_ref) {
 			next;
 		}
 
-		if ($code !~ /^\d\d\d\d\d\d\d\d(\d*)$/) {
-			$log->error("Error - code not a number with 8 or more digits",
+		if (not is_valid_code($code)) {
+			$log->error("Error - code is not valid",
 				{i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref})
 				if $log->is_error();
 			next;

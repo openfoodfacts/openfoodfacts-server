@@ -868,6 +868,13 @@
          "important" : false,
          "name" : "Glucides totaux (inclut les fibres)",
          "unit" : "g"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "water",
+         "important" : false,
+         "name" : "Eau",
+         "unit" : "g"
       }
    ]
 }

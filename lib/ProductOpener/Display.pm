@@ -211,12 +211,12 @@ my $uri_finder = URI::Find->new(
 	}
 );
 
+# Make sure we include convert_blessed to cater for blessed objects, like booleans
 # Sort keys of JSON output
 # $json has utf8 disabled: it encodes to Perl Unicode strings
-my $json = JSON::MaybeXS->new->utf8(0)->allow_nonref->canonical;
-my $json_indent = JSON::MaybeXS->new->indent(1)->utf8(0)->allow_nonref->canonical;
+my $json = JSON::MaybeXS->new->convert_blessed->utf8(0)->allow_nonref->canonical;
+my $json_indent = JSON::MaybeXS->new->convert_blessed->indent(1)->utf8(0)->allow_nonref->canonical;
 # $json_utf8 has utf8 enabled: it encodes to UTF-8 bytes
-# Make sure we include convert_blessed to cater for blessed objects, like booleans
 my $json_utf8 = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
 
 =head1 VARIABLES
@@ -950,12 +950,12 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /\b(GoogleOther|Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot|Timpibot)/i
+		=~ /\b(GoogleOther|Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot|Timpibot|meta-webindexer|meta-externalagent)/i
 		)
 	{
 		$is_crawl_bot = 1;
 		if ($user_agent_str
-			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|Claude-Web|cohere-ai|anthropic-ai|ImagesiftBot|Diffbot|Timpibot)/i
+			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|Claude-Web|cohere-ai|anthropic-ai|ImagesiftBot|Diffbot|Timpibot|meta-webindexer|meta-externalagent|Applebot)/i
 			)
 		{
 			$is_denied_crawl_bot = 1;
@@ -3774,8 +3774,8 @@ sub display_tag ($request_ref) {
 	my $new_tagid2path = deep_get($request_ref, qw(tags 1 new_tagid_path));
 	my $canon_tagid2 = deep_get($request_ref, qw(tags 1 canon_tagid));
 
-	# 2025-06-01 - due to heavy load from bots, disabling 2nd level facets unless the user is logged in
-	if ((not defined $User_id) and (defined $tagid2)) {
+	# 2025-06-01 - due to heavy load from bots, disabling 2nd level facets unless the user is logged in
+	if ((not defined $User_id) and ((defined $tagid2) or ($request_ref->{page} > 10))) {
 		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
 		return;
 	}
@@ -5069,6 +5069,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		{request_ref => sanitize($request_ref), query_ref => $query_ref, sort_by => $sort_by})
 		if $log->is_debug();
 
+	# 2026-03-04 - due to heavy load from bots, disabling 2nd level facets unless the user
+	#  is logged in
+	if ((not defined $User_id) and ($request_ref->{page} > 10)) {
+		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
+		return;
+	}
+
 	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
@@ -6270,7 +6277,7 @@ sub display_scatter_plot ($graph_ref, $products_ref, $request_ref) {
 
 		# create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
-		$series{$seriesid} .= JSON::MaybeXS->new->canonical->encode(\%data) . ',';
+		$series{$seriesid} .= $json_utf8->encode(\%data) . ',';
 		# count entries / series
 		defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 		$series_n{$seriesid}++;
