@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.90.4](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.90.3...v2.90.4) (2026-04-05)
+
+
+### Bug Fixes
+
+* **auth:** validate OIDC callback state and nonce ([#13384](https://github.com/openfoodfacts/openfoodfacts-server/issues/13384)) ([709d734](https://github.com/openfoodfacts/openfoodfacts-server/commit/709d7344d6c2f4d5a157152b695962eee027b2ca))
+* update_tests_results should run from the same folder as when running tests (parent of the tests folder) ([#13382](https://github.com/openfoodfacts/openfoodfacts-server/issues/13382)) ([1fc60cd](https://github.com/openfoodfacts/openfoodfacts-server/commit/1fc60cd6eb8411dc5ea83daa436c8c235f4dcd6e))
+
 ## [2.90.3](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.90.2...v2.90.3) (2026-03-31)
 
 
