@@ -75,6 +75,7 @@ BEGIN {
 		&get_inherited_properties
 		&get_tags_grouped_by_property
 		&get_all_tags_having_property
+		&canonicalize_allergens_taxonomy_tag
 
 		%tags_images
 		%tags_texts
@@ -108,6 +109,7 @@ BEGIN {
 		&display_tag_name
 		&display_tag_link
 		&display_tags_list
+		&display_comma_separated_tags_list_in_lc
 		&display_parents_and_children
 		&display_tags_hierarchy
 		&export_tags_hierarchy
@@ -124,6 +126,7 @@ BEGIN {
 
 		%tags_fields
 		%writable_tags_fields
+		@writable_tags_fields_list
 		%users_tags_fields
 		%taxonomy_fields
 		@drilldown_fields
@@ -172,6 +175,11 @@ BEGIN {
 
 		&get_taxonomy_tag_path
 
+		&get_minimal_tags_subset
+		&gen_tags_list_with_parents
+		&set_field_input_tags_for_source
+		&generate_field_tags_from_all_sources
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -186,6 +194,7 @@ use ProductOpener::Text qw/normalize_percentages regexp_escape/;
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
 use ProductOpener::Texts qw/$lang_dir/;
 use ProductOpener::HTTP qw/create_user_agent/;
+use ProductOpener::IngredientsStrings qw/%may_contain_regexps/;
 
 use Clone qw(clone);
 use List::MoreUtils qw(uniq);
@@ -265,6 +274,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	stores => 1,
 	countries => 1,
 );
+@writable_tags_fields_list = sort keys %writable_tags_fields;
 
 # Fields that are tags related to users
 %users_tags_fields = (
@@ -2950,17 +2960,38 @@ sub gen_tags_hierarchy_taxonomy ($tag_lc, $tagtype, $tags_list) {
 		return ();
 	}
 
-	if (not exists $all_parents{$tagtype}) {
-		$log->error("all_parents{\$tagtype} does not exists", {tagtype => $tagtype}) if $log->is_warning();
-		return (split(/\s*,\s*/, $tags_list));
+	return gen_tags_list_with_parents($tag_lc, $tagtype, [split(/\s*,\s*/, $tags_list)]);
+}
+
+=head2 gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref)
+
+Generate a list of tags including the parents of the tags in the input list.
+
+=head3 Parameters
+
+=head4 tag type $tagtype
+
+=head4 reference to a list of tags $tags_ref
+
+=cut
+
+sub gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref) {
+
+	# If the tagtype is not a taxonomy, we just unique the tags and return them in the same order
+	if (not defined $all_parents{$tagtype}) {
+		my %seen = ();
+		return grep {$_ ne ''} grep {!$seen{$_}++} @$tags_ref;
 	}
 
 	my %tags = ();
 
 	my $and = $and{$tag_lc} || " and ";
 
-	foreach my $tag2 (split(/\s*,\s*/, $tags_list)) {
-		my $tag = $tag2;
+	if (not defined $tags_ref) {
+		return ();
+	}
+
+	foreach my $tag (@$tags_ref) {
 		my $l = $tag_lc;
 		if ($tag =~ /^(\w\w):/) {
 			$l = $1;
@@ -3299,14 +3330,68 @@ sub get_taxonomy_tag_and_link_for_lang ($target_lc, $tagtype, $tagid) {
 	return $tag_ref;
 }
 
-sub display_tags_list ($tagtype, $tags_list) {
+=head2 display_comma_separated_tags_list_in_lc ($target_lc, $tagtype, $tags_ref)
+
+Returns a comma-separated list of links for the tags in the input list,
+with the display text in the target language.
+
+Note: if a tag is not available in the target language, it is prefixed with the language.
+
+=head3 Arguments
+
+=head4 $target_lc
+
+The desired language for the display text.
+
+=head4 $tagtype
+
+The tag type of the tags in the input list.
+
+=head4 $tags_ref
+
+A reference to a list of tagids.
+
+=head3 Return value
+
+A comma-separated list of links for the tags in the input list, with the display text in the target language.
+
+=cut
+
+sub display_comma_separated_tags_list_in_lc ($target_lc, $tagtype, $tags_ref) {
+
+	if (not defined $tags_ref) {
+		return '';
+	}
+
+	return join(", ", map {display_taxonomy_tag($target_lc, $tagtype, $_)} @$tags_ref);
+}
+
+=head2 display_tags_list ($tagtype, $tags_list_ref)
+
+Returns a comma-separated list of links for the tags in the input list.
+
+This function is only for non taxonomized tags, like stores.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+The tag type of the tags in the input list.
+
+=head4 $tags_list_ref
+
+A reference to a list of tags (not tag ids).
+
+=cut
+
+sub display_tags_list ($tagtype, $tags_list_ref) {
 
 	my $html = '';
 	my $images = '';
-	if (not defined $tags_list) {
+	if (not defined $tags_list_ref) {
 		return '';
 	}
-	foreach my $tag (split(/,/, $tags_list)) {
+	foreach my $tag (@{$tags_list_ref}) {
 		$html .= display_tag_link($tagtype, $tag) . ", ";
 
 		my $tagid = get_string_id_for_lang($lc, $tag);
@@ -4663,6 +4748,280 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 	return;
 }
 
+=head2 canonicalize_allergens_taxonomy_tag ( $ingredients_lc, $ingredient_or_allergen )
+
+In the allergens provided by users, we may get ingredients that are not in the allergens taxonomy,
+but that are in the ingredients taxonomy and have an inherited allergens:en property.
+(e.g. the allergens taxonomy has an en:fish entry, but users may indicate specific fish species)
+
+This function tries to match the ingredient with an allergen in the allergens taxonomy,
+and otherwise return the taxonomy id for the original ingredient.
+
+=head3 Parameters
+
+=head4 $ingredients_lc
+
+The language code of $ingredient_or_allergen.
+
+=head4 $ingredient_or_allergen
+
+The ingredient or allergen to match. Can also be an ingredient id or allergens id prefixed with a language code.
+
+=head3 Return value
+
+The taxonomy id for the allergen, or the original ingredient if no allergen was found.
+
+=cut
+
+sub canonicalize_allergens_taxonomy_tag($ingredients_lc, $ingredient_or_allergen) {
+
+	# Check if $ingredient_or_allergen is in the allergen taxonomy
+	my $allergenid = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $ingredient_or_allergen);
+	if (exists_taxonomy_tag("allergens", $allergenid)) {
+		return $allergenid;
+	}
+	else {
+		# Check if $ingredient_or_allergen is in the ingredients taxonomy and has an inherited allergens:en: property
+		my $ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient_or_allergen);
+		my $allergens = get_inherited_property("ingredients", $ingredient_id, "allergens:en");
+		if (defined $allergens) {
+			if ($allergens =~ /,/) {
+				# Currently we support only 1 allergen for a single ingredient
+				$log->warn(
+					"canonicalize_allergens_taxonomy_tag - multiple allergens for ingredient",
+					{ingredient_or_allergen => $ingredient_or_allergen, allergens => $allergens}
+				);
+				$allergens = $`;
+			}
+			$allergenid = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $allergens);
+			if (exists_taxonomy_tag("allergens", $allergenid)) {
+				return $allergenid;
+			}
+		}
+	}
+
+	# If we did not recognize the allergen, return the allergen id
+	return $allergenid;
+}
+
+=head2 set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags)
+
+New function to set the input tags for a field and a source. (e.g. categories for the manufacturer source)
+
+Note that there is special logic for the allergens field, to split traces from allergens if the user entered them together in the allergens field.
+Those traces might be overridden by the client if it also calls set_field_input_tags_for_source with empty traces after setting allergens.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to the product hash
+
+=head4 $tag_lc
+
+The language code of the input tags
+
+=head4 $field
+
+The field for which we want to set the input tags (e.g. categories, labels, allergens, etc.)
+
+=head4 $source
+
+The source of the input tags (e.g. manufacturer, user, etc.)
+
+=head4 $input_tags
+
+The input tags to set for the field and source
+
+=head4 $add
+
+Optional flag to indicate whether to add the input tags to existing tags (default is 0, which replaces existing tags)
+
+=cut
+
+sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags, $add = 0) {
+
+	if ($field eq "allergens") {
+
+		# If traces were entered in the allergens field, split them
+		# Use the language the tag have been entered in
+
+		my $traces_regexp;
+		if ((defined $tag_lc) and (defined $may_contain_regexps{$tag_lc})) {
+			$traces_regexp = $may_contain_regexps{$tag_lc};
+		}
+
+		$log->debug("set_field_input_tags_for_source",
+			{field => $field, input_tags => $input_tags, traces_regexp => $traces_regexp})
+			if $log->is_debug();
+
+		if (    (defined $traces_regexp)
+			and ($input_tags =~ /\b($traces_regexp)\b\s*:?\s*/i))
+		{
+			# Remove traces from allergens
+			$input_tags = $`;
+			my $traces_value = $';
+
+			$input_tags =~ s/\s+$//;
+			$traces_value =~ s/\s+$//;
+			# We add the traces to the existing traces field
+			set_field_input_tags_for_source($product_ref, $tag_lc, "traces", $source, $traces_value, 1);
+		}
+	}
+
+	# brands are a language less taxonomy, the input tag_lc is not used, we use xx instead
+	if ($field eq "brands") {
+		$tag_lc = "xx";
+	}
+
+	my @normalized_input_tags = ();
+	my %seen = ();
+	my $and = $and{$tag_lc} || " and ";
+
+	foreach my $tag (split(/,/, $input_tags)) {
+
+		$tag =~ s/^\s+//;
+		$tag =~ s/\s+$//;
+
+		next if $tag eq "";
+
+		my $normalized_tag;
+
+		# Special case for allergens and traces: we also use the ingredients taxonomy to check if it has an allergen property
+		if (($field eq "allergens") or ($field eq "traces")) {
+			$normalized_tag = canonicalize_allergens_taxonomy_tag($tag_lc, $tag);
+		}
+		elsif (defined $taxonomy_fields{$field}) {
+			$normalized_tag = canonicalize_taxonomy_tag($tag_lc, $field, $tag);
+		}
+		else {
+			$normalized_tag = $tag;
+		}
+
+		my @canon_tags = ($normalized_tag);
+
+		# For taxonomies, try to split unrecognized tags (e.g. "known tag and other known tag" -> "known tag, other known tag"
+		if (    (defined $taxonomy_fields{$field})
+			and ($tag =~ /^(.*)$and(.*)$/i)
+			and (not exists_taxonomy_tag($field, $normalized_tag)))
+		{
+
+			my $tag1 = $1;
+			my $tag2 = $2;
+
+			my $canon_tag1 = canonicalize_taxonomy_tag($tag_lc, $field, $tag1);
+			my $canon_tag2 = canonicalize_taxonomy_tag($tag_lc, $field, $tag2);
+
+			if (    (exists_taxonomy_tag($field, $canon_tag1))
+				and (exists_taxonomy_tag($field, $canon_tag2)))
+			{
+				@canon_tags = ($canon_tag1, $canon_tag2);
+			}
+		}
+
+		foreach my $canon_tag (@canon_tags) {
+			if (not exists $seen{$canon_tag}) {
+				$seen{$canon_tag} = 1;
+				push @normalized_input_tags, $canon_tag;
+			}
+		}
+	}
+
+	if (    ($add)
+		and (defined $product_ref->{tags_sources}{$field}{$source}{tags})
+		and (scalar @{$product_ref->{tags_sources}{$field}{$source}{tags}} > 0))
+	{
+		my %existing = map {$_ => 1} @{$product_ref->{tags_sources}{$field}{$source}{tags}};
+		foreach my $tag (@normalized_input_tags) {
+			if (not exists $existing{$tag}) {
+				push @{$product_ref->{tags_sources}{$field}{$source}{tags}}, $tag;
+			}
+		}
+	}
+
+	else {
+		deep_set($product_ref, "tags_sources", $field, $source, "tags", \@normalized_input_tags);
+	}
+
+	deep_set($product_ref, "tags_sources", $field, $source, "last_updated_t", time());
+
+	# We generate the [field]_tags field from all sources, passing 1 to normalize the tags
+	# (lowercase / unaccent based on the tag language)
+	generate_field_tags_from_all_sources($product_ref, $field, 1);
+
+	return;
+}
+
+=head2 generate_field_tags_from_all_sources ($product_ref, $tagtype)
+
+This function gathers all the input tags for a field from all sources, and generates the final tags for the field,
+including parents for taxonomy fields.
+
+=cut
+
+sub generate_field_tags_from_all_sources ($product_ref, $tagtype, $normalize = 0) {
+
+	my %all_input_tags = ();
+
+	if (defined $product_ref->{tags_sources}{$tagtype}) {
+		foreach my $source (keys %{$product_ref->{tags_sources}{$tagtype}}) {
+
+			$log->debug(
+				"generate_field_tags_from_all_sources - source",
+				{
+					tagtype => $tagtype,
+					source => $source,
+					source_data => $product_ref->{tags_sources}{$tagtype}{$source}
+				}
+			) if $log->is_debug();
+
+			if (defined $product_ref->{tags_sources}{$tagtype}{$source}{tags}) {
+				foreach my $tag (@{$product_ref->{tags_sources}{$tagtype}{$source}{tags}}) {
+					# Copy the tag so that we don't modify the original tag in the source when we normalize it
+					my $tag_copy = $tag;
+					# We normalize tags that are not known taxonomy entries
+					if ($normalize) {
+						if ($taxonomy_fields{$tagtype}) {
+							# For taxonomy fields, we call get_taxonomyid to normalize entries (unaccent, lowercase based on the tag language prefix)
+							# we use "en" as the default language, but all tags will have a language prefix, so the default won't be used
+							$tag_copy = get_taxonomyid("en", $tag_copy);
+						}
+						else {
+							$tag_copy = get_string_id_for_lang("no_language", $tag_copy);
+						}
+					}
+					$all_input_tags{$tag_copy} = 1;
+				}
+			}
+		}
+	}
+
+	my @all_input_tags_list = sort keys %all_input_tags;
+
+	$log->debug("generate_field_tags_from_all_sources - all input tags", {all_input_tags_list => \@all_input_tags_list})
+		if $log->is_debug();
+
+	$product_ref->{$tagtype . "_tags"} = [gen_tags_list_with_parents("en", $tagtype, \@all_input_tags_list)];
+
+	# For brands, also generate the "brands" field that is used for display
+	if ($tagtype eq "brands") {
+		$product_ref->{$tagtype}
+			= join(", ", map {display_taxonomy_tag("en", $tagtype, $_)} @{$product_ref->{$tagtype . "_tags"}});
+	}
+
+	return;
+}
+
+=head2 compute_field_tags ($product_ref, $tag_lc, $field)
+
+Generate the tags hierarchy from the comma separated list of $field with default language $tag_lc
+
+This function was used primarily before we refactored tags with tags_sources (schema version < 1005).
+
+It is still used to upgrade old products to newer schema (see ProductSchemaChanges.pm)
+
+=cut
+
 sub compute_field_tags ($product_ref, $tag_lc, $field) {
 	# generate the tags hierarchy from the comma separated list of $field with default language $tag_lc
 
@@ -5197,6 +5556,51 @@ sub get_taxonomy_tag_path ($tagtype, $tagid) {
 	$log->debug("get_taxonomy_tag_path", {tagtype => $tagtype, tagid => $tagid, path => \@path}) if $log->is_debug();
 
 	return \@path;
+}
+
+=head2 get_minimal_tags_subset ($tagtype, $tags_ref)
+
+Given a list of tagids, return the minimal subset of tagids that are not parents of any other tagid in the list.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tags_ref
+
+A reference to a list of tagids.
+
+=head3 Return value
+
+A list of tagids that are not parents of any other tagid in the input list.
+
+=cut
+
+sub get_minimal_tags_subset ($tagtype, $tags_ref) {
+
+	# If $tags_ref is undefined, return an empty list
+	if (not defined $tags_ref) {
+		return ();
+	}
+
+	# Generate a list of all parents (direct and indirect) of the tags in the input list
+	my %parents = ();
+
+	foreach my $tagid (@$tags_ref) {
+
+		if (defined $all_parents{$tagtype}{$tagid}) {
+			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
+				$parents{$parentid} = 1;
+			}
+		}
+	}
+
+	# Return the minimal subset of tagids that are not parents of any other tagid in the input list
+	my @minimal_subset = grep {!$parents{$_}} @$tags_ref;
+
+	return @minimal_subset;
 }
 
 # Init the taxonomies, as most modules / scripts that load Tags.pm expect the taxonomies to be loaded

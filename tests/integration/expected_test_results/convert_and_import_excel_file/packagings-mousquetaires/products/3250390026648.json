@@ -9,10 +9,6 @@
       "surgele"
    ],
    "added_countries_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "brands" : "Odyssee",
    "brands_hierarchy" : [
@@ -642,7 +638,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
-   "schema_version" : 1003,
+   "schema_version" : 1004,
    "sources" : [
       {
          "fields" : [
@@ -661,21 +657,6 @@
       }
    ],
    "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
-   "states_hierarchy" : [
-      "en:to-be-completed",
-      "en:nutrition-facts-to-be-completed",
-      "en:ingredients-to-be-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-to-be-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-to-be-completed",
-      "en:categories-to-be-completed",
-      "en:brands-completed",
-      "en:packaging-to-be-completed",
-      "en:quantity-to-be-completed",
-      "en:product-name-completed",
-      "en:photos-to-be-uploaded"
-   ],
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
@@ -691,10 +672,20 @@
       "en:product-name-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "weighers_tags" : []
 }

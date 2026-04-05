@@ -12,9 +12,8 @@
       ],
       "added_countries_tags" : [],
       "allergens" : "",
-      "allergens_from_ingredients" : "",
-      "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [],
+      "allergens_lc" : "en",
       "allergens_tags" : [],
       "categories_properties" : {},
       "categories_properties_tags" : [
@@ -642,21 +641,7 @@
       "rev" : 1,
       "schema_version" : 1003,
       "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
-      "states_hierarchy" : [
-         "en:to-be-completed",
-         "en:nutrition-facts-completed",
-         "en:ingredients-to-be-completed",
-         "en:expiration-date-to-be-completed",
-         "en:packaging-code-to-be-completed",
-         "en:characteristics-to-be-completed",
-         "en:origins-to-be-completed",
-         "en:categories-to-be-completed",
-         "en:brands-to-be-completed",
-         "en:packaging-to-be-completed",
-         "en:quantity-to-be-completed",
-         "en:product-name-completed",
-         "en:photos-to-be-uploaded"
-      ],
+      "states_hierarchy" : [],
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -673,9 +658,8 @@
          "en:photos-to-be-uploaded"
       ],
       "traces" : "",
-      "traces_from_ingredients" : "",
-      "traces_from_user" : "(en) ",
       "traces_hierarchy" : [],
+      "traces_lc" : "en",
       "traces_tags" : [],
       "weighers_tags" : []
    },

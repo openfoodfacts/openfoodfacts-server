@@ -2,17 +2,13 @@
    "_id" : "3003004006005",
    "_keywords" : [],
    "added_countries_tags" : [],
-   "allergens" : "en:nuts",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) Nuts",
+   "allergens" : "Nuts",
    "allergens_hierarchy" : [
       "en:nuts"
    ],
    "allergens_imported" : "Nuts",
    "allergens_lc" : "en",
-   "allergens_tags" : [
-      "en:nuts"
-   ],
+   "allergens_tags" : [],
    "categories_properties" : {},
    "categories_properties_tags" : [
       "all-products",
@@ -598,7 +594,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 2,
-   "schema_version" : 1003,
+   "schema_version" : 1004,
    "sources" : [
       {
          "fields" : [
@@ -631,22 +627,6 @@
       }
    ],
    "states" : "en:empty, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
-   "states_hierarchy" : [
-      "en:empty",
-      "en:to-be-completed",
-      "en:nutrition-facts-to-be-completed",
-      "en:ingredients-to-be-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-to-be-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-to-be-completed",
-      "en:categories-to-be-completed",
-      "en:brands-to-be-completed",
-      "en:packaging-to-be-completed",
-      "en:quantity-to-be-completed",
-      "en:product-name-to-be-completed",
-      "en:photos-to-be-uploaded"
-   ],
    "states_tags" : [
       "en:empty",
       "en:to-be-completed",
@@ -663,17 +643,27 @@
       "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "en:celery",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) Celery",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
+   "traces" : "Celery",
    "traces_hierarchy" : [
       "en:celery"
    ],
    "traces_imported" : "Celery",
    "traces_lc" : "en",
-   "traces_tags" : [
-      "en:celery"
-   ],
+   "traces_tags" : [],
    "weighers_tags" : [
       "test-user"
    ]

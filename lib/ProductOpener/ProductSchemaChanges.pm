@@ -62,7 +62,8 @@ use vars @EXPORT_OK;
 
 use Log::Any qw($log);
 
-use ProductOpener::Tags qw/compute_field_tags/;
+use ProductOpener::Tags
+	qw/generate_field_tags_from_all_sources compute_field_tags get_minimal_tags_subset get_property @writable_tags_fields_list display_comma_separated_tags_list_in_lc display_taxonomy_tag/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
@@ -70,13 +71,20 @@ use ProductOpener::Images qw/normalize_generation_ref/;
 use ProductOpener::Nutrition
 	qw/default_unit_for_nid generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy remove_empty_nutrition_data/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
-use ProductOpener::Tags qw/get_property/;
+use ProductOpener::Products qw/get_source_for_site_and_org/;
+
+# on the pro platform, we need to know the org to set the correct source for schema upgrades
+# (e.g. manufacturer or a label organization or database)
+# ideally we would not use the global $Org_id variable in the ProductSchemaChanges module,
+# but we would need to change many functions like retrieve_product() to pass the org_id as a parameter,
+# so for now we will just set the global variable
+use ProductOpener::Users qw/$Org_id/;
 
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
 use List::Util qw/any/;
 
-$current_schema_version = 1003;
+$current_schema_version = 1004;
 
 my (%upgrade_functions, %downgrade_functions);
 
@@ -130,6 +138,7 @@ sub convert_product_schema ($product_ref, $to_version) {
 	1000 => \&convert_schema_1000_to_1001_remove_ingredients_hierarchy_taxonomize_brands,
 	1001 => \&convert_schema_1001_to_1002_refactor_images_object,
 	1002 => \&convert_schema_1002_to_1003_refactor_product_nutrition_schema,
+	1003 => \&convert_schema_1003_to_1004_refactor_tags,
 );
 
 %downgrade_functions = (
@@ -137,6 +146,7 @@ sub convert_product_schema ($product_ref, $to_version) {
 	1001 => \&convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands,
 	1002 => \&convert_schema_1002_to_1001_refactor_images_object,
 	1003 => \&convert_schema_1003_to_1002_refactor_product_nutrition_schema,
+	1004 => \&convert_schema_1004_to_1003_refactor_tags,
 );
 
 =head2 998 to 999 - Change in barcode normalization
@@ -444,10 +454,11 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 		my @nutrients = keys %hash_nutrients;
 
 		# Generates the nutrition sets,
-		# which, for old data, are all from source "packaging" if we are on the public platform,
-		# and "manufacturer" if we are on the pro platform and the product has an 'owner' field
-		my $source
-			= ($server_options{private_products} && defined $product_ref->{owner}) ? "manufacturer" : "packaging";
+		# If we are on the producers platform, we set the data source to "manufacturer" for all organizations with ids that start with org-
+		# except organizations with ids that start with org-database- or org-label- (e.g. "org-database-usda")
+		# otherwise, we set the source to "packaging" (for organizations that start with user-
+		# when the pro platform is used by individual users to load data in bulk, e.g. from scan parties)
+		my $source = get_source_for_site_and_org();
 		foreach my $set_type (keys %$new_nutrition_sets_ref) {
 			$new_nutrition_sets_ref->{$set_type}{preparation} = $nutrition_preparations_ref->{$set_type}{state};
 			$new_nutrition_sets_ref->{$set_type}{source} = $source;
@@ -899,6 +910,133 @@ sub _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($
 	foreach my $product_type (sort keys %nutrition_data) {
 		$product_ref->{"nutrition_data" . $product_type} = 'on';
 	}
+
+	return;
+}
+
+=head2 1003 to 1004 - Refactor the tags schema
+
+=cut
+
+sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
+
+	$product_ref->{tags_sources} = {};
+
+	# If we are on the producers platform, we set the data source to "manufacturer" for all organizations with ids that start with org-
+	# except organizations with ids that start with org-database- or org-label- (e.g. "org-database-usda")
+	# otherwise, we set the source to "packaging" (for organizations that start with user-
+	# when the pro platform is used by individual users to load data in bulk, e.g. from scan parties)
+	my $source = get_source_for_site_and_org();
+
+	# TODO: special case for ingredients_tags
+
+	# We go through the input tags fields (e.g. categories, labels) that can be written directly
+	# and that are not derived from other fields (e.g. states_tags, ingredients_tags)
+
+	foreach my $tagtype (@writable_tags_fields_list) {
+
+		# we put the content of fields like categories_hierarchy inside categories_tags
+		# for some very old revisions we may not have the _hierarchy field, but only the _tags field, so we use it as a fallback
+		my $tags_hierarchy_or_tags_field = $product_ref->{$tagtype . "_hierarchy"}
+			// $product_ref->{$tagtype . "_tags"};
+
+		if (defined $tags_hierarchy_or_tags_field) {
+
+			if (scalar @{$tags_hierarchy_or_tags_field} > 0) {
+
+				$product_ref->{$tagtype . "_tags"} = $tags_hierarchy_or_tags_field;
+
+				# we create a tags_source.categories with the minimal tags subset to generate categories_tags
+
+				my $source_ref = {
+					last_updated_t => time() + 0,
+					tags => [get_minimal_tags_subset($tagtype, $tags_hierarchy_or_tags_field)],
+				};
+
+				$product_ref->{tags_sources}->{$tagtype} = {$source => $source_ref};
+
+				# Regenerate the [tagtype]_tags field
+				generate_field_tags_from_all_sources($product_ref, $tagtype, 1);
+			}
+
+			# Delete old fields
+			my @fields_to_delete
+				= ($tagtype . "_hierarchy", $tagtype, $tagtype . "_old", $tagtype . "_debug", $tagtype . "_imported");
+
+			if ($tagtype ne "ingredients") {
+				# We want to keep ingredients_lc to know which ingredients_text_[lc] field has been used to compute ingredients_tags
+				push @fields_to_delete, $tagtype . "_lc";
+			}
+
+			foreach my $field (@fields_to_delete) {
+				if (exists $product_ref->{$field}) {
+					$log->debug("Deleting field $field (value: "
+							. $product_ref->{$field}
+							. ") from product "
+							. $product_ref->{code}
+							. " for schema upgrade 1003 to 1004")
+						if $log->is_debug;
+					delete $product_ref->{$field};
+				}
+			}
+
+			# Generate brands field
+			if ($tagtype eq "brands") {
+				$product_ref->{$tagtype}
+					= join(", ", map {display_taxonomy_tag("en", $tagtype, $_)} @{$product_ref->{$tagtype . "_tags"}});
+			}
+		}
+	}
+
+	return;
+}
+
+sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
+
+	$log->debug("convert_product_schema_1004_to_1003", {product_ref => $product_ref}) if $log->is_debug();
+
+	foreach my $tagtype (@writable_tags_fields_list, "states") {
+		if (defined $product_ref->{$tagtype . "_tags"}) {
+			# Save the normalized tags as we will call generate_field_tags_from_all_sources which will overwrite them
+			$product_ref->{$tagtype . "_tags_copy"} = $product_ref->{$tagtype . "_tags"};
+
+			# We generate the _hierarchy field from input tags, with normalized set to 0 to keep unnormalized tags for unrecognized tags (e.g. with accents and case)
+			generate_field_tags_from_all_sources($product_ref, $tagtype, 0);
+
+			$log->debug("Generated field $tagtype\_tags with value ",
+				{value => join(", ", @{$product_ref->{$tagtype . "_tags"}})})
+				if $log->is_debug;
+
+			$product_ref->{$tagtype . "_hierarchy"} = $product_ref->{$tagtype . "_tags"};
+
+			$product_ref->{$tagtype . "_tags"} = $product_ref->{$tagtype . "_tags_copy"};
+			delete $product_ref->{$tagtype . "_tags_copy"};
+
+			# We keep [$tagtype_]tags as is: it contains normalized tags
+
+			if ($tagtype ne "states") {
+
+				# We also set the [tagtype]_lc to the value of the lang field (main language of product)
+				# and generate the [tagtype] field with comma separated values, but only for the minimal tags subset that is used to generate the [tagtype]_tags field, to avoid generating tags
+				my $target_lc = $product_ref->{lang} // "en";
+				$product_ref->{$tagtype . "_lc"} = $target_lc;
+				my $tags_ref = $product_ref->{$tagtype . "_hierarchy"};
+				if (($tagtype eq "traces") or ($tagtype eq "allergens")) {
+					# For allergens and traces, we generate a field that corresponds the packaging source only, not the allergens from ingredients
+					# so that apps do not write back allergens from ingredients as allergens from packaging.
+					$tags_ref = deep_get($product_ref, "tags_sources", $tagtype, "packaging", "tags");
+				}
+
+				# We generate fields like "labels" and "categories" with the _hierarchy tags that contain unnormalized entries for unrecognized tags
+				# (e.g. with accents and case)
+				$product_ref->{$tagtype}
+					= display_comma_separated_tags_list_in_lc($target_lc, $tagtype,
+					[get_minimal_tags_subset($tagtype, $tags_ref)]);
+			}
+		}
+	}
+
+	delete $product_ref->{tags_sources};
 
 	return;
 }

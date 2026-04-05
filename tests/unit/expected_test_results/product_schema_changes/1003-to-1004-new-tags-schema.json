@@ -1,0 +1,75 @@
+{
+   "added_countries_tags" : [],
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "allergens_from_ingredients" : "en:peanuts, CACAHUETES , CACAHUETES",
+   "allergens_from_user" : "(fr) en:peanuts",
+   "allergens_tags" : [
+      "en:peanuts"
+   ],
+   "brands" : "Jardin Bio étic",
+   "brands_tags" : [
+      "xx:jardin-bio-etic"
+   ],
+   "categories_tags" : [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:legumes-and-their-products",
+      "en:breakfasts",
+      "en:spreads",
+      "en:nuts-and-their-products",
+      "en:plant-based-spreads",
+      "en:sweet-spreads",
+      "en:oilseed-purees",
+      "en:legume-butters",
+      "fr:pates-a-tartiner",
+      "en:nut-butters",
+      "en:peanut-butters",
+      "fr:categorie-inconnue-en-francais"
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:maybe-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_tags" : [
+      "en:lactic-ferments",
+      "en:ferment",
+      "en:microbial-culture",
+      "en:rennet",
+      "en:enzyme",
+      "en:coagulating-enzyme",
+      "en:salt"
+   ],
+   "lc" : "fr",
+   "schema_version" : 1004,
+   "tags_sources" : {
+      "allergens" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:peanuts"
+            ]
+         }
+      },
+      "brands" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "xx:Jardin Bio étic"
+            ]
+         }
+      },
+      "categories" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "fr:pates-a-tartiner",
+               "en:nut-butters",
+               "en:peanut-butters",
+               "fr:Catégorie inconnue en français"
+            ]
+         }
+      }
+   }
+}

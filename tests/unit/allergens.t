@@ -12,8 +12,8 @@ use JSON;
 
 use ProductOpener::Products qw/compute_languages/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/detect_allergens_from_text get_allergens_taxonomyid/;
-use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::Ingredients qw/detect_allergens_from_text extract_ingredients_from_text/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -336,8 +336,21 @@ foreach my $test_ref (@tests) {
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
 
+	# If we have "allergens" or "traces" values, write them to the corresponding tags
+	# traces need to be first, as allergens might add traces
+	foreach my $field ("traces", "allergens") {
+		my $value = $product_ref->{$field};
+		if (defined $value) {
+			set_field_input_tags_for_source($product_ref, $product_ref->{lc}, $field, "packaging", $value);
+		}
+		# We delete the field as it's used as an input (only for testing), not as an output of the product object
+		# What matters is the allergens_tags and traces_tags fields, as well as tags_sources
+		delete $product_ref->{$field};
+	}
+
 	# Run the test
 	compute_languages($product_ref);
+	extract_ingredients_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
 
 	# Remove any user-specific fields that might cause test failures
@@ -349,27 +362,35 @@ foreach my $test_ref (@tests) {
 	}
 
 	# Compare with expected results
+	normalize_product_for_test_comparison($product_ref);
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
-# Additional tests for get_allergens_taxonomyid
-is(get_allergens_taxonomyid("en", "egg"), "en:eggs", "Testing get_allergens_taxonomyid for egg (en)");
-is(get_allergens_taxonomyid("fr", "fromage"), "en:milk", "Testing get_allergens_taxonomyid for fromage (fr)");
-is(get_allergens_taxonomyid("en", "tuna"), "en:fish", "Testing get_allergens_taxonomyid for tuna (en)");
+# Additional tests for canonicalize_allergens_taxonomy_tag
+is(canonicalize_allergens_taxonomy_tag("en", "egg"),
+	"en:eggs", "Testing canonicalize_allergens_taxonomy_tag for egg (en)");
+is(canonicalize_allergens_taxonomy_tag("fr", "fromage"),
+	"en:milk", "Testing canonicalize_allergens_taxonomy_tag for fromage (fr)");
+is(canonicalize_allergens_taxonomy_tag("en", "tuna"),
+	"en:fish", "Testing canonicalize_allergens_taxonomy_tag for tuna (en)");
 
 # Get an allergens id from the ingredients taxonomy, using the allergens:en: property
-is(get_allergens_taxonomyid("en", "monkfish"), "en:fish", "Testing get_allergens_taxonomyid for monkfish (en)");
-is(get_allergens_taxonomyid("en", "en:monkfish"), "en:fish", "Testing get_allergens_taxonomyid for en:monkfish (en)");
-is(get_allergens_taxonomyid("es", "en:monkfish"), "en:fish", "Testing get_allergens_taxonomyid for en:monkfish (es)");
+is(canonicalize_allergens_taxonomy_tag("en", "monkfish"),
+	"en:fish", "Testing canonicalize_allergens_taxonomy_tag for monkfish (en)");
+is(canonicalize_allergens_taxonomy_tag("en", "en:monkfish"),
+	"en:fish", "Testing canonicalize_allergens_taxonomy_tag for en:monkfish (en)");
+is(canonicalize_allergens_taxonomy_tag("es", "en:monkfish"),
+	"en:fish", "Testing canonicalize_allergens_taxonomy_tag for en:monkfish (es)");
 
 # Ingredients that are not in the allergens taxonomy
-is(get_allergens_taxonomyid("en", "pineapple"), "pineapple", "Testing get_allergens_taxonomyid for pineapple (en)");
+is(canonicalize_allergens_taxonomy_tag("en", "pineapple"),
+	"en:pineapple", "Testing canonicalize_allergens_taxonomy_tag for pineapple (en)");
 
 # Ingredients that are not in the ingredients taxonomy
 is(
-	get_allergens_taxonomyid("en", "some very strange ingredient"),
-	"some-very-strange-ingredient",
-	"Testing get_allergens_taxonomyid for strange ingredient (en)"
+	canonicalize_allergens_taxonomy_tag("en", "some very strange ingredient"),
+	"en:some very strange ingredient",
+	"Testing canonicalize_allergens_taxonomy_tag for strange ingredient (en)"
 );
 
 done_testing();

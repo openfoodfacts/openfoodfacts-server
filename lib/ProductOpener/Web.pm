@@ -139,10 +139,10 @@ sub display_field ($product_ref, $field) {
 			}
 		}
 		elsif (defined $taxonomy_fields{$field}) {
-			$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
+			$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_tags"});
 		}
-		elsif ((defined $tags_fields{$field}) and (defined $value)) {
-			$value = display_tags_list($field, $value);
+		elsif (defined $tags_fields{$field}) {
+			$value = display_tags_list($field, $product_ref->{$field . "_tags"});
 		}
 
 		if ((defined $value) and ($value ne '')) {

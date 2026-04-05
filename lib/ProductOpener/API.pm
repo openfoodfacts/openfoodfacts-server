@@ -782,7 +782,8 @@ my %api_version_to_schema_version = (
 	"3.2" => 1001,
 	"3.3" => 1002,
 	"3.4" => 1002,    # change only for the /api/3.4/attribute_groups endpoint, not for product schema
-	"3.5" => 1003,
+	"3.5" => 1003,    # new nutrition schema
+	"3.6" => 1004,    # new tags schema with tags_sources
 );
 
 sub api_compatibility_for_product_response ($product_ref, $api_version) {
@@ -1048,7 +1049,9 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		"schema_version", "serving_size",
 		"serving_quantity", "serving_quantity_unit",
 		"nutrition_data", "nutrition_data_per",
-		"nutrition_data_prepared_per"
+		"nutrition_data_prepared_per",
+		# tags_sources is needed to convert to old tags schema
+		"tags_sources",
 		)
 	{
 		if ((not defined $customized_product_ref->{$needed_field}) and (defined $product_ref->{$needed_field})) {

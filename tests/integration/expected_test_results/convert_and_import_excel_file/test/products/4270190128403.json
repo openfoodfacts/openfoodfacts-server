@@ -1,17 +1,13 @@
 {
    "_id" : "4270190128403",
    "_keywords" : [
-      "category",
-      "test"
+      "test",
+      "test-category"
    ],
    "added_countries_tags" : [],
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "brands" : "Test",
@@ -728,7 +724,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
-   "schema_version" : 1003,
+   "schema_version" : 1004,
    "sources" : [
       {
          "fields" : [
@@ -750,21 +746,6 @@
       }
    ],
    "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
-   "states_hierarchy" : [
-      "en:to-be-completed",
-      "en:nutrition-facts-completed",
-      "en:ingredients-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-to-be-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-to-be-completed",
-      "en:categories-completed",
-      "en:brands-completed",
-      "en:packaging-to-be-completed",
-      "en:quantity-to-be-completed",
-      "en:product-name-to-be-completed",
-      "en:photos-to-be-uploaded"
-   ],
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-completed",
@@ -780,10 +761,20 @@
       "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : 2.0,
    "vitamins_tags" : [],

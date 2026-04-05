@@ -210,14 +210,14 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 
 		# Get the most specific category so that we can link to the category without added sugars
 		# Skip products that are in the "en:sweeteners" category
-		if (    (defined $product_ref->{categories_hierarchy})
-			and (scalar @{$product_ref->{categories_hierarchy}} > 0)
+		if (    (defined $product_ref->{categories_tags})
+			and (scalar @{$product_ref->{categories_tags}} > 0)
 			and not(has_tag($product_ref, "categories", "en:sweeteners")))
 		{
 			my $category_id;
 
 			# Find the most specific taxonomy that exists in the categories taxonomy
-			foreach my $category_id2 (reverse @{$product_ref->{categories_hierarchy}}) {
+			foreach my $category_id2 (reverse @{$product_ref->{categories_tags}}) {
 				if (exists_taxonomy_tag("categories", $category_id2)) {
 					$category_id = $category_id2;
 					last;

@@ -11,7 +11,8 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/get_fileid get_string_id_for_lang/;
 # Display.pm is currently needed, as we need $lc to be defined for canonicalize_tag2
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results
+	normalize_product_for_test_comparison/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -922,5 +923,57 @@ is(cc_to_country('unknown'), '');
 is(cc_to_country(undef), '');
 
 is(get_taxonomy_tag_path("test", "en:lemon-yogurts"), ["en:yogurts", "en:lemon-yogurts"]);
+
+# Tests for set_field_input_tags_for_source
+
+my @tests = (
+	['en-categories-coffee', 'en', 'categories', 'coffee'],
+
+	['fr-categories-cafe-lait-xyz', 'fr', 'categories', 'café, lait, xyz'],
+
+	['en-allergens-eggs-mustard-crab-xyz', 'en', 'allergens', 'eggs, mustard, crab, xyz'],
+
+	['fr-allergens-oeufs-moutarde-crabe-xyz', 'fr', 'allergens', 'oeufs, moutarde, crabe, xyz',],
+
+	['fr-allergens-oeuf-et-moutarde', 'fr', 'allergens', 'oeuf et moutarde',],
+
+	['fr-allergens-peut-contenir-oeuf-et-moutarde', 'fr', 'allergens', 'peut contenir : oeuf et moutarde',],
+
+	['fr-allergens-celeri-crustaces-et-lupin', 'fr', 'allergens', 'Céleri, crustacés et lupin.'],
+
+	[
+		'fr-allergens-celeri-crustaces-et-lupin-peut-contenir-oeuf-et-moutarde',
+		'fr', 'allergens', 'Céleri, crustacés et lupin. Peut contenir oeuf et moutarde.'
+	],
+
+	[
+		'en-add-categories-coffee',
+		'en',
+		'categories',
+		'coffee, tea',
+		1,
+		{
+			categories_tags => ['en:meals'],
+			tags_sources => {categories => {packaging => {tags => ["en:coffee", "en:meals"]}}}
+		}
+	],
+);
+
+foreach my $test_ref (@tests) {
+
+	my $testid = "set_field_input_tags_for_source-" . $test_ref->[0];
+
+	my $tag_lc = $test_ref->[1];
+	my $field = $test_ref->[2];
+	my $input_tags = $test_ref->[3];
+	my $add_tags = $test_ref->[4] // 0;
+	my $product_ref = $test_ref->[5] // {};
+
+	set_field_input_tags_for_source($product_ref, $tag_lc, $field, "packaging", $input_tags, $add_tags);
+
+	normalize_product_for_test_comparison($product_ref);
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",
+		$update_expected_results, {id => $testid});
+}
 
 done_testing();

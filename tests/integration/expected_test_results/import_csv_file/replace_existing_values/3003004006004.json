@@ -1,20 +1,18 @@
 {
    "_id" : "3003004006004",
    "_keywords" : [
-      "mustard"
+      "condiment",
+      "mustard",
+      "sauce"
    ],
    "added_countries_tags" : [],
-   "allergens" : "en:mustard",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) Mustard",
+   "allergens" : "Mustard",
    "allergens_hierarchy" : [
       "en:mustard"
    ],
    "allergens_imported" : "Mustard",
    "allergens_lc" : "en",
-   "allergens_tags" : [
-      "en:mustard"
-   ],
+   "allergens_tags" : [],
    "categories" : "mustards",
    "categories_hierarchy" : [
       "en:condiments",
@@ -783,7 +781,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 2,
-   "schema_version" : 1003,
+   "schema_version" : 1004,
    "sources" : [
       {
          "fields" : [
@@ -816,21 +814,6 @@
       }
    ],
    "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
-   "states_hierarchy" : [
-      "en:to-be-completed",
-      "en:nutrition-facts-to-be-completed",
-      "en:ingredients-to-be-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-to-be-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-to-be-completed",
-      "en:categories-completed",
-      "en:brands-to-be-completed",
-      "en:packaging-to-be-completed",
-      "en:quantity-to-be-completed",
-      "en:product-name-to-be-completed",
-      "en:photos-to-be-uploaded"
-   ],
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
@@ -846,17 +829,27 @@
       "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "en:soybeans",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) en:soybeans",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
+   "traces" : "Soybeans",
    "traces_hierarchy" : [
       "en:soybeans"
    ],
    "traces_imported" : "Soybeans",
    "traces_lc" : "en",
-   "traces_tags" : [
-      "en:soybeans"
-   ],
+   "traces_tags" : [],
    "weighers_tags" : [
       "test-user"
    ]

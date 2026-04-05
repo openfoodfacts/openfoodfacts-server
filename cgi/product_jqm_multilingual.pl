@@ -59,7 +59,7 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::API qw/get_initialized_response check_user_permission/;
 use ProductOpener::APIProductWrite
-	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one skip_protected_field/;
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one skip_protected_field update_product_field_api_v2_and_cgi/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -374,8 +374,12 @@ else {
 		}
 	}
 
-	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'origin',
-		'packaging_text', 'lang')
+	foreach my $field (
+		@app_fields, 'nutrition_data_per', 'serving_size', 'traces',
+		'allergens', 'ingredients_text', 'origin', 'packaging_text',
+		'lang'
+		)
+		# Note: allergens need to be after traces, as we detect traces inside allergens and add them to the traces
 	{
 
 		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
@@ -409,47 +413,7 @@ else {
 			next;
 		}
 
-		if (defined single_param($field)) {
-
-			# Only moderators can update values for fields sent by the producer
-			if (skip_protected_field($product_ref, $field, $User{moderator})) {
-				next;
-			}
-
-			if ($field eq "lang") {
-				my $value = remove_tags_and_quote(decode utf8 => single_param($field));
-
-				# strip variants fr-BE fr_BE
-				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
-				$value = lc($value);
-
-				# skip unrecognized languages (keep the existing lang & lc value)
-				if (defined $lang_lc{$value}) {
-					$product_ref->{lang} = $value;
-					$product_ref->{lc} = $value;
-				}
-
-			}
-			elsif ($field eq "environmental_score_extended_data") {
-				# we expect a JSON value
-				if (defined single_param($field)) {
-					$product_ref->{$field} = decode_json(single_param($field));
-				}
-			}
-			else {
-				$product_ref->{$field} = preprocess_product_field($field, decode utf8 => single_param($field));
-
-				# If we have a language specific field like "ingredients_text" without a language code suffix
-				# we assume it is in the language of the interface
-				if (defined $language_fields{$field}) {
-					my $field_lc = $field . "_" . $lc;
-					$product_ref->{$field_lc} = $product_ref->{$field};
-					delete $product_ref->{$field};
-				}
-
-				compute_field_tags($product_ref, $lc, $field);
-			}
-		}
+		update_product_field_api_v2_and_cgi($product_ref, $lc, $field, single_param($field), $source);
 
 		if (defined $language_fields{$field}) {
 

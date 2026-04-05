@@ -1,0 +1,176 @@
+{
+   "code" : "3234567890100",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "stores"
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "invalid_type_must_be_array",
+            "lc_name" : "Invalid type: must be an array",
+            "name" : "Invalid type: must be an array"
+         }
+      }
+   ],
+   "product" : {
+      "allergens_tags" : [
+         "en:eggs",
+         "en:fish",
+         "en:gluten",
+         "en:kiwi",
+         "en:milk",
+         "en:nuts",
+         "en:peanuts",
+         "en:soybeans",
+         "en:mango",
+         "en:shellfish",
+         "en:unrecognized-allergen"
+      ],
+      "allergens_tags_en" : [
+         "Eggs",
+         "Fish",
+         "Gluten",
+         "Kiwi",
+         "Milk",
+         "Nuts",
+         "Peanuts",
+         "Soybeans",
+         "Mango",
+         "Shellfish",
+         "Unrecognized-allergen"
+      ],
+      "brands" : "Aldi, some-brand",
+      "brands_tags" : [
+         "xx:aldi",
+         "xx:some-brand"
+      ],
+      "brands_tags_en" : [
+         "Aldi",
+         "some-brand"
+      ],
+      "categories_tags" : [
+         "en:plant-based-foods-and-beverages",
+         "en:plant-based-foods",
+         "en:coffees"
+      ],
+      "categories_tags_en" : [
+         "Plant-based foods and beverages",
+         "Plant-based foods",
+         "Coffees"
+      ],
+      "labels_tags" : [
+         "en:vegetarian",
+         "en:fair-trade",
+         "en:organic",
+         "en:fairtrade-international",
+         "en:vegan",
+         "en:max-havelaar",
+         "en:something-unrecognized"
+      ],
+      "labels_tags_en" : [
+         "Vegetarian",
+         "Fair trade",
+         "Organic",
+         "Fairtrade International",
+         "Vegan",
+         "Max Havelaar",
+         "Something-unrecognized"
+      ],
+      "tags_sources" : {
+         "allergens" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            },
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:milk",
+                  "en:eggs",
+                  "en:peanuts",
+                  "en:nuts",
+                  "en:fish",
+                  "en:shellfish",
+                  "en:gluten",
+                  "en:soybeans",
+                  "en:mango",
+                  "en:kiwi",
+                  "en:Unrecognized Allergen"
+               ]
+            }
+         },
+         "brands" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "xx:Some brand",
+                  "xx:aldi"
+               ]
+            }
+         },
+         "categories" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:coffees"
+               ]
+            }
+         },
+         "labels" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:organic",
+                  "en:max-havelaar",
+                  "en:vegan",
+                  "en:Something unrecognized"
+               ]
+            }
+         },
+         "traces" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            },
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:gluten"
+               ]
+            }
+         }
+      },
+      "traces_tags" : [
+         "en:gluten"
+      ],
+      "traces_tags_en" : [
+         "Gluten"
+      ]
+   },
+   "status" : "success_with_errors",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "unknown_tags",
+            "value" : [
+               "some value"
+            ]
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "unrecognized_field",
+            "lc_name" : "Unrecognized field",
+            "name" : "Unrecognized field"
+         }
+      }
+   ]
+}

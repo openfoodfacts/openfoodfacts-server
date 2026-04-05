@@ -1,8 +1,12 @@
 {
    "_id" : "3596710520787",
    "_keywords" : [
+      "and",
       "auchan",
-      "egg"
+      "en-egg",
+      "en-farming",
+      "product",
+      "their"
    ],
    "abbreviated_product_name_fr" : "Auchan oeufs dates du jour de ponte",
    "abbreviated_product_name_fr_imported" : "Auchan oeufs dates du jour de ponte",
@@ -11,15 +15,13 @@
    "additives_original_tags" : [],
    "additives_tags" : [],
    "allergens" : "en:eggs",
-   "allergens_from_ingredients" : "ŒUFS , ŒUFS",
-   "allergens_from_user" : "(lc) en:eggs",
    "allergens_hierarchy" : [
       "en:eggs"
    ],
    "allergens_imported" : "en:eggs",
    "allergens_lc" : "lc",
    "allergens_tags" : [
-      "en:eggs"
+      "lc:œufs"
    ],
    "amino_acids_tags" : [],
    "brands" : "Auchan",
@@ -1311,7 +1313,7 @@
    "quantity_value_imported" : "6",
    "removed_countries_tags" : [],
    "rev" : 1,
-   "schema_version" : 1003,
+   "schema_version" : 1004,
    "sources" : [
       {
          "fields" : [
@@ -1351,21 +1353,6 @@
       }
    },
    "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
-   "states_hierarchy" : [
-      "en:to-be-completed",
-      "en:nutrition-facts-completed",
-      "en:ingredients-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-to-be-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-to-be-completed",
-      "en:categories-completed",
-      "en:brands-completed",
-      "en:packaging-to-be-completed",
-      "en:quantity-completed",
-      "en:product-name-to-be-completed",
-      "en:photos-to-be-uploaded"
-   ],
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-completed",
@@ -1381,10 +1368,22 @@
       "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(lc) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "lc:ŒUFS"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : 10.0,
    "vitamins_tags" : [],

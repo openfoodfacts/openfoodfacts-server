@@ -1,17 +1,116 @@
 {
-   "allergens" : "en:fish",
-   "allergens_from_ingredients" : "",
-   "allergens_hierarchy" : [
-      "en:fish"
-   ],
    "allergens_tags" : [
       "en:fish"
    ],
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "26036",
+         "id" : "en:salmon-fillet",
+         "is_in_taxonomy" : 1,
+         "labels" : "en:organic",
+         "percent" : 93,
+         "percent_estimate" : 93,
+         "percent_max" : 93,
+         "percent_min" : 93,
+         "text" : "Filet de saumon",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "ciqual_food_code" : "2028",
+         "id" : "en:lemon-juice",
+         "is_in_taxonomy" : 1,
+         "labels" : "en:organic",
+         "percent" : 5,
+         "percent_estimate" : 5,
+         "percent_max" : 5,
+         "percent_min" : 5,
+         "text" : "jus de citron",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11082",
+         "id" : "en:sea-salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.5,
+         "percent_max" : 2,
+         "percent_min" : 1,
+         "text" : "sel marin",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "11015",
+         "id" : "en:pepper",
+         "is_in_taxonomy" : 1,
+         "labels" : "en:organic",
+         "percent_estimate" : 0.5,
+         "percent_max" : 1,
+         "percent_min" : 0,
+         "text" : "poivre",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:salmon-fillet"
+      ],
+      "en:non-vegetarian" : [
+         "en:salmon-fillet"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
    "ingredients_lc" : "fr",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:salmon-fillet",
+      "en:lemon-juice",
+      "en:sea-salt",
+      "en:pepper"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:salmon-fillet",
+      "en:fish",
+      "en:oily-fish",
+      "en:salmon",
+      "en:lemon-juice",
+      "en:fruit",
+      "en:juice",
+      "en:fruit-juice",
+      "en:sea-salt",
+      "en:salt",
+      "en:pepper",
+      "en:seed"
+   ],
    "ingredients_text" : "Filet de saumon* 93%, jus de citron* 5%, sel marin, poivre*. *Ingrédients issus de l'agriculture biologique. Traces possibles de crustacés, mollusques, lait et gluten.",
    "ingredients_text_fr" : "Filet de saumon* 93%, jus de citron* 5%, sel marin, poivre*. *Ingrédients issus de l'agriculture biologique. Traces possibles de crustacés, mollusques, lait et gluten.",
    "ingredients_text_with_allergens" : "Filet de saumon* 93%, jus de citron* 5%, sel marin, poivre*. *Ingrédients issus de l'agriculture biologique. Traces possibles de <span class=\"allergen\">crustacés</span>, <span class=\"allergen\">mollusques</span>, <span class=\"allergen\">lait</span> et <span class=\"allergen\">gluten</span>.",
    "ingredients_text_with_allergens_fr" : "Filet de saumon* 93%, jus de citron* 5%, sel marin, poivre*. *Ingrédients issus de l'agriculture biologique. Traces possibles de <span class=\"allergen\">crustacés</span>, <span class=\"allergen\">mollusques</span>, <span class=\"allergen\">lait</span> et <span class=\"allergen\">gluten</span>.",
+   "ingredients_with_specified_percent_n" : 2,
+   "ingredients_with_specified_percent_sum" : 98,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 2,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:lemon-juice",
+      "en:pepper",
+      "en:salmon-fillet",
+      "en:sea-salt"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 4,
    "languages" : {
       "en:french" : 1
    },
@@ -26,18 +125,50 @@
       "en:1"
    ],
    "lc" : "fr",
-   "traces" : "en:crustaceans,en:gluten,en:milk,en:molluscs",
-   "traces_from_ingredients" : "crustacés, mollusques, lait, gluten",
-   "traces_hierarchy" : [
-      "en:crustaceans",
-      "en:gluten",
-      "en:milk",
-      "en:molluscs"
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent"
    ],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:fish"
+            ]
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:fish"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:crustaceans",
+               "en:molluscs",
+               "en:milk",
+               "en:gluten"
+            ]
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:crustaceans",
+               "en:molluscs",
+               "en:milk",
+               "en:gluten"
+            ]
+         }
+      }
+   },
    "traces_tags" : [
       "en:crustaceans",
       "en:gluten",
       "en:milk",
       "en:molluscs"
-   ]
+   ],
+   "unknown_ingredients_n" : 0
 }

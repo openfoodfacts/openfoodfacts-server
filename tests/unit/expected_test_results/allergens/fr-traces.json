@@ -1,13 +1,28 @@
 {
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
+   "ingredients" : [],
    "ingredients_lc" : "fr",
+   "ingredients_n" : 0,
+   "ingredients_n_tags" : [
+      "0",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [],
    "ingredients_text" : "Traces éventuelles de céréales contenant du gluten, fruits à coques, arachide, soja et oeuf.",
    "ingredients_text_fr" : "Traces éventuelles de céréales contenant du gluten, fruits à coques, arachide, soja et oeuf.",
    "ingredients_text_with_allergens" : "Traces éventuelles de céréales contenant du <span class=\"allergen\">gluten</span>, <span class=\"allergen\">fruits à coques</span>, <span class=\"allergen\">arachide</span>, <span class=\"allergen\">soja</span> et <span class=\"allergen\">oeuf</span>.",
    "ingredients_text_with_allergens_fr" : "Traces éventuelles de céréales contenant du <span class=\"allergen\">gluten</span>, <span class=\"allergen\">fruits à coques</span>, <span class=\"allergen\">arachide</span>, <span class=\"allergen\">soja</span> et <span class=\"allergen\">oeuf</span>.",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 0,
    "lang" : "fr",
    "languages" : {
       "en:french" : 1
@@ -23,20 +38,32 @@
       "en:1"
    ],
    "lc" : "fr",
-   "traces" : "",
-   "traces_from_ingredients" : "gluten, fruits à coques, arachide, soja, oeuf",
-   "traces_hierarchy" : [
-      "en:eggs",
-      "en:gluten",
-      "en:nuts",
-      "en:peanuts",
-      "en:soybeans"
-   ],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:gluten",
+               "en:nuts",
+               "en:peanuts",
+               "en:soybeans",
+               "en:eggs"
+            ]
+         }
+      }
+   },
    "traces_tags" : [
       "en:eggs",
       "en:gluten",
       "en:nuts",
       "en:peanuts",
       "en:soybeans"
-   ]
+   ],
+   "unknown_ingredients_n" : 0
 }

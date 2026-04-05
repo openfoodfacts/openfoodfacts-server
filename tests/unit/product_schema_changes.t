@@ -13,6 +13,14 @@ use ProductOpener::ProductSchemaChanges qw/convert_product_schema/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 use ProductOpener::Tags qw/init_taxonomies/;
 
+# on the pro platform, we need to know the org to set the correct source for schema upgrades
+# ideally we would not use the global $Org_id variable in the ProductSchemaChanges module,
+# but we would need to change many functions like retrieve_product() to pass the org_id as a parameter,
+# so for now we will just use the global variable
+use ProductOpener::Users qw/$Org_id/;
+
+my $json = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical->pretty(1);
+
 # We need to load taxonomies (nutrients) for some schema upgrades
 init_taxonomies(1);
 
@@ -1455,14 +1463,222 @@ my @tests = (
 			code => "093270067481501",
 		}
 	],
+
+	[
+		'1003-to-1004-new-tags-schema',
+		1004,
+		{
+			schema_version => 1003,
+			lc => "fr",
+			# not a writable field, should be kept
+			added_countries_tags => [],
+			# we will keep the additives_original_tags / ingredients_original_tags for now
+			additives_original_tags => [],
+			additives_tags => [],
+			# allergens are writable fields, they should be converted to the new tags schema
+			# and old fields like "allergens", "allergens_imported", "allergens_lc" etc. should be removed.
+			allergens => "en:peanuts",
+			# allergens_from_ingredients and allergens_from_user should be refactored at some point to be more consistent with the new tags schema,
+			# but for now we will keep them as they are
+			allergens_from_ingredients => "en:peanuts, CACAHUETES , CACAHUETES",
+			allergens_from_user => "(fr) en:peanuts",
+			allergens_hierarchy => ["en:peanuts"],
+			allergens_imported => "Arachides",
+			allergens_lc => "fr",
+			allergens_tags => ["en:peanuts"],
+			# We might want to keep "brands" as it's easy for apps to use and display, and brands are not translated anyway
+			brands => "Jardin Bio étic",
+			brands_hierarchy => ["xx:Jardin Bio étic"],
+			brands_imported => "Jardin bio",
+			brands_lc => "xx",
+			brands_old => "Jardin Bio,Léa Nature",
+			brands_tags => ["xx:jardin-bio-etic"],
+			# Categories will be removed, as it could be in any language, so not useful for apps
+			categories =>
+				"Aliments et boissons à base de végétaux,Aliments d'origine végétale,Légumineuses et dérivés,Petit-déjeuners,Produits à tartiner,Fruits à coques et dérivés,Pâtes à tartiner végétales,Produits à tartiner sucrés,Purées d'oléagineux,Beurres de légumineuses,Pâtes à tartiner,Beurres de fruits à coques,Beurres de cacahuètes,Catégorie inconnue en français",
+			# categories_hierarchy will become categories_tags in the new schema
+			# we include a category with accents that is not in the taxonomy
+			categories_hierarchy => [
+				"en:plant-based-foods-and-beverages", "en:plant-based-foods",
+				"en:legumes-and-their-products", "en:breakfasts",
+				"en:spreads", "en:nuts-and-their-products",
+				"en:plant-based-spreads", "en:sweet-spreads",
+				"en:oilseed-purees", "en:legume-butters",
+				"fr:pates-a-tartiner", "en:nut-butters",
+				"en:peanut-butters", "fr:Catégorie inconnue en français"
+			],
+			# Categories tags are normalized (including unrecognized entries that are lowercased / unaccented)
+			categories_tags => [
+				"en:plant-based-foods-and-beverages", "en:plant-based-foods",
+				"en:legumes-and-their-products", "en:breakfasts",
+				"en:spreads", "en:nuts-and-their-products",
+				"en:plant-based-spreads", "en:sweet-spreads",
+				"en:oilseed-purees", "en:legume-butters",
+				"fr:pates-a-tartiner", "en:nut-butters",
+				"en:peanut-butters", "fr:categorie-inconnue-en-francais"
+			],
+			categories_imported => "Petit-déjeuners, Produits à tartiner, Produits à tartiner sucrés, Pâtes à tartiner",
+			categories_lc => "fr",
+			categories_old =>
+				"Plant-based foods and beverages,Plant-based foods,Legumes and their products,Breakfasts,Spreads,Nuts and their products,Plant-based spreads,Sweet spreads,Oilseed purees,Legume butters,fr:Pâtes à tartiner,Nut butters,Peanut butters",
+			# not directly writable, should be kept as is
+			ingredients_analysis_tags => ["en:palm-oil-free", "en:maybe-vegan", "en:vegetarian"],
+			ingredients_tags => [
+				"en:lactic-ferments", "en:ferment", "en:microbial-culture", "en:rennet",
+				"en:enzyme", "en:coagulating-enzyme", "en:salt"
+			],
+		},
+	],
+
+	[
+		'1004-to-1003-new-tags-schema',
+		1003,
+		{
+			schema_version => 1004,
+			categories_tags => ["en:coffees", "de:toutafe", "de:alonbon"],
+			tags_sources => {
+				categories => {
+					packaging => {
+						last_updated_t => 1775063799,
+						tags => ["de:Toutafé", "de:alonbon"]
+					},
+					manufacturer => {
+						last_updated_t => 1775063800,
+						tags => ["en:coffees"]
+					}
+				},
+			}
+		}
+	],
+
+	[
+		'1004-to-1003-categories',
+		1003,
+		{
+			schema_version => 1004,
+			brands => "Some brand",
+			brands_hierarchy => ["xx:Some brand"],
+			brands_tags => ["xx:some-brand"],
+			brands_tags_en => ["some-brand"],
+			categories => "coffee",
+			categories_hierarchy => ["en:plant-based-foods-and-beverages", "en:plant-based-foods", "en:coffees"],
+			categories_tags => ["en:plant-based-foods-and-beverages", "en:plant-based-foods", "en:coffees"],
+			categories_tags_en => ["Plant-based foods and beverages", "Plant-based foods", "Coffees"],
+			labels => "en:organic,fr:max havelaar,vegan,Something unrecognized",
+			labels_hierarchy => [
+				"en:vegetarian", "en:fair-trade",
+				"en:organic", "en:fairtrade-international",
+				"en:vegan", "en:max-havelaar",
+				"en:Something unrecognized"
+			],
+			labels_tags => [
+				"en:vegetarian", "en:fair-trade",
+				"en:organic", "en:fairtrade-international",
+				"en:vegan", "en:max-havelaar",
+				"en:something-unrecognized"
+			],
+			labels_tags_en => [
+				"Vegetarian", "Fair trade",
+				"Organic", "Fairtrade International",
+				"Vegan", "Max Havelaar",
+				"Something-unrecognized"
+			],
+			tags_sources => {
+				allergens => {
+					ingredients => {
+						last_updated_t => 1775147439,
+						tags => []
+					}
+				},
+				traces => {
+					ingredients => {
+						last_updated_t => 1775147439,
+						tags => []
+					}
+				}
+			},
+
+		}
+	]
 );
 
-# We run the tests in reverse order so that we output last the most recent tests added on top
-foreach my $test_ref (reverse @tests) {
+foreach my $test_ref (@tests) {
 
 	my $testid = $test_ref->[0];
 	my $target_schema_version = $test_ref->[1];
 	my $product_ref = $test_ref->[2];
+
+	convert_product_schema($product_ref, $target_schema_version);
+	normalize_product_for_test_comparison($product_ref);
+
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+}
+
+# Also pretend to be the pro platform to test that we set the correct source
+
+$server_options{producers_platform} = 1;
+
+my @producers_platform_tests = (
+	[
+		'1002-to-1003-new-nutrition-schema-pro-platform-org-some-producer',
+		'org-some-producer',
+		1003,
+		{
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+			},
+		}
+	],
+	[
+		'1002-to-1003-new-nutrition-schema-pro-platform-org-database-usda',
+		'org-database-usda',
+		1003,
+		{
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+			},
+		}
+	],
+	[
+		'1002-to-1003-new-nutrition-schema-pro-platform-org-label-some-label',
+		'org-label-some-label',
+		1003,
+		{
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+			},
+		}
+	],
+	[
+		'1002-to-1003-new-nutrition-schema-pro-platform-user-some-user',
+		'user-some-user',
+		1003,
+		{
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+			},
+		}
+	],
+);
+
+foreach my $test_ref (@producers_platform_tests) {
+
+	my $testid = $test_ref->[0];
+	$Org_id = $test_ref->[1];
+	my $target_schema_version = $test_ref->[2];
+	my $product_ref = $test_ref->[3];
 
 	convert_product_schema($product_ref, $target_schema_version);
 	normalize_product_for_test_comparison($product_ref);

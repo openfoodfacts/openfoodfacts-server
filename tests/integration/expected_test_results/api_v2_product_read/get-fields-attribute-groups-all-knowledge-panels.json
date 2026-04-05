@@ -3,10 +3,15 @@
    "product" : {
       "_id" : "0200000000034",
       "_keywords" : [
-         "cookie",
+         "and",
+         "biscuit",
+         "cake",
+         "cracker",
          "organic",
          "product",
+         "snack",
          "some",
+         "sweet",
          "tester"
       ],
       "added_countries_tags" : [],
@@ -21,14 +26,13 @@
          "en:e322i"
       ],
       "allergens" : "",
-      "allergens_from_ingredients" : "en:soybeans, en:eggs, en:milk, apple, milk, eggs",
-      "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [
          "en:apple",
          "en:eggs",
          "en:milk",
          "en:soybeans"
       ],
+      "allergens_lc" : "en",
       "allergens_tags" : [
          "en:apple",
          "en:eggs",
@@ -702,7 +706,7 @@
             "name" : "Labels"
          }
       ],
-      "categories" : "cookies",
+      "categories" : "Biscuits",
       "categories_hierarchy" : [
          "en:snacks",
          "en:sweet-snacks",
@@ -3960,7 +3964,7 @@
          }
       },
       "known_ingredients_n" : 8,
-      "labels" : "organic",
+      "labels" : "Organic",
       "labels_hierarchy" : [
          "en:organic"
       ],
@@ -4440,21 +4444,7 @@
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",
       "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
-      "states_hierarchy" : [
-         "en:to-be-completed",
-         "en:nutrition-facts-completed",
-         "en:ingredients-completed",
-         "en:expiration-date-to-be-completed",
-         "en:packaging-code-to-be-completed",
-         "en:characteristics-to-be-completed",
-         "en:origins-to-be-completed",
-         "en:categories-completed",
-         "en:brands-to-be-completed",
-         "en:packaging-to-be-completed",
-         "en:quantity-completed",
-         "en:product-name-completed",
-         "en:photos-to-be-uploaded"
-      ],
+      "states_hierarchy" : [],
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -4471,9 +4461,8 @@
          "en:photos-to-be-uploaded"
       ],
       "traces" : "",
-      "traces_from_ingredients" : "",
-      "traces_from_user" : "(en) ",
       "traces_hierarchy" : [],
+      "traces_lc" : "en",
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
       "vitamins_tags" : [],

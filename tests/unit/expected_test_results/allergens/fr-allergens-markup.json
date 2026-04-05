@@ -1,14 +1,4 @@
 {
-   "allergens" : "",
-   "allergens_from_ingredients" : "GLUTEN, CELERI, poisson, banane, mollusque, BLE, CELERI, GLUTEN, BLE, CELERI, GLUTEN, lupin",
-   "allergens_hierarchy" : [
-      "en:celery",
-      "en:fish",
-      "en:gluten",
-      "en:lupin",
-      "en:molluscs",
-      "fr:banane"
-   ],
    "allergens_tags" : [
       "en:celery",
       "en:fish",
@@ -17,11 +7,183 @@
       "en:molluscs",
       "fr:banane"
    ],
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 55.5555555555556,
+         "percent_max" : 100,
+         "percent_min" : 11.1111111111111,
+         "text" : "Eau",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "id" : "en:wheat",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 22.2222222222222,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "BLE",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "20055",
+         "ecobalyse_code" : "celery-eu",
+         "id" : "en:celery",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 11.1111111111111,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "_CELERI_",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:gluten",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.55555555555556,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "__GLUTEN__",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "26140",
+         "id" : "en:fish",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.77777777777778,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "_poisson_",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "ciqual_food_code" : "13014",
+         "ecobalyse_code" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
+         "id" : "en:strawberry",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.38888888888889,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "FRAISE",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13005",
+         "ecobalyse_code" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
+         "id" : "en:banana",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.694444444444443,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "_banane_",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20534",
+         "id" : "en:lupin-bean",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.347222222222221,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "text" : "lupin",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:mollusc",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.347222222222229,
+         "percent_max" : 11.1111111111111,
+         "percent_min" : 0,
+         "text" : "_mollusque_",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:fish",
+         "en:mollusc"
+      ],
+      "en:non-vegetarian" : [
+         "en:fish",
+         "en:mollusc"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
    "ingredients_lc" : "fr",
+   "ingredients_n" : 9,
+   "ingredients_n_tags" : [
+      "9",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:water",
+      "en:wheat",
+      "en:celery",
+      "en:gluten",
+      "en:fish",
+      "en:strawberry",
+      "en:banana",
+      "en:lupin-bean",
+      "en:mollusc"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:water",
+      "en:wheat",
+      "en:cereal",
+      "en:celery",
+      "en:vegetable",
+      "en:stalk-vegetable",
+      "en:gluten",
+      "en:fish",
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:banana",
+      "en:lupin-bean",
+      "en:legume",
+      "en:pulse",
+      "en:mollusc",
+      "en:shellfish"
+   ],
    "ingredients_text" : "Eau, BLE, _CELERI_, __GLUTEN__, _poisson_, FRAISE, _banane_, lupin, _mollusque_",
    "ingredients_text_fr" : "Eau, BLE, _CELERI_, __GLUTEN__, _poisson_, FRAISE, _banane_, lupin, _mollusque_",
    "ingredients_text_with_allergens" : "Eau, <span class=\"allergen\">BLE</span>, <span class=\"allergen\">CELERI</span>, <span class=\"allergen\">GLUTEN</span>, <span class=\"allergen\">poisson</span>, FRAISE, <span class=\"allergen\">banane</span>, <span class=\"allergen\">lupin</span>, <span class=\"allergen\">mollusque</span>",
    "ingredients_text_with_allergens_fr" : "Eau, <span class=\"allergen\">BLE</span>, <span class=\"allergen\">CELERI</span>, <span class=\"allergen\">GLUTEN</span>, <span class=\"allergen\">poisson</span>, FRAISE, <span class=\"allergen\">banane</span>, <span class=\"allergen\">lupin</span>, <span class=\"allergen\">mollusque</span>",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 9,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:gluten",
+      "en:mollusc"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:fish",
+      "en:gluten",
+      "en:lupin-bean",
+      "en:mollusc",
+      "en:wheat"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 9,
    "languages" : {
       "en:french" : 1
    },
@@ -36,8 +198,27 @@
       "en:1"
    ],
    "lc" : "fr",
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_hierarchy" : [],
-   "traces_tags" : []
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:molluscs",
+               "en:lupin",
+               "en:fish",
+               "en:gluten",
+               "en:celery",
+               "fr:banane"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
+   "traces_tags" : [],
+   "unknown_ingredients_n" : 0
 }

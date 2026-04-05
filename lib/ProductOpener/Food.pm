@@ -1520,7 +1520,7 @@ sub is_nutriscore_applicable_to_the_product_categories ($product_ref) {
 	my $not_applicable_category = undef;
 
 	# do not compute a score when we don't have a category
-	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+	if ((not defined $product_ref->{categories_tags}) or (scalar @{$product_ref->{categories_tags}} == 0)) {
 		$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category" . " - ";
 		add_tag($product_ref, "misc", "en:nutriscore-missing-category");
@@ -1986,7 +1986,7 @@ sub compute_nutrient_levels ($product_ref) {
 	}
 
 	# need categories in order to identify drinks
-	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+	if ((not defined $product_ref->{categories_tags}) or (scalar @{$product_ref->{categories_tags}} == 0)) {
 		$log->debug("no categories, cannot compute nutrient levels for product " . $product_ref->{_id})
 			if $log->is_debug();
 		return;
@@ -2497,7 +2497,7 @@ sub compute_nova_group ($product_ref) {
 		}
 
 		# do not compute a score when we don't have a category
-		if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+		if ((not defined $product_ref->{categories_tags}) or (scalar @{$product_ref->{categories_tags}} == 0)) {
 			delete $product_ref->{nova_group};
 			$product_ref->{nova_groups_tags} = ["unknown"];
 			$product_ref->{nova_group_debug} = "no nova group when the product does not have a category";
@@ -2561,7 +2561,7 @@ sub assign_categories_properties_to_product ($product_ref) {
 
 	push @{$product_ref->{categories_properties_tags}}, "all-products";
 
-	if (defined $product_ref->{categories}) {
+	if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 		push @{$product_ref->{categories_properties_tags}}, "categories-known";
 	}
 	else {

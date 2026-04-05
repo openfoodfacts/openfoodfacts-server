@@ -940,6 +940,9 @@ foreach my $test_ref (@tests) {
 
 	extract_ingredients_from_text($product_ref);
 
+	# Note: extract_ingredients_from_text will create fields allergens/traces_from_ingredients
+	# Those are kept in the unit tests, but in real processing, they are then removed by detect_allergens_from_text
+
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 

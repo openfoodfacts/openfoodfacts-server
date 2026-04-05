@@ -2,17 +2,6 @@
    "code" : "1234567890100",
    "errors" : [],
    "product" : {
-      "categories" : "Plant-based foods and beverages, Plant-based foods, Coffees, en:tea",
-      "categories_hierarchy" : [
-         "en:beverages-and-beverages-preparations",
-         "en:plant-based-foods-and-beverages",
-         "en:beverages",
-         "en:plant-based-foods",
-         "en:hot-beverages",
-         "en:plant-based-beverages",
-         "en:teas",
-         "en:coffees"
-      ],
       "categories_tags" : [
          "en:beverages-and-beverages-preparations",
          "en:plant-based-foods-and-beverages",
@@ -33,11 +22,6 @@
          "Teas",
          "Coffees"
       ],
-      "countries" : "Italie, en:spain",
-      "countries_hierarchy" : [
-         "en:italy",
-         "en:spain"
-      ],
       "countries_tags" : [
          "en:italy",
          "en:spain"
@@ -45,11 +29,6 @@
       "countries_tags_fr" : [
          "Italie",
          "Espagne"
-      ],
-      "labels" : "végétarien,Something unrecognized in French",
-      "labels_hierarchy" : [
-         "en:vegetarian",
-         "fr:Something unrecognized in French"
       ],
       "labels_tags" : [
          "en:vegetarian",
@@ -67,6 +46,90 @@
       "stores_tags_en" : [
          "Carrefour",
          "Mon-ptit-magasin"
+      ],
+      "tags_sources" : {
+         "allergens" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            },
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:milk",
+                  "en:eggs",
+                  "en:peanuts",
+                  "en:nuts",
+                  "en:fish",
+                  "en:shellfish",
+                  "en:gluten",
+                  "en:soybeans",
+                  "en:mango",
+                  "en:kiwi",
+                  "en:Unrecognized Allergen"
+               ]
+            }
+         },
+         "brands" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "xx:Some brand",
+                  "xx:aldi"
+               ]
+            }
+         },
+         "categories" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:coffees",
+                  "en:teas"
+               ]
+            }
+         },
+         "countries" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:italy",
+                  "en:spain"
+               ]
+            }
+         },
+         "labels" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:vegetarian",
+                  "fr:Something unrecognized in French"
+               ]
+            }
+         },
+         "traces" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            },
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:gluten",
+                  "en:molluscs",
+                  "en:sesame-seeds"
+               ]
+            }
+         }
+      },
+      "traces_tags" : [
+         "en:gluten",
+         "en:molluscs",
+         "en:sesame-seeds"
+      ],
+      "traces_tags_en" : [
+         "Gluten",
+         "Molluscs",
+         "Sesame seeds"
       ]
    },
    "status" : "success",

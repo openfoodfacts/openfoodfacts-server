@@ -18,7 +18,7 @@ use ProductOpener::Nutriscore
 	qw/compute_nutriscore_grade get_value_with_one_less_negative_point_2023 get_value_with_one_more_positive_point_2023/;
 use ProductOpener::NutritionCiqual qw/load_ciqual_data/;
 use ProductOpener::NutritionEstimation qw/:all/;
-use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 
 use Data::DeepAccess qw(deep_exists);
 
@@ -2370,6 +2370,7 @@ foreach my $test_ref (@tests) {
 	# Detect possible improvements
 	detect_possible_improvements_nutriscore($product_ref, 2023);
 
+	normalize_product_for_test_comparison($product_ref);
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",
 		$update_expected_results, {id => $testid});
 }
